@@ -6,7 +6,6 @@ SometimesFleeMons:
 	dw GRIMER
 	dw TANGELA
 	dw MR__MIME
-	dw EEVEE
 	dw PORYGON
 	dw DRATINI
 	dw DRAGONAIR
@@ -18,10 +17,7 @@ SometimesFleeMons:
 	dw -1
 
 OftenFleeMons:
-	dw CUBONE
-	dw ARTICUNO
-	dw ZAPDOS
-	dw MOLTRES
+	dw CUBONE	
 	dw QUAGSIRE
 	dw DELIBIRD
 	dw PHANPY

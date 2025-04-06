@@ -89,6 +89,11 @@ ReadTrainerPartyPieces:
 	cp $ff
 	ret z
 
+	; apply level scaling
+	ld b, a
+	ld a, [wBaseLevel]
+	add a, b
+
 	ld [wCurPartyLevel], a
 	call GetNextTrainerDataByte
 	push hl

@@ -25,27 +25,27 @@ FishGroups:
 	assert_table_length NUM_FISHGROUPS
 
 .Shore_Old:
-	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
-	dbbw 100 percent,     10, KRABBY
+	dbbw  70 percent + 1, 10, TENTACOOL
+	dbbw  85 percent + 1, 10, KRABBY
+	dbbw 100 percent,     10, SQUIRTLE
 .Shore_Good:
-	dbbw  35 percent,     20, MAGIKARP
+	dbbw  35 percent,     20, TENTACOOL
 	dbbw  70 percent,     20, KRABBY
-	dbbw  90 percent + 1, 20, KRABBY
+	dbbw  90 percent + 1, 20, SQUIRTLE
 	dbbw 100 percent,     0, TIME_GROUP
 .Shore_Super:
 	dbbw  40 percent,     40, KRABBY
 	dbbw  70 percent,     1, TIME_GROUP
-	dbbw  90 percent + 1, 40, KRABBY
+	dbbw  90 percent + 1, 40, STARYU
 	dbbw 100 percent,     40, KINGLER
 
 .Ocean_Old:
-	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
+	dbbw  70 percent + 1, 10, KRABBY
+	dbbw  85 percent + 1, 10, HORSEA
 	dbbw 100 percent,     10, TENTACOOL
 .Ocean_Good:
-	dbbw  35 percent,     20, MAGIKARP
-	dbbw  70 percent,     20, TENTACOOL
+	dbbw  35 percent,     20, HORSEA
+	dbbw  70 percent,     20, KRABBY
 	dbbw  90 percent + 1, 20, CHINCHOU
 	dbbw 100 percent,     2, TIME_GROUP
 .Ocean_Super:
@@ -55,48 +55,48 @@ FishGroups:
 	dbbw 100 percent,     40, LANTURN
 
 .Lake_Old:
-	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
-	dbbw 100 percent,     10, GOLDEEN
+	dbbw  70 percent + 1, 10, GOLDEEN
+	dbbw  85 percent + 1, 10, HORSEA
+	dbbw 100 percent,     10, REMORAID
 .Lake_Good:
-	dbbw  35 percent,     20, MAGIKARP
-	dbbw  70 percent,     20, GOLDEEN
-	dbbw  90 percent + 1, 20, GOLDEEN
+	dbbw  35 percent,     20, GOLDEEN
+	dbbw  70 percent,     20, HORSEA
+	dbbw  90 percent + 1, 20, REMORAID
 	dbbw 100 percent,     4, TIME_GROUP
 .Lake_Super:
 	dbbw  40 percent,     40, GOLDEEN
 	dbbw  70 percent,     5, TIME_GROUP
-	dbbw  90 percent + 1, 40, MAGIKARP
-	dbbw 100 percent,     40, SEAKING
+	dbbw  90 percent + 1, 40, HORSEA
+	dbbw 100 percent,     40, REMORAID
 
 .Pond_Old:
-	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
+	dbbw  70 percent + 1, 10, GOLDEEN
+	dbbw  85 percent + 1, 10, QWILFISH
 	dbbw 100 percent,     10, POLIWAG
 .Pond_Good:
-	dbbw  35 percent,     20, MAGIKARP
-	dbbw  70 percent,     20, POLIWAG
+	dbbw  35 percent,     20, GOLDEEN
+	dbbw  70 percent,     20, QWILFISH
 	dbbw  90 percent + 1, 20, POLIWAG
 	dbbw 100 percent,     6, TIME_GROUP
 .Pond_Super:
-	dbbw  40 percent,     40, POLIWAG
+	dbbw  40 percent,     40, GOLDEEN
 	dbbw  70 percent,     7, TIME_GROUP
 	dbbw  90 percent + 1, 40, MAGIKARP
-	dbbw 100 percent,     40, POLIWAG
+	dbbw 100 percent,     40, QWILFISH
 
 .Dratini_Old:
 	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
-	dbbw 100 percent,     10, MAGIKARP
+	dbbw  85 percent + 1, 10, DRATINI
+	dbbw 100 percent,     10, DRATINI
 .Dratini_Good:
 	dbbw  35 percent,     20, MAGIKARP
 	dbbw  70 percent,     20, MAGIKARP
-	dbbw  90 percent + 1, 20, MAGIKARP
+	dbbw  90 percent + 1, 20, DRATINI
 	dbbw 100 percent,     8, TIME_GROUP
 .Dratini_Super:
-	dbbw  40 percent,     40, MAGIKARP
+	dbbw  40 percent,     40, DRATINI
 	dbbw  70 percent,     9, TIME_GROUP
-	dbbw  90 percent + 1, 40, MAGIKARP
+	dbbw  90 percent + 1, 40, DRATINI
 	dbbw 100 percent,     40, DRAGONAIR
 
 .Qwilfish_Swarm_Old:
@@ -147,24 +147,24 @@ FishGroups:
 .Dratini_2_Old:
 	dbbw  70 percent + 1, 10, MAGIKARP
 	dbbw  85 percent + 1, 10, MAGIKARP
-	dbbw 100 percent,     10, MAGIKARP
+	dbbw 100 percent,     10, DRATINI
 .Dratini_2_Good:
 	dbbw  35 percent,     10, MAGIKARP
-	dbbw  70 percent,     10, MAGIKARP
-	dbbw  90 percent + 1, 10, MAGIKARP
+	dbbw  70 percent,     10, DRATINI
+	dbbw  90 percent + 1, 10, DRATINI
 	dbbw 100 percent,     16, TIME_GROUP
 .Dratini_2_Super:
-	dbbw  40 percent,     10, MAGIKARP
+	dbbw  40 percent,     10, DRATINI
 	dbbw  70 percent,     17, TIME_GROUP
-	dbbw  90 percent + 1, 10, MAGIKARP
+	dbbw  90 percent + 1, 10, DRATINI
 	dbbw 100 percent,     10, DRAGONAIR
 
 .WhirlIslands_Old:
-	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
+	dbbw  70 percent + 1, 10, HORSEA
+	dbbw  85 percent + 1, 10, HORSEA
 	dbbw 100 percent,     10, KRABBY
 .WhirlIslands_Good:
-	dbbw  35 percent,     20, MAGIKARP
+	dbbw  35 percent,     20, HORSEA
 	dbbw  70 percent,     20, KRABBY
 	dbbw  90 percent + 1, 20, KRABBY
 	dbbw 100 percent,     18, TIME_GROUP
@@ -228,6 +228,6 @@ TimeFishGroups:
 	dbwbw 10, DRATINI,    10, DRATINI    ; 16
 	dbwbw 10, DRATINI,    10, DRATINI    ; 17
 	dbwbw 20, HORSEA,     20, HORSEA     ; 18
-	dbwbw 40, HORSEA,     40, HORSEA     ; 19
+	dbwbw 40, CORSOLA,    40, CORSOLA    ; 19
 	dbwbw 20, TENTACOOL,  20, TENTACOOL  ; 20
 	dbwbw 40, TENTACOOL,  40, TENTACOOL  ; 21

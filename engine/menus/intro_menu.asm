@@ -202,6 +202,18 @@ endc
 	ld [hli], a
 	ld [hl], LOW(MOM_MONEY)
 
+	ld a, 0
+	ld [wUsingLevelCap], a
+
+	ld a, 14
+	ld [wLevelCap], a
+	
+	ld a, 5
+	ld [wBaseLevel], a
+	
+	ld a, 1
+	ld [wWildLevel], a
+
 	call InitializeNPCNames
 
 	farcall InitDecorations

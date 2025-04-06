@@ -58,3 +58,7 @@ used_space.png
 
 # macos files
 .DS_STORE
+.vs/CrystalShireEngine/v17/.suo
+.vs/slnx.sqlite
+RGBASM/libpng16.dll
+RGBASM/zlib1.dll

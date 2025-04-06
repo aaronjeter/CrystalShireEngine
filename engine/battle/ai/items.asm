@@ -329,7 +329,7 @@ AI_Items:
 	jmp c, .Use
 .FailToxicCheck:
 	ld a, [wEnemyMonStatus]
-	and 1 << FRZ | SLP_MASK
+	and SLP_MASK
 	jmp z, .DontUse
 	jmp .Use
 

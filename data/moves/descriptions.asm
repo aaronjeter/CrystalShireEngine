@@ -260,6 +260,9 @@ MoveDescriptionsGen2:
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
+	dw WillowispDescription
+	dw PixieDustDescription
+	dw FaeVoiceDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1268,3 +1271,15 @@ WhirlpoolDescription:
 BeatUpDescription:
 	db   "Party #MON join"
 	next "in the attack.@"
+
+WillowispDescription:
+	db   "Sinister flames"
+	next "Burn the target.@"
+
+PixieDustDescription:
+	db   "Reduces accuracy"
+	next "with glitter.@"
+
+FaeVoiceDescription:
+	db   "An attack that may"
+	next "cause flinching.@"

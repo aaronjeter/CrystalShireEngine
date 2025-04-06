@@ -1571,7 +1571,7 @@ AI_Smart_SkullBash:
 AI_Smart_HealBell:
 ; Dismiss this move if none of the opponent's Pokemon is statused.
 ; Encourage this move if the enemy is statused.
-; 50% chance to greatly encourage this move if the enemy is fast asleep or frozen.
+; 50% chance to greatly encourage this move if the enemy is fast asleep.
 
 	push hl
 	ld a, [wOTPartyCount]
@@ -1610,7 +1610,7 @@ AI_Smart_HealBell:
 	jr z, .ok
 	dec [hl]
 .ok
-	and 1 << FRZ | SLP_MASK
+	and SLP_MASK
 	ret z
 	call AI_50_50
 	ret c

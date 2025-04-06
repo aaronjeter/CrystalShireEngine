@@ -158,4 +158,8 @@ MoveEffectsPointers:
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl
+	dw DoBurn
+	dw DoFreeze
+	dw SpecialAttackUpHit
+	dw SpeedUpHit
 	assert_table_length NUM_MOVE_EFFECTS
