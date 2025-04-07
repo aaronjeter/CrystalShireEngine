@@ -25,6 +25,15 @@ ViridianGymBlueScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_EARTHBADGE
+	readmem wBaseLevel
+	addval 4
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 4
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	writetext LeaderBlueAfterText
 	waitbutton
 	closetext

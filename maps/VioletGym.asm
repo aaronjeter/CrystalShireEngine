@@ -32,6 +32,15 @@ VioletGymFalknerScript:
 .FightDone:
 	checkevent EVENT_GOT_TM31_MUD_SLAP
 	iftrue .SpeechAfterTM
+	readmem wBaseLevel
+	addval 4
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 4
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP

@@ -41,6 +41,15 @@ CeladonGymErikaScript:
 	verbosegiveitem TM_GIGA_DRAIN
 	iffalse .GotGigaDrain
 	setevent EVENT_GOT_TM19_GIGA_DRAIN
+	readmem wBaseLevel
+	addval 4
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 4
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 .GotGigaDrain:
 	writetext ErikaAfterBattleText
 	waitbutton
