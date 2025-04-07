@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
-	db  65,  90,  65, 100,  61,  61
+	;BST: 450
+	db  65,  90,  65, 108,  61,  61
 	evs  0,   0,   0,   2,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, FLYING ; type
+	db FLYING, FLYING ; type
 	db 90 ; catch rate
 	db 162 ; base exp
 	dw NO_ITEM, SHARP_BEAK ; items

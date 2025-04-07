@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
+	;BST: 515
 	db  85,  80,  90,  60, 105,  95
 	evs  0,   0,   0,   0,   2,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, NORMAL ; type
+	db NORMAL, ELECTRIC ; type
 	db 45 ; catch rate
 	db 180 ; base exp
 	dw NO_ITEM, NO_ITEM ; items

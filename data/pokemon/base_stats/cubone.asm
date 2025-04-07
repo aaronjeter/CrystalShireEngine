@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
+	;BST: 320
 	db  50,  50,  95,  35,  40,  50
 	evs  0,   0,   1,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db GROUND, GROUND ; type
+	db GROUND, GHOST ; type
 	db 190 ; catch rate
 	db 87 ; base exp
 	dw NO_ITEM, THICK_CLUB ; items

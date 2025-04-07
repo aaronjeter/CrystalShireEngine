@@ -1,11 +1,11 @@
 	db 0 ; species ID placeholder
-
+	;BST: 580
 	db  90,  90,  85, 100, 125,  90
 	evs  0,   0,   0,   0,   3,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, FLYING ; type
-	db 3 ; catch rate
+	db 7 ; catch rate
 	db 216 ; base exp
 	dw NO_ITEM, NO_ITEM ; items
 	db GENDER_UNKNOWN ; gender ratio

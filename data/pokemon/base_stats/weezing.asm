@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
+	;BST: 490
 	db  65,  90, 120,  60,  85,  70
 	evs  0,   0,   2,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db POISON, POISON ; type
+	db POISON, FIRE ; type
 	db 60 ; catch rate
 	db 173 ; base exp
 	dw NO_ITEM, NO_ITEM ; items

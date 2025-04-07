@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
+	;BST: 680
 	db 106, 110,  90, 130, 154,  90
 	evs  0,   0,   0,   0,   3,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
+	db PSYCHIC_TYPE, FIGHTING ; type
 	db 3 ; catch rate
 	db 220 ; base exp
 	dw NO_ITEM, BERSERK_GENE ; items

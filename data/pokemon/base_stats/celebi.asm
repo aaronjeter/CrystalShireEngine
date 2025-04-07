@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
+	;BST: 600
 	db 100, 100, 100, 100, 100, 100
 	evs  3,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db PSYCHIC_TYPE, GRASS ; type
+	db FAIRY, GRASS ; type
 	db 45 ; catch rate
 	db 64 ; base exp
 	dw NO_ITEM, MIRACLEBERRY ; items

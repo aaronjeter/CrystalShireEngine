@@ -1,5 +1,5 @@
 	db 0 ; species ID placeholder
-
+	;BST: 450
 	db 100, 100,  80,  50,  60,  60
 	evs  1,   1,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf

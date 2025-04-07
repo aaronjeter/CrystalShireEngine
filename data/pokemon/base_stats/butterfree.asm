@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
-	db  60,  45,  50,  70,  80,  80
+	;BST: 450
+	db  75,  45,  60,  90,  100,  80
 	evs  0,   0,   0,   0,   2,   1
 	;   hp  atk  def  spd  sat  sdf
 
-	db BUG, FLYING ; type
+	db BUG, FAIRY ; type
 	db 45 ; catch rate
 	db 160 ; base exp
 	dw NO_ITEM, SILVERPOWDER ; items

@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
+	;BST: 218
 	db  50,  25,  28,  15,  45,  55
 	evs  0,   0,   0,   0,   0,   1
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, NORMAL ; type
+	db FAIRY, FAIRY ; type
 	db 150 ; catch rate
 	db 37 ; base exp
 	dw MYSTERYBERRY, MOON_STONE ; items

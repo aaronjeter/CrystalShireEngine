@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
-	db  70,  20,  50,  40,  20,  50
+	;BST: 300
+	db  70,  30,  50,  70,  30,  50
 	evs  2,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, WATER ; type
+	db WATER, FAIRY ; type
 	db 190 ; catch rate
 	db 58 ; base exp
 	dw NO_ITEM, NO_ITEM ; items

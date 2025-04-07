@@ -1,6 +1,6 @@
 	db 0 ; species ID placeholder
-
-	db 190,  33,  58,  33,  33,  58
+	;BST: 450
+	db 235,  33,  58,  33,  33,  58
 	evs  2,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 

@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
+	;BST: 350
 	db  55,  70,  45,  60,  70,  50
 	evs  0,   1,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIRE, FIRE ; type
+	db FIRE, NORMAL ; type
 	db 190 ; catch rate
 	db 91 ; base exp
 	dw BURNT_BERRY, BURNT_BERRY ; items
