@@ -62,3 +62,5 @@ used_space.png
 .vs/slnx.sqlite
 RGBASM/libpng16.dll
 RGBASM/zlib1.dll
+*.bin
+.vs/VSWorkspaceState.json

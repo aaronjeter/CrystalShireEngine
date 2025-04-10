@@ -3,7 +3,6 @@
 
 StallMoves:
 	dw SWORDS_DANCE
-	dw TAIL_WHIP
 	dw LEER
 	dw GROWL
 	dw DISABLE
@@ -11,7 +10,6 @@ StallMoves:
 	dw COUNTER
 	dw LEECH_SEED
 	dw GROWTH
-	dw STRING_SHOT
 	dw MEDITATE
 	dw AGILITY
 	dw RAGE
@@ -33,5 +31,4 @@ StallMoves:
 	dw SHARPEN
 	dw CONVERSION
 	dw SUBSTITUTE
-	dw FLAME_WHEEL
 	dw -1 ; end
