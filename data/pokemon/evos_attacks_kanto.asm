@@ -537,7 +537,7 @@ ArbokEvosAttacks:
 
 PikachuEvosAttacks:
 	dbww EVOLVE_ITEM, THUNDERSTONE, RAICHU
-	dbww EVOLVE_LEVEL, 36, RAICHU
+	dbbw EVOLVE_LEVEL, 36, RAICHU
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 1, GROWL
@@ -627,7 +627,7 @@ NidoranFEvosAttacks:
 
 NidorinaEvosAttacks:
 	dbww EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
-	dbww EVOLVE_LEVEL, 36, NIDOQUEEN
+	dbbw EVOLVE_LEVEL, 36, NIDOQUEEN
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, TACKLE
@@ -680,6 +680,7 @@ NidoranMEvosAttacks:
 
 NidorinoEvosAttacks:
 	dbww EVOLVE_ITEM, MOON_STONE, NIDOKING
+	dbbw EVOLVE_LEVEL, 36, NIDOKING
 	db 0 ; no more evolutions
 	dbw 1, LEER
 	dbw 1, TACKLE
@@ -717,7 +718,7 @@ NidokingEvosAttacks:
 
 ClefairyEvosAttacks:
 	dbww EVOLVE_ITEM, MOON_STONE, CLEFABLE
-	dbww EVOLVE_LEVEL, 36, CLEFABLE
+	dbbw EVOLVE_LEVEL, 36, CLEFABLE
 	db 0 ; no more evolutions
 	dbw 1, PIXIE_DUST
 	dbw 1, GROWL
@@ -757,7 +758,7 @@ ClefableEvosAttacks:
 
 VulpixEvosAttacks:
 	dbww EVOLVE_ITEM, FIRE_STONE, NINETALES
-	dbww EVOLVE_LEVEL, 36, NINETALES
+	dbbw EVOLVE_LEVEL, 36, NINETALES
 	db 0 ; no more evolutions
 	dbw 1, EMBER
 	dbw 1, LICK
@@ -795,7 +796,7 @@ NinetalesEvosAttacks:
 
 JigglypuffEvosAttacks:
 	dbww EVOLVE_ITEM, MOON_STONE, WIGGLYTUFF
-	dbww EVOLVE_LEVEL, 36, WIGGLYTUFF
+	dbbw EVOLVE_LEVEL, 36, WIGGLYTUFF
 	db 0 ; no more evolutions
 	dbw 1, SING
 	dbw 1, DEFENSE_CURL
@@ -887,7 +888,7 @@ OddishEvosAttacks:
 GloomEvosAttacks:
 	dbww EVOLVE_ITEM, LEAF_STONE, VILEPLUME
 	dbww EVOLVE_ITEM, SUN_STONE, BELLOSSOM
-	dbww EVOLVE_LEVEL, 36, VILEPLUME
+	dbbw EVOLVE_LEVEL, 36, VILEPLUME
 	db 0 ; no more evolutions
 	dbw 1, ABSORB
 	dbw 1, ACID
@@ -1134,7 +1135,7 @@ PrimeapeEvosAttacks:
 
 GrowlitheEvosAttacks:
 	dbww EVOLVE_ITEM, FIRE_STONE, ARCANINE
-	dbww EVOLVE_LEVEL, 36, ARCANINE
+	dbbw EVOLVE_LEVEL, 36, ARCANINE
 	db 0 ; no more evolutions
 	dbw 1, BITE
 	dbw 1, ROAR
@@ -1190,6 +1191,7 @@ PoliwagEvosAttacks:
 PoliwhirlEvosAttacks:
 	dbww EVOLVE_ITEM, WATER_STONE, POLIWRATH
 	dbww EVOLVE_ITEM, KINGS_ROCK, POLITOED
+	dbbw EVOLVE_LEVEL, 36, POLIWRATH
 	db 0 ; no more evolutions
 	dbw 1, BUBBLE
 	dbw 7, HYPNOSIS
