@@ -6940,12 +6940,7 @@ GiveExperiencePoints:
 	sub c
 	ld b, a
 	ld e, d
-.decrease_evs_gained
-	call IsEvsGreaterThan510
-	jr nc, .check_ev_overflow
-	dec e
-	dec bc
-	jr .decrease_evs_gained
+.decrease_evs_gained	
 .check_ev_overflow
 	pop hl
 	pop bc
