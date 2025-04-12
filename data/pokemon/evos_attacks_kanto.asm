@@ -1283,7 +1283,7 @@ MachopEvosAttacks:
 	db 0 ; no more level-up moves
 
 MachokeEvosAttacks:
-	dbww EVOLVE_LEVEL, 40, MACHAMP
+	dbbw EVOLVE_LEVEL, 40, MACHAMP
 	db 0 ; no more evolutions
 	dbw 1, LOW_KICK
 	dbw 1, LEER
