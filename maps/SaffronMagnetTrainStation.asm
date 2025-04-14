@@ -15,20 +15,10 @@ SaffronMagnetTrainStationNoopScene:
 
 SaffronMagnetTrainStationOfficerScript:
 	faceplayer
-	opentext
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .MagnetTrainToGoldenrod
-	writetext SaffronMagnetTrainStationOfficerTrainIsntOperatingText
-	waitbutton
-	closetext
-	end
-
-.MagnetTrainToGoldenrod:
+	opentext	
 	writetext SaffronMagnetTrainStationOfficerAreYouComingOnBoardText
 	yesorno
-	iffalse .DecidedNotToRide
-	checkitem PASS
-	iffalse .PassNotInBag
+	iffalse .DecidedNotToRide	
 	writetext SaffronMagnetTrainStationOfficerRightThisWayText
 	waitbutton
 	closetext
