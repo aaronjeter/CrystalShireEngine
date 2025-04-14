@@ -72,3 +72,76 @@ TrainerGroups:
 	dba MysticalmanGroup
 	dba KrisGroup
 	assert_table_length NUM_TRAINER_CLASSES
+
+	TrainerGroupsHard:
+; entries correspond to trainer classes (see constants/trainer_constants.asm)
+	table_width 3
+	dba FalknerGroupHard
+	dba WhitneyGroupHard
+	dba BugsyGroupHard
+	dba MortyGroupHard
+	dba PryceGroupHard
+	dba JasmineGroupHard
+	dba ChuckGroupHard
+	dba ClairGroupHard
+	dba Rival1GroupHard
+	dba PokemonProfGroupHard
+	dba WillGroupHard
+	dba PKMNTrainerGroupHard
+	dba BrunoGroupHard
+	dba KarenGroupHard
+	dba KogaGroupHard
+	dba ChampionGroupHard
+	dba BrockGroupHard
+	dba MistyGroupHard
+	dba LtSurgeGroupHard
+	dba ScientistGroupHard
+	dba ErikaGroupHard
+	dba YoungsterGroupHard
+	dba SchoolboyGroupHard
+	dba BirdKeeperGroupHard
+	dba LassGroupHard
+	dba JanineGroupHard
+	dba CooltrainerMGroupHard
+	dba CooltrainerFGroupHard
+	dba BeautyGroupHard
+	dba PokemaniacGroupHard
+	dba GruntMGroupHard
+	dba GentlemanGroupHard
+	dba SkierGroupHard
+	dba TeacherGroupHard
+	dba SabrinaGroupHard
+	dba BugCatcherGroupHard
+	dba FisherGroupHard
+	dba SwimmerMGroupHard
+	dba SwimmerFGroupHard
+	dba SailorGroupHard
+	dba SuperNerdGroupHard
+	dba Rival2GroupHard
+	dba GuitaristGroupHard
+	dba HikerGroupHard
+	dba BikerGroupHard
+	dba BlaineGroupHard
+	dba BurglarGroupHard
+	dba FirebreatherGroupHard
+	dba JugglerGroupHard
+	dba BlackbeltGroupHard
+	dba ExecutiveMGroupHard
+	dba PsychicGroupHard
+	dba PicnickerGroupHard
+	dba CamperGroupHard
+	dba ExecutiveFGroupHard
+	dba SageGroupHard
+	dba MediumGroupHard
+	dba BoarderGroupHard
+	dba PokefanMGroupHard
+	dba KimonoGirlGroupHard
+	dba TwinsGroupHard
+	dba PokefanFGroupHard
+	dba RedGroupHard
+	dba BlueGroupHard
+	dba OfficerGroupHard
+	dba GruntFGroupHard
+	dba MysticalmanGroupHard
+	dba KrisGroupHard
+	assert_table_length NUM_TRAINER_CLASSES

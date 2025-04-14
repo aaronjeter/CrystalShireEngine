@@ -35,7 +35,7 @@ MovesGen1:
 	move EFFECT_NORMAL_HIT,         40, NORMAL,         PHYSICAL,		100, 35,   0      ;SCRATCH
 	move EFFECT_NORMAL_HIT,         90, STEEL,          PHYSICAL,		100, 15,   0      ;VICEGRIP
 	move EFFECT_DEFENSE_DOWN_HIT,  120, STEEL,          PHYSICAL,		 80, 10, 100      ;GUILLOTINE
-	move EFFECT_DEFENSE_DOWN_HIT,   55, NORMAL,         SPECIAL,		100, 15, 100      ;RAZOR_WIND
+	move EFFECT_SP_DEF_DOWN_HIT ,   55, NORMAL,         SPECIAL,		100, 15, 100      ;RAZOR_WIND
 	move EFFECT_ATTACK_UP_2,         0, NORMAL,         STATUS,			100, 30,   0      ;SWORDS_DANCE
 	move EFFECT_DEFENSE_DOWN_HIT,   55, STEEL,          PHYSICAL,		100, 15, 100      ;CUT
 	move EFFECT_GUST,               40, FLYING,         SPECIAL,		100, 35,   0      ;GUST
@@ -94,7 +94,7 @@ MovesGen1:
 	move EFFECT_LEVEL_DAMAGE,        1, FIGHTING,       PHYSICAL,		100, 20,   0      ;SEISMIC_TOSS
 	move EFFECT_ATTACK_UP_HIT,      55, ROCK,           PHYSICAL,		100, 15, 100      ;STRENGTH
 	move EFFECT_LEECH_HIT,          35, GRASS,          SPECIAL,		100, 20,   0      ;ABSORB
-	move EFFECT_LEECH_HIT,          55, GRASS,          SPECIAL,		100, 10,   0      ;MEGA_DRAIN
+	move EFFECT_LEECH_HIT,          55, GRASS,          SPECIAL,		100, 15,   0      ;MEGA_DRAIN
 	move EFFECT_LEECH_SEED,          0, GRASS,          STATUS,			100, 10,   0      ;LEECH_SEED
 	move EFFECT_SP_ATK_UP,           0, NORMAL,         STATUS,			100, 40,   0      ;GROWTH
 	move EFFECT_SP_DEF_DOWN_HIT,    55, GRASS,          SPECIAL,		100, 25, 100      ;RAZOR_LEAF
@@ -230,7 +230,7 @@ MovesGen2:
 	move EFFECT_LOCK_ON,             0, NORMAL,         STATUS,			100,  5,   0      ;LOCK_ON
 	move EFFECT_RAMPAGE,           100, DRAGON,         PHYSICAL,		100, 15,   0      ;OUTRAGE
 	move EFFECT_SANDSTORM,           0, ROCK,           STATUS,			100, 10,   0      ;SANDSTORM
-	move EFFECT_LEECH_HIT,          75, GRASS,          SPECIAL,		100,  5,   0      ;GIGA_DRAIN
+	move EFFECT_LEECH_HIT,          75, GRASS,          SPECIAL,		100, 10,   0      ;GIGA_DRAIN
 	move EFFECT_ENDURE,              0, NORMAL,         STATUS,			100, 10,   0      ;ENDURE
 	move EFFECT_ATTACK_DOWN_2,       0, NORMAL,         STATUS,			100, 20,   0      ;CHARM
 	move EFFECT_ROLLOUT,            30, ROCK,           PHYSICAL,		 90, 20,   0      ;ROLLOUT

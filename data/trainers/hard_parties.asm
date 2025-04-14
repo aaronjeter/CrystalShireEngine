@@ -1,15 +1,15 @@
 ; Trainer data structure:
 ; - db "NAME@", TRAINERTYPE_* constant
-; - 1 to 6 PokÃ©mon:
+; - 1 to 6 Pokémon:
 ;    * for TRAINERTYPE_NORMAL:     db level, species
 ;    * for TRAINERTYPE_MOVES:      db level, species, 4 moves
 ;    * for TRAINERTYPE_ITEM:       db level, species, item
 ;    * for TRAINERTYPE_ITEM_MOVES: db level, species, item, 4 moves
 ; - db -1 ; end
 
-SECTION "Enemy Trainer Parties 1", ROMX
+SECTION "Hard Trainer Parties 1", ROMX
 
-FalknerGroup:
+FalknerGroupHard:
 	next_list_item ; FALKNER (1)
 	db "FALKNER@", TRAINERTYPE_MOVES
 	db 6
@@ -25,7 +25,7 @@ FalknerGroup:
 
 	end_list_items
 
-WhitneyGroup:
+WhitneyGroupHard:
 	next_list_item ; WHITNEY (1)
 	db "WHITNEY@", TRAINERTYPE_MOVES
 	db 7
@@ -41,7 +41,7 @@ WhitneyGroup:
 
 	end_list_items
 
-BugsyGroup:
+BugsyGroupHard:
 	next_list_item ; BUGSY (1)
 	db "BUGSY@", TRAINERTYPE_MOVES
 	db 7
@@ -57,7 +57,7 @@ BugsyGroup:
 
 	end_list_items
 
-MortyGroup:
+MortyGroupHard:
 	next_list_item ; MORTY (1)
 	db "MORTY@", TRAINERTYPE_MOVES
 	db 7
@@ -76,7 +76,7 @@ MortyGroup:
 
 	end_list_items
 
-PryceGroup:
+PryceGroupHard:
 	next_list_item ; PRYCE (1)
 	db "PRYCE@", TRAINERTYPE_MOVES
 	db 7
@@ -92,7 +92,7 @@ PryceGroup:
 
 	end_list_items
 
-JasmineGroup:
+JasmineGroupHard:
 	next_list_item ; JASMINE (1)
 	db "JASMINE@", TRAINERTYPE_MOVES
 	db 7
@@ -108,7 +108,7 @@ JasmineGroup:
 
 	end_list_items
 
-ChuckGroup:
+ChuckGroupHard:
 	next_list_item ; CHUCK (1)
 	db "CHUCK@", TRAINERTYPE_MOVES
 	db 8
@@ -124,7 +124,7 @@ ChuckGroup:
 
 	end_list_items
 
-ClairGroup:
+ClairGroupHard:
 	next_list_item ; CLAIR (1)
 	db "CLAIR@", TRAINERTYPE_MOVES
 	db 9
@@ -143,7 +143,7 @@ ClairGroup:
 
 	end_list_items
 
-Rival1Group:
+Rival1GroupHard:
 	next_list_item ; RIVAL1 (1)
 	db "?@", TRAINERTYPE_NORMAL
 	db 2
@@ -320,9 +320,9 @@ Rival1Group:
 
 	end_list_items
 
-PokemonProfGroup:
+PokemonProfGroupHard:
 
-WillGroup:
+WillGroupHard:
 	next_list_item ; WILL (1)
 	db "WILL@", TRAINERTYPE_MOVES
 	db 10
@@ -347,7 +347,7 @@ WillGroup:
 
 	end_list_items
 
-PKMNTrainerGroup:
+PKMNTrainerGroupHard:
 	next_list_item ; CAL (1)
 	db "CAL@", TRAINERTYPE_NORMAL
 	db 10
@@ -380,7 +380,7 @@ PKMNTrainerGroup:
 
 	end_list_items
 
-BrunoGroup:
+BrunoGroupHard:
 	next_list_item ; BRUNO (1)
 	db "BRUNO@", TRAINERTYPE_MOVES
 	db 10
@@ -405,7 +405,7 @@ BrunoGroup:
 
 	end_list_items
 
-KarenGroup:
+KarenGroupHard:
 	next_list_item ; KAREN (1)
 	db "KAREN@", TRAINERTYPE_MOVES
 	db 10
@@ -430,7 +430,7 @@ KarenGroup:
 
 	end_list_items
 
-KogaGroup:
+KogaGroupHard:
 	next_list_item ; KOGA (1)
 	db "KOGA@", TRAINERTYPE_MOVES
 	db 10
@@ -455,7 +455,7 @@ KogaGroup:
 
 	end_list_items
 
-ChampionGroup:
+ChampionGroupHard:
 	next_list_item ; CHAMPION (1)
 	db "LANCE@", TRAINERTYPE_MOVES
 	db 15
@@ -480,7 +480,7 @@ ChampionGroup:
 
 	end_list_items
 
-BrockGroup:
+BrockGroupHard:
 	next_list_item ; BROCK (1)
 	db "BROCK@", TRAINERTYPE_MOVES
 	db 7
@@ -496,7 +496,7 @@ BrockGroup:
 
 	end_list_items
 
-MistyGroup:
+MistyGroupHard:
 	next_list_item ; MISTY (1)
 	db "MISTY@", TRAINERTYPE_MOVES
 	db 7
@@ -515,7 +515,7 @@ MistyGroup:
 
 	end_list_items
 
-LtSurgeGroup:
+LtSurgeGroupHard:
 	next_list_item ; LT_SURGE (1)
 	db "LT.SURGE@", TRAINERTYPE_MOVES
 	db 7
@@ -534,7 +534,7 @@ LtSurgeGroup:
 
 	end_list_items
 
-ScientistGroup:
+ScientistGroupHard:
 	next_list_item ; SCIENTIST (1) Team Rocket Hideout - B3F
 	db "ROSS@", TRAINERTYPE_NORMAL
 	db 8
@@ -578,7 +578,7 @@ ScientistGroup:
 
 	end_list_items
 
-ErikaGroup:
+ErikaGroupHard:
 	next_list_item ; ERIKA (1)
 	db "ERIKA@", TRAINERTYPE_MOVES
 	db 7
@@ -597,7 +597,7 @@ ErikaGroup:
 
 	end_list_items
 
-YoungsterGroup:
+YoungsterGroupHard:
 	next_list_item ; YOUNGSTER (1) Route 30 
 	db "JOEY@", TRAINERTYPE_NORMAL
 	db 2
@@ -700,9 +700,9 @@ YoungsterGroup:
 
 	end_list_items
 
-SECTION "Enemy Trainer Parties 2", ROMX
+SECTION "Hard Trainer Parties 2", ROMX
 
-SchoolboyGroup:
+SchoolboyGroupHard:
 	next_list_item ; SCHOOLBOY (1) National Park 
 	db "JACK@", TRAINERTYPE_NORMAL
 	db 2
@@ -928,7 +928,7 @@ SchoolboyGroup:
 
 	end_list_items
 
-BirdKeeperGroup:
+BirdKeeperGroupHard:
 	next_list_item ; BIRD_KEEPER (1) Violet City Gym
 	db "ROD@", TRAINERTYPE_NORMAL
 	db 2
@@ -1088,7 +1088,7 @@ BirdKeeperGroup:
 
 	end_list_items
 
-LassGroup:
+LassGroupHard:
 	next_list_item ; LASS (1) Goldenrod City Gym
 	db "CARRIE@", TRAINERTYPE_MOVES
 	db 7
@@ -1242,7 +1242,7 @@ LassGroup:
 
 	end_list_items
 
-JanineGroup:
+JanineGroupHard:
 	next_list_item ; JANINE (1)
 	db "JANINE@", TRAINERTYPE_MOVES
 	db 7
@@ -1258,7 +1258,7 @@ JanineGroup:
 
 	end_list_items
 
-CooltrainerMGroup:
+CooltrainerMGroupHard:
 	next_list_item ; COOLTRAINERM (1) Union Cave - B2F
 	db "NICK@", TRAINERTYPE_NORMAL
 	db 6
@@ -1453,7 +1453,7 @@ CooltrainerMGroup:
 
 	end_list_items
 
-CooltrainerFGroup:
+CooltrainerFGroupHard:
 	next_list_item ; COOLTRAINERF (1) Union Cave - B2F
 	db "GWEN@", TRAINERTYPE_NORMAL
 	db 6
@@ -1652,7 +1652,7 @@ CooltrainerFGroup:
 
 	end_list_items
 
-BeautyGroup:
+BeautyGroupHard:
 	next_list_item ; BEAUTY (1) Goldenrod City Gym
 	db "VICTORIA@", TRAINERTYPE_NORMAL
 	db 2
@@ -1779,7 +1779,7 @@ BeautyGroup:
 
 	end_list_items
 
-PokemaniacGroup:
+PokemaniacGroupHard:
 	next_list_item ; POKEMANIAC (1) Union Cave - 1F
 	db "LARRY@", TRAINERTYPE_NORMAL
 	db 7
@@ -1885,7 +1885,7 @@ PokemaniacGroup:
 
 	end_list_items
 
-GruntMGroup:
+GruntMGroupHard:
 	next_list_item ; GRUNTM (1)
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 4
@@ -2144,7 +2144,7 @@ GruntMGroup:
 
 	end_list_items
 
-GentlemanGroup:
+GentlemanGroupHard:
 	next_list_item ; GENTLEMAN (1) Glitter Lighthouse - 3F
 	db "PRESTON@", TRAINERTYPE_NORMAL
 	db 7
@@ -2181,7 +2181,7 @@ GentlemanGroup:
 
 	end_list_items
 
-SkierGroup:
+SkierGroupHard:
 	next_list_item ; SKIER (1) Mahogany Town Gym
 	db "ROXANNE@", TRAINERTYPE_NORMAL
 	db 7
@@ -2196,7 +2196,7 @@ SkierGroup:
 
 	end_list_items
 
-TeacherGroup:
+TeacherGroupHard:
 	next_list_item ; TEACHER (1) Route 15
 	db "COLETTE@", TRAINERTYPE_NORMAL
 	db 7
@@ -2219,7 +2219,7 @@ TeacherGroup:
 
 	end_list_items
 
-SabrinaGroup:
+SabrinaGroupHard:
 	next_list_item ; SABRINA (1)
 	db "SABRINA@", TRAINERTYPE_MOVES
 	db 7
@@ -2235,7 +2235,7 @@ SabrinaGroup:
 
 	end_list_items
 
-BugCatcherGroup:
+BugCatcherGroupHard:
 	next_list_item ; BUG_CATCHER (1) Route 30
 	db "DON@", TRAINERTYPE_NORMAL
 	db 3
@@ -2411,7 +2411,7 @@ BugCatcherGroup:
 
 	end_list_items
 
-FisherGroup:
+FisherGroupHard:
 	next_list_item ; FISHER (1) Route 32
 	db "JUSTIN@", TRAINERTYPE_NORMAL
 	db 5
@@ -2646,7 +2646,7 @@ FisherGroup:
 
 	end_list_items
 
-SwimmerMGroup:
+SwimmerMGroupHard:
 	next_list_item ; SWIMMERM (1) Route 19
 	db "HAROLD@", TRAINERTYPE_NORMAL
 	db 6
@@ -2845,7 +2845,7 @@ SwimmerMGroup:
 
 	end_list_items
 
-SwimmerFGroup:
+SwimmerFGroupHard:
 	next_list_item ; SWIMMERF (1) Route 40
 	db "ELAINE@", TRAINERTYPE_NORMAL
 	db 6
@@ -2992,7 +2992,7 @@ SwimmerFGroup:
 
 	end_list_items
 
-SailorGroup:
+SailorGroupHard:
 	next_list_item ; SAILOR (1) Route 39
 	db "EUGENE@", TRAINERTYPE_NORMAL
 	db 3
@@ -3107,7 +3107,7 @@ SailorGroup:
 
 	end_list_items
 
-SuperNerdGroup:
+SuperNerdGroupHard:
 	next_list_item ; SUPER_NERD (1) Unreferenced
 	db "STAN@", TRAINERTYPE_NORMAL
 	db 7
@@ -3225,7 +3225,7 @@ SuperNerdGroup:
 
 	end_list_items
 
-Rival2Group:
+Rival2GroupHard:
 	next_list_item ; RIVAL2 (1) Mt. Moon
 	db "?@", TRAINERTYPE_NORMAL
 	db 9
@@ -3324,7 +3324,7 @@ Rival2Group:
 
 	end_list_items
 
-GuitaristGroup:
+GuitaristGroupHard:
 	next_list_item ; GUITARIST (1) Unreferenced
 	db "CLYDE@", TRAINERTYPE_NORMAL
 	db 7
@@ -3345,7 +3345,7 @@ GuitaristGroup:
 
 	end_list_items
 
-HikerGroup:
+HikerGroupHard:
 	next_list_item ; HIKER (1) Route 33
 	db "ANTHONY@", TRAINERTYPE_NORMAL
 	db 6
@@ -3556,7 +3556,7 @@ HikerGroup:
 
 	end_list_items
 
-BikerGroup:
+BikerGroupHard:
 	next_list_item ; BIKER (1)  Unreferenced
 	db "BENNY@", TRAINERTYPE_NORMAL
 	db 20
@@ -3639,7 +3639,7 @@ BikerGroup:
 
 	end_list_items
 
-BlaineGroup:
+BlaineGroupHard:
 	next_list_item ; BLAINE (1)
 	db "BLAINE@", TRAINERTYPE_MOVES
 	db 7
@@ -3655,7 +3655,7 @@ BlaineGroup:
 
 	end_list_items
 
-BurglarGroup:
+BurglarGroupHard:
 	next_list_item ; BURGLAR (1) Goldenrod City - Underground Warehouse
 	db "DUNCAN@", TRAINERTYPE_NORMAL
 	db 3
@@ -3690,7 +3690,7 @@ BurglarGroup:
 
 	end_list_items
 
-FirebreatherGroup:
+FirebreatherGroupHard:
 	next_list_item ; FIREBREATHER (1) Route 3
 	db "OTIS@", TRAINERTYPE_NORMAL
 	db 3
@@ -3759,7 +3759,7 @@ FirebreatherGroup:
 
 	end_list_items
 
-JugglerGroup:
+JugglerGroupHard:
 	next_list_item ; JUGGLER (1) Route 35
 	db "IRWIN@", TRAINERTYPE_NORMAL
 	db 2
@@ -3832,7 +3832,7 @@ JugglerGroup:
 
 	end_list_items
 
-BlackbeltGroup:
+BlackbeltGroupHard:
 	next_list_item ; BLACKBELT_T (1) Route 45
 	db "KENJI@", TRAINERTYPE_NORMAL
 	db 3
@@ -3921,7 +3921,7 @@ BlackbeltGroup:
 
 	end_list_items
 
-ExecutiveMGroup:
+ExecutiveMGroupHard:
 	next_list_item ; EXECUTIVEM (1) Goldenrod City - Radio Tower
 	db "EXECUTIVE@", TRAINERTYPE_MOVES
 	db 8
@@ -3976,7 +3976,7 @@ ExecutiveMGroup:
 
 	end_list_items
 
-PsychicGroup:
+PsychicGroupHard:
 	next_list_item ; PSYCHIC_T (1) Ruins of Alph
 	db "NATHAN@", TRAINERTYPE_NORMAL
 	db 6
@@ -4081,7 +4081,7 @@ PsychicGroup:
 
 	end_list_items
 
-PicnickerGroup:
+PicnickerGroupHard:
 	next_list_item ; PICNICKER (1) Route 32
 	db "LIZ@", TRAINERTYPE_NORMAL
 	db 3
@@ -4302,7 +4302,7 @@ PicnickerGroup:
 
 	end_list_items
 
-CamperGroup:
+CamperGroupHard:
 	next_list_item ; CAMPER (1) Route 32
 	db "ROLAND@", TRAINERTYPE_NORMAL
 	db 3
@@ -4505,7 +4505,7 @@ CamperGroup:
 
 	end_list_items
 
-ExecutiveFGroup:
+ExecutiveFGroupHard:
 	next_list_item ; EXECUTIVEF (1) Goldenrod City - Radio Tower
 	db "EXECUTIVE@", TRAINERTYPE_MOVES
 	db 8
@@ -4521,20 +4521,20 @@ ExecutiveFGroup:
 
 	next_list_item ; EXECUTIVEF (2) Unreferenced
 	db "EXECUTIVE@", TRAINERTYPE_MOVES
-	db 9
+	db 23
 	dw ARBOK
 	dw WRAP, LEER, POISON_STING, BITE
-	db 9
+	db 23
 	dw GLOOM
 	dw ABSORB, SWEET_SCENT, SLEEP_POWDER, ACID
-	db 10
+	db 25
 	dw MURKROW
 	dw PECK, PURSUIT, HAZE, NO_MOVE
 	db -1 ; end
 
 	end_list_items
 
-SageGroup:
+SageGroupHard:
 	next_list_item ; SAGE (1) Sprout Tower - 1F
 	db "CHOW@", TRAINERTYPE_NORMAL
 	db 3
@@ -4641,7 +4641,7 @@ SageGroup:
 
 	end_list_items
 
-MediumGroup:
+MediumGroupHard:
 	next_list_item ; MEDIUM (1) Ecruteak City Gym
 	db "MARTHA@", TRAINERTYPE_NORMAL
 	db 5
@@ -4696,7 +4696,7 @@ MediumGroup:
 
 	end_list_items
 
-BoarderGroup:
+BoarderGroupHard:
 	next_list_item ; BOARDER (1) Mahogany Town Gym
 	db "RONALD@", TRAINERTYPE_NORMAL
 	db 4
@@ -4727,7 +4727,7 @@ BoarderGroup:
 
 	end_list_items
 
-PokefanMGroup:
+PokefanMGroupHard:
 	next_list_item ; POKEFANM (1) National Park
 	db "WILLIAM@", TRAINERTYPE_ITEM
 	db 4
@@ -4861,7 +4861,7 @@ PokefanMGroup:
 
 	end_list_items
 
-KimonoGirlGroup:
+KimonoGirlGroupHard:
 	next_list_item ; KIMONO_GIRL (1) Unreferenced
 	db "NAOKO@", TRAINERTYPE_NORMAL
 	db 7
@@ -4904,7 +4904,7 @@ KimonoGirlGroup:
 
 	end_list_items
 
-TwinsGroup:
+TwinsGroupHard:
 	next_list_item ; TWINS (1) Azalea Town Gym
 	db "AMY & MAY@", TRAINERTYPE_NORMAL
 	db 5
@@ -4995,7 +4995,7 @@ TwinsGroup:
 
 	end_list_items
 
-PokefanFGroup:
+PokefanFGroupHard:
 	next_list_item ; POKEFANF (1) National Park
 	db "BEVERLY@", TRAINERTYPE_ITEM
 	db 4
@@ -5052,7 +5052,7 @@ PokefanFGroup:
 
 	end_list_items
 
-RedGroup:
+RedGroupHard:
 	next_list_item ; RED (1)
 	db "RED@", TRAINERTYPE_MOVES
 	db 20
@@ -5077,7 +5077,7 @@ RedGroup:
 
 	end_list_items
 
-BlueGroup:
+BlueGroupHard:
 	next_list_item ; BLUE (1)
 	db "BLUE@", TRAINERTYPE_MOVES
 	db 12
@@ -5102,7 +5102,7 @@ BlueGroup:
 
 	end_list_items
 
-OfficerGroup:
+OfficerGroupHard:
 	next_list_item ; OFFICER (1) Route 34
 	db "KEITH@", TRAINERTYPE_NORMAL
 	db 7
@@ -5119,7 +5119,7 @@ OfficerGroup:
 
 	end_list_items
 
-GruntFGroup:
+GruntFGroupHard:
 	next_list_item ; GRUNTF (1)
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 4
@@ -5166,7 +5166,7 @@ GruntFGroup:
 
 	end_list_items
 
-MysticalmanGroup:
+MysticalmanGroupHard:
 	next_list_item ; MYSTICALMAN (1) Cianwood City
 	db "EUSINE@", TRAINERTYPE_MOVES
 	db 8
@@ -5182,7 +5182,7 @@ MysticalmanGroup:
 
 	end_list_items
 
-KrisGroup:
+KrisGroupHard:
 	next_list_item; KRIS (1) Unreferenced
 	db "KRIS@", TRAINERTYPE_NORMAL
 	db 10

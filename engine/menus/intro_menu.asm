@@ -214,6 +214,9 @@ endc
 	ld a, 1
 	ld [wWildLevel], a
 
+	ld a, 1
+	ld [wHardMode], a
+
 	call InitializeNPCNames
 
 	farcall InitDecorations

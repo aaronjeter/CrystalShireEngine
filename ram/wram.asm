@@ -2873,6 +2873,7 @@ wUsingLevelCap::     db
 wLevelCap::          db 
 wBaseLevel::         db 
 wWildLevel::         db
+wHardMode::			 db
 
 wEventFlags:: flag_array NUM_EVENTS
 
