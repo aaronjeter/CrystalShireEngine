@@ -474,11 +474,11 @@ AideScript_WalkPotion2:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
 	end
 
-AideScript_GivePotion:
+AideScript_GiveXpShare:
 	opentext
 	writetext AideText_GiveYouPotion
 	promptbutton
-	verbosegiveitem POTION
+	verbosegiveitem EXP_SHARE
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext
@@ -488,14 +488,14 @@ AideScript_GivePotion:
 AideScript_WalkBalls1:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
 	turnobject PLAYER, DOWN
-	scall AideScript_GiveYouBalls
+	scall AideScript_GiveXpShare
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
 	end
 
 AideScript_WalkBalls2:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
 	turnobject PLAYER, DOWN
-	scall AideScript_GiveYouBalls
+	scall AideScript_GiveXpShare
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
 	end
 
