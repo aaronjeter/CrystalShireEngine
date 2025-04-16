@@ -178,7 +178,7 @@ ForgetMove:
 	pop bc
 	pop de
 	ld a, d
-	jr c, .hmmove
+	;jr c, .hmmove
 	pop hl
 	add hl, bc
 	and a
