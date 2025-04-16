@@ -850,6 +850,7 @@ ZubatEvosAttacks:
 
 GolbatEvosAttacks:
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, CROBAT
+	dbbw EVOLVE_LEVEL, 40, CROBAT
 	db 0 ; no more evolutions
 	dbw 1, LEECH_LIFE
 	dbw 1, POISON_STING

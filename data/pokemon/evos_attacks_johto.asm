@@ -472,6 +472,7 @@ LanturnEvosAttacks:
 
 PichuEvosAttacks:
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, PIKACHU
+	dbbw EVOLVE_LEVEL, 20, PIKACHU
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 1, SWEET_KISS
@@ -490,6 +491,7 @@ PichuEvosAttacks:
 
 CleffaEvosAttacks:
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, CLEFAIRY
+	dbbw EVOLVE_LEVEL, 20, CLEFAIRY
 	db 0 ; no more evolutions
 	dbw 1, PIXIE_DUST
 	dbw 1, SWEET_KISS
@@ -510,6 +512,7 @@ CleffaEvosAttacks:
 
 IgglybuffEvosAttacks:
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, JIGGLYPUFF
+	dbbw EVOLVE_LEVEL, 20, JIGGLYPUFF
 	db 0 ; no more evolutions
 	dbw 1, SING
 	dbw 1, DEFENSE_CURL
@@ -528,6 +531,7 @@ IgglybuffEvosAttacks:
 
 TogepiEvosAttacks:
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, TOGETIC
+	dbbw EVOLVE_LEVEL, 25, TOGETIC
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, CHARM
