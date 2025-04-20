@@ -3923,16 +3923,13 @@ BlackbeltGroup:
 
 ExecutiveMGroup:
 	next_list_item ; EXECUTIVEM (1) Goldenrod City - Radio Tower
-	db "EXECUTIVE@", TRAINERTYPE_MOVES
+	db "EXECUTIVE@", TRAINERTYPE_NORMAL
 	db 8
 	dw HOUNDOUR
-	dw EMBER, ROAR, BITE, FAINT_ATTACK
 	db 8
 	dw KOFFING
-	dw TACKLE, SLUDGE, SMOKESCREEN, HAZE
 	db 10
 	dw HOUNDOOM
-	dw EMBER, SMOG, BITE, FAINT_ATTACK
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEM (2) Goldenrod City - Radio Tower

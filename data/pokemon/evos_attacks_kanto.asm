@@ -1233,7 +1233,7 @@ AbraEvosAttacks:
 	db 0 ; no more level-up moves
 
 KadabraEvosAttacks:
-	dbww EVOLVE_LEVEL, 40, ALAKAZAM
+	dbbw EVOLVE_LEVEL, 40, ALAKAZAM
 	db 0 ; no more evolutions
 	dbw 1, TELEPORT
 	dbw 7, CONFUSION
