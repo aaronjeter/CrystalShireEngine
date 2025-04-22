@@ -464,10 +464,14 @@ TrySurfOW::
 	call CheckDirection
 	jr c, .quit	
 
-	ld hl, SURF
-	call CheckPartyMoveIndex
-	jr c, .quit
-
+; Step 2
+	ld hl, HM_SURF
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .quit
+.yes
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .quit
@@ -650,9 +654,14 @@ Script_UsedWaterfall:
 	text_end
 
 TryWaterfallOW::
-	ld hl, WATERFALL
-	call CheckPartyMoveIndex
-	jr c, .failed	
+; Step 2
+	ld hl, HM_WATERFALL
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .failed
+.yes
 	call CheckMapCanWaterfall
 	jr c, .failed
 	ld a, BANK(Script_AskWaterfall)
@@ -985,10 +994,14 @@ BouldersMayMoveText:
 	text_end
 
 TryStrengthOW:
-	ld hl, STRENGTH
-	call CheckPartyMoveIndex
-	jr c, .nope	
-
+; Step 2
+	ld hl, HM_STRENGTH
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .nope
+.yes
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_STRENGTH_ACTIVE_F, [hl]
 	jr z, .already_using
@@ -1105,9 +1118,14 @@ DisappearWhirlpool:
 	jmp GetMovementPermissions
 
 TryWhirlpoolOW::
-	ld hl, WHIRLPOOL
-	call CheckPartyMoveIndex
-	jr c, .failed	
+; Step 2
+	ld hl, HM_WHIRLPOOL
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .failed
+.yes	
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, BANK(Script_AskWhirlpoolOW)
@@ -1197,10 +1215,14 @@ HeadbuttScript:
 	end
 
 TryHeadbuttOW::
-	ld hl, HEADBUTT
-	call CheckPartyMoveIndex
-	jr c, .no
-
+; Step 1
+	ld hl, TM_HEADBUTT
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .no
+.can_use
 	ld a, BANK(AskHeadbuttScript)
 	ld hl, AskHeadbuttScript
 	call CallScript
@@ -1659,10 +1681,14 @@ GotOffBikeText:
 	text_end
 
 TryCutOW::
-	ld hl, CUT
-	call CheckPartyMoveIndex
-	jr c, .cant_cut
-
+; Step 2
+	ld hl, HM_CUT
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .cant_cut
+.yes
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
 	call CallScript
