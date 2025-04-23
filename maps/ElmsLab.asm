@@ -171,7 +171,7 @@ LeftPokeBallScript:
 	iftrue CyndaquilPokeBallScript
 
 	checkevent EVENT_ORIGIN_HOENN
-	iftrue DelibirdPokeBallScript
+	iftrue MunchlaxPokeBallScript
 
 MiddlePokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
@@ -255,13 +255,13 @@ CyndaquilPokeBallScript:
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
-DelibirdPokeBallScript:	
-	pokepic DELIBIRD
-	cry DELIBIRD
+MunchlaxPokeBallScript:	
+	pokepic MUNCHLAX
+	cry MUNCHLAX
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeDelibirdText
+	writetext TakeMunchlaxText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL1
@@ -269,12 +269,12 @@ DelibirdPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, DELIBIRD
+	getmonname STRING_BUFFER_3, MUNCHLAX
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke DELIBIRD, 5, BERRY
+	givepoke MUNCHLAX, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -1080,6 +1080,12 @@ TakeChikoritaText:
 	text "ELM: So, you like"
 	line "CHIKORITA, the"
 	cont "grass #MON?"
+	done
+
+TakeMunchlaxText:
+	text "ELM: You'll take"
+	line "MUNCHLAX, the"
+	cont "hungry #MON?"
 	done
 
 DidntChooseStarterText:

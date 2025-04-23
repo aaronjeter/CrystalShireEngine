@@ -256,4 +256,5 @@ IconPointers:
 	dw LugiaIcon
 	dw HoOhIcon
 	dw CelebiIcon
+	dw MunchlaxIcon
 	assert_table_length NUM_POKEMON + 1

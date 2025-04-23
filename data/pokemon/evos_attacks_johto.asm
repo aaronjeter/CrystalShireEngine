@@ -101,6 +101,7 @@ EvosAttacksPointers2::
 	dw LugiaEvosAttacks
 	dw HoOhEvosAttacks
 	dw CelebiEvosAttacks
+	dw MunchlaxEvosAttacks
 .IndirectEnd::
 
 ChikoritaEvosAttacks:
@@ -1858,6 +1859,24 @@ CelebiEvosAttacks:
 	dbw 52, PETAL_DANCE
 	dbw 55, FUTURE_SIGHT
 	dbw 60, PERISH_SONG
+	db 0 ; no more level-up moves
+
+MunchlaxEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, SNORLAX
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, LICK
+	dbw 8, AMNESIA
+	dbw 12, DEFENSE_CURL
+	dbw 15, ROLLOUT
+	dbw 22, BELLY_DRUM
+	dbw 25, HEADBUTT
+	dbw 30, SNORE
+	dbw 30, REST
+	dbw 36, BODY_SLAM	
+	dbw 42, EARTHQUAKE
+	dbw 45, HYPER_BEAM
+	dbw 50, OUTRAGE
 	db 0 ; no more level-up moves
 
 ENDSECTION
