@@ -1151,3 +1151,23 @@ _MomLostGearBookletText::
 	para "Come back again in"
 	line "a while."
 	prompt
+
+_OakRegionText::
+	text "So, where are"
+	line "you from?"
+	prompt
+
+_OakHardModeText::
+	text "Do you want to"
+	line "play hardmode?"
+	prompt
+
+_OakLevelCapText::
+	text "Do you want to"
+	line "enable Level Caps?"
+	prompt
+
+_OakOriginText::
+	text "What kind of"
+	line "trainer are you?"
+	prompt

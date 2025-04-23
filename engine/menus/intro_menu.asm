@@ -579,7 +579,7 @@ if !DEF(_DEBUG)
 	call FadeToWhite
 	call ClearTilemap
 
-	ld hl, WOOPER
+	ld hl, DELIBIRD
 	call GetPokemonIDFromIndex
 	ld [wCurSpecies], a
 	ld [wCurPartySpecies], a
@@ -631,6 +631,7 @@ endc
 	ld hl, OakText6
 	call PrintText
 	call NamePlayer
+	call SetRegion
 	ld hl, OakText7
 	jmp PrintText
 
@@ -667,6 +668,68 @@ OakText6:
 OakText7:
 	text_far _OakText7
 	text_end
+
+OakTextRegion:
+	text_far _OakRegionText
+	text_end
+
+OakTextHardMode:
+	text_far _OakHardModeText
+	text_end
+
+OakTextLevelCap:
+	text_far _OakLevelCapText
+	text_end
+
+OakTextOrigin:
+	text_far _OakOriginText
+	text_end
+
+SetRegion:
+	ld hl, OakTextRegion
+	call PrintText
+	ld hl, .RegionMenuHeader
+	call LoadMenuHeader
+	call VerticalMenu
+	call CloseWindow	
+	ld a, [wMenuCursorY]
+	cp $1
+	jr z, .RegionKanto
+	cp $2
+	jr z, .RegionJohto
+	cp $3
+	jr z, .RegionHoenn
+
+.RegionMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	dw .RegionMenuData
+	db 1 ; default option
+
+.RegionMenuData:
+	db STATICMENU_CURSOR ; flags
+	db 3 ; items
+	db "Kanto (Gen 1)@"
+	db "Johto (Gen 2)@"
+	db "Hoenn (Gen 3)@"
+
+.RegionKanto:
+    ld de, EVENT_ORIGIN_KANTO
+    ld b, SET_FLAG
+	call EventFlagAction
+	ret
+
+.RegionJohto:
+	ld de, EVENT_ORIGIN_JOHTO
+    ld b, SET_FLAG
+	call EventFlagAction
+	ret
+
+.RegionHoenn:
+	ld de, EVENT_ORIGIN_HOENN
+    ld b, SET_FLAG
+	call EventFlagAction
+	ret
 
 NamePlayer:
 	farcall MovePlayerPicRight
