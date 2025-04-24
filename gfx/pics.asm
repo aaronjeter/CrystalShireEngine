@@ -711,8 +711,27 @@ UnownRBackpic:       INCBIN "gfx/pokemon/unown_r/back.2bpp.lz"
 
 SECTION "Pics 19", ROMX
 
-MunchlaxFrontpic: INCBIN "gfx/pokemon/munchlax/front.animated.2bpp.lz"
-MunchlaxBackpic:  INCBIN "gfx/pokemon/munchlax/back.2bpp.lz"
+MunchlaxFrontpic:    INCBIN "gfx/pokemon/munchlax/front.animated.2bpp.lz"
+MunchlaxBackpic:     INCBIN "gfx/pokemon/munchlax/back.2bpp.lz"
+; Hoenn Pokemon
+TreeckoFrontpic:     INCBIN "gfx/pokemon/treecko/front.animated.2bpp.lz"
+TreeckoBackpic:      INCBIN "gfx/pokemon/treecko/back.2bpp.lz"
+GrovyleFrontpic:     INCBIN "gfx/pokemon/grovyle/front.animated.2bpp.lz"
+GrovyleBackpic:      INCBIN "gfx/pokemon/grovyle/back.2bpp.lz"
+SceptileFrontpic:    INCBIN "gfx/pokemon/sceptile/front.animated.2bpp.lz"
+SceptileBackpic:     INCBIN "gfx/pokemon/sceptile/back.2bpp.lz"
+TorchicFrontpic:     INCBIN "gfx/pokemon/torchic/front.animated.2bpp.lz"
+TorchicBackpic:      INCBIN "gfx/pokemon/torchic/back.2bpp.lz"
+CombuskenFrontpic:   INCBIN "gfx/pokemon/combusken/front.animated.2bpp.lz"
+CombuskenBackpic:    INCBIN "gfx/pokemon/combusken/back.2bpp.lz"
+BlazikenFrontpic:    INCBIN "gfx/pokemon/blaziken/front.animated.2bpp.lz"
+BlazikenBackpic:     INCBIN "gfx/pokemon/blaziken/back.2bpp.lz"
+MudkipFrontpic:      INCBIN "gfx/pokemon/mudkip/front.animated.2bpp.lz"
+MudkipBackpic:       INCBIN "gfx/pokemon/mudkip/back.2bpp.lz"
+MarshtompFrontpic:   INCBIN "gfx/pokemon/marshtomp/front.animated.2bpp.lz"
+MarshtompBackpic:    INCBIN "gfx/pokemon/marshtomp/back.2bpp.lz"
+SwampertFrontpic:    INCBIN "gfx/pokemon/swampert/front.animated.2bpp.lz"
+SwampertBackpic:     INCBIN "gfx/pokemon/swampert/back.2bpp.lz"
 
 
 SECTION "Pics 20", ROMX

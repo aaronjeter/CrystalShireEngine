@@ -273,6 +273,15 @@ DEF JOHTO_POKEMON EQU const_value
 	const HO_OH      ; fa
 	const CELEBI     ; fb
 	const MUNCHLAX	 ; fc
+	const TREECKO    ; fc
+	const GROVYLE    ; fd
+	const SCEPTILE   ; fe
+	const TORCHIC    ; ff
+	const COMBUSKEN  ; 100
+	const BLAZIKEN   ; 101
+	const MUDKIP     ; 102
+	const MARSHTOMP  ; 103
+	const SWAMPERT   ; 104
 DEF NUM_JOHTO_POKEMON EQU const_value - 1
 DEF NUM_POKEMON EQU const_value - 1
 

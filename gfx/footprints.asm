@@ -253,5 +253,15 @@ INCBIN "gfx/footprints/lugia.1bpp"
 INCBIN "gfx/footprints/ho_oh.1bpp"
 INCBIN "gfx/footprints/celebi.1bpp"
 INCBIN "gfx/footprints/munchlax.1bpp"
+; Hoenn
+INCBIN "gfx/footprints/hoenn/treecko.1bpp"
+INCBIN "gfx/footprints/hoenn/grovyle.1bpp"
+INCBIN "gfx/footprints/hoenn/sceptile.1bpp"
+INCBIN "gfx/footprints/hoenn/torchic.1bpp"
+INCBIN "gfx/footprints/hoenn/combusken.1bpp"
+INCBIN "gfx/footprints/hoenn/blaziken.1bpp"
+INCBIN "gfx/footprints/hoenn/mudkip.1bpp"
+INCBIN "gfx/footprints/hoenn/marshtomp.1bpp"
+INCBIN "gfx/footprints/hoenn/swampert.1bpp"
 
 	assert_table_length NUM_POKEMON

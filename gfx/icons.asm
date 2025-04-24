@@ -258,3 +258,17 @@ HoOhIcon::       INCBIN "gfx/icons/ho_oh.2bpp"
 CelebiIcon::     INCBIN "gfx/icons/celebi.2bpp"
 MunchlaxIcon::   INCBIN "gfx/icons/munchlax.2bpp"
 EggIcon::        INCBIN "gfx/icons/egg.2bpp"
+
+
+SECTION "Mon Icons 3", ROMX
+
+; Hoenn
+TreeckoIcon::    INCBIN "gfx/icons/treecko.2bpp"
+GrovyleIcon::    INCBIN "gfx/icons/grovyle.2bpp"
+SceptileIcon::   INCBIN "gfx/icons/sceptile.2bpp"
+TorchicIcon::    INCBIN "gfx/icons/torchic.2bpp"
+CombuskenIcon::  INCBIN "gfx/icons/combusken.2bpp"
+BlazikenIcon::   INCBIN "gfx/icons/blaziken.2bpp"
+MudkipIcon::     INCBIN "gfx/icons/mudkip.2bpp"
+MarshtompIcon::  INCBIN "gfx/icons/marshtomp.2bpp"
+SwampertIcon::   INCBIN "gfx/icons/swampert.2bpp"

@@ -520,4 +520,23 @@ PokemonPicPointers::
 	dba CelebiBackpic
 	dba MunchlaxFrontpic
 	dba MunchlaxBackpic
+; Hoenn
+	dba TreeckoFrontpic
+	dba TreeckoBackpic
+	dba GrovyleFrontpic
+	dba GrovyleBackpic
+	dba SceptileFrontpic
+	dba SceptileBackpic
+	dba TorchicFrontpic
+	dba TorchicBackpic
+	dba CombuskenFrontpic
+	dba CombuskenBackpic
+	dba BlazikenFrontpic
+	dba BlazikenBackpic
+	dba MudkipFrontpic
+	dba MudkipBackpic
+	dba MarshtompFrontpic
+	dba MarshtompBackpic
+	dba SwampertFrontpic
+	dba SwampertBackpic
 	assert_table_length NUM_POKEMON + 1

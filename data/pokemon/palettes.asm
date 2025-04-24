@@ -537,5 +537,24 @@ INCBIN "gfx/pokemon/celebi/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/celebi/shiny.pal"
 INCBIN "gfx/pokemon/munchlax/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/munchlax/shiny.pal"
+; Hoenn
+INCBIN "gfx/pokemon/treecko/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/treecko/shiny.pal"
+INCBIN "gfx/pokemon/grovyle/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/grovyle/shiny.pal"
+INCBIN "gfx/pokemon/sceptile/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/sceptile/shiny.pal"
+INCBIN "gfx/pokemon/torchic/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/torchic/shiny.pal"
+INCBIN "gfx/pokemon/combusken/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/combusken/shiny.pal"
+INCBIN "gfx/pokemon/blaziken/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/blaziken/shiny.pal"
+INCBIN "gfx/pokemon/mudkip/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/mudkip/shiny.pal"
+INCBIN "gfx/pokemon/marshtomp/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/marshtomp/shiny.pal"
+INCBIN "gfx/pokemon/swampert/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/swampert/shiny.pal"
 
 	assert_table_length NUM_POKEMON + 1

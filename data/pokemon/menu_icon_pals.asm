@@ -262,4 +262,14 @@ MonMenuIconPals:
 	icon_pals RED,    BROWN  ; HO_OH
 	icon_pals GREEN,  PINK   ; CELEBI
 	icon_pals BROWN,  BLUE   ; MUNCHLAX
+; Hoenn
+	icon_pals GREEN,  BLUE   ; TREECKO
+	icon_pals GREEN,  BLUE   ; GROVYLE
+	icon_pals GREEN,  BLUE   ; SCEPTILE
+	icon_pals RED,    PINK   ; TORCHIC
+	icon_pals RED,    PINK   ; COMBUSKEN
+	icon_pals RED,    PINK   ; BLAZIKEN
+	icon_pals BLUE,   PURPLE ; MUDKIP
+	icon_pals BLUE,   PURPLE ; MARSHTOMP
+	icon_pals BLUE,   PURPLE ; SWAMPERT
 	assert_table_length NUM_POKEMON

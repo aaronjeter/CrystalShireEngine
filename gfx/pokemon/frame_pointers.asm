@@ -252,4 +252,13 @@ FramesPointers:
 	dba HoOhFrames
 	dba CelebiFrames
 	dba MunchlaxFrames
+	dba TreeckoFrames
+	dba GrovyleFrames
+	dba SceptileFrames
+	dba TorchicFrames
+	dba CombuskenFrames
+	dba BlazikenFrames
+	dba MudkipFrames
+	dba MarshtompFrames
+	dba SwampertFrames
 	assert_table_length NUM_POKEMON

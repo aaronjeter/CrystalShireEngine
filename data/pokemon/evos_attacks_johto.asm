@@ -102,6 +102,15 @@ EvosAttacksPointers2::
 	dw HoOhEvosAttacks
 	dw CelebiEvosAttacks
 	dw MunchlaxEvosAttacks
+	dw TreeckoEvosAttacks
+	dw GrovyleEvosAttacks
+	dw SceptileEvosAttacks
+	dw TorchicEvosAttacks
+	dw CombuskenEvosAttacks
+	dw BlazikenEvosAttacks
+	dw MudkipEvosAttacks
+	dw MarshtompEvosAttacks
+	dw SwampertEvosAttacks
 .IndirectEnd::
 
 ChikoritaEvosAttacks:
@@ -1876,6 +1885,177 @@ MunchlaxEvosAttacks:
 	dbw 36, BODY_SLAM	
 	dbw 42, EARTHQUAKE
 	dbw 45, HYPER_BEAM
+	dbw 50, OUTRAGE
+	db 0 ; no more level-up moves
+
+TreeckoEvosAttacks:
+	dbbw EVOLVE_LEVEL, 16, GROVYLE
+	db 0 ; no more evolutions
+	dbw 1, LEER
+	dbw 1, POUND
+	dbw 6, ABSORB
+	dbw 11, QUICK_ATTACK
+	dbw 16, RAZOR_LEAF
+	dbw 20, FAINT_ATTACK
+	dbw 24, MEGA_DRAIN
+	dbw 28, AGILITY
+	dbw 32, SLAM
+	dbw 36, DETECT
+	dbw 40, GIGA_DRAIN
+	dbw 42, PURSUIT
+	dbw 45, FALSE_SWIPE
+	dbw 50, DRAGONBREATH
+	db 0 ; no more level-up moves
+
+GrovyleEvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, SCEPTILE
+	db 0 ; no more evolutions
+	dbw 1, LEER
+	dbw 1, POUND
+	dbw 6, ABSORB
+	dbw 11, QUICK_ATTACK
+	dbw 16, RAZOR_LEAF
+	dbw 20, FAINT_ATTACK
+	dbw 24, MEGA_DRAIN
+	dbw 28, AGILITY
+	dbw 32, SLAM
+	dbw 36, DETECT
+	dbw 40, GIGA_DRAIN
+	dbw 42, PURSUIT
+	dbw 45, FALSE_SWIPE
+	dbw 50, DRAGONBREATH
+	db 0 ; no more level-up moves
+
+SceptileEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, LEER
+	dbw 1, POUND
+	dbw 6, ABSORB
+	dbw 11, QUICK_ATTACK
+	dbw 16, RAZOR_LEAF
+	dbw 20, FAINT_ATTACK
+	dbw 24, MEGA_DRAIN
+	dbw 28, AGILITY
+	dbw 32, SLAM
+	dbw 36, DETECT
+	dbw 40, GIGA_DRAIN
+	dbw 42, PURSUIT
+	dbw 45, FALSE_SWIPE
+	dbw 50, DRAGONBREATH
+	db 0 ; no more level-up moves
+
+TorchicEvosAttacks:
+	dbbw EVOLVE_LEVEL, 16, COMBUSKEN
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, SCRATCH
+	dbw 7, FOCUS_ENERGY
+	dbw 10, EMBER
+	dbw 12, PECK
+	dbw 16, DOUBLE_KICK
+	dbw 20, FIRE_SPIN
+	dbw 24, MACH_PUNCH
+	dbw 28, MIRROR_MOVE
+	dbw 32, FLAMETHROWER
+	dbw 36, SLASH
+	dbw 40, CROSS_CHOP
+	dbw 42, DRILL_PECK
+	dbw 45, CURSE
+	dbw 50, SUBMISSION
+	db 0 ; no more level-up moves
+
+CombuskenEvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, BLAZIKEN
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, SCRATCH
+	dbw 7, FOCUS_ENERGY
+	dbw 10, EMBER
+	dbw 12, PECK
+	dbw 16, DOUBLE_KICK
+	dbw 20, FIRE_SPIN
+	dbw 24, MACH_PUNCH
+	dbw 28, MIRROR_MOVE
+	dbw 32, FLAMETHROWER
+	dbw 36, SLASH
+	dbw 40, CROSS_CHOP
+	dbw 42, DRILL_PECK
+	dbw 45, CURSE
+	dbw 50, SUBMISSION
+	db 0 ; no more level-up moves
+
+BlazikenEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, SCRATCH
+	dbw 7, FOCUS_ENERGY
+	dbw 10, EMBER
+	dbw 12, PECK
+	dbw 16, DOUBLE_KICK
+	dbw 20, FIRE_SPIN
+	dbw 24, MACH_PUNCH
+	dbw 28, MIRROR_MOVE
+	dbw 32, FLAMETHROWER
+	dbw 36, SLASH
+	dbw 40, CROSS_CHOP
+	dbw 42, DRILL_PECK
+	dbw 45, CURSE
+	dbw 50, SUBMISSION
+	db 0 ; no more level-up moves
+
+MudkipEvosAttacks:
+	dbbw EVOLVE_LEVEL, 16, MARSHTOMP
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, TACKLE
+	dbw 6, SAND_ATTACK
+	dbw 10, CLAMP
+	dbw 14, BIDE
+	dbw 16, MUD_SLAP
+	dbw 20, BUBBLEBEAM
+	dbw 24, SLAM
+	dbw 28, WHIRLPOOL
+	dbw 32, PROTECT
+	dbw 36, RAIN_DANCE
+	dbw 42, HYDRO_PUMP
+	dbw 45, EARTHQUAKE
+	dbw 50, OUTRAGE
+	db 0 ; no more level-up moves
+
+MarshtompEvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, SWAMPERT
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, TACKLE
+	dbw 6, SAND_ATTACK
+	dbw 10, CLAMP
+	dbw 14, BIDE
+	dbw 16, MUD_SLAP
+	dbw 20, BUBBLEBEAM
+	dbw 24, SLAM
+	dbw 28, WHIRLPOOL
+	dbw 32, PROTECT
+	dbw 36, RAIN_DANCE
+	dbw 42, HYDRO_PUMP
+	dbw 45, EARTHQUAKE
+	dbw 50, OUTRAGE
+	db 0 ; no more level-up moves
+
+SwampertEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, TACKLE
+	dbw 6, SAND_ATTACK
+	dbw 10, CLAMP
+	dbw 14, BIDE
+	dbw 16, MUD_SLAP
+	dbw 20, BUBBLEBEAM
+	dbw 24, SLAM
+	dbw 28, WHIRLPOOL
+	dbw 32, PROTECT
+	dbw 36, RAIN_DANCE
+	dbw 42, HYDRO_PUMP
+	dbw 45, EARTHQUAKE
 	dbw 50, OUTRAGE
 	db 0 ; no more level-up moves
 

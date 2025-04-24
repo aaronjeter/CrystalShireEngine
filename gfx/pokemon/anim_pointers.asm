@@ -252,4 +252,13 @@ AnimationPointers:
 	dw HoOhAnimation
 	dw CelebiAnimation
 	dw MunchlaxAnimation
+	dw TreeckoAnimation
+	dw GrovyleAnimation
+	dw SceptileAnimation
+	dw TorchicAnimation
+	dw CombuskenAnimation
+	dw BlazikenAnimation
+	dw MudkipAnimation
+	dw MarshtompAnimation
+	dw SwampertAnimation
 	assert_table_length NUM_POKEMON

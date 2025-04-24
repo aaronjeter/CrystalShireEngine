@@ -102,6 +102,15 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw NoEggMoves2
 	dw MunchlaxEggMoves
+	dw TreeckoEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw TorchicEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw MudkipEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
 .IndirectEnd::
 
 ChikoritaEggMoves:
@@ -472,6 +481,24 @@ NoEggMoves2:
 
 MunchlaxEggMoves:
 	dw LICK
+	dw -1 ; end
+
+TreeckoEggMoves:
+	dw CRUNCH
+	dw DRAGONBREATH
+	dw LEECH_SEED
+	dw -1 ; end
+
+TorchicEggMoves:
+	dw COUNTER
+	dw ROCK_SLIDE
+	dw SWAGGER
+	dw -1 ; end
+
+MudkipEggMoves:
+	dw CURSE
+	dw MIRROR_COAT
+	dw STOMP
 	dw -1 ; end
 
 ENDSECTION
