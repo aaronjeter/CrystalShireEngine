@@ -32,7 +32,7 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw NoEggMoves2
 	dw NoEggMoves2
-	dw MarillEggMoves
+	dw NoEggMoves2
 	dw NoEggMoves2
 	dw SudowoodoEggMoves
 	dw NoEggMoves2
@@ -109,6 +109,84 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw NoEggMoves2
 	dw MudkipEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw PoochyenaEggMoves
+	dw NoEggMoves2
+	dw ZigzagoonEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw LotadEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw SeedotEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw TaillowEggMoves
+	dw NoEggMoves2
+	dw WingullEggMoves
+	dw NoEggMoves2
+	dw RaltsEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw SurskitEggMoves
+	dw NoEggMoves2
+	dw ShroomishEggMoves
+	dw NoEggMoves2
+	dw SlakothEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NincadaEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw WhismurEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw MakuhitaEggMoves
+	dw NoEggMoves2
+	dw AzurillEggMoves
+	dw SkittyEggMoves
+	dw NoEggMoves2
+	dw SableyeEggMoves
+	dw MawileEggMoves
+	dw AronEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw MedititeEggMoves
+	dw NoEggMoves2
+	dw ElectrikeEggMoves
+	dw NoEggMoves2
+	dw PlusleEggMoves
+	dw MinunEggMoves
+	dw VolbeatEggMoves
+	dw IllumiseEggMoves
+	dw RoseliaEggMoves
+	dw GulpinEggMoves
+	dw NoEggMoves2
+	dw CarvanhaEggMoves
+	dw NoEggMoves2
+	dw WailmerEggMoves
+	dw NoEggMoves2
+	dw NumelEggMoves
+	dw NoEggMoves2
+	dw TorkoalEggMoves
+	dw SpoinkEggMoves
+	dw NoEggMoves2
+	dw SpindaEggMoves
+	dw TrapinchEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw CacneaEggMoves
+	dw NoEggMoves2
+	dw SwabluEggMoves
+	dw NoEggMoves2
+	dw ZangooseEggMoves
+	dw SeviperEggMoves
 	dw NoEggMoves2
 	dw NoEggMoves2
 .IndirectEnd::
@@ -501,4 +579,238 @@ MudkipEggMoves:
 	dw STOMP
 	dw -1 ; end
 
+PoochyenaEggMoves:
+	dw LEER
+	dw -1 ; end
+
+ZigzagoonEggMoves:
+	dw CHARM
+	dw PURSUIT
+	dw SUBSTITUTE
+	dw -1 ; end
+
+LotadEggMoves:
+	dw FLAIL
+	dw LEECH_SEED
+	dw RAZOR_LEAF
+	dw SWEET_SCENT
+	dw SYNTHESIS
+	dw WATER_GUN
+	dw -1 ; end
+
+SeedotEggMoves:
+	dw AMNESIA
+	dw FALSE_SWIPE
+	dw LEECH_SEED
+	dw QUICK_ATTACK
+	dw RAZOR_WIND
+	dw TAKE_DOWN
+	dw -1 ; end
+
+TaillowEggMoves:
+	dw MIRROR_MOVE
+	dw PURSUIT
+	dw RAGE
+	dw SKY_ATTACK
+	dw SUPERSONIC
+	dw -1 ; end
+
+WingullEggMoves:
+	dw AGILITY
+	dw GUST
+	dw MIST
+	dw TWISTER
+	dw -1 ; end
+
+RaltsEggMoves:
+	dw DESTINY_BOND
+	dw DISABLE
+	dw MEAN_LOOK
+	dw WILLOWISP
+	dw -1 ; end
+
+SurskitEggMoves:
+	dw HYDRO_PUMP
+	dw MIND_READER
+	dw PSYBEAM
+	dw -1 ; end
+
+ShroomishEggMoves:
+	dw CHARM
+	dw FALSE_SWIPE
+	dw SWAGGER
+	dw -1 ; end
+
+SlakothEggMoves:
+	dw BODY_SLAM
+	dw CURSE
+	dw PURSUIT
+	dw SLASH
+	dw SLEEP_TALK
+	dw SNORE
+	dw -1 ; end
+
+NincadaEggMoves:
+	dw ENDURE
+	dw FAINT_ATTACK
+	dw GUST
+	dw -1 ; end
+
+WhismurEggMoves:
+	dw SNORE
+	dw SWAGGER
+	dw TAKE_DOWN
+	dw -1 ; end
+
+MakuhitaEggMoves:
+	dw COUNTER
+	dw CROSS_CHOP
+	dw DETECT
+	dw DYNAMICPUNCH
+	dw FAINT_ATTACK
+	dw -1 ; end
+
+AzurillEggMoves:
+	dw ENCORE
+	dw SING
+	dw SLAM
+	dw -1 ; end
+
+SkittyEggMoves:
+	dw BATON_PASS
+	dw SUBSTITUTE
+	dw -1 ; end
+
+SableyeEggMoves:
+	dw MOONLIGHT
+	dw RECOVER
+	dw -1 ; end
+
+MawileEggMoves:
+	dw ANCIENTPOWER
+	dw FALSE_SWIPE
+	dw SWORDS_DANCE
+	dw -1 ; end
+
+AronEggMoves:
+	dw BODY_SLAM
+	dw STOMP
+	dw -1 ; end
+
+MedititeEggMoves:
+	dw BATON_PASS
+	dw DYNAMICPUNCH
+	dw FIRE_PUNCH
+	dw ICE_PUNCH
+	dw THUNDERPUNCH
+	dw -1 ; end
+
+ElectrikeEggMoves:
+	dw CRUNCH
+	dw CURSE
+	dw HEADBUTT
+	dw SWIFT
+	dw -1 ; end
+
+PlusleEggMoves:
+	dw SUBSTITUTE
+	dw -1 ; end
+
+MinunEggMoves:
+	dw SUBSTITUTE
+	dw -1 ; end
+
+VolbeatEggMoves:
+	dw BATON_PASS
+	dw -1 ; end
+
+IllumiseEggMoves:
+	dw BATON_PASS
+	dw GROWTH
+	dw -1 ; end
+
+RoseliaEggMoves:
+	dw PIN_MISSILE
+	dw SPIKES
+	dw SYNTHESIS
+	dw -1 ; end
+
+GulpinEggMoves:
+	dw ACID_ARMOR
+	dw DREAM_EATER
+	dw PAIN_SPLIT
+	dw SMOG
+	dw -1 ; end
+
+CarvanhaEggMoves:
+	dw DOUBLE_EDGE
+	dw HYDRO_PUMP
+	dw THRASH
+	dw -1 ; end
+
+WailmerEggMoves:
+	dw CURSE
+	dw DOUBLE_EDGE
+	dw FISSURE
+	dw SLEEP_TALK
+	dw SNORE
+	dw SWAGGER
+	dw THRASH
+	dw -1 ; end
+
+NumelEggMoves:
+	dw BODY_SLAM
+	dw DEFENSE_CURL
+	dw ROLLOUT
+	dw SCARY_FACE
+	dw STOMP
+	dw -1 ; end
+
+TorkoalEggMoves:
+	dw SLEEP_TALK
+	dw -1 ; end
+
+SpoinkEggMoves:
+	dw FUTURE_SIGHT
+	dw SUBSTITUTE
+	dw -1 ; end
+
+SpindaEggMoves:
+	dw BATON_PASS
+	dw DISABLE
+	dw ENCORE
+	dw ROCK_SLIDE
+	dw -1 ; end
+
+TrapinchEggMoves:
+	dw FOCUS_ENERGY
+	dw GUST
+	dw QUICK_ATTACK
+	dw -1 ; end
+
+CacneaEggMoves:
+	dw ACID
+	dw COUNTER
+	dw DYNAMICPUNCH
+	dw -1 ; end
+
+SwabluEggMoves:
+	dw AGILITY
+	dw HAZE
+	dw PURSUIT
+	dw RAGE
+	dw -1 ; end
+
+ZangooseEggMoves:
+	dw COUNTER
+	dw CURSE
+	dw DOUBLE_KICK
+	dw FLAIL
+	dw RAZOR_WIND
+	dw ROAR
+	dw -1 ; end
+
+SeviperEggMoves:
+	dw BODY_SLAM
+	dw -1 ; end
 ENDSECTION

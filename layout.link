@@ -36,7 +36,6 @@ ROMX $01
 	"Tileset Data 10"
 ROMX $02
 	"bank2"
-	"Tileset Data 9"
 ROMX $03
 	"bank3"
 	"VWF"
@@ -50,7 +49,6 @@ ROMX $05
 ROMX $06
 	"Tileset Data 1"
 	"Prism tilemap copy functions"
-	"Pics 20"
 ROMX $07
 	"Roofs"
 	"Tileset Data 2"
@@ -183,7 +181,6 @@ ROMX $3b
 ROMX $3c
 	"Songs 3"
 	"Sound Effects"
-	"Cries"
 ROMX $3d
 	"Songs 4"
 ROMX $3e
@@ -213,7 +210,6 @@ ROMX $47
 	"Battle Tower"
 ROMX $48
 	"Pic Pointers"
-	"Pics 1"
 ROMX $49
 	"Unown Pic Pointers"
 	"Pics 2"

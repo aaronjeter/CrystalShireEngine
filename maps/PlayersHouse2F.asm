@@ -139,10 +139,10 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke MEWTWO, 100, BRIGHTPOWDER
+	givepoke TREECKO, 100, BRIGHTPOWDER
 	; hm slaves
-	givepoke MEW, 100, LEFTOVERS
-	givepoke LANTURN, 100, LEFTOVERS
+	givepoke GROVYLE, 100, LEFTOVERS
+	givepoke SCEPTILE, 100, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove STRENGTH,   wPartyMon2, 2
@@ -152,9 +152,9 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke AMPHAROS, 50
-	givepoke GENGAR, 50
-	givepoke DITTO, 50
+	givepoke TORCHIC, 50
+	givepoke COMBUSKEN, 50
+	givepoke BLAZIKEN, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

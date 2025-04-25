@@ -237,6 +237,10 @@ INCLUDE "engine/link/init_list.asm"
 INCLUDE "engine/pokemon/experience.asm"
 INCLUDE "engine/pokemon/switchpartymons.asm"
 INCLUDE "engine/gfx/load_pics.asm"
+
+
+SECTION "bank14.2", ROMX
+
 INCLUDE "data/pokemon/base_stats.asm"
 INCLUDE "data/pokemon/names.asm"
 
@@ -419,20 +423,16 @@ INCLUDE "gfx/pokemon/anim_pointers.asm"
 INCLUDE "gfx/pokemon/anims.asm"
 INCLUDE "gfx/pokemon/idle_pointers.asm"
 INCLUDE "gfx/pokemon/idles.asm"
-INCLUDE "gfx/pokemon/unown_anim_pointers.asm"
-INCLUDE "gfx/pokemon/unown_anims.asm"
-INCLUDE "gfx/pokemon/unown_idle_pointers.asm"
-INCLUDE "gfx/pokemon/unown_idles.asm"
-INCLUDE "gfx/pokemon/bitmask_pointers.asm"
-INCLUDE "gfx/pokemon/bitmasks.asm"
-INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
-INCLUDE "gfx/pokemon/unown_bitmasks.asm"
 
 
 SECTION "Pic Animations 2", ROMX
 
 INCLUDE "gfx/pokemon/frame_pointers.asm"
 INCLUDE "gfx/pokemon/kanto_frames.asm"
+INCLUDE "gfx/pokemon/unown_anim_pointers.asm"
+INCLUDE "gfx/pokemon/unown_anims.asm"
+INCLUDE "gfx/pokemon/unown_idle_pointers.asm"
+INCLUDE "gfx/pokemon/unown_idles.asm"
 
 
 SECTION "Pic Animations 3", ROMX
@@ -440,6 +440,14 @@ SECTION "Pic Animations 3", ROMX
 INCLUDE "gfx/pokemon/johto_frames.asm"
 INCLUDE "gfx/pokemon/unown_frame_pointers.asm"
 INCLUDE "gfx/pokemon/unown_frames.asm"
+INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
+INCLUDE "gfx/pokemon/unown_bitmasks.asm"
+
+
+SECTION "Pic Animations 4", ROMX
+
+INCLUDE "gfx/pokemon/bitmask_pointers.asm"
+INCLUDE "gfx/pokemon/bitmasks.asm"
 
 
 SECTION "bank38", ROMX
@@ -461,14 +469,18 @@ SECTION "bank3E", ROMX
 
 INCLUDE "engine/gfx/load_font.asm"
 INCLUDE "engine/link/time_capsule.asm"
-INCLUDE "engine/events/name_rater.asm"
 INCLUDE "engine/events/play_slow_cry.asm"
-INCLUDE "engine/pokedex/new_pokedex_entry.asm"
 INCLUDE "engine/link/time_capsule_2.asm"
+INCLUDE "engine/battle/misc.asm"
+
+
+SECTION "bank3E.2", ROMX
+
+INCLUDE "engine/pokedex/new_pokedex_entry.asm"
 INCLUDE "engine/pokedex/unown_dex.asm"
+INCLUDE "engine/events/name_rater.asm"
 INCLUDE "engine/events/magikarp.asm"
 INCLUDE "engine/battle/hidden_power.asm"
-INCLUDE "engine/battle/misc.asm"
 
 
 SECTION "bank3F", ROMX
