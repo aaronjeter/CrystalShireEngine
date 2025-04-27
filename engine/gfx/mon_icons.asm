@@ -497,10 +497,19 @@ GetIconBank:
 	ld a, [wCurIcon]
 	call GetPokemonIndexFromID
 	lb bc, BANK("Mon Icons 1"), 8 ; Default Bank
-	ld a, h	
+	ld a, h
+	cp HIGH(TORCHIC) ; first species in "Mon Icons 3"
+	jr c, .check_3
+	ld a, l
+	cp LOW(TORCHIC)
+	jr c, .check_3
+	ld b, BANK("Mon Icons 3") ; stubbed support for 4th bank
+	jr .return
+.check_3
+	ld a, h
 	cp HIGH(TREECKO) ; first species in "Mon Icons 3"
 	jr c, .check_2
-	ld a, l
+	ld a, l 
 	cp LOW(TREECKO)
 	jr c, .check_2
 	ld b, BANK("Mon Icons 3")
