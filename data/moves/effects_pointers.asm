@@ -162,4 +162,8 @@ MoveEffectsPointers:
 	dw DoFreeze
 	dw SpecialAttackUpHit
 	dw SpeedUpHit
+	dw CalmMind
+	dw BulkUp
+	dw DragonDance
+	dw CosmicPower
 	assert_table_length NUM_MOVE_EFFECTS

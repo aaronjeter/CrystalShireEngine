@@ -261,6 +261,53 @@ DEF GEN1_MOVES EQU const_value - 1
 	const WILLOWISP    ; fc
 	const PIXIE_DUST   ; fd
 	const FAE_VOICE    ; ff
+	const UPROAR       ; 0fd
+	const HEAT_WAVE    ; 101
+	const HAIL         ; 102
+	const FOCUS_PUNCH  ; 108
+	const NATURE_POWER ; 10a
+	const CHARGE       ; 10b
+	const SUPERPOWER   ; 112
+	const BRICK_BREAK  ; 116
+	const ERUPTION     ; 11a
+	const ARM_THRUST   ; 122
+	const LUSTER_PURGE ; 125
+	const MIST_BALL    ; 126
+	const BLAZE_KICK   ; 129
+	const ICE_BALL     ; 12b
+	const NEEDLE_ARM   ; 12c
+	const HYPER_VOICE  ; 12e
+	const POISON_FANG  ; 12f
+	const CRUSH_CLAW   ; 130
+	const BLAST_BURN   ; 131
+	const HYDRO_CANNON ; 132
+	const METEOR_MASH  ; 133
+	const ASTONISH     ; 134
+	const AIR_CUTTER   ; 138
+	const ROCK_TOMB    ; 13b
+	const SILVER_WIND  ; 13c
+	const COSMIC_POWER ; 140
+	const WATER_SPOUT  ; 141
+	const SIGNAL_BEAM  ; 142
+	const SHADOW_PUNCH ; 143
+	const EXTRASENSORY ; 144
+	const MUDDY_WATER  ; 148
+	const BULLET_SEED  ; 149
+	const AERIAL_ACE   ; 14a
+	const ICICLE_SPEAR ; 14b
+	const DRAGON_CLAW  ; 14f
+	const FRENZY_PLANT ; 150
+	const BULK_UP      ; 151
+	const MUD_SHOT     ; 153
+	const POISON_TAIL  ; 154
+	const VOLT_TACKLE  ; 156
+	const MAGICAL_LEAF ; 157
+	const CALM_MIND    ; 159
+	const LEAF_BLADE   ; 15a
+	const DRAGON_DANCE ; 15b
+	const ROCK_BLAST   ; 15c
+	const SHOCK_WAVE   ; 15d
+	const WATER_PULSE  ; 15e
 DEF GEN2_MOVES EQU const_value - 1
 
 DEF NUM_ATTACKS EQU const_value - 1

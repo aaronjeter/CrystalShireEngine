@@ -263,6 +263,53 @@ MoveDescriptionsGen2:
 	dw WillowispDescription
 	dw PixieDustDescription
 	dw FaeVoiceDescription
+	dw UproarDescription
+	dw HeatWaveDescription
+	dw HailDescription
+	dw FocusPunchDescription
+	dw NaturePowerDescription
+	dw ChargeDescription
+	dw SuperpowerDescription
+	dw BrickBreakDescription
+	dw EruptionDescription
+	dw ArmThrustDescription
+	dw LusterPurgeDescription
+	dw MistBallDescription
+	dw BlazeKickDescription
+	dw IceBallDescription
+	dw NeedleArmDescription
+	dw HyperVoiceDescription
+	dw PoisonFangDescription
+	dw CrushClawDescription
+	dw BlastBurnDescription
+	dw HydroCannonDescription
+	dw MeteorMashDescription
+	dw AstonishDescription
+	dw AirCutterDescription
+	dw RockTombDescription
+	dw SilverWindDescription
+	dw CosmicPowerDescription
+	dw WaterSpoutDescription
+	dw SignalBeamDescription
+	dw ShadowPunchDescription
+	dw ExtrasensoryDescription
+	dw MuddyWaterDescription
+	dw BulletSeedDescription
+	dw AerialAceDescription
+	dw IcicleSpearDescription
+	dw DragonClawDescription
+	dw FrenzyPlantDescription
+	dw BulkUpDescription
+	dw MudShotDescription
+	dw PoisonTailDescription
+	dw VoltTackleDescription
+	dw MagicalLeafDescription
+	dw CalmMindDescription
+	dw LeafBladeDescription
+	dw DragonDanceDescription
+	dw RockBlastDescription
+	dw ShockWaveDescription
+	dw WaterPulseDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1283,3 +1330,193 @@ PixieDustDescription:
 FaeVoiceDescription:
 	db   "An attack that may"
 	next "cause flinching.@"
+
+; Gen 3
+
+UproarDescription:
+	db   "Works 2-3 turns"
+	next "and confuses user.@"
+
+HeatWaveDescription:
+	db   "An attack that"
+	next "may cause a burn.@"
+
+HailDescription:
+	db   "Inflicts damage"
+	next "every turn.@"
+
+FocusPunchDescription:
+	db   "Attack that may"
+	next "cause flinch.@"
+
+NaturePowerDescription:
+	db   "Strong Grass"
+	next "type attack.@"
+
+ChargeDescription:
+	db   "Raises the user's"
+	next "special stats.@"
+
+SuperpowerDescription:
+	db   "Strong, but lowers"
+	next "physical stats.@"
+
+BrickBreakDescription:
+	db   "Destroys REFLECT"
+	next "and LIGHT SCREEN.@"
+
+EruptionDescription:
+	db   "Strong, but lowers"
+	next "special stats.@"
+
+ArmThrustDescription:
+	db   "Repeatedly punches"
+	next "2-5 times.@"
+
+LusterPurgeDescription:
+	db   "An attack that may"
+	next "lower SPCL.DEF.@"
+
+MistBallDescription:
+	db   "An attack that may"
+	next "lower SPCL.ATK.@"
+
+BlazeKickDescription:
+	db   "High critical hit."
+	next "May cause burn.@"
+
+IceBallDescription:
+	db   "Attacks 5 turns"
+	next "with rising power.@"
+
+NeedleArmDescription:
+	db   "An attack that may"
+	next "cause flinching.@"
+
+HyperVoiceDescription:
+	db   "Sound waves that"
+	next "deal damage.@"
+
+PoisonFangDescription:
+	db   "An attack that may"
+	next "poison foe.@"
+
+CrushClawDescription:
+	db   "An attack that may"
+	next "lower DEFENSE.@"
+
+BlastBurnDescription:
+	db   "1st turn: Attack"
+	next "2nd turn: Rest@"
+
+HydroCannonDescription:
+	db   "1st turn: Attack"
+	next "2nd turn: Rest@"
+
+MeteorMashDescription:
+	db   "An attack that may"
+	next "up user's ATTACK.@"
+
+AstonishDescription:
+	db   "An attack that may"
+	next "cause flinching.@"
+
+AirCutterDescription:
+	db   "Has a high criti-"
+	next "cal hit ratio.@"
+
+RockTombDescription:
+	db   "An attack that may"
+	next "lower Speed.@"
+
+SilverWindDescription:
+	db   "An attack that may"
+	next "raise all stats.@"
+
+CosmicPowerDescription:
+	db   "Raises the user's"
+	next "defensive stats.@"
+
+WaterSpoutDescription:
+	db   "Strong, but lowers"
+	next "special stats.@"
+
+SignalBeamDescription:
+	db   "An attack that may"
+	next "cause confusion.@"
+
+ShadowPunchDescription:
+	db   "An attack that"
+	next "never misses.@"
+
+ExtrasensoryDescription:
+	db   "An attack that may"
+	next "cause flinching.@"
+
+MuddyWaterDescription:
+	db   "An attack that may"
+	next "reduce accuracy.@"
+
+BulletSeedDescription:
+	db   "Fires seeds that"
+	next "strike 2-5 times.@"
+
+AerialAceDescription:
+	db   "An attack that"
+	next "never misses.@"
+
+IcicleSpearDescription:
+	db   "Fires icicles that"
+	next "strike 2-5 times.@"
+
+DragonClawDescription:
+	db   "Slashes the foe"
+	next "with sharp claws.@"
+
+FrenzyPlantDescription:
+	db   "1st turn: Attack"
+	next "2nd turn: Rest@"
+
+BulkUpDescription:
+	db   "Raises the user's"
+	next "physical stats.@"
+
+MudShotDescription:
+	db   "An attack that may"
+	next "reduce SPEED.@"
+
+PoisonTailDescription:
+	db   "High critical hit."
+	next "May poison foe.@"
+
+VoltTackleDescription:
+	db   "A tackle that also"
+	next "hurts the user.@"
+
+MagicalLeafDescription:
+	db   "An attack that"
+	next "never misses.@"
+
+CalmMindDescription:
+	db   "Raises the user's"
+	next "special stats.@"
+
+LeafBladeDescription:
+	db   "Has a high criti-"
+	next "cal hit ratio.@"
+
+DragonDanceDescription:
+	db   "Raises the user's"
+	next "SPEED and ATTACK.@"
+
+RockBlastDescription:
+	db   "Fires rocks that"
+	next "strike 2-5 times.@"
+
+ShockWaveDescription:
+	db   "An attack that"
+	next "never misses.@"
+
+WaterPulseDescription:
+	db   "An attack that may"
+	next "cause confusion.@"

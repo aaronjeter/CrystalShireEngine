@@ -2139,3 +2139,59 @@ SpeedUpHit:
 	statupmessage
 	endmove
 
+CalmMind:
+	checkobedience
+	usedmovetext
+	doturn
+	lowersub
+	statupanim
+	specialattackup	
+	statupmessage
+	specialdefenseup	
+	statupmessage
+	raisesub	
+	statupfailtext
+	endmove
+
+BulkUp:
+	checkobedience
+	usedmovetext
+	doturn
+	lowersub
+	statupanim
+	attackup	
+	statupmessage
+	defenseup	
+	statupmessage
+	raisesub	
+	statupfailtext
+	endmove
+
+DragonDance:
+	checkobedience
+	usedmovetext
+	doturn
+	lowersub
+	statupanim
+	attackup	
+	statupmessage
+	speedup	
+	statupmessage
+	raisesub	
+	statupfailtext
+	endmove
+
+CosmicPower:
+	checkobedience
+	usedmovetext
+	doturn
+	lowersub
+	statupanim
+	defenseup	
+	statupmessage
+	specialdefenseup	
+	statupmessage
+	raisesub	
+	statupfailtext
+	endmove
+

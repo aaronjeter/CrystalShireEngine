@@ -1977,12 +1977,12 @@ TreeckoEvosAttacks:
 	dbw 20, FAINT_ATTACK
 	dbw 24, MEGA_DRAIN
 	dbw 28, AGILITY
-	dbw 32, SLAM
+	dbw 32, LEAF_BLADE
 	dbw 36, DETECT
 	dbw 40, GIGA_DRAIN
 	dbw 42, PURSUIT
-	dbw 45, FALSE_SWIPE
-	dbw 50, DRAGONBREATH
+	dbw 45, DRAGONBREATH
+	dbw 50, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
 GrovyleEvosAttacks:
@@ -1996,12 +1996,12 @@ GrovyleEvosAttacks:
 	dbw 20, FAINT_ATTACK
 	dbw 24, MEGA_DRAIN
 	dbw 28, AGILITY
-	dbw 32, SLAM
+	dbw 32, LEAF_BLADE
 	dbw 36, DETECT
 	dbw 40, GIGA_DRAIN
 	dbw 42, PURSUIT
-	dbw 45, FALSE_SWIPE
-	dbw 50, DRAGONBREATH
+	dbw 45, DRAGONBREATH
+	dbw 50, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
 SceptileEvosAttacks:
@@ -2014,12 +2014,12 @@ SceptileEvosAttacks:
 	dbw 20, FAINT_ATTACK
 	dbw 24, MEGA_DRAIN
 	dbw 28, AGILITY
-	dbw 32, SLAM
+	dbw 32, LEAF_BLADE
 	dbw 36, DETECT
 	dbw 40, GIGA_DRAIN
 	dbw 42, PURSUIT
-	dbw 45, FALSE_SWIPE
-	dbw 50, DRAGONBREATH
+	dbw 45, DRAGONBREATH
+	dbw 50, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
 TorchicEvosAttacks:
@@ -2034,12 +2034,12 @@ TorchicEvosAttacks:
 	dbw 20, FIRE_SPIN
 	dbw 24, MACH_PUNCH
 	dbw 28, MIRROR_MOVE
-	dbw 32, FLAMETHROWER
+	dbw 32, BLAZE_KICK
 	dbw 36, SLASH
 	dbw 40, CROSS_CHOP
 	dbw 42, DRILL_PECK
-	dbw 45, CURSE
-	dbw 50, SUBMISSION
+	dbw 45, BULK_UP
+	dbw 50, BLAST_BURN
 	db 0 ; no more level-up moves
 
 CombuskenEvosAttacks:
@@ -2054,12 +2054,12 @@ CombuskenEvosAttacks:
 	dbw 20, FIRE_SPIN
 	dbw 24, MACH_PUNCH
 	dbw 28, MIRROR_MOVE
-	dbw 32, FLAMETHROWER
+	dbw 32, BLAZE_KICK
 	dbw 36, SLASH
 	dbw 40, CROSS_CHOP
 	dbw 42, DRILL_PECK
-	dbw 45, CURSE
-	dbw 50, SUBMISSION
+	dbw 45, BULK_UP
+	dbw 50, BLAST_BURN
 	db 0 ; no more level-up moves
 
 BlazikenEvosAttacks:
@@ -2073,12 +2073,12 @@ BlazikenEvosAttacks:
 	dbw 20, FIRE_SPIN
 	dbw 24, MACH_PUNCH
 	dbw 28, MIRROR_MOVE
-	dbw 32, FLAMETHROWER
+	dbw 32, BLAZE_KICK
 	dbw 36, SLASH
 	dbw 40, CROSS_CHOP
 	dbw 42, DRILL_PECK
-	dbw 45, CURSE
-	dbw 50, SUBMISSION
+	dbw 45, BULK_UP
+	dbw 50, BLAST_BURN
 	db 0 ; no more level-up moves
 
 MudkipEvosAttacks:
@@ -2093,7 +2093,7 @@ MudkipEvosAttacks:
 	dbw 20, BUBBLEBEAM
 	dbw 24, SLAM
 	dbw 28, WHIRLPOOL
-	dbw 32, PROTECT
+	dbw 32, MUDDY_WATER
 	dbw 36, RAIN_DANCE
 	dbw 42, HYDRO_PUMP
 	dbw 45, EARTHQUAKE
@@ -2112,7 +2112,7 @@ MarshtompEvosAttacks:
 	dbw 20, BUBBLEBEAM
 	dbw 24, SLAM
 	dbw 28, WHIRLPOOL
-	dbw 32, PROTECT
+	dbw 32, MUDDY_WATER
 	dbw 36, RAIN_DANCE
 	dbw 42, HYDRO_PUMP
 	dbw 45, EARTHQUAKE
@@ -2130,7 +2130,7 @@ SwampertEvosAttacks:
 	dbw 20, BUBBLEBEAM
 	dbw 24, SLAM
 	dbw 28, WHIRLPOOL
-	dbw 32, PROTECT
+	dbw 32, MUDDY_WATER
 	dbw 36, RAIN_DANCE
 	dbw 42, HYDRO_PUMP
 	dbw 45, EARTHQUAKE
@@ -2237,7 +2237,7 @@ BeautiflyEvosAttacks:
 	dbw 17, STUN_SPORE
 	dbw 20, MORNING_SUN
 	dbw 24, MEGA_DRAIN
-	dbw 27, WHIRLWIND
+	dbw 27, SILVER_WIND
 	dbw 31, ATTRACT
 	dbw 32, PIN_MISSILE
 	dbw 36, GIGA_DRAIN
@@ -2263,7 +2263,7 @@ DustoxEvosAttacks:
 	dbw 17, PROTECT
 	dbw 20, MOONLIGHT
 	dbw 24, PSYBEAM
-	dbw 27, WHIRLWIND
+	dbw 27, SILVER_WIND
 	dbw 31, ATTRACT
 	dbw 32, PIN_MISSILE
 	dbw 36, PSYCHIC_M
@@ -2281,11 +2281,11 @@ LotadEvosAttacks:
 	dbw 8, GROWL
 	dbw 12, LEECH_SEED
 	dbw 16, BUBBLEBEAM
-	dbw 20, MEGA_DRAIN
+	dbw 20, MAGICAL_LEAF
 	dbw 24, MIST
 	dbw 28, RAIN_DANCE
-	dbw 32, GIGA_DRAIN
-	dbw 36, MEGA_DRAIN
+	dbw 32, NATURE_POWER
+	dbw 36, GIGA_DRAIN
 	dbw 40, SUNNY_DAY
 	dbw 42, SOLARBEAM
 	dbw 45, HYDRO_PUMP
@@ -2300,11 +2300,11 @@ LombreEvosAttacks:
 	dbw 8, GROWL
 	dbw 12, LEECH_SEED
 	dbw 16, BUBBLEBEAM
-	dbw 20, MEGA_DRAIN
+	dbw 20, MAGICAL_LEAF
 	dbw 24, MIST
 	dbw 28, RAIN_DANCE
-	dbw 32, GIGA_DRAIN
-	dbw 36, MEGA_DRAIN
+	dbw 32, NATURE_POWER
+	dbw 36, GIGA_DRAIN
 	dbw 40, SUNNY_DAY
 	dbw 42, SOLARBEAM
 	dbw 45, HYDRO_PUMP
@@ -2318,11 +2318,11 @@ LudicoloEvosAttacks:
 	dbw 8, GROWL
 	dbw 12, LEECH_SEED
 	dbw 16, BUBBLEBEAM
-	dbw 20, MEGA_DRAIN
+	dbw 20, MAGICAL_LEAF
 	dbw 24, MIST
 	dbw 28, RAIN_DANCE
-	dbw 32, GIGA_DRAIN
-	dbw 36, MEGA_DRAIN
+	dbw 32, NATURE_POWER
+	dbw 36, GIGA_DRAIN
 	dbw 40, SUNNY_DAY
 	dbw 42, SOLARBEAM
 	dbw 45, HYDRO_PUMP
@@ -2340,11 +2340,11 @@ SeedotEvosAttacks:
 	dbw 20, FAINT_ATTACK
 	dbw 24, SYNTHESIS
 	dbw 28, SUNNY_DAY
-	dbw 32, SOLARBEAM
+	dbw 32, NATURE_POWER
 	dbw 36, PURSUIT
 	dbw 40, EXPLOSION
 	dbw 42, RAZOR_WIND
-	dbw 45, SLASH
+	dbw 45, LEAF_BLADE
 	dbw 50, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
@@ -2359,11 +2359,11 @@ NuzleafEvosAttacks:
 	dbw 20, FAINT_ATTACK
 	dbw 24, SYNTHESIS
 	dbw 28, SUNNY_DAY
-	dbw 32, SOLARBEAM
+	dbw 32, NATURE_POWER
 	dbw 36, PURSUIT
 	dbw 40, EXPLOSION
 	dbw 42, RAZOR_WIND
-	dbw 45, SLASH
+	dbw 45, LEAF_BLADE
 	dbw 50, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
@@ -2377,11 +2377,11 @@ ShiftryEvosAttacks:
 	dbw 20, FAINT_ATTACK
 	dbw 24, SYNTHESIS
 	dbw 28, SUNNY_DAY
-	dbw 32, SOLARBEAM
+	dbw 32, NATURE_POWER
 	dbw 36, PURSUIT
 	dbw 40, EXPLOSION
 	dbw 42, RAZOR_WIND
-	dbw 45, SLASH
+	dbw 45, LEAF_BLADE
 	dbw 50, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
@@ -2394,7 +2394,7 @@ TaillowEvosAttacks:
 	dbw 12, BITE
 	dbw 18, WING_ATTACK
 	dbw 22, FAINT_ATTACK
-	dbw 25, SHARPEN
+	dbw 25, AERIAL_ACE
 	dbw 31, MIRROR_MOVE
 	dbw 32, DRILL_PECK
 	dbw 36, PURSUIT
@@ -2411,7 +2411,7 @@ SwellowEvosAttacks:
 	dbw 12, BITE
 	dbw 18, WING_ATTACK
 	dbw 22, FAINT_ATTACK
-	dbw 25, SHARPEN
+	dbw 25, AERIAL_ACE
 	dbw 31, MIRROR_MOVE
 	dbw 32, DRILL_PECK
 	dbw 36, PURSUIT
@@ -2427,7 +2427,7 @@ WingullEvosAttacks:
 	dbw 1, WATER_GUN
 	dbw 7, GROWL
 	dbw 11, SUPERSONIC
-	dbw 16, WING_ATTACK
+	dbw 16, AERIAL_ACE
 	dbw 21, MIST
 	dbw 24, BUBBLEBEAM
 	dbw 28, RECOVER
@@ -2445,7 +2445,7 @@ PelipperEvosAttacks:
 	dbw 1, WATER_GUN
 	dbw 7, GROWL
 	dbw 11, SUPERSONIC
-	dbw 16, WING_ATTACK
+	dbw 16, AERIAL_ACE
 	dbw 21, MIST
 	dbw 24, BUBBLEBEAM
 	dbw 28, RECOVER
@@ -2469,10 +2469,10 @@ RaltsEvosAttacks:
 	dbw 28, HYPNOSIS
 	dbw 32, PSYCHIC_M
 	dbw 36, DREAM_EATER
-	dbw 40, SWIFT
-	dbw 42, MEDITATE
+	dbw 40, CALM_MIND
+	dbw 42, RECOVER
 	dbw 45, BARRIER
-	dbw 50, RECOVER
+	dbw 50, LUSTER_PURGE
 	db 0 ; no more level-up moves
 
 KirliaEvosAttacks:
@@ -2487,10 +2487,10 @@ KirliaEvosAttacks:
 	dbw 28, HYPNOSIS
 	dbw 32, PSYCHIC_M
 	dbw 36, DREAM_EATER
-	dbw 40, SWIFT
-	dbw 42, MEDITATE
+	dbw 40, CALM_MIND
+	dbw 42, RECOVER
 	dbw 45, BARRIER
-	dbw 50, RECOVER
+	dbw 50, LUSTER_PURGE
 	db 0 ; no more level-up moves
 
 GardevoirEvosAttacks:
@@ -2504,10 +2504,10 @@ GardevoirEvosAttacks:
 	dbw 28, HYPNOSIS
 	dbw 32, PSYCHIC_M
 	dbw 36, DREAM_EATER
-	dbw 40, SWIFT
-	dbw 42, MEDITATE
+	dbw 40, CALM_MIND
+	dbw 42, RECOVER
 	dbw 45, BARRIER
-	dbw 50, RECOVER
+	dbw 50, LUSTER_PURGE
 	db 0 ; no more level-up moves
 
 SurskitEvosAttacks:
