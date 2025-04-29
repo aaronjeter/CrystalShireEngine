@@ -108,13 +108,13 @@ MartGoldenrod2F2:
 
 MartGoldenrod3F:
 	db 7 ; # items
-	dw X_SPEED
-	dw X_SPECIAL
-	dw X_DEFEND
-	dw X_ATTACK
-	dw DIRE_HIT
-	dw GUARD_SPEC
-	dw X_ACCURACY
+	dw FIRE_STONE
+	dw THUNDERSTONE
+	dw WATER_STONE
+	dw LEAF_STONE
+	dw MOON_STONE
+	dw SUN_STONE
+	dw EXP_SHARE
 
 MartGoldenrod4F:
 	db 5 ; # items
