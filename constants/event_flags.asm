@@ -271,6 +271,7 @@
 	const EVENT_ORIGIN_KANTO
 	const EVENT_ORIGIN_JOHTO
 	const EVENT_ORIGIN_HOENN
+	const EVENT_ORIGIN_REDDIT
 ; Unused: next 336 events
 
 	const_next 600

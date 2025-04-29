@@ -173,6 +173,9 @@ LeftPokeBallScript:
 	checkevent EVENT_ORIGIN_HOENN
 	iftrue TorchicPokeBallScript
 
+	checkevent EVENT_ORIGIN_REDDIT
+	iftrue Cyndaquil2PokeBallScript
+
 MiddlePokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue LookAtElmPokeBallScript
@@ -188,6 +191,9 @@ MiddlePokeBallScript:
 	checkevent EVENT_ORIGIN_HOENN
 	iftrue MudkipPokeBallScript
 
+	checkevent EVENT_ORIGIN_REDDIT
+	iftrue Totodile2PokeBallScript
+
 RightPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue LookAtElmPokeBallScript
@@ -202,6 +208,9 @@ RightPokeBallScript:
 
 	checkevent EVENT_ORIGIN_HOENN
 	iftrue TreeckoPokeBallScript
+
+	checkevent EVENT_ORIGIN_REDDIT
+	iftrue ExeggcutePokeBallScript
 
 CharmanderPokeBallScript:
 	pokepic CHARMANDER
@@ -275,6 +284,32 @@ TorchicPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TORCHIC, 5, BERRY
+	closetext
+	readvar VAR_FACING
+	ifequal RIGHT, ElmDirectionsScript
+	applymovement PLAYER, AfterCyndaquilMovement
+	sjump ElmDirectionsScript
+
+Cyndaquil2PokeBallScript:	
+	pokepic CYNDAQUIL2
+	cry CYNDAQUIL2
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeCyndaquilText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL1
+	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, CYNDAQUIL2
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke CYNDAQUIL2, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -379,6 +414,30 @@ MudkipPokeBallScript:
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
+Totodile2PokeBallScript:	
+	pokepic TOTODILE2
+	cry TOTODILE2
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeTotodileText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL2
+	setevent EVENT_GOT_TOTODILE_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, TOTODILE2
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke TOTODILE2, 5, BERRY
+	closetext
+	applymovement PLAYER, AfterTotodileMovement
+	sjump ElmDirectionsScript
+
 DelibirdPokeBallScript2:	
 	pokepic DELIBIRD
 	cry DELIBIRD
@@ -471,6 +530,30 @@ TreeckoPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TREECKO, 5, BERRY
+	closetext
+	applymovement PLAYER, AfterChikoritaMovement
+	sjump ElmDirectionsScript
+
+ExeggcutePokeBallScript:	
+	pokepic EXEGGCUTE2
+	cry EXEGGCUTE2
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeExeggcuteText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL3
+	setevent EVENT_GOT_CHIKORITA_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, EXEGGCUTE2
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke EXEGGCUTE2, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -1171,6 +1254,12 @@ TakeChikoritaText:
 TakeTreeckoText:
 	text "ELM: You'll take"
 	line "TREECKO, the"
+	cont "grass #MON?"
+	done
+
+TakeExeggcuteText:	
+	text "ELM: So, you like"
+	line "EXEGGCUTE, the"
 	cont "grass #MON?"
 	done
 
