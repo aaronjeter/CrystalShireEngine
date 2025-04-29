@@ -291,7 +291,7 @@ JohtoGrassWildMons:
 	dbw 2, KOFFING
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
-	dbw 5, HOUNDOUR
+	dbw 5, CYNDAQUIL2
 	; day
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
@@ -299,7 +299,7 @@ JohtoGrassWildMons:
 	dbw 2, KOFFING
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
-	dbw 5, HOUNDOUR
+	dbw 5, CYNDAQUIL2
 	; nite
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
@@ -307,7 +307,7 @@ JohtoGrassWildMons:
 	dbw 2, KOFFING
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
-	dbw 5, HOUNDOUR
+	dbw 5, CYNDAQUIL2
 	end_grass_wildmons
 
 	def_grass_wildmons BURNED_TOWER_B1F
@@ -319,7 +319,7 @@ JohtoGrassWildMons:
 	dbw 2, KOFFING
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
-	dbw 5, HOUNDOUR
+	dbw 5, CYNDAQUIL2
 	; day
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
@@ -327,7 +327,7 @@ JohtoGrassWildMons:
 	dbw 2, KOFFING
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
-	dbw 5, HOUNDOUR
+	dbw 5, CYNDAQUIL2
 	; nite
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
@@ -335,7 +335,7 @@ JohtoGrassWildMons:
 	dbw 2, KOFFING
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
-	dbw 5, HOUNDOUR
+	dbw 5, CYNDAQUIL2
 	end_grass_wildmons
 
 	def_grass_wildmons NATIONAL_PARK
@@ -343,27 +343,27 @@ JohtoGrassWildMons:
 	; morn
 	dbw 1, NIDORAN_M
 	dbw 1, NIDORAN_F
-	dbw 2, PIDGEY
+	dbw 2, YANMA2
 	dbw 2, SUNKERN
 	dbw 3, CATERPIE
 	dbw 3, YANMA
-	dbw 5, YANMA
+	dbw 5, EXEGGCUTE2
 	; day
 	dbw 1, NIDORAN_M
 	dbw 1, NIDORAN_F
-	dbw 2, PIDGEY
+	dbw 2, YANMA2
 	dbw 2, SUNKERN
 	dbw 3, CATERPIE
 	dbw 3, YANMA
-	dbw 5, YANMA
+	dbw 5, EXEGGCUTE2
 	; nite
 	dbw 1, NIDORAN_M
 	dbw 1, NIDORAN_F
-	dbw 2, HOOTHOOT
+	dbw 2, YANMA2
 	dbw 2, SUNKERN
 	dbw 3, CATERPIE
 	dbw 3, YANMA
-	dbw 5, YANMA
+	dbw 5, EXEGGCUTE2
 	end_grass_wildmons
 
 	def_grass_wildmons RUINS_OF_ALPH_OUTSIDE
@@ -713,7 +713,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB
+	dbw 1, SWINUB2
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -741,7 +741,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB
+	dbw 1, SWINUB2
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -769,7 +769,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB
+	dbw 1, SWINUB2
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -797,7 +797,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB
+	dbw 1, SWINUB2
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -1490,56 +1490,56 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, RATTATA
-	dbw 3, RATICATE
+	dbw 3, TAUROS2
 	dbw 1, MAGNEMITE
 	dbw 1, MEOWTH
 	dbw 1, TAUROS
 	dbw 1, MILTANK
-	dbw 5, MILTANK
+	dbw 5, VOLTORB2
 	; day
 	dbw 1, RATTATA
-	dbw 3, RATICATE
+	dbw 3, TAUROS2
 	dbw 1, MAGNEMITE
 	dbw 1, MEOWTH
 	dbw 1, TAUROS
 	dbw 1, MILTANK
-	dbw 5, TAUROS
+	dbw 5, VOLTORB2
 	; nite
 	dbw 1, RATTATA
-	dbw 3, RATICATE
+	dbw 3, TAUROS2
 	dbw 1, MAGNEMITE
 	dbw 1, MEOWTH
 	dbw 1, TAUROS
 	dbw 1, MILTANK
-	dbw 5, PERSIAN
+	dbw 5, VOLTORB2
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_39
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, RATTATA
-	dbw 3, RATICATE
+	dbw 3, TAUROS2
 	dbw 1, MAGNEMITE
 	dbw 3, PIDGEOTTO
 	dbw 1, MILTANK
 	dbw 1, TAUROS
-	dbw 5, TAUROS
+	dbw 5, VOLTORB2
 	; day
 	dbw 1, RATTATA
-	dbw 3, RATICATE
+	dbw 3, TAUROS2
 	dbw 1, MAGNEMITE
 	dbw 3, PIDGEOTTO
 	dbw 1, MILTANK
 	dbw 1, TAUROS
-	dbw 5, TAUROS
+	dbw 5, VOLTORB2
 	; nite
 	dbw 1, MEOWTH
-	dbw 3, RATICATE
+	dbw 3, TAUROS2
 	dbw 1, MAGNEMITE
 	dbw 3, PIDGEOTTO
 	dbw 1, MILTANK
 	dbw 1, TAUROS
-	dbw 5, PERSIAN
+	dbw 5, VOLTORB2
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_42
@@ -1635,7 +1635,7 @@ JohtoGrassWildMons:
 	dbw 3, DONPHAN
 	dbw 1, PHANPY
 	dbw 1, SKARMORY
-	dbw 5, SKARMORY
+	dbw 5, SKARMORY2
 	; day
 	dbw 1, GEODUDE
 	dbw 3, GRAVELER
@@ -1643,7 +1643,7 @@ JohtoGrassWildMons:
 	dbw 3, DONPHAN
 	dbw 1, PHANPY
 	dbw 1, SKARMORY
-	dbw 5, SKARMORY
+	dbw 5, SKARMORY2
 	; nite
 	dbw 1, GEODUDE
 	dbw 3, GRAVELER
@@ -1651,7 +1651,7 @@ JohtoGrassWildMons:
 	dbw 3, DONPHAN
 	dbw 1, PHANPY
 	dbw 1, SKARMORY
-	dbw 5, SKARMORY
+	dbw 5, SKARMORY2
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_46
@@ -1662,7 +1662,7 @@ JohtoGrassWildMons:
 	dbw 1, SANDSHREW
 	dbw 1, PHANPY
 	dbw 1, SWINUB
-	dbw 1, SWINUB
+	dbw 1, SWINUB2
 	dbw 1, DELIBIRD
 	; day
 	dbw 1, GEODUDE
@@ -1670,7 +1670,7 @@ JohtoGrassWildMons:
 	dbw 1, SANDSHREW
 	dbw 1, PHANPY
 	dbw 1, SWINUB
-	dbw 1, SWINUB
+	dbw 1, SWINUB2
 	dbw 1, DELIBIRD
 	; nite
 	dbw 1, GEODUDE
@@ -1678,7 +1678,7 @@ JohtoGrassWildMons:
 	dbw 1, SANDSHREW
 	dbw 1, PHANPY
 	dbw 1, SWINUB
-	dbw 1, SWINUB
+	dbw 1, SWINUB2
 	dbw 1, DELIBIRD
 	end_grass_wildmons
 

@@ -12,21 +12,21 @@ JohtoWaterWildMons:
 	def_water_wildmons UNION_CAVE_1F
 	db 2 percent ; encounter rate
 	dbw 2, KABUTO
-	dbw 2, TOTODILE
+	dbw 2, TOTODILE2
 	dbw 2, OMANYTE
 	end_water_wildmons
 
 	def_water_wildmons UNION_CAVE_B1F
 	db 2 percent ; encounter rate
 	dbw 2, KABUTO
-	dbw 2, TOTODILE
+	dbw 2, TOTODILE2
 	dbw 2, OMANYTE
 	end_water_wildmons
 
 	def_water_wildmons UNION_CAVE_B2F
 	db 2 percent ; encounter rate
 	dbw 2, KABUTO
-	dbw 2, TOTODILE
+	dbw 2, TOTODILE2
 	dbw 2, OMANYTE
 	end_water_wildmons
 
@@ -74,22 +74,22 @@ JohtoWaterWildMons:
 
 	def_water_wildmons WHIRL_ISLAND_SW
 	db 2 percent ; encounter rate
-	dbw 1, TENTACOOL
+	dbw 1, TENTACOOL2
 	dbw 1, HORSEA
-	dbw 5, TENTACRUEL
+	dbw 5, TENTACRUEL2
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_B2F
 	db 2 percent ; encounter rate
 	dbw 1, HORSEA
 	dbw 2, HORSEA
-	dbw 5, TENTACRUEL
+	dbw 5, TENTACRUEL2
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_LUGIA_CHAMBER
 	db 2 percent ; encounter rate
 	dbw 3, WARTORTLE
-	dbw 3, TENTACRUEL
+	dbw 3, TENTACRUEL2
 	dbw 3, SEADRA
 	end_water_wildmons
 
