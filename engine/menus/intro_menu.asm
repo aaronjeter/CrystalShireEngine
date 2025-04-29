@@ -714,7 +714,7 @@ SetRegion:
 	db "Kanto (Gen 1)@"
 	db "Johto (Gen 2)@"
 	db "Hoenn (Gen 3)@"
-	db "Reddit (alt Gen2)@"
+	db "Reddit (alt)@"
 
 .RegionKanto:
     ld de, EVENT_ORIGIN_KANTO
