@@ -37,8 +37,10 @@ AlphabeticalPokedexOrder:
 	dw CORSOLA
 	dw CROBAT
 	dw CROCONAW
+	dw CROCONAW2
 	dw CUBONE
 	dw CYNDAQUIL
+	dw CYNDAQUIL2
 	dw DELIBIRD
 	dw DEWGONG
 	dw DIGLETT
@@ -56,18 +58,23 @@ AlphabeticalPokedexOrder:
 	dw EKANS
 	dw ELECTABUZZ
 	dw ELECTRODE
+	dw ELECTRODE2
 	dw ELEKID
 	dw ENTEI
 	dw ESPEON
 	dw EXEGGCUTE
+	dw EXEGGCUTE2
 	dw EXEGGUTOR
+	dw EXEGGUTOR2
 	dw FARFETCH_D
 	dw FEAROW
 	dw FERALIGATR
+	dw FERALIGATR2
 	dw FLAAFFY
 	dw FLAREON
 	dw FORRETRESS
 	dw FURRET
+	dw FURRET2
 	dw GASTLY
 	dw GENGAR
 	dw GEODUDE
@@ -154,8 +161,11 @@ AlphabeticalPokedexOrder:
 	dw NIDORINA
 	dw NIDORINO
 	dw NINETALES
+	dw NINETALES2
 	dw NOCTOWL
+	dw NOCTOWL2
 	dw OCTILLERY
+	dw OCTILLERY2
 	dw ODDISH
 	dw OMANYTE
 	dw OMASTAR
@@ -170,6 +180,7 @@ AlphabeticalPokedexOrder:
 	dw PIDGEY
 	dw PIKACHU
 	dw PILOSWINE
+	dw PILOSWINE2
 	dw PINECO
 	dw PINSIR
 	dw POLITOED
@@ -184,10 +195,12 @@ AlphabeticalPokedexOrder:
 	dw PUPITAR
 	dw QUAGSIRE
 	dw QUILAVA
+	dw QUILAVA2
 	dw QWILFISH
 	dw RAICHU
 	dw RAIKOU
 	dw RAPIDASH
+	dw RAPIDASH2
 	dw RATICATE
 	dw RATTATA
 	dw REMORAID
@@ -197,7 +210,9 @@ AlphabeticalPokedexOrder:
 	dw SANDSLASH
 	dw SCEPTILE
 	dw SCIZOR
+	dw SCIZOR2
 	dw SCYTHER
+	dw SCYTHER2
 	dw SEADRA
 	dw SEAKING
 	dw SEEL
@@ -205,6 +220,7 @@ AlphabeticalPokedexOrder:
 	dw SHELLDER
 	dw SHUCKLE
 	dw SKARMORY
+	dw SKARMORY2
 	dw SKIPLOOM
 	dw SLOWBRO
 	dw SLOWKING
@@ -228,17 +244,23 @@ AlphabeticalPokedexOrder:
 	dw SUNKERN
 	dw SWAMPERT
 	dw SWINUB
+	dw SWINUB2
 	dw TANGELA
 	dw TAUROS
+	dw TAUROS2
 	dw TEDDIURSA
 	dw TENTACOOL
+	dw TENTACOOL2
 	dw TENTACRUEL
+	dw TENTACRUEL2
 	dw TOGEPI
 	dw TOGETIC
 	dw TORCHIC
 	dw TREECKO
 	dw TOTODILE
+	dw TOTODILE2
 	dw TYPHLOSION
+	dw TYPHLOSION2
 	dw TYRANITAR
 	dw TYROGUE
 	dw UMBREON
@@ -251,6 +273,7 @@ AlphabeticalPokedexOrder:
 	dw VICTREEBEL
 	dw VILEPLUME
 	dw VOLTORB
+	dw VOLTORB2
 	dw VULPIX
 	dw WARTORTLE
 	dw WEEDLE
@@ -261,6 +284,7 @@ AlphabeticalPokedexOrder:
 	dw WOOPER
 	dw XATU
 	dw YANMA
+	dw YANMA2
 	dw ZAPDOS
 	dw ZUBAT
 	dw POOCHYENA

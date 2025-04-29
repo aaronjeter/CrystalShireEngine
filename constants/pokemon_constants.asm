@@ -360,6 +360,32 @@ DEF JOHTO_POKEMON EQU const_value
 	const SEVIPER    ; 150
 	const LUNATONE   ; 151
 	const SOLROCK    ; 152
+	;reddit mons
+	const VOLTORB2
+	const ELECTRODE2
+	const EXEGGCUTE2  
+	const EXEGGUTOR2  
+	const FURRET2   
+	const NOCTOWL2
+	const OCTILLERY2
+	const YANMA2
+	const SCYTHER2
+	const SCIZOR2
+	const TENTACOOL2  
+	const TENTACRUEL2
+	const RAPIDASH2
+	const NINETALES2
+	const TAUROS2
+	const SWINUB2
+	const PILOSWINE2
+	const SKARMORY2
+	const TOTODILE2 
+	const CROCONAW2  
+	const FERALIGATR2 
+	const CYNDAQUIL2
+	const QUILAVA2
+	const TYPHLOSION2
+
 DEF NUM_JOHTO_POKEMON EQU const_value - 1
 DEF NUM_POKEMON EQU const_value - 1
 

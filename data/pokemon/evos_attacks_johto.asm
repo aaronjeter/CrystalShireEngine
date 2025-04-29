@@ -189,6 +189,30 @@ EvosAttacksPointers2::
 	dw SeviperEvosAttacks
 	dw LunatoneEvosAttacks
 	dw SolrockEvosAttacks
+	dw Voltorb2EvosAttacks
+	dw Electrode2EvosAttacks
+	dw Exeggcute2EvosAttacks
+	dw Exeggutor2EvosAttacks
+	dw Furret2EvosAttacks
+	dw Noctowl2EvosAttacks
+	dw Octillery2EvosAttacks
+	dw Yanma2EvosAttacks
+	dw Scyther2EvosAttacks
+	dw ScizorEvosAttacks
+	dw Tentacool2EvosAttacks
+	dw Tentacruel2EvosAttacks
+	dw Rapidash2EvosAttacks
+	dw Ninetales2EvosAttacks
+	dw Tauros2EvosAttacks
+	dw Swinub2EvosAttacks
+	dw Piloswine2EvosAttacks
+	dw SkarmoryEvosAttacks
+	dw Totodile2EvosAttacks
+	dw Croconaw2EvosAttacks
+	dw Feraligatr2EvosAttacks
+	dw Cyndaquil2EvosAttacks
+	dw Quilava2EvosAttacks
+	dw Typhlosion2EvosAttacks
 .IndirectEnd::
 
 ChikoritaEvosAttacks:
@@ -352,6 +376,7 @@ FeraligatrEvosAttacks:
 
 SentretEvosAttacks:
 	dbbw EVOLVE_LEVEL, 20, FURRET
+	dbww EVOLVE_ITEM, MOON_STONE, FURRET2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 5, DEFENSE_CURL
@@ -369,6 +394,7 @@ SentretEvosAttacks:
 	db 0 ; no more level-up moves
 
 FurretEvosAttacks:
+	dbww EVOLVE_ITEM, MOON_STONE, FURRET2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 5, DEFENSE_CURL
@@ -387,6 +413,7 @@ FurretEvosAttacks:
 
 HoothootEvosAttacks:
 	dbbw EVOLVE_LEVEL, 20, NOCTOWL
+	dbww EVOLVE_ITEM, MOON_STONE, NOCTOWL2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL
@@ -407,6 +434,7 @@ HoothootEvosAttacks:
 	db 0 ; no more level-up moves
 
 NoctowlEvosAttacks:
+	dbww EVOLVE_ITEM, MOON_STONE, NOCTOWL2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL
@@ -954,10 +982,10 @@ YanmaEvosAttacks:
 	dbw 22, DETECT
 	dbw 25, DRAGON_RAGE
 	dbw 28, SUPERSONIC
-	dbw 31, DRAGONBREATH
+	dbw 31, DRAGON_CLAW
 	dbw 34, PIN_MISSILE
 	dbw 37, RAZOR_WIND
-	dbw 40, SCREECH
+	dbw 40, DRAGON_DANCE
 	dbw 45, MEGAHORN
 	dbw 50, OUTRAGE
 	db 0 ; no more level-up moves
@@ -1455,6 +1483,7 @@ CorsolaEvosAttacks:
 
 RemoraidEvosAttacks:
 	dbbw EVOLVE_LEVEL, 25, OCTILLERY
+	dbww EVOLVE_ITEM, FIRE_STONE, OCTILLERY2
 	db 0 ; no more evolutions
 	dbw 1, WATER_GUN
 	dbw 11, LOCK_ON
@@ -1472,6 +1501,7 @@ RemoraidEvosAttacks:
 	db 0 ; no more level-up moves
 
 OctilleryEvosAttacks:
+	dbww EVOLVE_ITEM, FIRE_STONE, OCTILLERY2
 	db 0 ; no more evolutions
 	dbw 1, WATER_GUN
 	dbw 11, LOCK_ON
@@ -3517,6 +3547,402 @@ SolrockEvosAttacks:
 	dbw 43, SOLARBEAM
 	dbw 40, EXPLOSION
 	dbw 42, FLAMETHROWER
+	db 0 ; no more level-up moves
+
+Voltorb2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, ELECTRODE2
+	db 0 ; no more evolutions
+	dbw 1, METAL_CLAW
+	dbw 1, THUNDER_WAVE
+	dbw 8, THUNDERSHOCK
+	dbw 12, SONICBOOM
+	dbw 16, SPARK
+	dbw 20, SLAM
+	dbw 23, SELFDESTRUCT
+	dbw 27, ROLLOUT
+	dbw 30, LIGHT_SCREEN
+	dbw 32, THUNDERBOLT
+	dbw 36, SWIFT
+	dbw 39, EXPLOSION
+	dbw 41, MIRROR_COAT
+	dbw 45, EXTREMESPEED
+	dbw 50, THUNDER
+	db 0 ; no more level-up moves
+
+Electrode2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, METAL_CLAW
+	dbw 1, THUNDER_WAVE
+	dbw 8, THUNDERSHOCK
+	dbw 12, SONICBOOM
+	dbw 16, SPARK
+	dbw 20, SLAM
+	dbw 23, SELFDESTRUCT
+	dbw 27, ROLLOUT
+	dbw 30, LIGHT_SCREEN
+	dbw 32, THUNDERBOLT
+	dbw 36, SWIFT
+	dbw 39, EXPLOSION
+	dbw 41, MIRROR_COAT
+	dbw 45, EXTREMESPEED
+	dbw 50, THUNDER
+	db 0 ; no more level-up moves
+
+Exeggcute2EvosAttacks:
+	dbww EVOLVE_ITEM, LEAF_STONE, EXEGGUTOR2
+	dbbw EVOLVE_LEVEL, 36, EXEGGUTOR2
+	db 0 ; no more evolutions
+	dbw 1, BARRAGE
+	dbw 1, HYPNOSIS
+	dbw 7, REFLECT
+	dbw 10, LEECH_SEED
+	dbw 15, TWISTER
+	dbw 20, MEGA_DRAIN
+	dbw 25, STUN_SPORE
+	dbw 30, DRAGONBREATH
+	dbw 31, POISONPOWDER
+	dbw 37, SLEEP_POWDER
+	dbw 40, CALM_MIND	
+	dbw 42, EGG_BOMB
+	dbw 45, DRAGON_DANCE
+	dbw 50, OUTRAGE
+	db 0 ; no more level-up moves
+
+Exeggutor2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, BARRAGE
+	dbw 1, HYPNOSIS
+	dbw 7, REFLECT
+	dbw 10, LEECH_SEED
+	dbw 15, TWISTER
+	dbw 20, MEGA_DRAIN
+	dbw 25, STUN_SPORE
+	dbw 30, DRAGONBREATH
+	dbw 31, POISONPOWDER
+	dbw 37, SLEEP_POWDER
+	dbw 40, CALM_MIND	
+	dbw 42, EGG_BOMB
+	dbw 45, DRAGON_DANCE
+	dbw 50, OUTRAGE
+	db 0 ; no more level-up moves
+
+Furret2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 5, DEFENSE_CURL
+	dbw 10, SAND_ATTACK
+	dbw 12, QUICK_ATTACK
+	dbw 15, FURY_SWIPES
+	dbw 20, HYPER_FANG
+	dbw 25, DIG
+	dbw 30, BODY_SLAM
+	dbw 36, DRAGON_CLAW
+	dbw 40, DRAGON_DANCE
+	dbw 42, REST	
+	dbw 46, OUTRAGE
+	dbw 50, CURSE
+	db 0 ; no more level-up moves
+
+Noctowl2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, GROWL
+	dbw 5, PECK
+	dbw 10, NIGHT_SHADE
+	dbw 12, CONFUSION
+	dbw 15, FORESIGHT	
+	dbw 18, HYPNOSIS
+	dbw 22, WING_ATTACK
+	dbw 26, PSYBEAM
+	dbw 30, DREAM_EATER
+	dbw 32, DRILL_PECK
+	dbw 36, PSYCHIC_M
+	dbw 40, WILLOWISP
+	dbw 42, SWIFT
+	dbw 45, SKY_ATTACK
+	dbw 50, FUTURE_SIGHT
+	db 0 ; no more level-up moves
+
+Octillery2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, WATER_GUN
+	dbw 11, LOCK_ON
+	dbw 16, BUBBLEBEAM
+	dbw 20, PSYBEAM
+	dbw 24, AURORA_BEAM
+	dbw 22, BUBBLEBEAM
+	dbw 28, OCTAZOOKA
+	dbw 32, ICE_BEAM
+	dbw 36, MEDITATE
+	dbw 40, HYPER_BEAM
+	dbw 42, SUNNY_DAY
+	dbw 45, SOLARBEAM
+	dbw 50, RECOVER
+	db 0 ; no more level-up moves
+
+Yanma2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TWISTER
+	dbw 1, STRING_SHOT
+	dbw 7, QUICK_ATTACK
+	dbw 13, DOUBLE_TEAM
+	dbw 15, SAND_ATTACK
+	dbw 18, MUD_SHOT
+	dbw 22, DETECT
+	dbw 25, DRAGON_RAGE
+	dbw 28, SUPERSONIC
+	dbw 31, DRAGON_CLAW
+	dbw 34, PIN_MISSILE
+	dbw 37, EARTHQUAKE
+	dbw 40, DRAGON_DANCE
+	dbw 45, MEGAHORN
+	dbw 50, OUTRAGE
+	db 0 ; no more level-up moves
+
+Scyther2EvosAttacks:
+	dbww EVOLVE_ITEM, METAL_COAT, SCIZOR2
+	db 0 ; no more evolutions
+	dbw 1, QUICK_ATTACK
+	dbw 1, STRING_SHOT
+	dbw 6, FOCUS_ENERGY
+	dbw 12, BITE
+	dbw 18, FALSE_SWIPE
+	dbw 22, TWINEEDLE
+	dbw 24, AGILITY
+	dbw 30, SLASH
+	dbw 36, RAZOR_WIND
+	dbw 42, SWORDS_DANCE
+	dbw 48, DOUBLE_TEAM
+	db 0 ; no more level-up moves
+
+Tentacool2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, TENTACRUEL2
+	db 0 ; no more evolutions
+	dbw 1, STRING_SHOT
+	dbw 1, ROCK_THROW
+	dbw 6, SUPERSONIC
+	dbw 12, WRAP
+	dbw 16, ROCK_TOMB
+	dbw 20, TWINEEDLE
+	dbw 24, SANDSTORM
+	dbw 28, SILVER_WIND
+	dbw 32, COSMIC_POWER
+	dbw 36, ROCK_SLIDE
+	dbw 40, GIGA_DRAIN
+	dbw 45, MEGAHORN 
+	dbw 50, REST
+	db 0 ; no more level-up moves
+
+Tentacruel2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, STRING_SHOT
+	dbw 1, ROCK_THROW
+	dbw 6, SUPERSONIC
+	dbw 12, WRAP
+	dbw 16, ROCK_TOMB
+	dbw 20, TWINEEDLE
+	dbw 24, SANDSTORM
+	dbw 28, SILVER_WIND
+	dbw 32, COSMIC_POWER
+	dbw 36, ROCK_SLIDE
+	dbw 40, GIGA_DRAIN
+	dbw 45, MEGAHORN 
+	dbw 50, REST
+	db 0 ; no more level-up moves
+
+Rapidash2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 4, GROWL
+	dbw 8, TAIL_WHIP
+	dbw 10, POWDER_SNOW
+	dbw 15, DOUBLE_KICK
+	dbw 19, AURORA_BEAM
+	dbw 26, FIRE_SPIN
+	dbw 31, ICE_BEAM
+	dbw 35, FLAMETHROWER
+	dbw 40, EXTREMESPEED
+	dbw 42, CALM_MIND
+	dbw 45, FIRE_BLAST
+	dbw 50, BLIZZARD
+	db 0 ; no more level-up moves
+
+Ninetales2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, EMBER
+	dbw 1, LICK
+	dbw 7, QUICK_ATTACK
+	dbw 12, ROAR
+	dbw 16, NIGHT_SHADE
+	dbw 20, WILLOWISP
+	dbw 24, FAE_VOICE
+	dbw 28, COSMIC_POWER
+	dbw 32, FLAMETHROWER
+	dbw 36, SHADOW_BALL
+	dbw 40, DESTINY_BOND
+	dbw 44, CALM_MIND
+	dbw 48, REST
+	dbw 50, LUSTER_PURGE
+	db 0 ; no more level-up moves
+
+Tauros2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 4, TAIL_WHIP
+	dbw 5, DOUBLE_KICK
+	dbw 8, RAGE
+	dbw 16, HORN_ATTACK
+	dbw 19, SCARY_FACE
+	dbw 26, BONE_RUSH
+	dbw 32, BRICK_BREAK
+	dbw 34, EARTHQUAKE
+	dbw 36, ROCK_SMASH
+	dbw 40, BULK_UP
+	dbw 42, OUTRAGE
+	dbw 45, EARTHQUAKE
+	dbw 48, SUBMISSION
+	dbw 50, FISSURE
+	db 0 ; no more level-up moves
+
+Swinub2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, PILOSWINE2
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, POWDER_SNOW
+	dbw 10, ENDURE
+	dbw 15, ICE_BALL
+	dbw 20, MAGNITUDE
+	dbw 24, ICICLE_SPEAR
+	dbw 28, SLAM
+	dbw 32, EARTHQUAKE
+	dbw 36, ICE_BEAM
+	dbw 40, TAKE_DOWN
+	dbw 42, BULK_UP
+	dbw 45, BLIZZARD
+	dbw 50, MIST
+	db 0 ; no more level-up moves
+
+Piloswine2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, POWDER_SNOW
+	dbw 10, ENDURE
+	dbw 15, ICE_BALL
+	dbw 20, MAGNITUDE
+	dbw 24, ICICLE_SPEAR
+	dbw 28, SLAM
+	dbw 32, EARTHQUAKE
+	dbw 36, ICE_BEAM
+	dbw 40, TAKE_DOWN
+	dbw 42, BULK_UP
+	dbw 45, BLIZZARD
+	dbw 50, MIST
+	db 0 ; no more level-up moves
+
+Totodile2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 18, CROCONAW2
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, LEER
+	dbw 7, RAGE
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, SCARY_FACE
+	dbw 22, BUBBLEBEAM
+	dbw 26, FAINT_ATTACK
+	dbw 32, CRUNCH
+	dbw 36, SLASH
+	dbw 40, SCREECH
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	db 0 ; no more level-up moves
+
+Croconaw2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, FERALIGATR2
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, LEER
+	dbw 7, RAGE
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, SCARY_FACE
+	dbw 22, BUBBLEBEAM
+	dbw 26, FAINT_ATTACK
+	dbw 32, CRUNCH
+	dbw 36, SLASH
+	dbw 40, SCREECH
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	db 0 ; no more level-up moves
+
+Feraligatr2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, LEER
+	dbw 7, RAGE
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, SCARY_FACE
+	dbw 22, BUBBLEBEAM
+	dbw 26, FAINT_ATTACK
+	dbw 32, CRUNCH
+	dbw 36, SLASH
+	dbw 40, SCREECH
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	db 0 ; no more level-up moves
+
+Cyndaquil2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 14, QUILAVA2
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, LEER
+	dbw 6, SMOKESCREEN
+	dbw 10, EMBER
+	dbw 14, QUICK_ATTACK
+	dbw 18, FIRE_SPIN
+	dbw 22, FAINT_ATTACK
+	dbw 26, SLAM
+	dbw 32, FLAME_WHEEL
+	dbw 36, PURSUIT
+	dbw 40, FLAMETHROWER
+	dbw 45, OUTRAGE
+	dbw 50, FIRE_BLAST
+	db 0 ; no more level-up moves
+
+Quilava2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, TYPHLOSION2
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, LEER
+	dbw 6, SMOKESCREEN
+	dbw 10, EMBER
+	dbw 14, QUICK_ATTACK
+	dbw 18, FIRE_SPIN
+	dbw 22, FAINT_ATTACK
+	dbw 26, SLAM
+	dbw 32, FLAME_WHEEL
+	dbw 36, PURSUIT
+	dbw 40, FLAMETHROWER
+	dbw 45, OUTRAGE
+	dbw 50, FIRE_BLAST
+	db 0 ; no more level-up moves
+
+Typhlosion2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, LEER
+	dbw 6, SMOKESCREEN
+	dbw 10, EMBER
+	dbw 14, QUICK_ATTACK
+	dbw 18, FIRE_SPIN
+	dbw 22, FAINT_ATTACK
+	dbw 26, SLAM
+	dbw 32, FLAME_WHEEL
+	dbw 36, PURSUIT
+	dbw 40, FLAMETHROWER
+	dbw 45, OUTRAGE
+	dbw 50, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 ENDSECTION

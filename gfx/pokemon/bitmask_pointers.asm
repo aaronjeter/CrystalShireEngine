@@ -339,4 +339,29 @@ BitmasksPointers:
 	dw SeviperBitmasks
 	dw LunatoneBitmasks
 	dw SolrockBitmasks
+	;reddit mons
+	dw Voltorb2Bitmasks
+	dw Electrode2Bitmasks
+	dw Exeggcute2Bitmasks
+	dw Exeggutor2Bitmasks
+	dw Furret2Bitmasks
+	dw Noctowl2Bitmasks
+	dw Octillery2Bitmasks
+	dw Yanma2Bitmasks
+	dw Scyther2Bitmasks
+	dw Scizor2Bitmasks
+	dw Tentacool2Bitmasks
+	dw Tentacruel2Bitmasks
+	dw Rapidash2Bitmasks
+	dw Ninetales2Bitmasks
+	dw Tauros2Bitmasks
+	dw Swinub2Bitmasks
+	dw Piloswine2Bitmasks
+	dw Skarmory2Bitmasks
+	dw Totodile2Bitmasks
+	dw Croconaw2Bitmasks
+	dw Feraligatr2Bitmasks
+	dw Cyndaquil2Bitmasks
+	dw Quilava2Bitmasks
+	dw Typhlosion2Bitmasks
 	assert_table_length NUM_POKEMON

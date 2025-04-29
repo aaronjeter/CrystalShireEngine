@@ -189,6 +189,32 @@ EggMovePointers2::
 	dw SeviperEggMoves
 	dw NoEggMoves2
 	dw NoEggMoves2
+	;reddit mons
+	dw NoEggMoves2			;voltorb2
+	dw NoEggMoves2			;electrode2
+	dw Exeggcute2EggMoves	;exeggcute
+	dw NoEggMoves2
+	dw NoEggMoves2			;furret2
+	dw NoEggMoves2			;noctowl2
+	dw NoEggMoves2			;octillery2
+	dw YanmaEggMoves		;yanma2
+	dw Scyther2EggMoves		;scyther2
+	dw NoEggMoves2			;scizor2
+	dw Tentacool2EggMoves	;tentacool2
+	dw NoEggMoves2
+	dw NoEggMoves2			;rapidash2
+	dw NoEggMoves2			;ninetails2
+	dw NoEggMoves2
+	dw SwinubEggMoves		;swinub2
+	dw NoEggMoves2
+	dw SkarmoryEggMoves		;skarmory2
+	dw TotodileEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw CyndaquilEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+
 .IndirectEnd::
 
 ChikoritaEggMoves:
@@ -813,4 +839,30 @@ ZangooseEggMoves:
 SeviperEggMoves:
 	dw BODY_SLAM
 	dw -1 ; end
+
+Exeggcute2EggMoves:
+	dw SYNTHESIS
+	dw MOONLIGHT
+	dw REFLECT
+	dw MEGA_DRAIN
+	dw ANCIENTPOWER
+	dw -1 ; end
+
+Scyther2EggMoves:
+	dw COUNTER
+	dw SAFEGUARD
+	dw BATON_PASS
+	dw RAZOR_WIND
+	dw REVERSAL
+	dw LIGHT_SCREEN
+	dw -1 ; end
+
+Tentacool2EggMoves:
+	dw AURORA_BEAM
+	dw MIRROR_COAT
+	dw RAPID_SPIN
+	dw HAZE
+	dw SAFEGUARD
+	dw -1 ; end
+
 ENDSECTION

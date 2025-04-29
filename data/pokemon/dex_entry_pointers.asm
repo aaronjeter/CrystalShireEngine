@@ -341,4 +341,29 @@ PokedexDataPointerTable:
 	dba SeviperPokedexEntry
 	dba LunatonePokedexEntry
 	dba SolrockPokedexEntry
+	;reddit mons
+	dba Voltorb2PokedexEntry
+	dba Electrode2PokedexEntry
+	dba Exeggcute2PokedexEntry
+	dba Exeggutor2PokedexEntry
+	dba Furret2PokedexEntry
+	dba Noctowl2PokedexEntry
+	dba Octillery2PokedexEntry
+	dba Yanma2PokedexEntry
+	dba Scyther2PokedexEntry
+	dba Scizor2PokedexEntry
+	dba Tentacool2PokedexEntry
+	dba Tentacruel2PokedexEntry
+	dba Rapidash2PokedexEntry
+	dba Ninetales2PokedexEntry
+	dba Tauros2PokedexEntry
+	dba Swinub2PokedexEntry
+	dba Piloswine2PokedexEntry
+	dba Skarmory2PokedexEntry
+	dba Totodile2PokedexEntry
+	dba Croconaw2PokedexEntry
+	dba Feraligatr2PokedexEntry
+	dba Cyndaquil2PokedexEntry
+	dba Quilava2PokedexEntry
+	dba Typhlosion2PokedexEntry
 	assert_table_length NUM_POKEMON

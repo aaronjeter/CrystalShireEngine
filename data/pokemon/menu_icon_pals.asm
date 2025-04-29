@@ -350,4 +350,29 @@ MonMenuIconPals:
 	icon_pals BLUE,   RED    ; SEVIPER
 	icon_pals RED,    BLUE   ; LUNATONE
 	icon_pals RED,    PINK   ; SOLROCK
+	;reddit mons
+	icon_pals BLUE,   BLUE   ; VOLTORB
+	icon_pals BLUE,   BLUE   ; ELECTRODE
+	icon_pals PINK,   GREEN  ; EXEGGCUTE
+	icon_pals GREEN,  BROWN  ; EXEGGUTOR
+	icon_pals TEAL,   PURPLE ; FURRET
+	icon_pals TEAL,   GREEN  ; NOCTOWL
+	icon_pals PURPLE, BROWN  ; OCTILLERY
+	icon_pals BROWN,  BLUE   ; YANMA
+	icon_pals GREEN,  GREEN  ; SCYTHER
+	icon_pals RED,    GREEN  ; SCIZOR
+	icon_pals BROWN,  BLUE   ; TENTACOOL
+	icon_pals BROWN,  BLUE   ; TENTACRUEL
+	icon_pals BLUE,   PURPLE ; RAPIDASH
+	icon_pals PINK,   GRAY   ; NINETALES
+	icon_pals RED,    BROWN  ; TAUROS
+	icon_pals RED,    BLUE   ; SWINUB
+	icon_pals RED,    BROWN  ; PILOSWINE
+	icon_pals GRAY,   GREEN  ; SKARMORY
+	icon_pals BLUE,   TEAL   ; TOTODILE
+	icon_pals BLUE,   TEAL   ; CROCONAW
+	icon_pals BLUE,   GREEN  ; FERALIGATR
+	icon_pals PINK,   PURPLE ; CYNDAQUIL
+	icon_pals PINK,   PURPLE ; QUILAVA
+	icon_pals PINK,   PURPLE ; TYPHLOSION
 	assert_table_length NUM_POKEMON

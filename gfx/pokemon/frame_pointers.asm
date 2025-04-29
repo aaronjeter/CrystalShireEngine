@@ -339,4 +339,29 @@ FramesPointers:
 	dba SeviperFrames
 	dba LunatoneFrames
 	dba SolrockFrames
+	;reddit mons
+	dba Voltorb2Frames
+	dba Electrode2Frames
+	dba Exeggcute2Frames
+	dba Exeggutor2Frames
+	dba Furret2Frames
+	dba Noctowl2Frames
+	dba Octillery2Frames
+	dba Yanma2Frames
+	dba Scyther2Frames
+	dba Scizor2Frames
+	dba Tentacool2Frames
+	dba Tentacruel2Frames
+	dba Rapidash2Frames
+	dba Ninetales2Frames
+	dba Tauros2Frames
+	dba Swinub2Frames
+	dba Piloswine2Frames
+	dba Skarmory2Frames
+	dba Totodile2Frames
+	dba Croconaw2Frames
+	dba Feraligatr2Frames
+	dba Cyndaquil2Frames
+	dba Quilava2Frames
+	dba Typhlosion2Frames
 	assert_table_length NUM_POKEMON

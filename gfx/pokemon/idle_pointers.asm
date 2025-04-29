@@ -339,4 +339,29 @@ AnimationIdlePointers:
 	dw SeviperAnimationIdle
 	dw LunatoneAnimationIdle
 	dw SolrockAnimationIdle
+	;reddit mons
+	dw Voltorb2AnimationIdle
+	dw Electrode2AnimationIdle
+	dw Exeggcute2AnimationIdle
+	dw Exeggutor2AnimationIdle
+	dw Furret2AnimationIdle
+	dw Noctowl2AnimationIdle
+	dw Octillery2AnimationIdle
+	dw Yanma2AnimationIdle
+	dw Scyther2AnimationIdle
+	dw Scizor2AnimationIdle
+	dw Tentacool2AnimationIdle
+	dw Tentacruel2AnimationIdle
+	dw Rapidash2AnimationIdle
+	dw Ninetales2AnimationIdle
+	dw Tauros2AnimationIdle
+	dw Swinub2AnimationIdle
+	dw Piloswine2AnimationIdle
+	dw Skarmory2AnimationIdle
+	dw Totodile2AnimationIdle
+	dw Croconaw2AnimationIdle
+	dw Feraligatr2AnimationIdle
+	dw Cyndaquil2AnimationIdle
+	dw Quilava2AnimationIdle
+	dw Typhlosion2AnimationIdle
 	assert_table_length NUM_POKEMON

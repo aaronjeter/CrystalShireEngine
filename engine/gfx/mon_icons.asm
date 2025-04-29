@@ -498,6 +498,15 @@ GetIconBank:
 	call GetPokemonIndexFromID
 	lb bc, BANK("Mon Icons 1"), 8 ; Default Bank
 	ld a, h
+	cp HIGH(TYPHLOSION2) ; first species in "Mon Icons 3"
+	jr c, .check_4
+	ld a, l
+	cp LOW(TYPHLOSION2)
+	jr c, .check_4
+	ld b, BANK("Mon Icons 3") ; stubbed support for 4th bank
+	jr .return
+.check_4
+	ld a, h
 	cp HIGH(TORCHIC) ; first species in "Mon Icons 3"
 	jr c, .check_3
 	ld a, l

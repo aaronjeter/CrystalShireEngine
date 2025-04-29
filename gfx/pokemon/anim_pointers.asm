@@ -339,4 +339,29 @@ AnimationPointers:
 	dw SeviperAnimation
 	dw LunatoneAnimation
 	dw SolrockAnimation
+	;reddit mons
+	dw Voltorb2Animation
+	dw Electrode2Animation
+	dw Exeggcute2Animation
+	dw Exeggutor2Animation
+	dw Furret2Animation
+	dw Noctowl2Animation
+	dw Octillery2Animation
+	dw Yanma2Animation
+	dw Scyther2Animation
+	dw Scizor2Animation
+	dw Tentacool2Animation
+	dw Tentacruel2Animation
+	dw Rapidash2Animation
+	dw Ninetales2Animation
+	dw Tauros2Animation
+	dw Swinub2Animation
+	dw Piloswine2Animation
+	dw Skarmory2Animation
+	dw Totodile2Animation
+	dw Croconaw2Animation
+	dw Feraligatr2Animation
+	dw Cyndaquil2Animation
+	dw Quilava2Animation
+	dw Typhlosion2Animation
 	assert_table_length NUM_POKEMON

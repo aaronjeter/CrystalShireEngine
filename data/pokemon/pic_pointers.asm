@@ -695,4 +695,53 @@ PokemonPicPointers::
 	dba LunatoneBackpic
 	dba SolrockFrontpic
 	dba SolrockBackpic
+	;reddit mons
+	dba Voltorb2Frontpic
+	dba Voltorb2Backpic
+	dba Electrode2Frontpic
+	dba Electrode2Backpic
+	dba Exeggcute2Frontpic
+	dba Exeggcute2Backpic
+	dba Exeggutor2Frontpic
+	dba Exeggutor2Backpic
+	dba Furret2Frontpic
+	dba Furret2Backpic	
+	dba Noctowl2Frontpic
+	dba Noctowl2Backpic
+	dba Octillery2Frontpic
+	dba Octillery2Backpic
+	dba Yanma2Frontpic
+	dba Yanma2Backpic
+	dba Scyther2Frontpic
+	dba Scyther2Backpic
+	dba Scizor2Frontpic
+	dba Scizor2Backpic
+	dba Tentacool2Frontpic
+	dba Tentacool2Backpic
+	dba Tentacruel2Frontpic
+	dba Tentacruel2Backpic
+	dba Rapidash2Frontpic
+	dba Rapidash2Backpic
+	dba Ninetales2Frontpic
+	dba Ninetales2Backpic
+	dba Tauros2Frontpic
+	dba Tauros2Backpic
+	dba Swinub2Frontpic
+	dba Swinub2Backpic
+	dba Piloswine2Frontpic
+	dba Piloswine2Backpic
+	dba Skarmory2Frontpic
+	dba Skarmory2Backpic
+	dba Totodile2Frontpic
+	dba Totodile2Backpic
+	dba Croconaw2Frontpic
+	dba Croconaw2Backpic
+	dba Feraligatr2Frontpic
+	dba Feraligatr2Backpic
+	dba Cyndaquil2Frontpic
+	dba Cyndaquil2Backpic
+	dba Quilava2Frontpic
+	dba Quilava2Backpic
+	dba Typhlosion2Frontpic
+	dba Typhlosion2Backpic
 	assert_table_length NUM_POKEMON + 1

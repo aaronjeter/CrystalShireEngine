@@ -345,4 +345,29 @@ IconPointers:
 	dw SeviperIcon
 	dw LunatoneIcon
 	dw SolrockIcon
+	;reddit mons
+	dw Voltorb2Icon
+	dw Electrode2Icon
+	dw Exeggcute2Icon
+	dw Exeggutor2Icon
+	dw Furret2Icon
+	dw Noctowl2Icon
+	dw Octillery2Icon
+	dw Yanma2Icon
+	dw Scyther2Icon
+	dw Scizor2Icon
+	dw Tentacool2Icon
+	dw Tentacruel2Icon
+	dw Rapidash2Icon
+	dw Ninetales2Icon
+	dw Tauros2Icon
+	dw Swinub2Icon
+	dw Piloswine2Icon
+	dw Skarmory2Icon
+	dw Totodile2Icon
+	dw Croconaw2Icon
+	dw Feraligatr2Icon
+	dw Cyndaquil2Icon
+	dw Quilava2Icon
+	dw Typhlosion2Icon
 	assert_table_length NUM_POKEMON + 1

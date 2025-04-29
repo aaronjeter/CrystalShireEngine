@@ -758,6 +758,7 @@ ClefableEvosAttacks:
 
 VulpixEvosAttacks:
 	dbww EVOLVE_ITEM, FIRE_STONE, NINETALES
+	dbww EVOLVE_ITEM, MOON_STONE, NINETALES2
 	dbbw EVOLVE_LEVEL, 36, NINETALES
 	db 0 ; no more evolutions
 	dbw 1, EMBER
@@ -777,6 +778,7 @@ VulpixEvosAttacks:
 	db 0 ; no more level-up moves
 
 NinetalesEvosAttacks:
+dbww EVOLVE_ITEM, MOON_STONE, NINETALES2
 	db 0 ; no more evolutions
 	dbw 1, EMBER
 	dbw 1, LICK
@@ -1468,6 +1470,7 @@ GolemEvosAttacks:
 
 PonytaEvosAttacks:
 	dbbw EVOLVE_LEVEL, 40, RAPIDASH
+	dbww EVOLVE_ITEM, MOON_STONE, RAPIDASH2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 4, GROWL
@@ -1485,6 +1488,7 @@ PonytaEvosAttacks:
 	db 0 ; no more level-up moves
 
 RapidashEvosAttacks:
+	dbww EVOLVE_ITEM, MOON_STONE, RAPIDASH2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 4, GROWL
@@ -2363,15 +2367,15 @@ TaurosEvosAttacks:
 	dbw 8, RAGE
 	dbw 16, HORN_ATTACK
 	dbw 19, SCARY_FACE
-	dbw 26, FAINT_ATTACK
-	dbw 32, THRASH
-	dbw 34, REST
+	dbw 26, BONE_RUSH
+	dbw 32, BRICK_BREAK
+	dbw 34, EARTHQUAKE
 	dbw 36, ROCK_SMASH
-	dbw 40, BODY_SLAM
+	dbw 40, BULK_UP
 	dbw 42, OUTRAGE
 	dbw 45, EARTHQUAKE
 	dbw 48, SUBMISSION
-	dbw 50, DOUBLE_EDGE
+	dbw 50, FISSURE
 	db 0 ; no more level-up moves
 
 MagikarpEvosAttacks:
