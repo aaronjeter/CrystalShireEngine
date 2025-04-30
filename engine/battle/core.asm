@@ -1006,12 +1006,12 @@ ResidualDamage:
 
 	ld hl, HurtByPoisonText
 	ld de, ANIM_PSN
-	bit PSN, a
+	and 1 << BRN | 1 << FRZ
 	jr z, .got_anim
 
 	ld hl, HurtByBurnText
-	ld de, ANIM_BRN
-	bit BRN, a
+	ld de, ANIM_BRN		
+	and 1 << BRN
 	jr nz, .got_anim
 
 	ld hl, HurtByFrostbiteText
