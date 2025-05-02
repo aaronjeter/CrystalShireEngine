@@ -20,8 +20,22 @@ MahoganyGymPryceScript:
 	writetext PryceText_Intro
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext PryceText_Impressed, 0
+	loadtrainer PRYCE, PRYCE2
+	sjump .Fight
+
+.Easy
 	winlosstext PryceText_Impressed, 0
 	loadtrainer PRYCE, PRYCE1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_PRYCE
@@ -60,8 +74,33 @@ MahoganyGymPryceScript:
 	end
 
 PryceScript_Defeat:
+	writetext PryceRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext PryceRematchWinLossText, 0
+	loadtrainer PRYCE, PRYCE2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext PryceRematchWinLossText, 0
+	loadtrainer PRYCE, PRYCE1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext PryceText_CherishYourPokemon
 	waitbutton
+.EndRematch:
 MahoganyGym_NoRoomForIcyWind:
 	closetext
 	end
@@ -230,6 +269,14 @@ PryceText_IcyWindSpeech:
 	para "It demonstrates"
 	line "the harshness of"
 	cont "winter."
+	done
+
+PryceRematchText:
+	text "Rematch?"
+	done
+
+PryceRematchWinLossText:
+	text "Well Done!"
 	done
 
 PryceText_CherishYourPokemon:

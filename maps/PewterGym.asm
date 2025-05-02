@@ -16,8 +16,22 @@ PewterGymBrockScript:
 	writetext BrockIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext BrockWinLossText, 0
+	loadtrainer BROCK, BROCK2
+	sjump .Fight
+
+.Easy
 	winlosstext BrockWinLossText, 0
 	loadtrainer BROCK, BROCK1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BROCK
@@ -36,16 +50,54 @@ PewterGymBrockScript:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
+	readvar VAR_BADGES
+	scall PewterGymActivateRockets
 	writetext BrockBoulderBadgeText
 	waitbutton
 	closetext
 	end
 
 .FightDone:
+	writetext BrockRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext BrockRematchWinLossText, 0
+	loadtrainer BROCK, BROCK2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext BrockRematchWinLossText, 0
+	loadtrainer BROCK, BROCK1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext BrockFightDoneText
 	waitbutton
+.EndRematch:
 	closetext
 	end
+
+PewterGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerCamperJerry:
 	trainer CAMPER, JERRY, EVENT_BEAT_CAMPER_JERRY, CamperJerrySeenText, CamperJerryBeatenText, 0, .Script
@@ -138,6 +190,14 @@ BrockBoulderBadgeText:
 
 	para "#MON even more"
 	line "powerful."
+	done
+
+BrockRematchText:
+	text "Rematch?"
+	done
+
+BrockRematchWinLossText:
+	text "Well Done!"
 	done
 
 BrockFightDoneText:

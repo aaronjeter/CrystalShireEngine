@@ -27,8 +27,22 @@ GoldenrodGymWhitneyScript:
 	writetext WhitneyBeforeText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext WhitneyShouldntBeSoSeriousText, 0
+	loadtrainer WHITNEY, WHITNEY2
+	sjump .Fight
+
+.Easy
 	winlosstext WhitneyShouldntBeSoSeriousText, 0
 	loadtrainer WHITNEY, WHITNEY1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_WHITNEY
@@ -82,6 +96,30 @@ GoldenrodGymWhitneyScript:
 	end
 
 .GotAttract:
+	writetext WhitneyRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext WhitneyRematchWinLossText, 0
+	loadtrainer WHITNEY, WHITNEY2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext WhitneyRematchWinLossText, 0
+	loadtrainer WHITNEY, WHITNEY1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .NoRoomForAttract
+	
+.FightDoneText
 	writetext WhitneyGoodCryText
 	waitbutton
 .NoRoomForAttract:
@@ -267,6 +305,14 @@ WhitneyAttractText:
 	para "Isn't it just per-"
 	line "fect for a cutie"
 	cont "like me?"
+	done
+
+WhitneyRematchText:
+	text "Rematch?"
+	done
+
+WhitneyRematchWinLossText:
+	text "Darn! Good Job!"
 	done
 
 WhitneyGoodCryText:

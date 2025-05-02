@@ -36,8 +36,22 @@ BlackthornGymClairScript:
 	writetext ClairIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext ClairWinText, 0
+	loadtrainer CLAIR, CLAIR2
+	sjump .Fight
+
+.Easy
 	winlosstext ClairWinText, 0
 	loadtrainer CLAIR, CLAIR1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CLAIR
@@ -85,8 +99,33 @@ BlackthornGymClairScript:
 	end
 
 .GotTM24:
+	writetext ClairRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext ClairRematchWinLossText, 0
+	loadtrainer CLAIR, CLAIR2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext ClairRematchWinLossText, 0
+	loadtrainer CLAIR, CLAIR1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext BlackthornGymClairText_League
 	waitbutton
+.EndRematch:
 	closetext
 	end
 
@@ -250,6 +289,14 @@ BlackthornGymClairText_DescribeTM24:
 BlackthornGymClairText_BagFull:
 	text "What is this? You"
 	line "don't have room?"
+	done
+
+ClairRematchText:
+	text "Rematch?"
+	done
+
+ClairRematchWinLossText:
+	text "Ugh, fine then!"
 	done
 
 BlackthornGymClairText_League:

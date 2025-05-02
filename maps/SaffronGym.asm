@@ -19,8 +19,21 @@ SaffronGymSabrinaScript:
 	writetext SabrinaIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext SabrinaWinLossText, 0
+	loadtrainer SABRINA, SABRINA2
+	sjump .Fight
+
+.Easy
 	winlosstext SabrinaWinLossText, 0
 	loadtrainer SABRINA, SABRINA1
+	sjump .Fight
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_SABRINA
@@ -42,16 +55,54 @@ SaffronGymSabrinaScript:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
+	readvar VAR_BADGES
+	scall SaffronGymActivateRockets
 	writetext SabrinaMarshBadgeText
 	waitbutton
 	closetext
 	end
 
 .FightDone:
+	writetext SabrinaRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext SabrinaRematchWinLossText, 0
+	loadtrainer SABRINA, SABRINA2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext SabrinaRematchWinLossText, 0
+	loadtrainer SABRINA, SABRINA1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext SabrinaFightDoneText
 	waitbutton
+.EndRematch:
 	closetext
 	end
+
+SaffronGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerMediumRebecca:
 	trainer MEDIUM, REBECCA, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script
@@ -186,6 +237,14 @@ SabrinaMarshBadgeText:
 	para "You will become a"
 	line "celebrated and"
 	cont "beloved CHAMPION!"
+	done
+
+SabrinaRematchText:
+	text "Rematch?"
+	done
+
+SabrinaRematchWinLossText:
+	text "...Well done."
 	done
 
 SabrinaFightDoneText:

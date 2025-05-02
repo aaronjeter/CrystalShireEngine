@@ -17,8 +17,21 @@ VioletGymFalknerScript:
 	writetext FalknerIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext FalknerWinLossText, 0
+	loadtrainer FALKNER, FALKNER2
+	sjump .Fight
+
+.Easy
 	winlosstext FalknerWinLossText, 0
 	loadtrainer FALKNER, FALKNER1
+	sjump .Fight
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_FALKNER
@@ -56,6 +69,30 @@ VioletGymFalknerScript:
 	end
 
 .SpeechAfterTM:
+	writetext FalknerRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext FalknerRematchWinLossText, 0
+	loadtrainer FALKNER, FALKNER2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext FalknerRematchWinLossText, 0
+	loadtrainer FALKNER, FALKNER1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .NoRoomForMudSlap
+
+.FightDoneText:
 	writetext FalknerFightDoneText
 	waitbutton
 .NoRoomForMudSlap:
@@ -180,11 +217,7 @@ FalknerTMMudSlapText:
 	line "#MON will"
 
 	para "instantly learn a"
-	line "new move."
-
-	para "Think before you"
-	line "act--a TM can be"
-	cont "used only once."
+	line "new move."	
 
 	para "TM31 contains"
 	line "MUD-SLAP."
@@ -198,6 +231,14 @@ FalknerTMMudSlapText:
 	para "In other words, it"
 	line "is both defensive"
 	cont "and offensive."
+	done
+
+FalknerRematchText:
+	text "Rematch?"
+	done
+
+FalknerRematchWinLossText:
+	text "Darn! Good Job!"
 	done
 
 FalknerFightDoneText:

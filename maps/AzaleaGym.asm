@@ -20,8 +20,22 @@ AzaleaGymBugsyScript:
 	writetext BugsyText_INeverLose
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext BugsyText_ResearchIncomplete, 0
+	loadtrainer BUGSY, BUGSY2
+	sjump .Fight
+
+.Easy
 	winlosstext BugsyText_ResearchIncomplete, 0
 	loadtrainer BUGSY, BUGSY1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BUGSY
@@ -59,6 +73,29 @@ AzaleaGymBugsyScript:
 	end
 
 .GotFuryCutter:
+	writetext BugsyRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext BugsyRematchWinLossText, 0
+	loadtrainer BUGSY, BUGSY2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext FalknerRematchWinLossText, 0
+	loadtrainer BUGSY, BUGSY1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .NoRoomForFuryCutter
+.FightDoneText
 	writetext BugsyText_BugMonsAreDeep
 	waitbutton
 .NoRoomForFuryCutter:
@@ -226,6 +263,14 @@ BugsyText_FuryCutterSpeech:
 
 	para "Isn't that great?"
 	line "I discovered it!"
+	done
+
+BugsyRematchText:
+	text "Rematch?"
+	done
+
+BugsyRematchWinLossText:
+	text "Darn! Good Job!"
 	done
 
 BugsyText_BugMonsAreDeep:

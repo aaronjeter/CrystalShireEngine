@@ -19,8 +19,22 @@ CeladonGymErikaScript:
 	writetext ErikaBeforeBattleText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext ErikaBeatenText, 0
+	loadtrainer ERIKA, ERIKA2
+	sjump .Fight
+
+.Easy
 	winlosstext ErikaBeatenText, 0
 	loadtrainer ERIKA, ERIKA1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ERIKA
@@ -50,11 +64,49 @@ CeladonGymErikaScript:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
+	readvar VAR_BADGES
+	scall CeladonGymActivateRockets
 .GotGigaDrain:
+	writetext ErikaRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext ErikaRematchWinLossText, 0
+	loadtrainer ERIKA, ERIKA2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext ErikaRematchWinLossText, 0
+	loadtrainer ERIKA, ERIKA1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext ErikaAfterBattleText
 	waitbutton
+.EndRematch:
 	closetext
 	end
+
+CeladonGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerLassMichelle:
 	trainer LASS, MICHELLE, EVENT_BEAT_LASS_MICHELLE, LassMichelleSeenText, LassMichelleBeatenText, 0, .Script
@@ -182,6 +234,14 @@ ErikaExplainTMText:
 
 	para "Please use it if"
 	line "it pleases you…"
+	done
+
+ErikaRematchText:
+	text "Rematch?"
+	done
+
+ErikaRematchWinLossText:
+	text "Delightful!"
 	done
 
 ErikaAfterBattleText:

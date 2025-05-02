@@ -37,8 +37,22 @@ CianwoodGymChuckScript:
 	writetext ChuckIntroText3
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext ChuckLossText, 0
+	loadtrainer CHUCK, CHUCK2
+	sjump .Fight
+
+.Easy
 	winlosstext ChuckLossText, 0
 	loadtrainer CHUCK, CHUCK1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHUCK
@@ -76,6 +90,31 @@ CianwoodGymChuckScript:
 	end
 
 .AlreadyGotTM:
+	writetext ChuckRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext ChuckRematchWinLossText, 0
+	loadtrainer CHUCK, CHUCK2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext ChuckRematchWinLossText, 0
+	loadtrainer CHUCK, CHUCK1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .BagFull
+
+.FightDoneText:
+
 	writetext ChuckAfterText
 	waitbutton
 .BagFull:
@@ -233,6 +272,14 @@ ChuckExplainTMText:
 
 	para "does, it causes"
 	line "confusion!"
+	done
+
+ChuckRematchText:
+	text "Rematch?"
+	done
+
+ChuckRematchWinLossText:
+	text "WAHAHAH! Good Job!"
 	done
 
 ChuckAfterText:

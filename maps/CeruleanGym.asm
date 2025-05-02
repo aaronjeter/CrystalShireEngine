@@ -64,8 +64,22 @@ CeruleanGymMistyScript:
 	writetext MistyIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext MistyWinLossText, 0
+	loadtrainer MISTY, MISTY2
+	sjump .Fight
+
+.Easy
 	winlosstext MistyWinLossText, 0
 	loadtrainer MISTY, MISTY1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_MISTY
@@ -86,11 +100,49 @@ CeruleanGymMistyScript:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
+	readvar VAR_BADGES
+	scall CeruleanGymActivateRockets
 .FightDone:
+	writetext MistyRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext MistyRematchWinLossText, 0
+	loadtrainer MISTY, MISTY2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext MistyRematchWinLossText, 0
+	loadtrainer MISTY, MISTY1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext MistyFightDoneText
 	waitbutton
+.EndRematch:
 	closetext
 	end
+
+CeruleanGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerSwimmerfDiana:
 	trainer SWIMMERF, DIANA, EVENT_BEAT_SWIMMERF_DIANA, SwimmerfDianaSeenText, SwimmerfDianaBeatenText, 0, .Script
@@ -277,6 +329,14 @@ MistyWinLossText:
 ReceivedCascadeBadgeText:
 	text "<PLAYER> received"
 	line "CASCADEBADGE."
+	done
+
+MistyRematchText:
+	text "Rematch?"
+	done
+
+MistyRematchWinLossText:
+	text "That was fun!"
 	done
 
 MistyFightDoneText:

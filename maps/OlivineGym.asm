@@ -15,8 +15,22 @@ OlivineGymJasmineScript:
 	writetext Jasmine_SteelTypeIntro
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext Jasmine_BetterTrainer, 0
+	loadtrainer JASMINE, JASMINE2
+	sjump .Fight
+
+.Easy
 	winlosstext Jasmine_BetterTrainer, 0
 	loadtrainer JASMINE, JASMINE1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_JASMINE
@@ -50,6 +64,30 @@ OlivineGymJasmineScript:
 	end
 
 .GotIronTail:
+	writetext JasmineRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext JasmineRematchWinLossText, 0
+	loadtrainer JASMINE, JASMINE2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext JasmineRematchWinLossText, 0
+	loadtrainer JASMINE, JASMINE1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .NoRoomForIronTail
+
+.FightDoneText:
 	writetext Jasmine_GoodLuck
 	waitbutton
 .NoRoomForIronTail:
@@ -158,6 +196,14 @@ Jasmine_IronTailSpeech:
 	text "…You could use"
 	line "that TM to teach"
 	cont "IRON TAIL."
+	done
+
+JasmineRematchText:
+	text "Rematch?"
+	done
+
+JasmineRematchWinLossText:
+	text "Darn! Good Job!"
 	done
 
 Jasmine_GoodLuck:

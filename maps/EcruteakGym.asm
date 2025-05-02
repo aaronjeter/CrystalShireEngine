@@ -29,8 +29,22 @@ EcruteakGymMortyScript:
 	writetext MortyIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext MortyWinLossText, 0
+	loadtrainer MORTY, MORTY2
+	sjump .Fight
+
+.Easy
 	winlosstext MortyWinLossText, 0
 	loadtrainer MORTY, MORTY1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_MORTY
@@ -71,6 +85,30 @@ EcruteakGymMortyScript:
 	end
 
 .GotShadowBall:
+	writetext MortyRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext MortyRematchWinLossText, 0
+	loadtrainer MORTY, MORTY2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext MortyRematchWinLossText, 0
+	loadtrainer MORTY, MORTY1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .NoRoomForShadowBall
+
+.FightDoneText:
 	writetext MortyFightDoneText
 	waitbutton
 .NoRoomForShadowBall:
@@ -266,6 +304,14 @@ MortyText_ShadowBallSpeech:
 
 	para "Use it if it"
 	line "appeals to you."
+	done
+
+MortyRematchText:
+	text "Rematch?"
+	done
+
+MortyRematchWinLossText:
+	text "Well Done!"
 	done
 
 MortyFightDoneText:

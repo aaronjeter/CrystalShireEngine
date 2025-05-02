@@ -20,8 +20,22 @@ FuchsiaGymJanineScript:
 	writetext JanineText_DisappointYou
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext JanineText_ToughOne, 0
+	loadtrainer JANINE, JANINE2
+	sjump .Fight
+
+.Easy
 	winlosstext JanineText_ToughOne, 0
 	loadtrainer JANINE, JANINE1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_JANINE
@@ -60,11 +74,49 @@ FuchsiaGymJanineScript:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
+	readvar VAR_BADGES
+	scall FuchsiaGymActivateRockets
 .AfterTM:
+	writetext JanineRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext JanineRematchWinLossText, 0
+	loadtrainer JANINE, JANINE2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext JanineRematchWinLossText, 0
+	loadtrainer JANINE, JANINE1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext JanineText_ApplyMyself
 	waitbutton
+.EndRematch:
 	closetext
 	end
+
+FuchsiaGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 LassAliceScript:
 	checkevent EVENT_BEAT_LASS_ALICE
@@ -280,6 +332,14 @@ JanineText_ToxicSpeech:
 
 	para "steadily saps the"
 	line "victim's HP."
+	done
+
+JanineRematchText:
+	text "Rematch?"
+	done
+
+JanineRematchWinLossText:
+	text "Darn! Good Job!"
 	done
 
 JanineText_ApplyMyself:

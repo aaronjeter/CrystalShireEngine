@@ -15,8 +15,22 @@ ViridianGymBlueScript:
 	writetext LeaderBlueBeforeText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext LeaderBlueWinText, 0
+	loadtrainer BLUE, BLUE2
+	sjump .Fight
+
+.Easy
 	winlosstext LeaderBlueWinText, 0
 	loadtrainer BLUE, BLUE1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLUE
@@ -34,16 +48,54 @@ ViridianGymBlueScript:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
+	readvar VAR_BADGES
+	scall PewterGymActivateRockets
 	writetext LeaderBlueAfterText
 	waitbutton
 	closetext
 	end
 
 .FightDone:
+	writetext LeaderBlueRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext LeaderBlueRematchWinLossText, 0
+	loadtrainer BLUE, BLUE2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext LeaderBlueRematchWinLossText, 0
+	loadtrainer BLUE, BLUE1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext LeaderBlueEpilogueText
 	waitbutton
+.EndRematch:
 	closetext
 	end
+
+ViridianGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 ViridianGymGuideScript:
 	faceplayer
@@ -135,6 +187,14 @@ LeaderBlueAfterText:
 
 	para "Don't you forget"
 	line "it!"
+	done
+
+LeaderBlueRematchText:
+	text "Rematch?"
+	done
+
+LeaderBlueRematchWinLossText:
+	text "Darn! Good Job!"
 	done
 
 LeaderBlueEpilogueText:

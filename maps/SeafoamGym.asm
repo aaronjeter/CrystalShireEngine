@@ -19,8 +19,21 @@ SeafoamGymBlaineScript:
 	writetext BlaineIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext BlaineWinLossText, 0
+	loadtrainer BLAINE, BLAINE2
+	sjump .Fight
+
+.Easy
 	winlosstext BlaineWinLossText, 0
 	loadtrainer BLAINE, BLAINE1
+	sjump .Fight
+.Fight	
 	startbattle
 	iftrue .ReturnAfterBattle
 	appear SEAFOAMGYM_GYM_GUIDE
@@ -41,16 +54,54 @@ SeafoamGymBlaineScript:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
+	readvar VAR_BADGES
+	scall SeafoamGymActivateRockets
 	writetext BlaineAfterBattleText
 	waitbutton
 	closetext
 	end
 
 .FightDone:
+	writetext BlaineRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext BlaineRematchWinLossText, 0
+	loadtrainer BLAINE, BLAINE2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext BlaineRematchWinLossText, 0
+	loadtrainer BLAINE, BLAINE1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext BlaineFightDoneText
 	waitbutton
+.EndRematch:
 	closetext
 	end
+
+SeafoamGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 SeafoamGymGuideScript:
 	faceplayer
@@ -122,6 +173,14 @@ BlaineAfterBattleText:
 
 	para "we'll have to have"
 	line "a rematch."
+	done
+
+BlaineRematchText:
+	text "Rematch?"
+	done
+
+BlaineRematchWinLossText:
+	text "Darn! Good Job!"
 	done
 
 BlaineFightDoneText:

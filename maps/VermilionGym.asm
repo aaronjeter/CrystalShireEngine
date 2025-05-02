@@ -18,8 +18,22 @@ VermilionGymSurgeScript:
 	writetext LtSurgeIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 3, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext LtSurgeWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE2
+	sjump .Fight
+
+.Easy
 	winlosstext LtSurgeWinLossText, 0
 	loadtrainer LT_SURGE, LT_SURGE1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_LTSURGE
@@ -40,16 +54,54 @@ VermilionGymSurgeScript:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
+	readvar VAR_BADGES
+	scall VermilionGymActivateRockets
 	writetext LtSurgeThunderBadgeText
 	waitbutton
 	closetext
 	end
 
 .FightDone:
+	writetext LtSurgeRematchText
+	yesorno
+	iffalse .FightDoneText
+
+	readvar VAR_BADGES
+	ifgreater 3, .HardRematch
+	sjump .EasyRematch
+
+.HardRematch
+	winlosstext LtSurgeRematchWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext LtSurgeRematchWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE1
+	sjump .Rematch
+
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	sjump .EndRematch
+
+.FightDoneText:
 	writetext LtSurgeFightDoneText
 	waitbutton
+.EndRematch:
 	closetext
 	end
+
+VermilionGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerGentlemanGregory:
 	trainer GENTLEMAN, GREGORY, EVENT_BEAT_GENTLEMAN_GREGORY, GentlemanGregorySeenText, GentlemanGregoryBeatenText, 0, .Script
@@ -157,6 +209,14 @@ LtSurgeThunderBadgeText:
 
 	para "me. You wear it"
 	line "proudly, hear?"
+	done
+
+LtSurgeRematchText:
+	text "Rematch?"
+	done
+
+LtSurgeRematchWinLossText:
+	text "Darn! Good Job!"
 	done
 
 LtSurgeFightDoneText:
