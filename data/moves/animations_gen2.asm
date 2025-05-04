@@ -119,7 +119,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_ShadowPunch	;Mach Punch
 	dw BattleAnim_Extrasensory	;signal beam (copy of aurora beam)
 	dw BattleAnim_MuddyWater	;Muddy water (copy of surf)
-	dw BattleAnim_BulletSeed	;Bullet Seed (copy of fury attack)
+	dw BattleAnim_BulletSeed	;Bullet Seed (copy of barrage)
 	dw BattleAnim_AerialAce		;fury cutter
 	dw BattleAnim_IcicleSpear	;powder snow
 	dw BattleAnim_DragonClaw	;Metal Claw
@@ -2063,22 +2063,13 @@ BattleAnim_CalmMind:
 	anim_ret
 
 BattleAnim_BulletSeed:
-	anim_2gfx BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT
-	anim_obj BATTLE_ANIM_OBJ_HORN, 72, 72, $2
-	anim_wait 8
-	anim_sound 0, 1, SFX_HORN_ATTACK
-	anim_obj BATTLE_ANIM_OBJ_HIT, 128, 40, $0
-	anim_wait 8
-	anim_obj BATTLE_ANIM_OBJ_HORN, 80, 88, $2
-	anim_wait 8
-	anim_sound 0, 1, SFX_HORN_ATTACK
-	anim_obj BATTLE_ANIM_OBJ_HIT, 136, 56, $0
-	anim_wait 8
-	anim_obj BATTLE_ANIM_OBJ_HORN, 76, 80, $2
-	anim_wait 8
-	anim_sound 0, 1, SFX_HORN_ATTACK
-	anim_obj BATTLE_ANIM_OBJ_HIT, 132, 48, $0
-	anim_wait 8
+	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_EXPLOSION
+	anim_sound 6, 2, SFX_THROW_BALL
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 136, 56, $0
+	anim_wait 16
 	anim_ret
 
 BattleAnim_NeedleArm:

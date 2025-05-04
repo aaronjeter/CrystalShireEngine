@@ -1950,7 +1950,7 @@ GastlyEvosAttacks:
 	dbw 36, SHADOW_BALL
 	dbw 40, SLUDGE_BOMB
 	dbw 42, GROWTH
-	dbw 45, SCARY_FACE
+	dbw 45, DARK_PULSE
 	dbw 50, NIGHTMARE
 	dbw 55, PERISH_SONG
 	dbw 60, DESTINY_BOND
@@ -1971,7 +1971,7 @@ HaunterEvosAttacks:
 	dbw 36, SHADOW_BALL
 	dbw 40, SLUDGE_BOMB
 	dbw 42, GROWTH
-	dbw 45, SCARY_FACE
+	dbw 45, DARK_PULSE
 	dbw 50, NIGHTMARE
 	dbw 55, PERISH_SONG
 	dbw 60, DESTINY_BOND
@@ -1991,7 +1991,7 @@ GengarEvosAttacks:
 	dbw 36, SHADOW_BALL
 	dbw 40, SLUDGE_BOMB
 	dbw 42, GROWTH
-	dbw 45, SCARY_FACE
+	dbw 45, DARK_PULSE
 	dbw 50, NIGHTMARE
 	dbw 55, PERISH_SONG
 	dbw 60, DESTINY_BOND
@@ -2784,10 +2784,10 @@ JolteonEvosAttacks:
 	dbw 32, SPIKES
 	dbw 36, THUNDERBOLT
 	dbw 40, PIN_MISSILE
-	dbw 42, AGILITY
-	dbw 45, CHARGE
+	dbw 42, CHARGE
+	dbw 45, RAIN_DANCE
 	dbw 50, THUNDER
-	dbw 55, RAIN_DANCE
+	dbw 55, CRUNCH
 	dbw 60, VOLT_TACKLE
 	db 0 ; no more level-up moves
 

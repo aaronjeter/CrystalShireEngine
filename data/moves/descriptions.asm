@@ -1371,7 +1371,7 @@ NaturePowerDescription:
 
 ChargeDescription:
 	db   "Raises the user's"
-	next "special stats.@"
+	next "SPEED and SPC ATK@"
 
 SuperpowerDescription:
 	db   "Strong, but lowers"

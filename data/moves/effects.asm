@@ -2209,3 +2209,17 @@ Growth:
 	statupfailtext
 	endmove
 
+Charge:
+	checkobedience
+	usedmovetext
+	doturn
+	lowersub
+	statupanim
+	specialattackup	
+	statupmessage
+	speedup	
+	statupmessage
+	raisesub	
+	statupfailtext
+	endmove
+

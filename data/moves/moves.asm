@@ -232,7 +232,7 @@ MovesGen2:
 	move EFFECT_SANDSTORM,           0, ROCK,           STATUS,			100, 10,   0      ;SANDSTORM
 	move EFFECT_LEECH_HIT,          80, GRASS,          SPECIAL,		100, 10,   0      ;GIGA_DRAIN
 	move EFFECT_ENDURE,              0, NORMAL,         STATUS,			100, 10,   0      ;ENDURE
-	move EFFECT_ATTACK_DOWN_2,       0, NORMAL,         STATUS,			100, 20,   0      ;CHARM
+	move EFFECT_SP_ATK_DOWN_2,       0, NORMAL,         STATUS,			100, 20,   0      ;CHARM
 	move EFFECT_ROLLOUT,            30, ROCK,           PHYSICAL,		 90, 20,   0      ;ROLLOUT
 	move EFFECT_FALSE_SWIPE,        60, NORMAL,         PHYSICAL,		100, 40,   0      ;FALSE_SWIPE
 	move EFFECT_SWAGGER,             0, NORMAL,         STATUS,			 90, 15, 100      ;SWAGGER
@@ -288,7 +288,7 @@ MovesGen2:
 	move EFFECT_RAIN_DANCE,          0, ICE,            STATUS,			100, 10,   0      ;HAIL EFFECT_HAIL
 	move EFFECT_FLINCH_HIT,         85, FIGHTING,       SPECIAL,		100, 20,  10      ;FOCUS_PUNCH 
 	move EFFECT_NORMAL_HIT,         90, GRASS,		    PHYSICAL,		100, 20,   0      ;NATURE_POWER 
-	move EFFECT_CALM_MIND,           0, ELECTRIC,       STATUS,	    	100, 20,   0      ;CHARGE 
+	move EFFECT_CHARGE,              0, ELECTRIC,       STATUS,	    	100, 20,   0      ;CHARGE 
 	move EFFECT_RECOIL_HIT,        100, FIGHTING,       SPECIAL,		100, 10,   0      ;SUPERPOWER 
 	move EFFECT_DEFENSE_DOWN_HIT,   75, FIGHTING,       PHYSICAL,		100, 15,  50      ;BRICK_BREAK 
 	move EFFECT_RECOIL_HIT,        100, FIRE,           SPECIAL,		100, 10,   0      ;ERUPTION

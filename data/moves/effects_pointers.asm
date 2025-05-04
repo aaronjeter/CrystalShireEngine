@@ -167,4 +167,5 @@ MoveEffectsPointers:
 	dw DragonDance
 	dw CosmicPower
 	dw Growth
+	dw Charge
 	assert_table_length NUM_MOVE_EFFECTS
