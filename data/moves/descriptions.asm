@@ -310,6 +310,22 @@ MoveDescriptionsGen2:
 	dw RockBlastDescription
 	dw ShockWaveDescription
 	dw WaterPulseDescription
+	dw ThunderFangDescription
+	dw IceFangDescription
+	dw FireFangDescription	
+	dw DrainingKissDescription
+	dw MoonBlastDescription
+	dw PlayRoughDescription
+	dw AuraSphereDescription
+	dw ShadowClawDescription
+	dw IcicleCrashDescription
+	dw PoisonJabDescription
+	dw PowerGemDescription
+	dw PsychoCutDescription
+	dw ZenHeadbuttDescription
+	dw FlashCannonDescription
+	dw AquaJetDescription
+	dw DarkPulseDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1362,8 +1378,8 @@ SuperpowerDescription:
 	next "physical stats.@"
 
 BrickBreakDescription:
-	db   "Destroys REFLECT"
-	next "and LIGHT SCREEN.@"
+	db   "An attack that may"
+	next "lower DEFENSE.@"
 
 EruptionDescription:
 	db   "Strong, but lowers"
@@ -1520,3 +1536,67 @@ ShockWaveDescription:
 WaterPulseDescription:
 	db   "An attack that may"
 	next "cause confusion.@"
+
+ThunderFangDescription:
+	db   "An attack that may"
+	next "paralyze foe.@"
+
+IceFangDescription:
+	db   "An attack that may"
+	next "cause frostbite.@"
+
+FireFangDescription:
+	db   "An attack that may"
+	next "cause burn.@"
+
+DrainingKissDescription:
+	db   "Steals 1/2 of the"
+	next "damage inflicted.@"
+
+MoonBlastDescription:
+	db   "An attack that may"
+	next "lower SPCL.ATK.@"
+
+PlayRoughDescription:
+	db   "An attack that may"
+	next "lower ATK.@"
+
+AuraSphereDescription:
+	db   "An attack that"
+	next "never misses.@"
+
+ShadowClawDescription:
+	db   "Has a high criti-"
+	next "cal hit ratio.@"
+
+IcicleCrashDescription:
+	db   "An attack that may"
+	next "cause flinching.@"
+
+PoisonJabDescription:
+	db   "An attack that may"
+	next "poison the target.@"
+
+PowerGemDescription:
+	db   "User attacks with"
+	next "a ray of light.@"
+
+PsychoCutDescription:
+	db   "Has a high criti-"
+	next "cal hit ratio.@"
+
+ZenHeadbuttDescription:
+	db   "An attack that may"
+	next "cause flinching.@"
+
+FlashCannonDescription:
+	db   "An attack that may"
+	next "lower SPCL.DEF.@"
+
+AquaJetDescription:
+	db   "Lets the user get"
+	next "in the first hit.@"
+
+DarkPulseDescription:
+	db   "An attack that may"
+	next "cause flinching.@"

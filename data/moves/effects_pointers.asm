@@ -166,4 +166,5 @@ MoveEffectsPointers:
 	dw BulkUp
 	dw DragonDance
 	dw CosmicPower
+	dw Growth
 	assert_table_length NUM_MOVE_EFFECTS

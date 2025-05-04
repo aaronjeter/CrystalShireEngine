@@ -135,6 +135,22 @@ BattleAnimationsGen2::
 	dw BattleAnim_RockBlast		;Rock Tomb (copy of rock throw)
 	dw BattleAnim_ShockWave		;shockwave (copy of thunder wave)
 	dw BattleAnim_WaterPulse	;WaterPulse (copy of bubblebeam)
+	dw BattleAnim_ThunderFang	;Poison Fang (copy of bite)
+	dw BattleAnim_IceFang		;Poison Fang (copy of bite)
+	dw BattleAnim_FireFang		;Poison Fang (copy of bite)
+	dw BattleAnim_DrainingKiss	;sweet kiss
+	dw BattleAnim_MoonBlast		;moonlight
+	dw BattleAnim_PlayRough		;beat up
+	dw BattleAnim_AuraSphere	;shadow ball
+	dw BattleAnim_ShadowClaw	;metal claw
+	dw BattleAnim_IcicleCrash	;rollout
+	dw BattleAnim_PoisonJab		;pursuit
+	dw BattleAnim_PowerGem		;Flash Cannon (copy of Flash)
+	dw BattleAnim_PsychoCut		;Fury cutter
+	dw BattleAnim_ZenHeadbutt	;poison tail (copy of headbutt)
+	dw BattleAnim_FlashCannon	;Flash Cannon (copy of Flash)
+	dw BattleAnim_AquaJet		;astonish (copy of quick attack)
+	dw BattleAnim_DarkPulse		;destiny bond
 .IndirectEnd::
 
 BattleAnim_Sketch:
@@ -483,6 +499,7 @@ BattleAnim_FaintAttack:
 	anim_wait 4
 	anim_ret
 
+BattleAnim_DrainingKiss:
 BattleAnim_SweetKiss:
 	anim_2gfx BATTLE_ANIM_GFX_OBJECTS, BATTLE_ANIM_GFX_ANGELS
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
@@ -608,6 +625,7 @@ BattleAnim_Foresight:
 	anim_wait 8
 	anim_ret
 
+BattleAnim_DarkPulse:
 BattleAnim_DestinyBond:
 	anim_1gfx BATTLE_ANIM_GFX_ANGELS
 	anim_bgp $1b
@@ -806,6 +824,7 @@ BattleAnim_Charm:
 	anim_wait 4
 	anim_ret
 
+BattleAnim_IcicleCrash:
 BattleAnim_IceBall:
 BattleAnim_Rollout:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
@@ -882,6 +901,7 @@ BattleAnim_Spark:
 	anim_wait 32
 	anim_ret
 
+BattleAnim_PsychoCut:
 BattleAnim_AerialAce:
 BattleAnim_AirCutter:
 BattleAnim_FuryCutter:
@@ -1173,6 +1193,7 @@ BattleAnim_Encore:
 	anim_wait 16
 	anim_ret
 
+BattleAnim_PoisonJab:
 BattleAnim_Pursuit:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
 	anim_if_param_equal $1, .pursued
@@ -1256,6 +1277,7 @@ BattleAnim_IronTail:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
+BattleAnim_ShadowClaw:
 BattleAnim_DragonClaw:
 BattleAnim_CrushClaw:
 BattleAnim_MetalClaw:
@@ -1346,6 +1368,7 @@ BattleAnim_Crunch:
 	anim_wait 8
 	anim_ret
 
+BattleAnim_MoonBlast:
 BattleAnim_Moonlight:
 	anim_1gfx BATTLE_ANIM_GFX_SHINE
 	anim_bgp $1b
@@ -1562,6 +1585,7 @@ BattleAnim_Ancientpower:
 	anim_wait 6
 	anim_ret
 
+BattleAnim_AuraSphere:
 BattleAnim_MistBall:
 BattleAnim_ShadowBall:
 	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_SMOKE
@@ -1631,6 +1655,7 @@ BattleAnim_Whirlpool:
 	anim_wait 1
 	anim_ret
 
+BattleAnim_PlayRough:
 BattleAnim_BeatUp:
 	anim_if_param_equal $0, .current_mon
 	anim_sound 0, 0, SFX_BALL_POOF
@@ -1921,6 +1946,10 @@ BattleAnim_BlazeKick:
 	anim_loop 3, .loop
 	anim_ret
 
+
+BattleAnim_ThunderFang:
+BattleAnim_IceFang:
+BattleAnim_FireFang:
 BattleAnim_PoisonFang:
 	anim_2gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT
 	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $98
@@ -2217,6 +2246,7 @@ BattleAnim_WaterPulse:
 	anim_wait 8
 	anim_ret
 
+BattleAnim_ZenHeadbutt:
 BattleAnim_PoisonTail:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $14, $2, $0
@@ -2230,6 +2260,7 @@ BattleAnim_PoisonTail:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
+BattleAnim_AquaJet:
 BattleAnim_Astonish:
 	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_MENU
@@ -2246,4 +2277,28 @@ BattleAnim_Astonish:
 	anim_wait 8
 	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 16
+	anim_ret
+
+BattleAnim_PowerGem:
+BattleAnim_FlashCannon:
+	anim_1gfx BATTLE_ANIM_GFX_SPEED
+	anim_sound 0, 1, SFX_FLASH
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $6, $20
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $0
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $8
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $10
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $18
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $20
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $28
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $30
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $38
+	anim_wait 32
 	anim_ret

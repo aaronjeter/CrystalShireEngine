@@ -2195,3 +2195,17 @@ CosmicPower:
 	statupfailtext
 	endmove
 
+Growth:
+	checkobedience
+	usedmovetext
+	doturn
+	lowersub
+	statupanim
+	attackup	
+	statupmessage
+	specialattackup	
+	statupmessage
+	raisesub	
+	statupfailtext
+	endmove
+

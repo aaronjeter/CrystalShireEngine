@@ -308,6 +308,22 @@ DEF GEN1_MOVES EQU const_value - 1
 	const ROCK_BLAST   ; 15c
 	const SHOCK_WAVE   ; 15d
 	const WATER_PULSE  ; 15e
+	const THUNDER_FANG
+	const ICE_FANG
+	const FIRE_FANG
+	const DRAININGKISS
+	const MOONBLAST
+	const PLAY_ROUGH
+	const AURA_SPHERE
+	const SHADOW_CLAW
+	const ICICLE_CRASH
+	const POISON_JAB
+	const POWER_GEM
+	const PSYCHO_CUT
+	const ZEN_HEADBUTT
+	const FLASHCANNON
+	const AQUA_JET
+	const DARK_PULSE
 DEF GEN2_MOVES EQU const_value - 1
 
 DEF NUM_ATTACKS EQU const_value - 1
