@@ -2110,7 +2110,7 @@ VoltorbEvosAttacks:
 	dbw 32, THUNDERBOLT
 	dbw 36, SWIFT
 	dbw 39, EXPLOSION
-	dbw 41, MIRROR_COAT
+	dbw 41, CHARGE
 	dbw 45, EXTREMESPEED
 	dbw 50, THUNDER
 	dbw 55, POWER_GEM
@@ -2131,7 +2131,7 @@ ElectrodeEvosAttacks:
 	dbw 32, THUNDERBOLT
 	dbw 36, SWIFT
 	dbw 39, EXPLOSION
-	dbw 41, MIRROR_COAT
+	dbw 41, CHARGE
 	dbw 45, EXTREMESPEED
 	dbw 50, THUNDER
 	dbw 55, POWER_GEM
@@ -2279,7 +2279,7 @@ LickitungEvosAttacks:
 	dbw 42, THUNDER_FANG
 	dbw 45, ICE_FANG
 	dbw 48, FIRE_FANG
-	dwb 50, BULK_UP
+	dbw 50, BULK_UP
 	db 0 ; no more level-up moves
 
 KoffingEvosAttacks:
@@ -2732,8 +2732,8 @@ EeveeEvosAttacks:
 	dbww EVOLVE_ITEM, THUNDERSTONE, JOLTEON
 	dbww EVOLVE_ITEM, WATER_STONE, VAPOREON
 	dbww EVOLVE_ITEM, FIRE_STONE, FLAREON
-	dbbw EVOLVE_ITEM, SUN_STONE, ESPEON
-	dbbw EVOLVE_ITEM, MOON_STONE, UMBREON
+	dbww EVOLVE_ITEM, SUN_STONE, ESPEON
+	dbww EVOLVE_ITEM, MOON_STONE, UMBREON
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, TAIL_WHIP

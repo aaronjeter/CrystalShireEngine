@@ -321,7 +321,7 @@ MovesGen2:
 	move EFFECT_HYPER_BEAM,        150, GRASS,          SPECIAL,		 90, 10,   0      ;FRENZY_PLANT
 	move EFFECT_BULK_UP,             0, FIGHTING,       STATUS,			100, 20,   0      ;BULK_UP
 	move EFFECT_SPEED_DOWN_HIT,     55, GROUND,         SPECIAL,		100, 15, 100      ;MUD_SHOT
-	move EFFECT_POISON_HIT,         60, POISON,         PHYSICAL,		100, 25,  10      ;POISON_TAIL
+	move EFFECT_POISON_HIT,         65, POISON,         PHYSICAL,		100, 25,  10      ;POISON_TAIL
 	move EFFECT_RECOIL_HIT,        120, ELECTRIC,       PHYSICAL,		100, 15,   0      ;VOLT_TACKLE
 	move EFFECT_ALWAYS_HIT,         60, GRASS,          SPECIAL,		100, 20,   0      ;MAGICAL_LEAF
 	move EFFECT_CALM_MIND,           0, PSYCHIC_TYPE,   STATUS,			100, 20,   0      ;CALM_MIND 
