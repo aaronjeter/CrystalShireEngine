@@ -5,7 +5,7 @@ KantoGrassWildMons:
 	def_grass_wildmons DIGLETTS_CAVE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, DIGLETT
+	dbw 1, WHISMUR
 	dbw 2, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
@@ -13,7 +13,7 @@ KantoGrassWildMons:
 	dbw 6, DUGTRIO
 	dbw 7, DUGTRIO
 	; day
-	dbw 1, DIGLETT
+	dbw 1, WHISMUR
 	dbw 2, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
@@ -21,7 +21,7 @@ KantoGrassWildMons:
 	dbw 6, DUGTRIO
 	dbw 7, DUGTRIO
 	; nite
-	dbw 1, DIGLETT
+	dbw 1, WHISMUR
 	dbw 2, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
@@ -35,7 +35,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, ZUBAT
 	dbw 1, GEODUDE
-	dbw 1, SANDSHREW
+	dbw 1, LUNATONE
 	dbw 1, PARAS
 	dbw 1, CLEFFA
 	dbw 3, CLEFAIRY
@@ -43,7 +43,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, ZUBAT
 	dbw 1, GEODUDE
-	dbw 1, SANDSHREW
+	dbw 1, LUNATONE
 	dbw 1, PARAS
 	dbw 1, CLEFFA
 	dbw 3, CLEFAIRY
@@ -51,7 +51,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, ZUBAT
 	dbw 1, GEODUDE
-	dbw 1, SANDSHREW
+	dbw 1, LUNATONE
 	dbw 1, PARAS
 	dbw 1, CLEFFA
 	dbw 3, CLEFAIRY
@@ -65,7 +65,7 @@ KantoGrassWildMons:
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
 	dbw 1, ZUBAT
-	dbw 3, MACHOKE
+	dbw 1, MEDITITE
 	dbw 3, MAROWAK
 	dbw 5, MAROWAK
 	; day
@@ -73,7 +73,7 @@ KantoGrassWildMons:
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
 	dbw 1, ZUBAT
-	dbw 3, MACHOKE
+	dbw 1, MEDITITE
 	dbw 3, MAROWAK
 	dbw 5, MAROWAK
 	; nite
@@ -81,7 +81,7 @@ KantoGrassWildMons:
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
 	dbw 1, ZUBAT
-	dbw 3, MACHOKE
+	dbw 1, MEDITITE
 	dbw 3, MAROWAK
 	dbw 5, MAROWAK
 	end_grass_wildmons
@@ -92,7 +92,7 @@ KantoGrassWildMons:
 	dbw 1, CUBONE
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, ZUBAT
+	dbw 1, MEDITITE
 	dbw 3, MAROWAK
 	dbw 3, KANGASKHAN
 	dbw 5, KANGASKHAN
@@ -100,7 +100,7 @@ KantoGrassWildMons:
 	dbw 1, CUBONE
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, ZUBAT
+	dbw 1, MEDITITE
 	dbw 3, MAROWAK
 	dbw 3, KANGASKHAN
 	dbw 5, KANGASKHAN
@@ -108,7 +108,7 @@ KantoGrassWildMons:
 	dbw 1, CUBONE
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, ZUBAT
+	dbw 1, MEDITITE
 	dbw 3, MAROWAK
 	dbw 3, KANGASKHAN
 	dbw 5, KANGASKHAN
@@ -148,7 +148,7 @@ KantoGrassWildMons:
 	dbw 3, GRAVELER
 	dbw 3, RHYHORN
 	dbw 1, ONIX
-	dbw 3, GOLBAT
+	dbw 1, MEDITITE
 	dbw 5, RHYDON
 	dbw 1, LARVITAR
 	dbw 3, PUPITAR
@@ -156,7 +156,7 @@ KantoGrassWildMons:
 	dbw 3, GRAVELER
 	dbw 3, RHYHORN
 	dbw 1, ONIX
-	dbw 3, GOLBAT
+	dbw 1, MEDITITE
 	dbw 5, RHYDON
 	dbw 1, LARVITAR
 	dbw 3, PUPITAR
@@ -164,7 +164,7 @@ KantoGrassWildMons:
 	dbw 3, GRAVELER
 	dbw 3, RHYHORN
 	dbw 1, ONIX
-	dbw 3, GOLBAT
+	dbw 1, MEDITITE
 	dbw 5, RHYDON
 	dbw 1, LARVITAR
 	dbw 3, PUPITAR
@@ -175,15 +175,15 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, PIDGEY
 	dbw 1, RATTATA
-	dbw 1, SPEAROW
-	dbw 2, PIKACHU
+	dbw 1, PLUSLE
+	dbw 1, MINUN
 	dbw 3, PIKACHU
 	dbw 1, PICHU
 	dbw 2, PICHU
 	; day
 	dbw 1, PIDGEY
 	dbw 1, RATTATA
-	dbw 1, SPEAROW
+	dbw 1, PLUSLE
 	dbw 2, PIKACHU
 	dbw 3, PIKACHU
 	dbw 1, PICHU
@@ -191,8 +191,8 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, HOOTHOOT
 	dbw 1, RATTATA
-	dbw 1, HOOTHOOT
-	dbw 2, PIKACHU
+	dbw 1, PLUSLE
+	dbw 1, MINUN
 	dbw 3, PIKACHU
 	dbw 1, PICHU
 	dbw 2, PICHU
@@ -204,24 +204,24 @@ KantoGrassWildMons:
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, PIDGEY
-	dbw 1, PIKACHU
-	dbw 2, PIKACHU
+	dbw 1, PLUSLE
+	dbw 1, MINUN
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	; day
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, PIDGEY
-	dbw 1, PIKACHU
-	dbw 2, PIKACHU
+	dbw 1, PLUSLE
+	dbw 1, MINUN
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	; nite
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, HOOTHOOT
-	dbw 1, PIKACHU
-	dbw 2, PIKACHU
+	dbw 1, PLUSLE
+	dbw 1, MINUN
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	end_grass_wildmons
@@ -286,7 +286,7 @@ KantoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, PIDGEY
-	dbw 1, SNUBBULL
+	dbw 1, SKITTY
 	dbw 3, PIDGEOTTO
 	dbw 1, ABRA
 	dbw 1, JIGGLYPUFF
@@ -294,7 +294,7 @@ KantoGrassWildMons:
 	dbw 3, ABRA
 	; day
 	dbw 1, PIDGEY
-	dbw 1, SNUBBULL
+	dbw 1, SKITTY
 	dbw 3, JIGGLYPUFF
 	dbw 1, JIGGLYPUFF
 	dbw 1, JIGGLYPUFF
@@ -302,7 +302,7 @@ KantoGrassWildMons:
 	dbw 3, ABRA
 	; nite
 	dbw 1, PIDGEY
-	dbw 1, SNUBBULL
+	dbw 1, SKITTY
 	dbw 3, PIDGEOTTO
 	dbw 1, MEOWTH
 	dbw 1, MEOWTH
@@ -427,7 +427,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 3, RATICATE
+	dbw 1, ELECTRIKE
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -435,7 +435,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 3, RATICATE
+	dbw 1, ELECTRIKE
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -443,7 +443,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 3, RATICATE
+	dbw 1, ELECTRIKE
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -454,26 +454,26 @@ KantoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, ODDISH
-	dbw 1, RATTATA
+	dbw 1, ELECTRIKE
 	dbw 1, MAGNEMITE
-	dbw 1, PIDGEY
-	dbw 1, DROWZEE
+	dbw 1, ROSELIA
+	dbw 1, ROSELIA
 	dbw 2, DROWZEE
 	dbw 5, HYPNO
 	; day
 	dbw 1, ODDISH
-	dbw 1, RATTATA
+	dbw 1, ELECTRIKE
 	dbw 1, MAGNEMITE
-	dbw 1, PIDGEY
-	dbw 1, DROWZEE
+	dbw 1, ROSELIA
+	dbw 1, ROSELIA
 	dbw 2, DROWZEE
 	dbw 5, HYPNO
 	; nite
 	dbw 1, ODDISH
-	dbw 1, RATTATA
+	dbw 1, ELECTRIKE
 	dbw 1, MAGNEMITE
-	dbw 1, PIDGEY
-	dbw 1, DROWZEE
+	dbw 1, ROSELIA
+	dbw 1, ROSELIA
 	dbw 2, DROWZEE
 	dbw 5, HYPNO
 	end_grass_wildmons
@@ -567,7 +567,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, GRIMER
 	dbw 1, SPEAROW
-	dbw 1, GRIMER
+	dbw 1, GULPIN
 	dbw 1, MURKROW
 	dbw 2, MURKROW
 	dbw 3, MUK
@@ -575,7 +575,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, SLUGMA
 	dbw 1, SLUGMA
-	dbw 1, GRIMER
+	dbw 1, GULPIN
 	dbw 1, MURKROW
 	dbw 2, MURKROW
 	dbw 3, MUK
@@ -583,7 +583,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, SLUGMA
 	dbw 1, SPEAROW
-	dbw 1, GRIMER
+	dbw 1, GULPIN
 	dbw 1, MURKROW
 	dbw 2, MURKROW
 	dbw 3, MUK
@@ -596,7 +596,7 @@ KantoGrassWildMons:
 	dbw 1, SPEAROW
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
-	dbw 3, FEAROW
+	dbw 1, GULPIN
 	dbw 2, GRIMER
 	dbw 3, MUK
 	dbw 5, MUK
@@ -604,7 +604,7 @@ KantoGrassWildMons:
 	dbw 1, SPEAROW
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
-	dbw 3, FEAROW
+	dbw 1, GULPIN
 	dbw 2, GRIMER
 	dbw 3, MUK
 	dbw 5, MUK
@@ -612,7 +612,7 @@ KantoGrassWildMons:
 	dbw 1, SPEAROW
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
-	dbw 3, FEAROW
+	dbw 1, GULPIN
 	dbw 2, GRIMER
 	dbw 3, MUK
 	dbw 5, MUK
@@ -624,24 +624,24 @@ KantoGrassWildMons:
 	dbw 1, SPEAROW
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
-	dbw 3, FEAROW
-	dbw 2, GRIMER
+	dbw 3, TORKOAL
+	dbw 1, NUMEL
 	dbw 3, MUK
 	dbw 5, MUK
 	; day
 	dbw 1, SPEAROW
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
-	dbw 3, FEAROW
-	dbw 2, GRIMER
+	dbw 3, TORKOAL
+	dbw 1, NUMEL
 	dbw 3, MUK
 	dbw 5, MUK
 	; nite
 	dbw 1, SPEAROW
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
-	dbw 3, FEAROW
-	dbw 2, GRIMER
+	dbw 3, TORKOAL
+	dbw 1, NUMEL
 	dbw 3, MUK
 	dbw 5, MUK
 	end_grass_wildmons
@@ -650,25 +650,25 @@ KantoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, TANGELA
-	dbw 1, RATTATA
+	dbw 1, SPOINK
 	dbw 3, TANGELA
-	dbw 3, RATICATE
+	dbw 3, SPINDA
 	dbw 1, MR__MIME
 	dbw 2, MR__MIME
 	dbw 5, MR__MIME
 	; day
 	dbw 1, TANGELA
-	dbw 1, RATTATA
+	dbw 1, SPOINK
 	dbw 3, TANGELA
-	dbw 3, RATICATE
+	dbw 3, SPINDA
 	dbw 1, MR__MIME
 	dbw 2, MR__MIME
 	dbw 5, MR__MIME
 	; nite
 	dbw 1, TANGELA
-	dbw 1, RATTATA
+	dbw 1, SPOINK
 	dbw 3, TANGELA
-	dbw 3, RATICATE
+	dbw 3, SPINDA
 	dbw 1, MR__MIME
 	dbw 2, MR__MIME
 	dbw 5, MR__MIME
@@ -677,7 +677,7 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_22
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, RATTATA
+	dbw 1, SPOINK
 	dbw 1, DODUO
 	dbw 1, PONYTA
 	dbw 2, DODUO
@@ -685,7 +685,7 @@ KantoGrassWildMons:
 	dbw 3, FEAROW
 	dbw 5, FEAROW
 	; day
-	dbw 1, RATTATA
+	dbw 1, SPOINK
 	dbw 1, DODUO
 	dbw 1, PONYTA
 	dbw 2, DODUO
@@ -693,7 +693,7 @@ KantoGrassWildMons:
 	dbw 3, FEAROW
 	dbw 5, FEAROW
 	; nite
-	dbw 1, RATTATA
+	dbw 1, SPOINK
 	dbw 1, DODUO
 	dbw 1, PONYTA
 	dbw 2, DODUO
@@ -705,25 +705,25 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_24
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, CATERPIE
-	dbw 2, CATERPIE
-	dbw 3, METAPOD
+	dbw 2, VOLBEAT
+	dbw 2, ILLUMISE
+	dbw 3, CACNEA
 	dbw 1, ABRA
 	dbw 1, BELLSPROUT
 	dbw 5, BUTTERFREE
 	dbw 5, BUTTERFREE
 	; day
-	dbw 1, CATERPIE
-	dbw 2, CATERPIE
-	dbw 3, METAPOD
+	dbw 2, VOLBEAT
+	dbw 2, ILLUMISE
+	dbw 3, CACNEA
 	dbw 1, ABRA
 	dbw 1, BELLSPROUT
 	dbw 5, BUTTERFREE
 	dbw 5, BUTTERFREE
 	; nite
-	dbw 1, VENONAT
-	dbw 1, ODDISH
-	dbw 1, ODDISH
+	dbw 2, VOLBEAT
+	dbw 2, ILLUMISE
+	dbw 3, CACNEA
 	dbw 1, ABRA
 	dbw 1, BELLSPROUT
 	dbw 3, GLOOM
@@ -735,7 +735,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, CATERPIE
 	dbw 1, PIDGEY
-	dbw 3, PIDGEOTTO
+	dbw 3, CACNEA
 	dbw 2, METAPOD
 	dbw 1, BELLSPROUT
 	dbw 3, BUTTERFREE
@@ -743,7 +743,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, CATERPIE
 	dbw 1, PIDGEY
-	dbw 3, PIDGEOTTO
+	dbw 3, CACNEA
 	dbw 2, METAPOD
 	dbw 1, BELLSPROUT
 	dbw 3, BUTTERFREE
@@ -751,7 +751,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, ODDISH
 	dbw 1, HOOTHOOT
-	dbw 1, VENONAT
+	dbw 3, CACNEA
 	dbw 2, NOCTOWL
 	dbw 2, BELLSPROUT
 	dbw 4, NOCTOWL

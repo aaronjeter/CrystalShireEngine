@@ -47,7 +47,7 @@ JohtoWaterWildMons:
 	def_water_wildmons ILEX_FOREST
 	db 2 percent ; encounter rate
 	dbw 1, PSYDUCK
-	dbw 2, PSYDUCK
+	dbw 2, WINGULL
 	dbw 5, GOLDUCK
 	end_water_wildmons
 
@@ -123,28 +123,28 @@ JohtoWaterWildMons:
 
 	def_water_wildmons OLIVINE_PORT
 	db 2 percent ; encounter rate
-	dbw 1, TENTACOOL
+	dbw 1, WINGULL
 	dbw 1, STARYU
-	dbw 5, TENTACRUEL
+	dbw 5, WAILMER
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_30
 	db 2 percent ; encounter rate
 	dbw 1, POLIWAG
 	dbw 1, CHINCHOU
-	dbw 5, POLIWHIRL
+	dbw 5, WAILMER
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_31
 	db 2 percent ; encounter rate
 	dbw 1, POLIWAG
 	dbw 1, CHINCHOU
-	dbw 5, POLIWHIRL
+	dbw 5, WAILMER
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_32
 	db 2 percent ; encounter rate
-	dbw 1, TENTACOOL
+	dbw 1, WAILMER
 	dbw 5, QUAGSIRE
 	dbw 5, TENTACRUEL
 	end_water_wildmons
@@ -172,7 +172,7 @@ JohtoWaterWildMons:
 
 	def_water_wildmons ROUTE_41
 	db 2 percent ; encounter rate
-	dbw 1, TENTACOOL
+	dbw 1, WAILMER
 	dbw 3, TENTACRUEL
 	dbw 1, MANTINE
 	end_water_wildmons
@@ -186,7 +186,7 @@ JohtoWaterWildMons:
 
 	def_water_wildmons ROUTE_43
 	db 2 percent ; encounter rate
-	dbw 1, MAGIKARP
+	dbw 1, CARVANHA
 	dbw 2, MAGIKARP
 	dbw 3, MAGIKARP
 	end_water_wildmons
@@ -208,15 +208,15 @@ JohtoWaterWildMons:
 	def_water_wildmons NEW_BARK_TOWN
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 2, TENTACOOL
+	dbw 2, CARVANHA
 	dbw 5, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons CHERRYGROVE_CITY
 	db 2 percent ; encounter rate
-	dbw 1, TENTACOOL
-	dbw 2, TENTACOOL
-	dbw 5, TENTACRUEL
+	dbw 1, CARVANHA
+	dbw 2, CARVANHA
+	dbw 5, CARVANHA
 	end_water_wildmons
 
 	def_water_wildmons VIOLET_CITY
@@ -228,14 +228,14 @@ JohtoWaterWildMons:
 
 	def_water_wildmons CIANWOOD_CITY
 	db 2 percent ; encounter rate
-	dbw 1, TENTACOOL
+	dbw 1, WINGULL
 	dbw 1, STARYU
 	dbw 3, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons OLIVINE_CITY
 	db 2 percent ; encounter rate
-	dbw 1, TENTACOOL
+	dbw 1, WINGULL
 	dbw 1, STARYU
 	dbw 3, TENTACRUEL
 	end_water_wildmons
@@ -256,9 +256,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons BLACKTHORN_CITY
 	db 2 percent ; encounter rate
-	dbw 1, MAGIKARP
-	dbw 2, MAGIKARP
-	dbw 5, MAGIKARP
+	dbw 1, CARVANHA
+	dbw 2, CARVANHA
+	dbw 5, CARVANHA
 	end_water_wildmons
 
 	def_water_wildmons SILVER_CAVE_OUTSIDE
