@@ -280,7 +280,7 @@ MonMenuIconPals:
 	icon_pals BROWN,  GRAY   ; SILCOON
 	icon_pals RED,    PURPLE ; BEAUTIFLY
 	icon_pals PURPLE, GREEN  ; CASCOON
-	icon_pals GREEN,  BROWN  ; DUSTOX
+	icon_pals PURPLE, BROWN  ; DUSTOX
 	icon_pals GREEN,  TEAL   ; LOTAD
 	icon_pals GREEN,  TEAL   ; LOMBRE
 	icon_pals GREEN,  TEAL   ; LUDICOLO
@@ -291,19 +291,19 @@ MonMenuIconPals:
 	icon_pals BLUE,   GREEN  ; SWELLOW
 	icon_pals BLUE,   GREEN  ; WINGULL
 	icon_pals BLUE,   GREEN  ; PELIPPER
-	icon_pals GREEN,  BLUE   ; RALTS
-	icon_pals GREEN,  BLUE   ; KIRLIA
-	icon_pals GREEN,  BLUE   ; GARDEVOIR
+	icon_pals GREEN,  TEAL   ; RALTS
+	icon_pals GREEN,  TEAL   ; KIRLIA
+	icon_pals GREEN,  TEAL   ; GARDEVOIR
 	icon_pals BLUE,   TEAL   ; SURSKIT
-	icon_pals BLUE,   GREEN  ; MASQUERAIN
+	icon_pals RED,    GREEN  ; MASQUERAIN
 	icon_pals GREEN,  RED    ; SHROOMISH
 	icon_pals GREEN,  RED    ; BRELOOM
-	icon_pals GRAY,   BROWN  ; SLAKOTH
-	icon_pals GRAY,   BROWN  ; VIGOROTH
-	icon_pals GRAY,   BROWN  ; SLAKING
-	icon_pals GRAY,   RED    ; NINCADA
-	icon_pals GRAY,   RED    ; NINJASK
-	icon_pals GRAY,   RED    ; SHEDINJA
+	icon_pals BROWN,  PURPLE ; SLAKOTH
+	icon_pals BROWN,  PURPLE ; VIGOROTH
+	icon_pals BROWN,  PURPLE ; SLAKING
+	icon_pals GREEN,  GRAY   ; NINCADA
+	icon_pals BROWN,  RED    ; NINJASK
+	icon_pals BROWN,  RED    ; SHEDINJA
 	icon_pals PURPLE, GREEN  ; WHISMUR
 	icon_pals PURPLE, GREEN  ; LOUDRED
 	icon_pals PURPLE, GREEN  ; EXPLOUD
