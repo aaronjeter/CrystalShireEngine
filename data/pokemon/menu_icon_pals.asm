@@ -305,25 +305,25 @@ MonMenuIconPals:
 	icon_pals BROWN,  RED    ; NINJASK
 	icon_pals BROWN,  RED    ; SHEDINJA
 	icon_pals PURPLE, GREEN  ; WHISMUR
-	icon_pals PURPLE, GREEN  ; LOUDRED
-	icon_pals PURPLE, GREEN  ; EXPLOUD
+	icon_pals BLUE,   PURPLE ; LOUDRED
+	icon_pals BLUE,   PURPLE ; EXPLOUD
 	icon_pals RED,    PURPLE ; MAKUHITA
 	icon_pals RED,    PURPLE ; HARIYAMA
 	icon_pals BLUE,   GREEN  ; AZURILL
 	icon_pals BLUE,   BROWN  ; NOSEPASS
-	icon_pals BROWN,  PINK   ; SKITTY
+	icon_pals PINK,   BROWN  ; SKITTY
 	icon_pals PURPLE, RED    ; DELCATTY
 	icon_pals PURPLE, BROWN  ; SABLEYE
 	icon_pals GRAY,   PURPLE ; MAWILE
-	icon_pals TEAL,   RED    ; ARON
-	icon_pals TEAL,   RED    ; LAIRON
-	icon_pals TEAL,   RED    ; AGGRON
-	icon_pals TEAL,   RED    ; MEDITITE
+	icon_pals GRAY,   RED    ; ARON
+	icon_pals GRAY,   RED    ; LAIRON
+	icon_pals GRAY,   RED    ; AGGRON
+	icon_pals BLUE,   RED    ; MEDITITE
 	icon_pals RED,    TEAL   ; MEDICHAM
 	icon_pals GREEN,  TEAL   ; ELECTRIKE
-	icon_pals TEAL,   GREEN  ; MANECTRIC
+	icon_pals BLUE,   PURPLE ; MANECTRIC
 	icon_pals PINK,   RED    ; PLUSLE
-	icon_pals TEAL,   GREEN  ; MINUN
+	icon_pals BLUE,   GREEN  ; MINUN
 	icon_pals RED,    TEAL   ; VOLBEAT
 	icon_pals PURPLE, BROWN  ; ILLUMISE
 	icon_pals GREEN,  GREEN  ; ROSELIA
@@ -346,8 +346,8 @@ MonMenuIconPals:
 	icon_pals GREEN,  RED    ; CACTURNE
 	icon_pals BLUE,   BROWN  ; SWABLU
 	icon_pals BLUE,   BROWN  ; ALTARIA
-	icon_pals BLUE,   RED    ; ZANGOOSE
-	icon_pals BLUE,   RED    ; SEVIPER
+	icon_pals RED,    BLUE   ; ZANGOOSE
+	icon_pals PURPLE, BLUE   ; SEVIPER
 	icon_pals RED,    BLUE   ; LUNATONE
 	icon_pals RED,    PINK   ; SOLROCK
 	;reddit mons

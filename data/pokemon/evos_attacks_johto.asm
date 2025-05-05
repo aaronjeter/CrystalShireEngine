@@ -3105,6 +3105,7 @@ HariyamaEvosAttacks:
 
 AzurillEvosAttacks:
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
+	dbbw EVOLVE_LEVEL, 16, MARILL
 	db 0 ; no more evolutions
 	dbw 1, BUBBLE
 	dbw 3, DEFENSE_CURL
@@ -3553,13 +3554,13 @@ WailmerEvosAttacks:
 	dbw 24, REST
 	dbw 28, AMNESIA
 	dbw 32, BODY_SLAM
-	dbw 36, HYDRO_PUMP
+	dbw 36, WATER_SPOUT
 	dbw 40, SNORE
 	dbw 42, SLEEP_TALK
 	dbw 45, OUTRAGE
 	dbw 50, THRASH
 	dbw 55, CALM_MIND
-	dbw 60, WATER_SPOUT
+	dbw 60, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 WailordEvosAttacks:
@@ -3573,13 +3574,13 @@ WailordEvosAttacks:
 	dbw 24, REST
 	dbw 28, AMNESIA
 	dbw 32, BODY_SLAM
-	dbw 36, HYDRO_PUMP
+	dbw 36, WATER_SPOUT
 	dbw 40, SNORE
 	dbw 42, SLEEP_TALK
 	dbw 45, OUTRAGE
 	dbw 50, THRASH
 	dbw 55, CALM_MIND
-	dbw 60, WATER_SPOUT
+	dbw 60, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 NumelEvosAttacks:
