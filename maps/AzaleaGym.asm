@@ -87,7 +87,7 @@ AzaleaGymBugsyScript:
 	sjump .Rematch
 
 .EasyRematch
-	winlosstext FalknerRematchWinLossText, 0
+	winlosstext BugsyRematchWinLossText, 0
 	loadtrainer BUGSY, BUGSY1
 	sjump .Rematch
 
