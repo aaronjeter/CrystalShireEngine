@@ -346,6 +346,17 @@ PokemonCries::
 	mon_cry CRY_BULBASAUR,   238,  129 ; SEVIPER
 	mon_cry CRY_BULBASAUR,   238,  129 ; LUNATONE
 	mon_cry CRY_BULBASAUR,   238,  129 ; SOLROCK
+	mon_cry CRY_BULBASAUR,   238,  129 ; SNORUNT
+	mon_cry CRY_BULBASAUR,   238,  129 ; GLALIE
+	;gen4+
+	mon_cry CRY_TOGETIC,      59,   56 ; TOGEKISS
+	mon_cry CRY_MAGCARGO,   -265,  256 ; MAMOSWINE
+	mon_cry CRY_VENONAT,     136,  224 ; SYLVEON
+	mon_cry CRY_VENONAT,     136,  224 ; LEAFEON
+	mon_cry CRY_VENONAT,     136,  224 ; GLACEON
+	mon_cry CRY_GLIGAR,     -258,  256 ; GLISCOR
+	mon_cry CRY_BULBASAUR,   238,  129 ; GALLADE
+	mon_cry CRY_BULBASAUR,   238,  129 ; FROSLASS
 	;reddit mons
 	mon_cry CRY_VOLTORB,     237,  256 ; VOLTORB2
 	mon_cry CRY_VOLTORB,     168,  272 ; ELECTRODE2

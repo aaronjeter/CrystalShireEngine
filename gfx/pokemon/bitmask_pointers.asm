@@ -339,6 +339,17 @@ BitmasksPointers:
 	dw SeviperBitmasks
 	dw LunatoneBitmasks
 	dw SolrockBitmasks
+	dw SnoruntBitmasks
+	dw GlalieBitmasks
+	;Gen4
+	dw TogekissBitmasks
+	dw MamoswineBitmasks
+	dw SylveonBitmasks
+	dw LeafeonBitmasks
+	dw GlaceonBitmasks
+	dw GliscorBitmasks
+	dw GalladeBitmasks
+	dw FroslassBitmasks
 	;reddit mons
 	dw Voltorb2Bitmasks
 	dw Electrode2Bitmasks

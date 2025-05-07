@@ -125,8 +125,8 @@ ItemDescriptions1:
 	dw CharcoalDesc     ; 0072
 	dw BerryJuiceDesc   ; 0073
 	dw ScopeLensDesc    ; 0074
-	dw QuestionMarkDesc ; 0075
-	dw QuestionMarkDesc ; 0076
+	dw DawnStoneDesc    ; 0075
+	dw IceStoneDesc     ; 0076
 	dw MetalCoatDesc    ; 0077
 	dw DragonFangDesc   ; 0078
 	dw QuestionMarkDesc ; 0079
@@ -723,6 +723,14 @@ BerryJuiceDesc:
 ScopeLensDesc:
 	db   "Raises critical"
 	next "hit ratio. (HOLD)@"
+
+DawnStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
+
+IceStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 
 MetalCoatDesc:
 	db   "Powers up steel-"

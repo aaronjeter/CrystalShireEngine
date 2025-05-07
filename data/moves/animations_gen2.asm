@@ -151,6 +151,8 @@ BattleAnimationsGen2::
 	dw BattleAnim_FlashCannon	;Flash Cannon (copy of Flash)
 	dw BattleAnim_AquaJet		;astonish (copy of quick attack)
 	dw BattleAnim_DarkPulse		;destiny bond
+	dw BattleAnim_FaerieGleam	;Flash Cannon (copy of Flash)
+
 .IndirectEnd::
 
 BattleAnim_Sketch:
@@ -2270,6 +2272,7 @@ BattleAnim_Astonish:
 	anim_wait 16
 	anim_ret
 
+BattleAnim_FaerieGleam:
 BattleAnim_PowerGem:
 BattleAnim_FlashCannon:
 	anim_1gfx BATTLE_ANIM_GFX_SPEED

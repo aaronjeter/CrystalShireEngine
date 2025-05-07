@@ -344,6 +344,17 @@ PokemonNames::
 	db "SEVIPER@@@"
 	db "LUNATONE@@"
 	db "SOLROCK@@@"
+	db "SNORUNT@@@"
+	db "GLALIE@@@@"
+	;Gen 4
+	db "TOGEKISS@@"
+	db "MAMOSWINE@"
+	db "SYLVEON@@@"
+	db "LEAFEON@@@"
+	db "GLACEON@@@"
+	db "GLISCOR@@@"
+	db "GALLADE@@@"
+	db "FROSLASS@@"
 	;Reddit Mons
 	db "VOLTORB@@@"
 	db "ELECTRODE@"

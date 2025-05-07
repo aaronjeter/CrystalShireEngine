@@ -189,6 +189,18 @@ EvosAttacksPointers2::
 	dw SeviperEvosAttacks
 	dw LunatoneEvosAttacks
 	dw SolrockEvosAttacks
+	dw SnoruntEvosAttacks
+	dw GlalieEvosAttacks
+	;gen4+ mons
+	dw TogekissEvosAttacks
+	dw MamoswineEvosAttacks
+	dw SylveonEvosAttacks
+	dw LeafeonEvosAttacks
+	dw GlaceonEvosAttacks
+	dw GliscorEvosAttacks
+	dw GalladeEvosAttacks
+	dw FroslassEvosAttacks
+	;reddit mons
 	dw Voltorb2EvosAttacks
 	dw Electrode2EvosAttacks
 	dw Exeggcute2EvosAttacks
@@ -647,7 +659,7 @@ PichuEvosAttacks:
 	dbw 26, SHOCK_WAVE
 	dbw 31, AGILITY
 	dbw 36, THUNDERBOLT
-	dbw 40, SWIFT
+	dbw 40, FAERIEGLEAM
 	dbw 42, MEDITATE
 	dbw 45, THUNDER
 	dbw 50, LIGHT_SCREEN
@@ -715,7 +727,7 @@ TogepiEvosAttacks:
 	dbw 32, PSYBEAM
 	dbw 36, MOONBLAST
 	dbw 40, RAZOR_WIND
-	dbw 42, MEDITATE
+	dbw 42, CALM_MIND
 	dbw 45, PLAY_ROUGH
 	dbw 50, MIST_BALL
 	dbw 55, OUTRAGE
@@ -723,6 +735,7 @@ TogepiEvosAttacks:
 	db 0 ; no more level-up moves
 
 TogeticEvosAttacks:
+	dbww EVOLVE_ITEM, DAWN_STONE, TOGEKISS
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, CHARM
@@ -737,7 +750,7 @@ TogeticEvosAttacks:
 	dbw 32, PSYBEAM
 	dbw 36, MOONBLAST
 	dbw 40, RAZOR_WIND
-	dbw 42, MEDITATE
+	dbw 42, CALM_MIND
 	dbw 45, PLAY_ROUGH
 	dbw 50, MIST_BALL
 	dbw 55, OUTRAGE
@@ -862,7 +875,7 @@ BellossomEvosAttacks:
 	dbw 30, SYNTHESIS
 	dbw 36, GIGA_DRAIN	
 	dbw 40, PETAL_DANCE
-	dbw 42, SWIFT
+	dbw 42, FAERIEGLEAM
 	dbw 45, SUNNY_DAY
 	dbw 50, SOLARBEAM
 	dbw 55, CALM_MIND
@@ -881,7 +894,7 @@ MarillEvosAttacks:
 	dbw 24, BUBBLEBEAM
 	dbw 28, DIZZY_PUNCH
 	dbw 30, RAIN_DANCE
-	dbw 32, SWIFT
+	dbw 32, FAERIEGLEAM
 	dbw 36, BELLY_DRUM	
 	dbw 40, DOUBLE_EDGE
 	dbw 42, PERISH_SONG
@@ -902,7 +915,7 @@ AzumarillEvosAttacks:
 	dbw 24, BUBBLEBEAM
 	dbw 28, DIZZY_PUNCH
 	dbw 30, RAIN_DANCE
-	dbw 32, SWIFT
+	dbw 32, FAERIEGLEAM
 	dbw 36, BELLY_DRUM	
 	dbw 40, DOUBLE_EDGE
 	dbw 42, PERISH_SONG
@@ -1141,7 +1154,7 @@ EspeonEvosAttacks:
 	dbw 28, FAE_VOICE
 	dbw 32, BATON_PASS
 	dbw 36, PSYCHIC_M
-	dbw 40, SWIFT
+	dbw 40, FAERIEGLEAM
 	dbw 42, MEDITATE
 	dbw 45, MORNING_SUN
 	dbw 50, MIST_BALL
@@ -1325,6 +1338,7 @@ DunsparceEvosAttacks:
 	db 0 ; no more level-up moves
 
 GligarEvosAttacks:
+	dbbw EVOLVE_LEVEL, 40, GLISCOR
 	db 0 ; no more evolutions
 	dbw 1, POISON_STING
 	dbw 6, SAND_ATTACK
@@ -1585,6 +1599,7 @@ SwinubEvosAttacks:
 	db 0 ; no more level-up moves
 
 PiloswineEvosAttacks:
+	dbbw EVOLVE_LEVEL, 45, MAMOSWINE
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, POWDER_SNOW
@@ -1925,7 +1940,7 @@ ElekidEvosAttacks:
 	dbw 25, THUNDERPUNCH
 	dbw 28, THUNDER_WAVE
 	dbw 36, THUNDERBOLT
-	dbw 40, SWIFT
+	dbw 40, FAERIEGLEAM
 	dbw 42, CHARGE
 	dbw 45, CONFUSE_RAY
 	dbw 50, THUNDER
@@ -2742,7 +2757,8 @@ RaltsEvosAttacks:
 	db 0 ; no more level-up moves
 
 KirliaEvosAttacks:
-	dbbw EVOLVE_LEVEL, 30, GARDEVOIR
+	dbbw EVOLVE_LEVEL, 32, GARDEVOIR
+	dbww EVOLVE_ITEM, DAWN_STONE, GALLADE
 	db 0 ; no more evolutions
 	dbw 1, PIXIE_DUST
 	dbw 6, CONFUSION
@@ -3116,7 +3132,7 @@ AzurillEvosAttacks:
 	dbw 24, BUBBLEBEAM
 	dbw 28, DIZZY_PUNCH
 	dbw 30, RAIN_DANCE
-	dbw 32, SWIFT
+	dbw 32, FAERIEGLEAM
 	dbw 36, BELLY_DRUM	
 	dbw 40, DOUBLE_EDGE
 	dbw 42, PERISH_SONG
@@ -3385,7 +3401,7 @@ PlusleEvosAttacks:
 	dbw 28, THUNDERBOLT
 	dbw 32, CHARGE
 	dbw 36, THUNDER
-	dbw 40, SWIFT
+	dbw 40, FAERIEGLEAM
 	dbw 45, CHARM
 	dbw 50, ATTRACT
 	db 0 ; no more level-up moves
@@ -3401,7 +3417,7 @@ MinunEvosAttacks:
 	dbw 28, THUNDERBOLT
 	dbw 32, CHARGE
 	dbw 36, THUNDER
-	dbw 40, SWIFT
+	dbw 40, FAERIEGLEAM
 	dbw 45, CHARM
 	dbw 50, ATTRACT
 	db 0 ; no more level-up moves
@@ -3658,7 +3674,7 @@ SpoinkEvosAttacks:
 	dbw 40, SLEEP_TALK
 	dbw 42, CALM_MIND
 	dbw 45, SHADOW_BALL
-	dbw 50, SWIFT
+	dbw 50, FAERIEGLEAM
 	dbw 55, FUTURE_SIGHT
 	dbw 60, MEDITATE
 	db 0 ; no more level-up moves
@@ -3678,7 +3694,7 @@ GrumpigEvosAttacks:
 	dbw 40, SLEEP_TALK
 	dbw 42, CALM_MIND
 	dbw 45, SHADOW_BALL
-	dbw 50, SWIFT
+	dbw 50, FAERIEGLEAM
 	dbw 55, FUTURE_SIGHT
 	dbw 60, MEDITATE
 	db 0 ; no more level-up moves
@@ -3914,6 +3930,208 @@ SolrockEvosAttacks:
 	dbw 50, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
+SnoruntEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, GLALIE
+	dbww EVOLVE_ITEM, DAWN_STONE, FROSLASS
+	db 0 ; no more evolutions
+	dbw 1, ASTONISH
+	dbw 1, POWDER_SNOW
+	dbw 7, LEER
+	dbw 12, ICY_WIND
+	dbw 16, BITE
+	dbw 20, ICE_FANG
+	dbw 24, DRAININGKISS
+	dbw 28, SHADOW_CLAW
+	dbw 32, CALM_MIND
+	dbw 34, COSMIC_POWER
+	dbw 36, ICE_BEAM
+	dbw 40, SHADOW_BALL
+	dbw 42, BULK_UP
+	dbw 45, SOLARBEAM
+	dbw 50, BLIZZARD	
+	dbw 55, PROTECT
+	dbw 60, DESTINY_BOND
+	db 0 ; no more level-up moves
+
+GlalieEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, ASTONISH
+	dbw 1, POWDER_SNOW
+	dbw 7, LEER
+	dbw 12, ICY_WIND
+	dbw 16, BITE
+	dbw 20, ICE_FANG
+	dbw 24, DRAININGKISS
+	dbw 28, SHADOW_CLAW
+	dbw 32, CALM_MIND
+	dbw 34, COSMIC_POWER
+	dbw 36, ICE_BEAM
+	dbw 40, SHADOW_BALL
+	dbw 42, BULK_UP
+	dbw 45, SOLARBEAM
+	dbw 50, BLIZZARD	
+	dbw 55, PROTECT
+	dbw 60, DESTINY_BOND
+	db 0 ; no more level-up moves
+
+TogekissEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, CHARM
+	dbw 5, POUND
+	dbw 10, SWEET_KISS
+	dbw 12, METRONOME
+	dbw 16, PIXIE_DUST
+	dbw 20, ENCORE
+	dbw 22, SAFEGUARD
+	dbw 24, FAE_VOICE
+	dbw 28, DOUBLE_TEAM
+	dbw 32, PSYBEAM
+	dbw 36, MOONBLAST
+	dbw 40, RAZOR_WIND
+	dbw 42, CALM_MIND
+	dbw 45, PLAY_ROUGH
+	dbw 50, MIST_BALL
+	dbw 55, OUTRAGE
+	dbw 60, LUSTER_PURGE
+	db 0 ; no more level-up moves
+
+MamoswineEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, POWDER_SNOW
+	dbw 10, ENDURE
+	dbw 15, CURSE
+	dbw 20, ANCIENTPOWER	
+	dbw 24, ICICLE_SPEAR
+	dbw 28, MAGNITUDE
+	dbw 32, BULK_UP
+	dbw 36, ICICLE_CRASH
+	dbw 40, EARTHQUAKE
+	dbw 42, MIST
+	dbw 45, BLIZZARD
+	dbw 50, AMNESIA
+	dbw 55, OUTRAGE
+	dbw 60, FISSURE
+	db 0 ; no more level-up moves	
+
+SylveonEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, PIXIE_DUST
+	dbw 1, TAIL_WHIP
+	dbw 8, SAND_ATTACK
+	dbw 12, PIXIE_DUST
+	dbw 16, QUICK_ATTACK
+	dbw 20, GROWL
+	dbw 24, DRAININGKISS
+	dbw 28, MAGICAL_LEAF
+	dbw 32, BATON_PASS
+	dbw 36, FAERIEGLEAM
+	dbw 40, SHADOW_BALL
+	dbw 42, CALM_MIND
+	dbw 45, RECOVER
+	dbw 50, MIST_BALL
+	dbw 55, POWER_GEM
+	dbw 60, MOONBLAST
+	db 0 ; no more level-up moves
+
+LeafeonEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, VINE_WHIP
+	dbw 1, TAIL_WHIP
+	dbw 8, SAND_ATTACK
+	dbw 12, VINE_WHIP
+	dbw 16, QUICK_ATTACK
+	dbw 20, LEECH_SEED
+	dbw 24, RAZOR_LEAF
+	dbw 28, SWIFT
+	dbw 32, BRICK_BREAK
+	dbw 36, LEAF_BLADE
+	dbw 40, BODY_SLAM
+	dbw 42, BULK_UP
+	dbw 45, RECOVER
+	dbw 50, PSYCHO_CUT
+	dbw 55, SUBMISSION
+	dbw 60, PETAL_DANCE
+	db 0 ; no more level-up moves
+
+GlaceonEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, POWDER_SNOW
+	dbw 1, TAIL_WHIP
+	dbw 8, SAND_ATTACK
+	dbw 12, POWDER_SNOW
+	dbw 16, QUICK_ATTACK
+	dbw 20, ICY_WIND
+	dbw 24, AURORA_BEAM
+	dbw 28, WATER_PULSE
+	dbw 32, MUD_SHOT
+	dbw 36, ICE_BEAM
+	dbw 40, MIRROR_COAT
+	dbw 42, CALM_MIND
+	dbw 45, RECOVER
+	dbw 50, BLIZZARD
+	dbw 55, ICICLE_CRASH
+	dbw 60, AURA_SPHERE
+	db 0 ; no more level-up moves
+
+GliscorEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, POISON_STING
+	dbw 6, SAND_ATTACK
+	dbw 13, HARDEN
+	dbw 16, MUD_SLAP
+	dbw 20, WING_ATTACK
+	dbw 24, MAGNITUDE
+	dbw 28, FAINT_ATTACK
+	dbw 32, RAZOR_WIND
+	dbw 36, SLASH
+	dbw 40, EARTHQUAKE
+	dbw 42, SKY_ATTACK
+	dbw 45, FISSURE
+	dbw 50, GUILLOTINE
+	db 0 ; no more level-up moves
+
+GalladeEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, PIXIE_DUST
+	dbw 6, CONFUSION
+	dbw 11, CHARM
+	dbw 16, TELEPORT
+	dbw 20, DRAININGKISS
+	dbw 24, PSYCHO_CUT
+	dbw 28, MACH_PUNCH
+	dbw 32, SWORDS_DANCE
+	dbw 36, SLASH
+	dbw 40, CROSS_CHOP
+	dbw 42, RECOVER
+	dbw 45, LEAF_BLADE
+	dbw 50, SUBSTITUTE
+	dbw 55, SUBMISSION
+	dbw 60, DRAGON_DANCE
+	db 0 ; no more level-up moves
+
+FroslassEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, ASTONISH
+	dbw 1, POWDER_SNOW
+	dbw 7, LEER
+	dbw 12, ICY_WIND
+	dbw 16, BITE
+	dbw 20, ICE_FANG
+	dbw 24, DRAININGKISS
+	dbw 28, SHADOW_CLAW
+	dbw 32, CALM_MIND
+	dbw 34, COSMIC_POWER
+	dbw 36, ICE_BEAM
+	dbw 40, SHADOW_BALL
+	dbw 42, BULK_UP
+	dbw 45, PERISH_SONG
+	dbw 50, BLIZZARD	
+	dbw 55, PROTECT
+	dbw 60, DESTINY_BOND
+	db 0 ; no more level-up moves
+
 Voltorb2EvosAttacks:
 	dbbw EVOLVE_LEVEL, 30, ELECTRODE2
 	db 0 ; no more evolutions
@@ -3933,7 +4151,7 @@ Voltorb2EvosAttacks:
 	dbw 45, EXTREMESPEED
 	dbw 50, THUNDER
 	dbw 55, POWER_GEM
-	dbw 60, SWIFT
+	dbw 60, FAERIEGLEAM
 	db 0 ; no more level-up moves
 
 Electrode2EvosAttacks:
@@ -3954,7 +4172,7 @@ Electrode2EvosAttacks:
 	dbw 45, EXTREMESPEED
 	dbw 50, THUNDER
 	dbw 55, POWER_GEM
-	dbw 60, SWIFT
+	dbw 60, FAERIEGLEAM
 	db 0 ; no more level-up moves
 
 Exeggcute2EvosAttacks:

@@ -107,13 +107,15 @@ MartGoldenrod2F2:
 	dw FLOWER_MAIL
 
 MartGoldenrod3F:
-	db 7 ; # items
+	db 9 ; # items
 	dw FIRE_STONE
 	dw THUNDERSTONE
 	dw WATER_STONE
 	dw LEAF_STONE
 	dw MOON_STONE
 	dw SUN_STONE
+	dw DAWN_STONE
+	dw ICE_STONE
 	dw EXP_SHARE
 
 MartGoldenrod4F:

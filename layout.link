@@ -76,16 +76,13 @@ ROMX $0f
 	"Battle Core"
 ROMX $10
 	"bank10"
-	"Evolutions and Attacks Pointers"
-	"Evolutions and Attacks 1"
 ROMX $11
 	"bank11"
 	"Newbox"
 	"Bill's PC Graphics"
 ROMX $12
 	"Crystal Features 1"
-	"Egg Moves 2"
-	"Evolutions and Attacks 2"
+	"Egg Moves 2"	
 ROMX $13
 	"bank13"
 	"Shrink Pics"
@@ -93,6 +90,7 @@ ROMX $13
 ROMX $14
 	"bank14"
 	"Unused Egg Pic"
+	"Evolutions and Attacks Pointers"
 ROMX $15
 	"Map Scripts 1"
 ROMX $16

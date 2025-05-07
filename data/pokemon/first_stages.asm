@@ -340,6 +340,17 @@ FirstEvoStages::
 	dw SEVIPER    ;150
 	dw LUNATONE
 	dw SOLROCK
+	dw SNORUNT
+	dw SNORUNT
+	;gen 4 mons
+	dw TOGEPI
+	dw SWINUB
+	dw EEVEE
+	dw EEVEE
+	dw EEVEE
+	dw GLIGAR
+	dw RALTS
+	dw SNORUNT
 	;Reddit Mons
 	dw VOLTORB2
 	dw VOLTORB2

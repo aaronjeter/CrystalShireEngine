@@ -345,6 +345,17 @@ IconPointers:
 	dw SeviperIcon
 	dw LunatoneIcon
 	dw SolrockIcon
+	dw SnoruntIcon
+	dw GlalieIcon
+	;Gen 4 Mons
+	dw TogekissIcon
+	dw MamoswineIcon
+	dw SylveonIcon
+	dw LeafeonIcon
+	dw GlaceonIcon
+	dw GliscorIcon
+	dw GalladeIcon
+	dw FroslassIcon
 	;reddit mons
 	dw Voltorb2Icon
 	dw Electrode2Icon

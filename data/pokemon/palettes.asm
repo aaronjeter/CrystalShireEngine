@@ -712,6 +712,27 @@ INCBIN "gfx/pokemon/lunatone/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/lunatone/shiny.pal"
 INCBIN "gfx/pokemon/solrock/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/solrock/shiny.pal"
+INCBIN "gfx/pokemon/snorunt/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/snorunt/shiny.pal"
+INCBIN "gfx/pokemon/glalie/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/glalie/shiny.pal"
+;Gen4
+INCBIN "gfx/pokemon/togekiss/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/togekiss/shiny.pal"
+INCBIN "gfx/pokemon/mamoswine/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/mamoswine/shiny.pal"
+INCBIN "gfx/pokemon/sylveon/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/sylveon/shiny.pal"
+INCBIN "gfx/pokemon/leafeon/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/leafeon/shiny.pal"
+INCBIN "gfx/pokemon/glaceon/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/glaceon/shiny.pal"
+INCBIN "gfx/pokemon/gliscor/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/gliscor/shiny.pal"
+INCBIN "gfx/pokemon/gallade/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/gallade/shiny.pal"
+INCBIN "gfx/pokemon/froslass/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/froslass/shiny.pal"
 ;reddit mons
 INCBIN "gfx/pokemon/voltorb2/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/voltorb2/shiny.pal"

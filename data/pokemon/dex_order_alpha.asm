@@ -73,13 +73,18 @@ AlphabeticalPokedexOrder:
 	dw FLAAFFY
 	dw FLAREON
 	dw FORRETRESS
+	dw FROSLASS
 	dw FURRET
 	dw FURRET2
+	dw GALLADE
 	dw GASTLY
 	dw GENGAR
 	dw GEODUDE
 	dw GIRAFARIG
+	dw GLACEON
+	dw GLALIE
 	dw GLIGAR
+	dw GLISCOR
 	dw GLOOM
 	dw GOLBAT
 	dw GOLDEEN
@@ -121,6 +126,7 @@ AlphabeticalPokedexOrder:
 	dw LANTURN
 	dw LAPRAS
 	dw LARVITAR
+	dw LEAFEON
 	dw LEDIAN
 	dw LEDYBA
 	dw LICKITUNG
@@ -134,6 +140,7 @@ AlphabeticalPokedexOrder:
 	dw MAGMAR
 	dw MAGNEMITE
 	dw MAGNETON
+	dw MAMOSWINE
 	dw MANKEY
 	dw MANTINE
 	dw MAREEP
@@ -230,6 +237,7 @@ AlphabeticalPokedexOrder:
 	dw SMOOCHUM
 	dw SNEASEL
 	dw SNORLAX
+	dw SNORUNT
 	dw SNUBBULL
 	dw SPEAROW
 	dw SPINARAK
@@ -245,6 +253,7 @@ AlphabeticalPokedexOrder:
 	dw SWAMPERT
 	dw SWINUB
 	dw SWINUB2
+	dw SYLVEON
 	dw TANGELA
 	dw TAUROS
 	dw TAUROS2
@@ -253,6 +262,7 @@ AlphabeticalPokedexOrder:
 	dw TENTACOOL2
 	dw TENTACRUEL
 	dw TENTACRUEL2
+	dw TOGEKISS
 	dw TOGEPI
 	dw TOGETIC
 	dw TORCHIC

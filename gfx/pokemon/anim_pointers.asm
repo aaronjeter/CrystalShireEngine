@@ -339,6 +339,17 @@ AnimationPointers:
 	dw SeviperAnimation
 	dw LunatoneAnimation
 	dw SolrockAnimation
+	dw SnoruntAnimation
+	dw GlalieAnimation
+	;Gen4
+	dw TogekissAnimation
+	dw MamoswineAnimation
+	dw SylveonAnimation
+	dw LeafeonAnimation
+	dw GlaceonAnimation
+	dw GliscorAnimation
+	dw GalladeAnimation
+	dw FroslassAnimation
 	;reddit mons
 	dw Voltorb2Animation
 	dw Electrode2Animation

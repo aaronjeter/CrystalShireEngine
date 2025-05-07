@@ -339,6 +339,17 @@ FramesPointers:
 	dba SeviperFrames
 	dba LunatoneFrames
 	dba SolrockFrames
+	dba SnoruntFrames
+	dba GlalieFrames
+	;Gen4
+	dba TogekissFrames
+	dba MamoswineFrames
+	dba SylveonFrames
+	dba LeafeonFrames
+	dba GlaceonFrames
+	dba GliscorFrames
+	dba GalladeFrames
+	dba FroslassFrames
 	;reddit mons
 	dba Voltorb2Frames
 	dba Electrode2Frames

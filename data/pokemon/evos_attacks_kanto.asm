@@ -598,7 +598,7 @@ PikachuEvosAttacks:
 	dbw 26, SHOCK_WAVE
 	dbw 31, AGILITY
 	dbw 36, THUNDERBOLT
-	dbw 40, SWIFT
+	dbw 40, FAERIEGLEAM
 	dbw 42, MEDITATE
 	dbw 45, THUNDER
 	dbw 50, LIGHT_SCREEN
@@ -618,7 +618,7 @@ RaichuEvosAttacks:
 	dbw 26, SHOCK_WAVE
 	dbw 31, AGILITY
 	dbw 36, THUNDERBOLT
-	dbw 40, SWIFT
+	dbw 40, FAERIEGLEAM
 	dbw 42, MEDITATE
 	dbw 45, THUNDER
 	dbw 50, LIGHT_SCREEN
@@ -2108,7 +2108,7 @@ VoltorbEvosAttacks:
 	dbw 27, ROLLOUT
 	dbw 30, LIGHT_SCREEN
 	dbw 32, THUNDERBOLT
-	dbw 36, SWIFT
+	dbw 36, FAERIEGLEAM
 	dbw 39, EXPLOSION
 	dbw 41, CHARGE
 	dbw 45, EXTREMESPEED
@@ -2129,7 +2129,7 @@ ElectrodeEvosAttacks:
 	dbw 27, ROLLOUT
 	dbw 30, LIGHT_SCREEN
 	dbw 32, THUNDERBOLT
-	dbw 36, SWIFT
+	dbw 36, FAERIEGLEAM
 	dbw 39, EXPLOSION
 	dbw 41, CHARGE
 	dbw 45, EXTREMESPEED
@@ -2615,7 +2615,7 @@ ElectabuzzEvosAttacks:
 	dbw 25, THUNDERPUNCH
 	dbw 28, THUNDER_WAVE
 	dbw 36, THUNDERBOLT
-	dbw 40, SWIFT
+	dbw 40, FAERIEGLEAM
 	dbw 42, CHARGE
 	dbw 45, CONFUSE_RAY
 	dbw 50, THUNDER
@@ -2734,6 +2734,9 @@ EeveeEvosAttacks:
 	dbww EVOLVE_ITEM, FIRE_STONE, FLAREON
 	dbww EVOLVE_ITEM, SUN_STONE, ESPEON
 	dbww EVOLVE_ITEM, MOON_STONE, UMBREON
+	dbww EVOLVE_ITEM, DAWN_STONE, SYLVEON
+	dbww EVOLVE_ITEM, LEAF_STONE, LEAFEON
+	dbww EVOLVE_ITEM, ICE_STONE, GLACEON
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, TAIL_WHIP
@@ -2744,7 +2747,7 @@ EeveeEvosAttacks:
 	dbw 24, STOMP	
 	dbw 28, BATON_PASS
 	dbw 32, BODY_SLAM
-	dbw 36, SWIFT
+	dbw 36, FAERIEGLEAM
 	dbw 40, AGILITY
 	dbw 45, RECOVER
 	dbw 50, OUTRAGE

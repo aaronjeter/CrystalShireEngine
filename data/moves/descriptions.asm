@@ -326,6 +326,7 @@ MoveDescriptionsGen2:
 	dw FlashCannonDescription
 	dw AquaJetDescription
 	dw DarkPulseDescription
+	dw FaerieGleamDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1600,3 +1601,7 @@ AquaJetDescription:
 DarkPulseDescription:
 	db   "An attack that may"
 	next "cause flinching.@"
+
+FaerieGleamDescription:
+	db   "Damages with a"
+	next "flas of light.@"

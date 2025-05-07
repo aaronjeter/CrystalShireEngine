@@ -319,4 +319,5 @@ MoveNames::
 	li "FLASH CANNON"
 	li "AQUA JET"
 	li "DARK PULSE"
+	li "FAERIEGLEAM"
 	assert_list_length NUM_ATTACKS

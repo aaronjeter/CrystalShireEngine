@@ -151,7 +151,7 @@ MovesGen1:
 	move EFFECT_SP_DEF_DOWN_HIT,   110, FIRE,           SPECIAL,		 90, 10, 100      ;FIRE_BLAST
 	move EFFECT_NORMAL_HIT,         90, WATER,          PHYSICAL,		100, 15, 100      ;WATERFALL
 	move EFFECT_TRAP_TARGET,        35, WATER,          PHYSICAL,		100, 10,   0      ;CLAMP
-	move EFFECT_ALWAYS_HIT,         80, FAIRY,          SPECIAL,		100, 20,   0      ;SWIFT
+	move EFFECT_ALWAYS_HIT,         60, FAIRY,          PHYSICAL,		100, 20,   0      ;SWIFT
 	move EFFECT_SKULL_BASH,        120, STEEL,          PHYSICAL,		100, 15,   0      ;SKULL_BASH
 	move EFFECT_MULTI_HIT,          30, STEEL,          PHYSICAL,		100, 15,   0      ;SPIKE_CANNON
 	move EFFECT_SPEED_DOWN_HIT,     35, NORMAL,         PHYSICAL,		100, 35,  50      ;CONSTRICT
@@ -347,6 +347,7 @@ MovesGen2:
 	move EFFECT_SP_DEF_DOWN_HIT,    80, STEEL,          SPECIAL,		100, 20,  20      ;FLASHCANNON
 	move EFFECT_PRIORITY_HIT,       40, WATER,          PHYSICAL,		100, 20,   0      ;AQUA_JET
 	move EFFECT_FLINCH_HIT,         80, DARK,           SPECIAL,		100, 20,  20      ;DARK_PULSE
+	move EFFECT_NORMAL_HIT,         90, FAIRY,			SPECIAL,        100, 15,   0      ;FAERIEGLEAM (DAZZLING_GLEAM)
 .IndirectEnd::
 
 POPS

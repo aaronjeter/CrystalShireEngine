@@ -695,7 +695,28 @@ PokemonPicPointers::
 	dba LunatoneBackpic
 	dba SolrockFrontpic
 	dba SolrockBackpic
+	dba SnoruntFrontpic
+	dba SnoruntBackpic
+	dba GlalieFrontpic
+	dba GlalieBackpic
 	;reddit mons
+	dba TogekissFrontpic
+	dba TogekissBackpic
+	dba MamoswineFrontpic
+	dba MamoswineBackpic
+	dba SylveonFrontpic
+	dba SylveonBackpic
+	dba LeafeonFrontpic
+	dba LeafeonBackpic
+	dba GlaceonFrontpic
+	dba GlaceonBackpic
+	dba GliscorFrontpic
+	dba GliscorBackpic
+	dba GalladeFrontpic
+	dba GalladeBackpic
+	dba FroslassFrontpic
+	dba FroslassBackpic
+	;gen4 mons
 	dba Voltorb2Frontpic
 	dba Voltorb2Backpic
 	dba Electrode2Frontpic

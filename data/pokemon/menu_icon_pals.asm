@@ -350,6 +350,17 @@ MonMenuIconPals:
 	icon_pals PURPLE, BLUE   ; SEVIPER
 	icon_pals RED,    BLUE   ; LUNATONE
 	icon_pals RED,    PINK   ; SOLROCK
+	icon_pals RED,    BLUE   ; SNORUNT
+	icon_pals BLUE,   RED    ; GLALIE
+	;Gen 4
+	icon_pals RED,    BLUE   ; TOGEKISS
+	icon_pals BROWN,  GREEN  ; MAMOSWINE
+	icon_pals RED,    BLUE   ; SYLVEON
+	icon_pals GREEN,  TEAL   ; LEAFEON
+	icon_pals BLUE,   TEAL   ; GLACEON
+	icon_pals PURPLE, TEAL   ; GLISCOR
+	icon_pals GREEN,  BLUE   ; GALLADE
+	icon_pals RED,    PURPLE ; FROSLASS
 	;reddit mons
 	icon_pals BLUE,   BLUE   ; VOLTORB
 	icon_pals BLUE,   BLUE   ; ELECTRODE

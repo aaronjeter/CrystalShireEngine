@@ -122,8 +122,8 @@
 	const CHARCOAL     ; 0072
 	const BERRY_JUICE  ; 0073
 	const SCOPE_LENS   ; 0074
-	const ITEM_8D      ; 0075
-	const ITEM_8E      ; 0076
+	const DAWN_STONE   ; 0075
+	const ICE_STONE    ; 0076
 	const METAL_COAT   ; 0077
 	const DRAGON_FANG  ; 0078
 	const ITEM_91      ; 0079
@@ -283,6 +283,32 @@ DEF TM01 EQU const_value
 	add_tm FIRE_PUNCH   ; 032F
 	add_tm FURY_CUTTER  ; 0330
 	add_tm NIGHTMARE    ; 0331
+	;new tms
+	add_tm FIRE_FANG    ; 0331
+	add_tm ICE_FANG     ; 0331
+	add_tm THUNDER_FANG ; 0331
+	add_tm ROCK_TOMB    ; 0331
+	add_tm BULLET_SEED  ; 0331
+	add_tm AERIAL_ACE   ; 0331
+	add_tm BULK_UP      ; 0331
+	add_tm CALM_MIND    ; 0331
+	add_tm CHARGE       ; 0331
+	add_tm DRAGON_DANCE ; 0331
+	add_tm SHOCK_WAVE   ; 0331
+	add_tm WATER_PULSE  ; 0331
+	add_tm DRAGON_CLAW  ; 0331
+	add_tm MUD_SHOT     ; 0331
+	add_tm SHADOW_CLAW  ; 0331
+	add_tm BRICK_BREAK  ; 0331
+	add_tm WILLOWISP    ; 0331
+	add_tm SILVER_WIND  ; 0331
+	add_tm EXTRASENSORY ; 0331
+	add_tm POISON_FANG  ; 0331
+	add_tm FOCUS_PUNCH  ; 0331
+	add_tm FLAME_WHEEL  ; 0331
+	add_tm STRING_SHOT  ; 0331
+	add_tm ROCK_SLIDE   ; 0331
+	add_tm POWER_GEM    ; 0331
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm

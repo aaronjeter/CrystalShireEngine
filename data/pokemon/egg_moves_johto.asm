@@ -189,6 +189,17 @@ EggMovePointers2::
 	dw SeviperEggMoves
 	dw NoEggMoves2
 	dw NoEggMoves2
+	dw SnoruntEggMoves
+	dw NoEggMoves2			;glalie
+	;gen4+
+	dw NoEggMoves2			;togekiss
+	dw NoEggMoves2			;mamoswine
+	dw NoEggMoves2			;sylveon
+	dw NoEggMoves2			;leafeon
+	dw NoEggMoves2			;glaceon
+	dw NoEggMoves2			;gliscor
+	dw NoEggMoves2			;gallade
+	dw NoEggMoves2			;froslass
 	;reddit mons
 	dw NoEggMoves2			;voltorb2
 	dw NoEggMoves2			;electrode2
@@ -863,6 +874,13 @@ Tentacool2EggMoves:
 	dw RAPID_SPIN
 	dw HAZE
 	dw SAFEGUARD
+	dw -1 ; end
+
+SnoruntEggMoves:
+	dw SPIKES
+	dw ICY_WIND
+	dw ANCIENTPOWER
+	dw SWORDS_DANCE
 	dw -1 ; end
 
 ENDSECTION

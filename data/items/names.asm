@@ -116,8 +116,8 @@ ItemNames::
 	li "CHARCOAL"     ; 0072
 	li "BERRY JUICE"  ; 0073
 	li "SCOPE LENS"   ; 0074
-	li "TERU-SAMA"    ; 0076
-	li "TERU-SAMA"    ; 0075
+	li "DAWN STONE"   ; 0076
+	li "ICE STONE"    ; 0075
 	li "METAL COAT"   ; 0077
 	li "DRAGON FANG"  ; 0078
 	li "TERU-SAMA"    ; 0079

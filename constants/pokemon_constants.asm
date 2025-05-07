@@ -360,6 +360,17 @@ DEF JOHTO_POKEMON EQU const_value
 	const SEVIPER    ; 150
 	const LUNATONE   ; 151
 	const SOLROCK    ; 152
+	const SNORUNT
+	const GLALIE
+	;gen4+
+	const TOGEKISS
+	const MAMOSWINE
+	const SYLVEON
+	const LEAFEON
+	const GLACEON
+	const GLISCOR
+	const GALLADE
+	const FROSLASS
 	;reddit mons
 	const VOLTORB2
 	const ELECTRODE2

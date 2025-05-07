@@ -341,6 +341,16 @@ PokedexDataPointerTable:
 	dba SeviperPokedexEntry
 	dba LunatonePokedexEntry
 	dba SolrockPokedexEntry
+	dba SnoruntPokedexEntry
+	dba GlaliePokedexEntry
+	dba TogekissPokedexEntry
+	dba MamoswinePokedexEntry
+	dba SylveonPokedexEntry
+	dba LeafeonPokedexEntry
+	dba GlaceonPokedexEntry
+	dba GliscorPokedexEntry
+	dba GalladePokedexEntry
+	dba FroslassPokedexEntry
 	;reddit mons
 	dba Voltorb2PokedexEntry
 	dba Electrode2PokedexEntry

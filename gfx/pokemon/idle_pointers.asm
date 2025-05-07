@@ -339,6 +339,17 @@ AnimationIdlePointers:
 	dw SeviperAnimationIdle
 	dw LunatoneAnimationIdle
 	dw SolrockAnimationIdle
+	dw SnoruntAnimationIdle
+	dw GlalieAnimationIdle
+	;Gen4
+	dw TogekissAnimationIdle
+	dw MamoswineAnimationIdle
+	dw SylveonAnimationIdle
+	dw LeafeonAnimationIdle
+	dw GlaceonAnimationIdle
+	dw GliscorAnimationIdle
+	dw GalladeAnimationIdle
+	dw FroslassAnimationIdle
 	;reddit mons
 	dw Voltorb2AnimationIdle
 	dw Electrode2AnimationIdle
