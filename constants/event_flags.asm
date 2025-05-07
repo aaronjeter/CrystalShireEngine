@@ -272,7 +272,13 @@
 	const EVENT_ORIGIN_JOHTO
 	const EVENT_ORIGIN_HOENN
 	const EVENT_ORIGIN_REDDIT
-; Unused: next 336 events
+	const EVENT_ORIGIN_TRAINER
+	const EVENT_ORIGIN_ROCKET
+	const EVENT_ORIGIN_RANGER
+	const EVENT_ORIGIN_LEGEND
+	const EVENT_LEVELCAPS_ENABLED
+	const EVENT_HARDMODE_ENABLED
+; Unused: next 329 events
 
 	const_next 600
 ; Kurt Apricorn events
