@@ -42,9 +42,12 @@ ViridianGymBlueScript:
 	readmem wBaseLevel
 	addval 4
 	writemem wBaseLevel
+	checkevent EVENT_LEVELCAPS_ENABLED
+	iffalse .SkipLevelCaps 
 	readmem wLevelCap
 	addval 4
 	writemem wLevelCap
+.SkipLevelCaps:
 	readmem wWildLevel
 	addval 4
 	writemem wWildLevel
