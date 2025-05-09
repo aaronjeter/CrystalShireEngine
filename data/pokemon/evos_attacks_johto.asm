@@ -215,7 +215,7 @@ EvosAttacksPointers2::
 	dw Tentacruel2EvosAttacks
 	dw Rapidash2EvosAttacks
 	dw Ninetales2EvosAttacks
-	dw TaurosEvosAttacks
+	dw Tauros2EvosAttacks
 	dw SwinubEvosAttacks
 	dw PiloswineEvosAttacks
 	dw SkarmoryEvosAttacks
@@ -2445,7 +2445,6 @@ ZigzagoonEvosAttacks:
 
 LinooneEvosAttacks:
 	db 0 ; no more evolutions
-	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, TAIL_WHIP
 	dbw 7, QUICK_ATTACK
@@ -4397,6 +4396,25 @@ Ninetales2EvosAttacks:
 	dbw 50, PLAY_ROUGH
 	dbw 55, SOLARBEAM
 	dbw 60, LUSTER_PURGE
+	db 0 ; no more level-up moves
+
+Tauros2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 4, TAIL_WHIP
+	dbw 5, DOUBLE_KICK
+	dbw 13, RAGE	
+	dbw 19, SCARY_FACE
+	dbw 24, HORN_ATTACK
+	dbw 28, MAGNITUDE
+	dbw 32, BRICK_BREAK
+	dbw 36, EARTHQUAKE
+	dbw 40, BULK_UP
+	dbw 42, OUTRAGE
+	dbw 45, EARTHQUAKE
+	dbw 50, DOUBLE_EDGE
+	dbw 55, SUBMISSION
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 ENDSECTION

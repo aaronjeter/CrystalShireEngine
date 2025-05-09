@@ -825,7 +825,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB
+	dbw 1, SWINUB2
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -1661,24 +1661,24 @@ JohtoGrassWildMons:
 	dbw 1, ARON
 	dbw 1, SANDSHREW
 	dbw 1, PHANPY
-	dbw 1, SWINUB
-	dbw 1, SWINUB2
+	dbw 1, SNORUNT
+	dbw 1, SNORUNT
 	dbw 1, DELIBIRD
 	; day
 	dbw 1, GEODUDE
 	dbw 1, ARON
 	dbw 1, SANDSHREW
 	dbw 1, PHANPY
-	dbw 1, SWINUB
-	dbw 1, SWINUB2
+	dbw 1, SNORUNT
+	dbw 1, SNORUNT
 	dbw 1, DELIBIRD
 	; nite
 	dbw 1, GEODUDE
 	dbw 1, ARON
 	dbw 1, SANDSHREW
 	dbw 1, PHANPY
-	dbw 1, SWINUB
-	dbw 1, SWINUB2
+	dbw 1, SNORUNT
+	dbw 1, SNORUNT
 	dbw 1, DELIBIRD
 	end_grass_wildmons
 
