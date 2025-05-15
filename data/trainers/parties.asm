@@ -4876,12 +4876,11 @@ BlackbeltGroup:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (2) Cianwood City Gym
-	db "YOSHI@", TRAINERTYPE_MOVES
+	db "YOSHI@", TRAINERTYPE_NORMAL
 	db 7
 	dw HITMONLEE
 	db 7
 	dw MEDITITE
-	dw DOUBLE_KICK, SLAM, JUMP_KICK, FOCUS_ENERGY
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (3) Route 45
@@ -4901,12 +4900,11 @@ BlackbeltGroup:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (4) Cianwood City Gym
-	db "LAO@", TRAINERTYPE_MOVES
+	db "LAO@", TRAINERTYPE_NORMAL
 	db 7
 	dw HITMONCHAN
 	db 7
 	dw MAKUHITA
-	dw COMET_PUNCH, THUNDERPUNCH, ICE_PUNCH, FIRE_PUNCH
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (5) Cianwood City Gym
@@ -6143,7 +6141,7 @@ RedGroup:
 	db "RED@", TRAINERTYPE_MOVES
 	db 21
 	dw PIKACHU
-	dw SURF, EXTREMESPEED, SWIFT, THUNDER
+	dw SURF, EXTREMESPEED, SWIFT, VOLT_TACKLE
 	db 15
 	dw ESPEON
 	dw MUD_SLAP, MEDITATE, SWIFT, PSYCHIC_M
