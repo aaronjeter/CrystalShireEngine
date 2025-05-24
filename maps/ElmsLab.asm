@@ -174,7 +174,7 @@ LeftPokeBallScript:
 	iftrue TorchicPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue Cyndaquil2PokeBallScript
+	iftrue Tentacool2PokeBallScript
 
 MiddlePokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
@@ -192,7 +192,7 @@ MiddlePokeBallScript:
 	iftrue MudkipPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue Totodile2PokeBallScript
+	iftrue Voltorb2PokeBallScript
 
 RightPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
@@ -290,13 +290,13 @@ TorchicPokeBallScript:
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
-Cyndaquil2PokeBallScript:	
-	pokepic CYNDAQUIL2
-	cry CYNDAQUIL2
+Tentacool2PokeBallScript:	
+	pokepic TENTACOOL2
+	cry TENTACOOL2
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeCyndaquilText
+	writetext TakeTentacoolText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL1
@@ -304,12 +304,12 @@ Cyndaquil2PokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, CYNDAQUIL2
+	getmonname STRING_BUFFER_3, TENTACOOL2
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CYNDAQUIL2, 5, BERRY
+	givepoke TENTACOOL2, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -414,13 +414,13 @@ MudkipPokeBallScript:
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
-Totodile2PokeBallScript:	
-	pokepic TOTODILE2
-	cry TOTODILE2
+Voltorb2PokeBallScript:	
+	pokepic VOLTORB2
+	cry VOLTORB2
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeTotodileText
+	writetext TakeVoltorbText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL2
@@ -428,12 +428,12 @@ Totodile2PokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, TOTODILE2
+	getmonname STRING_BUFFER_3, VOLTORB2
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TOTODILE2, 5, BERRY
+	givepoke VOLTORB2, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -1261,6 +1261,18 @@ TakeExeggcuteText:
 	text "ELM: So, you like"
 	line "EXEGGCUTE, the"
 	cont "grass #MON?"
+	done
+
+TakeVoltorbText:
+	text "ELM: Do you want"
+	line "VOLTORB, the"
+	cont "orb #MON?"
+	done
+
+TakeTentacoolText:
+	text "ELM: Do you want"
+	line "Tentacool, the"
+	cont "rock #MON?"
 	done
 
 TakeMunchlaxText:
