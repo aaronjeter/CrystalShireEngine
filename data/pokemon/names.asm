@@ -344,6 +344,10 @@ PokemonNames::
 	db "SEVIPER@@@"
 	db "LUNATONE@@"
 	db "SOLROCK@@@"
+	db "BARBOACH@@"
+	db "WHISCASH@@"
+	db "CORPHISH@@"
+	db "CRAWDAUNT@"
 	db "SNORUNT@@@"
 	db "GLALIE@@@@"
 	;Gen 4

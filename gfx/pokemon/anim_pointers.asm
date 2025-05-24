@@ -339,6 +339,10 @@ AnimationPointers:
 	dw SeviperAnimation
 	dw LunatoneAnimation
 	dw SolrockAnimation
+	dw BarboachAnimation
+	dw WhiscashAnimation
+	dw CorphishAnimation
+	dw CrawdauntAnimation
 	dw SnoruntAnimation
 	dw GlalieAnimation
 	;Gen4

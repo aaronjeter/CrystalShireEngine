@@ -360,6 +360,10 @@ DEF JOHTO_POKEMON EQU const_value
 	const SEVIPER    ; 150
 	const LUNATONE   ; 151
 	const SOLROCK    ; 152
+	const BARBOACH
+	const WHISCASH
+	const CORPHISH
+	const CRAWDAUNT
 	const SNORUNT
 	const GLALIE
 	;gen4+

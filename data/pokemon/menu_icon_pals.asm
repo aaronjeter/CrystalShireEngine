@@ -350,6 +350,10 @@ MonMenuIconPals:
 	icon_pals PURPLE, BLUE   ; SEVIPER
 	icon_pals RED,    BLUE   ; LUNATONE
 	icon_pals RED,    PINK   ; SOLROCK
+	icon_pals BLUE,   BROWN  ; BARBOACH
+	icon_pals BLUE,   BROWN  ; WHISCASH
+	icon_pals RED,    PURPLE ; CORPHISH
+	icon_pals RED,    PURPLE ; CRAWDAUNT
 	icon_pals RED,    BLUE   ; SNORUNT
 	icon_pals BLUE,   RED    ; GLALIE
 	;Gen 4

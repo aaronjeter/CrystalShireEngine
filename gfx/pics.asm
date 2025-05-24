@@ -917,10 +917,22 @@ SECTION "Pokemon Pics 29", ROMX
 
 SolrockFrontpic:          INCBIN "gfx/pokemon/solrock/front.animated.2bpp.lz"
 SolrockBackpic:           INCBIN "gfx/pokemon/solrock/back.2bpp.lz"
+BarboachFrontpic:         INCBIN "gfx/pokemon/barboach/front.animated.2bpp.lz"
+BarboachBackpic:          INCBIN "gfx/pokemon/barboach/back.2bpp.lz"
+WhiscashFrontpic:         INCBIN "gfx/pokemon/whiscash/front.animated.2bpp.lz"
+WhiscashBackpic:          INCBIN "gfx/pokemon/whiscash/back.2bpp.lz"
+CorphishFrontpic:         INCBIN "gfx/pokemon/corphish/front.animated.2bpp.lz"
+CorphishBackpic:          INCBIN "gfx/pokemon/corphish/back.2bpp.lz"
+CrawdauntFrontpic:        INCBIN "gfx/pokemon/crawdaunt/front.animated.2bpp.lz"
+CrawdauntBackpic:         INCBIN "gfx/pokemon/crawdaunt/back.2bpp.lz"
 SnoruntFrontpic:		  INCBIN "gfx/pokemon/snorunt/front.animated.2bpp.lz"
 SnoruntBackpic:			  INCBIN "gfx/pokemon/snorunt/back.2bpp.lz"
 GlalieFrontpic:			  INCBIN "gfx/pokemon/glalie/front.animated.2bpp.lz"
 GlalieBackpic:            INCBIN "gfx/pokemon/glalie/back.2bpp.lz"
+
+
+SECTION "Pokemon Pics 30", ROMX
+
 ;gen 4
 TogekissFrontpic:         INCBIN "gfx/pokemon/togekiss/front.animated.2bpp.lz"
 TogekissBackpic:		  INCBIN "gfx/pokemon/togekiss/back.2bpp.lz"
@@ -934,10 +946,6 @@ GlaceonFrontpic:		  INCBIN "gfx/pokemon/glaceon/front.animated.2bpp.lz"
 GlaceonBackpic:			  INCBIN "gfx/pokemon/glaceon/back.2bpp.lz"
 GliscorFrontpic:		  INCBIN "gfx/pokemon/gliscor/front.animated.2bpp.lz"
 GliscorBackpic:			  INCBIN "gfx/pokemon/gliscor/back.2bpp.lz"
-
-
-SECTION "Pokemon Pics 30", ROMX
-
 GalladeFrontpic:		INCBIN "gfx/pokemon/gallade/front.animated.2bpp.lz"
 GalladeBackpic:			INCBIN "gfx/pokemon/gallade/back.2bpp.lz"
 FroslassFrontpic:		INCBIN "gfx/pokemon/froslass/front.animated.2bpp.lz"

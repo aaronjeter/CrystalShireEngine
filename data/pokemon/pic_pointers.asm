@@ -695,6 +695,14 @@ PokemonPicPointers::
 	dba LunatoneBackpic
 	dba SolrockFrontpic
 	dba SolrockBackpic
+	dba BarboachFrontpic
+	dba BarboachBackpic
+	dba WhiscashFrontpic
+	dba WhiscashBackpic
+	dba CorphishFrontpic
+	dba CorphishBackpic
+	dba CrawdauntFrontpic
+	dba CrawdauntBackpic
 	dba SnoruntFrontpic
 	dba SnoruntBackpic
 	dba GlalieFrontpic

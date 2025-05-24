@@ -346,6 +346,10 @@ PokemonCries::
 	mon_cry CRY_BULBASAUR,   238,  129 ; SEVIPER
 	mon_cry CRY_BULBASAUR,   238,  129 ; LUNATONE
 	mon_cry CRY_BULBASAUR,   238,  129 ; SOLROCK
+	mon_cry CRY_KRABBY,       32,  352 ; BARBOACH
+	mon_cry CRY_KRABBY,      238,  352 ; WHISCASH
+	mon_cry CRY_KRABBY,       32,  352 ; CORPHISH
+	mon_cry CRY_KRABBY,      238,  352 ; CRAWDAUNT
 	mon_cry CRY_BULBASAUR,   238,  129 ; SNORUNT
 	mon_cry CRY_BULBASAUR,   238,  129 ; GLALIE
 	;gen4+

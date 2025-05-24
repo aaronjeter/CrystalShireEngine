@@ -341,6 +341,10 @@ PokedexDataPointerTable:
 	dba SeviperPokedexEntry
 	dba LunatonePokedexEntry
 	dba SolrockPokedexEntry
+	dba BarboachPokedexEntry
+	dba WhiscashPokedexEntry
+	dba CorphishPokedexEntry
+	dba CrawdauntPokedexEntry
 	dba SnoruntPokedexEntry
 	dba GlaliePokedexEntry
 	dba TogekissPokedexEntry

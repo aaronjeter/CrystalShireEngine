@@ -339,6 +339,10 @@ AnimationIdlePointers:
 	dw SeviperAnimationIdle
 	dw LunatoneAnimationIdle
 	dw SolrockAnimationIdle
+	dw BarboachAnimationIdle
+	dw WhiscashAnimationIdle
+	dw CorphishAnimationIdle
+	dw CrawdauntAnimationIdle
 	dw SnoruntAnimationIdle
 	dw GlalieAnimationIdle
 	;Gen4

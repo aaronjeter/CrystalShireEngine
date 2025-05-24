@@ -339,7 +339,7 @@ SharpedoPokedexEntry::   INCLUDE "data/pokemon/dex_entries/sharpedo.asm"
 WailmerPokedexEntry::    INCLUDE "data/pokemon/dex_entries/wailmer.asm"
 
 
-SECTION "Pokedex Entries 322-339", ROMX
+SECTION "Pokedex Entries 322-342", ROMX
 
 WailordPokedexEntry::    INCLUDE "data/pokemon/dex_entries/wailord.asm"
 NumelPokedexEntry::      INCLUDE "data/pokemon/dex_entries/numel.asm"
@@ -359,6 +359,10 @@ ZangoosePokedexEntry::   INCLUDE "data/pokemon/dex_entries/zangoose.asm"
 SeviperPokedexEntry::    INCLUDE "data/pokemon/dex_entries/seviper.asm"
 LunatonePokedexEntry::   INCLUDE "data/pokemon/dex_entries/lunatone.asm"
 SolrockPokedexEntry::    INCLUDE "data/pokemon/dex_entries/solrock.asm"
+BarboachPokedexEntry::   INCLUDE "data/pokemon/dex_entries/barboach.asm"
+WhiscashPokedexEntry::   INCLUDE "data/pokemon/dex_entries/whiscash.asm"
+CorphishPokedexEntry::   INCLUDE "data/pokemon/dex_entries/corphish.asm"
+CrawdauntPokedexEntry::  INCLUDE "data/pokemon/dex_entries/crawdaunt.asm"
 ;gen4+
 SnoruntPokedexEntry::    INCLUDE "data/pokemon/dex_entries/snorunt.asm"
 GlaliePokedexEntry::     INCLUDE "data/pokemon/dex_entries/glalie.asm"

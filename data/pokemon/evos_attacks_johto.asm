@@ -189,6 +189,10 @@ EvosAttacksPointers2::
 	dw SeviperEvosAttacks
 	dw LunatoneEvosAttacks
 	dw SolrockEvosAttacks
+	dw BarboachEvosAttacks
+	dw WhiscashEvosAttacks
+	dw CorphishEvosAttacks
+	dw CrawdauntEvosAttacks
 	dw SnoruntEvosAttacks
 	dw GlalieEvosAttacks
 	;gen4+ mons
@@ -3927,6 +3931,86 @@ SolrockEvosAttacks:
 	dbw 42, SOLARBEAM
 	dbw 45, FLAMETHROWER	
 	dbw 50, FUTURE_SIGHT
+	db 0 ; no more level-up moves
+
+BarboachEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, WHISCASH
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, TACKLE
+	dbw 6, SAND_ATTACK
+	dbw 10, CLAMP
+	dbw 14, BIDE
+	dbw 16, SLAM
+	dbw 20, MUD_SHOT
+	dbw 24, WATER_PULSE	
+	dbw 28, WHIRLPOOL
+	dbw 32, MUDDY_WATER
+	dbw 36, RAIN_DANCE
+	dbw 42, EARTHQUAKE
+	dbw 45, GROWTH
+	dbw 50, HYDRO_PUMP
+	dbw 55, OUTRAGE
+	dbw 60, HYDRO_CANNON
+	db 0 ; no more level-up moves
+
+WhiscashEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, GROWL
+	dbw 1, TACKLE
+	dbw 6, SAND_ATTACK
+	dbw 10, CLAMP
+	dbw 14, BIDE
+	dbw 16, SLAM
+	dbw 20, MUD_SHOT
+	dbw 24, WATER_PULSE	
+	dbw 28, WHIRLPOOL
+	dbw 32, MUDDY_WATER
+	dbw 36, RAIN_DANCE
+	dbw 42, EARTHQUAKE
+	dbw 45, GROWTH
+	dbw 50, HYDRO_PUMP
+	dbw 55, OUTRAGE
+	dbw 60, HYDRO_CANNON
+	db 0 ; no more level-up moves
+
+CorphishEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, CRAWDAUNT
+	db 0 ; no more evolutions
+	dbw 1, CLAMP
+	dbw 5, BITE
+	dbw 10, LEER
+	dbw 16, AQUA_JET
+	dbw 20, BUBBLEBEAM
+	dbw 24, FAINT_ATTACK
+	dbw 28, SHADOW_CLAW
+	dbw 32, CRUNCH
+	dbw 36, CRABHAMMER
+	dbw 40, GUILLOTINE
+	dbw 42, BULK_UP
+	dbw 45, AGILITY
+	dbw 50, DRAGON_CLAW
+	dbw 55, PURSUIT
+	dbw 60, WATER_SPOUT
+	db 0 ; no more level-up moves
+
+CrawdauntEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, CLAMP
+	dbw 5, BITE
+	dbw 10, LEER
+	dbw 16, AQUA_JET
+	dbw 20, BUBBLEBEAM
+	dbw 24, FAINT_ATTACK
+	dbw 28, SHADOW_CLAW
+	dbw 32, CRUNCH
+	dbw 36, CRABHAMMER
+	dbw 40, GUILLOTINE
+	dbw 42, BULK_UP
+	dbw 45, AGILITY
+	dbw 50, DRAGON_CLAW
+	dbw 55, PURSUIT
+	dbw 60, WATER_SPOUT
 	db 0 ; no more level-up moves
 
 SnoruntEvosAttacks:

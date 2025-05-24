@@ -712,6 +712,14 @@ INCBIN "gfx/pokemon/lunatone/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/lunatone/shiny.pal"
 INCBIN "gfx/pokemon/solrock/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/solrock/shiny.pal"
+INCBIN "gfx/pokemon/barboach/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/barboach/shiny.pal"
+INCBIN "gfx/pokemon/whiscash/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/whiscash/shiny.pal"
+INCBIN "gfx/pokemon/corphish/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/corphish/shiny.pal"
+INCBIN "gfx/pokemon/crawdaunt/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/crawdaunt/shiny.pal"
 INCBIN "gfx/pokemon/snorunt/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/snorunt/shiny.pal"
 INCBIN "gfx/pokemon/glalie/normal.gbcpal", middle_colors

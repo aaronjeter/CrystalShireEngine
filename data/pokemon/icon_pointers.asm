@@ -345,6 +345,10 @@ IconPointers:
 	dw SeviperIcon
 	dw LunatoneIcon
 	dw SolrockIcon
+	dw BarboachIcon
+	dw WhiscashIcon
+	dw CorphishIcon
+	dw CrawdauntIcon
 	dw SnoruntIcon
 	dw GlalieIcon
 	;Gen 4 Mons

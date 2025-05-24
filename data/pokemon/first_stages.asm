@@ -340,6 +340,10 @@ FirstEvoStages::
 	dw SEVIPER    ;150
 	dw LUNATONE
 	dw SOLROCK
+	dw BARBOACH
+	dw BARBOACH
+	dw CORPHISH
+	dw CORPHISH
 	dw SNORUNT
 	dw SNORUNT
 	;gen 4 mons

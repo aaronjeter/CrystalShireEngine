@@ -188,6 +188,10 @@ EggMovePointers2::
 	dw ZangooseEggMoves
 	dw SeviperEggMoves
 	dw NoEggMoves2
+	dw NoEggMoves2			;solrock
+	dw BarboachEggMoves
+	dw NoEggMoves2
+	dw CorphishEggMoves
 	dw NoEggMoves2
 	dw SnoruntEggMoves
 	dw NoEggMoves2			;glalie
@@ -877,6 +881,20 @@ Tentacool2EggMoves:
 	dw -1 ; end
 
 SnoruntEggMoves:
+	dw SPIKES
+	dw ICY_WIND
+	dw ANCIENTPOWER
+	dw SWORDS_DANCE
+	dw -1 ; end
+
+BarboachEggMoves:
+	dw SPIKES
+	dw ICY_WIND
+	dw ANCIENTPOWER
+	dw SWORDS_DANCE
+	dw -1 ; end
+
+CorphishEggMoves:
 	dw SPIKES
 	dw ICY_WIND
 	dw ANCIENTPOWER

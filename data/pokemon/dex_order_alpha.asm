@@ -12,6 +12,7 @@ AlphabeticalPokedexOrder:
 	dw ARIADOS
 	dw ARTICUNO
 	dw AZUMARILL
+	dw BARBOACH
 	dw BAYLEEF
 	dw BEEDRILL
 	dw BELLOSSOM
@@ -34,7 +35,9 @@ AlphabeticalPokedexOrder:
 	dw CLEFFA
 	dw CLOYSTER
 	dw COMBUSKEN
+	dw CORPHISH
 	dw CORSOLA
+	dw CRAWDAUNT
 	dw CROBAT
 	dw CROCONAW
 	dw CROCONAW2
@@ -289,6 +292,7 @@ AlphabeticalPokedexOrder:
 	dw WEEDLE
 	dw WEEPINBELL
 	dw WEEZING
+	dw WHISCASH
 	dw WIGGLYTUFF
 	dw WOBBUFFET
 	dw WOOPER
