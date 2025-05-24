@@ -56,16 +56,16 @@ CeladonGymErikaScript:
 	iffalse .GotGigaDrain
 	setevent EVENT_GOT_TM19_GIGA_DRAIN
 	readmem wBaseLevel
-	addval 4
+	addval 2
 	writemem wBaseLevel
 	checkevent EVENT_LEVELCAPS_ENABLED
 	iffalse .SkipLevelCaps 
 	readmem wLevelCap
-	addval 4
+	addval 2
 	writemem wLevelCap
 .SkipLevelCaps:
 	readmem wWildLevel
-	addval 4
+	addval 2
 	writemem wWildLevel
 	readvar VAR_BADGES
 	scall CeladonGymActivateRockets

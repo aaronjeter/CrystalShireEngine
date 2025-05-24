@@ -42,16 +42,16 @@ PewterGymBrockScript:
 	waitsfx
 	setflag ENGINE_BOULDERBADGE
 	readmem wBaseLevel
-	addval 4
+	addval 2
 	writemem wBaseLevel
 	checkevent EVENT_LEVELCAPS_ENABLED
 	iffalse .SkipLevelCaps 
 	readmem wLevelCap
-	addval 4
+	addval 2
 	writemem wLevelCap
 .SkipLevelCaps:
 	readmem wWildLevel
-	addval 4
+	addval 2
 	writemem wWildLevel
 	readvar VAR_BADGES
 	scall PewterGymActivateRockets
