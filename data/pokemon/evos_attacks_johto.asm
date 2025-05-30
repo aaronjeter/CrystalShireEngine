@@ -1252,6 +1252,7 @@ UmbreonEvosAttacks:
 	db 0 ; no more level-up moves
 
 MurkrowEvosAttacks:
+	dbbw EVOLVE_LEVEL, 25, HONCHKROW
 	db 0 ; no more evolutions
 	dbw 1, PECK
 	dbw 6, BITE
@@ -1266,6 +1267,8 @@ MurkrowEvosAttacks:
 	dbw 42, DRILL_PECK
 	dbw 45, SLASH
 	dbw 50, SHADOW_CLAW
+	dbw 55, SKY_ATTACK
+	dbw 60, BULK_UP
 	db 0 ; no more level-up moves
 
 SlowkingEvosAttacks:
@@ -4831,506 +4834,474 @@ FroslassEvosAttacks:
 
 HonchkrowEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, PECK
+	dbw 6, BITE
+	dbw 12, HAZE
+	dbw 16, NIGHT_SHADE
+	dbw 20, WING_ATTACK
+	dbw 24, FAINT_ATTACK	
+	dbw 28, GLARE
+	dbw 32, PURSUIT
+	dbw 36, RAZOR_WIND
+	dbw 40, MEAN_LOOK
+	dbw 42, DRILL_PECK
+	dbw 45, SLASH
+	dbw 50, SHADOW_CLAW
+	dbw 55, SKY_ATTACK
+	dbw 60, BULK_UP
 	db 0 ; no more level-up moves
 
 WeavileEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, SCRATCH
+	dbw 1, LEER
+	dbw 9, QUICK_ATTACK
+	dbw 16, ICE_PUNCH	
+	dbw 20, FAINT_ATTACK
+	dbw 24, MACH_PUNCH
+	dbw 28, FURY_SWIPES
+	dbw 36, ICICLE_CRASH
+	dbw 40, PURSUIT
+	dbw 42, SLASH
+	dbw 45, BEAT_UP
+	dbw 50, SWORDS_DANCE
+	dbw 55, AGILITY
+	dbw 60, PSYCHO_CUT
 	db 0 ; no more level-up moves
 
 MagnezoneEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, TACKLE
+	dbw 6, THUNDERSHOCK
+	dbw 11, SUPERSONIC
+	dbw 15, METAL_CLAW
+	dbw 16, SONICBOOM
+	dbw 21, THUNDER_WAVE
+	dbw 26, SHOCK_WAVE
+	dbw 27, LOCK_ON
+	dbw 36, THUNDERBOLT
+	dbw 40, FLASHCANNON
+	dbw 42, CHARGE
+	dbw 45, LIGHT_SCREEN
+	dbw 50, REFLECT
+	dbw 55, RECOVER
+	dbw 60, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 TangrowthEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, WRAP
+	dbw 4, SLEEP_POWDER
+	dbw 10, ABSORB
+	dbw 13, POISONPOWDER
+	dbw 18, VINE_WHIP
+	dbw 25, SLAM
+	dbw 31, GIGA_DRAIN
+	dbw 34, STUN_SPORE
+	dbw 36, GROWTH
+	dbw 40, BODY_SLAM
+	dbw 42, NATURE_POWER
+	dbw 45, LEECH_SEED
+	dbw 50, AMNESIA
+	dbw 55, SOLARBEAM
+	dbw 60, SPORE
 	db 0 ; no more level-up moves
 
 ElectivireEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, LEER
+	dbw 1, THUNDERSHOCK
+	dbw 12, QUICK_ATTACK	
+	dbw 17, LIGHT_SCREEN
+	dbw 20, MACH_PUNCH
+	dbw 24, DIZZY_PUNCH	
+	dbw 25, THUNDERPUNCH
+	dbw 28, THUNDER_WAVE
+	dbw 36, THUNDERBOLT
+	dbw 40, FAERIEGLEAM
+	dbw 42, CHARGE
+	dbw 45, CONFUSE_RAY
+	dbw 50, THUNDER
+	dbw 55, AGILITY
+	dbw 60, VOLT_TACKLE
 	db 0 ; no more level-up moves
 
 MagmortarEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, EMBER
+	dbw 1, LEER
+	dbw 13, TAIL_WHIP
+	dbw 18, SMOG
+	dbw 20, MACH_PUNCH
+	dbw 24, SMOKESCREEN
+	dbw 25, FIRE_PUNCH
+	dbw 28, WILLOWISP
+	dbw 30, SUNNY_DAY
+	dbw 36, FLAMETHROWER
+	dbw 40, CONFUSE_RAY
+	dbw 45, SLUDGE_BOMB
+	dbw 50, FIRE_BLAST
+	dbw 55, BRICK_BREAK
+	dbw 60, ERUPTION
 	db 0 ; no more level-up moves
 
 WyrdeerEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, TACKLE
+	dbw 8, SAND_ATTACK
+	dbw 15, HYPNOSIS
+	dbw 20, STOMP
+	dbw 24, NIGHT_SHADE
+	dbw 28, WILLOWISP
+	dbw 32, CONFUSE_RAY
+	dbw 36, TAKE_DOWN
+	dbw 40, SWORDS_DANCE
+	dbw 42, EARTHQUAKE
+	dbw 45, DREAM_EATER
+	dbw 50, PURSUIT
 	db 0 ; no more level-up moves
 
 PorygonzEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, CONVERSION2
+	dbw 1, TACKLE
+	dbw 1, CONVERSION
+	dbw 9, AGILITY
+	dbw 16, RECOVER
+	dbw 24, SHOCK_WAVE
+	dbw 28, PSYBEAM	
+	dbw 32, CHARGE	
+	dbw 36, THUNDERBOLT
+	dbw 40, TRI_ATTACK
+	dbw 42, SUBSTITUTE
+	dbw 45, THUNDER_WAVE
+	dbw 50, HYPER_BEAM
+	dbw 55, LOCK_ON
+	dbw 60, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 AnnihilapeEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, SAND_ATTACK
+	dbw 1, LEER
+	dbw 8, DOUBLE_KICK
+	dbw 12, LOW_KICK
+	dbw 16, MAGNITUDE
+	dbw 20, FURY_SWIPES
+	dbw 24, SHADOW_PUNCH
+	dbw 28, MACH_PUNCH
+	dbw 30, SEISMIC_TOSS
+	dbw 32, BULK_UP
+	dbw 36, CROSS_CHOP
+	dbw 40, EARTHQUAKE
+	dbw 45, ROCK_SLIDE
+	dbw 50, SUPERPOWER
+	dbw 55, OUTRAGE
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 KleavorEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, QUICK_ATTACK
+	dbw 1, STRING_SHOT
+	dbw 6, FOCUS_ENERGY
+	dbw 12, BITE
+	dbw 18, FALSE_SWIPE
+	dbw 22, TWINEEDLE
+	dbw 24, AGILITY
+	dbw 32, SLASH
+	dbw 36, RAZOR_WIND
+	dbw 42, SWORDS_DANCE
+	dbw 48, DOUBLE_TEAM
+	dbw 52, LEAF_BLADE
+	dbw 60, SHADOW_CLAW
 	db 0 ; no more level-up moves
 
 AraichuEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, THUNDERSHOCK
+	dbw 1, GROWL
+	dbw 6, TAIL_WHIP
+	dbw 8, THUNDER_WAVE
+	dbw 11, QUICK_ATTACK
+	dbw 15, DOUBLE_TEAM
+	dbw 20, SLAM
+	dbw 26, SHOCK_WAVE
+	dbw 31, AGILITY
+	dbw 36, THUNDERBOLT
+	dbw 40, FAERIEGLEAM
+	dbw 42, MEDITATE
+	dbw 45, THUNDER
+	dbw 50, LIGHT_SCREEN
+	dbw 55, GROWTH
+	dbw 60, VOLT_TACKLE
 	db 0 ; no more level-up moves
 
 AmarowakEvosAttacks:
 	db 0 ; no more evolutions
+	dbw 1, GROWL
 	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
+	dbw 5, TAIL_WHIP
+	dbw 12, SAND_ATTACK
+	dbw 16, BONE_CLUB
+	dbw 20, HEADBUTT
+	dbw 22, NIGHT_SHADE
+	dbw 25, BONEMERANG
+	dbw 28, CURSE
+	dbw 32, SHADOW_CLAW
+	dbw 36, BONE_RUSH
 	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 42, SWORDS_DANCE
+	dbw 45, FLAME_WHEEL
+	dbw 50, CONFUSE_RAY
+	dbw 55, GLARE
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 AgrimerEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, AMUK
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, ACID
+	dbw 1, HARDEN
+	dbw 10, DISABLE
+	dbw 16, MINIMIZE
+	dbw 20, SLAM
+	dbw 24, SLUDGE
+	dbw 28, MAGNITUDE	
+	dbw 30, ACID_ARMOR
+	dbw 32, AMNESIA
+	dbw 36, SLUDGE_BOMB
+	dbw 40, PURSUIT
+	dbw 42, REST
+	dbw 45, EARTHQUAKE
+	dbw 50, CURSE
+	dbw 55, CRUSH_CLAW
+	dbw 60, BULK_UP
 	db 0 ; no more level-up moves
 
 AmukEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, ACID
+	dbw 1, HARDEN
+	dbw 10, DISABLE
+	dbw 16, MINIMIZE
+	dbw 20, SLAM
+	dbw 24, SLUDGE
+	dbw 28, MAGNITUDE	
+	dbw 30, ACID_ARMOR
+	dbw 32, AMNESIA
+	dbw 36, SLUDGE_BOMB
+	dbw 40, PURSUIT
+	dbw 42, REST
+	dbw 45, EARTHQUAKE
+	dbw 50, CURSE
+	dbw 55, CRUSH_CLAW
+	dbw 60, BULK_UP
 	db 0 ; no more level-up moves
 
 AsandshrewEvosAttacks:
+	dbbw EVOLVE_LEVEL, 22, ASANDSLASH
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
+	dbw 1, SCRATCH
+	dbw 1, DEFENSE_CURL
+	dbw 8, SAND_ATTACK
+	dbw 12, METAL_CLAW
+	dbw 16, POISON_STING
+	dbw 20, ROLLOUT
+	dbw 24, DIG
+	dbw 28, ROCK_TOMB	
+	dbw 32, SANDSTORM
+	dbw 36, SLASH
+	dbw 40, EARTHQUAKE
 	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 45, CRUNCH
+	dbw 48, CRUSH_CLAW
+	dbw 50, DRAGON_CLAW
+	dbw 55, GUILLOTINE
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 AsandslashEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
+	dbw 1, SCRATCH
+	dbw 1, DEFENSE_CURL
+	dbw 8, SAND_ATTACK
+	dbw 12, METAL_CLAW
+	dbw 16, POISON_STING
+	dbw 20, ROLLOUT
+	dbw 24, DIG
+	dbw 28, ROCK_TOMB	
+	dbw 32, SANDSTORM
+	dbw 36, SLASH
+	dbw 40, EARTHQUAKE
 	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 45, CRUNCH
+	dbw 48, CRUSH_CLAW
+	dbw 50, DRAGON_CLAW
+	dbw 55, GUILLOTINE
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 AvulpixEvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, ANINETALES
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
+	dbw 1, EMBER
+	dbw 1, LICK
+	dbw 7, QUICK_ATTACK
+	dbw 12, ROAR
+	dbw 16, NIGHT_SHADE
+	dbw 20, WILLOWISP
+	dbw 24, HYPNOSIS
+	dbw 28, CURSE
+	dbw 32, RECOVER
+	dbw 36, FLAMETHROWER
 	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 42, DESTINY_BOND
+	dbw 45, SUNNY_DAY
+	dbw 50, FIRE_BLAST
+	dbw 55, SOLARBEAM
+	dbw 60, BLAST_BURN
 	db 0 ; no more level-up moves
 
 AninetalesEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
+	dbw 1, EMBER
+	dbw 1, LICK
+	dbw 7, QUICK_ATTACK
+	dbw 12, ROAR
+	dbw 16, NIGHT_SHADE
+	dbw 20, WILLOWISP
+	dbw 24, HYPNOSIS
+	dbw 28, CURSE
+	dbw 32, RECOVER
+	dbw 36, FLAMETHROWER
 	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 42, DESTINY_BOND
+	dbw 45, SUNNY_DAY
+	dbw 50, FIRE_BLAST
+	dbw 55, SOLARBEAM
+	dbw 60, BLAST_BURN
 	db 0 ; no more level-up moves
 
 AgeodudeEvosAttacks:
+	dbbw EVOLVE_LEVEL, 25, AGRAVELER
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, SAND_ATTACK
+	dbw 6, DEFENSE_CURL
+	dbw 10, ROCK_THROW
+	dbw 16, ROLLOUT
+	dbw 21, SELFDESTRUCT
+	dbw 24, ROCK_TOMB
+	dbw 28, MAGNITUDE
+	dbw 32, ROCK_SLIDE
+	dbw 36, EARTHQUAKE
+	dbw 40, SANDSTORM
+	dbw 42, CURSE
+	dbw 45, AMNESIA
+	dbw 50, EXPLOSION
+	dbw 55, AGILITY
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 AgravelerEvosAttacks:
+	dbbw EVOLVE_LEVEL, 40, GOLEM
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, SAND_ATTACK
+	dbw 6, DEFENSE_CURL
+	dbw 10, ROCK_THROW
+	dbw 16, ROLLOUT
+	dbw 21, SELFDESTRUCT
+	dbw 24, ROCK_TOMB
+	dbw 28, MAGNITUDE
+	dbw 32, ROCK_SLIDE
+	dbw 36, EARTHQUAKE
+	dbw 40, SANDSTORM
+	dbw 42, CURSE
+	dbw 45, AMNESIA
+	dbw 50, EXPLOSION
+	dbw 55, AGILITY
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 AgolemEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, SAND_ATTACK
+	dbw 6, DEFENSE_CURL
+	dbw 10, ROCK_THROW
+	dbw 16, ROLLOUT
+	dbw 21, SELFDESTRUCT
+	dbw 24, ROCK_TOMB
+	dbw 28, MAGNITUDE
+	dbw 32, ROCK_SLIDE
+	dbw 36, EARTHQUAKE
+	dbw 40, SANDSTORM
+	dbw 42, CURSE
+	dbw 45, AMNESIA
+	dbw 50, EXPLOSION
+	dbw 55, AGILITY
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 HvoltorbEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, HELECTRODE
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, TACKLE
+	dbw 1, THUNDER_WAVE
+	dbw 8, THUNDERSHOCK
+	dbw 12, SONICBOOM
+	dbw 16, SPARK
+	dbw 20, SLAM
+	dbw 23, SELFDESTRUCT
+	dbw 27, ROLLOUT
+	dbw 30, LIGHT_SCREEN
+	dbw 32, THUNDERBOLT
+	dbw 36, FAERIEGLEAM
+	dbw 39, EXPLOSION
+	dbw 41, CHARGE
+	dbw 45, EXTREMESPEED
+	dbw 50, THUNDER
+	dbw 55, POWER_GEM
+	dbw 60, FLASHCANNON
 	db 0 ; no more level-up moves
 
 HelectrodeEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
-	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 1, TACKLE
+	dbw 1, THUNDER_WAVE
+	dbw 8, THUNDERSHOCK
+	dbw 12, SONICBOOM
+	dbw 16, SPARK
+	dbw 20, SLAM
+	dbw 23, SELFDESTRUCT
+	dbw 27, ROLLOUT
+	dbw 30, LIGHT_SCREEN
+	dbw 32, THUNDERBOLT
+	dbw 36, FAERIEGLEAM
+	dbw 39, EXPLOSION
+	dbw 41, CHARGE
+	dbw 45, EXTREMESPEED
+	dbw 50, THUNDER
+	dbw 55, POWER_GEM
+	dbw 60, FLASHCANNON
 	db 0 ; no more level-up moves
 
 IronbundleEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ASTONISH
+	dbw 1, PRESENT
 	dbw 1, POWDER_SNOW
-	dbw 7, LEER
-	dbw 12, ICY_WIND
-	dbw 16, BITE
-	dbw 20, ICE_FANG
-	dbw 24, DRAININGKISS
-	dbw 28, SHADOW_CLAW
-	dbw 32, CALM_MIND
-	dbw 34, COSMIC_POWER
-	dbw 36, ICE_BEAM
-	dbw 40, SHADOW_BALL
-	dbw 42, BULK_UP
-	dbw 45, PERISH_SONG
-	dbw 50, BLIZZARD	
-	dbw 55, PROTECT
-	dbw 60, DESTINY_BOND
+	dbw 7, GUST
+	dbw 11, SPIKES
+	dbw 16, AURORA_BEAM
+	dbw 20, WING_ATTACK
+	dbw 24, ICY_WIND
+	dbw 28, RAZOR_WIND
+	dbw 32, ICICLE_CRASH
+	dbw 36, SKY_ATTACK
+	dbw 40, BLIZZARD
+	dbw 42, REFLECT
+	dbw 45, LIGHT_SCREEN
+	dbw 48, BELLY_DRUM
+	dbw 50, BATON_PASS
 	db 0 ; no more level-up moves
 
 Voltorb2EvosAttacks:
