@@ -345,8 +345,49 @@ PokedexDataPointerTable:
 	dba WhiscashPokedexEntry
 	dba CorphishPokedexEntry
 	dba CrawdauntPokedexEntry
+	dba BaltoyPokedexEntry
+	dba ClaydolPokedexEntry
+	dba LileepPokedexEntry
+	dba CradilyPokedexEntry
+	dba AnorithPokedexEntry
+	dba ArmaldoPokedexEntry
+	dba FeebasPokedexEntry
+	dba MiloticPokedexEntry
+	dba KecleonPokedexEntry
+	dba ShuppetPokedexEntry
+	dba BanettePokedexEntry
+	dba DuskullPokedexEntry
+	dba DusclopsPokedexEntry
+	dba TropiusPokedexEntry
+	dba ChimechoPokedexEntry
+	dba AbsolPokedexEntry
+	dba WynautPokedexEntry
 	dba SnoruntPokedexEntry
 	dba GlaliePokedexEntry
+	dba SphealPokedexEntry
+	dba SealeoPokedexEntry
+	dba WalreinPokedexEntry
+	dba ClamperlPokedexEntry
+	dba HuntailPokedexEntry
+	dba GorebyssPokedexEntry
+	dba RelicanthPokedexEntry
+	dba LuvdiscPokedexEntry
+	dba BagonPokedexEntry
+	dba ShelgonPokedexEntry
+	dba SalamencePokedexEntry
+	dba BeldumPokedexEntry
+	dba MetangPokedexEntry
+	dba MetagrossPokedexEntry
+	dba RegirockPokedexEntry
+	dba RegicePokedexEntry
+	dba RegisteelPokedexEntry
+	dba LatiasPokedexEntry
+	dba LatiosPokedexEntry
+	dba KyogrePokedexEntry
+	dba GroudonPokedexEntry
+	dba RayquazaPokedexEntry
+	dba JirachiPokedexEntry
+	;gen 4
 	dba TogekissPokedexEntry
 	dba MamoswinePokedexEntry
 	dba SylveonPokedexEntry
@@ -355,6 +396,31 @@ PokedexDataPointerTable:
 	dba GliscorPokedexEntry
 	dba GalladePokedexEntry
 	dba FroslassPokedexEntry
+	dba HonchkrowPokedexEntry
+	dba WeavilePokedexEntry
+	dba MagnezonePokedexEntry
+	dba TangrowthPokedexEntry
+	dba ElectivirePokedexEntry
+	dba MagmortarPokedexEntry
+	dba WyrdeerPokedexEntry
+	dba PorygonzPokedexEntry
+	dba AnnihilapePokedexEntry
+	dba KleavorPokedexEntry
+	;alt mons
+	dba AraichuPokedexEntry
+	dba AmarowakPokedexEntry
+	dba AgrimerPokedexEntry
+	dba AmukPokedexEntry
+	dba AsandshrewPokedexEntry
+	dba AsandslashPokedexEntry
+	dba AvulpixPokedexEntry
+	dba AninetalesPokedexEntry
+	dba AgeodudePokedexEntry
+	dba AgravelerPokedexEntry
+	dba AgolemPokedexEntry
+	dba HvoltorbPokedexEntry
+	dba HelectrodePokedexEntry
+	dba IronbundlePokedexEntry
 	;reddit mons
 	dba Voltorb2PokedexEntry
 	dba Electrode2PokedexEntry

@@ -703,11 +703,91 @@ PokemonPicPointers::
 	dba CorphishBackpic
 	dba CrawdauntFrontpic
 	dba CrawdauntBackpic
+	dba BaltoyFrontpic
+	dba BaltoyBackpic
+	dba ClaydolFrontpic
+	dba ClaydolBackpic
+	dba LileepFrontpic
+	dba LileepBackpic
+	dba CradilyFrontpic
+	dba CradilyBackpic
+	dba AnorithFrontpic
+	dba AnorithBackpic
+	dba ArmaldoFrontpic
+	dba ArmaldoBackpic
+	dba FeebasFrontpic
+	dba FeebasBackpic
+	dba MiloticFrontpic
+	dba MiloticBackpic
+	dba KecleonFrontpic
+	dba KecleonBackpic
+	dba ShuppetFrontpic
+	dba ShuppetBackpic
+	dba BanetteFrontpic
+	dba BanetteBackpic
+	dba DuskullFrontpic
+	dba DuskullBackpic
+	dba DusclopsFrontpic
+	dba DusclopsBackpic
+	dba TropiusFrontpic
+	dba TropiusBackpic
+	dba ChimechoFrontpic
+	dba ChimechoBackpic
+	dba AbsolFrontpic
+	dba AbsolBackpic
+	dba WynautFrontpic
+	dba WynautBackpic
 	dba SnoruntFrontpic
 	dba SnoruntBackpic
 	dba GlalieFrontpic
 	dba GlalieBackpic
-	;reddit mons
+	dba SphealFrontpic
+	dba SphealBackpic
+	dba SealeoFrontpic
+	dba SealeoBackpic
+	dba WalreinFrontpic
+	dba WalreinBackpic
+	dba ClamperlFrontpic
+	dba ClamperlBackpic
+	dba HuntailFrontpic
+	dba HuntailBackpic
+	dba GorebyssFrontpic
+	dba GorebyssBackpic
+	dba RelicanthFrontpic
+	dba RelicanthBackpic
+	dba LuvdiscFrontpic
+	dba LuvdiscBackpic
+	dba BagonFrontpic
+	dba BagonBackpic
+	dba ShelgonFrontpic
+	dba ShelgonBackpic
+	dba SalamenceFrontpic
+	dba SalamenceBackpic
+	dba BeldumFrontpic
+	dba BeldumBackpic
+	dba MetangFrontpic
+	dba MetangBackpic
+	dba MetagrossFrontpic
+	dba MetagrossBackpic
+	dba RegirockFrontpic
+	dba RegirockBackpic
+	dba RegiceFrontpic
+	dba RegiceBackpic
+	dba RegisteelFrontpic
+	dba RegisteelBackpic
+	dba LatiasFrontpic
+	dba LatiasBackpic
+	dba LatiosFrontpic
+	dba LatiosBackpic
+	dba KyogreFrontpic
+	dba KyogreBackpic
+	dba GroudonFrontpic
+	dba GroudonBackpic
+	dba RayquazaFrontpic
+	dba RayquazaBackpic
+	dba JirachiFrontpic
+	dba JirachiBackpic
+	;gen4 mons
 	dba TogekissFrontpic
 	dba TogekissBackpic
 	dba MamoswineFrontpic
@@ -724,7 +804,56 @@ PokemonPicPointers::
 	dba GalladeBackpic
 	dba FroslassFrontpic
 	dba FroslassBackpic
-	;gen4 mons
+	dba HonchkrowFrontpic
+	dba HonchkrowBackpic
+	dba WeavileFrontpic
+	dba WeavileBackpic
+	dba MagnezoneFrontpic
+	dba MagnezoneBackpic
+	dba TangrowthFrontpic
+	dba TangrowthBackpic
+	dba ElectivireFrontpic
+	dba ElectivireBackpic
+	dba MagmortarFrontpic
+	dba MagmortarBackpic
+	dba WyrdeerFrontpic
+	dba WyrdeerBackpic
+	dba PorygonzFrontpic
+	dba PorygonzBackpic
+	dba AnnihilapeFrontpic
+	dba AnnihilapeBackpic
+	dba KleavorFrontpic
+	dba KleavorBackpic
+	;alt forms
+	dba AraichuFrontpic
+	dba AraichuBackpic
+	dba AmarowakFrontpic
+	dba AmarowakBackpic
+	dba AgrimerFrontpic
+	dba AgrimerBackpic
+	dba AmukFrontpic
+	dba AmukBackpic
+	dba AsandshrewFrontpic
+	dba AsandshrewBackpic
+	dba AsandslashFrontpic
+	dba AsandslashBackpic
+	dba AvulpixFrontpic
+	dba AvulpixBackpic
+	dba AninetalesFrontpic
+	dba AninetalesBackpic
+	dba AgeodudeFrontpic
+	dba AgeodudeBackpic
+	dba AgravelerFrontpic
+	dba AgravelerBackpic
+	dba AgolemFrontpic
+	dba AgolemBackpic
+	dba HvoltorbFrontpic
+	dba HvoltorbBackpic
+	dba HelectrodeFrontpic
+	dba HelectrodeBackpic
+	dba IronbundleFrontpic
+	dba IronbundleBackpic	
+	;reddit mons
 	dba Voltorb2Frontpic
 	dba Voltorb2Backpic
 	dba Electrode2Frontpic

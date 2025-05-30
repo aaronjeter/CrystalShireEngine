@@ -193,8 +193,48 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw CorphishEggMoves
 	dw NoEggMoves2
+	dw NoEggMoves2			;baltoy
+	dw NoEggMoves2
+	dw NoEggMoves2			;lileep
+	dw NoEggMoves2
+	dw NoEggMoves2			;anorith
+	dw NoEggMoves2
+	dw NoEggMoves2			;feebas
+	dw NoEggMoves2
+	dw NoEggMoves2			;kecleon
+	dw NoEggMoves2			;shuppet
+	dw NoEggMoves2
+	dw NoEggMoves2			;duskull
+	dw NoEggMoves2
+	dw NoEggMoves2			;tropius
+	dw NoEggMoves2			;chimeco
+	dw NoEggMoves2			;absol
+	dw NoEggMoves2			;wynaut
 	dw SnoruntEggMoves
 	dw NoEggMoves2			;glalie
+	dw NoEggMoves2			;spheal
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2			;clamperl
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2			;relicanth
+	dw NoEggMoves2			;luvdisc
+	dw NoEggMoves2			;bagon
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2			;beldum
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2			;regirock
+	dw NoEggMoves2			;regice
+	dw NoEggMoves2			;registeel
+	dw NoEggMoves2			;latias
+	dw NoEggMoves2			;latios
+	dw NoEggMoves2			;kyogre
+	dw NoEggMoves2			;groudon
+	dw NoEggMoves2			;rayquaza
+	dw NoEggMoves2			;jirachi
 	;gen4+
 	dw NoEggMoves2			;togekiss
 	dw NoEggMoves2			;mamoswine
@@ -204,6 +244,31 @@ EggMovePointers2::
 	dw NoEggMoves2			;gliscor
 	dw NoEggMoves2			;gallade
 	dw NoEggMoves2			;froslass
+	dw NoEggMoves2			;honchkrow
+	dw NoEggMoves2			;weavile
+	dw NoEggMoves2			;magnezone
+	dw NoEggMoves2			;tongrowth
+	dw NoEggMoves2			;electivire
+	dw NoEggMoves2			;magmortar
+	dw NoEggMoves2			;wyrdeer
+	dw NoEggMoves2			;porygonz
+	dw NoEggMoves2			;annihilape
+	dw NoEggMoves2			;kleavor
+	;alt forms
+	dw NoEggMoves2			;ariachu
+	dw NoEggMoves2			;amarowak
+	dw NoEggMoves2			;agrimer
+	dw NoEggMoves2			;amuk
+	dw NoEggMoves2			;asandshrew
+	dw NoEggMoves2			;asandslash
+	dw NoEggMoves2			;avulpix
+	dw NoEggMoves2			;aninetales
+	dw NoEggMoves2			;ageodude
+	dw NoEggMoves2			;agraveler
+	dw NoEggMoves2			;agolem
+	dw NoEggMoves2			;hvoltorb
+	dw NoEggMoves2			;helectrode
+	dw NoEggMoves2			;ironbundle
 	;reddit mons
 	dw NoEggMoves2			;voltorb2
 	dw NoEggMoves2			;electrode2

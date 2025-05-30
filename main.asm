@@ -441,7 +441,6 @@ INCLUDE "gfx/pokemon/unown_idles.asm"
 
 SECTION "Pic Animations 3", ROMX
 
-INCLUDE "gfx/pokemon/johto_frames.asm"
 INCLUDE "gfx/pokemon/unown_frame_pointers.asm"
 INCLUDE "gfx/pokemon/unown_frames.asm"
 INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
@@ -452,6 +451,16 @@ SECTION "Pic Animations 4", ROMX
 
 INCLUDE "gfx/pokemon/bitmask_pointers.asm"
 INCLUDE "gfx/pokemon/bitmasks.asm"
+
+
+SECTION "Pic Animations 5", ROMX
+
+INCLUDE "gfx/pokemon/johto_frames.asm"
+
+
+SECTION "Pic Animations 6", ROMX
+
+INCLUDE "gfx/pokemon/hoenn_frames.asm"
 
 
 SECTION "bank38", ROMX
@@ -486,10 +495,14 @@ INCLUDE "engine/link/time_capsule_2.asm"
 INCLUDE "engine/link/time_capsule.asm"
 
 
-
 SECTION "bank3E.3", ROMX
 
 INCLUDE "engine/gfx/load_font.asm"
+
+
+SECTION "bank3E.4", ROMX
+
+INCLUDE "gfx/footprints.asm"
 
 
 SECTION "bank3F", ROMX

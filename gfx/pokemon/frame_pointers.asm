@@ -343,8 +343,48 @@ FramesPointers:
 	dba WhiscashFrames
 	dba CorphishFrames
 	dba CrawdauntFrames
+	dba BaltoyFrames
+	dba ClaydolFrames
+	dba LileepFrames
+	dba CradilyFrames
+	dba AnorithFrames
+	dba ArmaldoFrames
+	dba FeebasFrames
+	dba MiloticFrames
+	dba KecleonFrames
+	dba ShuppetFrames
+	dba BanetteFrames
+	dba DuskullFrames
+	dba DusclopsFrames
+	dba TropiusFrames
+	dba ChimechoFrames
+	dba AbsolFrames
+	dba WynautFrames
 	dba SnoruntFrames
 	dba GlalieFrames
+	dba SphealFrames
+	dba SealeoFrames
+	dba WalreinFrames
+	dba ClamperlFrames
+	dba HuntailFrames
+	dba GorebyssFrames
+	dba RelicanthFrames
+	dba LuvdiscFrames
+	dba BagonFrames
+	dba ShelgonFrames
+	dba SalamenceFrames
+	dba BeldumFrames
+	dba MetangFrames
+	dba MetagrossFrames
+	dba RegirockFrames
+	dba RegiceFrames
+	dba RegisteelFrames
+	dba LatiasFrames
+	dba LatiosFrames
+	dba KyogreFrames
+	dba GroudonFrames
+	dba RayquazaFrames
+	dba JirachiFrames
 	;Gen4
 	dba TogekissFrames
 	dba MamoswineFrames
@@ -354,6 +394,31 @@ FramesPointers:
 	dba GliscorFrames
 	dba GalladeFrames
 	dba FroslassFrames
+	dba HonchkrowFrames
+	dba WeavileFrames
+	dba MagnezoneFrames
+	dba TangrowthFrames
+	dba ElectivireFrames
+	dba MagmortarFrames
+	dba WyrdeerFrames
+	dba PorygonzFrames
+	dba AnnihilapeFrames
+	dba KleavorFrames
+	;alt forms
+	dba AraichuFrames
+	dba AmarowakFrames
+	dba AgrimerFrames
+	dba AmukFrames
+	dba AsandshrewFrames
+	dba AsandslashFrames
+	dba AvulpixFrames
+	dba AninetalesFrames
+	dba AgeodudeFrames
+	dba AgravelerFrames
+	dba AgolemFrames
+	dba HvoltorbFrames
+	dba HelectrodeFrames
+	dba IronbundleFrames
 	;reddit mons
 	dba Voltorb2Frames
 	dba Electrode2Frames

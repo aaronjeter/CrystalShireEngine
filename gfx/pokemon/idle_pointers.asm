@@ -343,8 +343,48 @@ AnimationIdlePointers:
 	dw WhiscashAnimationIdle
 	dw CorphishAnimationIdle
 	dw CrawdauntAnimationIdle
+	dw BaltoyAnimationIdle
+	dw ClaydolAnimationIdle
+	dw LileepAnimationIdle
+	dw CradilyAnimationIdle
+	dw AnorithAnimationIdle
+	dw ArmaldoAnimationIdle
+	dw FeebasAnimationIdle
+	dw MiloticAnimationIdle
+	dw KecleonAnimationIdle
+	dw ShuppetAnimationIdle
+	dw BanetteAnimationIdle
+	dw DuskullAnimationIdle
+	dw DusclopsAnimationIdle
+	dw TropiusAnimationIdle
+	dw ChimechoAnimationIdle
+	dw AbsolAnimationIdle
+	dw WynautAnimationIdle
 	dw SnoruntAnimationIdle
 	dw GlalieAnimationIdle
+	dw SphealAnimationIdle
+	dw SealeoAnimationIdle
+	dw WalreinAnimationIdle
+	dw ClamperlAnimationIdle
+	dw HuntailAnimationIdle
+	dw GorebyssAnimationIdle
+	dw RelicanthAnimationIdle
+	dw LuvdiscAnimationIdle
+	dw BagonAnimationIdle
+	dw ShelgonAnimationIdle
+	dw SalamenceAnimationIdle
+	dw BeldumAnimationIdle
+	dw MetangAnimationIdle
+	dw MetagrossAnimationIdle
+	dw RegirockAnimationIdle
+	dw RegiceAnimationIdle
+	dw RegisteelAnimationIdle
+	dw LatiasAnimationIdle
+	dw LatiosAnimationIdle
+	dw KyogreAnimationIdle
+	dw GroudonAnimationIdle
+	dw RayquazaAnimationIdle
+	dw JirachiAnimationIdle
 	;Gen4
 	dw TogekissAnimationIdle
 	dw MamoswineAnimationIdle
@@ -354,6 +394,31 @@ AnimationIdlePointers:
 	dw GliscorAnimationIdle
 	dw GalladeAnimationIdle
 	dw FroslassAnimationIdle
+	dw HonchkrowAnimationIdle
+	dw WeavileAnimationIdle
+	dw MagnezoneAnimationIdle
+	dw TangrowthAnimationIdle
+	dw ElectivireAnimationIdle
+	dw MagmortarAnimationIdle
+	dw WyrdeerAnimationIdle
+	dw PorygonzAnimationIdle
+	dw AnnihilapeAnimationIdle
+	dw KleavorAnimationIdle
+	;alt forms
+	dw AraichuAnimationIdle
+	dw AmarowakAnimationIdle
+	dw AgrimerAnimationIdle
+	dw AmukAnimationIdle
+	dw AsandshrewAnimationIdle
+	dw AsandslashAnimationIdle
+	dw AvulpixAnimationIdle
+	dw AninetalesAnimationIdle
+	dw AgeodudeAnimationIdle
+	dw AgravelerAnimationIdle
+	dw AgolemAnimationIdle
+	dw HvoltorbAnimationIdle
+	dw HelectrodeAnimationIdle
+	dw IronbundleAnimationIdle
 	;reddit mons
 	dw Voltorb2AnimationIdle
 	dw Electrode2AnimationIdle

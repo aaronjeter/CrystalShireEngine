@@ -343,8 +343,48 @@ AnimationPointers:
 	dw WhiscashAnimation
 	dw CorphishAnimation
 	dw CrawdauntAnimation
+	dw BaltoyAnimation
+	dw ClaydolAnimation
+	dw LileepAnimation
+	dw CradilyAnimation
+	dw AnorithAnimation
+	dw ArmaldoAnimation
+	dw FeebasAnimation
+	dw MiloticAnimation
+	dw KecleonAnimation
+	dw ShuppetAnimation
+	dw BanetteAnimation
+	dw DuskullAnimation
+	dw DusclopsAnimation
+	dw TropiusAnimation
+	dw ChimechoAnimation
+	dw AbsolAnimation
+	dw WynautAnimation
 	dw SnoruntAnimation
 	dw GlalieAnimation
+	dw SphealAnimation
+	dw SealeoAnimation
+	dw WalreinAnimation
+	dw ClamperlAnimation
+	dw HuntailAnimation
+	dw GorebyssAnimation
+	dw RelicanthAnimation
+	dw LuvdiscAnimation
+	dw BagonAnimation
+	dw ShelgonAnimation
+	dw SalamenceAnimation
+	dw BeldumAnimation
+	dw MetangAnimation
+	dw MetagrossAnimation
+	dw RegirockAnimation
+	dw RegiceAnimation
+	dw RegisteelAnimation
+	dw LatiasAnimation
+	dw LatiosAnimation
+	dw KyogreAnimation
+	dw GroudonAnimation
+	dw RayquazaAnimation
+	dw JirachiAnimation
 	;Gen4
 	dw TogekissAnimation
 	dw MamoswineAnimation
@@ -354,6 +394,31 @@ AnimationPointers:
 	dw GliscorAnimation
 	dw GalladeAnimation
 	dw FroslassAnimation
+	dw HonchkrowAnimation
+	dw WeavileAnimation
+	dw MagnezoneAnimation
+	dw TangrowthAnimation
+	dw ElectivireAnimation	
+	dw MagmortarAnimation
+	dw WyrdeerAnimation
+	dw PorygonzAnimation
+	dw AnnihilapeAnimation
+	dw KleavorAnimation
+	;alt forms
+	dw AraichuAnimation
+	dw AmarowakAnimation
+	dw AgrimerAnimation
+	dw AmukAnimation
+	dw AsandshrewAnimation
+	dw AsandslashAnimation
+	dw AvulpixAnimation
+	dw AninetalesAnimation
+	dw AgeodudeAnimation
+	dw AgravelerAnimation
+	dw AgolemAnimation
+	dw HvoltorbAnimation
+	dw HelectrodeAnimation
+	dw IronbundleAnimation
 	;reddit mons
 	dw Voltorb2Animation
 	dw Electrode2Animation

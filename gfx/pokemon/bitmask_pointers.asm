@@ -343,8 +343,48 @@ BitmasksPointers:
 	dw WhiscashBitmasks
 	dw CorphishBitmasks
 	dw CrawdauntBitmasks
+	dw BaltoyBitmasks
+	dw ClaydolBitmasks
+	dw LileepBitmasks
+	dw CradilyBitmasks
+	dw AnorithBitmasks
+	dw ArmaldoBitmasks
+	dw FeebasBitmasks
+	dw MiloticBitmasks
+	dw KecleonBitmasks
+	dw ShuppetBitmasks
+	dw BanetteBitmasks
+	dw DuskullBitmasks
+	dw DusclopsBitmasks
+	dw TropiusBitmasks
+	dw ChimechoBitmasks
+	dw AbsolBitmasks
+	dw WynautBitmasks
 	dw SnoruntBitmasks
 	dw GlalieBitmasks
+	dw SphealBitmasks
+	dw SealeoBitmasks
+	dw WalreinBitmasks
+	dw ClamperlBitmasks
+	dw HuntailBitmasks
+	dw GorebyssBitmasks
+	dw RelicanthBitmasks
+	dw LuvdiscBitmasks
+	dw BagonBitmasks
+	dw ShelgonBitmasks
+	dw SalamenceBitmasks
+	dw BeldumBitmasks
+	dw MetangBitmasks
+	dw MetagrossBitmasks
+	dw RegirockBitmasks
+	dw RegiceBitmasks
+	dw RegisteelBitmasks
+	dw LatiasBitmasks
+	dw LatiosBitmasks
+	dw KyogreBitmasks
+	dw GroudonBitmasks
+	dw RayquazaBitmasks
+	dw JirachiBitmasks
 	;Gen4
 	dw TogekissBitmasks
 	dw MamoswineBitmasks
@@ -354,6 +394,31 @@ BitmasksPointers:
 	dw GliscorBitmasks
 	dw GalladeBitmasks
 	dw FroslassBitmasks
+	dw HonchkrowBitmasks
+	dw WeavileBitmasks
+	dw MagnezoneBitmasks
+	dw TangrowthBitmasks
+	dw ElectivireBitmasks
+	dw MagmortarBitmasks
+	dw WyrdeerBitmasks
+	dw PorygonzBitmasks
+	dw AnnihilapeBitmasks
+	dw KleavorBitmasks
+	;alt forms
+	dw AraichuBitmasks
+	dw AmarowakBitmasks
+	dw AgrimerBitmasks
+	dw AmukBitmasks
+	dw AsandshrewBitmasks
+	dw AsandslashBitmasks
+	dw AvulpixBitmasks
+	dw AninetalesBitmasks
+	dw AgeodudeBitmasks
+	dw AgravelerBitmasks
+	dw AgolemBitmasks
+	dw HvoltorbBitmasks
+	dw HelectrodeBitmasks
+	dw IronbundleBitmasks
 	;reddit mons
 	dw Voltorb2Bitmasks
 	dw Electrode2Bitmasks

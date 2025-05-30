@@ -353,9 +353,49 @@ MonMenuIconPals:
 	icon_pals BLUE,   BROWN  ; BARBOACH
 	icon_pals BLUE,   BROWN  ; WHISCASH
 	icon_pals RED,    PURPLE ; CORPHISH
-	icon_pals RED,    PURPLE ; CRAWDAUNT
+	icon_pals RED,    PURPLE ; CRAWDAUNT	
+	icon_pals RED,    RED    ; BALTOY
+	icon_pals RED,    RED    ; CLAYDOL
+	icon_pals RED,    RED    ; LILEEP
+	icon_pals RED,    RED    ; CRADILY
+	icon_pals RED,    RED    ; ANORITH
+	icon_pals RED,    RED    ; ARMALDO
+	icon_pals RED,    RED    ; FEEBAS
+	icon_pals RED,    RED    ; MILOTIC
+	icon_pals RED,    RED    ; KECLEON
+	icon_pals RED,    RED    ; SHUPPET
+	icon_pals RED,    RED    ; BANETTE
+	icon_pals RED,    RED    ; DUSKULL
+	icon_pals RED,    RED    ; DUSCLOPS
+	icon_pals RED,    RED    ; TROPIUS
+	icon_pals RED,    RED    ; CHIMECHO
+	icon_pals RED,    RED    ; ABSOL
+	icon_pals RED,    RED    ; WYNAUT
 	icon_pals RED,    BLUE   ; SNORUNT
 	icon_pals BLUE,   RED    ; GLALIE
+	icon_pals RED,    RED    ; SPHEAL
+	icon_pals RED,    RED    ; SEALEO
+	icon_pals RED,    RED    ; WALREIN
+	icon_pals RED,    RED    ; CLAMPERL
+	icon_pals RED,    RED    ; HUNTAIL
+	icon_pals RED,    RED    ; GOREBYSS
+	icon_pals RED,    RED    ; RELICANTH
+	icon_pals RED,    RED    ; LUVDISC
+	icon_pals RED,    RED    ; BAGON
+	icon_pals RED,    RED    ; SHELGON
+	icon_pals RED,    RED    ; SALAMENCE
+	icon_pals RED,    RED    ; BELDUM
+	icon_pals RED,    RED    ; METANG
+	icon_pals RED,    RED    ; METAGROSS
+	icon_pals RED,    RED    ; REGIROCK
+	icon_pals RED,    RED    ; REGICE
+	icon_pals RED,    RED    ; REGISTEEL
+	icon_pals RED,    RED    ; LATIAS
+	icon_pals RED,    RED    ; LATIOS
+	icon_pals RED,    RED    ; KYOGRE
+	icon_pals RED,    RED    ; GROUDON
+	icon_pals RED,    RED    ; RAYQUAZA
+	icon_pals RED,    RED    ; JIRACHI
 	;Gen 4
 	icon_pals RED,    BLUE   ; TOGEKISS
 	icon_pals BROWN,  GREEN  ; MAMOSWINE
@@ -365,6 +405,31 @@ MonMenuIconPals:
 	icon_pals PURPLE, TEAL   ; GLISCOR
 	icon_pals GREEN,  BLUE   ; GALLADE
 	icon_pals RED,    PURPLE ; FROSLASS
+	icon_pals RED,    PURPLE ; HONCHKROW
+	icon_pals RED,    PURPLE ; WEAVILE
+	icon_pals RED,    PURPLE ; MAGNEZONE
+	icon_pals RED,    PURPLE ; TANGROWTH
+	icon_pals RED,    PURPLE ; ELECTIVIRE
+	icon_pals RED,    PURPLE ; MAGMORTAR
+	icon_pals RED,    PURPLE ; WYRDEER
+	icon_pals RED,    PURPLE ; PORYGONZ
+	icon_pals RED,    PURPLE ; ANNIHILAPE
+	icon_pals RED,    PURPLE ; KLEAVOR
+	;alt forms
+	icon_pals RED,    PURPLE ; ARAICHU
+	icon_pals RED,    PURPLE ; AMAROWAK
+	icon_pals RED,    PURPLE ; AGRIMER
+	icon_pals RED,    PURPLE ; AMUK
+	icon_pals RED,    PURPLE ; ASANDSHREW
+	icon_pals RED,    PURPLE ; ASANDSLASH
+	icon_pals RED,    PURPLE ; AVULPIX
+	icon_pals RED,    PURPLE ; ANINETALES
+	icon_pals RED,    PURPLE ; AGEODUDE
+	icon_pals RED,    PURPLE ; AGRAVELER
+	icon_pals RED,    PURPLE ; AGOLEM
+	icon_pals RED,    PURPLE ; HVOLTORB
+	icon_pals RED,    PURPLE ; HELECTRODE
+	icon_pals RED,    PURPLE ; IRONBUNDLE
 	;reddit mons
 	icon_pals BLUE,   BLUE   ; VOLTORB
 	icon_pals BLUE,   BLUE   ; ELECTRODE

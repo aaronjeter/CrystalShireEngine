@@ -349,8 +349,48 @@ IconPointers:
 	dw WhiscashIcon
 	dw CorphishIcon
 	dw CrawdauntIcon
+	dw BaltoyIcon
+	dw ClaydolIcon
+	dw LileepIcon
+	dw CradilyIcon
+	dw AnorithIcon
+	dw ArmaldoIcon
+	dw FeebasIcon
+	dw MiloticIcon
+	dw KecleonIcon
+	dw ShuppetIcon
+	dw BanetteIcon
+	dw DuskullIcon
+	dw DusclopsIcon
+	dw TropiusIcon
+	dw ChimechoIcon
+	dw AbsolIcon
+	dw WynautIcon
 	dw SnoruntIcon
 	dw GlalieIcon
+	dw SphealIcon
+	dw SealeoIcon
+	dw WalreinIcon
+	dw ClamperlIcon
+	dw HuntailIcon
+	dw GorebyssIcon
+	dw RelicanthIcon
+	dw LuvdiscIcon
+	dw BagonIcon
+	dw ShelgonIcon
+	dw SalamenceIcon
+	dw BeldumIcon
+	dw MetangIcon
+	dw MetagrossIcon
+	dw RegirockIcon
+	dw RegiceIcon
+	dw RegisteelIcon
+	dw LatiasIcon
+	dw LatiosIcon
+	dw KyogreIcon
+	dw GroudonIcon
+	dw RayquazaIcon
+	dw JirachiIcon
 	;Gen 4 Mons
 	dw TogekissIcon
 	dw MamoswineIcon
@@ -360,6 +400,31 @@ IconPointers:
 	dw GliscorIcon
 	dw GalladeIcon
 	dw FroslassIcon
+	dw HonchkrowIcon
+	dw WeavileIcon
+	dw MagnezoneIcon
+	dw TangrowthIcon
+	dw ElectivireIcon
+	dw MagmortarIcon
+	dw WyrdeerIcon
+	dw PorygonzIcon
+	dw AnnihilapeIcon
+	dw KleavorIcon
+	;alt forms
+	dw AraichuIcon
+	dw AmarowakIcon
+	dw AgrimerIcon
+	dw AmukIcon
+	dw AsandshrewIcon
+	dw AsandslashIcon
+	dw AvulpixIcon
+	dw AninetalesIcon
+	dw AgeodudeIcon
+	dw AgravelerIcon
+	dw AgolemIcon
+	dw HvoltorbIcon
+	dw HelectrodeIcon
+	dw IronbundleIcon
 	;reddit mons
 	dw Voltorb2Icon
 	dw Electrode2Icon

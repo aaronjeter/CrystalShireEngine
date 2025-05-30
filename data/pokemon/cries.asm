@@ -350,8 +350,48 @@ PokemonCries::
 	mon_cry CRY_KRABBY,      238,  352 ; WHISCASH
 	mon_cry CRY_KRABBY,       32,  352 ; CORPHISH
 	mon_cry CRY_KRABBY,      238,  352 ; CRAWDAUNT
+	mon_cry CRY_KRABBY,      238,  352 ; BALTOY
+	mon_cry CRY_KRABBY,      238,  352 ; CLAYDOL
+	mon_cry CRY_KRABBY,      238,  352 ; LILEEP
+	mon_cry CRY_KRABBY,      238,  352 ; CRADILY
+	mon_cry CRY_KRABBY,      238,  352 ; ANORITH
+	mon_cry CRY_KRABBY,      238,  352 ; ARMALDO
+	mon_cry CRY_KRABBY,      238,  352 ; FEEBAS
+	mon_cry CRY_KRABBY,      238,  352 ; MILOTIC
+	mon_cry CRY_KRABBY,      238,  352 ; KECLEON
+	mon_cry CRY_KRABBY,      238,  352 ; SHUPPET
+	mon_cry CRY_KRABBY,      238,  352 ; BANETTE
+	mon_cry CRY_KRABBY,      238,  352 ; DUSKULL
+	mon_cry CRY_KRABBY,      238,  352 ; DUSCLOPS
+	mon_cry CRY_KRABBY,      238,  352 ; TROPIUS
+	mon_cry CRY_KRABBY,      238,  352 ; CHIMECHO
+	mon_cry CRY_KRABBY,      238,  352 ; ABSOL
+	mon_cry CRY_KRABBY,      238,  352 ; WYNAUT
 	mon_cry CRY_BULBASAUR,   238,  129 ; SNORUNT
 	mon_cry CRY_BULBASAUR,   238,  129 ; GLALIE
+	mon_cry CRY_KRABBY,      238,  352 ; SPHEAL
+	mon_cry CRY_KRABBY,      238,  352 ; SEALEO
+	mon_cry CRY_KRABBY,      238,  352 ; WALREIN
+	mon_cry CRY_KRABBY,      238,  352 ; CLAMPERL
+	mon_cry CRY_KRABBY,      238,  352 ; HUNTAIL
+	mon_cry CRY_KRABBY,      238,  352 ; GOREBYSS
+	mon_cry CRY_KRABBY,      238,  352 ; RELICANTH
+	mon_cry CRY_KRABBY,      238,  352 ; LUVDISC
+	mon_cry CRY_KRABBY,      238,  352 ; BAGON
+	mon_cry CRY_KRABBY,      238,  352 ; SHELGON
+	mon_cry CRY_KRABBY,      238,  352 ; SALAMENCE
+	mon_cry CRY_KRABBY,      238,  352 ; BELDUM
+	mon_cry CRY_KRABBY,      238,  352 ; METANG
+	mon_cry CRY_KRABBY,      238,  352 ; MEGAGROSS
+	mon_cry CRY_KRABBY,      238,  352 ; REGIROCK
+	mon_cry CRY_KRABBY,      238,  352 ; REGICE
+	mon_cry CRY_KRABBY,      238,  352 ; REGISTEEL
+	mon_cry CRY_KRABBY,      238,  352 ; LATIAS
+	mon_cry CRY_KRABBY,      238,  352 ; LATIOS
+	mon_cry CRY_KRABBY,      238,  352 ; KYOGRE
+	mon_cry CRY_KRABBY,      238,  352 ; GROUDON
+	mon_cry CRY_KRABBY,      238,  352 ; RAYQUAZA
+	mon_cry CRY_KRABBY,      238,  352 ; JIRACHI
 	;gen4+
 	mon_cry CRY_TOGETIC,      59,   56 ; TOGEKISS
 	mon_cry CRY_MAGCARGO,   -265,  256 ; MAMOSWINE
@@ -361,6 +401,31 @@ PokemonCries::
 	mon_cry CRY_GLIGAR,     -258,  256 ; GLISCOR
 	mon_cry CRY_BULBASAUR,   238,  129 ; GALLADE
 	mon_cry CRY_BULBASAUR,   238,  129 ; FROSLASS
+	mon_cry CRY_KRABBY,      238,  352 ; HONCHKROW
+	mon_cry CRY_KRABBY,      238,  352 ; WEAVILE
+	mon_cry CRY_KRABBY,      238,  352 ; MAGNEZONE
+	mon_cry CRY_KRABBY,      238,  352 ; TANGROWTH
+	mon_cry CRY_KRABBY,      238,  352 ; ELECTIVIRE
+	mon_cry CRY_KRABBY,      238,  352 ; MAGMORTAR
+	mon_cry CRY_KRABBY,      238,  352 ; WYRDEER
+	mon_cry CRY_KRABBY,      238,  352 ; PORYGONZ
+	mon_cry CRY_KRABBY,      238,  352 ; ANNIHILAPE
+	mon_cry CRY_KRABBY,      238,  352 ; KLEAVOR
+	;alt forms
+	mon_cry CRY_TOGETIC,      59,   56 ; ARAICHU
+	mon_cry CRY_ODDISH,       79,  224 ; AMAROWAK
+	mon_cry CRY_MAGCARGO,   -265,  256 ; AGRIMER
+	mon_cry CRY_VENONAT,     136,  224 ; AMUK
+	mon_cry CRY_VENONAT,     136,  224 ; ASANDSHREW
+	mon_cry CRY_VENONAT,     136,  224 ; ASANDSLASH
+	mon_cry CRY_GLIGAR,     -258,  256 ; AVULPIX
+	mon_cry CRY_BULBASAUR,   238,  129 ; ANINETALES
+	mon_cry CRY_BULBASAUR,   238,  129 ; AGEODUDE
+	mon_cry CRY_KRABBY,      238,  352 ; AGRAVELER
+	mon_cry CRY_KRABBY,      238,  352 ; AGOLEM
+	mon_cry CRY_KRABBY,      238,  352 ; HVOLTORB
+	mon_cry CRY_KRABBY,      238,  352 ; HELECTRODE
+	mon_cry CRY_KRABBY,      238,  352 ; IRONBUNDLE
 	;reddit mons
 	mon_cry CRY_VOLTORB,     237,  256 ; VOLTORB2
 	mon_cry CRY_VOLTORB,     168,  272 ; ELECTRODE2

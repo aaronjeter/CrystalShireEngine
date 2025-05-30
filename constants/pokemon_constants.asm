@@ -364,8 +364,48 @@ DEF JOHTO_POKEMON EQU const_value
 	const WHISCASH
 	const CORPHISH
 	const CRAWDAUNT
+	const BALTOY
+	const CLAYDOL
+	const LILEEP
+	const CRADILY
+	const ANORITH
+	const ARMALDO
+	const FEEBAS
+	const MILOTIC
+	const KECLEON
+	const SHUPPET
+	const BANETTE
+	const DUSKULL
+	const DUSCLOPS
+	const TROPIUS
+	const CHIMECHO
+	const ABSOL
+	const WYNAUT
 	const SNORUNT
 	const GLALIE
+	const SPHEAL
+	const SEALEO
+	const WALREIN
+	const CLAMPERL
+	const HUNTAIL
+	const GOREBYSS
+	const RELICANTH
+	const LUVDISC
+	const BAGON
+	const SHELGON
+	const SALAMENCE
+	const BELDUM
+	const METANG
+	const METAGROSS
+	const REGIROCK
+	const REGICE
+	const REGISTEEL
+	const LATIAS
+	const LATIOS
+	const KYOGRE
+	const GROUDON
+	const RAYQUAZA
+	const JIRACHI
 	;gen4+
 	const TOGEKISS
 	const MAMOSWINE
@@ -375,6 +415,31 @@ DEF JOHTO_POKEMON EQU const_value
 	const GLISCOR
 	const GALLADE
 	const FROSLASS
+	const HONCHKROW
+	const WEAVILE
+	const MAGNEZONE
+	const TANGROWTH
+	const ELECTIVIRE
+	const MAGMORTAR
+	const WYRDEER
+	const PORYGONZ
+	const ANNIHILAPE
+	const KLEAVOR
+	;alt forms
+	const ARAICHU
+	const AMAROWAK
+	const AGRIMER
+	const AMUK
+	const ASANDSHREW
+	const ASANDSLASH
+	const AVULPIX
+	const ANINETALES
+	const AGEODUDE
+	const AGRAVELER
+	const AGOLEM
+	const HVOLTORB
+	const HELECTRODE
+	const IRONBUNDLE
 	;reddit mons
 	const VOLTORB2
 	const ELECTRODE2
