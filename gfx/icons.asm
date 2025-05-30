@@ -421,7 +421,7 @@ AnnihilapeIcon:: INCBIN "gfx/icons/primeape.2bpp"
 KleavorIcon::    INCBIN "gfx/icons/scizor.2bpp"
 ;alt forms
 AraichuIcon::    INCBIN "gfx/icons/raichu.2bpp"
-AmarowakIcon::    INCBIN "gfx/icons/marowak.2bpp"
+AmarowakIcon::   INCBIN "gfx/icons/marowak.2bpp"
 AgrimerIcon::    INCBIN "gfx/icons/grimer.2bpp"
 AmukIcon::       INCBIN "gfx/icons/muk.2bpp"
 AsandshrewIcon:: INCBIN "gfx/icons/sandshrew.2bpp"
