@@ -571,7 +571,7 @@ KantoGrassWildMons:
 	dbw 1, MURKROW
 	dbw 2, MURKROW
 	dbw 3, MUK
-	dbw 5, MUK
+	dbw 5, AMUK
 	; day
 	dbw 1, SLUGMA
 	dbw 1, SLUGMA
@@ -579,7 +579,7 @@ KantoGrassWildMons:
 	dbw 1, MURKROW
 	dbw 2, MURKROW
 	dbw 3, MUK
-	dbw 5, MUK
+	dbw 5, AMUK
 	; nite
 	dbw 1, SLUGMA
 	dbw 1, SPEAROW
@@ -587,7 +587,7 @@ KantoGrassWildMons:
 	dbw 1, MURKROW
 	dbw 2, MURKROW
 	dbw 3, MUK
-	dbw 5, MUK
+	dbw 5, AMUK
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_17
@@ -597,25 +597,25 @@ KantoGrassWildMons:
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
 	dbw 1, GULPIN
-	dbw 2, GRIMER
+	dbw 2, AGRIMER
 	dbw 3, MUK
-	dbw 5, MUK
+	dbw 5, AMUK
 	; day
 	dbw 1, SPEAROW
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
 	dbw 1, GULPIN
-	dbw 2, GRIMER
+	dbw 2, AGRIMER
 	dbw 3, MUK
-	dbw 5, MUK
+	dbw 5, AMUK
 	; nite
 	dbw 1, SPEAROW
 	dbw 1, GRIMER
 	dbw 1, SLUGMA
 	dbw 1, GULPIN
-	dbw 2, GRIMER
+	dbw 2, AGRIMER
 	dbw 3, MUK
-	dbw 5, MUK
+	dbw 5, AMUK
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_18
@@ -635,15 +635,15 @@ KantoGrassWildMons:
 	dbw 3, TORKOAL
 	dbw 1, NUMEL
 	dbw 3, MUK
-	dbw 5, MUK
+	dbw 5, AMUK
 	; nite
 	dbw 1, SPEAROW
-	dbw 1, GRIMER
+	dbw 1, AGRIMER
 	dbw 1, SLUGMA
 	dbw 3, TORKOAL
 	dbw 1, NUMEL
 	dbw 3, MUK
-	dbw 5, MUK
+	dbw 5, AMUK
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_21
