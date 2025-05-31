@@ -173,6 +173,9 @@ LeftPokeBallScript:
 	checkevent EVENT_ORIGIN_HOENN
 	iftrue TorchicPokeBallScript
 
+	checkevent EVENT_ORIGIN_ALOLA
+	iftrue AmarowakPokeBallScript
+
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Tentacool2PokeBallScript
 
@@ -191,6 +194,9 @@ MiddlePokeBallScript:
 	checkevent EVENT_ORIGIN_HOENN
 	iftrue MudkipPokeBallScript
 
+	checkevent EVENT_ORIGIN_ALOLA
+	iftrue AraichuPokeBallScript
+
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Voltorb2PokeBallScript
 
@@ -208,6 +214,9 @@ RightPokeBallScript:
 
 	checkevent EVENT_ORIGIN_HOENN
 	iftrue TreeckoPokeBallScript
+
+	checkevent EVENT_ORIGIN_ALOLA
+	iftrue AgrimerPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue ExeggcutePokeBallScript
@@ -284,6 +293,32 @@ TorchicPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TORCHIC, 5, BERRY
+	closetext
+	readvar VAR_FACING
+	ifequal RIGHT, ElmDirectionsScript
+	applymovement PLAYER, AfterCyndaquilMovement
+	sjump ElmDirectionsScript
+
+AmarowakPokeBallScript:
+	pokepic AMAROWAK
+	cry AMAROWAK
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeAmarowakText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL1
+	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, AMAROWAK
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke AMAROWAK, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -414,6 +449,30 @@ MudkipPokeBallScript:
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
+AraichuPokeBallScript:	
+	pokepic ARAICHU
+	cry ARAICHU
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeAraichuText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL2
+	setevent EVENT_GOT_TOTODILE_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, ARAICHU
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke ARAICHU, 5, BERRY
+	closetext
+	applymovement PLAYER, AfterTotodileMovement
+	sjump ElmDirectionsScript
+
 Voltorb2PokeBallScript:	
 	pokepic VOLTORB2
 	cry VOLTORB2
@@ -530,6 +589,30 @@ TreeckoPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TREECKO, 5, BERRY
+	closetext
+	applymovement PLAYER, AfterChikoritaMovement
+	sjump ElmDirectionsScript
+
+AgrimerPokeBallScript:	
+	pokepic AGRIMER
+	cry AGRIMER
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeAgrimerText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL3
+	setevent EVENT_GOT_CHIKORITA_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, AGRIMER
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke AGRIMER, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -1215,6 +1298,12 @@ TakeTorchicText:
 	cont "fire #MON?"
 	done
 
+TakeAmarowakText:
+	text "ELM: You'll take"
+	line "MAROWAK, the"
+	cont "fire #MON?"
+	done
+
 TakeDelibirdText:
 	text "ELM: You'll take"
 	line "DELIBIRD, the"
@@ -1239,6 +1328,12 @@ TakeMudkipText:
 	cont "mud #MON?"
 	done
 
+TakeAraichuText:
+	text "ELM: You'll take"
+	line "RAICHU, the"
+	cont "surfer #MON?"
+	done
+
 TakeBulbasaurText:	
 	text "ELM: So, you like"
 	line "BULBASAUR, the"
@@ -1255,6 +1350,12 @@ TakeTreeckoText:
 	text "ELM: You'll take"
 	line "TREECKO, the"
 	cont "grass #MON?"
+	done
+
+TakeAgrimerText:
+	text "ELM: You'll take"
+	line "GRIMER, the"
+	cont "poison #MON?"
 	done
 
 TakeExeggcuteText:	
