@@ -5028,7 +5028,7 @@ KleavorEvosAttacks:
 AraichuEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
-	dbw 1, GROWL
+	dbw 1, PSYWAVE
 	dbw 6, TAIL_WHIP
 	dbw 8, THUNDER_WAVE
 	dbw 11, QUICK_ATTACK
@@ -5047,15 +5047,15 @@ AraichuEvosAttacks:
 
 AmarowakEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, GROWL
+	dbw 1, EMBER
 	dbw 1, ASTONISH
 	dbw 5, TAIL_WHIP
 	dbw 12, SAND_ATTACK
 	dbw 16, BONE_CLUB
 	dbw 20, HEADBUTT
 	dbw 22, NIGHT_SHADE
-	dbw 25, BONEMERANG
-	dbw 28, FIRE_FANG
+	dbw 25, FIRE_FANG
+	dbw 28, BONEMERANG	
 	dbw 32, SHADOW_CLAW
 	dbw 36, FLAME_WHEEL
 	dbw 40, SHADOW_BALL

@@ -73,7 +73,7 @@ MovesGen1:
 	move EFFECT_CONFUSE,             0, NORMAL,         STATUS,			 80, 20,   0      ;SUPERSONIC
 	move EFFECT_STATIC_DAMAGE,      20, NORMAL,         SPECIAL,		 90, 20,   0      ;SONICBOOM
 	move EFFECT_DISABLE,             0, NORMAL,         STATUS,			 55, 20,   0      ;DISABLE
-	move EFFECT_DEFENSE_DOWN_HIT,   30, POISON,         SPECIAL,		100, 30, 100      ;ACID
+	move EFFECT_DEFENSE_DOWN_HIT,   30, POISON,         PHYSICAL,		100, 30, 100      ;ACID
 	move EFFECT_BURN_HIT,           35, FIRE,           SPECIAL,		100, 25,  20      ;EMBER
 	move EFFECT_BURN_HIT,           90, FIRE,           SPECIAL,		100, 15,   5      ;FLAMETHROWER
 	move EFFECT_MIST,                0, ICE,            STATUS,			100, 30,   0      ;MIST
