@@ -55,31 +55,31 @@ FishGroups:
 	dbbw 100 percent,     40, LANTURN
 
 .Lake_Old:
-	dbbw  70 percent + 1, 10, GOLDEEN
+	dbbw  70 percent + 1, 10, BARBOACH
 	dbbw  85 percent + 1, 10, HORSEA
 	dbbw 100 percent,     10, REMORAID
 .Lake_Good:
-	dbbw  35 percent,     20, GOLDEEN
+	dbbw  35 percent,     20, BARBOACH
 	dbbw  70 percent,     20, HORSEA
 	dbbw  90 percent + 1, 20, REMORAID
 	dbbw 100 percent,     4, TIME_GROUP
 .Lake_Super:
-	dbbw  40 percent,     40, GOLDEEN
+	dbbw  40 percent,     40, BARBOACH
 	dbbw  70 percent,     5, TIME_GROUP
 	dbbw  90 percent + 1, 40, HORSEA
 	dbbw 100 percent,     40, REMORAID
 
 .Pond_Old:
-	dbbw  70 percent + 1, 10, GOLDEEN
+	dbbw  70 percent + 1, 10, BARBOACH
 	dbbw  85 percent + 1, 10, QWILFISH
 	dbbw 100 percent,     10, POLIWAG
 .Pond_Good:
-	dbbw  35 percent,     20, GOLDEEN
+	dbbw  35 percent,     20, BARBOACH
 	dbbw  70 percent,     20, QWILFISH
 	dbbw  90 percent + 1, 20, POLIWAG
 	dbbw 100 percent,     6, TIME_GROUP
 .Pond_Super:
-	dbbw  40 percent,     40, GOLDEEN
+	dbbw  40 percent,     40, BARBOACH
 	dbbw  70 percent,     7, TIME_GROUP
 	dbbw  90 percent + 1, 40, MAGIKARP
 	dbbw 100 percent,     40, QWILFISH
@@ -131,17 +131,17 @@ FishGroups:
 
 .Gyarados_Old:
 	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
+	dbbw  85 percent + 1, 10, BARBOACH
 	dbbw 100 percent,     10, MAGIKARP
 .Gyarados_Good:
 	dbbw  35 percent,     20, MAGIKARP
-	dbbw  70 percent,     20, MAGIKARP
+	dbbw  70 percent,     20, BARBOACH
 	dbbw  90 percent + 1, 20, MAGIKARP
 	dbbw 100 percent,     14, TIME_GROUP
 .Gyarados_Super:
 	dbbw  40 percent,     40, MAGIKARP
 	dbbw  70 percent,     15, TIME_GROUP
-	dbbw  90 percent + 1, 40, MAGIKARP
+	dbbw  90 percent + 1, 40, BARBOACH
 	dbbw 100 percent,     40, MAGIKARP
 
 .Dratini_2_Old:

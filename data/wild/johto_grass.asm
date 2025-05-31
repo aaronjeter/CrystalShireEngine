@@ -848,7 +848,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -856,7 +856,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -864,7 +864,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -876,7 +876,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -884,7 +884,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -892,7 +892,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -904,7 +904,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -912,7 +912,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -920,7 +920,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -932,7 +932,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -940,7 +940,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -948,7 +948,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -960,7 +960,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -968,7 +968,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -976,7 +976,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -988,7 +988,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -996,7 +996,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -1004,7 +1004,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -1016,7 +1016,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -1024,7 +1024,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -1032,7 +1032,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
@@ -1044,7 +1044,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 7, LUGIA
@@ -1052,7 +1052,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 7, LUGIA
@@ -1060,7 +1060,7 @@ JohtoGrassWildMons:
 	dbw 1, KRABBY
 	dbw 1, ZUBAT
 	dbw 1, SEEL
-	dbw 1, KRABBY
+	dbw 1, CORPHISH
 	dbw 5, GOLBAT
 	dbw 3, DEWGONG
 	dbw 7, LUGIA
