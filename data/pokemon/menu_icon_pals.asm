@@ -405,21 +405,21 @@ MonMenuIconPals:
 	icon_pals PURPLE, TEAL   ; GLISCOR
 	icon_pals GREEN,  BLUE   ; GALLADE
 	icon_pals RED,    PURPLE ; FROSLASS
-	icon_pals RED,    PURPLE ; HONCHKROW
+	icon_pals BLUE,   PURPLE ; HONCHKROW
 	icon_pals RED,    PURPLE ; WEAVILE
-	icon_pals RED,    PURPLE ; MAGNEZONE
+	icon_pals GRAY,   GRAY   ; MAGNEZONE
 	icon_pals RED,    PURPLE ; TANGROWTH
-	icon_pals RED,    PURPLE ; ELECTIVIRE
+	icon_pals BROWN,  GRAY   ; ELECTIVIRE
 	icon_pals RED,    PURPLE ; MAGMORTAR
-	icon_pals RED,    PURPLE ; WYRDEER
-	icon_pals RED,    PURPLE ; PORYGONZ
+	icon_pals BROWN,  GREEN  ; WYRDEER
+	icon_pals TEAL,   BLUE   ; PORYGONZ
 	icon_pals RED,    PURPLE ; ANNIHILAPE
 	icon_pals RED,    PURPLE ; KLEAVOR
 	;alt forms
-	icon_pals RED,    PURPLE ; ARAICHU
-	icon_pals RED,    PURPLE ; AMAROWAK
-	icon_pals RED,    PURPLE ; AGRIMER
-	icon_pals RED,    PURPLE ; AMUK
+	icon_pals RED,    BROWN  ; ARAICHU
+	icon_pals BROWN,  GRAY   ; AMAROWAK
+	icon_pals PURPLE, GRAY   ; AGRIMER
+	icon_pals PURPLE, GREEN  ; AMUK
 	icon_pals RED,    PURPLE ; ASANDSHREW
 	icon_pals RED,    PURPLE ; ASANDSLASH
 	icon_pals RED,    PURPLE ; AVULPIX

@@ -1252,7 +1252,7 @@ UmbreonEvosAttacks:
 	db 0 ; no more level-up moves
 
 MurkrowEvosAttacks:
-	dbbw EVOLVE_LEVEL, 25, HONCHKROW
+	dbbw EVOLVE_LEVEL, 32, HONCHKROW
 	db 0 ; no more evolutions
 	dbw 1, PECK
 	dbw 6, BITE
@@ -1559,6 +1559,7 @@ HeracrossEvosAttacks:
 	db 0 ; no more level-up moves
 
 SneaselEvosAttacks:
+	dbbw EVOLVE_LEVEL, 32, WEAVILE
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER
@@ -1902,6 +1903,8 @@ DonphanEvosAttacks:
 	db 0 ; no more level-up moves
 
 Porygon2EvosAttacks:
+	dbww EVOLVE_ITEM, UP_GRADE, PORYGONZ
+	dbbw EVOLVE_LEVEL, 42, PORYGONZ
 	db 0 ; no more evolutions
 	dbw 1, CONVERSION2
 	dbw 1, TACKLE
@@ -1921,6 +1924,7 @@ Porygon2EvosAttacks:
 	db 0 ; no more level-up moves
 
 StantlerEvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, WYRDEER
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 8, SAND_ATTACK
@@ -1931,9 +1935,11 @@ StantlerEvosAttacks:
 	dbw 32, CONFUSE_RAY
 	dbw 36, TAKE_DOWN
 	dbw 40, SWORDS_DANCE
-	dbw 42, EARTHQUAKE
+	dbw 42, PSYCHIC_M
 	dbw 45, DREAM_EATER
 	dbw 50, PURSUIT
+	dbw 55, MEGAHORN
+	dbw 60, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 SmeargleEvosAttacks:
@@ -4918,12 +4924,12 @@ ElectivireEvosAttacks:
 	dbw 25, THUNDERPUNCH
 	dbw 28, THUNDER_WAVE
 	dbw 36, THUNDERBOLT
-	dbw 40, FAERIEGLEAM
+	dbw 40, BRICK_BREAK
 	dbw 42, CHARGE
 	dbw 45, CONFUSE_RAY
-	dbw 50, THUNDER
+	dbw 50, VOLT_TACKLE
 	dbw 55, AGILITY
-	dbw 60, VOLT_TACKLE
+	dbw 60, THUNDER
 	db 0 ; no more level-up moves
 
 MagmortarEvosAttacks:
@@ -4954,11 +4960,13 @@ WyrdeerEvosAttacks:
 	dbw 24, NIGHT_SHADE
 	dbw 28, WILLOWISP
 	dbw 32, CONFUSE_RAY
+	dbw 36, PSYCHIC_M
+	dbw 40, CALM_MIND
 	dbw 36, TAKE_DOWN
-	dbw 40, SWORDS_DANCE
-	dbw 42, EARTHQUAKE
 	dbw 45, DREAM_EATER
 	dbw 50, PURSUIT
+	dbw 55, MEGAHORN
+	dbw 60, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 PorygonzEvosAttacks:
@@ -5027,9 +5035,9 @@ AraichuEvosAttacks:
 	dbw 15, DOUBLE_TEAM
 	dbw 20, SLAM
 	dbw 26, SHOCK_WAVE
-	dbw 31, AGILITY
+	dbw 31, EXTRASENSORY
 	dbw 36, THUNDERBOLT
-	dbw 40, FAERIEGLEAM
+	dbw 40, PSYCHIC_M
 	dbw 42, MEDITATE
 	dbw 45, THUNDER
 	dbw 50, LIGHT_SCREEN
@@ -5047,12 +5055,12 @@ AmarowakEvosAttacks:
 	dbw 20, HEADBUTT
 	dbw 22, NIGHT_SHADE
 	dbw 25, BONEMERANG
-	dbw 28, CURSE
+	dbw 28, FIRE_FANG
 	dbw 32, SHADOW_CLAW
-	dbw 36, BONE_RUSH
+	dbw 36, FLAME_WHEEL
 	dbw 40, SHADOW_BALL
 	dbw 42, SWORDS_DANCE
-	dbw 45, FLAME_WHEEL
+	dbw 45, ERUPTION
 	dbw 50, CONFUSE_RAY
 	dbw 55, GLARE
 	dbw 60, FISSURE

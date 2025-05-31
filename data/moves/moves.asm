@@ -330,7 +330,6 @@ MovesGen2:
 	move EFFECT_MULTI_HIT,          25, ROCK,           PHYSICAL,		 80, 10,   0      ;ROCK_BLAST
 	move EFFECT_ALWAYS_HIT,         60, ELECTRIC,       SPECIAL,		100, 20,   0      ;SHOCK_WAVE
 	move EFFECT_CONFUSE_HIT,        60, WATER,          SPECIAL,		100, 20,  20      ;WATER_PULSE
-
 	move EFFECT_PARALYZE_HIT,       70, ELECTRIC,       PHYSICAL,		100, 20,  20      ;THUNDER_FANG
 	move EFFECT_FREEZE_HIT,         70, ICE,            PHYSICAL,		100, 20,  20      ;ICE_FANG
 	move EFFECT_BURN_HIT,           70, FIRE,           PHYSICAL,		100, 20,  20      ;FIRE_FANG

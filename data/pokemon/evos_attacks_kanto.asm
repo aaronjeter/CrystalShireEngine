@@ -586,6 +586,7 @@ ArbokEvosAttacks:
 
 PikachuEvosAttacks:
 	dbww EVOLVE_ITEM, THUNDERSTONE, RAICHU
+	dbww EVOLVE_ITEM, WATER_STONE, ARAICHU
 	dbbw EVOLVE_LEVEL, 36, RAICHU
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
@@ -607,6 +608,7 @@ PikachuEvosAttacks:
 	db 0 ; no more level-up moves
 
 RaichuEvosAttacks:
+	dbww EVOLVE_ITEM, WATER_STONE, ARAICHU
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 1, GROWL
@@ -1718,7 +1720,7 @@ SlowbroEvosAttacks:
 	db 0 ; no more level-up moves
 
 MagnemiteEvosAttacks:
-	dbbw EVOLVE_LEVEL, 30, MAGNETON
+	dbbw EVOLVE_LEVEL, 25, MAGNETON
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 6, THUNDERSHOCK
@@ -1738,6 +1740,7 @@ MagnemiteEvosAttacks:
 	db 0 ; no more level-up moves
 
 MagnetonEvosAttacks:
+	dbbw EVOLVE_LEVEL, 40, MAGNEZONE
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 6, THUNDERSHOCK
@@ -2184,6 +2187,7 @@ ExeggutorEvosAttacks:
 
 CuboneEvosAttacks:
 	dbbw EVOLVE_LEVEL, 28, MAROWAK
+	dbww EVOLVE_ITEM, FIRE_STONE, AMAROWAK
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, ASTONISH
@@ -2205,6 +2209,7 @@ CuboneEvosAttacks:
 	db 0 ; no more level-up moves
 
 MarowakEvosAttacks:
+	dbww EVOLVE_ITEM, FIRE_STONE, AMAROWAK
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, ASTONISH
@@ -2605,6 +2610,7 @@ JynxEvosAttacks:
 	db 0 ; no more level-up moves
 
 ElectabuzzEvosAttacks:
+	dbbw EVOLVE_LEVEL, 40, ELECTIVIRE
 	db 0 ; no more evolutions	
 	dbw 1, LEER
 	dbw 1, THUNDERSHOCK
@@ -2624,6 +2630,7 @@ ElectabuzzEvosAttacks:
 	db 0 ; no more level-up moves
 
 MagmarEvosAttacks:
+	dbbw EVOLVE_LEVEL, 40, MAGMORTAR
 	db 0 ; no more evolutions
 	dbw 1, EMBER
 	dbw 1, LEER
@@ -2816,7 +2823,7 @@ FlareonEvosAttacks:
 
 PorygonEvosAttacks:
 	dbww EVOLVE_ITEM, UP_GRADE, PORYGON2
-	dbbw EVOLVE_LEVEL, 40, PORYGON2
+	dbbw EVOLVE_LEVEL, 32, PORYGON2
 	db 0 ; no more evolutions
 	dbw 1, CONVERSION2
 	dbw 1, TACKLE
