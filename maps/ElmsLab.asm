@@ -599,7 +599,7 @@ AgrimerPokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeAgrimerText
+	writetext TakeTreeckoText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL3
@@ -899,7 +899,7 @@ AideScript_GiveXpShare:
 	opentext
 	writetext AideText_GiveYouPotion
 	promptbutton
-	verbosegiveitem EXP_SHARE
+	verbosegiveitem POTION
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext

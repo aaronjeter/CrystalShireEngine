@@ -2077,98 +2077,25 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	ld a, [wBattleResult]
 	and BATTLERESULT_BITMASK
 	ld [wBattleResult], a ; WIN
-	call IsAnyMonHoldingExpShare
-	jr z, .skip_exp
-	ld hl, wEnemyMonBaseStats
-	ld b, wEnemyMonEnd - wEnemyMonBaseStats
-.loop
-	srl [hl]
-	inc hl
-	dec b
-	jr nz, .loop
-
-.skip_exp
-	ld hl, wEnemyMonBaseStats
-	ld de, wBackupEnemyMonBaseStats
-	ld bc, wEnemyMonEnd - wEnemyMonBaseStats
-	rst CopyBytes
-	xor a
-	ld [wGivingExperienceToExpShareHolders], a
+	
+	; Preserve bits of non-fainted participants
+	ld a, [wBattleParticipantsNotFainted]
+	ld d, a
+	push de
 	call GiveExperiencePoints
-	call IsAnyMonHoldingExpShare
-	ret z
+	pop de
+	; give 50% EXP to non-participants	
+	ld hl, wEnemyMonBaseExp
+	srl [hl]
 
 	ld a, [wBattleParticipantsNotFainted]
 	push af
 	ld a, d
-	ld [wBattleParticipantsNotFainted], a
-	ld hl, wBackupEnemyMonBaseStats
-	ld de, wEnemyMonBaseStats
-	ld bc, wEnemyMonEnd - wEnemyMonBaseStats
-	rst CopyBytes
-	ld a, $1
-	ld [wGivingExperienceToExpShareHolders], a
+	xor %00111111
+	ld [wBattleParticipantsNotFainted], a	
 	call GiveExperiencePoints
 	pop af
 	ld [wBattleParticipantsNotFainted], a
-	ret
-
-IsAnyMonHoldingExpShare:
-	ld a, [wPartyCount]
-	ld b, a
-	ld hl, wPartyMon1
-	ld c, 1
-	ld d, 0
-.loop
-	push hl
-	push bc
-	ld bc, MON_HP
-	add hl, bc
-	ld a, [hli]
-	or [hl]
-	pop bc
-	pop hl
-	jr z, .next
-
-	push hl
-	push bc
-	ld bc, MON_ITEM
-	add hl, bc
-	pop bc
-	ld a, [hl]
-	pop hl
-
-	push hl
-	call GetItemIndexFromID
-	cphl16 EXP_SHARE
-	pop hl
-	jr nz, .next
-	ld a, d
-	or c
-	ld d, a
-
-.next
-	sla c
-	push de
-	ld de, PARTYMON_STRUCT_LENGTH
-	add hl, de
-	pop de
-	dec b
-	jr nz, .loop
-
-	ld a, d
-	ld e, 0
-	ld b, PARTY_LENGTH
-.loop2
-	srl a
-	jr nc, .okay
-	inc e
-
-.okay
-	dec b
-	jr nz, .loop2
-	ld a, e
-	and a
 	ret
 
 StopDangerSound:
@@ -2472,11 +2399,7 @@ PlayVictoryMusic:
 	ld de, MUSIC_WILD_VICTORY
 	ld a, [wBattleMode]
 	dec a
-	jr nz, .trainer_victory
-	push de
-	call IsAnyMonHoldingExpShare
-	pop de
-	jr nz, .play_music
+	jr nz, .trainer_victory	
 	ld hl, wPayDayMoney
 	ld a, [hli]
 	or [hl]
@@ -6853,8 +6776,7 @@ GiveExperiencePoints:
 	ld a, [wInBattleTowerBattle]
 	bit IN_BATTLE_TOWER_BATTLE_F, a
 	ret nz
-
-	call .EvenlyDivideExpAmongParticipants
+	
 	xor a
 	ld [wCurPartyMon], a
 	ld bc, wPartyMon1Species
@@ -7014,7 +6936,7 @@ GiveExperiencePoints:
 	ld hl, wPartyMonNicknames
 	call GetNickname
 	ld hl, Text_MonGainedExpPoint
-	call BattleTextbox
+	;call BattleTextbox
 	ld a, [wStringBuffer2 + 1]
 	ldh [hQuotient + 3], a
 	ld a, [wStringBuffer2]
@@ -7258,36 +7180,6 @@ GiveExperiencePoints:
 
 .done
 	jmp ResetBattleParticipants
-
-.EvenlyDivideExpAmongParticipants:
-; count number of battle participants
-	ld a, [wBattleParticipantsNotFainted]
-	ld b, a
-	ld c, PARTY_LENGTH
-	ld d, 0
-.count_loop
-	xor a
-	srl b
-	adc d
-	ld d, a
-	dec c
-	jr nz, .count_loop
-	cp 2
-	ret c
-
-	ld [wTempByteValue], a
-	ld hl, wEnemyMonBaseExp
-	xor a
-	ldh [hDividend + 0], a
-	ld a, [hl]
-	ldh [hDividend + 1], a
-	ld a, [wTempByteValue]
-	ldh [hDivisor], a
-	ld b, 2
-	call Divide
-	ldh a, [hQuotient + 3]
-	ld [hl], a
-	ret
 
 IsEvsGreaterThan510:
 ; Total EVs in bc. Set Carry flag if bc > 510.
