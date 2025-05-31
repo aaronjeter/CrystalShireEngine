@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 211, 430 ; height, weight
+	db "THUNDERBOLT@" ; species name
+	dw 511, 3056 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "It pushes the"
+	next "tips of its tails"
+	next "against an enemy"
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "and then"
+	next "unleashes voltage"
+	next "@"

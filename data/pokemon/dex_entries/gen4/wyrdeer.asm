@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 211, 430 ; height, weight
+	db "BIGHORN@" ; species name
+	dw 511, 2097 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "Its black orbs"
+	next "glow with an "
+	next "uncanny light."
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "It posesses"
+	next "great psychic"
+	next "abilities.@"

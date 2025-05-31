@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
+	db "CLAW@" ; species name
 	dw 211, 430 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "It lives in"
+	next "snowy regions,"
+	next "hunting in packs"
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "of four or"
+	next "five. Its claws"
+	next "are very sharp.@"

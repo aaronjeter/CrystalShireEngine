@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 211, 430 ; height, weight
+	db "BIGBOSS@" ; species name
+	dw 211, 602 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "Becomes active"
+	next "at night, calling"
+	next "legions of"
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "MURKROW to"
+	next "its side"
+	next "@"

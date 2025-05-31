@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 211, 430 ; height, weight
+	db "MOUSE@" ; species name
+	dw 204, 463 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "It focuses"
+	next "psychic energy in"
+	next "its tail, riding"
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "it like a"
+	next "surfboard."
+	next "@"

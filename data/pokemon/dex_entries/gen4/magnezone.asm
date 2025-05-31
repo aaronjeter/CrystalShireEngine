@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
+	db "MAGNET@" ; species name
 	dw 211, 430 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "It evoled from"
+	next "exposure to an"
+	next "electromagnetic"
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "field. Three"
+	next "units generate"
+	next "electricity.@"

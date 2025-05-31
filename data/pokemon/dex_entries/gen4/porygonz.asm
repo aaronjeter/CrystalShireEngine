@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 211, 430 ; height, weight
+	db "VIRTUAL@" ; species name
+	dw 211, 750 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "Additional"
+	next "software has been"
+	next "installed."
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "Unpredictable"
+	next "results have been"
+	next "observed.@"

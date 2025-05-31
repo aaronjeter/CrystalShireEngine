@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 211, 430 ; height, weight
+	db "SLUDGE@" ; species name
+	dw 211, 660 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "When two of these"
+	next "#MON's bodies"
+	next "are combined"
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "together, new"
+	next "poisons are"
+	next "created.@"

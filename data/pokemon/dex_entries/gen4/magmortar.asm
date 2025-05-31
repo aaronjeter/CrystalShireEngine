@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 211, 430 ; height, weight
+	db "BLAST@" ; species name
+	dw 503, 1499 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+	db   "It blasts fire"
+	next "balls at a very "
+	next "high temp."
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+	page "It likes to"
+	next "live in volcanic"
+	next "craters.@"
