@@ -52,7 +52,7 @@ ViridianGymBlueScript:
 	addval 2
 	writemem wWildLevel
 	readvar VAR_BADGES
-	scall PewterGymActivateRockets
+	scall ViridianGymActivateRockets
 	writetext LeaderBlueAfterText
 	waitbutton
 	closetext
