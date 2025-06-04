@@ -77,6 +77,7 @@ SageLiScript:
 	writetext SageLiTakeThisFlashText
 	promptbutton
 	verbosegiveitem HM_FLASH
+	verbosegiveitem LANTERN
 	setevent EVENT_GOT_HM05_FLASH
 	setevent EVENT_BEAT_SAGE_LI
 	writetext SageLiFlashExplanationText
@@ -244,13 +245,7 @@ SageLiTakeThisFlashText:
 SageLiFlashExplanationText:
 	text "FLASH illuminates"
 	line "even the darkest"
-	cont "of all places."
-
-	para "But to use it out"
-	line "of battle, you"
-
-	para "need the BADGE"
-	line "from VIOLET's GYM."
+	cont "of all places."	
 	done
 
 SageLiAfterBattleText:

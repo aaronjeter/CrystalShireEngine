@@ -77,8 +77,8 @@ if DEF(_DEBUG)
 	giveitem KINGS_ROCK
 	giveitem AMULET_COIN
 	giveitem SCOPE_LENS
-	giveitem BIRD_WHISTLE
-	giveitem LANTERN
+	;giveitem BIRD_WHISTLE
+	;giveitem LANTERN
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE

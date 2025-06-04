@@ -899,7 +899,7 @@ AideScript_GiveXpShare:
 	opentext
 	writetext AideText_GiveYouPotion
 	promptbutton
-	verbosegiveitem POTION
+	verbosegiveitem BIRD_WHISTLE
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext
