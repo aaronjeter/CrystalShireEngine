@@ -214,6 +214,7 @@ ItemEffectsKeyItems:
 	dw SquirtbottleEffect ; SQUIRTBOTTLE
 	dw NoEffect           ; RAINBOW_WING
 	dw BirdWhistleEffect  ; BIRD_WHISTLE
+	dw LanternEffect      ; LANTERN
 .IndirectEnd:
 
 ItemEffectsBalls:
@@ -2998,9 +2999,9 @@ GetMthMoveOfCurrentMon:
 	add hl, bc
 	ret
 
-
 BirdWhistleEffect:
 	ld a, 1	
+	ld [wUsingHMItem], a
 	ld [wFlyingWithHMItem], a	
 	ld a, DELIBIRD
 	ld [wTempIconSpecies], a
@@ -3021,4 +3022,11 @@ BirdWhistleEffect:
 
 .Error:
 	ld a, $0
+	ret
+
+
+LanternEffect:
+	ld a, 1
+	ld [wUsingHMItem], a
+	farcall FlashFunction
 	ret

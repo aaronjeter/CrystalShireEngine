@@ -194,6 +194,7 @@ ItemDescriptionsKeyItems:
 	dw SquirtBottleDesc ; 0114
 	dw RainbowWingDesc  ; 0115
 	dw BirdWhistleDesc
+	dw LanternDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -883,3 +884,7 @@ MirageMailDesc:
 BirdWhistleDesc:
 	db   "A whistle to"
 	next "call Delibird.@"
+
+LanternDesc:
+	db   "A lantern to"
+	next "use FLASH. @"

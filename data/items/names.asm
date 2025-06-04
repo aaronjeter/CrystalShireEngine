@@ -186,6 +186,7 @@ KeyItemNames::
 	li "SQUIRTBOTTLE" ; 0114
 	li "RAINBOW WING" ; 0115
 	li "BIRD WHISTLE"
+	li "LANTERN"
 	assert_list_length NUM_KEY_ITEM_POCKET
 
 BallNames::
