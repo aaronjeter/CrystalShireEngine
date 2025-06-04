@@ -407,7 +407,8 @@ GetSpeciesIcon:
 	ld a, [wFlyingWithHMItem]
 	and a
 	jr z, .flying_with_mon
-	ld a, 1
+	ld hl, DELIBIRD
+	call GetPokemonIDFromIndex
 	jr .finish
 .flying_with_mon
 	ld a, [wTempIconSpecies]
@@ -422,7 +423,8 @@ FlyFunction_GetMonIcon:
 	ld a, [wFlyingWithHMItem]
 	and a
 	jr z, .flying_with_mon
-	ld a, 1
+	ld hl, DELIBIRD
+	call GetPokemonIDFromIndex
 	jr .finish
 .flying_with_mon
 	ld a, [wTempIconSpecies]
