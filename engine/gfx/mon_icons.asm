@@ -404,7 +404,14 @@ GetSpeciesIcon:
 	ld a, MON_DVS
 	call GetPartyParamLocation
 	call SetMenuMonIconColor
+	ld a, [wFlyingWithHMItem]
+	and a
+	jr z, .flying_with_mon
+	ld a, 1
+	jr .finish
+.flying_with_mon
 	ld a, [wTempIconSpecies]
+.finish
 	ld [wCurIcon], a
 	pop de
 	ld a, e
@@ -412,7 +419,14 @@ GetSpeciesIcon:
 
 FlyFunction_GetMonIcon:
 	push de
+	ld a, [wFlyingWithHMItem]
+	and a
+	jr z, .flying_with_mon
+	ld a, 1
+	jr .finish
+.flying_with_mon
 	ld a, [wTempIconSpecies]
+.finish
 	ld [wCurIcon], a
 	pop de
 	ld a, e

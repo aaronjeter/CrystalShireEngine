@@ -77,6 +77,7 @@ if DEF(_DEBUG)
 	giveitem KINGS_ROCK
 	giveitem AMULET_COIN
 	giveitem SCOPE_LENS
+	giveitem BIRD_WHISTLE
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE
@@ -139,10 +140,10 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke SOLROCK, 100, BRIGHTPOWDER
+	givepoke MEWTWO, 5, BRIGHTPOWDER
 	; hm slaves
-	givepoke JIRACHI, 100, LEFTOVERS
-	givepoke ARAICHU, 100, LEFTOVERS
+	givepoke PORYGON, 5, LEFTOVERS
+	givepoke MAGNEMITE, 5, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove STRENGTH,   wPartyMon2, 2
@@ -152,9 +153,9 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke PIKACHU, 50
-	givepoke MEW, 50
-	givepoke CELEBI, 50
+	givepoke MAGBY, 5
+	givepoke ELEKID, 5
+	givepoke AGRIMER, 5
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

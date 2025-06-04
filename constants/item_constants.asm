@@ -25,7 +25,7 @@
 	const FIRE_STONE   ; 0011
 	const THUNDERSTONE ; 0012
 	const WATER_STONE  ; 0013
-	const ITEM_19      ; 0014
+	const TERU_SAMA    ; 0014
 	const HP_UP        ; 0015
 	const PROTEIN      ; 0016
 	const IRON         ; 0017
@@ -191,6 +191,7 @@ DEF FIRST_KEY_ITEM EQU const_value
 	const PASS         ; 0113
 	const SQUIRTBOTTLE ; 0114
 	const RAINBOW_WING ; 0115
+	const BIRD_WHISTLE
 DEF NUM_KEY_ITEM_POCKET EQU const_value - FIRST_KEY_ITEM
 assert NUM_KEY_ITEM_POCKET <= $ff
 

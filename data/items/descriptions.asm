@@ -28,7 +28,7 @@ ItemDescriptions1:
 	dw FireStoneDesc    ; 0011
 	dw ThunderStoneDesc ; 0012
 	dw WaterStoneDesc   ; 0013
-	dw QuestionMarkDesc ; 0014
+	dw BirdWhistleDesc  ; 0014
 	dw HPUpDesc         ; 0015
 	dw ProteinDesc      ; 0016
 	dw IronDesc         ; 0017
@@ -193,6 +193,7 @@ ItemDescriptionsKeyItems:
 	dw PassDesc         ; 0113
 	dw SquirtBottleDesc ; 0114
 	dw RainbowWingDesc  ; 0115
+	dw BirdWhistleDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -878,3 +879,7 @@ MusicMailDesc:
 MirageMailDesc:
 	db   "MEW-print MAIL."
 	next "(HOLD)@"
+
+BirdWhistleDesc:
+	db   "A whistle to"
+	next "call Delibird.@"

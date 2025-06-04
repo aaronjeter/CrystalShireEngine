@@ -1790,6 +1790,7 @@ ExitAllMenus::
 	farcall DisableDynPalUpdates
 	call ClearBGPalettes
 	call ExitMenu
+ExitFlyMap::
 	call ReloadTilesetAndPalettes
 	call UpdateSprites
 FinishExitMenu::

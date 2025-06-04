@@ -48,7 +48,7 @@ ItemEffects1:
 	dw EvoStoneEffect      ; FIRE_STONE
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
-	dw NoEffect            ; ITEM_19
+	dw BirdWhistleEffect   ; ITEM_19
 	dw VitaminEffect       ; HP_UP
 	dw VitaminEffect       ; PROTEIN
 	dw VitaminEffect       ; IRON
@@ -213,6 +213,7 @@ ItemEffectsKeyItems:
 	dw NoEffect           ; PASS
 	dw SquirtbottleEffect ; SQUIRTBOTTLE
 	dw NoEffect           ; RAINBOW_WING
+	dw BirdWhistleEffect  ; BIRD_WHISTLE
 .IndirectEnd:
 
 ItemEffectsBalls:
@@ -2995,4 +2996,29 @@ GetMthMoveOfCurrentMon:
 	ld c, a
 	ld b, 0
 	add hl, bc
+	ret
+
+
+BirdWhistleEffect:
+	ld a, 1	
+	ld [wFlyingWithHMItem], a	
+	ld a, DELIBIRD
+	ld [wTempIconSpecies], a
+	ld [wCurIcon], a
+	farcall FlyFunction
+	ld a, [wFieldMoveSucceeded]
+	cp $2
+	jr z, .Fail
+	cp $0
+	jr z, .Error
+	ld b, $4
+	ld a, $2
+	ret
+
+.Fail:
+	ld a, $3
+	ret
+
+.Error:
+	ld a, $0
 	ret
