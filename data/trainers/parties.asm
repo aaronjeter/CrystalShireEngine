@@ -2448,11 +2448,11 @@ CooltrainerFGroup:
 	dw NINETALES
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERF (14) Unreferenced
+	next_list_item ; COOLTRAINERF (14) Route 1
 	db "QUINN@", TRAINERTYPE_NORMAL
-	db 38
+	db 7
 	dw IVYSAUR
-	db 38
+	db 9
 	dw STARMIE
 	db -1 ; end
 
