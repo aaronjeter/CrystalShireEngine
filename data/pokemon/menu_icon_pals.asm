@@ -356,15 +356,15 @@ MonMenuIconPals:
 	icon_pals RED,    PURPLE ; CRAWDAUNT	
 	icon_pals RED,    TEAL   ; BALTOY
 	icon_pals RED,    TEAL   ; CLAYDOL
-	icon_pals RED,    RED    ; LILEEP
-	icon_pals RED,    RED    ; CRADILY
-	icon_pals RED,    RED    ; ANORITH
-	icon_pals RED,    RED    ; ARMALDO
-	icon_pals RED,    RED    ; FEEBAS
-	icon_pals RED,    RED    ; MILOTIC
-	icon_pals RED,    RED    ; KECLEON
-	icon_pals RED,    RED    ; SHUPPET
-	icon_pals RED,    RED    ; BANETTE
+	icon_pals PURPLE, GREEN  ; LILEEP
+	icon_pals GREEN,  RED    ; CRADILY
+	icon_pals GREEN,  RED    ; ANORITH
+	icon_pals TEAL,   RED    ; ARMALDO
+	icon_pals BLUE,   PURPLE ; FEEBAS
+	icon_pals RED,    BLUE   ; MILOTIC
+	icon_pals GREEN,  GREEN  ; KECLEON
+	icon_pals BLUE,   TEAL   ; SHUPPET
+	icon_pals GRAY,   TEAL   ; BANETTE
 	icon_pals RED,    RED    ; DUSKULL
 	icon_pals RED,    RED    ; DUSCLOPS
 	icon_pals RED,    RED    ; TROPIUS
