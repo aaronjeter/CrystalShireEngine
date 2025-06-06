@@ -10,14 +10,18 @@ SpriteMons:
 	dw EKANS		;23
 	dw PIKACHU		;25
 	dw CLEFAIRY		;35
+	dw VULPIX		;37
 	dw JIGGLYPUFF	;39
 	dw ZUBAT		;41
 	dw ODDISH		;43
 	dw PARAS		;46
 	dw DIGLETT		;50
+	dw PSYDUCK		;54
 	dw GROWLITHE	;58
 	dw POLIWAG		;60
+	dw ABRA			;63
 	dw MACHOP		;66
+	dw BELLSPROUT	;69
 	dw TENTACOOL	;72
 	dw GEODUDE		;74
 	dw GRIMER		;88	
@@ -31,10 +35,28 @@ SpriteMons:
 	dw MAGIKARP		;129
 	dw GYARADOS		;130
 	dw LAPRAS		;131
+	dw EEVEE		;133
+	dw VAPOREON		;134
+	dw JOLTEON		;135
+	dw FLAREON		;136
 	dw SNORLAX		;143
+	dw ARTICUNO		;144
+	dw ZAPDOS       ;145
 	dw MOLTRES		;146
 	;gen2
+	dw CHIKORITA	;152
+	dw CYNDAQUIL	;155
+	dw TOTODILE		;158
+	dw SENTRET		;161
+	dw HOOTHOOT		;163
 	dw TOGEPI		;175
+	dw NATU			;177
+	dw MAREEP		;179
+	dw HOPPIP		;187
+	dw WOOPER		;194
+	dw ESPEON		;196
+	dw UMBREON		;197
+	dw MURKROW		;198
 	dw UNOWN		;201
 	dw DELIBIRD     ;225
 	dw LUGIA		;249

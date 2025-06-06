@@ -1,4 +1,5 @@
 	object_const_def
+	const PLAYERNEIGHBOR_PIKACHU
 	const PLAYERSNEIGHBORSHOUSE_COOLTRAINER_F
 	const PLAYERSNEIGHBORSHOUSE_POKEFAN_F
 
@@ -43,6 +44,18 @@ PlayersNeighborsHouseRadioScript:
 	pause 45
 	closetext
 	end
+
+PlayerNeighborPikachu:
+	opentext
+	writetext PlayerNeighborPikachuText
+	cry PIKACHU
+	waitbutton
+	closetext
+	end
+	
+PlayerNeighborPikachuText:
+	text "Pika Pika!"
+	done
 
 PlayersNeighborsDaughterText:
 	text "PIKACHU is an"
@@ -111,5 +124,6 @@ PlayersNeighborsHouse_MapEvents:
 	bg_event  7,  1, BGEVENT_READ, PlayersNeighborsHouseRadioScript
 
 	def_object_events
+	object_event  4,  1, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayerNeighborPikachu, -1
 	object_event  2,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PlayersNeighborsDaughterScript, -1
 	object_event  5,  3, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PlayersNeighborScript, EVENT_PLAYERS_NEIGHBORS_HOUSE_NEIGHBOR
