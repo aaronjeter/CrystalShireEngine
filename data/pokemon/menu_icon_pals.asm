@@ -365,17 +365,17 @@ MonMenuIconPals:
 	icon_pals GREEN,  GREEN  ; KECLEON
 	icon_pals BLUE,   TEAL   ; SHUPPET
 	icon_pals GRAY,   TEAL   ; BANETTE
-	icon_pals RED,    RED    ; DUSKULL
-	icon_pals RED,    RED    ; DUSCLOPS
-	icon_pals RED,    RED    ; TROPIUS
-	icon_pals RED,    RED    ; CHIMECHO
-	icon_pals RED,    RED    ; ABSOL
-	icon_pals RED,    RED    ; WYNAUT
+	icon_pals GRAY,   RED    ; DUSKULL
+	icon_pals GRAY,   RED    ; DUSCLOPS
+	icon_pals GREEN,  BROWN  ; TROPIUS
+	icon_pals RED,    BROWN  ; CHIMECHO
+	icon_pals BLUE,   RED    ; ABSOL
+	icon_pals BLUE,   PURPLE ; WYNAUT
 	icon_pals RED,    BLUE   ; SNORUNT
 	icon_pals BLUE,   RED    ; GLALIE
-	icon_pals RED,    RED    ; SPHEAL
-	icon_pals RED,    RED    ; SEALEO
-	icon_pals RED,    RED    ; WALREIN
+	icon_pals BLUE,   PURPLE ; SPHEAL
+	icon_pals BLUE,   PURPLE ; SEALEO
+	icon_pals BLUE,   PURPLE ; WALREIN
 	icon_pals RED,    RED    ; CLAMPERL
 	icon_pals RED,    RED    ; HUNTAIL
 	icon_pals RED,    RED    ; GOREBYSS
