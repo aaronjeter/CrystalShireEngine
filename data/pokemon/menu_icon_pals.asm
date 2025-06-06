@@ -354,8 +354,8 @@ MonMenuIconPals:
 	icon_pals BLUE,   BROWN  ; WHISCASH
 	icon_pals RED,    PURPLE ; CORPHISH
 	icon_pals RED,    PURPLE ; CRAWDAUNT	
-	icon_pals RED,    RED    ; BALTOY
-	icon_pals RED,    RED    ; CLAYDOL
+	icon_pals RED,    TEAL   ; BALTOY
+	icon_pals RED,    TEAL   ; CLAYDOL
 	icon_pals RED,    RED    ; LILEEP
 	icon_pals RED,    RED    ; CRADILY
 	icon_pals RED,    RED    ; ANORITH
