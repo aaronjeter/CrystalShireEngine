@@ -376,26 +376,26 @@ MonMenuIconPals:
 	icon_pals BLUE,   PURPLE ; SPHEAL
 	icon_pals BLUE,   PURPLE ; SEALEO
 	icon_pals BLUE,   PURPLE ; WALREIN
-	icon_pals RED,    RED    ; CLAMPERL
-	icon_pals RED,    RED    ; HUNTAIL
-	icon_pals RED,    RED    ; GOREBYSS
-	icon_pals RED,    RED    ; RELICANTH
-	icon_pals RED,    RED    ; LUVDISC
-	icon_pals RED,    RED    ; BAGON
-	icon_pals RED,    RED    ; SHELGON
-	icon_pals RED,    RED    ; SALAMENCE
-	icon_pals RED,    RED    ; BELDUM
-	icon_pals RED,    RED    ; METANG
-	icon_pals RED,    RED    ; METAGROSS
-	icon_pals RED,    RED    ; REGIROCK
-	icon_pals RED,    RED    ; REGICE
-	icon_pals RED,    RED    ; REGISTEEL
-	icon_pals RED,    RED    ; LATIAS
-	icon_pals RED,    RED    ; LATIOS
-	icon_pals RED,    RED    ; KYOGRE
-	icon_pals RED,    RED    ; GROUDON
-	icon_pals RED,    RED    ; RAYQUAZA
-	icon_pals RED,    RED    ; JIRACHI
+	icon_pals BLUE,   PURPLE ; CLAMPERL
+	icon_pals BLUE,   GREEN  ; HUNTAIL
+	icon_pals PINK,   BROWN  ; GOREBYSS
+	icon_pals GRAY,   TEAL   ; RELICANTH
+	icon_pals PINK,   BROWN  ; LUVDISC
+	icon_pals BLUE,   GREEN  ; BAGON
+	icon_pals GRAY,   GREEN  ; SHELGON
+	icon_pals BLUE,   GREEN  ; SALAMENCE
+	icon_pals BLUE,   GRAY   ; BELDUM
+	icon_pals BLUE,   GRAY   ; METANG
+	icon_pals BLUE,   GRAY   ; METAGROSS
+	icon_pals RED,    GRAY   ; REGIROCK
+	icon_pals BLUE,   TEAL   ; REGICE
+	icon_pals GRAY,   GREEN  ; REGISTEEL
+	icon_pals RED,    BROWN  ; LATIAS
+	icon_pals BLUE,   TEAL   ; LATIOS
+	icon_pals BLUE,   PURPLE ; KYOGRE
+	icon_pals RED,    BROWN  ; GROUDON
+	icon_pals GREEN,  GRAY   ; RAYQUAZA
+	icon_pals RED,    TEAL   ; JIRACHI
 	;Gen 4
 	icon_pals RED,    BLUE   ; TOGEKISS
 	icon_pals BROWN,  GREEN  ; MAMOSWINE

@@ -4214,12 +4214,16 @@ KecleonEvosAttacks:
 ShuppetEvosAttacks:
 	dbbw EVOLVE_LEVEL, 37, BANETTE
 	db 0 ; no more evolutions
-	dbw 8, SCREECH
-	dbw 13, NIGHT_SHADE
-	dbw 20, CURSE
-	dbw 25, SPITE
-	dbw 37, FAINT_ATTACK
-	dbw 44, SHADOW_BALL
+	dbw 1, LEER
+	dbw 1, NIGHT_SHADE
+	dbw 5, DISABLE
+	dbw 12, FORESIGHT
+	dbw 16, ASTONISH
+	dbw 23, CONFUSE_RAY
+	dbw 27, PURSUIT
+	dbw 34, CURSE
+	dbw 45, MEAN_LOOK
+	dbw 49, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 BanetteEvosAttacks:
