@@ -599,7 +599,7 @@ AgrimerPokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeTreeckoText
+	writetext TakeAgrimerText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL3
