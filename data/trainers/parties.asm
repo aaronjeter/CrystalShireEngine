@@ -345,7 +345,7 @@ JasmineGroup:
 	dw QUICK_CLAW
 	dw SANDSTORM, VICEGRIP, CRUNCH, DIZZY_PUNCH
 	db 10
-	dw MAGNETON
+	dw MAGNEZONE
 	dw QUICK_CLAW
 	dw TRI_ATTACK, SWIFT, THUNDER_WAVE, SHOCK_WAVE
 	db 10
@@ -614,15 +614,15 @@ Rival1Group:
 	next_list_item ; RIVAL1 (13)
 	db "?@", TRAINERTYPE_NORMAL
 	db 9
-	dw SNEASEL
+	dw WEAVILE
 	db 8
-	dw GOLBAT
+	dw CROBAT
 	db 8
-	dw MAGNETON
+	dw MAGNEZONE
 	db 9
-	dw HAUNTER
+	dw GENGAR
 	db 9
-	dw KADABRA
+	dw ALAKAZAM
 	db 10
 	dw MEGANIUM
 	db -1 ; end
@@ -630,15 +630,15 @@ Rival1Group:
 	next_list_item ; RIVAL1 (14)
 	db "?@", TRAINERTYPE_NORMAL
 	db 9
-	dw SNEASEL
+	dw WEAVILE
 	db 8
-	dw GOLBAT
+	dw CROBAT
 	db 8
-	dw MAGNETON
+	dw MAGNEZONE
 	db 9
-	dw HAUNTER
+	dw GENGAR
 	db 9
-	dw KADABRA
+	dw ALAKAZAM
 	db 10
 	dw TYPHLOSION
 	db -1 ; end
@@ -646,15 +646,15 @@ Rival1Group:
 	next_list_item ; RIVAL1 (15)
 	db "?@", TRAINERTYPE_NORMAL
 	db 9
-	dw SNEASEL
+	dw WEAVILE
 	db 8
-	dw GOLBAT
+	dw CROBAT
 	db 8
-	dw MAGNETON
+	dw MAGNEZONE
 	db 9
-	dw HAUNTER
+	dw GENGAR
 	db 9
-	dw KADABRA
+	dw ALAKAZAM
 	db 10
 	dw FERALIGATR
 	db -1 ; end
@@ -856,7 +856,7 @@ KarenGroup:
 	dw GENGAR
 	dw SHADOW_BALL, HYPNOSIS, DREAM_EATER, SLUDGE_BOMB
 	db 11
-	dw MURKROW
+	dw ABSOL
 	dw EXTREMESPEED, DRILL_PECK, PURSUIT, SKY_ATTACK
 	db 11
 	dw TYRANITAR
@@ -925,7 +925,7 @@ KogaGroup:
 	dw VENOMOTH
 	dw PSYCHIC_M, DOUBLE_TEAM, SHADOW_BALL, TOXIC
 	db 11
-	dw MUK
+	dw AMUK
 	dw MINIMIZE, ACID_ARMOR, SLUDGE_BOMB, TOXIC
 	db 11
 	dw CROBAT
@@ -947,7 +947,7 @@ KogaGroup:
 	dw VENOMOTH
 	dw PSYCHIC_M, DOUBLE_TEAM, SHADOW_BALL, TOXIC
 	db 11
-	dw MUK
+	dw AMUK
 	dw MINIMIZE, ACID_ARMOR, SLUDGE_BOMB, TOXIC
 	db 11
 	dw CROBAT
@@ -969,7 +969,7 @@ KogaGroup:
 	dw VENOMOTH
 	dw PSYCHIC_M, DOUBLE_TEAM, SHADOW_BALL, TOXIC
 	db 11
-	dw MUK
+	dw AMUK
 	dw MINIMIZE, ACID_ARMOR, SLUDGE_BOMB, TOXIC
 	db 11
 	dw CROBAT
@@ -1189,8 +1189,8 @@ LtSurgeGroup:
 	dw JOLTEON
 	dw THUNDERBOLT, PIN_MISSILE, PURSUIT, THUNDER_WAVE
 	db 11
-	dw ELECTABUZZ
-	dw REFLECT, THUNDERPUNCH, DIZZY_PUNCH, THUNDERBOLT
+	dw ELECTIVIRE
+	dw REFLECT, THUNDERPUNCH, DIZZY_PUNCH, MACH_PUNCH
 	db -1 ; end
 	
 	next_list_item ; LT_SURGE (3)
@@ -1208,7 +1208,7 @@ LtSurgeGroup:
 	dw JOLTEON
 	dw THUNDERBOLT, PIN_MISSILE, PURSUIT, THUNDER_WAVE
 	db 10
-	dw ELECTABUZZ
+	dw ELECTIVIRE
 	dw REFLECT, THUNDERPUNCH, DIZZY_PUNCH, THUNDERBOLT
 	db -1 ; end
 
@@ -4215,11 +4215,11 @@ Rival2Group:
 	next_list_item ; RIVAL2 (1) Mt. Moon
 	db "?@", TRAINERTYPE_NORMAL
 	db 9
-	dw SNEASEL
+	dw WEAVILE
 	db 7
-	dw GOLBAT
+	dw CROBAT
 	db 7
-	dw MAGNETON
+	dw MAGNEZONE
 	db 8
 	dw GENGAR
 	db 8
@@ -4231,11 +4231,11 @@ Rival2Group:
 	next_list_item ; RIVAL2 (2)
 	db "?@", TRAINERTYPE_NORMAL
 	db 9
-	dw SNEASEL
+	dw WEAVILE
 	db 7
-	dw GOLBAT
+	dw CROBAT
 	db 7
-	dw MAGNETON
+	dw MAGNEZONE
 	db 8
 	dw GENGAR
 	db 8
@@ -4247,11 +4247,11 @@ Rival2Group:
 	next_list_item ; RIVAL2 (3)
 	db "?@", TRAINERTYPE_NORMAL
 	db 9
-	dw SNEASEL
+	dw WEAVILE
 	db 7
-	dw GOLBAT
+	dw CROBAT
 	db 7
-	dw MAGNETON
+	dw MAGNEZONE
 	db 8
 	dw GENGAR
 	db 8
@@ -4263,11 +4263,11 @@ Rival2Group:
 	next_list_item ; RIVAL2 (4) Indigo Plateu
 	db "?@", TRAINERTYPE_NORMAL
 	db 10
-	dw SNEASEL
+	dw WEAVILE
 	db 10
 	dw CROBAT
 	db 10
-	dw MAGNETON
+	dw MAGNEZONE
 	db 10
 	dw GENGAR
 	db 10
@@ -4279,11 +4279,11 @@ Rival2Group:
 	next_list_item ; RIVAL2 (5)
 	db "?@", TRAINERTYPE_MOVES
 	db 10
-	dw SNEASEL
+	dw WEAVILE
 	db 10
 	dw CROBAT
 	db 10
-	dw MAGNETON
+	dw MAGNEZONE
 	db 10
 	dw GENGAR
 	db 10
@@ -4295,11 +4295,11 @@ Rival2Group:
 	next_list_item ; RIVAL2 (6)
 	db "?@", TRAINERTYPE_MOVES
 	db 10
-	dw SNEASEL
+	dw WEAVILE
 	db 10
 	dw CROBAT
 	db 10
-	dw MAGNETON
+	dw MAGNEZONE
 	db 10
 	dw GENGAR
 	db 10
@@ -4655,7 +4655,7 @@ BlaineGroup:
 	dw FLAREON
 	dw FLAME_WHEEL, DIG, TAKE_DOWN, BULK_UP
 	db 10
-	dw MAGMAR
+	dw MAGMORTAR
 	dw THUNDERPUNCH, FIRE_PUNCH, SUNNY_DAY, FLAMETHROWER
 	db 12
 	dw RAPIDASH
@@ -4674,7 +4674,7 @@ BlaineGroup:
 	dw FLAREON
 	dw FLAME_WHEEL, DIG, TAKE_DOWN, BULK_UP
 	db 8
-	dw MAGMAR
+	dw MAGMORTAR
 	dw THUNDERPUNCH, FIRE_PUNCH, SUNNY_DAY, FLAMETHROWER
 	db 10
 	dw RAPIDASH
