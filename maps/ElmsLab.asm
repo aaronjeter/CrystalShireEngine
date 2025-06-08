@@ -174,7 +174,7 @@ LeftPokeBallScript:
 	iftrue TorchicPokeBallScript
 
 	checkevent EVENT_ORIGIN_ALOLA
-	iftrue AmarowakPokeBallScript
+	iftrue AvulpixPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Tentacool2PokeBallScript
@@ -195,7 +195,7 @@ MiddlePokeBallScript:
 	iftrue MudkipPokeBallScript
 
 	checkevent EVENT_ORIGIN_ALOLA
-	iftrue AraichuPokeBallScript
+	iftrue AsandshrewPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Voltorb2PokeBallScript
@@ -299,13 +299,13 @@ TorchicPokeBallScript:
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
-AmarowakPokeBallScript:
-	pokepic AMAROWAK
-	cry AMAROWAK
+AvulpixPokeBallScript:
+	pokepic AVULPIX
+	cry AVULPIX
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeAmarowakText
+	writetext TakeAvulpixText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL1
@@ -313,12 +313,12 @@ AmarowakPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, AMAROWAK
+	getmonname STRING_BUFFER_3, AVULPIX
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke AMAROWAK, 5, BERRY
+	givepoke AVULPIX, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -449,13 +449,13 @@ MudkipPokeBallScript:
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
-AraichuPokeBallScript:	
-	pokepic ARAICHU
-	cry ARAICHU
+AsandshrewPokeBallScript:	
+	pokepic ASANDSHREW
+	cry ASANDSHREW
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeAraichuText
+	writetext TakeAsandshrewText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL2
@@ -463,12 +463,12 @@ AraichuPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, ARAICHU
+	getmonname STRING_BUFFER_3, ASANDSHREW
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke ARAICHU, 5, BERRY
+	givepoke ASANDSHREW, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -1332,6 +1332,18 @@ TakeAraichuText:
 	text "ELM: You'll take"
 	line "RAICHU, the"
 	cont "surfer #MON?"
+	done
+
+TakeAvulpixText:
+	text "ELM: You'll take"
+	line "VULPIX, the"
+	cont "snow #MON?"
+	done
+
+TakeAsandshrewText:
+	text "ELM: You'll take"
+	line "SANDSHREW, the"
+	cont "mouse #MON?"
 	done
 
 TakeBulbasaurText:	
