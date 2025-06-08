@@ -5220,85 +5220,90 @@ AmukEvosAttacks:
 AsandshrewEvosAttacks:
 	dbbw EVOLVE_LEVEL, 22, ASANDSLASH
 	db 0 ; no more evolutions
-	dbw 1, SCRATCH
+	dbw 1, METAL_CLAW
 	dbw 1, DEFENSE_CURL
-	dbw 8, SAND_ATTACK
-	dbw 12, METAL_CLAW
-	dbw 16, POISON_STING
-	dbw 20, ROLLOUT
-	dbw 24, DIG
-	dbw 28, ROCK_TOMB	
+	dbw 8, POWDER_SNOW
+	dbw 12, POISON_STING
+	dbw 16, RAPID_SPIN
+	dbw 20, ICE_BALL
+	dbw 24, ROCK_TOMB
+	dbw 28, ICE_FANG	
 	dbw 32, SANDSTORM
-	dbw 36, SLASH
-	dbw 40, EARTHQUAKE
+	dbw 36, VICEGRIP
+	dbw 40, ICICLE_CRASH
 	dbw 42, BULK_UP
-	dbw 45, CRUNCH
+	dbw 45, EARTHQUAKE
 	dbw 48, CRUSH_CLAW
-	dbw 50, DRAGON_CLAW
+	dbw 50, ICY_WIND
 	dbw 55, GUILLOTINE
-	dbw 60, FISSURE
+	dbw 60, SKULL_BASH
 	db 0 ; no more level-up moves
 
 AsandslashEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, SCRATCH
+	dbw 1, METAL_CLAW
 	dbw 1, DEFENSE_CURL
-	dbw 8, SAND_ATTACK
-	dbw 12, METAL_CLAW
-	dbw 16, POISON_STING
-	dbw 20, ROLLOUT
-	dbw 24, DIG
-	dbw 28, ROCK_TOMB	
+	dbw 8, POWDER_SNOW
+	dbw 12, POISON_STING
+	dbw 16, RAPID_SPIN
+	dbw 20, ICE_BALL
+	dbw 24, ROCK_TOMB
+	dbw 28, ICE_FANG	
 	dbw 32, SANDSTORM
-	dbw 36, SLASH
-	dbw 40, EARTHQUAKE
+	dbw 36, VICEGRIP
+	dbw 40, ICICLE_CRASH
 	dbw 42, BULK_UP
-	dbw 45, CRUNCH
+	dbw 45, EARTHQUAKE
 	dbw 48, CRUSH_CLAW
-	dbw 50, DRAGON_CLAW
+	dbw 50, ICY_WIND
 	dbw 55, GUILLOTINE
-	dbw 60, FISSURE
+	dbw 60, SKULL_BASH
 	db 0 ; no more level-up moves
 
 AvulpixEvosAttacks:
 	dbbw EVOLVE_LEVEL, 36, ANINETALES
+	dbww EVOLVE_ITEM, ICE_STONE, ANINETALES
+	dbww EVOLVE_ITEM, MOON_STONE, NINETALES2
+	dbww EVOLVE_ITEM, FIRE_STONE, VULPIX
 	db 0 ; no more evolutions
-	dbw 1, EMBER
-	dbw 1, LICK
+	dbw 1, POWDER_SNOW
+	dbw 1, PIXIE_DUST
 	dbw 7, QUICK_ATTACK
 	dbw 12, ROAR
 	dbw 16, NIGHT_SHADE
-	dbw 20, WILLOWISP
-	dbw 24, HYPNOSIS
-	dbw 28, CURSE
+	dbw 20, ICY_WIND
+	dbw 24, DRAININGKISS
+	dbw 28, AURORA_BEAM
 	dbw 32, RECOVER
-	dbw 36, FLAMETHROWER
-	dbw 40, SHADOW_BALL
-	dbw 42, DESTINY_BOND
-	dbw 45, SUNNY_DAY
-	dbw 50, FIRE_BLAST
-	dbw 55, SOLARBEAM
-	dbw 60, BLAST_BURN
+	dbw 36, ICE_BEAM
+	dbw 40, FAERIEGLEAM
+	dbw 42, CALM_MIND
+	dbw 45, EXTRASENSORY
+	dbw 50, BLIZZARD
+	dbw 55, FLAMETHROWER
+	dbw 60, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 AninetalesEvosAttacks:
-	db 0 ; no more evolutions
-	dbw 1, EMBER
-	dbw 1, LICK
+	dbww EVOLVE_ITEM, FIRE_STONE, NINETALES
+	dbww EVOLVE_ITEM, MOON_STONE, NINETALES2
+	db 0 ; no more evolutions	
+	dbw 1, POWDER_SNOW
+	dbw 1, PIXIE_DUST
 	dbw 7, QUICK_ATTACK
 	dbw 12, ROAR
 	dbw 16, NIGHT_SHADE
-	dbw 20, WILLOWISP
-	dbw 24, HYPNOSIS
-	dbw 28, CURSE
+	dbw 20, ICY_WIND
+	dbw 24, DRAININGKISS
+	dbw 28, AURORA_BEAM
 	dbw 32, RECOVER
-	dbw 36, FLAMETHROWER
-	dbw 40, SHADOW_BALL
-	dbw 42, DESTINY_BOND
-	dbw 45, SUNNY_DAY
-	dbw 50, FIRE_BLAST
-	dbw 55, SOLARBEAM
-	dbw 60, BLAST_BURN
+	dbw 36, ICE_BEAM
+	dbw 40, FAERIEGLEAM
+	dbw 42, CALM_MIND
+	dbw 45, EXTRASENSORY
+	dbw 50, BLIZZARD
+	dbw 55, FLAMETHROWER
+	dbw 60, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 AgeodudeEvosAttacks:
