@@ -61,4 +61,6 @@ SpriteMons:
 	dw DELIBIRD     ;225
 	dw LUGIA		;249
 	dw HO_OH		;250
+	;gen3
+	dw BAGON		;371
 	assert_table_length NUM_POKEMON_SPRITES
