@@ -1,4 +1,5 @@
 	db "CHEERING@" ; species name
+	dw 104, 93 ; height, weight
 
 	db   "It cheers on"
 	next "friends with pom-"

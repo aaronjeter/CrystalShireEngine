@@ -1,4 +1,5 @@
 	db "WORM@" ; species name
+	dw 100, 79 ; height, weight
 
 	db   "Often targeted by"
 	next "bird #MON, it"

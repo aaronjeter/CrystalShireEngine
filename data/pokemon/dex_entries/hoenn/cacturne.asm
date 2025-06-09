@@ -1,4 +1,5 @@
 	db "SCARECROW@" ; species name
+	dw 403, 1706 ; height, weight
 
 	db   "It becomes active"
 	next "at night, seeking"

@@ -1,4 +1,5 @@
 	db "POLKA@" ; species name
+	dw 08, 44 ; height, weight
 
 	db   "Its tail bounces"
 	next "like a rubber"

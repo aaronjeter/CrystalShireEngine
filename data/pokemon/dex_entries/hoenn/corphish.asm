@@ -1,4 +1,5 @@
 	db "RUFFIAN@" ; species name
+	dw 200, 254 ; height, weight
 
 	db   "Its hardy vitality"
 	next "enables it to"

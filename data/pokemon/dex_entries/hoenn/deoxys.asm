@@ -1,4 +1,5 @@
 	db "DNA@" ; species name
+	dw 507, 1340 ; height, weight
 
 	db   "An alien virus"
 	next "that fell to earth"

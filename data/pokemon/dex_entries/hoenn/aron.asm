@@ -1,4 +1,5 @@
 	db "IRON@" ; species name
+	dw 104, 1323 ; height, weight
 
 	db   "It usually lives"
 	next "deep in mountains."

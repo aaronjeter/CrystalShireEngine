@@ -1,4 +1,5 @@
 	db "POISON@" ; species name
+	dw 507, 1764 ; height, weight
 
 	db   "It swallows any-"
 	next "thing whole. It"

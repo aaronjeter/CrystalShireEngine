@@ -1,4 +1,5 @@
 	db "THORN@" ; species name
+	dw 100, 44 ; height, weight
 
 	db   "The more healthy"
 	next "the ROSELIA, the"

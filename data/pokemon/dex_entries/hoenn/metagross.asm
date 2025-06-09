@@ -1,4 +1,5 @@
 	db "IRON@" ; species name
+	dw 503, 12125 ; height, weight
 
 	db   "METANG combined to"
 	next "form it. With four"

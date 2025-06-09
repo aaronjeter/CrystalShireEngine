@@ -1,4 +1,5 @@
 	db "METEORITE@" ; species name
+	dw 303, 3704 ; height, weight
 
 	db   "Because it turns"
 	next "active on nights"

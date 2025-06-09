@@ -1,4 +1,5 @@
 	db "TINYSWALLOW@" ; species name
+	dw 100, 51 ; height, weight
 
 	db   "It has a gutsy"
 	next "spirit that makes"

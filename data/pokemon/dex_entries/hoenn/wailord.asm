@@ -1,4 +1,5 @@
 	db "FLOAT@" ; species name
+	dw 4707, 8774 ; height, weight
 
 	db   "The biggest of all"
 	next "#MON. It can"

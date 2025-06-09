@@ -1,4 +1,5 @@
 	db "COLOR@" ; species name
+	dw 303, 485 ; height, weight
 
 	db   "It can freely"
 	next "change its body's"

@@ -1,4 +1,5 @@
 	db "NINJA@" ; species name
+	dw 207, 265 ; height, weight
 
 	db   "Because it moves"
 	next "so quickly, it"

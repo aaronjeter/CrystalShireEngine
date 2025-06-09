@@ -1,4 +1,5 @@
 	db "WIND@" ; species name
+	dw 200, 22 ; height, weight
 
 	db   "Its cries echo in-"
 	next "side its hollow"

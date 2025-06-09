@@ -1,4 +1,5 @@
 	db "PUPPET@" ; species name
+	dw 200, 51 ; height, weight
 
 	db   "It loves vengeful"
 	next "emotions and hangs"

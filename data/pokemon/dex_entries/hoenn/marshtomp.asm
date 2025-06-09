@@ -1,4 +1,5 @@
 	db "MUD@" ; species name
+	dw 204, 617 ; height, weight
 
 	db   "Its sturdy legs"
 	next "give it sure foot-"

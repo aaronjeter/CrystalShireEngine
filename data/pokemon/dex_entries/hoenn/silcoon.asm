@@ -1,4 +1,5 @@
 	db "COCOON@" ; species name
+	dw 200, 220 ; height, weight
 
 	db   "It wraps silk"
 	next "around treebranch-"

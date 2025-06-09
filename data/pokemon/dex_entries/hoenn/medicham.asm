@@ -1,4 +1,5 @@
 	db "MEDITATE@" ; species name
+	dw 403, 694 ; height, weight
 
 	db   "It gains the abil-"
 	next "ity to see the"

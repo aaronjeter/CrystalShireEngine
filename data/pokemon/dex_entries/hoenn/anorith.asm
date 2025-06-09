@@ -1,4 +1,5 @@
 	db "OLD@" ; species name
+	dw 204, 276 ; height, weight
 
 	db   "A #MON ancestor"
 	next "that was reani-"

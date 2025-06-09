@@ -1,4 +1,5 @@
 	db "NUMB@" ; species name
+	dw 204, 529 ; height, weight
 
 	db   "Its humped back"
 	next "stores intensely"

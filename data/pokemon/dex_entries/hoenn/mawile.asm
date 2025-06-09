@@ -1,4 +1,5 @@
 	db "DECEIVER@" ; species name
+	dw 200, 254 ; height, weight
 
 	db   "Attached to its"
 	next "head is a huge set"

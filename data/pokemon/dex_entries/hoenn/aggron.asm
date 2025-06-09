@@ -1,4 +1,5 @@
 	db "IRON@" ; species name
+	dw 611, 7937 ; height, weight
 
 	db   "While seeking iron"
 	next "for food, it digs"

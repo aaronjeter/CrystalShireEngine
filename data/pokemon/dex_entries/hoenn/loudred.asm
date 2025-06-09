@@ -1,4 +1,5 @@
 	db "BIG@" ; species name
+	dw 303, 893 ; height, weight
 
 	db   "The shock waves"
 	next "from its cries can"

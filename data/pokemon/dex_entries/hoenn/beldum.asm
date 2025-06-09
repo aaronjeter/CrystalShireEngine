@@ -1,4 +1,5 @@
 	db "IRON@" ; species name
+	dw 200, 2099 ; height, weight
 
 	db   "It converses with"
 	next "others by using"

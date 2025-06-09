@@ -1,4 +1,5 @@
 	db "WILD@" ; species name
+	dw 407, 1025 ; height, weight
 
 	db   "Its heart beats at"
 	next "a tenfold tempo,"

@@ -1,4 +1,5 @@
 	db "CHICK@" ; species name
+	dw 104, 55 ; height, weight
 
 	db   "A fire burns in-"
 	next "side, so it feels"

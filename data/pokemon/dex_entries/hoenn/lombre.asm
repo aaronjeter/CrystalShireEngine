@@ -1,4 +1,5 @@
 	db "JOLLY@" ; species name
+	dw 311, 717 ; height, weight
 
 	db   "It has a mis-"
 	next "chievous spirit."

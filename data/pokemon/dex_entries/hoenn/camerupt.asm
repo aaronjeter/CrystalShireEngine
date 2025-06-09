@@ -1,4 +1,5 @@
 	db "ERUPTION@" ; species name
+	dw 603, 4850 ; height, weight
 
 	db   "It has volcanoes"
 	next "on its back. If"

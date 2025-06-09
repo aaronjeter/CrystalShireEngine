@@ -1,4 +1,5 @@
 	db "MUD@" ; species name
+	dw 411, 1806 ; height, weight
 
 	db   "It can swim while"
 	next "towing a large"

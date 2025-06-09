@@ -1,4 +1,5 @@
 	db "SLACKER@" ; species name
+	dw 207, 529 ; height, weight
 
 	db   "It spends nearly"
 	next "all its time in a"

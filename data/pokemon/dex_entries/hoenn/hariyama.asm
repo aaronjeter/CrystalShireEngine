@@ -1,4 +1,5 @@
 	db "ARM@" ; species name
+	dw 707, 5595 ; height, weight
 
 	db   "It loves to match"
 	next "power with big-"

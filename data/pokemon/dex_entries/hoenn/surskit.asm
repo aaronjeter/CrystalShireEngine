@@ -1,4 +1,5 @@
 	db "POND@" ; species name
+	dw 108, 37 ; height, weight
 
 	db   "It appears as if"
 	next "it is skating on"

@@ -1,4 +1,5 @@
 	db "WATER@" ; species name
+	dw 311, 617 ; height, weight
 
 	db   "It is a messenger"
 	next "of the skies, car-"

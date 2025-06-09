@@ -1,4 +1,5 @@
 	db "WHISPER@" ; species name
+	dw 200, 359 ; height, weight
 
 	db   "Usually, its cries"
 	next "are like quiet"

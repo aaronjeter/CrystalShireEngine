@@ -1,4 +1,5 @@
 	db "CLAY@" ; species name
+	dw 108, 474 ; height, weight
 
 	db   "It moves by spin-"
 	next "ning on its foot."

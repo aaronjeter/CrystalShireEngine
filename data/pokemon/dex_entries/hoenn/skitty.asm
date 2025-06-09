@@ -1,4 +1,5 @@
 	db "KITTEN@" ; species name
+	dw 200, 243 ; height, weight
 
 	db   "It can't stop it-"
 	next "self from chasing"

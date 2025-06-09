@@ -1,4 +1,5 @@
 	db "WOOD@" ; species name
+	dw 108, 110 ; height, weight
 
 	db   "The soles of its"
 	next "feet are covered"

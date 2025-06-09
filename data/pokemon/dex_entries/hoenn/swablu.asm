@@ -1,4 +1,5 @@
 	db "COTTON@" ; species name
+	dw 104, 26 ; height, weight
 
 	db   "It can't relax if"
 	next "it or its sur-"

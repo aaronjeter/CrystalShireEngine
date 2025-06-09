@@ -1,4 +1,5 @@
 	db "MYSTIC@" ; species name
+	dw 607, 1808 ; height, weight
 
 	db   "It whips up sand-"
 	next "storms with power-"

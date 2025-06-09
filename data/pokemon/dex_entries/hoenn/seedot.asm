@@ -1,4 +1,5 @@
 	db "ACORN@" ; species name
+	dw 108, 88 ; height, weight
 
 	db   "When it dangles"
 	next "from a tree, it"

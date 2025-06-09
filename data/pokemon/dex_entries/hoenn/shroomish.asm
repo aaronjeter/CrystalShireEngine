@@ -1,4 +1,5 @@
 	db "MUSHROOM@" ; species name
+	dw 104, 99 ; height, weight
 
 	db   "It spouts poison"
 	next "spores from the"

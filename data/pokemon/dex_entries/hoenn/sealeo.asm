@@ -1,4 +1,5 @@
 	db "BALL@" ; species name
+	dw 307, 1931 ; height, weight
 
 	db   "It habitually"
 	next "spins things on"

@@ -1,4 +1,5 @@
 	db "WATER@" ; species name
+	dw 108, 57 ; height, weight
 
 	db   "It looks like an"
 	next "aquatic plant and"

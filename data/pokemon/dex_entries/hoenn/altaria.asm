@@ -1,4 +1,5 @@
 	db "HUMMING@" ; species name
+	dw 307, 454 ; height, weight
 
 	db   "If it bonds with a"
 	next "person, it will"

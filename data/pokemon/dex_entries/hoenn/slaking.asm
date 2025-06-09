@@ -1,4 +1,5 @@
 	db "LAZY@" ; species name
+	dw 607, 2877 ; height, weight
 
 	db   "The world's lazi-"
 	next "est #MON. When"

@@ -1,4 +1,5 @@
 	db "LIGHTNING@" ; species name
+	dw 200, 335 ; height, weight
 
 	db   "Using electricity"
 	next "stored in its fur,"

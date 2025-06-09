@@ -1,4 +1,5 @@
 	db "BUTTERFLY@" ; species name
+	dw 303, 626 ; height, weight
 
 	db   "Despite its looks,"
 	next "it is aggressive."

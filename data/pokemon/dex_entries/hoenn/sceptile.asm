@@ -1,4 +1,5 @@
 	db "FOREST@" ; species name
+	dw 507, 1151 ; height, weight
 
 	db   "The leaves that"
 	next "grow on its arms"

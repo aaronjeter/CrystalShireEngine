@@ -1,4 +1,5 @@
 	db "WICKED@" ; species name
+	dw 403, 1314 ; height, weight
 
 	db   "By flapping its"
 	next "leafy fan, it can"

@@ -1,4 +1,5 @@
 	db "ROCK@" ; species name
+	dw 507, 5071 ; height, weight
 
 	db   "Its entire body is"
 	next "made of rock. If"

@@ -1,4 +1,5 @@
 	db "LONGEVITY@" ; species name
+	dw 303, 516 ; height, weight
 
 	db   "A rare #MON"
 	next "discovered during"

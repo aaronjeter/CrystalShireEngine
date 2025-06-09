@@ -1,4 +1,5 @@
 	db "YOUNG@" ; species name
+	dw 211, 430 ; height, weight
 
 	db   "Its kicking mas-"
 	next "tery lets it loose"

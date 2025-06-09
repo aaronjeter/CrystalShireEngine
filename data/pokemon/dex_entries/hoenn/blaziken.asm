@@ -1,4 +1,5 @@
 	db "BLAZE@" ; species name
+	dw 603, 1146 ; height, weight
 
 	db   "Flames spout from"
 	next "its wrists, en-"

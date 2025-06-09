@@ -1,4 +1,5 @@
 	db "SEA@" ; species name
+	dw 1409, 7760 ; height, weight
 
 	db   "It is said to have"
 	next "widened the seas"

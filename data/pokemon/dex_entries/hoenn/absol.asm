@@ -1,4 +1,5 @@
 	db "DISASTER@" ; species name
+	dw 311, 1036 ; height, weight
 
 	db   "Rumored to sense"
 	next "disasters with its"

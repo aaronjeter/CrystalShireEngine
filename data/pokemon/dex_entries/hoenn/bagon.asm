@@ -1,4 +1,5 @@
 	db "ROCK@" ; species name
+	dw 200, 928 ; height, weight
 
 	db   "Dreaming of one"
 	next "day flying, it"

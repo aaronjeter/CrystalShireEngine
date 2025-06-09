@@ -1,4 +1,5 @@
 	db "WISH@" ; species name
+	dw 100, 24 ; height, weight
 
 	db   "It is said to have"
 	next "the ability to"

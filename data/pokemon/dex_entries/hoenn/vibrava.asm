@@ -1,4 +1,5 @@
 	db "VIBRATION@" ; species name
+	dw 307, 337 ; height, weight
 
 	db   "It violently shud-"
 	next "ders its wings,"

@@ -1,4 +1,5 @@
 	db "METEORITE@" ; species name
+	dw 311, 3395 ; height, weight
 
 	db   "A new #MON"
 	next "species, rumored"

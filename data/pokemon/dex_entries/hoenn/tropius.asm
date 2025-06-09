@@ -1,4 +1,5 @@
 	db "FRUIT@" ; species name
+	dw 607, 2205 ; height, weight
 
 	db   "Delicious fruits"
 	next "grew out from"

@@ -1,4 +1,5 @@
 	db "MANIPULATE@" ; species name
+	dw 211, 1576 ; height, weight
 
 	db   "It uses black"
 	next "pearls to amplify"

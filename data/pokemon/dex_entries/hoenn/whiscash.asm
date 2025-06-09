@@ -1,4 +1,5 @@
 	db "WHISKERS@" ; species name
+	dw 211, 520 ; height, weight
 
 	db   "It is extremely"
 	next "protective of its"

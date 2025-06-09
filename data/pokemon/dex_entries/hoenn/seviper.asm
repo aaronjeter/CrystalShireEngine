@@ -1,4 +1,5 @@
 	db "FANG@" ; species name
+	dw 810, 1157 ; height, weight
 
 	db   "For many genera-"
 	next "tions, it has"

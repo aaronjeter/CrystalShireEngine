@@ -1,4 +1,5 @@
 	db "POISON@" ; species name
+	dw 311, 697 ; height, weight
 
 	db   "Toxic powder is"
 	next "scattered with"

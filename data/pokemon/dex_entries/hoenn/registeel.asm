@@ -1,4 +1,5 @@
 	db "IRON@" ; species name
+	dw 603, 4519 ; height, weight
 
 	db   "Tempered by pres-"
 	next "sure underground"

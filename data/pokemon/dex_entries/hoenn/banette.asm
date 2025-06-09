@@ -1,4 +1,5 @@
 	db "MARIONETTE@" ; species name
+	dw 307, 276 ; height, weight
 
 	db   "A doll that became"
 	next "a #MON over its"

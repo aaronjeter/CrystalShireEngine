@@ -1,4 +1,5 @@
 	db "LOUD@" ; species name
+	dw 411, 1852 ; height, weight
 
 	db   "Its howls can be"
 	next "heard over six"

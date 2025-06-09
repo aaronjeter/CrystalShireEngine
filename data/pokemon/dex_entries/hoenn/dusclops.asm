@@ -1,4 +1,5 @@
 	db "BECKON@" ; species name
+	dw 503, 675 ; height, weight
 
 	db   "It seeks drifting"
 	next "will-o'-the-wisps"

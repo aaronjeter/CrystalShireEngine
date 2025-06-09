@@ -1,4 +1,5 @@
 	db "DISCHARGE@" ; species name
+	dw 411, 886 ; height, weight
 
 	db   "It releases elec-"
 	next "tricity from its"

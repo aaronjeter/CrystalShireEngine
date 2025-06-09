@@ -1,4 +1,5 @@
 	db "TENDER@" ; species name
+	dw 2004, 3571 ; height, weight
 
 	db   "Its lovely scales"
 	next "are described as"

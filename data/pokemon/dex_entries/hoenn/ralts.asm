@@ -1,4 +1,5 @@
 	db "FEELING@" ; species name
+	dw 104, 146 ; height, weight
 
 	db   "If its horns cap-"
 	next "ture the warm"

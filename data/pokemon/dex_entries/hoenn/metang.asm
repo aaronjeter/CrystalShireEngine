@@ -1,4 +1,5 @@
 	db "IRON@" ; species name
+	dw 311, 4464 ; height, weight
 
 	db   "It is formed by"
 	next "two BELDUM joining"

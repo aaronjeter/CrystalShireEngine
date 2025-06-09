@@ -1,4 +1,5 @@
 	db "BRUTAL@" ; species name
+	dw 511, 1958 ; height, weight
 
 	db   "Its fangs rip"
 	next "through sheet"

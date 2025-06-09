@@ -1,4 +1,5 @@
 	db "ANT@" ; species name
+	dw 204, 331 ; height, weight
 
 	db   "It makes a conical"
 	next "pit in desert sand"

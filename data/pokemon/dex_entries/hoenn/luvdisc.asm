@@ -1,4 +1,5 @@
 	db "RENDEZVOUS@" ; species name
+	dw 200, 192 ; height, weight
 
 	db   "It lives in warm"
 	next "seas. A couple"
