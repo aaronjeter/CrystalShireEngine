@@ -69,6 +69,8 @@ if DEF(_DEBUG)
 	giveitem LEAF_STONE, 10
 	giveitem MOON_STONE, 10
 	giveitem SUN_STONE, 10
+	giveitem DAWN_STONE, 10
+	giveitem ICE_STONE, 10
 	giveitem BERRY, 10
 	giveitem GOLD_BERRY, 10
 	giveitem MINT_BERRY, 10
@@ -77,8 +79,9 @@ if DEF(_DEBUG)
 	giveitem KINGS_ROCK
 	giveitem AMULET_COIN
 	giveitem SCOPE_LENS
-	;giveitem BIRD_WHISTLE
-	;giveitem LANTERN
+	giveitem BIRD_WHISTLE
+	giveitem LANTERN
+	giveitem COIN_CASE
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE
@@ -141,10 +144,10 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke MEWTWO, 5, BRIGHTPOWDER
+	givepoke ABSOL, 50, BRIGHTPOWDER
 	; hm slaves
-	givepoke PORYGON, 5, LEFTOVERS
-	givepoke MAGNEMITE, 5, LEFTOVERS
+	givepoke AGGRON, 50, LEFTOVERS
+	givepoke ALTARIA, 50, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove STRENGTH,   wPartyMon2, 2
@@ -154,9 +157,9 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke MAGBY, 5
-	givepoke ELEKID, 5
-	givepoke AGRIMER, 5
+	givepoke BELLSPROUT, 50
+	;givepoke JIRACHI, 50
+	;givepoke JIRACHI, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
