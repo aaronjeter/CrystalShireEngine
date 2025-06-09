@@ -105,48 +105,13 @@ EcruteakPokecenter1F_BillText2:
 	line "adjustments on my"
 	cont "TIME CAPSULE."
 
-	para "You know that"
-	line "#MON can be"
-	cont "traded, right?"
+	para "It's broken."
+	line "So I hit it a "
+	cont "few times, right?"
 
-	para "My TIME CAPSULE"
-	line "was developed to"
-
-	para "enable trades with"
-	line "the past."
-
-	para "But you can't send"
-	line "anything that"
-
-	para "didn't exist in"
-	line "the past."
-
-	para "If you did, the PC"
-	line "in the past would"
-	cont "have a breakdown."
-
-	para "So you have to"
-	line "remove anything"
-
-	para "that wasn't around"
-	line "in the past."
-
-	para "Put simply, no"
-	line "sending new moves"
-
-	para "or new #MON in"
-	line "the TIME CAPSULE."
-
-	para "Don't you worry."
-	line "I'm done with the"
-	cont "adjustments."
-
-	para "Tomorrow, TIME"
-	line "CAPSULES will be"
-
-	para "running at all"
-	line "#MON CENTERS."
-
+	para "Now it's VERY"
+	line "broken."
+	
 	para "I have to hurry on"
 	line "back to GOLDENROD"
 	cont "and see my folks."
