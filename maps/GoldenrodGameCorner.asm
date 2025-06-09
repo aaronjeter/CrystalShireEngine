@@ -25,6 +25,7 @@ DEF GOLDENRODGAMECORNER_ABSOL_COINS     EQU 1500
 	const GOLDENRODGAMECORNER_GENTLEMAN
 	const GOLDENRODGAMECORNER_POKEFAN_M2
 	const GOLDENRODGAMECORNER_MOVETUTOR
+	const GOLDENRODGAMECORNER_RECEPTIONIST3
 
 GoldenrodGameCorner_MapScripts:
 	def_scene_scripts
@@ -290,6 +291,136 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	db "RELICANTH  1000@"
 	db "CANCEL@"
 
+
+
+
+
+GoldenrodGameCornerPrizeMonVendor3Script:
+	faceplayer
+	opentext
+	writetext GoldenrodGameCornerPrizeVendorIntroText
+	waitbutton
+	checkitem COIN_CASE
+	iffalse GoldenrodGameCornerPrizeVendor_NoCoinCaseScript
+.loop
+	writetext GoldenrodGameCornerPrizeVendorWhichPrizeText
+	special DisplayCoinCaseBalance
+	loadmenu .MenuHeader3
+	verticalmenu
+	closewindow
+	ifequal 1, .Feebas
+	ifequal 2, .Kecleon
+	ifequal 3, .Tropius
+	ifequal 4, .Chimecho
+	ifequal 5, .Absol
+	sjump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+
+.Feebas:
+	checkcoins GOLDENRODGAMECORNER_FEEBAS_COINS
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	getmonname STRING_BUFFER_3, FEEBAS
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
+	waitbutton
+	loadmonindex 3, FEEBAS
+	special GameCornerPrizeMonCheckDex
+	givepoke FEEBAS, 15
+	takecoins GOLDENRODGAMECORNER_FEEBAS_COINS
+	sjump .loop
+
+.Kecleon:
+	checkcoins GOLDENRODGAMECORNER_KECLEON_COINS
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	getmonname STRING_BUFFER_3, KECLEON
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
+	waitbutton
+	loadmonindex 3, KECLEON
+	special GameCornerPrizeMonCheckDex
+	givepoke KECLEON, 15
+	takecoins GOLDENRODGAMECORNER_KECLEON_COINS
+	sjump .loop
+
+.Tropius:
+	checkcoins GOLDENRODGAMECORNER_TROPIUS_COINS
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	getmonname STRING_BUFFER_3, TROPIUS
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
+	waitbutton
+	loadmonindex 3, TROPIUS
+	special GameCornerPrizeMonCheckDex
+	givepoke TROPIUS, 15
+	takecoins GOLDENRODGAMECORNER_TROPIUS_COINS
+	sjump .loop
+
+.Chimecho:
+	checkcoins GOLDENRODGAMECORNER_CHIMECHO_COINS
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	getmonname STRING_BUFFER_3, CHIMECHO
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
+	waitbutton
+	loadmonindex 3, CHIMECHO
+	special GameCornerPrizeMonCheckDex
+	givepoke CHIMECHO, 15
+	takecoins GOLDENRODGAMECORNER_CHIMECHO_COINS
+	sjump .loop
+
+.Absol:
+	checkcoins GOLDENRODGAMECORNER_ABSOL_COINS
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	getmonname STRING_BUFFER_3, ABSOL
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
+	waitbutton
+	loadmonindex 3, ABSOL
+	special GameCornerPrizeMonCheckDex
+	givepoke ABSOL, 15
+	takecoins GOLDENRODGAMECORNER_ABSOL_COINS
+	sjump .loop
+
+.MenuHeader3:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 17, TEXTBOX_Y - 1
+	dw .MenuData3
+	db 1 ; default option
+
+.MenuData3:
+	db STATICMENU_CURSOR ; flags
+	db 5 ; items
+	db "FEEBAS     1000@"
+	db "KECLEON    1000@"
+	db "TROPIUS    1500@"
+	db "CHIMECHO   1500@"
+	db "ABSOL      1500@"
+	db "CANCEL@"
+
 GoldenrodGameCornerPharmacistScript:
 	faceplayer
 	opentext
@@ -543,3 +674,4 @@ GoldenrodGameCorner_MapEvents:
 	object_event  5, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerGentlemanScript, -1
 	object_event  2,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM2Script, -1
 	object_event 17, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorInsideScript, EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
+	object_event 19,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPrizeMonVendor3Script, -1
