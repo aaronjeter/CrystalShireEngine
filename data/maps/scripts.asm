@@ -94,6 +94,8 @@ INCLUDE "maps/TeamRocketBaseB1F.asm"
 INCLUDE "maps/TeamRocketBaseB2F.asm"
 INCLUDE "maps/TeamRocketBaseB3F.asm"
 INCLUDE "maps/IlexForest.asm"
+INCLUDE "maps/IlexWest.asm"
+INCLUDE "maps/IlexEast.asm"
 
 
 SECTION "Map Scripts 7", ROMX

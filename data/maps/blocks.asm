@@ -660,6 +660,12 @@ SlowpokeWellB2F_Blocks:
 IlexForest_Blocks:
 	INCBIN "maps/IlexForest.ablk"
 
+IlexWest_Blocks:
+	INCBIN "maps/IlexWest.ablk"
+
+IlexEast_Blocks:
+	INCBIN "maps/IlexEast.ablk"
+
 DarkCaveVioletEntrance_Blocks:
 	INCBIN "maps/DarkCaveVioletEntrance.ablk"
 

@@ -82,6 +82,13 @@ if DEF(_DEBUG)
 	giveitem BIRD_WHISTLE
 	giveitem LANTERN
 	giveitem COIN_CASE
+
+	giveitem HM_CUT
+	giveitem HM_SURF
+	giveitem HM_WHIRLPOOL
+	giveitem HM_WATERFALL
+	giveitem HM_FLASH
+
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE
