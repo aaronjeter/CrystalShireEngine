@@ -55,6 +55,7 @@ SpriteMons:
 	dw TOGEPI		;175
 	dw NATU			;177
 	dw MAREEP		;179
+	dw AMPHAROS		;181
 	dw HOPPIP		;187
 	dw WOOPER		;194
 	dw ESPEON		;196
