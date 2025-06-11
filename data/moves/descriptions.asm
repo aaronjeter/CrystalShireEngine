@@ -1604,4 +1604,4 @@ DarkPulseDescription:
 
 FaerieGleamDescription:
 	db   "Damages with a"
-	next "flas of light.@"
+	next "flash of light.@"
