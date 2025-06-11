@@ -9,6 +9,7 @@ SpriteMons:
 	dw PIDGEY		;16
 	dw EKANS		;23
 	dw PIKACHU		;25
+	dw SANDSHREW	;27
 	dw CLEFAIRY		;35
 	dw VULPIX		;37
 	dw JIGGLYPUFF	;39
@@ -50,6 +51,7 @@ SpriteMons:
 	dw TOTODILE		;158
 	dw SENTRET		;161
 	dw HOOTHOOT		;163
+	dw PICHU		;172
 	dw TOGEPI		;175
 	dw NATU			;177
 	dw MAREEP		;179
@@ -63,5 +65,6 @@ SpriteMons:
 	dw LUGIA		;249
 	dw HO_OH		;250
 	;gen3
+	dw SURSKIT		;283
 	dw BAGON		;371
 	assert_table_length NUM_POKEMON_SPRITES
