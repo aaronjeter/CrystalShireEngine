@@ -16,6 +16,7 @@ SpriteMons:
 	dw ODDISH		;43
 	dw PARAS		;46
 	dw DIGLETT		;50
+	dw PERSIAN		;53
 	dw PSYDUCK		;54
 	dw GROWLITHE	;58
 	dw POLIWAG		;60
