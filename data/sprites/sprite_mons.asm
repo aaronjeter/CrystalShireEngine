@@ -7,6 +7,7 @@ SpriteMons:
 	dw BUTTERFREE	;12
 	dw WEEDLE		;13
 	dw PIDGEY		;16
+	dw SPEAROW		;21
 	dw EKANS		;23
 	dw PIKACHU		;25
 	dw SANDSHREW	;27
@@ -61,6 +62,7 @@ SpriteMons:
 	dw ESPEON		;196
 	dw UMBREON		;197
 	dw MURKROW		;198
+	dw MISDREAVUS	;200
 	dw UNOWN		;201
 	dw DELIBIRD     ;225
 	dw LUGIA		;249

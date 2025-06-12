@@ -4,7 +4,8 @@
 	const SPROUTTOWER1F_GRANNY
 	const SPROUTTOWER1F_TEACHER
 	const SPROUTTOWER1F_SAGE3
-	const SPROUTTOWER1F_POKE_BALL
+	const SPROUTTOWER1F_POKE_BALL	
+	const SPROUTTOWER1F_VULPIX
 
 SproutTower1F_MapScripts:
 	def_scene_scripts
@@ -100,6 +101,16 @@ SproutTower1FStatueText:
 	line "distinguished."
 	done
 
+
+
+SproutTower1F_Vulpix:
+	cry VULPIX
+	loadwildmon VULPIX, 7
+	startbattle
+	reloadmapafterbattle
+	disappear SPROUTTOWER1F_VULPIX
+	end
+
 SproutTower1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -122,4 +133,5 @@ SproutTower1F_MapEvents:
 	object_event 11, 12, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FGrannyScript, -1
 	object_event  9,  9, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FTeacherScript, -1
 	object_event  3,  5, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageChow, -1
-	object_event 16,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower1FParlyzHeal, EVENT_SPROUT_TOWER_1F_PARLYZ_HEAL
+	object_event 16,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower1FParlyzHeal, EVENT_SPROUT_TOWER_1F_PARLYZ_HEAL	
+	object_event 17,  7, SPRITE_VULPIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SproutTower1F_Vulpix, -1

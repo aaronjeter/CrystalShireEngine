@@ -6,6 +6,7 @@
 	const SPROUTTOWER3F_POKE_BALL1
 	const SPROUTTOWER3F_POKE_BALL2
 	const SPROUTTOWER3F_RIVAL
+	const SPROUTTOWER3F_MISDREAVUS
 
 SproutTower3F_MapScripts:
 	def_scene_scripts
@@ -322,6 +323,14 @@ SproutTower3FStatueText:
 	line "distinguished."
 	done
 
+SproutTower3F_Misdeavus:
+	cry MISDREAVUS
+	loadwildmon MISDREAVUS, 7
+	startbattle
+	reloadmapafterbattle
+	disappear SPROUTTOWER3F_MISDREAVUS
+	end
+
 SproutTower3F_MapEvents:
 	db 0, 0 ; filler
 
@@ -347,3 +356,4 @@ SproutTower3F_MapEvents:
 	object_event  6, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FPotion, EVENT_SPROUT_TOWER_3F_POTION
 	object_event 14,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FEscapeRope, EVENT_SPROUT_TOWER_3F_ESCAPE_ROPE
 	object_event 10,  4, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_SPROUT_TOWER
+	object_event  5,  1, SPRITE_MISDREAVUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, NITE, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTower3F_Misdeavus, -1
