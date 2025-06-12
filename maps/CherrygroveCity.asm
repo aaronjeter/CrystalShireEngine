@@ -4,6 +4,9 @@
 	const CHERRYGROVECITY_TEACHER
 	const CHERRYGROVECITY_YOUNGSTER
 	const CHERRYGROVECITY_FISHER
+	const CHERRYGROVE_HOOTHOOT1
+	const CHERRYGROVE_HOOTHOOT2
+	const CHERRYGROVE_VAPOREON
 
 CherrygroveCity_MapScripts:
 	def_scene_scripts
@@ -539,6 +542,14 @@ GuideGentsHouseSignText:
 	text "GUIDE GENT'S HOUSE"
 	done
 
+Cherrygrove_Hoothoot:
+	cry HOOTHOOT
+	end
+
+Cherrygrove_Vaporeon:
+	cry VAPOREON
+	end
+
 CherrygroveCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -554,7 +565,7 @@ CherrygroveCity_MapEvents:
 	coord_event 33,  7, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveRivalSceneSouth
 
 	def_bg_events
-	bg_event 30,  8, BGEVENT_READ, CherrygroveCitySign
+	bg_event 21,  7, BGEVENT_READ, CherrygroveCitySign
 	bg_event 23,  9, BGEVENT_READ, GuideGentsHouseSign
 	bg_event 24,  3, BGEVENT_READ, CherrygroveCityMartSign
 	bg_event 30,  3, BGEVENT_READ, CherrygroveCityPokecenterSign
@@ -565,3 +576,6 @@ CherrygroveCity_MapEvents:
 	object_event 27, 12, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
 	object_event 23,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
 	object_event  7, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
+	object_event 17, 12, SPRITE_HOOTHOOT, SPRITEMOVEDATA_STILL, 0, 0, -1, NITE, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Hoothoot, -1
+	object_event 19,  6, SPRITE_HOOTHOOT, SPRITEMOVEDATA_STILL, 0, 0, -1, NITE, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Hoothoot, -1
+	object_event 6,  12, SPRITE_VAPOREON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Vaporeon, -1

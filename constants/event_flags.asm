@@ -1053,7 +1053,9 @@
 	const EVENT_BEAT_SAGE_GAKU
 	const EVENT_BEAT_SAGE_MASA
 	const EVENT_BEAT_SAGE_KOJI
-; Unused: next 116 events
+;Discord contest trainers
+	const EVENT_BEAT_ILEX_MARINA
+; Unused: next 115 events
 
 	const_next 1600
 ; Sprite visibility flags

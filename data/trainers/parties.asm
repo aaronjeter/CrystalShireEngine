@@ -2542,6 +2542,54 @@ CooltrainerFGroup:
 	dw ALTARIA
 	db -1 ; end
 
+	next_list_item ; COOLTRAINERF (21) Ilex West (LelouchIsKing contest party #1)
+	db "MARINA@", TRAINERTYPE_NORMAL
+	db 9
+	dw ARCANINE
+	db 7
+	dw FROSLASS
+	db 7
+	dw BRELOOM
+	db 7
+	dw QUAGSIRE
+	db 7
+	dw TOGEKISS
+	db 10
+	dw ELECTRODE2
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (21) Johto Games (LelouchIsKing contest party #2)
+	db "MARINA@", TRAINERTYPE_NORMAL
+	db 10
+	dw ARCANINE
+	db 7
+	dw FROSLASS
+	db 7
+	dw BRELOOM
+	db 7
+	dw QUAGSIRE
+	db 8
+	dw TOGEKISS
+	db 12
+	dw ELECTRODE2
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (21) Unreferenced (LelouchIsKing contest party #3)
+	db "MARINA@", TRAINERTYPE_NORMAL
+	db 8
+	dw ARCANINE
+	db 8
+	dw FROSLASS
+	db 9
+	dw BRELOOM
+	db 8
+	dw QUAGSIRE
+	db 8
+	dw TOGEKISS
+	db 9
+	dw ELECTRODE2
+	db -1 ; end
+
 	end_list_items
 
 BeautyGroup:

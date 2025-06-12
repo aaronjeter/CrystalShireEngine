@@ -151,7 +151,7 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke ABSOL, 50, BRIGHTPOWDER
+	givepoke MEW, 50, BRIGHTPOWDER
 	; hm slaves
 	givepoke AGGRON, 50, LEFTOVERS
 	givepoke ALTARIA, 50, LEFTOVERS

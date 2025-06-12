@@ -7,6 +7,9 @@
 	const ROUTE29_COOLTRAINER_M2
 	const ROUTE29_TUSCANY
 	const ROUTE29_POKE_BALL
+	const ROUTE29_EEVEE
+	const ROUTE29_HOPPIP
+	const ROUTE29_SENTRET
 
 Route29_MapScripts:
 	def_scene_scripts
@@ -246,6 +249,30 @@ DudeMovementData2b:
 	step DOWN
 	step_end
 
+Route29_Eevee:
+	cry EEVEE
+	loadwildmon EEVEE, 9
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE29_EEVEE
+	end
+
+Route29_Hoppip:
+	cry HOPPIP
+	loadwildmon HOPPIP, 6
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE29_HOPPIP
+	end
+
+Route29_Sentret:
+	cry SENTRET
+	loadwildmon SENTRET, 4
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE29_SENTRET
+	end
+
 CatchingTutorialBoxFullText:
 	text "#MON hide in"
 	line "the grass. Who"
@@ -428,3 +455,7 @@ Route29_MapEvents:
 	object_event 13,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route29CooltrainerMScript, -1
 	object_event 29, 12, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TuscanyScript, EVENT_ROUTE_29_TUSCANY_OF_TUESDAY
 	object_event 48,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route29Potion, EVENT_ROUTE_29_POTION
+
+	object_event  53, 0, SPRITE_EEVEE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route29_Eevee, -1
+	object_event  36, 5, SPRITE_HOPPIP, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29_Hoppip, -1
+	object_event  11, 2, SPRITE_SENTRET, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route29_Sentret, -1
