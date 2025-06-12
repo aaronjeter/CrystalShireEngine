@@ -11,6 +11,8 @@
 	const ROUTE40_POKEFAN_M
 	const ROUTE40_LASS2
 	const ROUTE40_STANDING_YOUNGSTER
+	const ROUTE40_STARYU
+	const ROUTE40_WINGULL
 
 Route40_MapScripts:
 	def_scene_scripts
@@ -296,6 +298,22 @@ Route40SignText:
 	line "OLIVINE CITY"
 	done
 
+Route40_Staryu:
+	cry STARYU
+	loadwildmon STARYU, 3
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE40_STARYU
+	end
+
+Route40_Wingull:
+	cry WINGULL
+	loadwildmon WINGULL, 4
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE40_WINGULL
+	end
+
 Route40_MapEvents:
 	db 0, 0 ; filler
 
@@ -321,3 +339,5 @@ Route40_MapEvents:
 	object_event  7,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40PokefanMScript, -1
 	object_event 13,  4, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route40Lass2Script, -1
 	object_event 14,  8, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route40StandingYoungsterScript, EVENT_BATTLE_TOWER_OPEN_CIVILIANS
+	object_event 15, 13, SPRITE_STARYU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, NITE, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route40_Staryu, -1
+	object_event  8, 15, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route40_Wingull, -1

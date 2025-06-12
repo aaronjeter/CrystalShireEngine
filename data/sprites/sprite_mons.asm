@@ -32,6 +32,7 @@ SpriteMons:
 	dw GENGAR		;94
 	dw VOLTORB		;100
 	dw RHYDON		;112
+	dw STARYU		;120
 	dw STARMIE		;121
 	dw JYNX			;124
 	dw TAUROS		;128
@@ -68,6 +69,7 @@ SpriteMons:
 	dw LUGIA		;249
 	dw HO_OH		;250
 	;gen3
+	dw WINGULL		;278
 	dw SURSKIT		;283
 	dw BAGON		;371
 	assert_table_length NUM_POKEMON_SPRITES
