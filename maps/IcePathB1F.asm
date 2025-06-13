@@ -84,6 +84,7 @@ IcePathB1F_MapEvents:
 	warp_event 12, 13, ICE_PATH_B2F_MAHOGANY_SIDE, 6 ; hole
 	warp_event  5, 25, ICE_PATH_1F, 4
 	warp_event 11, 27, ICE_PATH_B2F_BLACKTHORN_SIDE, 1
+	warp_event  1, 35, ARTICUNO_LAIR, 1
 
 	def_coord_events
 

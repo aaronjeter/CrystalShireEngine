@@ -176,8 +176,8 @@
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; af
 	tilecoll 01, 01, 01, 01 ; b0
 	tilecoll 01, 01, 01, 01 ; b1
-	tilecoll 01, 01, 01, 01 ; b2
-	tilecoll 01, 01, 01, 01 ; b3
+	tilecoll WALL, FLOOR, WALL, FLOOR ; b2
+	tilecoll WALL, FLOOR, WALL, FLOOR ; b3
 	tilecoll 01, 01, 01, 01 ; b4
 	tilecoll 01, 01, 01, 01 ; b5
 	tilecoll 01, 01, 01, 01 ; b6

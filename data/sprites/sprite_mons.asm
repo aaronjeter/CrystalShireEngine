@@ -11,6 +11,8 @@ SpriteMons:
 	dw EKANS		;23
 	dw PIKACHU		;25
 	dw SANDSHREW	;27
+	dw SANDSLASH	;28
+	dw NIDORINO		;33
 	dw CLEFAIRY		;35
 	dw VULPIX		;37
 	dw JIGGLYPUFF	;39
@@ -27,6 +29,7 @@ SpriteMons:
 	dw BELLSPROUT	;69
 	dw TENTACOOL	;72
 	dw GEODUDE		;74
+	dw FARFETCH_D	;83
 	dw GRIMER		;88	
 	dw SHELLDER		;90	
 	dw GENGAR		;94
@@ -71,5 +74,6 @@ SpriteMons:
 	;gen3
 	dw WINGULL		;278
 	dw SURSKIT		;283
+	dw GLALIE		;362
 	dw BAGON		;371
 	assert_table_length NUM_POKEMON_SPRITES

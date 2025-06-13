@@ -542,6 +542,9 @@ IcePathB2FBlackthornSide_Blocks:
 IcePathB3F_Blocks:
 	INCBIN "maps/IcePathB3F.ablk"
 
+ArticunoLair_Blocks:
+	INCBIN "maps/ArticunoLair.ablk"
+
 WhirlIslandNW_Blocks:
 	INCBIN "maps/WhirlIslandNW.ablk"
 

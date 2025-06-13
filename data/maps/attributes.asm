@@ -695,3 +695,4 @@ ENDM
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
 	map_attributes IlexWest, ILEX_WEST, $05, 0
 	map_attributes IlexEast, ILEX_EAST, $05, 0
+	map_attributes ArticunoLair, ARTICUNO_LAIR, $19, 0
