@@ -3,6 +3,7 @@
 	const OLIVINELIGHTHOUSE6F_AMPHAROS
 	const OLIVINELIGHTHOUSE6F_POKE_BALL
 	const OLIVINELIGHTHOUSE6F_ZAPDOS
+	const OLIVINELIGHTHOUSE6F_ELECTABUZZ
 
 OlivineLighthouse6F_MapScripts:
 	def_scene_scripts
@@ -288,6 +289,14 @@ OlivineLighthouse_Zapdos:
 	disappear OLIVINELIGHTHOUSE6F_ZAPDOS
 	end
 
+OlivineLighthouse_Electabuzz:
+	cry ELECTABUZZ
+	loadwildmon ELECTABUZZ, 10
+	startbattle
+	reloadmapafterbattle
+	disappear OLIVINELIGHTHOUSE6F_ELECTABUZZ
+	end
+
 
 OlivineLighthouse6F_MapEvents:
 	db 0, 0 ; filler
@@ -306,3 +315,4 @@ OlivineLighthouse6F_MapEvents:
 	object_event  9,  8, SPRITE_AMPHAROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseAmphy, -1
 	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FSuperPotion, EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION
 	object_event  9,  2, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, OlivineLighthouse_Zapdos, -1
+	object_event  2, 13, SPRITE_ELECTABUZZ, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, OlivineLighthouse_Electabuzz, -1
