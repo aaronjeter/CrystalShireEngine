@@ -545,6 +545,9 @@ IcePathB3F_Blocks:
 ArticunoLair_Blocks:
 	INCBIN "maps/ArticunoLair.ablk"
 
+MoltresLair_Blocks:
+	INCBIN "maps/MoltresLair.ablk"
+
 WhirlIslandNW_Blocks:
 	INCBIN "maps/WhirlIslandNW.ablk"
 

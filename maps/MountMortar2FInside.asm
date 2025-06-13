@@ -70,6 +70,7 @@ MountMortar2FInside_MapEvents:
 	def_warp_events
 	warp_event 17, 33, MOUNT_MORTAR_1F_OUTSIDE, 4
 	warp_event  3,  5, MOUNT_MORTAR_1F_INSIDE, 6
+	warp_event  3, 33, MOLTRES_LAIR, 1
 
 	def_coord_events
 

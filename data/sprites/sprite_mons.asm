@@ -3,6 +3,7 @@ SpriteMons:
 	table_width 2
 	dw BULBASAUR	;01
 	dw CHARMANDER	;04
+	dw CHARIZARD	;06
 	dw SQUIRTLE		;07
 	dw BUTTERFREE	;12
 	dw WEEDLE		;13
@@ -26,6 +27,7 @@ SpriteMons:
 	dw POLIWAG		;60
 	dw ABRA			;63
 	dw MACHOP		;66
+	dw MACHOKE		;67
 	dw BELLSPROUT	;69
 	dw TENTACOOL	;72
 	dw GEODUDE		;74
@@ -38,6 +40,8 @@ SpriteMons:
 	dw STARYU		;120
 	dw STARMIE		;121
 	dw JYNX			;124
+	dw ELECTABUZZ	;125
+	dw MAGMAR		;126
 	dw TAUROS		;128
 	dw MAGIKARP		;129
 	dw GYARADOS		;130
@@ -69,11 +73,13 @@ SpriteMons:
 	dw MISDREAVUS	;200
 	dw UNOWN		;201
 	dw DELIBIRD     ;225
+	dw TYRANITAR	;248
 	dw LUGIA		;249
 	dw HO_OH		;250
 	;gen3
 	dw WINGULL		;278
 	dw SURSKIT		;283
+	dw SOLROCK		;338
 	dw GLALIE		;362
 	dw BAGON		;371
 	assert_table_length NUM_POKEMON_SPRITES

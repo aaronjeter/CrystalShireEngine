@@ -97,6 +97,8 @@ INCLUDE "maps/IlexForest.asm"
 INCLUDE "maps/IlexWest.asm"
 INCLUDE "maps/IlexEast.asm"
 INCLUDE "maps/ArticunoLair.asm"
+INCLUDE "maps/MoltresLair.asm"
+
 
 
 SECTION "Map Scripts 7", ROMX

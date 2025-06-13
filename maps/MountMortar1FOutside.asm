@@ -1,6 +1,8 @@
 	object_const_def
 	const MOUNTMORTAR1FOUTSIDE_POKE_BALL1
 	const MOUNTMORTAR1FOUTSIDE_POKE_BALL2
+	const MOUNTMORTAR1FOUTSIDE_MAGMAR
+	const MOUNTMORTAR1FOUTSIDE_MACHOKE
 
 MountMortar1FOutside_MapScripts:
 	def_scene_scripts
@@ -15,6 +17,22 @@ MountMortar1FOutsideRevive:
 
 MountMortar1FOutsideHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_MOUNT_MORTAR_1F_OUTSIDE_HIDDEN_HYPER_POTION
+
+MountMortar1FOutside_Magmar:
+	cry MAGMAR
+	loadwildmon MAGMAR, 10
+	startbattle
+	reloadmapafterbattle
+	disappear MOUNTMORTAR1FOUTSIDE_MAGMAR
+	end
+
+MountMortar1FOutside_Machoke:
+	cry MACHOKE
+	loadwildmon MACHOKE, 10
+	startbattle
+	reloadmapafterbattle
+	disappear MOUNTMORTAR1FOUTSIDE_MACHOKE
+	end
 
 MountMortar1FOutside_MapEvents:
 	db 0, 0 ; filler
@@ -38,3 +56,5 @@ MountMortar1FOutside_MapEvents:
 	def_object_events
 	object_event 13, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FOutsideEther, EVENT_MOUNT_MORTAR_1F_OUTSIDE_ETHER
 	object_event 31, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FOutsideRevive, EVENT_MOUNT_MORTAR_1F_OUTSIDE_REVIVE
+	object_event 10, 12, SPRITE_MAGMAR, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MountMortar1FOutside_Magmar, -1
+	object_event 29,  8, SPRITE_MACHOKE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, MountMortar1FOutside_Machoke, -1

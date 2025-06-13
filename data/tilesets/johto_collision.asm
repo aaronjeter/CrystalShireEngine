@@ -178,7 +178,7 @@
 	tilecoll 01, 01, 01, 01 ; b1
 	tilecoll WALL, FLOOR, WALL, FLOOR ; b2
 	tilecoll WALL, FLOOR, WALL, FLOOR ; b3
-	tilecoll 01, 01, 01, 01 ; b4
+	tilecoll WALL, FLOOR, WALL, FLOOR ; b4
 	tilecoll 01, 01, 01, 01 ; b5
 	tilecoll 01, 01, 01, 01 ; b6
 	tilecoll 01, 01, 01, 01 ; b7
