@@ -624,6 +624,7 @@ endc
 	call NamePlayer
 	call SetRegion
 	call SetLevelCap
+	call SetHardMode
 
 	ld hl, OakText7
 	jmp PrintText
@@ -778,6 +779,44 @@ SetLevelCap:
 .LevelCapOff:
 	ld a, 100
 	ld [wLevelCap], a
+	ret
+
+SetHardMode:
+	ld hl, OakTextHardMode
+	call PrintText
+	ld hl, .HardModeHeader
+	call LoadMenuHeader
+	call VerticalMenu
+	call CloseWindow	
+	ld a, [wMenuCursorY]
+	cp $1
+	jr z, .HardModeOff
+	cp $2
+	jr z, .HardModeOn
+
+.HardModeHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	dw .HardModeMenuData
+	db 1 ; default option
+
+.HardModeMenuData:
+	db STATICMENU_CURSOR ; flags
+	db 2 ; items
+	db "Hard Mode OFF@"
+	db "Hard Mode ON@"
+
+.HardModeOn:
+    ld de, EVENT_HARDMODE_ENABLED
+    ld b, SET_FLAG
+	call EventFlagAction
+	ld a, 0
+	ld [wHardMode], a
+	ret
+
+.HardModeOff:
+	ld a, 1
+	ld [wHardMode], a
 	ret
 
 NamePlayer:
