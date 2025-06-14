@@ -2,7 +2,7 @@ ContestMons:
 	;      %, species,   min, max
 	dbwbb 20, CATERPIE,    7, 18
 	dbwbb 20, WEEDLE,      7, 18
-	dbwbb 10, METAPOD,     9, 18
+	dbwbb 10, WURMPLE,     9, 18
 	dbwbb 10, SCYTHER2,    9, 18
 	dbwbb  5, BUTTERFREE, 12, 15
 	dbwbb  5, BEEDRILL,   12, 15
