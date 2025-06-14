@@ -30,7 +30,21 @@ ReadTrainerParty:
 	dec a
 	ld c, a
 	ld b, 0
+
+	ld a, [wHardMode]
+	cp 1
+	jr z, .HardModeOff
+	jp .HardModeOn
+
+	.HardModeOff
 	ld hl, TrainerGroups
+	jp .TrainerGroupsLoaded
+
+	.HardModeOn
+	ld hl, TrainerGroupsHard
+	jp .TrainerGroupsLoaded
+
+	.TrainerGroupsLoaded
 	add hl, bc
 	add hl, bc
 	add hl, bc
@@ -260,7 +274,21 @@ GetTrainerName::
 	dec c
 	push bc
 	ld b, 0
+
+	ld a, [wHardMode]
+	cp 1
+	jr z, .HardModeOff
+	jp .HardModeOn
+
+	.HardModeOff
 	ld hl, TrainerGroups
+	jp .TrainerGroupsLoaded
+
+	.HardModeOn
+	ld hl, TrainerGroupsHard
+	jp .TrainerGroupsLoaded
+
+	.TrainerGroupsLoaded
 	add hl, bc
 	add hl, bc
 	add hl, bc
@@ -320,7 +348,21 @@ SetTrainerBattleLevel:
 	dec a
 	ld c, a
 	ld b, 0
+
+	ld a, [wHardMode]
+	cp 1
+	jr z, .HardModeOff
+	jp .HardModeOn
+
+	.HardModeOff
 	ld hl, TrainerGroups
+	jp .TrainerGroupsLoaded
+
+	.HardModeOn
+	ld hl, TrainerGroupsHard
+	jp .TrainerGroupsLoaded
+
+	.TrainerGroupsLoaded
 	add hl, bc
 	add hl, bc
 	ld a, [hli]

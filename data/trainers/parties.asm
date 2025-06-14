@@ -4433,7 +4433,7 @@ HikerGroup:
 	db 6
 	dw GEODUDE
 	db 8
-	dw MACHAMP
+	dw MACHOP
 	db -1 ; end
 
 	next_list_item ; HIKER (2) Union Cave - 1F
