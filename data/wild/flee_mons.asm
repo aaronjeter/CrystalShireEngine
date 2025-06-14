@@ -5,12 +5,10 @@ SometimesFleeMons:
 	dw MAGNEMITE
 	dw GRIMER
 	dw TANGELA
-	dw MR__MIME
 	dw PORYGON
 	dw DRATINI
 	dw DRAGONAIR
 	dw TOGETIC
-	dw UMBREON
 	dw UNOWN
 	dw SNUBBULL
 	dw HERACROSS

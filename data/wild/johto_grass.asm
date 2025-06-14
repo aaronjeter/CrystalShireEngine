@@ -590,6 +590,62 @@ JohtoGrassWildMons:
 	dbw 3, NOCTOWL
 	end_grass_wildmons
 
+	def_grass_wildmons ILEX_WEST
+	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, CHIKORITA
+	dbw 1, SHUPPET
+	dbw 1, SHROOMISH
+	dbw 1, WURMPLE
+	dbw 1, ZANGOOSE
+	dbw 2, ZANGOOSE
+	dbw 3, ZANGOOSE
+	; day
+	dbw 1, CHIKORITA
+	dbw 1, SHUPPET
+	dbw 1, SHROOMISH
+	dbw 1, WURMPLE
+	dbw 1, ZANGOOSE
+	dbw 2, ZANGOOSE
+	dbw 3, ZANGOOSE
+	; nite
+	dbw 1, CHIKORITA
+	dbw 1, SHUPPET
+	dbw 1, SHROOMISH
+	dbw 1, WURMPLE
+	dbw 1, ZANGOOSE
+	dbw 2, ZANGOOSE
+	dbw 3, NOCTOWL
+	end_grass_wildmons
+
+	def_grass_wildmons ILEX_EAST
+	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, CHIKORITA
+	dbw 1, PARAS
+	dbw 1, SHROOMISH
+	dbw 1, DUSKULL
+	dbw 1, SEVIPER
+	dbw 2, SEVIPER
+	dbw 3, SEVIPER
+	; day
+	dbw 1, CHIKORITA
+	dbw 1, PARAS
+	dbw 1, SHROOMISH
+	dbw 1, DUSKULL
+	dbw 1, SEVIPER
+	dbw 2, SEVIPER
+	dbw 3, SEVIPER
+	; nite
+	dbw 1, CHIKORITA
+	dbw 1, PARAS
+	dbw 1, SHROOMISH
+	dbw 1, DUSKULL
+	dbw 1, SEVIPER
+	dbw 2, SEVIPER
+	dbw 3, NOCTOWL
+	end_grass_wildmons
+
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
