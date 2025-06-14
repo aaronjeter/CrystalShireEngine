@@ -61,6 +61,22 @@ LakeOfRageLanceScript:
 	clearevent EVENT_MAHOGANY_MART_LANCE_AND_DRAGONITE
 	setevent EVENT_DECIDED_TO_HELP_LANCE
 	setmapscene MAHOGANY_MART_1F, SCENE_MAHOGANYMART1F_LANCE_UNCOVERS_STAIRS
+
+	;Increment levels when triggering Mahogany Rockets
+	readmem wBaseLevel
+	addval 2
+	writemem wBaseLevel
+	checkevent EVENT_LEVELCAPS_ENABLED
+	iffalse .SkipLevelCaps 
+	readmem wLevelCap
+	addval 2
+	writemem wLevelCap
+.SkipLevelCaps:
+	readmem wWildLevel
+	addval 2
+	writemem wWildLevel
+	end
+
 	end
 
 .RefusedToHelp:
@@ -84,7 +100,7 @@ RedGyarados:
 	pause 15
 	cry GYARADOS
 	closetext
-	loadwildmon GYARADOS, 10
+	loadwildmon GYARADOS, 15
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCESHINY
 	startbattle
 	ifequal LOSE, .NotBeaten
