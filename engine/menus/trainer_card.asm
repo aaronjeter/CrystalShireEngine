@@ -121,6 +121,7 @@ TrainerCard_Page1_LoadGFX:
 TrainerCard_Page1_Joypad:
 	call TrainerCard_Page1_PrintGameTime
 	call TrainerCard_Page1_PrintLevelCap
+	call TrainerCard_Page1_PrintHardMode
 	ld hl, hJoyLast
 	ld a, [hl]
 	and D_RIGHT | A_BUTTON
@@ -303,7 +304,8 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 .Dex_PlayTime:
 	db   "#DEX"
 	next "PLAY TIME"
-	next "LEVEL CAP@"
+	next "LEVEL CAP"
+	next "HARD MODE@"
 
 .StatusTilemap:
 	db $29, $2a, $2b, $2c, $2d, -1
@@ -468,6 +470,34 @@ TrainerCard_Page1_PrintLevelCap:
 	lb bc, 1, 3
 	call PrintNum	
 	ret
+
+TrainerCard_Page1_PrintHardMode:
+	ld a, [wHardMode]
+	cp 1
+	jr z, .HardModeOff
+	jp .HardModeOn
+	.HardModePrinted
+	ret	
+
+.HardModeOff:
+	hlcoord 15, 16
+	ld de, .OffString
+	rst PlaceString
+	jp .HardModePrinted
+
+.HardModeOn:
+	hlcoord 15, 16
+	ld de, .OnString
+	rst PlaceString
+	jp .HardModePrinted
+
+
+.OnString:
+	db   "ON@"
+
+.OffString:
+	db	 "OFF@"
+
 
 TrainerCard_Page2_3_AnimateBadges:
 	ldh a, [hVBlankCounter]
