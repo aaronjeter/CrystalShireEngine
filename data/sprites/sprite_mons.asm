@@ -20,6 +20,7 @@ SpriteMons:
 	dw ZUBAT		;41
 	dw ODDISH		;43
 	dw PARAS		;46
+	dw VENOMOTH		;49
 	dw DIGLETT		;50
 	dw PERSIAN		;53
 	dw PSYDUCK		;54
@@ -35,10 +36,12 @@ SpriteMons:
 	dw GRIMER		;88	
 	dw SHELLDER		;90	
 	dw GENGAR		;94
+	dw HYPNO		;97
 	dw VOLTORB		;100
 	dw RHYDON		;112
 	dw STARYU		;120
 	dw STARMIE		;121
+	dw MR__MIME		;122
 	dw JYNX			;124
 	dw ELECTABUZZ	;125
 	dw MAGMAR		;126
@@ -66,6 +69,7 @@ SpriteMons:
 	dw MAREEP		;179
 	dw AMPHAROS		;181
 	dw HOPPIP		;187
+	dw SUNFLORA		;192
 	dw WOOPER		;194
 	dw ESPEON		;196
 	dw UMBREON		;197

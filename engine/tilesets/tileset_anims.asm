@@ -66,8 +66,9 @@ TilesetParkAnim::
 TilesetForestAnim::
 	dw NULL,  ForestTreeLeftAnimation
 	dw NULL,  ForestTreeRightAnimation
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  DoNothing ; WaitTileAnimation
+	dw vTiles2 tile $41, ReadTileToAnimBuffer
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw vTiles2 tile $41, WriteTileFromAnimBuffer
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  ForestTreeLeftAnimation2
 	dw NULL,  ForestTreeRightAnimation2
