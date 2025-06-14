@@ -1421,6 +1421,54 @@ YoungsterGroup:
 	dw RATICATE
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (15) Ilex West (Contest placeholder team)
+	db "RONALD@", TRAINERTYPE_NORMAL
+	db 9
+	dw GIRAFARIG
+	db 7
+	dw BALTOY
+	db 7
+	dw POLIWHIRL
+	db 3
+	dw FEEBAS
+	db 7
+	dw SKIPLOOM
+	db 10
+	dw ANINETALES
+	db -1 ; end
+
+	next_list_item ; YOUNGSTER (16) Johto Games (Contest placeholder team)
+	db "RONALD@", TRAINERTYPE_NORMAL
+	db 10
+	dw GIRAFARIG
+	db 10
+	dw CLAYDOL
+	db 10
+	dw POLIWRATH
+	db 10
+	dw MILOTIC
+	db 10
+	dw JUMPLUFF
+	db 12
+	dw ANINETALES
+	db -1 ; end
+
+	next_list_item ; YOUNGSTER (17) Unreferenced (Contest placeholder team)
+	db "RONALD@", TRAINERTYPE_NORMAL
+	db 10
+	dw GIRAFARIG
+	db 10
+	dw CLAYDOL
+	db 10
+	dw POLIWRATH
+	db 10
+	dw MILOTIC
+	db 10
+	dw JUMPLUFF
+	db 12
+	dw ANINETALES
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Enemy Trainer Parties 2", ROMX
@@ -2545,15 +2593,15 @@ CooltrainerFGroup:
 	next_list_item ; COOLTRAINERF (21) Ilex West (LelouchIsKing contest party #1)
 	db "MARINA@", TRAINERTYPE_NORMAL
 	db 9
-	dw ARCANINE
-	db 7
-	dw FROSLASS
-	db 7
+	dw GROWLITHE
+	db 9
+	dw SNORUNT
+	db 9
 	dw BRELOOM
-	db 7
+	db 9
 	dw QUAGSIRE
-	db 7
-	dw TOGEKISS
+	db 9
+	dw TOGETIC
 	db 10
 	dw ELECTRODE2
 	db -1 ; end
@@ -2562,13 +2610,13 @@ CooltrainerFGroup:
 	db "MARINA@", TRAINERTYPE_NORMAL
 	db 10
 	dw ARCANINE
-	db 7
+	db 10
 	dw FROSLASS
-	db 7
+	db 10
 	dw BRELOOM
-	db 7
+	db 10
 	dw QUAGSIRE
-	db 8
+	db 10
 	dw TOGEKISS
 	db 12
 	dw ELECTRODE2
@@ -2576,17 +2624,17 @@ CooltrainerFGroup:
 
 	next_list_item ; COOLTRAINERF (21) Unreferenced (LelouchIsKing contest party #3)
 	db "MARINA@", TRAINERTYPE_NORMAL
-	db 8
+	db 10
 	dw ARCANINE
-	db 8
+	db 10
 	dw FROSLASS
-	db 9
+	db 10
 	dw BRELOOM
-	db 8
+	db 10
 	dw QUAGSIRE
-	db 8
+	db 10
 	dw TOGEKISS
-	db 9
+	db 12
 	dw ELECTRODE2
 	db -1 ; end
 

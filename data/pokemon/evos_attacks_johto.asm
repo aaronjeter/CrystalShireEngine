@@ -1055,6 +1055,7 @@ HoppipEvosAttacks:
 
 SkiploomEvosAttacks:
 	dbbw EVOLVE_LEVEL, 32, JUMPLUFF
+	db 0 ; no more evolutions
 	dbw 1, SPLASH
 	dbw 1, LEECH_SEED
 	dbw 8, BULLET_SEED

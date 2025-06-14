@@ -1061,6 +1061,7 @@
 	const EVENT_BEAT_SAGE_KOJI
 ;Discord contest trainers
 	const EVENT_BEAT_ILEX_MARINA
+	const EVENT_BEAT_ILEX_RONALD
 ; Unused: next 115 events
 
 	const_next 1600

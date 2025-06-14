@@ -159,6 +159,9 @@ DEF KRIS EQU __trainer_class__
 	const JASON
 	const JOEY4
 	const JOEY5
+	const RONALD1
+	const RONALD2
+	const RONALD3
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
