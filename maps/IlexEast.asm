@@ -50,16 +50,28 @@ IlexEastWaterShrineScript:
 	writetext IlexEastTakeEggText
 	yesorno
 	iftrue .TakeEgg
+	closetext
+	end
+
+.TakeEgg
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
 	giveegg CELEBI, EGG_LEVEL
 	setevent EVENT_GOT_CELEBI_EGG
 	closetext
 	end
 
-.TakeEgg
-	giveegg CELEBI, EGG_LEVEL
-	setevent EVENT_GOT_CELEBI_EGG
+.PartyFull:
+	writetext IlexEastPartyFullText
+	waitbutton
 	closetext
 	end
+
+IlexEastPartyFullText:
+	text "Your party is"
+	line "full. You leave"
+	cont "the egg."
+	done
 
 IlexEastWaterShrineEmptyText:
 	text "The shrine is"
