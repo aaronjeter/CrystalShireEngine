@@ -314,6 +314,19 @@ RadioTowerRocketsScript:
 	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_EAST
 	specialphonecall SPECIALCALL_WEIRDBROADCAST
 	setmapscene MAHOGANY_TOWN, SCENE_MAHOGANYTOWN_NOOP
+	;Increment levels when triggering Rockets
+	readmem wBaseLevel
+	addval 2
+	writemem wBaseLevel
+	checkevent EVENT_LEVELCAPS_ENABLED
+	iffalse .SkipLevelCaps 
+	readmem wLevelCap
+	addval 2
+	writemem wLevelCap
+.SkipLevelCaps:
+	readmem wWildLevel
+	addval 2
+	writemem wWildLevel
 	end
 
 BugContestResultsWarpScript:
