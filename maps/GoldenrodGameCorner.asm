@@ -1,3 +1,5 @@
+DEF GOLDENRODGAMECORNER_RARECANDY_COINS EQU 500
+DEF GOLDENRODGAMECORNER_PPUP_COINS      EQU 500
 DEF GOLDENRODGAMECORNER_TM25_COINS      EQU 2000
 DEF GOLDENRODGAMECORNER_TM14_COINS      EQU 2000
 DEF GOLDENRODGAMECORNER_TM38_COINS      EQU 2000
@@ -77,10 +79,35 @@ GoldenrodGameCornerTMVendor_LoopScript:
 	loadmenu GoldenrodGameCornerTMVendorMenuHeader
 	verticalmenu
 	closewindow
-	ifequal 1, .Thunder
-	ifequal 2, .Blizzard
-	ifequal 3, .FireBlast
+	ifequal 1, .RareCandy
+	ifequal 2, .PpUp
+	ifequal 3, .Thunder
+	ifequal 4, .Blizzard
+	ifequal 5, .FireBlast
 	sjump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+
+
+.RareCandy:
+	checkcoins GOLDENRODGAMECORNER_RARECANDY_COINS
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	getitemname STRING_BUFFER_3, RARE_CANDY
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem RARE_CANDY
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins GOLDENRODGAMECORNER_RARECANDY_COINS
+	sjump GoldenrodGameCornerTMVendor_FinishScript
+
+.PpUp:
+	checkcoins GOLDENRODGAMECORNER_PPUP_COINS
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	getitemname STRING_BUFFER_3, PP_UP
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem PP_UP
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins GOLDENRODGAMECORNER_PPUP_COINS
+	sjump GoldenrodGameCornerTMVendor_FinishScript
 
 .Thunder:
 	checkcoins GOLDENRODGAMECORNER_TM25_COINS
@@ -153,13 +180,15 @@ GoldenrodGameCornerPrizeVendor_NoCoinCaseScript:
 
 GoldenrodGameCornerTMVendorMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	menu_coords 0, 0, 17, TEXTBOX_Y - 1
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 4 ; items
+	db 5 ; items
+	db "RARECNDY 500@"
+	db "PP UP    500@"
 	db "TM25    2000@"
 	db "TM14    2000@"
 	db "TM38    2000@"
