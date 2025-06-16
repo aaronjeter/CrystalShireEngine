@@ -2,6 +2,7 @@
 	const SILVERCAVEROOM2_POKE_BALL1
 	const SILVERCAVEROOM2_POKE_BALL2
 	const SILVERCAVEROOM2_POKE_BALL3
+	const SILVERCAVEROOM2_MEWTWO
 
 SilverCaveRoom2_MapScripts:
 	def_scene_scripts
@@ -20,6 +21,27 @@ SilverCaveRoom2PPUp:
 SilverCaveRoom2HiddenMaxPotion:
 	hiddenitem MAX_POTION, EVENT_SILVER_CAVE_ROOM_2_HIDDEN_MAX_POTION
 
+SilverCaveRoom2MewtwoText:
+	text "You feel a"
+	line "voice echo in"
+	cont "your mind."
+
+	para "A worthy"
+	line "challenge!"
+	done
+
+SilverCaveRoom2_Mewtwo:
+	cry MEWTWO
+	opentext
+	writetext SilverCaveRoom2MewtwoText
+	waitbutton
+	closetext
+	loadwildmon MEWTWO, 14
+	startbattle
+	reloadmapafterbattle
+	disappear SILVERCAVEROOM2_MEWTWO
+	end
+
 SilverCaveRoom2_MapEvents:
 	db 0, 0 ; filler
 
@@ -35,6 +57,7 @@ SilverCaveRoom2_MapEvents:
 	bg_event 14, 31, BGEVENT_ITEM, SilverCaveRoom2HiddenMaxPotion
 
 	def_object_events
-	object_event 24, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2Calcium, EVENT_SILVER_CAVE_ROOM_2_CALCIUM
+	object_event 19,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2Calcium, EVENT_SILVER_CAVE_ROOM_2_CALCIUM
 	object_event 22, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2UltraBall, EVENT_SILVER_CAVE_ROOM_2_ULTRA_BALL
 	object_event  4, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2PPUp, EVENT_SILVER_CAVE_ROOM_2_PP_UP
+	object_event 23, 10, SPRITE_MEWTWO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, SilverCaveRoom2_Mewtwo , -1

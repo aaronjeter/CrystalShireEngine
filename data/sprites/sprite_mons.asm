@@ -57,6 +57,8 @@ SpriteMons:
 	dw ARTICUNO		;144
 	dw ZAPDOS       ;145
 	dw MOLTRES		;146
+	dw MEWTWO		;150
+	dw MEW			;151
 	;gen2
 	dw CHIKORITA	;152
 	dw CYNDAQUIL	;155
@@ -81,6 +83,9 @@ SpriteMons:
 	dw LUGIA		;249
 	dw HO_OH		;250
 	;gen3
+	dw TREECKO		;252
+	dw TORCHIC		;255
+	dw MUDKIP		;258
 	dw WINGULL		;278
 	dw SURSKIT		;283
 	dw SOLROCK		;338

@@ -9,7 +9,7 @@
 
 SECTION "Enemy Trainer Parties 1", ROMX
 
-FalknerGroup:
+FalknerGroup: ;Gym Leader
 	next_list_item ; FALKNER (1)
 	db "FALKNER@", TRAINERTYPE_MOVES
 	db 6
@@ -50,7 +50,7 @@ FalknerGroup:
 	dw NO_ITEM
 	dw PSYCHIC_M, CONFUSE_RAY, RAZOR_WIND, MUD_SLAP
 	db 10
-	dw GLIGAR
+	dw GLISCOR
 	dw NO_ITEM
 	dw FISSURE, MUD_SLAP, SLASH, PURSUIT
 	db 10
@@ -69,7 +69,7 @@ FalknerGroup:
 
 	end_list_items
 
-WhitneyGroup:
+WhitneyGroup: ;Gym Leader
 	next_list_item ; WHITNEY (1)
 	db "WHITNEY@", TRAINERTYPE_MOVES
 	db 9
@@ -129,7 +129,7 @@ WhitneyGroup:
 
 	end_list_items
 
-BugsyGroup:
+BugsyGroup: ;Gym Leader
 	next_list_item ; BUGSY (1)
 	db "BUGSY@", TRAINERTYPE_MOVES
 	db 10
@@ -185,7 +185,7 @@ BugsyGroup:
 
 	end_list_items
 
-MortyGroup:
+MortyGroup: ;Gym Leader
 	next_list_item ; MORTY (1)
 	db "MORTY@", TRAINERTYPE_MOVES
 	db 9
@@ -237,7 +237,7 @@ MortyGroup:
 	dw THICK_CLUB
 	dw EARTHQUAKE, HEADBUTT, SHADOW_BALL, MUD_SHOT	
 	db 10
-	dw STANTLER
+	dw WYRDEER
 	dw NO_ITEM
 	dw HYPNOSIS, BODY_SLAM, SHADOW_BALL, DREAM_EATER	
 	db 10
@@ -248,7 +248,7 @@ MortyGroup:
 
 	end_list_items
 
-PryceGroup:
+PryceGroup: ;Gym Leader
 	next_list_item ; PRYCE (1)
 	db "PRYCE@", TRAINERTYPE_MOVES
 	db 11
@@ -285,7 +285,7 @@ PryceGroup:
 	dw FOCUS_BAND
 	dw BLIZZARD, RAZOR_WIND, ICY_WIND, SPIKES
 	db 12
-	dw DEWGONG
+	dw WALREIN
 	dw LEFTOVERS
 	dw SURF, ICY_WIND, ICE_BEAM, REST	
 	db 10
@@ -293,11 +293,11 @@ PryceGroup:
 	dw FOCUS_BAND
 	dw ICY_WIND, PSYCHIC_M, ICE_BEAM, LOVELY_KISS
 	db 10
-	dw SNEASEL
+	dw WEAVILE
 	dw FOCUS_BAND
 	dw ICE_PUNCH, SLASH, MACH_PUNCH, PURSUIT
 	db 10
-	dw PILOSWINE2
+	dw MAMOSWINE
 	dw QUICK_CLAW
 	dw EARTHQUAKE, BLIZZARD, BULK_UP, BODY_SLAM
 	db 10
@@ -308,7 +308,7 @@ PryceGroup:
 
 	end_list_items
 
-JasmineGroup:
+JasmineGroup: ;Gym Leader
 	next_list_item ; JASMINE (1)
 	db "JASMINE@", TRAINERTYPE_MOVES
 	db 10
@@ -368,7 +368,7 @@ JasmineGroup:
 
 	end_list_items
 
-ChuckGroup:
+ChuckGroup: ;Gym Leader
 	next_list_item ; CHUCK (1)
 	db "CHUCK@", TRAINERTYPE_MOVES
 	db 11
@@ -428,7 +428,7 @@ ChuckGroup:
 
 	end_list_items
 
-ClairGroup:
+ClairGroup: ;Gym Leader
 	next_list_item ; CLAIR (1)
 	db "CLAIR@", TRAINERTYPE_MOVES
 	db 10
@@ -464,15 +464,15 @@ ClairGroup:
 	dw GYARADOS
 	dw DRAGON_FANG
 	dw DRAGONBREATH, WATERFALL, WHIRLPOOL, RAIN_DANCE
-	db 10
+	db 12
 	dw OCTILLERY2
 	dw DRAGON_FANG
 	dw OCTAZOOKA, SURF, ICE_BEAM, DRAGONBREATH
-	db 10
+	db 12
 	dw LAPRAS
 	dw DRAGON_FANG
 	dw BLIZZARD, SURF, THUNDER, RAIN_DANCE
-	db 10
+	db 12
 	dw SWAMPERT
 	dw QUICK_CLAW
 	dw MUDDY_WATER, STRENGTH, EARTHQUAKE, MUD_SHOT 
@@ -663,7 +663,7 @@ Rival1Group:
 
 PokemonProfGroup:
 
-WillGroup:
+WillGroup:	;Elite 4
 	next_list_item ; WILL (1)
 	db "WILL@", TRAINERTYPE_MOVES
 	db 11
@@ -771,7 +771,7 @@ PKMNTrainerGroup:
 
 	end_list_items
 
-BrunoGroup:
+BrunoGroup: ;Elite 4
 	next_list_item ; BRUNO (1)
 	db "BRUNO@", TRAINERTYPE_MOVES
 	db 11
@@ -840,7 +840,7 @@ BrunoGroup:
 
 	end_list_items
 
-KarenGroup:
+KarenGroup: ;Elite 4
 	next_list_item ; KAREN (1)
 	db "KAREN@", TRAINERTYPE_MOVES
 	db 11
@@ -909,7 +909,7 @@ KarenGroup:
 
 	end_list_items
 
-KogaGroup:
+KogaGroup: ;Elite 4
 	next_list_item ; KOGA (1)
 	db "KOGA@", TRAINERTYPE_MOVES
 	db 11
@@ -978,7 +978,7 @@ KogaGroup:
 
 	end_list_items
 
-ChampionGroup:
+ChampionGroup: ;Elite 4
 	next_list_item ; CHAMPION (1)
 	db "LANCE@", TRAINERTYPE_MOVES
 	db 13
@@ -1047,7 +1047,7 @@ ChampionGroup:
 
 	end_list_items
 
-BrockGroup:
+BrockGroup: ;Gym Leader
 	next_list_item ; BROCK (1)
 	db "BROCK@", TRAINERTYPE_MOVES
 	db 7
@@ -1083,6 +1083,9 @@ BrockGroup:
 	next_list_item ; BROCK (3)
 	db "BROCK@", TRAINERTYPE_MOVES
 	db 10
+	dw RELICANTH
+	dw ROCK_TOMB, HYDRO_PUMP, REST, SANDSTORM
+	db 10
 	dw LUNATONE
 	dw ROCK_TOMB, COSMIC_POWER, PSYCHIC_M, SANDSTORM
 	db 10
@@ -1100,7 +1103,7 @@ BrockGroup:
 
 	end_list_items
 
-MistyGroup:
+MistyGroup: ;Gym Leader
 	next_list_item ; MISTY (1)
 	db "MISTY@", TRAINERTYPE_MOVES
 	db 7
@@ -1150,6 +1153,9 @@ MistyGroup:
 	db 10
 	dw GOLDUCK
 	dw BUBBLEBEAM, SLASH, CALM_MIND, PSYBEAM
+	db 10
+	dw MILOTIC
+	dw HYDRO_PUMP, BLIZZARD, CALM_MIND, REST
 	db 11
 	dw STARMIE
 	dw BUBBLEBEAM, PSYCHIC_M, RECOVER, CALM_MIND
@@ -1157,7 +1163,7 @@ MistyGroup:
 
 	end_list_items
 
-LtSurgeGroup:
+LtSurgeGroup: ;Gym Leader
 	next_list_item ; LT_SURGE (1)
 	db "LT.SURGE@", TRAINERTYPE_MOVES
 	db 7
@@ -1195,21 +1201,21 @@ LtSurgeGroup:
 	
 	next_list_item ; LT_SURGE (3)
 	db "LT.SURGE@", TRAINERTYPE_MOVES
-	db 8
+	db 12
 	dw LANTURN
 	dw WATER_PULSE, THUNDERBOLT, ICE_BEAM, THUNDER_WAVE
-	db 8
+	db 10
 	dw RAICHU
 	dw DIG, SURF, VOLT_TACKLE, SWIFT	
-	db 8
+	db 10
 	dw MANECTRIC
 	dw VOLT_TACKLE, METAL_CLAW, PURSUIT, THUNDER_WAVE
-	db 8
+	db 10
 	dw JOLTEON
 	dw THUNDERBOLT, PIN_MISSILE, PURSUIT, THUNDER_WAVE
-	db 10
+	db 12
 	dw ELECTIVIRE
-	dw REFLECT, THUNDERPUNCH, DIZZY_PUNCH, THUNDERBOLT
+	dw VOLT_TACKLE, THUNDERPUNCH, DIZZY_PUNCH, THUNDERBOLT
 	db -1 ; end
 
 	end_list_items
@@ -1258,7 +1264,7 @@ ScientistGroup:
 
 	end_list_items
 
-ErikaGroup:
+ErikaGroup: ;Gym Leader
 	next_list_item ; ERIKA (1)
 	db "ERIKA@", TRAINERTYPE_MOVES
 	db 8
@@ -1293,19 +1299,22 @@ ErikaGroup:
 	
 	next_list_item ; ERIKA (3)
 	db "ERIKA@", TRAINERTYPE_MOVES
-	db 8
+	db 10
 	dw ROSELIA
 	dw STUN_SPORE, REFLECT, MEGA_DRAIN, SLEEP_POWDER
-	db 8
+	db 12
 	dw JUMPLUFF
 	dw MEGA_DRAIN, LEECH_SEED, COTTON_SPORE, GIGA_DRAIN
-	db 8
+	db 10
 	dw VICTREEBEL
 	dw SUNNY_DAY, SOLARBEAM, SLUDGE_BOMB, RAZOR_LEAF
-	db 8
+	db 10
 	dw LUDICOLO
 	dw SUNNY_DAY, SOLARBEAM, GIGA_DRAIN, SURF
-	db 10
+	db 12
+	dw TROPIUS
+	dw SUNNY_DAY, SYNTHESIS, PETAL_DANCE, SKY_ATTACK
+	db 12
 	dw BELLOSSOM
 	dw SUNNY_DAY, SYNTHESIS, PETAL_DANCE, SOLARBEAM
 	db -1 ; end
@@ -2070,7 +2079,7 @@ LassGroup:
 
 	end_list_items
 
-JanineGroup:
+JanineGroup: ;Gym Leader
 	next_list_item ; JANINE (1)
 	db "JANINE@", TRAINERTYPE_MOVES
 	db 7
@@ -3243,7 +3252,7 @@ TeacherGroup:
 
 	end_list_items
 
-SabrinaGroup:
+SabrinaGroup: ;Gym Leader
 	next_list_item ; SABRINA (1)
 	db "SABRINA@", TRAINERTYPE_MOVES
 	db 7
@@ -4725,7 +4734,7 @@ BikerGroup:
 
 	end_list_items
 
-BlaineGroup:
+BlaineGroup: ;Gym Leader
 	next_list_item ; BLAINE (1)
 	db "BLAINE@", TRAINERTYPE_MOVES
 	db 7
@@ -6257,7 +6266,7 @@ RedGroup:
 
 	end_list_items
 
-BlueGroup:
+BlueGroup: ;Gym Leader
 	next_list_item ; BLUE (1)
 	db "BLUE@", TRAINERTYPE_MOVES
 	db 12
