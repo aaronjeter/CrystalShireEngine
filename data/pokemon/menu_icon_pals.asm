@@ -424,9 +424,9 @@ MonMenuIconPals:
 	icon_pals TEAL,   PURPLE ; ASANDSLASH
 	icon_pals TEAL,   PURPLE ; AVULPIX
 	icon_pals TEAL,   PURPLE ; ANINETALES
-	icon_pals RED,    PURPLE ; AGEODUDE
-	icon_pals RED,    PURPLE ; AGRAVELER
-	icon_pals RED,    PURPLE ; AGOLEM
+	icon_pals GRAY,   BROWN  ; AGEODUDE
+	icon_pals GRAY,   BROWN  ; AGRAVELER
+	icon_pals GRAY,   BROWN  ; AGOLEM
 	icon_pals RED,    PURPLE ; HVOLTORB
 	icon_pals RED,    PURPLE ; HELECTRODE
 	icon_pals RED,    PURPLE ; IRONBUNDLE

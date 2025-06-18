@@ -5383,8 +5383,8 @@ AgeodudeEvosAttacks:
 	dbw 10, ROCK_THROW
 	dbw 16, ROLLOUT
 	dbw 21, SELFDESTRUCT
-	dbw 24, ROCK_TOMB
-	dbw 28, MAGNITUDE
+	dbw 24, THUNDERPUNCH
+	dbw 28, ROCK_TOMB	
 	dbw 32, ROCK_SLIDE
 	dbw 36, EARTHQUAKE
 	dbw 40, SANDSTORM
@@ -5392,19 +5392,19 @@ AgeodudeEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, AGILITY
-	dbw 60, FISSURE
+	dbw 60, VOLT_TACKLE
 	db 0 ; no more level-up moves
 
 AgravelerEvosAttacks:
-	dbbw EVOLVE_LEVEL, 40, GOLEM
+	dbbw EVOLVE_LEVEL, 40, AGOLEM
 	db 0 ; no more evolutions
 	dbw 1, SAND_ATTACK
 	dbw 6, DEFENSE_CURL
 	dbw 10, ROCK_THROW
 	dbw 16, ROLLOUT
 	dbw 21, SELFDESTRUCT
-	dbw 24, ROCK_TOMB
-	dbw 28, MAGNITUDE
+	dbw 24, THUNDERPUNCH
+	dbw 28, ROCK_TOMB	
 	dbw 32, ROCK_SLIDE
 	dbw 36, EARTHQUAKE
 	dbw 40, SANDSTORM
@@ -5412,7 +5412,7 @@ AgravelerEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, AGILITY
-	dbw 60, FISSURE
+	dbw 60, VOLT_TACKLE
 	db 0 ; no more level-up moves
 
 AgolemEvosAttacks:
@@ -5422,8 +5422,8 @@ AgolemEvosAttacks:
 	dbw 10, ROCK_THROW
 	dbw 16, ROLLOUT
 	dbw 21, SELFDESTRUCT
-	dbw 24, ROCK_TOMB
-	dbw 28, MAGNITUDE
+	dbw 24, THUNDERPUNCH
+	dbw 28, ROCK_TOMB	
 	dbw 32, ROCK_SLIDE
 	dbw 36, EARTHQUAKE
 	dbw 40, SANDSTORM
@@ -5431,7 +5431,7 @@ AgolemEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, AGILITY
-	dbw 60, FISSURE
+	dbw 60, VOLT_TACKLE
 	db 0 ; no more level-up moves
 
 HvoltorbEvosAttacks:

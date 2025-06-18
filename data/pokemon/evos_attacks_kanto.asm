@@ -1583,6 +1583,7 @@ TentacruelEvosAttacks:
 
 GeodudeEvosAttacks:
 	dbbw EVOLVE_LEVEL, 25, GRAVELER
+	dbww EVOLVE_ITEM, THUNDERSTONE, AGEODUDE
 	db 0 ; no more evolutions
 	dbw 1, SAND_ATTACK
 	dbw 6, DEFENSE_CURL
@@ -1603,6 +1604,7 @@ GeodudeEvosAttacks:
 
 GravelerEvosAttacks:
 	dbbw EVOLVE_LEVEL, 40, GOLEM
+	dbww EVOLVE_ITEM, THUNDERSTONE, AGRAVELER
 	db 0 ; no more evolutions
 	dbw 1, SAND_ATTACK
 	dbw 6, DEFENSE_CURL
@@ -1622,6 +1624,7 @@ GravelerEvosAttacks:
 	db 0 ; no more level-up moves
 
 GolemEvosAttacks:
+	dbww EVOLVE_ITEM, THUNDERSTONE, AGOLEM
 	db 0 ; no more evolutions
 	dbw 1, SAND_ATTACK
 	dbw 6, DEFENSE_CURL
