@@ -2106,6 +2106,7 @@ KinglerEvosAttacks:
 
 VoltorbEvosAttacks:
 	dbbw EVOLVE_LEVEL, 30, ELECTRODE
+	dbww EVOLVE_ITEM, LEAF_STONE, HVOLTORB
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, THUNDER_WAVE
@@ -2127,6 +2128,7 @@ VoltorbEvosAttacks:
 	db 0 ; no more level-up moves
 
 ElectrodeEvosAttacks:
+	dbww EVOLVE_ITEM, LEAF_STONE, HELECTRODE
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, THUNDER_WAVE
