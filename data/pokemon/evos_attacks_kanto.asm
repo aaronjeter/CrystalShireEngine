@@ -2583,6 +2583,7 @@ MrMimeEvosAttacks:
 
 ScytherEvosAttacks:
 	dbww EVOLVE_ITEM, METAL_COAT, SCIZOR
+	dbww EVOLVE_ITEM, SUN_STONE, KLEAVOR
 	db 0 ; no more evolutions
 	dbw 1, QUICK_ATTACK
 	dbw 1, STRING_SHOT
