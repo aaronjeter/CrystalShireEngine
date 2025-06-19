@@ -5424,7 +5424,7 @@ AninetalesEvosAttacks:
 AgeodudeEvosAttacks:
 	dbbw EVOLVE_LEVEL, 25, AGRAVELER
 	db 0 ; no more evolutions
-	dbw 1, SAND_ATTACK
+	dbw 1, THUNDERSHOCK
 	dbw 6, DEFENSE_CURL
 	dbw 10, ROCK_THROW
 	dbw 16, ROLLOUT
@@ -5444,7 +5444,7 @@ AgeodudeEvosAttacks:
 AgravelerEvosAttacks:
 	dbbw EVOLVE_LEVEL, 40, AGOLEM
 	db 0 ; no more evolutions
-	dbw 1, SAND_ATTACK
+	dbw 1, THUNDERSHOCK
 	dbw 6, DEFENSE_CURL
 	dbw 10, ROCK_THROW
 	dbw 16, ROLLOUT
@@ -5463,7 +5463,7 @@ AgravelerEvosAttacks:
 
 AgolemEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, SAND_ATTACK
+	dbw 1, THUNDERSHOCK
 	dbw 6, DEFENSE_CURL
 	dbw 10, ROCK_THROW
 	dbw 16, ROLLOUT
