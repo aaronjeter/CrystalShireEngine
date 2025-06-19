@@ -5530,16 +5530,18 @@ IronbundleEvosAttacks:
 	dbw 7, GUST
 	dbw 11, SPIKES
 	dbw 16, AURORA_BEAM
-	dbw 20, WING_ATTACK
+	dbw 20, BUBBLEBEAM
 	dbw 24, ICY_WIND
 	dbw 28, RAZOR_WIND
-	dbw 32, ICICLE_CRASH
-	dbw 36, SKY_ATTACK
+	dbw 32, ICE_BEAM
+	dbw 36, SURF
 	dbw 40, BLIZZARD
 	dbw 42, REFLECT
 	dbw 45, LIGHT_SCREEN
-	dbw 48, BELLY_DRUM
+	dbw 48, CALM_MIND
 	dbw 50, BATON_PASS
+	dbw 55, HYDRO_PUMP
+	dbw 60, FLASHCANNON
 	db 0 ; no more level-up moves
 
 Voltorb2EvosAttacks:
