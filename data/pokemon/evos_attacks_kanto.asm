@@ -2400,6 +2400,7 @@ ChanseyEvosAttacks:
 	db 0 ; no more level-up moves
 
 TangelaEvosAttacks:
+	dbbw EVOLVE_LEVEL, 40, TANGROWTH
 	db 0 ; no more evolutions
 	dbw 1, WRAP
 	dbw 4, SLEEP_POWDER

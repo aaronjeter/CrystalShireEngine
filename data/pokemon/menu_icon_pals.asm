@@ -408,7 +408,7 @@ MonMenuIconPals:
 	icon_pals BLUE,   PURPLE ; HONCHKROW
 	icon_pals RED,    PURPLE ; WEAVILE
 	icon_pals GRAY,   GRAY   ; MAGNEZONE
-	icon_pals GREEN,  PURPLE ; TANGROWTH
+	icon_pals BLUE,   GREEN  ; TANGROWTH
 	icon_pals BROWN,  GRAY   ; ELECTIVIRE
 	icon_pals RED,    PURPLE ; MAGMORTAR
 	icon_pals BROWN,  GREEN  ; WYRDEER
