@@ -181,11 +181,11 @@
 	tilecoll WALL, FLOOR, WALL, FLOOR ; b4
 	tilecoll 01, 01, 01, 01 ; b5
 	tilecoll 01, 01, 01, 01 ; b6
-	tilecoll 01, 01, 01, 01 ; b7
-	tilecoll 01, 01, 01, 01 ; b8
-	tilecoll 01, 01, 01, 01 ; b9
+	tilecoll WALL, FLOOR, WALL, FLOOR ; b7
+	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; b8
+	tilecoll HOP_DOWN, FLOOR, WALL, FLOOR ; b9
 	tilecoll 01, 01, 01, 01 ; ba
-	tilecoll 01, 01, 01, 01 ; bb
+	tilecoll HOP_DOWN, FLOOR, WALL, FLOOR ; bb
 	tilecoll 01, 01, 01, 01 ; bc
 	tilecoll 01, 01, 01, 01 ; bd
 	tilecoll 01, 01, 01, 01 ; be
