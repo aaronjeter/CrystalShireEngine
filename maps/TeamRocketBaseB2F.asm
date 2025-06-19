@@ -240,7 +240,7 @@ RocketElectrode1:
 
 RocketElectrode2:
 	cry ELECTRODE
-	loadwildmon ELECTRODE, 10
+	loadwildmon ELECTRODE2, 10
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
 	disappear TEAMROCKETBASEB2F_ELECTRODE2
@@ -258,7 +258,7 @@ RocketElectrode2:
 
 RocketElectrode3:
 	cry ELECTRODE
-	loadwildmon ELECTRODE, 10
+	loadwildmon HELECTRODE, 10
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
 	disappear TEAMROCKETBASEB2F_ELECTRODE3
