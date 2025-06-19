@@ -4832,45 +4832,56 @@ LatiosEvosAttacks:
 
 KyogreEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 5, SCARY_FACE
-	dbw 15, ANCIENTPOWER
-	dbw 20, BODY_SLAM
-	dbw 30, CALM_MIND
-	dbw 35, ICE_BEAM
-	dbw 45, HYDRO_PUMP
-	dbw 50, REST
-	dbw 65, DOUBLE_EDGE
-	dbw 75, WATER_SPOUT
+	dbw 1, WATER_GUN
+	dbw 7, SCARY_FACE
+	dbw 16, WATER_PULSE
+	dbw 20, ICY_WIND
+	dbw 24, SLAM
+	dbw 28, RAIN_DANCE
+	dbw 32, BODY_SLAM
+	dbw 36, ICE_BEAM
+	dbw 40, SURF
+	dbw 42, CALM_MIND
+	dbw 45, EARTHQUAKE
+	dbw 50, HYDRO_PUMP
+	dbw 55, BLIZZARD
+	dbw 60, WATER_SPOUT
 	db 0 ; no more level-up moves
 
 GroudonEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, MUD_SHOT
-	dbw 5, SCARY_FACE
-	dbw 15, ANCIENTPOWER
-	dbw 20, SLASH
-	dbw 30, BULK_UP
-	dbw 35, EARTHQUAKE
-	dbw 45, FIRE_BLAST
-	dbw 50, REST
-	dbw 60, FISSURE
-	dbw 65, SOLARBEAM
-	dbw 75, ERUPTION
+	dbw 1, SAND_ATTACK
+	dbw 7, SCARY_FACE
+	dbw 16, MUD_SHOT
+	dbw 20, ANCIENTPOWER
+	dbw 24, SLAM
+	dbw 28, SUNNY_DAY
+	dbw 32, BODY_SLAM
+	dbw 36, EARTHQUAKE
+	dbw 40, FLAME_WHEEL
+	dbw 42, BULK_UP
+	dbw 45, RECOVER
+	dbw 50, FIRE_BLAST
+	dbw 55, FISSURE
+	dbw 60, ERUPTION
 	db 0 ; no more level-up moves
 
 RayquazaEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TWISTER
-	dbw 5, SCARY_FACE
-	dbw 15, ANCIENTPOWER
-	dbw 20, DRAGON_CLAW
-	dbw 30, DRAGON_DANCE
-	dbw 35, CRUNCH
-	dbw 45, FLY
-	dbw 50, REST
-	dbw 60, EXTREMESPEED
-	dbw 65, OUTRAGE
-	dbw 75, HYPER_BEAM
+	dbw 7, SCARY_FACE
+	dbw 16, WING_ATTACK
+	dbw 20, ANCIENTPOWER
+	dbw 24, SLAM
+	dbw 28, SUNNY_DAY
+	dbw 32, HYPER_VOICE
+	dbw 36, DRAGON_CLAW
+	dbw 40, CRUNCH
+	dbw 42, DRAGON_DANCE
+	dbw 45, RECOVER
+	dbw 50, SKY_ATTACK
+	dbw 55, EARTHQUAKE
+	dbw 60, OUTRAGE
 	db 0 ; no more level-up moves
 
 JirachiEvosAttacks:
