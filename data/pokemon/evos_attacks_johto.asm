@@ -4741,59 +4741,93 @@ MetagrossEvosAttacks:
 RegirockEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, EXPLOSION
-	dbw 9, ROCK_THROW
-	dbw 17, CURSE
-	dbw 33, ANCIENTPOWER
-	dbw 49, ZAP_CANNON
-	dbw 57, LOCK_ON
-	dbw 65, HYPER_BEAM
+	dbw 1, ROCK_THROW
+	dbw 7, CURSE
+	dbw 16, ROCK_TOMB
+	dbw 20, STOMP
+	dbw 24, ANCIENTPOWER
+	dbw 28, SANDSTORM
+	dbw 32, RECOVER
+	dbw 36, ROCK_SLIDE
+	dbw 40, METEOR_MASH
+	dbw 42, COSMIC_POWER
+	dbw 45, SUPERPOWER
+	dbw 50, ZAP_CANNON
+	dbw 55, LOCK_ON
+	dbw 60, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 RegiceEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, EXPLOSION
-	dbw 9, ICY_WIND
-	dbw 17, CURSE
-	dbw 33, ANCIENTPOWER
-	dbw 41, AMNESIA
-	dbw 49, ZAP_CANNON
-	dbw 57, LOCK_ON
-	dbw 65, HYPER_BEAM
+	dbw 1, POWDER_SNOW
+	dbw 7, CURSE
+	dbw 16, ICY_WIND
+	dbw 20, STOMP
+	dbw 24, ANCIENTPOWER
+	dbw 28, SANDSTORM
+	dbw 32, RECOVER
+	dbw 36, ICE_BEAM
+	dbw 40, METEOR_MASH
+	dbw 42, COSMIC_POWER
+	dbw 45, SUPERPOWER
+	dbw 50, BLIZZARD
+	dbw 55, LOCK_ON
+	dbw 60, FLASHCANNON
 	db 0 ; no more level-up moves
 
 RegisteelEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, EXPLOSION
-	dbw 9, METAL_CLAW
-	dbw 17, CURSE
-	dbw 33, ANCIENTPOWER
-	dbw 41, AMNESIA
-	dbw 49, ZAP_CANNON
-	dbw 57, LOCK_ON
-	dbw 65, HYPER_BEAM
+	dbw 1, METAL_CLAW
+	dbw 7, CURSE
+	dbw 16, ROCK_TOMB
+	dbw 20, STOMP
+	dbw 24, ANCIENTPOWER
+	dbw 28, SANDSTORM
+	dbw 32, RECOVER
+	dbw 36, ROCK_SLIDE
+	dbw 40, METEOR_MASH
+	dbw 42, COSMIC_POWER
+	dbw 45, SUPERPOWER
+	dbw 50, ZAP_CANNON
+	dbw 55, LOCK_ON
+	dbw 60, FLASHCANNON
 	db 0 ; no more level-up moves
 
 LatiasEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, PSYWAVE
-	dbw 15, SAFEGUARD
-	dbw 20, DRAGONBREATH
-	dbw 35, MIST_BALL
-	dbw 40, PSYCHIC_M
-	dbw 45, RECOVER
-	dbw 50, CHARM
-	db 0 ; no more level-up moves
+	dbw 1, CONFUSION
+	dbw 7, SAFEGUARD
+	dbw 16, PSYWAVE
+	dbw 20, TWISTER
+	dbw 24, CHARM
+	dbw 28, PSYBEAM
+	dbw 32, MIST_BALL
+	dbw 36, PSYCHIC_M
+	dbw 40, DRAGONBREATH
+	dbw 42, CALM_MIND
+	dbw 45, SILVER_WIND
+	dbw 50, RAZOR_WIND
+	dbw 55, FUTURE_SIGHT
+	dbw 60, LUSTER_PURGE
 
 LatiosEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, PSYWAVE
-	dbw 15, SAFEGUARD
-	dbw 20, DRAGONBREATH
-	dbw 25, PROTECT
-	dbw 35, LUSTER_PURGE
-	dbw 40, PSYCHIC_M
-	dbw 45, RECOVER
-	dbw 50, DRAGON_DANCE
+	dbw 1, CONFUSION
+	dbw 7, SAFEGUARD
+	dbw 16, PSYWAVE
+	dbw 20, TWISTER
+	dbw 24, CHARM
+	dbw 28, PSYBEAM
+	dbw 32, MIST_BALL
+	dbw 36, PSYCHIC_M
+	dbw 40, DRAGONBREATH
+	dbw 42, CALM_MIND
+	dbw 45, SILVER_WIND
+	dbw 50, RAZOR_WIND
+	dbw 55, FUTURE_SIGHT
+	dbw 60, LUSTER_PURGE
 	db 0 ; no more level-up moves
 
 KyogreEvosAttacks:
