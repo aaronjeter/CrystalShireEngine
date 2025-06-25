@@ -5296,18 +5296,19 @@ AgrimerEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, ACID
 	dbw 1, HARDEN
-	dbw 10, DISABLE
-	dbw 16, MINIMIZE
-	dbw 20, SLAM
-	dbw 24, SLUDGE
+	dbw 7, BITE
+	dbw 12, STUN_SPORE
+	dbw 16, CURSE
+	dbw 20, POISON_FANG
+	dbw 24, FAINT_ATTACK
 	dbw 28, MAGNITUDE	
-	dbw 30, ACID_ARMOR
-	dbw 32, AMNESIA
+	dbw 30, RECOVER
+	dbw 32, COSMIC_POWER
 	dbw 36, SLUDGE_BOMB
 	dbw 40, PURSUIT
 	dbw 42, REST
 	dbw 45, EARTHQUAKE
-	dbw 50, CURSE
+	dbw 50, SUBSTITUTE
 	dbw 55, CRUSH_CLAW
 	dbw 60, BULK_UP
 	db 0 ; no more level-up moves
@@ -5316,18 +5317,19 @@ AmukEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, ACID
 	dbw 1, HARDEN
-	dbw 10, DISABLE
-	dbw 16, MINIMIZE
-	dbw 20, SLAM
-	dbw 24, SLUDGE
+	dbw 7, BITE
+	dbw 12, STUN_SPORE
+	dbw 16, CURSE
+	dbw 20, POISON_FANG
+	dbw 24, FAINT_ATTACK
 	dbw 28, MAGNITUDE	
-	dbw 30, ACID_ARMOR
-	dbw 32, AMNESIA
+	dbw 30, RECOVER
+	dbw 32, COSMIC_POWER
 	dbw 36, SLUDGE_BOMB
 	dbw 40, PURSUIT
 	dbw 42, REST
 	dbw 45, EARTHQUAKE
-	dbw 50, CURSE
+	dbw 50, SUBSTITUTE
 	dbw 55, CRUSH_CLAW
 	dbw 60, BULK_UP
 	db 0 ; no more level-up moves
