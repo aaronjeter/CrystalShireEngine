@@ -59,6 +59,8 @@ if DEF(_DEBUG)
 	setflag ENGINE_POKEDEX
 	; useful items
 	giveitem RARE_CANDY, 99
+	giveitem PROTEIN, 99
+	giveitem CARBOS, 99
 	giveitem MAX_REPEL, 99
 	giveitem MASTER_BALL, 99
 	giveitem BICYCLE
@@ -123,6 +125,13 @@ if DEF(_DEBUG)
 	setevent EVENT_BEAT_BLAINE
 	setevent EVENT_BEAT_BLUE
 	setevent EVENT_BEAT_ELITE_FOUR
+
+	setevent EVENT_DEFEATED_CELEBI_GUARDIAN_MR_MIME
+	setevent EVENT_DEFEATED_CELEBI_GUARDIAN_SUNFLORA
+	setevent EVENT_DEFEATED_CELEBI_GUARDIAN_HYPNO
+	setevent EVENT_DEFEATED_CELEBI_GUARDIAN_VENOMOTH
+
+
 	; fly anywhere
 	setflag ENGINE_FLYPOINT_NEW_BARK
 	setflag ENGINE_FLYPOINT_CHERRYGROVE
@@ -153,8 +162,8 @@ if DEF(_DEBUG)
 	; good party
 	givepoke MEW, 50, BRIGHTPOWDER
 	; hm slaves
-	givepoke AGGRON, 50, LEFTOVERS
-	givepoke ALTARIA, 50, LEFTOVERS
+	givepoke VOLTORB, 50, LEFTOVERS
+	givepoke ELECTRODE, 50, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove STRENGTH,   wPartyMon2, 2
@@ -164,9 +173,9 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke BELLSPROUT, 50
-	;givepoke JIRACHI, 50
-	;givepoke JIRACHI, 50
+	;givepoke IRONBUNDLE, 50
+	;givepoke IRONBUNDLE, 50
+	;givepoke IRONBUNDLE, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

@@ -556,7 +556,7 @@ GoldenrodCity_MapEvents:
 	bg_event 26, 27, BGEVENT_READ, GoldenrodDeptStoreSign
 	bg_event 26,  9, BGEVENT_READ, GoldenrodGymSign
 	bg_event 22, 18, BGEVENT_READ, GoldenrodCitySign
-	bg_event 28, 30, BGEVENT_READ, GoldenrodCityBikeShopSign
+	bg_event 30, 30, BGEVENT_READ, GoldenrodCityBikeShopSign
 	bg_event 16, 22, BGEVENT_READ, GoldenrodCityGameCornerSign
 	bg_event 12,  6, BGEVENT_READ, GoldenrodCityNameRaterSign
 	bg_event  8,  6, BGEVENT_READ, GoldenrodCityUndergroundSignNorth

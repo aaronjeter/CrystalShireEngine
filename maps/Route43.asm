@@ -512,7 +512,7 @@ Route43_MapEvents:
 
 	def_bg_events
 	bg_event 13,  3, BGEVENT_READ, Route43Sign1
-	bg_event 11, 49, BGEVENT_READ, Route43Sign2
+	bg_event 12, 48, BGEVENT_READ, Route43Sign2
 	bg_event 16, 38, BGEVENT_READ, Route43TrainerTips
 
 	def_object_events

@@ -38,15 +38,19 @@ _AnimateTileset::
 Tileset0Anim::
 TilesetJohtoModernAnim::
 TilesetKantoAnim::
-	dw vTiles2 tile $14, AnimateWaterTile
+TilesetHoennAnim::
+	dw vTiles2 tile $14, ReadTileToAnimBuffer
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw vTiles2 tile $14, WriteTileFromAnimBuffer
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  AnimateWaterPalette
+	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  DoNothing ; WaitTileAnimation
+	dw vTiles2 tile $60, ReadTileToAnimBuffer
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw vTiles2 tile $60, WriteTileFromAnimBuffer
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
@@ -79,10 +83,13 @@ TilesetForestAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetJohtoAnim::
-	dw vTiles2 tile $14, AnimateWaterTile
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  AnimateWaterPalette
+	dw vTiles2 tile $14, ReadTileToAnimBuffer
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw vTiles2 tile $14, WriteTileFromAnimBuffer
+	dw vTiles2 tile $60, ReadTileToAnimBuffer
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw vTiles2 tile $60, WriteTileFromAnimBuffer
+	dw NULL,  DoNothing		;AnimateWaterPalette
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
@@ -125,7 +132,6 @@ TilesetDarkCaveAnim::
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw vTiles2 tile $14, WriteTileFromAnimBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
-	dw NULL,  AnimateWaterPalette
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw vTiles2 tile $40, ReadTileToAnimBuffer
 	dw NULL,  FlickeringCaveEntrancePalette

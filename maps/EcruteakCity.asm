@@ -263,7 +263,7 @@ EcruteakCity_MapEvents:
 	bg_event 38, 10, BGEVENT_READ, TinTowerSign
 	bg_event  3, 27, BGEVENT_READ, EcruteakGymSign
 	bg_event 21, 21, BGEVENT_READ, EcruteakDanceTheaterSign
-	bg_event  3, 11, BGEVENT_READ, BurnedTowerSign
+	bg_event  2, 10, BGEVENT_READ, BurnedTowerSign
 	bg_event 24, 27, BGEVENT_READ, EcruteakCityPokecenterSign
 	bg_event 30, 21, BGEVENT_READ, EcruteakCityMartSign
 	bg_event 23, 14, BGEVENT_ITEM, EcruteakCityHiddenHyperPotion

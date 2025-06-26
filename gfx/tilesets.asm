@@ -638,3 +638,24 @@ INCBIN "data/tilesets/omanyte_word_room_attributes.bin.lz"
 
 TilesetAerodactylWordRoomAttr::
 INCBIN "data/tilesets/aerodactyl_word_room_attributes.bin.lz"
+
+
+SECTION "Tileset Data 12", ROMX
+
+TilesetHoennvTiles2GFX::
+INCBIN "gfx/tilesets/hoenn.2bpp.vtiles2.lz"
+
+TilesetHoennvTiles5GFX::
+INCBIN "gfx/tilesets/hoenn.2bpp.vtiles5.lz"
+
+TilesetHoennvTiles4GFX::
+INCBIN "gfx/tilesets/hoenn.2bpp.vtiles4.lz"
+
+TilesetHoennMeta::
+INCBIN "data/tilesets/hoenn_metatiles.bin.lz"
+
+TilesetHoennColl::
+INCLUDE "data/tilesets/hoenn_collision.asm"
+
+TilesetHoennAttr::
+INCBIN "data/tilesets/hoenn_attributes.bin.lz"
