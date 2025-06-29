@@ -877,7 +877,7 @@ MareepEvosAttacks:
 	dbw 24, SHOCK_WAVE
 	dbw 26, LIGHT_SCREEN
 	dbw 30, REFLECT
-	dbw 26, THUNDERBOLT
+	dbw 32, THUNDERBOLT
 	dbw 36, FLASHCANNON
 	dbw 40, RAIN_DANCE
 	dbw 42, THUNDER
@@ -899,7 +899,7 @@ FlaaffyEvosAttacks:
 	dbw 24, SHOCK_WAVE
 	dbw 26, LIGHT_SCREEN
 	dbw 30, REFLECT
-	dbw 26, THUNDERBOLT
+	dbw 32, THUNDERBOLT
 	dbw 36, FLASHCANNON
 	dbw 40, RAIN_DANCE
 	dbw 42, THUNDER
@@ -920,7 +920,7 @@ AmpharosEvosAttacks:
 	dbw 24, SHOCK_WAVE
 	dbw 26, LIGHT_SCREEN
 	dbw 30, REFLECT
-	dbw 26, THUNDERBOLT
+	dbw 32, THUNDERBOLT
 	dbw 36, FLASHCANNON
 	dbw 40, RAIN_DANCE
 	dbw 42, THUNDER
@@ -4528,8 +4528,8 @@ WalreinEvosAttacks:
 	db 0 ; no more level-up moves
 
 ClamperlEvosAttacks:
-	; dbww EVOLVE_TRADE, DEEP_SEA_TOOTH, HUNTAIL
-	; dbww EVOLVE_TRADE, DEEP_SEA_SCALE, GOREBYSS
+	dbww EVOLVE_ITEM, DRAGON_FANG, HUNTAIL
+	dbww EVOLVE_ITEM, DRAGON_SCALE, GOREBYSS
 	db 0 ; no more evolutions
 	dbw 1, CLAMP
 	dbw 1, WATER_GUN
