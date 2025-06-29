@@ -101,12 +101,14 @@ TilesetJohtoAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetPortAnim::
-	dw vTiles2 tile $14, AnimateWaterTile
+	dw vTiles2 tile $14, ReadTileToAnimBuffer
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw vTiles2 tile $14, WriteTileFromAnimBuffer
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  AnimateWaterPalette
+	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
