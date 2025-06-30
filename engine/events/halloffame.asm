@@ -22,7 +22,7 @@ HallOfFame::
 .ok
 	farcall SaveGameData
 	call GetHallOfFameParty
-	farcall AddHallOfFameEntry
+	;farcall AddHallOfFameEntry
 
 	xor a
 	ld [wGameLogicPaused], a

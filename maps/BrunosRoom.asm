@@ -48,8 +48,22 @@ BrunoScript_Battle:
 	writetext BrunoScript_BrunoBeforeText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 15, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext BrunoScript_BrunoBeatenText, 0
+	loadtrainer BRUNO, BRUNO2
+	sjump .Fight
+
+.Easy
 	winlosstext BrunoScript_BrunoBeatenText, 0
 	loadtrainer BRUNO, BRUNO1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_BRUNO

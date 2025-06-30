@@ -90,7 +90,6 @@ DEF KRIS EQU __trainer_class__
 	trainerclass WILL ; b
 	const WILL1
 	const WILL2
-	const WILL3
 
 	trainerclass CAL ; c
 	const CAL1 ; unused
@@ -100,22 +99,18 @@ DEF KRIS EQU __trainer_class__
 	trainerclass BRUNO ; d
 	const BRUNO1
 	const BRUNO2
-	const BRUNO3
 
 	trainerclass KAREN ; e
 	const KAREN1
 	const KAREN2
-	const KAREN3
 
 	trainerclass KOGA ; f
 	const KOGA1
 	const KOGA2
-	const KOGA3
 
 	trainerclass CHAMPION ; 10
 	const LANCE
 	const LANCE2
-	const LANCE3
 
 	trainerclass BROCK ; 11
 	const BROCK1

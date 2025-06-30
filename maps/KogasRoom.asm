@@ -48,8 +48,22 @@ KogaScript_Battle:
 	writetext KogaScript_KogaBeforeText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 15, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext KogaScript_KogaBeatenText, 0
+	loadtrainer KOGA, KOGA2
+	sjump .Fight
+
+.Easy
 	winlosstext KogaScript_KogaBeatenText, 0
 	loadtrainer KOGA, KOGA1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KOGA

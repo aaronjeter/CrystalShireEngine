@@ -48,8 +48,22 @@ WillScript_Battle:
 	writetext WillScript_WillBeforeText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 15, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext WillScript_WillBeatenText, 0
+	loadtrainer WILL, WILL2
+	sjump .Fight
+
+.Easy
 	winlosstext WillScript_WillBeatenText, 0
 	loadtrainer WILL, WILL1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_WILL

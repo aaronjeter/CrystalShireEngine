@@ -55,9 +55,24 @@ LancesRoomLanceScript:
 	writetext LanceBattleIntroText
 	waitbutton
 	closetext
+
+	readvar VAR_BADGES
+	ifgreater 15, .Hard
+	sjump .Easy
+
+.Hard
+	winlosstext LanceBattleWinText, 0
+	setlasttalked LANCESROOM_LANCE
+	loadtrainer CHAMPION, LANCE2
+	sjump .Fight
+
+.Easy
 	winlosstext LanceBattleWinText, 0
 	setlasttalked LANCESROOM_LANCE
 	loadtrainer CHAMPION, LANCE
+	sjump .Fight
+
+.Fight	
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
