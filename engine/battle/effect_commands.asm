@@ -1545,7 +1545,12 @@ BattleCommand_DamageVariation:
 	ld [hl], a
 	ret
 
+INCLUDE "data/pokemon/levitate_mons.asm"
+
 BattleCommand_CheckHit:
+	call .Levitate
+	jr z, .Miss
+
 	call .DreamEater
 	jr z, .Miss
 
@@ -1617,6 +1622,34 @@ BattleCommand_CheckHit:
 	ld a, 1
 	ld [wAttackMissed], a
 	ret
+
+.Levitate:
+; Return z if we're trying to hit a Levitate mon with a ground move	
+
+	;First, check if we're using a ground move
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	and TYPE_MASK
+	cp GROUND
+	ret nz	
+
+	;Then, we check if the target is in levitate_mons
+	ld a, [wTempEnemyMonSpecies]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, LevitateMons
+	call IsInWordArray
+	jr c, .Levitating
+	
+	or 1
+	ret 
+
+.Levitating:
+	ld hl, LevitateText
+	jmp StdBattleTextbox
+	ret	
 
 .DreamEater:
 ; Return z if we're trying to eat the dream of
@@ -2079,8 +2112,6 @@ BattleCommand_FailureText:
 	jr z, .multihit
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .multihit
-	cp EFFECT_BEAT_UP
-	jmp nz, EndMoveEffect
 ; fallthrough
 .multihit
 	call BattleCommand_RaiseSub
@@ -2405,8 +2436,6 @@ BattleCommand_CheckFaint:
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_TRIPLE_KICK
 	jr z, .multiple_hit_raise_sub
-	cp EFFECT_BEAT_UP
-	jr nz, EndMoveEffect
 
 .multiple_hit_raise_sub
 	call BattleCommand_RaiseSub
@@ -2886,8 +2915,6 @@ EnemyAttackDamage:
 	ld a, 1
 	and a
 	ret
-
-INCLUDE "engine/battle/move_effects/beat_up.asm"
 
 BattleCommand_ClearMissDamage:
 	ld a, [wAttackMissed]
@@ -3569,8 +3596,6 @@ DoSubstituteDamage:
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .ok
 	cp EFFECT_TRIPLE_KICK
-	jr z, .ok
-	cp EFFECT_BEAT_UP
 	jr z, .ok
 	xor a
 	ld [hl], a
@@ -5238,8 +5263,6 @@ BattleCommand_EndLoop:
 	ld a, 1
 	jr z, .double_hit
 	ld a, [hl]
-	cp EFFECT_BEAT_UP
-	jr z, .beat_up
 	cp EFFECT_TRIPLE_KICK
 	jr nz, .not_triple_kick
 .reject_triple_kick_sample
@@ -5251,32 +5274,6 @@ BattleCommand_EndLoop:
 	ld a, 1
 	ld [bc], a
 	jr .done_loop
-
-.beat_up
-	ldh a, [hBattleTurn]
-	and a
-	jr nz, .check_ot_beat_up
-	ld a, [wPartyCount]
-	cp 1
-	jr z, .only_one_beatup
-	dec a
-	jr .double_hit
-
-.check_ot_beat_up
-	ld a, [wBattleMode]
-	cp WILD_BATTLE
-	jr z, .only_one_beatup
-	ld a, [wOTPartyCount]
-	cp 1
-	jr z, .only_one_beatup
-	dec a
-	jr .double_hit
-
-.only_one_beatup
-	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
-	res SUBSTATUS_IN_LOOP, [hl]
-	ret
 
 .not_triple_kick
 	call BattleRandom
@@ -5312,15 +5309,7 @@ BattleCommand_EndLoop:
 	and a
 	jr z, .got_hit_n_times_text
 	ld hl, EnemyHitTimesText
-.got_hit_n_times_text
-
-	push bc
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_BEAT_UP
-	call nz, StdBattleTextbox
-
-	pop bc
+.got_hit_n_times_text	
 	xor a
 	ld [bc], a
 	ret

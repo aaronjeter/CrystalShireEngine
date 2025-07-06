@@ -1088,3 +1088,8 @@ BattleText_LinkErrorBattleCanceled:
 	para "The battle has"
 	line "been canceled…"
 	prompt
+
+LevitateText:
+	text "<TARGET> "
+	line "is floating!"
+	prompt

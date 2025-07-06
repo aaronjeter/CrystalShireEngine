@@ -114,8 +114,7 @@ ROMX $1e
 ROMX $1f
 	"Map Scripts 10"
 ROMX $20
-	"bank20"
-	"Enemy Trainer Parties 2"	
+	"bank20"	
 ROMX $21
 	"bank21"
 ROMX $22
@@ -317,7 +316,7 @@ ROMX $7b
 	"Battle Tower Text"
 ROMX $7c
 	"Battle Tower Trainer Data"
-ROMX $7d
+ROMX $7d	
 	"Hard Trainer Parties 2"
 ROMX $7e
 	"Crystal Events"

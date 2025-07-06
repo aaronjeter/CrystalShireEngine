@@ -279,7 +279,7 @@ MovesGen2:
 	move EFFECT_FUTURE_SIGHT,      200, PSYCHIC_TYPE,   SPECIAL,		100, 15,   0      ;FUTURE_SIGHT
 	move EFFECT_DEFENSE_DOWN_HIT,   55, FIGHTING,       PHYSICAL,		100, 15, 100      ;ROCK_SMASH
 	move EFFECT_TRAP_TARGET,        75, WATER,          SPECIAL,		100, 15,   0      ;WHIRLPOOL
-	move EFFECT_BEAT_UP,            10, DARK,           PHYSICAL,		100, 10,   0      ;BEAT_UP
+	move EFFECT_FLINCH_HIT,        110, DARK,           PHYSICAL,		 90, 10,  10      ;BEAT_UP
 	move EFFECT_BURN,                0, FIRE,           STATUS,			100, 15,   0      ;WILLOWISP
 	move EFFECT_ACCURACY_DOWN_HIT,  35, FAIRY,          SPECIAL,		100, 25,  25      ;PIXIE_DUST
 	move EFFECT_FLINCH_HIT,         65, FAIRY,          SPECIAL,		100, 20,  20      ;FAE_VOICE

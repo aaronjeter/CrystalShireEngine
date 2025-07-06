@@ -1,0 +1,21 @@
+LevitateMons::
+	dw MAGNEMITE
+	dw MAGNETON
+	dw GASTLY
+	dw HAUNTER
+	dw GENGAR
+	dw KOFFING
+	dw WEEZING
+	dw MISDREAVUS
+	dw UNOWN
+	dw VIBRAVA
+	dw FLYGON
+	dw LUNATONE
+	dw SOLROCK
+	dw BALTOY
+	dw CLAYDOL
+	dw DUSKULL
+	dw DUSCLOPS
+	dw CHIMECHO
+	dw MAGNEZONE
+	dw -1
