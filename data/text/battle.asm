@@ -1093,3 +1093,8 @@ LevitateText:
 	text "<TARGET> "
 	line "is floating!"
 	prompt
+
+WaterproofText:
+	text "<TARGET> "
+	line "is Waterproof!"
+	prompt

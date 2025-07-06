@@ -19,3 +19,14 @@ LevitateMons::
 	dw CHIMECHO
 	dw MAGNEZONE
 	dw -1
+
+WaterproofMons::
+	dw WOOPER
+	dw QUAGSIRE
+	dw SLUGMA
+	dw MAGCARGO
+	dw NUMEL
+	dw CAMERUPT
+	dw BARBOACH
+	dw WHISCASH
+	dw -1

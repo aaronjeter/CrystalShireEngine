@@ -1551,6 +1551,9 @@ BattleCommand_CheckHit:
 	call .Levitate
 	jr z, .Miss
 
+	call .Waterproof
+	jr z, .Miss
+
 	call .DreamEater
 	jr z, .Miss
 
@@ -1634,7 +1637,8 @@ BattleCommand_CheckHit:
 	ret nz	
 
 	;Then, we check if the target is in levitate_mons
-	ld a, [wTempEnemyMonSpecies]
+
+	call GetTargetSpecies
 	call GetPokemonIndexFromID
 	ld b, h
 	ld c, l
@@ -1648,6 +1652,35 @@ BattleCommand_CheckHit:
 
 .Levitating:
 	ld hl, LevitateText
+	jmp StdBattleTextbox
+	ret
+	
+
+.Waterproof:
+; Return z if we're trying to hit a Waterproof mon with a water move	
+
+	;First, check if we're using a water move
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	and TYPE_MASK
+	cp WATER
+	ret nz	
+
+	;Then, we check if the target is in WaterproofMons
+	call GetTargetSpecies
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, WaterproofMons
+	call IsInWordArray
+	jr c, .IsWaterproof
+	
+	or 1
+	ret 
+
+.IsWaterproof:
+	ld hl, WaterproofText
 	jmp StdBattleTextbox
 	ret	
 
@@ -6875,4 +6908,15 @@ CheckMoveInList:
 	call IsInWordArray
 	pop de
 	pop bc
+	ret
+
+GetTargetSpecies:
+	;Loads the species of the Pokemon being attacked
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [hl]
+	ret nz 
+	ld a, [wTempEnemyMonSpecies]
 	ret
