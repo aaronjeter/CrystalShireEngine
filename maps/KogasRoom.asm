@@ -77,6 +77,7 @@ KogaScript_Battle:
 	closetext
 	setevent EVENT_KOGAS_ROOM_EXIT_OPEN
 	waitsfx
+	special HealParty
 	end
 
 KogaScript_AfterBattle:

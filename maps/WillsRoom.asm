@@ -77,6 +77,7 @@ WillScript_Battle:
 	closetext
 	setevent EVENT_WILLS_ROOM_EXIT_OPEN
 	waitsfx
+	special HealParty
 	end
 
 WillScript_AfterBattle:

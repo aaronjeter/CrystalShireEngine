@@ -77,6 +77,7 @@ KarenScript_Battle:
 	closetext
 	setevent EVENT_KARENS_ROOM_EXIT_OPEN
 	waitsfx
+	special HealParty
 	end
 
 KarenScript_AfterBattle:

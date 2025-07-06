@@ -77,6 +77,7 @@ BrunoScript_Battle:
 	closetext
 	setevent EVENT_BRUNOS_ROOM_EXIT_OPEN
 	waitsfx
+	special HealParty
 	end
 
 BrunoScript_AfterBattle:
