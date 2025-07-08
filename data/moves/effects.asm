@@ -2196,3 +2196,9 @@ Charge:
 	statupfailtext
 	endmove
 
+Hail:
+	checkobedience
+	usedmovetext
+	doturn
+	starthail
+	endmove

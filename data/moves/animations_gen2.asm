@@ -90,7 +90,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_FaeVoice
 	dw BattleAnim_Uproar		;Outrage
 	dw BattleAnim_HeatWave		;Sacred Fire
-	dw BattleAnim_Hail			;Rain Dance
+	dw BattleAnim_Hail			;Hail
 	dw BattleAnim_FocusPunch	;MachPunch
 	dw BattleAnim_NaturePower	;Hidden Power
 	dw BattleAnim_Charge		;Calm Mind (copy of focus energy)
@@ -1482,7 +1482,6 @@ BattleAnim_Twister:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Hail:
 BattleAnim_RainDance:
 	anim_1gfx BATTLE_ANIM_GFX_WATER
 	anim_bgp $f8
@@ -2295,4 +2294,19 @@ BattleAnim_FlashCannon:
 	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $38
 	anim_wait 32
+	anim_ret
+
+BattleAnim_Hail:
+	anim_1gfx BATTLE_ANIM_GFX_ICE
+	anim_bgeffect BATTLE_BG_EFFECT_WHITE_HUES, $0, $8, $0
+	anim_obj ANIM_OBJ_HAIL, 88, 0, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_HAIL, 72, 0, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_HAIL, 56, 0, $2
+.loop
+	anim_sound 0, 1, SFX_SHINE
+	anim_wait 8
+	anim_loop 8, .loop
+	anim_wait 8
 	anim_ret

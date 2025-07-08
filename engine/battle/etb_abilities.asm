@@ -8,7 +8,7 @@ Check_Etb_Ability:
 
 	call .SandStream
 
-	;call .SnowWarning
+	call .SnowWarning
 
 	ret
 
@@ -83,6 +83,31 @@ Check_Etb_Ability:
     ld a, 255 
     ld [wWeatherCount], a
     ld hl, SandStreamText
+    call StdBattleTextbox
+	;call HandleWeather
+	ret	
+
+.SnowWarning:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, SnowWarningMons
+	call IsInWordArray
+	jr c, .HasSnowWarning
+	ret
+
+.HasSnowWarning:
+	;next, check if it's already hailing
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	ret z	
+
+	ld a, WEATHER_HAIL
+    ld [wBattleWeather], a
+    ld a, 255 
+    ld [wWeatherCount], a
+    ld hl, SnowWarningText
     call StdBattleTextbox
 	;call HandleWeather
 	ret	

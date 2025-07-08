@@ -81,7 +81,7 @@ MovesGen1:
 	move EFFECT_NORMAL_HIT,        115, WATER,          SPECIAL,		 90, 10,   0      ;HYDRO_PUMP
 	move EFFECT_SPEED_UP_HIT,       85, WATER,          SPECIAL,		100, 15,  25      ;SURF
 	move EFFECT_FREEZE_HIT,         90, ICE,            SPECIAL,		100, 10,   5      ;ICE_BEAM
-	move EFFECT_FREEZE_HIT,        110, ICE,            SPECIAL,		 90, 10,  10      ;BLIZZARD
+	move EFFECT_BLIZZARD,          120, ICE,            SPECIAL,		 80, 10,  50      ;BLIZZARD
 	move EFFECT_CONFUSE_HIT,        65, PSYCHIC_TYPE,   SPECIAL,		100, 20,  10      ;PSYBEAM
 	move EFFECT_SPEED_DOWN_HIT,     60, WATER,          SPECIAL,		100, 20,  50      ;BUBBLEBEAM
 	move EFFECT_ATTACK_DOWN_HIT,    60, ICE,            SPECIAL,		100, 20,  50      ;AURORA_BEAM
@@ -285,7 +285,7 @@ MovesGen2:
 	move EFFECT_FLINCH_HIT,         65, FAIRY,          SPECIAL,		100, 20,  20      ;FAE_VOICE
 	move EFFECT_RAMPAGE,           100, NORMAL,         SPECIAL,		100, 10,   0      ;UPROAR
 	move EFFECT_BURN_HIT,          100, FIRE,           SPECIAL,		 90, 10,  10      ;HEAT_WAVE
-	move EFFECT_RAIN_DANCE,          0, ICE,            STATUS,			100, 10,   0      ;HAIL EFFECT_HAIL
+	move EFFECT_HAIL,		         0, ICE,            STATUS,			100, 10,   0      ;HAIL 
 	move EFFECT_FLINCH_HIT,         85, FIGHTING,       SPECIAL,		100, 20,  10      ;FOCUS_PUNCH 
 	move EFFECT_NORMAL_HIT,         90, GRASS,		    PHYSICAL,		100, 20,   0      ;NATURE_POWER 
 	move EFFECT_CHARGE,              0, ELECTRIC,       STATUS,	    	100, 20,   0      ;CHARGE 
