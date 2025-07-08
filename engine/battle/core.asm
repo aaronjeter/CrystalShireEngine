@@ -54,9 +54,9 @@ DoBattle:
 	call SafeLoadTempTilemapToTilemap
 	ld a, [wBattleType]
 	cp BATTLETYPE_DEBUG
-	jr z, .tutorial_debug
+	jp z, .tutorial_debug
 	cp BATTLETYPE_TUTORIAL
-	jr z, .tutorial_debug
+	jp z, .tutorial_debug
 	xor a
 	ld [wCurPartyMon], a
 .loop2
@@ -94,6 +94,11 @@ DoBattle:
 	call LoadTilemapToTempTilemap
 	call SetPlayerTurn
 	call SpikesDamage
+
+	ld a, [wTempEnemyMonSpecies]
+	ld [wTempAbilityMon], a
+	call Check_Etb_Ability
+
 	ld a, [wLinkMode]
 	and a
 	jr z, BattleTurn
@@ -2197,6 +2202,11 @@ EnemyPartyMonEntrance:
 	call ResetBattleParticipants
 	call SetEnemyTurn
 	call SpikesDamage
+
+	ld a, [wTempEnemyMonSpecies]
+	ld [wTempAbilityMon], a
+	call Check_Etb_Ability
+
 	xor a
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
 	ld [wBattlePlayerAction], a
@@ -3830,7 +3840,9 @@ SendOutPlayerMon:
 	ld a, $f0
 	ld [wCryTracks], a
 	ld a, [wCurPartySpecies]
-	call PlayStereoCry
+	ld [wTempAbilityMon], a
+	call PlayStereoCry	
+	call Check_Etb_Ability
 
 .statused
 	call UpdatePlayerHUD
@@ -3920,7 +3932,7 @@ PursuitSwitch:
 	call GetMoveEffect
 	ld a, b
 	cp EFFECT_PURSUIT
-	jr nz, .done
+	jp nz, .done
 
 	ld a, [wCurBattleMon]
 	push af
@@ -5782,13 +5794,13 @@ LoadEnemyMon:
 
 ; Failing that, it's all up to chance
 ;  Effective chances:
-;    75% None
-;    23% Item1
-;     2% Item2
+;    50% None
+;    37.5% Item1
+;    12.5% Item2
 
-; 25% chance of getting an item
+; 50% chance of getting an item
 	call BattleRandom
-	cp 75 percent + 1
+	cp 50 percent + 1
 	ld b, NO_ITEM
 	jr c, .UpdateItem
 
@@ -5798,7 +5810,7 @@ LoadEnemyMon:
 	call GetItemIDFromHL
 	ld b, a
 	call BattleRandom
-	cp 8 percent ; 8% of 25% = 2% Item2
+	cp 25 percent ; 25% of 50% = 12.5% Item2
 	jr nc, .UpdateItem
 ; item 2
 	ld hl, wBaseItem2
@@ -8774,3 +8786,6 @@ GetWeatherImage:
 	db $88, $14 ; y/x - bottom left
 	db $80, $1c ; y/x - top right
 	db $80, $14 ; y/x - top left
+
+
+include "engine/battle/etb_abilities.asm"

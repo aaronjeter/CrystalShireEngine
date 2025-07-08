@@ -2951,7 +2951,10 @@ wKenjiBreakTimer:: ds 2 ; Kenji
 wYanmaMapGroup:: db
 wYanmaMapNumber:: db
 wPlayerMonSelection:: ds 3
-	ds 2
+
+wTempAbilityMon::  db
+
+	ds 1
 
 wStepCount:: db
 wPoisonStepCount:: db

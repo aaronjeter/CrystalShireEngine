@@ -1098,3 +1098,28 @@ WaterproofText:
 	text "<TARGET> "
 	line "is Waterproof!"
 	prompt
+
+DrizzleText:
+	text "It begins"
+	line "to rain!"
+	prompt
+
+DroughtText:
+	text "The sunlight"
+	line "grows strong!"
+	prompt
+
+SandStreamText:
+	text "A sandstorm "
+	line "begins!"
+	prompt
+
+SnowWarningText:
+	text "A hail storm "
+	line "begins!"
+	prompt
+
+TestText:
+	text "Test "
+	line "begins!"
+	prompt
