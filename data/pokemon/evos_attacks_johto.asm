@@ -4438,7 +4438,7 @@ SnoruntEvosAttacks:
 	dbw 36, ICE_BEAM
 	dbw 40, SHADOW_BALL
 	dbw 42, BULK_UP
-	dbw 45, SOLARBEAM
+	dbw 45, HAIL
 	dbw 50, BLIZZARD	
 	dbw 55, PROTECT
 	dbw 60, DESTINY_BOND
@@ -4459,7 +4459,7 @@ GlalieEvosAttacks:
 	dbw 36, ICE_BEAM
 	dbw 40, SHADOW_BALL
 	dbw 42, BULK_UP
-	dbw 45, SOLARBEAM
+	dbw 45, HAIL
 	dbw 50, BLIZZARD	
 	dbw 55, PROTECT
 	dbw 60, DESTINY_BOND
@@ -4477,7 +4477,7 @@ SphealEvosAttacks:
 	dbw 28, BUBBLEBEAM	
 	dbw 32, TAKE_DOWN
 	dbw 36, ICE_BEAM
-	dbw 40, SAFEGUARD
+	dbw 40, HAIL
 	dbw 42, AMNESIA
 	dbw 45, ICY_WIND
 	dbw 48, HYDRO_PUMP
@@ -4498,7 +4498,7 @@ SealeoEvosAttacks:
 	dbw 28, BUBBLEBEAM	
 	dbw 32, TAKE_DOWN
 	dbw 36, ICE_BEAM
-	dbw 40, SAFEGUARD
+	dbw 40, HAIL
 	dbw 42, AMNESIA
 	dbw 45, ICY_WIND
 	dbw 48, HYDRO_PUMP
@@ -4518,7 +4518,7 @@ WalreinEvosAttacks:
 	dbw 28, BUBBLEBEAM	
 	dbw 32, TAKE_DOWN
 	dbw 36, ICE_BEAM
-	dbw 40, SAFEGUARD
+	dbw 40, HAIL
 	dbw 42, AMNESIA
 	dbw 45, ICY_WIND
 	dbw 48, HYDRO_PUMP
@@ -4765,7 +4765,7 @@ RegiceEvosAttacks:
 	dbw 16, ICY_WIND
 	dbw 20, STOMP
 	dbw 24, ANCIENTPOWER
-	dbw 28, SANDSTORM
+	dbw 28, HAIL
 	dbw 32, RECOVER
 	dbw 36, ICE_BEAM
 	dbw 40, METEOR_MASH

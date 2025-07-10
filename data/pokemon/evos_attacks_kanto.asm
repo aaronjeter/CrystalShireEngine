@@ -1830,7 +1830,7 @@ SeelEvosAttacks:
 	dbw 28, BUBBLEBEAM	
 	dbw 32, TAKE_DOWN
 	dbw 36, ICE_BEAM
-	dbw 40, SAFEGUARD
+	dbw 40, HAIL
 	dbw 42, AMNESIA
 	dbw 45, ICY_WIND
 	dbw 48, HYDRO_PUMP
@@ -1850,7 +1850,7 @@ DewgongEvosAttacks:
 	dbw 28, BUBBLEBEAM	
 	dbw 32, TAKE_DOWN
 	dbw 36, ICE_BEAM
-	dbw 40, SAFEGUARD
+	dbw 40, HAIL
 	dbw 42, AMNESIA
 	dbw 45, ICY_WIND
 	dbw 48, HYDRO_PUMP
@@ -2733,7 +2733,7 @@ LaprasEvosAttacks:
 	dbw 32, SAFEGUARD
 	dbw 36, DRAGONBREATH
 	dbw 40, ICE_BEAM
-	dbw 42, RAIN_DANCE
+	dbw 42, HAIL
 	dbw 45, COSMIC_POWER
 	dbw 50, HYDRO_PUMP
 	dbw 55, BLIZZARD
@@ -2987,7 +2987,7 @@ ArticunoEvosAttacks:
 	dbw 25, AGILITY
 	dbw 28, AURORA_BEAM
 	dbw 32, PSYBEAM
-	dbw 37, MIND_READER
+	dbw 37, HAIL
 	dbw 41, RAZOR_WIND
 	dbw 45, ICE_BEAM
 	dbw 48, PSYCHIC_M
@@ -3032,7 +3032,7 @@ MoltresEvosAttacks:
 	dbw 45, FLAMETHROWER
 	dbw 48, PURSUIT
 	dbw 52, SKY_ATTACK
-	dbw 56, SAFEGUARD
+	dbw 56, SOLARBEAM
 	dbw 60, FIRE_BLAST
 	db 0 ; no more level-up moves
 
