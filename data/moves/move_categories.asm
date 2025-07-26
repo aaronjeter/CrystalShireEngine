@@ -1,0 +1,50 @@
+;Moves with additional categories
+
+PunchMoves::
+	dw COMET_PUNCH
+	dw MEGA_PUNCH
+	dw FIRE_PUNCH
+	dw ICE_PUNCH
+	dw THUNDERPUNCH
+	dw DIZZY_PUNCH
+	dw MACH_PUNCH
+	dw DYNAMICPUNCH
+	dw FOCUS_PUNCH
+	dw SHADOW_PUNCH
+	dw -1
+
+KickMoves::
+	dw DOUBLE_KICK
+	dw MEGA_KICK
+	dw JUMP_KICK
+	dw ROLLING_KICK
+	dw LOW_KICK
+	dw HI_JUMP_KICK
+	dw TRIPLE_KICK
+	dw BLAZE_KICK
+	dw -1
+
+FangMoves::
+	dw BITE
+	dw HYPER_FANG
+	dw CRUNCH
+	dw POISON_FANG
+	dw THUNDER_FANG
+	dw ICE_FANG
+	dw FIRE_FANG
+	dw -1
+
+ClawMoves::
+	dw SCRATCH	
+	dw CRABHAMMER	
+	dw CRUSH_CLAW
+	dw DRAGON_CLAW	
+	dw SHADOW_CLAW
+	dw -1
+
+BirdMoves::
+	dw WING_ATTACK	
+	dw PECK
+	dw DRILL_PECK
+	dw STEEL_WING	
+	dw -1

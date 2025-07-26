@@ -30,3 +30,53 @@ SnowWarningMons::
 	dw REGICE
 	dw ANINETALES
 	dw -1
+
+IntimidateMons::
+	dw ARBOK
+	dw ARCANINE
+	dw TAUROS
+	dw GYARADOS
+	dw GRANBULL
+	dw MIGHTYENA
+	dw MASQUERAIN
+	dw MAWILE
+	dw MANECTRIC
+	dw SALAMENCE
+	dw TAUROS2
+	dw -1
+
+MystifyMons::
+	dw CLEFABLE
+	dw WIGGLYTUFF
+	dw DRAGONITE
+	dw NOCTOWL
+	dw SLOWKING
+	dw MISDREAVUS
+	dw UNOWN
+	dw SABLEYE
+	dw CHIMECHO
+	dw MILOTIC
+	dw NOCTOWL2
+	dw NINETALES2
+	dw -1
+
+SnareMons::
+	dw VICTREEBEL
+	dw TENTACRUEL
+	dw MUK
+	dw TANGELA
+	dw ARIADOS
+	dw CRADILY
+	dw TANGROWTH
+	dw AMUK
+	dw TENTACRUEL2
+	dw YANMA2
+	dw -1
+
+ToxicMons::
+	dw QWILFISH
+	dw DUSTOX
+	dw ROSELIA
+	dw SWALOT
+	dw SEVIPER
+	dw -1

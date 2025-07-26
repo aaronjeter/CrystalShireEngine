@@ -1142,3 +1142,27 @@ PeltedByHailText:
 	text "<USER>"
 	line "is pelted by HAIL!"
 	prompt
+
+IntimidateCutsAttackText:
+	text "<USER>'s"
+    line "INTIMIDATE cuts"
+
+    para "<TARGET>'s"
+    line "ATTACK!"
+	prompt
+
+MystifyCutsSpecialAttackText:
+	text "<USER>'s"
+    line "MYSTIFY cuts"
+
+    para "<TARGET>'s"
+    line "SPCL.ATK!"
+	prompt
+
+SnareCutsSpeedText:
+	text "<USER>'s"
+    line "SNARE cuts"
+
+    para "<TARGET>'s"
+    line "Speed!"
+	prompt

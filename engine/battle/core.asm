@@ -91,13 +91,15 @@ DoBattle:
 	call BreakAttraction
 	call SendOutPlayerMon
 	call EmptyBattleTextbox
-	call LoadTilemapToTempTilemap
-	call SetPlayerTurn
-	call SpikesDamage
+	call LoadTilemapToTempTilemap	
 
+	call SetEnemyTurn
 	ld a, [wTempEnemyMonSpecies]
 	ld [wTempAbilityMon], a
 	call Check_Etb_Ability
+
+	call SetPlayerTurn
+	call SpikesDamage
 
 	ld a, [wLinkMode]
 	and a
@@ -516,6 +518,9 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp c
 	jr c, .enemy_first
+
+;Do Weather Speed Checks
+
 .speed_check
 	ld de, wBattleMonSpeed
 	ld hl, wEnemyMonSpeed

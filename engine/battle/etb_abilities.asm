@@ -10,6 +10,12 @@ Check_Etb_Ability:
 
 	call .SnowWarning
 
+	call .Intimidate
+
+	call .Mystify
+
+	call .Snare
+
 	ret
 
 .Drizzle:
@@ -111,6 +117,60 @@ Check_Etb_Ability:
     call StdBattleTextbox
 	;call HandleWeather
 	ret	
+
+.Intimidate:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, IntimidateMons
+	call IsInWordArray
+	jr c, .HasIntimidate
+	ret
+		
+.HasIntimidate:	
+	farcall BattleCommand_StatDownAnim.etb_ability_skip
+    farcall BattleCommand_AttackDown
+
+    ld hl, IntimidateCutsAttackText
+    call StdBattleTextbox
+    ret
+
+.Mystify:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, MystifyMons
+	call IsInWordArray
+	jr c, .HasMystify
+	ret
+		
+.HasMystify:	
+	farcall BattleCommand_StatDownAnim.etb_ability_skip
+    farcall BattleCommand_SpecialAttackDown
+
+    ld hl, MystifyCutsSpecialAttackText
+    call StdBattleTextbox
+    ret
+
+.Snare:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, SnareMons
+	call IsInWordArray
+	jr c, .HasSnare
+	ret
+		
+.HasSnare:	
+	farcall BattleCommand_StatDownAnim.etb_ability_skip
+    farcall BattleCommand_SpeedDown
+
+    ld hl, SnareCutsSpeedText
+    call StdBattleTextbox
+    ret
 
 GetAbilitySpecies:
 	ld a, [wTempAbilityMon]

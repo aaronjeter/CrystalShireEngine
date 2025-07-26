@@ -2091,7 +2091,7 @@ BattleCommand_StatDownAnim:
 	ld a, [wAttackMissed]
 	and a
 	jmp nz, BattleCommand_MoveDelay
-
+.etb_ability_skip
 	ldh a, [hBattleTurn]
 	and a
 	ld a, BATTLEANIM_ENEMY_STAT_DOWN
