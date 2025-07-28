@@ -158,6 +158,7 @@ ENDM
 	map_const ILEX_EAST,                                   20, 20 ; 93
 	map_const ARTICUNO_LAIR,                               20, 20 ; 94
 	map_const MOLTRES_LAIR,                                20, 20 ; 95
+	map_const VIRIDIAN_FOREST,							   20, 25 ; 96
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

@@ -697,3 +697,4 @@ ENDM
 	map_attributes IlexEast, ILEX_EAST, $05, 0
 	map_attributes ArticunoLair, ARTICUNO_LAIR, $19, 0
 	map_attributes MoltresLair, MOLTRES_LAIR, $b6, 0
+	map_attributes ViridianForest, VIRIDIAN_FOREST, $50, 0

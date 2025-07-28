@@ -842,4 +842,32 @@ KantoGrassWildMons:
 	dbw 5, DODRIO
 	end_grass_wildmons
 
+	def_grass_wildmons VIRIDIAN_FOREST
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, WEEDLE
+	dbw 1, CATERPIE
+	dbw 1, PIDGEY
+	dbw 1, BULBASAUR
+	dbw 1, PIKACHU
+	dbw 3, SPEAROW
+	dbw 5, BUTTERFREE
+	; day
+	dbw 1, WEEDLE
+	dbw 1, CATERPIE
+	dbw 1, PIDGEY
+	dbw 1, BULBASAUR
+	dbw 1, PIKACHU
+	dbw 3, SPEAROW
+	dbw 5, BEEDRILL
+	; nite
+	dbw 1, WEEDLE
+	dbw 1, CATERPIE
+	dbw 1, PIDGEY
+	dbw 1, BULBASAUR
+	dbw 1, PIKACHU
+	dbw 3, MURKROW
+	dbw 5, BUTTERFREE
+	end_grass_wildmons
+
 	db -1 ; end

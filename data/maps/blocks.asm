@@ -672,6 +672,9 @@ IlexWest_Blocks:
 IlexEast_Blocks:
 	INCBIN "maps/IlexEast.ablk"
 
+ViridianForest_Blocks:
+	INCBIN "maps/hoenn/ViridianForest.ablk"
+
 DarkCaveVioletEntrance_Blocks:
 	INCBIN "maps/DarkCaveVioletEntrance.ablk"
 

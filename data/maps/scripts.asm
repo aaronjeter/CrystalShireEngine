@@ -98,6 +98,7 @@ INCLUDE "maps/IlexWest.asm"
 INCLUDE "maps/IlexEast.asm"
 INCLUDE "maps/ArticunoLair.asm"
 INCLUDE "maps/MoltresLair.asm"
+INCLUDE "maps/hoenn/ViridianForest.asm"
 
 
 
