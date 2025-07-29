@@ -159,6 +159,7 @@ ENDM
 	map_const ARTICUNO_LAIR,                               20, 20 ; 94
 	map_const MOLTRES_LAIR,                                20, 20 ; 95
 	map_const VIRIDIAN_FOREST,							   20, 25 ; 96
+	map_const PETALBURG_WOODS,							   20, 20 ; 97
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -504,4 +505,14 @@ ENDM
 	map_const ROUTE_31_VIOLET_GATE,                         5,  4 ; 11
 	endgroup
 
-DEF NUM_MAP_GROUPS EQU const_value ; 26
+	newgroup HOENN												  ; 27
+	map_const LITTLEROOT_TOWN,                             10,  8 ;  1
+	map_const OLDALE_TOWN,                                 10, 10 ;  2
+	map_const PETALBURG_CITY,                              15, 15 ;  3
+	map_const ROUTE_101,                                   10, 10 ;  4
+	map_const ROUTE_102,                                   20, 10 ;  5
+	map_const ROUTE_103,                                   20, 10 ;  6
+	map_const ROUTE_104,                                   15, 30 ;  7	
+	endgroup
+
+DEF NUM_MAP_GROUPS EQU const_value ; 27

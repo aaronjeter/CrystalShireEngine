@@ -913,3 +913,31 @@ GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.ablk"
 
 ENDSECTION
+
+SECTION "Map Blocks 4", ROMX
+	
+	LittlerootTown_Blocks:
+	INCBIN "maps/hoenn/LittlerootTown.ablk" 
+
+	OldaleTown_Blocks:
+	INCBIN "maps/hoenn/OldaleTown.ablk" 
+
+	PetalburgCity_Blocks:
+	INCBIN "maps/hoenn/PetalburgCity.ablk" 
+
+	PetalburgWoods_Blocks:
+	INCBIN "maps/hoenn/PetalburgWoods.ablk"
+
+	Route101_Blocks:
+	INCBIN "maps/hoenn/Route101.ablk" 
+
+	Route102_Blocks:
+	INCBIN "maps/hoenn/Route102.ablk" 
+
+	Route103_Blocks:
+	INCBIN "maps/hoenn/Route103.ablk" 
+
+	Route104_Blocks:
+	INCBIN "maps/hoenn/Route104.ablk" 
+
+ENDSECTION

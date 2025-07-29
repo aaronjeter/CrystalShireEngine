@@ -698,3 +698,30 @@ ENDM
 	map_attributes ArticunoLair, ARTICUNO_LAIR, $19, 0
 	map_attributes MoltresLair, MOLTRES_LAIR, $b6, 0
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $50, 0
+	map_attributes PetalburgWoods, PETALBURG_WOODS, $4c, 0
+
+	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH
+	connection north, Route101, ROUTE_101, 0
+
+	map_attributes OldaleTown, OLDALE_TOWN, $05, NORTH | SOUTH | WEST
+	connection north, Route103, ROUTE_103, 0
+	connection south, Route101, ROUTE_101, 0
+	connection west, Route102, ROUTE_102, 0
+
+	map_attributes PetalburgCity, PETALBURG_CITY, $05, WEST | EAST 
+	connection west, Route104, ROUTE_104, -15
+	connection east, Route102, ROUTE_102, 4
+
+	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
+	connection north, OldaleTown, OLDALE_TOWN, 0
+	connection south, LittlerootTown, LITTLEROOT_TOWN, 0
+
+	map_attributes Route102, ROUTE_102, $05, WEST | EAST 
+	connection west, PetalburgCity, PETALBURG_CITY, -4
+	connection east, OldaleTown, OLDALE_TOWN, 0	
+
+	map_attributes Route103, ROUTE_103, $05, SOUTH
+	connection south, OldaleTown, OLDALE_TOWN, 0
+
+	map_attributes Route104, ROUTE_104, $05, EAST
+	connection east, PetalburgCity, PETALBURG_CITY, 15

@@ -489,4 +489,13 @@ SECTION "Map Scripts 25", ROMX
 INCLUDE "maps/SilverCaveOutside.asm"
 INCLUDE "maps/Route10North.asm"
 
+INCLUDE "maps/hoenn/LittlerootTown.asm"
+INCLUDE "maps/hoenn/OldaleTown.asm"
+INCLUDE "maps/hoenn/PetalburgCity.asm"
+INCLUDE "maps/hoenn/PetalburgWoods.asm"
+INCLUDE "maps/hoenn/Route101.asm"
+INCLUDE "maps/hoenn/Route102.asm"
+INCLUDE "maps/hoenn/Route103.asm"
+INCLUDE "maps/hoenn/Route104.asm"
+
 ENDSECTION

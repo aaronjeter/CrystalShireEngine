@@ -79,7 +79,9 @@ if DEF(_DEBUG)
 	giveitem MYSTERYBERRY, 10
 	giveitem QUICK_CLAW
 	giveitem KINGS_ROCK
-	giveitem AMULET_COIN
+	giveitem METAL_COAT, 10
+	giveitem DRAGON_SCALE, 10
+	giveitem DRAGON_FANG
 	giveitem SCOPE_LENS
 	giveitem BIRD_WHISTLE
 	giveitem LANTERN
@@ -92,8 +94,8 @@ if DEF(_DEBUG)
 	giveitem HM_FLASH
 
 	; all badges
-	setflag ENGINE_ZEPHYRBADGE
-	setflag ENGINE_HIVEBADGE
+	;setflag ENGINE_ZEPHYRBADGE
+	;setflag ENGINE_HIVEBADGE
 	setflag ENGINE_PLAINBADGE
 	setflag ENGINE_FOGBADGE
 	setflag ENGINE_STORMBADGE
@@ -160,28 +162,29 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke MEW, 50, BRIGHTPOWDER
+	givepoke ARCANINE, 50, BRIGHTPOWDER
 	; hm slaves
-	givepoke VOLTORB, 50, LEFTOVERS
-	givepoke ELECTRODE, 50, LEFTOVERS
+	givepoke MILOTIC, 50, LEFTOVERS
+	givepoke TENTACRUEL, 50, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
-	givepokemove STRENGTH,   wPartyMon2, 2
+	givepokemove HAIL,		 wPartyMon2, 2
 	givepokemove CUT,        wPartyMon2, 3
 	givepokemove FLASH,      wPartyMon3, 0
 	givepokemove ROCK_SMASH, wPartyMon3, 1
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	;givepoke IRONBUNDLE, 50
-	;givepoke IRONBUNDLE, 50
-	;givepoke IRONBUNDLE, 50
+	givepoke GROUDON, 50
+	givepoke TYRANITAR, 20
+	givepoke DELIBIRD, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
 	setevent EVENT_PLAYERS_HOUSE_MOM_1
 	clearevent EVENT_PLAYERS_HOUSE_MOM_2
 	closetext
+	;halloffame
 	end
 else
 
@@ -254,6 +257,7 @@ PlayersHouse2F_MapEvents:
 
 	def_warp_events
 	warp_event  7,  0, PLAYERS_HOUSE_1F, 3
+	warp_event  7,  4, LITTLEROOT_TOWN, 1
 
 	def_coord_events
 
