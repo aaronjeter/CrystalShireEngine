@@ -444,4 +444,17 @@ AnimationPointers:
 	dw Cyndaquil2Animation
 	dw Quilava2Animation
 	dw Typhlosion2Animation
+	;beta mons
+	dw HanamoleAnimation
+	dw HonobeaAnimation
+	dw BorubeaAnimation
+	dw DynabeaAnimation
+	dw KurusuAnimation
+	dw AkuaAnimation
+	dw AkueriaAnimation
+	dw HaneeiAnimation
+	dw TsubomittAnimation
+	dw KotoraAnimation
+	dw RaitoraAnimation
+	dw AshibombAnimation
 	assert_table_length NUM_POKEMON

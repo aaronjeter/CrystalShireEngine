@@ -445,4 +445,17 @@ NewPokedexOrder:
 	dw CYNDAQUIL2
 	dw QUILAVA2
 	dw TYPHLOSION2
+	;beta mons
+	dw HANAMOLE
+	dw HONOBEA
+	dw BORUBEA
+	dw DYNABEA
+	dw KURUSU
+	dw AKUA
+	dw AKUERIA
+	dw HANEEI
+	dw TSUBOMITT
+	dw KOTORA
+	dw RAITORA
+	dw ASHIBOMB
 	assert_table_length NUM_POKEMON

@@ -294,6 +294,19 @@ EggMovePointers2::
 	dw CyndaquilEggMoves
 	dw NoEggMoves2
 	dw NoEggMoves2
+	;beta mons
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
 
 .IndirectEnd::
 

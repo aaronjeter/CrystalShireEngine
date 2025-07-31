@@ -902,4 +902,29 @@ PokemonPicPointers::
 	dba Quilava2Backpic
 	dba Typhlosion2Frontpic
 	dba Typhlosion2Backpic
+	;beta mons
+	dba HanamoleFrontpic
+	dba HanamoleBackpic
+	dba HonobeaFrontpic
+	dba HonobeaBackpic
+	dba BorubeaFrontpic
+	dba BorubeaBackpic
+	dba DynabeaFrontpic
+	dba DynabeaBackpic
+	dba KurusuFrontpic
+	dba KurusuBackpic
+	dba AkuaFrontpic
+	dba AkuaBackpic
+	dba AkueriaFrontpic
+	dba AkueriaBackpic
+	dba HaneeiFrontpic
+	dba HaneeiBackpic
+	dba TsubomittFrontpic
+	dba TsubomittBackpic
+	dba KotoraFrontpic
+	dba KotoraBackpic
+	dba RaitoraFrontpic
+	dba RaitoraBackpic
+	dba AshibombFrontpic
+	dba AshibombBackpic
 	assert_table_length NUM_POKEMON + 1

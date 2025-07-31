@@ -4,9 +4,9 @@ KantoWaterWildMons:
 
 	def_water_wildmons TOHJO_FALLS
 	db 2 percent ; encounter rate
-	dbw 1, GOLDEEN
-	dbw 1, SLOWPOKE
-	dbw 3, SEAKING
+	dbw 1, KURUSU
+	dbw 4, AKUA
+	dbw 7, AKUERIA
 	end_water_wildmons
 
 	def_water_wildmons VERMILION_PORT

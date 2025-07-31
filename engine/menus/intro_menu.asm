@@ -696,7 +696,9 @@ SetRegion:
 	cp $4
 	jr z, .RegionAlola
 	cp $5
-	jr z, .RegionReddit
+	jp z, .RegionReddit
+	cp $6
+	jp z, .RegionBeta
 
 .RegionMenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -706,12 +708,13 @@ SetRegion:
 
 .RegionMenuData:
 	db STATICMENU_CURSOR ; flags
-	db 5 ; items
+	db 6 ; items
 	db "Kanto (Gen 1)@"
 	db "Johto (Gen 2)@"
 	db "Hoenn (Gen 3)@"
 	db "Alola (Gen 7)@"
 	db "Reddit (alt)@"
+	db "Spaceworld@"
 
 .RegionKanto:
     ld de, EVENT_ORIGIN_KANTO
@@ -739,6 +742,12 @@ SetRegion:
 
 .RegionReddit:
 	ld de, EVENT_ORIGIN_REDDIT
+    ld b, SET_FLAG
+	call EventFlagAction
+	ret
+
+.RegionBeta:
+	ld de, EVENT_ORIGIN_BETA
     ld b, SET_FLAG
 	call EventFlagAction
 	ret

@@ -446,4 +446,17 @@ PokedexDataPointerTable:
 	dba Cyndaquil2PokedexEntry
 	dba Quilava2PokedexEntry
 	dba Typhlosion2PokedexEntry
+	;beta mons
+	dba HanamolePokedexEntry
+	dba HonobeaPokedexEntry
+	dba BorubeaPokedexEntry
+	dba DynabeaPokedexEntry
+	dba KurusuPokedexEntry
+	dba AkuaPokedexEntry
+	dba AkueriaPokedexEntry
+	dba HaneeiPokedexEntry
+	dba TsubomittPokedexEntry
+	dba KotoraPokedexEntry
+	dba RaitoraPokedexEntry
+	dba AshibombPokedexEntry
 	assert_table_length NUM_POKEMON

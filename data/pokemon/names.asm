@@ -449,4 +449,17 @@ PokemonNames::
 	db "CYNDAQUIL@"
 	db "QUILAVA@@@"
 	db "TYPHLOSION"
+	;Beta Mons
+	db "HANAGURA@@"
+	db "HONOBEA@@@"
+	db "BORUBEA@@@"
+	db "DYNABEA@@@"
+	db "KURUSU@@@@"
+	db "AKUA@@@@@@"
+	db "AKUERIA@@@"
+	db "HANEEI@@@@"
+	db "TSUBOMITT@"
+	db "KOTORA@@@@"
+	db "RAITORA@@@"
+	db "ASHIBOMB@@"
 	assert_table_length NUM_POKEMON

@@ -450,4 +450,17 @@ IconPointers:
 	dw Cyndaquil2Icon
 	dw Quilava2Icon
 	dw Typhlosion2Icon
+	;reddit mons
+	dw HanamoleIcon
+	dw HonobeaIcon
+	dw BorubeaIcon
+	dw DynabeaIcon
+	dw KurusuIcon
+	dw AkuaIcon
+	dw AkueriaIcon
+	dw HaneeiIcon
+	dw TsubomittIcon
+	dw KotoraIcon
+	dw RaitoraIcon
+	dw AshibombIcon
 	assert_table_length NUM_POKEMON + 1

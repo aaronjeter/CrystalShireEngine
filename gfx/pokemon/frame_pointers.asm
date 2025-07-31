@@ -444,4 +444,17 @@ FramesPointers:
 	dba Cyndaquil2Frames
 	dba Quilava2Frames
 	dba Typhlosion2Frames
+	;beta mons
+	dba HanamoleFrames
+	dba HonobeaFrames
+	dba BorubeaFrames
+	dba DynabeaFrames
+	dba KurusuFrames
+	dba AkuaFrames
+	dba AkueriaFrames
+	dba HaneeiFrames
+	dba TsubomittFrames
+	dba KotoraFrames
+	dba RaitoraFrames
+	dba AshibombFrames
 	assert_table_length NUM_POKEMON

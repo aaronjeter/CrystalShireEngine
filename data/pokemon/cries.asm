@@ -451,4 +451,17 @@ PokemonCries::
 	mon_cry CRY_CYNDAQUIL,   839,  128 ; CYNDAQUIL2
 	mon_cry CRY_CYNDAQUIL,   801,  288 ; QUILAVA2
 	mon_cry CRY_TYPHLOSION, 3840,  212 ; TYPHLOSION2
+	;beta mons
+	mon_cry CRY_VOLTORB,     237,  256 ; HANAMOLE
+	mon_cry CRY_VOLTORB,     168,  272 ; HONOBEA
+	mon_cry CRY_DIGLETT,       0,  256 ; BORUBEA
+	mon_cry CRY_DROWZEE,       0,  256 ; DYNABEA
+	mon_cry CRY_SENTRET,     107,  258 ; KURUSU
+	mon_cry CRY_HOOTHOOT,      0,  416 ; AKUA
+	mon_cry CRY_TOTODILE,      0,  384 ; AKUERIA
+	mon_cry CRY_TOTODILE,     49,  200 ; HANEEI
+	mon_cry CRY_CATERPIE,      0,  256 ; TSUBOMITT
+	mon_cry CRY_AMPHAROS,      0,  352 ; KOTORA
+	mon_cry CRY_VENONAT,       0,  256 ; RAITORA
+	mon_cry CRY_VENONAT,     238,  383 ; ASHIBOMB
 	assert_table_length NUM_POKEMON

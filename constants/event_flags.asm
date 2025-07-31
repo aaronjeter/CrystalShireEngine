@@ -277,9 +277,10 @@
 	const EVENT_ORIGIN_RANGER
 	const EVENT_ORIGIN_LEGEND
 	const EVENT_ORIGIN_ALOLA
+	const EVENT_ORIGIN_BETA
 	const EVENT_LEVELCAPS_ENABLED
 	const EVENT_HARDMODE_ENABLED
-; Unused: next 329 events
+; Unused: next 328 events
 
 	const_next 600
 ; Kurt Apricorn events

@@ -444,4 +444,17 @@ AnimationIdlePointers:
 	dw Cyndaquil2AnimationIdle
 	dw Quilava2AnimationIdle
 	dw Typhlosion2AnimationIdle
+	;beta mons
+	dw HanamoleAnimationIdle
+	dw HonobeaAnimationIdle
+	dw BorubeaAnimationIdle
+	dw DynabeaAnimationIdle
+	dw KurusuAnimationIdle
+	dw AkuaAnimationIdle
+	dw AkueriaAnimationIdle
+	dw HaneeiAnimationIdle
+	dw TsubomittAnimationIdle
+	dw KotoraAnimationIdle
+	dw RaitoraAnimationIdle
+	dw AshibombAnimationIdle
 	assert_table_length NUM_POKEMON

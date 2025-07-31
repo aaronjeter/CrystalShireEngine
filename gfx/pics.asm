@@ -1161,3 +1161,34 @@ Quilava2Backpic:      INCBIN "gfx/pokemon/quilava2/back.2bpp.lz"
 Typhlosion2Frontpic:  INCBIN "gfx/pokemon/typhlosion2/front.animated.2bpp.lz"
 Typhlosion2Backpic:   INCBIN "gfx/pokemon/typhlosion2/back.2bpp.lz"
 
+
+SECTION "Pokemon Beta", ROMX
+
+HanamoleFrontpic:		INCBIN "gfx/pokemon/hanamole/front.animated.2bpp.lz"
+HanamoleBackpic:		INCBIN "gfx/pokemon/hanamole/back.2bpp.lz"
+HonobeaFrontpic:		INCBIN "gfx/pokemon/honobea/front.animated.2bpp.lz"
+HonobeaBackpic:			INCBIN "gfx/pokemon/honobea/back.2bpp.lz"
+BorubeaFrontpic:		INCBIN "gfx/pokemon/borubea/front.animated.2bpp.lz"
+BorubeaBackpic:			INCBIN "gfx/pokemon/borubea/back.2bpp.lz"
+KurusuFrontpic:			INCBIN "gfx/pokemon/kurusu/front.animated.2bpp.lz"
+KurusuBackpic:			INCBIN "gfx/pokemon/kurusu/back.2bpp.lz"
+AkuaFrontpic:			INCBIN "gfx/pokemon/akua/front.animated.2bpp.lz"
+AkuaBackpic:			INCBIN "gfx/pokemon/akua/back.2bpp.lz"
+HaneeiFrontpic:			INCBIN "gfx/pokemon/haneei/front.animated.2bpp.lz"
+HaneeiBackpic:			INCBIN "gfx/pokemon/haneei/back.2bpp.lz"
+TsubomittFrontpic:		INCBIN "gfx/pokemon/tsubomitt/front.animated.2bpp.lz"
+TsubomittBackpic:		INCBIN "gfx/pokemon/tsubomitt/back.2bpp.lz"
+KotoraFrontpic:			INCBIN "gfx/pokemon/kotora/front.animated.2bpp.lz"
+KotoraBackpic:			INCBIN "gfx/pokemon/kotora/back.2bpp.lz"
+RaitoraFrontpic:		INCBIN "gfx/pokemon/raitora/front.animated.2bpp.lz"
+RaitoraBackpic:			INCBIN "gfx/pokemon/raitora/back.2bpp.lz"
+AshibombFrontpic:		INCBIN "gfx/pokemon/ashibomb/front.animated.2bpp.lz"
+AshibombBackpic:		INCBIN "gfx/pokemon/ashibomb/back.2bpp.lz"
+
+
+SECTION "Pokemon Beta 2", ROMX
+
+DynabeaFrontpic:		INCBIN "gfx/pokemon/dynabea/front.animated.2bpp.lz"
+DynabeaBackpic:			INCBIN "gfx/pokemon/dynabea/back.2bpp.lz"
+AkueriaFrontpic:		INCBIN "gfx/pokemon/akueria/front.animated.2bpp.lz"
+AkueriaBackpic:			INCBIN "gfx/pokemon/akueria/back.2bpp.lz"

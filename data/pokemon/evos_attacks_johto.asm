@@ -294,6 +294,19 @@ EvosAttacksPointers2::
 	dw CyndaquilEvosAttacks
 	dw QuilavaEvosAttacks
 	dw TyphlosionEvosAttacks
+	;beta mons
+	dw HanamoleEvosAttacks
+	dw HonobeaEvosAttacks
+	dw BorubeaEvosAttacks
+	dw DynabeaEvosAttacks
+	dw KurusuEvosAttacks
+	dw AkuaEvosAttacks
+	dw AkueriaEvosAttacks
+	dw HaneeiEvosAttacks
+	dw TsubomittEvosAttacks
+	dw KotoraEvosAttacks
+	dw RaitoraEvosAttacks
+	dw AshibombEvosAttacks
 .IndirectEnd::
 
 ChikoritaEvosAttacks:
@@ -5830,6 +5843,248 @@ Tauros2EvosAttacks:
 	dbw 50, DOUBLE_EDGE
 	dbw 55, SUBMISSION
 	dbw 60, FISSURE
+	db 0 ; no more level-up moves
+
+	HanamoleEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, ABSORB
+	dbw 4, TAIL_WHIP
+	dbw 12, TWISTER	
+	dbw 16, COTTON_SPORE
+	dbw 20, LEECH_SEED
+	dbw 24, STUN_SPORE
+	dbw 28, MAGICAL_LEAF
+	dbw 32, CHARM
+	dbw 36, DRAGONBREATH
+	dbw 40, GIGA_DRAIN
+	dbw 42, SUNNY_DAY
+	dbw 45, SOLARBEAM
+	dbw 50, SYNTHESIS
+	dbw 55, HEAL_BELL
+	dbw 60, CALM_MIND
+	db 0 ; no more level-up moves
+
+	HonobeaEvosAttacks:
+	dbbw EVOLVE_LEVEL, 16, BORUBEA
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, GROWL
+	dbw 7, EMBER
+	dbw 10, METAL_CLAW
+	dbw 14, SMOKESCREEN
+	dbw 18, RAGE
+	dbw 20, FIRE_FANG
+	dbw 24, SCARY_FACE
+	dbw 30, AIR_CUTTER
+	dbw 36, FLAME_WHEEL	
+	dbw 40, DRAGON_CLAW
+	dbw 44, SUNNY_DAY
+	dbw 50, FIRE_BLAST
+	dbw 55, OUTRAGE
+	dbw 60, SACRED_FIRE
+	db 0 ; no more level-up moves
+
+	BorubeaEvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, DYNABEA
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, GROWL
+	dbw 7, EMBER
+	dbw 10, METAL_CLAW
+	dbw 14, SMOKESCREEN
+	dbw 18, RAGE
+	dbw 20, FIRE_FANG
+	dbw 24, SCARY_FACE
+	dbw 30, AIR_CUTTER
+	dbw 36, FLAME_WHEEL	
+	dbw 40, DRAGON_CLAW
+	dbw 44, SUNNY_DAY
+	dbw 50, FIRE_BLAST
+	dbw 55, OUTRAGE
+	dbw 60, SACRED_FIRE
+	db 0 ; no more level-up moves
+
+	DynabeaEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, GROWL
+	dbw 7, EMBER
+	dbw 10, METAL_CLAW
+	dbw 14, SMOKESCREEN
+	dbw 18, RAGE
+	dbw 20, FIRE_FANG
+	dbw 24, SCARY_FACE
+	dbw 30, AIR_CUTTER
+	dbw 36, FLAME_WHEEL	
+	dbw 40, DRAGON_CLAW
+	dbw 44, SUNNY_DAY
+	dbw 50, FIRE_BLAST
+	dbw 55, OUTRAGE
+	dbw 60, SACRED_FIRE
+	db 0 ; no more level-up moves
+
+	KurusuEvosAttacks:
+	dbbw EVOLVE_LEVEL, 18, AKUA
+	db 0 ; no more evolutions
+	dbw 1, BUBBLE
+	dbw 1, TAIL_WHIP
+	dbw 7, GROWL
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, AGILITY
+	dbw 22, BUBBLEBEAM
+	dbw 26, AURORA_BEAM
+	dbw 32, TAKE_DOWN
+	dbw 36, MIST_BALL
+	dbw 40, ICE_BEAM
+	dbw 42, MIRROR_COAT
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	dbw 55, BLIZZARD
+	dbw 60, HYDRO_CANNON
+	db 0 ; no more level-up moves
+
+	AkuaEvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, AKUERIA
+	db 0 ; no more evolutions
+	dbw 1, BUBBLE
+	dbw 1, TAIL_WHIP
+	dbw 7, GROWL
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, AGILITY
+	dbw 22, BUBBLEBEAM
+	dbw 26, AURORA_BEAM
+	dbw 32, TAKE_DOWN
+	dbw 36, MIST_BALL
+	dbw 40, ICE_BEAM
+	dbw 42, MIRROR_COAT
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	dbw 55, BLIZZARD
+	dbw 60, HYDRO_CANNON
+	db 0 ; no more level-up moves
+
+	AkueriaEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, BUBBLE
+	dbw 1, TAIL_WHIP
+	dbw 7, GROWL
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, AGILITY
+	dbw 22, BUBBLEBEAM
+	dbw 26, AURORA_BEAM
+	dbw 32, TAKE_DOWN
+	dbw 36, MIST_BALL
+	dbw 40, ICE_BEAM
+	dbw 42, MIRROR_COAT
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	dbw 55, BLIZZARD
+	dbw 60, HYDRO_CANNON
+	db 0 ; no more level-up moves
+
+	HaneeiEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, ASTONISH
+	dbw 4, BUBBLE
+	dbw 8, WATER_GUN
+	dbw 12, CURSE	
+	dbw 16, NIGHT_SHADE
+	dbw 20, BUBBLEBEAM
+	dbw 24, AURORA_BEAM
+	dbw 28, CONFUSE_RAY
+	dbw 32, HYPNOSIS
+	dbw 36, MIST_BALL
+	dbw 40, SHADOW_BALL
+	dbw 42, DREAM_EATER
+	dbw 45, DESTINY_BOND
+	dbw 50, LIGHT_SCREEN
+	dbw 55, COSMIC_POWER
+	dbw 60, BATON_PASS
+	db 0 ; no more level-up moves
+
+	TsubomittEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, VINE_WHIP
+	dbw 1, ACID
+	dbw 6, GROWTH
+	dbw 11, WRAP
+	dbw 15, SLEEP_POWDER
+	dbw 17, POISONPOWDER
+	dbw 19, STUN_SPORE
+	dbw 23, RAZOR_LEAF
+	dbw 28, SWEET_SCENT
+	dbw 32, BULK_UP
+	dbw 36, LEAF_BLADE
+	dbw 40, PLAY_ROUGH
+	dbw 42, LEECH_SEED
+	dbw 45, BODY_SLAM
+	dbw 50, DRAGON_CLAW
+	dbw 55, SOLARBEAM
+	dbw 60, FRENZY_PLANT
+	db 0 ; no more level-up moves
+
+	KotoraEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, RAITORA
+	db 0 ; no more evolutions
+	dbw 1, THUNDERSHOCK
+	dbw 1, GROWL
+	dbw 6, TAIL_WHIP
+	dbw 8, THUNDER_WAVE
+	dbw 11, QUICK_ATTACK
+	dbw 15, DOUBLE_TEAM
+	dbw 20, SLAM
+	dbw 26, THUNDER_FANG
+	dbw 31, CRUSH_CLAW
+	dbw 36, CRUNCH
+	dbw 40, PLAY_ROUGH
+	dbw 42, DRAGON_DANCE
+	dbw 45, SHADOW_CLAW
+	dbw 50, ICE_FANG
+	dbw 55, FIRE_FANG
+	dbw 60, VOLT_TACKLE
+	db 0 ; no more level-up moves
+
+	RaitoraEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, THUNDERSHOCK
+	dbw 1, GROWL
+	dbw 6, TAIL_WHIP
+	dbw 8, THUNDER_WAVE
+	dbw 11, QUICK_ATTACK
+	dbw 15, DOUBLE_TEAM
+	dbw 20, SLAM
+	dbw 26, THUNDER_FANG
+	dbw 31, CRUSH_CLAW
+	dbw 36, CRUNCH
+	dbw 40, PLAY_ROUGH
+	dbw 42, DRAGON_DANCE
+	dbw 45, SHADOW_CLAW
+	dbw 50, ICE_FANG
+	dbw 55, FIRE_FANG
+	dbw 60, VOLT_TACKLE
+	db 0 ; no more level-up moves
+
+	AshibombEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, WATER_GUN
+	dbw 5, EMBER
+	dbw 10, GROWL
+	dbw 16, WILLOWISP	
+	dbw 20, AGILITY
+	dbw 24, FIRE_SPIN
+	dbw 28, BUBBLEBEAM	
+	dbw 32, TAKE_DOWN
+	dbw 36, FLAMETHROWER
+	dbw 40, MIST_BALL
+	dbw 42, AMNESIA
+	dbw 45, WILLOWISP
+	dbw 48, HYDRO_PUMP
+	dbw 50, FIRE_BLAST
+	dbw 55, MIRROR_COAT
+	dbw 60, WATER_SPOUT
 	db 0 ; no more level-up moves
 
 ENDSECTION

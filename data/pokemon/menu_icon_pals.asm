@@ -455,4 +455,17 @@ MonMenuIconPals:
 	icon_pals PINK,   PURPLE ; CYNDAQUIL
 	icon_pals PINK,   PURPLE ; QUILAVA
 	icon_pals PINK,   PURPLE ; TYPHLOSION
+	;beta mons
+	icon_pals GREEN,  PURPLE ; HANAMOLE
+	icon_pals RED,	  PURPLE ; HONOBEA
+	icon_pals RED,    PURPLE ; BORUBEA
+	icon_pals RED,    PURPLE ; DYNABEA
+	icon_pals BLUE,   PURPLE ; KURUSU
+	icon_pals BLUE,   PURPLE ; AKUA
+	icon_pals BLUE,   PURPLE ; AKUERIA
+	icon_pals BLUE,   PURPLE ; HANEEI
+	icon_pals GREEN,  PURPLE ; TSUBOMITT
+	icon_pals BROWN,  PURPLE ; KOTORA
+	icon_pals BROWN,  PURPLE ; RAITORA
+	icon_pals RED,    PURPLE ; ASHIBOMB
 	assert_table_length NUM_POKEMON

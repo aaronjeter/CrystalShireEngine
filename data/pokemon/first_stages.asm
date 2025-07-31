@@ -445,4 +445,17 @@ FirstEvoStages::
 	dw CYNDAQUIL2
 	dw CYNDAQUIL2
 	dw CYNDAQUIL2
+	;Beta mons
+	dw HANAMOLE
+	dw HONOBEA
+	dw HONOBEA
+	dw HONOBEA
+	dw KURUSU
+	dw KURUSU
+	dw KURUSU
+	dw HANEEI
+	dw BELLSPROUT
+	dw KOTORA
+	dw KOTORA
+	dw ASHIBOMB
 	assert_table_length NUM_POKEMON

@@ -179,6 +179,9 @@ LeftPokeBallScript:
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Tentacool2PokeBallScript
 
+	checkevent EVENT_ORIGIN_BETA
+	iftrue HonobeaPokeBallScript
+
 MiddlePokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue LookAtElmPokeBallScript
@@ -200,6 +203,9 @@ MiddlePokeBallScript:
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Voltorb2PokeBallScript
 
+	checkevent EVENT_ORIGIN_BETA
+	iftrue KurusuPokeBallScript
+
 RightPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue LookAtElmPokeBallScript
@@ -220,6 +226,9 @@ RightPokeBallScript:
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue ExeggcutePokeBallScript
+
+	checkevent EVENT_ORIGIN_BETA
+	iftrue KotoraPokeBallScript
 
 CharmanderPokeBallScript:
 	pokepic CHARMANDER
@@ -345,6 +354,32 @@ Tentacool2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TENTACOOL2, 5, BERRY
+	closetext
+	readvar VAR_FACING
+	ifequal RIGHT, ElmDirectionsScript
+	applymovement PLAYER, AfterCyndaquilMovement
+	sjump ElmDirectionsScript
+
+HonobeaPokeBallScript:	
+	pokepic HONOBEA
+	cry HONOBEA
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeHonobeaText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL1
+	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, HONOBEA
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke HONOBEA, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -497,6 +532,30 @@ Voltorb2PokeBallScript:
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
+KotoraPokeBallScript:
+	pokepic KOTORA
+	cry KOTORA
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeKotoraText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL3
+	setevent EVENT_GOT_CHIKORITA_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, KOTORA
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke KOTORA, 5, BERRY
+	closetext
+	applymovement PLAYER, AfterChikoritaMovement
+	sjump ElmDirectionsScript
+
 DelibirdPokeBallScript2:	
 	pokepic DELIBIRD
 	cry DELIBIRD
@@ -639,6 +698,30 @@ ExeggcutePokeBallScript:
 	givepoke EXEGGCUTE2, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
+	sjump ElmDirectionsScript
+
+KurusuPokeBallScript:	
+	pokepic KURUSU
+	cry KURUSU
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeKurusuText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL2
+	setevent EVENT_GOT_TOTODILE_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, KURUSU
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke KURUSU, 5, BERRY
+	closetext
+	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
 DelibirdPokeBallScript3:	
@@ -1376,16 +1459,34 @@ TakeExeggcuteText:
 	cont "grass #MON?"
 	done
 
+TakeKurusuText:	
+	text "ELM: So, you like"
+	line "KURUSU, the"
+	cont "water #MON?"
+	done
+
 TakeVoltorbText:
 	text "ELM: Do you want"
 	line "VOLTORB, the"
 	cont "orb #MON?"
 	done
 
+TakeKotoraText:
+	text "ELM: Do you want"
+	line "KOTORA, the"
+	cont "tiger #MON?"
+	done
+
 TakeTentacoolText:
 	text "ELM: Do you want"
 	line "Tentacool, the"
 	cont "rock #MON?"
+	done
+
+TakeHonobeaText:
+	text "ELM: Do you want"
+	line "Honobea, the"
+	cont "fire #MON?"
 	done
 
 TakeMunchlaxText:

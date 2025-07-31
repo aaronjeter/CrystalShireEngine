@@ -149,25 +149,25 @@ KantoGrassWildMons:
 	dbw 3, RHYHORN
 	dbw 1, ONIX
 	dbw 1, MEDITITE
-	dbw 5, RHYDON
+	dbw 5, HANEEI
 	dbw 1, LARVITAR
-	dbw 3, PUPITAR
+	dbw 7, HANEEI
 	; day
 	dbw 3, GRAVELER
 	dbw 3, RHYHORN
 	dbw 1, ONIX
 	dbw 1, MEDITITE
-	dbw 5, RHYDON
+	dbw 5, HANEEI
 	dbw 1, LARVITAR
-	dbw 3, PUPITAR
+	dbw 7, HANEEI
 	; nite
 	dbw 3, GRAVELER
 	dbw 3, RHYHORN
 	dbw 1, ONIX
 	dbw 1, MEDITITE
-	dbw 5, RHYDON
+	dbw 5, HANEEI
 	dbw 1, LARVITAR
-	dbw 3, PUPITAR
+	dbw 7, HANEEI
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_1
@@ -847,7 +847,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, WEEDLE
 	dbw 1, CATERPIE
-	dbw 1, PIDGEY
+	dbw 1, HONOBEA
 	dbw 1, BULBASAUR
 	dbw 1, PIKACHU
 	dbw 3, SPEAROW
@@ -855,7 +855,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, WEEDLE
 	dbw 1, CATERPIE
-	dbw 1, PIDGEY
+	dbw 1, HONOBEA
 	dbw 1, BULBASAUR
 	dbw 1, PIKACHU
 	dbw 3, SPEAROW
@@ -863,7 +863,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, WEEDLE
 	dbw 1, CATERPIE
-	dbw 1, PIDGEY
+	dbw 1, HONOBEA
 	dbw 1, BULBASAUR
 	dbw 1, PIKACHU
 	dbw 3, MURKROW

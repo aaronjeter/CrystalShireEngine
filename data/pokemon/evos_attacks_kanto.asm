@@ -1499,6 +1499,7 @@ BellsproutEvosAttacks:
 	db 0 ; no more level-up moves
 
 WeepinbellEvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, TSUBOMITT
 	dbww EVOLVE_ITEM, LEAF_STONE, VICTREEBEL
 	db 0 ; no more evolutions
 	dbw 1, VINE_WHIP
@@ -1819,6 +1820,7 @@ DodrioEvosAttacks:
 	db 0 ; no more level-up moves
 
 SeelEvosAttacks:
+	dbww EVOLVE_ITEM, FIRE_STONE, ASHIBOMB
 	dbbw EVOLVE_LEVEL, 30, DEWGONG
 	db 0 ; no more evolutions
 	dbw 1, WATER_GUN
@@ -1840,6 +1842,7 @@ SeelEvosAttacks:
 	db 0 ; no more level-up moves
 
 DewgongEvosAttacks:
+	dbww EVOLVE_ITEM, FIRE_STONE, ASHIBOMB
 	db 0 ; no more evolutions
 	dbw 1, WATER_GUN
 	dbw 5, GROWL

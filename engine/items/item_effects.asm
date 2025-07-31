@@ -3019,7 +3019,7 @@ BirdWhistleEffect:
 	ld a, DELIBIRD
 	ld [wTempIconSpecies], a
 	ld [wCurIcon], a
-	farcall FlyFunction
+	call FlyFunction
 	ld a, [wFieldMoveSucceeded]
 	cp $2
 	jr z, .Fail
@@ -3041,5 +3041,5 @@ BirdWhistleEffect:
 LanternEffect:
 	ld a, 1
 	ld [wUsingHMItem], a
-	farcall FlashFunction
+	call FlashFunction
 	ret

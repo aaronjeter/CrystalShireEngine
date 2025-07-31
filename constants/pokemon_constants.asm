@@ -465,6 +465,19 @@ DEF JOHTO_POKEMON EQU const_value
 	const CYNDAQUIL2
 	const QUILAVA2
 	const TYPHLOSION2
+	;Beta Mons
+	const HANAMOLE
+	const HONOBEA
+	const BORUBEA
+	const DYNABEA
+	const KURUSU
+	const AKUA
+	const AKUERIA
+	const HANEEI
+	const TSUBOMITT
+	const KOTORA
+	const RAITORA
+	const ASHIBOMB
 
 DEF NUM_JOHTO_POKEMON EQU const_value - 1
 DEF NUM_POKEMON EQU const_value - 1

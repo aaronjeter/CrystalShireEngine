@@ -444,4 +444,17 @@ BitmasksPointers:
 	dw Cyndaquil2Bitmasks
 	dw Quilava2Bitmasks
 	dw Typhlosion2Bitmasks
+	;beta mons
+	dw HanamoleBitmasks
+	dw HonobeaBitmasks
+	dw BorubeaBitmasks
+	dw DynabeaBitmasks
+	dw KurusuBitmasks
+	dw AkuaBitmasks
+	dw AkueriaBitmasks
+	dw HaneeiBitmasks
+	dw TsubomittBitmasks
+	dw KotoraBitmasks
+	dw RaitoraBitmasks
+	dw AshibombBitmasks
 	assert_table_length NUM_POKEMON

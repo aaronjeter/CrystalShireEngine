@@ -444,4 +444,17 @@ AlphabeticalPokedexOrder:
 	dw HVOLTORB
 	dw HELECTRODE
 	dw IRONBUNDLE
+	;beta mons
+	dw HANAMOLE
+	dw HONOBEA
+	dw BORUBEA
+	dw DYNABEA
+	dw KURUSU
+	dw AKUA
+	dw AKUERIA
+	dw HANEEI
+	dw TSUBOMITT
+	dw KOTORA
+	dw RAITORA
+	dw ASHIBOMB
 	assert_table_length NUM_POKEMON

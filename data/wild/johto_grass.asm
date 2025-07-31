@@ -566,28 +566,28 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, CHIKORITA
-	dbw 1, PARAS
+	dbw 1, KOTORA
 	dbw 1, SHROOMISH
 	dbw 1, VENONAT
 	dbw 1, FARFETCH_D
 	dbw 2, FARFETCH_D
-	dbw 3, FARFETCH_D
+	dbw 7, HANAMOLE
 	; day
 	dbw 1, CHIKORITA
-	dbw 1, PARAS
+	dbw 1, KOTORA
 	dbw 1, SHROOMISH
 	dbw 1, VENONAT
 	dbw 1, FARFETCH_D
 	dbw 2, FARFETCH_D
-	dbw 3, FARFETCH_D
+	dbw 7, HANAMOLE
 	; nite
 	dbw 1, CHIKORITA
-	dbw 1, PARAS
+	dbw 1, KOTORA
 	dbw 1, SHROOMISH
 	dbw 1, VENONAT
 	dbw 1, FARFETCH_D
 	dbw 2, FARFETCH_D
-	dbw 3, NOCTOWL
+	dbw 7, HANAMOLE
 	end_grass_wildmons
 
 	def_grass_wildmons ILEX_WEST
@@ -599,7 +599,7 @@ JohtoGrassWildMons:
 	dbw 1, WURMPLE
 	dbw 1, ZANGOOSE
 	dbw 2, ZANGOOSE
-	dbw 3, ZANGOOSE
+	dbw 7, HANAMOLE
 	; day
 	dbw 1, CHIKORITA
 	dbw 1, SHUPPET
@@ -607,43 +607,43 @@ JohtoGrassWildMons:
 	dbw 1, WURMPLE
 	dbw 1, ZANGOOSE
 	dbw 2, ZANGOOSE
-	dbw 3, ZANGOOSE
+	dbw 7, HANAMOLE
 	; nite
 	dbw 1, CHIKORITA
 	dbw 1, SHUPPET
 	dbw 1, SHROOMISH
 	dbw 1, WURMPLE
 	dbw 1, ZANGOOSE
-	dbw 2, ZANGOOSE
-	dbw 3, NOCTOWL
+	dbw 5, HANAMOLE
+	dbw 7, HANAMOLE
 	end_grass_wildmons
 
 	def_grass_wildmons ILEX_EAST
 	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, CHIKORITA
-	dbw 1, PARAS
+	dbw 1, KOTORA
 	dbw 1, SHROOMISH
 	dbw 1, DUSKULL
 	dbw 1, SEVIPER
 	dbw 2, SEVIPER
-	dbw 3, SEVIPER
+	dbw 7, HANAMOLE
 	; day
 	dbw 1, CHIKORITA
-	dbw 1, PARAS
+	dbw 1, KOTORA
 	dbw 1, SHROOMISH
 	dbw 1, DUSKULL
 	dbw 1, SEVIPER
 	dbw 2, SEVIPER
-	dbw 3, SEVIPER
+	dbw 7, HANAMOLE
 	; nite
 	dbw 1, CHIKORITA
 	dbw 1, PARAS
 	dbw 1, SHROOMISH
 	dbw 1, DUSKULL
 	dbw 1, SEVIPER
-	dbw 2, SEVIPER
-	dbw 3, NOCTOWL
+	dbw 5, HANAMOLE
+	dbw 7, HANAMOLE
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
