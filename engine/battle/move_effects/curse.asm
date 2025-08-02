@@ -68,7 +68,7 @@ BattleCommand_Curse:
 
 	set SUBSTATUS_CURSE, [hl]
 	call AnimateCurrentMove
-	ld hl, GetHalfMaxHP
+	ld hl, GetEighthMaxHP
 	call CallBattleCore
 	ld hl, SubtractHPFromUser
 	call CallBattleCore

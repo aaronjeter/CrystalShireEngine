@@ -3177,6 +3177,50 @@ TeacherGroupHard:
 	dw JIGGLYPUFF
 	db -1 ; end
 
+	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #1)
+	db "JESS@", TRAINERTYPE_NORMAL
+	db 7
+	dw XATU
+	db 7
+	dw AGRIMER
+	db 7
+	dw LAIRON
+	db 7
+	dw TENTACRUEL
+	db 7
+	dw PRIMEAPE
+	db 9
+	dw GRANBULL
+	db -1 ; end
+
+	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #2)
+	db "JESS@", TRAINERTYPE_ITEM_MOVES
+	db 10
+	dw XATU
+	dw KINGS_ROCK
+	dw PSYCHIC_M, DRILL_PECK, WILLOWISP, DARK_PULSE
+	db 10
+	dw AMUK
+	dw LEFTOVERS
+	dw SLUDGE_BOMB, SHADOW_PUNCH, COSMIC_POWER, RECOVER
+	db 10
+	dw AGGRON
+	dw METAL_COAT
+	dw IRON_TAIL, COSMIC_POWER, ROCK_SLIDE, GUILLOTINE
+	db 10
+	dw TENTACRUEL
+	dw MYSTIC_WATER
+	dw SLUDGE_BOMB, HYDRO_PUMP, ICY_WIND, POWER_GEM
+	db 10
+	dw GRANBULL
+	dw QUICK_CLAW
+	dw CRUNCH, SWORDS_DANCE, THUNDERPUNCH, PLAY_ROUGH
+	db 12
+	dw ANNIHILAPE
+	dw BLACKBELT_I
+	dw CROSS_CHOP, SHADOW_PUNCH, FISSURE, BULK_UP
+	db -1 ; end
+
 	end_list_items
 
 SabrinaGroupHard:

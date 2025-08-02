@@ -925,6 +925,9 @@ SECTION "Map Blocks 4", ROMX
 	PetalburgCity_Blocks:
 	INCBIN "maps/hoenn/PetalburgCity.ablk" 
 
+	RustboroCity_Blocks:
+	INCBIN "maps/hoenn/RustboroCity.ablk"
+
 	PetalburgWoods_Blocks:
 	INCBIN "maps/hoenn/PetalburgWoods.ablk"
 

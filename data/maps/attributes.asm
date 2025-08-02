@@ -712,6 +712,9 @@ ENDM
 	connection west, Route104, ROUTE_104, -15
 	connection east, Route102, ROUTE_102, 4
 
+	map_attributes RustboroCity, RUSTBORO_CITY, $05, SOUTH
+	connection south, Route104, ROUTE_104, 0
+
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0
 	connection south, LittlerootTown, LITTLEROOT_TOWN, 0
@@ -723,5 +726,6 @@ ENDM
 	map_attributes Route103, ROUTE_103, $05, SOUTH
 	connection south, OldaleTown, OLDALE_TOWN, 0
 
-	map_attributes Route104, ROUTE_104, $05, EAST
+	map_attributes Route104, ROUTE_104, $05, NORTH | EAST
+	connection north, RustboroCity, RUSTBORO_CITY, 0
 	connection east, PetalburgCity, PETALBURG_CITY, 15

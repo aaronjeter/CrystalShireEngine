@@ -2092,7 +2092,7 @@ CooltrainerMGroup:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (7) Route 26 Rematch 1
-	db "GAVEN@", TRAINERTYPE_ITEM_MOVES
+	db "GAVEN@", TRAINERTYPE_NORMAL
 	db 9
 	dw VICTREEBEL
 	db 9
@@ -3137,6 +3137,43 @@ TeacherGroup:
 	dw JIGGLYPUFF
 	db -1 ; end
 
+	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #1)
+	db "JESS@", TRAINERTYPE_NORMAL
+	db 5
+	dw NATU
+	db 5
+	dw AGRIMER
+	db 5
+	dw LAIRON
+	db 5
+	dw TENTACRUEL
+	db 5
+	dw PRIMEAPE
+	db 7
+	dw GRANBULL
+	db -1 ; end
+
+	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #2)
+	db "JESS@", TRAINERTYPE_MOVES
+	db 8
+	dw XATU
+	dw PSYCHIC_M, DRILL_PECK, WILLOWISP, DARK_PULSE
+	db 8
+	dw AMUK
+	dw SLUDGE_BOMB, SHADOW_PUNCH, COSMIC_POWER, RECOVER
+	db 8
+	dw AGGRON
+	dw IRON_TAIL, COSMIC_POWER, ROCK_SLIDE, GUILLOTINE
+	db 9
+	dw TENTACRUEL
+	dw SLUDGE_BOMB, HYDRO_PUMP, ICY_WIND, POWER_GEM
+	db 9
+	dw GRANBULL
+	dw CRUNCH, SWORDS_DANCE, THUNDERPUNCH, PLAY_ROUGH
+	db 10
+	dw ANNIHILAPE
+	dw CROSS_CHOP, SHADOW_PUNCH, FISSURE, BULK_UP
+	db -1 ; end
 	end_list_items
 
 SabrinaGroup: ;Gym Leader

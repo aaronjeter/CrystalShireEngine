@@ -159,7 +159,7 @@ ENDM
 	map_const ARTICUNO_LAIR,                               20, 20 ; 94
 	map_const MOLTRES_LAIR,                                20, 20 ; 95
 	map_const VIRIDIAN_FOREST,							   20, 25 ; 96
-	map_const PETALBURG_WOODS,							   20, 20 ; 97
+	map_const PETALBURG_WOODS,							   20, 20 ; 97	
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -509,6 +509,7 @@ ENDM
 	map_const LITTLEROOT_TOWN,                             10,  8 ;  1
 	map_const OLDALE_TOWN,                                 10, 10 ;  2
 	map_const PETALBURG_CITY,                              15, 15 ;  3
+	map_const RUSTBORO_CITY,							   20, 30 ; 
 	map_const ROUTE_101,                                   10, 10 ;  4
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6
