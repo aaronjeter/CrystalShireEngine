@@ -717,6 +717,13 @@ ENDM
 	connection south, Route104, ROUTE_104, 0
 	connection east, Route116, ROUTE_116, 0
 
+	map_attributes VerdanturfTown, VERDANTURF_TOWN, $05, EAST
+	connection east, Route117, ROUTE_117, 0
+
+	map_attributes MauvilleCity, MAUVILLE_CITY, $05, SOUTH | WEST
+	connection south, Route110, ROUTE_110, 0
+	connection west, Route117, ROUTE_117, 0
+
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0
 	connection south, LittlerootTown, LITTLEROOT_TOWN, 0
@@ -725,12 +732,21 @@ ENDM
 	connection west, PetalburgCity, PETALBURG_CITY, -4
 	connection east, OldaleTown, OLDALE_TOWN, 0	
 
-	map_attributes Route103, ROUTE_103, $05, SOUTH
+	map_attributes Route103, ROUTE_103, $05, SOUTH | EAST
 	connection south, OldaleTown, OLDALE_TOWN, 0
+	connection east, Route110, ROUTE_110, -18
 
 	map_attributes Route104, ROUTE_104, $05, NORTH | EAST
 	connection north, RustboroCity, RUSTBORO_CITY, 0
 	connection east, PetalburgCity, PETALBURG_CITY, 15
 
+	map_attributes Route110, ROUTE_110, $05, NORTH | WEST
+	connection north, MauvilleCity, MAUVILLE_CITY, 0
+	connection west, Route103, ROUTE_103, 18
+
 	map_attributes Route116, ROUTE_116, $05, WEST
 	connection west, RustboroCity, RUSTBORO_CITY, 0
+
+	map_attributes Route117, ROUTE_117, $05, WEST | EAST
+	connection west, VerdanturfTown, VERDANTURF_TOWN, 0
+	connection east, MauvilleCity, MAUVILLE_CITY, 0
