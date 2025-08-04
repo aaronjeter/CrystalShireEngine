@@ -494,9 +494,11 @@ INCLUDE "maps/hoenn/OldaleTown.asm"
 INCLUDE "maps/hoenn/PetalburgCity.asm"
 INCLUDE "maps/hoenn/RustboroCity.asm"
 INCLUDE "maps/hoenn/PetalburgWoods.asm"
+INCLUDE "maps/hoenn/RusturfTunnel.asm"
 INCLUDE "maps/hoenn/Route101.asm"
 INCLUDE "maps/hoenn/Route102.asm"
 INCLUDE "maps/hoenn/Route103.asm"
 INCLUDE "maps/hoenn/Route104.asm"
+INCLUDE "maps/hoenn/Route116.asm"
 
 ENDSECTION

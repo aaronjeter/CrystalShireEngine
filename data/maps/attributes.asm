@@ -699,6 +699,7 @@ ENDM
 	map_attributes MoltresLair, MOLTRES_LAIR, $b6, 0
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $50, 0
 	map_attributes PetalburgWoods, PETALBURG_WOODS, $4c, 0
+	map_attributes RusturfTunnel, RUSTURF_TUNNEL, $2e, 0
 
 	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH
 	connection north, Route101, ROUTE_101, 0
@@ -712,8 +713,9 @@ ENDM
 	connection west, Route104, ROUTE_104, -15
 	connection east, Route102, ROUTE_102, 4
 
-	map_attributes RustboroCity, RUSTBORO_CITY, $05, SOUTH
+	map_attributes RustboroCity, RUSTBORO_CITY, $05, SOUTH | EAST
 	connection south, Route104, ROUTE_104, 0
+	connection east, Route116, ROUTE_116, 0
 
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0
@@ -729,3 +731,6 @@ ENDM
 	map_attributes Route104, ROUTE_104, $05, NORTH | EAST
 	connection north, RustboroCity, RUSTBORO_CITY, 0
 	connection east, PetalburgCity, PETALBURG_CITY, 15
+
+	map_attributes Route116, ROUTE_116, $05, WEST
+	connection west, RustboroCity, RUSTBORO_CITY, 0

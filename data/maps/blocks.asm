@@ -931,6 +931,9 @@ SECTION "Map Blocks 4", ROMX
 	PetalburgWoods_Blocks:
 	INCBIN "maps/hoenn/PetalburgWoods.ablk"
 
+	RusturfTunnel_Blocks:
+	INCBIN "maps/hoenn/RusturfTunnel.ablk"
+
 	Route101_Blocks:
 	INCBIN "maps/hoenn/Route101.ablk" 
 
@@ -942,5 +945,8 @@ SECTION "Map Blocks 4", ROMX
 
 	Route104_Blocks:
 	INCBIN "maps/hoenn/Route104.ablk" 
+
+	Route116_Blocks:
+	INCBIN "maps/hoenn/Route116.ablk" 
 
 ENDSECTION

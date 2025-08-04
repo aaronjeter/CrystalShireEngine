@@ -160,6 +160,7 @@ ENDM
 	map_const MOLTRES_LAIR,                                20, 20 ; 95
 	map_const VIRIDIAN_FOREST,							   20, 25 ; 96
 	map_const PETALBURG_WOODS,							   20, 20 ; 97	
+	map_const RUSTURF_TUNNEL,							   20, 12 ; 98
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -514,6 +515,7 @@ ENDM
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6
 	map_const ROUTE_104,                                   15, 30 ;  7	
+	map_const ROUTE_116,								   30, 10 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27
