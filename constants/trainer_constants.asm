@@ -751,4 +751,44 @@ DEF KRIS EQU __trainer_class__
 	trainerclass LINK_KRIS ; 44
 	const LINK_KRIS1
 
+	trainerclass LEADERROXANNE 
+	const ROXANNE1
+
+	trainerclass BRAWLY
+	const BRAWLY1
+
+	trainerclass WATTSON
+	const WATTSON1
+
+	trainerclass FLANNERY
+	const FLANNERY1
+
+	trainerclass LEADERNORMAN
+	const NORMAN1
+
+	trainerclass WINONA
+	const WINONA1
+
+	trainerclass TATELIZA
+	const TATELIZA1
+
+	trainerclass WALLACE
+	const WALLACE1
+
+	trainerclass ELITESIDNEY
+	const SIDNEY1
+
+	trainerclass PHOEBE
+	const PHOEBE1
+
+	trainerclass GLACIA
+	const GLACIA1
+
+	trainerclass DRAKE
+	const DRAKE1
+
+	trainerclass STEVEN
+	const STEVEN1
+
+
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

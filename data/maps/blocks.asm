@@ -926,13 +926,25 @@ SECTION "Map Blocks 4", ROMX
 	INCBIN "maps/hoenn/PetalburgCity.ablk" 
 
 	RustboroCity_Blocks:
-	INCBIN "maps/hoenn/RustboroCity.ablk"
+	INCBIN "maps/hoenn/rustboro/RustboroCity.ablk"
+
+	RustboroGym_Blocks:
+	INCBIN "maps/hoenn/rustboro/RustboroGym.ablk"
 
 	VerdanturfTown_Blocks:
 	INCBIN "maps/hoenn/VerdanturfTown.ablk" 
 
 	MauvilleCity_Blocks:
 	INCBIN "maps/hoenn/MauvilleCity.ablk"
+
+	SlateportCity_Blocks:
+	INCBIN "maps/hoenn/SlateportCity.ablk"
+
+	DewfordTown_Blocks:
+	INCBIN "maps/hoenn/dewford/DewfordTown.ablk"
+
+	DewfordGym_Blocks:
+	INCBIN "maps/hoenn/dewford/DewfordGym.ablk"
 
 	PetalburgWoods_Blocks:
 	INCBIN "maps/hoenn/PetalburgWoods.ablk"
@@ -951,6 +963,15 @@ SECTION "Map Blocks 4", ROMX
 
 	Route104_Blocks:
 	INCBIN "maps/hoenn/Route104.ablk" 
+
+	Route105_Blocks:
+	INCBIN "maps/hoenn/Route105.ablk" 
+
+	Route108_Blocks:
+	INCBIN "maps/hoenn/Route108.ablk" 
+
+	Route109_Blocks:
+	INCBIN "maps/hoenn/Route109.ablk" 
 
 	Route110_Blocks:
 	INCBIN "maps/hoenn/Route110.ablk" 

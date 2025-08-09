@@ -511,12 +511,19 @@ ENDM
 	map_const OLDALE_TOWN,                                 10, 10 ;  2
 	map_const PETALBURG_CITY,                              15, 15 ;  3
 	map_const RUSTBORO_CITY,							   20, 30 ; 
+	map_const RUSTBORO_GYM,								   06, 10 ;
 	map_const VERDANTURF_TOWN,							   10, 10 ;
 	map_const MAUVILLE_CITY,							   20, 10 ;
+	map_const SLATEPORT_CITY,							   20, 30 ;
+	map_const DEWFORD_TOWN,								   20, 20 ;
+	map_const DEWFORD_GYM,								   09, 14 ;
 	map_const ROUTE_101,                                   10, 10 ;  4
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6
 	map_const ROUTE_104,                                   15, 30 ;  7	
+	map_const ROUTE_105,								   20, 30 ;
+	map_const ROUTE_108,                                   30, 10 ;
+	map_const ROUTE_109,								   20, 30 ;
 	map_const ROUTE_110,                                   20, 30 ;
 	map_const ROUTE_116,								   30, 10 ;
 	map_const ROUTE_117,								   30, 10 ;

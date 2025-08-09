@@ -72,6 +72,19 @@ TrainerEncounterMusic::
 	db MUSIC_ROCKET_ENCOUNTER      ; gruntf
 	db MUSIC_HIKER_ENCOUNTER       ; mysticalman
 	db MUSIC_HIKER_ENCOUNTER       ; kris
+	db MUSIC_LASS_ENCOUNTER        ; roxanne
+	db MUSIC_YOUNGSTER_ENCOUNTER   ; brawly
+	db MUSIC_YOUNGSTER_ENCOUNTER   ; wattson
+	db MUSIC_LASS_ENCOUNTER        ; flannery
+	db MUSIC_YOUNGSTER_ENCOUNTER   ; norman
+	db MUSIC_KIMONO_ENCOUNTER      ; winona
+	db MUSIC_SAGE_ENCOUNTER        ; tateliza
+	db MUSIC_HIKER_ENCOUNTER       ; wallace
+	db MUSIC_OFFICER_ENCOUNTER     ; sidney
+	db MUSIC_OFFICER_ENCOUNTER     ; phoebe
+	db MUSIC_OFFICER_ENCOUNTER     ; glacia
+	db MUSIC_OFFICER_ENCOUNTER     ; drake
+	db MUSIC_OFFICER_ENCOUNTER     ; steven
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

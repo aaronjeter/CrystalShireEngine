@@ -71,4 +71,18 @@ TrainerPicPointers::
 	dba GruntfPic
 	dba MysticalmanPic
 	dba KrisTrainerPic
+	;hoenn placeholder pics
+	dba PokemonProfPic	
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
+	dba PokemonProfPic
 	assert_table_length NUM_TRAINER_CLASSES

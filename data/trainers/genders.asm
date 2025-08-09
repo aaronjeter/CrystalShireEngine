@@ -70,4 +70,18 @@ BTTrainerClassGenders:
 	db MALE   ; OFFICER
 	db FEMALE ; GRUNTF
 	db FEMALE ; KRIS
-	assert_table_length NUM_TRAINER_CLASSES - 1 ; exclude MYSTICALMAN
+	db MALE   ; MYSTICALMAN
+	db FEMALE ; ROXANNE
+	db MALE   ; BRAWLY
+	db MALE   ; WATTSON
+	db FEMALE ; FLANNERY
+	db MALE   ; NORMAN
+	db FEMALE ; WINONA
+	db MALE   ; TATELIZA
+	db MALE   ; WALLACE
+	db MALE   ; SIDNEY
+	db FEMALE ; PHOEBE
+	db FEMALE ; GLACIA
+	db MALE   ; DRAKE
+	db MALE   ; STEVEN
+	assert_table_length NUM_TRAINER_CLASSES ; 

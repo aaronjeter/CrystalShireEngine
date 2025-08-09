@@ -71,6 +71,19 @@ TrainerGroups:
 	dba GruntFGroup
 	dba MysticalmanGroup
 	dba KrisGroup
+	dba RoxanneGroup
+	dba BrawlyGroup
+	dba WattsonGroup
+	dba FlanneryGroup
+	dba NormanGroup
+	dba WinonaGroup
+	dba TateLizaGroup
+	dba WallaceGroup
+	dba SidneyGroup
+	dba PhoebeGroup
+	dba GlaciaGroup
+	dba DrakeGroup
+	dba StevenGroup
 	assert_table_length NUM_TRAINER_CLASSES
 
 	TrainerGroupsHard:
@@ -144,4 +157,17 @@ TrainerGroups:
 	dba GruntFGroupHard
 	dba MysticalmanGroupHard
 	dba KrisGroupHard
+	dba RoxanneGroupHard
+	dba BrawlyGroupHard
+	dba WattsonGroupHard
+	dba FlanneryGroupHard
+	dba NormanGroupHard
+	dba WinonaGroupHard
+	dba TateLizaGroupHard
+	dba WallaceGroupHard
+	dba SidneyGroupHard
+	dba PhoebeGroupHard
+	dba GlaciaGroupHard
+	dba DrakeGroupHard
+	dba StevenGroupHard
 	assert_table_length NUM_TRAINER_CLASSES

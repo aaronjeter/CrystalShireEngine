@@ -700,6 +700,8 @@ ENDM
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $50, 0
 	map_attributes PetalburgWoods, PETALBURG_WOODS, $4c, 0
 	map_attributes RusturfTunnel, RUSTURF_TUNNEL, $2e, 0
+	map_attributes RustboroGym, RUSTBORO_GYM, $0, 0
+	map_attributes DewfordGym, DEWFORD_GYM, $0, 0
 
 	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH
 	connection north, Route101, ROUTE_101, 0
@@ -724,6 +726,14 @@ ENDM
 	connection south, Route110, ROUTE_110, 0
 	connection west, Route117, ROUTE_117, 0
 
+	map_attributes SlateportCity, SLATEPORT_CITY, $05, NORTH | SOUTH
+	connection north, Route110, ROUTE_110, 0
+	connection south, Route109, ROUTE_109, 0
+
+	map_attributes DewfordTown, DEWFORD_TOWN, $05, NORTH | EAST
+	connection north, Route105, ROUTE_105, 0
+	connection east, Route108, ROUTE_108, 10
+
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0
 	connection south, LittlerootTown, LITTLEROOT_TOWN, 0
@@ -736,12 +746,26 @@ ENDM
 	connection south, OldaleTown, OLDALE_TOWN, 0
 	connection east, Route110, ROUTE_110, -18
 
-	map_attributes Route104, ROUTE_104, $05, NORTH | EAST
+	map_attributes Route104, ROUTE_104, $05, NORTH | SOUTH | EAST
 	connection north, RustboroCity, RUSTBORO_CITY, 0
+	connection south, Route105, ROUTE_105, -5
 	connection east, PetalburgCity, PETALBURG_CITY, 15
 
-	map_attributes Route110, ROUTE_110, $05, NORTH | WEST
+	map_attributes Route105, ROUTE_105, $05, NORTH | SOUTH
+	connection north, Route104, ROUTE_104, 5
+	connection south, DewfordTown, DEWFORD_TOWN, 0
+
+	map_attributes Route108, ROUTE_108, $35, WEST | EAST
+	connection west, DewfordTown, DEWFORD_TOWN, -10
+	connection east, Route109, ROUTE_109, -20
+
+	map_attributes Route109, ROUTE_109, $35, NORTH | WEST
+	connection north, SlateportCity, SLATEPORT_CITY, 0
+	connection west, Route108, ROUTE_108, 20
+
+	map_attributes Route110, ROUTE_110, $05, NORTH | SOUTH | WEST
 	connection north, MauvilleCity, MAUVILLE_CITY, 0
+	connection south, SlateportCity, SLATEPORT_CITY, 0
 	connection west, Route103, ROUTE_103, 18
 
 	map_attributes Route116, ROUTE_116, $05, WEST

@@ -6356,4 +6356,173 @@ KrisGroup:
 
 	end_list_items
 
+RoxanneGroup:
+	next_list_item; ROXXANE (1) Unreferenced
+	db "ROXXANE@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+BrawlyGroup:
+	next_list_item; BRAWLY (1) Unreferenced
+	db "BRAWLY@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+WattsonGroup:
+	next_list_item; WATTSON (1) Unreferenced
+	db "WATTSON@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+FlanneryGroup:
+	next_list_item; FLANNERY (1) Unreferenced
+	db "FLANNERY@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+NormanGroup:
+	next_list_item; NORMAN (1) Unreferenced
+	db "NORMAN@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+WinonaGroup:
+	next_list_item; WINONA (1) Unreferenced
+	db "WINONA@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+TateLizaGroup:
+	next_list_item; TATELIZA (1) Unreferenced
+	db "TATE & LIZA@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+WallaceGroup:
+	next_list_item; WALLACE (1) Unreferenced
+	db "WALLACE@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+SidneyGroup:
+	next_list_item; SIDNEY (1) Unreferenced
+	db "SIDNEY@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+PhoebeGroup:
+	next_list_item; PHOEBE (1) Unreferenced
+	db "PHOEBE@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+GlaciaGroup:
+	next_list_item; GLACIA (1) Unreferenced
+	db "GLACIA@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+DrakeGroup:
+	next_list_item; DRAKE (1) Unreferenced
+	db "DRAKE@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+StevenGroup:
+	next_list_item; STEVEN (1) Unreferenced
+	db "STEVEN@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
 ENDSECTION

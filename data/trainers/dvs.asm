@@ -70,4 +70,17 @@ TrainerClassDVs:
 	dn  7, 14, 10,  8 ; GRUNTF
 	dn  9,  8,  8,  8 ; MYSTICALMAN
 	dn 13, 12, 13, 13 ; KRIS
+	dn  7, 12, 13, 13 ; ROXANNE
+	dn 10, 12, 13, 13 ; BRAWLY
+	dn  7, 12, 13, 13 ; WATTSON
+	dn  7, 12, 13, 13 ; FLANNERY
+	dn  7, 12, 13, 13 ; NORMAN
+	dn  7, 12, 13, 13 ; WINONA
+	dn  7, 12, 13, 13 ; TATELIZA
+	dn  7, 12, 13, 13 ; WALLACE
+	dn  7, 12, 13, 13 ; SIDNEY
+	dn  7, 12, 13, 13 ; PHOEBE
+	dn  7, 12, 13, 13 ; GLACIA
+	dn  7, 12, 13, 13 ; DRAKE
+	dn  7, 12, 13, 13 ; STEVEN
 	assert_table_length NUM_TRAINER_CLASSES

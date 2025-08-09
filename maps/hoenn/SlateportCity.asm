@@ -1,11 +1,11 @@
 	object_const_def
 
-RustboroCity_MapScripts:
+SlateportCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
 
-RustboroCity_MapEvents:
+SlateportCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	

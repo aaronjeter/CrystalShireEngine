@@ -68,4 +68,19 @@ BTTrainerClassSprites:
 	db SPRITE_OFFICER
 	db SPRITE_ROCKET_GIRL
 	db SPRITE_KRIS
-	assert_table_length NUM_TRAINER_CLASSES - 1 ; exclude MYSTICALMAN
+	db SPRITE_SUPER_NERD ;mysticalman
+	db SPRITE_KRIS	;roxanne
+	db SPRITE_FALKNER	;brawly
+	db SPRITE_FALKNER	;wattson
+	db SPRITE_KRIS	;flannery
+	db SPRITE_FALKNER	;norman
+	db SPRITE_KRIS	;winona
+	db SPRITE_FALKNER	;tateliza
+	db SPRITE_FALKNER	;wallace
+	db SPRITE_FALKNER	;sidney
+	db SPRITE_KRIS	;phoebe
+	db SPRITE_KRIS	;glacia
+	db SPRITE_FALKNER	;drake
+	db SPRITE_FALKNER	;steven
+
+	assert_table_length NUM_TRAINER_CLASSES ; 
