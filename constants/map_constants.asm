@@ -510,10 +510,12 @@ ENDM
 	map_const LITTLEROOT_TOWN,                             10,  8 ;  1
 	map_const OLDALE_TOWN,                                 10, 10 ;  2
 	map_const PETALBURG_CITY,                              15, 15 ;  3
+	map_const PETALBURG_GYM,							   05, 40 ;
 	map_const RUSTBORO_CITY,							   20, 30 ; 
 	map_const RUSTBORO_GYM,								   06, 10 ;
 	map_const VERDANTURF_TOWN,							   10, 10 ;
 	map_const MAUVILLE_CITY,							   20, 10 ;
+	map_const MAUVILLE_GYM,								   05, 12 ;
 	map_const SLATEPORT_CITY,							   20, 30 ;
 	map_const DEWFORD_TOWN,								   20, 20 ;
 	map_const DEWFORD_GYM,								   09, 14 ;

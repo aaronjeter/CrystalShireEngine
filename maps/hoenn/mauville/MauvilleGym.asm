@@ -1,14 +1,16 @@
 	object_const_def
 
-PetalburgCity_MapScripts:
+MauvilleGym_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
 
-PetalburgCity_MapEvents:
+MauvilleGym_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
+	warp_event  4, 23, MAUVILLE_CITY, 1
+	warp_event  5, 23, MAUVILLE_CITY, 1
 
 	def_coord_events
 

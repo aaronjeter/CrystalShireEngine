@@ -280,7 +280,17 @@
 	const EVENT_ORIGIN_BETA
 	const EVENT_LEVELCAPS_ENABLED
 	const EVENT_HARDMODE_ENABLED
-; Unused: next 328 events
+
+	;Hoenn gym leaders
+	const EVENT_BEAT_ROXANNE
+	const EVENT_BEAT_BRAWLY
+	const EVENT_BEAT_WATTSON
+	const EVENT_BEAT_FLANERY
+	const EVENT_BEAT_NORMAN
+	const EVENT_BEAT_WINONA
+	const EVENT_BEAT_TATELIZA
+	const EVENT_BEAT_WALLACE
+; Unused: next 320 events
 
 	const_next 600
 ; Kurt Apricorn events
@@ -1063,6 +1073,16 @@
 ;Discord contest trainers
 	const EVENT_BEAT_ILEX_MARINA
 	const EVENT_BEAT_ILEX_RONALD
+;Hoenn Trainer Flags
+	
+	;Petalburg Gym
+	const EVENT_BEAT_PETALBURG_RANDALL
+	const EVENT_BEAT_PETALBURG_PARKER
+	const EVENT_BEAT_PETALBURG_GEORGE
+	const EVENT_BEAT_PETALBURG_MARY
+	const EVENT_BEAT_PETALBURG_LORI
+	const EVENT_BEAT_PETALBURG_JODY
+	
 ; Unused: next 115 events
 
 	const_next 1600

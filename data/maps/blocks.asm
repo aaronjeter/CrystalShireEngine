@@ -923,7 +923,10 @@ SECTION "Map Blocks 4", ROMX
 	INCBIN "maps/hoenn/OldaleTown.ablk" 
 
 	PetalburgCity_Blocks:
-	INCBIN "maps/hoenn/PetalburgCity.ablk" 
+	INCBIN "maps/hoenn/petalburg/PetalburgCity.ablk" 
+
+	PetalburgGym_Blocks:
+	INCBIN "maps/hoenn/petalburg/PetalburgGym.ablk" 
 
 	RustboroCity_Blocks:
 	INCBIN "maps/hoenn/rustboro/RustboroCity.ablk"
@@ -935,7 +938,10 @@ SECTION "Map Blocks 4", ROMX
 	INCBIN "maps/hoenn/VerdanturfTown.ablk" 
 
 	MauvilleCity_Blocks:
-	INCBIN "maps/hoenn/MauvilleCity.ablk"
+	INCBIN "maps/hoenn/mauville/MauvilleCity.ablk"
+
+	MauvilleGym_Blocks:
+	INCBIN "maps/hoenn/mauville/MauvilleGym.ablk"
 
 	SlateportCity_Blocks:
 	INCBIN "maps/hoenn/SlateportCity.ablk"

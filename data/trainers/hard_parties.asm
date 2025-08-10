@@ -2277,6 +2277,30 @@ CooltrainerMGroupHard:
 	dw WRAP, SURF, DRAGON_RAGE, SLAM
 	db -1 ; end
 
+	next_list_item ; COOLTRAINERM (21) Petalburg Gym
+	db "RANDALL@", TRAINERTYPE_NORMAL
+	db 11
+	dw DELCATTY
+	db 11
+	dw PERSIAN
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (22) Petalburg Gym
+	db "PARKER@", TRAINERTYPE_NORMAL
+	db 11
+	dw WIGGLYTUFF
+	db 11
+	dw TAUROS
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (23) Petalburg Gym
+	db "GEORGE@", TRAINERTYPE_NORMAL
+	db 11
+	dw RATICATE
+	db 11
+	dw KANGASKHAN
+	db -1 ; end
+
 	end_list_items
 
 CooltrainerFGroupHard:
@@ -2572,6 +2596,30 @@ CooltrainerFGroupHard:
 	dw TOGEKISS
 	db 15
 	dw ELECTRODE2
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (22) Petalburg Gym
+	db "MARY@", TRAINERTYPE_NORMAL
+	db 11
+	dw FURRET
+	db 11
+	dw ZANGOOSE
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (22) Petalburg Gym
+	db "MARY@", TRAINERTYPE_NORMAL
+	db 11
+	dw DODRIO
+	db 11
+	dw FEAROW
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (22) Petalburg Gym
+	db "MARY@", TRAINERTYPE_NORMAL
+	db 11
+	dw SWELLOW
+	db 11
+	dw NOCTOWL
 	db -1 ; end
 
 	end_list_items
@@ -6413,12 +6461,26 @@ KrisGroupHard:
 RoxanneGroupHard:
 	next_list_item; ROXXANE (1) Unreferenced
 	db "ROXXANE@", TRAINERTYPE_NORMAL
+	db 7
+	dw AGEODUDE
+	db 7
+	dw KABUTO
+	db 8
+	dw NOSEPASS
+	db -1 ; end
+
+	next_list_item; ROXXANE (2) Unreferenced
+	db "ROXXANE@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw NOSEPASS
 	db 10
-	dw CYNDAQUIL
+	dw MAGCARGO
 	db 10
-	dw TOTODILE
+	dw AGOLEM
+	db 10
+	dw RELICANTH
+	db 13
+	dw AERODACTYL
 	db -1 ; end
 
 	end_list_items
@@ -6426,12 +6488,26 @@ RoxanneGroupHard:
 BrawlyGroupHard:
 	next_list_item; BRAWLY (1) Unreferenced
 	db "BRAWLY@", TRAINERTYPE_NORMAL
+	db 7
+	dw MACHOP
+	db 8
+	dw MEDITITE
+	db 9
+	dw MAKUHITA
+	db -1 ; end
+
+	next_list_item; BRAWLY (2) Unreferenced
+	db "BRAWLY@", TRAINERTYPE_NORMAL
+	db 9
+	dw MACHOKE
 	db 10
-	dw CHIKORITA
+	dw MEDICHAM
 	db 10
-	dw CYNDAQUIL
+	dw HITMONCHAN
 	db 10
-	dw TOTODILE
+	dw BRELOOM
+	db 13
+	dw BLAZIKEN
 	db -1 ; end
 
 	end_list_items
@@ -6439,12 +6515,30 @@ BrawlyGroupHard:
 WattsonGroupHard:
 	next_list_item; WATTSON (1) Unreferenced
 	db "WATTSON@", TRAINERTYPE_NORMAL
+	db 7
+	dw HVOLTORB
+	db 7
+	dw MINUN
+	db 7
+	dw PLUSLE
 	db 10
-	dw CHIKORITA
+	dw MAGNETON
 	db 10
-	dw CYNDAQUIL
+	dw MANECTRIC
+	db -1 ; end
+
+	next_list_item; WATTSON (2) Unreferenced
+	db "WATTSON@", TRAINERTYPE_NORMAL
+	db 12
+	dw HELECTRODE
 	db 10
-	dw TOTODILE
+	dw MINUN
+	db 10
+	dw PLUSLE
+	db 12
+	dw MAGNEZONE
+	db 15
+	dw MANECTRIC
 	db -1 ; end
 
 	end_list_items
@@ -6452,12 +6546,30 @@ WattsonGroupHard:
 FlanneryGroupHard:
 	next_list_item; FLANNERY (1) Unreferenced
 	db "FLANNERY@", TRAINERTYPE_NORMAL
+	db 9
+	dw SUNFLORA
 	db 10
-	dw CHIKORITA
+	dw NINETALES
 	db 10
-	dw CYNDAQUIL
+	dw CAMERUPT
+	db 12
+	dw TORKOAL	
+	db -1 ; end
+
+	next_list_item; FLANNERY (2) Unreferenced
+	db "FLANNERY@", TRAINERTYPE_NORMAL
 	db 10
-	dw TOTODILE
+	dw SUNFLORA
+	db 10
+	dw NINETALES
+	db 10
+	dw FLAREON
+	db 10
+	dw CAMERUPT	
+	db 12
+	dw TORKOAL
+	db 12
+	dw CHARIZARD
 	db -1 ; end
 
 	end_list_items
@@ -6465,12 +6577,26 @@ FlanneryGroupHard:
 NormanGroupHard:
 	next_list_item; NORMAN (1) Unreferenced
 	db "NORMAN@", TRAINERTYPE_NORMAL
-	db 10
-	dw CHIKORITA
-	db 10
-	dw CYNDAQUIL
-	db 10
-	dw TOTODILE
+	db 12
+	dw LINOONE
+	db 12
+	dw SPINDA
+	db 15
+	dw DITTO
+	db -1 ; end
+
+	next_list_item; NORMAN (2) Unreferenced
+	db "NORMAN@", TRAINERTYPE_NORMAL
+	db 12
+	dw LINOONE
+	db 12
+	dw SPINDA	
+	db 12
+	dw URSARING
+	db 12
+	dw SLAKING
+	db 17
+	dw DITTO
 	db -1 ; end
 
 	end_list_items

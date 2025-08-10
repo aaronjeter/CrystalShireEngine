@@ -702,6 +702,8 @@ ENDM
 	map_attributes RusturfTunnel, RUSTURF_TUNNEL, $2e, 0
 	map_attributes RustboroGym, RUSTBORO_GYM, $0, 0
 	map_attributes DewfordGym, DEWFORD_GYM, $0, 0
+	map_attributes MauvilleGym, MAUVILLE_GYM, $0, 0
+	map_attributes PetalburgGym, PETALBURG_GYM, $0, 0
 
 	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH
 	connection north, Route101, ROUTE_101, 0

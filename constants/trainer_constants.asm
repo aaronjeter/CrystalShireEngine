@@ -250,6 +250,9 @@ DEF KRIS EQU __trainer_class__
 	const STEVE ; unused
 	const ALLEN
 	const DARIN
+	const PETALBURG_RANDALL
+	const PETALBURG_PARKER
+	const PETALBURG_GEORGE
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -276,6 +279,9 @@ DEF KRIS EQU __trainer_class__
 	const MARINA1
 	const MARINA2
 	const MARINA3
+	const PETALBURG_MARY
+	const PETALBURG_LORI
+	const PETALBURG_JODY
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -753,18 +759,23 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass LEADERROXANNE 
 	const ROXANNE1
+	const ROXANNE2
 
 	trainerclass BRAWLY
 	const BRAWLY1
+	const BRAWLY2
 
 	trainerclass WATTSON
 	const WATTSON1
+	const WATTSON2
 
 	trainerclass FLANNERY
 	const FLANNERY1
+	const FLANNERY2
 
 	trainerclass LEADERNORMAN
 	const NORMAN1
+	const NORMAN2
 
 	trainerclass WINONA
 	const WINONA1
