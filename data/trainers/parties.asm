@@ -1365,6 +1365,18 @@ YoungsterGroup:
 	dw ANINETALES
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (18) Rustboro Gym
+	db "JOSH@", TRAINERTYPE_NORMAL
+	db 5
+	dw GEODUDE
+	db -1 ; end
+
+	next_list_item ; YOUNGSTER (19) Rustboro Gym
+	db "TOMMY@", TRAINERTYPE_NORMAL
+	db 5
+	dw SANDSHREW
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Enemy Trainer Parties 2", ROMX
@@ -4607,6 +4619,12 @@ HikerGroup:
 	db 7
 	dw MACHOKE
 	dw KARATE_CHOP, VITAL_THROW, HEADBUTT, DIG
+	db -1 ; end
+
+	next_list_item ; HIKER (23) Rustboro Gym
+	db "MARC@", TRAINERTYPE_NORMAL
+	db 7
+	dw LILEEP
 	db -1 ; end
 
 	end_list_items

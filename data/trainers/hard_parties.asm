@@ -1402,6 +1402,22 @@ YoungsterGroupHard:
 	dw ANINETALES
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (18) Rustboro Gym
+	db "JOSH@", TRAINERTYPE_NORMAL
+	db 6
+	dw GEODUDE
+	db 6
+	dw AGEODUDE
+	db -1 ; end
+
+	next_list_item ; YOUNGSTER (19) Rustboro Gym
+	db "TOMMY@", TRAINERTYPE_NORMAL
+	db 6
+	dw SANDSHREW
+	db 6
+	dw ASANDSHREW
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Hard Trainer Parties 2", ROMX
@@ -4669,6 +4685,14 @@ HikerGroupHard:
 	db 7
 	dw MACHOKE
 	dw KARATE_CHOP, VITAL_THROW, HEADBUTT, DIG
+	db -1 ; end
+
+	next_list_item ; HIKER (23) Rustboro Gym
+	db "MARC@", TRAINERTYPE_NORMAL
+	db 7
+	dw LILEEP
+	db 7
+	dw ANORITH
 	db -1 ; end
 
 	end_list_items

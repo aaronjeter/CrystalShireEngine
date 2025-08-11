@@ -157,6 +157,8 @@ DEF KRIS EQU __trainer_class__
 	const RONALD1
 	const RONALD2
 	const RONALD3
+	const RUSTBORO_JOSH
+	const RUSTBORO_TOMMY
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -533,6 +535,7 @@ DEF KRIS EQU __trainer_class__
 	const PARRY3
 	const ANTHONY4
 	const ANTHONY5
+	const RUSTBORO_MARC
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY ; unused
