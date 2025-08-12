@@ -1192,3 +1192,15 @@ DynabeaFrontpic:		INCBIN "gfx/pokemon/dynabea/front.animated.2bpp.lz"
 DynabeaBackpic:			INCBIN "gfx/pokemon/dynabea/back.2bpp.lz"
 AkueriaFrontpic:		INCBIN "gfx/pokemon/akueria/front.animated.2bpp.lz"
 AkueriaBackpic:			INCBIN "gfx/pokemon/akueria/back.2bpp.lz"
+
+
+SECTION "Hoenn Trainers 1", ROMX
+
+RoxannePic:			INCBIN "gfx/trainers/roxanne.2bpp.lz"
+BrawlyPic:			INCBIN "gfx/trainers/brawly.2bpp.lz"
+WattsonPic:			INCBIN "gfx/trainers/wattson.2bpp.lz"
+FlanneryPic:		INCBIN "gfx/trainers/flannery.2bpp.lz"
+NormanPic:			INCBIN "gfx/trainers/norman.2bpp.lz"
+WinonaPic:			INCBIN "gfx/trainers/winona.2bpp.lz"
+TateLizaPic:		INCBIN "gfx/trainers/tateliza.2bpp.lz"
+WallacePic:			INCBIN "gfx/trainers/wallace.2bpp.lz"

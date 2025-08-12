@@ -78,14 +78,14 @@ INCBIN "gfx/trainers/grunt_f.gbcpal", middle_colors
 INCBIN "gfx/trainers/mysticalman.gbcpal", middle_colors
 INCBIN "gfx/trainers/falkner.gbcpal", middle_colors
 ;hoenn placeholders
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
+INCBIN "gfx/trainers/roxanne.gbcpal", middle_colors
+INCBIN "gfx/trainers/brawly.gbcpal", middle_colors
+INCBIN "gfx/trainers/wattson.gbcpal", middle_colors
+INCBIN "gfx/trainers/flannery.gbcpal", middle_colors
+INCBIN "gfx/trainers/norman.gbcpal", middle_colors
+INCBIN "gfx/trainers/winona.gbcpal", middle_colors
+INCBIN "gfx/trainers/tateliza.gbcpal", middle_colors
+INCBIN "gfx/trainers/wallace.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors

@@ -72,14 +72,14 @@ TrainerPicPointers::
 	dba MysticalmanPic
 	dba KrisTrainerPic
 	;hoenn placeholder pics
-	dba PokemonProfPic	
-	dba PokemonProfPic
-	dba PokemonProfPic
-	dba PokemonProfPic
-	dba PokemonProfPic
-	dba PokemonProfPic
-	dba PokemonProfPic
-	dba PokemonProfPic
+	dba RoxannePic	
+	dba BrawlyPic
+	dba WattsonPic
+	dba FlanneryPic
+	dba NormanPic
+	dba WinonaPic
+	dba TateLizaPic
+	dba WallacePic
 	dba PokemonProfPic
 	dba PokemonProfPic
 	dba PokemonProfPic
