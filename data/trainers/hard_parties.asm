@@ -4258,6 +4258,12 @@ SailorGroupHard:
 	dw SURF, STRENGTH, ICE_PUNCH, SUBMISSION
 	db -1 ; end
 
+	next_list_item ; SAILOR (14) Dewford City Gym
+	db "BRENDEN@", TRAINERTYPE_NORMAL	
+	db 12
+	dw POLIWRATH
+	db -1 ; end
+
 	end_list_items
 
 SuperNerdGroupHard:
@@ -5153,6 +5159,22 @@ BlackbeltGroupHard:
 	dw MACHOKE
 	db 6
 	dw MACHOKE
+	db -1 ; end
+
+	next_list_item ; BLACKBELT_T (10) Dewford City Gym
+	db "TAKAO@", TRAINERTYPE_NORMAL
+	db 10
+	dw MACHOKE
+	db 10
+	dw HITMONLEE
+	db -1 ; end
+
+	next_list_item ; BLACKBELT_T (11) Dewford City Gym
+	db "CRISTIAN@", TRAINERTYPE_NORMAL
+	db 10
+	dw MACHOKE
+	db 10
+	dw HITMONCHAN
 	db -1 ; end
 
 	end_list_items
@@ -6769,6 +6791,37 @@ StevenGroupHard:
 	dw CYNDAQUIL
 	db 10
 	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+BattleGirlGroupHard:
+	next_list_item; BATTLE_GIRL (1) Dewford City Gym
+	db "LAURA@", TRAINERTYPE_NORMAL
+	db 7
+	dw MEDICHAM
+	db 7
+	dw TAUROS
+	db -1 ; end
+
+	next_list_item; BATTLE_GIRL (2) Dewford City Gym
+	db "LILITH@", TRAINERTYPE_NORMAL
+	db 7
+	dw POLIWHIRL
+	db 7
+	dw FARFETCH_D
+	db 7
+	dw MACHOKE
+	db -1 ; end
+
+	next_list_item; BATTLE_GIRL (3) Dewford City Gym
+	db "JOCELYN@", TRAINERTYPE_NORMAL
+	db 7
+	dw COMBUSKEN
+	db 7
+	dw PRIMEAPE
+	db 7
+	dw BRELOOM
 	db -1 ; end
 
 	end_list_items

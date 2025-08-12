@@ -85,6 +85,7 @@ TrainerEncounterMusic::
 	db MUSIC_OFFICER_ENCOUNTER     ; glacia
 	db MUSIC_OFFICER_ENCOUNTER     ; drake
 	db MUSIC_OFFICER_ENCOUNTER     ; steven
+	db MUSIC_HIKER_ENCOUNTER       ; battle girl
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

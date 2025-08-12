@@ -84,4 +84,5 @@ BTTrainerClassGenders:
 	db FEMALE ; GLACIA
 	db MALE   ; DRAKE
 	db MALE   ; STEVEN
+	db FEMALE ; Battle Girl
 	assert_table_length NUM_TRAINER_CLASSES ; 

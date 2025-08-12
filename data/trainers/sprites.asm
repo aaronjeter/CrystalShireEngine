@@ -82,5 +82,6 @@ BTTrainerClassSprites:
 	db SPRITE_KRIS	;glacia
 	db SPRITE_FALKNER	;drake
 	db SPRITE_FALKNER	;steven
+	db SPRITE_LASS		;battle girl
 
 	assert_table_length NUM_TRAINER_CLASSES ; 

@@ -486,6 +486,7 @@ DEF KRIS EQU __trainer_class__
 	const HUEY2
 	const HUEY3
 	const HUEY4
+	const DEWFORD_BRENDEN
 
 	trainerclass SUPER_NERD ; 29
 	const STAN
@@ -591,6 +592,8 @@ DEF KRIS EQU __trainer_class__
 	const LUNG
 	const KENJI3
 	const WAI
+	const DEWFORD_TAKAO
+	const DEWFORD_CRISTIAN
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
@@ -808,6 +811,11 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass STEVEN
 	const STEVEN1
+
+	trainerclass BATTLE_GIRL
+	const DEWFORD_LAURA
+	const DEWFORD_LILITH
+	const DEWFORD_JOCELYN
 
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

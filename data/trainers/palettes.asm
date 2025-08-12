@@ -77,7 +77,7 @@ INCBIN "gfx/trainers/officer.gbcpal", middle_colors
 INCBIN "gfx/trainers/grunt_f.gbcpal", middle_colors
 INCBIN "gfx/trainers/mysticalman.gbcpal", middle_colors
 INCBIN "gfx/trainers/falkner.gbcpal", middle_colors
-;hoenn placeholders
+;hoenn trainers
 INCBIN "gfx/trainers/roxanne.gbcpal", middle_colors
 INCBIN "gfx/trainers/brawly.gbcpal", middle_colors
 INCBIN "gfx/trainers/wattson.gbcpal", middle_colors
@@ -91,5 +91,6 @@ INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
+INCBIN "gfx/trainers/battlegirl.gbcpal", middle_colors
 
 	assert_table_length NUM_TRAINER_CLASSES + 1

@@ -1204,3 +1204,7 @@ NormanPic:			INCBIN "gfx/trainers/norman.2bpp.lz"
 WinonaPic:			INCBIN "gfx/trainers/winona.2bpp.lz"
 TateLizaPic:		INCBIN "gfx/trainers/tateliza.2bpp.lz"
 WallacePic:			INCBIN "gfx/trainers/wallace.2bpp.lz"
+
+
+SECTION "Hoenn Trainers 2", ROMX
+BattleGirlPic:		INCBIN "gfx/trainers/battlegirl.2bpp.lz"

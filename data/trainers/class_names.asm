@@ -82,4 +82,5 @@ TrainerClassNames::
 	li "ELITE FOUR"
 	li "ELITE FOUR"
 	li "CHAMPION"
+	li "BLACKBELT"
 	assert_list_length NUM_TRAINER_CLASSES

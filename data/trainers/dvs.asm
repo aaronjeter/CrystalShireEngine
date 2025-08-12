@@ -83,4 +83,5 @@ TrainerClassDVs:
 	dn  7, 12, 13, 13 ; GLACIA
 	dn  7, 12, 13, 13 ; DRAKE
 	dn  7, 12, 13, 13 ; STEVEN
+	dn  9,  8,  8,  8 ; BATTLE_GIRL
 	assert_table_length NUM_TRAINER_CLASSES

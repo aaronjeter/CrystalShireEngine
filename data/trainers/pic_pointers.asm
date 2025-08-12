@@ -85,4 +85,5 @@ TrainerPicPointers::
 	dba PokemonProfPic
 	dba PokemonProfPic
 	dba PokemonProfPic
+	dba BattleGirlPic
 	assert_table_length NUM_TRAINER_CLASSES

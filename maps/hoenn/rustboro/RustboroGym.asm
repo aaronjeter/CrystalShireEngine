@@ -140,12 +140,9 @@ RustboroGymRoxanneScript:
 	scall RustboroGymActivateRockets
 
 	;disable gym trainers
-	setevent EVENT_BEAT_PETALBURG_RANDALL
-	setevent EVENT_BEAT_PETALBURG_MARY
-	setevent EVENT_BEAT_PETALBURG_PARKER
-	setevent EVENT_BEAT_PETALBURG_LORI
-	setevent EVENT_BEAT_PETALBURG_GEORGE
-	setevent EVENT_BEAT_PETALBURG_JODY
+	setevent EVENT_BEAT_RUSTBORO_JOSH
+	setevent EVENT_BEAT_RUSTBORO_TOMMY
+	setevent EVENT_BEAT_RUSTBORO_MARC
 
 	readmem wBaseLevel
 	addval 3
