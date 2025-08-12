@@ -1613,6 +1613,14 @@ SchoolboyGroup:
 	dw ZAP_CANNON, THUNDER_WAVE, LOCK_ON, SWIFT
 	db -1 ; end
 
+	next_list_item ; SCHOOLBOY (25) Mauville City Gym
+	db "BEN@", TRAINERTYPE_NORMAL
+	db 7
+	dw PIKACHU
+	db 7
+	dw LINOONE
+	db -1 ; end
+
 	end_list_items
 
 BirdKeeperGroup:
@@ -1974,6 +1982,12 @@ LassGroup:
 	dw VOLBEAT
 	db 9
 	dw ILLUMISE
+	db -1 ; end
+
+	next_list_item ; LASS (18) Mauville City Gym
+	db "VIVIAN@", TRAINERTYPE_NORMAL	
+	db 9
+	dw LANTURN
 	db -1 ; end
 
 	end_list_items
@@ -3462,6 +3476,14 @@ BugCatcherGroup:
 	dw PARAS
 	db -1 ; end
 
+	next_list_item ; BUG_CATCHER (20) Mauville City Gym
+	db "ANGELO@", TRAINERTYPE_NORMAL
+	db 8
+	dw ILLUMISE
+	db 8
+	dw VOLBEAT
+	db -1 ; end
+
 	end_list_items
 
 FisherGroup:
@@ -4404,6 +4426,24 @@ GuitaristGroup:
 	dw ILLUMISE
 	db 7
 	dw ELECTRODE2
+	db -1 ; end
+
+	next_list_item ; GUITARIST (3) Mauville City Gym
+	db "KIRK@", TRAINERTYPE_NORMAL
+	db 7
+	dw ELECTRIKE
+	db 7
+	dw VOLTORB
+	db 7
+	dw HVOLTORB
+	db -1 ; end
+
+	next_list_item ; GUITARIST (4) Mauville City Gym
+	db "SHAWN@", TRAINERTYPE_NORMAL
+	db 7
+	dw MINUN
+	db 7
+	dw ELECTABUZZ
 	db -1 ; end
 
 	end_list_items
@@ -6481,7 +6521,7 @@ WattsonGroup:
 
 	next_list_item; WATTSON (2) Unreferenced
 	db "WATTSON@", TRAINERTYPE_NORMAL
-	db 10
+	db 11
 	dw HELECTRODE
 	db 10
 	dw MINUN

@@ -185,6 +185,7 @@ DEF KRIS EQU __trainer_class__
 	const ALAN5
 	const CHAD4
 	const CHAD5
+	const MAUVILLE_BEN
 
 	trainerclass BIRD_KEEPER ; 18
 	const ROD
@@ -225,6 +226,7 @@ DEF KRIS EQU __trainer_class__
 	const DANA3
 	const DANA4
 	const DANA5
+	const MAUVILLE_VIVIAN
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -397,6 +399,7 @@ DEF KRIS EQU __trainer_class__
 	const ARNIE4
 	const ARNIE5
 	const WAYNE
+	const MAUVILLE_ANGELO
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -511,6 +514,8 @@ DEF KRIS EQU __trainer_class__
 	trainerclass GUITARIST ; 2b
 	const CLYDE
 	const VINCENT
+	const MAUVILLE_KIRK
+	const MAUVILLE_SHAWN
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1
