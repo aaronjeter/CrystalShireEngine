@@ -1,14 +1,16 @@
 	object_const_def
 
-SlateportCity_MapScripts:
+VerdanturfTown_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
 
-SlateportCity_MapEvents:
+VerdanturfTown_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
+	warp_event  9, 3, RUSTURF_TUNNEL, 2
+	warp_event 17, 5, VERDANTURF_POKECENTER, 2
 
 	def_coord_events
 

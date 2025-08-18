@@ -10,6 +10,7 @@ DewfordTown_MapEvents:
 
 	def_warp_events	
 	warp_event  14, 33, DEWFORD_GYM, 1
+	warp_event  07, 31, DEWFORD_POKECENTER, 2
 
 	def_coord_events
 

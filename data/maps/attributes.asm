@@ -706,6 +706,11 @@ ENDM
 	map_attributes PetalburgGym, PETALBURG_GYM, $0, 0
 	map_attributes OldalePokecenter, OLDALE_POKECENTER, $00, 0
 	map_attributes PetalburgPokecenter, PETALBURG_POKECENTER, $00, 0
+	map_attributes DewfordPokecenter, DEWFORD_POKECENTER, $00, 0
+	map_attributes RustboroPokecenter, RUSTBORO_POKECENTER, $00, 0
+	map_attributes VerdanturfPokecenter, VERDANTURF_POKECENTER, $00, 0
+	map_attributes MauvillePokecenter, MAUVILLE_POKECENTER, $00, 0
+	map_attributes SlateportPokecenter, SLATEPORT_POKECENTER, $00, 0
 
 	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH
 	connection north, Route101, ROUTE_101, 0

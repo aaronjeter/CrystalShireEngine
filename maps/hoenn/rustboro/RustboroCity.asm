@@ -10,6 +10,7 @@ RustboroCity_MapEvents:
 
 	def_warp_events	
 	warp_event  24, 19, RUSTBORO_GYM, 1
+	warp_event  13, 35, RUSTBORO_POKECENTER, 2
 
 	def_coord_events
 
