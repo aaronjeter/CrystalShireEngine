@@ -24,29 +24,22 @@ DewfordLaura:
 	end
 
 DewfordLauraSeenText:
-	text "With my charm"
-	line "and moves,"
-	cont "you'll be"
-	cont "shocked!"
+	text "Don't you dare"
+	line "brush me off!"
+
+	para "It's not my fault"
+	line "if you cry!"
 	done
 
 DewfordLauraBeatenText:
-	text "I'm shocked"
-	line "by your power!"
+	text "Waaaaaaah!"
+	line "I lost!"
 	done
 
 DewfordLauraAfterBattleText:
-	text "I've heard that "
-	line "MAUVILLE was"
-	cont "founded by"
-	cont "WATTSON."
-
-	para "He was a TRAINER"
-	line "long before us."
-
-	para "He must know"
-	line "all sorts of"
-	cont "things!"
+	text "I battle here"
+	line "to make my heart"
+	cont "stronger."
 	done
 
 
@@ -62,29 +55,20 @@ DewfordLilith:
 	end
 
 DewfordLilithSeenText:
-	text "With my charm"
-	line "and moves,"
-	cont "you'll be"
-	cont "shocked!"
+	text "Ufufu..."
+	line "Are you lost?"
 	done
 
 DewfordLilithBeatenText:
-	text "I'm shocked"
-	line "by your power!"
+	text "Oh, you..."
+
+	para "I don't want"
+	line "to know you!"
 	done
 
 DewfordLilithAfterBattleText:
-	text "I've heard that "
-	line "MAUVILLE was"
-	cont "founded by"
-	cont "WATTSON."
-
-	para "He was a TRAINER"
-	line "long before us."
-
-	para "He must know"
-	line "all sorts of"
-	cont "things!"
+	text "You deserve"
+	line "to stay lost!"
 	done
 
 
@@ -100,29 +84,25 @@ DewfordBrenden:
 	end
 
 DewfordBrendenSeenText:
-	text "With my charm"
-	line "and moves,"
-	cont "you'll be"
-	cont "shocked!"
+	text "I'll show you"
+	line "the gumption of"
+	cont "a sailing man!"
 	done
 
 DewfordBrendenBeatenText:
-	text "I'm shocked"
-	line "by your power!"
+	text "How'd this"
+	line "happen?"
+
+	para "It's not like me"
+	line "to lose this way!"
 	done
 
 DewfordBrendenAfterBattleText:
-	text "I've heard that "
-	line "MAUVILLE was"
-	cont "founded by"
-	cont "WATTSON."
+	text "Oh, aye!"
 
-	para "He was a TRAINER"
-	line "long before us."
-
-	para "He must know"
-	line "all sorts of"
-	cont "things!"
+	para "You're worthy"
+	line "of seeing"
+	cont "our GYM LEADER."
 	done
 
 
@@ -138,29 +118,22 @@ DewfordTakao:
 	end
 
 DewfordTakaoSeenText:
-	text "With my charm"
-	line "and moves,"
-	cont "you'll be"
-	cont "shocked!"
+	text "Might is right!"
+	line "Come on!"
 	done
 
 DewfordTakaoBeatenText:
-	text "I'm shocked"
-	line "by your power!"
+	text "Not enough "
+	line "power..."
 	done
 
 DewfordTakaoAfterBattleText:
-	text "I've heard that "
-	line "MAUVILLE was"
-	cont "founded by"
-	cont "WATTSON."
+	text "Your skill"
+	line "overcame my"
+	cont "strength!"
 
-	para "He was a TRAINER"
-	line "long before us."
-
-	para "He must know"
-	line "all sorts of"
-	cont "things!"
+	para "Your technique"
+	line "is commendable!"
 	done
 
 
@@ -176,29 +149,22 @@ DewfordCristian:
 	end
 
 DewfordCristianSeenText:
-	text "With my charm"
-	line "and moves,"
-	cont "you'll be"
-	cont "shocked!"
+	text "If you mean  "
+	line "to pass, it"
+	cont "has to be"
+	cont "through me!"
 	done
 
 DewfordCristianBeatenText:
-	text "I'm shocked"
-	line "by your power!"
+	text "Grrrrr!"
+	line "Overpowered!"
 	done
 
 DewfordCristianAfterBattleText:
-	text "I've heard that "
-	line "MAUVILLE was"
-	cont "founded by"
-	cont "WATTSON."
+	text "You win!"
 
-	para "He was a TRAINER"
-	line "long before us."
-
-	para "He must know"
-	line "all sorts of"
-	cont "things!"
+	para "Go after"
+	line "that BADGE!"
 	done
 
 
@@ -214,29 +180,32 @@ DewfordJocelyn:
 	end
 
 DewfordJocelynSeenText:
-	text "With my charm"
-	line "and moves,"
-	cont "you'll be"
-	cont "shocked!"
+	text "There's no need"
+	line "for BRAWLY to be"
+	cont "involved!"
+
+	para "I'll crush you!"
 	done
 
 DewfordJocelynBeatenText:
-	text "I'm shocked"
-	line "by your power!"
+	text "But... How?"
+
+	para "How could I"
+	line "lose so easily?"
 	done
 
 DewfordJocelynAfterBattleText:
-	text "I've heard that "
-	line "MAUVILLE was"
-	cont "founded by"
-	cont "WATTSON."
+	text "I'm not going"
+	line "to waste this"
+	cont "loss."
 
-	para "He was a TRAINER"
-	line "long before us."
+	para "I'll use it"
+	line "to motivate me"
+	cont "to train!"
 
-	para "He must know"
-	line "all sorts of"
-	cont "things!"
+	para "One day I'll"
+	line "become a"
+	cont "GYM LEADER!"
 	done
 
 
@@ -343,65 +312,61 @@ DewfordGymActivateRockets:
 
 
 BrawlyText_PreFight:
-	text "I've given up"
-	line "on my plans"
-	cont "for the city."
+	text "I'm BRAWLY!"
+	line "DEWFORD's"
+	cont "GYM LEADER!"
 	
-	para "Now I just"
-	line "live to fry"
-	cont "little sprouts"
-	cont "like you."
+	para "I've been churned"
+	line "in the rough "
+	cont "waves of these"
+	cont "parts, and I've"
+	cont "grown tough!"
 
-	para "I'm glad you"
-	line "made it this"
-	cont "far."
+	para "So you wanted"
+	line "to challenge me?"
 
-	para "I, WATTSON,"
-	line "the LEADER of"
-	cont "MAUVILLE GYM,"
-	cont "shall electrify"
-	cont "you!"
+	para "Let me see"
+	line "what you're"
+	cont "made of!"
 	done
 
 BrawlyWinLossText:
-	text "Wahahahah!"
+	text "Whoah, wow!"
 
-	para "Fine, I lost!"
-
-	para "You ended up"
-	line "giving me a"
-	cont "thrill!"
+	para "You made a much"
+	line "bigger splash"
+	cont "than I expected!"
 	done
 
 BrawlyText_ExplainBadge:
-	text "Take this BADGE!"
+	text "Okay, you've"
+	line "got me."
 
-	para "The DYNAMO BADGE"
-	line "marks your"
-	cont "victory here"
-	cont "today!"
+	para "Take the"
+	line "KNUCKLE BADGE!"
+
+	para "It's proof"
+	line "that you"
+	cont "tackled my"
+	cont "gym today!"
 	done
 
 BrawlyRematchText:
-	text "Rematch?"
+	text "Fight me?"
 	done
 
 BrawlyRematchWinLossText:
-	text "Well Done!"
+	text "Good Fight!"
 	done
 
 BrawlyPostBattleText:
-	text "I swell with"
-	line "optimism, seeing"
-	cont "a promising"
-	cont "young TRAINER"
-	cont "like you!"
-	
-	para "Wahahahah!"
-
-	para "Go forth and"
-	line "endeavor,"
-	cont "youngster!"
+	text "I can see your"
+	line "talent becoming"
+	cont "a giant wave"
+	cont "to cause a storm"
+	cont "of astonishment"
+	cont "among TRAINERS "
+	cont "one day!"
 	done
 
 DewfordGym_MapEvents:

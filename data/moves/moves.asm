@@ -344,7 +344,7 @@ MovesGen2:
 	move EFFECT_NORMAL_HIT,         70, PSYCHIC_TYPE,   PHYSICAL,		100, 20,  20      ;PSYCHO_CUT
 	move EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,   PHYSICAL,		 95, 20,  20      ;ZEN_HEADBUTT
 	move EFFECT_SP_DEF_DOWN_HIT,    80, STEEL,          SPECIAL,		100, 20,  20      ;FLASHCANNON
-	move EFFECT_PRIORITY_HIT,       40, WATER,          PHYSICAL,		100, 20,   0      ;AQUA_JET
+	move EFFECT_PRIORITY_HIT,       50, WATER,          PHYSICAL,		100, 20,   0      ;AQUA_JET
 	move EFFECT_FLINCH_HIT,         80, DARK,           SPECIAL,		100, 20,  20      ;DARK_PULSE
 	move EFFECT_NORMAL_HIT,         90, FAIRY,			SPECIAL,        100, 15,   0      ;FAERIEGLEAM (DAZZLING_GLEAM)
 .IndirectEnd::

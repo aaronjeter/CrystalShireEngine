@@ -917,10 +917,10 @@ ENDSECTION
 SECTION "Map Blocks 4", ROMX
 	
 	LittlerootTown_Blocks:
-	INCBIN "maps/hoenn/LittlerootTown.ablk" 
+	INCBIN "maps/hoenn/littleroot/LittlerootTown.ablk" 
 
 	OldaleTown_Blocks:
-	INCBIN "maps/hoenn/OldaleTown.ablk" 
+	INCBIN "maps/hoenn/oldale/OldaleTown.ablk" 
 
 	PetalburgCity_Blocks:
 	INCBIN "maps/hoenn/petalburg/PetalburgCity.ablk" 
@@ -957,6 +957,10 @@ SECTION "Map Blocks 4", ROMX
 
 	RusturfTunnel_Blocks:
 	INCBIN "maps/hoenn/RusturfTunnel.ablk"
+
+	OldalePokecenter_Blocks:
+	PetalburgPokecenter_Blocks:
+	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
 	Route101_Blocks:
 	INCBIN "maps/hoenn/Route101.ablk" 

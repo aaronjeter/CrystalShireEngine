@@ -9,6 +9,7 @@ OldaleTown_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
+	warp_event  5, 15, OLDALE_POKECENTER, 2
 
 	def_coord_events
 

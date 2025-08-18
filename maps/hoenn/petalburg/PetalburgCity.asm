@@ -9,7 +9,8 @@ PetalburgCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event  14, 9, PETALBURG_GYM,  1
+	warp_event  14,  9, PETALBURG_GYM,  1
+	warp_event  19, 17, PETALBURG_POKECENTER,  2
 
 	def_coord_events
 

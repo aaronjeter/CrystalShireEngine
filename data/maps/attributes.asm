@@ -704,6 +704,8 @@ ENDM
 	map_attributes DewfordGym, DEWFORD_GYM, $0, 0
 	map_attributes MauvilleGym, MAUVILLE_GYM, $0, 0
 	map_attributes PetalburgGym, PETALBURG_GYM, $0, 0
+	map_attributes OldalePokecenter, OLDALE_POKECENTER, $00, 0
+	map_attributes PetalburgPokecenter, PETALBURG_POKECENTER, $00, 0
 
 	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH
 	connection north, Route101, ROUTE_101, 0

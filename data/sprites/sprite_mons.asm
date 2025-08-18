@@ -39,6 +39,7 @@ SpriteMons:
 	dw HYPNO		;97
 	dw VOLTORB		;100
 	dw RHYDON		;112
+	dw CHANSEY		;113
 	dw STARYU		;120
 	dw STARMIE		;121
 	dw MR__MIME		;122
@@ -86,6 +87,8 @@ SpriteMons:
 	dw TREECKO		;252
 	dw TORCHIC		;255
 	dw MUDKIP		;258
+	dw POOCHYENA	;261
+	dw ZIGZAGOON	;263
 	dw WINGULL		;278
 	dw SURSKIT		;283
 	dw SOLROCK		;338
