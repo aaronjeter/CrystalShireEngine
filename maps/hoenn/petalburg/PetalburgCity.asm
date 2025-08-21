@@ -11,6 +11,7 @@ PetalburgCity_MapEvents:
 	def_warp_events	
 	warp_event  14,  9, PETALBURG_GYM,  1
 	warp_event  19, 17, PETALBURG_POKECENTER,  2
+	warp_event  25, 13, PETALBURG_MART,  2
 
 	def_coord_events
 

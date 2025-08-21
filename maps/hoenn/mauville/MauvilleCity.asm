@@ -11,6 +11,7 @@ MauvilleCity_MapEvents:
 	def_warp_events	
 	warp_event  6, 5, MAUVILLE_GYM, 1
 	warp_event 23, 5, MAUVILLE_POKECENTER, 2
+	warp_event 23, 15, MAUVILLE_MART, 2
 
 	def_coord_events
 

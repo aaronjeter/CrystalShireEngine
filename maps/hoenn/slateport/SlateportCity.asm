@@ -10,6 +10,7 @@ SlateportCity_MapEvents:
 
 	def_warp_events	
 	warp_event  19, 21, SLATEPORT_POKECENTER, 2
+	warp_event  15, 27, SLATEPORT_MART, 2
 
 	def_coord_events
 

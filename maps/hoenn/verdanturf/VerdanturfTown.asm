@@ -11,6 +11,7 @@ VerdanturfTown_MapEvents:
 	def_warp_events	
 	warp_event  9, 3, RUSTURF_TUNNEL, 2
 	warp_event 17, 5, VERDANTURF_POKECENTER, 2
+	warp_event 13, 5, VERDANTURF_MART, 2
 
 	def_coord_events
 

@@ -967,6 +967,14 @@ SECTION "Map Blocks 4", ROMX
 	DewfordPokecenter_Blocks:
 	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
+	OldaleMart_Blocks:
+	PetalburgMart_Blocks:
+	RustboroMart_Blocks:
+	VerdanturfMart_Blocks:
+	MauvilleMart_Blocks:
+	SlateportMart_Blocks:
+	INCBIN "maps/hoenn/HoennPokemart.ablk"
+
 	Route101_Blocks:
 	INCBIN "maps/hoenn/Route101.ablk" 
 

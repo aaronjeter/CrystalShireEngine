@@ -712,6 +712,14 @@ ENDM
 	map_attributes MauvillePokecenter, MAUVILLE_POKECENTER, $00, 0
 	map_attributes SlateportPokecenter, SLATEPORT_POKECENTER, $00, 0
 
+	map_attributes OldaleMart, OLDALE_MART, $00, 0
+	map_attributes PetalburgMart, PETALBURG_MART, $00, 0
+	map_attributes RustboroMart, RUSTBORO_MART, $00, 0
+	map_attributes VerdanturfMart, VERDANTURF_MART, $00, 0
+	map_attributes MauvilleMart, MAUVILLE_MART, $00, 0
+	map_attributes SlateportMart, SLATEPORT_MART, $00, 0
+	
+
 	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH
 	connection north, Route101, ROUTE_101, 0
 

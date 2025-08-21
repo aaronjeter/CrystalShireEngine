@@ -181,7 +181,7 @@
 	tilecoll WALL, FLOOR, WALL, FLOOR ; b4
 	tilecoll 01, 01, 01, 01 ; b5
 	tilecoll 01, 01, 01, 01 ; b6
-	tilecoll WALL, FLOOR, WALL, FLOOR ; b7
+	tilecoll FLOOR, WALL, FLOOR, WALL ; b7
 	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; b8
 	tilecoll HOP_DOWN, FLOOR, WALL, FLOOR ; b9
 	tilecoll 01, 01, 01, 01 ; ba
@@ -239,11 +239,11 @@
 	tilecoll 01, 01, 01, 01 ; ee
 	tilecoll 01, 01, 01, 01 ; ef
 	tilecoll 01, 01, 01, 01 ; f0
-	tilecoll 01, 01, 01, 01 ; f1
+	tilecoll WALL, WALL, WALL, WALL ; f1
 	tilecoll 01, 01, 01, 01 ; f2
 	tilecoll 01, 01, 01, 01 ; f3
 	tilecoll 01, 01, 01, 01 ; f4
-	tilecoll WALL, WALL, 01, 01 ; f5
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f5
 	tilecoll 01, 01, 01, 01 ; f6
 	tilecoll 01, 01, 01, 01 ; f7
 	tilecoll 01, 01, 01, 01 ; f8
