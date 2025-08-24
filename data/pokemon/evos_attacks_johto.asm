@@ -2042,7 +2042,7 @@ ElekidEvosAttacks:
 	dbw 45, CONFUSE_RAY
 	dbw 50, THUNDER
 	dbw 55, AGILITY
-	dbw 60, VOLT_TACKLE
+	dbw 60, SHOCK_SLAM
 	db 0 ; no more level-up moves
 
 MagbyEvosAttacks:
@@ -3465,7 +3465,7 @@ ElectrikeEvosAttacks:
 	dbw 45, EXTREMESPEED
 	dbw 50, DOUBLE_TEAM
 	dbw 55, DOUBLE_EDGE
-	dbw 60, VOLT_TACKLE
+	dbw 60, SHOCK_SLAM
 	db 0 ; no more level-up moves
 
 ManectricEvosAttacks:
@@ -3485,7 +3485,7 @@ ManectricEvosAttacks:
 	dbw 45, EXTREMESPEED
 	dbw 50, DOUBLE_TEAM
 	dbw 55, DOUBLE_EDGE
-	dbw 60, VOLT_TACKLE
+	dbw 60, SHOCK_SLAM
 	db 0 ; no more level-up moves
 
 PlusleEvosAttacks:
@@ -5178,7 +5178,7 @@ ElectivireEvosAttacks:
 	dbw 40, BRICK_BREAK
 	dbw 42, CHARGE
 	dbw 45, CONFUSE_RAY
-	dbw 50, VOLT_TACKLE
+	dbw 50, SHOCK_SLAM
 	dbw 55, AGILITY
 	dbw 60, THUNDER
 	db 0 ; no more level-up moves
@@ -5470,7 +5470,7 @@ AgeodudeEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, STONE_EDGE
-	dbw 60, VOLT_TACKLE
+	dbw 60, SHOCK_SLAM
 	db 0 ; no more level-up moves
 
 AgravelerEvosAttacks:
@@ -5490,7 +5490,7 @@ AgravelerEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, STONE_EDGE
-	dbw 60, VOLT_TACKLE
+	dbw 60, SHOCK_SLAM
 	db 0 ; no more level-up moves
 
 AgolemEvosAttacks:
@@ -5509,7 +5509,7 @@ AgolemEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, STONE_EDGE
-	dbw 60, VOLT_TACKLE
+	dbw 60, SHOCK_SLAM
 	db 0 ; no more level-up moves
 
 HvoltorbEvosAttacks:
