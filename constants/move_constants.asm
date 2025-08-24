@@ -325,6 +325,17 @@ DEF GEN1_MOVES EQU const_value - 1
 	const AQUA_JET     ;
 	const DARK_PULSE   ;
 	const FAERIEGLEAM  ;
+	const SLUDGE_WAVE  ;
+	const BULLET_PUNCH ;
+	const HURRICANE	   ;
+	const SHADOWSNEAK  ;
+	const SHADOW_FORCE ;
+	const STONE_EDGE
+	const SCALD
+	const RAZORSHELL
+	const EARTHPOWER
+	const SHOCKSLAM
+
 DEF GEN2_MOVES EQU const_value - 1
 
 DEF NUM_ATTACKS EQU const_value - 1

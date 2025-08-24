@@ -327,6 +327,16 @@ MoveDescriptionsGen2:
 	dw AquaJetDescription
 	dw DarkPulseDescription
 	dw FaerieGleamDescription
+	dw SludgewaveDescription
+	dw BulletpunchDescription
+	dw HurricaneDescription
+	dw ShadowsneakDescription
+	dw ShadowforceDescription
+	dw StoneedgeDescription
+	dw ScaldDescription
+	dw RazorshellDescription
+	dw EarthpowerDescription
+	dw ShockslamDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1605,3 +1615,43 @@ DarkPulseDescription:
 FaerieGleamDescription:
 	db   "Damages with a"
 	next "flash of light.@"
+
+SludgewaveDescription:
+	db   "An attack that may"
+	next "poison the target.@"
+
+BulletpunchDescription:
+	db   "Lets the user get"
+	next "in the first hit.@"
+
+HurricaneDescription:
+	db   "An attack that may"
+	next "cause paralysis.@"
+
+ShadowsneakDescription:
+	db   "Lets the user get"
+	next "in the first hit.@"
+
+ShadowforceDescription:
+	db   "A sinister"
+	next "sneak attack.@"
+
+StoneedgeDescription:
+	db   "Slams the foe with"
+	next "a rock.@"
+
+ScaldDescription:
+	db   "An attack that may"
+	next "inflict a burn.@"
+
+RazorshellDescription:
+	db   "An attack that"
+	next "reduces DEF.@"
+
+EarthpowerDescription:
+	db   "An attack that"
+	next "reduces SPC DEF.@"
+
+ShockslamDescription:
+	db   "May miss, damaging"
+	next "the user.@"

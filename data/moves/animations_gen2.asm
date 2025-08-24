@@ -152,6 +152,16 @@ BattleAnimationsGen2::
 	dw BattleAnim_AquaJet		;astonish (copy of quick attack)
 	dw BattleAnim_DarkPulse		;destiny bond
 	dw BattleAnim_FaerieGleam	;Flash Cannon (copy of Flash)
+	dw BattleAnim_SludgeWave	;
+	dw BattleAnim_BulletPunch	;
+	dw BattleAnim_Hurricane		;
+	dw BattleAnim_ShadowSneak	;
+	dw BattleAnim_ShadowForce	;
+	dw BattleAnim_StoneEdge		;
+	dw BattleAnim_Scald			;
+	dw BattleAnim_RazorShell	;
+	dw BattleAnim_EarthPower	;
+	dw BattleAnim_ShockSlam		;
 
 .IndirectEnd::
 
@@ -599,6 +609,7 @@ BattleAnim_Spikes:
 	anim_wait 64
 	anim_ret
 
+BattleAnim_ShockSlam:
 BattleAnim_ZapCannon:
 	anim_2gfx BATTLE_ANIM_GFX_LIGHTNING, BATTLE_ANIM_GFX_EXPLOSION
 	anim_bgp $1b
@@ -1426,6 +1437,7 @@ BattleAnim_HiddenPower:
 	anim_wait 32
 	anim_ret
 
+BattleAnim_RazorShell:
 BattleAnim_CrossChop:
 	anim_1gfx BATTLE_ANIM_GFX_CUT
 	anim_sound 0, 1, SFX_CUT
@@ -1558,6 +1570,8 @@ BattleAnim_Extremespeed:
 	anim_wait 16
 	anim_ret
 
+BattleAnim_EarthPower:
+BattleAnim_StoneEdge:
 BattleAnim_Ancientpower:
 	anim_2gfx BATTLE_ANIM_GFX_ROCKS, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_SPARK
@@ -1656,6 +1670,7 @@ BattleAnim_Whirlpool:
 	anim_wait 1
 	anim_ret
 
+BattleAnim_ShadowForce:
 BattleAnim_PlayRough:
 BattleAnim_BeatUp:
 	anim_if_param_equal $0, .current_mon
@@ -1699,6 +1714,7 @@ BattleAnim_BeatUp:
 	anim_call BattleAnimSub_SandOrMud
 	anim_ret
 
+BattleAnim_Hurricane:
 BattleAnim_SilverWind:
 BattleAnim_FaeVoice:
 	anim_2gfx BATTLE_ANIM_GFX_WIND, BATTLE_ANIM_GFX_HIT
@@ -1863,6 +1879,7 @@ BattleAnimSub_Ice:
 	anim_obj BATTLE_ANIM_OBJ_ICE, 128, 70, $0
 	anim_ret
 
+BattleAnim_SludgeWave:
 BattleAnimSub_Sludge:
 .loop
 	anim_sound 0, 1, SFX_TOXIC
@@ -2213,6 +2230,7 @@ BattleAnim_ShockWave:
 	anim_wait 96
 	anim_ret
 
+BattleAnim_Scald:
 BattleAnim_WaterPulse:
 	anim_1gfx BATTLE_ANIM_GFX_BUBBLE
 .loop
@@ -2252,6 +2270,8 @@ BattleAnim_PoisonTail:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
+BattleAnim_ShadowSneak:
+BattleAnim_BulletPunch:
 BattleAnim_AquaJet:
 BattleAnim_Astonish:
 	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
