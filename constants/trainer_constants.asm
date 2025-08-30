@@ -159,6 +159,9 @@ DEF KRIS EQU __trainer_class__
 	const RONALD3
 	const RUSTBORO_JOSH
 	const RUSTBORO_TOMMY
+	const ROUTE102_CALVIN
+	const ROUTE102_ALLEN
+	const ROUTE104_BILLY	
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -227,6 +230,8 @@ DEF KRIS EQU __trainer_class__
 	const DANA4
 	const DANA5
 	const MAUVILLE_VIVIAN
+	const ROUTE102_TIANA
+	const ROUTE104_HALEY
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -305,6 +310,8 @@ DEF KRIS EQU __trainer_class__
 	const THERESA ; unused
 	const VALERIE
 	const OLIVIA
+	const ROUTE103_DAISY
+	const ROUTE104_CINDY
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -400,6 +407,9 @@ DEF KRIS EQU __trainer_class__
 	const ARNIE5
 	const WAYNE
 	const MAUVILLE_ANGELO
+	const ROUTE102_RICK
+	const PETALBURGWOODS_LYLE
+	const PETALBURGWOODS_JAMES
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -427,6 +437,9 @@ DEF KRIS EQU __trainer_class__
 	const RALPH4
 	const RALPH5
 	const TULLY4
+	const ROUTE103_ANDREW
+	const ROUTE104_DARIAN
+	const ROUTE104_IVAN
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
@@ -517,6 +530,7 @@ DEF KRIS EQU __trainer_class__
 	const VINCENT
 	const MAUVILLE_KIRK
 	const MAUVILLE_SHAWN
+	const ROUTE103_MARCOS
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1
@@ -594,6 +608,7 @@ DEF KRIS EQU __trainer_class__
 	const WAI
 	const DEWFORD_TAKAO
 	const DEWFORD_CRISTIAN
+	const ROUTE103_RHETT
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
@@ -666,6 +681,7 @@ DEF KRIS EQU __trainer_class__
 	const TODD4
 	const TODD5
 	const QUENTIN
+	const ROUTE104_WINSTON
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
@@ -714,6 +730,7 @@ DEF KRIS EQU __trainer_class__
 	const ALEX
 	const REX
 	const ALLAN
+	const ROUTE103_MIGUEL
 
 	trainerclass KIMONO_GIRL ; 3c
 	const NAOKO_UNUSED ; unused
@@ -734,6 +751,8 @@ DEF KRIS EQU __trainer_class__
 	const MEGANDPEG2
 	const LEAANDPIA1
 	const LEAANDPIA2 ; unused
+	const ROUTE103_AMYLIV
+	const ROUTE104_GINAMIA
 
 	trainerclass POKEFANF ; 3e
 	const BEVERLY1

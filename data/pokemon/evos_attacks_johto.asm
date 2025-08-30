@@ -2042,7 +2042,7 @@ ElekidEvosAttacks:
 	dbw 45, CONFUSE_RAY
 	dbw 50, THUNDER
 	dbw 55, AGILITY
-	dbw 60, SHOCK_SLAM
+	dbw 60, SHOCKSLAM
 	db 0 ; no more level-up moves
 
 MagbyEvosAttacks:
@@ -3465,7 +3465,7 @@ ElectrikeEvosAttacks:
 	dbw 45, EXTREMESPEED
 	dbw 50, DOUBLE_TEAM
 	dbw 55, DOUBLE_EDGE
-	dbw 60, SHOCK_SLAM
+	dbw 60, SHOCKSLAM
 	db 0 ; no more level-up moves
 
 ManectricEvosAttacks:
@@ -3485,7 +3485,7 @@ ManectricEvosAttacks:
 	dbw 45, EXTREMESPEED
 	dbw 50, DOUBLE_TEAM
 	dbw 55, DOUBLE_EDGE
-	dbw 60, SHOCK_SLAM
+	dbw 60, SHOCKSLAM
 	db 0 ; no more level-up moves
 
 PlusleEvosAttacks:
@@ -4080,7 +4080,7 @@ CorphishEvosAttacks:
 	dbw 24, FAINT_ATTACK
 	dbw 28, SHADOW_CLAW
 	dbw 32, CRUNCH
-	dbw 36, RAZOR_SHELL
+	dbw 36, RAZORSHELL
 	dbw 40, GUILLOTINE
 	dbw 42, BULK_UP
 	dbw 45, AGILITY
@@ -4099,7 +4099,7 @@ CrawdauntEvosAttacks:
 	dbw 24, FAINT_ATTACK
 	dbw 28, SHADOW_CLAW
 	dbw 32, CRUNCH
-	dbw 36, RAZOR_SHELL
+	dbw 36, RAZORSHELL
 	dbw 40, GUILLOTINE
 	dbw 42, BULK_UP
 	dbw 45, AGILITY
@@ -5178,7 +5178,7 @@ ElectivireEvosAttacks:
 	dbw 40, BRICK_BREAK
 	dbw 42, CHARGE
 	dbw 45, CONFUSE_RAY
-	dbw 50, SHOCK_SLAM
+	dbw 50, SHOCKSLAM
 	dbw 55, AGILITY
 	dbw 60, THUNDER
 	db 0 ; no more level-up moves
@@ -5470,7 +5470,7 @@ AgeodudeEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, STONE_EDGE
-	dbw 60, SHOCK_SLAM
+	dbw 60, SHOCKSLAM
 	db 0 ; no more level-up moves
 
 AgravelerEvosAttacks:
@@ -5490,7 +5490,7 @@ AgravelerEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, STONE_EDGE
-	dbw 60, SHOCK_SLAM
+	dbw 60, SHOCKSLAM
 	db 0 ; no more level-up moves
 
 AgolemEvosAttacks:
@@ -5509,7 +5509,7 @@ AgolemEvosAttacks:
 	dbw 45, AMNESIA
 	dbw 50, EXPLOSION
 	dbw 55, STONE_EDGE
-	dbw 60, SHOCK_SLAM
+	dbw 60, SHOCKSLAM
 	db 0 ; no more level-up moves
 
 HvoltorbEvosAttacks:

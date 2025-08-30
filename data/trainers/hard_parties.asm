@@ -1418,6 +1418,30 @@ YoungsterGroupHard:
 	dw ASANDSHREW
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (20) Route 102
+	db "CALVIN@", TRAINERTYPE_NORMAL
+	db 5
+	dw POOCHYENA
+	db 5
+	dw TAILLOW
+	db -1 ; end
+
+	next_list_item ; YOUNGSTER (21) Route 102
+	db "ALLEN@", TRAINERTYPE_NORMAL
+	db 5
+	dw ZIGZAGOON
+	db 5
+	dw TAILLOW
+	db -1 ; end
+
+	next_list_item ; YOUNGSTER (21) Route 104
+	db "BILLY@", TRAINERTYPE_NORMAL
+	db 4
+	dw ZIGZAGOON
+	db 5
+	dw SEEDOT
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Hard Trainer Parties 2", ROMX
@@ -2031,6 +2055,22 @@ LassGroupHard:
 	dw LANTURN
 	db 9
 	dw HITMONCHAN
+	db -1 ; end
+
+	next_list_item ; LASS (19) Route 101
+	db "TIANA@", TRAINERTYPE_NORMAL	
+	db 5
+	dw ZIGZAGOON
+	db 5
+	dw SHROOMISH
+	db -1 ; end
+
+	next_list_item ; LASS (20) Route 104
+	db "HALEY@", TRAINERTYPE_NORMAL	
+	db 5
+	dw HOPPIP
+	db 5
+	dw LOTAD
 	db -1 ; end
 
 	end_list_items
@@ -2775,6 +2815,18 @@ BeautyGroupHard:
 	db "OLIVIA@", TRAINERTYPE_NORMAL
 	db 12
 	dw CORSOLA
+	db -1 ; end
+
+	next_list_item ; BEAUTY (18) Route 103
+	db "DAISY@", TRAINERTYPE_NORMAL
+	db 5
+	dw FURRET
+	db -1 ; end
+
+	next_list_item ; BEAUTY (19) Route 104
+	db "CINDY@", TRAINERTYPE_NORMAL
+	db 5
+	dw NOCTOWL
 	db -1 ; end
 
 	end_list_items
@@ -3552,6 +3604,30 @@ BugCatcherGroupHard:
 	dw VOLBEAT
 	db -1 ; end
 
+	next_list_item ; BUG_CATCHER (21) Route 102
+	db "RICK@", TRAINERTYPE_NORMAL
+	db 5
+	dw WURMPLE
+	db 5
+	dw WEEDLE
+	db -1 ; end
+
+	next_list_item ; BUG_CATCHER (22) Petalburg Woods
+	db "LYLE@", TRAINERTYPE_NORMAL
+	db 8
+	dw NINCADA
+	db 8
+	dw SHROOMISH
+	db -1 ; end
+
+	next_list_item ; BUG_CATCHER (23) Petalburg Woods
+	db "JAMES@", TRAINERTYPE_NORMAL
+	db 7
+	dw WURMPLE
+	db 7
+	dw WURMPLE
+	db -1 ; end
+
 	end_list_items
 
 FisherGroupHard:
@@ -3791,6 +3867,30 @@ FisherGroupHard:
 	db 10
 	dw QWILFISH
 	dw ROLLOUT, SURF, PIN_MISSILE, TAKE_DOWN
+	db -1 ; end
+
+	next_list_item ; FISHER (26) Route 103
+	db "ANDREW@", TRAINERTYPE_NORMAL
+	db 7
+	dw QWILFISH
+	db 7
+	dw GOLDEEN
+	db -1 ; end
+
+	next_list_item ; FISHER (27) Route 104
+	db "DARIAN@", TRAINERTYPE_NORMAL
+	db 7
+	dw FEEBAS
+	db 7
+	dw TENTACOOL
+	db -1 ; end
+
+	next_list_item ; FISHER (28) Route 104
+	db "IVAN@", TRAINERTYPE_NORMAL
+	db 7
+	dw MAGNEMITE
+	db 7
+	dw STARYU
 	db -1 ; end
 
 	end_list_items
@@ -4522,6 +4622,14 @@ GuitaristGroupHard:
 	dw RAITORA
 	db -1 ; end
 
+	next_list_item ; GUITARIST (5) Route 103
+	db "SHAWN@", TRAINERTYPE_NORMAL
+	db 7
+	dw MINUN
+	db 7
+	dw PLUSLE
+	db -1 ; end
+
 	end_list_items
 
 HikerGroupHard:
@@ -5177,6 +5285,14 @@ BlackbeltGroupHard:
 	dw HITMONCHAN
 	db -1 ; end
 
+	next_list_item ; BLACKBELT_T (12) Route 103
+	db "MARCOS@", TRAINERTYPE_NORMAL
+	db 7
+	dw TYROGUE
+	db 7
+	dw COMBUSKEN
+	db -1 ; end
+
 	end_list_items
 
 ExecutiveMGroupHard:
@@ -5787,6 +5903,12 @@ CamperGroupHard:
 	dw TAUROS
 	db -1 ; end
 
+	next_list_item ; CAMPER (23) Route 104
+	db "WINSTON@", TRAINERTYPE_NORMAL
+	db 6
+	dw LINOONE
+	db -1 ; end
+
 	end_list_items
 
 ExecutiveFGroupHard:
@@ -6143,6 +6265,16 @@ PokefanMGroupHard:
 	dw BERRY
 	db -1 ; end
 
+	next_list_item ; POKEFANM (15) Route 103
+	db "MIGUEL@", TRAINERTYPE_ITEM
+	db 7
+	dw TRAPINCH
+	dw BERRY
+	db 7
+	dw SPOINK
+	dw BERRY
+	db -1 ; end
+
 	end_list_items
 
 KimonoGirlGroupHard:
@@ -6295,6 +6427,22 @@ TwinsGroupHard:
 	db 7
 	dw DRATINI
 	dw THUNDER_WAVE, TWISTER, FLAMETHROWER, HEADBUTT
+	db -1 ; end
+
+	next_list_item ; TWINS (11) Route 103
+	db "AMY & LIV@", TRAINERTYPE_NORMAL
+	db 9
+	dw ZANGOOSE
+	db 9
+	dw SEVIPER
+	db -1 ; end
+
+	next_list_item ; TWINS (12) Route 104
+	db "GINA & MIA@", TRAINERTYPE_NORMAL
+	db 8
+	dw SEEDOT
+	db 8
+	dw LOTAD
 	db -1 ; end
 
 	end_list_items

@@ -1922,7 +1922,7 @@ ShellderEvosAttacks:
 	dbw 30, ICY_WIND
 	dbw 32, SPIKES
 	dbw 36, ICE_BEAM
-	dbw 40, RAZOR_SHELL
+	dbw 40, RAZORSHELL
 	dbw 42, AMNESIA
 	dbw 45, HYDRO_PUMP
 	dbw 50, BLIZZARD
@@ -1943,7 +1943,7 @@ CloysterEvosAttacks:
 	dbw 30, ICY_WIND
 	dbw 32, SPIKES
 	dbw 36, ICE_BEAM
-	dbw 40, RAZOR_SHELL
+	dbw 40, RAZORSHELL
 	dbw 42, AMNESIA
 	dbw 45, HYDRO_PUMP
 	dbw 50, BLIZZARD
@@ -2644,7 +2644,7 @@ ElectabuzzEvosAttacks:
 	dbw 45, CONFUSE_RAY
 	dbw 50, THUNDER
 	dbw 55, AGILITY
-	dbw 60, SHOCK_SLAM
+	dbw 60, SHOCKSLAM
 	db 0 ; no more level-up moves
 
 MagmarEvosAttacks:
@@ -2816,7 +2816,7 @@ JolteonEvosAttacks:
 	dbw 45, RAIN_DANCE
 	dbw 50, THUNDER
 	dbw 55, CRUNCH
-	dbw 60, SHOCK_SLAM
+	dbw 60, SHOCKSLAM
 	db 0 ; no more level-up moves
 
 FlareonEvosAttacks:

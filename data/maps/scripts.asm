@@ -516,6 +516,12 @@ INCLUDE "maps/hoenn/dewford/DewfordGym.asm"
 INCLUDE "maps/hoenn/dewford/DewfordPokecenter.asm"
 INCLUDE "maps/hoenn/PetalburgWoods.asm"
 INCLUDE "maps/hoenn/RusturfTunnel.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 26", ROMX
+
 INCLUDE "maps/hoenn/Route101.asm"
 INCLUDE "maps/hoenn/Route102.asm"
 INCLUDE "maps/hoenn/Route103.asm"
