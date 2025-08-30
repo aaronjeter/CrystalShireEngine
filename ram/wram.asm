@@ -2727,6 +2727,7 @@ wCoins:: dw
 wBadges::
 wJohtoBadges:: flag_array NUM_JOHTO_BADGES
 wKantoBadges:: flag_array NUM_KANTO_BADGES
+wHoennBadges:: flag_array NUM_HOENN_BADGES
 
 wTMsHMs:: ds NUM_TMS + NUM_HMS
 

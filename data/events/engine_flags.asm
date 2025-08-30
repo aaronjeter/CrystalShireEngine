@@ -62,6 +62,15 @@ EngineFlags:
 	engine_flag wKantoBadges, VOLCANOBADGE
 	engine_flag wKantoBadges, EARTHBADGE
 
+	engine_flag wHoennBadges, STONEBADGE
+	engine_flag wHoennBadges, KNUCKLEBADGE
+	engine_flag wHoennBadges, DYNAMOBADGE
+	engine_flag wHoennBadges, HEATBADGE
+	engine_flag wHoennBadges, BALANCEBADGE
+	engine_flag wHoennBadges, FEATHERBADGE
+	engine_flag wHoennBadges, MINDBADGE
+	engine_flag wHoennBadges, RAINBADGE
+
 	; unown sets (see data/wild/unlocked_unowns.asm)
 	engine_flag wUnlockedUnowns, UNLOCKED_UNOWNS_A_TO_K_F
 	engine_flag wUnlockedUnowns, UNLOCKED_UNOWNS_L_TO_R_F

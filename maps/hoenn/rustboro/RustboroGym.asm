@@ -135,7 +135,7 @@ RustboroGymRoxanneScript:
 	writetext RoxanneText_ExplainBadge
 	playsound SFX_GET_BADGE
 	waitsfx
-	;setflag ENGINE_STONEBADGE
+	setflag ENGINE_STONEBADGE
 	readvar VAR_BADGES
 	scall RustboroGymActivateRockets
 

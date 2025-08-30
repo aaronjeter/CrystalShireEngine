@@ -43,7 +43,7 @@ PetalburgGymNormanScript:
 	writetext NormanText_ExplainBadge
 	playsound SFX_GET_BADGE
 	waitsfx
-	;setflag ENGINE_BALANCEBADGE
+	setflag ENGINE_BALANCEBADGE
 	readvar VAR_BADGES
 	scall PetalburgGymActivateRockets
 

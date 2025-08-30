@@ -205,7 +205,7 @@ MauvilleGymWattsonScript:
 	writetext WattsonText_ExplainBadge
 	playsound SFX_GET_BADGE
 	waitsfx
-	;setflag ENGINE_DYNAMOBADGE
+	setflag ENGINE_DYNAMOBADGE
 	readvar VAR_BADGES
 	scall MauvilleGymActivateRockets
 

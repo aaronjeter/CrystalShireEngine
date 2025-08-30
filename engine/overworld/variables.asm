@@ -99,7 +99,7 @@ _GetVarAction::
 .CountBadges:
 ; Number of owned badges.
 	ld hl, wBadges
-	ld b, 2
+	ld b, 3
 	call CountSetBits
 	ld a, [wNumSetBits]
 	jmp .loadstringbuffer2

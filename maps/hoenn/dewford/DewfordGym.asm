@@ -240,7 +240,7 @@ DewfordGymBrawlyScript:
 	writetext BrawlyText_ExplainBadge
 	playsound SFX_GET_BADGE
 	waitsfx
-	;setflag ENGINE_KNUCKLEBADGE
+	setflag ENGINE_KNUCKLEBADGE
 	readvar VAR_BADGES
 	scall DewfordGymActivateRockets
 
