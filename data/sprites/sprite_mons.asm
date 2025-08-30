@@ -94,4 +94,7 @@ SpriteMons:
 	dw SOLROCK		;338
 	dw GLALIE		;362
 	dw BAGON		;371
+	dw REGIROCK		;377
+	dw REGICE		;378
+	dw REGISTEEL	;379
 	assert_table_length NUM_POKEMON_SPRITES

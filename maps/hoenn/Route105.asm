@@ -11,6 +11,7 @@ Route105_MapEvents:
 	def_warp_events	
 
 	warp_event  9, 41, GRANITE_CAVE_B2F, 4 
+	warp_event  9, 19, REGICE_LAIR, 1
 
 	def_coord_events
 

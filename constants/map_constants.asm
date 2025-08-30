@@ -164,6 +164,7 @@ ENDM
 	map_const GRANITE_CAVE_B1F,							   20, 10 ;	
 	map_const GRANITE_CAVE_B2F,							   15, 30 ;	
 	map_const GRANITE_CAVE_B3F,							   10, 10 ;	
+	map_const REGICE_LAIR,								   10, 10 ;
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

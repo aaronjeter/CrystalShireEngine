@@ -714,6 +714,7 @@ ENDM
 	map_attributes GraniteCaveB1F, GRANITE_CAVE_B1F, $00, 0
 	map_attributes GraniteCaveB2F, GRANITE_CAVE_B2F, $00, 0
 	map_attributes GraniteCaveB3F, GRANITE_CAVE_B3F, $00, 0
+	map_attributes RegiceLair, REGICE_LAIR, $00, 0
 
 	map_attributes OldaleMart, OLDALE_MART, $00, 0
 	map_attributes PetalburgMart, PETALBURG_MART, $00, 0

@@ -984,6 +984,9 @@ SECTION "Map Blocks 4", ROMX
 	GraniteCaveB3F_Blocks:
 	INCBIN "maps/hoenn/GraniteCaveB3F.ablk"
 
+	RegiceLair_Blocks:
+	INCBIN "maps/hoenn/RegiceLair.ablk"
+
 	Route101_Blocks:
 	INCBIN "maps/hoenn/Route101.ablk" 
 
