@@ -195,6 +195,8 @@ ItemDescriptionsKeyItems:
 	dw RainbowWingDesc  ; 0115
 	dw BirdWhistleDesc
 	dw LanternDesc
+	dw HatchetDesc
+	dw PickaxeDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -888,3 +890,11 @@ BirdWhistleDesc:
 LanternDesc:
 	db   "A lantern to"
 	next "use FLASH. @"
+
+HatchetDesc:
+	db   "A hatchet to"
+	next "CUT with. @"
+
+PickaxeDesc:
+	db   "A tool to"
+	next "SMASH ROCKS.@"

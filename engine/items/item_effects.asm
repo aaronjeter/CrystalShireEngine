@@ -215,6 +215,8 @@ ItemEffectsKeyItems:
 	dw NoEffect           ; RAINBOW_WING
 	dw BirdWhistleEffect  ; BIRD_WHISTLE
 	dw LanternEffect      ; LANTERN
+	dw HatchetEffect	  ; HATCHET
+	dw PickaxeEffect	  ; PICKAXE
 .IndirectEnd:
 
 ItemEffectsBalls:
@@ -3042,4 +3044,12 @@ LanternEffect:
 	ld a, 1
 	ld [wUsingHMItem], a
 	call FlashFunction
+	ret
+
+HatchetEffect:
+	farcall CutFunction
+	ret
+
+PickaxeEffect:
+	farcall RockSmashFunction
 	ret

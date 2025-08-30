@@ -523,9 +523,11 @@ ENDM
 	map_const RUSTBORO_GYM,								   06, 10 ;
 	map_const RUSTBORO_POKECENTER,						   07, 04 ;
 	map_const RUSTBORO_MART,							   06, 04 ;
+	map_const RUSTBORO_CUTTER_HOUSE,                       04, 04 ;
 	map_const VERDANTURF_TOWN,							   10, 10 ;
 	map_const VERDANTURF_POKECENTER,					   07, 04 ;
 	map_const VERDANTURF_MART,							   06, 04 ;
+	map_const VERDANTURF_ROCKSMASH_HOUSE,                  04, 04 ;
 	map_const MAUVILLE_CITY,							   20, 10 ;
 	map_const MAUVILLE_GYM,								   05, 12 ;
 	map_const MAUVILLE_POKECENTER,						   07, 04 ;

@@ -975,6 +975,10 @@ SECTION "Map Blocks 4", ROMX
 	SlateportMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
+	RustboroCutterHouse_Blocks:
+	VerdanturfRockSmashHouse_Blocks:
+	INCBIN "maps/hoenn/HoennHouse.ablk"
+
 	GraniteCaveB1F_Blocks:
 	INCBIN "maps/hoenn/GraniteCaveB1F.ablk"
 

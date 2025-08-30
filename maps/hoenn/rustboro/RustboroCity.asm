@@ -12,6 +12,7 @@ RustboroCity_MapEvents:
 	warp_event  24, 19, RUSTBORO_GYM, 1
 	warp_event  13, 35, RUSTBORO_POKECENTER, 2
 	warp_event  13, 43, RUSTBORO_MART, 2
+	warp_event   7, 35, RUSTBORO_CUTTER_HOUSE, 2
 
 	def_coord_events
 

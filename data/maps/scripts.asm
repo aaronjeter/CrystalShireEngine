@@ -522,6 +522,9 @@ ENDSECTION
 
 SECTION "Map Scripts 26", ROMX
 
+INCLUDE "maps/hoenn/rustboro/RustboroCutterHouse.asm"
+INCLUDE "maps/hoenn/verdanturf/VerdanturfRockSmashHouse.asm"
+
 INCLUDE "maps/hoenn/GraniteCaveB1F.asm"
 INCLUDE "maps/hoenn/GraniteCaveB2F.asm"
 INCLUDE "maps/hoenn/GraniteCaveB3F.asm"
