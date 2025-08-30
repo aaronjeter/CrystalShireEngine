@@ -975,6 +975,15 @@ SECTION "Map Blocks 4", ROMX
 	SlateportMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
+	GraniteCaveB1F_Blocks:
+	INCBIN "maps/hoenn/GraniteCaveB1F.ablk"
+
+	GraniteCaveB2F_Blocks:
+	INCBIN "maps/hoenn/GraniteCaveB2F.ablk"
+
+	GraniteCaveB3F_Blocks:
+	INCBIN "maps/hoenn/GraniteCaveB3F.ablk"
+
 	Route101_Blocks:
 	INCBIN "maps/hoenn/Route101.ablk" 
 

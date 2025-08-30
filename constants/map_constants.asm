@@ -161,6 +161,9 @@ ENDM
 	map_const VIRIDIAN_FOREST,							   20, 25 ; 96
 	map_const PETALBURG_WOODS,							   20, 20 ; 97	
 	map_const RUSTURF_TUNNEL,							   20, 12 ; 98
+	map_const GRANITE_CAVE_B1F,							   20, 10 ;	
+	map_const GRANITE_CAVE_B2F,							   15, 30 ;	
+	map_const GRANITE_CAVE_B3F,							   10, 10 ;	
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -531,7 +534,7 @@ ENDM
 	map_const SLATEPORT_MART,							   06, 04 ;
 	map_const DEWFORD_TOWN,								   20, 20 ;
 	map_const DEWFORD_GYM,								   09, 14 ;
-	map_const DEWFORD_POKECENTER,						   07, 04 ;
+	map_const DEWFORD_POKECENTER,						   07, 04 ;	
 	map_const ROUTE_101,                                   10, 10 ;  4
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6
