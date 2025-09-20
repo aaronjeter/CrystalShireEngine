@@ -162,10 +162,10 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke ARCANINE, 50, BRIGHTPOWDER
+	givepoke WALREIN, 50, BRIGHTPOWDER
 	; hm slaves
-	givepoke MILOTIC, 50, LEFTOVERS
-	givepoke TENTACRUEL, 50, LEFTOVERS
+	givepoke MEW, 50, LEFTOVERS
+	givepoke MISMAGIUS, 50, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove HAIL,		 wPartyMon2, 2
@@ -175,9 +175,9 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke GROUDON, 50
-	givepoke TYRANITAR, 20
-	givepoke DELIBIRD, 50
+	givepoke LICKILICKY, 50
+	givepoke PROBOPASS, 40
+	givepoke HANAMOLE, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

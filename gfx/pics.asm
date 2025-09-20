@@ -1074,6 +1074,26 @@ KleavorFrontpic:		INCBIN "gfx/pokemon/kleavor/front.animated.2bpp.lz"
 KleavorBackpic:			INCBIN "gfx/pokemon/kleavor/back.2bpp.lz"
 
 
+SECTION "Pokemon Pics Gen4 3", ROMX
+
+RoseradeFrontpic:		INCBIN "gfx/pokemon/roserade/front.animated.2bpp.lz"
+RoseradeBackpic:		INCBIN "gfx/pokemon/roserade/back.2bpp.lz"
+AmbipomFrontpic:		INCBIN "gfx/pokemon/ambipom/front.animated.2bpp.lz"
+AmbipomBackpic:			INCBIN "gfx/pokemon/ambipom/back.2bpp.lz"
+MismagiusFrontpic:		INCBIN "gfx/pokemon/mismagius/front.animated.2bpp.lz"
+MismagiusBackpic:		INCBIN "gfx/pokemon/mismagius/back.2bpp.lz"
+LickilickyFrontpic:		INCBIN "gfx/pokemon/lickilicky/front.animated.2bpp.lz"
+LickilickyBackpic:		INCBIN "gfx/pokemon/lickilicky/back.2bpp.lz"
+RhyperiorFrontpic:		INCBIN "gfx/pokemon/rhyperior/front.animated.2bpp.lz"
+RhyperiorBackpic:		INCBIN "gfx/pokemon/rhyperior/back.2bpp.lz"
+YanmegaFrontpic:		INCBIN "gfx/pokemon/yanmega/front.animated.2bpp.lz"
+YanmegaBackpic:			INCBIN "gfx/pokemon/yanmega/back.2bpp.lz"
+ProbopassFrontpic:		INCBIN "gfx/pokemon/probopass/front.animated.2bpp.lz"
+ProbopassBackpic:		INCBIN "gfx/pokemon/probopass/back.2bpp.lz"
+DusknoirFrontpic:		INCBIN "gfx/pokemon/dusknoir/front.animated.2bpp.lz"
+DusknoirBackpic:		INCBIN "gfx/pokemon/dusknoir/back.2bpp.lz"
+
+
 SECTION "Pokemon Pics Alt 1", ROMX	
 
 AraichuFrontpic:		INCBIN "gfx/pokemon/araichu/front.animated.2bpp.lz"
@@ -1122,16 +1142,6 @@ Noctowl2Frontpic:     INCBIN "gfx/pokemon/noctowl2/front.animated.2bpp.lz"
 Noctowl2Backpic:      INCBIN "gfx/pokemon/noctowl2/back.2bpp.lz"
 Octillery2Frontpic:   INCBIN "gfx/pokemon/octillery2/front.animated.2bpp.lz"
 Octillery2Backpic:    INCBIN "gfx/pokemon/octillery2/back.2bpp.lz"
-Yanma2Frontpic:       INCBIN "gfx/pokemon/yanma2/front.animated.2bpp.lz"
-Yanma2Backpic:        INCBIN "gfx/pokemon/yanma2/back.2bpp.lz"
-Scyther2Frontpic:     INCBIN "gfx/pokemon/scyther2/front.animated.2bpp.lz"
-Scyther2Backpic:      INCBIN "gfx/pokemon/scyther2/back.2bpp.lz"
-Scizor2Frontpic:      INCBIN "gfx/pokemon/scizor2/front.animated.2bpp.lz"
-Scizor2Backpic:       INCBIN "gfx/pokemon/scizor2/back.2bpp.lz"
-Tentacool2Frontpic:   INCBIN "gfx/pokemon/tentacool2/front.animated.2bpp.lz"
-Tentacool2Backpic:    INCBIN "gfx/pokemon/tentacool2/back.2bpp.lz"
-Tentacruel2Frontpic:  INCBIN "gfx/pokemon/tentacruel2/front.animated.2bpp.lz"
-Tentacruel2Backpic:   INCBIN "gfx/pokemon/tentacruel2/back.2bpp.lz"
 
 
 SECTION "Pokemon Reddit 2", ROMX
@@ -1160,6 +1170,19 @@ Quilava2Frontpic:     INCBIN "gfx/pokemon/quilava2/front.animated.2bpp.lz"
 Quilava2Backpic:      INCBIN "gfx/pokemon/quilava2/back.2bpp.lz"
 Typhlosion2Frontpic:  INCBIN "gfx/pokemon/typhlosion2/front.animated.2bpp.lz"
 Typhlosion2Backpic:   INCBIN "gfx/pokemon/typhlosion2/back.2bpp.lz"
+
+
+SECTION "Pokemon Pics Reddit 3", ROMX
+Yanma2Frontpic:       INCBIN "gfx/pokemon/yanma2/front.animated.2bpp.lz"
+Yanma2Backpic:        INCBIN "gfx/pokemon/yanma2/back.2bpp.lz"
+Scyther2Frontpic:     INCBIN "gfx/pokemon/scyther2/front.animated.2bpp.lz"
+Scyther2Backpic:      INCBIN "gfx/pokemon/scyther2/back.2bpp.lz"
+Scizor2Frontpic:      INCBIN "gfx/pokemon/scizor2/front.animated.2bpp.lz"
+Scizor2Backpic:       INCBIN "gfx/pokemon/scizor2/back.2bpp.lz"
+Tentacool2Frontpic:   INCBIN "gfx/pokemon/tentacool2/front.animated.2bpp.lz"
+Tentacool2Backpic:    INCBIN "gfx/pokemon/tentacool2/back.2bpp.lz"
+Tentacruel2Frontpic:  INCBIN "gfx/pokemon/tentacruel2/front.animated.2bpp.lz"
+Tentacruel2Backpic:   INCBIN "gfx/pokemon/tentacruel2/back.2bpp.lz"
 
 
 SECTION "Pokemon Beta", ROMX
@@ -1192,6 +1215,10 @@ DynabeaFrontpic:		INCBIN "gfx/pokemon/dynabea/front.animated.2bpp.lz"
 DynabeaBackpic:			INCBIN "gfx/pokemon/dynabea/back.2bpp.lz"
 AkueriaFrontpic:		INCBIN "gfx/pokemon/akueria/front.animated.2bpp.lz"
 AkueriaBackpic:			INCBIN "gfx/pokemon/akueria/back.2bpp.lz"
+SunbouFrontpic:			INCBIN "gfx/pokemon/sunbou/front.animated.2bpp.lz"
+SunbouBackpic:			INCBIN "gfx/pokemon/sunbou/back.2bpp.lz"
+IkariFrontpic:			INCBIN "gfx/pokemon/ikari/front.animated.2bpp.lz"
+IkariBackpic:			INCBIN "gfx/pokemon/ikari/back.2bpp.lz"
 
 
 SECTION "Hoenn Trainers 1", ROMX

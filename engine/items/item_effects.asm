@@ -3047,9 +3047,9 @@ LanternEffect:
 	ret
 
 HatchetEffect:
-	farcall CutFunction
+	call CutFunction
 	ret
 
 PickaxeEffect:
-	farcall RockSmashFunction
+	call RockSmashFunction
 	ret

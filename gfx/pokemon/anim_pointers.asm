@@ -404,6 +404,14 @@ AnimationPointers:
 	dw PorygonzAnimation
 	dw AnnihilapeAnimation
 	dw KleavorAnimation
+	dw RoseradeAnimation
+	dw AmbipomAnimation
+	dw MismagiusAnimation
+	dw LickilickyAnimation
+	dw RhyperiorAnimation
+	dw YanmegaAnimation
+	dw ProbopassAnimation
+	dw DusknoirAnimation
 	;alt forms
 	dw AraichuAnimation
 	dw AmarowakAnimation
@@ -457,4 +465,6 @@ AnimationPointers:
 	dw KotoraAnimation
 	dw RaitoraAnimation
 	dw AshibombAnimation
+	dw SunbouAnimation
+	dw IkariAnimation
 	assert_table_length NUM_POKEMON

@@ -841,6 +841,22 @@ INCBIN "gfx/pokemon/annihilape/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/annihilape/shiny.pal"
 INCBIN "gfx/pokemon/kleavor/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/kleavor/shiny.pal"
+INCBIN "gfx/pokemon/roserade/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/roserade/shiny.pal"
+INCBIN "gfx/pokemon/ambipom/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/ambipom/shiny.pal"
+INCBIN "gfx/pokemon/mismagius/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/mismagius/shiny.pal"
+INCBIN "gfx/pokemon/lickilicky/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/lickilicky/shiny.pal"
+INCBIN "gfx/pokemon/rhyperior/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/rhyperior/shiny.pal"
+INCBIN "gfx/pokemon/yanmega/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/yanmega/shiny.pal"
+INCBIN "gfx/pokemon/probopass/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/probopass/shiny.pal"
+INCBIN "gfx/pokemon/dusknoir/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/dusknoir/shiny.pal"
 ;alt forms
 INCBIN "gfx/pokemon/araichu/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/araichu/shiny.pal"
@@ -944,4 +960,8 @@ INCBIN "gfx/pokemon/raitora/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/raitora/shiny.pal"
 INCBIN "gfx/pokemon/ashibomb/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/ashibomb/shiny.pal"
+INCBIN "gfx/pokemon/sunbou/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/sunbou/shiny.pal"
+INCBIN "gfx/pokemon/ikari/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/ikari/shiny.pal"
 	assert_table_length NUM_POKEMON + 1

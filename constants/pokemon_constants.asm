@@ -425,6 +425,14 @@ DEF JOHTO_POKEMON EQU const_value
 	const PORYGONZ
 	const ANNIHILAPE
 	const KLEAVOR
+	const ROSERADE
+	const AMBIPOM
+	const MISMAGIUS
+	const LICKILICKY
+	const RHYPERIOR
+	const YANMEGA
+	const PROBOPASS
+	const DUSKNOIR
 	;alt forms
 	const ARAICHU
 	const AMAROWAK
@@ -478,6 +486,10 @@ DEF JOHTO_POKEMON EQU const_value
 	const KOTORA
 	const RAITORA
 	const ASHIBOMB
+	const SUNBOU
+	const IKARI
+	;Megas
+
 
 DEF NUM_JOHTO_POKEMON EQU const_value - 1
 DEF NUM_POKEMON EQU const_value - 1

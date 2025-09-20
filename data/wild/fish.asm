@@ -72,16 +72,16 @@ FishGroups:
 .Pond_Old:
 	dbbw  70 percent + 1, 10, BARBOACH
 	dbbw  85 percent + 1, 10, QWILFISH
-	dbbw 100 percent,     10, POLIWAG
+	dbbw 100 percent,     10, SUNBOU
 .Pond_Good:
 	dbbw  35 percent,     20, BARBOACH
 	dbbw  70 percent,     20, QWILFISH
-	dbbw  90 percent + 1, 20, POLIWAG
+	dbbw  90 percent + 1, 20, SUNBOU
 	dbbw 100 percent,     6, TIME_GROUP
 .Pond_Super:
 	dbbw  40 percent,     40, BARBOACH
 	dbbw  70 percent,     7, TIME_GROUP
-	dbbw  90 percent + 1, 40, MAGIKARP
+	dbbw  90 percent + 1, 40, SUNBOU
 	dbbw 100 percent,     40, QWILFISH
 
 .Dratini_Old:

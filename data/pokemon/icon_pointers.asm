@@ -410,6 +410,14 @@ IconPointers:
 	dw PorygonzIcon
 	dw AnnihilapeIcon
 	dw KleavorIcon
+	dw RoseradeIcon
+	dw AmbipomIcon
+	dw MismagiusIcon
+	dw LickilickyIcon
+	dw RhyperiorIcon
+	dw YanmegaIcon
+	dw ProbopassIcon
+	dw DusknoirIcon
 	;alt forms
 	dw AraichuIcon
 	dw AmarowakIcon
@@ -463,4 +471,6 @@ IconPointers:
 	dw KotoraIcon
 	dw RaitoraIcon
 	dw AshibombIcon
+	dw SunbouIcon
+	dw IkariIcon
 	assert_table_length NUM_POKEMON + 1

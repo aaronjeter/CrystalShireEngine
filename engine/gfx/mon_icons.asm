@@ -519,7 +519,7 @@ GetIconBank:
 	ld a, l
 	cp LOW(WALREIN)
 	jr c, .check_4
-	ld b, BANK("Mon Icons 4") ; stubbed support for 4th bank
+	ld b, BANK("Mon Icons 4") 
 	jr .return
 .check_4
 	ld a, h
@@ -528,7 +528,7 @@ GetIconBank:
 	ld a, l
 	cp LOW(TORCHIC)
 	jr c, .check_3
-	ld b, BANK("Mon Icons 3") ; stubbed support for 4th bank
+	ld b, BANK("Mon Icons 3") 
 	jr .return
 .check_3
 	ld a, h

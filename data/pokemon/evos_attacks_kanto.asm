@@ -2286,6 +2286,7 @@ HitmonchanEvosAttacks:
 	db 0 ; no more level-up moves
 
 LickitungEvosAttacks:
+	dbbw EVOLVE_LEVEL, 38, LICKILICKY
 	db 0 ; no more evolutions
 	dbw 1, LICK
 	dbw 7, SUPERSONIC
@@ -2349,7 +2350,7 @@ WeezingEvosAttacks:
 	db 0 ; no more level-up moves
 
 RhyhornEvosAttacks:
-	dbbw EVOLVE_LEVEL, 40, RHYDON
+	dbbw EVOLVE_LEVEL, 32, RHYDON
 	db 0 ; no more evolutions
 	dbw 1, TAIL_WHIP
 	dbw 8, ROCK_THROW
@@ -2370,6 +2371,7 @@ RhyhornEvosAttacks:
 	db 0 ; no more level-up moves
 
 RhydonEvosAttacks:
+	dbbw EVOLVE_LEVEL, 44, RHYPERIOR
 	db 0 ; no more evolutions	
 	dbw 1, TAIL_WHIP
 	dbw 8, ROCK_THROW

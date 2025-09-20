@@ -409,6 +409,14 @@ PokemonNames::
 	db "PORYGONZ@@"
 	db "ANNIHILAPE"
 	db "KLEAVOR@@@"
+	db "ROSERADE@@"
+	db "AMBIPOM@@@"
+	db "MISMAGIUS@"
+	db "LICKILICKY"
+	db "RHYPERIOR@"
+	db "YANMEGA@@@"
+	db "PROBOPASS@"
+	db "DUSKNOIR@@"
 	;alt forms
 	db "RAICHU@@@@"
 	db "MAROWAK@@@"
@@ -462,4 +470,6 @@ PokemonNames::
 	db "KOTORA@@@@"
 	db "RAITORA@@@"
 	db "ASHIBOMB@@"
+	db "SUNBOU@@@@"
+	db "IKARI@@@@@"
 	assert_table_length NUM_POKEMON

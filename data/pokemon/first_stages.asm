@@ -405,6 +405,14 @@ FirstEvoStages::
 	dw PORYGON
 	dw MANKEY
 	dw SCYTHER
+	dw ROSELIA
+	dw AIPOM
+	dw MISDREAVUS
+	dw LICKITUNG
+	dw RHYHORN
+	dw YANMA
+	dw NOSEPASS
+	dw DUSKULL
 	;alt forms
 	dw PIKACHU
 	dw CUBONE
@@ -458,4 +466,6 @@ FirstEvoStages::
 	dw KOTORA
 	dw KOTORA
 	dw ASHIBOMB
+	dw SUNBOU
+	dw SUNBOU
 	assert_table_length NUM_POKEMON

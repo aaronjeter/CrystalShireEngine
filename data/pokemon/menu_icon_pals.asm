@@ -415,6 +415,14 @@ MonMenuIconPals:
 	icon_pals TEAL,   BLUE   ; PORYGONZ
 	icon_pals GRAY,   BLUE   ; ANNIHILAPE
 	icon_pals BROWN,  PURPLE ; KLEAVOR
+	icon_pals GREEN,  GREEN  ; ROSERADE
+	icon_pals PURPLE, PURPLE ; AMBIPOM
+	icon_pals PURPLE, BROWN  ; MISMAGIUS
+	icon_pals RED,    PINK   ; LICKILICKY
+	icon_pals GRAY,   GRAY   ; RHYPERIOR
+	icon_pals GREEN,  BLUE   ; YANMEGA
+	icon_pals BLUE,   BROWN  ; PROBOPASS
+	icon_pals GRAY,   RED    ; DUSKNOIR
 	;alt forms
 	icon_pals RED,    BROWN  ; ARAICHU
 	icon_pals BROWN,  GRAY   ; AMAROWAK
@@ -468,4 +476,6 @@ MonMenuIconPals:
 	icon_pals BROWN,  PURPLE ; KOTORA
 	icon_pals BROWN,  PURPLE ; RAITORA
 	icon_pals RED,    PURPLE ; ASHIBOMB
+	icon_pals BLUE,   RED	 ; SUNBOU
+	icon_pals BLUE,   RED	 ; IKARI
 	assert_table_length NUM_POKEMON

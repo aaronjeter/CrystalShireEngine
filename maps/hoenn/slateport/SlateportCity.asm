@@ -5,6 +5,16 @@ SlateportCity_MapScripts:
 
 	def_callbacks	
 
+	SlateportCityHarborSign:
+	jumptext SlateportCityHarborSignText
+
+	SlateportCityHarborSignText:
+	text "SLATEPORT HARBOR:"
+
+	para "International"
+	line "Voyages"
+	done
+
 SlateportCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -15,6 +25,7 @@ SlateportCity_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event 28, 28, BGEVENT_READ, SlateportCityHarborSign
 
 	def_object_events
 	

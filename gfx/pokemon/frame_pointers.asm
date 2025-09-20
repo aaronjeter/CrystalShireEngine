@@ -404,6 +404,14 @@ FramesPointers:
 	dba PorygonzFrames
 	dba AnnihilapeFrames
 	dba KleavorFrames
+	dba RoseradeFrames
+	dba AmbipomFrames
+	dba MismagiusFrames
+	dba LickilickyFrames
+	dba RhyperiorFrames
+	dba YanmegaFrames
+	dba ProbopassFrames
+	dba DusknoirFrames
 	;alt forms
 	dba AraichuFrames
 	dba AmarowakFrames
@@ -457,4 +465,6 @@ FramesPointers:
 	dba KotoraFrames
 	dba RaitoraFrames
 	dba AshibombFrames
+	dba SunbouFrames
+	dba IkariFrames
 	assert_table_length NUM_POKEMON

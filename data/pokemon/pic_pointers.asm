@@ -824,6 +824,22 @@ PokemonPicPointers::
 	dba AnnihilapeBackpic
 	dba KleavorFrontpic
 	dba KleavorBackpic
+	dba RoseradeFrontpic
+	dba RoseradeBackpic
+	dba AmbipomFrontpic
+	dba AmbipomBackpic
+	dba MismagiusFrontpic
+	dba MismagiusBackpic
+	dba LickilickyFrontpic
+	dba LickilickyBackpic
+	dba RhyperiorFrontpic
+	dba RhyperiorBackpic
+	dba YanmegaFrontpic
+	dba YanmegaBackpic
+	dba ProbopassFrontpic
+	dba ProbopassBackpic
+	dba DusknoirFrontpic
+	dba DusknoirBackpic
 	;alt forms
 	dba AraichuFrontpic
 	dba AraichuBackpic
@@ -927,4 +943,8 @@ PokemonPicPointers::
 	dba RaitoraBackpic
 	dba AshibombFrontpic
 	dba AshibombBackpic
+	dba SunbouFrontpic
+	dba SunbouBackpic
+	dba IkariFrontpic
+	dba IkariBackpic
 	assert_table_length NUM_POKEMON + 1

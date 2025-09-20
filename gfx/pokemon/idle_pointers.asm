@@ -404,6 +404,14 @@ AnimationIdlePointers:
 	dw PorygonzAnimationIdle
 	dw AnnihilapeAnimationIdle
 	dw KleavorAnimationIdle
+	dw RoseradeAnimationIdle
+	dw AmbipomAnimationIdle
+	dw MismagiusAnimationIdle
+	dw LickilickyAnimationIdle
+	dw RhyperiorAnimationIdle
+	dw YanmegaAnimationIdle
+	dw ProbopassAnimationIdle
+	dw DusknoirAnimationIdle
 	;alt forms
 	dw AraichuAnimationIdle
 	dw AmarowakAnimationIdle
@@ -457,4 +465,6 @@ AnimationIdlePointers:
 	dw KotoraAnimationIdle
 	dw RaitoraAnimationIdle
 	dw AshibombAnimationIdle
+	dw SunbouAnimationIdle
+	dw IkariAnimationIdle
 	assert_table_length NUM_POKEMON

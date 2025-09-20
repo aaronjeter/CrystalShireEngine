@@ -411,6 +411,14 @@ PokemonCries::
 	mon_cry CRY_KRABBY,      238,  352 ; PORYGONZ
 	mon_cry CRY_KRABBY,      238,  352 ; ANNIHILAPE
 	mon_cry CRY_KRABBY,      238,  352 ; KLEAVOR
+	mon_cry CRY_KRABBY,      238,  352 ; ROSERADE
+	mon_cry CRY_KRABBY,      238,  352 ; AMBIPOM
+	mon_cry CRY_KRABBY,      238,  352 ; MISMAGIUS
+	mon_cry CRY_KRABBY,      238,  352 ; LICKILICKY
+	mon_cry CRY_KRABBY,      238,  352 ; RHYPERIOR
+	mon_cry CRY_KRABBY,      238,  352 ; YANMEGA
+	mon_cry CRY_KRABBY,      238,  352 ; PROBOPASS
+	mon_cry CRY_KRABBY,      238,  352 ; DUSKNOIR
 	;alt forms
 	mon_cry CRY_TOGETIC,      59,   56 ; ARAICHU
 	mon_cry CRY_ODDISH,       79,  224 ; AMAROWAK
@@ -464,4 +472,6 @@ PokemonCries::
 	mon_cry CRY_AMPHAROS,      0,  352 ; KOTORA
 	mon_cry CRY_VENONAT,       0,  256 ; RAITORA
 	mon_cry CRY_VENONAT,     238,  383 ; ASHIBOMB
+	mon_cry CRY_VENONAT,     238,  383 ; SUNBOU
+	mon_cry CRY_VENONAT,     238,  383 ; IKARI
 	assert_table_length NUM_POKEMON

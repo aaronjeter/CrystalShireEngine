@@ -404,6 +404,14 @@ BitmasksPointers:
 	dw PorygonzBitmasks
 	dw AnnihilapeBitmasks
 	dw KleavorBitmasks
+	dw RoseradeBitmasks
+	dw AmbipomBitmasks
+	dw MismagiusBitmasks
+	dw LickilickyBitmasks
+	dw RhyperiorBitmasks
+	dw YanmegaBitmasks
+	dw ProbopassBitmasks
+	dw DusknoirBitmasks
 	;alt forms
 	dw AraichuBitmasks
 	dw AmarowakBitmasks
@@ -457,4 +465,6 @@ BitmasksPointers:
 	dw KotoraBitmasks
 	dw RaitoraBitmasks
 	dw AshibombBitmasks
+	dw SunbouBitmasks
+	dw IkariBitmasks
 	assert_table_length NUM_POKEMON

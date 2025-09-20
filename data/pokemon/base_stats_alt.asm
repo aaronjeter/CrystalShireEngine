@@ -20,6 +20,14 @@ INCLUDE "data/pokemon/base_stats/gen4/wyrdeer.asm"
 INCLUDE "data/pokemon/base_stats/gen4/porygonz.asm"
 INCLUDE "data/pokemon/base_stats/gen4/annihilape.asm"
 INCLUDE "data/pokemon/base_stats/gen4/kleavor.asm"
+INCLUDE "data/pokemon/base_stats/gen4/roserade.asm"
+INCLUDE "data/pokemon/base_stats/gen4/ambipom.asm"
+INCLUDE "data/pokemon/base_stats/gen4/mismagius.asm"
+INCLUDE "data/pokemon/base_stats/gen4/lickilicky.asm"
+INCLUDE "data/pokemon/base_stats/gen4/rhyperior.asm"
+INCLUDE "data/pokemon/base_stats/gen4/yanmega.asm"
+INCLUDE "data/pokemon/base_stats/gen4/probopass.asm"
+INCLUDE "data/pokemon/base_stats/gen4/dusknoir.asm"
 ;alt forms
 INCLUDE "data/pokemon/base_stats/alt/araichu.asm"
 INCLUDE "data/pokemon/base_stats/alt/amarowak.asm"
@@ -73,6 +81,8 @@ INCLUDE "data/pokemon/base_stats/beta/tsubomitt.asm"
 INCLUDE "data/pokemon/base_stats/beta/kotora.asm"
 INCLUDE "data/pokemon/base_stats/beta/raitora.asm"
 INCLUDE "data/pokemon/base_stats/beta/ashibomb.asm"
+INCLUDE "data/pokemon/base_stats/beta/sunbou.asm"
+INCLUDE "data/pokemon/base_stats/beta/ikari.asm"
 .IndirectEnd::
 
 ENDSECTION

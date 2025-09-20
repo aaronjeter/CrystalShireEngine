@@ -254,6 +254,14 @@ EggMovePointers2::
 	dw NoEggMoves2			;porygonz
 	dw NoEggMoves2			;annihilape
 	dw NoEggMoves2			;kleavor
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
 	;alt forms
 	dw NoEggMoves2			;ariachu
 	dw NoEggMoves2			;amarowak
@@ -295,6 +303,8 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw NoEggMoves2
 	;beta mons
+	dw NoEggMoves2
+	dw NoEggMoves2
 	dw NoEggMoves2
 	dw NoEggMoves2
 	dw NoEggMoves2

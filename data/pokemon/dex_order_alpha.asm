@@ -429,6 +429,14 @@ AlphabeticalPokedexOrder:
 	dw PORYGONZ
 	dw ANNIHILAPE
 	dw KLEAVOR
+	dw ROSERADE
+	dw AMBIPOM
+	dw MISMAGIUS
+	dw LICKILICKY
+	dw RHYPERIOR
+	dw YANMEGA
+	dw PROBOPASS
+	dw DUSKNOIR
 	;alt forms
 	dw ARAICHU
 	dw AMAROWAK
@@ -457,4 +465,6 @@ AlphabeticalPokedexOrder:
 	dw KOTORA
 	dw RAITORA
 	dw ASHIBOMB
+	dw SUNBOU
+	dw IKARI
 	assert_table_length NUM_POKEMON

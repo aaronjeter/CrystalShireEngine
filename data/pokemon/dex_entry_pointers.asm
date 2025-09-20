@@ -406,6 +406,14 @@ PokedexDataPointerTable:
 	dba PorygonzPokedexEntry
 	dba AnnihilapePokedexEntry
 	dba KleavorPokedexEntry
+	dba RoseradePokedexEntry
+	dba AmbipomPokedexEntry
+	dba MismagiusPokedexEntry
+	dba LickilickyPokedexEntry
+	dba RhyperiorPokedexEntry
+	dba YanmegaPokedexEntry
+	dba ProbopassPokedexEntry
+	dba DusknoirPokedexEntry
 	;alt mons
 	dba AraichuPokedexEntry
 	dba AmarowakPokedexEntry
@@ -459,4 +467,6 @@ PokedexDataPointerTable:
 	dba KotoraPokedexEntry
 	dba RaitoraPokedexEntry
 	dba AshibombPokedexEntry
+	dba SunbouPokedexEntry
+	dba IkariPokedexEntry
 	assert_table_length NUM_POKEMON
