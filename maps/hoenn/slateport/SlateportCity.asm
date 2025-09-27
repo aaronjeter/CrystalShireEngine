@@ -21,11 +21,12 @@ SlateportCity_MapEvents:
 	def_warp_events	
 	warp_event  19, 21, SLATEPORT_POKECENTER, 2
 	warp_event  15, 27, SLATEPORT_MART, 2
+	warp_event  29, 13, SLATEPORT_HARBOR, 2
 
 	def_coord_events
 
 	def_bg_events	
-	bg_event 28, 28, BGEVENT_READ, SlateportCityHarborSign
+	bg_event 28, 14, BGEVENT_READ, SlateportCityHarborSign
 
 	def_object_events
 	

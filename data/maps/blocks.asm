@@ -946,6 +946,9 @@ SECTION "Map Blocks 4", ROMX
 	SlateportCity_Blocks:
 	INCBIN "maps/hoenn/slateport/SlateportCity.ablk"
 
+	SlateportHarbor_Blocks:
+	INCBIN "maps/hoenn/slateport/SlateportHarbor.ablk"
+
 	DewfordTown_Blocks:
 	INCBIN "maps/hoenn/dewford/DewfordTown.ablk"
 

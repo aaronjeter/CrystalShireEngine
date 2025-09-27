@@ -722,6 +722,7 @@ ENDM
 	map_attributes VerdanturfMart, VERDANTURF_MART, $00, 0
 	map_attributes MauvilleMart, MAUVILLE_MART, $00, 0
 	map_attributes SlateportMart, SLATEPORT_MART, $00, 0
+	map_attributes SlateportHarbor, SLATEPORT_HARBOR, $00, 0
 
 	map_attributes RustboroCutterHouse, RUSTBORO_CUTTER_HOUSE, $00, 0
 	map_attributes VerdanturfRockSmashHouse, VERDANTURF_ROCKSMASH_HOUSE, $00, 0

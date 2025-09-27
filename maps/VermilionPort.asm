@@ -2,6 +2,7 @@
 	const VERMILIONPORT_SAILOR1
 	const VERMILIONPORT_SAILOR2
 	const VERMILIONPORT_SUPER_NERD
+	const VERMILIONPORT_SAILOR3
 
 VermilionPort_MapScripts:
 	def_scene_scripts
@@ -296,6 +297,42 @@ VermilionPortSuperNerdText:
 	cont "there."
 	done
 
+
+VermilionPortSailorHoennScript:
+	faceplayer
+	opentext
+	writetext VermilionPortHoennText
+	yesorno
+	iffalse VermilionPortNotRidingToHoennScript
+	writetext VermilionPortSailingText
+	promptbutton
+	closetext
+	special FadeOutToWhite
+	waitsfx
+	warp SLATEPORT_HARBOR, 12, 9
+	end
+
+VermilionPortNotRidingToHoennScript:
+	writetext VermilionPortNotRidingText
+	waitbutton
+	closetext
+	end
+
+VermilionPortHoennText:
+	text "Do you want to"
+	line "sail to HOENN?"
+	done
+
+VermilionPortNotRidingText:
+	text "OK."
+	line "Have a nice day!"
+	done
+
+VermilionPortSailingText:
+	text "Alright, have a"
+	line "nice voyage."
+	done
+
 VermilionPort_MapEvents:
 	db 0, 0 ; filler
 
@@ -313,3 +350,4 @@ VermilionPort_MapEvents:
 	object_event  7, 17, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorAtGangwayScript, EVENT_VERMILION_PORT_SAILOR_AT_GANGWAY
 	object_event  6, 11, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorScript, -1
 	object_event 11, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSuperNerdScript, -1
+	object_event 15, 12, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorHoennScript, -1

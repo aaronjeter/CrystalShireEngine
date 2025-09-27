@@ -6,6 +6,7 @@
 	const OLIVINEPORT_FISHING_GURU2
 	const OLIVINEPORT_YOUNGSTER
 	const OLIVINEPORT_COOLTRAINER_F
+	const OLIVINEPORT_SAILOR4
 
 OlivinePort_MapScripts:
 	def_scene_scripts
@@ -382,6 +383,42 @@ OlivinePortSailorBeforeHOFText:
 	line "allowed in."
 	done
 
+
+OlivinePortSailorHoennScript:
+	faceplayer
+	opentext
+	writetext OlivinePortHoennText
+	yesorno
+	iffalse OlivinePortNotRidingToHoennScript
+	writetext OlivinePortSailingText
+	promptbutton
+	closetext
+	special FadeOutToWhite
+	waitsfx
+	warp SLATEPORT_HARBOR, 12, 1
+	end
+
+OlivinePortNotRidingToHoennScript:
+	writetext OlivinePortNotRidingText
+	waitbutton
+	closetext
+	end
+
+OlivinePortHoennText:
+	text "Do you want to"
+	line "sail to HOENN?"
+	done
+
+OlivinePortNotRidingText:
+	text "OK."
+	line "Have a nice day!"
+	done
+
+OlivinePortSailingText:
+	text "Alright, have a"
+	line "nice voyage."
+	done
+
 OlivinePort_MapEvents:
 	db 0, 0 ; filler
 
@@ -403,3 +440,4 @@ OlivinePort_MapEvents:
 	object_event 13, 14, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortFishingGuru2Script, EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
 	object_event  4, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortYoungsterScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	object_event 11, 15, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortCooltrainerFScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
+	object_event 15, 16, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, OlivinePortSailorHoennScript, -1

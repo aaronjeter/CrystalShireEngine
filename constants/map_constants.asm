@@ -535,6 +535,7 @@ ENDM
 	map_const SLATEPORT_CITY,							   20, 30 ;
 	map_const SLATEPORT_POKECENTER,						   07, 04 ;
 	map_const SLATEPORT_MART,							   06, 04 ;
+	map_const SLATEPORT_HARBOR,                            10, 08 ;
 	map_const DEWFORD_TOWN,								   20, 20 ;
 	map_const DEWFORD_GYM,								   09, 14 ;
 	map_const DEWFORD_POKECENTER,						   07, 04 ;	
