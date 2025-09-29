@@ -1235,3 +1235,6 @@ WallacePic:			INCBIN "gfx/trainers/wallace.2bpp.lz"
 
 SECTION "Hoenn Trainers 2", ROMX
 BattleGirlPic:		INCBIN "gfx/trainers/battlegirl.2bpp.lz"
+RangerMPic:			INCBIN "gfx/trainers/rangerm.2bpp.lz"
+RangerFPic:			INCBIN "gfx/trainers/rangerf.2bpp.lz"
+ExplorerPic:		INCBIN "gfx/trainers/explorer.2bpp.lz"

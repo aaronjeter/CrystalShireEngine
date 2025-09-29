@@ -85,4 +85,7 @@ BTTrainerClassGenders:
 	db MALE   ; DRAKE
 	db MALE   ; STEVEN
 	db FEMALE ; Battle Girl
+	db MALE   ; Ranger M
+	db FEMALE ; Ranger F
+	db MALE   ; Explorer
 	assert_table_length NUM_TRAINER_CLASSES ; 

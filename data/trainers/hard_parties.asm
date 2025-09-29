@@ -6974,4 +6974,44 @@ BattleGirlGroupHard:
 
 	end_list_items
 
+
+RangerMGroupHard:
+	next_list_item; STEVEN (1) Unreferenced
+	db "STEVEN@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+RangerFGroupHard:
+	next_list_item; STEVEN (1) Unreferenced
+	db "STEVEN@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
+ExplorerGroupHard:
+	next_list_item; STEVEN (1) Unreferenced
+	db "STEVEN@", TRAINERTYPE_NORMAL
+	db 10
+	dw CHIKORITA
+	db 10
+	dw CYNDAQUIL
+	db 10
+	dw TOTODILE
+	db -1 ; end
+
+	end_list_items
+
 ENDSECTION

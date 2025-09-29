@@ -836,5 +836,14 @@ DEF KRIS EQU __trainer_class__
 	const DEWFORD_LILITH
 	const DEWFORD_JOCELYN
 
+	trainerclass RANGERM
+	const RANGERM1
+
+	trainerclass RANGERF
+	const RANGERF1
+
+	trainerclass EXPLORER
+	const EXPLORER1
+
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

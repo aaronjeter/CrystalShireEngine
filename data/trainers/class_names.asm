@@ -83,4 +83,7 @@ TrainerClassNames::
 	li "ELITE FOUR"
 	li "CHAMPION"
 	li "BLACKBELT"
+	li "RANGER"
+	li "RANGER"
+	li "EXPLORER"
 	assert_list_length NUM_TRAINER_CLASSES

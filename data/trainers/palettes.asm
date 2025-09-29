@@ -92,5 +92,9 @@ INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/battlegirl.gbcpal", middle_colors
+INCBIN "gfx/trainers/rangerm.gbcpal", middle_colors
+INCBIN "gfx/trainers/rangerf.gbcpal", middle_colors
+INCBIN "gfx/trainers/explorer.gbcpal", middle_colors
+
 
 	assert_table_length NUM_TRAINER_CLASSES + 1

@@ -83,5 +83,8 @@ BTTrainerClassSprites:
 	db SPRITE_FALKNER	;drake
 	db SPRITE_FALKNER	;steven
 	db SPRITE_LASS		;battle girl
+	db SPRITE_COOLTRAINER_M ;rangerM
+	db SPRITE_COOLTRAINER_F ;ranger f
+	db SPRITE_GENTLEMAN ;explorer
 
 	assert_table_length NUM_TRAINER_CLASSES ; 

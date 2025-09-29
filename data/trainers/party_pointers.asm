@@ -85,6 +85,9 @@ TrainerGroups:
 	dba DrakeGroup
 	dba StevenGroup
 	dba BattleGirlGroup
+	dba RangerMGroup
+	dba RangerFGroup
+	dba ExplorerGroup
 	assert_table_length NUM_TRAINER_CLASSES
 
 	TrainerGroupsHard:
@@ -172,4 +175,7 @@ TrainerGroups:
 	dba DrakeGroupHard
 	dba StevenGroupHard
 	dba BattleGirlGroupHard
+	dba RangerMGroupHard
+	dba RangerFGroupHard
+	dba ExplorerGroupHard
 	assert_table_length NUM_TRAINER_CLASSES

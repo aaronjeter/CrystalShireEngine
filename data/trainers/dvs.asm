@@ -84,4 +84,7 @@ TrainerClassDVs:
 	dn  7, 12, 13, 13 ; DRAKE
 	dn  7, 12, 13, 13 ; STEVEN
 	dn  9,  8,  8,  8 ; BATTLE_GIRL
+	dn 11, 11, 11, 11 ; RANGERM
+	dn 11, 11, 11, 11 ; RANGERF
+	dn  2, 12, 12, 12 ; EXPLORER
 	assert_table_length NUM_TRAINER_CLASSES
