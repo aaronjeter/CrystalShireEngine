@@ -2152,11 +2152,10 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	push de
 	call GiveExperiencePoints
 	pop de
-	; give 25% EXP to non-participants	
+	; give 50% EXP to non-participants	
 	ld hl, wEnemyMonBaseExp
-	;Right shift xp amount twice, roughly quartering it
+	;Right shift xp amount, roughly halving it
 	srl [hl]
-	srl [hl] 
 
 	ld a, [wBattleParticipantsNotFainted]
 	push af
