@@ -726,6 +726,8 @@ ENDM
 
 	map_attributes RustboroCutterHouse, RUSTBORO_CUTTER_HOUSE, $00, 0
 	map_attributes VerdanturfRockSmashHouse, VERDANTURF_ROCKSMASH_HOUSE, $00, 0
+
+	map_attributes MrBrineyHouse, MR_BRINEY_HOUSE, $00, 0
 	
 
 	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH

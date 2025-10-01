@@ -982,6 +982,9 @@ SECTION "Map Blocks 4", ROMX
 	VerdanturfRockSmashHouse_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
+	MrBrineyHouse_Blocks:
+	INCBIN "maps/hoenn/HoennTraditionalHouse.ablk"
+
 	GraniteCaveB1F_Blocks:
 	INCBIN "maps/hoenn/GraniteCaveB1F.ablk"
 
