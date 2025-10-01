@@ -519,6 +519,8 @@ ENDM
 	map_const PETALBURG_GYM,							   05, 40 ;
 	map_const PETALBURG_POKECENTER,						   07, 04 ;
 	map_const PETALBURG_MART,							   06, 04 ;
+	map_const PETALBURG_HOUSE1,                            04, 04 ;
+	map_const PETALBURG_HOUSE2,                            04, 04 ;
 	map_const RUSTBORO_CITY,							   20, 30 ; 	
 	map_const RUSTBORO_GYM,								   06, 10 ;
 	map_const RUSTBORO_POKECENTER,						   07, 04 ;

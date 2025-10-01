@@ -980,6 +980,8 @@ SECTION "Map Blocks 4", ROMX
 
 	RustboroCutterHouse_Blocks:
 	VerdanturfRockSmashHouse_Blocks:
+	PetalburgHouse1_Blocks:
+	PetalburgHouse2_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
 	MrBrineyHouse_Blocks:
