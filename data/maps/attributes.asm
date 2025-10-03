@@ -731,6 +731,7 @@ ENDM
 	map_attributes PetalburgHouse2, PETALBURG_HOUSE2, $00, 0
 
 	map_attributes MrBrineyHouse, MR_BRINEY_HOUSE, $00, 0
+	map_attributes Route104FlowerHouse, ROUTE_104_FLOWER_HOUSE, $00, 0
 	
 
 	map_attributes LittlerootTown, LITTLEROOT_TOWN, $05, NORTH

@@ -987,6 +987,9 @@ SECTION "Map Blocks 4", ROMX
 	MrBrineyHouse_Blocks:
 	INCBIN "maps/hoenn/HoennTraditionalHouse.ablk"
 
+	Route104FlowerHouse_Blocks:
+	INCBIN "maps/hoenn/HoennFlowerHouse.ablk"
+
 	GraniteCaveB1F_Blocks:
 	INCBIN "maps/hoenn/GraniteCaveB1F.ablk"
 

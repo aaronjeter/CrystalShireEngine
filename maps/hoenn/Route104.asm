@@ -248,6 +248,7 @@ Route104_MapEvents:
 	warp_event 24, 32, PETALBURG_WOODS, 5
 	warp_event 25, 32, PETALBURG_WOODS, 6
 	warp_event 11, 43, MR_BRINEY_HOUSE, 2
+	warp_event  5, 15, ROUTE_104_FLOWER_HOUSE, 2
 
 	def_coord_events
 

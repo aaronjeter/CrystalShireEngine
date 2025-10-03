@@ -546,6 +546,7 @@ ENDM
 	map_const ROUTE_103,                                   20, 10 ;  6
 	map_const ROUTE_104,                                   15, 30 ;  7	
 	map_const MR_BRINEY_HOUSE,                             05, 04 ;
+	map_const ROUTE_104_FLOWER_HOUSE,                      04, 04 ;
 	map_const ROUTE_105,								   20, 30 ;
 	map_const ROUTE_108,                                   30, 10 ;
 	map_const ROUTE_109,								   20, 30 ;
