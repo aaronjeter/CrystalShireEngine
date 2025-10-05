@@ -467,4 +467,11 @@ BitmasksPointers:
 	dw AshibombBitmasks
 	dw SunbouBitmasks
 	dw IkariBitmasks
+	dw TotartleBitmasks
+	dw GorochuBitmasks
+	;mega
+	dw RaichuxBitmasks
+	dw RaichuyBitmasks
+	dw DragonitexBitmasks
+	dw DragoniteyBitmasks
 	assert_table_length NUM_POKEMON

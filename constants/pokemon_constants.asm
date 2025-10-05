@@ -488,7 +488,14 @@ DEF JOHTO_POKEMON EQU const_value
 	const ASHIBOMB
 	const SUNBOU
 	const IKARI
+	const TOTARTLE
+	const GOROCHU
 	;Megas
+	const RAICHUX
+	const RAICHUY
+	const DRAGONITEX
+	const DRAGONITEY
+	
 
 
 DEF NUM_JOHTO_POKEMON EQU const_value - 1

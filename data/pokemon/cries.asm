@@ -474,4 +474,11 @@ PokemonCries::
 	mon_cry CRY_VENONAT,     238,  383 ; ASHIBOMB
 	mon_cry CRY_VENONAT,     238,  383 ; SUNBOU
 	mon_cry CRY_VENONAT,     238,  383 ; IKARI
+	mon_cry CRY_BLASTOISE,     0,  256 ; TOTARTLE
+	mon_cry CRY_RAICHU,      238,  136 ; GOROCHU
+	;mega
+	mon_cry CRY_RAICHU,      238,  136 ; RAICHUX
+	mon_cry CRY_RAICHU,      238,  136 ; RAICHUY
+	mon_cry CRY_BULBASAUR,    60,  320 ; DRAGONITEX
+	mon_cry CRY_BULBASAUR,    64,  256 ; DRAGONITEY	
 	assert_table_length NUM_POKEMON

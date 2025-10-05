@@ -317,6 +317,13 @@ EvosAttacksPointers2::
 	dw AshibombEvosAttacks
 	dw SunbouEvosAttacks
 	dw IkariEvosAttacks
+	dw TotartleEvosAttacks
+	dw GorochuEvosAttacks
+	;mega
+	dw RaichuxEvosAttacks
+	dw RaichuyEvosAttacks
+	dw DragonitexEvosAttacks
+	dw DragoniteyEvosAttacks
 .IndirectEnd::
 
 ChikoritaEvosAttacks:
@@ -6316,5 +6323,53 @@ Tauros2EvosAttacks:
 	dbw 60, DESTINY_BOND
 	db 0 ; no more level-up moves
 
+
+	TotartleEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, HYDRO_PUMP
+	dbw 1, SCALD
+	dbw 1, THUNDER
+	dbw 1, CRUNCH
+	db 0 ; no more level-up moves
+
+	GorochuEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, OUTRAGE
+	dbw 1, VOLT_TACKLE
+	dbw 1, SHOCKSLAM
+	dbw 1, BEAT_UP
+	db 0 ; no more level-up moves
+
+	RaichuxEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, OUTRAGE
+	dbw 1, VOLT_TACKLE
+	dbw 1, SWIFT
+	dbw 1, BEAT_UP
+	db 0 ; no more level-up moves
+
+	RaichuyEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, FAERIEGLEAM
+	dbw 1, VOLT_TACKLE
+	dbw 1, FLASHCANNON
+	dbw 1, THUNDERBOLT
+	db 0 ; no more level-up moves
+
+	DragonitexEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, DRAGON_DANCE
+	dbw 1, DRAGON_CLAW
+	dbw 1, PLAY_ROUGH
+	dbw 1, THUNDERBOLT
+	db 0 ; no more level-up moves
+
+	DragoniteyEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, DRAGON_DANCE
+	dbw 1, DRAGONBREATH
+	dbw 1, FAERIEGLEAM
+	dbw 1, SCALD
+	db 0 ; no more level-up moves
 
 ENDSECTION

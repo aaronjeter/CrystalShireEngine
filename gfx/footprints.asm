@@ -469,4 +469,11 @@ INCBIN "gfx/footprints/raichu.1bpp"
 INCBIN "gfx/footprints/seel.1bpp"
 INCBIN "gfx/footprints/seel.1bpp"
 INCBIN "gfx/footprints/seel.1bpp"
+INCBIN "gfx/footprints/blastoise.1bpp" ;totartle
+INCBIN "gfx/footprints/raichu.1bpp"
+;mega
+INCBIN "gfx/footprints/raichu.1bpp"
+INCBIN "gfx/footprints/raichu.1bpp"
+INCBIN "gfx/footprints/dragonite.1bpp"
+INCBIN "gfx/footprints/dragonair.1bpp"
 	assert_table_length NUM_POKEMON

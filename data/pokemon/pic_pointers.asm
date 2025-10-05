@@ -947,4 +947,17 @@ PokemonPicPointers::
 	dba SunbouBackpic
 	dba IkariFrontpic
 	dba IkariBackpic
+	dba TotartleFrontpic
+	dba TotartleBackpic
+	dba GorochuFrontpic
+	dba GorochuBackpic
+	;mega
+	dba RaichuxFrontpic
+	dba RaichuxBackpic
+	dba RaichuyFrontpic
+	dba RaichuyBackpic
+	dba DragonitexFrontpic
+	dba DragonitexBackpic
+	dba DragoniteyFrontpic
+	dba DragoniteyBackpic
 	assert_table_length NUM_POKEMON + 1

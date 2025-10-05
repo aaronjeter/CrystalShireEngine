@@ -83,6 +83,14 @@ INCLUDE "data/pokemon/base_stats/beta/raitora.asm"
 INCLUDE "data/pokemon/base_stats/beta/ashibomb.asm"
 INCLUDE "data/pokemon/base_stats/beta/sunbou.asm"
 INCLUDE "data/pokemon/base_stats/beta/ikari.asm"
+INCLUDE "data/pokemon/base_stats/beta/totartle.asm"
+INCLUDE "data/pokemon/base_stats/beta/gorochu.asm"
+;megas
+INCLUDE "data/pokemon/base_stats/mega/raichux.asm"
+INCLUDE "data/pokemon/base_stats/mega/raichuy.asm"
+INCLUDE "data/pokemon/base_stats/mega/dragonitex.asm"
+INCLUDE "data/pokemon/base_stats/mega/dragonitey.asm"
+
 .IndirectEnd::
 
 ENDSECTION

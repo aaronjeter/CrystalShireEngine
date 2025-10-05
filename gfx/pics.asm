@@ -1221,6 +1221,21 @@ IkariFrontpic:			INCBIN "gfx/pokemon/ikari/front.animated.2bpp.lz"
 IkariBackpic:			INCBIN "gfx/pokemon/ikari/back.2bpp.lz"
 
 
+SECTION "Hex The Spriter", ROMX
+
+TotartleFrontpic:			INCBIN "gfx/pokemon/totartle/front.animated.2bpp.lz"
+TotartleBackpic:			INCBIN "gfx/pokemon/totartle/back.2bpp.lz"
+GorochuFrontpic:			INCBIN "gfx/pokemon/gorochu/front.animated.2bpp.lz"
+GorochuBackpic:				INCBIN "gfx/pokemon/gorochu/back.2bpp.lz"
+RaichuxFrontpic:			INCBIN "gfx/pokemon/raichux/front.animated.2bpp.lz"
+RaichuxBackpic:				INCBIN "gfx/pokemon/raichux/back.2bpp.lz"
+RaichuyFrontpic:			INCBIN "gfx/pokemon/raichuy/front.animated.2bpp.lz"
+RaichuyBackpic:				INCBIN "gfx/pokemon/raichuy/back.2bpp.lz"
+DragonitexFrontpic:			INCBIN "gfx/pokemon/dragonitex/front.animated.2bpp.lz"
+DragonitexBackpic:			INCBIN "gfx/pokemon/dragonitex/back.2bpp.lz"
+DragoniteyFrontpic:			INCBIN "gfx/pokemon/dragonitey/front.animated.2bpp.lz"
+DragoniteyBackpic:			INCBIN "gfx/pokemon/dragonitey/back.2bpp.lz"
+
 SECTION "Hoenn Trainers 1", ROMX
 
 RoxannePic:			INCBIN "gfx/trainers/roxanne.2bpp.lz"

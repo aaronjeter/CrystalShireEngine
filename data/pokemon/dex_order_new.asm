@@ -468,4 +468,11 @@ NewPokedexOrder:
 	dw ASHIBOMB
 	dw SUNBOU
 	dw IKARI
+	dw TOTARTLE
+	dw GOROCHU
+	;mega
+	dw RAICHUX
+	dw RAICHUY
+	dw DRAGONITEX
+	dw DRAGONITEY
 	assert_table_length NUM_POKEMON

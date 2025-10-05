@@ -468,4 +468,11 @@ FirstEvoStages::
 	dw ASHIBOMB
 	dw SUNBOU
 	dw SUNBOU
+	dw SQUIRTLE
+	dw PICHU
+	;mega
+	dw PICHU
+	dw PICHU
+	dw DRATINI
+	dw DRATINI
 	assert_table_length NUM_POKEMON

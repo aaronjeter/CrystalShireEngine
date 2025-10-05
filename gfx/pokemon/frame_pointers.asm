@@ -467,4 +467,11 @@ FramesPointers:
 	dba AshibombFrames
 	dba SunbouFrames
 	dba IkariFrames
+	dba TotartleFrames
+	dba GorochuFrames
+	;mega
+	dba RaichuxFrames
+	dba RaichuyFrames
+	dba DragonitexFrames
+	dba DragoniteyFrames
 	assert_table_length NUM_POKEMON

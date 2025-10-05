@@ -473,4 +473,11 @@ IconPointers:
 	dw AshibombIcon
 	dw SunbouIcon
 	dw IkariIcon
+	dw IkariIcon
+	dw IkariIcon
+	;mega
+	dw IkariIcon
+	dw IkariIcon
+	dw IkariIcon
+	dw IkariIcon
 	assert_table_length NUM_POKEMON + 1

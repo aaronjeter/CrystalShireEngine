@@ -964,4 +964,17 @@ INCBIN "gfx/pokemon/sunbou/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/sunbou/shiny.pal"
 INCBIN "gfx/pokemon/ikari/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/ikari/shiny.pal"
+INCBIN "gfx/pokemon/totartle/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/totartle/shiny.pal"
+INCBIN "gfx/pokemon/gorochu/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/gorochu/shiny.pal"
+;Megas
+INCBIN "gfx/pokemon/raichux/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/raichux/shiny.pal"
+INCBIN "gfx/pokemon/raichuy/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/raichuy/shiny.pal"
+INCBIN "gfx/pokemon/dragonitex/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/dragonitex/shiny.pal"
+INCBIN "gfx/pokemon/dragonitey/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/dragonitey/shiny.pal"
 	assert_table_length NUM_POKEMON + 1

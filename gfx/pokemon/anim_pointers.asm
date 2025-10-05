@@ -467,4 +467,11 @@ AnimationPointers:
 	dw AshibombAnimation
 	dw SunbouAnimation
 	dw IkariAnimation
+	dw TotartleAnimation
+	dw GorochuAnimation
+	;mega
+	dw RaichuxAnimation
+	dw RaichuyAnimation
+	dw DragonitexAnimation
+	dw DragoniteyAnimation
 	assert_table_length NUM_POKEMON

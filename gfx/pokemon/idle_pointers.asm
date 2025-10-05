@@ -467,4 +467,11 @@ AnimationIdlePointers:
 	dw AshibombAnimationIdle
 	dw SunbouAnimationIdle
 	dw IkariAnimationIdle
+	dw TotartleAnimationIdle
+	dw GorochuAnimationIdle
+	;mega
+	dw RaichuxAnimationIdle
+	dw RaichuyAnimationIdle
+	dw DragonitexAnimationIdle
+	dw DragoniteyAnimationIdle
 	assert_table_length NUM_POKEMON

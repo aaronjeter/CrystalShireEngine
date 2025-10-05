@@ -469,4 +469,11 @@ PokedexDataPointerTable:
 	dba AshibombPokedexEntry
 	dba SunbouPokedexEntry
 	dba IkariPokedexEntry
+	dba TotartlePokedexEntry
+	dba GorochuPokedexEntry
+	;mega
+	dba RaichuxPokedexEntry
+	dba RaichuyPokedexEntry
+	dba DragonitexPokedexEntry
+	dba DragoniteyPokedexEntry
 	assert_table_length NUM_POKEMON

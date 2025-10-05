@@ -472,4 +472,11 @@ PokemonNames::
 	db "ASHIBOMB@@"
 	db "SUNBOU@@@@"
 	db "IKARI@@@@@"
+	db "TOTARTLE@@"
+	db "GOROCHU@@@"
+	;mega
+	db "RAICHU X@@"
+	db "RAICHU Y@@"
+	db "DRAGONITEX"
+	db "DRAGONITEY"
 	assert_table_length NUM_POKEMON

@@ -478,4 +478,11 @@ MonMenuIconPals:
 	icon_pals RED,    PURPLE ; ASHIBOMB
 	icon_pals BLUE,   RED	 ; SUNBOU
 	icon_pals BLUE,   RED	 ; IKARI
+	icon_pals BLUE,   RED	 ; TOTARTLE
+	icon_pals BLUE,   RED	 ; GOROCHU
+	;mega
+	icon_pals BLUE,   RED	 ; RAICHUX
+	icon_pals BLUE,   RED	 ; RAICHUY
+	icon_pals BLUE,   RED	 ; DRAGONITEX
+	icon_pals BLUE,   RED	 ; DRAGONITEY
 	assert_table_length NUM_POKEMON
