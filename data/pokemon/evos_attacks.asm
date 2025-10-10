@@ -16,9 +16,15 @@ SECTION "Evolutions and Attacks Pointers", ROMX
 
 EvosAttacksPointers::
 	indirect_table 2, 1
-	indirect_entries NUM_KANTO_POKEMON, EvosAttacksPointers1
-	indirect_entries NUM_JOHTO_POKEMON, EvosAttacksPointers2
+	indirect_entries 151, EvosAttacksPointers1
+	indirect_entries 252, EvosAttacksPointers2
+	indirect_entries 385, EvosAttacksPointers3
+	indirect_entries 465, EvosAttacksPointers4
+	indirect_entries 499, EvosAttacksPointersMega
 	indirect_table_end
 
 INCLUDE "data/pokemon/evos_attacks_kanto.asm"
 INCLUDE "data/pokemon/evos_attacks_johto.asm"
+INCLUDE "data/pokemon/evos_attacks_hoenn.asm"
+INCLUDE "data/pokemon/evos_attacks_alt.asm"
+INCLUDE "data/pokemon/evos_attacks_mega.asm"

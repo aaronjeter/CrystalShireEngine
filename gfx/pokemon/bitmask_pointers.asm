@@ -474,4 +474,34 @@ BitmasksPointers:
 	dw RaichuyBitmasks
 	dw DragonitexBitmasks
 	dw DragoniteyBitmasks
+	dw VenusaurxBitmasks
+	dw CharizardxBitmasks
+	dw CharizardyBitmasks
+	dw BlastoisexBitmasks
+	dw BeedrillxBitmasks
+	dw AlakazamxBitmasks
+	dw SlowbroxBitmasks
+	dw GengarxBitmasks
+	dw PinsirxBitmasks
+	dw GyaradosxBitmasks
+	dw AerodactylxBitmasks
+	dw AmpharosxBitmasks
+	dw SteelixxBitmasks
+	dw ScizorxBitmasks
+	dw HeracrossxBitmasks
+	dw HoundoomxBitmasks
+	dw TyranitarxBitmasks
+	dw AggronxBitmasks
+	dw CameruptxBitmasks
+	dw AltariaxBitmasks
+	dw AbsolxBitmasks
+	dw GlaliexBitmasks
+	dw SalamencexBitmasks
+	dw MetagrossxBitmasks
+	dw KinglerxBitmasks
+	dw TropiusxBitmasks
+	dw SwalotxBitmasks
+	dw FlygonxBitmasks
+	dw ChimechoxBitmasks
+	dw VictreebelxBitmasks
 	assert_table_length NUM_POKEMON

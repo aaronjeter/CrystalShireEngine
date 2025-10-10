@@ -960,4 +960,65 @@ PokemonPicPointers::
 	dba DragonitexBackpic
 	dba DragoniteyFrontpic
 	dba DragoniteyBackpic
+
+	dba VenusaurxFrontpic
+	dba VenusaurxBackpic
+	dba CharizardxFrontpic
+	dba CharizardxBackpic
+	dba CharizardyFrontpic
+	dba CharizardyBackpic
+	dba BlastoisexFrontpic
+	dba BlastoisexBackpic
+	dba BeedrillxFrontpic
+	dba BeedrillxBackpic
+	dba AlakazamxFrontpic
+	dba AlakazamxBackpic
+	dba SlowbroxFrontpic
+	dba SlowbroxBackpic
+	dba GengarxFrontpic
+	dba GengarxBackpic
+	dba PinsirxFrontpic
+	dba PinsirxBackpic
+	dba GyaradosxFrontpic
+	dba GyaradosxBackpic
+	dba AerodactylxFrontpic
+	dba AerodactylxBackpic
+	dba AmpharosxFrontpic
+	dba AmpharosxBackpic
+	dba SteelixxFrontpic
+	dba SteelixxBackpic
+	dba ScizorxFrontpic
+	dba ScizorxBackpic
+	dba HeracrossxFrontpic
+	dba HeracrossxBackpic
+	dba HoundoomxFrontpic
+	dba HoundoomxBackpic
+	dba TyranitarxFrontpic
+	dba TyranitarxBackpic
+	dba AggronxFrontpic
+	dba AggronxBackpic
+	dba CameruptxFrontpic
+	dba CameruptxBackpic
+	dba AltariaxFrontpic
+	dba AltariaxBackpic
+	dba AbsolxFrontpic
+	dba AbsolxBackpic
+	dba GlaliexFrontpic
+	dba GlaliexBackpic
+	dba SalamencexFrontpic
+	dba SalamencexBackpic
+	dba MetagrossxFrontpic
+	dba MetagrossxBackpic
+	dba KinglerxFrontpic
+	dba KinglerxBackpic
+	dba TropiusxFrontpic
+	dba TropiusxBackpic
+	dba SwalotxFrontpic
+	dba SwalotxBackpic
+	dba FlygonxFrontpic
+	dba FlygonxBackpic
+	dba ChimechoxFrontpic
+	dba ChimechoxBackpic
+	dba VictreebelxFrontpic
+	dba VictreebelxBackpic
 	assert_table_length NUM_POKEMON + 1

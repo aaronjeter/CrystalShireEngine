@@ -476,4 +476,35 @@ PokedexDataPointerTable:
 	dba RaichuyPokedexEntry
 	dba DragonitexPokedexEntry
 	dba DragoniteyPokedexEntry
+	dba VenusaurxPokedexEntry
+	dba CharizardxPokedexEntry
+	dba CharizardyPokedexEntry
+	dba BlastoisexPokedexEntry
+	dba BeedrillxPokedexEntry
+	dba AlakazamxPokedexEntry
+	dba SlowbroxPokedexEntry
+	dba GengarxPokedexEntry
+	dba PinsirxPokedexEntry
+	dba GyaradosxPokedexEntry
+	dba AerodactylxPokedexEntry
+	dba AmpharosxPokedexEntry
+	dba SteelixxPokedexEntry
+	dba ScizorxPokedexEntry
+	dba HeracrossxPokedexEntry
+	dba HoundoomxPokedexEntry
+	dba TyranitarxPokedexEntry
+	dba AggronxPokedexEntry
+	dba CameruptxPokedexEntry
+	dba AltariaxPokedexEntry
+	dba AbsolxPokedexEntry
+	dba GlaliexPokedexEntry
+	dba SalamencexPokedexEntry
+	dba MetagrossxPokedexEntry
+	dba KinglerxPokedexEntry
+	dba TropiusxPokedexEntry
+	dba SwalotxPokedexEntry
+	dba FlygonxPokedexEntry
+	dba ChimechoxPokedexEntry
+	dba VictreebelxPokedexEntry
+
 	assert_table_length NUM_POKEMON

@@ -626,12 +626,12 @@ _CGB_Evolution:
 	ret
 
 _CGB_GSTitleScreen:
-	ld hl, UnusedGSTitleBGPals
+	ld hl, wBGPals1
 	ld de, wBGPals1
 	ld bc, 5 palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
-	ld hl, UnusedGSTitleOBPals
+	ld hl, wOBPals1
 	ld de, wOBPals1
 	ld bc, 2 palettes
 	ld a, BANK(wOBPals1)

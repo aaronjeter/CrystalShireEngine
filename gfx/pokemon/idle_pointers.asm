@@ -474,4 +474,34 @@ AnimationIdlePointers:
 	dw RaichuyAnimationIdle
 	dw DragonitexAnimationIdle
 	dw DragoniteyAnimationIdle
+	dw VenusaurxAnimationIdle
+	dw CharizardxAnimationIdle
+	dw CharizardyAnimationIdle
+	dw BlastoisexAnimationIdle
+	dw BeedrillxAnimationIdle
+	dw AlakazamxAnimationIdle
+	dw SlowbroxAnimationIdle
+	dw GengarxAnimationIdle
+	dw PinsirxAnimationIdle
+	dw GyaradosxAnimationIdle
+	dw AerodactylxAnimationIdle
+	dw AmpharosxAnimationIdle
+	dw SteelixxAnimationIdle
+	dw ScizorxAnimationIdle
+	dw HeracrossxAnimationIdle
+	dw HoundoomxAnimationIdle
+	dw TyranitarxAnimationIdle
+	dw AggronxAnimationIdle
+	dw CameruptxAnimationIdle
+	dw AltariaxAnimationIdle
+	dw AbsolxAnimationIdle
+	dw GlaliexAnimationIdle
+	dw SalamencexAnimationIdle
+	dw MetagrossxAnimationIdle
+	dw KinglerxAnimationIdle
+	dw TropiusxAnimationIdle
+	dw SwalotxAnimationIdle
+	dw FlygonxAnimationIdle
+	dw ChimechoxAnimationIdle
+	dw VictreebelxAnimationIdle
 	assert_table_length NUM_POKEMON

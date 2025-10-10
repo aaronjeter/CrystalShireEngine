@@ -320,6 +320,36 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw NoEggMoves2
 	;mega
+	dw NoEggMoves2  ;raichux
+	dw NoEggMoves2	;raichuy
+	dw NoEggMoves2	;dnitex
+	dw NoEggMoves2  ;dnitey
+	dw NoEggMoves2	;venusaurx
+	dw NoEggMoves2	;charizardx
+	dw NoEggMoves2	;charizardy
+	dw NoEggMoves2	;blatoisex
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
 	dw NoEggMoves2
 	dw NoEggMoves2
 	dw NoEggMoves2

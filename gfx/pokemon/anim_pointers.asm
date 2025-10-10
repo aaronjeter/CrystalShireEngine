@@ -474,4 +474,34 @@ AnimationPointers:
 	dw RaichuyAnimation
 	dw DragonitexAnimation
 	dw DragoniteyAnimation
+	dw VenusaurxAnimation
+	dw CharizardxAnimation
+	dw CharizardyAnimation
+	dw BlastoisexAnimation
+	dw BeedrillxAnimation
+	dw AlakazamxAnimation
+	dw SlowbroxAnimation
+	dw GengarxAnimation
+	dw PinsirxAnimation
+	dw GyaradosxAnimation
+	dw AerodactylxAnimation
+	dw AmpharosxAnimation
+	dw SteelixxAnimation
+	dw ScizorxAnimation
+	dw HeracrossxAnimation
+	dw HoundoomxAnimation
+	dw TyranitarxAnimation
+	dw AggronxAnimation
+	dw CameruptxAnimation
+	dw AltariaxAnimation
+	dw AbsolxAnimation
+	dw GlaliexAnimation
+	dw SalamencexAnimation
+	dw MetagrossxAnimation
+	dw KinglerxAnimation
+	dw TropiusxAnimation
+	dw SwalotxAnimation
+	dw FlygonxAnimation
+	dw ChimechoxAnimation
+	dw VictreebelxAnimation
 	assert_table_length NUM_POKEMON

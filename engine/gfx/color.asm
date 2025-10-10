@@ -26,39 +26,6 @@ CheckShininess:
 	and a
 	ret
 
-Unused_CheckShininess:
-; Return carry if the DVs at hl are all 10 or higher.
-
-; Attack
-	ld a, [hl]
-	cp 10 << 4
-	jr c, .not_shiny
-
-; Defense
-	ld a, [hli]
-	and %1111
-	cp 10
-	jr c, .not_shiny
-
-; Speed
-	ld a, [hl]
-	cp 10 << 4
-	jr c, .not_shiny
-
-; Special
-	ld a, [hl]
-	and %1111
-	cp 10
-	jr c, .not_shiny
-
-; shiny
-	scf
-	ret
-
-.not_shiny
-	and a
-	ret
-
 InitPartyMenuPalettes:
 	ld hl, PalPacket_PartyMenu + 1
 	call CopyFourPalettes
@@ -1119,11 +1086,11 @@ INCLUDE "gfx/diploma/diploma.pal"
 PartyMenuOBPals:
 INCLUDE "gfx/stats/party_menu_ob.pal"
 
-UnusedGSTitleBGPals:
-INCLUDE "gfx/title/unused_gs_bg.pal"
+;UnusedGSTitleBGPals:
+;INCLUDE "gfx/title/unused_gs_bg.pal"
 
-UnusedGSTitleOBPals:
-INCLUDE "gfx/title/unused_gs_fg.pal"
+;UnusedGSTitleOBPals:
+;INCLUDE "gfx/title/unused_gs_fg.pal"
 
 MalePokegearPals:
 INCLUDE "gfx/pokegear/pokegear.pal"

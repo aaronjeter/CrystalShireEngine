@@ -513,6 +513,16 @@ GetIconBank:
 	ld a, [wCurIcon]
 	call GetPokemonIndexFromID
 	lb bc, BANK("Mon Icons 1"), 8 ; Default Bank
+
+    ld a, h
+	cp HIGH(RAICHUX) ; first species in "Mon Icons 5"
+	jr c, .check_5
+	ld a, l
+	cp LOW(RAICHUX)
+	jr c, .check_5
+	ld b, BANK("Mon Icons 5") 
+	jr .return
+.check_5
 	ld a, h
 	cp HIGH(WALREIN) ; first species in "Mon Icons 4"
 	jr c, .check_4

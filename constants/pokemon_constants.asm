@@ -495,6 +495,37 @@ DEF JOHTO_POKEMON EQU const_value
 	const RAICHUY
 	const DRAGONITEX
 	const DRAGONITEY
+	;Kester megas
+	const VENUSAURX
+	const CHARIZARDX
+	const CHARIZARDY
+	const BLASTOISEX
+	const BEEDRILLX
+	const ALAKAZAMX
+	const SLOWBROX
+	const GENGARX
+	const PINSIRX
+	const GYARADOSX
+	const AERODACTYLX
+	const AMPHAROSX
+	const STEELIXX
+	const SCIZORX
+	const HERACROSSX
+	const HOUNDOOMX
+	const TYRANITARX
+	const AGGRONX
+	const CAMERUPTX
+	const ALTARIAX
+	const ABSOLX
+	const GLALIEX
+	const SALAMENCEX
+	const METAGROSSX
+	const KINGLERX
+	const TROPIUSX
+	const SWALOTX
+	const FLYGONX
+	const CHIMECHOX
+	const VICTREEBELX
 	
 
 

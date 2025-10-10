@@ -473,11 +473,41 @@ IconPointers:
 	dw AshibombIcon
 	dw SunbouIcon
 	dw IkariIcon
-	dw IkariIcon
-	dw IkariIcon
+	dw TotartleIcon
+	dw GorochuIcon
 	;mega
-	dw IkariIcon
-	dw IkariIcon
-	dw IkariIcon
-	dw IkariIcon
+	dw RaichuxIcon
+	dw RaichuyIcon
+	dw DragonitexIcon
+	dw DragoniteyIcon
+	dw VenusaurxIcon
+	dw CharizardxIcon
+	dw CharizardyIcon
+	dw BlastoisexIcon
+	dw BeedrillxIcon
+	dw AlakazamxIcon
+	dw SlowbroxIcon
+	dw GengarxIcon
+	dw PinsirxIcon
+	dw GyaradosxIcon
+	dw AerodactylxIcon
+	dw AmpharosxIcon
+	dw SteelixxIcon
+	dw ScizorxIcon
+	dw HeracrossxIcon
+	dw HoundoomxIcon
+	dw TyranitarxIcon
+	dw AggronxIcon
+	dw CameruptxIcon
+	dw AltariaxIcon
+	dw AbsolxIcon
+	dw GlaliexIcon
+	dw SalamencexIcon
+	dw MetagrossxIcon
+	dw KinglerxIcon
+	dw TropiusxIcon
+	dw SwalotxIcon
+	dw FlygonxIcon
+	dw ChimechoxIcon
+	dw VictreebelxIcon
 	assert_table_length NUM_POKEMON + 1

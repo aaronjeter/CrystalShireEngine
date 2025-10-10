@@ -478,11 +478,41 @@ MonMenuIconPals:
 	icon_pals RED,    PURPLE ; ASHIBOMB
 	icon_pals BLUE,   RED	 ; SUNBOU
 	icon_pals BLUE,   RED	 ; IKARI
-	icon_pals BLUE,   RED	 ; TOTARTLE
-	icon_pals BLUE,   RED	 ; GOROCHU
+	icon_pals BLUE,   TEAL   ; TOTARTLE
+	icon_pals RED,    BROWN	 ; GOROCHU
 	;mega
-	icon_pals BLUE,   RED	 ; RAICHUX
-	icon_pals BLUE,   RED	 ; RAICHUY
-	icon_pals BLUE,   RED	 ; DRAGONITEX
-	icon_pals BLUE,   RED	 ; DRAGONITEY
+	icon_pals RED,    BROWN	 ; RAICHUX
+	icon_pals RED,    BROWN	 ; RAICHUY
+	icon_pals RED,    GRAY   ; DRAGONITEX
+	icon_pals BLUE,   PURPLE ; DRAGONITEY
+	icon_pals GREEN,  TEAL   ; VENUSAURX
+	icon_pals RED,    PURPLE ; CHARIZARDX
+	icon_pals RED,    PURPLE ; CHARIZARDY
+	icon_pals BLUE,   TEAL   ; BLASTOISE
+	icon_pals RED,    BLUE   ; BEEDRILLX
+	icon_pals BROWN,  PURPLE ; ALAKAZAMX
+	icon_pals PINK,   PURPLE ; SLOWBROX
+	icon_pals RED,    PURPLE ; GENGARX
+	icon_pals BROWN,  GRAY   ; PINSIRX
+	icon_pals BLUE,   RED    ; GYARADOSX
+	icon_pals GRAY,   PURPLE ; AERODACTYLX
+	icon_pals BROWN,  BLUE   ; AMPHAROSX
+	icon_pals GRAY,   BROWN  ; STEELIXX
+	icon_pals RED,    GREEN  ; SCIZORX
+	icon_pals BLUE,   PURPLE ; HERACROSSX
+	icon_pals RED,    BLUE   ; HOUNDOOMX
+	icon_pals GREEN,  BROWN  ; TYRANITARX
+	icon_pals GRAY,   RED    ; AGGRONX
+	icon_pals RED,    GRAY   ; CAMERUPTX
+	icon_pals BLUE,   BROWN  ; ALTARIAX
+	icon_pals BLUE,   RED    ; ABSOLX
+	icon_pals BLUE,   RED    ; GLALIEX
+	icon_pals BLUE,   GREEN  ; SALAMENCEX
+	icon_pals BLUE,   GRAY   ; METAGROSSX
+	icon_pals RED,    GRAY   ; KINGLERX
+	icon_pals GREEN,  BROWN  ; TROPIUSX
+	icon_pals PURPLE, TEAL   ; SWALOTX
+	icon_pals GREEN,  TEAL   ; FLYGONX
+	icon_pals RED,    BROWN  ; CHIMECHOX
+	icon_pals GREEN,  GREEN  ; VICTREEBELX
 	assert_table_length NUM_POKEMON

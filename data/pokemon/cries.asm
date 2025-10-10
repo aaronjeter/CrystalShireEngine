@@ -379,10 +379,10 @@ PokemonCries::
 	mon_cry CRY_KRABBY,      238,  352 ; LUVDISC
 	mon_cry CRY_KRABBY,      238,  352 ; BAGON
 	mon_cry CRY_KRABBY,      238,  352 ; SHELGON
-	mon_cry CRY_KRABBY,      238,  352 ; SALAMENCE
+	mon_cry CRY_KRABBY,        0,  352 ; SALAMENCE
 	mon_cry CRY_KRABBY,      238,  352 ; BELDUM
 	mon_cry CRY_KRABBY,      238,  352 ; METANG
-	mon_cry CRY_KRABBY,      238,  352 ; MEGAGROSS
+	mon_cry CRY_KRABBY,      238,  352 ; METAGROSS
 	mon_cry CRY_KRABBY,      238,  352 ; REGIROCK
 	mon_cry CRY_KRABBY,      238,  352 ; REGICE
 	mon_cry CRY_KRABBY,      238,  352 ; REGISTEEL
@@ -481,4 +481,34 @@ PokemonCries::
 	mon_cry CRY_RAICHU,      238,  136 ; RAICHUY
 	mon_cry CRY_BULBASAUR,    60,  320 ; DRAGONITEX
 	mon_cry CRY_BULBASAUR,    64,  256 ; DRAGONITEY	
+	mon_cry CRY_BULBASAUR,     0,  320 ; VENUSAURX
+	mon_cry CRY_CHARMANDER,    0,  256 ; CHARIZARDX
+	mon_cry CRY_CHARMANDER,    0,  256 ; CHARIZARDY
+	mon_cry CRY_BLASTOISE,     0,  256 ; BLASTOISEX
+	mon_cry CRY_BLASTOISE,    96,  256 ; BEEDRILLX
+	mon_cry CRY_METAPOD,     152,  383 ; ALAKAZAMX
+	mon_cry CRY_GROWLITHE,     0,  256 ; SLOWBROX
+	mon_cry CRY_MUK,           0,  383 ; GENGARX
+	mon_cry CRY_PIDGEOTTO,     0,  256 ; PINSIRX
+	mon_cry CRY_EKANS,         0,  256 ; GYARADOSX
+	mon_cry CRY_VILEPLUME,    32,  368 ; AERODACTYLX
+	mon_cry CRY_AMPHAROS,   -124,  232 ; AMPHAROSX
+	mon_cry CRY_TYPHLOSION,  239,  247 ; STEELIXX
+	mon_cry CRY_AMPHAROS,      0,  352 ; SCIZORX
+	mon_cry CRY_AMPHAROS,     53,  224 ; HERACROSSX
+	mon_cry CRY_TOTODILE,   -266,  256 ; HOUNDOOMX
+	mon_cry CRY_RAIKOU,     -256,  384 ; TYRANITARX
+	mon_cry CRY_BULBASAUR,     0,  129 ; AGGRONX
+	mon_cry CRY_BULBASAUR,     0,  129 ; CAMERUPTX
+	mon_cry CRY_BULBASAUR,   238,  129 ; ALTARIAX
+	mon_cry CRY_KRABBY,        0,  352 ; ABSOLX
+	mon_cry CRY_BULBASAUR,   238,  129 ; GLALIEX
+	mon_cry CRY_KRABBY,        0,  352 ; SALAMENCEX
+	mon_cry CRY_KRABBY,      238,  352 ; METAGROSSX
+	mon_cry CRY_KRABBY,      238,  352 ; KINGLERX
+	mon_cry CRY_KRABBY,      238,  352 ; TROPIUSX
+	mon_cry CRY_BULBASAUR,   238,  129 ; SWALOTX
+	mon_cry CRY_BULBASAUR,   238,  129 ; FLYGONX
+	mon_cry CRY_KRABBY,      238,  352 ; CHIMECHOX
+	mon_cry CRY_WEEPINBELL,  102,  332 ; VICTREEBELX
 	assert_table_length NUM_POKEMON

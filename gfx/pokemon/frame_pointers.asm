@@ -474,4 +474,34 @@ FramesPointers:
 	dba RaichuyFrames
 	dba DragonitexFrames
 	dba DragoniteyFrames
+	dba VenusaurxFrames
+	dba CharizardxFrames
+	dba CharizardyFrames
+	dba BlastoisexFrames
+	dba BeedrillxFrames
+	dba AlakazamxFrames
+	dba SlowbroxFrames
+	dba GengarxFrames
+	dba PinsirxFrames
+	dba GyaradosxFrames
+	dba AerodactylxFrames
+	dba AmpharosxFrames
+	dba SteelixxFrames
+	dba ScizorxFrames
+	dba HeracrossxFrames
+	dba HoundoomxFrames
+	dba TyranitarxFrames
+	dba AggronxFrames
+	dba CameruptxFrames
+	dba AltariaxFrames
+	dba AbsolxFrames
+	dba GlaliexFrames
+	dba SalamencexFrames
+	dba MetagrossxFrames
+	dba KinglerxFrames
+	dba TropiusxFrames
+	dba SwalotxFrames
+	dba FlygonxFrames
+	dba ChimechoxFrames
+	dba VictreebelxFrames
 	assert_table_length NUM_POKEMON
