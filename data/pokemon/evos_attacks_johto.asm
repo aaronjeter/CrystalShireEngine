@@ -721,6 +721,7 @@ FlaaffyEvosAttacks:
 	db 0 ; no more level-up moves
 
 AmpharosEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, AMPHAROSX
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL
@@ -1245,6 +1246,7 @@ GligarEvosAttacks:
 	db 0 ; no more level-up moves
 
 SteelixEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, STEELIXX
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, SCREECH
@@ -1324,6 +1326,7 @@ QwilfishEvosAttacks:
 	db 0 ; no more level-up moves
 
 ScizorEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, SCIZORX
 	db 0 ; no more evolutions
 	dbw 1, QUICK_ATTACK
 	dbw 1, STRING_SHOT
@@ -1358,6 +1361,7 @@ ShuckleEvosAttacks:
 	db 0 ; no more level-up moves
 
 HeracrossEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, HERACROSSX
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, LEER
@@ -1642,6 +1646,7 @@ HoundourEvosAttacks:
 	db 0 ; no more level-up moves
 
 HoundoomEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, HOUNDOOMX
 	db 0 ; no more evolutions
 	dbw 1, LEER
 	dbw 1, EMBER
@@ -1995,6 +2000,7 @@ PupitarEvosAttacks:
 	db 0 ; no more level-up moves
 
 TyranitarEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, TYRANITARX
 	db 0 ; no more evolutions
 	dbw 1, BITE
 	dbw 1, LEER

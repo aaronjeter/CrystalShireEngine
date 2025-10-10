@@ -128,13 +128,13 @@
 	const DRAGON_FANG  ; 0078
 	const ITEM_91      ; 0079
 	const LEFTOVERS    ; 007A
-	const ITEM_93      ; 007B
-	const ITEM_94      ; 007C
-	const ITEM_95      ; 007D
+	const KANTOITE_X   ; 007B
+	const KANTOITE_Y   ; 007C
+	const JOHTOITE_X   ; 007D
 	const MYSTERYBERRY ; 007E
 	const DRAGON_SCALE ; 007F
 	const BERSERK_GENE ; 0080
-	const ITEM_99      ; 0081
+	const HOENNITE_X   ; 0081
 	const ITEM_9A      ; 0082
 	const ITEM_9B      ; 0083
 	const SACRED_ASH   ; 0084

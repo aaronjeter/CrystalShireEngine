@@ -197,6 +197,7 @@ IvysaurEvosAttacks:
 	db 0 ; no more level-up moves
 
 VenusaurEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, VENUSAURX
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 4, GROWL
@@ -257,6 +258,8 @@ CharmeleonEvosAttacks:
 	db 0 ; no more level-up moves
 
 CharizardEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, CHARIZARDX
+	dbww EVOLVE_ITEM, KANTOITE_Y, CHARIZARDY
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, GROWL
@@ -318,6 +321,7 @@ WartortleEvosAttacks:
 	db 0 ; no more level-up moves
 
 BlastoiseEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, BLASTOISEX
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 4, TAIL_WHIP
@@ -387,6 +391,7 @@ KakunaEvosAttacks:
 	db 0 ; no more level-up moves
 
 BeedrillEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, BEEDRILLX
 	db 0 ; no more evolutions
 	dbw 1, FURY_ATTACK
 	dbw 1, STRING_SHOT
@@ -1396,6 +1401,7 @@ KadabraEvosAttacks:
 	db 0 ; no more level-up moves
 
 AlakazamEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, ALAKAZAMX
 	db 0 ; no more evolutions
 	dbw 1, TELEPORT
 	dbw 7, CONFUSION
@@ -1524,6 +1530,7 @@ WeepinbellEvosAttacks:
 	db 0 ; no more level-up moves
 
 VictreebelEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, VICTREEBELX
 	db 0 ; no more evolutions
 	dbw 1, VINE_WHIP
 	dbw 1, ACID
@@ -1710,6 +1717,7 @@ SlowpokeEvosAttacks:
 	db 0 ; no more level-up moves
 
 SlowbroEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, SLOWBROX
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 6, GROWL
@@ -1994,6 +2002,7 @@ HaunterEvosAttacks:
 	db 0 ; no more level-up moves
 
 GengarEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, GENGARX
 	db 0 ; no more evolutions
 	dbw 1, HYPNOSIS
 	dbw 1, LICK
@@ -2095,6 +2104,7 @@ KrabbyEvosAttacks:
 	db 0 ; no more level-up moves
 
 KinglerEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, KINGLERX
 	db 0 ; no more evolutions
 	dbw 1, BUBBLE
 	dbw 1, METAL_CLAW
@@ -2670,6 +2680,7 @@ MagmarEvosAttacks:
 	db 0 ; no more level-up moves
 
 PinsirEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, PINSIRX
 	db 0 ; no more evolutions
 	dbw 1, LEECH_LIFE
 	dbw 1, SCRATCH
@@ -2715,6 +2726,7 @@ MagikarpEvosAttacks:
 	db 0 ; no more level-up moves
 
 GyaradosEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, GYARADOSX
 	db 0 ; no more evolutions
 	dbw 1, THRASH
 	dbw 20, BITE
@@ -2949,6 +2961,7 @@ KabutopsEvosAttacks:
 	db 0 ; no more level-up moves
 
 AerodactylEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, AERODACTYLX
 	db 0 ; no more evolutions
 	dbw 1, GUST
 	dbw 8, ROCK_THROW

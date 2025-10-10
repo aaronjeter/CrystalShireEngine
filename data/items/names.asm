@@ -122,13 +122,13 @@ ItemNames::
 	li "DRAGON FANG"  ; 0078
 	li "TERU-SAMA"    ; 0079
 	li "LEFTOVERS"    ; 007A
-	li "TERU-SAMA"    ; 007D
-	li "TERU-SAMA"    ; 007B
-	li "TERU-SAMA"    ; 007C
+	li "KANTOITE X"   ; 007B
+	li "KANTOITE Y"   ; 007C
+	li "JOHTOITE Y"   ; 007D
 	li "MYSTERYBERRY" ; 007E
 	li "DRAGON SCALE" ; 007F
 	li "BERSERK GENE" ; 0080
-	li "TERU-SAMA"    ; 0083
+	li "HOENNITE X"   ; 0083
 	li "TERU-SAMA"    ; 0081
 	li "TERU-SAMA"    ; 0082
 	li "SACRED ASH"   ; 0084

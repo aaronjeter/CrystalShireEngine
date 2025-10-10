@@ -131,13 +131,13 @@ ItemDescriptions1:
 	dw DragonFangDesc   ; 0078
 	dw QuestionMarkDesc ; 0079
 	dw LeftoversDesc    ; 007A
-	dw QuestionMarkDesc ; 007B
-	dw QuestionMarkDesc ; 007C
-	dw QuestionMarkDesc ; 007D
+	dw KantoiteXDesc    ; 007B
+	dw KantoiteYDesc    ; 007C
+	dw JohtoiteXDesc    ; 007D
 	dw MysteryBerryDesc ; 007E
 	dw DragonScaleDesc  ; 007F
 	dw BerserkGeneDesc  ; 0080
-	dw QuestionMarkDesc ; 0081
+	dw HoenniteXDesc    ; 0081
 	dw QuestionMarkDesc ; 0082
 	dw QuestionMarkDesc ; 0083
 	dw SacredAshDesc    ; 0084
@@ -898,3 +898,19 @@ HatchetDesc:
 PickaxeDesc:
 	db   "A tool to"
 	next "SMASH ROCKS.@"
+
+KantoiteXDesc:
+	db   "Empowers certain"
+	next "KANTO #MON.@"
+
+KantoiteYDesc:
+	db   "Empowers certain"
+	next "KANTO #MON.@"
+
+JohtoiteXDesc:
+	db   "Empowers certain"
+	next "JOHTO #MON.@"
+
+HoenniteXDesc:
+	db   "Empowers certain"
+	next "HOENN #MON.@"

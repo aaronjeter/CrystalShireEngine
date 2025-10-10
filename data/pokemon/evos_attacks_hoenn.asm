@@ -1235,6 +1235,7 @@ LaironEvosAttacks:
 	db 0 ; no more level-up moves
 
 AggronEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, AGGRONX
 	db 0 ; no more evolutions
 	dbw 1, METAL_CLAW
 	dbw 4, HARDEN
@@ -1450,6 +1451,7 @@ GulpinEvosAttacks:
 	db 0 ; no more level-up moves
 
 SwalotEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, SWALOTX
 	db 0 ; no more evolutions
 	dbw 1, ACID
 	dbw 5, POISON_GAS
@@ -1569,6 +1571,7 @@ NumelEvosAttacks:
 	db 0 ; no more level-up moves
 
 CameruptEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, CAMERUPTX
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, TACKLE
@@ -1703,6 +1706,7 @@ VibravaEvosAttacks:
 	db 0 ; no more level-up moves
 
 FlygonEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, FLYGONX
 	db 0 ; no more evolutions
 	dbw 1, BITE
 	dbw 9, SAND_ATTACK
@@ -1786,6 +1790,7 @@ SwabluEvosAttacks:
 	db 0 ; no more level-up moves
 
 AltariaEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, ALTARIAX
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, ASTONISH
@@ -2227,6 +2232,7 @@ DusclopsEvosAttacks:
 	db 0 ; no more level-up moves
 
 TropiusEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, TROPIUSX
 	db 0 ; no more evolutions
 	dbw 1, GUST
 	dbw 1, LEECH_SEED
@@ -2246,6 +2252,7 @@ TropiusEvosAttacks:
 	db 0 ; no more level-up moves
 
 ChimechoEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, CHIMECHOX
 	db 0 ; no more evolutions
 	dbw 1, WRAP
 	dbw 1, PSYWAVE
@@ -2266,6 +2273,7 @@ ChimechoEvosAttacks:
 	db 0 ; no more level-up moves
 
 AbsolEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, ABSOLX
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 5, LEER
@@ -2320,6 +2328,7 @@ SnoruntEvosAttacks:
 	db 0 ; no more level-up moves
 
 GlalieEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, GLALIEX
 	db 0 ; no more evolutions
 	dbw 1, ASTONISH
 	dbw 1, POWDER_SNOW
@@ -2532,6 +2541,7 @@ ShelgonEvosAttacks:
 	db 0 ; no more level-up moves
 
 SalamenceEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, SALAMENCEX
 	db 0 ; no more evolutions
 	dbw 1, RAGE
 	dbw 5, BITE
@@ -2596,6 +2606,7 @@ MetangEvosAttacks:
 	db 0 ; no more level-up moves
 
 MetagrossEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, METAGROSSX
 	db 0 ; no more evolutions
 	dbw 1, CONFUSION
 	dbw 5, METAL_CLAW
