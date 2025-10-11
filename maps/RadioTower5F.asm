@@ -84,14 +84,28 @@ RadioTower5FRocketBossScript:
 	writetext RadioTower5FRocketBossBeforeText
 	waitbutton
 	closetext
-	winlosstext RadioTower5FRocketBossWinText, 0
+	winlosstext RadioTower5FRocketBossFirstDefeatText, 0
 	setlasttalked RADIOTOWER5F_ROCKET
 	loadtrainer EXECUTIVEM, EXECUTIVEM_1
 	startbattle
 	reloadmapafterbattle
+
+	opentext
+	writetext RadioTower5FRocketBossLastStandText
+	waitbutton
+	closetext
+
+	winlosstext RadioTower5FRocketBossWinText, 0
+	setlasttalked RADIOTOWER5F_ROCKET
+	loadtrainer EXECUTIVEM, EXECUTIVEM_5
+	startbattle
+	reloadmapafterbattle
+
 	opentext
 	writetext RadioTower5FRocketBossAfterText
 	waitbutton
+	writetext RadioTower5FRocketBossGiveStoneText
+	giveitem JOHTOITE_X
 	closetext
 	special FadeOutToBlack
 	special ReloadSpritesNoPalettes
@@ -294,6 +308,36 @@ RadioTower5FRocketBossBeforeText:
 	para "I won't allow you"
 	line "to interfere with"
 	cont "our plans."
+	done
+
+RadioTower5FRocketBossFirstDefeatText:
+	text "ugh..."
+
+	para "How are you"
+	line "this..."
+	done
+
+
+RadioTower5FRocketBossLastStandText:
+	text "Strong, aren't you?"
+
+	para "But TEAM ROCKET"
+	line "has power that"
+	cont "a child like you"
+	cont "could never"
+	cont "overcome!"
+
+	para "HOUNDOOM!"
+
+	para "END THIS!"
+	done
+
+RadioTower5FRocketBossGiveStoneText:
+	text "..."
+
+	para "I...suppose"
+	line "I won't need this"
+	cont "any longer."
 	done
 
 RadioTower5FRocketBossWinText:

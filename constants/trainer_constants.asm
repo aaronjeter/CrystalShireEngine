@@ -616,6 +616,7 @@ DEF KRIS EQU __trainer_class__
 	const EXECUTIVEM_2
 	const EXECUTIVEM_3
 	const EXECUTIVEM_4
+	const EXECUTIVEM_5
 
 	trainerclass PSYCHIC_T ; 34
 	const NATHAN

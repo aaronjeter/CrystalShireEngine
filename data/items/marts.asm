@@ -35,6 +35,7 @@ Marts:
 	dw MartMtMoon
 	dw MartIndigoPlateau
 	dw MartUnderground
+	dw MartMegaMart
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -367,6 +368,13 @@ MartUnderground:
 	dw ENERGY_ROOT
 	dw HEAL_POWDER
 	dw REVIVAL_HERB
+
+MartMegaMart:
+	db 4 ; # items
+	dw KANTOITE_X
+	dw KANTOITE_Y
+	dw JOHTOITE_X
+	dw HOENNITE_X
 
 DefaultMart:
 	db 2 ; # items

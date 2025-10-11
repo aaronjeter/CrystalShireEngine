@@ -5343,6 +5343,14 @@ ExecutiveMGroupHard:
 	dw HONCHKROW
 	db -1 ; end
 
+	next_list_item ; EXECUTIVEM (5) Goldenrod City - Radio Tower Mega
+	db "EXECUTIVE@", TRAINERTYPE_ITEM_MOVES	
+	db 15
+	dw HOUNDOOMX
+	dw LEFTOVERS
+	dw FIRE_BLAST, CRUNCH, AGILITY, SHOCKSLAM
+	db -1 ; end
+
 	end_list_items
 
 PsychicGroupHard:
@@ -5912,8 +5920,8 @@ ExecutiveFGroupHard:
 	dw VILEPLUME
 	dw ABSORB, SWEET_SCENT, SLEEP_POWDER, ACID
 	db 10
-	dw MURKROW
-	dw PECK, PURSUIT, HAZE, NIGHT_SHADE
+	dw HONCHKROW
+	dw DRILL_PECK, PURSUIT, HAZE, NIGHT_SHADE
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEF (2) Unreferenced
