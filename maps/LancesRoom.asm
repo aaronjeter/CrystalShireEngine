@@ -61,13 +61,13 @@ LancesRoomLanceScript:
 	sjump .Easy
 
 .Hard
-	winlosstext LanceBattleWinText, 0
+	winlosstext LanceWarmupText, 0
 	setlasttalked LANCESROOM_LANCE
 	loadtrainer CHAMPION, LANCE2
 	sjump .Fight
 
 .Easy
-	winlosstext LanceBattleWinText, 0
+	winlosstext LanceWarmupText, 0
 	setlasttalked LANCESROOM_LANCE
 	loadtrainer CHAMPION, LANCE
 	sjump .Fight
@@ -76,6 +76,19 @@ LancesRoomLanceScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
+
+	opentext	
+	writetext LanceTruePowerText
+	waitbutton
+	closetext
+
+	winlosstext LanceBattleWinText, 0
+	setlasttalked LANCESROOM_LANCE
+	loadtrainer CHAMPION, LANCE3
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+
 	setevent EVENT_BEAT_CHAMPION_LANCE
 	opentext
 	writetext LanceBattleAfterText
@@ -249,6 +262,19 @@ LanceBattleIntroText:
 	para "I, LANCE the drag-"
 	line "on master, accept"
 	cont "your challenge!"
+	done
+
+LanceWarmupText:
+	text "That wasn't a"
+	line "bad warmup,"
+	cont "<PLAY_G>!"
+	done
+
+LanceTruePowerText:
+	text "Now, <PLAY_G>!"
+	
+	para "I shall show you"
+	line "true power!"
 	done
 
 LanceBattleWinText:

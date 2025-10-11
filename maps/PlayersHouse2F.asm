@@ -86,6 +86,10 @@ if DEF(_DEBUG)
 	giveitem BIRD_WHISTLE
 	giveitem LANTERN
 	giveitem COIN_CASE
+	giveitem KANTOITE_X, 10
+	giveitem KANTOITE_Y, 10
+	giveitem JOHTOITE_X, 10
+	giveitem HOENNITE_X, 10
 
 	giveitem HM_CUT
 	giveitem HM_SURF
@@ -94,8 +98,8 @@ if DEF(_DEBUG)
 	giveitem HM_FLASH
 
 	; all badges
-	;setflag ENGINE_ZEPHYRBADGE
-	;setflag ENGINE_HIVEBADGE
+	setflag ENGINE_ZEPHYRBADGE
+	setflag ENGINE_HIVEBADGE
 	setflag ENGINE_PLAINBADGE
 	setflag ENGINE_FOGBADGE
 	setflag ENGINE_STORMBADGE
@@ -162,22 +166,22 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke RAICHUX, 50, BRIGHTPOWDER
+	givepoke TROPIUS, 50, BRIGHTPOWDER
 	; hm slaves
-	givepoke RAICHUY, 50, LEFTOVERS
-	givepoke GOROCHU, 50, LEFTOVERS
-	;givepokemove FLY,        wPartyMon2, 0
-	;givepokemove SURF,       wPartyMon2, 1
-	;givepokemove HAIL,		 wPartyMon2, 2
-	;givepokemove CUT,        wPartyMon2, 3
-	;givepokemove FLASH,      wPartyMon3, 0
-	;givepokemove ROCK_SMASH, wPartyMon3, 1
-	;givepokemove HEADBUTT,   wPartyMon3, 2
-	;givepokemove WATERFALL,  wPartyMon3, 3
+	givepoke SWALOT, 50, LEFTOVERS
+	givepoke FLYGON, 50, LEFTOVERS
+	givepokemove FLY,        wPartyMon2, 0
+	givepokemove SURF,       wPartyMon2, 1
+	givepokemove HAIL,		 wPartyMon2, 2
+	givepokemove CUT,        wPartyMon2, 3
+	givepokemove FLASH,      wPartyMon3, 0
+	givepokemove ROCK_SMASH, wPartyMon3, 1
+	givepokemove HEADBUTT,   wPartyMon3, 2
+	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke TOTARTLE, 50
-	givepoke DRAGONITEX, 40
-	givepoke DRAGONITEY, 50
+	givepoke CHIMECHO, 50
+	givepoke GLALIE, 40
+	givepoke SALAMENCE, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

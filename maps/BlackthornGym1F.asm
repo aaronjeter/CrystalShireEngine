@@ -54,6 +54,18 @@ BlackthornGymClairScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
+
+	opentext
+	writetext ClairText_ThisProvesNothing
+	waitbutton
+	closetext
+
+	winlosstext ClairText_SecondDefeat, 0
+	loadtrainer CLAIR, CLAIR3
+	startbattle
+	reloadmapafterbattle	
+
+
 	setevent EVENT_BEAT_CLAIR
 	opentext
 	writetext ClairText_GoToDragonsDen
@@ -217,6 +229,18 @@ ClairWinText:
 	para "I don't believe"
 	line "it. There must be"
 	cont "some mistake…"
+	done
+
+ClairText_ThisProvesNothing:
+	text "No. This"
+	line "proves nothing."
+
+	para "Yeild. Or"
+	line "break before me!"
+	done
+
+ClairText_SecondDefeat:
+	text "..."
 	done
 
 ClairText_GoToDragonsDen:

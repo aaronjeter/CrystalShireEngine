@@ -111,6 +111,7 @@ DEF KRIS EQU __trainer_class__
 	trainerclass CHAMPION ; 10
 	const LANCE
 	const LANCE2
+	const LANCE3
 
 	trainerclass BROCK ; 11
 	const BROCK1
