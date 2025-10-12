@@ -35,7 +35,7 @@ FalknerGroupHard:
 	dw FEAROW
 	dw DRILL_PECK, MUD_SLAP, GUST, CONFUSION	
 	db 12
-	dw NOCTOWL2
+	dw NOCTOWL
 	dw HYPNOSIS, MUD_SLAP, DREAM_EATER, CONFUSE_RAY
 	db -1 ; end
 
@@ -2137,7 +2137,7 @@ CooltrainerMGroupHard:
 	db 5
 	dw SKARMORY2
 	db 4
-	dw OCTILLERY2
+	dw OCTILLERY
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (2) Unreferenced
@@ -2169,7 +2169,7 @@ CooltrainerMGroupHard:
 	db 7
 	dw YANMA
 	db 9
-	dw FURRET2
+	dw FURRET
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (5) Blackthorn City Gym
@@ -2458,9 +2458,9 @@ CooltrainerFGroupHard:
 	db 9
 	dw NINETALES
 	db 9
-	dw NINETALES2
+	dw ANINETALES
 	db 9
-	dw NOCTOWL2
+	dw NOCTOWL
 	db 9
 	dw EXEGGCUTE2
 	db -1 ; end
@@ -2502,9 +2502,9 @@ CooltrainerFGroupHard:
 	db 11
 	dw NINETALES
 	db 11
-	dw NINETALES2
+	dw ANINETALES
 	db 11
-	dw NOCTOWL2
+	dw NOCTOWL
 	db 11
 	dw EXEGGCUTE2
 	db -1 ; end
@@ -2568,9 +2568,9 @@ CooltrainerFGroupHard:
 	db 11
 	dw NINETALES
 	db 11
-	dw NINETALES2
+	dw ANINETALES
 	db 11
-	dw NOCTOWL2
+	dw NOCTOWL
 	db 11
 	dw EXEGGCUTE2
 	db -1 ; end
@@ -3004,7 +3004,7 @@ GruntMGroupHard:
 	db 5
 	dw SWELLOW
 	db 5
-	dw FURRET2
+	dw FURRET
 	db -1 ; end
 
 	next_list_item ; GRUNTM (6) Radio Tower 2F
@@ -3255,7 +3255,7 @@ GentlemanGroupHard:
 	db 7
 	dw NOCTOWL
 	db 7
-	dw NOCTOWL2
+	dw NOCTOWL
 	db -1 ; end
 
 	end_list_items
@@ -5447,7 +5447,7 @@ PsychicGroupHard:
 	db 7
 	dw UNOWN
 	db 7
-	dw NOCTOWL2
+	dw NOCTOWL
 	db 9
 	dw GIRAFARIG
 	db -1 ; end

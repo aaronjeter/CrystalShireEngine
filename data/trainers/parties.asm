@@ -102,7 +102,7 @@ WhitneyGroup: ;Gym Leader
 	next_list_item ; WHITNEY (3)
 	db "WHITNEY@", TRAINERTYPE_ITEM_MOVES
 	db 12
-	dw FURRET2
+	dw FURRET
 	dw QUICK_CLAW
 	dw DRAGON_CLAW, DRAGON_DANCE, BODY_SLAM, CRUNCH
 	db 10
@@ -300,7 +300,7 @@ PryceGroup: ;Gym Leader
 	dw MAMOSWINE
 	dw QUICK_CLAW
 	dw EARTHQUAKE, BLIZZARD, BULK_UP, BODY_SLAM
-	db 10
+	db 12
 	dw RAPIDASH2
 	dw FOCUS_BAND
 	dw BLIZZARD, CALM_MIND, FIRE_BLAST, EXTREMESPEED
@@ -448,7 +448,7 @@ ClairGroup: ;Gym Leader
 	dw GYARADOS
 	dw DRAGONBREATH, WATERFALL, WHIRLPOOL, RAIN_DANCE
 	db 10
-	dw OCTILLERY2
+	dw OCTILLERY
 	dw OCTAZOOKA, SURF, ICE_BEAM, DRAGONBREATH
 	db 10
 	dw LAPRAS
@@ -2089,9 +2089,9 @@ CooltrainerMGroup:
 	db 5
 	dw RAICHU
 	db 5
-	dw SKARMORY2
+	dw SKARMORY
 	db 4
-	dw OCTILLERY2
+	dw OCTILLERY
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (2) Unreferenced
@@ -2123,7 +2123,7 @@ CooltrainerMGroup:
 	db 5
 	dw YANMA
 	db 7
-	dw FURRET2
+	dw FURRET
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (5) Blackthorn City Gym
@@ -2406,9 +2406,9 @@ CooltrainerFGroup:
 	db 9
 	dw NINETALES
 	db 9
-	dw NINETALES2
+	dw ANINETALES
 	db 9
-	dw NOCTOWL2
+	dw NOCTOWL
 	db 9
 	dw EXEGGCUTE2
 	db -1 ; end
@@ -2450,9 +2450,9 @@ CooltrainerFGroup:
 	db 11
 	dw NINETALES
 	db 11
-	dw NINETALES2
+	dw ANINETALES
 	db 11
-	dw NOCTOWL2
+	dw NOCTOWL
 	db 11
 	dw EXEGGCUTE2
 	db -1 ; end
@@ -2516,9 +2516,9 @@ CooltrainerFGroup:
 	db 11
 	dw NINETALES
 	db 11
-	dw NINETALES2
+	dw ANINETALES
 	db 11
-	dw NOCTOWL2
+	dw NOCTOWL
 	db 11
 	dw EXEGGCUTE2
 	db -1 ; end
@@ -2946,7 +2946,7 @@ GruntMGroup:
 	db 5
 	dw SWELLOW
 	db 5
-	dw FURRET2
+	dw FURRET
 	db -1 ; end
 
 	next_list_item ; GRUNTM (6) Radio Tower 2F
@@ -3197,7 +3197,7 @@ GentlemanGroup:
 	db 7
 	dw NOCTOWL
 	db 7
-	dw NOCTOWL2
+	dw NOCTOWL
 	db -1 ; end
 
 	end_list_items
@@ -4889,10 +4889,10 @@ BlaineGroup: ;Gym Leader
 	db -1 ; end
 	
 	next_list_item ; BLAINE (3)
-	db "BLAINE@", TRAINERTYPE_MOVES
-	db 8
-	dw RAPIDASH2
-	dw SUNNY_DAY, BLIZZARD, SOLARBEAM, FIRE_BLAST
+	db "BLAINE@", TRAINERTYPE_MOVES	
+	db 10
+	dw NINETALES
+	dw SUNNY_DAY, SHADOW_BALL, SOLARBEAM, FIRE_BLAST
 	db 8
 	dw MAGCARGO
 	dw ROCK_SLIDE, FIRE_BLAST, FISSURE, CURSE
@@ -4905,6 +4905,9 @@ BlaineGroup: ;Gym Leader
 	db 10
 	dw RAPIDASH
 	dw SUNNY_DAY, MEGAHORN, SOLARBEAM, FIRE_BLAST
+	db 12
+	dw RAPIDASH2
+	dw SUNNY_DAY, BLIZZARD, SOLARBEAM, FIRE_BLAST
 	db -1 ; end
 
 	end_list_items
@@ -5366,7 +5369,7 @@ PsychicGroup:
 	db 7
 	dw UNOWN
 	db 7
-	dw NOCTOWL2
+	dw NOCTOWL
 	db 9
 	dw GIRAFARIG
 	db -1 ; end

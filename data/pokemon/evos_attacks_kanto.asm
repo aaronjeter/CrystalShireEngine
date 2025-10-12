@@ -842,7 +842,6 @@ ClefableEvosAttacks:
 
 VulpixEvosAttacks:
 	dbww EVOLVE_ITEM, FIRE_STONE, NINETALES
-	dbww EVOLVE_ITEM, MOON_STONE, NINETALES2
 	dbww EVOLVE_ITEM, ICE_STONE, AVULPIX
 	dbbw EVOLVE_LEVEL, 36, NINETALES
 	db 0 ; no more evolutions
@@ -865,8 +864,8 @@ VulpixEvosAttacks:
 	db 0 ; no more level-up moves
 
 NinetalesEvosAttacks:
-	dbww EVOLVE_ITEM, MOON_STONE, NINETALES2
 	dbww EVOLVE_ITEM, ICE_STONE, ANINETALES
+	dbww EVOLVE_ITEM, KANTOITE_X, NINETALES2
 	db 0 ; no more evolutions
 	dbw 1, EMBER
 	dbw 1, LICK
@@ -1655,8 +1654,7 @@ GolemEvosAttacks:
 	db 0 ; no more level-up moves
 
 PonytaEvosAttacks:
-	dbbw EVOLVE_LEVEL, 40, RAPIDASH
-	dbww EVOLVE_ITEM, MOON_STONE, RAPIDASH2
+	dbbw EVOLVE_LEVEL, 30, RAPIDASH
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 4, GROWL
@@ -1670,13 +1668,13 @@ PonytaEvosAttacks:
 	dbw 40, EXTREMESPEED
 	dbw 42, DRAGON_DANCE
 	dbw 45, MEGAHORN
-	dbw 50, FIRE_BLAST
+	dbw 50, SACRED_FIRE
 	dbw 55, SUNNY_DAY
 	dbw 60, SOLARBEAM
 	db 0 ; no more level-up moves
 
 RapidashEvosAttacks:
-	dbww EVOLVE_ITEM, MOON_STONE, RAPIDASH2
+	dbww EVOLVE_ITEM, KANTOITE_X, RAPIDASH2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 4, GROWL
@@ -1690,7 +1688,7 @@ RapidashEvosAttacks:
 	dbw 40, EXTREMESPEED
 	dbw 42, DRAGON_DANCE
 	dbw 45, MEGAHORN
-	dbw 50, FIRE_BLAST
+	dbw 50, SACRED_FIRE
 	dbw 55, SUNNY_DAY
 	dbw 60, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -2604,6 +2602,7 @@ MrMimeEvosAttacks:
 ScytherEvosAttacks:
 	dbww EVOLVE_ITEM, METAL_COAT, SCIZOR
 	dbww EVOLVE_ITEM, SUN_STONE, KLEAVOR
+	dbww EVOLVE_ITEM, KANTOITE_X, SCYTHER2
 	db 0 ; no more evolutions
 	dbw 1, QUICK_ATTACK
 	dbw 1, STRING_SHOT

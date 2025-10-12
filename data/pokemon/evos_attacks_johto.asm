@@ -284,7 +284,6 @@ FeraligatrEvosAttacks:
 
 SentretEvosAttacks:
 	dbbw EVOLVE_LEVEL, 20, FURRET
-	dbww EVOLVE_ITEM, MOON_STONE, FURRET2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, TAIL_WHIP
@@ -306,7 +305,7 @@ SentretEvosAttacks:
 	db 0 ; no more level-up moves
 
 FurretEvosAttacks:
-	dbww EVOLVE_ITEM, MOON_STONE, FURRET2
+	dbww EVOLVE_ITEM, JOHTOITE_X, FURRET2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, TAIL_WHIP
@@ -329,7 +328,6 @@ FurretEvosAttacks:
 
 HoothootEvosAttacks:
 	dbbw EVOLVE_LEVEL, 20, NOCTOWL
-	dbww EVOLVE_ITEM, MOON_STONE, NOCTOWL2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL
@@ -352,7 +350,7 @@ HoothootEvosAttacks:
 	db 0 ; no more level-up moves
 
 NoctowlEvosAttacks:
-	dbww EVOLVE_ITEM, MOON_STONE, NOCTOWL2
+	dbww EVOLVE_ITEM, JOHTOITE_X, NOCTOWL2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL
@@ -1535,7 +1533,6 @@ CorsolaEvosAttacks:
 
 RemoraidEvosAttacks:
 	dbbw EVOLVE_LEVEL, 25, OCTILLERY
-	dbww EVOLVE_ITEM, FIRE_STONE, OCTILLERY2
 	db 0 ; no more evolutions
 	dbw 1, WATER_GUN
 	dbw 11, LOCK_ON
@@ -1553,7 +1550,7 @@ RemoraidEvosAttacks:
 	db 0 ; no more level-up moves
 
 OctilleryEvosAttacks:
-	dbww EVOLVE_ITEM, FIRE_STONE, OCTILLERY2
+	dbww EVOLVE_ITEM, JOHTOITE_X, OCTILLERY2
 	db 0 ; no more evolutions
 	dbw 1, WATER_GUN
 	dbw 11, LOCK_ON
@@ -1608,6 +1605,7 @@ MantineEvosAttacks:
 	db 0 ; no more level-up moves
 
 SkarmoryEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, SKARMORY2
 	db 0 ; no more evolutions
 	dbw 1, LEER
 	dbw 1, PECK

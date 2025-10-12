@@ -1691,7 +1691,7 @@ JohtoGrassWildMons:
 	dbw 3, DONPHAN
 	dbw 1, PHANPY
 	dbw 1, SKARMORY
-	dbw 5, SKARMORY2
+	dbw 5, SKARMORY
 	; day
 	dbw 1, GEODUDE
 	dbw 1, ARON
@@ -1699,7 +1699,7 @@ JohtoGrassWildMons:
 	dbw 3, DONPHAN
 	dbw 1, PHANPY
 	dbw 1, SKARMORY
-	dbw 5, SKARMORY2
+	dbw 5, SKARMORY
 	; nite
 	dbw 1, GEODUDE
 	dbw 1, ARON
@@ -1707,7 +1707,7 @@ JohtoGrassWildMons:
 	dbw 3, DONPHAN
 	dbw 1, PHANPY
 	dbw 1, SKARMORY
-	dbw 5, SKARMORY2
+	dbw 5, SKARMORY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_46

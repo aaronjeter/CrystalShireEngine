@@ -567,7 +567,6 @@ AsandslashEvosAttacks:
 AvulpixEvosAttacks:
 	dbbw EVOLVE_LEVEL, 36, ANINETALES
 	dbww EVOLVE_ITEM, ICE_STONE, ANINETALES
-	dbww EVOLVE_ITEM, MOON_STONE, NINETALES2
 	dbww EVOLVE_ITEM, FIRE_STONE, VULPIX
 	db 0 ; no more evolutions
 	dbw 1, POWDER_SNOW
@@ -590,7 +589,7 @@ AvulpixEvosAttacks:
 
 AninetalesEvosAttacks:
 	dbww EVOLVE_ITEM, FIRE_STONE, NINETALES
-	dbww EVOLVE_ITEM, MOON_STONE, NINETALES2
+	dbww EVOLVE_ITEM, KANTOITE_X, NINETALES2
 	db 0 ; no more evolutions	
 	dbw 1, POWDER_SNOW
 	dbw 1, PIXIE_DUST
@@ -971,11 +970,11 @@ Rapidash2EvosAttacks:
 	dbw 24, FIRE_FANG
 	dbw 26, ICE_FANG
 	dbw 32, THUNDER_FANG
-	dbw 36, ICE_BEAM
-	dbw 40, FLAMETHROWER
-	dbw 42, CALM_MIND
+	dbw 36, ICICLE_CRASH
+	dbw 40, FLAME_WHEEL
+	dbw 42, BULK_UP
 	dbw 45, MEGAHORN
-	dbw 50, FIRE_BLAST
+	dbw 50, SACRED_FIRE
 	dbw 55, WILLOWISP
 	dbw 60, BLIZZARD
 	db 0 ; no more level-up moves
