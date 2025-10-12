@@ -490,6 +490,7 @@ INCLUDE "maps/SilverCaveOutside.asm"
 INCLUDE "maps/Route10North.asm"
 
 INCLUDE "maps/hoenn/littleroot/LittlerootTown.asm"
+INCLUDE "maps/hoenn/littleroot/BirchsLab.asm"
 INCLUDE "maps/hoenn/oldale/OldaleTown.asm"
 INCLUDE "maps/hoenn/oldale/OldalePokecenter.asm"
 INCLUDE "maps/hoenn/oldale/OldaleMart.asm"

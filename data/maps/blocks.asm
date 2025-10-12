@@ -978,6 +978,9 @@ SECTION "Map Blocks 4", ROMX
 	SlateportMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
+	BirchsLab_Blocks:
+	INCBIN "maps/hoenn/littleroot/BirchsLab.ablk"
+
 	RustboroCutterHouse_Blocks:
 	VerdanturfRockSmashHouse_Blocks:
 	PetalburgHouse1_Blocks:

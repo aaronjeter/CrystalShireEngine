@@ -1572,5 +1572,7 @@
 	const EVENT_BATTLE_TOWER_OPEN_CIVILIANS
 ; Unused: next 48 events
 
+	const EVENT_GOT_HOENNITE_FROM_BIRCH
+
 	const_next 2048
 DEF NUM_EVENTS EQU const_value ; 800

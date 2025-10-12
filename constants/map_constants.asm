@@ -512,6 +512,7 @@ ENDM
 
 	newgroup HOENN												  ; 27
 	map_const LITTLEROOT_TOWN,                             10,  8 ;  1
+	map_const BIRCHS_LAB,								   06, 04 ;	
 	map_const OLDALE_TOWN,                                 10, 10 ;  2
 	map_const OLDALE_POKECENTER,						   07, 04 ;
 	map_const OLDALE_MART,								   06, 04 ;
