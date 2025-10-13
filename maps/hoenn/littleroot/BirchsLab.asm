@@ -24,7 +24,6 @@ BirchGiveHoenniteScript:
 	writetext BirchExplainsHoenniteText
 	waitbutton
 	setevent EVENT_GOT_HOENNITE_FROM_BIRCH
-	waitbutton
 	closetext
 	end	
 

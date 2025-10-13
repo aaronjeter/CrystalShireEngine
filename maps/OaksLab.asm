@@ -18,6 +18,11 @@ Oak:
 	iftrue .CheckBadges
 	writetext OakWelcomeKantoText
 	promptbutton
+	writetext OakGiveKantoiteText
+	waitbutton
+	verbosegiveitem KANTOITE_X
+	writetext OakExplainsKantoiteText
+	waitbutton
 	setevent EVENT_TALKED_TO_OAK_IN_KANTO
 .CheckBadges:
 	readvar VAR_BADGES
@@ -86,6 +91,20 @@ OakWelcomeKantoText:
 
 	para "out here?"
 	line "Pretty tough, huh?"
+	done
+
+OakGiveKantoiteText:
+	text "oh, <PLAY_G>."
+
+	para "Prof. Elm said"
+	line "you might have a"
+	cont "use for this."
+	done
+
+OakExplainsKantoiteText:
+	text "Certain #MON"
+	line "from KANTO could"
+	cont "use this."
 	done
 
 OakLabDexCheckText:
