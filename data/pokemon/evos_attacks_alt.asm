@@ -60,15 +60,15 @@ EvosAttacksPointers4::
 	dw Rapidash2EvosAttacks
 	dw Ninetales2EvosAttacks
 	dw Tauros2EvosAttacks
-	dw SwinubEvosAttacks
-	dw PiloswineEvosAttacks
+	dw Swinub2EvosAttacks
+	dw Piloswine2EvosAttacks
 	dw SkarmoryEvosAttacks
-	dw TotodileEvosAttacks
-	dw CroconawEvosAttacks
-	dw FeraligatrEvosAttacks
-	dw CyndaquilEvosAttacks
-	dw QuilavaEvosAttacks
-	dw TyphlosionEvosAttacks
+	dw Totodile2EvosAttacks
+	dw Croconaw2EvosAttacks
+	dw Feraligatr2EvosAttacks
+	dw Cyndaquil2EvosAttacks
+	dw Quilava2EvosAttacks
+	dw Typhlosion2EvosAttacks
 	;beta mons
 	dw HanamoleEvosAttacks
 	dw HonobeaEvosAttacks
@@ -1470,6 +1470,163 @@ GorochuEvosAttacks:
 	dbw 1, VOLT_TACKLE
 	dbw 1, SHOCKSLAM
 	dbw 1, BEAT_UP
+	db 0 ; no more level-up moves
+
+Totodile2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 18, CROCONAW2
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, LEER
+	dbw 7, RAGE
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, SCARY_FACE
+	dbw 22, BUBBLEBEAM
+	dbw 26, ICE_FANG
+	dbw 32, CRUNCH
+	dbw 36, SLASH
+	dbw 40, SCREECH
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	dbw 55, ICICLE_CRASH
+	dbw 60, HYDRO_CANNON
+	db 0 ; no more level-up moves
+
+Croconaw2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, FERALIGATR2
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, LEER
+	dbw 7, RAGE
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, SCARY_FACE
+	dbw 22, BUBBLEBEAM
+	dbw 26, ICE_FANG
+	dbw 32, CRUNCH
+	dbw 36, SLASH
+	dbw 40, SCREECH
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	dbw 55, ICICLE_CRASH
+	dbw 60, HYDRO_CANNON
+	db 0 ; no more level-up moves
+
+Feraligatr2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, LEER
+	dbw 7, RAGE
+	dbw 10, WATER_GUN
+	dbw 14, BITE
+	dbw 18, SCARY_FACE
+	dbw 22, BUBBLEBEAM
+	dbw 26, ICE_FANG
+	dbw 32, CRUNCH
+	dbw 36, SLASH
+	dbw 40, SCREECH
+	dbw 45, RAIN_DANCE
+	dbw 50, HYDRO_PUMP
+	dbw 55, ICICLE_CRASH
+	dbw 60, HYDRO_CANNON
+	db 0 ; no more level-up moves
+
+Cyndaquil2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 14, QUILAVA2
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, LEER
+	dbw 6, SMOKESCREEN
+	dbw 10, EMBER
+	dbw 14, QUICK_ATTACK
+	dbw 20, FIRE_FANG
+	dbw 24, FAINT_ATTACK
+	dbw 28, SLAM
+	dbw 32, FLAME_WHEEL
+	dbw 36, PURSUIT
+	dbw 40, FLAMETHROWER
+	dbw 45, OUTRAGE
+	dbw 50, FIRE_BLAST
+	dbw 55, DRAGON_DANCE
+	dbw 60, BLAST_BURN
+	db 0 ; no more level-up moves
+
+Quilava2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 36, TYPHLOSION2
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, LEER
+	dbw 6, SMOKESCREEN
+	dbw 10, EMBER
+	dbw 14, QUICK_ATTACK
+	dbw 20, FIRE_FANG
+	dbw 24, FAINT_ATTACK
+	dbw 28, SLAM
+	dbw 32, FLAME_WHEEL
+	dbw 36, PURSUIT
+	dbw 40, FLAMETHROWER
+	dbw 45, OUTRAGE
+	dbw 50, FIRE_BLAST
+	dbw 55, DRAGON_DANCE
+	dbw 60, BLAST_BURN
+	db 0 ; no more level-up moves
+
+Typhlosion2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, LEER
+	dbw 6, SMOKESCREEN
+	dbw 10, EMBER
+	dbw 14, QUICK_ATTACK
+	dbw 20, FIRE_FANG
+	dbw 24, FAINT_ATTACK
+	dbw 28, SLAM
+	dbw 32, FLAME_WHEEL
+	dbw 36, PURSUIT
+	dbw 40, FLAMETHROWER
+	dbw 45, OUTRAGE
+	dbw 50, FIRE_BLAST
+	dbw 55, DRAGON_DANCE
+	dbw 60, BLAST_BURN
+	db 0 ; no more level-up moves
+
+Swinub2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, PILOSWINE2
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, POWDER_SNOW
+	dbw 10, ENDURE
+	dbw 15, CURSE
+	dbw 20, ANCIENTPOWER	
+	dbw 24, ICICLE_SPEAR
+	dbw 28, MAGNITUDE
+	dbw 32, BULK_UP
+	dbw 36, ICICLE_CRASH
+	dbw 40, EARTHQUAKE
+	dbw 42, MIST
+	dbw 45, BLIZZARD
+	dbw 50, AMNESIA
+	dbw 55, OUTRAGE
+	dbw 60, FISSURE
+	db 0 ; no more level-up moves
+
+Piloswine2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, POWDER_SNOW
+	dbw 10, ENDURE
+	dbw 15, CURSE
+	dbw 20, ANCIENTPOWER	
+	dbw 24, ICICLE_SPEAR
+	dbw 28, MAGNITUDE
+	dbw 32, BULK_UP
+	dbw 36, ICICLE_CRASH
+	dbw 40, EARTHQUAKE
+	dbw 42, MIST
+	dbw 45, BLIZZARD
+	dbw 50, AMNESIA
+	dbw 55, OUTRAGE
+	dbw 60, FISSURE
 	db 0 ; no more level-up moves
 
 ENDSECTION

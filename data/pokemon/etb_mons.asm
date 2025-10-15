@@ -19,7 +19,6 @@ SandStreamMons::
 	dw RHYDON
 	dw DUNSPARCE
 	dw TYRANITAR
-	dw AGGRON
 	dw REGIROCK
 	dw -1
 
