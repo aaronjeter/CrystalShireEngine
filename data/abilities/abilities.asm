@@ -100,6 +100,8 @@ AbilityLevitateMons::
 	dw DUSCLOPS
 	dw CHIMECHO
 	dw MAGNEZONE
+	dw FLYGONX
+	dw CHIMECHOX
 	dw -1
 
 AbilityWaterproofMons::
@@ -111,4 +113,5 @@ AbilityWaterproofMons::
 	dw CAMERUPT
 	dw BARBOACH
 	dw WHISCASH
+	dw CAMERUPTX
 	dw -1

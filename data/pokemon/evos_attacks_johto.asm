@@ -682,15 +682,15 @@ MareepEvosAttacks:
 	dbw 8, THUNDERSHOCK
 	dbw 12, COTTON_SPORE
 	dbw 16, THUNDER_WAVE
-	dbw 20, CHARGE
+	dbw 20, RECOVER
 	dbw 24, SHOCK_WAVE
 	dbw 26, LIGHT_SCREEN
 	dbw 30, REFLECT
 	dbw 32, THUNDERBOLT
 	dbw 36, FLASHCANNON
 	dbw 40, RAIN_DANCE
-	dbw 42, THUNDER
-	dbw 45, RECOVER
+	dbw 42, CHARGE
+	dbw 45, THUNDER	
 	dbw 50, DRAGONBREATH
 	dbw 55, POWER_GEM
 	dbw 60, AURA_SPHERE
@@ -704,15 +704,15 @@ FlaaffyEvosAttacks:
 	dbw 8, THUNDERSHOCK
 	dbw 12, COTTON_SPORE
 	dbw 16, THUNDER_WAVE
-	dbw 20, CHARGE
+	dbw 20, RECOVER
 	dbw 24, SHOCK_WAVE
 	dbw 26, LIGHT_SCREEN
 	dbw 30, REFLECT
 	dbw 32, THUNDERBOLT
 	dbw 36, FLASHCANNON
 	dbw 40, RAIN_DANCE
-	dbw 42, THUNDER
-	dbw 45, RECOVER
+	dbw 42, CHARGE
+	dbw 45, THUNDER	
 	dbw 50, DRAGONBREATH
 	dbw 55, POWER_GEM
 	dbw 60, AURA_SPHERE
@@ -726,15 +726,15 @@ AmpharosEvosAttacks:
 	dbw 8, THUNDERSHOCK
 	dbw 12, COTTON_SPORE
 	dbw 16, THUNDER_WAVE
-	dbw 20, CHARGE
+	dbw 20, RECOVER
 	dbw 24, SHOCK_WAVE
 	dbw 26, LIGHT_SCREEN
 	dbw 30, REFLECT
 	dbw 32, THUNDERBOLT
 	dbw 36, FLASHCANNON
 	dbw 40, RAIN_DANCE
-	dbw 42, THUNDER
-	dbw 45, RECOVER
+	dbw 42, CHARGE
+	dbw 45, THUNDER	
 	dbw 50, DRAGONBREATH
 	dbw 55, POWER_GEM
 	dbw 60, AURA_SPHERE
@@ -1341,7 +1341,7 @@ ScizorEvosAttacks:
 	dbw 48, DOUBLE_TEAM
 	dbw 52, LEAF_BLADE
 	dbw 56, SHADOW_CLAW
-	dbw 50, GUILLOTINE	
+	dbw 60, GUILLOTINE	
 	db 0 ; no more level-up moves
 
 ShuckleEvosAttacks:

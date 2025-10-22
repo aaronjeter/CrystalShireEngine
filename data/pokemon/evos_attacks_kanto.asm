@@ -2117,6 +2117,7 @@ KinglerEvosAttacks:
 	dbw 40, GUILLOTINE	
 	dbw 45, CRABHAMMER
 	dbw 50, CURSE
+	dbw 60, AQUA_JET
 	db 0 ; no more level-up moves
 
 VoltorbEvosAttacks:

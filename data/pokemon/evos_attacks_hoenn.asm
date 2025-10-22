@@ -2249,6 +2249,7 @@ TropiusEvosAttacks:
 	dbw 45, SUNNY_DAY
 	dbw 47, SYNTHESIS
 	dbw 50, SKY_ATTACK
+	dbw 60, HURRICANE
 	db 0 ; no more level-up moves
 
 ChimechoEvosAttacks:
@@ -2290,6 +2291,7 @@ AbsolEvosAttacks:
 	dbw 45, PERISH_SONG
 	dbw 47, EXTREMESPEED
 	dbw 50, DRAGON_DANCE
+	dbw 60, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 WynautEvosAttacks:

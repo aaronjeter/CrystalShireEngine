@@ -17,7 +17,9 @@ LevitateMons::
 	dw DUSKULL
 	dw DUSCLOPS
 	dw CHIMECHO
-	dw MAGNEZONE
+	dw MAGNEZONE	
+	dw FLYGONX
+	dw CHIMECHOX
 	dw -1
 
 WaterproofMons::
@@ -29,4 +31,5 @@ WaterproofMons::
 	dw CAMERUPT
 	dw BARBOACH
 	dw WHISCASH
+	dw CAMERUPTX
 	dw -1
