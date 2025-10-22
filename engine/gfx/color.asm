@@ -13,6 +13,7 @@ CheckShininess:
 	ld h, b
 
 ; Special
+	ld a, [hli] ; skip to the second iv byte
 	ld a, [hl]
 	and %1111
 	cp SHINY_SPC_DV
