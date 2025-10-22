@@ -26,7 +26,7 @@ Oak:
 	setevent EVENT_TALKED_TO_OAK_IN_KANTO
 .CheckBadges:
 	readvar VAR_BADGES
-	ifequal NUM_BADGES, .OpenMtSilver
+	ifgreater 15, .OpenMtSilver
 	ifequal NUM_JOHTO_BADGES, .Complain
 	sjump .AhGood
 
