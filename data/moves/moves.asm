@@ -211,7 +211,7 @@ MovesGen2:
 	move EFFECT_SPITE,               0, GHOST,          STATUS,			100, 10,   0      ;SPITE
 	move EFFECT_FREEZE_HIT,         35, ICE,            SPECIAL,		100, 25,  25      ;POWDER_SNOW
 	move EFFECT_PROTECT,             0, NORMAL,         STATUS,			100, 10,   0      ;PROTECT
-	move EFFECT_PRIORITY_HIT,       50, FIGHTING,       PHYSICAL,		100, 30,   0      ;MACH_PUNCH
+	move EFFECT_PRIORITY_HIT,       40, FIGHTING,       PHYSICAL,		100, 30,   0      ;MACH_PUNCH
 	move EFFECT_SPEED_DOWN_2,        0, NORMAL,         STATUS,			 90, 10,   0      ;SCARY_FACE
 	move EFFECT_ALWAYS_HIT,         60, DARK,           PHYSICAL,		100, 20,   0      ;FAINT_ATTACK
 	move EFFECT_CONFUSE,             0, NORMAL,         STATUS,			100, 10,   0      ;SWEET_KISS
