@@ -1433,6 +1433,20 @@ YoungsterGroupHard:
 	dw SEEDOT
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (23) Route 116
+	db "JOEY@", TRAINERTYPE_NORMAL
+	db 5
+	dw MACHOKE
+	db -1 ; end
+
+	next_list_item ; YOUNGSTER (24) Route 116
+	db "JOHNSON@", TRAINERTYPE_NORMAL
+	db 5
+	dw BRELOOM
+	db 5
+	dw LOTAD
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Hard Trainer Parties 2", ROMX
@@ -2062,6 +2076,22 @@ LassGroupHard:
 	dw HOPPIP
 	db 5
 	dw LOTAD
+	db -1 ; end
+
+	next_list_item ; LASS (21) Route 116
+	db "KAREN@", TRAINERTYPE_NORMAL	
+	db 5
+	dw SHROOMISH
+	db 6
+	dw PIDGEOTTO
+	db -1 ; end
+
+	next_list_item ; LASS (22) Route 116
+	db "JANICE@", TRAINERTYPE_NORMAL	
+	db 5
+	dw MARILL
+	db 4
+	dw FEAROW
 	db -1 ; end
 
 	end_list_items
@@ -3619,6 +3649,14 @@ BugCatcherGroupHard:
 	dw WURMPLE
 	db -1 ; end
 
+	next_list_item ; BUG_CATCHER (24) Route 116
+	db "JOSE@", TRAINERTYPE_NORMAL
+	db 5
+	dw DUSTOX
+	db 7
+	dw NINCADA
+	db -1 ; end
+
 	end_list_items
 
 FisherGroupHard:
@@ -4842,6 +4880,20 @@ HikerGroupHard:
 	dw LILEEP
 	db 7
 	dw ANORITH
+	db -1 ; end
+
+	next_list_item ; HIKER (24) Route 116
+	db "CLARK@", TRAINERTYPE_NORMAL
+	db 9
+	dw AGEODUDE
+	db -1 ; end
+
+	next_list_item ; HIKER (25) Route 116
+	db "DEVAN@", TRAINERTYPE_NORMAL
+	db 7
+	dw GEODUDE
+	db 7
+	dw DUNSPARCE
 	db -1 ; end
 
 	end_list_items
