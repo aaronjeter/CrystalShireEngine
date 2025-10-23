@@ -24,15 +24,17 @@ Route116JoeyScript:
 	end
 
 Route116JoeySeenText:
-	text "Hi!"
+	text "My #MON rule!"
 	done
 
 Route116JoeyBeatenText:
-	text "Aww."
+	text "Ouch! A scrape!"
 	done
 
 Route116JoeyAfterBattleText:
-	text "Bye!"
+	text "Bandages are"
+	line "signs of"
+	cont "toughness!"
 	done
 
 
@@ -48,15 +50,22 @@ Route116JohnsonScript:
 	end
 
 Route116JohnsonSeenText:
-	text "Hi!"
+	text "It's a dead end"
+	line "up here."
+
+	para "I'm bored, so can"
+	line "we battle?"
 	done
 
 Route116JohnsonBeatenText:
-	text "Aww."
+	text "That was fun even"
+	line "though I lost."
 	done
 
 Route116JohnsonAfterBattleText:
-	text "Bye!"
+	text "Want to stay here"
+	line "and keep me"
+	cont "company?"
 	done
 
 
@@ -72,15 +81,22 @@ Route116KarenScript:
 	end
 
 Route116KarenSeenText:
-	text "Hi!"
+	text "I'm looking to"
+	line "practice what I"
+
+	para "learned at"
+	line "school."
 	done
 
 Route116KarenBeatenText:
-	text "Aww."
+	text "I'm in shock."
+	
+	para "I lost again?"
 	done
 
 Route116KarenAfterBattleText:
-	text "Bye!"
+	text "I can't beat you,"
+	line "then. Not yet."
 	done
 
 
@@ -96,15 +112,26 @@ Route116JaniceScript:
 	end
 
 Route116JaniceSeenText:
-	text "Hi!"
+	text "Let me teach you "
+	line "how strong my"
+
+	para "adorable #MON"
+	line "is."
 	done
 
 Route116JaniceBeatenText:
-	text "Aww."
+	text "You're a notch"
+	line "above me."
 	done
 
 Route116JaniceAfterBattleText:
-	text "Bye!"
+	text "#MON that "
+	line "possess cuteness"
+
+	para "and power..."
+
+	para "That's"
+	line "ideal, I think."
 	done
 
 
@@ -120,15 +147,26 @@ Route116JoseScript:
 	end
 
 Route116JoseSeenText:
-	text "Hi!"
+	text "My BUG #MON"
+	line "are tough!"
+
+	para "Let's battle!"
 	done
 
 Route116JoseBeatenText:
-	text "Aww."
+	text "I lost!"
+
+	para "I thought I"
+	line "had you!"
 	done
 
 Route116JoseAfterBattleText:
-	text "Bye!"
+	text "BUG #MON evolve"
+	line "quickly."
+
+	para "So they get"
+	line "strong quickly,"
+	cont "too."
 	done
 
 
@@ -144,15 +182,29 @@ Route116ClarkScript:
 	end
 
 Route116ClarkSeenText:
-	text "Hi!"
+	text "If the tunnel"
+	line "doesn't go"
+
+	para "through, then"
+	line "I'll just go"
+	cont "over the top."
 	done
 
 Route116ClarkBeatenText:
-	text "Aww."
+	text "Gasp... Gasp..."
+
+	para "Losing made me"
+	line "tired..."
 	done
 
 Route116ClarkAfterBattleText:
-	text "Bye!"
+	text "It's no big deal"
+	line "if there's no"
+	cont "tunnel."
+
+	para "To a HIKER,"
+	line "mountains are"
+	cont "roads!"
 	done
 
 
@@ -168,15 +220,23 @@ Route116DevanScript:
 	end
 
 Route116DevanSeenText:
-	text "Hi!"
+	text "I'll rock you"
+	line "hard!"
 	done
 
 Route116DevanBeatenText:
-	text "Aww."
+	text "Aiyiyi!"
+
+	para "No contest!"
 	done
 
 Route116DevanAfterBattleText:
-	text "Bye!"
+	text "I should try"
+	line "different #MON"
+
+	para "types, that's"
+	line "what I ought"
+	cont "to do."
 	done
 
 Route116_MapEvents:
