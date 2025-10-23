@@ -1832,6 +1832,18 @@ BirdKeeperGroup:
 	dw SWIFT, DETECT, STEEL_WING, FLY
 	db -1 ; end
 
+	next_list_item ; BIRD_KEEPER (20) Route 105
+	db "JOSUE@", TRAINERTYPE_NORMAL
+	db 6
+	dw FEAROW
+	db 7
+	dw TOGETIC
+	db 8
+	dw SKIPLOOM
+	db 9
+	dw SWELLOW
+	db -1 ; end
+
 	end_list_items
 
 LassGroup:
@@ -3854,6 +3866,26 @@ FisherGroup:
 	dw STARYU
 	db -1 ; end
 
+	next_list_item ; FISHER (29) Route 105
+	db "NED@", TRAINERTYPE_NORMAL
+	db 5
+	dw MAGNETON
+	db 5
+	dw SEALEO
+	db 5
+	dw POLIWHIRL
+	db -1 ; end
+
+	next_list_item ; FISHER (30) Route 105
+	db "ELLIOT@", TRAINERTYPE_NORMAL
+	db 5
+	dw WAILORD
+	db 5
+	dw OMASTAR
+	db 7
+	dw DRAGONAIR
+	db -1 ; end
+
 	end_list_items
 
 SwimmerMGroup:
@@ -4053,6 +4085,16 @@ SwimmerMGroup:
 	dw SEADRA
 	db -1 ; end
 
+	next_list_item ; SWIMMERM (22) Route105
+	db "LUIS@", TRAINERTYPE_NORMAL
+	db 7
+	dw LUVDISC
+	db 7
+	dw SEADRA
+	db 7
+	dw HUNTAIL
+	db -1 ; end
+
 	end_list_items
 
 SwimmerFGroup:
@@ -4200,6 +4242,14 @@ SwimmerFGroup:
 	dw SEAKING
 	db 5
 	dw SEAKING
+	db -1 ; end
+
+	next_list_item ; SWIMMERF (20) Route 105
+	db "IMANI@", TRAINERTYPE_NORMAL
+	db 5
+	dw MANTINE
+	db 5
+	dw GOREBYSS
 	db -1 ; end
 
 	end_list_items
@@ -6969,14 +7019,24 @@ RangerFGroup:
 	end_list_items
 
 ExplorerGroup:
-	next_list_item; STEVEN (1) Unreferenced
-	db "STEVEN@", TRAINERTYPE_NORMAL
-	db 10
-	dw CHIKORITA
-	db 10
-	dw CYNDAQUIL
-	db 10
-	dw TOTODILE
+	next_list_item; EXPLORER (1) Route 105
+	db "FOSTER@", TRAINERTYPE_NORMAL
+	db 5
+	dw RELICANTH
+	db 5
+	dw URSARING
+	db 7
+	dw NOSEPASS
+	db -1 ; end
+
+	next_list_item; EXPLORER (2) Route 105
+	db "ANDRES@", TRAINERTYPE_NORMAL
+	db 5
+	dw ASANDSHREW
+	db 5
+	dw CRAWDAUNT
+	db 7
+	dw ARMALDO
 	db -1 ; end
 
 	end_list_items

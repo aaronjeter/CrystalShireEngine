@@ -213,6 +213,7 @@ DEF KRIS EQU __trainer_class__
 	const JOSE3
 	const VANCE2
 	const VANCE3
+	const ROUTE105_JOSUE
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -446,6 +447,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE103_ANDREW
 	const ROUTE104_DARIAN
 	const ROUTE104_IVAN
+	const ROUTE105_NED
+	const ROUTE105_ELLIOT
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
@@ -469,6 +472,7 @@ DEF KRIS EQU __trainer_class__
 	const JAMES ; unused
 	const LEWIS ; unused
 	const PARKER
+	const ROUTE105_LUIS
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE
@@ -490,6 +494,7 @@ DEF KRIS EQU __trainer_class__
 	const NIKKI
 	const DIANA
 	const BRIANA
+	const ROUTE105_IMANI
 
 	trainerclass SAILOR ; 28
 	const EUGENE
@@ -852,7 +857,8 @@ DEF KRIS EQU __trainer_class__
 	const RANGERF1
 
 	trainerclass EXPLORER
-	const EXPLORER1
+	const ROUTE105_FOSTER
+	const ROUTE105_ANDRES
 
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
