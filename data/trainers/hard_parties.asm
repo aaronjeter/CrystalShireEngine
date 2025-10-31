@@ -3386,6 +3386,66 @@ TeacherGroupHard:
 	dw CROSS_CHOP, SHADOW_PUNCH, FISSURE, BULK_UP
 	db -1 ; end
 
+	next_list_item ; TEACHER (6)  (Klutch contest party #1)
+	db "KLUTCH@", TRAINERTYPE_NORMAL
+	db 7
+	dw RHYHORN
+	db 7
+	dw CHARMELEON
+	db 5
+	dw SWABLU
+	db 7
+	dw FURRET
+	db 7
+	dw HANAMOLE
+	db 8
+	dw GYARADOS
+	db -1 ; end
+
+	next_list_item ; TEACHER (7)  (Klutch contest party #2)
+	db "KLUTCH@", TRAINERTYPE_NORMAL
+	db 9
+	dw RHYDON
+	db 9
+	dw CHARIZARD
+	db 9
+	dw ALTARIA
+	db 10
+	dw HANAMOLE
+	db 10
+	dw FURRET
+	db 11
+	dw GYARADOS
+	db -1 ; end
+
+	next_list_item ; TEACHER (8)  (Klutch contest party #3)
+	db "KLUTCH@", TRAINERTYPE_ITEM_MOVES
+	db 10
+	dw RHYPERIOR
+	dw QUICK_CLAW
+	dw ROCK_SLIDE, DRAGON_CLAW, DRAGON_DANCE, EARTHQUAKE
+	db 10
+	dw CHARIZARDX
+	dw CHARCOAL
+	dw FIRE_BLAST, OUTRAGE, EARTHQUAKE, AIR_CUTTER
+	db 10
+	dw ALTARIAX
+	dw DRAGON_FANG
+	dw LUSTER_PURGE, OUTRAGE, RECOVER, PERISH_SONG
+	db 10
+	dw HANAMOLE
+	dw MIRACLE_SEED
+	dw GIGA_DRAIN, DRAGONBREATH, STUN_SPORE, LEECH_SEED
+	db 10
+	dw FURRET2
+	dw LEFTOVERS
+	dw HYPER_BEAM, CRUNCH, OUTRAGE, DRAGON_DANCE
+	db 11
+	dw GYARADOSX
+	dw AMULET_COIN
+	dw WATERFALL, OUTRAGE, FIRE_FANG, THUNDER_FANG
+	db -1 ; end
+
 	end_list_items
 
 SabrinaGroupHard:
@@ -6762,6 +6822,54 @@ GruntFGroupHard:
 	db 8
 	dw GLOOM
 	dw ABSORB, SWEET_SCENT, STUN_SPORE, SLEEP_POWDER
+	db -1 ; end
+
+	next_list_item ; GRUNTF (6) Contest Amaya #1
+	db "AMAYA@", TRAINERTYPE_NORMAL
+	db 9
+	dw PIKACHU
+	db 9
+	dw TRAPINCH
+	db 9
+	dw BELDUM
+	db 9
+	dw HOUNDOUR
+	db 10
+	dw GYARADOS
+	db 10
+	dw ANINETALES
+	db -1 ; end
+
+	next_list_item ; GRUNTF (7) Contest Amaya #2
+	db "AMAYA@", TRAINERTYPE_NORMAL
+	db 7
+	dw ARAICHU
+	db 8
+	dw FLYGON
+	db 8
+	dw METANG
+	db 9
+	dw HOUNDOOM
+	db 11
+	dw GYARADOS
+	db 11
+	dw NINETALES2
+	db -1 ; end
+
+	next_list_item ; GRUNTF (8) Contest Amaya #3
+	db "AMAYA@", TRAINERTYPE_NORMAL
+	db 10
+	dw ARAICHU
+	db 10
+	dw FLYGONX
+	db 10
+	dw METAGROSSX
+	db 10
+	dw HOUNDOOMX
+	db 11
+	dw GYARADOSX
+	db 11
+	dw NINETALES2
 	db -1 ; end
 
 	end_list_items

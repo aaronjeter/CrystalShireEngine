@@ -295,13 +295,13 @@ SentretEvosAttacks:
 	dbw 24, SCARY_FACE
 	dbw 28, DIG
 	dbw 32, BULK_UP
-	dbw 36, CRUNCH
-	dbw 40, SUPER_FANG
-	dbw 42, AGILITY
+	dbw 36, DRAGON_CLAW
+	dbw 40, DRAGON_DANCE
+	dbw 42, REST
 	dbw 45, EXTREMESPEED
 	dbw 50, IRON_TAIL
-	dbw 55, SWORDS_DANCE
-	dbw 60, DOUBLE_EDGE
+	dbw 55, OUTRAGE
+	dbw 60, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 FurretEvosAttacks:
@@ -317,13 +317,13 @@ FurretEvosAttacks:
 	dbw 24, SCARY_FACE
 	dbw 28, DIG
 	dbw 32, BULK_UP
-	dbw 36, CRUNCH
-	dbw 40, SUPER_FANG
-	dbw 42, AGILITY
+	dbw 36, DRAGON_CLAW
+	dbw 40, DRAGON_DANCE
+	dbw 42, REST
 	dbw 45, EXTREMESPEED
 	dbw 50, IRON_TAIL
-	dbw 55, SWORDS_DANCE
-	dbw 60, DOUBLE_EDGE
+	dbw 55, OUTRAGE
+	dbw 60, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 HoothootEvosAttacks:
@@ -346,7 +346,7 @@ HoothootEvosAttacks:
 	dbw 45, ICY_WIND
 	dbw 50, GROWTH
 	dbw 55, HURRICANE
-	dbw 60,FUTURE_SIGHT
+	dbw 60, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 NoctowlEvosAttacks:
@@ -1547,6 +1547,8 @@ RemoraidEvosAttacks:
 	dbw 42, SUNNY_DAY
 	dbw 45, SOLARBEAM
 	dbw 50, RECOVER
+	dbw 55, FLAMETHROWER
+	dbw 60, ERUPTION
 	db 0 ; no more level-up moves
 
 OctilleryEvosAttacks:
@@ -1565,6 +1567,8 @@ OctilleryEvosAttacks:
 	dbw 42, SUNNY_DAY
 	dbw 45, SOLARBEAM
 	dbw 50, RECOVER
+	dbw 55, FLAMETHROWER
+	dbw 60, ERUPTION
 	db 0 ; no more level-up moves
 
 DelibirdEvosAttacks:

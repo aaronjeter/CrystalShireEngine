@@ -386,6 +386,9 @@ DEF KRIS EQU __trainer_class__
 	const SHIRLEY
 	const JESS1
 	const JESS2
+	const KLUTCH1
+	const KLUTCH2
+	const KLUTCH3
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
@@ -794,6 +797,9 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTF_3
 	const GRUNTF_4
 	const GRUNTF_5
+	const AMAYA1
+	const AMAYA2
+	const AMAYA3
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE

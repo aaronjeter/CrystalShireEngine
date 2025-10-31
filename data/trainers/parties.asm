@@ -3284,7 +3284,7 @@ TeacherGroup:
 	dw JIGGLYPUFF
 	db -1 ; end
 
-	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #1)
+	next_list_item ; TEACHER (4) Ilex East (Jessadactyl contest party #1)
 	db "JESS@", TRAINERTYPE_NORMAL
 	db 5
 	dw NATU
@@ -3300,7 +3300,7 @@ TeacherGroup:
 	dw GRANBULL
 	db -1 ; end
 
-	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #2)
+	next_list_item ; TEACHER (5) Ilex East (Jessadactyl contest party #2)
 	db "JESS@", TRAINERTYPE_MOVES
 	db 8
 	dw XATU
@@ -3320,7 +3320,56 @@ TeacherGroup:
 	db 10
 	dw ANNIHILAPE
 	dw CROSS_CHOP, SHADOW_PUNCH, FISSURE, BULK_UP
+	db -1 ; end	
+
+	next_list_item ; TEACHER (6)  (Klutch contest party #1)
+	db "KLUTCH@", TRAINERTYPE_NORMAL
+	db 5
+	dw RHYHORN
+	db 5
+	dw CHARMANDER
+	db 5
+	dw SWABLU
+	db 5
+	dw FURRET
+	db 5
+	dw HANAMOLE
+	db 7
+	dw GYARADOS
 	db -1 ; end
+
+	next_list_item ; TEACHER (7)  (Klutch contest party #2)
+	db "KLUTCH@", TRAINERTYPE_NORMAL
+	db 7
+	dw RHYDON
+	db 7
+	dw CHARIZARD
+	db 7
+	dw ALTARIA
+	db 7
+	dw HANAMOLE
+	db 7
+	dw FURRET
+	db 9
+	dw GYARADOS
+	db -1 ; end
+
+	next_list_item ; TEACHER (8)  (Klutch contest party #3)
+	db "KLUTCH@", TRAINERTYPE_NORMAL
+	db 10
+	dw RHYPERIOR
+	db 10
+	dw CHARIZARDX
+	db 10
+	dw ALTARIAX
+	db 10
+	dw HANAMOLE
+	db 10
+	dw FURRET2
+	db 11
+	dw GYARADOSX
+	db -1 ; end
+
 	end_list_items
 
 SabrinaGroup: ;Gym Leader
@@ -6685,6 +6734,54 @@ GruntFGroup:
 	db 8
 	dw GLOOM
 	dw ABSORB, SWEET_SCENT, STUN_SPORE, SLEEP_POWDER
+	db -1 ; end
+
+	next_list_item ; GRUNTF (6) Contest Amaya #1
+	db "AMAYA@", TRAINERTYPE_NORMAL
+	db 7
+	dw PIKACHU
+	db 7
+	dw TRAPINCH
+	db 7
+	dw BELDUM
+	db 7
+	dw HOUNDOUR
+	db 8
+	dw AVULPIX
+	db 8
+	dw GYARADOS	
+	db -1 ; end
+
+	next_list_item ; GRUNTF (7) Contest Amaya #2
+	db "AMAYA@", TRAINERTYPE_NORMAL
+	db 7
+	dw ARAICHU
+	db 7
+	dw VIBRAVA
+	db 7
+	dw METANG
+	db 7
+	dw HOUNDOOM
+	db 8
+	dw GYARADOS
+	db 9
+	dw ANINETALES
+	db -1 ; end
+
+	next_list_item ; GRUNTF (8) Contest Amaya #3
+	db "AMAYA@", TRAINERTYPE_NORMAL
+	db 7
+	dw ARAICHU
+	db 7
+	dw FLYGONX
+	db 7
+	dw METAGROSSX
+	db 7
+	dw HOUNDOOMX
+	db 8
+	dw GYARADOSX
+	db 9
+	dw NINETALES2
 	db -1 ; end
 
 	end_list_items
