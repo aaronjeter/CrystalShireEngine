@@ -3,6 +3,9 @@
 	const MAPROUTE102_ALLEN
 	const MAPROUTE102_RICK
 	const MAPROUTE102_TIANA
+	const MAPROUTE102_SURSKIT
+	const MAPROUTE102_TAILLOW
+	const MAPROUTE102_SEEDOT
 
 
 Route102_MapScripts:
@@ -127,6 +130,30 @@ Route102TianaAfterBattleText:
 	cont "trainer battles."
 	done
 
+Route102_Surskit:
+	cry SURSKIT
+	loadwildmon SURSKIT, 2
+	startbattle
+	reloadmapafterbattle
+	disappear MAPROUTE102_SURSKIT
+	end
+
+Route102_Taillow:
+	cry TAILLOW
+	loadwildmon TAILLOW, 3
+	startbattle
+	reloadmapafterbattle
+	disappear MAPROUTE102_TAILLOW
+	end
+
+Route102_Seedot:
+	cry SEEDOT
+	loadwildmon SEEDOT, 1
+	startbattle
+	reloadmapafterbattle
+	disappear MAPROUTE102_SEEDOT
+	end
+
 Route102_MapEvents:
 	db 0, 0 ; filler
 
@@ -141,4 +168,6 @@ Route102_MapEvents:
 	object_event  19, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route102AllenScript, -1
 	object_event  12, 11, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route102RickScript, -1
 	object_event   6,  2, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route102TianaScript, -1
-	
+	object_event  30,  3, SPRITE_SURSKIT, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route102_Surskit, -1
+	object_event  24,  6, SPRITE_TAILLOW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route102_Taillow, -1
+	object_event   7, 18, SPRITE_SEEDOT, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route102_Seedot, -1

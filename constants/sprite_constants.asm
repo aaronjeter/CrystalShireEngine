@@ -107,7 +107,7 @@
 DEF NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
-	const_next $80
+	const_next $67
 DEF SPRITE_POKEMON EQU const_value
 	const SPRITE_BULBASAUR ; 01
 	const SPRITE_CHARMANDER ; 04
@@ -197,8 +197,15 @@ DEF SPRITE_POKEMON EQU const_value
 	const SPRITE_MUDKIP	; 258
 	const SPRITE_POOCHYENA ; 261
 	const SPRITE_ZIGZAGOON ; 263
+	const SPRITE_WURMPLE ; 265
+	const SPRITE_LOTAD ; 270
+	const SPRITE_SEEDOT ; 273
+	const SPRITE_TAILLOW ; 276
 	const SPRITE_WINGULL ; 278
+	const SPRITE_RALTS ; 280
 	const SPRITE_SURSKIT ; 283
+	const SPRITE_SHROOMISH ; 285
+	const SPRITE_ROSELIA ; 315
 	const SPRITE_SOLROCK ; 338
 	const SPRITE_GLALIE ; 362
 	const SPRITE_BAGON ; 371
@@ -208,7 +215,7 @@ DEF SPRITE_POKEMON EQU const_value
 DEF NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
-	const_next $e0
+	const_next $ee
 	const SPRITE_DAY_CARE_MON_1 ; e0
 	const SPRITE_DAY_CARE_MON_2 ; e1
 

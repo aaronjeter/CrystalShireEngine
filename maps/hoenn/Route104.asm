@@ -7,6 +7,9 @@
 	const MAPROUTE104_GINA
 	const MAPROUTE104_MIA
 	const MAPROUTE104_IVAN
+	const MAPROUTE104_RALTS
+	const MAPROUTE104_LOTAD
+	const MAPROUTE104_ROSELIA
 
 Route104_MapScripts:
 	def_scene_scripts
@@ -236,6 +239,30 @@ Route104IvanAfterBattleText:
 	para "It's so serene."
 	done
 
+Route104_Ralts:
+	cry RALTS
+	loadwildmon RALTS, 2
+	startbattle
+	reloadmapafterbattle
+	disappear MAPROUTE104_RALTS
+	end
+
+Route104_Lotad:
+	cry LOTAD
+	loadwildmon LOTAD, 4
+	startbattle
+	reloadmapafterbattle
+	disappear MAPROUTE104_LOTAD
+	end
+
+Route104_Roselia:
+	cry ROSELIA
+	loadwildmon ROSELIA, 9
+	startbattle
+	reloadmapafterbattle
+	disappear MAPROUTE104_ROSELIA
+	end
+
 
 Route104_MapEvents:
 	db 0, 0 ; filler
@@ -263,4 +290,6 @@ Route104_MapEvents:
 	object_event  20,  12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route104GinaScript, -1
 	object_event  21,  12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, Route104MiaScript, -1
 	object_event  22,   7, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, Route104IvanScript, -1
-	
+	object_event    4,   7, SPRITE_RALTS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route104_Ralts, -1
+	object_event  10,  17, SPRITE_LOTAD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route104_Lotad, -1
+	object_event 23, 38, SPRITE_ROSELIA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route104_Roselia, -1

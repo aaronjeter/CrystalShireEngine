@@ -33,6 +33,6 @@ Route101_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  8, 16, SPRITE_POOCHYENA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, Route101_Poochyena, -1
+	object_event  6, 10, SPRITE_POOCHYENA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, Route101_Poochyena, -1
 	object_event  4,  4, SPRITE_ZIGZAGOON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route101_Zigzagoon, -1
 	

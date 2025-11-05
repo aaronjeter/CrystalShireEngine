@@ -542,6 +542,9 @@ ENDM
 	map_const DEWFORD_TOWN,								   20, 20 ;
 	map_const DEWFORD_GYM,								   09, 14 ;
 	map_const DEWFORD_POKECENTER,						   07, 04 ;	
+	map_const LAVARIDGE_TOWN,							   12, 10 ;
+	map_const LAVARIDGE_POKECENTER,						   07, 04 ;
+	map_const LAVARIDGE_MART,							   06, 04 ;
 	map_const ROUTE_101,                                   10, 10 ;  4
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6
@@ -552,6 +555,9 @@ ENDM
 	map_const ROUTE_108,                                   30, 10 ;
 	map_const ROUTE_109,								   20, 30 ;
 	map_const ROUTE_110,                                   20, 30 ;
+	map_const ROUTE_111,								   20, 30 ;
+	map_const ROUTE_112,								   20, 30 ;
+	map_const ROUTE_113,								   50, 10 ;
 	map_const ROUTE_116,								   30, 10 ;
 	map_const ROUTE_117,								   30, 10 ;
 	endgroup

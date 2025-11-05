@@ -711,6 +711,7 @@ ENDM
 	map_attributes VerdanturfPokecenter, VERDANTURF_POKECENTER, $00, 0
 	map_attributes MauvillePokecenter, MAUVILLE_POKECENTER, $00, 0
 	map_attributes SlateportPokecenter, SLATEPORT_POKECENTER, $00, 0
+	map_attributes LavaridgePokecenter, LAVARIDGE_POKECENTER, $00, 0
 	map_attributes GraniteCaveB1F, GRANITE_CAVE_B1F, $00, 0
 	map_attributes GraniteCaveB2F, GRANITE_CAVE_B2F, $00, 0
 	map_attributes GraniteCaveB3F, GRANITE_CAVE_B3F, $00, 0
@@ -722,6 +723,7 @@ ENDM
 	map_attributes VerdanturfMart, VERDANTURF_MART, $00, 0
 	map_attributes MauvilleMart, MAUVILLE_MART, $00, 0
 	map_attributes SlateportMart, SLATEPORT_MART, $00, 0
+	map_attributes LavaridgeMart, LAVARIDGE_MART, $00, 0
 	map_attributes SlateportHarbor, SLATEPORT_HARBOR, $00, 0
 
 	map_attributes RustboroCutterHouse, RUSTBORO_CUTTER_HOUSE, $00, 0
@@ -755,7 +757,8 @@ ENDM
 	map_attributes VerdanturfTown, VERDANTURF_TOWN, $05, EAST
 	connection east, Route117, ROUTE_117, 0
 
-	map_attributes MauvilleCity, MAUVILLE_CITY, $05, SOUTH | WEST
+	map_attributes MauvilleCity, MAUVILLE_CITY, $05, NORTH | SOUTH | WEST
+	connection north, Route111, ROUTE_111, 0
 	connection south, Route110, ROUTE_110, 0
 	connection west, Route117, ROUTE_117, 0
 
@@ -766,6 +769,9 @@ ENDM
 	map_attributes DewfordTown, DEWFORD_TOWN, $05, NORTH | EAST
 	connection north, Route105, ROUTE_105, 0
 	connection east, Route108, ROUTE_108, 10
+
+	map_attributes LavaridgeTown, LAVARIDGE_TOWN, $05, EAST
+	connection east, Route112, ROUTE_112, -20
 
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0
@@ -800,6 +806,18 @@ ENDM
 	connection north, MauvilleCity, MAUVILLE_CITY, 0
 	connection south, SlateportCity, SLATEPORT_CITY, 0
 	connection west, Route103, ROUTE_103, 18
+
+	map_attributes Route111, ROUTE_111, $05, SOUTH | WEST
+	connection south, MauvilleCity, MAUVILLE_CITY, 0
+	connection west, Route112, ROUTE_112, -22
+
+	map_attributes Route112, ROUTE_112, $05, NORTH | WEST | EAST 
+	connection north, Route113, ROUTE_113, -28
+	connection west,  LavaridgeTown, LAVARIDGE_TOWN, 20
+	connection east,  Route111, ROUTE_111, 22
+
+	map_attributes Route113, ROUTE_113, $05, SOUTH 
+	connection south, Route112, ROUTE_112, 28
 
 	map_attributes Route116, ROUTE_116, $05, WEST
 	connection west, RustboroCity, RUSTBORO_CITY, 0

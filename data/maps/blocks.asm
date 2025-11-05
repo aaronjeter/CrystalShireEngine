@@ -961,6 +961,9 @@ SECTION "Map Blocks 4", ROMX
 	RusturfTunnel_Blocks:
 	INCBIN "maps/hoenn/RusturfTunnel.ablk"
 
+	LavaridgeTown_Blocks:
+	INCBIN "maps/hoenn/lavaridge/LavaridgeTown.ablk"
+
 	OldalePokecenter_Blocks:
 	PetalburgPokecenter_Blocks:
 	RustboroPokecenter_Blocks:
@@ -968,6 +971,7 @@ SECTION "Map Blocks 4", ROMX
 	MauvillePokecenter_Blocks:
 	SlateportPokecenter_Blocks:
 	DewfordPokecenter_Blocks:
+	LavaridgePokecenter_Blocks:
 	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
 	OldaleMart_Blocks:
@@ -976,6 +980,7 @@ SECTION "Map Blocks 4", ROMX
 	VerdanturfMart_Blocks:
 	MauvilleMart_Blocks:
 	SlateportMart_Blocks:
+	LavaridgeMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
 	BirchsLab_Blocks:
@@ -1028,6 +1033,15 @@ SECTION "Map Blocks 4", ROMX
 
 	Route110_Blocks:
 	INCBIN "maps/hoenn/Route110.ablk" 
+
+	Route111_Blocks:
+	INCBIN "maps/hoenn/Route111.ablk" 
+
+	Route112_Blocks:
+	INCBIN "maps/hoenn/Route112.ablk" 
+
+	Route113_Blocks:
+	INCBIN "maps/hoenn/Route113.ablk" 
 
 	Route116_Blocks:
 	INCBIN "maps/hoenn/Route116.ablk" 
