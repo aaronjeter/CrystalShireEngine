@@ -137,7 +137,8 @@ Check_Etb_Ability:
 	ret
 		
 .HasIntimidate:	
-	farcall BattleCommand_StatDownAnim.etb_ability_skip
+	ld de, LEER
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_AttackDown
 
     ld hl, IntimidateCutsAttackText
@@ -155,7 +156,8 @@ Check_Etb_Ability:
 	ret
 		
 .HasMystify:	
-	farcall BattleCommand_StatDownAnim.etb_ability_skip
+	ld de, DETECT
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_SpecialAttackDown
 
     ld hl, MystifyCutsSpecialAttackText
@@ -173,7 +175,8 @@ Check_Etb_Ability:
 	ret
 		
 .HasSnare:	
-	farcall BattleCommand_StatDownAnim.etb_ability_skip
+	ld de, WRAP
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_SpeedDown
 
     ld hl, SnareCutsSpeedText
