@@ -30,6 +30,15 @@ PrintAbility:
 	jp .Waterproof
 	.NotWaterproof
 
+	jp .ElementalFist
+	.NotElementalFist
+
+	jp .ElementalFang
+	.NotElementalFang
+
+	jp .ElementalBlade
+	.NotElementalBlade
+
 	jp .NoAbility
 
 	.Done
@@ -226,6 +235,66 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.ElementalFist:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityElementalFistMons
+	call IsInWordArray
+	jr c, .HasElementalFist
+	jp .NotElementalFist
+		
+.HasElementalFist:
+	ld de, ElementalFistNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, ElementalFistDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.ElementalFang:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityElementalFangMons
+	call IsInWordArray
+	jr c, .HasElementalFang
+	jp .NotElementalFang
+		
+.HasElementalFang:
+	ld de, ElementalFangNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, ElementalFangDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.ElementalBlade:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityElementalBladeMons
+	call IsInWordArray
+	jr c, .HasElementalBlade
+	jp .NotElementalBlade
+		
+.HasElementalBlade:
+	ld de, ElementalBladeNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, ElementalBladeDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -260,4 +329,13 @@ LevitateNameString:
 
 WaterproofNameString:
 	db "WATERPROOF@"
+
+ElementalFistNameString:
+	db "ELEMENTAL FIST@"
+
+ElementalFangNameString:
+	db "ELEMENTAL FANG@"
+
+ElementalBladeNameString:
+	db "ELEMENTAL BLADE@"
 

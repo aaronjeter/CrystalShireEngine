@@ -56,5 +56,17 @@ WaterproofDesc:
 	db    "Protects against"
 	next  "WATER moves.@"
 
+ElementalFistDesc:
+	db    "Boosts off-type"
+	next  "PUNCH moves.@"
+
+ElementalFangDesc:
+	db    "Boosts off-type"
+	next  "FANG moves.@"
+
+ElementalBladeDesc:
+	db    "Boosts off-type"
+	next  "SLICE moves.@"
+
 
 

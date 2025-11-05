@@ -13,17 +13,6 @@ PunchMoves::
 	dw SHADOW_PUNCH
 	dw -1
 
-KickMoves::
-	dw DOUBLE_KICK
-	dw MEGA_KICK
-	dw JUMP_KICK
-	dw ROLLING_KICK
-	dw LOW_KICK
-	dw HI_JUMP_KICK
-	dw TRIPLE_KICK
-	dw BLAZE_KICK
-	dw -1
-
 FangMoves::
 	dw BITE
 	dw HYPER_FANG
@@ -34,17 +23,14 @@ FangMoves::
 	dw FIRE_FANG
 	dw -1
 
-ClawMoves::
-	dw SCRATCH	
-	dw CRABHAMMER	
-	dw CRUSH_CLAW
-	dw DRAGON_CLAW	
-	dw SHADOW_CLAW
-	dw -1
-
-BirdMoves::
-	dw WING_ATTACK	
-	dw PECK
-	dw DRILL_PECK
-	dw STEEL_WING	
+SharpMoves::
+	dw CUT
+	dw SLASH
+	dw FALSE_SWIPE
+	dw FURY_CUTTER
+	dw LEAF_BLADE
+	dw PSYCHO_CUT
+	dw RAZORSHELL
+	dw AIR_CUTTER
+	dw AERIAL_ACE
 	dw -1

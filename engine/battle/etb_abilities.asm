@@ -39,7 +39,7 @@ Check_Etb_Ability:
     ld a, 10 
     ld [wWeatherCount], a
 	ld de, RAIN_DANCE
-    farcall Call_PlayBattleAnim
+    call Call_PlayBattleAnim
     ld hl, DrizzleText
     call StdBattleTextbox
 	;call HandleWeather
@@ -66,7 +66,7 @@ Check_Etb_Ability:
     ld a, 10 
     ld [wWeatherCount], a
 	ld de, SUNNY_DAY
-    farcall Call_PlayBattleAnim
+    call Call_PlayBattleAnim
     ld hl, DroughtText
     call StdBattleTextbox
 	;call HandleWeather
@@ -92,7 +92,7 @@ Check_Etb_Ability:
     ld [wBattleWeather], a
     ld a, 10 
 	ld de, SANDSTORM
-    farcall Call_PlayBattleAnim
+    call Call_PlayBattleAnim
     ld [wWeatherCount], a
     ld hl, SandStreamText
     call StdBattleTextbox
@@ -120,7 +120,7 @@ Check_Etb_Ability:
     ld a, 10 
     ld [wWeatherCount], a
 	ld de, HAIL
-    farcall Call_PlayBattleAnim
+    call Call_PlayBattleAnim
     ld hl, SnowWarningText
     call StdBattleTextbox
 	;call HandleWeather
@@ -138,7 +138,7 @@ Check_Etb_Ability:
 		
 .HasIntimidate:	
 	ld de, LEER
-    farcall Call_PlayBattleAnim
+    call Call_PlayBattleAnim
     farcall BattleCommand_AttackDown
 
     ld hl, IntimidateCutsAttackText
@@ -157,7 +157,7 @@ Check_Etb_Ability:
 		
 .HasMystify:	
 	ld de, DETECT
-    farcall Call_PlayBattleAnim
+    call Call_PlayBattleAnim
     farcall BattleCommand_SpecialAttackDown
 
     ld hl, MystifyCutsSpecialAttackText
@@ -176,7 +176,7 @@ Check_Etb_Ability:
 		
 .HasSnare:	
 	ld de, WRAP
-    farcall Call_PlayBattleAnim
+    call Call_PlayBattleAnim
     farcall BattleCommand_SpeedDown
 
     ld hl, SnareCutsSpeedText

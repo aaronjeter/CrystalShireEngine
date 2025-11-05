@@ -1,37 +1,35 @@
 ;Mons with abilities that boost damage
 
-IronFistMons::
+ElementalFistMons::
 	dw PRIMEAPE
-	dw KADABRA
-	dw ALAKAZAM
 	dw HITMONCHAN
-	dw JYNX
-	dw ELECTABUZZ
-	dw MAGMAR
 	dw LEDIAN
 	dw BRELOOM
 	dw MEDICHAM
 	dw ANNIHILAPE
 	dw -1
 
-FangMons::
+ElementalFangMons::
 	dw RATICATE
 	dw FERALIGATR
+	dw FURRET
+	dw LINOONE
 	dw SHARPEDO
 	dw HUNTAIL
 	dw EXEGGUTOR2
+	dw FURRET2
 	dw FERALIGATR2
 	dw -1
 
-SharpMons::	
+ElementalBladeMons::	
 	dw PERSIAN
 	dw FARFETCH_D
-	dw KINGLER
 	dw SCYTHER
-	dw PINSIR
 	dw KABUTOPS
-	dw URSARING	
-	dw CRAWDAUNT
-	dw ARMALDO
+	dw SNEASEL
+	dw SCEPTILE
 	dw ABSOL	
+	dw GALLADE
+	dw WEAVILE
+	dw KLEAVOR
 	dw -1

@@ -1199,6 +1199,8 @@ INCLUDE "data/battle/critical_hit_chances.asm"
 
 INCLUDE "engine/battle/move_effects/triple_kick.asm"
 
+INCLUDE "engine/battle/check_damage_ability.asm"
+
 BattleCommand_Stab:
 ; STAB = Same Type Attack Bonus
 	ld a, BATTLE_VARS_MOVE_ANIM
@@ -1206,6 +1208,16 @@ BattleCommand_Stab:
 	ld bc, STRUGGLE
 	call CompareMove
 	ret z
+
+	ld a, [wCurPartySpecies]
+	ld [wTempAbilityMon], a
+
+	push de
+	push bc
+	call CheckStabAbility
+	pop bc
+	pop de
+	jr c, .stab ;If we used a stab move+ability, skip to stab
 
 	ld hl, wBattleMonType1
 	ld a, [hli]
@@ -1250,6 +1262,8 @@ BattleCommand_Stab:
 	jr nz, .SkipStab
 ; fallthrough
 .stab
+	;call PrintParalyze ;test command to verify stab activating
+
 	ld hl, wCurDamage + 1
 	ld a, [hld]
 	ld h, [hl]
@@ -6821,3 +6835,13 @@ GetTargetSpecies:
 	ret nz 
 	ld a, [wTempEnemyMonSpecies]
 	ret
+
+GetCurrentMon:
+    ldh a, [hBattleTurn]
+	and a
+	ld a, [wBattleMonSpecies]
+	call GetPokemonIndexFromID
+	ret z
+	ld a, [wEnemyMonSpecies]
+	call GetPokemonIndexFromID
+    ret

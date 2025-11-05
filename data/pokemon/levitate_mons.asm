@@ -6,8 +6,6 @@ LevitateMons::
 	dw GENGAR
 	dw KOFFING
 	dw WEEZING
-	dw MISDREAVUS
-	dw UNOWN
 	dw VIBRAVA
 	dw FLYGON
 	dw LUNATONE
@@ -16,10 +14,8 @@ LevitateMons::
 	dw CLAYDOL
 	dw DUSKULL
 	dw DUSCLOPS
-	dw CHIMECHO
 	dw MAGNEZONE	
 	dw FLYGONX
-	dw CHIMECHOX
 	dw -1
 
 WaterproofMons::
