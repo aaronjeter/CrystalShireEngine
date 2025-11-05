@@ -38,6 +38,8 @@ Check_Etb_Ability:
     ld [wBattleWeather], a
     ld a, 10 
     ld [wWeatherCount], a
+	ld de, RAIN_DANCE
+    farcall Call_PlayBattleAnim
     ld hl, DrizzleText
     call StdBattleTextbox
 	;call HandleWeather
@@ -63,6 +65,8 @@ Check_Etb_Ability:
     ld [wBattleWeather], a
     ld a, 10 
     ld [wWeatherCount], a
+	ld de, SUNNY_DAY
+    farcall Call_PlayBattleAnim
     ld hl, DroughtText
     call StdBattleTextbox
 	;call HandleWeather
@@ -87,6 +91,8 @@ Check_Etb_Ability:
 	ld a, WEATHER_SANDSTORM
     ld [wBattleWeather], a
     ld a, 10 
+	ld de, SANDSTORM
+    farcall Call_PlayBattleAnim
     ld [wWeatherCount], a
     ld hl, SandStreamText
     call StdBattleTextbox
@@ -113,6 +119,8 @@ Check_Etb_Ability:
     ld [wBattleWeather], a
     ld a, 10 
     ld [wWeatherCount], a
+	ld de, HAIL
+    farcall Call_PlayBattleAnim
     ld hl, SnowWarningText
     call StdBattleTextbox
 	;call HandleWeather
