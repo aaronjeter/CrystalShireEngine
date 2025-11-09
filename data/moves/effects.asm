@@ -2164,6 +2164,8 @@ CosmicPower:
 	statupmessage
 	specialdefenseup	
 	statupmessage
+	speedup
+	statupmessage
 	raisesub	
 	statupfailtext
 	endmove

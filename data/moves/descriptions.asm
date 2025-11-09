@@ -1461,7 +1461,7 @@ SilverWindDescription:
 	next "raise all stats.@"
 
 CosmicPowerDescription:
-	db   "Raises the user's"
+	db   "Boosts speed and"
 	next "defensive stats.@"
 
 WaterSpoutDescription:
