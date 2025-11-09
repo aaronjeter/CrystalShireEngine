@@ -39,6 +39,9 @@ PrintAbility:
 	jp .ElementalBlade
 	.NotElementalBlade
 
+	jp .Stability
+	.NotStability
+
 	jp .NoAbility
 
 	.Done
@@ -295,6 +298,26 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Stability:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityStabilityMons
+	call IsInWordArray
+	jr c, .HasStability
+	jp .NotStability
+		
+.HasStability:
+	ld de, StabilityNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, StabilityDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -338,4 +361,7 @@ ElementalFangNameString:
 
 ElementalBladeNameString:
 	db "ELEMENTAL BLADE@"
+
+StabilityNameString:
+	db "Stability@"
 

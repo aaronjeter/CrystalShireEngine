@@ -1261,8 +1261,44 @@ BattleCommand_Stab:
 	cp c
 	jr nz, .SkipStab
 ; fallthrough
-.stab
+.stab	
+
+	push de
+	push bc
+	call CheckStabilityMon
+	pop bc
+	pop de
+	jr c, .doubleStab
+
+	jr .normalStab
+
+.doubleStab
 	;call PrintParalyze ;test command to verify stab activating
+
+	ld hl, wCurDamage + 1
+	ld a, [hld]
+	ld h, [hl]
+	ld l, a
+
+	ld b, h
+	ld c, l
+	srl b
+	rr c
+	add hl, bc
+	add hl, bc
+
+	ld a, h
+	ld [wCurDamage], a
+	ld a, l
+	ld [wCurDamage + 1], a
+
+	ld hl, wTypeModifier
+	set STAB_DAMAGE_F, [hl]
+
+	jr .SkipStab
+	
+
+.normalStab
 
 	ld hl, wCurDamage + 1
 	ld a, [hld]

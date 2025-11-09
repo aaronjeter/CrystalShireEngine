@@ -33,3 +33,15 @@ ElementalBladeMons::
 	dw WEAVILE
 	dw KLEAVOR
 	dw -1
+
+StabilityMons::
+	dw EEVEE
+	dw VAPOREON
+	dw JOLTEON
+	dw FLAREON
+	dw PORYGON
+	dw ESPEON
+	dw UMBREON
+	dw PORYGON2
+	dw PORYGONZ
+	dw -1

@@ -68,5 +68,9 @@ ElementalBladeDesc:
 	db    "Boosts off-type"
 	next  "SLICE moves.@"
 
+StabilityDesc:
+	db    "Boosts same-type"
+	next  "Attack moves.@"
+
 
 

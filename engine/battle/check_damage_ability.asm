@@ -100,6 +100,14 @@ CheckBladeMove:
 	pop hl
 	ret
 
+CheckStabilityMon:	
+	call GetCurrentMon
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, StabilityMons
+	call IsInWordArray
+	ret	
 
 GetAbilityMove:
 	ld a, BATTLE_VARS_MOVE_ANIM
