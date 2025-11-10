@@ -42,6 +42,9 @@ StabilityMons::
 	dw PORYGON
 	dw ESPEON
 	dw UMBREON
+	dw SYLVEON
+	dw LEAFEON
+	dw GLACEON
 	dw PORYGON2
 	dw PORYGONZ
 	dw -1

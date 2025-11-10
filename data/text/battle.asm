@@ -1166,3 +1166,28 @@ SnareCutsSpeedText:
     para "<TARGET>'s"
     line "Speed!"
 	prompt
+
+HealAbilityText:
+	text "<TARGET>"
+	line "regenerated!"
+	prompt
+
+RainDishHealsText:
+	text "The rain heals"
+	line "<TARGET>!"
+	prompt
+
+SunbaskHealsText:
+	text "The sun heals"
+	line "<TARGET>!"
+	prompt
+
+IceBodyHealsText:
+	text "The hail heals"
+	line "<TARGET>!"
+	prompt
+
+SandBodyHealsText:
+	text "The sand heals"
+	line "<TARGET>!"
+	prompt

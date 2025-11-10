@@ -1,21 +1,3 @@
-; Ability descriptions for Pokémon abilities of Gen III
-;
-; Directly corresponds to the ability IDs (see constants/ability_constants.asm)
-; Used to display the ability description on the Stats screen
-
-AbilityDescriptions:
-	dw NoAbilityDesc
-	dw DroughtDesc
-	dw DrizzleDesc
-	dw SandStreamDesc
-	dw SnowWarningDesc
-	dw IntimidateDesc
-	dw MystifyDesc
-	dw SnareDesc
-	dw LevitateDesc	
-	dw WaterproofDesc
-
-; Actual descriptions start here
 NoAbilityDesc:
 	db    "No special"
 	next  "ability.@"
@@ -72,5 +54,22 @@ StabilityDesc:
 	db    "Boosts same-type"
 	next  "Attack moves.@"
 
+RegenerationDesc:
+	db    "Heals a little"
+	next  "each turn.@"
 
+RainDishDesc:
+	db    "Heals during"
+	next  "RAIN.@"
 
+SunbaskDesc:
+	db    "Heals during"
+	next  "SUN.@"
+
+SandBodyDesc:
+	db    "Heals during"
+	next  "SANDSTORM.@"
+
+IceBodyDesc:
+	db    "Heals during"
+	next  "HAIL.@"

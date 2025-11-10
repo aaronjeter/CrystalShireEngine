@@ -72,14 +72,6 @@ AbilitySnareMons::
 	dw YANMA2
 	dw -1
 
-AbilityToxicMons::
-	dw QWILFISH
-	dw DUSTOX
-	dw ROSELIA
-	dw SWALOT
-	dw SEVIPER
-	dw -1
-
 AbilityLevitateMons::
 	dw MAGNEMITE
 	dw MAGNETON
@@ -158,6 +150,47 @@ AbilityStabilityMons::
 	dw PORYGON
 	dw ESPEON
 	dw UMBREON
+	dw SYLVEON
+	dw LEAFEON
+	dw GLACEON
 	dw PORYGON2
 	dw PORYGONZ
+	dw -1
+
+AbilityRegenerationMons:
+	dw STARMIE
+	dw BLISSEY
+	dw SWALOT
+	dw SWALOTX
+	dw -1
+
+AbilityRainDishMons::
+	dw BLASTOISE
+	dw BLASTOISEX
+	dw SLOWBRO
+	dw SLOWBROX
+	dw LUDICOLO
+	dw -1
+
+AbilitySunbaskMons::
+	dw VENUSAUR
+	dw VENUSAURX
+	dw CHARIZARD
+	dw CHARIZARDX
+	dw TROPIUS
+	dw TROPIUSX
+	dw -1
+
+AbilitySandBodyMons::
+	dw SANDSLASH
+	dw MAROWAK
+	dw STEELIX
+	dw STEELIXX
+	dw -1
+
+AbilityIceBodyMons::
+	dw WALREIN
+	dw GLALIE
+	dw FROSLASS
+	dw ASANDSLASH
 	dw -1

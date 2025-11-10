@@ -7015,7 +7015,7 @@ FlanneryGroupHard:
 	db 12
 	dw TORKOAL
 	db 12
-	dw CHARIZARD
+	dw BLAZIKEN
 	db -1 ; end
 
 	end_list_items

@@ -42,6 +42,21 @@ PrintAbility:
 	jp .Stability
 	.NotStability
 
+	jp .Regeneration
+	.NotRegeneration
+
+	jp .RainDish
+	.NotRainDish
+
+	jp .Sunbask
+	.NotSunbask
+
+	jp .SandBody
+	.NotSandBody
+
+	jp .IceBody
+	.NotIceBody	
+
 	jp .NoAbility
 
 	.Done
@@ -318,6 +333,106 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Regeneration:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityRegenerationMons
+	call IsInWordArray
+	jr c, .HasRegeneration
+	jp .NotRegeneration
+		
+.HasRegeneration:
+	ld de, RegenerationNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, RegenerationDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.RainDish:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityRainDishMons
+	call IsInWordArray
+	jr c, .HasRainDish
+	jp .NotRainDish
+		
+.HasRainDish:
+	ld de, RainDishNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, RainDishDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.Sunbask:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilitySunbaskMons
+	call IsInWordArray
+	jr c, .HasSunbask
+	jp .NotSunbask
+		
+.HasSunbask:
+	ld de, SunbaskNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, SunbaskDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.SandBody:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilitySandBodyMons
+	call IsInWordArray
+	jr c, .HasSandBody
+	jp .NotSandBody
+		
+.HasSandBody:
+	ld de, SandBodyNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, SandBodyDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.IceBody:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityIceBodyMons
+	call IsInWordArray
+	jr c, .HasIceBody
+	jp .NotIceBody
+		
+.HasIceBody:
+	ld de, IceBodyNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, IceBodyDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -327,41 +442,55 @@ NoAbilityNameString:
 	db "NO ABILITY@"
 
 DroughtNameString:
-	db "DROUGHT@"
+	db "Drought@"
 
 DrizzleNameString:
-	db "DRIZZLE@"
+	db "Drizzle@"
 
 SandStreamNameString:
-	db "SAND STREAM@"
+	db "Sand Stream@"
 
 SnowWarningNameString:
-	db "SNOW WARNING@"
+	db "Snow Warning@"
 
 IntimidateNameString:
-	db "INTIMIDATE@"
+	db "Intimidate@"
 
 MystifyNameString:
-	db "MYSTIFY@"
+	db "Mystify@"
 
 SnareNameString:
-	db "SNARE@"
+	db "Snare@"
 
 LevitateNameString:
-	db "LEVITATE@"
+	db "Levitate@"
 
 WaterproofNameString:
-	db "WATERPROOF@"
+	db "Waterproof@"
 
 ElementalFistNameString:
-	db "ELEMENTAL FIST@"
+	db "Elemental Fist@"
 
 ElementalFangNameString:
-	db "ELEMENTAL FANG@"
+	db "Elemental Fang@"
 
 ElementalBladeNameString:
-	db "ELEMENTAL BLADE@"
+	db "Elemental Blade@"
 
 StabilityNameString:
 	db "Stability@"
 
+RegenerationNameString:
+	db "Regeneration@"
+
+RainDishNameString:
+	db "Rain Dish@"
+
+SunbaskNameString:
+	db "Sunbask@"
+
+SandBodyNameString:
+	db "Sand Body@"
+
+IceBodyNameString:
+	db "Ice Body@"

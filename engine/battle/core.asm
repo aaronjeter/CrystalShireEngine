@@ -244,6 +244,8 @@ HandleBetweenTurnEffects:
 
 .NoMoreFaintingConditions:
 	call HandleLeftovers
+	call HandleHealAbilities
+	call HandleWeatherHealAbilities
 	call HandleMysteryberry
 	call HandleSafeguard
 	call HandleScreens
@@ -1336,6 +1338,141 @@ HandleLeftovers:
 	call RestoreHP
 	ld hl, BattleText_TargetRecoveredWithItem
 	jmp StdBattleTextbox
+
+INCLUDE "engine/battle/check_heal_abilities.asm"
+
+HandleHealAbilities:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	call .do_it
+	call SetEnemyTurn
+	jr .do_it
+
+.DoEnemyFirst:
+	call SetEnemyTurn
+	call .do_it
+	call SetPlayerTurn
+.do_it	
+	push de
+	push bc
+	call CheckHealAbility
+	pop bc
+	pop de
+	ret nc
+
+	ld hl, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld hl, wEnemyMonHP
+
+.got_hp
+; Don't restore if we're already at max HP
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	cp b
+	jr nz, .restore
+	ld a, [hl]
+	cp c
+	ret z
+
+.restore
+	call GetSixteenthMaxHP
+	call SwitchTurnCore
+	call RestoreHP
+	ld hl, HealAbilityText
+	jmp StdBattleTextbox
+	ret
+
+HandleWeatherHealAbilities:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	call .do_it
+	call SetEnemyTurn
+	jr .do_it
+
+.DoEnemyFirst:
+	call SetEnemyTurn
+	call .do_it
+	call SetPlayerTurn
+.do_it	
+	push de
+	push bc
+	call CheckWeatherHealAbility
+	pop bc
+	pop de
+
+	ret nc
+	ret nz
+
+	ld hl, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld hl, wEnemyMonHP
+
+.got_hp
+; Don't restore if we're already at max HP
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	cp b
+	jr nz, .restore
+	ld a, [hl]
+	cp c
+	ret z
+
+.restore
+	call GetEighthMaxHP
+	call SwitchTurnCore
+	call RestoreHP
+
+
+;print weather heal message
+	
+	call CheckRaining
+	jr nz, .NotRaining
+	ld hl, RainDishHealsText
+	jmp StdBattleTextbox
+	jr .finish_restore
+
+.NotRaining
+
+	call CheckSun
+	jr nz, .NotSun
+	ld hl, SunbaskHealsText
+	jmp StdBattleTextbox
+	jr .finish_restore
+
+.NotSun
+
+call CheckSandstorm
+	jr nz, .NotSandstorm
+	ld hl, SandBodyHealsText
+	jmp StdBattleTextbox
+	jr .finish_restore
+
+.NotSandstorm
+
+	call CheckHail
+	jr nz, .NotHail
+	ld hl, IceBodyHealsText
+	jmp StdBattleTextbox
+	jr .finish_restore
+
+.NotHail
+
+.finish_restore
+	ret
 
 HandleMysteryberry:
 	ldh a, [hSerialConnectionStatus]

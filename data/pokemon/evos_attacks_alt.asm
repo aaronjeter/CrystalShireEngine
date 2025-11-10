@@ -532,7 +532,7 @@ AsandshrewEvosAttacks:
 	dbw 20, ICE_BALL
 	dbw 24, ROCK_TOMB
 	dbw 28, ICE_FANG	
-	dbw 32, SANDSTORM
+	dbw 32, HAIL
 	dbw 36, VICEGRIP
 	dbw 40, ICICLE_CRASH
 	dbw 42, BULK_UP
@@ -553,7 +553,7 @@ AsandslashEvosAttacks:
 	dbw 20, ICE_BALL
 	dbw 24, ROCK_TOMB
 	dbw 28, ICE_FANG	
-	dbw 32, SANDSTORM
+	dbw 32, HAIL
 	dbw 36, VICEGRIP
 	dbw 40, ICICLE_CRASH
 	dbw 42, BULK_UP
