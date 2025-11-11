@@ -57,6 +57,9 @@ PrintAbility:
 	jp .IceBody
 	.NotIceBody	
 
+	jp .Haste
+	.NotHaste
+
 	jp .NoAbility
 
 	.Done
@@ -433,6 +436,26 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Haste:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityHasteMons
+	call IsInWordArray
+	jr c, .HasHaste
+	jp .NotHaste
+		
+.HasHaste:
+	ld de, HasteNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, HasteDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -494,3 +517,6 @@ SandBodyNameString:
 
 IceBodyNameString:
 	db "Ice Body@"
+
+HasteNameString:
+	db "Haste@"

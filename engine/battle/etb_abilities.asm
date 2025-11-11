@@ -16,6 +16,8 @@ Check_Etb_Ability:
 
 	call .Snare
 
+	call .Haste
+
 	ret
 
 .Drizzle:
@@ -180,6 +182,25 @@ Check_Etb_Ability:
     farcall BattleCommand_SpeedDown
 
     ld hl, SnareCutsSpeedText
+    call StdBattleTextbox
+    ret
+
+.Haste:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, HasteMons
+	call IsInWordArray
+	jr c, .HasHaste
+	ret
+		
+.HasHaste:	
+	ld de, AGILITY
+    call Call_PlayBattleAnim
+    farcall BattleCommand_SpeedUp
+
+    ld hl, HasteBoostsSpeedText
     call StdBattleTextbox
     ret
 

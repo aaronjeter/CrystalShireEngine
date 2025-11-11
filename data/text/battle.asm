@@ -1167,6 +1167,11 @@ SnareCutsSpeedText:
     line "Speed!"
 	prompt
 
+HasteBoostsSpeedText:
+	text "<USER>'s"
+    line "HASTE boosts SPD!"
+	prompt
+
 HealAbilityText:
 	text "<TARGET>"
 	line "regenerated!"

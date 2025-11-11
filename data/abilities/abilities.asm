@@ -194,3 +194,11 @@ AbilityIceBodyMons::
 	dw FROSLASS
 	dw ASANDSLASH
 	dw -1
+
+AbilityHasteMons::
+	dw RAPIDASH
+	dw RAPIDASH2
+	dw DODRIO
+	dw BLAZIKEN
+	dw NINJASK
+	dw -1

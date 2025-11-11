@@ -73,3 +73,7 @@ SandBodyDesc:
 IceBodyDesc:
 	db    "Heals during"
 	next  "HAIL.@"
+
+HasteDesc:
+	db    "Boosts speed"
+	next  "upon entrance.@"

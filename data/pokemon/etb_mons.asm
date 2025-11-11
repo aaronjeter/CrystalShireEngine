@@ -72,10 +72,10 @@ SnareMons::
 	dw YANMA2
 	dw -1
 
-ToxicMons::
-	dw QWILFISH
-	dw DUSTOX
-	dw ROSELIA
-	dw SWALOT
-	dw SEVIPER
+HasteMons::
+	dw RAPIDASH
+	dw RAPIDASH2
+	dw DODRIO
+	dw BLAZIKEN
+	dw NINJASK
 	dw -1
