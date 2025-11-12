@@ -712,6 +712,7 @@ ENDM
 	map_attributes MauvillePokecenter, MAUVILLE_POKECENTER, $00, 0
 	map_attributes SlateportPokecenter, SLATEPORT_POKECENTER, $00, 0
 	map_attributes LavaridgePokecenter, LAVARIDGE_POKECENTER, $00, 0
+	map_attributes LavaridgeGym, LAVARIDGE_GYM, $0, 0
 	map_attributes GraniteCaveB1F, GRANITE_CAVE_B1F, $00, 0
 	map_attributes GraniteCaveB2F, GRANITE_CAVE_B2F, $00, 0
 	map_attributes GraniteCaveB3F, GRANITE_CAVE_B3F, $00, 0

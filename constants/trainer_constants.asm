@@ -268,6 +268,7 @@ DEF KRIS EQU __trainer_class__
 	const PETALBURG_RANDALL
 	const PETALBURG_PARKER
 	const PETALBURG_GEORGE
+	const LAVARIDGE_GERALD
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -420,6 +421,7 @@ DEF KRIS EQU __trainer_class__
 	const PETALBURGWOODS_LYLE
 	const PETALBURGWOODS_JAMES
 	const ROUTE116_JOSE
+	const ROUTE117_DEREK
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -572,6 +574,7 @@ DEF KRIS EQU __trainer_class__
 	const RUSTBORO_MARC
 	const ROUTE116_CLARK
 	const ROUTE116_DEVAN
+	const LAVARIDGE_ELI
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY ; unused
@@ -603,6 +606,11 @@ DEF KRIS EQU __trainer_class__
 	const WALT
 	const RAY
 	const LYLE
+	const LAVARIDGE_JEFF
+	const LAVARIDGE_JACE
+	const LAVARIDGE_COLE
+	const LAVARIDGE_AXLE
+	const LAVARIDGE_KEEGAN
 
 	trainerclass JUGGLER ; 31
 	const IRWIN1
@@ -674,6 +682,8 @@ DEF KRIS EQU __trainer_class__
 	const GINA4
 	const GINA5
 	const TIFFANY4
+	const ROUTE117_MARIA
+	const ROUTE117_MELINA
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -699,6 +709,7 @@ DEF KRIS EQU __trainer_class__
 	const TODD5
 	const QUENTIN
 	const ROUTE104_WINSTON
+	const ROUTE117_DYLAN
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
@@ -726,6 +737,7 @@ DEF KRIS EQU __trainer_class__
 	const ETHEL ; unused
 	const REBECCA
 	const DORIS
+	const ROUTE117_BRANDI
 
 	trainerclass BOARDER ; 3a
 	const RONALD
@@ -748,6 +760,7 @@ DEF KRIS EQU __trainer_class__
 	const REX
 	const ALLAN
 	const ROUTE103_MIGUEL
+	const ROUTE117_ISAAC
 
 	trainerclass KIMONO_GIRL ; 3c
 	const NAOKO_UNUSED ; unused
@@ -770,6 +783,7 @@ DEF KRIS EQU __trainer_class__
 	const LEAANDPIA2 ; unused
 	const ROUTE103_AMYLIV
 	const ROUTE104_GINAMIA
+	const ROUTE117_ANNAMEG
 
 	trainerclass POKEFANF ; 3e
 	const BEVERLY1
@@ -778,6 +792,7 @@ DEF KRIS EQU __trainer_class__
 	const BEVERLY3 ; unused
 	const GEORGIA
 	const JAIME
+	const ROUTE117_LYDIA
 
 	trainerclass RED ; 3f
 	const RED1
@@ -855,6 +870,8 @@ DEF KRIS EQU __trainer_class__
 	const DEWFORD_LAURA
 	const DEWFORD_LILITH
 	const DEWFORD_JOCELYN
+	const LAVARIDGE_DANIELLE
+	const ROUTE117_AISHA
 
 	trainerclass RANGERM
 	const RANGERM1

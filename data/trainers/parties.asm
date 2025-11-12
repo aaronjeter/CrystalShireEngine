@@ -2354,6 +2354,14 @@ CooltrainerMGroup:
 	dw RATICATE
 	db -1 ; end
 
+	next_list_item ; COOLTRAINERM (24) Lavaridge Gym
+	db "GERALD@", TRAINERTYPE_NORMAL
+	db 9
+	dw AMAROWAK
+	db 9
+	dw DYNABEA
+	db -1 ; end
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -3650,6 +3658,14 @@ BugCatcherGroup:
 	dw NINCADA
 	db -1 ; end
 
+	next_list_item ; BUG_CATCHER (25) Route 117
+	db "DEREK@", TRAINERTYPE_NORMAL
+	db 5
+	dw DUSTOX
+	db 7
+	dw BEAUTIFLY
+	db -1 ; end
+
 	end_list_items
 
 FisherGroup:
@@ -4921,6 +4937,14 @@ HikerGroup:
 	dw DUNSPARCE
 	db -1 ; end
 
+	next_list_item ; HIKER (26) Lavaridge Gym
+	db "ELI@", TRAINERTYPE_NORMAL
+	db 7
+	dw NUMEL
+	db 7
+	dw SOLROCK
+	db -1 ; end
+
 	end_list_items
 
 BikerGroup:
@@ -5165,6 +5189,56 @@ FirebreatherGroup:
 	dw FLAREON
 	db 6
 	dw KOFFING
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (9) Lavaridge Gym
+	db "JEFF@", TRAINERTYPE_NORMAL
+	db 6
+	dw SLUGMA
+	db 7
+	dw CYNDAQUIL
+	db 8
+	dw KOFFING
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (10) Lavaridge Gym
+	db "JACE@", TRAINERTYPE_NORMAL
+	db 6
+	dw CHARMANDER
+	db 7
+	dw PONYTA
+	db 8
+	dw MAGMAR
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (11) Lavaridge Gym
+	db "COLE@", TRAINERTYPE_NORMAL
+	db 6
+	dw MAGBY
+	db 7
+	dw VULPIX
+	db 8
+	dw NUMEL
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (12) Lavaridge Gym
+	db "AXLE@", TRAINERTYPE_NORMAL
+	db 6
+	dw MAGBY
+	db 7
+	dw VULPIX
+	db 8
+	dw COMBUSKEN
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (13) Lavaridge Gym
+	db "KEEGAN@", TRAINERTYPE_NORMAL
+	db 6
+	dw SUNKERN
+	db 7
+	dw CYNDAQUIL2
+	db 8
+	dw BORUBEA
 	db -1 ; end
 
 	end_list_items
@@ -5766,6 +5840,20 @@ PicnickerGroup:
 	dw METRONOME, ENCORE, MOONLIGHT, MINIMIZE
 	db -1 ; end
 
+	next_list_item ; PICNICKER (27) Route 117
+	db "MARIA@", TRAINERTYPE_NORMAL
+	db 9
+	dw DELCATTY
+	db -1 ; end
+
+	next_list_item ; PICNICKER (28) Route 117
+	db "MELINA@", TRAINERTYPE_NORMAL
+	db 7
+	dw LOUDRED
+	db 7
+	dw SWELLOW
+	db -1 ; end
+
 	end_list_items
 
 CamperGroup:
@@ -5981,6 +6069,14 @@ CamperGroup:
 	dw LINOONE
 	db -1 ; end
 
+	next_list_item ; CAMPER (24) Route 117
+	db "DYLAN@", TRAINERTYPE_NORMAL
+	db 5
+	dw DODUO
+	db 5
+	dw CORPHISH
+	db -1 ; end
+
 	end_list_items
 
 ExecutiveFGroup:
@@ -6172,6 +6268,16 @@ MediumGroup:
 	dw SLOWBRO
 	db -1 ; end
 
+	next_list_item ; MEDIUM (8) Route 117
+	db "BRANDI@", TRAINERTYPE_NORMAL
+	db 5
+	dw RALTS
+	db 6
+	dw SPOINK
+	db 5
+	dw NATU
+	db -1 ; end
+
 	end_list_items
 
 BoarderGroup:
@@ -6347,6 +6453,25 @@ PokefanMGroup:
 	dw BERRY
 	db -1 ; end
 
+	next_list_item ; POKEFANM (16) Route 117
+	db "ISAAC@", TRAINERTYPE_ITEM
+	db 5
+	dw TEDDIURSA
+	dw BERRY
+	db 5
+	dw ARON
+	dw BERRY
+	db 5
+	dw TAILLOW
+	dw BERRY
+	db 5
+	dw MAGBY
+	dw BERRY
+	db 5
+	dw CLEFFA
+	dw BERRY
+	db -1 ; end
+
 	end_list_items
 
 KimonoGirlGroup:
@@ -6517,6 +6642,14 @@ TwinsGroup:
 	dw LOTAD
 	db -1 ; end
 
+	next_list_item ; TWINS (13) Route 117
+	db "ANNA & MEG@", TRAINERTYPE_NORMAL
+	db 7
+	dw ZIGZAGOON
+	db 7
+	dw MAKUHITA
+	db -1 ; end
+
 	end_list_items
 
 PokefanFGroup:
@@ -6571,6 +6704,25 @@ PokefanFGroup:
 	db "JAIME@", TRAINERTYPE_ITEM
 	db 6
 	dw MEOWTH
+	dw BERRY
+	db -1 ; end
+
+	next_list_item ; POKEFANF (7) Route 117
+	db "LYDIA@", TRAINERTYPE_ITEM
+	db 5
+	dw WINGULL
+	dw BERRY
+	db 5
+	dw SHROOMISH
+	dw BERRY
+	db 5
+	dw MARILL
+	dw BERRY
+	db 5
+	dw GOLDEEN
+	dw BERRY
+	db 5
+	dw SKITTY
 	dw BERRY
 	db -1 ; end
 
@@ -7084,6 +7236,22 @@ BattleGirlGroup:
 	dw COMBUSKEN
 	db 7
 	dw PRIMEAPE
+	db -1 ; end
+
+	next_list_item; BATTLE_GIRL (4) Lavaridge Gym
+	db "DANIELLE@", TRAINERTYPE_NORMAL
+	db 7
+	dw MEDITITE
+	db 7
+	dw NINETALES
+	db -1 ; end
+
+	next_list_item; BATTLE_GIRL (4) Route 117
+	db "DANIELLE@", TRAINERTYPE_NORMAL
+	db 6
+	dw HITMONLEE
+	db 6
+	dw ABSOL
 	db -1 ; end
 
 	end_list_items

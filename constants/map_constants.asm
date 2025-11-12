@@ -545,6 +545,7 @@ ENDM
 	map_const LAVARIDGE_TOWN,							   12, 10 ;
 	map_const LAVARIDGE_POKECENTER,						   07, 04 ;
 	map_const LAVARIDGE_MART,							   06, 04 ;
+	map_const LAVARIDGE_GYM,                               10, 10 ;
 	map_const ROUTE_101,                                   10, 10 ;  4
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6

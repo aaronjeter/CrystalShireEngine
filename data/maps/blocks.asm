@@ -964,6 +964,9 @@ SECTION "Map Blocks 4", ROMX
 	LavaridgeTown_Blocks:
 	INCBIN "maps/hoenn/lavaridge/LavaridgeTown.ablk"
 
+	LavaridgeGym_Blocks:
+	INCBIN "maps/hoenn/lavaridge/LavaridgeGym.ablk"
+
 	OldalePokecenter_Blocks:
 	PetalburgPokecenter_Blocks:
 	RustboroPokecenter_Blocks:
@@ -1009,8 +1012,14 @@ SECTION "Map Blocks 4", ROMX
 
 	RegiceLair_Blocks:
 	INCBIN "maps/hoenn/RegiceLair.ablk"
+	
 
-	Route101_Blocks:
+ENDSECTION
+
+
+SECTION "Map Blocks 5", ROMX
+
+Route101_Blocks:
 	INCBIN "maps/hoenn/Route101.ablk" 
 
 	Route102_Blocks:

@@ -11,6 +11,7 @@ LavaridgeTown_MapEvents:
 	def_warp_events	
 	warp_event 11,  7, LAVARIDGE_POKECENTER, 2
 	warp_event 17,  7, LAVARIDGE_MART, 2
+	warp_event  8,  13, LAVARIDGE_GYM, 2
 
 	def_coord_events
 

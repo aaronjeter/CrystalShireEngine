@@ -518,9 +518,6 @@ INCLUDE "maps/hoenn/slateport/SlateportHarbor.asm"
 INCLUDE "maps/hoenn/dewford/DewfordTown.asm"
 INCLUDE "maps/hoenn/dewford/DewfordGym.asm"
 INCLUDE "maps/hoenn/dewford/DewfordPokecenter.asm"
-INCLUDE "maps/hoenn/lavaridge/LavaridgeTown.asm"
-INCLUDE "maps/hoenn/lavaridge/LavaridgePokecenter.asm"
-INCLUDE "maps/hoenn/lavaridge/LavaridgeMart.asm"
 INCLUDE "maps/hoenn/PetalburgWoods.asm"
 INCLUDE "maps/hoenn/RusturfTunnel.asm"
 
@@ -532,11 +529,21 @@ SECTION "Map Scripts 26", ROMX
 INCLUDE "maps/hoenn/rustboro/RustboroCutterHouse.asm"
 INCLUDE "maps/hoenn/verdanturf/VerdanturfRockSmashHouse.asm"
 
+INCLUDE "maps/hoenn/lavaridge/LavaridgeTown.asm"
+INCLUDE "maps/hoenn/lavaridge/LavaridgePokecenter.asm"
+INCLUDE "maps/hoenn/lavaridge/LavaridgeMart.asm"
+INCLUDE "maps/hoenn/lavaridge/LavaridgeGym.asm"
+
 INCLUDE "maps/hoenn/GraniteCaveB1F.asm"
 INCLUDE "maps/hoenn/GraniteCaveB2F.asm"
 INCLUDE "maps/hoenn/GraniteCaveB3F.asm"
 
 INCLUDE "maps/hoenn/RegiceLair.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 27", ROMX
 
 INCLUDE "maps/hoenn/Route101.asm"
 INCLUDE "maps/hoenn/Route102.asm"
