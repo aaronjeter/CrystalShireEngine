@@ -319,6 +319,8 @@ DEF KRIS EQU __trainer_class__
 	const OLIVIA
 	const ROUTE103_DAISY
 	const ROUTE104_CINDY
+	const ROUTE109_HAILEY
+	const ROUTE109_LOLA
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -478,6 +480,8 @@ DEF KRIS EQU __trainer_class__
 	const LEWIS ; unused
 	const PARKER
 	const ROUTE105_LUIS
+	const ROUTE108_TONY
+	const ROUTE108_DARRIN
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE
@@ -500,6 +504,8 @@ DEF KRIS EQU __trainer_class__
 	const DIANA
 	const BRIANA
 	const ROUTE105_IMANI
+	const ROUTE108_DENISE
+	const ROUTE108_BETH
 
 	trainerclass SAILOR ; 28
 	const EUGENE
@@ -516,6 +522,10 @@ DEF KRIS EQU __trainer_class__
 	const HUEY3
 	const HUEY4
 	const DEWFORD_BRENDEN
+	const ROUTE109_HUEY
+	const ROUTE109_EDMOND
+	const ROUTE109_RICKY
+	const ROUTE109_CHANDLER
 
 	trainerclass SUPER_NERD ; 29
 	const STAN
@@ -710,6 +720,7 @@ DEF KRIS EQU __trainer_class__
 	const QUENTIN
 	const ROUTE104_WINSTON
 	const ROUTE117_DYLAN
+	const ROUTE108_CAMRON
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
@@ -784,6 +795,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE103_AMYLIV
 	const ROUTE104_GINAMIA
 	const ROUTE117_ANNAMEG
+	const ROUTE108_LISARIA
 
 	trainerclass POKEFANF ; 3e
 	const BEVERLY1

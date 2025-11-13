@@ -2870,6 +2870,22 @@ BeautyGroupHard:
 	dw NOCTOWL
 	db -1 ; end
 
+	next_list_item ; BEAUTY (20) Route 109
+	db "HAILEY@", TRAINERTYPE_NORMAL
+	db 6
+	dw NOCTOWL
+	db 7
+	dw AZUMARILL
+	db -1 ; end
+
+	next_list_item ; BEAUTY (21) Route 109
+	db "LOLA@", TRAINERTYPE_NORMAL
+	db 7
+	dw ANINETALES
+	db 7
+	dw ROSERADE
+	db -1 ; end
+
 	end_list_items
 
 PokemaniacGroupHard:
@@ -4241,6 +4257,26 @@ SwimmerMGroupHard:
 	dw HUNTAIL
 	db -1 ; end
 
+	next_list_item ; SWIMMERM (23) Route108
+	db "TONY@", TRAINERTYPE_NORMAL
+	db 8
+	dw LUVDISC
+	db 8
+	dw GOLDUCK
+	db 8
+	dw SLOWKING
+	db -1 ; end
+
+	next_list_item ; SWIMMERM (24) Route108
+	db "DARRIN@", TRAINERTYPE_NORMAL
+	db 8
+	dw WHISCASH
+	db 8
+	dw CRAWDAUNT
+	db 9
+	dw LINOONE
+	db -1 ; end
+
 	end_list_items
 
 SwimmerFGroupHard:
@@ -4397,6 +4433,22 @@ SwimmerFGroupHard:
 	db 7
 	dw GOREBYSS
 
+	next_list_item ; SWIMMERF (21) Route 108
+	db "DENISE@", TRAINERTYPE_NORMAL
+	db 7
+	dw PELIPPER
+	db 7
+	dw SEAKING
+	db -1 ; end
+
+	next_list_item ; SWIMMERF (22) Route 108
+	db "BETH@", TRAINERTYPE_NORMAL
+	db 9
+	dw WAILORD
+	db 7
+	dw SEALEO
+	db -1 ; end
+
 	end_list_items
 
 SailorGroupHard:
@@ -4519,6 +4571,37 @@ SailorGroupHard:
 	db 12
 	dw POLIWRATH
 	db -1 ; end
+
+	next_list_item ; SAILOR (15) Route 109
+	db "HUEY@", TRAINERTYPE_NORMAL	
+	db 8
+	dw MACHAMP
+	db 9
+	dw MANTINE
+	db -1 ; end
+
+	next_list_item ; SAILOR (16) Route 109
+	db "EDMOND@", TRAINERTYPE_NORMAL	
+	db 8
+	dw HITMONLEE
+	db 9
+	dw CORSOLA
+	db -1 ; end
+
+	next_list_item ; SAILOR (17) Route 109
+	db "RICKY@", TRAINERTYPE_NORMAL	
+	db 7
+	dw DEWGONG
+	db 8
+	dw PROBOPASS
+	db -1 ; end
+
+	next_list_item ; SAILOR (18) Route 109
+	db "CHANDLER@", TRAINERTYPE_NORMAL	
+	db 8
+	dw HITMONCHAN
+	db 8
+	dw BLASTOISE
 
 	end_list_items
 
@@ -6167,6 +6250,16 @@ CamperGroupHard:
 	dw CRAWDAUNT
 	db -1 ; end
 
+	next_list_item ; CAMPER (25) Route 108
+	db "DYLAN@", TRAINERTYPE_NORMAL
+	db 7
+	dw DONPHAN
+	db 7
+	dw GIRAFARIG
+	db 8
+	dw OCTILLERY
+	db -1 ; end
+
 	end_list_items
 
 ExecutiveFGroupHard:
@@ -6738,6 +6831,18 @@ TwinsGroupHard:
 	dw LINOONE
 	db 8
 	dw HARIYAMA
+	db -1 ; end
+
+	next_list_item ; TWINS (14) Route 108
+	db "LISA & RIA@", TRAINERTYPE_NORMAL
+	db 8
+	dw TENTACRUEL
+	db 7
+	dw CROCONAW
+	db 7
+	dw QWILFISH
+	db 8
+	dw CORSOLA
 	db -1 ; end
 
 	end_list_items

@@ -2812,6 +2812,22 @@ BeautyGroup:
 	dw NOCTOWL
 	db -1 ; end
 
+	next_list_item ; BEAUTY (20) Route 109
+	db "HAILEY@", TRAINERTYPE_NORMAL
+	db 6
+	dw NOCTOWL
+	db 7
+	dw AZUMARILL
+	db -1 ; end
+
+	next_list_item ; BEAUTY (21) Route 109
+	db "LOLA@", TRAINERTYPE_NORMAL
+	db 7
+	dw AVULPIX
+	db 7
+	dw ROSELIA
+	db -1 ; end
+
 	end_list_items
 
 PokemaniacGroup:
@@ -4160,6 +4176,26 @@ SwimmerMGroup:
 	dw HUNTAIL
 	db -1 ; end
 
+	next_list_item ; SWIMMERM (23) Route108
+	db "TONY@", TRAINERTYPE_NORMAL
+	db 6
+	dw LUVDISC
+	db 6
+	dw PSYDUCK
+	db 6
+	dw SLOWPOKE
+	db -1 ; end
+
+	next_list_item ; SWIMMERM (24) Route108
+	db "DARRIN@", TRAINERTYPE_NORMAL
+	db 6
+	dw BARBOACH
+	db 6
+	dw CORPHISH
+	db 7
+	dw LINOONE
+	db -1 ; end
+
 	end_list_items
 
 SwimmerFGroup:
@@ -4317,6 +4353,22 @@ SwimmerFGroup:
 	dw GOREBYSS
 	db -1 ; end
 
+	next_list_item ; SWIMMERF (21) Route 108
+	db "DENISE@", TRAINERTYPE_NORMAL
+	db 5
+	dw WINGULL
+	db 5
+	dw SEAKING
+	db -1 ; end
+
+	next_list_item ; SWIMMERF (22) Route 108
+	db "BETH@", TRAINERTYPE_NORMAL
+	db 5
+	dw WAILMER
+	db 5
+	dw SEALEO
+	db -1 ; end
+
 	end_list_items
 
 SailorGroup:
@@ -4438,6 +4490,39 @@ SailorGroup:
 	db "BRENDEN@", TRAINERTYPE_NORMAL	
 	db 10
 	dw POLIWRATH
+	db -1 ; end
+
+	next_list_item ; SAILOR (15) Route 109
+	db "HUEY@", TRAINERTYPE_NORMAL	
+	db 6
+	dw MACHOKE
+	db 7
+	dw MANTINE
+	db -1 ; end
+
+	next_list_item ; SAILOR (16) Route 109
+	db "EDMOND@", TRAINERTYPE_NORMAL	
+	db 6
+	dw HITMONLEE
+	db 7
+	dw CORSOLA
+	db -1 ; end
+
+	next_list_item ; SAILOR (17) Route 109
+	db "RICKY@", TRAINERTYPE_NORMAL	
+	db 6
+	dw DEWGONG
+	db 7
+	dw NOSEPASS
+	db -1 ; end
+
+	next_list_item ; SAILOR (18) Route 109
+	db "CHANDLER@", TRAINERTYPE_NORMAL	
+	db 6
+	dw HITMONCHAN
+	db 7
+	dw WARTORTLE
+	
 	db -1 ; end
 
 	end_list_items
@@ -6077,6 +6162,14 @@ CamperGroup:
 	dw CORPHISH
 	db -1 ; end
 
+	next_list_item ; CAMPER (25) Route 108
+	db "DYLAN@", TRAINERTYPE_NORMAL
+	db 5
+	dw DONPHAN
+	db 5
+	dw GIRAFARIG
+	db -1 ; end
+
 	end_list_items
 
 ExecutiveFGroup:
@@ -6648,6 +6741,18 @@ TwinsGroup:
 	dw ZIGZAGOON
 	db 7
 	dw MAKUHITA
+	db -1 ; end
+
+	next_list_item ; TWINS (14) Route 108
+	db "LISA & RIA@", TRAINERTYPE_NORMAL
+	db 6
+	dw TENTACOOL
+	db 7
+	dw TOTODILE
+	db 6
+	dw QWILFISH
+	db 7
+	dw CORSOLA
 	db -1 ; end
 
 	end_list_items
