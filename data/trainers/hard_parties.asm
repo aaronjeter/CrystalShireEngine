@@ -1447,6 +1447,14 @@ YoungsterGroupHard:
 	dw LOTAD
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (25) Route 110
+	db "TIMMY@", TRAINERTYPE_NORMAL
+	db 7
+	dw LAIRON
+	db 7
+	dw ELECTRIKE
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Hard Trainer Parties 2", ROMX
@@ -4048,6 +4056,16 @@ FisherGroupHard:
 	dw DRAGONAIR
 	db -1 ; end
 
+	next_list_item ; FISHER (31) Route 110
+	db "ELLIOT@", TRAINERTYPE_NORMAL
+	db 7
+	dw MAGNETON
+	db 5
+	dw WHISCASH
+	db 7
+	dw SHARPEDO
+	db -1 ; end
+
 	end_list_items
 
 SwimmerMGroupHard:
@@ -4867,6 +4885,14 @@ GuitaristGroupHard:
 	dw MINUN
 	db 7
 	dw PLUSLE
+	db -1 ; end
+
+	next_list_item ; GUITARIST (6) Route 110
+	db "SHAWN@", TRAINERTYPE_NORMAL
+	db 7
+	dw ELECTRODE
+	db 7
+	dw HELECTRODE
 	db -1 ; end
 
 	end_list_items
@@ -5790,6 +5816,14 @@ PsychicGroupHard:
 	dw HYPNO
 	db -1 ; end
 
+	next_list_item ; PSYCHIC_T (13) Route 110
+	db "EDWARD@", TRAINERTYPE_NORMAL
+	db 9
+	dw MR__MIME
+	db 9
+	dw JYNX
+	db -1 ; end
+
 	end_list_items
 
 PicnickerGroupHard:
@@ -6655,6 +6689,26 @@ PokefanMGroupHard:
 	dw BERRY
 	db -1 ; end
 
+	next_list_item ; POKEFANM (17) Route 110
+	db "KALEB@", TRAINERTYPE_ITEM
+	db 7
+	dw ARAICHU
+	dw BERRY
+	db 7
+	dw WIGGLYTUFF
+	dw BERRY
+	db -1 ; end
+
+	next_list_item ; POKEFANM (18) Route 110
+	db "EDWIN@", TRAINERTYPE_ITEM
+	db 7
+	dw CLEFABLE
+	dw BERRY
+	db 7
+	dw KLEAVOR
+	dw BERRY
+	db -1 ; end
+
 	end_list_items
 
 KimonoGirlGroupHard:
@@ -6918,6 +6972,16 @@ PokefanFGroupHard:
 	dw BERRY
 	db 7
 	dw DELCATTY
+	dw BERRY
+	db -1 ; end
+
+	next_list_item ; POKEFANF (8) Route 110
+	db "ISABEL@", TRAINERTYPE_ITEM
+	db 8
+	dw PLUSLE
+	dw BERRY
+	db 8
+	dw MINUN
 	dw BERRY
 	db -1 ; end
 

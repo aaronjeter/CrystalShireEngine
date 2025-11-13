@@ -165,6 +165,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE104_BILLY	
 	const ROUTE116_JOEY
 	const ROUTE116_JOHNSON
+	const ROUTE110_TIMMY
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -456,6 +457,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE104_IVAN
 	const ROUTE105_NED
 	const ROUTE105_ELLIOT
+	const ROUTE110_DALE
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
@@ -557,6 +559,7 @@ DEF KRIS EQU __trainer_class__
 	const MAUVILLE_KIRK
 	const MAUVILLE_SHAWN
 	const ROUTE103_MARCOS
+	const ROUTE110_JOSEPH
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1
@@ -664,6 +667,7 @@ DEF KRIS EQU __trainer_class__
 	const GILBERT
 	const JARED
 	const RODNEY
+	const ROUTE110_EDWARD
 
 	trainerclass PICNICKER ; 35
 	const LIZ1
@@ -772,6 +776,8 @@ DEF KRIS EQU __trainer_class__
 	const ALLAN
 	const ROUTE103_MIGUEL
 	const ROUTE117_ISAAC
+	const ROUTE110_KALEB
+	const ROUTE110_EDWIN
 
 	trainerclass KIMONO_GIRL ; 3c
 	const NAOKO_UNUSED ; unused
@@ -805,6 +811,7 @@ DEF KRIS EQU __trainer_class__
 	const GEORGIA
 	const JAIME
 	const ROUTE117_LYDIA
+	const ROUTE110_ISABEL
 
 	trainerclass RED ; 3f
 	const RED1

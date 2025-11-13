@@ -1406,6 +1406,14 @@ YoungsterGroup:
 	dw LOTAD
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (25) Route 110
+	db "TIMMY@", TRAINERTYPE_NORMAL
+	db 5
+	dw ARON
+	db 5
+	dw ELECTRIKE
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Enemy Trainer Parties 2", ROMX
@@ -3967,6 +3975,16 @@ FisherGroup:
 	dw DRAGONAIR
 	db -1 ; end
 
+	next_list_item ; FISHER (31) Route 110
+	db "ELLIOT@", TRAINERTYPE_NORMAL
+	db 7
+	dw MAGNEMITE
+	db 5
+	dw BARBOACH
+	db 7
+	dw CARVANHA
+	db -1 ; end
+
 	end_list_items
 
 SwimmerMGroup:
@@ -4785,6 +4803,14 @@ GuitaristGroup:
 	db "SHAWN@", TRAINERTYPE_NORMAL
 	db 7
 	dw MINUN
+	db -1 ; end
+
+	next_list_item ; GUITARIST (6) Route 110
+	db "SHAWN@", TRAINERTYPE_NORMAL
+	db 7
+	dw VOLTORB
+	db 7
+	dw HVOLTORB
 	db -1 ; end
 
 	end_list_items
@@ -5702,6 +5728,14 @@ PsychicGroup:
 	dw HYPNO
 	db -1 ; end
 
+	next_list_item ; PSYCHIC_T (13) Route 110
+	db "EDWARD@", TRAINERTYPE_NORMAL
+	db 6
+	dw MR__MIME
+	db 6
+	dw JYNX
+	db -1 ; end
+
 	end_list_items
 
 PicnickerGroup:
@@ -6565,6 +6599,26 @@ PokefanMGroup:
 	dw BERRY
 	db -1 ; end
 
+	next_list_item ; POKEFANM (17) Route 110
+	db "KALEB@", TRAINERTYPE_ITEM
+	db 5
+	dw PIKACHU
+	dw BERRY
+	db 5
+	dw JIGGLYPUFF
+	dw BERRY
+	db -1 ; end
+
+	next_list_item ; POKEFANM (18) Route 110
+	db "EDWIN@", TRAINERTYPE_ITEM
+	db 5
+	dw CLEFAIRY
+	dw BERRY
+	db 5
+	dw SCYTHER
+	dw BERRY
+	db -1 ; end
+
 	end_list_items
 
 KimonoGirlGroup:
@@ -6828,6 +6882,16 @@ PokefanFGroup:
 	dw BERRY
 	db 5
 	dw SKITTY
+	dw BERRY
+	db -1 ; end
+
+	next_list_item ; POKEFANF (8) Route 110
+	db "ISABEL@", TRAINERTYPE_ITEM
+	db 6
+	dw PLUSLE
+	dw BERRY
+	db 6
+	dw MINUN
 	dw BERRY
 	db -1 ; end
 
