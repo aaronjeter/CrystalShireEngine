@@ -624,6 +624,7 @@ DEF KRIS EQU __trainer_class__
 	const LAVARIDGE_COLE
 	const LAVARIDGE_AXLE
 	const LAVARIDGE_KEEGAN
+	const ROUTE111_HAYDEN
 
 	trainerclass JUGGLER ; 31
 	const IRWIN1
@@ -698,6 +699,10 @@ DEF KRIS EQU __trainer_class__
 	const TIFFANY4
 	const ROUTE117_MARIA
 	const ROUTE117_MELINA
+	const ROUTE111_CELINA
+	const ROUTE111_BIANCA
+	const ROUTE111_GABBY
+	const ROUTE111_IRENE
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -725,6 +730,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE104_WINSTON
 	const ROUTE117_DYLAN
 	const ROUTE108_CAMRON
+	const ROUTE111_TYRON
+	const ROUTE111_TRAVIS
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1

@@ -5436,6 +5436,16 @@ FirebreatherGroupHard:
 	dw BORUBEA
 	db -1 ; end
 
+	next_list_item ; FIREBREATHER (14) Route 111
+	db "HAYDEN@", TRAINERTYPE_NORMAL
+	db 7
+	dw KANGASKHAN
+	db 8
+	dw SHUCKLE
+	db 9
+	dw VOLBEAT
+	db -1 ; end
+
 	end_list_items
 
 JugglerGroupHard:
@@ -6061,6 +6071,38 @@ PicnickerGroupHard:
 	dw SWELLOW
 	db -1 ; end
 
+	next_list_item ; PICNICKER (29) Route 111
+	db "CELINA@", TRAINERTYPE_NORMAL
+	db 7
+	dw NIDOQUEEN
+	db 5
+	dw MILTANK
+	db -1 ; end
+
+	next_list_item ; PICNICKER (30) Route 111
+	db "BIANCA@", TRAINERTYPE_NORMAL
+	db 7
+	dw MEGANIUM
+	db 8
+	dw AMAROWAK
+	db -1 ; end
+
+	next_list_item ; PICNICKER (31) Route 111
+	db "GABBY@", TRAINERTYPE_NORMAL
+	db 7
+	dw EXPLOUD
+	db 7
+	dw PINSIR
+	db -1 ; end
+
+	next_list_item ; PICNICKER (32) Route 111
+	db "IRENE@", TRAINERTYPE_NORMAL
+	db 7
+	dw MISDREAVUS
+	db 7
+	dw PILOSWINE
+	db -1 ; end
+
 	end_list_items
 
 CamperGroupHard:
@@ -6292,6 +6334,22 @@ CamperGroupHard:
 	dw GIRAFARIG
 	db 8
 	dw OCTILLERY
+	db -1 ; end
+
+	next_list_item ; CAMPER (26) Route 111
+	db "TYRON@", TRAINERTYPE_NORMAL
+	db 7
+	dw TOGETIC
+	db 8
+	dw MURKROW
+	db -1 ; end
+
+	next_list_item ; CAMPER (27) Route 111
+	db "TRAVIS@", TRAINERTYPE_NORMAL
+	db 7
+	dw GLIGAR
+	db 9
+	dw CACTURNE
 	db -1 ; end
 
 	end_list_items
