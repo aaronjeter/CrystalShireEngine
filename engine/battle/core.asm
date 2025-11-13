@@ -2292,7 +2292,13 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	; give 50% EXP to non-participants	
 	ld hl, wEnemyMonBaseExp
 	;Right shift xp amount, roughly halving it
+	srl [hl]	
+
+	ld a, [wEliteFourXpBoost]
+	cp 0
+	jr nz, .SkipHalfXp
 	srl [hl]
+.SkipHalfXp
 
 	ld a, [wBattleParticipantsNotFainted]
 	push af
