@@ -35,6 +35,7 @@ SpriteMons:
 	dw FARFETCH_D	;83
 	dw GRIMER		;88	
 	dw SHELLDER		;90	
+	dw GASTLY		;92
 	dw GENGAR		;94
 	dw HYPNO		;97
 	dw VOLTORB		;100
@@ -98,6 +99,8 @@ SpriteMons:
 	dw RALTS		;280
 	dw SURSKIT		;283
 	dw SHROOMISH	;285
+	dw SABLEYE		;302
+	dw ARON			;304
 	dw ROSELIA		;315
 	dw TORKOAL      ;324
 	dw SOLROCK		;338
