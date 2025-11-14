@@ -79,6 +79,7 @@ SpriteMons:
 	dw MURKROW		;198
 	dw MISDREAVUS	;200
 	dw UNOWN		;201
+	dw SLUGMA		;218
 	dw DELIBIRD     ;225
 	dw TYRANITAR	;248
 	dw LUGIA		;249
@@ -98,6 +99,7 @@ SpriteMons:
 	dw SURSKIT		;283
 	dw SHROOMISH	;285
 	dw ROSELIA		;315
+	dw TORKOAL      ;324
 	dw SOLROCK		;338
 	dw GLALIE		;362
 	dw BAGON		;371

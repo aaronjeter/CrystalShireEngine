@@ -558,9 +558,10 @@ ENDM
 	map_const ROUTE_110,                                   20, 30 ;
 	map_const ROUTE_111,								   20, 30 ;
 	map_const ROUTE_112,								   20, 30 ;
+	map_const FIERY_PATH,								   20, 20 ;
 	map_const ROUTE_113,								   50, 10 ;
 	map_const ROUTE_116,								   30, 10 ;
-	map_const ROUTE_117,								   30, 10 ;
+	map_const ROUTE_117,								   30, 10 ;	
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

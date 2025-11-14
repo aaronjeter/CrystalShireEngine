@@ -817,6 +817,8 @@ ENDM
 	connection west,  LavaridgeTown, LAVARIDGE_TOWN, 20
 	connection east,  Route111, ROUTE_111, 22
 
+	map_attributes FieryPath, FIERY_PATH, $00, 0
+
 	map_attributes Route113, ROUTE_113, $05, SOUTH 
 	connection south, Route112, ROUTE_112, 28
 

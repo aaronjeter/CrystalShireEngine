@@ -9,8 +9,8 @@ Route112_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event  13, 31, ROUTE_112, 2
-	warp_event   5,  9, ROUTE_112, 1
+	warp_event  13, 31, FIERY_PATH, 1
+	warp_event   5,  9, FIERY_PATH, 2
 
 	def_coord_events
 

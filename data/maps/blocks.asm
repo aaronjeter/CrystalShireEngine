@@ -1019,7 +1019,7 @@ ENDSECTION
 
 SECTION "Map Blocks 5", ROMX
 
-Route101_Blocks:
+	Route101_Blocks:
 	INCBIN "maps/hoenn/Route101.ablk" 
 
 	Route102_Blocks:
@@ -1048,6 +1048,9 @@ Route101_Blocks:
 
 	Route112_Blocks:
 	INCBIN "maps/hoenn/Route112.ablk" 
+
+	FieryPath_Blocks:
+	INCBIN "maps/hoenn/FieryPath.ablk" 
 
 	Route113_Blocks:
 	INCBIN "maps/hoenn/Route113.ablk" 
