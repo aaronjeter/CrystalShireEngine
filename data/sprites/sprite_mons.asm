@@ -80,6 +80,7 @@ SpriteMons:
 	dw MURKROW		;198
 	dw MISDREAVUS	;200
 	dw UNOWN		;201
+	dw HERACROSS    ;214
 	dw SLUGMA		;218
 	dw DELIBIRD     ;225
 	dw TYRANITAR	;248
