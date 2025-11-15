@@ -6,6 +6,8 @@
 	const MAPROUTE110_JOSEPH
 	const MAPROUTE110_EDWARD
 	const MAPROUTE110_DALE
+	const MAPROUTE110_FRUIT_TREE_1
+	const MAPROUTE110_FRUIT_TREE_2
 
 Route110_MapScripts:
 	def_scene_scripts
@@ -179,6 +181,12 @@ Route110DaleAfterBattleText:
 	text "Buzz off."
 	done
 
+Route110FruitTree1:
+	fruittree FRUITTREE_ROUTE_110_1
+
+Route110FruitTree2:
+	fruittree FRUITTREE_ROUTE_110_2
+
 Route110_MapEvents:
 	db 0, 0 ; filler
 
@@ -196,4 +204,5 @@ Route110_MapEvents:
 	object_event 35, 17, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route110JosephScript, -1
 	object_event 06, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route110EdwardScript, -1
 	object_event 27, 23, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route110DaleScript, -1
-	
+	object_event 06, 08, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route110FruitTree1, -1
+	object_event 07, 08, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route110FruitTree2, -1

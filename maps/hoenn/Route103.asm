@@ -1,6 +1,8 @@
 	object_const_def
 	const ROUTE103_ZIGZAGOON
 	const ROUTE103_WINGULL
+	const MAPROUTE103_FRUIT_TREE_1
+	const MAPROUTE103_FRUIT_TREE_2
 
 Route103_MapScripts:
 	def_scene_scripts
@@ -23,6 +25,12 @@ Route103_Wingull:
 	disappear ROUTE103_WINGULL
 	end
 
+Route103FruitTree1:
+	fruittree FRUITTREE_ROUTE_103_1
+
+Route103FruitTree2:
+	fruittree FRUITTREE_ROUTE_103_2
+
 Route103_MapEvents:
 	db 0, 0 ; filler
 
@@ -35,5 +43,6 @@ Route103_MapEvents:
 	def_object_events
 	object_event  17,  8, SPRITE_ZIGZAGOON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route103_Zigzagoon, -1
 	object_event  15,  4, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route103_Wingull, -1
-	
+	object_event  32,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103FruitTree1, -1
+	object_event  33,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103FruitTree2, -1
 	
