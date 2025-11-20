@@ -1,41 +1,67 @@
 RegenerationMons:
+	dw GRIMER
+	dw MUK
+	dw AGRIMER
+	dw AMUK
+	dw STARYU
 	dw STARMIE
+	dw CHANSEY
 	dw BLISSEY
 	dw SWALOT
 	dw SWALOTX
 	dw -1
 
 RainDishMons::
+	dw SQUIRTLE
+	dw WARTORTLE
 	dw BLASTOISE
 	dw BLASTOISEX
 	dw SLOWBRO
 	dw SLOWBROX
+	dw LOTAD
+	dw LOMBRE
 	dw LUDICOLO
 	dw -1
 
 SunbaskMons::
+	dw BULBASAUR
+	dw IVYSAUR
 	dw VENUSAUR
 	dw VENUSAURX
+	dw CHARMANDER
+	dw CHARMELEON 
 	dw CHARIZARD
 	dw CHARIZARDX
 	dw TROPIUS
 	dw TROPIUSX
+	dw HONOBEA
+	dw BORUBEA
+	dw DYNABEA
 	dw -1
 
 SandBodyMons::
+	dw GEODUDE
+	dw GRAVELER
+	dw GOLEM
+	dw SANDSHREW
 	dw SANDSLASH
 	dw MAROWAK
+	dw GLIGAR
+	dw GLISCOR
 	dw STEELIX
 	dw STEELIXX
 	dw -1
 
 IceBodyMons::
+	dw SEEL
+	dw DEWGONG
+	dw SPHEAL
+	dw SEALEO
 	dw WALREIN
+	dw SNORUNT
 	dw GLALIE
+	dw GLALIEX
 	dw FROSLASS
+	dw ASANDSHREW
 	dw ASANDSLASH
 	dw -1
-
-
-
-

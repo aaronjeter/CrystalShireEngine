@@ -17,8 +17,10 @@ DroughtMons::
 
 SandStreamMons::
 	dw RHYDON
+	dw RHYPERIOR
 	dw DUNSPARCE
 	dw TYRANITAR
+	dw TYRANITARX
 	dw REGIROCK
 	dw -1
 
@@ -35,25 +37,34 @@ IntimidateMons::
 	dw ARCANINE
 	dw TAUROS
 	dw GYARADOS
+	dw GYARADOSX
 	dw GRANBULL
 	dw MIGHTYENA
 	dw MASQUERAIN
 	dw MAWILE
 	dw MANECTRIC
 	dw SALAMENCE
+	dw SALAMENCEX
 	dw TAUROS2
+	dw CYNDAQUIL2
+	dw QUILAVA2
+	dw TYPHLOSION2
 	dw -1
 
 MystifyMons::
 	dw CLEFABLE
 	dw WIGGLYTUFF
 	dw DRAGONITE
+	dw DRAGONITEX
+	dw DRAGONITEY
 	dw NOCTOWL
 	dw SLOWKING
 	dw MISDREAVUS
+	dw MISMAGIUS
 	dw UNOWN
 	dw SABLEYE
 	dw CHIMECHO
+	dw CHIMECHOX
 	dw MILOTIC
 	dw NOCTOWL2
 	dw NINETALES2
@@ -61,21 +72,74 @@ MystifyMons::
 
 SnareMons::
 	dw VICTREEBEL
+	dw VICTREEBELX
 	dw TENTACRUEL
-	dw MUK
 	dw TANGELA
 	dw ARIADOS
 	dw CRADILY
 	dw TANGROWTH
-	dw AMUK
 	dw TENTACRUEL2
 	dw YANMA2
 	dw -1
 
 HasteMons::
+	dw PONYTA
 	dw RAPIDASH
 	dw RAPIDASH2
-	dw DODRIO
+	dw DODRIO	
+	dw TORCHIC
+	dw COMBUSKEN
 	dw BLAZIKEN
 	dw NINJASK
+	dw SUNBOU
+	dw IKARI
+	dw -1
+
+AimMons::
+	dw PIDGEY
+	dw PIDGEOTTO
+	dw PIDGEOT
+	dw ELECTABUZZ
+	dw ELECTIVIRE
+	dw MAGMAR
+	dw MAGMORTAR
+	dw AGEODUDE
+	dw AGRAVELER
+	dw AGOLEM
+	dw -1
+
+FocusMons::
+	dw SPEAROW
+	dw FEAROW
+	dw MACHOP
+	dw MACHOKE
+	dw MACHAMP
+	dw -1
+
+VeiledMons::
+	dw LUGIA
+	dw TOGEPI
+	dw TOGETIC
+	dw TOGEKISS
+	dw GARDEVOIR
+	dw HANAMOLE
+	dw HANEEI
+	dw -1
+
+InvisibleWallMons::
+	dw MR__MIME
+	dw JYNX
+	dw -1
+
+ImpostorMons::
+	dw DITTO
+	dw -1
+
+DebrisMons::
+	dw SUDOWOODO
+	dw PINECO
+	dw FORRETRESS
+	dw QWILFISH
+	dw SKARMORY
+	dw SKARMORY2
 	dw -1

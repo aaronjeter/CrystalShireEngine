@@ -60,6 +60,24 @@ PrintAbility:
 	jp .Haste
 	.NotHaste
 
+	jp .Aim
+	.NotAim
+
+	jp .Focus
+	.NotFocus
+
+	jp .Veiled
+	.NotVeiled
+
+	jp .InvisibleWall
+	.NotInvisibleWall
+
+	jp .Impostor
+	.NotImpostor
+
+	jp .Debris
+	.NotDebris
+
 	jp .NoAbility
 
 	.Done
@@ -456,6 +474,126 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Aim:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityAimMons
+	call IsInWordArray
+	jr c, .HasAim
+	jp .NotAim
+		
+.HasAim:
+	ld de, AimNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, AimDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.Focus:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityFocusMons
+	call IsInWordArray
+	jr c, .HasFocus
+	jp .NotFocus
+		
+.HasFocus:
+	ld de, FocusNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, FocusDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.Veiled:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityVeiledMons
+	call IsInWordArray
+	jr c, .HasVeiled
+	jp .NotVeiled
+		
+.HasVeiled:
+	ld de, VeiledNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, VeiledDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.InvisibleWall:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityInvisibleWallMons
+	call IsInWordArray
+	jr c, .HasInvisibleWall
+	jp .NotInvisibleWall
+		
+.HasInvisibleWall:
+	ld de, InvisibleWallNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, InvisibleWallDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.Impostor:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityImpostorMons
+	call IsInWordArray
+	jr c, .HasImpostor
+	jp .NotImpostor
+		
+.HasImpostor:
+	ld de, ImpostorNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, ImpostorDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.Debris:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityDebrisMons
+	call IsInWordArray
+	jr c, .HasDebris
+	jp .NotDebris
+		
+.HasDebris:
+	ld de, DebrisNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, DebrisDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -520,3 +658,21 @@ IceBodyNameString:
 
 HasteNameString:
 	db "Haste@"
+
+AimNameString:
+	db "Aim@"
+
+FocusNameString:
+	db "Focus@"
+
+VeiledNameString:
+	db "Veiled@"
+
+InvisibleWallNameString:
+	db "Invisible Wall@"
+
+ImpostorNameString:
+	db "Impostor@"
+
+DebrisNameString:
+	db "Debris@"

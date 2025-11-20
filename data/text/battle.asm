@@ -1172,6 +1172,12 @@ HasteBoostsSpeedText:
     line "HASTE boosts SPD!"
 	prompt
 
+AimBoostsAccuracyText:
+	text "<USER>'s"
+    line "AIM boosts ACC!"
+	prompt
+
+
 HealAbilityText:
 	text "<TARGET>"
 	line "regenerated!"

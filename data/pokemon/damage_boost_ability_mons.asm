@@ -1,8 +1,13 @@
 ;Mons with abilities that boost damage
 
 ElementalFistMons::
+	dw MANKEY
 	dw PRIMEAPE
+	dw KADABRA
+	dw ALAKAZAM
+	dw ALAKAZAMX
 	dw HITMONCHAN
+	dw LEDYBA
 	dw LEDIAN
 	dw BRELOOM
 	dw MEDICHAM
@@ -10,31 +15,51 @@ ElementalFistMons::
 	dw -1
 
 ElementalFangMons::
+	dw RATTATA
 	dw RATICATE
+	dw TOTODILE
+	dw CROCONAW
 	dw FERALIGATR
 	dw FURRET
 	dw LINOONE
+	dw CARVANHA
 	dw SHARPEDO
 	dw HUNTAIL
 	dw EXEGGUTOR2
 	dw FURRET2
+	dw TOTODILE2 
+	dw CROCONAW2 
 	dw FERALIGATR2
+	dw KOTORA
+	dw RAITORA
 	dw -1
 
 ElementalBladeMons::	
 	dw PERSIAN
 	dw FARFETCH_D
 	dw SCYTHER
+	dw SCIZOR
 	dw KABUTOPS
 	dw SNEASEL
+	dw TREECKO
+	dw GROVYLE
 	dw SCEPTILE
-	dw ABSOL	
+	dw ABSOL
+	dw ABSOLX
 	dw GALLADE
 	dw WEAVILE
 	dw KLEAVOR
+	dw SCYTHER2
+	dw SCIZOR2
+	dw SCIZORX
 	dw -1
 
 StabilityMons::
+	dw PICHU
+	dw PIKACHU
+	dw RAICHU
+	dw LICKITUNG
+	dw LICKILICKY
 	dw EEVEE
 	dw VAPOREON
 	dw JOLTEON
@@ -45,6 +70,17 @@ StabilityMons::
 	dw SYLVEON
 	dw LEAFEON
 	dw GLACEON
+	dw CHIKORITA
+	dw BAYLEEF
+	dw MEGANIUM
+	dw CYNDAQUIL
+	dw QUILAVA
+	dw TYPHLOSION
+	dw HITMONTOP
 	dw PORYGON2
 	dw PORYGONZ
+	dw KURUSU
+	dw AKUA
+	dw AKUERIA
+	dw ASHIBOMB
 	dw -1

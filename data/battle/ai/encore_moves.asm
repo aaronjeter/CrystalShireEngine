@@ -1,7 +1,6 @@
 ; AI_SMART encourages these moves with Encore.
 
 EncoreMoves:
-	dw SWORDS_DANCE
 	dw WHIRLWIND
 	dw LEER
 	dw ROAR
@@ -11,7 +10,6 @@ EncoreMoves:
 	dw GROWTH
 	dw POISONPOWDER
 	dw STRING_SHOT
-	dw MEDITATE
 	dw AGILITY
 	dw TELEPORT
 	dw SCREECH

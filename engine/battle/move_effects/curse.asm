@@ -53,7 +53,7 @@ BattleCommand_Curse:
 
 .ghost
 
-; Cut HP in half and put a curse on the opponent.
+; Cut HP by an Eighth and put a curse on the opponent.
 
 	call CheckHiddenOpponent
 	jr nz, .failed

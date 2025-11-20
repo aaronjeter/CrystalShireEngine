@@ -18,6 +18,18 @@ Check_Etb_Ability:
 
 	call .Haste
 
+	call .Aim
+
+	call .Focus
+
+	call .Veiled
+
+	call .InvisibleWall
+
+	call .Impostor
+
+	call .Debris
+
 	ret
 
 .Drizzle:
@@ -203,6 +215,106 @@ Check_Etb_Ability:
     ld hl, HasteBoostsSpeedText
     call StdBattleTextbox
     ret
+
+.Aim:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AimMons
+	call IsInWordArray
+	jr c, .HasAim
+	ret
+		
+.HasAim:	
+	ld de, LOCK_ON
+    call Call_PlayBattleAnim
+    farcall BattleCommand_AccuracyUp
+
+    ld hl, AimBoostsAccuracyText
+    call StdBattleTextbox
+    ret
+
+.Focus:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, FocusMons
+	call IsInWordArray
+	jr c, .HasFocus
+	ret
+		
+.HasFocus:	
+	ld de, FOCUS_ENERGY
+    call Call_PlayBattleAnim
+    farcall BattleCommand_FocusEnergy
+    ret
+
+.Veiled:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, VeiledMons
+	call IsInWordArray
+	jr c, .HasVeiled
+	ret
+		
+.HasVeiled:	
+	ld de, SAFEGUARD
+    call Call_PlayBattleAnim
+    farcall BattleCommand_Safeguard
+    ret
+
+.InvisibleWall:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, InvisibleWallMons
+	call IsInWordArray
+	jr c, .HasInvisibleWall
+	ret
+		
+.HasInvisibleWall:	
+	ld de, REFLECT
+    call Call_PlayBattleAnim
+    farcall BattleCommand_Screen
+    ret
+
+.Impostor:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, ImpostorMons
+	call IsInWordArray
+	jr c, .HasImpostor
+	ret
+		
+.HasImpostor:	
+	ld de, TRANSFORM
+    call Call_PlayBattleAnim
+    farcall BattleCommand_Transform
+    ret
+
+.Debris:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, DebrisMons
+	call IsInWordArray
+	jr c, .HasDebris
+	ret
+		
+.HasDebris:	
+	ld de, SPIKES
+    call Call_PlayBattleAnim
+    farcall BattleCommand_Spikes
+    ret
+
 
 GetAbilitySpecies:
 	ld a, [wTempAbilityMon]

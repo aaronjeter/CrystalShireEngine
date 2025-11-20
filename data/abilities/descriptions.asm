@@ -77,3 +77,27 @@ IceBodyDesc:
 HasteDesc:
 	db    "Boosts speed"
 	next  "upon entrance.@"
+
+AimDesc:
+	db    "Boosts accuracy"
+	next  "upon entrance.@"
+
+FocusDesc:
+	db    "Boosts critial"
+	next  "hit ratio.@"
+
+VeiledDesc:
+	db    "Sets SAFEGUARD"
+	next  "on entrance.@"
+
+InvisibleWallDesc:
+	db    "Sets REFLECT"
+	next  "on entrance.@"
+
+ImpostorDesc:
+	db    "Uses TRANSFORM"
+	next  "on entrance.@"
+
+DebrisDesc:
+	db    "Scatters SPIKES"
+	next  "on entrance.@"
