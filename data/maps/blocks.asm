@@ -1046,6 +1046,18 @@ SECTION "Map Blocks 5", ROMX
 	Route111_Blocks:
 	INCBIN "maps/hoenn/Route111.ablk" 
 
+	LavaridgeDesert_Blocks:
+	INCBIN "maps/hoenn/LavaridgeDesert.ablk"
+
+	DesertRuin1F_Blocks:
+	INCBIN "maps/hoenn/DesertRuin1F.ablk"
+
+	DesertRuinB1F_Blocks:
+	INCBIN "maps/hoenn/DesertRuinB1F.ablk"
+
+	RegirockLair_Blocks:
+	INCBIN "maps/hoenn/RegirockLair.ablk"
+
 	Route112_Blocks:
 	INCBIN "maps/hoenn/Route112.ablk" 
 

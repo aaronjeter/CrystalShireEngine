@@ -9,6 +9,7 @@ Route113_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events		
+	warp_event  93, 11, LAVARIDGE_DESERT, 3
 
 	def_coord_events
 

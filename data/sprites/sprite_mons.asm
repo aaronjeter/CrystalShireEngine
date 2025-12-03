@@ -104,6 +104,7 @@ SpriteMons:
 	dw ARON			;304
 	dw ROSELIA		;315
 	dw TORKOAL      ;324
+	dw CACTURNE		;332
 	dw SOLROCK		;338
 	dw GLALIE		;362
 	dw BAGON		;371

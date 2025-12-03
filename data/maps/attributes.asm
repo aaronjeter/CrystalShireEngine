@@ -812,6 +812,11 @@ ENDM
 	connection south, MauvilleCity, MAUVILLE_CITY, 0
 	connection west, Route112, ROUTE_112, -22
 
+	map_attributes LavaridgeDesert, LAVARIDGE_DESERT, $05, 0
+	map_attributes DesertRuin1F, DESERT_RUIN_1F, $09, 0
+	map_attributes DesertRuinB1F, DESERT_RUIN_B1F, $09, 0
+	map_attributes RegirockLair, REGIROCK_LAIR, $00, 0
+
 	map_attributes Route112, ROUTE_112, $05, NORTH | WEST | EAST 
 	connection north, Route113, ROUTE_113, -28
 	connection west,  LavaridgeTown, LAVARIDGE_TOWN, 20

@@ -165,6 +165,9 @@ ENDM
 	map_const GRANITE_CAVE_B2F,							   15, 30 ;	
 	map_const GRANITE_CAVE_B3F,							   10, 10 ;	
 	map_const REGICE_LAIR,								   10, 10 ;
+	map_const DESERT_RUIN_1F,                              10, 10 ;
+	map_const DESERT_RUIN_B1F,                             30, 20 ;
+	map_const REGIROCK_LAIR,							   12, 12 ;
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -557,6 +560,7 @@ ENDM
 	map_const ROUTE_109,								   20, 30 ;
 	map_const ROUTE_110,                                   20, 30 ;
 	map_const ROUTE_111,								   20, 30 ;
+	map_const LAVARIDGE_DESERT,							   30, 30 ;
 	map_const ROUTE_112,								   20, 30 ;
 	map_const FIERY_PATH,								   20, 20 ;
 	map_const ROUTE_113,								   50, 10 ;
