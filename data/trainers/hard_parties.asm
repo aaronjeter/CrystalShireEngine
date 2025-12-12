@@ -4450,6 +4450,7 @@ SwimmerFGroupHard:
 	dw MANTINE
 	db 7
 	dw GOREBYSS
+	db -1 ; end
 
 	next_list_item ; SWIMMERF (21) Route 108
 	db "DENISE@", TRAINERTYPE_NORMAL
