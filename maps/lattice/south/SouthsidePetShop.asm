@@ -6,6 +6,7 @@
 	const SOUTHSIDEPETSHOP_VENDOR1
 	const SOUTHSIDEPETSHOP_VENDOR2
 	const SOUTHSIDEPETSHOP_VENDOR3
+	const SOUTHSIDEPETSHOP_VENDOR4
 	const SOUTHSIDEPETSHOP_PIKACHU
 	const SOUTHSIDEPETSHOP_ZIGZAGOON
 	const SOUTHSIDEPETSHOP_DIGLETT
@@ -82,11 +83,11 @@ SouthsidePetShopRatVendor:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 6 ; items
-	db "RATTATA     {d:SSP_LOW}@"
-	db "SENTRET     {d:SSP_LOW}@"
-	db "ZIGZAGOON   {d:SSP_LOW}@"
-	db "SANDSHREW   {d:SSP_MID}@"
-	db "PIKACHU     {d:SSP_HIGH}@"
+	db "Rattata     {d:SSP_LOW}@"
+	db "Sentret     {d:SSP_LOW}@"
+	db "Zigzagoon   {d:SSP_LOW}@"
+	db "Sandshrew   {d:SSP_MID}@"
+	db "Pikachu     {d:SSP_HIGH}@"
 	db "CANCEL@"
 
 
@@ -157,11 +158,11 @@ SouthsidePetShopFishVendor:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 6 ; items
-	db "GOLDEEN     {d:SSP_LOW}@"
-	db "WOOPER      {d:SSP_LOW}@"
-	db "LOTAD       {d:SSP_LOW}@"
-	db "HORSEA      {d:SSP_MID}@"
-	db "TENTACOOL   {d:SSP_MID}@"
+	db "Goldeen     {d:SSP_LOW}@"
+	db "Wooper      {d:SSP_LOW}@"
+	db "Lotad       {d:SSP_LOW}@"
+	db "Horsea      {d:SSP_MID}@"
+	db "Tentacool   {d:SSP_MID}@"
 	db "CANCEL@"
 
 
@@ -231,11 +232,85 @@ SouthsidePetShopBirdVendor:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 6 ; items
-	db "PIDGEY      {d:SSP_LOW}@"
-	db "HOOTHOOT    {d:SSP_LOW}@"
-	db "TAILLOW     {d:SSP_LOW}@"
-	db "DODUO       {d:SSP_MID}@"
-	db "NATU        {d:SSP_MID}@"
+	db "Pidgey      {d:SSP_LOW}@"
+	db "Hoothoot    {d:SSP_LOW}@"
+	db "Taillow     {d:SSP_LOW}@"
+	db "Doduo       {d:SSP_MID}@"
+	db "Natu        {d:SSP_MID}@"
+	db "CANCEL@"
+
+
+SouthsidePetShopBugVendor:
+	faceplayer
+	opentext
+	writetext SouthsidePetShop_BugVendorIntroText
+	waitbutton
+.loop
+	special DisplayCoinCaseBalance
+	loadmenu .MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .Caterpie
+	ifequal 2, .Weedle
+	ifequal 3, .Ledyba
+	ifequal 4, .Spinarak
+	ifequal 5, .Wurmple
+	sjump SouthsidePetShop_CancelPurchaseScript
+
+.Caterpie:
+	checkcoins SSP_LOW
+	ifequal HAVE_LESS, SouthsidePetShop_notenoughcoins
+	playsound SFX_TRANSACTION
+	givepoke CATERPIE, 5
+	takecoins SSP_LOW
+	sjump .loop
+
+.Weedle:
+	checkcoins SSP_LOW
+	ifequal HAVE_LESS, SouthsidePetShop_notenoughcoins
+	playsound SFX_TRANSACTION
+	givepoke WEEDLE, 5
+	takecoins SSP_LOW
+	sjump .loop
+
+.Ledyba:
+	checkcoins SSP_LOW
+	ifequal HAVE_LESS, SouthsidePetShop_notenoughcoins
+	playsound SFX_TRANSACTION
+	givepoke LEDYBA, 5
+	takecoins SSP_LOW
+	sjump .loop
+
+.Spinarak:
+	checkcoins SSP_LOW
+	ifequal HAVE_LESS, SouthsidePetShop_notenoughcoins
+	playsound SFX_TRANSACTION
+	givepoke SPINARAK, 5
+	takecoins SSP_LOW
+	sjump .loop
+
+.Wurmple:
+	checkcoins SSP_LOW
+	ifequal HAVE_LESS, SouthsidePetShop_notenoughcoins
+	playsound SFX_TRANSACTION
+	givepoke WURMPLE, 5
+	takecoins SSP_LOW
+	sjump .loop
+
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 17, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 6 ; items
+	db "Caterpie    {d:SSP_LOW}@"
+	db "Weedle      {d:SSP_LOW}@"
+	db "Ledyba      {d:SSP_LOW}@"
+	db "Spinarak    {d:SSP_LOW}@"
+	db "Wurmple     {d:SSP_LOW}@"
 	db "CANCEL@"
 
 SouthsidePetShopPikachu:
@@ -266,6 +341,12 @@ SouthsidePetShop_BirdVendorIntroText:
 	text "Welcome!"
 
 	para "Wanna buy a bird?"
+	done
+
+SouthsidePetShop_BugVendorIntroText:
+	text "Welcome!"
+
+	para "Wanna buy a bug?"
 	done
 
 
@@ -313,6 +394,7 @@ SouthsidePetShop_MapEvents:
 	object_event 07, 01, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, SouthsidePetShopRatVendor, -1
 	object_event 09, 01, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_AZURE, OBJECTTYPE_SCRIPT, 0, SouthsidePetShopFishVendor, -1
 	object_event 08, 01, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, SouthsidePetShopBirdVendor, -1
+	object_event 06, 01, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, SouthsidePetShopBugVendor, -1
 	object_event 12, 06, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SouthsidePetShopPikachu, -1
 	object_event 05, 01, SPRITE_ZIGZAGOON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SouthsidePetShopZigzagoon, -1
 	object_event 00, 07, SPRITE_DIGLETT, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SouthsidePetShopDiglett, -1

@@ -1215,11 +1215,11 @@ YoungsterGroup:
 	dw RATTATA
 	db -1 ; end
 
-	next_list_item ; YOUNGSTER (2) Route 30
+	next_list_item ; YOUNGSTER (2) Southside Alley
 	db "MIKEY@", TRAINERTYPE_NORMAL
-	db 2
+	db 0
 	dw PIDGEY
-	db 3
+	db 0
 	dw RATTATA
 	db -1 ; end
 
@@ -1231,12 +1231,14 @@ YoungsterGroup:
 	dw ZUBAT
 	db -1 ; end
 
-	next_list_item ; YOUNGSTER (4) Route 32
+	next_list_item ; YOUNGSTER (4) Southside Alley
 	db "GORDON@", TRAINERTYPE_NORMAL
-	db 7
+	db 0
 	dw WOOPER
-	db 7
-	dw MUDKIP
+	db 0
+	dw LOTAD
+	db 0
+	dw ZIGZAGOON
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (5) Route 34
@@ -3474,12 +3476,14 @@ SabrinaGroup: ;Gym Leader
 	end_list_items
 
 BugCatcherGroup:
-	next_list_item ; BUG_CATCHER (1) Route 30
+	next_list_item ; BUG_CATCHER (1) Southside Alley
 	db "DON@", TRAINERTYPE_NORMAL
-	db 3
+	db 0
 	dw CATERPIE
-	db 3
+	db 0
 	dw SURSKIT
+	db 0
+	dw WURMPLE
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (2) Route 2

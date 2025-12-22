@@ -421,16 +421,7 @@ TrainerYoungsterAlbert:
 	closetext
 	end
 
-TrainerYoungsterGordon:
-	trainer YOUNGSTER, GORDON, EVENT_BEAT_YOUNGSTER_GORDON, YoungsterGordonSeenText, YoungsterGordonBeatenText, 0, .Script
 
-.Script:
-	endifjustbattled
-	opentext
-	writetext YoungsterGordonAfterText
-	waitbutton
-	closetext
-	end
 
 TrainerBirdKeeperPeter:
 	trainer BIRD_KEEPER, PETER, EVENT_BEAT_BIRD_KEEPER_PETER, BirdKeeperPeterSeenText, BirdKeeperPeterBeatenText, 0, .Script
@@ -694,25 +685,6 @@ YoungsterAlbertAfterText:
 	para "I'm not using the"
 	line "same tough #MON"
 	cont "as everyone else."
-	done
-
-YoungsterGordonSeenText:
-	text "I found some good"
-	line "#MON in the"
-	cont "grass!"
-
-	para "I think they'll do"
-	line "it for me!"
-	done
-
-YoungsterGordonBeatenText:
-	text "Darn. I thought I"
-	line "could win."
-	done
-
-YoungsterGordonAfterText:
-	text "The grass is full"
-	line "of clingy things."
 	done
 
 CamperRolandSeenText:
