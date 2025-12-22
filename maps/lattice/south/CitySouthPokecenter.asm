@@ -1,0 +1,31 @@
+	object_const_def
+	const CITYSOUTHPOKECENTER_NURSE
+	const CITYSOUTHPOKECENTER_CHANSEY
+
+CitySouthPokecenter_MapScripts:
+	def_scene_scripts
+
+	def_callbacks
+
+CitySouthPokecenterNurseScript:
+	jumpstd PokecenterNurseScript
+
+CitySouthPokecenterChanseyScript:
+	cry CHANSEY
+	end
+
+CitySouthPokecenter_MapEvents:
+	db 0, 0 ; filler
+
+	def_warp_events
+	warp_event  4,  7, CITY_SOUTH, 3
+	warp_event  5,  7, CITY_SOUTH, 3
+
+	def_coord_events
+
+	def_bg_events
+
+	def_object_events
+	object_event  5,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CitySouthPokecenterNurseScript, -1
+	object_event  7,  1, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CitySouthPokecenterChanseyScript, -1
+	

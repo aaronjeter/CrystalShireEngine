@@ -157,8 +157,6 @@ SECTION "Map Scripts 9", ROMX
 
 INCLUDE "maps/Route34.asm"
 INCLUDE "maps/ElmsLab.asm"
-INCLUDE "maps/PlayersHouse1F.asm"
-INCLUDE "maps/PlayersHouse2F.asm"
 INCLUDE "maps/PlayersNeighborsHouse.asm"
 INCLUDE "maps/ElmsHouse.asm"
 INCLUDE "maps/Route26HealHouse.asm"
@@ -565,5 +563,24 @@ INCLUDE "maps/hoenn/FieryPath.asm"
 INCLUDE "maps/hoenn/Route113.asm"
 INCLUDE "maps/hoenn/Route116.asm"
 INCLUDE "maps/hoenn/Route117.asm"
+
+ENDSECTION
+
+SECTION "Map Scripts 28", ROMX
+
+INCLUDE "maps/lattice/south/CitySouth.asm"
+INCLUDE "maps/lattice/south/SouthGym.asm"
+INCLUDE "maps/lattice/south/SouthPark.asm"
+INCLUDE "maps/lattice/south/CitySouthPokecenter.asm"
+INCLUDE "maps/lattice/south/CitySouthPokemart.asm"
+INCLUDE "maps/lattice/south/LatticeApartment1F.asm"
+INCLUDE "maps/lattice/south/LatticeApartment2F.asm"
+INCLUDE "maps/lattice/south/LatticeApartment3F.asm"
+INCLUDE "maps/lattice/south/LatticeApartmentRoof.asm"
+INCLUDE "maps/lattice/south/SouthsidePetShop.asm"
+INCLUDE "maps/lattice/south/SouthsideAlley.asm"
+
+INCLUDE "maps/lattice/south/PlayersHouse1F.asm"
+INCLUDE "maps/lattice/south/PlayersHouse2F.asm"
 
 ENDSECTION

@@ -1180,17 +1180,16 @@ ScientistGroupHard:
 	end_list_items
 
 ErikaGroupHard:
-	next_list_item ; ERIKA (1)
-	db "ERIKA@", TRAINERTYPE_MOVES
-	db 8
+	next_list_item ; South Park Iella
+	db "IELLA@", TRAINERTYPE_NORMAL
+	db 3
+	dw AVULPIX
+	db 3
+	dw VULPIX
+	db 2
+	dw MAREEP
+	db 4
 	dw TANGELA
-	dw STUN_SPORE, REFLECT, ABSORB, SLEEP_POWDER
-	db 8
-	dw SKIPLOOM
-	dw ABSORB, LEECH_SEED, COTTON_SPORE, GIGA_DRAIN
-	db 10
-	dw WEEPINBELL
-	dw SUNNY_DAY, STUN_SPORE, ACID, RAZOR_LEAF
 	db -1 ; end
 	
 	next_list_item ; ERIKA (2)
@@ -1237,9 +1236,9 @@ ErikaGroupHard:
 	end_list_items
 
 YoungsterGroupHard:
-	next_list_item ; YOUNGSTER (1) Route 30 
+	next_list_item ; YOUNGSTER (1) South Gym
 	db "JOEY@", TRAINERTYPE_NORMAL
-	db 2
+	db 9
 	dw RATTATA
 	db -1 ; end
 
@@ -1345,20 +1344,20 @@ YoungsterGroupHard:
 	dw RATICATE
 	db -1 ; end
 
-	next_list_item ; YOUNGSTER (15) Ilex West (Contest placeholder team)
+	next_list_item ; YOUNGSTER (15) Lattice Apartment Roof (Contest placeholder team)
 	db "RONALD@", TRAINERTYPE_NORMAL
-	db 10
+	db 0
 	dw GIRAFARIG
-	db 8
+	db 1
 	dw BALTOY
-	db 8
-	dw POLIWHIRL
-	db 5
+	db 1
+	dw POLIWAG
+	db 0
 	dw FEEBAS
-	db 8
-	dw SKIPLOOM
-	db 12
-	dw ANINETALES
+	db 1
+	dw HOPPIP
+	db 2
+	dw AVULPIX
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (16) Johto Games (Contest placeholder team)
@@ -1425,12 +1424,14 @@ YoungsterGroupHard:
 	dw TAILLOW
 	db -1 ; end
 
-	next_list_item ; YOUNGSTER (21) Route 104
+	next_list_item ; YOUNGSTER (22) Route 104
 	db "BILLY@", TRAINERTYPE_NORMAL
-	db 4
+	db 1
 	dw ZIGZAGOON
-	db 5
+	db 1
 	dw SEEDOT
+	db 1
+	dw LOTAD
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (23) Route 116
@@ -1974,14 +1975,14 @@ LassGroupHard:
 	dw PARASECT
 	db -1 ; end
 
-	next_list_item ; LASS (9) Celadon City Gym
+	next_list_item ; LASS (9) South Park
 	db "MICHELLE@", TRAINERTYPE_NORMAL
-	db 5
-	dw SKIPLOOM
-	db 5
+	db 1
+	dw BULBASAUR
+	db 1
 	dw HOPPIP
-	db 7
-	dw JUMPLUFF
+	db 1
+	dw ODDISH
 	db -1 ; end
 
 	next_list_item ; LASS (10) Route 38
@@ -2838,12 +2839,12 @@ BeautyGroupHard:
 
 	next_list_item ; BEAUTY (14) Celadon City Gym
 	db "JULIA@", TRAINERTYPE_NORMAL
-	db 7
+	db 1
 	dw EXEGGCUTE2
-	db 7
+	db 1
 	dw EXEGGCUTE
-	db 7
-	dw PARASECT
+	db 1
+	dw PARAS
 	db -1 ; end
 
 	next_list_item ; BEAUTY (15) Unreferenced
@@ -2872,10 +2873,14 @@ BeautyGroupHard:
 	dw FURRET
 	db -1 ; end
 
-	next_list_item ; BEAUTY (19) Route 104
+	next_list_item ; BEAUTY (19) Lattice Apartments 1F
 	db "CINDY@", TRAINERTYPE_NORMAL
-	db 5
-	dw NOCTOWL
+	db 1
+	dw HOOTHOOT
+	db 2
+	dw PIKACHU
+	db 3
+	dw RHYHORN
 	db -1 ; end
 
 	next_list_item ; BEAUTY (20) Route 109
@@ -4020,12 +4025,14 @@ FisherGroupHard:
 	dw GOLDEEN
 	db -1 ; end
 
-	next_list_item ; FISHER (27) Route 104
+	next_list_item ; FISHER (27) Lattice Apartmennts 1F
 	db "DARIAN@", TRAINERTYPE_NORMAL
-	db 7
+	db 2
 	dw FEEBAS
-	db 7
+	db 3
 	dw TENTACOOL
+	db 3
+	dw MAGNEMITE
 	db -1 ; end
 
 	next_list_item ; FISHER (28) Route 104
@@ -5979,10 +5986,14 @@ PicnickerGroupHard:
 	dw PONYTA
 	db -1 ; end
 
-	next_list_item ; PICNICKER (19) Celadon City Gym
+	next_list_item ; PICNICKER (19) South Park
 	db "TANYA@", TRAINERTYPE_NORMAL
-	db 7
-	dw EXEGGUTOR
+	db 1
+	dw EXEGGCUTE
+	db 1
+	dw HORSEA
+	db 1
+	dw SPINARAK
 	db -1 ; end
 
 	next_list_item ; PICNICKER (20) Route 43
@@ -6257,12 +6268,14 @@ CamperGroupHard:
 	dw GOLDUCK
 	db -1 ; end
 
-	next_list_item ; CAMPER (18) Pewter City Gym
+	next_list_item ; CAMPER (18) South City Gym
 	db "JERRY@", TRAINERTYPE_NORMAL
-	db 7
-	dw SANDSLASH
-	db 7
-	dw KABUTO
+	db 5
+	dw SANDSHREW
+	db 5
+	dw SENTRET
+	db 5
+	dw PICHU
 	db -1 ; end
 
 	next_list_item ; CAMPER (19) Route 43
@@ -6870,12 +6883,16 @@ TwinsGroupHard:
 	dw SPINARAK
 	db -1 ; end
 
-	next_list_item ; TWINS (5) Celadon City Gym
+	next_list_item ; TWINS (5) South Park
 	db "JO & ZOE@", TRAINERTYPE_NORMAL
-	db 7
-	dw VICTREEBEL
-	db 7
-	dw VILEPLUME
+	db 1
+	dw ODDISH
+	db 1
+	dw BELLSPROUT
+	db 1
+	dw SPEAROW
+	db 1
+	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; TWINS (6) Celadon City Gym

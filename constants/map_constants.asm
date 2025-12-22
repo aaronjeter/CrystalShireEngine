@@ -566,6 +566,17 @@ ENDM
 	map_const ROUTE_113,								   50, 10 ;
 	map_const ROUTE_116,								   30, 10 ;
 	map_const ROUTE_117,								   30, 10 ;	
+	map_const CITY_SOUTH,                                  30, 30 ;
+	map_const SOUTH_GYM,                                   09, 10 ;
+	map_const CITY_SOUTH_POKECENTER,                       06, 04 ;
+	map_const CITY_SOUTH_POKEMART,                         06, 04 ;
+	map_const SOUTH_PARK,								   12, 12 ;
+	map_const LATTICE_APARTMENT_1F,                        04, 05 ; 
+	map_const LATTICE_APARTMENT_2F,                        04, 05 ; 
+	map_const LATTICE_APARTMENT_3F,                        04, 05 ; 
+	map_const LATTICE_APARTMENT_ROOF,                      04, 05 ; 
+	map_const SOUTHSIDE_PET_SHOP,                          08, 04 ;
+	map_const SOUTHSIDE_ALLEY,                             12, 08 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

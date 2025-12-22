@@ -1,7 +1,5 @@
 	object_const_def
-	const MAPROUTE104_BILLY
-	const MAPROUTE104_DARIAN
-	const MAPROUTE104_CINDY
+	
 	const MAPROUTE104_WINSTON
 	const MAPROUTE104_HALEY
 	const MAPROUTE104_GINA
@@ -19,93 +17,7 @@ Route104_MapScripts:
 	def_callbacks	
 
 
-Route104BillyScript:
-	trainer YOUNGSTER, ROUTE104_BILLY, EVENT_BEAT_ROUTE104_BILLY, Route104BillySeenText, Route104BillyBeatenText, 0, .AfterScript
 
-.AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104BillyAfterBattleText
-	waitbutton
-	closetext
-	end
-
-Route104BillySeenText:
-	text "I just love"
-	line "the beach."
-	done
-
-Route104BillyBeatenText:
-	text "Oof!"
-	done
-
-Route104BillyAfterBattleText:
-	text "South of here"
-	line "is DEWFORD"
-	cont "CITY."
-	done
-
-
-Route104DarianScript:
-	trainer FISHER, ROUTE104_DARIAN, EVENT_BEAT_ROUTE104_DARIAN, Route104DarianSeenText, Route104DarianBeatenText, 0, .AfterScript
-
-.AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104DarianAfterBattleText
-	waitbutton
-	closetext
-	end
-
-Route104DarianSeenText:
-	text "It's a long"
-	line "walk to the beach"
-
-	para "How about"
-	line "a break?"
-	done
-
-Route104DarianBeatenText:
-	text "I needed that!"
-	done
-
-Route104DarianAfterBattleText:
-	text "I'm really"
-	line "excited to go"
-	cont "fishing."
-
-	para "It's been a long"
-	line "walk."
-	done
-
-
-Route104CindyScript:
-	trainer BEAUTY, ROUTE104_CINDY, EVENT_BEAT_ROUTE104_CINDY, Route104CindySeenText, Route104CindyBeatenText, 0, .AfterScript
-
-.AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104CindyAfterBattleText
-	waitbutton
-	closetext
-	end
-
-Route104CindySeenText:
-	text "I love sand!"
-	
-	para "Even if it does"
-	line "get everywhere."
-	done
-
-Route104CindyBeatenText:
-	text "That was fun!"
-	done
-
-Route104CindyAfterBattleText:
-	text "I love coming"
-	line "to the beach with"
-	cont "my family!"
-	done
 
 
 Route104WinstonScript:
@@ -289,10 +201,7 @@ Route104_MapEvents:
 
 	def_bg_events	
 
-	def_object_events
-	object_event  22,  51, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route104BillyScript, -1
-	object_event  06,  45, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route104DarianScript, -1
-	object_event  15,  48, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, Route104CindyScript, -1
+	def_object_events	
 	object_event  11,  22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route104WinstonScript, -1
 	object_event  24,  20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route104HaleyScript, -1
 	object_event  20,  12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route104GinaScript, -1

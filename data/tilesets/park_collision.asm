@@ -62,3 +62,5 @@
 	tilecoll WALL, WALL, WALL, WALL ; 3d
 	tilecoll WALL, WALL, WALL, WALL ; 3e
 	tilecoll LONG_GRASS, LONG_GRASS, LONG_GRASS, LONG_GRASS ; 3f
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 40
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 41

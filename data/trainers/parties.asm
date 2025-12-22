@@ -923,61 +923,71 @@ ChampionGroup: ;Elite 4
 	end_list_items
 
 BrockGroup: ;Gym Leader
-	next_list_item ; BROCK (1)
-	db "BROCK@", TRAINERTYPE_MOVES
+	next_list_item ; RODNEY (1)
+	db "RODNEY@", TRAINERTYPE_MOVES
 	db 7
-	dw ONIX
-	dw ROCK_THROW, HARDEN, BIDE, SANDSTORM
+	dw RATTATA
+	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
 	db 8
-	dw OMANYTE
-	dw BITE, BUBBLEBEAM, PROTECT, SPIKE_CANNON
-	db 11
-	dw RHYHORN
-	dw SLAM, GROWL, MAGNITUDE, NO_MOVE
+	dw SANDSHREW
+	dw DEFENSE_CURL, ROLLOUT, METAL_CLAW, SAND_ATTACK
+	db 8
+	dw ASANDSHREW
+	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, METAL_CLAW
+	db 8
+	dw NIDORAN_M
+	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
+	db 8
+	dw NIDORAN_F
+	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
+	db 10
+	dw MINUN
+	dw THUNDER_WAVE, SPARK, CHARGE, GROWL
 	db -1 ; end
 	
-	next_list_item ; BROCK (2)
-	db "BROCK@", TRAINERTYPE_MOVES
+	next_list_item ; RODNEY (2)
+	db "RODNEY@", TRAINERTYPE_MOVES
+	db 7
+	dw SENTRET
+	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
+	db 8
+	dw MARILL
+	dw DEFENSE_CURL, ROLLOUT, BUBBLE, SAND_ATTACK
+	db 8
+	dw SWINUB
+	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, POWDER_SNOW
+	db 8
+	dw WOOPER
+	dw WATER_GUN, TACKLE, SAND_ATTACK, POISON_STING
+	db 8
+	dw NIDORAN_F
+	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
 	db 10
-	dw DUNSPARCE
-	dw ROCK_TOMB, DIG, EARTHQUAKE, SANDSTORM
-	db 11
-	dw LUNATONE
-	dw ROCK_TOMB, COSMIC_POWER, PSYCHIC_M, SANDSTORM
-	db 10
-	dw NOSEPASS
-	dw ROCK_TOMB, COSMIC_POWER, THUNDERBOLT, SANDSTORM
-	db 10
-	dw KABUTOPS
-	dw SLASH, ROCK_TOMB, ICE_PUNCH, SANDSTORM
-	db 10
-	dw OMASTAR
-	dw CRUNCH, SURF, PROTECT, SPIKE_CANNON
-	db 11
-	dw RHYDON
-	dw DRAGON_CLAW, EARTHQUAKE, BULK_UP, ROCK_TOMB
+	dw PLUSLE
+	dw THUNDER_WAVE, SPARK, CHARGE, GROWL
 	db -1 ; end
 	
-	next_list_item ; BROCK (3)
-	db "BROCK@", TRAINERTYPE_MOVES
+	next_list_item ; RODNEY (3)
+	db "RODNEY@", TRAINERTYPE_MOVES
+	db 7
+	dw ZIGZAGOON
+	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
+	db 8
+	dw SANDSHREW
+	dw DEFENSE_CURL, ROLLOUT, METAL_CLAW, SAND_ATTACK
+	db 8
+	dw ASANDSHREW
+	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, METAL_CLAW
+	db 8
+	dw WOOPER
+	dw WATER_GUN, TACKLE, SAND_ATTACK, POISON_STING
+	db 8
+	dw PIKACHU
+	dw THUNDERSHOCK, THUNDER_WAVE, QUICK_ATTACK, GROWL
 	db 10
-	dw RELICANTH
-	dw ROCK_TOMB, HYDRO_PUMP, REST, SANDSTORM
-	db 10
-	dw LUNATONE
-	dw ROCK_TOMB, COSMIC_POWER, PSYCHIC_M, SANDSTORM
-	db 10
-	dw SOLROCK
-	dw ROCK_TOMB, COSMIC_POWER, FLAMETHROWER, SANDSTORM
-	db 10
-	dw KABUTOPS
-	dw SLASH, ROCK_TOMB, ICE_PUNCH, SANDSTORM
-	db 10
-	dw OMASTAR
-	dw CRUNCH, SURF, PROTECT, SPIKE_CANNON
-	db 10
-	dw RHYDON
-	dw DRAGON_CLAW, EARTHQUAKE, BULK_UP, ROCK_TOMB
+	dw SPINDA
+	dw DIZZY_PUNCH, FAINT_ATTACK, SUPERSONIC, FLAIL
+	db -1 ; end
 
 	end_list_items
 
@@ -1143,17 +1153,16 @@ ScientistGroup:
 	end_list_items
 
 ErikaGroup: ;Gym Leader
-	next_list_item ; ERIKA (1)
-	db "ERIKA@", TRAINERTYPE_MOVES
-	db 8
+	next_list_item ; South Park Iella
+	db "IELLA@", TRAINERTYPE_NORMAL
+	db 2 
+	dw AVULPIX
+	db 2
+	dw VULPIX
+	db 2
+	dw MAREEP
+	db 3
 	dw TANGELA
-	dw STUN_SPORE, REFLECT, ABSORB, SLEEP_POWDER
-	db 8
-	dw SKIPLOOM
-	dw ABSORB, LEECH_SEED, COTTON_SPORE, GIGA_DRAIN
-	db 10
-	dw WEEPINBELL
-	dw SUNNY_DAY, STUN_SPORE, ACID, RAZOR_LEAF
 	db -1 ; end
 	
 	next_list_item ; ERIKA (2)
@@ -1200,9 +1209,9 @@ ErikaGroup: ;Gym Leader
 	end_list_items
 
 YoungsterGroup:
-	next_list_item ; YOUNGSTER (1) Route 30 
+	next_list_item ; YOUNGSTER (1) South Gym
 	db "JOEY@", TRAINERTYPE_NORMAL
-	db 2
+	db 7
 	dw RATTATA
 	db -1 ; end
 
@@ -1308,20 +1317,20 @@ YoungsterGroup:
 	dw RATICATE
 	db -1 ; end
 
-	next_list_item ; YOUNGSTER (15) Ilex West (Contest placeholder team)
+	next_list_item ; YOUNGSTER (15) Lattice Apartment Roof (Contest placeholder team)
 	db "RONALD@", TRAINERTYPE_NORMAL
-	db 9
+	db 0
 	dw GIRAFARIG
-	db 7
+	db 0
 	dw BALTOY
-	db 7
-	dw POLIWHIRL
-	db 3
+	db 0
+	dw POLIWAG
+	db 0
 	dw FEEBAS
-	db 7
-	dw SKIPLOOM
-	db 10
-	dw ANINETALES
+	db 0
+	dw HOPPIP
+	db 2
+	dw AVULPIX
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (16) Johto Games (Contest placeholder team)
@@ -1386,10 +1395,12 @@ YoungsterGroup:
 
 	next_list_item ; YOUNGSTER (22) Route 104
 	db "BILLY@", TRAINERTYPE_NORMAL
-	db 3
+	db 0
 	dw ZIGZAGOON
-	db 3
+	db 0
 	dw SEEDOT
+	db 0
+	dw LOTAD
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (23) Route 116
@@ -1933,14 +1944,14 @@ LassGroup:
 	dw PARASECT
 	db -1 ; end
 
-	next_list_item ; LASS (9) Celadon City Gym
+	next_list_item ; LASS (9) South Park
 	db "MICHELLE@", TRAINERTYPE_NORMAL
-	db 5
-	dw SKIPLOOM
-	db 5
+	db 0
+	dw BULBASAUR
+	db 0
 	dw HOPPIP
-	db 7
-	dw JUMPLUFF
+	db 0
+	dw ODDISH
 	db -1 ; end
 
 	next_list_item ; LASS (10) Route 38
@@ -2619,20 +2630,20 @@ CooltrainerFGroup:
 	dw ALTARIA
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERF (21) Ilex West (LelouchIsKing contest party #1)
+	next_list_item ; COOLTRAINERF (21) Ilex West (LelouchIsKing contest party #1) Lattice Apartment Roof
 	db "MARINA@", TRAINERTYPE_NORMAL
-	db 9
+	db 2
 	dw GROWLITHE
-	db 9
+	db 2
 	dw SNORUNT
-	db 9
-	dw BRELOOM
-	db 9
-	dw QUAGSIRE
-	db 9
-	dw TOGETIC
-	db 10
-	dw ELECTRODE2
+	db 3
+	dw SHROOMISH
+	db 3
+	dw WOOPER
+	db 3
+	dw TOGEPI
+	db 5
+	dw VOLTORB2
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (21) Johto Games (LelouchIsKing contest party #2)
@@ -2780,12 +2791,12 @@ BeautyGroup:
 
 	next_list_item ; BEAUTY (14) Celadon City Gym
 	db "JULIA@", TRAINERTYPE_NORMAL
-	db 7
+	db 0
 	dw EXEGGCUTE2
-	db 7
+	db 0
 	dw EXEGGCUTE
-	db 7
-	dw PARASECT
+	db 0
+	dw PARAS
 	db -1 ; end
 
 	next_list_item ; BEAUTY (15) Unreferenced
@@ -2814,10 +2825,14 @@ BeautyGroup:
 	dw FURRET
 	db -1 ; end
 
-	next_list_item ; BEAUTY (19) Route 104
+	next_list_item ; BEAUTY (19) Lattice Apartments 1F
 	db "CINDY@", TRAINERTYPE_NORMAL
-	db 5
-	dw NOCTOWL
+	db 1
+	dw HOOTHOOT
+	db 1
+	dw PIKACHU
+	db 2
+	dw RHYHORN
 	db -1 ; end
 
 	next_list_item ; BEAUTY (20) Route 109
@@ -3316,20 +3331,20 @@ TeacherGroup:
 	dw JIGGLYPUFF
 	db -1 ; end
 
-	next_list_item ; TEACHER (4) Ilex East (Jessadactyl contest party #1)
+	next_list_item ; TEACHER (4) Ilex East (Jessadactyl contest party #1) Lattice Apartment Roof
 	db "JESS@", TRAINERTYPE_NORMAL
-	db 5
+	db 2
 	dw NATU
-	db 5
+	db 2
 	dw AGRIMER
+	db 3
+	dw ARON
+	db 3
+	dw TENTACOOL
+	db 3
+	dw MANKEY
 	db 5
-	dw LAIRON
-	db 5
-	dw TENTACRUEL
-	db 5
-	dw PRIMEAPE
-	db 7
-	dw GRANBULL
+	dw SNUBBULL
 	db -1 ; end
 
 	next_list_item ; TEACHER (5) Ilex East (Jessadactyl contest party #2)
@@ -3356,18 +3371,18 @@ TeacherGroup:
 
 	next_list_item ; TEACHER (6)  (Klutch contest party #1)
 	db "KLUTCH@", TRAINERTYPE_NORMAL
-	db 5
+	db 0
 	dw RHYHORN
-	db 5
+	db 1
 	dw CHARMANDER
-	db 5
+	db 2
 	dw SWABLU
+	db 2
+	dw SENTRET	
 	db 5
-	dw FURRET
+	dw MAGIKARP
 	db 5
-	dw HANAMOLE
-	db 7
-	dw GYARADOS
+	dw HOPPIP
 	db -1 ; end
 
 	next_list_item ; TEACHER (7)  (Klutch contest party #2)
@@ -3939,12 +3954,14 @@ FisherGroup:
 	dw GOLDEEN
 	db -1 ; end
 
-	next_list_item ; FISHER (27) Route 104
+	next_list_item ; FISHER (27) Lattice Apartmennts 1F
 	db "DARIAN@", TRAINERTYPE_NORMAL
-	db 5
+	db 1
 	dw FEEBAS
-	db 5
+	db 2
 	dw TENTACOOL
+	db 3
+	dw MAGNEMITE
 	db -1 ; end
 
 	next_list_item ; FISHER (28) Route 104
@@ -5890,10 +5907,14 @@ PicnickerGroup:
 	dw PONYTA
 	db -1 ; end
 
-	next_list_item ; PICNICKER (19) Celadon City Gym
+	next_list_item ; PICNICKER (19) South Park
 	db "TANYA@", TRAINERTYPE_NORMAL
-	db 7
-	dw EXEGGUTOR
+	db 0
+	dw EXEGGCUTE
+	db 0
+	dw HORSEA
+	db 0
+	dw SPINARAK
 	db -1 ; end
 
 	next_list_item ; PICNICKER (20) Route 43
@@ -6168,12 +6189,14 @@ CamperGroup:
 	dw GOLDUCK
 	db -1 ; end
 
-	next_list_item ; CAMPER (18) Pewter City Gym
+	next_list_item ; CAMPER (18) South City Gym
 	db "JERRY@", TRAINERTYPE_NORMAL
-	db 7
-	dw SANDSLASH
-	db 7
-	dw KABUTO
+	db 5
+	dw SANDSHREW
+	db 5
+	dw SENTRET
+	db 5
+	dw PICHU
 	db -1 ; end
 
 	next_list_item ; CAMPER (19) Route 43
@@ -6779,12 +6802,16 @@ TwinsGroup:
 	dw SPINARAK
 	db -1 ; end
 
-	next_list_item ; TWINS (5) Celadon City Gym
+	next_list_item ; TWINS (5) South Park
 	db "JO & ZOE@", TRAINERTYPE_NORMAL
-	db 7
-	dw VICTREEBEL
-	db 7
-	dw VILEPLUME
+	db 0
+	dw ODDISH
+	db 0
+	dw BELLSPROUT
+	db 0
+	dw SPEAROW
+	db 0
+	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; TWINS (6) Celadon City Gym

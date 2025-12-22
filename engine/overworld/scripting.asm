@@ -1878,6 +1878,10 @@ Script_givepoke:
 	call LoadScriptPokemonID
 	ld [wCurPartySpecies], a
 	rst GetScriptByte
+	; apply level scaling to givepoke macro
+	ld b, a
+	ld a, [wBaseLevel]
+	add a, b
 	ld [wCurPartyLevel], a
 	rst GetScriptByte
 	ld l, a

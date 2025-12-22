@@ -169,7 +169,7 @@ if DEF(_DEBUG)
 	; good party
 	givepoke TROPIUS, 50, BRIGHTPOWDER
 	; hm slaves
-	givepoke SWALOT, 40, LEFTOVERS
+	givepoke SWALOT, 50, LEFTOVERS
 	givepoke FLYGON, 50, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1

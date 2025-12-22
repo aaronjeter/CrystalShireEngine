@@ -24,6 +24,7 @@ StartBattleWithMapTrainerScript:
 	startbattle
 	reloadmapafterbattle
 	trainerflagaction SET_FLAG
+	givecoins 1
 	loadmem wRunningTrainerBattleScript, -1
 
 AlreadyBeatenTrainerScript:

@@ -833,3 +833,19 @@ ENDM
 	map_attributes Route117, ROUTE_117, $05, WEST | EAST
 	connection west, VerdanturfTown, VERDANTURF_TOWN, 0
 	connection east, MauvilleCity, MAUVILLE_CITY, 0
+
+
+	;Lattice City
+
+	;CITY SOUTH
+	map_attributes CitySouth, CITY_SOUTH, $00, 0
+	map_attributes SouthGym, SOUTH_GYM, $00, 0
+	map_attributes CitySouthPokecenter, CITY_SOUTH_POKECENTER, $00, 0
+	map_attributes CitySouthPokemart, CITY_SOUTH_POKEMART, $00, 0
+	map_attributes SouthPark, SOUTH_PARK, $00, 0
+	map_attributes LatticeApartment1F, LATTICE_APARTMENT_1F, $00, 0
+	map_attributes LatticeApartment2F, LATTICE_APARTMENT_2F, $00, 0
+	map_attributes LatticeApartment3F, LATTICE_APARTMENT_3F, $00, 0
+	map_attributes LatticeApartmentRoof, LATTICE_APARTMENT_ROOF, $01, 0
+	map_attributes SouthsidePetShop, SOUTHSIDE_PET_SHOP, $00, 0
+	map_attributes SouthsideAlley, SOUTHSIDE_ALLEY, $00, 0

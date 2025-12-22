@@ -35,11 +35,11 @@
 	tilecoll WALL, WALL, FLOOR, WALL ; 22
 	tilecoll WALL, WALL, STAIRCASE, LEFT_WALL ; 23
 	tilecoll WALL, WALL, WALL, STAIRCASE ; 24
-	tilecoll WALL, WALL, LEFT_WALL, FLOOR ; 25
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 25
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 26
 	tilecoll WALL, WALL, DOOR, WALL ; 27
-	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 28
-	tilecoll FLOOR, FLOOR, WALL, WALL ; 29
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 28
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 29
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 2a
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 2b
 	tilecoll RIGHT_WALL, LEFT_WALL, RIGHT_WALL, LEFT_WALL ; 2c
@@ -62,3 +62,4 @@
 	tilecoll WALL, FLOOR, WALL, WALL ; 3d
 	tilecoll FLOOR, WALL, WALL, WALL ; 3e
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 3f
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 40

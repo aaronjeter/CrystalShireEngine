@@ -214,8 +214,7 @@ Route43_Blocks:
 Route39_Blocks:
 	INCBIN "maps/Route39.ablk"
 
-PlayersHouse1F_Blocks:
-	INCBIN "maps/PlayersHouse1F.ablk"
+
 
 Route38EcruteakGate_Blocks:
 Route42EcruteakGate_Blocks:
@@ -727,9 +726,6 @@ OlivineCafe_Blocks:
 SafariZoneMainOffice_Blocks:
 	INCBIN "maps/OlivineCafe.ablk"
 
-PlayersHouse2F_Blocks:
-	INCBIN "maps/PlayersHouse2F.ablk"
-
 SaffronMagnetTrainStation_Blocks:
 	INCBIN "maps/SaffronMagnetTrainStation.ablk"
 
@@ -1074,3 +1070,48 @@ SECTION "Map Blocks 5", ROMX
 	INCBIN "maps/hoenn/Route117.ablk" 
 
 ENDSECTION
+
+SECTION "Map Blocks 6", ROMX
+
+	CitySouth_Blocks:
+	INCBIN "maps/lattice/south/CitySouth.ablk" 
+
+	SouthGym_Blocks:
+	INCBIN "maps/lattice/south/SouthGym.ablk" 
+
+	SouthPark_Blocks:
+	INCBIN "maps/lattice/south/SouthPark.ablk" 
+
+	CitySouthPokecenter_Blocks:
+	INCBIN "maps/lattice/LatticePokecenter.ablk" 
+
+	CitySouthPokemart_Blocks:
+	INCBIN "maps/lattice/LatticePokemart.ablk" 
+
+	PlayersHouse1F_Blocks:
+	INCBIN "maps/lattice/south/PlayersHouse1F.ablk"
+
+	PlayersHouse2F_Blocks:
+	INCBIN "maps/lattice/south/PlayersHouse2F.ablk"
+
+	LatticeApartment1F_Blocks:
+	INCBIN "maps/lattice/south/LatticeApartment1F.ablk"
+
+	LatticeApartment2F_Blocks:
+	INCBIN "maps/lattice/south/LatticeApartment2F.ablk"
+
+	LatticeApartment3F_Blocks:
+	INCBIN "maps/lattice/south/LatticeApartment3F.ablk"
+
+	LatticeApartmentRoof_Blocks:
+	INCBIN "maps/lattice/south/LatticeApartmentRoof.ablk"
+
+	SouthsidePetShop_Blocks:
+	INCBIN "maps/lattice/south/SouthsidePetShop.ablk"
+
+	SouthsideAlley_Blocks:
+	INCBIN "maps/lattice/south/SouthsideAlley.ablk"
+
+
+ENDSECTION
+
