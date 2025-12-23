@@ -36,6 +36,14 @@ CitySouthPetStoreSignText:
 	line "Pet Store"
 	done
 
+CitySouthPlantMarketSign:
+	jumptext CitySouthPlantMarketSignText
+
+CitySouthPlantMarketSignText:
+	text "South-Side"
+	line "Plant Market"
+	done
+
 
 CitySouth_MapEvents:
 	db 0, 0 ; filler
@@ -52,6 +60,9 @@ CitySouth_MapEvents:
 	warp_event  11,  45, SOUTHSIDE_PET_SHOP, 1
 	warp_event  28,  38, SOUTHSIDE_ALLEY, 1
 	warp_event  28,  39, SOUTHSIDE_ALLEY, 2
+	warp_event  39,  13, SOUTHSIDE_PLANT_MARKET, 1
+	warp_event  20,  19, SOUTHSIDE_NORTH_ALLEY, 1
+	warp_event  21,  19, SOUTHSIDE_NORTH_ALLEY, 2
 
 	def_coord_events
 
@@ -60,6 +71,7 @@ CitySouth_MapEvents:
 	bg_event 25,  14, BGEVENT_READ, CitySouthGymSign
 	bg_event 26,  46, BGEVENT_READ, CitySouthApartmentsSign
 	bg_event 10,  46, BGEVENT_READ, CitySouthPetStoreSign
+	bg_event 41,  14, BGEVENT_READ, CitySouthPlantMarketSign
 
 	def_object_events
 	

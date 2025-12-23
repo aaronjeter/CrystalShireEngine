@@ -782,7 +782,7 @@ SetLevelCap:
     ld de, EVENT_LEVELCAPS_ENABLED
     ld b, SET_FLAG
 	call EventFlagAction
-	ld a, 16
+	ld a, 14 ;Starting level cap set to 12 for Lattice
 	ld [wLevelCap], a
 	ret
 

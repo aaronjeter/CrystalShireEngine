@@ -925,66 +925,66 @@ ChampionGroup: ;Elite 4
 BrockGroup: ;Gym Leader
 	next_list_item ; RODNEY (1)
 	db "RODNEY@", TRAINERTYPE_MOVES
-	db 7
+	db 6
 	dw RATTATA
 	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
-	db 8
+	db 6
 	dw SANDSHREW
 	dw DEFENSE_CURL, ROLLOUT, METAL_CLAW, SAND_ATTACK
-	db 8
+	db 6
 	dw ASANDSHREW
 	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, METAL_CLAW
-	db 8
+	db 6
 	dw NIDORAN_M
 	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
-	db 8
+	db 6
 	dw NIDORAN_F
 	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
-	db 10
+	db 7
 	dw MINUN
 	dw THUNDER_WAVE, SPARK, CHARGE, GROWL
 	db -1 ; end
 	
 	next_list_item ; RODNEY (2)
 	db "RODNEY@", TRAINERTYPE_MOVES
-	db 7
+	db 6
 	dw SENTRET
 	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
-	db 8
+	db 6
 	dw MARILL
 	dw DEFENSE_CURL, ROLLOUT, BUBBLE, SAND_ATTACK
-	db 8
+	db 6
 	dw SWINUB
 	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, POWDER_SNOW
-	db 8
+	db 6
 	dw WOOPER
 	dw WATER_GUN, TACKLE, SAND_ATTACK, POISON_STING
-	db 8
+	db 6
 	dw NIDORAN_F
 	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
-	db 10
+	db 7
 	dw PLUSLE
 	dw THUNDER_WAVE, SPARK, CHARGE, GROWL
 	db -1 ; end
 	
 	next_list_item ; RODNEY (3)
 	db "RODNEY@", TRAINERTYPE_MOVES
-	db 7
+	db 6
 	dw ZIGZAGOON
 	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
-	db 8
+	db 6
 	dw SANDSHREW
 	dw DEFENSE_CURL, ROLLOUT, METAL_CLAW, SAND_ATTACK
-	db 8
+	db 6
 	dw ASANDSHREW
 	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, METAL_CLAW
-	db 8
+	db 6
 	dw WOOPER
 	dw WATER_GUN, TACKLE, SAND_ATTACK, POISON_STING
-	db 8
+	db 6
 	dw PIKACHU
 	dw THUNDERSHOCK, THUNDER_WAVE, QUICK_ATTACK, GROWL
-	db 10
+	db 7
 	dw SPINDA
 	dw DIZZY_PUNCH, FAINT_ATTACK, SUPERSONIC, FLAIL
 	db -1 ; end
@@ -1321,17 +1321,17 @@ YoungsterGroup:
 
 	next_list_item ; YOUNGSTER (15) Lattice Apartment Roof (Contest placeholder team)
 	db "RONALD@", TRAINERTYPE_NORMAL
-	db 0
+	db 4
 	dw GIRAFARIG
-	db 0
+	db 4
 	dw BALTOY
-	db 0
+	db 4
 	dw POLIWAG
-	db 0
+	db 4
 	dw FEEBAS
-	db 0
+	db 5
 	dw HOPPIP
-	db 2
+	db 7
 	dw AVULPIX
 	db -1 ; end
 
@@ -2634,17 +2634,17 @@ CooltrainerFGroup:
 
 	next_list_item ; COOLTRAINERF (21) Ilex West (LelouchIsKing contest party #1) Lattice Apartment Roof
 	db "MARINA@", TRAINERTYPE_NORMAL
-	db 2
+	db 4
 	dw GROWLITHE
-	db 2
+	db 4
 	dw SNORUNT
-	db 3
+	db 4
 	dw SHROOMISH
-	db 3
+	db 4
 	dw WOOPER
-	db 3
+	db 4
 	dw TOGEPI
-	db 5
+	db 7
 	dw VOLTORB2
 	db -1 ; end
 
@@ -3002,13 +3002,13 @@ GruntMGroup:
 	dw POOCHYENA
 	db -1 ; end
 
-	next_list_item ; GRUNTM (2) Slowpoke Well BF1
+	next_list_item ; GRUNTM (2) Southside North Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 6
+	db 3
 	dw RATTATA
-	db 6
+	db 3
 	dw ZUBAT
-	db 6
+	db 4
 	dw CARVANHA
 	db -1 ; end
 
@@ -3228,12 +3228,14 @@ GruntMGroup:
 	dw RATICATE
 	db -1 ; end
 
-	next_list_item ; GRUNTM (29) Slowpoke Well B1F
+	next_list_item ; GRUNTM (29) Southside North Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 5
+	db 3
 	dw SEEL
-	db 6
+	db 3
 	dw CUBONE
+	db 3
+	dw ODDISH
 	db -1 ; end
 
 	next_list_item ; GRUNTM (30) Unreferenced
@@ -3335,17 +3337,17 @@ TeacherGroup:
 
 	next_list_item ; TEACHER (4) Ilex East (Jessadactyl contest party #1) Lattice Apartment Roof
 	db "JESS@", TRAINERTYPE_NORMAL
-	db 2
+	db 4
 	dw NATU
-	db 2
+	db 4
 	dw AGRIMER
-	db 3
+	db 4
 	dw ARON
-	db 3
+	db 4
 	dw TENTACOOL
-	db 3
-	dw MANKEY
 	db 5
+	dw MANKEY
+	db 7
 	dw SNUBBULL
 	db -1 ; end
 
@@ -3373,13 +3375,13 @@ TeacherGroup:
 
 	next_list_item ; TEACHER (6)  (Klutch contest party #1)
 	db "KLUTCH@", TRAINERTYPE_NORMAL
-	db 0
+	db 5
 	dw RHYHORN
-	db 1
+	db 4
 	dw CHARMANDER
-	db 2
+	db 4
 	dw SWABLU
-	db 2
+	db 4
 	dw SENTRET	
 	db 5
 	dw MAGIKARP
@@ -7098,12 +7100,14 @@ OfficerGroup:
 	end_list_items
 
 GruntFGroup:
-	next_list_item ; GRUNTF (1) Slowpoke Well B1f
+	next_list_item ; GRUNTF (1) Southside North Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 4
+	db 3
 	dw ZUBAT
-	db 6
+	db 3
 	dw EKANS
+	db 3
+	dw SLOWPOKE
 	db -1 ; end
 
 	next_list_item ; GRUNTF (2) Radio Tower 2F
@@ -7146,20 +7150,20 @@ GruntFGroup:
 	dw ABSORB, SWEET_SCENT, STUN_SPORE, SLEEP_POWDER
 	db -1 ; end
 
-	next_list_item ; GRUNTF (6) Contest Amaya #1
+	next_list_item ; GRUNTF (6) Contest Amaya #1 Lattice Roof
 	db "AMAYA@", TRAINERTYPE_NORMAL
-	db 7
-	dw PIKACHU
-	db 7
+	db 4
+	dw PICHU
+	db 4
 	dw TRAPINCH
 	db 7
 	dw BELDUM
-	db 7
+	db 4
 	dw HOUNDOUR
-	db 8
+	db 4
 	dw AVULPIX
-	db 8
-	dw GYARADOS	
+	db 4
+	dw MAGIKARP	
 	db -1 ; end
 
 	next_list_item ; GRUNTF (7) Contest Amaya #2

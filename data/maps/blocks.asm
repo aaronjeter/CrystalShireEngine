@@ -1112,6 +1112,12 @@ SECTION "Map Blocks 6", ROMX
 	SouthsideAlley_Blocks:
 	INCBIN "maps/lattice/south/SouthsideAlley.ablk"
 
+	SouthsidePlantMarket_Blocks:
+	INCBIN "maps/lattice/south/SouthsidePlantMarket.ablk"
+
+	SouthsideNorthAlley_Blocks:
+	INCBIN "maps/lattice/south/SouthsideNorthAlley.ablk"
+
 
 ENDSECTION
 

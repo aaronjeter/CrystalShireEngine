@@ -960,58 +960,71 @@ ChampionGroupHard:
 	end_list_items
 
 BrockGroupHard:
-	next_list_item ; BROCK (1)
-	db "BROCK@", TRAINERTYPE_MOVES
+	next_list_item ; RODNEY (1)
+	db "RODNEY@", TRAINERTYPE_MOVES
 	db 7
-	dw ONIX
-	dw ROCK_THROW, HARDEN, BIDE, SANDSTORM
-	db 8
-	dw OMANYTE
-	dw BITE, BUBBLEBEAM, PROTECT, SPIKE_CANNON
-	db 11
-	dw RHYHORN
-	dw SLAM, GROWL, MAGNITUDE, NO_MOVE
+	dw RATTATA
+	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
+	db 7
+	dw SANDSHREW
+	dw DEFENSE_CURL, ROLLOUT, METAL_CLAW, SAND_ATTACK
+	db 7
+	dw ASANDSHREW
+	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, METAL_CLAW
+	db 7
+	dw NIDORAN_M
+	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
+	db 7
+	dw NIDORAN_F
+	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
+	db 9
+	dw MINUN
+	dw THUNDER_WAVE, SPARK, CHARGE, GROWL
 	db -1 ; end
 	
-	next_list_item ; BROCK (2)
-	db "BROCK@", TRAINERTYPE_MOVES
-	db 12
-	dw RHYDON
-	dw ROCK_TOMB, OUTRAGE, EARTHQUAKE, SANDSTORM
-	db 10
-	dw NOSEPASS
-	dw ROCK_TOMB, COSMIC_POWER, THUNDERBOLT, SANDSTORM
-	db 10
-	dw KABUTOPS
-	dw SLASH, ROCK_TOMB, ICE_PUNCH, SANDSTORM
-	db 10
-	dw OMASTAR
-	dw CRUNCH, SURF, PROTECT, SPIKE_CANNON
-	db 12
-	dw REGIROCK
-	dw ROCK_SLIDE, EARTHQUAKE, RECOVER, ROCK_TOMB
+	next_list_item ; RODNEY (2)
+	db "RODNEY@", TRAINERTYPE_MOVES
+	db 7
+	dw SENTRET
+	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
+	db 7
+	dw MARILL
+	dw DEFENSE_CURL, ROLLOUT, BUBBLE, SAND_ATTACK
+	db 7
+	dw SWINUB
+	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, POWDER_SNOW
+	db 7
+	dw WOOPER
+	dw WATER_GUN, TACKLE, SAND_ATTACK, POISON_STING
+	db 7
+	dw NIDORAN_F
+	dw DOUBLE_KICK, TACKLE, SAND_ATTACK, POISON_STING
+	db 9
+	dw PLUSLE
+	dw THUNDER_WAVE, SPARK, CHARGE, GROWL
 	db -1 ; end
 	
-	next_list_item ; BROCK (3)
-	db "BROCK@", TRAINERTYPE_MOVES
-	db 12
-	dw LUNATONE
-	dw ROCK_TOMB, COSMIC_POWER, PSYCHIC_M, SANDSTORM
-	db 12
-	dw SOLROCK
-	dw ROCK_TOMB, COSMIC_POWER, FLAMETHROWER, SANDSTORM
-	db 12
-	dw KABUTOPS
-	dw SLASH, ROCK_TOMB, ICE_PUNCH, SANDSTORM
-	db 12
-	dw OMASTAR
-	dw CRUNCH, SURF, PROTECT, SPIKE_CANNON
-	db 12
-	dw RHYDON
-	dw DRAGON_CLAW, EARTHQUAKE, BULK_UP, ROCK_TOMB
-	db 15
-	dw AGOLEM
-	dw VOLT_TACKLE, EARTHQUAKE, BULK_UP, ROCK_TOMB
+	next_list_item ; RODNEY (3)
+	db "RODNEY@", TRAINERTYPE_MOVES
+	db 7
+	dw ZIGZAGOON
+	dw BITE, SHARPEN, QUICK_ATTACK, SAND_ATTACK
+	db 7
+	dw SANDSHREW
+	dw DEFENSE_CURL, ROLLOUT, METAL_CLAW, SAND_ATTACK
+	db 7
+	dw ASANDSHREW
+	dw DEFENSE_CURL, ROLLOUT, ICE_BALL, METAL_CLAW
+	db 7
+	dw WOOPER
+	dw WATER_GUN, TACKLE, SAND_ATTACK, POISON_STING
+	db 7
+	dw PIKACHU
+	dw THUNDERSHOCK, THUNDER_WAVE, QUICK_ATTACK, GROWL
+	db 9
+	dw SPINDA
+	dw DIZZY_PUNCH, FAINT_ATTACK, SUPERSONIC, FLAIL
+	db -1 ; end
 
 	end_list_items
 
@@ -1348,17 +1361,17 @@ YoungsterGroupHard:
 
 	next_list_item ; YOUNGSTER (15) Lattice Apartment Roof (Contest placeholder team)
 	db "RONALD@", TRAINERTYPE_NORMAL
-	db 0
+	db 5
 	dw GIRAFARIG
-	db 1
+	db 5
 	dw BALTOY
-	db 1
+	db 5
 	dw POLIWAG
-	db 0
+	db 5
 	dw FEEBAS
-	db 1
+	db 5
 	dw HOPPIP
-	db 2
+	db 7
 	dw AVULPIX
 	db -1 ; end
 
@@ -2674,20 +2687,20 @@ CooltrainerFGroupHard:
 	dw ALTARIA
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERF (21) Ilex West (LelouchIsKing contest party #1)
+	next_list_item ; COOLTRAINERF (21) Ilex West (LelouchIsKing contest party #1) Lattice Apartment Roof
 	db "MARINA@", TRAINERTYPE_NORMAL
-	db 9
+	db 5
 	dw GROWLITHE
-	db 9
+	db 5
 	dw SNORUNT
-	db 9
-	dw BRELOOM
-	db 9
-	dw QUAGSIRE
-	db 9
-	dw TOGETIC
-	db 10
-	dw ELECTRODE2
+	db 5
+	dw SHROOMISH
+	db 5
+	dw WOOPER
+	db 5
+	dw TOGEPI
+	db 7
+	dw VOLTORB2
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (21) Johto Games (LelouchIsKing contest party #2)
@@ -3050,13 +3063,13 @@ GruntMGroupHard:
 	dw MIGHTYENA
 	db -1 ; end
 
-	next_list_item ; GRUNTM (2) Slowpoke Well BF1
+	next_list_item ; GRUNTM (2) Southside North Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 7
-	dw RATICATE
-	db 6
+	db 4
+	dw RATTATA
+	db 4
 	dw ZUBAT
-	db 6
+	db 5
 	dw CARVANHA
 	db -1 ; end
 
@@ -3276,12 +3289,14 @@ GruntMGroupHard:
 	dw RATICATE
 	db -1 ; end
 
-	next_list_item ; GRUNTM (29) Slowpoke Well B1F
+	next_list_item ; GRUNTM (29) Southside North Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 5
+	db 4
 	dw SEEL
-	db 6
+	db 4
 	dw CUBONE
+	db 4
+	dw ODDISH
 	db -1 ; end
 
 	next_list_item ; GRUNTM (30) Unreferenced
@@ -3381,20 +3396,20 @@ TeacherGroupHard:
 	dw JIGGLYPUFF
 	db -1 ; end
 
-	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #1)
+	next_list_item ; TEACHER (4) Ilex East (Jessadactyl contest party #1) Lattice Apartment Roof
 	db "JESS@", TRAINERTYPE_NORMAL
-	db 7
-	dw XATU
-	db 7
+	db 5
+	dw NATU
+	db 5
 	dw AGRIMER
+	db 5
+	dw ARON
+	db 5
+	dw TENTACOOL
+	db 5
+	dw MANKEY
 	db 7
-	dw LAIRON
-	db 7
-	dw TENTACRUEL
-	db 7
-	dw PRIMEAPE
-	db 9
-	dw GRANBULL
+	dw SNUBBULL
 	db -1 ; end
 
 	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #2)
@@ -3429,16 +3444,16 @@ TeacherGroupHard:
 	db "KLUTCH@", TRAINERTYPE_NORMAL
 	db 7
 	dw RHYHORN
-	db 7
-	dw CHARMELEON
+	db 5
+	dw CHARMANDER
 	db 5
 	dw SWABLU
-	db 7
-	dw FURRET
-	db 7
-	dw HANAMOLE
-	db 8
-	dw GYARADOS
+	db 5
+	dw SENTRET	
+	db 5
+	dw MAGIKARP
+	db 5
+	dw HOPPIP
 	db -1 ; end
 
 	next_list_item ; TEACHER (7)  (Klutch contest party #2)
@@ -7179,12 +7194,14 @@ OfficerGroupHard:
 	end_list_items
 
 GruntFGroupHard:
-	next_list_item ; GRUNTF (1) Slowpoke Well B1f
+	next_list_item ; GRUNTF (1) Southside North Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 4
 	dw ZUBAT
-	db 6
+	db 4
 	dw EKANS
+	db 4
+	dw SLOWPOKE
 	db -1 ; end
 
 	next_list_item ; GRUNTF (2) Radio Tower 2F
@@ -7227,20 +7244,20 @@ GruntFGroupHard:
 	dw ABSORB, SWEET_SCENT, STUN_SPORE, SLEEP_POWDER
 	db -1 ; end
 
-	next_list_item ; GRUNTF (6) Contest Amaya #1
+	next_list_item ; GRUNTF (6) Contest Amaya #1 Lattice Roof
 	db "AMAYA@", TRAINERTYPE_NORMAL
-	db 9
-	dw PIKACHU
-	db 9
+	db 5
+	dw PICHU
+	db 5
 	dw TRAPINCH
-	db 9
+	db 7
 	dw BELDUM
-	db 9
+	db 5
 	dw HOUNDOUR
-	db 10
-	dw GYARADOS
-	db 10
-	dw ANINETALES
+	db 5
+	dw AVULPIX
+	db 5
+	dw MAGIKARP	
 	db -1 ; end
 
 	next_list_item ; GRUNTF (7) Contest Amaya #2

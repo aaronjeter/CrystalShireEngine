@@ -34,17 +34,17 @@ MeetMomRightScript:
 	applymovement PLAYERSHOUSE1F_MOM1, MomWalksToPlayerMovement
 MeetMomScript:
 	opentext
-	getstring STRING_BUFFER_4, PokegearName
-	scall PlayersHouse1FReceiveItemStd
+	;getstring STRING_BUFFER_4, PokegearName
+	;scall PlayersHouse1FReceiveItemStd
 	setflag ENGINE_POKEGEAR
 	setflag ENGINE_PHONE_CARD
-	giveitem COIN_CASE
+	verbosegiveitem COIN_CASE
 	addcellnum PHONE_MOM
 	setscene SCENE_PLAYERSHOUSE1F_NOOP
 	setevent EVENT_PLAYERS_HOUSE_MOM_1
 	clearevent EVENT_PLAYERS_HOUSE_MOM_2
-	writetext MomGivesPokegearText
-	promptbutton
+	;writetext MomGivesPokegearText
+	;promptbutton
 	special SetDayOfWeek
 .SetDayOfWeek:
 	writetext IsItDSTText
@@ -60,7 +60,7 @@ MeetMomScript:
 	yesorno
 	iffalse .SetDayOfWeek
 .DayOfWeekDone:
-	writetext ComeHomeForDSTText
+	;writetext ComeHomeForDSTText
 	promptbutton
 
 ;generate party
@@ -216,18 +216,8 @@ ElmsLookingForYouText:
 	done
 
 MomGivesPokegearText:
-	text "#MON GEAR, or"
-	line "just #GEAR."
-
-	para "It's essential if"
-	line "you want to be a"
-	cont "good trainer."
-
-	para "Oh, the day of the"
+	text "Oh, the day of the"
 	line "week isn't set."
-
-	para "You mustn't forget"
-	line "that!"
 	done
 
 IsItDSTText:

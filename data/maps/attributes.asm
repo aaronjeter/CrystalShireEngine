@@ -849,3 +849,5 @@ ENDM
 	map_attributes LatticeApartmentRoof, LATTICE_APARTMENT_ROOF, $01, 0
 	map_attributes SouthsidePetShop, SOUTHSIDE_PET_SHOP, $00, 0
 	map_attributes SouthsideAlley, SOUTHSIDE_ALLEY, $00, 0
+	map_attributes SouthsidePlantMarket, SOUTHSIDE_PLANT_MARKET, $00, 0
+	map_attributes SouthsideNorthAlley, SOUTHSIDE_NORTH_ALLEY, $00, 0

@@ -577,6 +577,8 @@ ENDM
 	map_const LATTICE_APARTMENT_ROOF,                      04, 05 ; 
 	map_const SOUTHSIDE_PET_SHOP,                          08, 04 ;
 	map_const SOUTHSIDE_ALLEY,                             12, 08 ;
+	map_const SOUTHSIDE_PLANT_MARKET,                      08, 08 ;
+	map_const SOUTHSIDE_NORTH_ALLEY,                       08, 12 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

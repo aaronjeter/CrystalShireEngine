@@ -566,7 +566,7 @@ INCLUDE "maps/hoenn/Route117.asm"
 
 ENDSECTION
 
-SECTION "Map Scripts 28", ROMX
+SECTION "Map Scripts Lattice 1", ROMX
 
 INCLUDE "maps/lattice/south/CitySouth.asm"
 INCLUDE "maps/lattice/south/SouthGym.asm"
@@ -579,6 +579,12 @@ INCLUDE "maps/lattice/south/LatticeApartment3F.asm"
 INCLUDE "maps/lattice/south/LatticeApartmentRoof.asm"
 INCLUDE "maps/lattice/south/SouthsidePetShop.asm"
 INCLUDE "maps/lattice/south/SouthsideAlley.asm"
+INCLUDE "maps/lattice/south/SouthsidePlantMarket.asm"
+INCLUDE "maps/lattice/south/SouthsideNorthAlley.asm"
+
+ENDSECTION
+
+SECTION "Map Scripts Lattice 2", ROMX
 
 INCLUDE "maps/lattice/south/PlayersHouse1F.asm"
 INCLUDE "maps/lattice/south/PlayersHouse2F.asm"
