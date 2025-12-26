@@ -410,18 +410,6 @@ TrainerPicnickerLiz1:
 	jumpstd RematchFScript
 	end
 
-TrainerYoungsterAlbert:
-	trainer YOUNGSTER, ALBERT, EVENT_BEAT_YOUNGSTER_ALBERT, YoungsterAlbertSeenText, YoungsterAlbertBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext YoungsterAlbertAfterText
-	waitbutton
-	closetext
-	end
-
-
 
 TrainerBirdKeeperPeter:
 	trainer BIRD_KEEPER, PETER, EVENT_BEAT_BIRD_KEEPER_PETER, BirdKeeperPeterSeenText, BirdKeeperPeterBeatenText, 0, .Script
@@ -665,28 +653,6 @@ FisherHenryAfterText:
 	line "raised ones."
 	done
 
-YoungsterAlbertSeenText:
-	text "I haven't seen you"
-	line "around before."
-
-	para "So you think you"
-	line "are pretty tough?"
-	done
-
-YoungsterAlbertBeatenText:
-	text "You're strong!"
-	done
-
-YoungsterAlbertAfterText:
-	text "I'm going to try"
-	line "to be the best"
-	cont "with my favorites."
-
-	para "I'm not using the"
-	line "same tough #MON"
-	cont "as everyone else."
-	done
-
 CamperRolandSeenText:
 	text "That glance…"
 	line "It's intriguing."
@@ -850,8 +816,7 @@ Route32_MapEvents:
 	def_object_events
 	object_event  8, 49, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherJustin, -1
 	object_event 12, 56, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherRalph1, -1
-	object_event  6, 48, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherHenry, -1
-	object_event 12, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterAlbert, -1
+	object_event  6, 48, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherHenry, -1	
 	object_event  4, 63, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterGordon, -1
 	object_event  3, 45, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperRoland, -1
 	object_event 10, 30, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerLiz1, -1

@@ -47,12 +47,12 @@ MeetMomScript:
 	;promptbutton
 	special SetDayOfWeek
 .SetDayOfWeek:
-	writetext IsItDSTText
-	yesorno
-	iffalse .WrongDay
-	special InitialSetDSTFlag
-	yesorno
-	iffalse .SetDayOfWeek
+	;writetext IsItDSTText
+	;yesorno
+	;iffalse .WrongDay
+	special InitialClearDSTFlag
+	;yesorno
+	;iffalse .SetDayOfWeek
 	sjump .DayOfWeekDone
 
 .WrongDay:

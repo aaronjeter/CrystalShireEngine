@@ -319,7 +319,7 @@ TrainerCard_Page2_3_InitObjectsAndStrings:
 	ld a, $29
 	ld c, 4
 .loop
-	call TrainerCard_Page2_3_PlaceLeadersFaces
+	;call TrainerCard_Page2_3_PlaceLeadersFaces
 rept 4
 	inc hl
 endr
@@ -329,7 +329,7 @@ endr
 	ld a, $51
 	ld c, 4
 .loop2
-	call TrainerCard_Page2_3_PlaceLeadersFaces
+	;call TrainerCard_Page2_3_PlaceLeadersFaces
 rept 4
 	inc hl
 endr

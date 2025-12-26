@@ -2,6 +2,7 @@
 	const SOUTHGYM_RODNEY
 	const SOUTHGYM_JOEY
 	const SOUTHGYM_JERRY
+	const SOUTHGYM_ALBERT
 
 SouthGym_MapScripts:
 	def_scene_scripts
@@ -11,7 +12,7 @@ SouthGym_MapScripts:
 SouthGymRodneyScript:
 	faceplayer
 	opentext
-	checkflag ENGINE_BOULDERBADGE
+	checkflag ENGINE_ZEPHYRBADGE
 	iftrue .FightDone
 	writetext RodneyIntroText
 	waitbutton
@@ -45,13 +46,14 @@ SouthGymRodneyScript:
 	waitsfx
 	setflag ENGINE_BOULDERBADGE
 	readmem wBaseLevel
-	addval 2
+	addval 6
 	writemem wBaseLevel
 	checkevent EVENT_LEVELCAPS_ENABLED
 	iffalse .SkipLevelCaps 
 	readmem wLevelCap
-	addval 2
+	addval 6
 	writemem wLevelCap
+	setevent EVENT_BEAT_SOUTH_GYM_RODNEY
 .SkipLevelCaps:
 	closetext
 	end
@@ -136,7 +138,7 @@ RodneyWinLossText:
 
 ReceivedBoulderBadgeText:
 	text "<PLAYER> received"
-	line "BOULDERBADGE."
+	line "a Badge."
 	done
 
 RodneyBoulderBadgeText:
@@ -161,7 +163,7 @@ RodneyFightDoneText:
 	line "should head north"
 
 	para "and face more"
-	line "trainers like you."
+	line "strong trainers."
 	done
 
 SouthGymJoey:
@@ -209,17 +211,13 @@ TrainerCamperJerry:
 
 CamperJerrySeenText:
 	text "The trainers of"
-	line "this GYM use rock-"
-	cont "type #MON."
+	line "this GYM use"
+	cont "Rodent #MON."
 
-	para "The rock-type has"
-	line "high DEFENSE."
+	para "It's more of a"
+	line "theme than a"
 
-	para "Battles could end"
-	line "up going a long"
-
-	para "time. Are you"
-	line "ready for this?"
+	para "hard rule though."
 	done
 
 CamperJerryBeatenText:
@@ -236,6 +234,38 @@ CamperJerryAfterBattleText:
 
 	para "don't take him"
 	line "seriously."
+	done
+
+
+TrainerYoungsterAlbert:
+	trainer YOUNGSTER, ALBERT, EVENT_BEAT_YOUNGSTER_ALBERT, YoungsterAlbertSeenText, YoungsterAlbertBeatenText, 0, .Script
+
+.Script:	
+	opentext
+	writetext YoungsterAlbertAfterText
+	waitbutton
+	closetext
+	end
+
+YoungsterAlbertSeenText:
+	text "What IS a"
+	line "Rodent, anyways?"
+	done
+
+YoungsterAlbertBeatenText:
+	text "You're strong!"
+	done
+
+YoungsterAlbertAfterText:
+	text "Seriously, what"
+	line "makes a #MON"
+	cont "a rodent?"
+
+	para "Why can't we"
+	line "just be the"
+
+	para "fluffy critter"
+	line "Gym or something?"
 	done
 
 SouthGym_MapEvents:
@@ -256,4 +286,4 @@ SouthGym_MapEvents:
 	object_event  08,  01, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SouthGymRodneyScript, -1
 	object_event  06,  15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, SouthGymJoey, EVENT_BEAT_YOUNGSTER_JOEY
 	object_event  10,  13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperJerry, -1
-	
+	object_event  06,  11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterAlbert, -1

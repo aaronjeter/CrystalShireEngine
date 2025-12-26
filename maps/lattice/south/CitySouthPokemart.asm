@@ -8,7 +8,7 @@ CitySouthPokemart_MapScripts:
 
 CitySouthPokemart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CERULEAN
+	pokemart MARTTYPE_STANDARD, MART_CHERRYGROVE
 	closetext
 	end
 

@@ -189,10 +189,10 @@ LatticeRoofDancer:
 
 	opentext
 	writetext LatticeRoofDancerThanksText
-	waitbutton
-	closetext
+	waitbutton	
 	setevent HELPED_LATTICEROOF_DANCER
 	givepoke UNOWN, 5
+	closetext
 	disappear LATTICEROOF_DANCER
 	end
 	

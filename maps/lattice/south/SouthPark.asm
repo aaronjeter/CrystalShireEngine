@@ -5,6 +5,7 @@
 	const SOUTHPARK_TWIN1
 	const SOUTHPARK_TWIN2
 	const SOUTHPARK_ERIKA
+	const SOUTHPARK_GRIMER
 
 SouthPark_MapScripts:
 	def_scene_scripts
@@ -208,6 +209,19 @@ IellaGivesCoinsText:
 	line "these 10 coins."
 	done
 
+SouthParkGrimer:
+	cry GRIMER
+	opentext
+	writetext SouthParkGrimerText
+	waitbutton
+	closetext
+	end
+
+SouthParkGrimerText:
+	text "It's happily"
+	line "eating trash."
+	done
+
 SouthPark_MapEvents:
 	db 0, 0 ; filler
 
@@ -227,3 +241,4 @@ SouthPark_MapEvents:
 	object_event  16, 11, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe, -1
 	object_event  17, 11, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe, -1
 	object_event  11, 06, SPRITE_ERIKA, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SouthParkIella, -1
+	object_event  15, 18, SPRITE_GRIMER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, SouthParkGrimer, -1

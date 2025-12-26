@@ -1226,9 +1226,9 @@ YoungsterGroup:
 	next_list_item ; YOUNGSTER (3) Route 32
 	db "ALBERT@", TRAINERTYPE_NORMAL
 	db 3
-	dw RATTATA
+	dw MARILL
 	db 4
-	dw ZUBAT
+	dw NIDORAN_F
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (4) Southside Alley
