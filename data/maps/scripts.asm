@@ -590,3 +590,10 @@ INCLUDE "maps/lattice/south/PlayersHouse1F.asm"
 INCLUDE "maps/lattice/south/PlayersHouse2F.asm"
 
 ENDSECTION
+
+SECTION "Map Scripts Lattice 3", ROMX
+
+INCLUDE "maps/lattice/central/CentralCity.asm"
+INCLUDE "maps/lattice/central/CentralCafe.asm"
+
+ENDSECTION

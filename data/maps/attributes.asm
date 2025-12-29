@@ -851,3 +851,6 @@ ENDM
 	map_attributes SouthsideAlley, SOUTHSIDE_ALLEY, $00, 0
 	map_attributes SouthsidePlantMarket, SOUTHSIDE_PLANT_MARKET, $00, 0
 	map_attributes SouthsideNorthAlley, SOUTHSIDE_NORTH_ALLEY, $00, 0
+
+	map_attributes CentralCity, CENTRAL_CITY, $00, 0
+	map_attributes CentralCafe, CENTRAL_CAFE, $00, 0

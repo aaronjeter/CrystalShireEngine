@@ -179,6 +179,7 @@ CitySouth_MapEvents:
 	warp_event  39,  13, SOUTHSIDE_PLANT_MARKET, 1
 	warp_event  20,  19, SOUTHSIDE_NORTH_ALLEY, 1
 	warp_event  21,  19, SOUTHSIDE_NORTH_ALLEY, 2
+	warp_event  27,  03, CENTRAL_CITY, 1
 
 	def_coord_events
 

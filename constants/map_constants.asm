@@ -579,6 +579,9 @@ ENDM
 	map_const SOUTHSIDE_ALLEY,                             12, 08 ;
 	map_const SOUTHSIDE_PLANT_MARKET,                      08, 08 ;
 	map_const SOUTHSIDE_NORTH_ALLEY,                       08, 12 ;
+
+	map_const CENTRAL_CITY,                                30, 30 ;
+	map_const CENTRAL_CAFE,                                10, 10 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

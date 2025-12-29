@@ -1121,3 +1121,12 @@ SECTION "Map Blocks 6", ROMX
 
 ENDSECTION
 
+SECTION "Map Blocks 7", ROMX
+
+	CentralCity_Blocks:
+	INCBIN "maps/lattice/central/CentralCity.ablk" 
+
+	CentralCafe_Blocks:
+	INCBIN "maps/lattice/central/CentralCafe.ablk" 
+
+ENDSECTION
