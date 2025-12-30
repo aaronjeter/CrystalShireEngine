@@ -29,10 +29,16 @@ GoldenrodGymWhitneyScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext WhitneyShouldntBeSoSeriousText, 0
+	loadtrainer WHITNEY, WHITNEY3
+	sjump .Fight
+
+.Medium
 	winlosstext WhitneyShouldntBeSoSeriousText, 0
 	loadtrainer WHITNEY, WHITNEY2
 	sjump .Fight
@@ -104,10 +110,16 @@ GoldenrodGymWhitneyScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext WhitneyRematchWinLossText, 0
+	loadtrainer WHITNEY, WHITNEY3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext WhitneyRematchWinLossText, 0
 	loadtrainer WHITNEY, WHITNEY2
 	sjump .Rematch

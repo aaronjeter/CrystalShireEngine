@@ -22,10 +22,16 @@ AzaleaGymBugsyScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext BugsyText_ResearchIncomplete, 0
+	loadtrainer BUGSY, BUGSY3
+	sjump .Fight
+
+.Medium
 	winlosstext BugsyText_ResearchIncomplete, 0
 	loadtrainer BUGSY, BUGSY2
 	sjump .Fight
@@ -81,10 +87,16 @@ AzaleaGymBugsyScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext BugsyRematchWinLossText, 0
+	loadtrainer BUGSY, BUGSY3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext BugsyRematchWinLossText, 0
 	loadtrainer BUGSY, BUGSY2
 	sjump .Rematch

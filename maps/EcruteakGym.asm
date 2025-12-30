@@ -31,10 +31,16 @@ EcruteakGymMortyScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext MortyWinLossText, 0
+	loadtrainer MORTY, MORTY3
+	sjump .Fight
+
+.Medium
 	winlosstext MortyWinLossText, 0
 	loadtrainer MORTY, MORTY2
 	sjump .Fight
@@ -93,10 +99,16 @@ EcruteakGymMortyScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext MortyRematchWinLossText, 0
+	loadtrainer MORTY, MORTY3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext MortyRematchWinLossText, 0
 	loadtrainer MORTY, MORTY2
 	sjump .Rematch
