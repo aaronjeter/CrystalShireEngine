@@ -566,4 +566,6 @@ INCLUDE "maps/hoenn/Route113.asm"
 INCLUDE "maps/hoenn/Route116.asm"
 INCLUDE "maps/hoenn/Route117.asm"
 
+INCLUDE "maps/hoenn/TestRoom.asm"
+
 ENDSECTION

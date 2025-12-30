@@ -833,3 +833,6 @@ ENDM
 	map_attributes Route117, ROUTE_117, $05, WEST | EAST
 	connection west, VerdanturfTown, VERDANTURF_TOWN, 0
 	connection east, MauvilleCity, MAUVILLE_CITY, 0
+
+
+	map_attributes TestRoom, TESTROOM, $00, 0

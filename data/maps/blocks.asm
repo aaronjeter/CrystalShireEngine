@@ -1073,4 +1073,7 @@ SECTION "Map Blocks 5", ROMX
 	Route117_Blocks:
 	INCBIN "maps/hoenn/Route117.ablk" 
 
+	TestRoom_Blocks:
+	INCBIN "maps/hoenn/TestRoom.ablk" 
+
 ENDSECTION

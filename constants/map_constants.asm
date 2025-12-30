@@ -566,6 +566,7 @@ ENDM
 	map_const ROUTE_113,								   50, 10 ;
 	map_const ROUTE_116,								   30, 10 ;
 	map_const ROUTE_117,								   30, 10 ;	
+	map_const TESTROOM,                                    10, 10 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27
