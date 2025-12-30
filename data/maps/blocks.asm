@@ -1129,4 +1129,10 @@ SECTION "Map Blocks 7", ROMX
 	CentralCafe_Blocks:
 	INCBIN "maps/lattice/central/CentralCafe.ablk" 
 
+	CentralRadio1F_Blocks:
+	INCBIN "maps/lattice/central/CentralRadio1F.ablk" 
+
+	JoifAlley_Blocks:
+	INCBIN "maps/lattice/central/JoifAlley.ablk" 
+
 ENDSECTION

@@ -152,3 +152,4 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 97
 	tilecoll WATER, WATER, WATER, WATER ; 98
 	tilecoll WATER, WATER, WATER, WATER ; 99
+	tilecoll WALL, WALL, WALL, WALL ; 9a

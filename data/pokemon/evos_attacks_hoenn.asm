@@ -539,11 +539,11 @@ LudicoloEvosAttacks:
 SeedotEvosAttacks:
 	dbbw EVOLVE_LEVEL, 14, NUZLEAF
 	db 0 ; no more evolutions
-	dbw 1, BIDE
+	dbw 1, BULLET_SEED	
 	dbw 3, HARDEN
 	dbw 7, GROWTH
 	dbw 10, BITE
-	dbw 16, BULLET_SEED
+	dbw 16, BIDE
 	dbw 20, RAZOR_LEAF
 	dbw 24, SYNTHESIS
 	dbw 28, SUNNY_DAY
@@ -1257,9 +1257,9 @@ AggronEvosAttacks:
 MedititeEvosAttacks:
 	dbbw EVOLVE_LEVEL, 37, MEDICHAM
 	db 0 ; no more evolutions
-	dbw 1, BIDE
-	dbw 4, GROWTH
 	dbw 9, CONFUSION
+	dbw 1, BIDE
+	dbw 7, GROWTH	
 	dbw 12, DETECT
 	dbw 18, HIDDEN_POWER
 	dbw 22, MIND_READER

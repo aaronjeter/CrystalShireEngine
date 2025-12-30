@@ -595,5 +595,7 @@ SECTION "Map Scripts Lattice 3", ROMX
 
 INCLUDE "maps/lattice/central/CentralCity.asm"
 INCLUDE "maps/lattice/central/CentralCafe.asm"
+INCLUDE "maps/lattice/central/CentralRadio1F.asm"
+INCLUDE "maps/lattice/central/JoifAlley.asm"
 
 ENDSECTION

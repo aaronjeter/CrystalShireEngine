@@ -1228,9 +1228,9 @@ GolduckEvosAttacks:
 MankeyEvosAttacks:
 	dbbw EVOLVE_LEVEL, 28, PRIMEAPE
 	db 0 ; no more evolutions
-	dbw 1, SAND_ATTACK
+	dbw 1, DOUBLE_KICK	
 	dbw 1, LEER
-	dbw 8, DOUBLE_KICK
+	dbw 8, SAND_ATTACK
 	dbw 12, LOW_KICK
 	dbw 16, MAGNITUDE
 	dbw 20, FURY_SWIPES

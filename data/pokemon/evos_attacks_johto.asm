@@ -1438,9 +1438,9 @@ UrsaringEvosAttacks:
 
 SlugmaEvosAttacks:
 	dbbw EVOLVE_LEVEL, 30, MAGCARGO
-	db 0 ; no more evolutions
-	dbw 1, SMOG
-	dbw 8, EMBER
+	db 0 ; no more evolutions	
+	dbw 1, EMBER
+	dbw 8, SMOG
 	dbw 15, ROCK_THROW
 	dbw 22, SANDSTORM
 	dbw 26, ANCIENTPOWER

@@ -854,3 +854,5 @@ ENDM
 
 	map_attributes CentralCity, CENTRAL_CITY, $00, 0
 	map_attributes CentralCafe, CENTRAL_CAFE, $00, 0
+	map_attributes CentralRadio1F, CENTRAL_RADIO_1F, $00, 0
+	map_attributes JoifAlley, JOIF_ALLEY, $00, 0
