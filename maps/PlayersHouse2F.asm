@@ -96,6 +96,7 @@ if DEF(_DEBUG)
 	giveitem HM_WHIRLPOOL
 	giveitem HM_WATERFALL
 	giveitem HM_FLASH
+	giveitem HM_STRENGTH
 
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE

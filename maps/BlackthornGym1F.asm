@@ -29,6 +29,10 @@ BlackthornGym1FBouldersCallback:
 BlackthornGymClairScript:
 	faceplayer
 	opentext
+
+	readvar VAR_BADGES
+	ifless 7, .NotWorthy
+
 	checkflag ENGINE_RISINGBADGE
 	iftrue .AlreadyGotBadge
 	checkevent EVENT_BEAT_CLAIR
@@ -138,6 +142,11 @@ BlackthornGymClairScript:
 	writetext BlackthornGymClairText_League
 	waitbutton
 .EndRematch:
+	closetext
+	end
+.NotWorthy:
+	writetext ClairUnworthyText
+	promptbutton
 	closetext
 	end
 
@@ -321,6 +330,26 @@ ClairRematchText:
 
 ClairRematchWinLossText:
 	text "Ugh, fine then!"
+	done
+
+ClairUnworthyText:
+	text "Oh? What's this?"
+
+	para "Sorry kid."
+
+	para "I don't have time"
+	line "for scrubs."
+
+	para "Maybe come back"
+	line "when you've"
+
+	para "made something"
+	line "of yourself."
+
+	para "..."
+
+	para "You can see"
+	line "yourself out now."
 	done
 
 BlackthornGymClairText_League:
