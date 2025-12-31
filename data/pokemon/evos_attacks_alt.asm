@@ -1458,10 +1458,25 @@ DusknoirEvosAttacks:
 
 TotartleEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, HYDRO_PUMP
-	dbw 1, SCALD
-	dbw 1, THUNDER
-	dbw 1, CRUNCH
+	dbw 1, TACKLE
+	dbw 4, TAIL_WHIP
+	dbw 7, BUBBLE
+	dbw 10, WITHDRAW
+	dbw 14, WATER_GUN
+	dbw 18, BITE
+	dbw 20, BUBBLEBEAM
+	dbw 24, RAPID_SPIN
+	dbw 28, PROTECT
+	dbw 31, RAIN_DANCE
+	dbw 36, MIST_BALL
+	dbw 40, FLASHCANNON
+	dbw 44, SKULL_BASH
+	dbw 50, HYDRO_PUMP
+	dbw 55, BODY_SLAM
+	dbw 60, HYDRO_CANNON
+	dbw 70, SCALD
+	dbw 70, THUNDER
+	dbw 70, CRUNCH
 	db 0 ; no more level-up moves
 
 GorochuEvosAttacks:

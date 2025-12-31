@@ -322,6 +322,7 @@ WartortleEvosAttacks:
 
 BlastoiseEvosAttacks:
 	dbww EVOLVE_ITEM, KANTOITE_X, BLASTOISEX
+	dbww EVOLVE_ITEM, KANTOITE_Y, TOTARTLE
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 4, TAIL_WHIP
@@ -614,6 +615,8 @@ PikachuEvosAttacks:
 
 RaichuEvosAttacks:
 	dbww EVOLVE_ITEM, WATER_STONE, ARAICHU
+	dbww EVOLVE_ITEM, KANTOITE_X, RAICHUX
+	dbww EVOLVE_ITEM, KANTOITE_Y, RAICHUY
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 1, GROWL
@@ -3098,6 +3101,8 @@ DragonairEvosAttacks:
 	db 0 ; no more level-up moves
 
 DragoniteEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, DRAGONITEX
+	dbww EVOLVE_ITEM, KANTOITE_Y, DRAGONITEY
 	db 0 ; no more evolutions
 	dbw 1, WRAP
 	dbw 1, LEER

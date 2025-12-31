@@ -39,34 +39,81 @@ EvosAttacksPointersMega::
 
 RaichuxEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, OUTRAGE
-	dbw 1, VOLT_TACKLE
-	dbw 1, SWIFT
-	dbw 1, BEAT_UP
+	dbw 1, THUNDERSHOCK
+	dbw 1, GROWL
+	dbw 6, TAIL_WHIP
+	dbw 8, THUNDER_WAVE
+	dbw 11, QUICK_ATTACK
+	dbw 15, DOUBLE_TEAM
+	dbw 20, SLAM
+	dbw 26, SHOCK_WAVE
+	dbw 31, AGILITY
+	dbw 36, THUNDERBOLT
+	dbw 40, FAERIEGLEAM
+	dbw 42, MEDITATE
+	dbw 45, THUNDER
+	dbw 50, LIGHT_SCREEN
+	dbw 55, GROWTH
+	dbw 60, VOLT_TACKLE
 	db 0 ; no more level-up moves
 
 RaichuyEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, FAERIEGLEAM
-	dbw 1, VOLT_TACKLE
-	dbw 1, FLASHCANNON
-	dbw 1, THUNDERBOLT
+	dbw 1, THUNDERSHOCK
+	dbw 1, GROWL
+	dbw 6, TAIL_WHIP
+	dbw 8, THUNDER_WAVE
+	dbw 11, QUICK_ATTACK
+	dbw 15, DOUBLE_TEAM
+	dbw 20, SLAM
+	dbw 26, SHOCK_WAVE
+	dbw 31, AGILITY
+	dbw 36, THUNDERBOLT
+	dbw 40, FAERIEGLEAM
+	dbw 42, MEDITATE
+	dbw 45, THUNDER
+	dbw 50, LIGHT_SCREEN
+	dbw 55, GROWTH
+	dbw 60, VOLT_TACKLE
 	db 0 ; no more level-up moves
 
 DragonitexEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, DRAGON_DANCE
-	dbw 1, DRAGON_CLAW
-	dbw 1, PLAY_ROUGH
-	dbw 1, THUNDERBOLT
+	dbw 1, WRAP
+	dbw 1, LEER
+	dbw 8, THUNDER_WAVE
+	dbw 15, TWISTER
+	dbw 22, DRAGON_RAGE
+	dbw 25, SLAM
+	dbw 30, AGILITY
+	dbw 32, SAFEGUARD
+	dbw 36, DRAGON_CLAW
+	dbw 40, CRUNCH
+	dbw 45, EXTREMESPEED
+	dbw 50, OUTRAGE
+	dbw 55, DETECT
+	dbw 60, DRAGON_DANCE
 	db 0 ; no more level-up moves
 
 DragoniteyEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, DRAGON_DANCE
-	dbw 1, DRAGONBREATH
-	dbw 1, FAERIEGLEAM
-	dbw 1, SCALD
+	dbw 1, WRAP
+	dbw 1, LEER
+	dbw 8, THUNDER_WAVE
+	dbw 15, TWISTER
+	dbw 22, DRAGON_RAGE
+	dbw 25, SLAM
+	dbw 30, AGILITY
+	dbw 32, SAFEGUARD
+	dbw 36, DRAGON_CLAW
+	dbw 40, CRUNCH
+	dbw 45, EXTREMESPEED
+	dbw 50, OUTRAGE
+	dbw 55, DETECT
+	dbw 60, DRAGON_DANCE
+	dbw 65, DRAGONBREATH
+	dbw 70, FAERIEGLEAM
+	dbw 70, SCALD
 	db 0 ; no more level-up moves
 
 VenusaurxEvosAttacks:
