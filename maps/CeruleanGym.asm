@@ -66,10 +66,16 @@ CeruleanGymMistyScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext MistyWinLossText, 0
+	loadtrainer MISTY, MISTY3
+	sjump .Fight
+
+.Medium
 	winlosstext MistyWinLossText, 0
 	loadtrainer MISTY, MISTY2
 	sjump .Fight
@@ -111,10 +117,16 @@ CeruleanGymMistyScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext MistyRematchWinLossText, 0
+	loadtrainer MISTY, MISTY3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext MistyRematchWinLossText, 0
 	loadtrainer MISTY, MISTY2
 	sjump .Rematch

@@ -20,10 +20,16 @@ VermilionGymSurgeScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext LtSurgeWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE3
+	sjump .Fight
+
+.Medium
 	winlosstext LtSurgeWinLossText, 0
 	loadtrainer LT_SURGE, LT_SURGE2
 	sjump .Fight
@@ -70,10 +76,16 @@ VermilionGymSurgeScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext LtSurgeRematchWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext LtSurgeRematchWinLossText, 0
 	loadtrainer LT_SURGE, LT_SURGE2
 	sjump .Rematch

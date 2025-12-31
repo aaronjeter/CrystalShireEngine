@@ -18,10 +18,16 @@ PewterGymBrockScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext BrockWinLossText, 0
+	loadtrainer BROCK, BROCK3
+	sjump .Fight
+
+.Medium
 	winlosstext BrockWinLossText, 0
 	loadtrainer BROCK, BROCK2
 	sjump .Fight
@@ -66,10 +72,16 @@ PewterGymBrockScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext BrockRematchWinLossText, 0
+	loadtrainer BROCK, BROCK3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext BrockRematchWinLossText, 0
 	loadtrainer BROCK, BROCK2
 	sjump .Rematch

@@ -21,10 +21,16 @@ CeladonGymErikaScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext ErikaBeatenText, 0
+	loadtrainer ERIKA, ERIKA3
+	sjump .Fight
+
+.Medium
 	winlosstext ErikaBeatenText, 0
 	loadtrainer ERIKA, ERIKA2
 	sjump .Fight
@@ -75,10 +81,16 @@ CeladonGymErikaScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext ErikaRematchWinLossText, 0
+	loadtrainer ERIKA, ERIKA3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext ErikaRematchWinLossText, 0
 	loadtrainer ERIKA, ERIKA2
 	sjump .Rematch
