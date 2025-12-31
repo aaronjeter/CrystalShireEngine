@@ -348,7 +348,7 @@ MovesGen2:
 	move EFFECT_FLINCH_HIT,         80, DARK,           SPECIAL,		100, 20,  20      ;DARK_PULSE
 	move EFFECT_NORMAL_HIT,         90, FAIRY,			SPECIAL,        100, 15,   0      ;FAERIEGLEAM (DAZZLING_GLEAM)
 	move EFFECT_POISON_HIT,         80, POISON,         SPECIAL,		100, 15,  25      ;SLUDGEWAVE
-	move EFFECT_PRIORITY_HIT,       40, STEEL,          PHYSICAL,		100, 20,   0      ;BULLETPUNCH
+	move EFFECT_PRIORITY_HIT,       40, STEEL,          PHYSICAL,		100, 20,   0      ;BULLET_PUNCH
 	move EFFECT_THUNDER,           120, FLYING,         SPECIAL,		 80, 10,  50      ;HURRICANE
 	move EFFECT_PRIORITY_HIT,       40, GHOST,          PHYSICAL,		100, 20,   0      ;SHADOWSNEAK
 	move EFFECT_NORMAL_HIT,        100, GHOST,          PHYSICAL,		 90, 15,   0      ;SHADOWFORCE

@@ -105,7 +105,7 @@ RadioTower5FRocketBossScript:
 	writetext RadioTower5FRocketBossAfterText
 	waitbutton
 	writetext RadioTower5FRocketBossGiveStoneText
-	giveitem JOHTOITE_X
+	verbosegiveitem JOHTOITE_X
 	closetext
 	special FadeOutToBlack
 	special ReloadSpritesNoPalettes

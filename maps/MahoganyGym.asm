@@ -22,10 +22,16 @@ MahoganyGymPryceScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext PryceText_Impressed, 0
+	loadtrainer PRYCE, PRYCE3
+	sjump .Fight
+
+.Medium
 	winlosstext PryceText_Impressed, 0
 	loadtrainer PRYCE, PRYCE2
 	sjump .Fight
@@ -54,8 +60,6 @@ MahoganyGymPryceScript:
 	setevent EVENT_BEAT_BOARDER_RONALD
 	setevent EVENT_BEAT_BOARDER_BRAD
 	setevent EVENT_BEAT_BOARDER_DOUGLAS
-	writetext PryceText_GlacierBadgeSpeech
-	promptbutton
 	verbosegiveitem TM_ICY_WIND
 	iffalse MahoganyGym_NoRoomForIcyWind
 	setevent EVENT_GOT_TM16_ICY_WIND
@@ -82,10 +86,16 @@ PryceScript_Defeat:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext PryceRematchWinLossText, 0
+	loadtrainer PRYCE, PRYCE3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext PryceRematchWinLossText, 0
 	loadtrainer PRYCE, PRYCE2
 	sjump .Rematch
@@ -246,20 +256,6 @@ PryceText_Impressed:
 Text_ReceivedGlacierBadge:
 	text "<PLAYER> received"
 	line "GLACIERBADGE."
-	done
-
-PryceText_GlacierBadgeSpeech:
-	text "That BADGE will"
-	line "raise the SPECIAL"
-	cont "stats of #MON."
-
-	para "It also lets your"
-	line "#MON use WHIRL-"
-	cont "POOL to get across"
-	cont "real whirlpools."
-
-	para "And this… This is"
-	line "a gift from me!"
 	done
 
 PryceText_IcyWindSpeech:

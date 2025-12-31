@@ -17,10 +17,16 @@ OlivineGymJasmineScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext Jasmine_BetterTrainer, 0
+	loadtrainer JASMINE, JASMINE3
+	sjump .Fight
+
+.Medium
 	winlosstext Jasmine_BetterTrainer, 0
 	loadtrainer JASMINE, JASMINE2
 	sjump .Fight
@@ -72,10 +78,16 @@ OlivineGymJasmineScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext JasmineRematchWinLossText, 0
+	loadtrainer JASMINE, JASMINE3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext JasmineRematchWinLossText, 0
 	loadtrainer JASMINE, JASMINE2
 	sjump .Rematch

@@ -39,10 +39,16 @@ CianwoodGymChuckScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext ChuckLossText, 0
+	loadtrainer CHUCK, CHUCK3
+	sjump .Fight
+
+.Medium
 	winlosstext ChuckLossText, 0
 	loadtrainer CHUCK, CHUCK2
 	sjump .Fight
@@ -70,8 +76,6 @@ CianwoodGymChuckScript:
 	setevent EVENT_BEAT_BLACKBELT_LAO
 	setevent EVENT_BEAT_BLACKBELT_NOB
 	setevent EVENT_BEAT_BLACKBELT_LUNG
-	writetext ChuckExplainBadgeText
-	promptbutton
 	verbosegiveitem TM_DYNAMICPUNCH
 	iffalse .BagFull
 	setevent EVENT_GOT_TM01_DYNAMICPUNCH
@@ -98,10 +102,16 @@ CianwoodGymChuckScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext ChuckRematchWinLossText, 0
+	loadtrainer CHUCK, CHUCK3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext ChuckRematchWinLossText, 0
 	loadtrainer CHUCK, CHUCK2
 	sjump .Rematch
@@ -249,22 +259,6 @@ GetStormBadgeText:
 	line "STORMBADGE."
 	done
 
-ChuckExplainBadgeText:
-	text "STORMBADGE makes"
-	line "all #MON up to"
-
-	para "L70 obey, even"
-	line "traded ones."
-
-	para "It also lets your"
-	line "#MON use FLY"
-
-	para "when you're not in"
-	line "a battle."
-
-	para "Here, take this"
-	line "too!"
-	done
 
 ChuckExplainTMText:
 	text "That is DYNAMIC-"
