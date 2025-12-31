@@ -21,10 +21,16 @@ SeafoamGymBlaineScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext BlaineWinLossText, 0
+	loadtrainer BLAINE, BLAINE3
+	sjump .Fight
+
+.Medium
 	winlosstext BlaineWinLossText, 0
 	loadtrainer BLAINE, BLAINE2
 	sjump .Fight
@@ -70,10 +76,16 @@ SeafoamGymBlaineScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext BlaineRematchWinLossText, 0
+	loadtrainer BLAINE, BLAINE3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext BlaineRematchWinLossText, 0
 	loadtrainer BLAINE, BLAINE2
 	sjump .Rematch

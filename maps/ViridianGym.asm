@@ -16,21 +16,8 @@ ViridianGymBlueScript:
 	waitbutton
 	closetext
 
-	readvar VAR_BADGES
-	ifgreater 3, .Hard
-	sjump .Easy
-
-.Hard
-	winlosstext LeaderBlueWinText, 0
-	loadtrainer BLUE, BLUE2
-	sjump .Fight
-
-.Easy
 	winlosstext LeaderBlueWinText, 0
 	loadtrainer BLUE, BLUE1
-	sjump .Fight
-
-.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLUE
@@ -62,22 +49,8 @@ ViridianGymBlueScript:
 	writetext LeaderBlueRematchText
 	yesorno
 	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext LeaderBlueRematchWinLossText, 0
-	loadtrainer BLUE, BLUE2
-	sjump .Rematch
-
-.EasyRematch
 	winlosstext LeaderBlueRematchWinLossText, 0
 	loadtrainer BLUE, BLUE1
-	sjump .Rematch
-
-.Rematch	
 	startbattle
 	reloadmapafterbattle
 	sjump .EndRematch

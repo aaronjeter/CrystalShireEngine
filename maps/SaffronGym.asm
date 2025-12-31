@@ -21,10 +21,16 @@ SaffronGymSabrinaScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext SabrinaWinLossText, 0
+	loadtrainer SABRINA, SABRINA3
+	sjump .Fight
+
+.Medium
 	winlosstext SabrinaWinLossText, 0
 	loadtrainer SABRINA, SABRINA2
 	sjump .Fight
@@ -71,10 +77,16 @@ SaffronGymSabrinaScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext SabrinaRematchWinLossText, 0
+	loadtrainer SABRINA, SABRINA3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext SabrinaRematchWinLossText, 0
 	loadtrainer SABRINA, SABRINA2
 	sjump .Rematch
