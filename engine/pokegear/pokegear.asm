@@ -2177,14 +2177,14 @@ FlyMap:
 ; the flypoint selection has a default starting point that
 ; can be flown to even if none are enabled.
 ; To prevent both of these things from happening when the player
-; enters Kanto, fly access is restricted until Indigo Plateau is
+; enters Kanto, fly access is restricted until Saffron City is
 ; visited and its flypoint enabled.
 	push af
-	ld c, SPAWN_INDIGO
+	ld c, SPAWN_SAFFRON
 	call HasVisitedSpawn
 	and a
 	jr z, .NoKanto
-; Kanto's map is only loaded if we've visited Indigo Plateau
+; Kanto's map is only loaded if we've visited Saffron
 	ld a, KANTO_FLYPOINT ; first Kanto flypoint
 	ld [wStartFlypoint], a
 	ld a, NUM_FLYPOINTS - 1 ; last Kanto flypoint

@@ -139,11 +139,11 @@ DEF KANTO_FLYPOINT EQU const_value
 	const FLY_VERMILION
 	const FLY_ROCK_TUNNEL
 	const FLY_LAVENDER
-	const FLY_CELADON
-	const FLY_SAFFRON
+	const FLY_CELADON	
 	const FLY_FUCHSIA
 	const FLY_CINNABAR
 	const FLY_INDIGO
+	const FLY_SAFFRON
 DEF NUM_FLYPOINTS EQU const_value
 
 DEF MAX_OUTDOOR_SPRITES EQU 23 ; see engine/overworld/overworld.asm

@@ -24,6 +24,7 @@ NewBarkTownNoop2Scene:
 NewBarkTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_NEW_BARK
 	clearevent EVENT_FIRST_TIME_BANKING_WITH_MOM
+	setflag ENGINE_FLYPOINT_SAFFRON
 	endcallback
 
 NewBarkTown_TeacherStopsYouScene1:
