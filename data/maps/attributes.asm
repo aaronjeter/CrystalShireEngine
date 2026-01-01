@@ -856,3 +856,7 @@ ENDM
 	map_attributes CentralCafe, CENTRAL_CAFE, $00, 0
 	map_attributes CentralRadio1F, CENTRAL_RADIO_1F, $00, 0
 	map_attributes JoifAlley, JOIF_ALLEY, $00, 0
+	map_attributes MintHouse, MINT_HOUSE, $00, 0
+	map_attributes CentralCityPokecenter, CENTRAL_CITY_POKECENTER, $00, 0
+	map_attributes CentralCityPokemart, CENTRAL_CITY_POKEMART, $00, 0
+	map_attributes JoifTrainerMarket, JOIF_TRAINER_MARKET, $00, 0

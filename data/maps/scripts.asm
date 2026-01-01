@@ -597,5 +597,9 @@ INCLUDE "maps/lattice/central/CentralCity.asm"
 INCLUDE "maps/lattice/central/CentralCafe.asm"
 INCLUDE "maps/lattice/central/CentralRadio1F.asm"
 INCLUDE "maps/lattice/central/JoifAlley.asm"
+INCLUDE "maps/lattice/central/MintHouse.asm"
+INCLUDE "maps/lattice/central/CentralCityPokecenter.asm"
+INCLUDE "maps/lattice/central/CentralCityPokemart.asm"
+INCLUDE "maps/lattice/central/JoifTrainerMarket.asm"
 
 ENDSECTION

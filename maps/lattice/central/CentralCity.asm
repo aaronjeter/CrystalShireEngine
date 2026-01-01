@@ -5,6 +5,13 @@ CentralCity_MapScripts:
 
 	def_callbacks	
 
+	CentralCityMintHouseSign:
+	jumptext CentralCityMintHouseSignText
+
+	CentralCityMintHouseSignText:
+	text "MINT's House"
+	done
+
 
 CentralCity_MapEvents:
 	db 0, 0 ; filler
@@ -23,10 +30,14 @@ CentralCity_MapEvents:
 	warp_event  19,  11, JOIF_ALLEY, 6
 	warp_event  26,  16, JOIF_ALLEY, 7
 	warp_event  26,  17, JOIF_ALLEY, 8
+	warp_event  47,  47, MINT_HOUSE, 1
+	warp_event  37,  29, CENTRAL_CITY_POKECENTER, 2
+	warp_event  41,  29, CENTRAL_CITY_POKEMART, 2
 
 	def_coord_events
 
 	def_bg_events	
+	bg_event 46,  48, BGEVENT_READ, CentralCityMintHouseSign
 	
 
 	def_object_events

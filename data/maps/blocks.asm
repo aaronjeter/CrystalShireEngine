@@ -1135,4 +1135,14 @@ SECTION "Map Blocks 7", ROMX
 	JoifAlley_Blocks:
 	INCBIN "maps/lattice/central/JoifAlley.ablk" 
 
+	MintHouse_Blocks:
+	INCBIN "maps/lattice/House1.ablk" 
+
+	CentralCityPokecenter_Blocks:
+	INCBIN "maps/lattice/LatticePokecenter.ablk" 
+
+	CentralCityPokemart_Blocks:
+	JoifTrainerMarket_Blocks:
+	INCBIN "maps/lattice/LatticePokemart.ablk" 
+
 ENDSECTION

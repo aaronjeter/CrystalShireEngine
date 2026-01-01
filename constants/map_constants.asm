@@ -584,6 +584,10 @@ ENDM
 	map_const CENTRAL_CAFE,                                10, 10 ;
 	map_const CENTRAL_RADIO_1F,                            10, 04 ;
 	map_const JOIF_ALLEY,                                  20, 20 ;
+	map_const MINT_HOUSE,                                  04, 04 ;
+	map_const CENTRAL_CITY_POKECENTER,                     06, 04 ;
+	map_const CENTRAL_CITY_POKEMART,                       06, 04 ;
+	map_const JOIF_TRAINER_MARKET,                         06, 04 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27
