@@ -96,7 +96,7 @@ DoBattle:
 	call SetEnemyTurn
 	ld a, [wTempEnemyMonSpecies]
 	ld [wTempAbilityMon], a
-	call Check_Etb_Ability
+	farcall Check_Etb_Ability
 
 	call SetPlayerTurn
 	call SpikesDamage
@@ -2409,7 +2409,7 @@ EnemyPartyMonEntrance:
 
 	ld a, [wTempEnemyMonSpecies]
 	ld [wTempAbilityMon], a
-	call Check_Etb_Ability
+	farcall Check_Etb_Ability
 
 	xor a
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
@@ -4046,7 +4046,7 @@ SendOutPlayerMon:
 	ld a, [wCurPartySpecies]
 	ld [wTempAbilityMon], a
 	call PlayStereoCry	
-	call Check_Etb_Ability
+	farcall Check_Etb_Ability
 
 .statused
 	call UpdatePlayerHUD
@@ -8992,4 +8992,3 @@ GetWeatherImage:
 	db $80, $14 ; y/x - top left
 
 
-include "engine/battle/etb_abilities.asm"

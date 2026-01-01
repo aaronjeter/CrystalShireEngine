@@ -30,6 +30,8 @@ Check_Etb_Ability:
 
 	call .Debris
 
+	call .Leech
+
 	ret
 
 .Drizzle:
@@ -53,7 +55,7 @@ Check_Etb_Ability:
     ld a, 10 
     ld [wWeatherCount], a
 	ld de, RAIN_DANCE
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     ld hl, DrizzleText
     call StdBattleTextbox
 	;call HandleWeather
@@ -80,7 +82,7 @@ Check_Etb_Ability:
     ld a, 10 
     ld [wWeatherCount], a
 	ld de, SUNNY_DAY
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     ld hl, DroughtText
     call StdBattleTextbox
 	;call HandleWeather
@@ -106,7 +108,7 @@ Check_Etb_Ability:
     ld [wBattleWeather], a
     ld a, 10 
 	ld de, SANDSTORM
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     ld [wWeatherCount], a
     ld hl, SandStreamText
     call StdBattleTextbox
@@ -134,7 +136,7 @@ Check_Etb_Ability:
     ld a, 10 
     ld [wWeatherCount], a
 	ld de, HAIL
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     ld hl, SnowWarningText
     call StdBattleTextbox
 	;call HandleWeather
@@ -152,7 +154,7 @@ Check_Etb_Ability:
 		
 .HasIntimidate:	
 	ld de, LEER
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_AttackDown
 
     ld hl, IntimidateCutsAttackText
@@ -171,7 +173,7 @@ Check_Etb_Ability:
 		
 .HasMystify:	
 	ld de, DETECT
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_SpecialAttackDown
 
     ld hl, MystifyCutsSpecialAttackText
@@ -190,7 +192,7 @@ Check_Etb_Ability:
 		
 .HasSnare:	
 	ld de, WRAP
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_SpeedDown
 
     ld hl, SnareCutsSpeedText
@@ -209,7 +211,7 @@ Check_Etb_Ability:
 		
 .HasHaste:	
 	ld de, AGILITY
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_SpeedUp
 
     ld hl, HasteBoostsSpeedText
@@ -228,7 +230,7 @@ Check_Etb_Ability:
 		
 .HasAim:	
 	ld de, LOCK_ON
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_AccuracyUp
 
     ld hl, AimBoostsAccuracyText
@@ -263,7 +265,7 @@ Check_Etb_Ability:
 		
 .HasVeiled:	
 	ld de, SAFEGUARD
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_Safeguard
     ret
 
@@ -279,7 +281,7 @@ Check_Etb_Ability:
 		
 .HasInvisibleWall:	
 	ld de, REFLECT
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_Screen
     ret
 
@@ -295,7 +297,7 @@ Check_Etb_Ability:
 		
 .HasImpostor:	
 	ld de, TRANSFORM
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_Transform
     ret
 
@@ -311,8 +313,24 @@ Check_Etb_Ability:
 		
 .HasDebris:	
 	ld de, SPIKES
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_Spikes
+    ret
+
+.Leech:
+	call GetAbilitySpecies	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, LeechMons
+	call IsInWordArray
+	jr c, .HasLeech
+	ret
+		
+.HasLeech:	
+	ld de, LEECH_SEED
+    farcall Call_PlayBattleAnim
+    farcall BattleCommand_LeechSeed
     ret
 
 
