@@ -101,3 +101,7 @@ ImpostorDesc:
 DebrisDesc:
 	db    "Scatters SPIKES"
 	next  "on entrance.@"
+
+LeechDesc:
+	db    "Scatters SEEDS"
+	next  "on entrance.@"

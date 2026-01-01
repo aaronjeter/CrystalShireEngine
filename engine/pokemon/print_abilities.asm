@@ -78,6 +78,9 @@ PrintAbility:
 	jp .Debris
 	.NotDebris
 
+	jp .Leech
+	.NotLeech
+
 	jp .NoAbility
 
 	.Done
@@ -594,6 +597,26 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Leech:
+	call GetAbilityMon	
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, AbilityLeechMons
+	call IsInWordArray
+	jr c, .HasLeech
+	jp .NotLeech
+		
+.HasLeech:
+	ld de, LeechNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, LeechDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -676,3 +699,6 @@ ImpostorNameString:
 
 DebrisNameString:
 	db "Debris@"
+
+LeechNameString:
+	db "Leech@"

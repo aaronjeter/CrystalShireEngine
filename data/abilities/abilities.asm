@@ -99,6 +99,9 @@ AbilityAimMons::
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
+	dw MAGNEMITE
+	dw MAGNETON
+	dw MAGNEZONE
 	dw ELECTABUZZ
 	dw ELECTIVIRE
 	dw MAGMAR
@@ -144,11 +147,17 @@ AbilityDebrisMons::
 	dw SKARMORY2
 	dw -1
 
+AbilityLeechMons::
+	dw PARAS
+	dw PARASECT
+	dw HOPPIP
+	dw SKIPLOOM
+	dw JUMPLUFF
+	dw -1
+
 ;Levitate/Waterproof mons ----------------------------------------------
 
-AbilityLevitateMons::
-	dw MAGNEMITE
-	dw MAGNETON
+AbilityLevitateMons::	
 	dw GASTLY
 	dw HAUNTER
 	dw GENGAR
@@ -163,7 +172,6 @@ AbilityLevitateMons::
 	dw CLAYDOL
 	dw DUSKULL
 	dw DUSCLOPS
-	dw MAGNEZONE
 	dw ARAICHU
 	dw FLYGONX
 	dw -1

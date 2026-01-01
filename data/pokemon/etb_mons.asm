@@ -99,6 +99,9 @@ AimMons::
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
+	dw MAGNEMITE
+	dw MAGNETON
+	dw MAGNEZONE
 	dw ELECTABUZZ
 	dw ELECTIVIRE
 	dw MAGMAR
@@ -142,4 +145,12 @@ DebrisMons::
 	dw QWILFISH
 	dw SKARMORY
 	dw SKARMORY2
+	dw -1
+
+LeechMons::
+	dw PARAS
+	dw PARASECT
+	dw HOPPIP
+	dw SKIPLOOM
+	dw JUMPLUFF
 	dw -1

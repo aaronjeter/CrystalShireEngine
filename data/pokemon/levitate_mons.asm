@@ -1,6 +1,4 @@
 LevitateMons::
-	dw MAGNEMITE
-	dw MAGNETON
 	dw GASTLY
 	dw HAUNTER
 	dw GENGAR
@@ -15,7 +13,6 @@ LevitateMons::
 	dw CLAYDOL
 	dw DUSKULL
 	dw DUSCLOPS
-	dw MAGNEZONE
 	dw ARAICHU
 	dw FLYGONX
 	dw -1
