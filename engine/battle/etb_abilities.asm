@@ -249,7 +249,7 @@ Check_Etb_Ability:
 		
 .HasFocus:	
 	ld de, FOCUS_ENERGY
-    call Call_PlayBattleAnim
+    farcall Call_PlayBattleAnim
     farcall BattleCommand_FocusEnergy
     ret
 
