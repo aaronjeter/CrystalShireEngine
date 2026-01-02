@@ -62,7 +62,7 @@ EvosAttacksPointers4::
 	dw Tauros2EvosAttacks
 	dw Swinub2EvosAttacks
 	dw Piloswine2EvosAttacks
-	dw SkarmoryEvosAttacks
+	dw Skarmory2EvosAttacks
 	dw Totodile2EvosAttacks
 	dw Croconaw2EvosAttacks
 	dw Feraligatr2EvosAttacks
@@ -1642,6 +1642,24 @@ Piloswine2EvosAttacks:
 	dbw 50, AMNESIA
 	dbw 55, OUTRAGE
 	dbw 60, FISSURE
+	db 0 ; no more level-up moves
+
+Skarmory2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, LEER
+	dbw 1, PECK
+	dbw 8, SAND_ATTACK
+	dbw 12, METAL_CLAW
+	dbw 16, AGILITY
+	dbw 20, SPIKES
+	dbw 24, WING_ATTACK	
+	dbw 28, STEEL_WING
+	dbw 32, RECOVER
+	dbw 36, DRILL_PECK
+	dbw 40, VICEGRIP
+	dbw 42, SAFEGUARD
+	dbw 45, SLASH
+	dbw 50, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 ENDSECTION

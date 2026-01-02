@@ -1,5 +1,3 @@
-INCLUDE "data/pokemon/heal_ability_mons.asm"
-
 CheckHealAbility:
 	call Regeneration
 	ret
@@ -10,11 +8,7 @@ Regeneration:
 
 CheckRegenerationMon:	
 	call GetActiveMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, RegenerationMons
-	call IsInWordArray
+	farcall CheckRegenerationAbility
 	ret	
 
 CheckWeatherHealAbility:
@@ -50,11 +44,7 @@ RainDish:
 
 CheckRainDishMon:	
 	call GetActiveMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, RainDishMons
-	call IsInWordArray
+	farcall CheckRainDishAbility
 	ret	
 
 Sunbask:
@@ -70,11 +60,7 @@ Sunbask:
 
 CheckSunbaskMon:	
 	call GetActiveMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, SunbaskMons
-	call IsInWordArray
+	farcall CheckSunbaskAbility
 	ret	
 
 SandBody:
@@ -90,11 +76,7 @@ SandBody:
 
 CheckSandBodyMon:	
 	call GetActiveMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, SandBodyMons
-	call IsInWordArray
+	farcall CheckSandBodyAbility
 	ret	
 
 IceBody:
@@ -110,11 +92,7 @@ IceBody:
 
 CheckIceBodyMon:	
 	call GetActiveMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, IceBodyMons
-	call IsInWordArray
+	farcall CheckIceBodyAbility
 	ret	
 
 CheckRaining:

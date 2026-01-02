@@ -1,5 +1,4 @@
 INCLUDE "data/moves/move_categories.asm"
-INCLUDE "data/pokemon/damage_boost_ability_mons.asm"
 
 CheckStabAbility:	
 
@@ -28,11 +27,7 @@ ElementalFist:
 
 CheckFistMon:	
 	call GetCurrentMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, ElementalFistMons
-	call IsInWordArray
+	farcall CheckElementalFistAbility
 	ret	
 
 CheckPunchMove:		
@@ -54,13 +49,9 @@ ElementalFang:
 	.NotFangMove	
 	ret
 
-CheckFangMon:	
+CheckFangMon:
 	call GetCurrentMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, ElementalFangMons
-	call IsInWordArray
+	farcall CheckElementalFangAbility
 	ret	
 
 CheckFangMove:		
@@ -85,11 +76,7 @@ ElementalBlade:
 
 CheckBladeMon:	
 	call GetCurrentMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, ElementalBladeMons
-	call IsInWordArray
+	farcall CheckElementalBladeAbility
 	ret	
 
 CheckBladeMove:		
@@ -102,11 +89,7 @@ CheckBladeMove:
 
 CheckStabilityMon:	
 	call GetCurrentMon
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, StabilityMons
-	call IsInWordArray
+	farcall CheckStabilityAbility
 	ret	
 
 GetAbilityMove:

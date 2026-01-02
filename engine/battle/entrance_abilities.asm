@@ -1,6 +1,4 @@
-include "data/pokemon/etb_mons.asm"
-
-Check_Etb_Ability:	
+Check_Entrance_Ability:	
 
 	call .Drizzle
 
@@ -36,11 +34,7 @@ Check_Etb_Ability:
 
 .Drizzle:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, DrizzleMons
-	call IsInWordArray
+	farcall CheckDrizzleAbility
 	jr c, .HasDrizzle
 	ret
 		
@@ -63,11 +57,7 @@ Check_Etb_Ability:
 
 .Drought:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, DroughtMons
-	call IsInWordArray
+	farcall CheckDroughtAbility
 	jr c, .HasDrought
 	ret
 
@@ -90,11 +80,7 @@ Check_Etb_Ability:
 
 .SandStream:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, SandStreamMons
-	call IsInWordArray
+	farcall CheckSandStreamAbility
 	jr c, .HasSandStream
 	ret
 
@@ -117,11 +103,7 @@ Check_Etb_Ability:
 
 .SnowWarning:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, SnowWarningMons
-	call IsInWordArray
+	farcall CheckSnowWarningAbility
 	jr c, .HasSnowWarning
 	ret
 
@@ -144,11 +126,7 @@ Check_Etb_Ability:
 
 .Intimidate:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, IntimidateMons
-	call IsInWordArray
+	farcall CheckIntimidateAbility
 	jr c, .HasIntimidate
 	ret
 		
@@ -163,11 +141,7 @@ Check_Etb_Ability:
 
 .Mystify:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, MystifyMons
-	call IsInWordArray
+	farcall CheckMystifyAbility
 	jr c, .HasMystify
 	ret
 		
@@ -182,11 +156,7 @@ Check_Etb_Ability:
 
 .Snare:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, SnareMons
-	call IsInWordArray
+	farcall CheckSnareAbility
 	jr c, .HasSnare
 	ret
 		
@@ -201,11 +171,7 @@ Check_Etb_Ability:
 
 .Haste:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, HasteMons
-	call IsInWordArray
+	farcall CheckHasteAbility
 	jr c, .HasHaste
 	ret
 		
@@ -220,11 +186,7 @@ Check_Etb_Ability:
 
 .Aim:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AimMons
-	call IsInWordArray
+	farcall CheckAimAbility
 	jr c, .HasAim
 	ret
 		
@@ -238,12 +200,8 @@ Check_Etb_Ability:
     ret
 
 .Focus:
-	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, FocusMons
-	call IsInWordArray
+	call GetAbilitySpecies
+	farcall CheckFocusAbility
 	jr c, .HasFocus
 	ret
 		
@@ -255,11 +213,7 @@ Check_Etb_Ability:
 
 .Veiled:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, VeiledMons
-	call IsInWordArray
+	farcall CheckVeiledAbility
 	jr c, .HasVeiled
 	ret
 		
@@ -271,11 +225,7 @@ Check_Etb_Ability:
 
 .InvisibleWall:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, InvisibleWallMons
-	call IsInWordArray
+	farcall CheckInvisibleWallAbility
 	jr c, .HasInvisibleWall
 	ret
 		
@@ -287,11 +237,7 @@ Check_Etb_Ability:
 
 .Impostor:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, ImpostorMons
-	call IsInWordArray
+	farcall CheckImpostorAbility
 	jr c, .HasImpostor
 	ret
 		
@@ -303,11 +249,7 @@ Check_Etb_Ability:
 
 .Debris:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, DebrisMons
-	call IsInWordArray
+	farcall CheckDebrisAbility
 	jr c, .HasDebris
 	ret
 		
@@ -319,11 +261,7 @@ Check_Etb_Ability:
 
 .Leech:
 	call GetAbilitySpecies	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, LeechMons
-	call IsInWordArray
+	farcall CheckLeechAbility
 	jr c, .HasLeech
 	ret
 		
