@@ -244,9 +244,9 @@ BattleCommand_CheckTurn:
 	ld de, ANIM_CONFUSED
 	call FarPlayBattleAnimation
 
-	; 50% chance of hitting itself
+	; 35% chance of hitting itself
 	call BattleRandom
-	cp 50 percent + 1
+	cp 35 percent + 1
 	jr nc, .not_confused
 
 	; clear confusion-dependent substatus
@@ -3730,19 +3730,13 @@ BattleCommand_SleepTarget:
 	call CheckSubstituteOpp
 	jr nz, .fail
 
-	call AnimateCurrentMove
-	ld b, SLP_MASK
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr z, .random_loop
+	call AnimateCurrentMove	
 	ld b, %011
 
 .random_loop
 	call BattleRandom
 	and b
-	jr z, .random_loop
-	cp SLP_MASK
-	jr z, .random_loop
+	jr z, .random_loop	
 	inc a
 	ld [de], a
 	call UpdateOpponentInParty
