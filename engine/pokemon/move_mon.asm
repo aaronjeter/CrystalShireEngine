@@ -1052,7 +1052,8 @@ CalcMonStatC:
 	push hl
 	push de
 	push bc
-	ld a, [wHardMode] ;Contains 0 if hardmode is on, 1 otherwise
+	;ld a, [wHardMode] ;Contains 0 if hardmode is on, 1 otherwise
+	ld a, 1
 	ld d, a
 	push hl
 	ld hl, wBaseStats - 1 ; has to be decreased, because 'c' begins with 1
@@ -1066,7 +1067,8 @@ CalcMonStatC:
 	and a
 	jr z, .no_stat_exp
 	add hl, bc
-	ld a, [hl]
+	;ld a, [hl]
+	ld a, $ff
 	ld b, a
 
 .no_stat_exp
