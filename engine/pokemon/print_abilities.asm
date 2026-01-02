@@ -1,4 +1,3 @@
-;include "data/pokemon/etb_mons.asm"
 INCLUDE "data/abilities/abilities.asm"
 INCLUDE "data/abilities/descriptions.asm"
 
@@ -99,11 +98,7 @@ PrintAbility:
 
 .Drought:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityDroughtMons
-	call IsInWordArray
+	farcall CheckDroughtAbility
 	jr c, .HasDrought
 	jp .NotDrought
 		
@@ -119,11 +114,7 @@ PrintAbility:
 
 .Drizzle:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityDrizzleMons
-	call IsInWordArray
+	farcall CheckDrizzleAbility
 	jr c, .HasDrizzle
 	jp .NotDrizzle
 		
@@ -139,11 +130,7 @@ PrintAbility:
 
 .SandStream:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilitySandStreamMons
-	call IsInWordArray
+	farcall CheckSandStreamAbility
 	jr c, .HasSandStream
 	jp .NotSandStream
 		
@@ -159,11 +146,7 @@ PrintAbility:
 
 .SnowWarning:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilitySnowWarningMons
-	call IsInWordArray
+	farcall CheckSnowWarningAbility
 	jr c, .HasSnowWarning
 	jp .NotSnowWarning
 		
@@ -179,11 +162,7 @@ PrintAbility:
 
 .Intimidate:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityIntimidateMons
-	call IsInWordArray
+	farcall CheckIntimidateAbility
 	jr c, .HasIntimidate
 	jp .NotIntimidate
 		
@@ -199,11 +178,7 @@ PrintAbility:
 
 .Mystify:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityMystifyMons
-	call IsInWordArray
+	farcall CheckMystifyAbility
 	jr c, .HasMystify
 	jp .NotMystify
 		
@@ -219,11 +194,7 @@ PrintAbility:
 
 .Snare:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilitySnareMons
-	call IsInWordArray
+	farcall CheckSnareAbility
 	jr c, .HasSnare
 	jp .NotSnare
 		
@@ -239,11 +210,7 @@ PrintAbility:
 
 .Levitate:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityLevitateMons
-	call IsInWordArray
+	farcall CheckLevitateAbility
 	jr c, .HasLevitate
 	jp .NotLevitate
 		
@@ -259,11 +226,7 @@ PrintAbility:
 
 .Waterproof:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityWaterproofMons
-	call IsInWordArray
+	farcall CheckWaterproofAbility
 	jr c, .HasWaterproof
 	jp .NotWaterproof
 		
@@ -279,11 +242,7 @@ PrintAbility:
 
 .ElementalFist:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityElementalFistMons
-	call IsInWordArray
+	farcall CheckElementalFistAbility
 	jr c, .HasElementalFist
 	jp .NotElementalFist
 		
@@ -299,11 +258,7 @@ PrintAbility:
 
 .ElementalFang:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityElementalFangMons
-	call IsInWordArray
+	farcall CheckElementalFangAbility
 	jr c, .HasElementalFang
 	jp .NotElementalFang
 		
@@ -318,12 +273,8 @@ PrintAbility:
     jp .Done
 
 .ElementalBlade:
-	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityElementalBladeMons
-	call IsInWordArray
+	call GetAbilityMon
+	farcall CheckElementalBladeAbility
 	jr c, .HasElementalBlade
 	jp .NotElementalBlade
 		
@@ -339,11 +290,7 @@ PrintAbility:
 
 .Stability:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityStabilityMons
-	call IsInWordArray
+	farcall CheckStabilityAbility
 	jr c, .HasStability
 	jp .NotStability
 		
@@ -359,11 +306,7 @@ PrintAbility:
 
 .Regeneration:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityRegenerationMons
-	call IsInWordArray
+	farcall CheckRegenerationAbility
 	jr c, .HasRegeneration
 	jp .NotRegeneration
 		
@@ -379,11 +322,7 @@ PrintAbility:
 
 .RainDish:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityRainDishMons
-	call IsInWordArray
+	farcall CheckRainDishAbility
 	jr c, .HasRainDish
 	jp .NotRainDish
 		
@@ -399,11 +338,7 @@ PrintAbility:
 
 .Sunbask:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilitySunbaskMons
-	call IsInWordArray
+	farcall CheckSunbaskAbility
 	jr c, .HasSunbask
 	jp .NotSunbask
 		
@@ -419,11 +354,7 @@ PrintAbility:
 
 .SandBody:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilitySandBodyMons
-	call IsInWordArray
+	farcall CheckSandBodyAbility
 	jr c, .HasSandBody
 	jp .NotSandBody
 		
@@ -439,11 +370,7 @@ PrintAbility:
 
 .IceBody:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityIceBodyMons
-	call IsInWordArray
+	farcall CheckIceBodyAbility
 	jr c, .HasIceBody
 	jp .NotIceBody
 		
@@ -459,11 +386,7 @@ PrintAbility:
 
 .Haste:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityHasteMons
-	call IsInWordArray
+	farcall CheckHasteAbility
 	jr c, .HasHaste
 	jp .NotHaste
 		
@@ -479,11 +402,7 @@ PrintAbility:
 
 .Aim:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityAimMons
-	call IsInWordArray
+	farcall CheckAimAbility
 	jr c, .HasAim
 	jp .NotAim
 		
@@ -499,11 +418,7 @@ PrintAbility:
 
 .Focus:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityFocusMons
-	call IsInWordArray
+	farcall CheckFocusAbility
 	jr c, .HasFocus
 	jp .NotFocus
 		
@@ -519,11 +434,7 @@ PrintAbility:
 
 .Veiled:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityVeiledMons
-	call IsInWordArray
+	farcall CheckVeiledAbility
 	jr c, .HasVeiled
 	jp .NotVeiled
 		
@@ -539,11 +450,7 @@ PrintAbility:
 
 .InvisibleWall:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityInvisibleWallMons
-	call IsInWordArray
+	farcall CheckInvisibleWallAbility
 	jr c, .HasInvisibleWall
 	jp .NotInvisibleWall
 		
@@ -559,11 +466,7 @@ PrintAbility:
 
 .Impostor:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityImpostorMons
-	call IsInWordArray
+	farcall CheckImpostorAbility
 	jr c, .HasImpostor
 	jp .NotImpostor
 		
@@ -579,11 +482,7 @@ PrintAbility:
 
 .Debris:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityDebrisMons
-	call IsInWordArray
+	farcall CheckDebrisAbility
 	jr c, .HasDebris
 	jp .NotDebris
 		
@@ -599,11 +498,7 @@ PrintAbility:
 
 .Leech:
 	call GetAbilityMon	
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, AbilityLeechMons
-	call IsInWordArray
+	farcall CheckLeechAbility
 	jr c, .HasLeech
 	jp .NotLeech
 		

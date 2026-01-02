@@ -1,13 +1,15 @@
+include "data/abilities/ability_lookup.asm"
+
 ;Mons with enter the battlefield effect abilities
 
-AbilityDrizzleMons::
+DrizzleMons::
 	dw POLITOED
 	dw PELIPPER
 	dw LUVDISC
 	dw KYOGRE
 	dw -1
 
-AbilityDroughtMons::
+DroughtMons::
 	dw NINETALES
 	dw MOLTRES
 	dw SUNFLORA
@@ -15,7 +17,7 @@ AbilityDroughtMons::
 	dw GROUDON	
 	dw -1
 
-AbilitySandStreamMons::
+SandStreamMons::
 	dw RHYDON
 	dw RHYPERIOR
 	dw DUNSPARCE
@@ -24,7 +26,7 @@ AbilitySandStreamMons::
 	dw REGIROCK
 	dw -1
 
-AbilitySnowWarningMons::
+SnowWarningMons::
 	dw LAPRAS
 	dw ARTICUNO
 	dw DELIBIRD
@@ -32,7 +34,7 @@ AbilitySnowWarningMons::
 	dw ANINETALES
 	dw -1
 
-AbilityIntimidateMons::
+IntimidateMons::
 	dw ARBOK
 	dw ARCANINE
 	dw TAUROS
@@ -51,7 +53,7 @@ AbilityIntimidateMons::
 	dw TYPHLOSION2
 	dw -1
 
-AbilityMystifyMons::
+MystifyMons::
 	dw CLEFABLE
 	dw WIGGLYTUFF
 	dw DRAGONITE
@@ -70,7 +72,7 @@ AbilityMystifyMons::
 	dw NINETALES2
 	dw -1
 
-AbilitySnareMons::
+SnareMons::
 	dw VICTREEBEL
 	dw VICTREEBELX
 	dw TENTACRUEL
@@ -82,7 +84,7 @@ AbilitySnareMons::
 	dw YANMA2
 	dw -1
 
-AbilityHasteMons::
+HasteMons::
 	dw PONYTA
 	dw RAPIDASH
 	dw RAPIDASH2
@@ -95,7 +97,7 @@ AbilityHasteMons::
 	dw IKARI
 	dw -1
 
-AbilityAimMons::
+AimMons::
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
@@ -111,7 +113,7 @@ AbilityAimMons::
 	dw AGOLEM
 	dw -1
 
-AbilityFocusMons::
+FocusMons::
 	dw SPEAROW
 	dw FEAROW
 	dw MACHOP
@@ -119,7 +121,7 @@ AbilityFocusMons::
 	dw MACHAMP
 	dw -1
 
-AbilityVeiledMons::
+VeiledMons::
 	dw LUGIA
 	dw TOGEPI
 	dw TOGETIC
@@ -129,16 +131,16 @@ AbilityVeiledMons::
 	dw HANEEI
 	dw -1
 
-AbilityInvisibleWallMons::
+InvisibleWallMons::
 	dw MR__MIME
 	dw JYNX
 	dw -1
 
-AbilityImpostorMons::
+ImpostorMons::
 	dw DITTO
 	dw -1
 
-AbilityDebrisMons::
+DebrisMons::
 	dw SUDOWOODO
 	dw PINECO
 	dw FORRETRESS
@@ -147,7 +149,7 @@ AbilityDebrisMons::
 	dw SKARMORY2
 	dw -1
 
-AbilityLeechMons::
+LeechMons::
 	dw PARAS
 	dw PARASECT
 	dw HOPPIP
@@ -157,7 +159,7 @@ AbilityLeechMons::
 
 ;Levitate/Waterproof mons ----------------------------------------------
 
-AbilityLevitateMons::	
+LevitateMons::	
 	dw GASTLY
 	dw HAUNTER
 	dw GENGAR
@@ -176,7 +178,7 @@ AbilityLevitateMons::
 	dw FLYGONX
 	dw -1
 
-AbilityWaterproofMons::
+WaterproofMons::
 	dw WOOPER
 	dw QUAGSIRE
 	dw SLUGMA
@@ -190,7 +192,7 @@ AbilityWaterproofMons::
 
 ;Damage Boosting Ability Mons ----------------------------------------------
 
-AbilityElementalFistMons::
+ElementalFistMons::
 	dw MANKEY
 	dw PRIMEAPE
 	dw KADABRA
@@ -204,7 +206,7 @@ AbilityElementalFistMons::
 	dw ANNIHILAPE
 	dw -1
 
-AbilityElementalFangMons::
+ElementalFangMons::
 	dw RATTATA
 	dw RATICATE
 	dw TOTODILE
@@ -224,7 +226,7 @@ AbilityElementalFangMons::
 	dw RAITORA
 	dw -1
 
-AbilityElementalBladeMons::	
+ElementalBladeMons::	
 	dw PERSIAN
 	dw FARFETCH_D
 	dw SCYTHER
@@ -244,7 +246,7 @@ AbilityElementalBladeMons::
 	dw SCIZORX
 	dw -1
 
-AbilityStabilityMons::
+StabilityMons::
 	dw PICHU
 	dw PIKACHU
 	dw RAICHU
@@ -277,7 +279,7 @@ AbilityStabilityMons::
 
 ;Healing Ability Mons ----------------------------------------------
 
-AbilityRegenerationMons:
+RegenerationMons:
 	dw GRIMER
 	dw MUK
 	dw AGRIMER
@@ -290,7 +292,7 @@ AbilityRegenerationMons:
 	dw SWALOTX
 	dw -1
 
-AbilityRainDishMons::
+RainDishMons::
 	dw SQUIRTLE
 	dw WARTORTLE
 	dw BLASTOISE
@@ -302,7 +304,7 @@ AbilityRainDishMons::
 	dw LUDICOLO
 	dw -1
 
-AbilitySunbaskMons::
+SunbaskMons::
 	dw BULBASAUR
 	dw IVYSAUR
 	dw VENUSAUR
@@ -318,7 +320,7 @@ AbilitySunbaskMons::
 	dw DYNABEA
 	dw -1
 
-AbilitySandBodyMons::
+SandBodyMons::
 	dw GEODUDE
 	dw GRAVELER
 	dw GOLEM
@@ -331,7 +333,7 @@ AbilitySandBodyMons::
 	dw STEELIXX
 	dw -1
 
-AbilityIceBodyMons::
+IceBodyMons::
 	dw SEEL
 	dw DEWGONG
 	dw SPHEAL

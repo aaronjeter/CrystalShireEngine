@@ -1573,8 +1573,6 @@ BattleCommand_DamageVariation:
 	ld [hl], a
 	ret
 
-INCLUDE "data/pokemon/levitate_mons.asm"
-
 BattleCommand_CheckHit:
 	call .Levitate
 	jr z, .Miss
@@ -1671,11 +1669,7 @@ BattleCommand_CheckHit:
 
 	call GetTargetSpecies
 	call GetPokemonIndexFromID
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, LevitateMons
-	call IsInWordArray
+	farcall CheckLevitateAbility
 	jr c, .Levitating
 	
 	or 1
@@ -1700,11 +1694,7 @@ BattleCommand_CheckHit:
 	;Then, we check if the target is in WaterproofMons
 	call GetTargetSpecies
 	call GetPokemonIndexFromID
-	ld b, h
-	ld c, l
-	ld de, 2
-	ld hl, WaterproofMons
-	call IsInWordArray
+	farcall CheckWaterproofAbility
 	jr c, .IsWaterproof
 	
 	or 1

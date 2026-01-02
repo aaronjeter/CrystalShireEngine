@@ -96,7 +96,7 @@ DoBattle:
 	call SetEnemyTurn
 	ld a, [wTempEnemyMonSpecies]
 	ld [wTempAbilityMon], a
-	farcall Check_Etb_Ability
+	farcall Check_Entrance_Ability
 
 	call SetPlayerTurn
 	call SpikesDamage
@@ -2409,7 +2409,7 @@ EnemyPartyMonEntrance:
 
 	ld a, [wTempEnemyMonSpecies]
 	ld [wTempAbilityMon], a
-	farcall Check_Etb_Ability
+	farcall Check_Entrance_Ability
 
 	xor a
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
@@ -4046,7 +4046,7 @@ SendOutPlayerMon:
 	ld a, [wCurPartySpecies]
 	ld [wTempAbilityMon], a
 	call PlayStereoCry	
-	farcall Check_Etb_Ability
+	farcall Check_Entrance_Ability
 
 .statused
 	call UpdatePlayerHUD
