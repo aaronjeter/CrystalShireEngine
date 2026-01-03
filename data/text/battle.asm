@@ -1202,3 +1202,23 @@ SandBodyHealsText:
 	text "The sand heals"
 	line "<TARGET>!"
 	prompt
+
+RainBoostsSpeedText:
+	text "<USER>'s SPD"
+	line "is boosted by RAIN"
+	prompt
+
+SunBoostsSpeedText:
+	text "<USER>'s SPD"
+	line "is boosted by SUN!"
+	prompt
+
+SandBoostsSpeedText:
+	text "<USER>'s SPD"
+	line "is boosted by SAND"
+	prompt
+
+HailBoostsSpeedText:
+	text "<USER>'s SPD"
+	line "is boosted by HAIL"
+	prompt

@@ -77,7 +77,7 @@ SandBody:
 CheckSandBodyMon:	
 	call GetActiveMon
 	farcall CheckSandBodyAbility
-	ret	
+	ret
 
 IceBody:
 	call CheckHail
@@ -93,7 +93,7 @@ IceBody:
 CheckIceBodyMon:	
 	call GetActiveMon
 	farcall CheckIceBodyAbility
-	ret	
+	ret
 
 CheckRaining:
 	ld a, [wBattleWeather]
@@ -124,3 +124,109 @@ GetActiveMon:
 	ld a, [wEnemyMonSpecies]
 	call GetPokemonIndexFromID
     ret
+
+
+CheckWeatherSpeedAbility:
+
+	call SwiftSwim
+	jr z, .Done
+	jr c, .Done
+
+	call Chlorophyll
+	jr z, .Done
+	jr c, .Done
+
+	call SandRush
+	jr z, .Done
+	jr c, .Done
+
+	call SlushRush
+	jr z, .Done
+	jr c, .Done
+
+	.Done
+	ret
+
+
+SwiftSwim:
+	call CheckRaining
+	jr nz, .NotRaining	
+
+	call CheckSwiftSwimMon
+	jr nc, .NotSwiftSwimMon
+	
+    farcall BattleCommand_SpeedUp
+    ld hl, RainBoostsSpeedText
+    call StdBattleTextbox
+
+	.NotRaining	
+	.NotSwiftSwimMon	
+	ret
+
+CheckSwiftSwimMon:	
+	call GetActiveMon
+	farcall CheckSwiftSwimAbility
+	ret
+
+
+Chlorophyll:
+	call CheckSun
+	jr nz, .NotSun
+
+	call CheckChlorophyllMon
+	jr nc, .NotChlorophyllMon
+
+	farcall BattleCommand_SpeedUp
+    ld hl, SunBoostsSpeedText
+    call StdBattleTextbox
+	
+	.NotSun	
+	.NotChlorophyllMon	
+	ret
+
+CheckChlorophyllMon:	
+	call GetActiveMon
+	farcall CheckChlorophyllAbility
+	ret
+
+
+SandRush:
+	call CheckSandstorm
+	jr nz, .NotSandstorm
+
+	call CheckSandRushMon
+	jr nc, .NotSandRushMon
+
+	farcall BattleCommand_SpeedUp
+    ld hl, SandBoostsSpeedText
+    call StdBattleTextbox
+	
+	.NotSandstorm
+	.NotSandRushMon
+	ret
+
+CheckSandRushMon:	
+	call GetActiveMon
+	farcall CheckSandRushAbility
+	ret
+
+
+SlushRush:
+	call CheckHail
+	jr nz, .NotHail
+
+	call CheckSlushRushMon
+	jr nc, .NotSlushRushMon
+
+    farcall BattleCommand_SpeedUp
+    ld hl, HailBoostsSpeedText
+    call StdBattleTextbox
+	
+	.NotHail
+	.NotSlushRushMon
+	ret
+
+CheckSlushRushMon:	
+	call GetActiveMon
+	farcall CheckSlushRushAbility
+	ret	

@@ -165,6 +165,34 @@ CheckIceBodyAbility:
 	call IsInWordArray
 	ret
 
+
+;Weather Speed Abilities-----
+
+CheckSwiftSwimAbility:
+	call SetupAbilityCheck
+	ld hl, SwiftSwimMons
+	call IsInWordArray
+	ret
+
+CheckChlorophyllAbility:
+	call SetupAbilityCheck
+	ld hl, ChlorophyllMons
+	call IsInWordArray
+	ret
+
+CheckSandRushAbility:
+	call SetupAbilityCheck
+	ld hl, SandRushMons
+	call IsInWordArray
+	ret
+
+CheckSlushRushAbility:
+	call SetupAbilityCheck
+	ld hl, SlushRushMons
+	call IsInWordArray
+	ret
+
+
 SetupAbilityCheck:
 	ld b, h
 	ld c, l
