@@ -246,6 +246,7 @@ HandleBetweenTurnEffects:
 	call HandleLeftovers
 	call HandleHealAbilities
 	call HandleWeatherHealAbilities
+	call HandleWeatherSpeedAbilities
 	call HandleMysteryberry
 	call HandleSafeguard
 	call HandleScreens
@@ -1339,7 +1340,7 @@ HandleLeftovers:
 	ld hl, BattleText_TargetRecoveredWithItem
 	jmp StdBattleTextbox
 
-INCLUDE "engine/battle/check_heal_abilities.asm"
+INCLUDE "engine/battle/end_turn_abilities.asm"
 
 HandleHealAbilities:
 	ldh a, [hSerialConnectionStatus]
@@ -1472,6 +1473,35 @@ call CheckSandstorm
 .NotHail
 
 .finish_restore
+	ret
+
+HandleWeatherSpeedAbilities:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	call .do_it
+	call SetEnemyTurn
+	jr .do_it
+
+.DoEnemyFirst:
+	call SetEnemyTurn
+	call .do_it
+	call SetPlayerTurn
+.do_it	
+	push de
+	push bc
+	call CheckWeatherSpeedAbility
+	pop bc
+	pop de
+	ret
+
+.restore
+	call GetSixteenthMaxHP
+	call SwitchTurnCore
+	call RestoreHP
+	ld hl, HealAbilityText
+	jmp StdBattleTextbox
 	ret
 
 HandleMysteryberry:

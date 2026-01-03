@@ -80,6 +80,18 @@ PrintAbility:
 	jp .Leech
 	.NotLeech
 
+	jp .SwiftSwim
+	.NotSwiftSwim
+
+	jp .Chlorophyll
+	.NotChlorophyll
+
+	jp .SandRush
+	.NotSandRush
+
+	jp .SlushRush
+	.NotSlushRush
+
 	jp .NoAbility
 
 	.Done
@@ -512,6 +524,70 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.SwiftSwim:
+	call GetAbilityMon	
+	farcall CheckSwiftSwimAbility
+	jr c, .HasSwiftSwim
+	jp .NotSwiftSwim
+		
+.HasSwiftSwim:
+	ld de, SwiftSwimNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, SwiftSwimDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.Chlorophyll:
+	call GetAbilityMon	
+	farcall CheckChlorophyllAbility
+	jr c, .HasChlorophyll
+	jp .NotChlorophyll
+		
+.HasChlorophyll:
+	ld de, ChlorophyllNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, ChlorophyllDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.SandRush:
+	call GetAbilityMon	
+	farcall CheckSandRushAbility
+	jr c, .HasSandRush
+	jp .NotSandRush
+		
+.HasSandRush:
+	ld de, SandRushNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, SandRushDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.SlushRush:
+	call GetAbilityMon	
+	farcall CheckSlushRushAbility
+	jr c, .HasSlushRush
+	jp .NotSlushRush
+		
+.HasSlushRush:
+	ld de, SlushRushNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, SlushRushDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -597,3 +673,15 @@ DebrisNameString:
 
 LeechNameString:
 	db "Leech@"
+
+SwiftSwimNameString:
+	db "Swift Swim@"
+
+ChlorophyllNameString:
+	db "Chlorophyll@"
+
+SandRushNameString:
+	db "Sand Rush@"
+
+SlushRushNameString:
+	db "Slush Rush@"

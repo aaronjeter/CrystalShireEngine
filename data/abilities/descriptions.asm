@@ -105,3 +105,19 @@ DebrisDesc:
 LeechDesc:
 	db    "Scatters SEEDS"
 	next  "on entrance.@"
+
+SwiftSwimDesc:
+	db    "Increases SPEED"
+	next  "in RAIN.@"
+
+ChlorophyllDesc:
+	db    "Increases SPEED"
+	next  "in SUN.@"
+
+SandRushDesc:
+	db    "Increases SPEED"
+	next  "in SANDSTORM.@"
+
+SlushRushDesc:
+	db    "Increases SPEED"
+	next  "in HAIL.@"

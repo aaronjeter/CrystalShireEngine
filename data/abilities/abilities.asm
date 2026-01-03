@@ -4,6 +4,9 @@ include "data/abilities/ability_lookup.asm"
 
 DrizzleMons::
 	dw POLITOED
+	dw MANTINE
+	dw SUICUNE
+	dw WINGULL
 	dw PELIPPER
 	dw LUVDISC
 	dw KYOGRE
@@ -12,22 +15,23 @@ DrizzleMons::
 DroughtMons::
 	dw NINETALES
 	dw MOLTRES
+	dw SUNKERN
 	dw SUNFLORA
+	dw ENTEI
 	dw TORKOAL
 	dw GROUDON	
 	dw -1
 
 SandStreamMons::
-	dw RHYDON
-	dw RHYPERIOR
 	dw DUNSPARCE
+	dw LARVITAR
+	dw PUPITAR
 	dw TYRANITAR
 	dw TYRANITARX
 	dw REGIROCK
 	dw -1
 
-SnowWarningMons::
-	dw LAPRAS
+SnowWarningMons::	
 	dw ARTICUNO
 	dw DELIBIRD
 	dw REGICE
@@ -35,16 +39,28 @@ SnowWarningMons::
 	dw -1
 
 IntimidateMons::
+	dw EKANS
 	dw ARBOK
+	dw GROWLITHE
 	dw ARCANINE
 	dw TAUROS
 	dw GYARADOS
 	dw GYARADOSX
+	dw SNUBBULL
 	dw GRANBULL
+	dw HOUNDOUR
+	dw HOUNDOOM
+	dw HOUNDOOMX
+	dw STANTLER
+	dw WYRDEER
+	dw POOCHYENA
 	dw MIGHTYENA
 	dw MASQUERAIN
 	dw MAWILE
+	dw ELECTRIKE
 	dw MANECTRIC
+	dw BAGON
+	dw SHELGON
 	dw SALAMENCE
 	dw SALAMENCEX
 	dw TAUROS2
@@ -54,11 +70,16 @@ IntimidateMons::
 	dw -1
 
 MystifyMons::
+	dw CLEFAIRY
 	dw CLEFABLE
+	dw JIGGLYPUFF
 	dw WIGGLYTUFF
+	dw DRATINI
+	dw DRAGONAIR
 	dw DRAGONITE
 	dw DRAGONITEX
 	dw DRAGONITEY
+	dw HOOTHOOT
 	dw NOCTOWL
 	dw SLOWKING
 	dw MISDREAVUS
@@ -73,22 +94,39 @@ MystifyMons::
 	dw -1
 
 SnareMons::
+	dw BELLSPROUT
+	dw WEEPINBELL
 	dw VICTREEBEL
 	dw VICTREEBELX
+	dw TSUBOMITT
+	dw TENTACOOL
 	dw TENTACRUEL
 	dw TANGELA
+	dw PINSIR
+	dw PINSIRX
+	dw SPINARAK
 	dw ARIADOS
+	dw LILEEP
 	dw CRADILY
-	dw TANGROWTH	
+	dw TANGROWTH
+	dw TENTACOOL2
 	dw TENTACRUEL2
 	dw YANMA2
 	dw -1
 
-HasteMons::
+HasteMons::	
+	dw DIGLETT
+	dw DUGTRIO
 	dw PONYTA
 	dw RAPIDASH
 	dw RAPIDASH2
-	dw DODRIO	
+	dw DODUO
+	dw DODRIO
+	dw AIPOM
+	dw AMBIPOM
+	dw YANMA
+	dw YANMEGA
+	dw GIRAFARIG
 	dw TORCHIC
 	dw COMBUSKEN
 	dw BLAZIKEN
@@ -98,6 +136,7 @@ HasteMons::
 	dw -1
 
 AimMons::
+	dw BUTTERFREE
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
@@ -108,6 +147,8 @@ AimMons::
 	dw ELECTIVIRE
 	dw MAGMAR
 	dw MAGMORTAR
+	dw BEAUTIFLY
+	dw DUSTOX
 	dw AGEODUDE
 	dw AGRAVELER
 	dw AGOLEM
@@ -119,6 +160,12 @@ FocusMons::
 	dw MACHOP
 	dw MACHOKE
 	dw MACHAMP
+	dw NATU
+	dw XATU
+	dw MURKROW
+	dw HONCHKROW
+	dw TAILLOW
+	dw SWELLOW
 	dw -1
 
 VeiledMons::
@@ -126,6 +173,8 @@ VeiledMons::
 	dw TOGEPI
 	dw TOGETIC
 	dw TOGEKISS
+	dw RALTS
+	dw KIRLIA
 	dw GARDEVOIR
 	dw HANAMOLE
 	dw HANEEI
@@ -152,6 +201,7 @@ DebrisMons::
 LeechMons::
 	dw PARAS
 	dw PARASECT
+	dw VENONAT
 	dw HOPPIP
 	dw SKIPLOOM
 	dw JUMPLUFF
@@ -160,6 +210,7 @@ LeechMons::
 ;Levitate/Waterproof mons ----------------------------------------------
 
 LevitateMons::	
+	dw VENOMOTH
 	dw GASTLY
 	dw HAUNTER
 	dw GENGAR
@@ -174,6 +225,8 @@ LevitateMons::
 	dw CLAYDOL
 	dw DUSKULL
 	dw DUSCLOPS
+	dw LATIAS
+	dw LATIOS
 	dw ARAICHU
 	dw FLYGONX
 	dw -1
@@ -201,7 +254,12 @@ ElementalFistMons::
 	dw HITMONCHAN
 	dw LEDYBA
 	dw LEDIAN
+	dw HERACROSS
+	dw HERACROSSX
 	dw BRELOOM
+	dw MAKUHITA
+	dw HARIYAMA
+	dw MEDITITE
 	dw MEDICHAM
 	dw ANNIHILAPE
 	dw -1
@@ -212,11 +270,14 @@ ElementalFangMons::
 	dw TOTODILE
 	dw CROCONAW
 	dw FERALIGATR
+	dw SENTRET
 	dw FURRET
+	dw TEDDIURSA
+	dw URSARING
+	dw ZIGZAGOON
 	dw LINOONE
 	dw CARVANHA
 	dw SHARPEDO
-	dw HUNTAIL
 	dw EXEGGUTOR2
 	dw FURRET2
 	dw TOTODILE2 
@@ -227,11 +288,11 @@ ElementalFangMons::
 	dw -1
 
 ElementalBladeMons::	
+	dw MEOWTH
 	dw PERSIAN
 	dw FARFETCH_D
 	dw SCYTHER
 	dw SCIZOR
-	dw KABUTOPS
 	dw SNEASEL
 	dw TREECKO
 	dw GROVYLE
@@ -247,9 +308,17 @@ ElementalBladeMons::
 	dw -1
 
 StabilityMons::
+	dw BEEDRILL
 	dw PICHU
 	dw PIKACHU
 	dw RAICHU
+	dw VOLTORB
+	dw ELECTRODE
+	dw HVOLTORB
+	dw HELECTRODE
+	dw VOLTORB2
+	dw ELECTRODE2
+	dw HITMONLEE
 	dw LICKITUNG
 	dw LICKILICKY
 	dw EEVEE
@@ -268,13 +337,23 @@ StabilityMons::
 	dw CYNDAQUIL
 	dw QUILAVA
 	dw TYPHLOSION
+	dw MAREEP
+	dw FLAAFFY
+	dw AMPHAROS
+	dw AMPHAROSX
+	dw REMORAID
+	dw OCTILLERY
+	dw OCTILLERY2
 	dw HITMONTOP
 	dw PORYGON2
 	dw PORYGONZ
+	dw SKITTY
+	dw DELCATTY
 	dw KURUSU
 	dw AKUA
 	dw AKUERIA
 	dw ASHIBOMB
+	dw BEEDRILLX
 	dw -1
 
 ;Healing Ability Mons ----------------------------------------------
@@ -284,12 +363,22 @@ RegenerationMons:
 	dw MUK
 	dw AGRIMER
 	dw AMUK
+	dw KANGASKHAN
 	dw STARYU
 	dw STARMIE
 	dw CHANSEY
 	dw BLISSEY
+	dw CORSOLA
+	dw HO_OH
+	dw SHROOMISH
+	dw BRELOOM
+	dw GULPIN
 	dw SWALOT
 	dw SWALOTX
+	dw SWABLU
+	dw ALTARIA
+	dw ALTARIAX
+	dw JIRACHI
 	dw -1
 
 RainDishMons::
@@ -297,11 +386,18 @@ RainDishMons::
 	dw WARTORTLE
 	dw BLASTOISE
 	dw BLASTOISEX
+	dw TOTARTLE
+	dw SLOWPOKE
 	dw SLOWBRO
 	dw SLOWBROX
+	dw CHINCHOU
+	dw LANTURN
 	dw LOTAD
 	dw LOMBRE
 	dw LUDICOLO
+	dw WAILMER
+	dw WAILORD
+	dw CLAMPERL
 	dw -1
 
 SunbaskMons::
@@ -326,9 +422,9 @@ SandBodyMons::
 	dw GOLEM
 	dw SANDSHREW
 	dw SANDSLASH
-	dw MAROWAK
 	dw GLIGAR
 	dw GLISCOR
+	dw ONIX
 	dw STEELIX
 	dw STEELIXX
 	dw -1
@@ -336,6 +432,9 @@ SandBodyMons::
 IceBodyMons::
 	dw SEEL
 	dw DEWGONG
+	dw SHELLDER
+	dw CLOYSTER
+	dw LAPRAS
 	dw SPHEAL
 	dw SEALEO
 	dw WALREIN
@@ -345,4 +444,71 @@ IceBodyMons::
 	dw FROSLASS
 	dw ASANDSHREW
 	dw ASANDSLASH
+	dw -1
+
+;Weather Speed Abilities--------------------
+
+SwiftSwimMons::
+	dw POLIWAG
+	dw POLIWHIRL
+	dw POLIWRATH
+	dw HORSEA
+	dw SEADRA
+	dw KINGDRA
+	dw GOLDEEN
+	dw SEAKING
+	dw KRABBY
+	dw KINGLER
+	dw KINGLERX
+	dw OMANYTE
+	dw OMASTAR
+	dw AZURILL
+	dw MARILL
+	dw AZUMARILL
+	dw MUDKIP
+	dw MARSHTOMP
+	dw SWAMPERT
+	dw SURSKIT
+	dw HUNTAIL
+	dw GOREBYSS
+	dw RELICANTH
+	dw -1
+
+ChlorophyllMons::
+	dw ODDISH
+	dw GLOOM
+	dw VILEPLUME
+	dw BELLOSSOM
+	dw EXEGGCUTE
+	dw EXEGGUTOR
+	dw EXEGGCUTE2
+	dw EXEGGUTOR2
+	dw SEEDOT
+	dw NUZLEAF
+	dw SHIFTRY
+	dw -1
+
+SandRushMons::
+	dw CUBONE
+	dw MAROWAK
+	dw RHYHORN
+	dw RHYDON
+	dw RHYPERIOR
+	dw PHANPY
+	dw DONPHAN
+	dw CACNEA
+	dw CACTURNE
+	dw ANORITH
+	dw ARMALDO
+	dw -1
+
+SlushRushMons::
+	dw KABUTO
+	dw KABUTOPS
+	dw SWINUB
+	dw SWINUB2
+	dw PILOSWINE
+	dw PILOSWINE
+	dw MAMOSWINE
+	dw AVULPIX
 	dw -1
