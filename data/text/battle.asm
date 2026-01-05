@@ -1204,21 +1204,21 @@ SandBodyHealsText:
 	prompt
 
 RainBoostsSpeedText:
-	text "<USER>'s SPD"
-	line "is boosted by RAIN"
+	text "<USER>"
+	line "speeds up in RAIN!"
 	prompt
 
 SunBoostsSpeedText:
 	text "<USER>'s SPD"
-	line "is boosted by SUN!"
+	line "speeds up in SUN!"
 	prompt
 
 SandBoostsSpeedText:
 	text "<USER>'s SPD"
-	line "is boosted by SAND"
+	line "speeds up in SAND"
 	prompt
 
 HailBoostsSpeedText:
 	text "<USER>'s SPD"
-	line "is boosted by HAIL"
+	line "speeds up in HAIL"
 	prompt
