@@ -91,6 +91,7 @@ MystifyMons::
 	dw MILOTIC
 	dw NOCTOWL2
 	dw NINETALES2
+	dw UNOWNX
 	dw -1
 
 SnareMons::

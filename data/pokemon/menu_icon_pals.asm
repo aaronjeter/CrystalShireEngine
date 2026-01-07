@@ -515,4 +515,5 @@ MonMenuIconPals:
 	icon_pals GREEN,  TEAL   ; FLYGONX
 	icon_pals RED,    BROWN  ; CHIMECHOX
 	icon_pals GREEN,  GREEN  ; VICTREEBELX
+	icon_pals GRAY,   RED   ; UNOWNX
 	assert_table_length NUM_POKEMON

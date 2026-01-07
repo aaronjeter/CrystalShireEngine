@@ -505,4 +505,5 @@ NewPokedexOrder:
 	dw FLYGONX
 	dw CHIMECHOX
 	dw VICTREEBELX
+	dw UNOWNX
 	assert_table_length NUM_POKEMON

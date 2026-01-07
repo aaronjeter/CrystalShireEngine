@@ -504,4 +504,5 @@ BitmasksPointers:
 	dw FlygonxBitmasks
 	dw ChimechoxBitmasks
 	dw VictreebelxBitmasks
+	dw UnownxBitmasks
 	assert_table_length NUM_POKEMON

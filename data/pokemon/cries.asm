@@ -511,4 +511,5 @@ PokemonCries::
 	mon_cry CRY_BULBASAUR,   238,  129 ; FLYGONX
 	mon_cry CRY_KRABBY,      238,  352 ; CHIMECHOX
 	mon_cry CRY_WEEPINBELL,  102,  332 ; VICTREEBELX
+	mon_cry CRY_HOOTHOOT,    354,  256 ; UNOWNX
 	assert_table_length NUM_POKEMON

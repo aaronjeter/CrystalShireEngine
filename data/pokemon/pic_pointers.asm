@@ -1021,4 +1021,6 @@ PokemonPicPointers::
 	dba ChimechoxBackpic
 	dba VictreebelxFrontpic
 	dba VictreebelxBackpic
+	dba UnownxFrontpic
+	dba UnownxBackpic
 	assert_table_length NUM_POKEMON + 1

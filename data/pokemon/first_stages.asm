@@ -505,4 +505,5 @@ FirstEvoStages::
 	dw TRAPINCH
 	dw CHIMECHO
 	dw BELLSPROUT
+	dw UNOWN
 	assert_table_length NUM_POKEMON

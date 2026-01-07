@@ -1126,6 +1126,7 @@ MisdreavusEvosAttacks:
 	db 0 ; no more level-up moves
 
 UnownEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, UNOWNX
 	db 0 ; no more evolutions
 	dbw 1, HIDDEN_POWER
 	dbw 5, NIGHT_SHADE
@@ -1133,16 +1134,16 @@ UnownEvosAttacks:
 	dbw 15, FAINT_ATTACK
 	dbw 20, CONFUSE_RAY
 	dbw 22, SHADOWSNEAK
-	dbw 25, PSYBEAM
+	dbw 25, SHADOW_CLAW
 	dbw 30, WILLOWISP
 	dbw 32, DARK_PULSE
 	dbw 36, SHADOW_BALL
 	dbw 40, COSMIC_POWER
-	dbw 42, DOUBLE_TEAM
-	dbw 45, DESTINY_BOND
-	dbw 50, GLARE
+	dbw 42, GLARE
+	dbw 45, PURSUIT
+	dbw 50, SHADOW_FORCE
 	dbw 55, RECOVER
-	dbw 60, FUTURE_SIGHT
+	dbw 60, DRAGON_DANCE
 	db 0 ; no more level-up moves
 
 WobbuffetEvosAttacks:

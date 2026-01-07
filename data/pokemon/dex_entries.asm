@@ -525,3 +525,8 @@ SwalotxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/swalotx.asm"
 FlygonxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/flygonx.asm"
 ChimechoxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/chimechox.asm"
 VictreebelxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/victreebelx.asm"
+
+
+SECTION "Pokedex Entries 500+", ROMX
+
+UnownxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/unownx.asm"
