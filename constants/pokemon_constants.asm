@@ -526,6 +526,7 @@ DEF JOHTO_POKEMON EQU const_value
 	const FLYGONX
 	const CHIMECHOX
 	const VICTREEBELX
+	const UNOWNX
 	
 
 

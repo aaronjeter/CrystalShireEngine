@@ -504,4 +504,5 @@ AnimationIdlePointers:
 	dw FlygonxAnimationIdle
 	dw ChimechoxAnimationIdle
 	dw VictreebelxAnimationIdle
+	dw UnownxAnimationIdle
 	assert_table_length NUM_POKEMON

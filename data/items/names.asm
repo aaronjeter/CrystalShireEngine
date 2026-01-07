@@ -124,7 +124,7 @@ ItemNames::
 	li "LEFTOVERS"    ; 007A
 	li "KANTOITE X"   ; 007B
 	li "KANTOITE Y"   ; 007C
-	li "JOHTOITE Y"   ; 007D
+	li "JOHTOITE X"   ; 007D
 	li "MYSTERYBERRY" ; 007E
 	li "DRAGON SCALE" ; 007F
 	li "BERSERK GENE" ; 0080

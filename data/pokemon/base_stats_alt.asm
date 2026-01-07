@@ -120,6 +120,7 @@ INCLUDE "data/pokemon/base_stats/mega/swalotx.asm"
 INCLUDE "data/pokemon/base_stats/mega/flygonx.asm"
 INCLUDE "data/pokemon/base_stats/mega/chimechox.asm"
 INCLUDE "data/pokemon/base_stats/mega/victreebelx.asm"
+INCLUDE "data/pokemon/base_stats/mega/unownx.asm"
 
 .IndirectEnd::
 

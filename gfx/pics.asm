@@ -1318,6 +1318,8 @@ ChimechoxFrontpic:			INCBIN "gfx/pokemon/chimechox/front.animated.2bpp.lz"
 ChimechoxBackpic:			INCBIN "gfx/pokemon/chimechox/back.2bpp.lz"
 VictreebelxFrontpic:		INCBIN "gfx/pokemon/victreebelx/front.animated.2bpp.lz"
 VictreebelxBackpic:			INCBIN "gfx/pokemon/victreebelx/back.2bpp.lz"
+UnownxFrontpic:		        INCBIN "gfx/pokemon/unownx/front.animated.2bpp.lz"
+UnownxBackpic:			    INCBIN "gfx/pokemon/unownx/back.2bpp.lz"
 
 
 SECTION "Hoenn Trainers 1", ROMX

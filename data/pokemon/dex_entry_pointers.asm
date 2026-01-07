@@ -506,5 +506,6 @@ PokedexDataPointerTable:
 	dba FlygonxPokedexEntry
 	dba ChimechoxPokedexEntry
 	dba VictreebelxPokedexEntry
+	dba UnownxPokedexEntry
 
 	assert_table_length NUM_POKEMON

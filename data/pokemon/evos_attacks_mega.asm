@@ -35,6 +35,7 @@ EvosAttacksPointersMega::
 	dw FlygonxEvosAttacks
 	dw ChimechoxEvosAttacks
 	dw VictreebelxEvosAttacks
+	dw UnownxEvosAttacks
 .IndirectEnd::
 
 RaichuxEvosAttacks:
@@ -697,6 +698,26 @@ VictreebelxEvosAttacks:
 	dbw 50, SOLARBEAM
 	dbw 55, TOXIC
 	dbw 60, FRENZY_PLANT
+	db 0 ; no more level-up moves
+
+UnownxEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, HIDDEN_POWER
+	dbw 5, NIGHT_SHADE
+	dbw 10, CURSE
+	dbw 15, FAINT_ATTACK
+	dbw 20, CONFUSE_RAY
+	dbw 22, SHADOWSNEAK
+	dbw 25, SHADOW_CLAW
+	dbw 30, WILLOWISP
+	dbw 32, DARK_PULSE
+	dbw 36, SHADOW_BALL
+	dbw 40, COSMIC_POWER
+	dbw 42, GLARE
+	dbw 45, PURSUIT
+	dbw 50, SHADOW_FORCE
+	dbw 55, RECOVER
+	dbw 60, DRAGON_DANCE
 	db 0 ; no more level-up moves
 
 ENDSECTION

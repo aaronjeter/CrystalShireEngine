@@ -509,4 +509,5 @@ PokemonNames::
 	db "FLYGON@@@@"
 	db "CHIMECHO@@"
 	db "VICTREEBEL"
+	db "UNOWN@@@@@"
 	assert_table_length NUM_POKEMON
