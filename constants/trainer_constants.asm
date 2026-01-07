@@ -851,22 +851,27 @@ DEF KRIS EQU __trainer_class__
 	trainerclass LEADERROXANNE 
 	const ROXANNE1
 	const ROXANNE2
+	const ROXANNE3
 
 	trainerclass BRAWLY
 	const BRAWLY1
 	const BRAWLY2
+	const BRAWLY3
 
 	trainerclass WATTSON
 	const WATTSON1
 	const WATTSON2
+	const WATTSON3
 
 	trainerclass FLANNERY
 	const FLANNERY1
 	const FLANNERY2
+	const FLANNERY3
 
 	trainerclass LEADERNORMAN
 	const NORMAN1
 	const NORMAN2
+	const NORMAN3
 
 	trainerclass WINONA
 	const WINONA1

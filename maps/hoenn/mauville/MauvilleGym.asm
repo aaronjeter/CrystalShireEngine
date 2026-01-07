@@ -184,10 +184,16 @@ MauvilleGymWattsonScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext WattsonWinLossText, 0
+	loadtrainer WATTSON, WATTSON3
+	sjump .Fight
+
+.Medium
 	winlosstext WattsonWinLossText, 0
 	loadtrainer WATTSON, WATTSON2
 	sjump .Fight
@@ -240,10 +246,16 @@ MauvilleGymWattsonScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext WattsonRematchWinLossText, 0
+	loadtrainer WATTSON, WATTSON3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext WattsonRematchWinLossText, 0
 	loadtrainer WATTSON, WATTSON2
 	sjump .Rematch

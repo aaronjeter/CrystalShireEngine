@@ -219,17 +219,23 @@ DewfordGymBrawlyScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext BrawlyWinLossText, 0
+	loadtrainer BRAWLY, BRAWLY3
+	sjump .Fight
+
+.Medium
 	winlosstext BrawlyWinLossText, 0
 	loadtrainer BRAWLY, BRAWLY2
 	sjump .Fight
 
 .Easy
 	winlosstext BrawlyWinLossText, 0
-	loadtrainer BRAWLY, BRAWLY2
+	loadtrainer BRAWLY, BRAWLY1
 	sjump .Fight
 
 .Fight	
@@ -276,10 +282,16 @@ DewfordGymBrawlyScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext BrawlyRematchWinLossText, 0
+	loadtrainer BRAWLY, BRAWLY3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext BrawlyRematchWinLossText, 0
 	loadtrainer BRAWLY, BRAWLY2
 	sjump .Rematch

@@ -114,13 +114,20 @@ RustboroGymRoxanneScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
 	winlosstext RoxanneWinLossText, 0
+	loadtrainer LEADERROXANNE, ROXANNE3
+	sjump .Fight
+
+.Medium
+	winlosstext RoxanneWinLossText, 0
 	loadtrainer LEADERROXANNE, ROXANNE2
 	sjump .Fight
+
 
 .Easy
 	winlosstext RoxanneWinLossText, 0
@@ -168,10 +175,16 @@ RustboroGymRoxanneScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext RoxanneRematchWinLossText, 0
+	loadtrainer LEADERROXANNE, ROXANNE3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext RoxanneRematchWinLossText, 0
 	loadtrainer LEADERROXANNE, ROXANNE2
 	sjump .Rematch

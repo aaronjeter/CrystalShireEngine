@@ -25,10 +25,16 @@ LavaridgeGymFlanneryScript:
 	closetext
 
 	readvar VAR_BADGES
-	ifgreater 3, .Hard
+	ifgreater 13, .Hard
+	ifgreater 3, .Medium
 	sjump .Easy
 
 .Hard
+	winlosstext FlanneryWinLossText, 0
+	loadtrainer FLANNERY, FLANNERY3
+	sjump .Fight
+
+.Medium
 	winlosstext FlanneryWinLossText, 0
 	loadtrainer FLANNERY, FLANNERY2
 	sjump .Fight
@@ -77,10 +83,16 @@ LavaridgeGymFlanneryScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
+	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
 .HardRematch
+	winlosstext FlanneryRematchWinLossText, 0
+	loadtrainer FLANNERY, FLANNERY3
+	sjump .Rematch
+
+.MediumRematch
 	winlosstext FlanneryRematchWinLossText, 0
 	loadtrainer FLANNERY, FLANNERY2
 	sjump .Rematch
