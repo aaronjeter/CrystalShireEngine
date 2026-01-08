@@ -286,6 +286,8 @@ ElementalFangMons::
 	dw FERALIGATR2
 	dw KOTORA
 	dw RAITORA
+	dw EXEGGCUTE2
+	dw EXEGGUTOR2
 	dw -1
 
 ElementalBladeMons::	
@@ -481,9 +483,7 @@ ChlorophyllMons::
 	dw VILEPLUME
 	dw BELLOSSOM
 	dw EXEGGCUTE
-	dw EXEGGUTOR
-	dw EXEGGCUTE2
-	dw EXEGGUTOR2
+	dw EXEGGUTOR	
 	dw SEEDOT
 	dw NUZLEAF
 	dw SHIFTRY

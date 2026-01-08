@@ -779,44 +779,44 @@ Exeggcute2EvosAttacks:
 	dbww EVOLVE_ITEM, LEAF_STONE, EXEGGUTOR2
 	dbbw EVOLVE_LEVEL, 36, EXEGGUTOR2
 	db 0 ; no more evolutions
-	dbw 1, BULLET_SEED
-	dbw 1, HYPNOSIS
-	dbw 7, REFLECT
-	dbw 10, LEECH_SEED
+	dbw 1, VINE_WHIP
+	dbw 1, LEECH_SEED
+	dbw 7, BITE
 	dbw 13, TWISTER
 	dbw 18, BARRAGE
 	dbw 20, STUN_SPORE
-	dbw 24, MEGA_DRAIN	
-	dbw 30, PSYBEAM
-	dbw 31, POISONPOWDER
-	dbw 37, SLEEP_POWDER
-	dbw 40, DRAGONBREATH
-	dbw 42, EGG_BOMB
-	dbw 45, CALM_MIND
-	dbw 50, EXPLOSION
+	dbw 24, HYPER_FANG	
+	dbw 28, POISON_FANG
+	dbw 30, FIRE_FANG
+	dbw 32, DRAGON_CLAW
+	dbw 36, LEAF_BLADE
+	dbw 40, ICE_FANG
+	dbw 42, THUNDER_FANG
+	dbw 45, BULK_UP
+	dbw 50, CRUNCH
 	dbw 55, DRAGON_DANCE
-	dbw 60, DRAGON_CLAW
+	dbw 60, OUTRAGE
 	db 0 ; no more level-up moves
 
 Exeggutor2EvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, BULLET_SEED
-	dbw 1, HYPNOSIS
-	dbw 7, REFLECT
-	dbw 10, LEECH_SEED
+	dbw 1, VINE_WHIP
+	dbw 1, LEECH_SEED
+	dbw 7, BITE
 	dbw 13, TWISTER
 	dbw 18, BARRAGE
 	dbw 20, STUN_SPORE
-	dbw 24, MEGA_DRAIN	
-	dbw 30, PSYBEAM
-	dbw 31, POISONPOWDER
-	dbw 37, SLEEP_POWDER
-	dbw 40, DRAGONBREATH
-	dbw 42, EGG_BOMB
-	dbw 45, CALM_MIND
-	dbw 50, EXPLOSION
+	dbw 24, HYPER_FANG	
+	dbw 28, POISON_FANG
+	dbw 30, FIRE_FANG
+	dbw 32, DRAGON_CLAW
+	dbw 36, LEAF_BLADE
+	dbw 40, ICE_FANG
+	dbw 42, THUNDER_FANG
+	dbw 45, BULK_UP
+	dbw 50, CRUNCH
 	dbw 55, DRAGON_DANCE
-	dbw 60, DRAGON_CLAW
+	dbw 60, OUTRAGE
 	db 0 ; no more level-up moves
 
 Furret2EvosAttacks:
