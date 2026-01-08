@@ -567,6 +567,9 @@ ENDM
 	map_const ROUTE_116,								   30, 10 ;
 	map_const ROUTE_117,								   30, 10 ;	
 	map_const TESTROOM,                                    10, 10 ;
+	map_const FALLARBOR_TOWN,							   12, 12 ;
+	map_const FALLARBOR_POKECENTER,						   07, 04 ;
+	map_const FALLARBOR_MART,							   06, 04 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

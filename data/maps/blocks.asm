@@ -975,6 +975,7 @@ SECTION "Map Blocks 4", ROMX
 	SlateportPokecenter_Blocks:
 	DewfordPokecenter_Blocks:
 	LavaridgePokecenter_Blocks:
+	FallarborPokecenter_Blocks:
 	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
 	OldaleMart_Blocks:
@@ -984,6 +985,7 @@ SECTION "Map Blocks 4", ROMX
 	MauvilleMart_Blocks:
 	SlateportMart_Blocks:
 	LavaridgeMart_Blocks:
+	FallarborMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
 	BirchsLab_Blocks:
@@ -1075,5 +1077,8 @@ SECTION "Map Blocks 5", ROMX
 
 	TestRoom_Blocks:
 	INCBIN "maps/hoenn/TestRoom.ablk" 
+
+	FallarborTown_Blocks:
+	INCBIN "maps/hoenn/fallarbor/FallarborTown.ablk"
 
 ENDSECTION

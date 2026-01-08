@@ -568,4 +568,8 @@ INCLUDE "maps/hoenn/Route117.asm"
 
 INCLUDE "maps/hoenn/TestRoom.asm"
 
+INCLUDE "maps/hoenn/fallarbor/FallarborTown.asm"
+INCLUDE "maps/hoenn/fallarbor/FallarborPokecenter.asm"
+INCLUDE "maps/hoenn/fallarbor/FallarborMart.asm"
+
 ENDSECTION

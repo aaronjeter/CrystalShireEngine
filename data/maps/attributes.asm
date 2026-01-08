@@ -712,6 +712,7 @@ ENDM
 	map_attributes MauvillePokecenter, MAUVILLE_POKECENTER, $00, 0
 	map_attributes SlateportPokecenter, SLATEPORT_POKECENTER, $00, 0
 	map_attributes LavaridgePokecenter, LAVARIDGE_POKECENTER, $00, 0
+	map_attributes FallarborPokecenter, FALLARBOR_POKECENTER, $00, 0
 	map_attributes LavaridgeGym, LAVARIDGE_GYM, $0, 0
 	map_attributes GraniteCaveB1F, GRANITE_CAVE_B1F, $00, 0
 	map_attributes GraniteCaveB2F, GRANITE_CAVE_B2F, $00, 0
@@ -726,6 +727,7 @@ ENDM
 	map_attributes SlateportMart, SLATEPORT_MART, $00, 0
 	map_attributes LavaridgeMart, LAVARIDGE_MART, $00, 0
 	map_attributes SlateportHarbor, SLATEPORT_HARBOR, $00, 0
+	map_attributes FallarborMart, FALLARBOR_MART, $00, 0
 
 	map_attributes RustboroCutterHouse, RUSTBORO_CUTTER_HOUSE, $00, 0
 	map_attributes VerdanturfRockSmashHouse, VERDANTURF_ROCKSMASH_HOUSE, $00, 0
@@ -824,8 +826,9 @@ ENDM
 
 	map_attributes FieryPath, FIERY_PATH, $00, 0
 
-	map_attributes Route113, ROUTE_113, $05, SOUTH 
+	map_attributes Route113, ROUTE_113, $05, SOUTH | WEST
 	connection south, Route112, ROUTE_112, 28
+	connection west, FallarborTown, FALLARBOR_TOWN, 0
 
 	map_attributes Route116, ROUTE_116, $05, WEST
 	connection west, RustboroCity, RUSTBORO_CITY, 0
@@ -833,6 +836,9 @@ ENDM
 	map_attributes Route117, ROUTE_117, $05, WEST | EAST
 	connection west, VerdanturfTown, VERDANTURF_TOWN, 0
 	connection east, MauvilleCity, MAUVILLE_CITY, 0
+
+	map_attributes FallarborTown, FALLARBOR_TOWN, $05, EAST
+	connection east, Route113, ROUTE_113, 0
 
 
 	map_attributes TestRoom, TESTROOM, $00, 0
