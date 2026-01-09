@@ -1069,6 +1069,12 @@ SECTION "Map Blocks 5", ROMX
 	Route113_Blocks:
 	INCBIN "maps/hoenn/Route113.ablk" 
 
+	Route114_Blocks:
+	INCBIN "maps/hoenn/Route114.ablk" 
+
+	Route115_Blocks:
+	INCBIN "maps/hoenn/Route115.ablk" 
+
 	Route116_Blocks:
 	INCBIN "maps/hoenn/Route116.ablk" 
 

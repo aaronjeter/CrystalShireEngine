@@ -753,7 +753,8 @@ ENDM
 	connection west, Route104, ROUTE_104, -15
 	connection east, Route102, ROUTE_102, 4
 
-	map_attributes RustboroCity, RUSTBORO_CITY, $05, SOUTH | EAST
+	map_attributes RustboroCity, RUSTBORO_CITY, $05, NORTH |SOUTH | EAST
+	connection north, Route115, ROUTE_115, 0
 	connection south, Route104, ROUTE_104, 0
 	connection east, Route116, ROUTE_116, 0
 
@@ -837,8 +838,15 @@ ENDM
 	connection west, VerdanturfTown, VERDANTURF_TOWN, 0
 	connection east, MauvilleCity, MAUVILLE_CITY, 0
 
-	map_attributes FallarborTown, FALLARBOR_TOWN, $05, EAST
+	map_attributes FallarborTown, FALLARBOR_TOWN, $05, WEST | EAST
+	connection west, Route114, ROUTE_114, 0
 	connection east, Route113, ROUTE_113, 0
+
+	map_attributes Route114, ROUTE_114, $05, EAST
+	connection east, FallarborTown, FALLARBOR_TOWN, 0
+
+	map_attributes Route115, ROUTE_115, $05, SOUTH
+	connection south, RustboroCity, RUSTBORO_CITY, 0
 
 
 	map_attributes TestRoom, TESTROOM, $00, 0

@@ -563,6 +563,8 @@ INCLUDE "maps/hoenn/RegirockLair.asm"
 INCLUDE "maps/hoenn/Route112.asm"
 INCLUDE "maps/hoenn/FieryPath.asm"
 INCLUDE "maps/hoenn/Route113.asm"
+INCLUDE "maps/hoenn/Route114.asm"
+INCLUDE "maps/hoenn/Route115.asm"
 INCLUDE "maps/hoenn/Route116.asm"
 INCLUDE "maps/hoenn/Route117.asm"
 
