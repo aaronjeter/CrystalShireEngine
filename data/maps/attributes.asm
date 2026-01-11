@@ -848,5 +848,6 @@ ENDM
 	map_attributes Route115, ROUTE_115, $05, SOUTH
 	connection south, RustboroCity, RUSTBORO_CITY, 0
 
+	map_attributes MeteorFalls, METEOR_FALLS, $00, 0
 
 	map_attributes TestRoom, TESTROOM, $00, 0

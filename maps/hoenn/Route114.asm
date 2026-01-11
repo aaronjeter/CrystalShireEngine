@@ -9,7 +9,7 @@ Route114_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event  09, 69, ROUTE_115, 1
+	warp_event  09, 69, METEOR_FALLS, 1
 
 	def_coord_events
 

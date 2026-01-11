@@ -568,6 +568,8 @@ INCLUDE "maps/hoenn/Route115.asm"
 INCLUDE "maps/hoenn/Route116.asm"
 INCLUDE "maps/hoenn/Route117.asm"
 
+INCLUDE "maps/hoenn/MeteorFalls.asm"
+
 INCLUDE "maps/hoenn/TestRoom.asm"
 
 INCLUDE "maps/hoenn/fallarbor/FallarborTown.asm"

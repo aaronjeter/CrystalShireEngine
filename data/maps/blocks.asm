@@ -1087,4 +1087,7 @@ SECTION "Map Blocks 5", ROMX
 	FallarborTown_Blocks:
 	INCBIN "maps/hoenn/fallarbor/FallarborTown.ablk"
 
+	MeteorFalls_Blocks:
+	INCBIN "maps/hoenn/MeteorFalls.ablk"
+
 ENDSECTION

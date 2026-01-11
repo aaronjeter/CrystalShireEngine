@@ -1,19 +1,19 @@
 	object_const_def
 
-Route115_MapScripts:
+MeteorFalls_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
 
-Route115_MapEvents:
+MeteorFalls_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event  29, 25, METEOR_FALLS, 2
+	warp_event  25, 17, ROUTE_114, 1
+	warp_event  09, 37, ROUTE_115, 1
 
 	def_coord_events
 
 	def_bg_events	
 
 	def_object_events
-	
