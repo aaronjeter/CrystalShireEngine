@@ -1081,6 +1081,13 @@ SECTION "Map Blocks 5", ROMX
 	Route117_Blocks:
 	INCBIN "maps/hoenn/Route117.ablk" 
 
+	
+
+ENDSECTION
+
+
+SECTION "Map Blocks 6", ROMX
+
 	TestRoom_Blocks:
 	INCBIN "maps/hoenn/TestRoom.ablk" 
 
@@ -1089,5 +1096,8 @@ SECTION "Map Blocks 5", ROMX
 
 	MeteorFalls_Blocks:
 	INCBIN "maps/hoenn/MeteorFalls.ablk"
+
+	Route118_Blocks:
+	INCBIN "maps/hoenn/Route118.ablk" 
 
 ENDSECTION

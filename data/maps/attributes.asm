@@ -761,10 +761,11 @@ ENDM
 	map_attributes VerdanturfTown, VERDANTURF_TOWN, $05, EAST
 	connection east, Route117, ROUTE_117, 0
 
-	map_attributes MauvilleCity, MAUVILLE_CITY, $05, NORTH | SOUTH | WEST
+	map_attributes MauvilleCity, MAUVILLE_CITY, $05, NORTH | SOUTH | WEST | EAST
 	connection north, Route111, ROUTE_111, 0
-	connection south, Route110, ROUTE_110, 0
+	connection south, Route110, ROUTE_110, 0	
 	connection west, Route117, ROUTE_117, 0
+	connection east, Route118, ROUTE_118, 0
 
 	map_attributes SlateportCity, SLATEPORT_CITY, $05, NORTH | SOUTH
 	connection north, Route110, ROUTE_110, 0
@@ -851,3 +852,6 @@ ENDM
 	map_attributes MeteorFalls, METEOR_FALLS, $00, 0
 
 	map_attributes TestRoom, TESTROOM, $00, 0
+
+	map_attributes Route118, ROUTE_118, $05, WEST
+	connection west, MauvilleCity, MAUVILLE_CITY, 0

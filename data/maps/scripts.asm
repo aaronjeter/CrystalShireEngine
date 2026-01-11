@@ -567,6 +567,14 @@ INCLUDE "maps/hoenn/Route114.asm"
 INCLUDE "maps/hoenn/Route115.asm"
 INCLUDE "maps/hoenn/Route116.asm"
 INCLUDE "maps/hoenn/Route117.asm"
+INCLUDE "maps/hoenn/Route118.asm"
+
+
+
+
+
+
+SECTION "Map Scripts 28", ROMX
 
 INCLUDE "maps/hoenn/MeteorFalls.asm"
 
