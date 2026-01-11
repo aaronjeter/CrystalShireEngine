@@ -855,3 +855,5 @@ ENDM
 
 	map_attributes Route118, ROUTE_118, $05, WEST
 	connection west, MauvilleCity, MAUVILLE_CITY, 0
+
+	map_attributes NewMauville, NEW_MAUVILLE, $00, 0

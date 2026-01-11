@@ -191,6 +191,7 @@ Route110_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events		
+	warp_event  33, 15, NEW_MAUVILLE, 1
 
 	def_coord_events
 

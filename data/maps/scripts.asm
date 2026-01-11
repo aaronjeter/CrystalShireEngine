@@ -584,4 +584,6 @@ INCLUDE "maps/hoenn/fallarbor/FallarborTown.asm"
 INCLUDE "maps/hoenn/fallarbor/FallarborPokecenter.asm"
 INCLUDE "maps/hoenn/fallarbor/FallarborMart.asm"
 
+INCLUDE "maps/hoenn/mauville/NewMauville.asm"
+
 ENDSECTION

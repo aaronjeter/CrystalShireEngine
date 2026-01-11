@@ -1100,4 +1100,7 @@ SECTION "Map Blocks 6", ROMX
 	Route118_Blocks:
 	INCBIN "maps/hoenn/Route118.ablk" 
 
+	NewMauville_Blocks:
+	INCBIN "maps/hoenn/mauville/NewMauville.ablk"
+
 ENDSECTION

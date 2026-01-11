@@ -574,6 +574,7 @@ ENDM
 	map_const ROUTE_115,                                   20, 40 ;
 	map_const METEOR_FALLS,                                16, 22 ;
 	map_const ROUTE_118,                                   40, 10 ;
+	map_const NEW_MAUVILLE,		                           22, 22 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27
