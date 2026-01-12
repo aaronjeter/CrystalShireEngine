@@ -1207,17 +1207,7 @@ BattleCommand_Stab:
 	call GetBattleVar
 	ld bc, STRUGGLE
 	call CompareMove
-	ret z
-
-	ld a, [wCurPartySpecies]
-	ld [wTempAbilityMon], a
-
-	push de
-	push bc
-	call CheckStabAbility
-	pop bc
-	pop de
-	jr c, .stab ;If we used a stab move+ability, skip to stab
+	ret z	
 
 	ld hl, wBattleMonType1
 	ld a, [hli]
@@ -1254,6 +1244,16 @@ BattleCommand_Stab:
 	pop bc
 	pop de
 	pop hl
+
+	ld a, [wCurPartySpecies]
+	ld [wTempAbilityMon], a
+
+	push de
+	push bc
+	call CheckStabAbility
+	pop bc
+	pop de
+	jr c, .stab ;If we used a stab move+ability, skip to stab
 	
 	ld a, [wCurType]
 	cp b
