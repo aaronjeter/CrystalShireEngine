@@ -11,6 +11,7 @@ PunchMoves::
 	dw DYNAMICPUNCH
 	dw FOCUS_PUNCH
 	dw SHADOW_PUNCH
+	dw BULLET_PUNCH
 	dw -1
 
 FangMoves::

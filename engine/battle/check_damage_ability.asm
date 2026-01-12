@@ -21,6 +21,9 @@ ElementalFist:
 	call CheckPunchMove	
 	jr nc, .NotPunchMove	
 
+	ld hl, ElementalFistBoostsDamageText
+    call StdBattleTextbox
+
 	.NotFistMon
 	.NotPunchMove	
 	ret
@@ -44,6 +47,9 @@ ElementalFang:
 	
 	call CheckFangMove	
 	jr nc, .NotFangMove	
+
+	ld hl, ElementalFangBoostsDamageText
+    call StdBattleTextbox
 
 	.NotFangMon
 	.NotFangMove	
@@ -69,6 +75,9 @@ ElementalBlade:
 	
 	call CheckBladeMove	
 	jr nc, .NotBladeMove	
+
+	ld hl, ElementalBladeBoostsDamageText
+    call StdBattleTextbox
 
 	.NotBladeMon
 	.NotBladeMove	

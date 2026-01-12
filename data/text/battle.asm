@@ -1209,16 +1209,41 @@ RainBoostsSpeedText:
 	prompt
 
 SunBoostsSpeedText:
-	text "<USER>'s SPD"
+	text "<USER>"
 	line "speeds up in SUN!"
 	prompt
 
 SandBoostsSpeedText:
-	text "<USER>'s SPD"
+	text "<USER>"
 	line "speeds up in SAND"
 	prompt
 
 HailBoostsSpeedText:
-	text "<USER>'s SPD"
+	text "<USER>"
 	line "speeds up in HAIL"
+	prompt
+
+AbilityBoostsDamageText:
+	text "<USER>'s"
+	line "Ability Triggered!"
+	prompt
+
+ElementalFangBoostsDamageText:
+	text "Elemental Fang"
+	line "boosts damage!"
+	prompt
+
+ElementalFistBoostsDamageText:
+	text "Elemental Fist"
+	line "boosts damage!"
+	prompt
+
+ElementalBladeBoostsDamageText:
+	text "Elemental Blade"
+	line "boosts damage!"
+	prompt
+
+StabBoostsDamageText:
+	text "<USER>'s"
+	line "STAB boosted!"
 	prompt
