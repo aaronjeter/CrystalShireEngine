@@ -170,7 +170,11 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke TROPIUS, 50, BRIGHTPOWDER
+	givepoke LEDIAN, 20
+
+	loadmem wPartyMon1DVs+0, $ff
+	loadmem wPartyMon1DVs+1, $ff
+	loadmem wPartyMon1DVs+2, $ff
 	; hm slaves
 	givepoke SWALOT, 50, LEFTOVERS
 	givepoke FLYGON, 50, LEFTOVERS
@@ -184,8 +188,8 @@ if DEF(_DEBUG)
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
 	givepoke CHIMECHO, 50
-	givepoke GLALIE, 40
-	givepoke SALAMENCE, 50
+	givepoke SCIZOR, 36
+	givepoke LEDIAN, 42
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
