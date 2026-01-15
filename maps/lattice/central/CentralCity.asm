@@ -5,11 +5,46 @@ CentralCity_MapScripts:
 
 	def_callbacks	
 
-	CentralCityMintHouseSign:
+CentralCityMintHouseSign:
 	jumptext CentralCityMintHouseSignText
 
-	CentralCityMintHouseSignText:
+CentralCityMintHouseSignText:
 	text "MINT's House"
+	done
+
+CentralCityGymSign:
+	jumptext CentralCityGymSignText
+
+CentralCityGymSignText:
+	text "CLEA's Cosmic"
+	line "Cafe."
+
+	para "No Rockets"
+	line "allowed!"
+	done
+
+CentralCityHoennPetsSign:
+	jumptext CentralCityHoennPetsSignText
+
+CentralCityHoennPetsSignText:
+	text "Exotic Pets"
+	line "- HOENN -"
+	done
+
+CentralCityJohtoPetsSign:
+	jumptext CentralCityJohtoPetsSignText
+
+CentralCityJohtoPetsSignText:
+	text "Exotic Pets"
+	line "- JOHTO -"
+	done
+
+CentralCityKantoPetsSign:
+	jumptext CentralCityKantoPetsSignText
+
+CentralCityKantoPetsSignText:
+	text "Exotic Pets"
+	line "- KANTO -"
 	done
 
 
@@ -33,11 +68,22 @@ CentralCity_MapEvents:
 	warp_event  47,  47, MINT_HOUSE, 1
 	warp_event  37,  29, CENTRAL_CITY_POKECENTER, 2
 	warp_event  41,  29, CENTRAL_CITY_POKEMART, 2
+	warp_event  47,  29, CENTRAL_KANTO_PETSHOP, 2
+	warp_event  15,  39, CENTRAL_JOHTO_PETSHOP, 2
+	warp_event  19,  47, CENTRAL_HOENN_PETSHOP, 2
+	warp_event  36,  11, ETTERN_ALLEY, 1
+	warp_event  37,  11, ETTERN_ALLEY, 2
+	warp_event  50,  18, ETTERN_ALLEY, 3
+	warp_event  50,  19, ETTERN_ALLEY, 4
 
 	def_coord_events
 
 	def_bg_events	
 	bg_event 46,  48, BGEVENT_READ, CentralCityMintHouseSign
+	bg_event 38,  40, BGEVENT_READ, CentralCityGymSign
+	bg_event 18,  48, BGEVENT_READ, CentralCityHoennPetsSign
+	bg_event 14,  40, BGEVENT_READ, CentralCityJohtoPetsSign
+	bg_event 46,  30, BGEVENT_READ, CentralCityKantoPetsSign
 	
 
 	def_object_events

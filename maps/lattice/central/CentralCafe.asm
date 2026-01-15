@@ -1,5 +1,12 @@
 	object_const_def
 	const CENTRALCAFE_CLEA
+	const CENTRALCAFE_CARRIE
+	const CENTRALCAFE_BRIDGET
+	const CENTRALCAFE_VICTORIA
+	const CENTRALCAFE_SAMANTHA
+	const CENTRALCAFE_CLEFAIRY
+	const CENTRALCAFE_JIGGLYPUFF
+	const CENTRALCAFE_VULPIX
 
 CentralCafe_MapScripts:
 	def_scene_scripts
@@ -162,6 +169,147 @@ CleaFightDoneText:
 	line "strong trainers."
 	done
 
+
+TrainerLassCarrie:
+	trainer LASS, CARRIE, EVENT_BEAT_LASS_CARRIE, LassCarrieSeenText, LassCarrieBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext LassCarrieAfterBattleText
+	waitbutton
+	closetext
+	end
+
+
+TrainerLassBridget:
+	trainer LASS, BRIDGET, EVENT_BEAT_LASS_BRIDGET, LassBridgetSeenText, LassBridgetBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext LassBridgetAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerBeautyVictoria:
+	trainer BEAUTY, VICTORIA, EVENT_BEAT_BEAUTY_VICTORIA, BeautyVictoriaSeenText, BeautyVictoriaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BeautyVictoriaAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerBeautySamantha:
+	trainer BEAUTY, SAMANTHA, EVENT_BEAT_BEAUTY_SAMANTHA, BeautySamanthaSeenText, BeautySamanthaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BeautySamanthaAfterBattleText
+	waitbutton
+	closetext
+	end
+
+
+LassCarrieSeenText:
+	text "Waiter!"
+
+	para "Another Cofee"
+	line "please!"
+
+	para "Oh, you're a"
+	line "trainer!"
+	done
+
+LassCarrieBeatenText:
+	text "Darn. I thought"
+	line "you were weak.."
+	done
+
+LassCarrieAfterBattleText:
+	text "Clea's Cafe"
+	line "is just the best!"
+	done
+
+LassBridgetSeenText:
+	text "I like cute #-"
+	line "MON better than"
+	cont "strong #MON."
+
+	para "But I have strong"
+	line "and cute #MON!"
+	done
+
+LassBridgetBeatenText:
+	text "Oh, no, no, no!"
+	done
+
+LassBridgetAfterBattleText:
+	text "I'm trying to beat"
+	line "Clea, but..."
+	cont "It's depressing."
+
+	para "I'm okay! If I"
+	line "lose, I'll just"
+
+	para "try harder next"
+	line "time!"
+	done
+
+BeautyVictoriaSeenText:
+	text "Oh, you are a cute"
+	line "little trainer!"
+
+	para "I like you, but I"
+	line "won't hold back!"
+	done
+
+BeautyVictoriaBeatenText:
+	text "Let's see... Oops,"
+	line "it's over?"
+	done
+
+BeautyVictoriaAfterBattleText:
+	text "Wow, you must be"
+	line "good to beat me!"
+	cont "Keep it up!"
+	done
+
+BeautySamanthaSeenText:
+	text "Give it your best"
+	line "shot, or I'll take"
+	cont "you down!"
+	done
+
+BeautySamanthaBeatenText:
+	text "No!"
+	line "I'm so sorry!"
+	done
+
+BeautySamanthaAfterBattleText:
+	text "I taught them"
+	line "moves for taking"
+	cont "on any type..."
+	done
+
+
+CentralCafeClefairy:
+	cry CLEFAIRY
+	end
+
+CentralCafeJigglypuff:
+	cry JIGGLYPUFF
+	end
+
+CentralCafeVulpix:
+	cry VULPIX
+	end
+
 CentralCafe_MapEvents:
 	db 0, 0 ; filler
 
@@ -177,3 +325,10 @@ CentralCafe_MapEvents:
 
 	def_object_events
 	object_event  01,  03, SPRITE_WHITNEY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CentralGymCleaScript, -1
+	object_event  16,  13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, TrainerLassCarrie, -1
+	object_event  10,  10, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_TRAINER, 1, TrainerLassBridget, -1
+	object_event  07,  06, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 1, TrainerBeautyVictoria, -1
+	object_event  03,  16, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBeautySamantha, -1
+	object_event  06, 01, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CentralCafeClefairy, -1
+	object_event  12, 19, SPRITE_JIGGLYPUFF, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CentralCafeJigglypuff, -1
+	object_event  19, 12, SPRITE_VULPIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CentralCafeVulpix, -1

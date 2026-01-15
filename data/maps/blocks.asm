@@ -1145,4 +1145,18 @@ SECTION "Map Blocks 7", ROMX
 	JoifTrainerMarket_Blocks:
 	INCBIN "maps/lattice/LatticePokemart.ablk" 
 
+	CentralKantoPetshop_Blocks:
+	INCBIN "maps/lattice/central/CentralKantoPetshop.ablk" 
+
+	CentralJohtoPetshop_Blocks:
+	INCBIN "maps/lattice/central/CentralJohtoPetshop.ablk" 
+
+	CentralHoennPetshop_Blocks:
+	INCBIN "maps/lattice/central/CentralHoennPetshop.ablk" 
+
+	EtternAlley_Blocks:
+	INCBIN "maps/lattice/central/EtternAlley.ablk" 
+
+
+
 ENDSECTION

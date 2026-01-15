@@ -153,3 +153,12 @@
 	tilecoll WATER, WATER, WATER, WATER ; 98
 	tilecoll WATER, WATER, WATER, WATER ; 99
 	tilecoll WALL, WALL, WALL, WALL ; 9a
+	tilecoll CUT_TREE, CUT_TREE, CUT_TREE, CUT_TREE ; 9b
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 9c
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 9d
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 9e
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 9f
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a0
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a1
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a2
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a3

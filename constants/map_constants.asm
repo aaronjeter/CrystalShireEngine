@@ -588,6 +588,10 @@ ENDM
 	map_const CENTRAL_CITY_POKECENTER,                     06, 04 ;
 	map_const CENTRAL_CITY_POKEMART,                       06, 04 ;
 	map_const JOIF_TRAINER_MARKET,                         06, 04 ;
+	map_const CENTRAL_KANTO_PETSHOP,                       07, 04 ;
+	map_const CENTRAL_JOHTO_PETSHOP,                       07, 04 ;
+	map_const CENTRAL_HOENN_PETSHOP,                       07, 04 ;
+	map_const ETTERN_ALLEY,                                20, 20 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

@@ -601,5 +601,9 @@ INCLUDE "maps/lattice/central/MintHouse.asm"
 INCLUDE "maps/lattice/central/CentralCityPokecenter.asm"
 INCLUDE "maps/lattice/central/CentralCityPokemart.asm"
 INCLUDE "maps/lattice/central/JoifTrainerMarket.asm"
+INCLUDE "maps/lattice/central/CentralKantoPetshop.asm" 
+INCLUDE "maps/lattice/central/CentralJohtoPetshop.asm" 
+INCLUDE "maps/lattice/central/CentralHoennPetshop.asm" 
+INCLUDE "maps/lattice/central/EtternAlley.asm"
 
 ENDSECTION

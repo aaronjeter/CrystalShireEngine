@@ -860,3 +860,9 @@ ENDM
 	map_attributes CentralCityPokecenter, CENTRAL_CITY_POKECENTER, $00, 0
 	map_attributes CentralCityPokemart, CENTRAL_CITY_POKEMART, $00, 0
 	map_attributes JoifTrainerMarket, JOIF_TRAINER_MARKET, $00, 0
+
+	map_attributes CentralKantoPetshop, CENTRAL_KANTO_PETSHOP, $00, 0
+	map_attributes CentralJohtoPetshop, CENTRAL_JOHTO_PETSHOP, $00, 0
+	map_attributes CentralHoennPetshop, CENTRAL_HOENN_PETSHOP, $00, 0
+
+	map_attributes EtternAlley, ETTERN_ALLEY, $00, 0
