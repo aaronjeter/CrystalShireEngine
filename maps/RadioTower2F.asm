@@ -2,11 +2,7 @@ DEF BLUE_CARD_POINT_CAP EQU 30
 
 	object_const_def
 	const RADIOTOWER2F_SUPER_NERD
-	const RADIOTOWER2F_TEACHER
-	const RADIOTOWER2F_ROCKET1
-	const RADIOTOWER2F_ROCKET2
-	const RADIOTOWER2F_ROCKET3
-	const RADIOTOWER2F_ROCKET_GIRL
+	const RADIOTOWER2F_TEACHER	
 	const RADIOTOWER2F_BLACK_BELT1
 	const RADIOTOWER2F_BLACK_BELT2
 	const RADIOTOWER2F_JIGGLYPUFF
@@ -51,49 +47,7 @@ RadioTower2FBlackBelt1Script:
 RadioTower2FBlackBelt2Script:
 	jumptextfaceplayer RadioTower2FBlackBelt2Text
 
-TrainerGruntM4:
-	trainer GRUNTM, GRUNTM_4, EVENT_BEAT_ROCKET_GRUNTM_4, GruntM4SeenText, GruntM4BeatenText, 0, .Script
 
-.Script:
-	endifjustbattled
-	opentext
-	writetext GruntM4AfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerGruntM5:
-	trainer GRUNTM, GRUNTM_5, EVENT_BEAT_ROCKET_GRUNTM_5, GruntM5SeenText, GruntM5BeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext GruntM5AfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerGruntM6:
-	trainer GRUNTM, GRUNTM_6, EVENT_BEAT_ROCKET_GRUNTM_6, GruntM6SeenText, GruntM6BeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext GruntM6AfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerGruntF2:
-	trainer GRUNTF, GRUNTF_2, EVENT_BEAT_ROCKET_GRUNTF_2, GruntF2SeenText, GruntF2BeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext GruntF2AfterBattleText
-	waitbutton
-	closetext
-	end
 
 Buena:
 	faceplayer
@@ -385,86 +339,7 @@ RadioTower2FBlackBelt2Text:
 	cont "as he was before."
 	done
 
-GruntM4SeenText:
-	text "Three years ago,"
-	line "TEAM ROCKET was"
-	cont "forced to disband."
 
-	para "But we're making a"
-	line "comeback here!"
-	done
-
-GruntM4BeatenText:
-	text "Gwah! Don't get"
-	line "cute!"
-	done
-
-GruntM4AfterBattleText:
-	text "We won't let you"
-	line "ruin our plans"
-	cont "for our comeback!"
-	done
-
-GruntM5SeenText:
-	text "We're TEAM ROCKET,"
-	line "the exploiters of"
-	cont "#MON!"
-
-	para "We love being"
-	line "evil! Scared?"
-	done
-
-GruntM5BeatenText:
-	text "You think you're a"
-	line "hero?"
-	done
-
-GruntM5AfterBattleText:
-	text "We're not always"
-	line "evil. We just do"
-	cont "whatever we like."
-	done
-
-GruntM6SeenText:
-	text "Hey, hey! Keep out"
-	line "of our way!"
-	done
-
-GruntM6BeatenText:
-	text "Arggh. I give up."
-	done
-
-GruntM6AfterBattleText:
-	text "Our EXECUTIVES are"
-	line "trying to take"
-	cont "this place over."
-
-	para "They have some big"
-	line "plan. I wonder"
-	cont "what that is?"
-	done
-
-GruntF2SeenText:
-	text "Hahaha!"
-
-	para "How boring."
-	line "It was far too"
-
-	para "easy to take over"
-	line "this place!"
-
-	para "Come on, keep me"
-	line "amused!"
-	done
-
-GruntF2BeatenText:
-	text "Wh-who are you?"
-	done
-
-GruntF2AfterBattleText:
-	text "You beat me, and"
-	line "I won't forget it!"
-	done
 
 RadioTower2FBuenaShowIntroductionText:
 	text "BUENA: Hi! I'm"
@@ -727,10 +602,6 @@ RadioTower2F_MapEvents:
 	def_object_events
 	object_event  6,  6, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RadioTower2FSuperNerdScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 17,  2, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RadioTower2FTeacherScript, -1
-	object_event  1,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM4, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event  8,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM5, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event  4,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerGruntM6, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event 10,  5, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntF2, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  0,  1, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTower2FBlackBelt1Script, EVENT_RADIO_TOWER_BLACKBELT_BLOCKS_STAIRS
 	object_event  1,  1, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTower2FBlackBelt2Script, EVENT_RADIO_TOWER_CIVILIANS_AFTER
 	object_event 12,  1, SPRITE_JIGGLYPUFF, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTowerJigglypuff, -1

@@ -1877,7 +1877,7 @@ BirdKeeperGroup:
 	end_list_items
 
 LassGroup:
-	next_list_item ; LASS (1) Goldenrod City Gym
+	next_list_item ; LASS (1) Central Cafe
 	db "CARRIE@", TRAINERTYPE_NORMAL
 	db 7
 	dw SNUBBULL
@@ -1887,7 +1887,7 @@ LassGroup:
 	dw LINOONE
 	db -1 ; end
 
-	next_list_item ; LASS (2) Goldenrod City Gym
+	next_list_item ; LASS (2) Central Cafe
 	db "BRIDGET@", TRAINERTYPE_NORMAL 
 	db 7
 	dw JIGGLYPUFF
@@ -2710,7 +2710,7 @@ CooltrainerFGroup:
 	end_list_items
 
 BeautyGroup:
-	next_list_item ; BEAUTY (1) Goldenrod City Gym
+	next_list_item ; BEAUTY (1) Central Cafe
 	db "VICTORIA@", TRAINERTYPE_NORMAL
 	db 7
 	dw SENTRET
@@ -2720,7 +2720,7 @@ BeautyGroup:
 	dw DELCATTY
 	db -1 ; end
 
-	next_list_item ; BEAUTY (2) Goldenrod City Gym
+	next_list_item ; BEAUTY (2) Central Cafe
 	db "SAMANTHA@", TRAINERTYPE_NORMAL
 	db 9
 	dw MEOWTH
@@ -3021,39 +3021,41 @@ GruntMGroup:
 	dw CARVANHA
 	db -1 ; end
 
-	next_list_item ; GRUNTM (3) Radio Tower 1F
+	next_list_item ; GRUNTM (3) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 7
+	db 3
+	dw PINECO
+	db 3
 	dw RATICATE
-	db 7
+	db 3
 	dw DUSTOX
 	db -1 ; end
 
-	next_list_item ; GRUNTM (4) Radio Tower 2F
+	next_list_item ; GRUNTM (4) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 5
-	dw MUK
+	dw GRIMER
 	db 5
-	dw MIGHTYENA
+	dw AGRIMER
 	db 5
 	dw NUZLEAF
 	db -1 ; end
 
-	next_list_item ; GRUNTM (5) Radio Tower 2F
+	next_list_item ; GRUNTM (5) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 5
-	dw SHIFTRY
-	db 5
+	db 3
+	dw QWILFISH
+	db 3
 	dw SWELLOW
-	db 5
+	db 3
 	dw FURRET
 	db -1 ; end
 
-	next_list_item ; GRUNTM (6) Radio Tower 2F
+	next_list_item ; GRUNTM (6) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 6
+	db 5
 	dw GOLBAT
-	db 6
+	db 5
 	dw YANMA2
 	db -1 ; end
 
@@ -3258,6 +3260,12 @@ GruntMGroup:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (31) Unreferenced
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw GOLBAT
+	db -1 ; end
+
+	next_list_item ; GRUNTM (32) Unreferenced
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 7
 	dw GOLBAT
@@ -7119,9 +7127,9 @@ GruntFGroup:
 	dw SLOWPOKE
 	db -1 ; end
 
-	next_list_item ; GRUNTF (2) Radio Tower 2F
+	next_list_item ; GRUNTF (2) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 9
+	db 6
 	dw ARBOK
 	db -1 ; end
 

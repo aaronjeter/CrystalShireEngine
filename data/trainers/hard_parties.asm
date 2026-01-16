@@ -3082,35 +3082,37 @@ GruntMGroupHard:
 	dw CARVANHA
 	db -1 ; end
 
-	next_list_item ; GRUNTM (3) Radio Tower 1F
+	next_list_item ; GRUNTM (3) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 7
+	dw PINECO
+	db 6
 	dw RATICATE
-	db 7
+	db 6
 	dw DUSTOX
 	db -1 ; end
 
-	next_list_item ; GRUNTM (4) Radio Tower 2F
+	next_list_item ; GRUNTM (4) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 5
-	dw MUK
+	dw GRIMER
 	db 5
-	dw MIGHTYENA
-	db 5
+	dw AGRIMER
+	db 7
 	dw NUZLEAF
 	db -1 ; end
 
-	next_list_item ; GRUNTM (5) Radio Tower 2F
+	next_list_item ; GRUNTM (5) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 5
-	dw SHIFTRY
-	db 5
+	dw QWILFISH
+	db 6
 	dw SWELLOW
-	db 5
+	db 6
 	dw FURRET
 	db -1 ; end
 
-	next_list_item ; GRUNTM (6) Radio Tower 2F
+	next_list_item ; GRUNTM (6) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 6
 	dw GOLBAT
@@ -7213,9 +7215,9 @@ GruntFGroupHard:
 	dw SLOWPOKE
 	db -1 ; end
 
-	next_list_item ; GRUNTF (2) Radio Tower 2F
+	next_list_item ; GRUNTF (2) Ettern Alley
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 9
+	db 7
 	dw ARBOK
 	db -1 ; end
 
