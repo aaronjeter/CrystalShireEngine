@@ -12,7 +12,7 @@
 	db 35 ; step cycles to hatch
 	INCBIN "gfx/pokemon/lairon/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)
-	db GROWTH_SLOW ; growth rate
+	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_MONSTER, EGG_MONSTER ; egg groups
 
 	; tm/hm learnset
