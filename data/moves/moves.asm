@@ -161,7 +161,7 @@ MovesGen1:
 	move EFFECT_JUMP_KICK,         110, FIGHTING,       PHYSICAL,		 90, 20,   0      ;HI_JUMP_KICK
 	move EFFECT_PARALYZE,            0, NORMAL,         STATUS,			100, 30,   0      ;GLARE
 	move EFFECT_DREAM_EATER,       120, PSYCHIC_TYPE,   SPECIAL,		100, 15,   0      ;DREAM_EATER
-	move EFFECT_POISON,              0, POISON,         STATUS,			 55, 40,   0      ;POISON_GAS
+	move EFFECT_POISON_HIT,         35, POISON,         SPECIAL,		100, 30,  25      ;POISON_GAS
 	move EFFECT_MULTI_HIT,          25, NORMAL,         PHYSICAL,		 85, 20,   0      ;BARRAGE
 	move EFFECT_LEECH_HIT,          35, BUG,            SPECIAL,		100, 15,   0      ;LEECH_LIFE
 	move EFFECT_SLEEP,               0, NORMAL,         STATUS,			 75, 10,   0      ;LOVELY_KISS
@@ -356,7 +356,7 @@ MovesGen2:
 	move EFFECT_BURN_HIT,           80, WATER,          SPECIAL,		100, 15,  25      ;SCALD
 	move EFFECT_DEFENSE_DOWN_HIT,   75, WATER,          PHYSICAL,		100, 15,  50      ;RAZOR_SHELL
 	move EFFECT_SP_DEF_DOWN_HIT ,   80, GROUND,         SPECIAL,		100, 15,  25      ;EARTH_POWER
-	move EFFECT_JUMP_KICK,         110, FIGHTING,       PHYSICAL,		 90, 25,   0      ;SHOCKSLAM
+	move EFFECT_JUMP_KICK,         110, ELECTRIC,       PHYSICAL,		 90, 25,   0      ;SHOCKSLAM
 .IndirectEnd::
 
 POPS

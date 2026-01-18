@@ -296,10 +296,7 @@ ElementalBladeMons::
 	dw FARFETCH_D
 	dw SCYTHER
 	dw SCIZOR
-	dw SNEASEL
-	dw TREECKO
-	dw GROVYLE
-	dw SCEPTILE
+	dw SNEASEL	
 	dw ABSOL
 	dw ABSOLX
 	dw GALLADE
@@ -412,6 +409,9 @@ SunbaskMons::
 	dw CHARMELEON 
 	dw CHARIZARD
 	dw CHARIZARDX
+	dw TREECKO
+	dw GROVYLE
+	dw SCEPTILE
 	dw TROPIUS
 	dw TROPIUSX
 	dw HONOBEA
