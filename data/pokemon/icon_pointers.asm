@@ -510,5 +510,5 @@ IconPointers:
 	dw FlygonxIcon
 	dw ChimechoxIcon
 	dw VictreebelxIcon
-	dw UnownIcon
+	dw UnownxIcon
 	assert_table_length NUM_POKEMON + 1
