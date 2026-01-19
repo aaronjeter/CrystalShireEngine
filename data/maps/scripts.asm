@@ -569,9 +569,7 @@ INCLUDE "maps/hoenn/Route116.asm"
 INCLUDE "maps/hoenn/Route117.asm"
 INCLUDE "maps/hoenn/Route118.asm"
 
-
-
-
+ENDSECTION
 
 
 SECTION "Map Scripts 28", ROMX
@@ -585,5 +583,9 @@ INCLUDE "maps/hoenn/fallarbor/FallarborPokecenter.asm"
 INCLUDE "maps/hoenn/fallarbor/FallarborMart.asm"
 
 INCLUDE "maps/hoenn/mauville/NewMauville.asm"
+
+INCLUDE "maps/kanto/MtMoon1F.asm"
+INCLUDE "maps/kanto/MtMoonB1F.asm"
+INCLUDE "maps/kanto/MtMoonB2F.asm" 
 
 ENDSECTION

@@ -719,6 +719,10 @@ ENDM
 	map_attributes GraniteCaveB3F, GRANITE_CAVE_B3F, $00, 0
 	map_attributes RegiceLair, REGICE_LAIR, $00, 0
 
+	map_attributes MtMoon1F, MT_MOON_1F, $00, 0
+	map_attributes MtMoonB1F, MT_MOON_B1F, $00, 0
+	map_attributes MtMoonB2F, MT_MOON_B2F, $00, 0
+
 	map_attributes OldaleMart, OLDALE_MART, $00, 0
 	map_attributes PetalburgMart, PETALBURG_MART, $00, 0
 	map_attributes RustboroMart, RUSTBORO_MART, $00, 0

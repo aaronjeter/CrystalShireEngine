@@ -1104,3 +1104,16 @@ SECTION "Map Blocks 6", ROMX
 	INCBIN "maps/hoenn/mauville/NewMauville.ablk"
 
 ENDSECTION
+
+SECTION "Map Blocks Mt Moon", ROMX
+
+	MtMoon1F_Blocks:
+	INCBIN "maps/kanto/MtMoon1F.ablk" 
+
+	MtMoonB1F_Blocks:
+	INCBIN "maps/kanto/MtMoonB1F.ablk" 
+
+	MtMoonB2F_Blocks:
+	INCBIN "maps/kanto/MtMoonB2F.ablk" 
+
+ENDSECTION
