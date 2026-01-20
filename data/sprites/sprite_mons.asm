@@ -105,6 +105,7 @@ SpriteMons:
 	dw ROSELIA		;315
 	dw TORKOAL      ;324
 	dw CACTURNE		;332
+	dw LUNATONE		;337
 	dw SOLROCK		;338
 	dw GLALIE		;362
 	dw BAGON		;371
