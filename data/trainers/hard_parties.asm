@@ -1473,6 +1473,16 @@ YoungsterGroupHard:
 	dw ELECTRIKE
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (26) Mount Moon
+	db "JOSH@", TRAINERTYPE_NORMAL
+	db 5
+	dw ARON
+	db 6
+	dw ELECTRIKE
+	db 7
+	dw RATTATA
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Hard Trainer Parties 2", ROMX
@@ -2130,6 +2140,22 @@ LassGroupHard:
 	dw MARILL
 	db 4
 	dw FEAROW
+	db -1 ; end
+
+	next_list_item ; LASS (23) Mount Moon
+	db "IRIS@", TRAINERTYPE_NORMAL	
+	db 5
+	dw CLEFAIRY
+	db 7
+	dw JIGGLYPUFF
+	db -1 ; end
+
+	next_list_item ; LASS (24) Mount Moon
+	db "MIRIAM@", TRAINERTYPE_NORMAL	
+	db 5
+	dw GLOOM
+	db 7
+	dw ROSELIA
 	db -1 ; end
 
 	end_list_items
@@ -3317,6 +3343,38 @@ GruntMGroupHard:
 	dw GOLBAT
 	db -1 ; end
 
+	next_list_item ; GRUNTM (32) Mount Moon 1
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 5
+	dw GOLBAT
+	db 5
+	dw SANDSHREW
+	db -1 ; end
+
+	next_list_item ; GRUNTM (33) Mount Moon 2
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw EKANS
+	db 7
+	dw SEVIPER
+	db -1 ; end
+
+	next_list_item ; GRUNTM (34) Mount Moon 3
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw RATICATE
+	db 7
+	dw HOOTHOOT
+	db -1 ; end
+
+	next_list_item ; GRUNTM (35) Mount Moon 4
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw GRIMER
+	db 7
+	dw GULPIN
+	db -1 ; end
+
 	end_list_items
 
 GentlemanGroupHard:
@@ -3799,6 +3857,24 @@ BugCatcherGroupHard:
 	dw BEAUTIFLY
 	db 9
 	dw NINJASK
+	db -1 ; end
+
+	next_list_item ; BUG_CATCHER (26) Mt Moon
+	db "KENT@", TRAINERTYPE_NORMAL
+	db 5
+	dw BEEDRILL
+	db 5
+	dw BUTTERFREE
+	db -1 ; end
+
+	next_list_item ; BUG_CATCHER (27) Mt Moon
+	db "ROBBY@", TRAINERTYPE_NORMAL
+	db 5
+	dw CATERPIE
+	db 4
+	dw WEEDLE
+	db 7
+	dw PARAS
 	db -1 ; end
 
 	end_list_items
@@ -4770,6 +4846,24 @@ SuperNerdGroupHard:
 	dw CURSE, WATER_GUN, GROWL, STRENGTH
 	db -1 ; end
 
+	next_list_item ; SUPER_NERD (15) Mount Moon
+	db "JOVAN@", TRAINERTYPE_NORMAL
+	db 5
+	dw MAGNEMITE
+	db 7
+	dw HVOLTORB
+	db -1 ; end
+
+	next_list_item ; SUPER_NERD (16) Mount Moon
+	db "MIGUEL@", TRAINERTYPE_NORMAL
+	db 5
+	dw GRIMER
+	db 7
+	dw VOLTORB
+	db 7
+	dw KOFFING
+	db -1 ; end
+
 	end_list_items
 
 Rival2GroupHard:
@@ -5169,6 +5263,16 @@ HikerGroupHard:
 	dw FLAREON
 	db 10
 	dw SOLROCK
+	db -1 ; end
+
+	next_list_item ; HIKER (27) Mount Moon
+	db "MARCOS@", TRAINERTYPE_NORMAL
+	db 5
+	dw GEODUDE
+	db 5
+	dw SANDSHREW
+	db 5
+	dw LUNATONE
 	db -1 ; end
 
 	end_list_items

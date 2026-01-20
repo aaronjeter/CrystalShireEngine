@@ -1471,6 +1471,16 @@ YoungsterGroup:
 	dw ELECTRIKE
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (26) Mount Moon
+	db "JOSH@", TRAINERTYPE_NORMAL
+	db 3
+	dw ARON
+	db 4
+	dw ELECTRIKE
+	db 5
+	dw RATTATA
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Enemy Trainer Parties 2", ROMX
@@ -2126,6 +2136,22 @@ LassGroup:
 	dw MARILL
 	db 4
 	dw SPEAROW
+	db -1 ; end
+
+	next_list_item ; LASS (23) Mount Moon
+	db "IRIS@", TRAINERTYPE_NORMAL	
+	db 4
+	dw CLEFAIRY
+	db 5
+	dw JIGGLYPUFF
+	db -1 ; end
+
+	next_list_item ; LASS (24) Mount Moon
+	db "MIRIAM@", TRAINERTYPE_NORMAL	
+	db 4
+	dw GLOOM
+	db 5
+	dw ROSELIA
 	db -1 ; end
 
 	end_list_items
@@ -3301,6 +3327,38 @@ GruntMGroup:
 	dw GOLBAT
 	db -1 ; end
 
+	next_list_item ; GRUNTM (32) Mount Moon 1
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 5
+	dw ZUBAT
+	db 5
+	dw SANDSHREW
+	db -1 ; end
+
+	next_list_item ; GRUNTM (33) Mount Moon 2
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 5
+	dw EKANS
+	db 5
+	dw SEVIPER
+	db -1 ; end
+
+	next_list_item ; GRUNTM (34) Mount Moon 3
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 5
+	dw RATICATE
+	db 5
+	dw HOOTHOOT
+	db -1 ; end
+
+	next_list_item ; GRUNTM (35) Mount Moon 4
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 5
+	dw GRIMER
+	db 5
+	dw GULPIN
+	db -1 ; end
+
 	end_list_items
 
 GentlemanGroup:
@@ -3763,6 +3821,24 @@ BugCatcherGroup:
 	dw DUSTOX
 	db 7
 	dw BEAUTIFLY
+	db -1 ; end
+
+	next_list_item ; BUG_CATCHER (26) Mt Moon
+	db "KENT@", TRAINERTYPE_NORMAL
+	db 4
+	dw WEEDLE
+	db 4
+	dw BUTTERFREE
+	db -1 ; end
+
+	next_list_item ; BUG_CATCHER (27) Mt Moon
+	db "ROBBY@", TRAINERTYPE_NORMAL
+	db 1
+	dw CATERPIE
+	db 2
+	dw WEEDLE
+	db 3
+	dw PARAS
 	db -1 ; end
 
 	end_list_items
@@ -4736,6 +4812,22 @@ SuperNerdGroup:
 	dw CURSE, WATER_GUN, GROWL, STRENGTH
 	db -1 ; end
 
+	next_list_item ; SUPER_NERD (15) Mount Moon
+	db "JOVAN@", TRAINERTYPE_NORMAL
+	db 4
+	dw MAGNEMITE
+	db 5
+	dw VOLTORB
+	db -1 ; end
+
+	next_list_item ; SUPER_NERD (16) Mount Moon
+	db "MIGUEL@", TRAINERTYPE_NORMAL
+	db 5
+	dw GRIMER
+	db 5
+	dw VOLTORB
+	db -1 ; end
+
 	end_list_items
 
 Rival2Group:
@@ -5129,6 +5221,16 @@ HikerGroup:
 	dw NUMEL
 	db 7
 	dw SOLROCK
+	db -1 ; end
+
+	next_list_item ; HIKER (27) Mount Moon
+	db "MARCOS@", TRAINERTYPE_NORMAL
+	db 3
+	dw GEODUDE
+	db 4
+	dw SANDSHREW
+	db 5
+	dw LUNATONE
 	db -1 ; end
 
 	end_list_items

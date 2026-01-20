@@ -166,6 +166,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE116_JOEY
 	const ROUTE116_JOHNSON
 	const ROUTE110_TIMMY
+	const MOON_JOSH
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -239,6 +240,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE104_HALEY
 	const ROUTE116_KAREN
 	const ROUTE116_JANICE
+	const MOON_IRIS
+	const MOON_MIRIAM
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -372,6 +375,10 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_29
 	const GRUNTM_30 ; unused
 	const GRUNTM_31
+	const MOON_GRUNT1
+	const MOON_GRUNT2
+	const MOON_GRUNT3
+	const MOON_GRUNT4
 
 	trainerclass GENTLEMAN ; 20
 	const PRESTON
@@ -425,6 +432,8 @@ DEF KRIS EQU __trainer_class__
 	const PETALBURGWOODS_JAMES
 	const ROUTE116_JOSE
 	const ROUTE117_DEREK
+	const MOON_KENT
+	const MOON_ROBBY
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -544,6 +553,8 @@ DEF KRIS EQU __trainer_class__
 	const NORTON ; unused
 	const HUGH
 	const MARKUS
+	const MOON_JOVAN
+	const MOON_MIGUEL
 
 	trainerclass RIVAL2 ; 2a
 	const RIVAL2_1_CHIKORITA
@@ -588,6 +599,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE116_CLARK
 	const ROUTE116_DEVAN
 	const LAVARIDGE_ELI
+	const MOON_MARCOS	
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY ; unused
