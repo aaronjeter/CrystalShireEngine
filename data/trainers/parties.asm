@@ -1524,14 +1524,10 @@ SchoolboyGroup:
 	dw VICTREEBEL
 	db -1 ; end
 
-	next_list_item ; SCHOOLBOY (5) Unreferenced
+	next_list_item ; SCHOOLBOY (5) Route 01
 	db "DANNY@", TRAINERTYPE_NORMAL
-	db 1
-	dw JYNX
-	db 1
-	dw ELECTABUZZ
-	db 1
-	dw MAGMAR
+	db 0
+	dw RATTATA
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (6) Route 15
@@ -2619,10 +2615,8 @@ CooltrainerFGroup:
 
 	next_list_item ; COOLTRAINERF (14) Route 1
 	db "QUINN@", TRAINERTYPE_NORMAL
-	db 7
-	dw IVYSAUR
-	db 9
-	dw STARMIE
+	db 0
+	dw BULBASAUR
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (15) Union Cave - B2F
