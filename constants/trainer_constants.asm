@@ -273,6 +273,10 @@ DEF KRIS EQU __trainer_class__
 	const PETALBURG_PARKER
 	const PETALBURG_GEORGE
 	const LAVARIDGE_GERALD
+	const DALORIC1
+	const DALORIC2
+	const CONTEST_CRYSTAL1
+	const CONTEST_CRYSTAL2
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -918,6 +922,9 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass RANGERM
 	const RANGERM1
+	const AARON1
+	const AARON2
+	const AARON3
 
 	trainerclass RANGERF
 	const RANGERF1

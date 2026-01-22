@@ -117,6 +117,12 @@ ENDM
 	map_attributes CianwoodCity, CIANWOOD_CITY, $35, EAST
 	connection east, Route41, ROUTE_41, 0
 
+	map_attributes BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $05, NORTH
+	connection north, JohtoGames, JOHTO_GAMES, -2
+
+	map_attributes JohtoGames, JOHTO_GAMES, $05, SOUTH
+	connection south, BattleTowerOutside, BATTLE_TOWER_OUTSIDE, 2
+
 	map_attributes GoldenrodCity, GOLDENROD_CITY, $35, NORTH | SOUTH
 	connection north, Route35, ROUTE_35, 5
 	connection south, Route34, ROUTE_34, 5
@@ -651,8 +657,7 @@ ENDM
 	map_attributes BattleTowerBattleRoom, BATTLE_TOWER_BATTLE_ROOM, $00, 0
 	map_attributes BattleTowerElevator, BATTLE_TOWER_ELEVATOR, $00, 0
 	map_attributes BattleTowerHallway, BATTLE_TOWER_HALLWAY, $00, 0
-	map_attributes Route40BattleTowerGate, ROUTE_40_BATTLE_TOWER_GATE, $00, 0
-	map_attributes BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $05, 0
+	map_attributes Route40BattleTowerGate, ROUTE_40_BATTLE_TOWER_GATE, $00, 0	
 	map_attributes ViridianGym, VIRIDIAN_GYM, $00, 0
 	map_attributes ViridianNicknameSpeechHouse, VIRIDIAN_NICKNAME_SPEECH_HOUSE, $00, 0
 	map_attributes TrainerHouse1F, TRAINER_HOUSE_1F, $00, 0

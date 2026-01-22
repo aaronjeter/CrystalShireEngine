@@ -588,4 +588,6 @@ INCLUDE "maps/kanto/MtMoon1F.asm"
 INCLUDE "maps/kanto/MtMoonB1F.asm"
 INCLUDE "maps/kanto/MtMoonB2F.asm" 
 
+INCLUDE "maps/johto/JohtoGames.asm"
+
 ENDSECTION

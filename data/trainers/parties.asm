@@ -2458,6 +2458,70 @@ CooltrainerMGroup:
 	dw DYNABEA
 	db -1 ; end
 
+	next_list_item ; COOLTRAINERM (25) Daloric contest team #1
+	db "DALORIC@", TRAINERTYPE_NORMAL
+	db 11
+	dw CHARIZARD
+	db 11
+	dw AGGRON
+	db 11
+	dw TYRANITAR
+	db 11
+	dw KINGLER
+	db 11
+	dw GENGAR
+	db 11
+	dw AMPHAROS
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (26) Daloric contest team #2
+	db "DALORIC@", TRAINERTYPE_NORMAL
+	db 11
+	dw CHARIZARDX
+	db 11
+	dw AGGRONX
+	db 11
+	dw TYRANITARX
+	db 11
+	dw KINGLERX
+	db 11
+	dw GENGARX
+	db 11
+	dw AMPHAROSX
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (27) DominantDragon26 contest team #1
+	db "CRYSTAL@", TRAINERTYPE_NORMAL
+	db 11
+	dw NOCTOWL
+	db 11
+	dw SHARPEDO
+	db 11
+	dw RAITORA
+	db 11
+	dw DYNABEA
+	db 11
+	dw LUNATONE
+	db 11
+	dw SANDSLASH
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (28) DominantDragon26 contest team #2
+	db "CRYSTAL@", TRAINERTYPE_NORMAL
+	db 11
+	dw NOCTOWL2
+	db 11
+	dw SHARPEDO
+	db 11
+	dw RAITORA
+	db 11
+	dw DYNABEA
+	db 11
+	dw LUNATONE
+	db 11
+	dw SANDSLASH
+	db -1 ; end
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -7807,7 +7871,7 @@ BattleGirlGroup:
 
 
 RangerMGroup:
-	next_list_item; STEVEN (1) Unreferenced
+	next_list_item; RANGERM (1) Unreferenced
 	db "STEVEN@", TRAINERTYPE_NORMAL
 	db 10
 	dw CHIKORITA
@@ -7815,6 +7879,90 @@ RangerMGroup:
 	dw CYNDAQUIL
 	db 10
 	dw TOTODILE
+	db -1 ; end
+
+	next_list_item ; RANGERM (2) Aaron's Yellow team
+	db "Aaron@", TRAINERTYPE_ITEM_MOVES	
+	db 11
+	dw BUTTERFREE
+	dw NO_ITEM
+	dw SPORE, HURRICANE, MOONBLAST, PSYCHIC_M
+	db 11
+	dw PIKACHU
+	dw LIGHT_BALL
+	dw VOLT_TACKLE, BODY_SLAM, SURF, THUNDER_WAVE
+	db 11
+	dw ARTICUNO
+	dw LEFTOVERS
+	dw BLIZZARD, HURRICANE, FLY, ICY_WIND
+	db 11
+	dw ZAPDOS
+	dw NO_ITEM
+	dw THUNDER, DRILL_PECK, SWIFT, FLY
+	db 11
+	dw MOLTRES
+	dw NO_ITEM
+	dw PURSUIT, SKY_ATTACK, SOLARBEAM, FIRE_BLAST
+	db 11
+	dw MEW
+	dw LEFTOVERS
+	dw MOONBLAST, BLIZZARD, FIRE_BLAST, AURA_SPHERE
+	db -1 ; end
+
+	next_list_item ; RANGERM (3) Aaron's Silver team
+	db "Aaron@", TRAINERTYPE_ITEM_MOVES	
+	db 11
+	dw MEGANIUM
+	dw NO_ITEM
+	dw SPORE, GIGA_DRAIN, MOONBLAST, BODY_SLAM
+	db 11
+	dw TYRANITAR
+	dw NO_ITEM
+	dw CRUNCH, ROCK_SLIDE, SURF, EARTHQUAKE
+	db 11
+	dw BLISSEY
+	dw LEFTOVERS
+	dw BLIZZARD, THUNDER, PSYCHIC_M, SOFTBOILED
+	db 11
+	dw JUMPLUFF
+	dw NO_ITEM
+	dw GIGA_DRAIN, SKY_ATTACK, SUNNY_DAY, SOLARBEAM
+	db 11
+	dw LUGIA
+	dw NO_ITEM
+	dw SURF, AEROBLAST, HYDRO_PUMP, PSYCHIC_M
+	db 11
+	dw CELEBI
+	dw LEFTOVERS
+	dw MOONBLAST, BLIZZARD, FIRE_BLAST, AURA_SPHERE
+	db -1 ; end
+
+	next_list_item ; RANGERM (4) Aaron's Playtest team
+	db "Aaron@", TRAINERTYPE_ITEM_MOVES	
+	db 11
+	dw DELIBIRD
+	dw NO_ITEM
+	dw BLIZZARD, SKY_ATTACK, SPIKES, HURRICANE
+	db 11
+	dw ANINETALES
+	dw NO_ITEM
+	dw BLIZZARD, MOONBLAST, CALM_MIND, ICY_WIND
+	db 11
+	dw JUMPLUFF
+	dw NO_ITEM
+	dw GIGA_DRAIN, SKY_ATTACK, STUN_SPORE, NO_MOVE
+	db 11
+	dw UNOWN
+	dw LEFTOVERS
+	dw DARK_PULSE, WILLOWISP, ICY_WIND, COSMIC_POWER	
+	db 11
+	dw ASHIBOMB
+	dw NO_ITEM
+	dw SURF, FIRE_BLAST, HYDRO_PUMP, REST
+	db 11
+	dw IRONBUNDLE
+	dw LEFTOVERS
+	dw HYDRO_PUMP, BLIZZARD, CALM_MIND, AURA_SPHERE
 	db -1 ; end
 
 	end_list_items

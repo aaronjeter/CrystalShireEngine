@@ -1116,4 +1116,7 @@ SECTION "Map Blocks Mt Moon", ROMX
 	MtMoonB2F_Blocks:
 	INCBIN "maps/kanto/MtMoonB2F.ablk" 
 
+	JohtoGames_Blocks:
+	INCBIN "maps/johto/JohtoGames.ablk"
+
 ENDSECTION
