@@ -171,6 +171,15 @@ ENDM
 	map_const MT_MOON_1F,                                  20, 20 ;
 	map_const MT_MOON_B1F,                                 20, 20 ;
 	map_const MT_MOON_B2F,                                 20, 20 ;
+	map_const SAFARI_ZONE_SOUTH,                           20, 20 ;
+	map_const SAFARI_ZONE_EAST,                            20, 20 ;
+	map_const SAFARI_ZONE_NORTH,                           30, 30 ;
+	map_const SAFARI_ZONE_WEST,                            20, 20 ;
+	map_const SAFARI_HOUSE_SOUTH,                          05, 04 ;
+	map_const SAFARI_HOUSE_EAST,                           05, 04 ;
+	map_const SAFARI_HOUSE_NORTH,                          05, 04 ;
+	map_const SAFARI_HOUSE_WEST,                           05, 04 ;
+	map_const SAFARI_HOUSE_SECRET,                         05, 04 ;
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

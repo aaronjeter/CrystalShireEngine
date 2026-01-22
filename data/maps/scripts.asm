@@ -590,4 +590,15 @@ INCLUDE "maps/kanto/MtMoonB2F.asm"
 
 INCLUDE "maps/johto/JohtoGames.asm"
 
+INCLUDE "maps/kanto/SafariZoneSouth.asm"
+INCLUDE "maps/kanto/SafariZoneEast.asm"
+INCLUDE "maps/kanto/SafariZoneNorth.asm"
+INCLUDE "maps/kanto/SafariZoneWest.asm"
+
+INCLUDE "maps/kanto/SafariHouseSouth.asm"
+INCLUDE "maps/kanto/SafariHouseEast.asm"
+INCLUDE "maps/kanto/SafariHouseNorth.asm"
+INCLUDE "maps/kanto/SafariHouseWest.asm"
+INCLUDE "maps/kanto/SafariHouseSecret.asm"
+
 ENDSECTION

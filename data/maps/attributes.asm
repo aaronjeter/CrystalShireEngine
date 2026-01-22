@@ -728,6 +728,17 @@ ENDM
 	map_attributes MtMoonB1F, MT_MOON_B1F, $00, 0
 	map_attributes MtMoonB2F, MT_MOON_B2F, $00, 0
 
+	map_attributes SafariZoneSouth, SAFARI_ZONE_SOUTH, $00, 0
+	map_attributes SafariZoneEast, SAFARI_ZONE_EAST, $00, 0
+	map_attributes SafariZoneNorth, SAFARI_ZONE_NORTH, $00, 0
+	map_attributes SafariZoneWest, SAFARI_ZONE_WEST, $00, 0
+
+	map_attributes SafariHouseSouth, SAFARI_HOUSE_SOUTH, $00, 0
+	map_attributes SafariHouseEast, SAFARI_HOUSE_EAST, $00, 0
+	map_attributes SafariHouseNorth, SAFARI_HOUSE_NORTH, $00, 0
+	map_attributes SafariHouseWest, SAFARI_HOUSE_WEST, $00, 0
+	map_attributes SafariHouseSecret, SAFARI_HOUSE_SECRET, $00, 0
+
 	map_attributes OldaleMart, OLDALE_MART, $00, 0
 	map_attributes PetalburgMart, PETALBURG_MART, $00, 0
 	map_attributes RustboroMart, RUSTBORO_MART, $00, 0

@@ -1119,4 +1119,23 @@ SECTION "Map Blocks Mt Moon", ROMX
 	JohtoGames_Blocks:
 	INCBIN "maps/johto/JohtoGames.ablk"
 
+	SafariZoneSouth_Blocks:
+	INCBIN "maps/kanto/SafariZoneSouth.ablk"
+
+	SafariZoneEast_Blocks:
+	INCBIN "maps/kanto/SafariZoneEast.ablk"
+
+	SafariZoneNorth_Blocks:
+	INCBIN "maps/kanto/SafariZoneNorth.ablk"
+
+	SafariZoneWest_Blocks:
+	INCBIN "maps/kanto/SafariZoneWest.ablk"
+
+	SafariHouseSouth_Blocks:
+	SafariHouseEast_Blocks:
+	SafariHouseNorth_Blocks:
+	SafariHouseWest_Blocks:
+	SafariHouseSecret_Blocks:
+	INCBIN "maps/kanto/SafariZoneHouse.ablk"
+
 ENDSECTION
