@@ -30,6 +30,90 @@ KantoGrassWildMons:
 	dbw 7, DUGTRIO
 	end_grass_wildmons
 
+	def_grass_wildmons MT_MOON_1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, JIGGLYPUFF
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, JIGGLYPUFF
+	; day
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, JIGGLYPUFF
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, JIGGLYPUFF
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, JIGGLYPUFF
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, JIGGLYPUFF
+	end_grass_wildmons
+
+	def_grass_wildmons MT_MOON_B1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, PARAS
+	; day
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, PARAS
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, PARAS
+	end_grass_wildmons
+
+	def_grass_wildmons MT_MOON_B2F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 3, CLEFAIRY
+	dbw 1, CLEFFA
+	dbw 7, CLEFAIRY
+	; day
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 3, CLEFAIRY
+	dbw 1, CLEFFA
+	dbw 7, CLEFAIRY
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 3, CLEFAIRY
+	dbw 1, CLEFFA
+	dbw 7, CLEFAIRY
+	end_grass_wildmons
+
 	def_grass_wildmons MOUNT_MOON
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
