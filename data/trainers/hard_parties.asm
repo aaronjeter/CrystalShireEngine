@@ -3433,6 +3433,62 @@ GruntMGroupHard:
 	dw GULPIN
 	db -1 ; end
 
+	next_list_item ; GRUNTM (36) Safari Grunt 1
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw MUK
+	db 7
+	dw ZANGOOSE
+	db -1 ; end
+
+	next_list_item ; GRUNTM (37) Safari Grunt 2
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw MAROWAK
+	db 7
+	dw EXEGGUTOR2
+	db -1 ; end
+
+	next_list_item ; GRUNTM (38) Safari Grunt 3
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw TENTACRUEL
+	db 7
+	dw TENTACRUEL2
+	db -1 ; end
+
+	next_list_item ; GRUNTM (39) Safari Grunt 4
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw LICKILICKY
+	db 7
+	dw AMAROWAK
+	db -1 ; end
+
+	next_list_item ; GRUNTM (40) Safari Grunt 5
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw HELECTRODE
+	db 7
+	dw ELECTRODE2
+	db -1 ; end
+
+	next_list_item ; GRUNTM (41) Safari Grunt 6
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw CRAWDAUNT
+	db 7
+	dw KINGLER
+	db -1 ; end
+
+	next_list_item ; GRUNTM (42) Safari Grunt 7
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw DUSCLOPS
+	db 7
+	dw VICTREEBEL
+	db -1 ; end
+
 	end_list_items
 
 GentlemanGroupHard:
@@ -7458,6 +7514,46 @@ GruntFGroupHard:
 	dw NINETALES2
 	db -1 ; end
 
+	next_list_item ; GRUNTF (9) Safari Gruntf 1
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw ARBOK
+	db 7
+	dw SEVIPER
+	db -1 ; end
+
+	next_list_item ; GRUNTF (10) Safari Gruntf 2
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw PRIMEAPE
+	db 7
+	dw HYPNO
+	db -1 ; end
+
+	next_list_item ; GRUNTF (11) Safari Gruntf 3
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw DEWGONG
+	db 7
+	dw HITMONCHAN
+	db -1 ; end
+
+	next_list_item ; GRUNTF (12) Safari Gruntf 4
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw SEAKING
+	db 7
+	dw AERODACTYL
+	db -1 ; end
+
+	next_list_item ; GRUNTF (13) Safari Gruntf 5
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 7
+	dw GRANBULL
+	db 7
+	dw MIGHTYENA
+	db -1 ; end
+
 	end_list_items
 
 MysticalmanGroupHard:
@@ -8019,6 +8115,36 @@ RangerMGroupHard:
 	dw HYDRO_PUMP, BLIZZARD, CALM_MIND, AURA_SPHERE
 	db -1 ; end
 
+	next_list_item; RANGERM (5) Safari Zone Eli
+	db "ELI@", TRAINERTYPE_NORMAL
+	db 9
+	dw MEGANIUM
+	db 9
+	dw TROPIUS
+	db 10
+	dw VENUSAUR
+	db -1 ; end
+
+	next_list_item; RANGERM (6) Safari Zone Randal
+	db "RANDAL@", TRAINERTYPE_NORMAL
+	db 9
+	dw TYPHLOSION
+	db 9
+	dw KANGASKHAN
+	db 10
+	dw CHARIZARD
+	db -1 ; end
+
+	next_list_item; RANGERM (7) Safari Zone Steven
+	db "STEVEN@", TRAINERTYPE_NORMAL
+	db 9
+	dw RHYDON
+	db 9
+	dw MR__MIME
+	db 10
+	dw SCYTHER
+	db -1 ; end
+
 	end_list_items
 
 RangerFGroupHard:
@@ -8030,6 +8156,36 @@ RangerFGroupHard:
 	dw CYNDAQUIL
 	db 10
 	dw TOTODILE
+	db -1 ; end
+
+	next_list_item; RANGERF (2) Safari Zone Monica
+	db "MONICA@", TRAINERTYPE_NORMAL
+	db 9
+	dw JYNX
+	db 9
+	dw LICKITUNG
+	db 10
+	dw PINSIR
+	db -1 ; end
+
+	next_list_item; RANGERF (3) Safari Zone Tina
+	db "TINA@", TRAINERTYPE_NORMAL
+	db 9
+	dw CHIMECHO
+	db 9
+	dw BRELOOM
+	db 10
+	dw DELCATTY
+	db -1 ; end
+
+	next_list_item; RANGERF (4) Safari Zone Rachael
+	db "RACHAEL@", TRAINERTYPE_NORMAL
+	db 9
+	dw LUDICOLO
+	db 9
+	dw STANTLER
+	db 10
+	dw SLOWKING
 	db -1 ; end
 
 	end_list_items
@@ -8053,6 +8209,36 @@ ExplorerGroupHard:
 	dw CRAWDAUNT
 	db 10
 	dw ARMALDO
+	db -1 ; end
+
+	next_list_item; EXPLORER (3) Safari Zone Joey
+	db "JOEY@", TRAINERTYPE_NORMAL
+	db 8
+	dw ASANDSLASH
+	db 9
+	dw ASANDSHREW
+	db 10
+	dw ARMALDO
+	db -1 ; end
+
+	next_list_item; EXPLORER (4) Safari Zone Ross
+	db "ROSS@", TRAINERTYPE_NORMAL
+	db 8
+	dw METANG
+	db 9
+	dw CLAYDOL
+	db 10
+	dw YANMEGA
+	db -1 ; end
+
+	next_list_item; EXPLORER (5) Safari Zone Chandler
+	db "CHANDLER@", TRAINERTYPE_NORMAL
+	db 8
+	dw WHISCASH
+	db 9
+	dw CAMERUPT
+	db 10
+	dw HARIYAMA
 	db -1 ; end
 
 	end_list_items

@@ -383,6 +383,13 @@ DEF KRIS EQU __trainer_class__
 	const MOON_GRUNT2
 	const MOON_GRUNT3
 	const MOON_GRUNT4
+	const SAFARI_GRUNT1
+	const SAFARI_GRUNT2
+	const SAFARI_GRUNT3
+	const SAFARI_GRUNT4
+	const SAFARI_GRUNT5
+	const SAFARI_GRUNT6
+	const SAFARI_GRUNT7
 
 	trainerclass GENTLEMAN ; 20
 	const PRESTON
@@ -857,6 +864,11 @@ DEF KRIS EQU __trainer_class__
 	const AMAYA1
 	const AMAYA2
 	const AMAYA3
+	const SAFARI_GRUNTF1
+	const SAFARI_GRUNTF2
+	const SAFARI_GRUNTF3
+	const SAFARI_GRUNTF4
+	const SAFARI_GRUNTF5
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE
@@ -925,13 +937,22 @@ DEF KRIS EQU __trainer_class__
 	const AARON1
 	const AARON2
 	const AARON3
+	const SAFARI_ELI
+	const SAFARI_RANDAL
+	const SAFARI_STEVEN
 
 	trainerclass RANGERF
 	const RANGERF1
+	const SAFARI_MONICA
+	const SAFARI_TINA
+	const SAFARI_RACHAEL
 
 	trainerclass EXPLORER
 	const ROUTE105_FOSTER
 	const ROUTE105_ANDRES
+	const SAFARI_JOEY
+	const SAFARI_ROSS
+	const SAFARI_CHANDLER
 
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
