@@ -954,4 +954,116 @@ KantoGrassWildMons:
 	dbw 5, BUTTERFREE
 	end_grass_wildmons
 
+	def_grass_wildmons SAFARI_ZONE_SOUTH
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, EXEGGCUTE
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, PINSIR
+	dbw 5, SCYTHER
+	; day
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, EXEGGCUTE
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, PINSIR
+	dbw 5, SCYTHER
+	; nite
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, EXEGGCUTE
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, PINSIR
+	dbw 5, SCYTHER
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_EAST
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, DODUO
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, KANGASKHAN
+	dbw 5, KANGASKHAN
+	; day
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, DODUO
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, KANGASKHAN
+	dbw 5, KANGASKHAN
+	; nite
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, DODUO
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, KANGASKHAN
+	dbw 5, KANGASKHAN
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_NORTH
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, TAUROS
+	dbw 5, SCYTHER
+	; day
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, TAUROS
+	dbw 5, SCYTHER
+	; nite
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, TAUROS
+	dbw 5, SCYTHER
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_WEST
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, CHANSEY
+	dbw 5, KANGASKHAN
+	; day
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, CHANSEY
+	dbw 5, KANGASKHAN
+	; nite
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, CHANSEY
+	dbw 5, KANGASKHAN
+	end_grass_wildmons
+
 	db -1 ; end
