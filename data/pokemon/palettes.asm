@@ -913,6 +913,8 @@ INCBIN "gfx/pokemon/tentacruel2/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/tentacruel2/shiny.pal"
 INCBIN "gfx/pokemon/rapidash2/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/rapidash2/shiny.pal"
+INCBIN "gfx/pokemon/vulpix2/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/vulpix2/shiny.pal"
 INCBIN "gfx/pokemon/ninetales2/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/ninetales2/shiny.pal"
 INCBIN "gfx/pokemon/tauros2/normal.gbcpal", middle_colors

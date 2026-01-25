@@ -441,6 +441,7 @@ AnimationIdlePointers:
 	dw Tentacool2AnimationIdle
 	dw Tentacruel2AnimationIdle
 	dw Rapidash2AnimationIdle
+	dw Vulpix2AnimationIdle
 	dw Ninetales2AnimationIdle
 	dw Tauros2AnimationIdle
 	dw Swinub2AnimationIdle

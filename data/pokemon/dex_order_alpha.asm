@@ -171,6 +171,7 @@ AlphabeticalPokedexOrder:
 	dw NIDORINA
 	dw NIDORINO
 	dw NINETALES
+	dw VULPIX2
 	dw NINETALES2
 	dw NOCTOWL
 	dw NOCTOWL2

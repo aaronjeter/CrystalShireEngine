@@ -896,6 +896,8 @@ PokemonPicPointers::
 	dba Tentacruel2Backpic
 	dba Rapidash2Frontpic
 	dba Rapidash2Backpic
+	dba Vulpix2Frontpic
+	dba Vulpix2Backpic
 	dba Ninetales2Frontpic
 	dba Ninetales2Backpic
 	dba Tauros2Frontpic

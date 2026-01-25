@@ -441,6 +441,7 @@ FramesPointers:
 	dba Tentacool2Frames
 	dba Tentacruel2Frames
 	dba Rapidash2Frames
+	dba Vulpix2Frames
 	dba Ninetales2Frames
 	dba Tauros2Frames
 	dba Swinub2Frames

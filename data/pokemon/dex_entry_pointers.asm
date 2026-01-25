@@ -443,6 +443,7 @@ PokedexDataPointerTable:
 	dba Tentacool2PokedexEntry
 	dba Tentacruel2PokedexEntry
 	dba Rapidash2PokedexEntry
+	dba Vulpix2PokedexEntry
 	dba Ninetales2PokedexEntry
 	dba Tauros2PokedexEntry
 	dba Swinub2PokedexEntry

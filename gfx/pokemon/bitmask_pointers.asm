@@ -441,6 +441,7 @@ BitmasksPointers:
 	dw Tentacool2Bitmasks
 	dw Tentacruel2Bitmasks
 	dw Rapidash2Bitmasks
+	dw Vulpix2Bitmasks
 	dw Ninetales2Bitmasks
 	dw Tauros2Bitmasks
 	dw Swinub2Bitmasks

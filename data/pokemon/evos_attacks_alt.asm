@@ -58,6 +58,7 @@ EvosAttacksPointers4::
 	dw Tentacool2EvosAttacks
 	dw Tentacruel2EvosAttacks
 	dw Rapidash2EvosAttacks
+	dw Vulpix2EvosAttacks
 	dw Ninetales2EvosAttacks
 	dw Tauros2EvosAttacks
 	dw Swinub2EvosAttacks
@@ -584,8 +585,8 @@ AsandslashEvosAttacks:
 	db 0 ; no more level-up moves
 
 AvulpixEvosAttacks:
-	dbbw EVOLVE_LEVEL, 36, ANINETALES
-	dbww EVOLVE_ITEM, ICE_STONE, ANINETALES
+	dbbw EVOLVE_LEVEL, 30, ANINETALES
+	dbww EVOLVE_ITEM, WATER_STONE, VULPIX2
 	dbww EVOLVE_ITEM, FIRE_STONE, VULPIX
 	db 0 ; no more evolutions
 	dbw 1, POWDER_SNOW
@@ -609,7 +610,7 @@ AvulpixEvosAttacks:
 
 AninetalesEvosAttacks:
 	dbww EVOLVE_ITEM, FIRE_STONE, NINETALES
-	dbww EVOLVE_ITEM, KANTOITE_X, NINETALES2
+	dbww EVOLVE_ITEM, WATER_STONE, NINETALES2 
 	db 0 ; no more evolutions	
 	dbw 1, POWDER_SNOW
 	dbw 1, PIXIE_DUST
@@ -1026,27 +1027,49 @@ Rapidash2EvosAttacks:
 	dbw 80, BLIZZARD	
 	db 0 ; no more level-up moves
 
-Ninetales2EvosAttacks:
+Vulpix2EvosAttacks:
+    dbbw EVOLVE_LEVEL, 30, NINETALES2
+	dbww EVOLVE_ITEM, FIRE_STONE, VULPIX
+	dbww EVOLVE_ITEM, ICE_STONE, AVULPIX
 	db 0 ; no more evolutions
-	dbw 1, POWDER_SNOW
-	dbw 1, PIXIE_DUST
+	dbw 1, BUBBLE
+	dbw 1, EMBER
 	dbw 7, QUICK_ATTACK
 	dbw 12, ROAR
-	dbw 16, NIGHT_SHADE
-	dbw 20, ICY_WIND
-	dbw 24, DRAININGKISS
-	dbw 28, AURORA_BEAM
-	dbw 32, RECOVER
+	dbw 16, ACID
+	dbw 20, WILLOWISP
+	dbw 24, BUBBLEBEAM
+	dbw 28, FIRE_SPIN
+	dbw 32, POISON_FANG
 	dbw 36, HYPNOSIS
-	dbw 40, FAERIEGLEAM
-	dbw 45, EXTRASENSORY
+	dbw 40, SCALD
+	dbw 45, FLAMETHROWER
 	dbw 50, CALM_MIND
-	dbw 55, DESTINY_BOND
-	dbw 60, BLIZZARD
-	dbw 65, HAIL
-	dbw 70, LUSTER_PURGE
-	dbw 75, SHADOW_BALL
-	dbw 80, FIRE_BLAST
+	dbw 55, SLUDGE_WAVE
+	dbw 60, FIRE_BLAST
+	dbw 65, HYDRO_PUMP
+	dbw 70, MIST
+	db 0 ; no more level-up moves
+
+Ninetales2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, BUBBLE
+	dbw 1, EMBER
+	dbw 7, QUICK_ATTACK
+	dbw 12, ROAR
+	dbw 16, ACID
+	dbw 20, WILLOWISP
+	dbw 24, BUBBLEBEAM
+	dbw 28, FIRE_SPIN
+	dbw 32, POISON_FANG
+	dbw 36, HYPNOSIS
+	dbw 40, SCALD
+	dbw 45, FLAMETHROWER
+	dbw 50, CALM_MIND
+	dbw 55, SLUDGE_WAVE
+	dbw 60, FIRE_BLAST
+	dbw 65, HYDRO_PUMP
+	dbw 70, MIST
 	db 0 ; no more level-up moves
 
 Tauros2EvosAttacks:
@@ -1580,21 +1603,22 @@ Totodile2EvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER
-	dbw 7, RAGE
+	dbw 7, THUNDERSHOCK
 	dbw 10, WATER_GUN
 	dbw 14, BITE
-	dbw 18, SCARY_FACE
+	dbw 18, THUNDER_WAVE
 	dbw 24, BUBBLEBEAM
-	dbw 28, ICE_FANG
+	dbw 28, THUNDER_FANG
 	dbw 32, POISON_FANG
 	dbw 36, DRAGON_DANCE
 	dbw 40, WATERFALL
-	dbw 45, CRUNCH
-	dbw 50, SLASH
+	dbw 45, THUNDERBOLT
+	dbw 50, CRUNCH
 	dbw 55, SCREECH
 	dbw 60, RAIN_DANCE
 	dbw 65, HYDRO_PUMP
-	dbw 70, HYDRO_CANNON
+	dbw 70, SHOCKSLAM
+	dbw 75, THUNDER
 	db 0 ; no more level-up moves
 
 Croconaw2EvosAttacks:
@@ -1602,42 +1626,44 @@ Croconaw2EvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER
-	dbw 7, RAGE
+	dbw 7, THUNDERSHOCK
 	dbw 10, WATER_GUN
 	dbw 14, BITE
-	dbw 18, SCARY_FACE
+	dbw 18, THUNDER_WAVE
 	dbw 24, BUBBLEBEAM
-	dbw 28, ICE_FANG
+	dbw 28, THUNDER_FANG
 	dbw 32, POISON_FANG
 	dbw 36, DRAGON_DANCE
 	dbw 40, WATERFALL
-	dbw 45, CRUNCH
-	dbw 50, SLASH
+	dbw 45, THUNDERBOLT
+	dbw 50, CRUNCH
 	dbw 55, SCREECH
 	dbw 60, RAIN_DANCE
 	dbw 65, HYDRO_PUMP
-	dbw 70, HYDRO_CANNON
+	dbw 70, SHOCKSLAM
+	dbw 75, THUNDER
 	db 0 ; no more level-up moves
 
 Feraligatr2EvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER
-	dbw 7, RAGE
+	dbw 7, THUNDERSHOCK
 	dbw 10, WATER_GUN
 	dbw 14, BITE
-	dbw 18, SCARY_FACE
+	dbw 18, THUNDER_WAVE
 	dbw 24, BUBBLEBEAM
-	dbw 28, ICE_FANG
+	dbw 28, THUNDER_FANG
 	dbw 32, POISON_FANG
 	dbw 36, DRAGON_DANCE
 	dbw 40, WATERFALL
-	dbw 45, CRUNCH
-	dbw 50, SLASH
+	dbw 45, THUNDERBOLT
+	dbw 50, CRUNCH
 	dbw 55, SCREECH
 	dbw 60, RAIN_DANCE
 	dbw 65, HYDRO_PUMP
-	dbw 70, HYDRO_CANNON
+	dbw 70, SHOCKSLAM
+	dbw 75, THUNDER
 	db 0 ; no more level-up moves
 
 Cyndaquil2EvosAttacks:

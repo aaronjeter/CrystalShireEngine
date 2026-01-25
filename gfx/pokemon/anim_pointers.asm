@@ -441,6 +441,7 @@ AnimationPointers:
 	dw Tentacool2Animation
 	dw Tentacruel2Animation
 	dw Rapidash2Animation
+	dw Vulpix2Animation
 	dw Ninetales2Animation
 	dw Tauros2Animation
 	dw Swinub2Animation

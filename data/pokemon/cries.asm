@@ -448,6 +448,7 @@ PokemonCries::
 	mon_cry CRY_VENONAT,       0,  256 ; TENTACOOL2
 	mon_cry CRY_VENONAT,     238,  383 ; TENTACRUEL2
 	mon_cry CRY_WEEPINBELL,   32,  320 ; RAPIDASH
+	mon_cry CRY_VULPIX,       79,  144 ; VULPIX
 	mon_cry CRY_VULPIX,      136,  224 ; NINETALES2
 	mon_cry CRY_SQUIRTLE,     17,  192 ; TAUROS2
 	mon_cry CRY_CYNDAQUIL,   510,  320 ; SWINUB2

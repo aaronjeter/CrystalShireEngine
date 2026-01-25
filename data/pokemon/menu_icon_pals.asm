@@ -452,7 +452,8 @@ MonMenuIconPals:
 	icon_pals BROWN,  BLUE   ; TENTACOOL
 	icon_pals BROWN,  BLUE   ; TENTACRUEL
 	icon_pals BLUE,   PURPLE ; RAPIDASH
-	icon_pals PINK,   GRAY   ; NINETALES
+	icon_pals PINK,   BLUE   ; VULPIX2
+	icon_pals PINK,   BLUE   ; NINETALES2
 	icon_pals RED,    BROWN  ; TAUROS
 	icon_pals RED,    BLUE   ; SWINUB
 	icon_pals RED,    BROWN  ; PILOSWINE

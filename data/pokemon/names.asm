@@ -446,6 +446,7 @@ PokemonNames::
 	db "TENTACOOL@"
 	db "TENTACRUEL"
 	db "RAPIDASH@@"
+	db "VULPIX@@@@"
 	db "NINETALES@"
 	db "TAUROS@@@@"
 	db "SWINUB@@@@"
