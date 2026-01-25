@@ -447,6 +447,7 @@ IconPointers:
 	dw Tentacool2Icon
 	dw Tentacruel2Icon
 	dw Rapidash2Icon
+	dw Vulpix2Icon
 	dw Ninetales2Icon
 	dw Tauros2Icon
 	dw Swinub2Icon

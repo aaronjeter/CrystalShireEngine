@@ -462,6 +462,7 @@ DEF JOHTO_POKEMON EQU const_value
 	const TENTACOOL2  
 	const TENTACRUEL2
 	const RAPIDASH2
+	const VULPIX2
 	const NINETALES2
 	const TAUROS2
 	const SWINUB2

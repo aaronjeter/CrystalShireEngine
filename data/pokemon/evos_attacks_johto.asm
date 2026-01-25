@@ -224,6 +224,7 @@ TyphlosionEvosAttacks:
 	db 0 ; no more level-up moves
 
 TotodileEvosAttacks:
+    dbww EVOLVE_ITEM, THUNDERSTONE, TOTODILE2
 	dbbw EVOLVE_LEVEL, 18, CROCONAW
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
@@ -244,6 +245,7 @@ TotodileEvosAttacks:
 	db 0 ; no more level-up moves
 
 CroconawEvosAttacks:
+	dbww EVOLVE_ITEM, THUNDERSTONE, CROCONAW2
 	dbbw EVOLVE_LEVEL, 30, FERALIGATR
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
@@ -264,6 +266,7 @@ CroconawEvosAttacks:
 	db 0 ; no more level-up moves
 
 FeraligatrEvosAttacks:
+    dbww EVOLVE_ITEM, THUNDERSTONE, FERALIGATR2
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER

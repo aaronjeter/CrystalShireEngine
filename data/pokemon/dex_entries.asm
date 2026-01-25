@@ -461,6 +461,7 @@ Scizor2PokedexEntry::     INCLUDE "data/pokemon/dex_entries/scizor.asm"
 Tentacool2PokedexEntry::  INCLUDE "data/pokemon/dex_entries/tentacool.asm"
 Tentacruel2PokedexEntry:: INCLUDE "data/pokemon/dex_entries/tentacruel.asm"
 Rapidash2PokedexEntry::   INCLUDE "data/pokemon/dex_entries/rapidash.asm"
+Vulpix2PokedexEntry::     INCLUDE "data/pokemon/dex_entries/vulpix.asm"
 Ninetales2PokedexEntry::  INCLUDE "data/pokemon/dex_entries/ninetales.asm"
 Tauros2PokedexEntry::     INCLUDE "data/pokemon/dex_entries/tauros.asm"
 Swinub2PokedexEntry::     INCLUDE "data/pokemon/dex_entries/swinub.asm"
@@ -524,9 +525,9 @@ TropiusxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/tropiusx.asm"
 SwalotxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/swalotx.asm"
 FlygonxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/flygonx.asm"
 ChimechoxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/chimechox.asm"
-VictreebelxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/victreebelx.asm"
 
 
 SECTION "Pokedex Entries 500+", ROMX
 
+VictreebelxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/victreebelx.asm"
 UnownxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/unownx.asm"

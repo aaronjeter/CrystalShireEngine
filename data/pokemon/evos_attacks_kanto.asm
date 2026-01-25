@@ -841,9 +841,9 @@ ClefableEvosAttacks:
 	db 0 ; no more level-up moves
 
 VulpixEvosAttacks:
-	dbww EVOLVE_ITEM, FIRE_STONE, NINETALES
+	dbww EVOLVE_ITEM, WATER_STONE, VULPIX2
 	dbww EVOLVE_ITEM, ICE_STONE, AVULPIX
-	dbbw EVOLVE_LEVEL, 36, NINETALES
+	dbbw EVOLVE_LEVEL, 30, NINETALES
 	db 0 ; no more evolutions
 	dbw 1, EMBER
 	dbw 1, LICK

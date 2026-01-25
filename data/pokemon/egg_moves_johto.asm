@@ -291,6 +291,7 @@ EggMovePointers2::
 	dw Tentacool2EggMoves	;tentacool2
 	dw NoEggMoves2
 	dw NoEggMoves2			;rapidash2
+	dw NoEggMoves2
 	dw NoEggMoves2			;ninetails2
 	dw NoEggMoves2
 	dw SwinubEggMoves		;swinub2

@@ -10,6 +10,7 @@ DrizzleMons::
 	dw PELIPPER
 	dw LUVDISC
 	dw KYOGRE
+	dw NINETALES2
 	dw -1
 
 DroughtMons::
@@ -89,8 +90,7 @@ MystifyMons::
 	dw CHIMECHO
 	dw CHIMECHOX
 	dw MILOTIC
-	dw NOCTOWL2
-	dw NINETALES2
+	dw NOCTOWL2	
 	dw UNOWNX
 	dw -1
 
@@ -280,10 +280,7 @@ ElementalFangMons::
 	dw CARVANHA
 	dw SHARPEDO
 	dw EXEGGUTOR2
-	dw FURRET2
-	dw TOTODILE2 
-	dw CROCONAW2 
-	dw FERALIGATR2
+	dw FURRET2	
 	dw KOTORA
 	dw RAITORA
 	dw -1
@@ -399,6 +396,9 @@ RainDishMons::
 	dw WAILMER
 	dw WAILORD
 	dw CLAMPERL
+	dw TOTODILE2 
+	dw CROCONAW2 
+	dw FERALIGATR2
 	dw -1
 
 SunbaskMons::
@@ -473,6 +473,7 @@ SwiftSwimMons::
 	dw HUNTAIL
 	dw GOREBYSS
 	dw RELICANTH
+	dw VULPIX2
 	dw -1
 
 ChlorophyllMons::

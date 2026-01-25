@@ -442,7 +442,8 @@ FirstEvoStages::
 	dw TENTACOOL2
 	dw TENTACOOL2
 	dw PONYTA
-	dw VULPIX
+	dw VULPIX2
+	dw VULPIX2
 	dw TAUROS2
 	dw SWINUB2
 	dw SWINUB2
