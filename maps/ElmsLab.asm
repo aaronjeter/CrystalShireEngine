@@ -177,7 +177,7 @@ LeftPokeBallScript:
 	iftrue AvulpixPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue Tentacool2PokeBallScript
+	iftrue Vulpix2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue HonobeaPokeBallScript
@@ -354,6 +354,32 @@ Tentacool2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TENTACOOL2, 5, BERRY
+	closetext
+	readvar VAR_FACING
+	ifequal RIGHT, ElmDirectionsScript
+	applymovement PLAYER, AfterCyndaquilMovement
+	sjump ElmDirectionsScript
+
+Vulpix2PokeBallScript:	
+	pokepic VULPIX2
+	cry VULPIX2
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeVulpix2Text
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL1
+	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, VULPIX2
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke VULPIX2, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -1481,6 +1507,12 @@ TakeTentacoolText:
 	text "ELM: Do you want"
 	line "Tentacool, the"
 	cont "rock #MON?"
+	done
+
+TakeVulpix2Text:
+	text "ELM: Do you want"
+	line "Vulpix, the"
+	cont "steam #MON?"
 	done
 
 TakeHonobeaText:

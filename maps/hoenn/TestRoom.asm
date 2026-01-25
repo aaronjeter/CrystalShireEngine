@@ -1,5 +1,5 @@
 	object_const_def
-	const TESTROOM_MEW
+	const TESTROOM_GOROCHU
 	const TESTROOM_REGIROCK
 	const TESTROOM_REGISTEEL
 	const TESTROOM_LATIOS
@@ -14,12 +14,12 @@ TestRoom_MapScripts:
 
 	def_callbacks	
 
-Testroom_Mew:
-	cry MEW
+Testroom_Gorochu:
+	cry GOROCHU
 	opentext
-	givepoke MEW, 5
+	givepoke GOROCHU, 5
 	closetext
-	disappear TESTROOM_MEW
+	disappear TESTROOM_GOROCHU
 	end
 
 Testroom_Regirock:
@@ -260,7 +260,7 @@ TestRoom_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 00, 01, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Mew, -1
+	object_event 00, 01, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Gorochu, -1
 	object_event 02, 01, SPRITE_REGIROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Testroom_Regirock, -1
 	object_event 04, 01, SPRITE_REGISTEEL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, Testroom_Registeel, -1
 	object_event 06, 01, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Latios, -1
