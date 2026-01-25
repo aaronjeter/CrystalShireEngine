@@ -1,11 +1,22 @@
 	object_const_def
 	const SAFARIEAST_GRUNT2
 	const SAFARIEAST_GRUNTF2
+	const SAFARIEAST_FAKE_MEW
 
 SafariZoneEast_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, SafariZoneEastCallback
+
+SafariZoneEastCallback:
+	checkevent EVENT_BEAT_SAFARI_ROCKETS
+	iffalse .hideMew
+	endcallback
+
+.hideMew
+	disappear SAFARIEAST_FAKE_MEW
+	endcallback
 
 SafariGrunt2Script:
 	trainer GRUNTM, SAFARI_GRUNT2, EVENT_BEAT_SAFARI_GRUNT2, SafariGrunt2SeenText, SafariGrunt2BeatenText, 0, .Script
@@ -73,6 +84,23 @@ SafariGruntf2AfterBattleText:
 	done
 
 
+SafariZoneEast_FakeMew:
+	cry MEW
+	disappear SAFARIEAST_FAKE_MEW
+	setevent EVENT_SAFARI_EAST_FAKE_MEW
+	opentext 
+	writetext SafariZoneEastMewText
+	waitbutton
+	closetext
+	end
+
+SafariZoneEastMewText:
+	text "It's just a"
+	line "trick of the"
+	cont "light..."
+	done
+
+
 SafariZoneEast_MapEvents:
 	db 0, 0 ; filler
 
@@ -92,3 +120,4 @@ SafariZoneEast_MapEvents:
 	def_object_events
 	object_event  22, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 6, SafariGrunt2Script, EVENT_BEAT_SAFARI_GRUNT2
 	object_event  20, 08, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 2, SafariGruntf2Script, EVENT_BEAT_SAFARI_GRUNTF2
+	object_event  17, 17, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariZoneEast_FakeMew, EVENT_SAFARI_EAST_FAKE_MEW

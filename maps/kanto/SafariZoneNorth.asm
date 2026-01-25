@@ -6,12 +6,26 @@
 	const SAFARINORTH_TINA
 	const SAFARINORTH_TAUROS
 	const SAFARINORTH_RHYDON
+	const SAFARINORTH_MEW
 
 SafariZoneNorth_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, SafariZoneNorthCallback
 
+SafariZoneNorthCallback:
+	checkevent EVENT_SAFARI_WEST_FAKE_MEW
+	iffalse .hideMew
+	checkevent EVENT_SAFARI_EAST_FAKE_MEW
+	iffalse .hideMew
+	checkevent EVENT_SAFARI_SOUTH_FAKE_MEW
+	iffalse .hideMew
+	endcallback
+
+.hideMew
+	disappear SAFARINORTH_MEW
+	endcallback
 
 SafariGrunt3Script:
 	trainer GRUNTM, SAFARI_GRUNT3, EVENT_BEAT_SAFARI_GRUNT3, SafariGrunt3SeenText, SafariGrunt3BeatenText, 0, .Script
@@ -185,6 +199,40 @@ SafariZoneNorth_Rhydon:
 	disappear SAFARINORTH_RHYDON
 	end
 
+SafariZoneNorthMew:
+	cry MEW
+	opentext 
+	writetext SafariZoneNorthMewMewText
+	waitbutton
+	yesorno
+	iffalse .done
+
+	givepoke MEW, 10, AMULET_COIN	
+	setevent EVENT_CAUGHT_SAFARI_MEW
+	disappear SAFARINORTH_MEW
+
+ .done
+ closetext
+	end
+
+
+SafariZoneNorthMewMewText:
+	text "It looks"
+	line "as if it has"
+
+	para "enjoyed its"
+	line "game immensely."
+
+	para "..."
+
+	para "It looks at you"
+	line "with intent."
+
+	para "Invite it to"
+	line "join your"
+	cont "party?"
+	done
+
 SafariZoneNorth_MapEvents:
 	db 0, 0 ; filler
 
@@ -215,3 +263,4 @@ SafariZoneNorth_MapEvents:
 	object_event  42, 07, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, SafariTinaScript, -1
 	object_event  14, 09, SPRITE_TAUROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Tauros, -1
 	object_event  16, 44, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Rhydon, -1
+	object_event  35, 30, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariZoneNorthMew, EVENT_CAUGHT_SAFARI_MEW

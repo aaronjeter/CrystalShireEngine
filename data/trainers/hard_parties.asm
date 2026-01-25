@@ -6636,6 +6636,22 @@ ExecutiveFGroupHard:
 	dw PECK, PURSUIT, HAZE, NO_MOVE
 	db -1 ; end
 
+	next_list_item ; EXECUTIVEF (3) Safari Zone Executive
+	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db 9
+	dw RHYDON
+	db 9
+	dw VILEPLUME
+	db 9
+	dw EXEGGUTOR
+	db 9
+	dw DYNABEA
+	db 9
+	dw FERALIGATR2
+	db 12
+	dw ABSOLX
+	db -1 ; end
+
 	end_list_items
 
 SageGroupHard:

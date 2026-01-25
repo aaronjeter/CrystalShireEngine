@@ -6,11 +6,22 @@
 	const SAFARIWEST_CHANDLER
 	const SAFARIWEST_ROSS
 	const SAFARIWEST_FARFETCH_D
+	const SAFARIWEST_FAKE_MEW
 
 SafariZoneWest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, SafariZoneWestCallback
+
+SafariZoneWestCallback:
+	checkevent EVENT_BEAT_SAFARI_ROCKETS
+	iffalse .hideMew
+	endcallback
+
+.hideMew
+	disappear SAFARIWEST_FAKE_MEW
+	endcallback
 
 SafariGrunt5Script:
 	trainer GRUNTM, SAFARI_GRUNT5, EVENT_BEAT_SAFARI_GRUNT5, SafariGrunt5SeenText, SafariGrunt5BeatenText, 0, .Script
@@ -205,6 +216,22 @@ SafariZoneWest_Farfetched:
 	disappear SAFARIWEST_FARFETCH_D
 	end
 
+SafariZoneWest_FakeMew:
+	cry MEW
+	disappear SAFARIWEST_FAKE_MEW
+	setevent EVENT_SAFARI_WEST_FAKE_MEW
+	opentext 
+	writetext SafariZoneWestMewText
+	waitbutton
+	closetext	
+	end
+
+SafariZoneWestMewText:
+	text "It's just a"
+	line "trick of the"
+	cont "light..."
+	done
+
 SafariZoneWest_MapEvents:
 	db 0, 0 ; filler
 
@@ -230,6 +257,7 @@ SafariZoneWest_MapEvents:
 	object_event  10, 08, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, SafariGruntf4Script, EVENT_BEAT_SAFARI_GRUNTF4
 	object_event  06, 06, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 2, SafariGruntf5Script, EVENT_BEAT_SAFARI_GRUNTF5
 	object_event  14, 18, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_TRAINER, 4, SafariJoeyScript, -1
-	object_event  11, 22, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 2, SafariChandlerScript, -1
+	object_event  11, 22, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SafariChandlerScript, -1
 	object_event  17, 26, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, SafariRossScript, -1
 	object_event  06, 17, SPRITE_FARFETCH_D, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariZoneWest_Farfetched, -1
+	object_event  17, 10, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariZoneWest_FakeMew, EVENT_SAFARI_WEST_FAKE_MEW

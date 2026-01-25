@@ -3,12 +3,23 @@
 	const SAFARISOUTH_GRUNTF1
 	const SAFARISOUTH_GRUNT6
 	const SAFARISOUTH_GRUNT7
-	const SAFARINORTH_CHANSEY
+	const SAFARISOUTH_CHANSEY
+	const SAFARISOUTH_FAKE_MEW
 
 SafariZoneSouth_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, SafariZoneSouthCallback
+
+SafariZoneSouthCallback:
+	checkevent EVENT_BEAT_SAFARI_ROCKETS
+	iffalse .hideMew
+	endcallback
+
+.hideMew
+	disappear SAFARISOUTH_FAKE_MEW
+	endcallback
 
 
 SafariGrunt1Script:
@@ -146,8 +157,24 @@ SafariZoneSouth_Chansey:
 	loadwildmon CHANSEY, 7
 	startbattle
 	reloadmapafterbattle
-	disappear SAFARINORTH_CHANSEY
+	disappear SAFARISOUTH_CHANSEY
 	end
+
+SafariZoneSouth_FakeMew:
+	cry MEW
+	disappear SAFARISOUTH_FAKE_MEW
+	setevent EVENT_SAFARI_SOUTH_FAKE_MEW
+	opentext 
+	writetext SafariZoneSouthMewText
+	waitbutton
+	closetext
+	end
+
+SafariZoneSouthMewText:
+	text "It's just a"
+	line "trick of the"
+	cont "light..."
+	done
 
 
 SafariZoneSouth_MapEvents:
@@ -178,3 +205,4 @@ SafariZoneSouth_MapEvents:
 	object_event  19, 05, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGrunt6Script, EVENT_BEAT_SAFARI_GRUNT6
 	object_event  05, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGrunt7Script, EVENT_BEAT_SAFARI_GRUNT7
 	object_event  31, 07, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariZoneSouth_Chansey, -1
+	object_event  18, 15, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariZoneSouth_FakeMew, EVENT_SAFARI_SOUTH_FAKE_MEW
