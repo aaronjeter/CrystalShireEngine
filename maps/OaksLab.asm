@@ -17,12 +17,7 @@ Oak:
 	checkevent EVENT_TALKED_TO_OAK_IN_KANTO
 	iftrue .CheckBadges
 	writetext OakWelcomeKantoText
-	promptbutton
-	writetext OakGiveKantoiteText
-	waitbutton
-	verbosegiveitem KANTOITE_X
-	writetext OakExplainsKantoiteText
-	waitbutton
+	promptbutton	
 	setevent EVENT_TALKED_TO_OAK_IN_KANTO
 .CheckBadges:
 	readvar VAR_BADGES
