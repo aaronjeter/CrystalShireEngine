@@ -438,7 +438,7 @@ GoldenrodCity_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodCity.ablk"
 
 OlivineCity_Blocks:
-	INCBIN "maps/OlivineCity.ablk"
+	INCBIN "maps/johto/olivine/OlivineCity.ablk"
 
 EcruteakCity_Blocks:
 	INCBIN "maps/johto/ecruteak/EcruteakCity.ablk"
@@ -528,19 +528,19 @@ MountMortarB1F_Blocks:
 	INCBIN "maps/MountMortarB1F.ablk"
 
 IcePath1F_Blocks:
-	INCBIN "maps/IcePath1F.ablk"
+	INCBIN "maps/johto/dungeons/IcePath1F.ablk"
 
 IcePathB1F_Blocks:
-	INCBIN "maps/IcePathB1F.ablk"
+	INCBIN "maps/johto/dungeons/IcePathB1F.ablk"
 
 IcePathB2FMahoganySide_Blocks:
-	INCBIN "maps/IcePathB2FMahoganySide.ablk"
+	INCBIN "maps/johto/dungeons/IcePathB2FMahoganySide.ablk"
 
 IcePathB2FBlackthornSide_Blocks:
-	INCBIN "maps/IcePathB2FBlackthornSide.ablk"
+	INCBIN "maps/johto/dungeons/IcePathB2FBlackthornSide.ablk"
 
 IcePathB3F_Blocks:
-	INCBIN "maps/IcePathB3F.ablk"
+	INCBIN "maps/johto/dungeons/IcePathB3F.ablk"
 
 ArticunoLair_Blocks:
 	INCBIN "maps/johto/dungeons/ArticunoLair.ablk"
@@ -625,7 +625,7 @@ MahoganyGym_Blocks:
 	INCBIN "maps/MahoganyGym.ablk"
 
 OlivineGym_Blocks:
-	INCBIN "maps/OlivineGym.ablk"
+	INCBIN "maps/johto/olivine/OlivineGym.ablk"
 
 CianwoodGym_Blocks:
 	INCBIN "maps/johto/cianwood/CianwoodGym.ablk"
@@ -637,22 +637,22 @@ BlackthornGym2F_Blocks:
 	INCBIN "maps/johto/blackthorn/BlackthornGym2F.ablk"
 
 OlivineLighthouse1F_Blocks:
-	INCBIN "maps/OlivineLighthouse1F.ablk"
+	INCBIN "maps/johto/olivine/OlivineLighthouse1F.ablk"
 
 OlivineLighthouse2F_Blocks:
-	INCBIN "maps/OlivineLighthouse2F.ablk"
+	INCBIN "maps/johto/olivine/OlivineLighthouse2F.ablk"
 
 OlivineLighthouse3F_Blocks:
-	INCBIN "maps/OlivineLighthouse3F.ablk"
+	INCBIN "maps/johto/olivine/OlivineLighthouse3F.ablk"
 
 OlivineLighthouse4F_Blocks:
-	INCBIN "maps/OlivineLighthouse4F.ablk"
+	INCBIN "maps/johto/olivine/OlivineLighthouse4F.ablk"
 
 OlivineLighthouse5F_Blocks:
-	INCBIN "maps/OlivineLighthouse5F.ablk"
+	INCBIN "maps/johto/olivine/OlivineLighthouse5F.ablk"
 
 OlivineLighthouse6F_Blocks:
-	INCBIN "maps/OlivineLighthouse6F.ablk"
+	INCBIN "maps/johto/olivine/OlivineLighthouse6F.ablk"
 
 
 SECTION "Map Blocks 3", ROMX
@@ -664,13 +664,13 @@ SlowpokeWellB2F_Blocks:
 	INCBIN "maps/SlowpokeWellB2F.ablk"
 
 IlexForest_Blocks:
-	INCBIN "maps/IlexForest.ablk"
+	INCBIN "maps/johto/dungeons/IlexForest.ablk"
 
 IlexWest_Blocks:
-	INCBIN "maps/IlexWest.ablk"
+	INCBIN "maps/johto/dungeons/IlexWest.ablk"
 
 IlexEast_Blocks:
-	INCBIN "maps/IlexEast.ablk"
+	INCBIN "maps/johto/dungeons/IlexEast.ablk"
 
 ViridianForest_Blocks:
 	INCBIN "maps/hoenn/ViridianForest.ablk"
@@ -718,14 +718,14 @@ FastShipCabins_SE_SSE_CaptainsCabin_Blocks:
 	INCBIN "maps/FastShipCabins_SE_SSE_CaptainsCabin.ablk"
 
 OlivinePort_Blocks:
-	INCBIN "maps/OlivinePort.ablk"
+	INCBIN "maps/johto/olivine/OlivinePort.ablk"
 
 VermilionPort_Blocks:
 	INCBIN "maps/VermilionPort.ablk"
 
 OlivineCafe_Blocks:
 SafariZoneMainOffice_Blocks:
-	INCBIN "maps/OlivineCafe.ablk"
+	INCBIN "maps/johto/olivine/OlivineCafe.ablk"
 
 PlayersHouse2F_Blocks:
 	INCBIN "maps/PlayersHouse2F.ablk"
@@ -862,10 +862,10 @@ WiseTriosRoom_Blocks:
 	INCBIN "maps/WiseTriosRoom.ablk"
 
 DragonsDen1F_Blocks:
-	INCBIN "maps/DragonsDen1F.ablk"
+	INCBIN "maps/johto/dungeons/DragonsDen1F.ablk"
 
 DragonsDenB1F_Blocks:
-	INCBIN "maps/DragonsDenB1F.ablk"
+	INCBIN "maps/johto/dungeons/DragonsDenB1F.ablk"
 
 TohjoFalls_Blocks:
 	INCBIN "maps/TohjoFalls.ablk"
@@ -889,7 +889,7 @@ RuinsOfAlphAerodactylWordRoom_Blocks:
 	INCBIN "maps/RuinsOfAlphAerodactylWordRoom.ablk"
 
 DragonShrine_Blocks:
-	INCBIN "maps/DragonShrine.ablk"
+	INCBIN "maps/johto/dungeons/DragonShrine.ablk"
 
 BattleTower1F_Blocks:
 	INCBIN "maps/johto/battletower/BattleTower1F.ablk"
