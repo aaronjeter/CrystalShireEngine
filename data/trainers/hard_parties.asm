@@ -5046,7 +5046,7 @@ Rival2GroupHard:
 	db -1 ; end
 
 	next_list_item ; RIVAL2 (5)
-	db "?@", TRAINERTYPE_MOVES
+	db "?@", TRAINERTYPE_NORMAL
 	db 10
 	dw WEAVILE
 	db 10
@@ -5062,7 +5062,7 @@ Rival2GroupHard:
 	db -1 ; end
 
 	next_list_item ; RIVAL2 (6)
-	db "?@", TRAINERTYPE_MOVES
+	db "?@", TRAINERTYPE_NORMAL
 	db 10
 	dw WEAVILE
 	db 10
