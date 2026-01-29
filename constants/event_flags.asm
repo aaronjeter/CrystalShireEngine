@@ -375,6 +375,7 @@
 	const EVENT_BEAT_ROUTE117_AISHA
 	const EVENT_BEAT_ROUTE117_LYDIA
 
+	const EVENT_STARTED_RADIO_ROCKETS
 ; Unused: next 320 events
 
 	const_next 600
