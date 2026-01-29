@@ -56,6 +56,7 @@ StdScripts::
 	add_stdscript PCScript
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
+	add_stdscript UpdateWorldLevelsScript
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -307,6 +308,7 @@ GoldenrodRocketsScript:
 
 RadioTowerRocketsScript:
 	setflag ENGINE_ROCKETS_IN_RADIO_TOWER
+	setevent EVENT_STARTED_RADIO_ROCKETS
 	setevent EVENT_GOLDENROD_CITY_CIVILIANS
 	setevent EVENT_RADIO_TOWER_BLACKBELT_BLOCKS_STAIRS
 	clearevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
@@ -1919,3 +1921,150 @@ Movement_ContestResults_WalkAfterWarp:
 	step DOWN
 	turn_head UP
 	step_end
+
+UpdateWorldLevelsScript:
+
+	;sjump .done
+
+	readvar VAR_BADGES
+
+	ifequal 0, .NoBadges
+	ifequal 1, .1Badge
+	ifequal 2, .2Badge
+	ifequal 3, .3Badge
+	ifequal 4, .4Badge
+	ifequal 5, .5Badge
+	ifequal 6, .6Badge
+	ifequal 7, .7Badge
+	ifequal 8, .8Badge
+	ifequal 9, .9Badge
+	ifequal 10, .10Badge
+	ifequal 11, .11Badge
+	ifequal 12, .12Badge
+	ifequal 13, .13Badge
+	ifequal 14, .14Badge
+	ifequal 15, .15Badge
+	ifequal 16, .16Badge
+	ifequal 17, .17Badge
+	ifequal 18, .18Badge
+	ifequal 19, .19Badge
+	ifequal 20, .20Badge
+	ifequal 21, .21Badge
+	ifequal 22, .22Badge
+	ifequal 23, .23Badge
+	ifequal 24, .24Badge
+
+.NoBadges
+	setval 0	
+	sjump .checkEvents
+.1Badge
+	setval 4
+	sjump .checkEvents
+.2Badge
+	setval 8
+	sjump .checkEvents
+.3Badge
+	setval 12
+	sjump .checkEvents
+.4Badge
+	setval 16
+	sjump .checkEvents
+.5Badge
+	setval 20
+	sjump .checkEvents
+.6Badge
+	setval 24
+	sjump .checkEvents
+.7Badge
+	setval 28
+	sjump .checkEvents
+.8Badge
+	setval 32
+	sjump .checkEvents
+.9Badge
+	setval 34
+	sjump .checkEvents
+.10Badge
+	setval 36
+	sjump .checkEvents
+.11Badge
+	setval 38
+	sjump .checkEvents
+.12Badge
+	setval 40
+	sjump .checkEvents
+.13Badge
+	setval 42
+	sjump .checkEvents
+.14Badge
+	setval 44
+	sjump .checkEvents
+.15Badge
+	setval 46
+	sjump .checkEvents
+.16Badge
+	setval 48
+	sjump .checkEvents
+.17Badge
+	setval 50
+	sjump .checkEvents
+.18Badge
+	setval 52
+	sjump .checkEvents
+.19Badge
+	setval 54
+	sjump .checkEvents
+.20Badge
+	setval 56
+	sjump .checkEvents
+.21Badge
+	setval 58
+	sjump .checkEvents
+.22Badge
+	setval 60
+	sjump .checkEvents
+.23Badge
+	setval 62
+	sjump .checkEvents
+.24Badge
+	setval 64
+	sjump .checkEvents
+
+.checkEvents
+	writemem wLevelMod
+
+	checkevent EVENT_DECIDED_TO_HELP_LANCE
+	iffalse .skipMahoganyRockets
+	readmem wLevelMod
+	addval 2
+	writemem wLevelMod
+
+.skipMahoganyRockets
+
+	checkevent EVENT_STARTED_RADIO_ROCKETS
+	iffalse .skipRadioRockets
+	readmem wLevelMod
+	addval 2
+	writemem wLevelMod
+
+.skipRadioRockets
+
+.setLevels
+
+	readmem wLevelMod
+	addval 1
+	writemem wWildLevel ;base wWildLevel = 1
+
+	readmem wLevelMod
+	addval 5
+	writemem wBaseLevel ;base wBaseLevel = 5
+
+	checkevent EVENT_LEVELCAPS_ENABLED
+	iffalse .done 
+
+	readmem wLevelMod
+	addval 16
+	writemem wLevelCap ;base wLevelCap = 16
+
+.done
+	end

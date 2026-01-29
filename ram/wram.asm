@@ -2871,7 +2871,7 @@ wTiffanyFightCount:: db
 wVanceFightCount::   db
 wWiltonFightCount::  db
 wParryFightCount::   db
-wErinFightCount::    db
+wLevelMod::          db
 wUsingLevelCap::     db
 wLevelCap::          db 
 wBaseLevel::         db 
