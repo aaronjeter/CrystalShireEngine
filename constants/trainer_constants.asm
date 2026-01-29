@@ -904,6 +904,8 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass WINONA
 	const WINONA1
+	const WINONA2
+	const WINONA3
 
 	trainerclass TATELIZA
 	const TATELIZA1

@@ -7834,14 +7834,44 @@ NormanGroup:
 	end_list_items
 
 WinonaGroup:
-	next_list_item; WINONA (1) Unreferenced
+	next_list_item; WINONA (1) Fortree Gym Easy
 	db "WINONA@", TRAINERTYPE_NORMAL
+	db 8
+	dw SWELLOW
+	db 8
+	dw PELIPPER
+	db 9
+	dw ALTARIA
+	db -1 ; end
+
+	next_list_item; WINONA (2) Fortree Gym Medium
+	db "WINONA@", TRAINERTYPE_NORMAL
+	db 8
+	dw SWELLOW
+	db 8
+	dw PELIPPER
+	db 9
+	dw SKARMORY
+	db 9
+	dw TROPIUS
 	db 10
-	dw CHIKORITA
+	dw ALTARIA
+	db -1 ; end
+
+	next_list_item; WINONA (3) Fortree Gym Hard
+	db "WINONA@", TRAINERTYPE_NORMAL
+	db 8
+	dw SWELLOW
+	db 8
+	dw PELIPPER
+	db 9
+	dw SKARMORY
+	db 9
+	dw TROPIUS
 	db 10
-	dw CYNDAQUIL
-	db 10
-	dw TOTODILE
+	dw TOGEKISS
+	db 11
+	dw ALTARIAX
 	db -1 ; end
 
 	end_list_items

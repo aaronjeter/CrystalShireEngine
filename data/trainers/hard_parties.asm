@@ -7885,14 +7885,56 @@ NormanGroupHard:
 	end_list_items
 
 WinonaGroupHard:
-	next_list_item; WINONA (1) Unreferenced
+	next_list_item; WINONA (1) Fortree Gym Easy
+	db "WINONA@", TRAINERTYPE_NORMAL
+	db 9
+	dw SWELLOW
+	db 9
+	dw PELIPPER
+	db 10
+	dw ALTARIA
+	db -1 ; end
+
+	next_list_item; WINONA (2) Fortree Gym Medium
 	db "WINONA@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw SWELLOW
 	db 10
-	dw CYNDAQUIL
+	dw PELIPPER
 	db 10
-	dw TOTODILE
+	dw SKARMORY
+	db 11
+	dw TROPIUS
+	db 12
+	dw ALTARIA
+	db -1 ; end
+
+	next_list_item; WINONA (3) Fortree Gym Hard
+	db "WINONA@", TRAINERTYPE_ITEM_MOVES
+	db 11
+	dw PELIPPER
+	dw QUICK_CLAW
+	dw HURRICANE, RAIN_DANCE, HYDRO_PUMP, BLIZZARD	
+	db 11
+	dw SWELLOW
+	dw SHARP_BEAK
+	dw DRILL_PECK, HURRICANE, MUD_SLAP, STEEL_WING		
+	db 11
+	dw SKARMORY
+	dw LEFTOVERS
+	dw VICEGRIP, FLY, HURRICANE, WHIRLWIND	
+	db 11
+	dw TROPIUS
+	dw MIRACLEBERRY
+	dw HURRICANE, WHIRLWIND, GIGA_DRAIN, STUN_SPORE	
+	db 12
+	dw TOGEKISS
+	dw SHARP_BEAK
+	dw HURRICANE, RAIN_DANCE, THUNDER, MIST_BALL	
+	db 13
+	dw ALTARIAX
+	dw LEFTOVERS
+	dw DRAGON_DANCE, EARTHQUAKE, PLAY_ROUGH, SKY_ATTACK	
 	db -1 ; end
 
 	end_list_items
