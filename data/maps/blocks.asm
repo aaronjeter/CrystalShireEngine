@@ -19,7 +19,7 @@ CeladonCity_Blocks:
 	INCBIN "maps/kanto/celadon/CeladonCity.ablk"
 
 SaffronCity_Blocks:
-	INCBIN "maps/SaffronCity.ablk"
+	INCBIN "maps/kanto/saffron/SaffronCity.ablk"
 
 Route2_Blocks:
 	INCBIN "maps/kanto/routes/Route2.ablk"
@@ -68,10 +68,10 @@ Route37_Blocks:
 	INCBIN "maps/Route37.ablk"
 
 LavenderTown_Blocks:
-	INCBIN "maps/LavenderTown.ablk"
+	INCBIN "maps/kanto/lavender/LavenderTown.ablk"
 
 PalletTown_Blocks:
-	INCBIN "maps/PalletTown.ablk"
+	INCBIN "maps/kanto/pallet/PalletTown.ablk"
 
 Route25_Blocks:
 	INCBIN "maps/Route25.ablk"
@@ -80,10 +80,10 @@ Route24_Blocks:
 	INCBIN "maps/Route24.ablk"
 
 Route3_Blocks:
-	INCBIN "maps/Route3.ablk"
+	INCBIN "maps/kanto/routes/Route3.ablk"
 
 PewterCity_Blocks:
-	INCBIN "maps/PewterCity.ablk"
+	INCBIN "maps/kanto/pewter/PewterCity.ablk"
 
 Route12_Blocks:
 	INCBIN "maps/Route12.ablk"
@@ -107,7 +107,7 @@ Route46_Blocks:
 	INCBIN "maps/Route46.ablk"
 
 FuchsiaCity_Blocks:
-	INCBIN "maps/FuchsiaCity.ablk"
+	INCBIN "maps/kanto/fuchsia/FuchsiaCity.ablk"
 
 Route38_Blocks:
 	INCBIN "maps/Route38.ablk"
@@ -182,13 +182,13 @@ CinnabarIsland_Blocks:
 	INCBIN "maps/kanto/cinnabar/CinnabarIsland.ablk"
 
 Route4_Blocks:
-	INCBIN "maps/Route4.ablk"
+	INCBIN "maps/kanto/routes/Route4.ablk"
 
 Route8_Blocks:
 	INCBIN "maps/Route8.ablk"
 
 ViridianCity_Blocks:
-	INCBIN "maps/ViridianCity.ablk"
+	INCBIN "maps/kanto/viridian/ViridianCity.ablk"
 
 Route13_Blocks:
 	INCBIN "maps/Route13.ablk"
@@ -230,7 +230,7 @@ Route31VioletGate_Blocks:
 	INCBIN "maps/EastWestGate.ablk"
 
 VermilionCity_Blocks:
-	INCBIN "maps/VermilionCity.ablk"
+	INCBIN "maps/kanto/vermilion/VermilionCity.ablk"
 
 ElmsLab_Blocks:
 	INCBIN "maps/johto/newbark/ElmsLab.ablk"
@@ -242,7 +242,7 @@ Route1_Blocks:
 	INCBIN "maps/kanto/routes/Route1.ablk"
 
 Route5_Blocks:
-	INCBIN "maps/Route5.ablk"
+	INCBIN "maps/kanto/routes/Route5.ablk"
 
 Route9_Blocks:
 	INCBIN "maps/Route9.ablk"
@@ -360,13 +360,13 @@ VioletKylesHouse_Blocks:
 	INCBIN "maps/House2.ablk"
 
 UnionCaveB1F_Blocks:
-	INCBIN "maps/UnionCaveB1F.ablk"
+	INCBIN "maps/johto/dungeons/UnionCaveB1F.ablk"
 
 UnionCaveB2F_Blocks:
-	INCBIN "maps/UnionCaveB2F.ablk"
+	INCBIN "maps/johto/dungeons/UnionCaveB2F.ablk"
 
 UnionCave1F_Blocks:
-	INCBIN "maps/UnionCave1F.ablk"
+	INCBIN "maps/johto/dungeons/UnionCave1F.ablk"
 
 NationalPark_Blocks:
 NationalParkBugContest_Blocks:
@@ -384,40 +384,40 @@ GoldenrodMagnetTrainStation_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodMagnetTrainStation.ablk"
 
 RuinsOfAlphOutside_Blocks:
-	INCBIN "maps/RuinsOfAlphOutside.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphOutside.ablk"
 
 RuinsOfAlphInnerChamber_Blocks:
-	INCBIN "maps/RuinsOfAlphInnerChamber.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphInnerChamber.ablk"
 
 RuinsOfAlphHoOhChamber_Blocks:
 RuinsOfAlphKabutoChamber_Blocks:
 RuinsOfAlphOmanyteChamber_Blocks:
 RuinsOfAlphAerodactylChamber_Blocks:
-	INCBIN "maps/RuinsOfAlphPuzzleChamber.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphPuzzleChamber.ablk"
 
 SproutTower1F_Blocks:
-	INCBIN "maps/SproutTower1F.ablk"
+	INCBIN "maps/johto/violet/SproutTower1F.ablk"
 
 SproutTower2F_Blocks:
-	INCBIN "maps/SproutTower2F.ablk"
+	INCBIN "maps/johto/violet/SproutTower2F.ablk"
 
 SproutTower3F_Blocks:
-	INCBIN "maps/SproutTower3F.ablk"
+	INCBIN "maps/johto/violet/SproutTower3F.ablk"
 
 RadioTower1F_Blocks:
-	INCBIN "maps/RadioTower1F.ablk"
+	INCBIN "maps/johto/goldenrod/RadioTower1F.ablk"
 
 RadioTower2F_Blocks:
-	INCBIN "maps/RadioTower2F.ablk"
+	INCBIN "maps/johto/goldenrod/RadioTower2F.ablk"
 
 RadioTower3F_Blocks:
-	INCBIN "maps/RadioTower3F.ablk"
+	INCBIN "maps/johto/goldenrod/RadioTower3F.ablk"
 
 RadioTower4F_Blocks:
-	INCBIN "maps/RadioTower4F.ablk"
+	INCBIN "maps/johto/goldenrod/RadioTower4F.ablk"
 
 RadioTower5F_Blocks:
-	INCBIN "maps/RadioTower5F.ablk"
+	INCBIN "maps/johto/goldenrod/RadioTower5F.ablk"
 
 NewBarkTown_Blocks:
 	INCBIN "maps/johto/newbark/NewBarkTown.ablk"
@@ -426,7 +426,7 @@ CherrygroveCity_Blocks:
 	INCBIN "maps/johto/cherrygrove/CherrygroveCity.ablk"
 
 VioletCity_Blocks:
-	INCBIN "maps/VioletCity.ablk"
+	INCBIN "maps/johto/violet/VioletCity.ablk"
 
 AzaleaTown_Blocks:
 	INCBIN "maps/johto/azalea/AzaleaTown.ablk"
@@ -444,16 +444,16 @@ EcruteakCity_Blocks:
 	INCBIN "maps/johto/ecruteak/EcruteakCity.ablk"
 
 MahoganyTown_Blocks:
-	INCBIN "maps/MahoganyTown.ablk"
+	INCBIN "maps/johto/mahogany/MahoganyTown.ablk"
 
 LakeOfRage_Blocks:
-	INCBIN "maps/LakeOfRage.ablk"
+	INCBIN "maps/johto/rage/LakeOfRage.ablk"
 
 BlackthornCity_Blocks:
 	INCBIN "maps/johto/blackthorn/BlackthornCity.ablk"
 
 SilverCaveOutside_Blocks:
-	INCBIN "maps/SilverCaveOutside.ablk"
+	INCBIN "maps/johto/silver/SilverCaveOutside.ablk"
 
 Route6_Blocks:
 	INCBIN "maps/Route6.ablk"
@@ -480,34 +480,34 @@ GoldenrodUndergroundWarehouse_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodUndergroundWarehouse.ablk"
 
 TinTower1F_Blocks:
-	INCBIN "maps/TinTower1F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower1F.ablk"
 
 TinTower2F_Blocks:
-	INCBIN "maps/TinTower2F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower2F.ablk"
 
 TinTower3F_Blocks:
-	INCBIN "maps/TinTower3F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower3F.ablk"
 
 TinTower4F_Blocks:
-	INCBIN "maps/TinTower4F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower4F.ablk"
 
 TinTower5F_Blocks:
-	INCBIN "maps/TinTower5F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower5F.ablk"
 
 TinTower6F_Blocks:
-	INCBIN "maps/TinTower6F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower6F.ablk"
 
 TinTower7F_Blocks:
-	INCBIN "maps/TinTower7F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower7F.ablk"
 
 TinTower8F_Blocks:
-	INCBIN "maps/TinTower8F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower8F.ablk"
 
 TinTower9F_Blocks:
-	INCBIN "maps/TinTower9F.ablk"
+	INCBIN "maps/johto/ecruteak/TinTower9F.ablk"
 
 TinTowerRoof_Blocks:
-	INCBIN "maps/TinTowerRoof.ablk"
+	INCBIN "maps/johto/ecruteak/TinTowerRoof.ablk"
 
 BurnedTower1F_Blocks:
 	INCBIN "maps/johto/ecruteak/BurnedTower1F.ablk"
@@ -516,16 +516,16 @@ BurnedTowerB1F_Blocks:
 	INCBIN "maps/johto/ecruteak/BurnedTowerB1F.ablk"
 
 MountMortar1FOutside_Blocks:
-	INCBIN "maps/MountMortar1FOutside.ablk"
+	INCBIN "maps/johto/dungeons/MountMortar1FOutside.ablk"
 
 MountMortar1FInside_Blocks:
-	INCBIN "maps/MountMortar1FInside.ablk"
+	INCBIN "maps/johto/dungeons/MountMortar1FInside.ablk"
 
 MountMortar2FInside_Blocks:
-	INCBIN "maps/MountMortar2FInside.ablk"
+	INCBIN "maps/johto/dungeons/MountMortar2FInside.ablk"
 
 MountMortarB1F_Blocks:
-	INCBIN "maps/MountMortarB1F.ablk"
+	INCBIN "maps/johto/dungeons/MountMortarB1F.ablk"
 
 IcePath1F_Blocks:
 	INCBIN "maps/johto/dungeons/IcePath1F.ablk"
@@ -549,50 +549,50 @@ MoltresLair_Blocks:
 	INCBIN "maps/johto/dungeons/MoltresLair.ablk"
 
 WhirlIslandNW_Blocks:
-	INCBIN "maps/WhirlIslandNW.ablk"
+	INCBIN "maps/johto/dungeons/WhirlIslandNW.ablk"
 
 WhirlIslandNE_Blocks:
-	INCBIN "maps/WhirlIslandNE.ablk"
+	INCBIN "maps/johto/dungeons/WhirlIslandNE.ablk"
 
 WhirlIslandSW_Blocks:
-	INCBIN "maps/WhirlIslandSW.ablk"
+	INCBIN "maps/johto/dungeons/WhirlIslandSW.ablk"
 
 WhirlIslandCave_Blocks:
-	INCBIN "maps/WhirlIslandCave.ablk"
+	INCBIN "maps/johto/dungeons/WhirlIslandCave.ablk"
 
 WhirlIslandSE_Blocks:
-	INCBIN "maps/WhirlIslandSE.ablk"
+	INCBIN "maps/johto/dungeons/WhirlIslandSE.ablk"
 
 WhirlIslandB1F_Blocks:
-	INCBIN "maps/WhirlIslandB1F.ablk"
+	INCBIN "maps/johto/dungeons/WhirlIslandB1F.ablk"
 
 WhirlIslandB2F_Blocks:
-	INCBIN "maps/WhirlIslandB2F.ablk"
+	INCBIN "maps/johto/dungeons/WhirlIslandB2F.ablk"
 
 WhirlIslandLugiaChamber_Blocks:
-	INCBIN "maps/WhirlIslandLugiaChamber.ablk"
+	INCBIN "maps/johto/dungeons/WhirlIslandLugiaChamber.ablk"
 
 SilverCaveRoom1_Blocks:
-	INCBIN "maps/SilverCaveRoom1.ablk"
+	INCBIN "maps/johto/silver/SilverCaveRoom1.ablk"
 
 SilverCaveRoom2_Blocks:
-	INCBIN "maps/SilverCaveRoom2.ablk"
+	INCBIN "maps/johto/silver/SilverCaveRoom2.ablk"
 
 SilverCaveRoom3_Blocks:
-	INCBIN "maps/SilverCaveRoom3.ablk"
+	INCBIN "maps/johto/silver/SilverCaveRoom3.ablk"
 
 MahoganyMart1F_Blocks:
 MountMoonGiftShop_Blocks:
 	INCBIN "maps/GiftShop.ablk"
 
 TeamRocketBaseB1F_Blocks:
-	INCBIN "maps/TeamRocketBaseB1F.ablk"
+	INCBIN "maps/johto/mahogany/TeamRocketBaseB1F.ablk"
 
 TeamRocketBaseB2F_Blocks:
-	INCBIN "maps/TeamRocketBaseB2F.ablk"
+	INCBIN "maps/johto/mahogany/TeamRocketBaseB2F.ablk"
 
 TeamRocketBaseB3F_Blocks:
-	INCBIN "maps/TeamRocketBaseB3F.ablk"
+	INCBIN "maps/johto/mahogany/TeamRocketBaseB3F.ablk"
 
 IndigoPlateauPokecenter1F_Blocks:
 	INCBIN "maps/kanto/indigo/IndigoPlateauPokecenter1F.ablk"
@@ -613,7 +613,7 @@ AzaleaGym_Blocks:
 	INCBIN "maps/johto/azalea/AzaleaGym.ablk"
 
 VioletGym_Blocks:
-	INCBIN "maps/VioletGym.ablk"
+	INCBIN "maps/johto/violet/VioletGym.ablk"
 
 GoldenrodGym_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodGym.ablk"
@@ -622,7 +622,7 @@ EcruteakGym_Blocks:
 	INCBIN "maps/johto/ecruteak/EcruteakGym.ablk"
 
 MahoganyGym_Blocks:
-	INCBIN "maps/MahoganyGym.ablk"
+	INCBIN "maps/johto/mahogany/MahoganyGym.ablk"
 
 OlivineGym_Blocks:
 	INCBIN "maps/johto/olivine/OlivineGym.ablk"
@@ -658,10 +658,10 @@ OlivineLighthouse6F_Blocks:
 SECTION "Map Blocks 3", ROMX
 
 SlowpokeWellB1F_Blocks:
-	INCBIN "maps/SlowpokeWellB1F.ablk"
+	INCBIN "maps/johto/dungeons/SlowpokeWellB1F.ablk"
 
 SlowpokeWellB2F_Blocks:
-	INCBIN "maps/SlowpokeWellB2F.ablk"
+	INCBIN "maps/johto/dungeons/SlowpokeWellB2F.ablk"
 
 IlexForest_Blocks:
 	INCBIN "maps/johto/dungeons/IlexForest.ablk"
@@ -682,7 +682,7 @@ DarkCaveBlackthornEntrance_Blocks:
 	INCBIN "maps/johto/dungeons/DarkCaveBlackthornEntrance.ablk"
 
 RuinsOfAlphResearchCenter_Blocks:
-	INCBIN "maps/RuinsOfAlphResearchCenter.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphResearchCenter.ablk"
 
 GoldenrodBikeShop_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodBikeShop.ablk"
@@ -721,7 +721,7 @@ OlivinePort_Blocks:
 	INCBIN "maps/johto/olivine/OlivinePort.ablk"
 
 VermilionPort_Blocks:
-	INCBIN "maps/VermilionPort.ablk"
+	INCBIN "maps/kanto/vermilion/VermilionPort.ablk"
 
 OlivineCafe_Blocks:
 SafariZoneMainOffice_Blocks:
@@ -731,65 +731,65 @@ PlayersHouse2F_Blocks:
 	INCBIN "maps/PlayersHouse2F.ablk"
 
 SaffronMagnetTrainStation_Blocks:
-	INCBIN "maps/SaffronMagnetTrainStation.ablk"
+	INCBIN "maps/kanto/saffron/SaffronMagnetTrainStation.ablk"
 
 CeruleanGym_Blocks:
 	INCBIN "maps/kanto/cerulean/CeruleanGym.ablk"
 
 VermilionGym_Blocks:
-	INCBIN "maps/VermilionGym.ablk"
+	INCBIN "maps/kanto/vermilion/VermilionGym.ablk"
 
 SaffronGym_Blocks:
-	INCBIN "maps/SaffronGym.ablk"
+	INCBIN "maps/kanto/saffron/SaffronGym.ablk"
 
 PowerPlant_Blocks:
 	INCBIN "maps/PowerPlant.ablk"
 
 PokemonFanClub_Blocks:
 SafariZoneWardensHome_Blocks:
-	INCBIN "maps/PokemonFanClub.ablk"
+	INCBIN "maps/kanto/vermilion/PokemonFanClub.ablk"
 
 FightingDojo_Blocks:
 	INCBIN "maps/kanto/saffron/FightingDojo.ablk"
 
 SilphCo1F_Blocks:
-	INCBIN "maps/SilphCo1F.ablk"
+	INCBIN "maps/kanto/saffron/SilphCo1F.ablk"
 
 ViridianGym_Blocks:
-	INCBIN "maps/ViridianGym.ablk"
+	INCBIN "maps/kanto/viridian/ViridianGym.ablk"
 
 TrainerHouse1F_Blocks:
-	INCBIN "maps/TrainerHouse1F.ablk"
+	INCBIN "maps/kanto/viridian/TrainerHouse1F.ablk"
 
 TrainerHouseB1F_Blocks:
-	INCBIN "maps/TrainerHouseB1F.ablk"
+	INCBIN "maps/kanto/viridian/TrainerHouseB1F.ablk"
 
 RedsHouse1F_Blocks:
-	INCBIN "maps/RedsHouse1F.ablk"
+	INCBIN "maps/kanto/pallet/RedsHouse1F.ablk"
 
 RedsHouse2F_Blocks:
-	INCBIN "maps/RedsHouse2F.ablk"
+	INCBIN "maps/kanto/pallet/RedsHouse2F.ablk"
 
 OaksLab_Blocks:
-	INCBIN "maps/OaksLab.ablk"
+	INCBIN "maps/kanto/pallet/OaksLab.ablk"
 
 MrFujisHouse_Blocks:
-	INCBIN "maps/MrFujisHouse.ablk"
+	INCBIN "maps/kanto/lavender/MrFujisHouse.ablk"
 
 LavRadioTower1F_Blocks:
-	INCBIN "maps/LavRadioTower1F.ablk"
+	INCBIN "maps/kanto/lavender/LavRadioTower1F.ablk"
 
 SilverCaveItemRooms_Blocks:
-	INCBIN "maps/SilverCaveItemRooms.ablk"
+	INCBIN "maps/johto/silver/SilverCaveItemRooms.ablk"
 
 DayCare_Blocks:
 	INCBIN "maps/DayCare.ablk"
 
 SoulHouse_Blocks:
-	INCBIN "maps/SoulHouse.ablk"
+	INCBIN "maps/kanto/lavender/SoulHouse.ablk"
 
 PewterGym_Blocks:
-	INCBIN "maps/PewterGym.ablk"
+	INCBIN "maps/kanto/pewter/PewterGym.ablk"
 
 CeladonGym_Blocks:
 	INCBIN "maps/kanto/celadon/CeladonGym.ablk"
@@ -798,10 +798,10 @@ CeladonCafe_Blocks:
 	INCBIN "maps/kanto/celadon/CeladonCafe.ablk"
 
 RockTunnel1F_Blocks:
-	INCBIN "maps/RockTunnel1F.ablk"
+	INCBIN "maps/kanto/dungeons/RockTunnel1F.ablk"
 
 RockTunnelB1F_Blocks:
-	INCBIN "maps/RockTunnelB1F.ablk"
+	INCBIN "maps/kanto/dungeons/RockTunnelB1F.ablk"
 
 DiglettsCave_Blocks:
 	INCBIN "maps/kanto/dungeons/DiglettsCave.ablk"
@@ -813,17 +813,17 @@ SeafoamGym_Blocks:
 	INCBIN "maps/SeafoamGym.ablk"
 
 MrPokemonsHouse_Blocks:
-	INCBIN "maps/MrPokemonsHouse.ablk"
+	INCBIN "maps/johto/routes/MrPokemonsHouse.ablk"
 
 VictoryRoadGate_Blocks:
-	INCBIN "maps/VictoryRoadGate.ablk"
+	INCBIN "maps/kanto/dungeons/VictoryRoadGate.ablk"
 
 OlivinePortPassage_Blocks:
 VermilionPortPassage_Blocks:
 	INCBIN "maps/PortPassage.ablk"
 
 FuchsiaGym_Blocks:
-	INCBIN "maps/FuchsiaGym.ablk"
+	INCBIN "maps/kanto/fuchsia/FuchsiaGym.ablk"
 
 SafariZoneBeta_Blocks:
 	INCBIN "maps/SafariZoneBeta.ablk"
@@ -835,7 +835,7 @@ Route39Barn_Blocks:
 	INCBIN "maps/Route39Barn.ablk"
 
 VictoryRoad_Blocks:
-	INCBIN "maps/VictoryRoad.ablk"
+	INCBIN "maps/kanto/dungeons/VictoryRoad.ablk"
 
 Route23_Blocks:
 	INCBIN "maps/Route23.ablk"
@@ -859,7 +859,7 @@ MountMoonSquare_Blocks:
 	INCBIN "maps/kanto/dungeons/MountMoonSquare.ablk"
 
 WiseTriosRoom_Blocks:
-	INCBIN "maps/WiseTriosRoom.ablk"
+	INCBIN "maps/johto/ecruteak/WiseTriosRoom.ablk"
 
 DragonsDen1F_Blocks:
 	INCBIN "maps/johto/dungeons/DragonsDen1F.ablk"
@@ -868,25 +868,25 @@ DragonsDenB1F_Blocks:
 	INCBIN "maps/johto/dungeons/DragonsDenB1F.ablk"
 
 TohjoFalls_Blocks:
-	INCBIN "maps/TohjoFalls.ablk"
+	INCBIN "maps/kanto/dungeons/TohjoFalls.ablk"
 
 RuinsOfAlphHoOhItemRoom_Blocks:
 RuinsOfAlphKabutoItemRoom_Blocks:
 RuinsOfAlphOmanyteItemRoom_Blocks:
 RuinsOfAlphAerodactylItemRoom_Blocks:
-	INCBIN "maps/RuinsOfAlphItemRoom.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphItemRoom.ablk"
 
 RuinsOfAlphHoOhWordRoom_Blocks:
-	INCBIN "maps/RuinsOfAlphHoOhWordRoom.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphHoOhWordRoom.ablk"
 
 RuinsOfAlphKabutoWordRoom_Blocks:
-	INCBIN "maps/RuinsOfAlphKabutoWordRoom.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphKabutoWordRoom.ablk"
 
 RuinsOfAlphOmanyteWordRoom_Blocks:
-	INCBIN "maps/RuinsOfAlphOmanyteWordRoom.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphOmanyteWordRoom.ablk"
 
 RuinsOfAlphAerodactylWordRoom_Blocks:
-	INCBIN "maps/RuinsOfAlphAerodactylWordRoom.ablk"
+	INCBIN "maps/johto/alph/RuinsOfAlphAerodactylWordRoom.ablk"
 
 DragonShrine_Blocks:
 	INCBIN "maps/johto/dungeons/DragonShrine.ablk"
