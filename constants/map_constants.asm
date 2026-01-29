@@ -562,6 +562,10 @@ ENDM
 	map_const LAVARIDGE_POKECENTER,						   07, 04 ;
 	map_const LAVARIDGE_MART,							   06, 04 ;
 	map_const LAVARIDGE_GYM,                               10, 10 ;
+	map_const FORTREE_CITY,                                22, 12 ;
+	map_const FORTREE_POKECENTER,						   07, 04 ;
+	map_const FORTREE_MART,							       06, 04 ;
+	map_const FORTREE_GYM,                                 10, 13 ;
 	map_const ROUTE_101,                                   10, 10 ;  4
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6
@@ -588,6 +592,8 @@ ENDM
 	map_const METEOR_FALLS,                                16, 22 ;
 	map_const ROUTE_118,                                   40, 10 ;
 	map_const NEW_MAUVILLE,		                           22, 22 ;
+	map_const ROUTE_119_SOUTH,                             20, 40 ;
+	map_const ROUTE_119_NORTH,                             20, 40 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

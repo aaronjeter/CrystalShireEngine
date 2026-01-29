@@ -976,6 +976,7 @@ SECTION "Map Blocks 4", ROMX
 	DewfordPokecenter_Blocks:
 	LavaridgePokecenter_Blocks:
 	FallarborPokecenter_Blocks:
+	FortreePokecenter_Blocks:
 	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
 	OldaleMart_Blocks:
@@ -986,6 +987,7 @@ SECTION "Map Blocks 4", ROMX
 	SlateportMart_Blocks:
 	LavaridgeMart_Blocks:
 	FallarborMart_Blocks:
+	FortreeMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
 	BirchsLab_Blocks:
@@ -1102,6 +1104,17 @@ SECTION "Map Blocks 6", ROMX
 
 	NewMauville_Blocks:
 	INCBIN "maps/hoenn/mauville/NewMauville.ablk"
+
+	Route119South_Blocks:
+	INCBIN "maps/hoenn/Route119South.ablk" 
+
+	Route119North_Blocks:
+	INCBIN "maps/hoenn/Route119North.ablk" 
+
+	FortreeCity_Blocks:
+	INCBIN "maps/hoenn/fortree/FortreeCity.ablk"
+	FortreeGym_Blocks:
+	INCBIN "maps/hoenn/fortree/FortreeGym.ablk"
 
 ENDSECTION
 

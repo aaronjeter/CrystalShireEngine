@@ -568,6 +568,12 @@ INCLUDE "maps/hoenn/Route115.asm"
 INCLUDE "maps/hoenn/Route116.asm"
 INCLUDE "maps/hoenn/Route117.asm"
 INCLUDE "maps/hoenn/Route118.asm"
+INCLUDE "maps/hoenn/Route119South.asm" 
+INCLUDE "maps/hoenn/Route119North.asm" 
+INCLUDE "maps/hoenn/fortree/FortreeCity.asm"
+INCLUDE "maps/hoenn/fortree/FortreePokecenter.asm"
+INCLUDE "maps/hoenn/fortree/FortreeMart.asm"
+INCLUDE "maps/hoenn/fortree/FortreeGym.asm"
 
 ENDSECTION
 
