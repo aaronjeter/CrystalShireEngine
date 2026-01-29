@@ -216,6 +216,10 @@ DEF KRIS EQU __trainer_class__
 	const VANCE2
 	const VANCE3
 	const ROUTE105_JOSUE
+	const FORTREE_HUMBERT
+	const FORTREE_JARED
+	const FORTREE_EDWARDO
+	const FORTREE_DARIUS
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -726,6 +730,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE111_BIANCA
 	const ROUTE111_GABBY
 	const ROUTE111_IRENE
+	const FORTREE_ASHLEY
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -755,6 +760,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE108_CAMRON
 	const ROUTE111_TYRON
 	const ROUTE111_TRAVIS
+	const FORTREE_FLINT
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1

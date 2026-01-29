@@ -24,7 +24,7 @@ TrainerClassNames::
 	li "LEADER"
 	li "YOUNGSTER"
 	li "SCHOOLBOY"
-	li "BIRD KEEPER"
+	li "BIRDKEEPER"
 	li "LASS"
 	li "LEADER"
 	li "COOLTRAINER"

@@ -157,6 +157,149 @@ WinonaPostBattleText:
 	line "need a nap!"
 	done
 
+
+FortreeGymHumbertScript:
+	trainer BIRD_KEEPER, FORTREE_HUMBERT, EVENT_BEAT_FORTREE_HUMBERT, FortreeGymHumbertSeenText, FortreeGymHumbertBeatenText, 0, .AfterScript
+
+.AfterScript:
+	endifjustbattled
+	opentext
+	writetext FortreeGymHumbertAfterBattleText
+	waitbutton
+	closetext
+	end
+
+FortreeGymHumbertSeenText:
+	text "Hi"
+	done
+
+FortreeGymHumbertBeatenText:
+	text "Aiyiyi!"
+	done
+
+FortreeGymHumbertAfterBattleText:
+	text "Bye"
+	done
+
+
+FortreeGymJaredScript:
+	trainer BIRD_KEEPER, FORTREE_JARED, EVENT_BEAT_FORTREE_JARED, FortreeGymJaredSeenText, FortreeGymJaredBeatenText, 0, .AfterScript
+
+.AfterScript:
+	endifjustbattled
+	opentext
+	writetext FortreeGymJaredAfterBattleText
+	waitbutton
+	closetext
+	end
+
+FortreeGymJaredSeenText:
+	text "Hi"
+	done
+
+FortreeGymJaredBeatenText:
+	text "Aiyiyi!"
+	done
+
+FortreeGymJaredAfterBattleText:
+	text "Bye"
+	done
+
+
+FortreeGymEdwardoScript:
+	trainer BIRD_KEEPER, FORTREE_EDWARDO, EVENT_BEAT_FORTREE_EDWARDO, FortreeGymEdwardoSeenText, FortreeGymEdwardoBeatenText, 0, .AfterScript
+
+.AfterScript:
+	endifjustbattled
+	opentext
+	writetext FortreeGymEdwardoAfterBattleText
+	waitbutton
+	closetext
+	end
+
+FortreeGymEdwardoSeenText:
+	text "Hi"
+	done
+
+FortreeGymEdwardoBeatenText:
+	text "Aiyiyi!"
+	done
+
+FortreeGymEdwardoAfterBattleText:
+	text "Bye"
+	done
+
+FortreeGymDariusScript:
+	trainer BIRD_KEEPER, FORTREE_DARIUS, EVENT_BEAT_FORTREE_DARIUS, FortreeGymDariusSeenText, FortreeGymDariusBeatenText, 0, .AfterScript
+
+.AfterScript:
+	endifjustbattled
+	opentext
+	writetext FortreeGymDariusAfterBattleText
+	waitbutton
+	closetext
+	end
+
+FortreeGymDariusSeenText:
+	text "Hi"
+	done
+
+FortreeGymDariusBeatenText:
+	text "Aiyiyi!"
+	done
+
+FortreeGymDariusAfterBattleText:
+	text "Bye"
+	done
+
+
+FortreeGymAshleyScript:
+	trainer PICNICKER, FORTREE_ASHLEY, EVENT_BEAT_FORTREE_ASHLEY, FortreeGymAshleySeenText, FortreeGymAshleyBeatenText, 0, .AfterScript
+
+.AfterScript:
+	endifjustbattled
+	opentext
+	writetext FortreeGymAshleyAfterBattleText
+	waitbutton
+	closetext
+	end
+
+FortreeGymAshleySeenText:
+	text "Hi"
+	done
+
+FortreeGymAshleyBeatenText:
+	text "Aiyiyi!"
+	done
+
+FortreeGymAshleyAfterBattleText:
+	text "Bye"
+	done
+
+
+FortreeGymFlintScript:
+	trainer CAMPER, FORTREE_FLINT, EVENT_BEAT_FORTREE_FLINT, FortreeGymFlintSeenText, FortreeGymFlintBeatenText, 0, .AfterScript
+
+.AfterScript:
+	endifjustbattled
+	opentext
+	writetext FortreeGymFlintAfterBattleText
+	waitbutton
+	closetext
+	end
+
+FortreeGymFlintSeenText:
+	text "Hi"
+	done
+
+FortreeGymFlintBeatenText:
+	text "Aiyiyi!"
+	done
+
+FortreeGymFlintAfterBattleText:
+	text "Bye"
+	done
+
 FortreeGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -169,5 +312,11 @@ FortreeGym_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  15, 02, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, FortreeGymWinonaScript, -1
+	object_event 15, 02, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, FortreeGymWinonaScript, -1
+	object_event 03, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, FortreeGymHumbertScript, -1
+	object_event 04, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, FortreeGymJaredScript, -1
+	object_event 09, 08, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_TRAINER, 3, FortreeGymEdwardoScript, -1
+	object_event 02, 05, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, FortreeGymDariusScript, -1
+	object_event 06, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, FortreeGymAshleyScript, -1
+	object_event 06, 09, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, FortreeGymFlintScript, -1
 	

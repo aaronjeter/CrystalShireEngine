@@ -1917,6 +1917,38 @@ BirdKeeperGroupHard:
 	dw SWELLOW
 	db -1 ; end
 
+	next_list_item ; BIRD_KEEPER (21) Fortree Gym
+	db "HUMBERT@", TRAINERTYPE_NORMAL
+	db 9
+	dw SKARMORY
+	db 9
+	dw DODRIO
+	db -1 ; end
+
+	next_list_item ; BIRD_KEEPER (22) Fortree Gym
+	db "JARED@", TRAINERTYPE_NORMAL
+	db 9
+	dw FEAROW
+	db 9
+	dw JUMPLUFF
+	db -1 ; end
+
+	next_list_item ; BIRD_KEEPER (23) Fortree Gym
+	db "EDWARDO@", TRAINERTYPE_NORMAL
+	db 9
+	dw PIDGEOT
+	db 9
+	dw NOCTOWL
+	db -1 ; end
+
+	next_list_item ; BIRD_KEEPER (24) Fortree Gym
+	db "DARIUS@", TRAINERTYPE_NORMAL
+	db 9
+	dw FARFETCH_D
+	db 9
+	dw BEAUTIFLY
+	db -1 ; end
+
 	end_list_items
 
 LassGroupHard:
@@ -6358,6 +6390,14 @@ PicnickerGroupHard:
 	dw PILOSWINE
 	db -1 ; end
 
+	next_list_item ; PICNICKER (33) Fortree Gym
+	db "ASHLEY@", TRAINERTYPE_NORMAL
+	db 9
+	dw SWABLU
+	db 9
+	dw DELIBIRD
+	db -1 ; end
+
 	end_list_items
 
 CamperGroupHard:
@@ -6605,6 +6645,14 @@ CamperGroupHard:
 	dw GLIGAR
 	db 9
 	dw CACTURNE
+	db -1 ; end
+
+	next_list_item ; CAMPER (28) Fortree Gym
+	db "FLINT@", TRAINERTYPE_NORMAL
+	db 9
+	dw CROBAT
+	db 9
+	dw XATU
 	db -1 ; end
 
 	end_list_items
