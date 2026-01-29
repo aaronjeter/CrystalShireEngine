@@ -22,10 +22,10 @@ SaffronCity_Blocks:
 	INCBIN "maps/SaffronCity.ablk"
 
 Route2_Blocks:
-	INCBIN "maps/Route2.ablk"
+	INCBIN "maps/kanto/routes/Route2.ablk"
 
 ElmsHouse_Blocks:
-	INCBIN "maps/ElmsHouse.ablk"
+	INCBIN "maps/johto/newbark/ElmsHouse.ablk"
 
 Route11_Blocks:
 	INCBIN "maps/Route11.ablk"
@@ -200,7 +200,7 @@ Route17_Blocks:
 	INCBIN "maps/Route17.ablk"
 
 Route31_Blocks:
-	INCBIN "maps/Route31.ablk"
+	INCBIN "maps/johto/routes/Route31.ablk"
 
 Route27_Blocks:
 	INCBIN "maps/Route27.ablk"
@@ -233,7 +233,7 @@ VermilionCity_Blocks:
 	INCBIN "maps/VermilionCity.ablk"
 
 ElmsLab_Blocks:
-	INCBIN "maps/ElmsLab.ablk"
+	INCBIN "maps/johto/newbark/ElmsLab.ablk"
 
 CeruleanCity_Blocks:
 	INCBIN "maps/kanto/cerulean/CeruleanCity.ablk"
@@ -298,7 +298,7 @@ CherrygrovePokecenter1F_Blocks:
 	INCBIN "maps/Pokecenter1F.ablk"
 
 EarlsPokemonAcademy_Blocks:
-	INCBIN "maps/EarlsPokemonAcademy.ablk"
+	INCBIN "maps/johto/violet/EarlsPokemonAcademy.ablk"
 
 GoldenrodDeptStore1F_Blocks:
 CeladonDeptStore1F_Blocks:
@@ -420,7 +420,7 @@ RadioTower5F_Blocks:
 	INCBIN "maps/RadioTower5F.ablk"
 
 NewBarkTown_Blocks:
-	INCBIN "maps/NewBarkTown.ablk"
+	INCBIN "maps/johto/newbark/NewBarkTown.ablk"
 
 CherrygroveCity_Blocks:
 	INCBIN "maps/johto/cherrygrove/CherrygroveCity.ablk"
@@ -595,19 +595,19 @@ TeamRocketBaseB3F_Blocks:
 	INCBIN "maps/TeamRocketBaseB3F.ablk"
 
 IndigoPlateauPokecenter1F_Blocks:
-	INCBIN "maps/IndigoPlateauPokecenter1F.ablk"
+	INCBIN "maps/kanto/indigo/IndigoPlateauPokecenter1F.ablk"
 
 WillsRoom_Blocks:
-	INCBIN "maps/WillsRoom.ablk"
+	INCBIN "maps/kanto/indigo/WillsRoom.ablk"
 
 KogasRoom_Blocks:
-	INCBIN "maps/KogasRoom.ablk"
+	INCBIN "maps//kanto/indigo/KogasRoom.ablk"
 
 BrunosRoom_Blocks:
-	INCBIN "maps/BrunosRoom.ablk"
+	INCBIN "maps/kanto/indigo/BrunosRoom.ablk"
 
 KarensRoom_Blocks:
-	INCBIN "maps/KarensRoom.ablk"
+	INCBIN "maps/kanto/indigo/KarensRoom.ablk"
 
 AzaleaGym_Blocks:
 	INCBIN "maps/johto/azalea/AzaleaGym.ablk"
@@ -750,7 +750,7 @@ SafariZoneWardensHome_Blocks:
 	INCBIN "maps/PokemonFanClub.ablk"
 
 FightingDojo_Blocks:
-	INCBIN "maps/FightingDojo.ablk"
+	INCBIN "maps/kanto/saffron/FightingDojo.ablk"
 
 SilphCo1F_Blocks:
 	INCBIN "maps/SilphCo1F.ablk"
@@ -807,7 +807,7 @@ DiglettsCave_Blocks:
 	INCBIN "maps/kanto/dungeons/DiglettsCave.ablk"
 
 MountMoon_Blocks:
-	INCBIN "maps/MountMoon.ablk"
+	INCBIN "maps/kanto/dungeons/MountMoon.ablk"
 
 SeafoamGym_Blocks:
 	INCBIN "maps/SeafoamGym.ablk"
@@ -841,10 +841,10 @@ Route23_Blocks:
 	INCBIN "maps/Route23.ablk"
 
 LancesRoom_Blocks:
-	INCBIN "maps/LancesRoom.ablk"
+	INCBIN "maps/kanto/indigo/LancesRoom.ablk"
 
 HallOfFame_Blocks:
-	INCBIN "maps/HallOfFame.ablk"
+	INCBIN "maps/kanto/indigo/HallOfFame.ablk"
 
 CopycatsHouse1F_Blocks:
 	INCBIN "maps/kanto/saffron/CopycatsHouse1F.ablk"
@@ -856,7 +856,7 @@ GoldenrodFlowerShop_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodFlowerShop.ablk"
 
 MountMoonSquare_Blocks:
-	INCBIN "maps/MountMoonSquare.ablk"
+	INCBIN "maps/kanto/dungeons/MountMoonSquare.ablk"
 
 WiseTriosRoom_Blocks:
 	INCBIN "maps/WiseTriosRoom.ablk"
