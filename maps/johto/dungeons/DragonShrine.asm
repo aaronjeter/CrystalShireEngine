@@ -159,6 +159,7 @@ DragonShrineTakeTestScript:
 	writetext DragonShrineHereRisingBadgeText
 	waitbutton
 	setflag ENGINE_RISINGBADGE
+	scall DragonShrineLevelcap
 	playsound SFX_GET_BADGE
 	waitsfx
 	special RestartMapMusic
@@ -187,6 +188,10 @@ DragonShrineTakeTestScript:
 	disappear DRAGONSHRINE_CLAIR
 	waitsfx
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	end
+
+DragonShrineLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
 
 DragonShrineElder1Script:

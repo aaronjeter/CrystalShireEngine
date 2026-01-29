@@ -53,26 +53,7 @@ LavaridgeGymFlanneryScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_HEATBADGE
-	readvar VAR_BADGES
-	scall LavaridgeGymActivateRockets
-
-	;disable gym trainers
-	;setevent EVENT_BEAT_LAVARIGE_
-
-	readmem wBaseLevel
-	addval 3
-	writemem wBaseLevel
-
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 3
-	writemem wLevelCap
-
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 3
-	writemem wWildLevel
+	scall LavaridgeGymLevelcap
 
 	closetext
 	end
@@ -112,16 +93,9 @@ LavaridgeGymFlanneryScript:
 	closetext
 	end
 
-LavaridgeGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+LavaridgeGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 
 FlanneryText_PreFight:

@@ -50,8 +50,7 @@ PetalburgGymNormanScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_BALANCEBADGE
-	readvar VAR_BADGES
-	scall PetalburgGymActivateRockets
+	scall PetalburgGymLevelcap
 
 	;disable gym trainers
 	setevent EVENT_BEAT_PETALBURG_RANDALL
@@ -60,21 +59,6 @@ PetalburgGymNormanScript:
 	setevent EVENT_BEAT_PETALBURG_LORI
 	setevent EVENT_BEAT_PETALBURG_GEORGE
 	setevent EVENT_BEAT_PETALBURG_JODY
-
-	readmem wBaseLevel
-	addval 3
-	writemem wBaseLevel
-
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 3
-	writemem wLevelCap
-
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 3
-	writemem wWildLevel
 
 	closetext
 	end
@@ -114,16 +98,9 @@ PetalburgGymNormanScript:
 	closetext
 	end
 
-PetalburgGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+PetalburgGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 
 PetalburgRandall:

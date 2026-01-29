@@ -46,25 +46,12 @@ VioletGymFalknerScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_ZEPHYRBADGE
-	readvar VAR_BADGES
-	scall VioletGymActivateRockets
 .FightDone:
 	checkevent EVENT_GOT_TM31_MUD_SLAP
 	iftrue .SpeechAfterTM
-	readmem wBaseLevel
-	addval 4
-	writemem wBaseLevel
 
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 4
-	writemem wLevelCap
-.SkipLevelCaps:
-
-	readmem wWildLevel
-	addval 4
-	writemem wWildLevel
+	scall VioletGymLevelcap
+	
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
@@ -85,7 +72,7 @@ VioletGymFalknerScript:
 	iffalse .FightDoneText
 
 	readvar VAR_BADGES
-	ifgreater 3, .HardRematch
+	ifgreater 13, .HardRematch
 	ifgreater 3, .MediumRematch
 	sjump .EasyRematch
 
@@ -116,16 +103,9 @@ VioletGymFalknerScript:
 	closetext
 	end
 
-VioletGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+VioletGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 TrainerBirdKeeperRod:
 	trainer BIRD_KEEPER, ROD, EVENT_BEAT_BIRD_KEEPER_ROD, BirdKeeperRodSeenText, BirdKeeperRodBeatenText, 0, .Script

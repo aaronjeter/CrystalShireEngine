@@ -45,8 +45,7 @@ OlivineGymJasmineScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MINERALBADGE
-	readvar VAR_BADGES
-	scall OlivineGymActivateRockets
+	scall OlivineGymLevelcap
 .FightDone:
 	checkevent EVENT_GOT_TM23_IRON_TAIL
 	iftrue .GotIronTail
@@ -55,18 +54,6 @@ OlivineGymJasmineScript:
 	verbosegiveitem TM_IRON_TAIL
 	iffalse .NoRoomForIronTail
 	setevent EVENT_GOT_TM23_IRON_TAIL
-	readmem wBaseLevel
-	addval 4
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 4
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 4
-	writemem wWildLevel
 	writetext Jasmine_IronTailSpeech
 	waitbutton
 	closetext
@@ -109,16 +96,9 @@ OlivineGymJasmineScript:
 	closetext
 	end
 
-OlivineGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+OlivineGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 OlivineGymGuideScript:
 	faceplayer

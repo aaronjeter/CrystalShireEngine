@@ -59,8 +59,7 @@ EcruteakGymMortyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_FOGBADGE
-	readvar VAR_BADGES
-	scall EcruteakGymActivateRockets
+	scall EcruteakGymLevelcap
 	setmapscene ECRUTEAK_TIN_TOWER_ENTRANCE, SCENE_ECRUTEAKTINTOWERENTRANCE_NOOP
 	setevent EVENT_RANG_CLEAR_BELL_1
 	setevent EVENT_RANG_CLEAR_BELL_2
@@ -76,18 +75,6 @@ EcruteakGymMortyScript:
 	verbosegiveitem TM_SHADOW_BALL
 	iffalse .NoRoomForShadowBall
 	setevent EVENT_GOT_TM30_SHADOW_BALL
-	readmem wBaseLevel
-	addval 4
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 4
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 4
-	writemem wWildLevel
 	writetext MortyText_ShadowBallSpeech
 	waitbutton
 	closetext
@@ -130,16 +117,9 @@ EcruteakGymMortyScript:
 	closetext
 	end
 
-EcruteakGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+EcruteakGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 EcruteakGymClosed:
 	applymovement PLAYER, EcruteakGymPlayerStepUpMovement

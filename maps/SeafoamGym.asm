@@ -51,20 +51,7 @@ SeafoamGymBlaineScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_VOLCANOBADGE
-	readmem wBaseLevel
-	addval 2
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 2
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 2
-	writemem wWildLevel
-	readvar VAR_BADGES
-	scall SeafoamGymActivateRockets
+	scall SeafoamGymLevelcap
 	writetext BlaineAfterBattleText
 	waitbutton
 	closetext
@@ -107,16 +94,9 @@ SeafoamGymBlaineScript:
 	closetext
 	end
 
-SeafoamGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+SeafoamGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 SeafoamGymGuideScript:
 	faceplayer

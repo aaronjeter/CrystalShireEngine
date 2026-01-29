@@ -47,20 +47,7 @@ PewterGymBrockScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_BOULDERBADGE
-	readmem wBaseLevel
-	addval 2
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 2
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 2
-	writemem wWildLevel
-	readvar VAR_BADGES
-	scall PewterGymActivateRockets
+	scall PewterGymLevelcap
 	writetext BrockBoulderBadgeText
 	waitbutton
 	closetext
@@ -103,16 +90,9 @@ PewterGymBrockScript:
 	closetext
 	end
 
-PewterGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+PewterGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 TrainerCamperJerry:
 	trainer CAMPER, JERRY, EVENT_BEAT_CAMPER_JERRY, CamperJerrySeenText, CamperJerryBeatenText, 0, .Script

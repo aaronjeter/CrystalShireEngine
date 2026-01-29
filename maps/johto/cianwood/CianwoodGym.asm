@@ -67,8 +67,7 @@ CianwoodGymChuckScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_STORMBADGE
-	readvar VAR_BADGES
-	scall CianwoodGymActivateRockets
+	scall CianwoodGymLevelcap
 .FightDone:
 	checkevent EVENT_GOT_TM01_DYNAMICPUNCH
 	iftrue .AlreadyGotTM
@@ -79,18 +78,6 @@ CianwoodGymChuckScript:
 	verbosegiveitem TM_DYNAMICPUNCH
 	iffalse .BagFull
 	setevent EVENT_GOT_TM01_DYNAMICPUNCH
-	readmem wBaseLevel
-	addval 4
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 4
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 4
-	writemem wWildLevel
 	writetext ChuckExplainTMText
 	waitbutton
 	closetext
@@ -134,16 +121,9 @@ CianwoodGymChuckScript:
 	closetext
 	end
 
-CianwoodGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+CianwoodGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 TrainerBlackbeltYoshi:
 	trainer BLACKBELT_T, YOSHI, EVENT_BEAT_BLACKBELT_YOSHI, BlackbeltYoshiSeenText, BlackbeltYoshiBeatenText, 0, .Script

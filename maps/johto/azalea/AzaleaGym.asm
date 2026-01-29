@@ -50,23 +50,10 @@ AzaleaGymBugsyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_HIVEBADGE
-	readvar VAR_BADGES
-	scall AzaleaGymActivateRockets
+	scall AzaleaGymLevelcap
 .FightDone:
 	checkevent EVENT_GOT_TM49_FURY_CUTTER
 	iftrue .GotFuryCutter
-	readmem wBaseLevel
-	addval 4
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 4
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 4
-	writemem wWildLevel
 	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
 	setevent EVENT_BEAT_BUG_CATCHER_AL
@@ -117,16 +104,9 @@ AzaleaGymBugsyScript:
 	closetext
 	end
 
-AzaleaGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+AzaleaGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 TrainerTwinsAmyandmay1:
 	trainer TWINS, AMYANDMAY1, EVENT_BEAT_TWINS_AMY_AND_MAY, TwinsAmyandmay1SeenText, TwinsAmyandmay1BeatenText, 0, .AfterScript

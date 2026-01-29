@@ -71,20 +71,7 @@ FuchsiaGymJanineScript:
 	verbosegiveitem TM_TOXIC
 	iffalse .AfterTM
 	setevent EVENT_GOT_TM06_TOXIC
-	readmem wBaseLevel
-	addval 2
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 2
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 2
-	writemem wWildLevel
-	readvar VAR_BADGES
-	scall FuchsiaGymActivateRockets
+	scall FuchsiaGymLevelcap
 .AfterTM:
 	writetext JanineRematchText
 	yesorno
@@ -122,16 +109,9 @@ FuchsiaGymJanineScript:
 	closetext
 	end
 
-FuchsiaGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+FuchsiaGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 LassAliceScript:
 	checkevent EVENT_BEAT_LASS_ALICE

@@ -50,7 +50,6 @@ MahoganyGymPryceScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_GLACIERBADGE
-	readvar VAR_BADGES
 	scall MahoganyGymActivateRockets
 .FightDone:
 	checkevent EVENT_GOT_TM16_ICY_WIND
@@ -62,19 +61,8 @@ MahoganyGymPryceScript:
 	setevent EVENT_BEAT_BOARDER_DOUGLAS
 	verbosegiveitem TM_ICY_WIND
 	iffalse MahoganyGym_NoRoomForIcyWind
-	setevent EVENT_GOT_TM16_ICY_WIND
-	readmem wBaseLevel
-	addval 4
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 4
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 4
-	writemem wWildLevel
+	setevent EVENT_GOT_TM16_ICY_WIND	
+	scall MahoganyGymLevelcap
 	writetext PryceText_IcyWindSpeech
 	waitbutton
 	closetext
@@ -119,15 +107,12 @@ MahoganyGym_NoRoomForIcyWind:
 	end
 
 MahoganyGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+	jumpstd RadioTowerRocketsScript
 	end
 
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
+MahoganyGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
+	end
 
 TrainerSkierRoxanne:
 	trainer SKIER, ROXANNE, EVENT_BEAT_SKIER_ROXANNE, SkierRoxanneSeenText, SkierRoxanneBeatenText, 0, .Script

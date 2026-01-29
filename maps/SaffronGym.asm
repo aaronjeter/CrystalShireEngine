@@ -52,20 +52,7 @@ SaffronGymSabrinaScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MARSHBADGE
-	readmem wBaseLevel
-	addval 2
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 2
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 2
-	writemem wWildLevel
-	readvar VAR_BADGES
-	scall SaffronGymActivateRockets
+	scall SaffronGymLevelcap
 	writetext SabrinaMarshBadgeText
 	waitbutton
 	closetext
@@ -108,16 +95,9 @@ SaffronGymSabrinaScript:
 	closetext
 	end
 
-SaffronGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+SaffronGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 TrainerMediumRebecca:
 	trainer MEDIUM, REBECCA, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script

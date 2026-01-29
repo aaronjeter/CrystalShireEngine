@@ -97,20 +97,7 @@ CeruleanGymMistyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_CASCADEBADGE
-	readmem wBaseLevel
-	addval 2
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 2
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 2
-	writemem wWildLevel
-	readvar VAR_BADGES
-	scall CeruleanGymActivateRockets
+	scall CeruleanGymLevelcap
 .FightDone:
 	writetext MistyRematchText
 	yesorno
@@ -148,16 +135,9 @@ CeruleanGymMistyScript:
 	closetext
 	end
 
-CeruleanGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+CeruleanGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 TrainerSwimmerfDiana:
 	trainer SWIMMERF, DIANA, EVENT_BEAT_SWIMMERF_DIANA, SwimmerfDianaSeenText, SwimmerfDianaBeatenText, 0, .Script

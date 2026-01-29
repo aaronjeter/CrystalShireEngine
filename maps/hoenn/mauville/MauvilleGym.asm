@@ -212,8 +212,7 @@ MauvilleGymWattsonScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_DYNAMOBADGE
-	readvar VAR_BADGES
-	scall MauvilleGymActivateRockets
+	scall MauvilleGymLevelcap
 
 	;disable gym trainers
 	setevent EVENT_BEAT_MAUVILLE_VIVIAN
@@ -221,21 +220,6 @@ MauvilleGymWattsonScript:
 	setevent EVENT_BEAT_MAUVILLE_SHAWN
 	setevent EVENT_BEAT_MAUVILLE_BEN
 	setevent EVENT_BEAT_MAUVILLE_ANGELO
-
-	readmem wBaseLevel
-	addval 3
-	writemem wBaseLevel
-
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 3
-	writemem wLevelCap
-
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 3
-	writemem wWildLevel
 
 	closetext
 	end
@@ -275,16 +259,9 @@ MauvilleGymWattsonScript:
 	closetext
 	end
 
-MauvilleGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+MauvilleGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 
 WattsonText_PreFight:

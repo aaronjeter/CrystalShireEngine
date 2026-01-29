@@ -63,20 +63,7 @@ LakeOfRageLanceScript:
 	setmapscene MAHOGANY_MART_1F, SCENE_MAHOGANYMART1F_LANCE_UNCOVERS_STAIRS
 
 	;Increment levels when triggering Mahogany Rockets
-	readmem wBaseLevel
-	addval 2
-	writemem wBaseLevel
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 2
-	writemem wLevelCap
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 2
-	writemem wWildLevel
-	end
-
+	scall LakeOfRageLevelcap
 	end
 
 .RefusedToHelp:
@@ -93,6 +80,10 @@ LakeOfRageLanceScript:
 	yesorno
 	iffalse .RefusedToHelp
 	sjump .AgreedToHelp
+
+LakeOfRageLevelcap:
+	jumpstd UpdateWorldLevelsScript
+	end
 
 RedGyarados:
 	opentext

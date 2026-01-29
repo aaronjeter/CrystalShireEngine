@@ -247,8 +247,7 @@ DewfordGymBrawlyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_KNUCKLEBADGE
-	readvar VAR_BADGES
-	scall DewfordGymActivateRockets
+	scall DewfordGymLevelcap
 
 	;disable gym trainers
 	setevent EVENT_BEAT_DEWFORD_LAURA
@@ -257,21 +256,6 @@ DewfordGymBrawlyScript:
 	setevent EVENT_BEAT_DEWFORD_TAKAO
 	setevent EVENT_BEAT_DEWFORD_CRISTIAN
 	setevent EVENT_BEAT_DEWFORD_JOCELYN
-
-	readmem wBaseLevel
-	addval 3
-	writemem wBaseLevel
-
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-	readmem wLevelCap
-	addval 3
-	writemem wLevelCap
-
-.SkipLevelCaps:
-	readmem wWildLevel
-	addval 3
-	writemem wWildLevel
 
 	closetext
 	end
@@ -311,16 +295,9 @@ DewfordGymBrawlyScript:
 	closetext
 	end
 
-DewfordGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+DewfordGymLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 
 BrawlyText_PreFight:
