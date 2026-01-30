@@ -170,15 +170,20 @@ FortreeGymHumbertScript:
 	end
 
 FortreeGymHumbertSeenText:
-	text "Hi"
+	text "Winona would"
+	line "never lose to"
+	cont "a rat like you."
 	done
 
 FortreeGymHumbertBeatenText:
-	text "Aiyiyi!"
+	text "I couldn't"
+	line "stop you."
 	done
 
 FortreeGymHumbertAfterBattleText:
-	text "Bye"
+	text "Winona is still"
+	line "going to destroy"
+	cont "you."
 	done
 
 
@@ -194,15 +199,19 @@ FortreeGymJaredScript:
 	end
 
 FortreeGymJaredSeenText:
-	text "Hi"
+	text "Behold the"
+	line "elegance of"
+	cont "birds!"
 	done
 
 FortreeGymJaredBeatenText:
-	text "Aiyiyi!"
+	text "You..."
+	line "You're too strong."
 	done
 
 FortreeGymJaredAfterBattleText:
-	text "Bye"
+	text "A trainer has to"
+	line "be smart to win."
 	done
 
 
@@ -218,15 +227,23 @@ FortreeGymEdwardoScript:
 	end
 
 FortreeGymEdwardoSeenText:
-	text "Hi"
+	text "Lovers of Bird"
+	line "#MON aspire to"
+	cont "this Gym."
 	done
 
 FortreeGymEdwardoBeatenText:
-	text "Aiyiyi!"
+	text "You were just"
+	line "too much!"
 	done
 
 FortreeGymEdwardoAfterBattleText:
-	text "Bye"
+	text "This world is huge"
+	line "and full of tough"
+	cont "trainers."
+
+	para "One day I want"
+	line "to face them all!"
 	done
 
 FortreeGymDariusScript:
@@ -241,15 +258,25 @@ FortreeGymDariusScript:
 	end
 
 FortreeGymDariusSeenText:
-	text "Hi"
+	text "There are tons"
+	line "of different"
+	cont "Flying #MON."
+
+	para "It's not just"
+	line "birds."
 	done
 
 FortreeGymDariusBeatenText:
-	text "Aiyiyi!"
+	text "You really know"
+	line "your stuff!"
 	done
 
 FortreeGymDariusAfterBattleText:
-	text "Bye"
+	text "Sure, you beat"
+	line "me just fine."
+
+	para "But Winona is"
+	line "really tough!"
 	done
 
 
@@ -265,15 +292,23 @@ FortreeGymAshleyScript:
 	end
 
 FortreeGymAshleySeenText:
-	text "Hi"
+	text "Winona taught"
+	line "me personally."
+
+	para "I could never"
+	line "lose to you!"
 	done
 
 FortreeGymAshleyBeatenText:
-	text "Aiyiyi!"
+	text "I still lost?"
 	done
 
 FortreeGymAshleyAfterBattleText:
-	text "Bye"
+	text "Thanks to Winona,"
+	line "the people here"
+
+	para "can live without"
+	line "any fears!"
 	done
 
 
@@ -289,15 +324,23 @@ FortreeGymFlintScript:
 	end
 
 FortreeGymFlintSeenText:
-	text "Hi"
+	text "There's no need"
+	line "for Winona."
+
+	para "You'll never"
+	line "get past me."
 	done
 
 FortreeGymFlintBeatenText:
-	text "Aiyiyi!"
+	text "I, uh..."
+	line "didn't cut it."
 	done
 
 FortreeGymFlintAfterBattleText:
-	text "Bye"
+	text "Winona is cute"
+	line "and strong."
+
+	para "Watch out!"
 	done
 
 FortreeGym_MapEvents:
