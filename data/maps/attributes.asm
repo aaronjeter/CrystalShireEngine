@@ -801,8 +801,9 @@ ENDM
 	map_attributes LavaridgeTown, LAVARIDGE_TOWN, $05, EAST
 	connection east, Route112, ROUTE_112, -20
 
-	map_attributes FortreeCity, FORTREE_CITY, $05, WEST
+	map_attributes FortreeCity, FORTREE_CITY, $05, WEST | EAST
 	connection west, Route119North, ROUTE_119_NORTH, 0
+	connection east, Route120, ROUTE_120, 0
 
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0
@@ -879,9 +880,10 @@ ENDM
 
 	map_attributes TestRoom, TESTROOM, $00, 0
 
-	map_attributes Route118, ROUTE_118, $05, NORTH | WEST
+	map_attributes Route118, ROUTE_118, $05, NORTH | WEST | EAST
 	connection north, Route119South, ROUTE_119_SOUTH, 20
 	connection west, MauvilleCity, MAUVILLE_CITY, 0
+	connection east, Route123, ROUTE_123, 0
 
 	map_attributes NewMauville, NEW_MAUVILLE, $00, 0
 
@@ -892,3 +894,19 @@ ENDM
 	map_attributes Route119North, ROUTE_119_NORTH, $05,  SOUTH | EAST
 	connection south, Route119South, ROUTE_119_SOUTH, 0
 	connection east, FortreeCity, FORTREE_CITY, 0
+
+	map_attributes Route120, ROUTE_120, $05, WEST | EAST
+	connection west, FortreeCity, FORTREE_CITY, 0
+	connection east, Route121, ROUTE_121, 28
+
+	map_attributes Route121, ROUTE_121, $05, SOUTH | WEST
+	connection south, Route122, ROUTE_122, 10
+	connection west, Route120, ROUTE_120, -28
+
+	map_attributes Route122, ROUTE_122, $05, NORTH | SOUTH
+	connection north, Route122, ROUTE_122, -10
+	connection south, Route123, ROUTE_123, -25
+
+	map_attributes Route123, ROUTE_123, $05, NORTH | WEST
+	connection north, Route122, ROUTE_122, 25
+	connection west, Route118, ROUTE_118, 0

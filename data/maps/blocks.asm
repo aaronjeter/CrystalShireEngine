@@ -1111,6 +1111,18 @@ SECTION "Map Blocks 6", ROMX
 	Route119North_Blocks:
 	INCBIN "maps/hoenn/Route119North.ablk" 
 
+	Route120_Blocks:
+	INCBIN "maps/hoenn/Route120.ablk" 
+
+	Route121_Blocks:
+	INCBIN "maps/hoenn/Route121.ablk" 
+
+	Route122_Blocks:
+	INCBIN "maps/hoenn/Route122.ablk" 
+
+	Route123_Blocks:
+	INCBIN "maps/hoenn/Route123.ablk" 
+
 	FortreeCity_Blocks:
 	INCBIN "maps/hoenn/fortree/FortreeCity.ablk"
 	FortreeGym_Blocks:

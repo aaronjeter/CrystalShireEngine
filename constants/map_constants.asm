@@ -594,6 +594,10 @@ ENDM
 	map_const NEW_MAUVILLE,		                           22, 22 ;
 	map_const ROUTE_119_SOUTH,                             20, 40 ;
 	map_const ROUTE_119_NORTH,                             20, 40 ;
+	map_const ROUTE_120,                                   20, 40 ;
+	map_const ROUTE_121,                                   40, 12 ;
+	map_const ROUTE_122,                                   22, 22 ;
+	map_const ROUTE_123,                                   40, 10 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27
