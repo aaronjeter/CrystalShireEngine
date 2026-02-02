@@ -719,6 +719,7 @@ ENDM
 	map_attributes LavaridgePokecenter, LAVARIDGE_POKECENTER, $00, 0
 	map_attributes FallarborPokecenter, FALLARBOR_POKECENTER, $00, 0
 	map_attributes FortreePokecenter, FORTREE_POKECENTER, $00, 0
+	map_attributes LilycovePokecenter, LILYCOVE_POKECENTER, $00, 0
 	map_attributes LavaridgeGym, LAVARIDGE_GYM, $0, 0
 	map_attributes FortreeGym, FORTREE_GYM, $0, 0
 	map_attributes GraniteCaveB1F, GRANITE_CAVE_B1F, $00, 0
@@ -804,6 +805,9 @@ ENDM
 	map_attributes FortreeCity, FORTREE_CITY, $05, WEST | EAST
 	connection west, Route119North, ROUTE_119_NORTH, 0
 	connection east, Route120, ROUTE_120, 0
+
+	map_attributes LilycoveCity, LILYCOVE_CITY, $05, WEST
+	connection west, Route121, ROUTE_121, 4
 
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0
@@ -899,9 +903,10 @@ ENDM
 	connection west, FortreeCity, FORTREE_CITY, 0
 	connection east, Route121, ROUTE_121, 28
 
-	map_attributes Route121, ROUTE_121, $05, SOUTH | WEST
+	map_attributes Route121, ROUTE_121, $05, SOUTH | WEST | EAST
 	connection south, Route122, ROUTE_122, 10
 	connection west, Route120, ROUTE_120, -28
+	connection east, LilycoveCity, LILYCOVE_CITY, -4
 
 	map_attributes Route122, ROUTE_122, $05, NORTH | SOUTH
 	connection north, Route122, ROUTE_122, -10

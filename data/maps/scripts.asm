@@ -578,6 +578,8 @@ INCLUDE "maps/hoenn/fortree/FortreeCity.asm"
 INCLUDE "maps/hoenn/fortree/FortreePokecenter.asm"
 INCLUDE "maps/hoenn/fortree/FortreeMart.asm"
 INCLUDE "maps/hoenn/fortree/FortreeGym.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveCity.asm"
+INCLUDE "maps/hoenn/lilycove/LilycovePokecenter.asm"
 
 ENDSECTION
 

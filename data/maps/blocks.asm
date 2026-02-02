@@ -977,6 +977,7 @@ SECTION "Map Blocks 4", ROMX
 	LavaridgePokecenter_Blocks:
 	FallarborPokecenter_Blocks:
 	FortreePokecenter_Blocks:
+	LilycovePokecenter_Blocks:
 	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
 	OldaleMart_Blocks:
@@ -1127,6 +1128,9 @@ SECTION "Map Blocks 6", ROMX
 	INCBIN "maps/hoenn/fortree/FortreeCity.ablk"
 	FortreeGym_Blocks:
 	INCBIN "maps/hoenn/fortree/FortreeGym.ablk"
+
+	LilycoveCity_Blocks:
+	INCBIN "maps/hoenn/lilycove/LilycoveCity.ablk"
 
 ENDSECTION
 
