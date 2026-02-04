@@ -955,15 +955,15 @@ ChampionGroup: ;Elite 4
 BrockGroup: ;Gym Leader
 	next_list_item ; BROCK (1)
 	db "BROCK@", TRAINERTYPE_MOVES
-	db 8
-	dw ONIX
-	dw ROCK_THROW, HARDEN, BIDE, SANDSTORM
-	db 8
+	db 3
+	dw GEODUDE
+	dw ROCK_THROW, HARDEN, BIDE, SAND_ATTACK
+	db 3
 	dw OMANYTE
-	dw BITE, BUBBLEBEAM, PROTECT, SPIKE_CANNON
-	db 9
-	dw RHYHORN
-	dw SLAM, GROWL, MAGNITUDE, NO_MOVE
+	dw BITE, BUBBLE, TACKLE, NO_MOVE
+	db 5
+	dw ONIX
+	dw BIDE, SCREECH, WRAP, ROCK_THROW
 	db -1 ; end
 	
 	next_list_item ; BROCK (2)
@@ -1321,20 +1321,20 @@ YoungsterGroup:
 	dw RATICATE
 	db -1 ; end
 
-	next_list_item ; YOUNGSTER (9) Route 3
+	next_list_item ; YOUNGSTER (9) Route 03
 	db "WARREN@", TRAINERTYPE_NORMAL
-	db 5
-	dw FEAROW
-	db 5
-	dw SWELLOW
+	db 3
+	dw SPEAROW
+	db 3
+	dw GULPIN
 	db -1 ; end
 
-	next_list_item ; YOUNGSTER (10) Route 3
+	next_list_item ; YOUNGSTER (10) Route 03
 	db "JIMMY@", TRAINERTYPE_NORMAL
 	db 3
-	dw RATICATE
+	dw RATTATA
 	db 4
-	dw ARBOK
+	dw EKANS
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (11) Route 11
@@ -1551,7 +1551,7 @@ SchoolboyGroup:
 	db 3
 	dw TANGELA
 	db 5
-	dw VAPOREON
+	dw EEVEE
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (9) Route 15
@@ -1800,12 +1800,10 @@ BirdKeeperGroup:
 	dw FARFETCH_D
 	db -1 ; end
 
-	next_list_item ; BIRD_KEEPER (8) Unreferenced
+	next_list_item ; BIRD_KEEPER (8) Route 04
 	db "HANK@", TRAINERTYPE_NORMAL
-	db 7
+	db 5
 	dw PIDGEY
-	db 7
-	dw PIDGEOT
 	db 7
 	dw FARFETCH_D
 	db -1 ; end
@@ -2014,14 +2012,10 @@ LassGroup:
 	dw GLOOM
 	db 5
 	dw PIDGEOTTO
-	db 7
-	dw BELLOSSOM
 	db -1 ; end
 
 	next_list_item ; LASS (8) Route 25
 	db "SHANNON@", TRAINERTYPE_NORMAL
-	db 5
-	dw PARAS
 	db 5
 	dw PARAS
 	db 7
@@ -2049,9 +2043,9 @@ LassGroup:
 	next_list_item ; LASS (11) Route 24
 	db "ELLEN@", TRAINERTYPE_NORMAL
 	db 5
-	dw WIGGLYTUFF
+	dw JIGGLYPUFF
 	db 5
-	dw GRANBULL
+	dw SNUBBULL
 	db -1 ; end
 
 	next_list_item ; LASS (12) Glitter Lighthouse - 4F Rematch 1
@@ -3746,22 +3740,20 @@ BugCatcherGroup:
 	dw SURSKIT
 	db -1 ; end
 
-	next_list_item ; BUG_CATCHER (2) Route 2
+	next_list_item ; BUG_CATCHER (2) Route 02
 	db "ROB@", TRAINERTYPE_NORMAL 
-	db 3
-	dw BEEDRILL
-	db 3
-	dw BUTTERFREE
+	db 0
+	dw WEEDLE
+	db 0
+	dw CATERPIE
 	db -1 ; end
 
-	next_list_item ; BUG_CATCHER (3) Route 2
+	next_list_item ; BUG_CATCHER (3) Route 02
 	db "ED@", TRAINERTYPE_NORMAL
-	db 2
-	dw BEEDRILL
-	db 2
-	dw BEEDRILL
-	db 5
-	dw BEEDRILL
+	db 0
+	dw WEEDLE
+	db 0
+	dw PIDGEY
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (4) Route 31
@@ -3848,10 +3840,10 @@ BugCatcherGroup:
 	dw BUTTERFREE
 	db -1 ; end
 
-	next_list_item ; BUG_CATCHER (12) Route 2
+	next_list_item ; BUG_CATCHER (12) Route 02
 	db "DOUG@", TRAINERTYPE_NORMAL
-	db 5
-	dw ARIADOS
+	db 0
+	dw SPINARAK
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (13) Route 35 Rematch 1
@@ -5563,14 +5555,12 @@ BurglarGroup:
 	end_list_items
 
 FirebreatherGroup:
-	next_list_item ; FIREBREATHER (1) Route 3
+	next_list_item ; FIREBREATHER (1) Route 03
 	db "OTIS@", TRAINERTYPE_NORMAL
 	db 3
-	dw MAGMAR
-	db 6
-	dw WEEZING
+	dw MAGBY
 	db 3
-	dw MAGMAR
+	dw KOFFING
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (2) Unreferenced
@@ -5589,11 +5579,11 @@ FirebreatherGroup:
 	dw KOFFING
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (4) Route 3
+	next_list_item ; FIREBREATHER (4) Route 03
 	db "BURT@", TRAINERTYPE_NORMAL
-	db 7
+	db 3
 	dw KOFFING
-	db 7
+	db 4
 	dw SLUGMA
 	db -1 ; end
 
@@ -6115,18 +6105,18 @@ PicnickerGroup:
 	dw NIDOQUEEN
 	db -1 ; end
 
-	next_list_item ; PICNICKER (6) Route 4
+	next_list_item ; PICNICKER (6) Route 04
 	db "HOPE@", TRAINERTYPE_NORMAL
 	db 7
 	dw FLAAFFY
 	db -1 ; end
 
-	next_list_item ; PICNICKER (7) Route 4
-	db "SHARON@", TRAINERTYPE_NORMAL
-	db 3
-	dw FURRET
+	next_list_item ; PICNICKER (7) Route 04
+	db "SHARON@", TRAINERTYPE_NORMAL	
 	db 5
-	dw RAPIDASH
+	dw PONYTA
+	db 7
+	dw FURRET
 	db -1 ; end
 
 	next_list_item ; PICNICKER (8) S.S. Aqua
@@ -6398,7 +6388,7 @@ CamperGroup:
 	next_list_item ; CAMPER (6) Route 25
 	db "LLOYD@", TRAINERTYPE_NORMAL
 	db 6
-	dw NIDOKING
+	dw NIDORINO
 	db -1 ; end
 
 	next_list_item ; CAMPER (7) Route 9
