@@ -5,6 +5,31 @@ FortreeCity_MapScripts:
 
 	def_callbacks	
 
+FortreeCitySign:
+	jumptext FortreeCitySignText
+
+FortreeCitySignText:
+	text "Fortree City"
+
+	para "The treetop"
+	line "city that"
+
+	para "frolics with"
+	line "nature."
+	done
+
+FortreeGymSign:
+	jumptext FortreeGymSignText
+
+FortreeGymSignText:
+	text "Fortree City"
+	line "#MON Gym"
+	cont "Leader: Winona"
+
+	para "Taking flight"
+	line "into the world."
+	done
+
 FortreeCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -16,6 +41,8 @@ FortreeCity_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  05, 11, BGEVENT_READ, FortreeCitySign
+	bg_event  27, 11, BGEVENT_READ, FortreeGymSign
 
 	def_object_events
 	

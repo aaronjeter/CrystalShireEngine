@@ -5,7 +5,20 @@ SlateportCity_MapScripts:
 
 	def_callbacks	
 
-	SlateportCityHarborSign:
+SlateportCitySign:
+	jumptext SlateportCitySignText
+
+SlateportCitySignText:
+	text "Slateport City"
+
+	para "The port where"
+	line "people and #MON"
+	
+	para "cross paths with"
+	line "Nature."
+	done
+
+SlateportCityHarborSign:
 	jumptext SlateportCityHarborSignText
 
 	SlateportCityHarborSignText:
@@ -13,6 +26,14 @@ SlateportCity_MapScripts:
 
 	para "International"
 	line "Voyages"
+	done
+
+SlateportShipyardSign:
+	jumptext SlateportShipyardSignText
+
+SlateportShipyardSignText:
+	text "Slateport"
+	line "Shipyard"
 	done
 
 SlateportCity_MapEvents:
@@ -26,7 +47,9 @@ SlateportCity_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event 13, 21, BGEVENT_READ, SlateportCitySign
 	bg_event 28, 14, BGEVENT_READ, SlateportCityHarborSign
+	bg_event 23, 37, BGEVENT_READ, SlateportShipyardSign
 
 	def_object_events
 	

@@ -5,6 +5,37 @@ MauvilleCity_MapScripts:
 
 	def_callbacks	
 
+MauvilleCitySign:
+	jumptext MauvilleCitySignText
+
+MauvilleCitySignText:
+	text "Mauville City"
+
+	para "The bright and"
+	line "shiny city of"
+	cont "fun!"
+	done
+
+MauvilleGymSign:
+	jumptext MauvilleGymSignText
+
+MauvilleGymSignText:
+	text "Mauville City"
+	line "#MON Gym"
+	cont "Leader: Wattson"
+
+	para "The cheerfully"
+	line "electrifying man!"
+	done
+
+MauvilleGameCornerSign:
+	jumptext MauvilleGameCornerSignText
+
+MauvilleGameCornerSignText:
+	text "Mauville"
+	line "Game Corner"
+	done
+
 MauvilleCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -16,6 +47,9 @@ MauvilleCity_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  21, 07, BGEVENT_READ, MauvilleCitySign
+	bg_event  05, 07, BGEVENT_READ, MauvilleGymSign
+	bg_event  03, 15, BGEVENT_READ, MauvilleGameCornerSign
 
 	def_object_events
 	

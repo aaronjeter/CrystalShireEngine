@@ -23,6 +23,16 @@ Route101_Zigzagoon:
 	disappear ROUTE101_ZIGZAGOON
 	end
 
+Route101Sign:
+	jumptext Route101SignText
+
+Route101SignText:
+	text "Route 101"
+
+	para "North: Oldale"
+	line "South: Littleroot"
+	done
+
 Route101_MapEvents:
 	db 0, 0 ; filler
 
@@ -31,6 +41,7 @@ Route101_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  09, 09, BGEVENT_READ, Route101Sign
 
 	def_object_events
 	object_event  6, 10, SPRITE_POOCHYENA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, Route101_Poochyena, -1

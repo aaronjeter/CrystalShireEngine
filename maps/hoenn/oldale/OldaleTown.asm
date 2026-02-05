@@ -5,16 +5,27 @@ OldaleTown_MapScripts:
 
 	def_callbacks	
 
+OldaleTownSign:
+	jumptext OldaleTownSignText
+
+OldaleTownSignText:
+	text "Oldale Town"
+
+	para "Where things "
+	line "start off scare."
+	done
+
 OldaleTown_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
 	warp_event  5, 15, OLDALE_POKECENTER, 2
-	warp_event  13, 7, OLDALE_MART, 2
+	warp_event 15,  5, OLDALE_MART, 2
 
 	def_coord_events
 
 	def_bg_events	
+	bg_event  11, 09, BGEVENT_READ, OldaleTownSign
 
 	def_object_events
 	

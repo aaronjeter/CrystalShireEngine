@@ -58,7 +58,7 @@
 	tilecoll WATER, WATER, BUOY, BUOY ; 39
 	tilecoll WATER, BUOY, BUOY, BUOY ; 3a
 	tilecoll WALL, WALL, WALL, WALL ; 3b
-	tilecoll 01, 01, 01, 01 ; 3c
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 3c
 	tilecoll 01, 01, 01, 01 ; 3d
 	tilecoll 01, 01, 01, 01 ; 3e
 	tilecoll 01, 01, 01, 01 ; 3f

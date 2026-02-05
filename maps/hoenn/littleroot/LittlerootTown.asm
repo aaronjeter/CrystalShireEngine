@@ -20,6 +20,23 @@ Littleroot_Mudkip:
 	cry MUDKIP
 	end	
 
+LittlerootTownSign:
+	jumptext LittlerootTownSignText
+
+LittlerootTownSignText:
+	text "Littleroot Town"
+
+	para "A town that can't"
+	line "be shaded any hue."
+	done
+
+BirchLabSign:
+	jumptext BirchLabSignText
+
+BirchLabSignText:
+	text "Birch's Lab"
+	done
+
 LittlerootTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -32,6 +49,8 @@ LittlerootTown_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  12, 11, BGEVENT_READ, LittlerootTownSign
+	bg_event  08, 13, BGEVENT_READ, BirchLabSign
 
 	def_object_events
 	object_event  1,  4, SPRITE_TREECKO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Littleroot_Treecko, -1

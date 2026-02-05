@@ -518,8 +518,6 @@ INCLUDE "maps/hoenn/slateport/SlateportHarbor.asm"
 INCLUDE "maps/hoenn/dewford/DewfordTown.asm"
 INCLUDE "maps/hoenn/dewford/DewfordGym.asm"
 INCLUDE "maps/hoenn/dewford/DewfordPokecenter.asm"
-INCLUDE "maps/hoenn/PetalburgWoods.asm"
-INCLUDE "maps/hoenn/RusturfTunnel.asm"
 
 ENDSECTION
 
@@ -612,5 +610,8 @@ INCLUDE "maps/kanto/safari/SafariHouseEast.asm"
 INCLUDE "maps/kanto/safari/SafariHouseNorth.asm"
 INCLUDE "maps/kanto/safari/SafariHouseWest.asm"
 INCLUDE "maps/kanto/safari/SafariHouseSecret.asm"
+
+INCLUDE "maps/hoenn/PetalburgWoods.asm"
+INCLUDE "maps/hoenn/RusturfTunnel.asm"
 
 ENDSECTION

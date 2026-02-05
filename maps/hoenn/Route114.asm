@@ -5,6 +5,24 @@ Route114_MapScripts:
 
 	def_callbacks	
 
+Route114Sign:
+	jumptext Route114SignText
+
+Route114SignText:
+	text "Route 114"
+
+	para "North: Fallarbor"
+	line "South: Meteor"
+	cont "Falls"
+	done
+
+Route114LanettesHouseSign:
+	jumptext Route114LanettesHouseSignText
+
+Route114LanettesHouseSignText:
+	text "Lanette's House"
+	done
+
 Route114_MapEvents:
 	db 0, 0 ; filler
 
@@ -14,6 +32,8 @@ Route114_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  17, 37, BGEVENT_READ, Route114Sign
+	bg_event  25, 37, BGEVENT_READ, Route114LanettesHouseSign
 
 	def_object_events
 	

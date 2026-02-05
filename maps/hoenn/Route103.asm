@@ -31,6 +31,16 @@ Route103FruitTree1:
 Route103FruitTree2:
 	fruittree FRUITTREE_ROUTE_103_2
 
+Route103Sign:
+	jumptext Route103SignText
+
+Route103SignText:
+	text "Route 103"
+
+	para "South: Oldale"
+	line "East: Slateport"
+	done
+
 Route103_MapEvents:
 	db 0, 0 ; filler
 
@@ -39,6 +49,7 @@ Route103_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  11, 15, BGEVENT_READ, Route103Sign
 
 	def_object_events
 	object_event  17,  8, SPRITE_ZIGZAGOON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route103_Zigzagoon, -1

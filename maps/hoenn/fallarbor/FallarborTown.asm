@@ -5,6 +5,17 @@ FallarborTown_MapScripts:
 
 	def_callbacks	
 
+FallarborTownSign:
+	jumptext FallarborTownSignText
+
+FallarborTownSignText:
+	text "Fallarbor Town"
+
+	para "A community"
+	line "with small"
+	cont "gardens."
+	done
+
 FallarborTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -15,6 +26,7 @@ FallarborTown_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  10, 10, BGEVENT_READ, FallarborTownSign
 
 	def_object_events
 	

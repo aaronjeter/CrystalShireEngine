@@ -162,6 +162,16 @@ Route102FruitTree1:
 Route102FruitTree2:
 	fruittree FRUITTREE_ROUTE_102_2
 
+Route102Sign:
+	jumptext Route102SignText
+
+Route102SignText:
+	text "Route 102"
+
+	para "East: Oldale"
+	line "West: Petalburg"
+	done
+
 Route102_MapEvents:
 	db 0, 0 ; filler
 
@@ -170,6 +180,8 @@ Route102_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  35, 11, BGEVENT_READ, Route102Sign
+	bg_event  09, 03, BGEVENT_READ, Route102Sign
 
 	def_object_events
 	object_event  32,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route102CalvinScript, -1

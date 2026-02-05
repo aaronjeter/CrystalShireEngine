@@ -5,6 +5,30 @@ LavaridgeTown_MapScripts:
 
 	def_callbacks	
 
+LavaridgeTownSign:
+	jumptext LavaridgeTownSignText
+
+LavaridgeTownSignText:
+	text "Lavaridge Town"
+
+	para "An excellent"
+	line "place for"
+	cont "relaxing."
+	done
+
+LavaridgeGymSign:
+	jumptext LavaridgeGymSignText
+
+LavaridgeGymSignText:
+	text "Lavaridge Town"
+	line "#MON Gym"
+	cont "Leader: Flannery"
+
+	para "One with"
+	line "fiery passion"
+	cont "that burns."
+	done
+
 LavaridgeTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -16,6 +40,8 @@ LavaridgeTown_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  13, 09, BGEVENT_READ, LavaridgeTownSign
+	bg_event  07, 15, BGEVENT_READ, LavaridgeGymSign
 
 	def_object_events
 	

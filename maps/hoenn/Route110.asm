@@ -187,6 +187,32 @@ Route110FruitTree1:
 Route110FruitTree2:
 	fruittree FRUITTREE_ROUTE_110_2
 
+Route110Sign:
+	jumptext Route110SignText
+
+Route110SignText:
+	text "Route 110"
+
+	para "South: Slateport"
+	line "North: Mauville"
+	cont "West: Oldale"
+	done
+
+Route110NewMauvilleSign:
+	jumptext Route110NewMauvilleSignText
+
+Route110NewMauvilleSignText:
+	text "New Mauville"
+	done
+
+Route110CyclingRoadSign:
+	jumptext Route110CyclingRoadSignText
+
+Route110CyclingRoadSignText:
+	text "Cycling Road"
+	line "(Closed)"
+	done
+
 Route110_MapEvents:
 	db 0, 0 ; filler
 
@@ -195,7 +221,12 @@ Route110_MapEvents:
 
 	def_coord_events
 
-	def_bg_events	
+	def_bg_events
+	bg_event  05, 43, BGEVENT_READ, Route110Sign
+	bg_event  17, 07, BGEVENT_READ, Route110Sign
+	bg_event  32, 16, BGEVENT_READ, Route110NewMauvilleSign
+	bg_event  21, 51, BGEVENT_READ, Route110CyclingRoadSign
+	bg_event  17, 15, BGEVENT_READ, Route110CyclingRoadSign
 
 	def_object_events
 	object_event 02, 47, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route110IsabelScript, -1
