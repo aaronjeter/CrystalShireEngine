@@ -7918,11 +7918,17 @@ TateLizaGroup:
 	next_list_item; TATELIZA (1) Unreferenced
 	db "TATE & LIZA@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw HYPNO
 	db 10
-	dw CYNDAQUIL
+	dw CLAYDOL
 	db 10
-	dw TOTODILE
+	dw SLOWKING
+	db 10
+	dw XATU
+	db 10
+	dw SOLROCK
+	db 10
+	dw LUNATONE
 	db -1 ; end
 
 	end_list_items
@@ -7931,11 +7937,17 @@ WallaceGroup:
 	next_list_item; WALLACE (1) Unreferenced
 	db "WALLACE@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw LUVDISC
 	db 10
-	dw CYNDAQUIL
+	dw LANTURN
 	db 10
-	dw TOTODILE
+	dw WHISCASH
+	db 10
+	dw SEAKING
+	db 10
+	dw GYARADOS
+	db 10
+	dw MILOTIC
 	db -1 ; end
 
 	end_list_items
@@ -7944,11 +7956,17 @@ SidneyGroup:
 	next_list_item; SIDNEY (1) Unreferenced
 	db "SIDNEY@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw SHARPEDO
 	db 10
-	dw CYNDAQUIL
+	dw SHIFTRY
 	db 10
-	dw TOTODILE
+	dw MIGHTYENA
+	db 10
+	dw HYPNO
+	db 10
+	dw UMBREON
+	db 10
+	dw ABSOL
 	db -1 ; end
 
 	end_list_items
@@ -7957,11 +7975,17 @@ PhoebeGroup:
 	next_list_item; PHOEBE (1) Unreferenced
 	db "PHOEBE@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw DUSKNOIR
 	db 10
-	dw CYNDAQUIL
+	dw NINETALES
 	db 10
-	dw TOTODILE
+	dw PARASECT
+	db 10
+	dw SABLEYE
+	db 10
+	dw BANETTE
+	db 10
+	dw UNOWN
 	db -1 ; end
 
 	end_list_items
@@ -7970,11 +7994,17 @@ GlaciaGroup:
 	next_list_item; GLACIA (1) Unreferenced
 	db "GLACIA@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw ANINETALES
 	db 10
-	dw CYNDAQUIL
+	dw FROSLASS
 	db 10
-	dw TOTODILE
+	dw WALREIN
+	db 10
+	dw ASANDSLASH	
+	db 10
+	dw JYNX
+	db 10
+	dw GLALIE
 	db -1 ; end
 
 	end_list_items
@@ -7983,11 +8013,17 @@ DrakeGroup:
 	next_list_item; DRAKE (1) Unreferenced
 	db "DRAKE@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw ALTARIA
 	db 10
-	dw CYNDAQUIL
+	dw FLYGON
 	db 10
-	dw TOTODILE
+	dw KINGDRA
+	db 10
+	dw YANMEGA
+	db 10
+	dw EXEGGUTOR2
+	db 10
+	dw SALAMENCE
 	db -1 ; end
 
 	end_list_items
@@ -7996,11 +8032,17 @@ StevenGroup:
 	next_list_item; STEVEN (1) Unreferenced
 	db "STEVEN@", TRAINERTYPE_NORMAL
 	db 10
-	dw CHIKORITA
+	dw SKARMORY
 	db 10
-	dw CYNDAQUIL
+	dw AERODACTYL
 	db 10
-	dw TOTODILE
+	dw AGGRON
+	db 10
+	dw PROBOPASS
+	db 10
+	dw SCIZOR	
+	db 10
+	dw METAGROSS
 	db -1 ; end
 
 	end_list_items
