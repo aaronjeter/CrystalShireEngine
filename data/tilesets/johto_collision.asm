@@ -158,7 +158,7 @@
 	tilecoll 01, 01, 01, 01 ; 9d
 	tilecoll 01, 01, 01, 01 ; 9e
 	tilecoll 01, 01, 01, 01 ; 9f
-	tilecoll 01, 01, 01, 01 ; a0
+	tilecoll WALL, WALL, WALL, WALL ; a0
 	tilecoll 01, 01, 01, 01 ; a1
 	tilecoll 01, 01, 01, 01 ; a2
 	tilecoll 01, 01, 01, 01 ; a3
