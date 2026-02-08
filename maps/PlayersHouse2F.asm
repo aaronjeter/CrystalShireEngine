@@ -3,6 +3,7 @@
 	const PLAYERSHOUSE2F_DOLL_1
 	const PLAYERSHOUSE2F_DOLL_2
 	const PLAYERSHOUSE2F_BIG_DOLL
+	const PLAYERHOUSE2F_RANDOMTESTGUY
 
 PlayersHouse2F_MapScripts:
 	def_scene_scripts
@@ -99,14 +100,14 @@ if DEF(_DEBUG)
 	giveitem HM_STRENGTH
 
 	; all badges
-	setflag ENGINE_ZEPHYRBADGE
-	setflag ENGINE_HIVEBADGE
-	setflag ENGINE_PLAINBADGE
-	setflag ENGINE_FOGBADGE
-	setflag ENGINE_STORMBADGE
-	setflag ENGINE_MINERALBADGE
-	setflag ENGINE_GLACIERBADGE
-	setflag ENGINE_RISINGBADGE
+	;setflag ENGINE_ZEPHYRBADGE
+	;setflag ENGINE_HIVEBADGE
+	;setflag ENGINE_PLAINBADGE
+	;setflag ENGINE_FOGBADGE
+	;setflag ENGINE_STORMBADGE
+	;setflag ENGINE_MINERALBADGE
+	;setflag ENGINE_GLACIERBADGE
+	;setflag ENGINE_RISINGBADGE
 	setflag ENGINE_BOULDERBADGE
 	setflag ENGINE_CASCADEBADGE
 	setflag ENGINE_THUNDERBADGE
@@ -170,14 +171,14 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke LEDIAN, 20
+	givepoke MEW, 200
 
 	loadmem wPartyMon1DVs+0, $ff
 	loadmem wPartyMon1DVs+1, $ff
 	loadmem wPartyMon1DVs+2, $ff
 	; hm slaves
-	givepoke SWALOT, 50, LEFTOVERS
-	givepoke FLYGON, 50, LEFTOVERS
+	givepoke SWALOT, 99, LEFTOVERS
+	givepoke FLYGON, 99, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove HAIL,		 wPartyMon2, 2
@@ -187,14 +188,19 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke CHIMECHO, 50
-	givepoke SCIZOR, 36
-	givepoke LEDIAN, 42
+	givepoke GOROCHU, 99
+	givepoke SNEASEL, 99
+	givepoke WEAVILE, 99
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
 	setevent EVENT_PLAYERS_HOUSE_MOM_1
 	clearevent EVENT_PLAYERS_HOUSE_MOM_2
+
+	setevent EVENT_BEAT_RIVAL_IN_MT_MOON
+	scall PHLevelcap
+	;jumpstd UpdateWorldLevelsScript
+
 	closetext
 	;halloffame
 	end
@@ -244,6 +250,10 @@ PlayersHousePCScript:
 	warp NONE, 0, 0
 	end
 
+PHLevelcap:
+	jumpstd UpdateWorldLevelsScript
+	end
+
 PlayersRadioText1:
 	text "PROF.OAK'S #MON"
 	line "TALK! Please tune"
@@ -264,11 +274,21 @@ PlayersRadioText4:
 	line "#MON CHANNEL…"
 	done
 
+
+Playerhouse_RandomTestTrainer:
+	faceplayer
+	winlosstext PlayersRadioText1, 0
+	loadtrainer EXPLORER, RANDOM_TEST
+	startbattle
+	reloadmapafterbattle
+	end
+
 PlayersHouse2F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  7,  0, PLAYERS_HOUSE_1F, 3
+	;warp_event  7,  0, PLAYERS_HOUSE_1F, 3
+	warp_event  7,  0, FORTREE_CITY, 1
 	warp_event  7,  4, LITTLEROOT_TOWN, 1
 
 	def_coord_events
@@ -284,3 +304,5 @@ PlayersHouse2F_MapEvents:
 	object_event  4,  4, SPRITE_DOLL_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseDoll1Script, EVENT_PLAYERS_HOUSE_2F_DOLL_1
 	object_event  5,  4, SPRITE_DOLL_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseDoll2Script, EVENT_PLAYERS_HOUSE_2F_DOLL_2
 	object_event  0,  1, SPRITE_BIG_DOLL, SPRITEMOVEDATA_BIGDOLL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseBigDollScript, EVENT_PLAYERS_HOUSE_2F_BIG_DOLL
+	object_event 02, 04, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Playerhouse_RandomTestTrainer, -1
+	
