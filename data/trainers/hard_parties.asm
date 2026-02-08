@@ -8341,6 +8341,10 @@ ExplorerGroupHard:
 	dw HARIYAMA
 	db -1 ; end
 
+	next_list_item; EXPLORER (6) Testroom
+	db "TEST@", TRAINERTYPE_RANDOM | TRAINERTYPE_ITEM | TRAINERTYPE_MOVES, 3, BATTLETOWER_EASY	
+	db -1 ; end
+
 	end_list_items
 
 ENDSECTION

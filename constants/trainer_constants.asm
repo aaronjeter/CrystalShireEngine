@@ -962,6 +962,12 @@ DEF KRIS EQU __trainer_class__
 	const SAFARI_JOEY
 	const SAFARI_ROSS
 	const SAFARI_CHANDLER
+	const RANDOM_TEST
 
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
+
+const_def
+const BATTLETOWER_EASY
+const BATTLETOWER_HARD
+const BATTLETOWER_LEGEND
