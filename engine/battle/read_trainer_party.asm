@@ -98,6 +98,63 @@ ReadTrainerPartyPieces:
 	ld h, d
 	ld l, e
 
+; Random?
+	bit TRAINERTYPE_RANDOM_F, a
+	jr z, .not_random
+	call GetNextTrainerDataByte
+	ld [wRandomTrainerNumPokemon], a
+	call GetNextTrainerDataByte
+	ld b, a ; list number, skip this many $ff after bank switch
+	ld a, BANK(RandomPartyLists)
+	ld [wTrainerGroupBank], a
+	ld hl, RandomPartyLists
+.random_skiploop
+	ld a, b
+	and a
+	jr z, .skipdone
+.random_innerskiploop
+	call GetNextTrainerDataByte
+	cp -1
+	jr nz, .random_innerskiploop
+	dec b
+	jr .random_skiploop
+.skipdone
+	call GetNextTrainerDataByte
+	ld [wRandomTrainerTotalPokemon], a
+	push hl
+.start_random
+	ld hl, wRandomTrainerRandomNumbers
+	ld a, [wRandomTrainerTotalPokemon]
+	call RandomRange
+	ld b, a
+	ld a, [wOTPartyCount]
+	ld c, a
+	inc c
+.repeats_loop
+	dec c
+	jr z, .no_repeats
+	ld a, [hli]
+	cp b
+	jr z, .start_random
+	jr .repeats_loop
+.no_repeats
+	ld [hl], b
+	pop hl
+	push hl
+	; skip b $fe delimiters
+.random_skiploop2
+	ld a, b
+	and a
+	jr z, .skipdone2
+.random_innerskiploop2
+	call GetNextTrainerDataByte
+	cp $fe
+	jr nz, .random_innerskiploop2
+	dec b
+	jr .random_skiploop2
+.skipdone2
+.not_random
+
 .loop
 	call GetNextTrainerDataByte
 	cp $ff
@@ -216,7 +273,19 @@ ReadTrainerPartyPieces:
 	pop hl
 .no_moves
 
+	ld a, [wOtherTrainerType]
+	bit TRAINERTYPE_RANDOM_F, a
+	jr nz, .random_loop
+
 	jmp .loop
+
+.random_loop
+	ld a, [wRandomTrainerNumPokemon]
+	dec a
+	ld [wRandomTrainerNumPokemon], a
+	jp nz, .start_random
+	pop hl
+	ret
 
 ComputeTrainerReward:
 	ld hl, hProduct

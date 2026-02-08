@@ -909,6 +909,12 @@ DEF KRIS EQU __trainer_class__
 	trainerclass EXPLORER
 	const ROUTE105_FOSTER
 	const ROUTE105_ANDRES
+	const RANDOM_TEST
 
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
+
+const_def
+const BATTLETOWER_EASY
+const BATTLETOWER_HARD
+const BATTLETOWER_LEGEND
