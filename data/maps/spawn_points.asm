@@ -39,6 +39,23 @@ SpawnPoints:
 	spawn SILVER_CAVE_OUTSIDE,        23, 20
 	spawn FAST_SHIP_CABINS_SW_SSW_NW,  6,  2
 
+	spawn LITTLEROOT_TOWN,            04, 14
+	spawn OLDALE_TOWN,                05, 16
+	spawn PETALBURG_CITY,             19, 18
+	spawn RUSTBORO_CITY,              13, 36
+	spawn DEWFORD_TOWN,               07, 32
+	spawn SLATEPORT_CITY,             19, 22
+	spawn MAUVILLE_CITY,              23, 06
+	spawn VERDANTURF_TOWN,            17, 06
+	spawn LAVARIDGE_TOWN,             11, 08
+	spawn FALLARBOR_TOWN,             13, 10
+	spawn FORTREE_CITY,               05, 08
+	spawn LILYCOVE_CITY,              23, 16
+	spawn LILYCOVE_CITY,              23, 16
+	spawn LILYCOVE_CITY,              23, 16
+	spawn LILYCOVE_CITY,              23, 16
+	spawn LILYCOVE_CITY,              23, 16
+
 	spawn N_A,                        -1, -1
 
 	assert_table_length NUM_SPAWNS + 1

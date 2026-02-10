@@ -108,6 +108,22 @@ EngineFlags:
 	engine_flag wVisitedSpawns, SPAWN_LAKE_OF_RAGE
 	engine_flag wVisitedSpawns, SPAWN_BLACKTHORN
 	engine_flag wVisitedSpawns, SPAWN_MT_SILVER
+	engine_flag wVisitedSpawns, SPAWN_LITTLEROOT
+	engine_flag wVisitedSpawns, SPAWN_OLDALE
+	engine_flag wVisitedSpawns, SPAWN_PETALBURG
+	engine_flag wVisitedSpawns, SPAWN_RUSTBORO
+	engine_flag wVisitedSpawns, SPAWN_DEWFORD
+	engine_flag wVisitedSpawns, SPAWN_SLATEPORT
+	engine_flag wVisitedSpawns, SPAWN_MAUVILLE
+	engine_flag wVisitedSpawns, SPAWN_VERDANTURF
+	engine_flag wVisitedSpawns, SPAWN_LAVARIDGE
+	engine_flag wVisitedSpawns, SPAWN_FALLARBOR
+	engine_flag wVisitedSpawns, SPAWN_FORTREE
+	engine_flag wVisitedSpawns, SPAWN_LILYCOVE
+	engine_flag wVisitedSpawns, SPAWN_MOSSDEEP
+	engine_flag wVisitedSpawns, SPAWN_SOOTOPOLIS
+	engine_flag wVisitedSpawns, SPAWN_PACIFIDLOG
+	engine_flag wVisitedSpawns, SPAWN_EVERGRANDE
 	engine_flag wVisitedSpawns, NUM_SPAWNS ; unused
 
 	engine_flag wLuckyNumberShowFlag, LUCKYNUMBERSHOW_GAME_OVER_F

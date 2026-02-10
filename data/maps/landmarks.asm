@@ -104,6 +104,43 @@ Landmarks:
 	landmark  12, 100, TohjoFallsName
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
+	landmark  36, 116, LittlerootName
+	landmark  36, 100, OldaleName
+	landmark  20, 100, PetalburgName
+	landmark  12,  76, RustboroName
+	landmark  28, 132, DewfordName
+	landmark  52, 108, SlateportName
+	landmark  52,  84, MauvilleName
+	landmark  36,  84, VerdanturfName
+	landmark  36,  60, LavaridgeName
+	landmark  28,  44, FallarborName
+	landmark  84,  44, FortreeName
+	landmark 124,  60, LilycoveName
+	landmark 124,  60, MossdeepName
+	landmark 124,  60, SootopolisName
+	landmark 124,  60, PacifidlogName
+	landmark 124,  60, EvergrandeName
+	landmark  36, 108, Route101Name
+	landmark  44, 100, Route102Name
+	landmark  28, 100, Route103Name
+	landmark  12,  92, Route104Name
+	landmark  12, 108, Route105Name
+	landmark  44, 132, Route108Name
+	landmark  52, 124, Route109Name
+	landmark  52, 100, Route110Name
+	landmark  52,  76, Route111Name
+	landmark  44,  60, Route112Name
+	landmark  36,  44, Route113Name
+	landmark  12,  44, Route114Name
+	landmark  12,  68, Route115Name
+	landmark  28,  76, Route116Name
+	landmark  44,  84, Route117Name
+	landmark  68,  84, Route118Name
+	landmark  76,  60, Route119Name
+	landmark  92,  52, Route120Name
+	landmark 108,  60, Route121Name
+	landmark 108,  76, Route122Name
+	landmark 100,  84, Route123Name
 	assert_table_length NUM_LANDMARKS
 
 NewBarkTownName:     db "NEW BARK<BSP>TOWN@"
@@ -147,6 +184,22 @@ MtMoonName:          db "MT.MOON@"
 RockTunnelName:      db "ROCK TUNNEL@"
 LavRadioTowerName:   db "LAV<BSP>RADIO TOWER@"
 SeafoamIslandsName:  db "SEAFOAM<BSP>ISLANDS@"
+LittlerootName:		 db "LITTLEROOT<BSP>TOWN@"
+OldaleName:			 db "OLDALE<BSP>TOWN@"
+PetalburgName:		 db "PETALBURG<BSP>TOWN@"
+RustboroName:		 db "RUSTBORO<BSP>TOWN@"
+DewfordName:		 db "DEWFORD<BSP>TOWN@"
+SlateportName:		 db "SLATEPORT<BSP>TOWN@"
+MauvilleName:		 db "MAUVILLE<BSP>TOWN@"
+VerdanturfName:		 db "VERDANTURF<BSP>TOWN@"
+LavaridgeName:       db "LAVARIDGE<BSP>TOWN@"
+FallarborName:       db "FALLARBOR<BSP>TOWN@"
+FortreeName:         db "FORTREE<BSP>CITY@"
+LilycoveName:        db "LILYCOVE<BSP>CITY@"
+MossdeepName:        db "MOSSDEEP<BSP>CITY@"
+SootopolisName:      db "SOOTOPOLIS<BSP>CITY@"
+PacifidlogName:      db "PACIFIDLOG<BSP>CITY@"
+EvergrandeName:      db "EVERGRANDE<BSP>CITY@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
 Route3Name:          db "ROUTE 3@"
@@ -193,6 +246,27 @@ Route43Name:         db "ROUTE 43@"
 Route44Name:         db "ROUTE 44@"
 Route45Name:         db "ROUTE 45@"
 Route46Name:         db "ROUTE 46@"
+Route101Name:        db "ROUTE 101@"
+Route102Name:        db "ROUTE 102@"
+Route103Name:        db "ROUTE 103@"
+Route104Name:        db "ROUTE 104@"
+Route105Name:        db "ROUTE 105@"
+Route108Name:        db "ROUTE 108@"
+Route109Name:        db "ROUTE 109@"
+Route110Name:        db "ROUTE 110@"
+Route111Name:        db "ROUTE 111@"
+Route112Name:        db "ROUTE 112@"
+Route113Name:        db "ROUTE 113@"
+Route114Name:        db "ROUTE 114@"
+Route115Name:        db "ROUTE 115@"
+Route116Name:        db "ROUTE 116@"
+Route117Name:        db "ROUTE 117@"
+Route118Name:        db "ROUTE 118@"
+Route119Name:        db "ROUTE 119@"
+Route120Name:        db "ROUTE 120@"
+Route121Name:        db "ROUTE 121@"
+Route122Name:        db "ROUTE 122@"
+Route123Name:        db "ROUTE 123@"
 DarkCaveName:        db "DARK CAVE@"
 IlexForestName:      db "ILEX<BSP>FOREST@"
 BurnedTowerName:     db "BURNED<BSP>TOWER@"

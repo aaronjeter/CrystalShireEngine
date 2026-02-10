@@ -2154,6 +2154,9 @@ FlyMap:
 	call GetWorldMapLocation
 .CheckRegion:
 ; The first 46 locations are part of Johto. The rest are in Kanto.
+	cp HOENN_LANDMARK
+	jr nc, .HoennFlyMap
+
 	cp KANTO_LANDMARK
 	jr nc, .KantoFlyMap
 ; Johto fly map
@@ -2170,7 +2173,12 @@ FlyMap:
 	pop af
 	jmp TownMapPlayerIcon
 
-.KantoFlyMap:
+.HoennFlyMap:
+;To resolve the below issue, I'm initializing some flypoints on the intro menu
+;For a Johto start, Saffron and Slateport flypoints are activated
+;For Hoenn start, Saffron and Goldenrod will be activated
+;For Kanto start, Goldenrod and Slateport will be activated
+
 ; The event that there are no flypoints enabled in a map is not
 ; accounted for. As a result, if you attempt to select a flypoint
 ; when there are none enabled, the game will crash. Additionally,
@@ -2179,6 +2187,19 @@ FlyMap:
 ; To prevent both of these things from happening when the player
 ; enters Kanto, fly access is restricted until Saffron City is
 ; visited and its flypoint enabled.
+	push af	
+	ld a, HOENN_FLYPOINT ; first Hoenn flypoint
+	ld [wStartFlypoint], a
+	ld a, NUM_FLYPOINTS - 1 ; last Hoenn flypoint
+	ld [wEndFlypoint], a
+	ld [wTownMapPlayerIconLandmark], a ; 
+; Fill out the map
+	call FillHoennMap
+	call .MapHud
+	pop af
+	jmp TownMapPlayerIcon
+
+.KantoFlyMap:
 	push af
 	ld c, SPAWN_SAFFRON
 	call HasVisitedSpawn
@@ -2187,9 +2208,9 @@ FlyMap:
 ; Kanto's map is only loaded if we've visited Saffron
 	ld a, KANTO_FLYPOINT ; first Kanto flypoint
 	ld [wStartFlypoint], a
-	ld a, NUM_FLYPOINTS - 1 ; last Kanto flypoint
+	ld a, HOENN_FLYPOINT - 1 ; last Kanto flypoint
 	ld [wEndFlypoint], a
-	ld [wTownMapPlayerIconLandmark], a ; last one is default (Indigo Plateau)
+	ld [wTownMapPlayerIconLandmark], a ; last one is default (Saffron City)
 ; Fill out the map
 	call FillKantoMap
 	call .MapHud
@@ -2197,7 +2218,6 @@ FlyMap:
 	jmp TownMapPlayerIcon
 
 .NoKanto:
-; If Indigo Plateau hasn't been visited, we use Johto's map instead
 	ld a, JOHTO_FLYPOINT ; first Johto flypoint
 	ld [wTownMapPlayerIconLandmark], a ; first one is default (New Bark Town)
 	ld [wStartFlypoint], a
@@ -2510,6 +2530,10 @@ TownMapBGUpdate:
 	ldh [hBGMapMode], a
 	ret
 
+FillHoennMap:
+	ld de, HoennMap
+	jr FillTownMap
+
 FillJohtoMap:
 	ld de, JohtoMap
 	jr FillTownMap
@@ -2661,6 +2685,9 @@ INCBIN "gfx/pokegear/johto.bin"
 
 KantoMap:
 INCBIN "gfx/pokegear/kanto.bin"
+
+HoennMap:
+INCBIN "gfx/pokegear/hoenn.bin"
 
 PokedexNestIconGFX:
 INCBIN "gfx/pokegear/dexmap_nest_icon.2bpp"

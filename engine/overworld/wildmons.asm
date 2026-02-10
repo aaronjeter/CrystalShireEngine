@@ -423,22 +423,60 @@ _GrassWildmonLookup:
 	ld bc, GRASS_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
-	ld hl, JohtoGrassWildMons
-	ld de, KantoGrassWildMons
-	call _JohtoWildmonCheck
+	call _GrassmonCheck
 	ld bc, GRASS_WILDDATA_LENGTH
-	jr _NormalWildmonOK
+	jp _NormalWildmonOK
 
 _WaterWildmonLookup:
 	ld hl, SwarmWaterWildMons
 	ld bc, WATER_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
-	ld hl, JohtoWaterWildMons
-	ld de, KantoWaterWildMons
-	call _JohtoWildmonCheck
+	call _WatermonCheck
 	ld bc, WATER_WILDDATA_LENGTH
 	jr _NormalWildmonOK
+
+_GrassmonCheck:
+	call IsInJohto
+	cp KANTO_REGION
+	jr z, .kanto
+	cp JOHTO_REGION
+	jr z, .johto
+	cp HOENN_REGION
+	jr z, .hoenn
+
+.kanto
+	ld hl, KantoGrassWildMons	
+	ret
+
+.johto
+	ld hl, JohtoGrassWildMons
+	ret
+
+.hoenn
+	ld hl, HoennGrassWildMons
+	ret
+
+_WatermonCheck:
+	call IsInJohto
+	cp KANTO_REGION
+	jr z, .kanto
+	cp JOHTO_REGION
+	jr z, .johto
+	cp HOENN_REGION
+	jr z, .hoenn
+
+.kanto
+	ld hl, KantoWaterWildMons
+	ret
+
+.johto
+	ld hl, JohtoWaterWildMons
+	ret
+
+.hoenn
+	ld hl, HoennWaterWildMons
+	ret
 
 _JohtoWildmonCheck:
 	call IsInJohto
@@ -1013,3 +1051,5 @@ INCLUDE "data/wild/kanto_grass.asm"
 INCLUDE "data/wild/kanto_water.asm"
 INCLUDE "data/wild/swarm_grass.asm"
 INCLUDE "data/wild/swarm_water.asm"
+INCLUDE "data/wild/hoenn_grass.asm"
+INCLUDE "data/wild/hoenn_water.asm"

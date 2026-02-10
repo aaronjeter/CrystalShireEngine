@@ -114,7 +114,158 @@ def_grass_wildmons ROUTE_104
 	dbw 5, RALTS
 	end_grass_wildmons
 
+;Route 105 is Water Only
+
+;Route 106 doesn't exist
+
+;Route 107 doesn't exist
+
+;Route 108 is water only
+
+;Route 109 is water only
+
+
 def_grass_wildmons ROUTE_110
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+def_grass_wildmons ROUTE_111
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+def_grass_wildmons ROUTE_112
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+def_grass_wildmons ROUTE_113
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+def_grass_wildmons ROUTE_114
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+def_grass_wildmons ROUTE_115
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, ELECTRIKE
@@ -197,5 +348,149 @@ def_grass_wildmons ROUTE_117
 	dbw 2, ILLUMISE
 	dbw 5, ILLUMISE
 	end_grass_wildmons
+
+def_grass_wildmons ROUTE_118
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+def_grass_wildmons ROUTE_119_SOUTH
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+def_grass_wildmons ROUTE_119_NORTH
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+def_grass_wildmons ROUTE_120
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+;Route 121 and 122 No grassmons
+
+def_grass_wildmons ROUTE_123
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; day
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	; nite
+	dbw 1, ELECTRIKE
+	dbw 1, ODDISH
+	dbw 1, GULPIN
+	dbw 2, PLUSLE
+	dbw 2, MINUN
+	dbw 2, WINGULL
+	dbw 5, MANECTRIC
+	end_grass_wildmons
+
+
 
 db -1 ; end

@@ -20,13 +20,20 @@ IsInJohto::
 	call GetWorldMapLocation
 
 .CheckRegion:
+	cp HOENN_LANDMARK
+	jr nc, .Hoenn
+
 	cp KANTO_LANDMARK
 	jr nc, .Kanto
 
 .Johto:
-	xor a ; JOHTO_REGION
+	ld a, JOHTO_REGION
 	ret
 
 .Kanto:
 	ld a, KANTO_REGION
+	ret
+
+.Hoenn:
+	ld a, HOENN_REGION
 	ret
