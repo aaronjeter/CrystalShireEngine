@@ -4,6 +4,11 @@ MauvilleCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, MauvilleCityFlypointCallback
+
+MauvilleCityFlypointCallback:
+	setflag ENGINE_FLYPOINT_MAUVILLE
+	endcallback
 
 MauvilleCitySign:
 	jumptext MauvilleCitySignText

@@ -4,6 +4,11 @@ SlateportCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, SlateportCityFlypointCallback
+
+SlateportCityFlypointCallback:
+	setflag ENGINE_FLYPOINT_SLATEPORT
+	endcallback
 
 SlateportCitySign:
 	jumptext SlateportCitySignText

@@ -6,7 +6,12 @@
 LittlerootTown_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
+	def_callbacks
+	callback MAPCALLBACK_NEWMAP, LittlerootTownFlypointCallback
+
+LittlerootTownFlypointCallback:
+	setflag ENGINE_FLYPOINT_LITTLEROOT
+	endcallback
 
 Littleroot_Treecko:
 	cry TREECKO

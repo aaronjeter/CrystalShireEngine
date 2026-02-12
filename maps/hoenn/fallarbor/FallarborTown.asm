@@ -3,7 +3,12 @@
 FallarborTown_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
+	def_callbacks
+	callback MAPCALLBACK_NEWMAP, FallarborTownFlypointCallback
+
+FallarborTownFlypointCallback:
+	setflag ENGINE_FLYPOINT_FALLARBOR
+	endcallback
 
 FallarborTownSign:
 	jumptext FallarborTownSignText

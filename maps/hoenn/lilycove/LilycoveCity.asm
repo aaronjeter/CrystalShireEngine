@@ -4,6 +4,11 @@ LilycoveCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, LilycoveCityFlypointCallback
+
+LilycoveCityFlypointCallback:
+	setflag ENGINE_FLYPOINT_LILYCOVE
+	endcallback
 
 LilycoveCity_MapEvents:
 	db 0, 0 ; filler

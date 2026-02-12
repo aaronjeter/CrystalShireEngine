@@ -4,6 +4,11 @@ RustboroCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, RustboroCityFlypointCallback
+
+RustboroCityFlypointCallback:
+	setflag ENGINE_FLYPOINT_RUSTBORO
+	endcallback
 
 RustboroCitySign:
 	jumptext RustboroCitySignText

@@ -4,6 +4,11 @@ FortreeCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, FortreeCityFlypointCallback
+
+FortreeCityFlypointCallback:
+	setflag ENGINE_FLYPOINT_FORTREE
+	endcallback
 
 FortreeCitySign:
 	jumptext FortreeCitySignText

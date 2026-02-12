@@ -4,6 +4,11 @@ LavaridgeTown_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, LavaridgeTownFlypointCallback
+
+LavaridgeTownFlypointCallback:
+	setflag ENGINE_FLYPOINT_LAVARIDGE
+	endcallback
 
 LavaridgeTownSign:
 	jumptext LavaridgeTownSignText

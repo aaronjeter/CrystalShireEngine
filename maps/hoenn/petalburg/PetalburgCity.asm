@@ -4,6 +4,11 @@ PetalburgCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, PetalburgCityFlypointCallback
+
+PetalburgCityFlypointCallback:
+	setflag ENGINE_FLYPOINT_PETALBURG
+	endcallback
 
 PetalburgCitySign:
 	jumptext PetalburgCitySignText

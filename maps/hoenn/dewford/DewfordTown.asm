@@ -4,6 +4,11 @@ DewfordTown_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, DewfordTownFlypointCallback
+
+DewfordTownFlypointCallback:
+	setflag ENGINE_FLYPOINT_DEWFORD
+	endcallback
 
 DewfordTownSign:
 	jumptext DewfordTownSignText

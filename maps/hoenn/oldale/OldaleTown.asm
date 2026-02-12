@@ -4,6 +4,11 @@ OldaleTown_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_NEWMAP, OldaleTownFlypointCallback
+
+OldaleTownFlypointCallback:
+	setflag ENGINE_FLYPOINT_OLDALE
+	endcallback
 
 OldaleTownSign:
 	jumptext OldaleTownSignText
