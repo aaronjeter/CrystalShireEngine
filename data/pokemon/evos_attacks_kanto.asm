@@ -913,7 +913,7 @@ VulpixEvosAttacks:
 
 NinetalesEvosAttacks:
 	dbww EVOLVE_ITEM, ICE_STONE, ANINETALES
-	dbww EVOLVE_ITEM, KANTOITE_X, NINETALES2
+	dbww EVOLVE_ITEM, WATER_STONE, NINETALES2
 	db 0 ; no more evolutions
 	dbw 1, EMBER
 	dbw 1, LICK

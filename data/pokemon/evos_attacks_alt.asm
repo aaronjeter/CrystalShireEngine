@@ -1052,6 +1052,8 @@ Vulpix2EvosAttacks:
 	db 0 ; no more level-up moves
 
 Ninetales2EvosAttacks:
+	dbww EVOLVE_ITEM, FIRE_STONE, NINETALES
+	dbww EVOLVE_ITEM, ICE_STONE, ANINETALES 
 	db 0 ; no more evolutions
 	dbw 1, BUBBLE
 	dbw 1, EMBER
