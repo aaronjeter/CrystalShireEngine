@@ -102,6 +102,7 @@ TogekissEvosAttacks:
 	dbw 24, FAE_VOICE
 	dbw 28, DOUBLE_TEAM
 	dbw 32, PSYBEAM
+	dbw 36, MIRROR_COAT
 	dbw 40, MOONBLAST
 	dbw 45, RAZOR_WIND
 	dbw 50, CALM_MIND
