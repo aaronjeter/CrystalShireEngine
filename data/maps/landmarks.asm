@@ -120,6 +120,13 @@ Landmarks:
 	landmark 124,  60, SootopolisName
 	landmark 124,  60, PacifidlogName
 	landmark 124,  60, EvergrandeName
+	landmark  12,  92, PetalburgWoodsName
+	landmark  36,  76, RusturfTunnelName
+	landmark  28, 132, GraniteCaveName
+	landmark  52,  92, NewMauvilleName
+	landmark  52,  68, LavaridgeDesertName
+	landmark  44,  68, FieryPathName
+	landmark  12,  60, MeteorFallsName
 	landmark  36, 108, Route101Name
 	landmark  44, 100, Route102Name
 	landmark  28, 100, Route103Name
@@ -200,6 +207,13 @@ MossdeepName:        db "MOSSDEEP<BSP>CITY@"
 SootopolisName:      db "SOOTOPOLIS<BSP>CITY@"
 PacifidlogName:      db "PACIFIDLOG<BSP>CITY@"
 EvergrandeName:      db "EVERGRANDE<BSP>CITY@"
+PetalburgWoodsName:  db "PETALBURG<BSP>WOODS@"
+RusturfTunnelName:   db "RUSTURF<BSP>TUNNEL@"
+GraniteCaveName:     db "GRANITE<BSP>CAVE@"
+NewMauvilleName:     db "NEW MAUVILLE@"
+LavaridgeDesertName: db "LAVARIDGE<BSP>DESERT@"
+FieryPathName:       db "FIERY PATH@"
+MeteorFallsName:     db "METEOR FALLS@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
 Route3Name:          db "ROUTE 3@"
