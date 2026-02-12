@@ -194,6 +194,7 @@ DEF KRIS EQU __trainer_class__
 	const CHAD4
 	const CHAD5
 	const MAUVILLE_BEN
+	const ROUTE118_DALE
 
 	trainerclass BIRD_KEEPER ; 18
 	const ROD
@@ -220,6 +221,8 @@ DEF KRIS EQU __trainer_class__
 	const FORTREE_JARED
 	const FORTREE_EDWARDO
 	const FORTREE_DARIUS
+	const ROUTE118_CHESTER
+	const ROUTE118_PERRY
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -246,6 +249,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE116_JANICE
 	const MOON_IRIS
 	const MOON_MIRIAM
+	const ROUTE118_SALLY
+	const ROUTE118_ANNIE
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -482,6 +487,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE105_NED
 	const ROUTE105_ELLIOT
 	const ROUTE110_DALE
+	const ROUTE118_BARNY
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD

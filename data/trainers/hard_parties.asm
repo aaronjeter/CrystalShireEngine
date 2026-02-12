@@ -1723,6 +1723,14 @@ SchoolboyGroupHard:
 	dw LINOONE
 	db -1 ; end
 
+	next_list_item ; SCHOOLBOY (26) Route 118
+	db "DALE@", TRAINERTYPE_NORMAL
+	db 5
+	dw MINUN
+	db 7
+	dw RAITORA
+	db -1 ; end
+
 	end_list_items
 
 BirdKeeperGroupHard:
@@ -1945,6 +1953,22 @@ BirdKeeperGroupHard:
 	dw FARFETCH_D
 	db 9
 	dw BEAUTIFLY
+	db -1 ; end
+
+	next_list_item ; BIRD_KEEPER (25) Route 118
+	db "CHESTER@", TRAINERTYPE_NORMAL
+	db 5
+	dw FEAROW
+	db 7
+	dw DUSTOX
+	db -1 ; end
+
+	next_list_item ; BIRD_KEEPER (26) Route 118
+	db "PERRY@", TRAINERTYPE_NORMAL
+	db 5
+	dw GOLBAT
+	db 7
+	dw GLIGAR
 	db -1 ; end
 
 	end_list_items
@@ -2180,6 +2204,22 @@ LassGroupHard:
 	db "MIRIAM@", TRAINERTYPE_NORMAL	
 	db 5
 	dw GLOOM
+	db 7
+	dw ROSELIA
+	db -1 ; end
+
+	next_list_item ; LASS (25) Route 118
+	db "SALLY@", TRAINERTYPE_NORMAL	
+	db 5
+	dw GLOOM
+	db 6
+	dw VOLBEAT
+	db -1 ; end
+
+	next_list_item ; LASS (26) Route 118
+	db "ANNIE@", TRAINERTYPE_NORMAL	
+	db 5
+	dw MUNCHLAX
 	db 7
 	dw ROSELIA
 	db -1 ; end
@@ -4312,6 +4352,16 @@ FisherGroupHard:
 	dw WHISCASH
 	db 7
 	dw SHARPEDO
+	db -1 ; end
+
+	next_list_item ; FISHER (32) Route 118
+	db "ELLIOT@", TRAINERTYPE_NORMAL
+	db 7
+	dw MAGNEMITE
+	db 5
+	dw BARBOACH
+	db 7
+	dw HUNTAIL
 	db -1 ; end
 
 	end_list_items
