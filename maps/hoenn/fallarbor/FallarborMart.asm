@@ -8,7 +8,7 @@ FallarborMart_MapScripts:
 
 FallarborMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CERULEAN
+	pokemart MARTTYPE_STANDARD, MART_ECRUTEAK
 	closetext
 	end
 

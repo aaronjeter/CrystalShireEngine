@@ -8,7 +8,7 @@ MauvilleMart_MapScripts:
 
 MauvilleMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CERULEAN
+	pokemart MARTTYPE_STANDARD, MART_ECRUTEAK
 	closetext
 	end
 

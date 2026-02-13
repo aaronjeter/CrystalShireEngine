@@ -8,7 +8,7 @@ PetalburgMart_MapScripts:
 
 PetalburgMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CERULEAN
+	pokemart MARTTYPE_STANDARD, MART_VIOLET
 	closetext
 	end
 

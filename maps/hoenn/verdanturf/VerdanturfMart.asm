@@ -8,7 +8,7 @@ VerdanturfMart_MapScripts:
 
 VerdanturfMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CERULEAN
+	pokemart MARTTYPE_STANDARD, MART_AZALEA
 	closetext
 	end
 

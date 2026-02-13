@@ -8,7 +8,7 @@ OldaleMart_MapScripts:
 
 OldaleMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CERULEAN
+	pokemart MARTTYPE_STANDARD, MART_CHERRYGROVE_DEX
 	closetext
 	end
 

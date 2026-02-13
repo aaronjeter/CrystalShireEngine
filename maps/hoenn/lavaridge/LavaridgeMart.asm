@@ -8,7 +8,7 @@ LavaridgeMart_MapScripts:
 
 LavaridgeMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CERULEAN
+	pokemart MARTTYPE_STANDARD, MART_OLIVINE
 	closetext
 	end
 
