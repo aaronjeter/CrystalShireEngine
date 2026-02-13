@@ -12,7 +12,7 @@ DesertRuinB1F_MapEvents:
 
 	warp_event  51, 09, DESERT_RUIN_1F, 2
 	warp_event  51, 19, DESERT_RUIN_1F, 3
-	warp_event  07, 05, REGIROCK_LAIR, 1
+	warp_event  07, 05, DESERT_SHRINE, 1
 
 	def_coord_events
 

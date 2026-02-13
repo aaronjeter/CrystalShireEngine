@@ -1060,8 +1060,8 @@ SECTION "Map Blocks 5", ROMX
 	DesertRuinB1F_Blocks:
 	INCBIN "maps/hoenn/DesertRuinB1F.ablk"
 
-	RegirockLair_Blocks:
-	INCBIN "maps/hoenn/RegirockLair.ablk"
+	DesertShrine_Blocks:
+	INCBIN "maps/hoenn/DesertShrine.ablk"
 
 	Route112_Blocks:
 	INCBIN "maps/hoenn/Route112.ablk" 

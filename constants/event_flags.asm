@@ -384,6 +384,7 @@
 
 
 	const EVENT_STARTED_RADIO_ROCKETS
+	const EVENT_BEAT_DESERT_SHRINE_UNOWN
 ; Unused: next 320 events
 
 	const_next 600
