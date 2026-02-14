@@ -288,7 +288,7 @@ JohtoGrassWildMons:
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
 	dbw 1, GRIMER
-	dbw 2, TORCHIC
+	dbw 2, CYNDAQUIL2
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
 	dbw 5, CYNDAQUIL2
@@ -296,7 +296,7 @@ JohtoGrassWildMons:
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
 	dbw 1, GRIMER
-	dbw 2, TORCHIC
+	dbw 2, CYNDAQUIL2
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
 	dbw 5, CYNDAQUIL2
@@ -304,7 +304,7 @@ JohtoGrassWildMons:
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
 	dbw 1, GRIMER
-	dbw 2, TORCHIC
+	dbw 2, CYNDAQUIL2
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
 	dbw 5, CYNDAQUIL2
@@ -316,7 +316,7 @@ JohtoGrassWildMons:
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
 	dbw 1, GRIMER
-	dbw 2, TORCHIC
+	dbw 2, CYNDAQUIL2
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
 	dbw 5, CYNDAQUIL2
@@ -324,7 +324,7 @@ JohtoGrassWildMons:
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
 	dbw 1, GRIMER
-	dbw 2, TORCHIC
+	dbw 2, CYNDAQUIL2
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
 	dbw 5, CYNDAQUIL2
@@ -332,7 +332,7 @@ JohtoGrassWildMons:
 	dbw 1, CYNDAQUIL
 	dbw 1, KOFFING
 	dbw 1, GRIMER
-	dbw 2, TORCHIC
+	dbw 2, CYNDAQUIL2
 	dbw 2, GRIMER
 	dbw 3, HOUNDOUR
 	dbw 5, CYNDAQUIL2
@@ -369,29 +369,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons RUINS_OF_ALPH_OUTSIDE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, TREECKO
+	dbw 1, NATU
 	dbw 2, NATU
-	dbw 1, SURSKIT
-	dbw 1, MUDKIP
+	dbw 1, NATU
+	dbw 1, NATU
 	dbw 1, SMEARGLE
 	dbw 2, SMEARGLE
 	dbw 5, SMEARGLE
 	; day
-	dbw 1, TREECKO
+	dbw 1, NATU
 	dbw 2, NATU
-	dbw 1, SURSKIT
-	dbw 1, MUDKIP
+	dbw 1, NATU
+	dbw 1, NATU
 	dbw 1, SMEARGLE
 	dbw 2, SMEARGLE
 	dbw 5, SMEARGLE
 	; nite
-	dbw 1, TREECKO
+	dbw 1, NATU
 	dbw 2, NATU
-	dbw 1, SURSKIT
-	dbw 1, MUDKIP
-	dbw 1, WOOPER
-	dbw 3, QUAGSIRE
-	dbw 5, QUAGSIRE
+	dbw 1, NATU
+	dbw 1, NATU
+	dbw 1, SMEARGLE
+	dbw 2, SMEARGLE
+	dbw 5, SMEARGLE
 	end_grass_wildmons
 
 	def_grass_wildmons RUINS_OF_ALPH_INNER_CHAMBER
@@ -425,7 +425,7 @@ JohtoGrassWildMons:
 	def_grass_wildmons UNION_CAVE_1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, TRAPINCH
+	dbw 1, GEODUDE
 	dbw 1, ZUBAT
 	dbw 1, CUBONE
 	dbw 1, ONIX
@@ -433,7 +433,7 @@ JohtoGrassWildMons:
 	dbw 2, SMOOCHUM
 	dbw 3, SMOOCHUM
 	; day
-	dbw 1, TRAPINCH
+	dbw 1, GEODUDE
 	dbw 1, ZUBAT
 	dbw 1, CUBONE
 	dbw 1, ONIX
@@ -441,7 +441,7 @@ JohtoGrassWildMons:
 	dbw 2, SMOOCHUM
 	dbw 3, SMOOCHUM
 	; nite
-	dbw 1, TRAPINCH
+	dbw 1, GEODUDE
 	dbw 1, ZUBAT
 	dbw 1, CUBONE
 	dbw 1, ONIX
@@ -567,7 +567,7 @@ JohtoGrassWildMons:
 	; morn
 	dbw 1, CHIKORITA
 	dbw 1, KOTORA
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, FARFETCH_D
 	dbw 2, FARFETCH_D
@@ -575,7 +575,7 @@ JohtoGrassWildMons:
 	; day
 	dbw 1, CHIKORITA
 	dbw 1, KOTORA
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, FARFETCH_D
 	dbw 2, FARFETCH_D
@@ -583,7 +583,7 @@ JohtoGrassWildMons:
 	; nite
 	dbw 1, CHIKORITA
 	dbw 1, KOTORA
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, FARFETCH_D
 	dbw 2, FARFETCH_D
@@ -595,7 +595,7 @@ JohtoGrassWildMons:
 	; morn
 	dbw 1, CHIKORITA
 	dbw 1, SHUPPET
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, WURMPLE
 	dbw 1, ZANGOOSE
 	dbw 2, ZANGOOSE
@@ -603,7 +603,7 @@ JohtoGrassWildMons:
 	; day
 	dbw 1, CHIKORITA
 	dbw 1, SHUPPET
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, WURMPLE
 	dbw 1, ZANGOOSE
 	dbw 2, ZANGOOSE
@@ -611,7 +611,7 @@ JohtoGrassWildMons:
 	; nite
 	dbw 1, CHIKORITA
 	dbw 1, SHUPPET
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, WURMPLE
 	dbw 1, ZANGOOSE
 	dbw 5, HANAMOLE
@@ -623,7 +623,7 @@ JohtoGrassWildMons:
 	; morn
 	dbw 1, CHIKORITA
 	dbw 1, KOTORA
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, DUSKULL
 	dbw 1, SEVIPER
 	dbw 2, SEVIPER
@@ -631,7 +631,7 @@ JohtoGrassWildMons:
 	; day
 	dbw 1, CHIKORITA
 	dbw 1, KOTORA
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, DUSKULL
 	dbw 1, SEVIPER
 	dbw 2, SEVIPER
@@ -639,7 +639,7 @@ JohtoGrassWildMons:
 	; nite
 	dbw 1, CHIKORITA
 	dbw 1, PARAS
-	dbw 1, SHROOMISH
+	dbw 1, ODDISH
 	dbw 1, DUSKULL
 	dbw 1, SEVIPER
 	dbw 5, HANAMOLE
@@ -649,7 +649,7 @@ JohtoGrassWildMons:
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, SLAKOTH
+	dbw 1, MACHOP
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
@@ -657,7 +657,7 @@ JohtoGrassWildMons:
 	dbw 3, MACHOKE
 	dbw 5, MACHOKE
 	; day
-	dbw 1, SLAKOTH
+	dbw 1, MACHOP
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
@@ -665,7 +665,7 @@ JohtoGrassWildMons:
 	dbw 3, MACHOKE
 	dbw 5, MACHOKE
 	; nite
-	dbw 1, SLAKOTH
+	dbw 1, MACHOP
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
@@ -1242,7 +1242,7 @@ JohtoGrassWildMons:
 	dbw 1, TEDDIURSA
 	dbw 1, SANDSHREW
 	dbw 2, DUNSPARCE
-	dbw 1, TRAPINCH
+	dbw 5, DUNSPARCE
 	dbw 1, LARVITAR
 	; day
 	dbw 1, GEODUDE
@@ -1250,7 +1250,7 @@ JohtoGrassWildMons:
 	dbw 1, TEDDIURSA
 	dbw 1, SANDSHREW
 	dbw 2, DUNSPARCE
-	dbw 1, TRAPINCH
+	dbw 5, DUNSPARCE
 	dbw 1, LARVITAR
 	; nite
 	dbw 1, GEODUDE
@@ -1258,7 +1258,7 @@ JohtoGrassWildMons:
 	dbw 1, TEDDIURSA
 	dbw 1, SANDSHREW
 	dbw 2, DUNSPARCE
-	dbw 1, TRAPINCH
+	dbw 5, DUNSPARCE
 	dbw 1, LARVITAR
 	end_grass_wildmons
 

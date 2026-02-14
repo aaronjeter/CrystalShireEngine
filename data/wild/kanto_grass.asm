@@ -259,24 +259,24 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, PIDGEY
 	dbw 1, RATTATA
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 1, PICHU
 	dbw 2, PICHU
 	; day
 	dbw 1, PIDGEY
 	dbw 1, RATTATA
-	dbw 1, PLUSLE
-	dbw 2, PIKACHU
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 1, PICHU
 	dbw 2, PICHU
 	; nite
 	dbw 1, HOOTHOOT
 	dbw 1, RATTATA
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 1, PICHU
 	dbw 2, PICHU
@@ -288,24 +288,24 @@ KantoGrassWildMons:
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, PIDGEY
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	; day
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, PIDGEY
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	; nite
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, HOOTHOOT
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	end_grass_wildmons
@@ -511,7 +511,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -519,7 +519,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -527,7 +527,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -538,7 +538,7 @@ KantoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, ODDISH
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 1, MAGNEMITE
 	dbw 1, ROSELIA
 	dbw 1, ROSELIA
@@ -546,7 +546,7 @@ KantoGrassWildMons:
 	dbw 5, HYPNO
 	; day
 	dbw 1, ODDISH
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 1, MAGNEMITE
 	dbw 1, ROSELIA
 	dbw 1, ROSELIA
@@ -554,7 +554,7 @@ KantoGrassWildMons:
 	dbw 5, HYPNO
 	; nite
 	dbw 1, ODDISH
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 1, MAGNEMITE
 	dbw 1, ROSELIA
 	dbw 1, ROSELIA
