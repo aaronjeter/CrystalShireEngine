@@ -749,5 +749,4 @@ def_grass_wildmons METEOR_FALLS
 	dbw 7, SOLROCK
 	end_grass_wildmons
 
-
 db -1 ; end
