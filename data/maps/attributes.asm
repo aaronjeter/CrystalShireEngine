@@ -909,7 +909,7 @@ ENDM
 	connection east, LilycoveCity, LILYCOVE_CITY, -4
 
 	map_attributes Route122, ROUTE_122, $05, NORTH | SOUTH
-	connection north, Route122, ROUTE_122, -10
+	connection north, Route121, ROUTE_121, -10
 	connection south, Route123, ROUTE_123, -25
 
 	map_attributes Route123, ROUTE_123, $05, NORTH | WEST
