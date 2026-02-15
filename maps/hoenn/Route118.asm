@@ -183,6 +183,12 @@ Route118BarnyAfterBattleText:
 	line "catch for lunch?"
 	done
 
+Route118FruitTree1:
+	fruittree FRUITTREE_ROUTE_118_1
+
+Route118FruitTree2:
+	fruittree FRUITTREE_ROUTE_118_2
+
 Route118_MapEvents:
 	db 0, 0 ; filler
 
@@ -199,5 +205,7 @@ Route118_MapEvents:
 	object_event 22, 07, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, Route118SallyScript, -1
 	object_event 18, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route118AnnieScript, -1
 	object_event 31, 15, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route118BarnyScript, -1
+	object_event 65, 04, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route118FruitTree1, -1
+	object_event 76, 04, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route118FruitTree2, -1
 	
 

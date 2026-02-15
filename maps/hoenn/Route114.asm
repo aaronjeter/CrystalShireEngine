@@ -23,6 +23,12 @@ Route114LanettesHouseSignText:
 	text "Lanette's House"
 	done
 
+Route114FruitTree1:
+	fruittree FRUITTREE_ROUTE_114_1
+
+Route114FruitTree2:
+	fruittree FRUITTREE_ROUTE_114_2
+
 Route114_MapEvents:
 	db 0, 0 ; filler
 
@@ -36,4 +42,6 @@ Route114_MapEvents:
 	bg_event  25, 37, BGEVENT_READ, Route114LanettesHouseSign
 
 	def_object_events
+	object_event 32, 42, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route114FruitTree1, -1
+	object_event 33, 42, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route114FruitTree2, -1
 	

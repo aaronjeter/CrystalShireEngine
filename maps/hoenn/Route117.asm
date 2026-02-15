@@ -231,6 +231,12 @@ Route117LydiaAfterBattleText:
 	text "Bye"
 	done
 
+Route117FruitTree1:
+	fruittree FRUITTREE_ROUTE_117_1
+
+Route117FruitTree2:
+	fruittree FRUITTREE_ROUTE_117_2
+
 Route117_MapEvents:
 	db 0, 0 ; filler
 
@@ -251,4 +257,6 @@ Route117_MapEvents:
 	object_event  31, 06, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route117MelinaScript, -1
 	object_event  26, 16, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route117AishaScript, -1
 	object_event  41, 09, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route117LydiaScript, -1
+	object_event  44, 12, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route117FruitTree1, -1
+	object_event  45, 12, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route117FruitTree2, -1
 	

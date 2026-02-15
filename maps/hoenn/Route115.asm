@@ -5,6 +5,18 @@ Route115_MapScripts:
 
 	def_callbacks	
 
+Route115FruitTree1:
+	fruittree FRUITTREE_ROUTE_115_1
+
+Route115FruitTree2:
+	fruittree FRUITTREE_ROUTE_115_2
+
+Route115FruitTree3:
+	fruittree FRUITTREE_ROUTE_115_3
+
+Route115FruitTree4:
+	fruittree FRUITTREE_ROUTE_115_4
+
 Route115_MapEvents:
 	db 0, 0 ; filler
 
@@ -16,4 +28,8 @@ Route115_MapEvents:
 	def_bg_events	
 
 	def_object_events
+	object_event 08, 06, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route115FruitTree1, -1
+	object_event 18, 06, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route115FruitTree2, -1
+	object_event 30, 50, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route115FruitTree3, -1
+	object_event 31, 50, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route115FruitTree4, -1
 	

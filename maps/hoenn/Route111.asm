@@ -179,6 +179,12 @@ Route111TravisAfterBattleText:
 	text "Buzz off."
 	done
 
+Route111FruitTree1:
+	fruittree FRUITTREE_ROUTE_111_1
+
+Route111FruitTree2:
+	fruittree FRUITTREE_ROUTE_111_2
+
 Route111_MapEvents:
 	db 0, 0 ; filler
 
@@ -197,4 +203,5 @@ Route111_MapEvents:
 	object_event 11, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route111GabbyScript, -1
 	object_event 18, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route111IreneScript, -1
 	object_event 12, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route111TravisScript, -1
-	
+	object_event 04, 22, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route111FruitTree1, -1
+	object_event 05, 22, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route111FruitTree2, -1

@@ -239,6 +239,12 @@ Route116DevanAfterBattleText:
 	cont "to do."
 	done
 
+Route116FruitTree1:
+	fruittree FRUITTREE_ROUTE_116_1
+
+Route116FruitTree2:
+	fruittree FRUITTREE_ROUTE_116_2
+
 Route116_MapEvents:
 	db 0, 0 ; filler
 
@@ -257,4 +263,6 @@ Route116_MapEvents:
 	object_event  31, 02, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route116JoseScript, -1
 	object_event  28, 02, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route116ClarkScript, -1
 	object_event  50, 13, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route116DevanScript, -1
+	object_event  20, 02, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route116FruitTree1, -1
+	object_event  21, 02, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route116FruitTree2, -1
 	
