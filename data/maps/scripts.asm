@@ -537,6 +537,8 @@ INCLUDE "maps/hoenn/GraniteCaveB2F.asm"
 INCLUDE "maps/hoenn/GraniteCaveB3F.asm"
 
 INCLUDE "maps/hoenn/RegiceLair.asm"
+INCLUDE "maps/hoenn/RegirockLair.asm"
+INCLUDE "maps/hoenn/RegisteelLair.asm"
 
 ENDSECTION
 

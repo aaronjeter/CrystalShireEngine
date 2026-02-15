@@ -165,6 +165,8 @@ ENDM
 	map_const GRANITE_CAVE_B2F,							   15, 30 ;	
 	map_const GRANITE_CAVE_B3F,							   10, 10 ;	
 	map_const REGICE_LAIR,								   10, 10 ;
+	map_const REGIROCK_LAIR,							   12, 12 ;
+	map_const REGISTEEL_LAIR,							   12, 12 ;
 	map_const DESERT_RUIN_1F,                              10, 10 ;
 	map_const DESERT_RUIN_B1F,                             30, 20 ;
 	map_const DESERT_SHRINE,							   12, 12 ;

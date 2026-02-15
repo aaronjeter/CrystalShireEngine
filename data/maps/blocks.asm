@@ -1017,6 +1017,12 @@ SECTION "Map Blocks 4", ROMX
 
 	RegiceLair_Blocks:
 	INCBIN "maps/hoenn/RegiceLair.ablk"
+
+	RegirockLair_Blocks:
+	INCBIN "maps/hoenn/RegirockLair.ablk"
+
+	RegisteelLair_Blocks:
+	INCBIN "maps/hoenn/RegisteelLair.ablk"
 	
 
 ENDSECTION

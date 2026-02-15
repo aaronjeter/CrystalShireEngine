@@ -726,6 +726,8 @@ ENDM
 	map_attributes GraniteCaveB2F, GRANITE_CAVE_B2F, $00, 0
 	map_attributes GraniteCaveB3F, GRANITE_CAVE_B3F, $00, 0
 	map_attributes RegiceLair, REGICE_LAIR, $00, 0
+	map_attributes RegirockLair, REGIROCK_LAIR, $00, 0
+	map_attributes RegisteelLair, REGISTEEL_LAIR, $00, 0
 
 	map_attributes MtMoon1F, MT_MOON_1F, $00, 0
 	map_attributes MtMoonB1F, MT_MOON_B1F, $00, 0
