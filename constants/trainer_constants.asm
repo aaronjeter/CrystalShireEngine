@@ -338,6 +338,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE104_CINDY
 	const ROUTE109_HAILEY
 	const ROUTE109_LOLA
+	const ROUTE112_SHAYLA
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -621,6 +622,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE116_DEVAN
 	const LAVARIDGE_ELI
 	const MOON_MARCOS	
+	const ROUTE112_TRENT
+	const ROUTE112_BRICE
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY ; unused
@@ -658,6 +661,7 @@ DEF KRIS EQU __trainer_class__
 	const LAVARIDGE_AXLE
 	const LAVARIDGE_KEEGAN
 	const ROUTE111_HAYDEN
+	const ROUTE112_BRYANT
 
 	trainerclass JUGGLER ; 31
 	const IRWIN1
@@ -737,6 +741,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE111_GABBY
 	const ROUTE111_IRENE
 	const FORTREE_ASHLEY
+	const ROUTE112_CAROL
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -767,6 +772,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE111_TYRON
 	const ROUTE111_TRAVIS
 	const FORTREE_FLINT
+	const ROUTE112_LARRY
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1

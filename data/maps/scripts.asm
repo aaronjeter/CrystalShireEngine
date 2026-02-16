@@ -560,19 +560,25 @@ INCLUDE "maps/hoenn/LavaridgeDesert.asm"
 INCLUDE "maps/hoenn/DesertRuin1F.asm"
 INCLUDE "maps/hoenn/DesertRuinB1F.asm"
 INCLUDE "maps/hoenn/DesertShrine.asm"
-INCLUDE "maps/hoenn/Route112.asm"
 INCLUDE "maps/hoenn/FieryPath.asm"
-INCLUDE "maps/hoenn/Route113.asm"
-INCLUDE "maps/hoenn/Route114.asm"
-INCLUDE "maps/hoenn/Route115.asm"
-INCLUDE "maps/hoenn/Route116.asm"
-INCLUDE "maps/hoenn/Route117.asm"
 INCLUDE "maps/hoenn/fortree/FortreeCity.asm"
 INCLUDE "maps/hoenn/fortree/FortreePokecenter.asm"
 INCLUDE "maps/hoenn/fortree/FortreeMart.asm"
 INCLUDE "maps/hoenn/fortree/FortreeGym.asm"
 INCLUDE "maps/hoenn/lilycove/LilycoveCity.asm"
 INCLUDE "maps/hoenn/lilycove/LilycovePokecenter.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 27.1", ROMX
+
+INCLUDE "maps/hoenn/Route112.asm"
+INCLUDE "maps/hoenn/Route113.asm"
+INCLUDE "maps/hoenn/Route114.asm"
+INCLUDE "maps/hoenn/Route115.asm"
+INCLUDE "maps/hoenn/Route116.asm"
+INCLUDE "maps/hoenn/Route117.asm"
 
 ENDSECTION
 

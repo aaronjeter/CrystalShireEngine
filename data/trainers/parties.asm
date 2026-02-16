@@ -3060,6 +3060,14 @@ BeautyGroup:
 	dw ROSELIA
 	db -1 ; end
 
+	next_list_item ; BEAUTY (22) Route 112
+	db "SHAYLA@", TRAINERTYPE_NORMAL
+	db 5
+	dw SHROOMISH
+	db 7
+	dw ROSELIA
+	db -1 ; end
+
 	end_list_items
 
 PokemaniacGroup:
@@ -5429,6 +5437,26 @@ HikerGroup:
 	dw LUNATONE
 	db -1 ; end
 
+	next_list_item ; HIKER (28) Route 112
+	db "TRENT@", TRAINERTYPE_NORMAL
+	db 3
+	dw GEODUDE
+	db 4
+	dw GRAVELER
+	db 5
+	dw AGRAVELER
+	db -1 ; end
+
+	next_list_item ; HIKER (29) Route 112
+	db "BRICE@", TRAINERTYPE_NORMAL
+	db 3
+	dw NUMEL
+	db 4
+	dw MACHOP
+	db 5
+	dw MACHOKE
+	db -1 ; end
+
 	end_list_items
 
 BikerGroup:
@@ -5737,6 +5765,16 @@ FirebreatherGroup:
 	dw SHUCKLE
 	db 7
 	dw VOLBEAT
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (15) Route 112
+	db "BRYAN@", TRAINERTYPE_NORMAL
+	db 5
+	dw SLUGMA
+	db 6
+	dw NUMEL
+	db 7
+	dw QUILAVA
 	db -1 ; end
 
 	end_list_items
@@ -6400,6 +6438,14 @@ PicnickerGroup:
 	dw DELIBIRD
 	db -1 ; end
 
+	next_list_item ; PICNICKER (33) Route 112
+	db "CAROL@", TRAINERTYPE_NORMAL
+	db 5
+	dw SWABLU
+	db 6
+	dw LOMBRE
+	db -1 ; end
+
 	end_list_items
 
 CamperGroup:
@@ -6653,6 +6699,14 @@ CamperGroup:
 	dw GOLBAT
 	db 7
 	dw XATU
+	db -1 ; end
+
+	next_list_item ; CAMPER (29) Route 112
+	db "LARRY@", TRAINERTYPE_NORMAL
+	db 5
+	dw NUZLEAF
+	db 6
+	dw SWELLOW
 	db -1 ; end
 
 	end_list_items
