@@ -166,7 +166,9 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE116_JOEY
 	const ROUTE116_JOHNSON
 	const ROUTE110_TIMMY
-	const MOON_JOSH
+	const MOON_JOSH	
+	const ROUTE113_LAO
+	const ROUTE113_DILLON
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -223,6 +225,7 @@ DEF KRIS EQU __trainer_class__
 	const FORTREE_DARIUS
 	const ROUTE118_CHESTER
 	const ROUTE118_PERRY
+	const ROUTE113_COBY
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -356,6 +359,7 @@ DEF KRIS EQU __trainer_class__
 	const ZACH
 	const BRENT4
 	const MILLER
+	const ROUTE113_WYATT
 
 	trainerclass GRUNTM ; 1f
 	const GRUNTM_1
@@ -742,6 +746,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE111_IRENE
 	const FORTREE_ASHLEY
 	const ROUTE112_CAROL
+	const ROUTE113_MADELINE
+	const ROUTE113_SOPHIE
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -773,6 +779,9 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE111_TRAVIS
 	const FORTREE_FLINT
 	const ROUTE112_LARRY
+	const ROUTE113_JAYLEN
+	const ROUTE113_LUNG
+	const ROUTE113_LAWRENCE
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
@@ -851,6 +860,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE104_GINAMIA
 	const ROUTE117_ANNAMEG
 	const ROUTE108_LISARIA
+	const ROUTE113_TORITIA
 
 	trainerclass POKEFANF ; 3e
 	const BEVERLY1

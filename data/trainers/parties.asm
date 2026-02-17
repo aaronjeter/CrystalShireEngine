@@ -1489,6 +1489,26 @@ YoungsterGroup:
 	dw RATTATA
 	db -1 ; end
 
+	next_list_item ; YOUNGSTER (27) Route 113
+	db "LAO@", TRAINERTYPE_NORMAL
+	db 3
+	dw KOFFING
+	db 4
+	dw GRIMER
+	db 5
+	dw NINJASK
+	db -1 ; end
+
+	next_list_item ; YOUNGSTER (28) Route 113
+	db "DILLON@", TRAINERTYPE_NORMAL
+	db 3
+	dw AGRIMER
+	db 4
+	dw GULPIN
+	db 5
+	dw SHEDINJA
+	db -1 ; end
+
 	end_list_items
 
 SECTION "Enemy Trainer Parties 2", ROMX
@@ -1975,6 +1995,14 @@ BirdKeeperGroup:
 	dw GOLBAT
 	db 6
 	dw GLIGAR
+	db -1 ; end
+
+	next_list_item ; BIRD_KEEPER (27) Route 113
+	db "COBY@", TRAINERTYPE_NORMAL
+	db 6
+	dw SKARMORY
+	db 4
+	dw SWELLOW
 	db -1 ; end
 
 	end_list_items
@@ -3204,6 +3232,14 @@ PokemaniacGroup:
 	dw NIDOKING
 	db 9
 	dw NIDOQUEEN
+	db -1 ; end
+
+	next_list_item ; POKEMANIAC (16) Route 113
+	db "WYATT@", TRAINERTYPE_NORMAL
+	db 5
+	dw ARON
+	db 5
+	dw ARON
 	db -1 ; end
 
 	end_list_items
@@ -6438,10 +6474,26 @@ PicnickerGroup:
 	dw DELIBIRD
 	db -1 ; end
 
-	next_list_item ; PICNICKER (33) Route 112
+	next_list_item ; PICNICKER (34) Route 112
 	db "CAROL@", TRAINERTYPE_NORMAL
 	db 5
 	dw SWABLU
+	db 6
+	dw LOMBRE
+	db -1 ; end
+
+	next_list_item ; PICNICKER (35) Route 113
+	db "MADDIE@", TRAINERTYPE_NORMAL
+	db 5
+	dw SWABLU
+	db 6
+	dw NUMEL
+	db -1 ; end
+
+	next_list_item ; PICNICKER (36) Route 113
+	db "SOPHIE@", TRAINERTYPE_NORMAL
+	db 5
+	dw MARILL
 	db 6
 	dw LOMBRE
 	db -1 ; end
@@ -6707,6 +6759,30 @@ CamperGroup:
 	dw NUZLEAF
 	db 6
 	dw SWELLOW
+	db -1 ; end
+
+	next_list_item ; CAMPER (30) Route 113
+	db "JAYLEN@", TRAINERTYPE_NORMAL
+	db 5
+	dw TRAPINCH
+	db 6
+	dw RATICATE
+	db -1 ; end
+
+	next_list_item ; CAMPER (31) Route 113
+	db "LUNG@", TRAINERTYPE_NORMAL
+	db 5
+	dw KOFFING
+	db 6
+	dw MAGMAR
+	db -1 ; end
+
+	next_list_item ; CAMPER (32) Route 113
+	db "LAWRY@", TRAINERTYPE_NORMAL
+	db 5
+	dw BALTOY
+	db 6
+	dw SANDSLASH
 	db -1 ; end
 
 	end_list_items
@@ -7328,6 +7404,14 @@ TwinsGroup:
 	dw QWILFISH
 	db 7
 	dw CORSOLA
+	db -1 ; end
+
+	next_list_item ; TWINS (15) Route 113
+	db "TORI & TIA@", TRAINERTYPE_NORMAL
+	db 7
+	dw SPINDA
+	db 7
+	dw SPINDA
 	db -1 ; end
 
 	end_list_items
