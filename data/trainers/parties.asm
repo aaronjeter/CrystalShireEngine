@@ -3242,6 +3242,14 @@ PokemaniacGroup:
 	dw ARON
 	db -1 ; end
 
+	next_list_item ; POKEMANIAC (17) Route 114
+	db "WYATT@", TRAINERTYPE_NORMAL
+	db 5
+	dw LAIRON
+	db 5
+	dw VAPOREON
+	db -1 ; end
+
 	end_list_items
 
 GruntMGroup:
@@ -4376,6 +4384,30 @@ FisherGroup:
 	dw HUNTAIL
 	db -1 ; end
 
+	next_list_item ; FISHER (33) Route 114
+	db "NOLAN@", TRAINERTYPE_NORMAL	
+	db 5
+	dw BARBOACH
+	db 6
+	dw OCTILLERY
+	db -1 ; end
+
+	next_list_item ; FISHER (34) Route 114
+	db "KAI@", TRAINERTYPE_NORMAL	
+	db 5
+	dw CARVANHA
+	db 6
+	dw MARSHTOMP
+	db -1 ; end
+
+	next_list_item ; FISHER (34) Route 114
+	db "CLAUDE@", TRAINERTYPE_NORMAL	
+	db 5
+	dw SLOWBRO
+	db 6
+	dw WARTORTLE
+	db -1 ; end
+
 	end_list_items
 
 SwimmerMGroup:
@@ -5493,6 +5525,26 @@ HikerGroup:
 	dw MACHOKE
 	db -1 ; end
 
+	next_list_item ; HIKER (30) Route 114
+	db "LUCAS@", TRAINERTYPE_NORMAL
+	db 6
+	dw ONIX
+	db 6
+	dw MACHOKE
+	db 7
+	dw TAUROS
+	db -1 ; end
+
+	next_list_item ; HIKER (31) Route 114
+	db "LENNY@", TRAINERTYPE_NORMAL
+	db 6
+	dw MAROWAK
+	db 6
+	dw PILOSWINE
+	db 7
+	dw DONPHAN
+	db -1 ; end
+
 	end_list_items
 
 BikerGroup:
@@ -5811,6 +5863,16 @@ FirebreatherGroup:
 	dw NUMEL
 	db 7
 	dw QUILAVA
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (16) Route 114
+	db "BERNY@", TRAINERTYPE_NORMAL
+	db 5
+	dw MAGMAR
+	db 6
+	dw QUILAVA2
+	db 7
+	dw PELIPPER
 	db -1 ; end
 
 	end_list_items
@@ -6498,6 +6560,30 @@ PicnickerGroup:
 	dw LOMBRE
 	db -1 ; end
 
+	next_list_item ; PICNICKER (37) Route 114
+	db "CHARLOTE@", TRAINERTYPE_NORMAL
+	db 5
+	dw IVYSAUR
+	db 6
+	dw BAYLEEF
+	db -1 ; end
+
+	next_list_item ; PICNICKER (38) Route 114
+	db "NANCY@", TRAINERTYPE_NORMAL
+	db 5
+	dw VOLBEAT
+	db 6
+	dw ROSELIA
+	db -1 ; end
+
+	next_list_item ; PICNICKER (39) Route 114
+	db "ANGELINA@", TRAINERTYPE_NORMAL
+	db 5
+	dw FLAAFFY
+	db 6
+	dw ARAICHU
+	db -1 ; end
+
 	end_list_items
 
 CamperGroup:
@@ -6783,6 +6869,14 @@ CamperGroup:
 	dw BALTOY
 	db 6
 	dw SANDSLASH
+	db -1 ; end
+
+	next_list_item ; CAMPER (33) Route 114
+	db "SHANE@", TRAINERTYPE_NORMAL
+	db 5
+	dw URSARING
+	db 6
+	dw ASANDSLASH
 	db -1 ; end
 
 	end_list_items

@@ -3254,6 +3254,14 @@ PokemaniacGroupHard:
 	dw LAIRON
 	db -1 ; end
 
+	next_list_item ; POKEMANIAC (17) Route 114
+	db "WYATT@", TRAINERTYPE_NORMAL
+	db 6
+	dw LAIRON
+	db 7
+	dw VAPOREON
+	db -1 ; end
+
 	end_list_items
 
 GruntMGroupHard:
@@ -4408,6 +4416,30 @@ FisherGroupHard:
 	dw HUNTAIL
 	db -1 ; end
 
+	next_list_item ; FISHER (33) Route 114
+	db "NOLAN@", TRAINERTYPE_NORMAL	
+	db 6
+	dw WHISCASH
+	db 7
+	dw OCTILLERY
+	db -1 ; end
+
+	next_list_item ; FISHER (34) Route 114
+	db "KAI@", TRAINERTYPE_NORMAL	
+	db 7
+	dw SHARPEDO
+	db 6
+	dw MARSHTOMP
+	db -1 ; end
+
+	next_list_item ; FISHER (34) Route 114
+	db "CLAUDE@", TRAINERTYPE_NORMAL	
+	db 7
+	dw SLOWBRO
+	db 7
+	dw WARTORTLE
+	db -1 ; end
+
 	end_list_items
 
 SwimmerMGroupHard:
@@ -5531,6 +5563,26 @@ HikerGroupHard:
 	dw NOSEPASS
 	db -1 ; end
 
+	next_list_item ; HIKER (30) Route 114
+	db "LUCAS@", TRAINERTYPE_NORMAL
+	db 7
+	dw ONIX
+	db 7
+	dw MACHAMP
+	db 8
+	dw TAUROS
+	db -1 ; end
+
+	next_list_item ; HIKER (31) Route 114
+	db "LENNY@", TRAINERTYPE_NORMAL
+	db 8
+	dw MAROWAK
+	db 7
+	dw PILOSWINE
+	db 8
+	dw DONPHAN
+	db -1 ; end
+
 	end_list_items
 
 BikerGroupHard:
@@ -5849,6 +5901,16 @@ FirebreatherGroupHard:
 	dw NUMEL
 	db 6
 	dw QUILAVA
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (16) Route 114
+	db "BERNY@", TRAINERTYPE_NORMAL
+	db 5
+	dw MAGMAR
+	db 6
+	dw QUILAVA2
+	db 7
+	dw PELIPPER
 	db -1 ; end
 
 	end_list_items
@@ -6540,6 +6602,30 @@ PicnickerGroupHard:
 	dw LUDICOLO
 	db -1 ; end
 
+	next_list_item ; PICNICKER (37) Route 114
+	db "CHARLOTE@", TRAINERTYPE_NORMAL
+	db 7
+	dw IVYSAUR
+	db 8
+	dw MEGANIUM
+	db -1 ; end
+
+	next_list_item ; PICNICKER (38) Route 114
+	db "NANCY@", TRAINERTYPE_NORMAL
+	db 6
+	dw VOLBEAT
+	db 8
+	dw ROSELIA
+	db -1 ; end
+
+	next_list_item ; PICNICKER (39) Route 114
+	db "ANGELINA@", TRAINERTYPE_NORMAL
+	db 6
+	dw FLAAFFY
+	db 8
+	dw ARAICHU
+	db -1 ; end
+
 	end_list_items
 
 CamperGroupHard:
@@ -6827,6 +6913,14 @@ CamperGroupHard:
 	dw CLAYDOL
 	db 6
 	dw SANDSLASH
+	db -1 ; end
+
+	next_list_item ; CAMPER (33) Route 114
+	db "SHANE@", TRAINERTYPE_NORMAL
+	db 7
+	dw URSARING
+	db 7
+	dw ASANDSLASH
 	db -1 ; end
 
 	end_list_items
