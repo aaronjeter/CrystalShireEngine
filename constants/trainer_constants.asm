@@ -758,6 +758,10 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE114_CHARLOTTE
 	const ROUTE114_NANCY
 	const ROUTE114_ANGELINA
+	const DESERT_HEIDI	
+	const DESERT_BECKY
+	const DESERT_CELIA
+	
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -793,6 +797,9 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE113_LUNG
 	const ROUTE113_LAWRENCE
 	const ROUTE114_SHANE
+	const DESERT_BEAU
+	const DESERT_DREW	
+	const DESERT_BRANDEN
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
@@ -996,6 +1003,8 @@ DEF KRIS EQU __trainer_class__
 	const SAFARI_ROSS
 	const SAFARI_CHANDLER
 	const RANDOM_TEST
+	const DESERT_DUSTY	
+	const DESERT_BRYAN
 
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

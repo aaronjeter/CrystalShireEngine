@@ -50,7 +50,7 @@ MovesGen1:
 	move EFFECT_NORMAL_HIT,        120, NORMAL,         PHYSICAL,		 80, 10,   0      ;MEGA_KICK
 	move EFFECT_JUMP_KICK,          80, FIGHTING,       PHYSICAL,		 90, 25,   0      ;JUMP_KICK
 	move EFFECT_FLINCH_HIT,         60, FIGHTING,       PHYSICAL,		 85, 15,  30      ;ROLLING_KICK
-	move EFFECT_ACCURACY_DOWN_HIT,  35, GROUND,         SPECIAL,		100, 15,  25      ;SAND_ATTACK
+	move EFFECT_ACCURACY_DOWN_HIT,  35, GROUND,         PHYSICAL,		100, 15,  25      ;SAND_ATTACK
 	move EFFECT_FLINCH_HIT,         70, NORMAL,         PHYSICAL,		100, 15,  30      ;HEADBUTT
 	move EFFECT_NORMAL_HIT,         65, NORMAL,         PHYSICAL,		100, 25,   0      ;HORN_ATTACK
 	move EFFECT_MULTI_HIT,          20, NORMAL,         PHYSICAL,		 90, 20,   0      ;FURY_ATTACK
@@ -167,7 +167,7 @@ MovesGen1:
 	move EFFECT_SLEEP,               0, NORMAL,         STATUS,			 75, 10,   0      ;LOVELY_KISS
 	move EFFECT_NORMAL_HIT,        100, FLYING,         PHYSICAL,		 90, 10,   0      ;SKY_ATTACK
 	move EFFECT_TRANSFORM,           0, NORMAL,         STATUS,			100, 10,   0      ;TRANSFORM
-	move EFFECT_SPEED_DOWN_HIT,     35, WATER,          SPECIAL,		100, 30,  50      ;BUBBLE
+	move EFFECT_SPEED_DOWN_HIT,     35, WATER,          SPECIAL,		100, 30, 100      ;BUBBLE
 	move EFFECT_CONFUSE_HIT,        75, FAIRY,          PHYSICAL,		100, 10,  25      ;DIZZY_PUNCH
 	move EFFECT_SLEEP,               0, GRASS,          STATUS,			 80, 15,   0      ;SPORE
 	move EFFECT_ACCURACY_DOWN_2,     0, NORMAL,         STATUS,			 75, 20,   0      ;FLASH

@@ -6584,6 +6584,30 @@ PicnickerGroup:
 	dw ARAICHU
 	db -1 ; end
 
+	next_list_item ; PICNICKER (40) Lavaridge Desert
+	db "HEIDI@", TRAINERTYPE_NORMAL
+	db 5
+	dw BALTOY
+	db 6
+	dw SANDSLASH
+	db -1 ; end
+
+	next_list_item ; PICNICKER (41) Lavaridge Desert
+	db "BECKY@", TRAINERTYPE_NORMAL
+	db 5
+	dw NIDORINA
+	db 6
+	dw AZUMARILL
+	db -1 ; end
+
+	next_list_item ; PICNICKER (42) Lavaridge Desert
+	db "CELIA@", TRAINERTYPE_NORMAL
+	db 5
+	dw AMAROWAK
+	db 6
+	dw MAROWAK
+	db -1 ; end
+
 	end_list_items
 
 CamperGroup:
@@ -6877,6 +6901,30 @@ CamperGroup:
 	dw URSARING
 	db 6
 	dw ASANDSLASH
+	db -1 ; end
+
+	next_list_item ; CAMPER (34) Lavaridge Desert
+	db "BEAU@", TRAINERTYPE_NORMAL	
+	db 4
+	dw TRAPINCH
+	db 6
+	dw DUGTRIO
+	db -1 ; end
+
+	next_list_item ; CAMPER (35) Lavaridge Desert
+	db "DREW@", TRAINERTYPE_NORMAL	
+	db 4
+	dw SUDOWOODO
+	db 6
+	dw NIDORINO	
+	db -1 ; end
+
+	next_list_item ; CAMPER (36) Lavaridge Desert
+	db "BRANDEN@", TRAINERTYPE_NORMAL	
+	db 4
+	dw SKARMORY
+	db 6
+	dw ONIX	
 	db -1 ; end
 
 	end_list_items
@@ -8606,6 +8654,26 @@ ExplorerGroup:
 
 	next_list_item; EXPLORER (6) Testroom
 	db "TEST@", TRAINERTYPE_RANDOM | TRAINERTYPE_ITEM | TRAINERTYPE_MOVES, 6, BATTLETOWER_LEGEND	
+	db -1 ; end
+
+	next_list_item; EXPLORER (7) Lavaridge Desert
+	db "DUSTY@", TRAINERTYPE_NORMAL
+	db 5
+	dw GLIGAR
+	db 5
+	dw SHUCKLE
+	db 7
+	dw KLEAVOR
+	db -1 ; end
+
+	next_list_item; EXPLORER (8) Lavaridge Desert
+	db "BRYAN@", TRAINERTYPE_NORMAL
+	db 5
+	dw RELICANTH
+	db 5
+	dw SOLROCK
+	db 7
+	dw SLOWKING
 	db -1 ; end
 
 	end_list_items
