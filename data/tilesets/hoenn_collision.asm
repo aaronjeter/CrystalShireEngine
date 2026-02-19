@@ -59,9 +59,9 @@
 	tilecoll WATER, BUOY, BUOY, BUOY ; 3a
 	tilecoll WALL, WALL, WALL, WALL ; 3b
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 3c
-	tilecoll 01, 01, 01, 01 ; 3d
-	tilecoll 01, 01, 01, 01 ; 3e
-	tilecoll 01, 01, 01, 01 ; 3f
+	tilecoll WALL, WALL, WALL, WALL ; 3d
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 3e
+	tilecoll FLOOR, WALL, FLOOR, WALL ; 3f
 	tilecoll WALL, WALL, WALL, FLOOR ; 40
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 41
 	tilecoll WALL, WALL, FLOOR, WALL ; 42
@@ -90,8 +90,8 @@
 	tilecoll WATER, WATER, WATER, WATER ; 59
 	tilecoll HOP_DOWN, FLOOR, WALL, FLOOR ; 5a
 	tilecoll 01, 01, 01, 01 ; 5b
-	tilecoll 01, 01, 01, 01 ; 5c
-	tilecoll 01, 01, 01, 01 ; 5d
+	tilecoll WALL, WALL, WALL, WALL ; 5c
+	tilecoll WALL, WALL, WALL, WALL ; 5d
 	tilecoll 01, 01, 01, 01 ; 5e
 	tilecoll 01, 01, 01, 01 ; 5f
 	tilecoll 01, 01, 01, 01 ; 60
