@@ -226,6 +226,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE118_CHESTER
 	const ROUTE118_PERRY
 	const ROUTE113_COBY
+	const ROUTE119_PHIL
+	const ROUTE119_HUGH
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -361,6 +363,9 @@ DEF KRIS EQU __trainer_class__
 	const MILLER
 	const ROUTE113_WYATT
 	const ROUTE114_STEVE
+	const ROUTE119_DONALD
+	const ROUTE119_TAYLOR
+	const ROUTE119_BRENT
 
 	trainerclass GRUNTM ; 1f
 	const GRUNTM_1
@@ -460,6 +465,9 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE117_DEREK
 	const MOON_KENT
 	const MOON_ROBBY
+	const ROUTE119_KENT
+	const ROUTE119_GREG
+	const ROUTE119_DOUG
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -497,6 +505,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE114_NOLAN
 	const ROUTE114_KAI
 	const ROUTE114_CLAUDE
+	const ROUTE119_CHRIS
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
@@ -601,6 +610,7 @@ DEF KRIS EQU __trainer_class__
 	const MAUVILLE_SHAWN
 	const ROUTE103_MARCOS
 	const ROUTE110_JOSEPH
+	const ROUTE119_FABIAN
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1
@@ -673,6 +683,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE111_HAYDEN
 	const ROUTE112_BRYANT
 	const ROUTE114_BERNIE
+	const ROUTE119_DAYTON
 
 	trainerclass JUGGLER ; 31
 	const IRWIN1
@@ -989,12 +1000,19 @@ DEF KRIS EQU __trainer_class__
 	const SAFARI_ELI
 	const SAFARI_RANDAL
 	const SAFARI_STEVEN
+	const ROUTE119_JACKSON
+	const ROUTE119_TAKASHI
+	const ROUTE119_YASU
+	const ROUTE119_HIDEO
 
 	trainerclass RANGERF
 	const RANGERF1
 	const SAFARI_MONICA
 	const SAFARI_TINA
 	const SAFARI_RACHAEL
+	const ROUTE119_CATHERINE
+	const ROUTE119_RACHEL
+	const ROUTE119_DANI
 
 	trainerclass EXPLORER
 	const ROUTE105_FOSTER
