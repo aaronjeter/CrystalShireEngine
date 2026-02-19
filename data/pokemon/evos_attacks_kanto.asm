@@ -724,6 +724,7 @@ NidoranFEvosAttacks:
 	dbw 32, SPIKES
 	dbw 36, TOXIC
 	dbw 40, EARTHQUAKE
+	dbw 42, EARTHPOWER
 	dbw 45, SLUDGE_BOMB
 	dbw 50, BULK_UP
 	dbw 55, CRUNCH
@@ -747,6 +748,7 @@ NidorinaEvosAttacks:
 	dbw 32, SPIKES
 	dbw 36, TOXIC
 	dbw 40, EARTHQUAKE
+	dbw 42, EARTHPOWER
 	dbw 45, SLUDGE_BOMB
 	dbw 50, BULK_UP
 	dbw 55, CRUNCH
@@ -768,6 +770,7 @@ NidoqueenEvosAttacks:
 	dbw 32, SPIKES
 	dbw 36, TOXIC
 	dbw 40, EARTHQUAKE
+	dbw 42, EARTHPOWER
 	dbw 45, SLUDGE_BOMB
 	dbw 50, BULK_UP
 	dbw 55, CRUNCH

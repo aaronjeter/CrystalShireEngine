@@ -391,7 +391,7 @@ WyrdeerEvosAttacks:
 	dbw 50, MEDITATE	
 	dbw 60, PURSUIT
 	dbw 65, MEGAHORN
-	dbw 70, EARTHQUAKE
+	dbw 70, EARTHPOWER
 	db 0 ; no more level-up moves
 
 PorygonzEvosAttacks:
@@ -980,7 +980,7 @@ Tentacool2EvosAttacks:
 	dbw 40, POWER_GEM
 	dbw 45, GIGA_DRAIN
 	dbw 50, SIGNAL_BEAM
-	dbw 55, EARTHQUAKE
+	dbw 55, EARTHPOWER
 	dbw 60, STONE_EDGE
 	dbw 65, MEGAHORN
 	dbw 70, MIST
@@ -1001,7 +1001,7 @@ Tentacruel2EvosAttacks:
 	dbw 40, POWER_GEM
 	dbw 45, GIGA_DRAIN
 	dbw 50, SIGNAL_BEAM
-	dbw 55, EARTHQUAKE
+	dbw 55, EARTHPOWER
 	dbw 60, STONE_EDGE
 	dbw 65, MEGAHORN
 	dbw 70, MIST

@@ -1028,6 +1028,7 @@ WooperEvosAttacks:
 	dbw 28, WATER_PULSE
 	dbw 32, GROWTH
 	dbw 40, MUDDY_WATER
+	dbw 42, EARTHPOWER
 	dbw 45, EARTHQUAKE
 	dbw 50, RAIN_DANCE
 	dbw 55, HAZE
@@ -1048,6 +1049,7 @@ QuagsireEvosAttacks:
 	dbw 28, WATER_PULSE
 	dbw 32, GROWTH
 	dbw 40, MUDDY_WATER
+	dbw 42, EARTHPOWER
 	dbw 45, EARTHQUAKE
 	dbw 50, RAIN_DANCE
 	dbw 55, HAZE
@@ -1839,7 +1841,7 @@ StantlerEvosAttacks:
 	dbw 50, MEDITATE	
 	dbw 60, PURSUIT
 	dbw 65, MEGAHORN
-	dbw 70, EARTHQUAKE
+	dbw 70, EARTHPOWER
 	db 0 ; no more level-up moves
 
 SmeargleEvosAttacks:
