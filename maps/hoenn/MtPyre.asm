@@ -1,16 +1,15 @@
-	object_const_def	
+	object_const_def
 
-Route122_MapScripts:
+MtPyre_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
 
-
-Route122_MapEvents:
+MtPyre_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event  25, 33, MT_PYRE, 1
+	warp_event  07, 53, ROUTE_122, 1
 
 	def_coord_events
 

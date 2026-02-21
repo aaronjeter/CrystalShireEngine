@@ -627,5 +627,6 @@ INCLUDE "maps/hoenn/Route120.asm"
 INCLUDE "maps/hoenn/Route121.asm"
 INCLUDE "maps/hoenn/Route122.asm"
 INCLUDE "maps/hoenn/Route123.asm"
+INCLUDE "maps/hoenn/MtPyre.asm"
 
 ENDSECTION

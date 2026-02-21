@@ -127,6 +127,7 @@ Landmarks:
 	landmark  52,  68, LavaridgeDesertName
 	landmark  44,  68, FieryPathName
 	landmark  12,  60, MeteorFallsName
+	landmark 108,  76, MtPyreName
 	landmark  36, 108, Route101Name
 	landmark  44, 100, Route102Name
 	landmark  28, 100, Route103Name
@@ -214,6 +215,7 @@ NewMauvilleName:     db "NEW MAUVILLE@"
 LavaridgeDesertName: db "LAVARIDGE<BSP>DESERT@"
 FieryPathName:       db "FIERY PATH@"
 MeteorFallsName:     db "METEOR FALLS@"
+MtPyreName:          db "MOUNT PYRE@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
 Route3Name:          db "ROUTE 3@"

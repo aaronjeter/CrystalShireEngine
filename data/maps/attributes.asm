@@ -917,3 +917,5 @@ ENDM
 	map_attributes Route123, ROUTE_123, $05, NORTH | WEST
 	connection north, Route122, ROUTE_122, 25
 	connection west, Route118, ROUTE_118, 0
+
+	map_attributes MtPyre, MT_PYRE, $00, 0

@@ -352,7 +352,7 @@ def_grass_wildmons ROUTE_118
 	end_grass_wildmons
 
 def_grass_wildmons ROUTE_119_SOUTH
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, ODDISH
 	dbw 1, MUDKIP
@@ -380,7 +380,7 @@ def_grass_wildmons ROUTE_119_SOUTH
 	end_grass_wildmons
 
 def_grass_wildmons ROUTE_119_NORTH
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, GLOOM
 	dbw 1, MUDKIP
@@ -408,7 +408,7 @@ def_grass_wildmons ROUTE_119_NORTH
 	end_grass_wildmons
 
 def_grass_wildmons ROUTE_120
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, ODDISH
 	dbw 1, MUDKIP
@@ -747,6 +747,34 @@ def_grass_wildmons METEOR_FALLS
 	dbw 1, TENTACOOL2
 	dbw 7, LUNATONE
 	dbw 7, SOLROCK
+	end_grass_wildmons
+
+def_grass_wildmons MT_PYRE
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, VULPIX
+	dbw 1, WINGULL
+	dbw 1, MEDITITE
+	dbw 1, SHUPPET
+	dbw 1, DUSKULL
+	dbw 5, CHIMECHO
+	dbw 7, CHIMECHO
+	; day
+	dbw 1, VULPIX
+	dbw 1, WINGULL
+	dbw 1, MEDITITE
+	dbw 1, SHUPPET
+	dbw 1, DUSKULL
+	dbw 5, CHIMECHO
+	dbw 7, CHIMECHO
+	; nite
+	dbw 1, VULPIX
+	dbw 1, WINGULL
+	dbw 1, MEDITITE
+	dbw 1, SHUPPET
+	dbw 1, DUSKULL
+	dbw 5, CHIMECHO
+	dbw 7, CHIMECHO
 	end_grass_wildmons
 
 db -1 ; end

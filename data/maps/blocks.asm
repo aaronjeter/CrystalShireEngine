@@ -1138,6 +1138,9 @@ SECTION "Map Blocks 6", ROMX
 	LilycoveCity_Blocks:
 	INCBIN "maps/hoenn/lilycove/LilycoveCity.ablk"
 
+	MtPyre_Blocks:
+	INCBIN "maps/hoenn/MtPyre.ablk"
+
 ENDSECTION
 
 SECTION "Map Blocks Mt Moon", ROMX

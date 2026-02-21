@@ -602,6 +602,7 @@ ENDM
 	map_const ROUTE_123,                                   40, 10 ;
 	map_const LILYCOVE_CITY,                               40, 22 ;
 	map_const LILYCOVE_POKECENTER,                         07, 04 ;
+	map_const MT_PYRE,                                     20, 30 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27
