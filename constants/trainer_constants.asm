@@ -228,6 +228,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE113_COBY
 	const ROUTE119_PHIL
 	const ROUTE119_HUGH
+	const ROUTE120_ROBERT
+	const ROUTE120_COLIN
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -291,6 +293,7 @@ DEF KRIS EQU __trainer_class__
 	const DALORIC2
 	const CONTEST_CRYSTAL1
 	const CONTEST_CRYSTAL2
+	const ROUTE120_LEONEL
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -320,6 +323,7 @@ DEF KRIS EQU __trainer_class__
 	const PETALBURG_MARY
 	const PETALBURG_LORI
 	const PETALBURG_JODY
+	const ROUTE120_JENNIFER
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -344,6 +348,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE109_HAILEY
 	const ROUTE109_LOLA
 	const ROUTE112_SHAYLA
+	const ROUTE120_CLARISSA
+	const ROUTE120_ANGELICA
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -366,6 +372,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE119_DONALD
 	const ROUTE119_TAYLOR
 	const ROUTE119_BRENT
+	const ROUTE120_JEFFREY
 
 	trainerclass GRUNTM ; 1f
 	const GRUNTM_1
@@ -991,6 +998,7 @@ DEF KRIS EQU __trainer_class__
 	const DEWFORD_JOCELYN
 	const LAVARIDGE_DANIELLE
 	const ROUTE117_AISHA
+	const ROUTE120_CALLIE
 
 	trainerclass RANGERM
 	const RANGERM1
@@ -1004,6 +1012,9 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE119_TAKASHI
 	const ROUTE119_YASU
 	const ROUTE119_HIDEO
+	const ROUTE120_RILEY
+	const ROUTE120_LORENZO
+	const ROUTE120_KEIGO
 
 	trainerclass RANGERF
 	const RANGERF1
@@ -1013,6 +1024,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE119_CATHERINE
 	const ROUTE119_RACHEL
 	const ROUTE119_DANI
+	const ROUTE120_JENNA
 
 	trainerclass EXPLORER
 	const ROUTE105_FOSTER
@@ -1023,6 +1035,8 @@ DEF KRIS EQU __trainer_class__
 	const RANDOM_TEST
 	const DESERT_DUSTY	
 	const DESERT_BRYAN
+	const ROUTE120_CHIP
+	const ROUTE120_DALE
 
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

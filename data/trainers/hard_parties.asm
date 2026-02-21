@@ -2015,6 +2015,22 @@ BirdKeeperGroupHard:
 	dw TROPIUS
 	db -1 ; end
 
+	next_list_item ; BIRD_KEEPER (30) Route 120
+	db "ROBERT@", TRAINERTYPE_NORMAL
+	db 6
+	dw ALTARIA
+	db 7
+	dw DODRIO
+	db -1 ; end
+
+	next_list_item ; BIRD_KEEPER (31) Route 120
+	db "COLIN@", TRAINERTYPE_NORMAL
+	db 6
+	dw PELIPPER
+	db 7
+	dw XATU
+	db -1 ; end
+
 	end_list_items
 
 LassGroupHard:
@@ -2646,6 +2662,18 @@ CooltrainerMGroupHard:
 	dw SANDSLASH
 	db -1 ; end
 
+	next_list_item ; COOLTRAINERM (29) Route 120
+	db "LEONEL@", TRAINERTYPE_NORMAL
+	db 9
+	dw MANECTRIC
+	db 9
+	dw MANTINE
+	db 9
+	dw PARASECT
+	db 9
+	dw AKUERIA
+	db -1 ; end
+
 	end_list_items
 
 CooltrainerFGroupHard:
@@ -2965,6 +2993,18 @@ CooltrainerFGroupHard:
 	dw NOCTOWL
 	db -1 ; end
 
+	next_list_item ; COOLTRAINERF (23) Route 120
+	db "JENNI@", TRAINERTYPE_NORMAL
+	db 9
+	dw SABLEYE
+	db 9
+	dw CORSOLA
+	db 9
+	dw RAITORA
+	db 10
+	dw MAWILE
+	db -1 ; end
+
 	end_list_items
 
 BeautyGroupHard:
@@ -3122,6 +3162,22 @@ BeautyGroupHard:
 	dw BRELOOM
 	db 7
 	dw ROSELIA
+	db -1 ; end
+
+	next_list_item ; BEAUTY (23) Route 120
+	db "CLARISSA@", TRAINERTYPE_NORMAL
+	db 7
+	dw ROSERADE
+	db 7
+	dw WAILORD
+	db -1 ; end
+
+	next_list_item ; BEAUTY (23) Route 120
+	db "CLARISSA@", TRAINERTYPE_NORMAL
+	db 7
+	dw LEAFEON
+	db 7
+	dw SYLVEON
 	db -1 ; end
 
 	end_list_items
@@ -3300,6 +3356,14 @@ PokemaniacGroupHard:
 	dw PINSIR
 	db 7
 	dw SCYTHER
+	db -1 ; end
+
+	next_list_item ; POKEMANIAC (21) Route 120
+	db "JEFFREY@", TRAINERTYPE_NORMAL
+	db 5
+	dw MASQUERAIN
+	db 5
+	dw PORYGON2
 	db -1 ; end
 
 	end_list_items
@@ -8541,6 +8605,14 @@ BattleGirlGroupHard:
 	dw ABSOL
 	db -1 ; end
 
+	next_list_item; BATTLE_GIRL (5) Route 120
+	db "CALLIE@", TRAINERTYPE_NORMAL
+	db 8
+	dw HITMONTOP
+	db 8
+	dw MAKUHITA
+	db -1 ; end
+
 	end_list_items
 
 
@@ -8700,13 +8772,43 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (11) Route 119
-	db "YASU@", TRAINERTYPE_NORMAL
+	db "HIDEO@", TRAINERTYPE_NORMAL
 	db 8
 	dw JOLTEON
 	db 8
 	dw POLITOED
 	db 8
 	dw XATU
+	db -1 ; end
+
+	next_list_item; RANGERM (12) Route 120
+	db "RILEY@", TRAINERTYPE_NORMAL
+	db 8
+	dw NINJASK
+	db 8
+	dw POLIWRATH
+	db 8
+	dw ZANGOOSE
+	db -1 ; end
+
+	next_list_item; RANGERM (13) Route 120
+	db "LORENZO@", TRAINERTYPE_NORMAL
+	db 8
+	dw AMUK
+	db 8
+	dw QUAGSIRE
+	db 8
+	dw EXEGGCUTE
+	db -1 ; end
+
+	next_list_item; RANGERM (14) Route 120
+	db "KEIGO@", TRAINERTYPE_NORMAL
+	db 8
+	dw WEEZING
+	db 8
+	dw TANGROWTH
+	db 8
+	dw IKARI
 	db -1 ; end
 
 	end_list_items
@@ -8780,6 +8882,16 @@ RangerFGroupHard:
 	dw FROSLASS
 	db 7
 	dw DEWGONG
+	db -1 ; end
+
+	next_list_item; RANGERF (8) Route 120
+	db "JENNA@", TRAINERTYPE_NORMAL
+	db 8
+	dw NINETALES
+	db 8
+	dw RAPIDASH
+	db 9
+	dw ASHIBOMB
 	db -1 ; end
 
 	end_list_items
@@ -8857,6 +8969,26 @@ ExplorerGroupHard:
 	dw SOLROCK
 	db 7
 	dw SLOWKING
+	db -1 ; end
+
+	next_list_item; EXPLORER (9) Route 120
+	db "CHIP@", TRAINERTYPE_NORMAL
+	db 7
+	dw YANMEGA
+	db 7
+	dw SKARMORY
+	db 8
+	dw KINGLER
+	db -1 ; end
+
+	next_list_item; EXPLORER (10) Route 120
+	db "DALE@", TRAINERTYPE_NORMAL
+	db 7
+	dw YANMEGA
+	db 7
+	dw GLISCOR
+	db 8
+	dw MAGNEZONE
 	db -1 ; end
 
 	end_list_items
