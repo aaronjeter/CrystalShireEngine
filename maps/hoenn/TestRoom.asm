@@ -1,7 +1,7 @@
 	object_const_def
 	const TESTROOM_GOROCHU
-	const TESTROOM_REGIROCK
-	const TESTROOM_REGISTEEL
+	const TESTROOM_IRONBUNDLE
+	;const TESTROOM_REGISTEEL
 	const TESTROOM_LATIOS
 	const TESTROOM_KYOGRE
 	const TESTROOM_GROUDON
@@ -22,12 +22,12 @@ Testroom_Gorochu:
 	disappear TESTROOM_GOROCHU
 	end
 
-Testroom_Regirock:
-	cry REGIROCK
+Testroom_Ironbubdle:
+	cry IRONBUNDLE
 	opentext
-	givepoke REGIROCK, 5
+	givepoke IRONBUNDLE, 5
 	closetext
-	disappear TESTROOM_REGIROCK
+	disappear TESTROOM_IRONBUNDLE
 	end
 
 Testroom_Registeel:
@@ -35,7 +35,7 @@ Testroom_Registeel:
 	opentext
 	givepoke REGISTEEL, 5
 	closetext
-	disappear TESTROOM_REGISTEEL
+	disappear TESTROOM_IRONBUNDLE
 	end
 
 Testroom_Latios:
@@ -261,8 +261,8 @@ TestRoom_MapEvents:
 
 	def_object_events
 	object_event 00, 01, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Gorochu, -1
-	object_event 02, 01, SPRITE_REGIROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Testroom_Regirock, -1
-	object_event 04, 01, SPRITE_REGISTEEL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, Testroom_Registeel, -1
+	object_event 02, 01, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Ironbubdle, -1
+	;object_event 04, 01, SPRITE_REGISTEEL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, Testroom_Registeel, -1
 	object_event 06, 01, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Latios, -1
 	object_event 08, 01, SPRITE_KYOGRE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Kyogre, -1
 	object_event 10, 01, SPRITE_GROUDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Groudon, -1
