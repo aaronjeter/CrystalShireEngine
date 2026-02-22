@@ -161,8 +161,7 @@ DEF KANTO_FLYPOINT EQU const_value
 	const FLY_CINNABAR
 	const FLY_INDIGO
 	const FLY_SAFFRON
-DEF HOENN_FLYPOINT EQU const_value
-	const FLY_LITTLEROOT
+DEF HOENN_FLYPOINT EQU const_value	
 	const FLY_OLDALE
 	const FLY_PETALBURG
 	const FLY_RUSTBORO
@@ -178,6 +177,7 @@ DEF HOENN_FLYPOINT EQU const_value
 	const FLY_SOOTOPOLIS
 	const FLY_PACIFIDLOG
 	const FLY_EVERGRANDE
+	const FLY_LITTLEROOT
 DEF NUM_FLYPOINTS EQU const_value
 
 DEF MAX_OUTDOOR_SPRITES EQU 23 ; see engine/overworld/overworld.asm
