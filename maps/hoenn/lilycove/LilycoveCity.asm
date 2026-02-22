@@ -15,6 +15,7 @@ LilycoveCity_MapEvents:
 
 	def_warp_events	
 	warp_event 23, 15, LILYCOVE_POKECENTER, 2
+	warp_event 53, 17, LILYCOVE_TRADE_HOUSE, 2
 
 	def_coord_events
 

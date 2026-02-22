@@ -995,7 +995,13 @@ SECTION "Map Blocks 4", ROMX
 	INCBIN "maps/hoenn/littleroot/BirchsLab.ablk"
 
 	RustboroCutterHouse_Blocks:
+	RustboroTradeHouse_Blocks:
 	VerdanturfRockSmashHouse_Blocks:
+	VerdanturfTradeHouse_Blocks:
+	MauvilleTradeHouse_Blocks:
+	SlateportTradeHouse_Blocks:
+	FortreeTradeHouse_Blocks:
+	LilycoveTradeHouse_Blocks:
 	PetalburgHouse1_Blocks:
 	PetalburgHouse2_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"

@@ -48,6 +48,7 @@ SlateportCity_MapEvents:
 	warp_event  19, 21, SLATEPORT_POKECENTER, 2
 	warp_event  15, 27, SLATEPORT_MART, 2
 	warp_event  29, 13, SLATEPORT_HARBOR, 2
+	warp_event  05, 21, SLATEPORT_TRADE_HOUSE, 2
 
 	def_coord_events
 

@@ -8598,7 +8598,7 @@ BattleGirlGroupHard:
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (4) Route 117
-	db "DANIELLE@", TRAINERTYPE_NORMAL
+	db "AISHA@", TRAINERTYPE_NORMAL
 	db 9
 	dw HITMONLEE
 	db 9

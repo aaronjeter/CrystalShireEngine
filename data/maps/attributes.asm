@@ -756,7 +756,13 @@ ENDM
 	map_attributes FallarborMart, FALLARBOR_MART, $00, 0
 
 	map_attributes RustboroCutterHouse, RUSTBORO_CUTTER_HOUSE, $00, 0
+	map_attributes RustboroTradeHouse, RUSTBORO_TRADE_HOUSE, $00, 0
 	map_attributes VerdanturfRockSmashHouse, VERDANTURF_ROCKSMASH_HOUSE, $00, 0
+	map_attributes VerdanturfTradeHouse, VERDANTURF_TRADE_HOUSE, $00, 0
+	map_attributes MauvilleTradeHouse, MAUVILLE_TRADE_HOUSE, $00, 0
+	map_attributes SlateportTradeHouse, SLATEPORT_TRADE_HOUSE, $00, 0
+	map_attributes FortreeTradeHouse, FORTREE_TRADE_HOUSE, $00, 0
+	map_attributes LilycoveTradeHouse, LILYCOVE_TRADE_HOUSE, $00, 0
 
 	map_attributes BirchsLab, BIRCHS_LAB, $00, 0
 

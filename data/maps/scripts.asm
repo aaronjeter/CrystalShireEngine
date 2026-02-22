@@ -511,6 +511,12 @@ INCLUDE "maps/hoenn/mauville/MauvilleCity.asm"
 INCLUDE "maps/hoenn/mauville/MauvilleGym.asm"
 INCLUDE "maps/hoenn/mauville/MauvillePokecenter.asm"
 INCLUDE "maps/hoenn/mauville/MauvilleMart.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 25.1", ROMX
+
 INCLUDE "maps/hoenn/slateport/SlateportCity.asm"
 INCLUDE "maps/hoenn/slateport/SlateportPokecenter.asm"
 INCLUDE "maps/hoenn/slateport/SlateportMart.asm"
@@ -525,12 +531,23 @@ ENDSECTION
 SECTION "Map Scripts 26", ROMX
 
 INCLUDE "maps/hoenn/rustboro/RustboroCutterHouse.asm"
+INCLUDE "maps/hoenn/rustboro/RustboroTradeHouse.asm"
 INCLUDE "maps/hoenn/verdanturf/VerdanturfRockSmashHouse.asm"
+INCLUDE "maps/hoenn/verdanturf/VerdanturfTradeHouse.asm"
+INCLUDE "maps/hoenn/mauville/MauvilleTradeHouse.asm"
+INCLUDE "maps/hoenn/slateport/SlateportTradeHouse.asm"
+INCLUDE "maps/hoenn/fortree/FortreeTradeHouse.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveTradeHouse.asm"
 
 INCLUDE "maps/hoenn/lavaridge/LavaridgeTown.asm"
 INCLUDE "maps/hoenn/lavaridge/LavaridgePokecenter.asm"
 INCLUDE "maps/hoenn/lavaridge/LavaridgeMart.asm"
 INCLUDE "maps/hoenn/lavaridge/LavaridgeGym.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 26.1", ROMX
 
 INCLUDE "maps/hoenn/GraniteCaveB1F.asm"
 INCLUDE "maps/hoenn/GraniteCaveB2F.asm"

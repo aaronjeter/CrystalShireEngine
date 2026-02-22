@@ -545,18 +545,22 @@ ENDM
 	map_const RUSTBORO_POKECENTER,						   07, 04 ;
 	map_const RUSTBORO_MART,							   06, 04 ;
 	map_const RUSTBORO_CUTTER_HOUSE,                       04, 04 ;
+	map_const RUSTBORO_TRADE_HOUSE,                        04, 04 ;
 	map_const VERDANTURF_TOWN,							   10, 10 ;
 	map_const VERDANTURF_POKECENTER,					   07, 04 ;
 	map_const VERDANTURF_MART,							   06, 04 ;
 	map_const VERDANTURF_ROCKSMASH_HOUSE,                  04, 04 ;
+	map_const VERDANTURF_TRADE_HOUSE,                      04, 04 ;
 	map_const MAUVILLE_CITY,							   20, 10 ;
 	map_const MAUVILLE_GYM,								   05, 12 ;
 	map_const MAUVILLE_POKECENTER,						   07, 04 ;
 	map_const MAUVILLE_MART,							   06, 04 ;
+	map_const MAUVILLE_TRADE_HOUSE,  					   04, 04 ;
 	map_const SLATEPORT_CITY,							   20, 30 ;
 	map_const SLATEPORT_POKECENTER,						   07, 04 ;
 	map_const SLATEPORT_MART,							   06, 04 ;
 	map_const SLATEPORT_HARBOR,                            10, 08 ;
+	map_const SLATEPORT_TRADE_HOUSE,  					   04, 04 ;
 	map_const DEWFORD_TOWN,								   20, 20 ;
 	map_const DEWFORD_GYM,								   09, 14 ;
 	map_const DEWFORD_POKECENTER,						   07, 04 ;	
@@ -568,6 +572,7 @@ ENDM
 	map_const FORTREE_POKECENTER,						   07, 04 ;
 	map_const FORTREE_MART,							       06, 04 ;
 	map_const FORTREE_GYM,                                 10, 13 ;
+	map_const FORTREE_TRADE_HOUSE,						   04, 04 ;
 	map_const ROUTE_101,                                   10, 10 ;  4
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6
@@ -602,6 +607,7 @@ ENDM
 	map_const ROUTE_123,                                   40, 10 ;
 	map_const LILYCOVE_CITY,                               40, 22 ;
 	map_const LILYCOVE_POKECENTER,                         07, 04 ;
+	map_const LILYCOVE_TRADE_HOUSE,                        04, 04 ;
 	map_const MT_PYRE,                                     20, 30 ;
 	endgroup
 

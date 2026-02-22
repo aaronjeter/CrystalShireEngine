@@ -22,5 +22,5 @@ RusturfTunnel_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 11,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RusturfRock, -1
+	object_event 20,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RusturfRock, -1
 	
