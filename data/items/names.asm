@@ -129,11 +129,11 @@ ItemNames::
 	li "DRAGON SCALE" ; 007F
 	li "BERSERK GENE" ; 0080
 	li "HOENNITE X"   ; 0083
-	li "TERU-SAMA"    ; 0081
-	li "TERU-SAMA"    ; 0082
+	li "RAZOR BERRY"  ; 0081
+	li "IRON BERRY"   ; 0082
 	li "SACRED ASH"   ; 0084
 	li "FLOWER MAIL"  ; 0085
-	li "TERU-SAMA"    ; 0086
+	li "HASTE BERRY"  ; 0086
 	li "LIGHT BALL"   ; 0087
 	li "NORMAL BOX"   ; 0088
 	li "GORGEOUS BOX" ; 0089
@@ -143,8 +143,8 @@ ItemNames::
 	li "UP-GRADE"     ; 008D
 	li "BERRY"        ; 008E
 	li "GOLD BERRY"   ; 008F
-	li "TERU-SAMA"    ; 0091
-	li "TERU-SAMA"    ; 0090
+	li "FOCUS BERRY"  ; 0091
+	li "WARD BERRY"   ; 0090
 	li "BRICK PIECE"  ; 0092
 	li "SURF MAIL"    ; 0093
 	li "LITEBLUEMAIL" ; 0094

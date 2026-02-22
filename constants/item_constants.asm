@@ -135,11 +135,11 @@
 	const DRAGON_SCALE ; 007F
 	const BERSERK_GENE ; 0080
 	const HOENNITE_X   ; 0081
-	const ITEM_9A      ; 0082
-	const ITEM_9B      ; 0083
+	const RAZOR_BERRY  ; 0082
+	const IRON_BERRY   ; 0083
 	const SACRED_ASH   ; 0084
 	const FLOWER_MAIL  ; 0085
-	const ITEM_A2      ; 0086
+	const HASTE_BERRY  ; 0086
 	const LIGHT_BALL   ; 0087
 	const NORMAL_BOX   ; 0088
 	const GORGEOUS_BOX ; 0089
@@ -149,8 +149,8 @@
 	const UP_GRADE     ; 008D
 	const BERRY        ; 008E
 	const GOLD_BERRY   ; 008F
-	const ITEM_B0      ; 0090
-	const ITEM_B3      ; 0091
+	const FOCUS_BERRY  ; 0090
+	const WARD_BERRY   ; 0091
 	const BRICK_PIECE  ; 0092
 	const SURF_MAIL    ; 0093
 	const LITEBLUEMAIL ; 0094
