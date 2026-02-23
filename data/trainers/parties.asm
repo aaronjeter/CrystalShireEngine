@@ -5102,8 +5102,7 @@ SailorGroup:
 	db 6
 	dw HITMONCHAN
 	db 7
-	dw WARTORTLE
-	
+	dw WARTORTLE	
 	db -1 ; end
 
 	end_list_items

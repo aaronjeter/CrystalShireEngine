@@ -5135,6 +5135,7 @@ SailorGroupHard:
 	dw HITMONCHAN
 	db 8
 	dw BLASTOISE
+	db -1 ; end
 
 	end_list_items
 
