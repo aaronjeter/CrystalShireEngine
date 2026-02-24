@@ -1110,6 +1110,7 @@ NosepassEvosAttacks:
 
 SkittyEvosAttacks:
 	dbww EVOLVE_ITEM, MOON_STONE, DELCATTY
+	dbbw EVOLVE_LEVEL, 30, DELCATTY
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, TACKLE
