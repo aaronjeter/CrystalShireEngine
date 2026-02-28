@@ -1343,7 +1343,6 @@ UseRockSmashText:
 AskRockSmashScript:
 	callasm HasRockSmash
 	ifequal 1, .no
-
 	opentext
 	writetext AskRockSmashText
 	yesorno
@@ -1362,11 +1361,22 @@ AskRockSmashText:
 	text_end
 
 HasRockSmash:
+	ld hl, PICKAXE
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .yes	
+
 	ld hl, ROCK_SMASH
 	call CheckPartyMoveIndex
 	; a = carry ? TRUE : FALSE
 	sbc a
 	and TRUE
+	ld [wScriptVar], a
+	ret
+.yes
+	ld a, 0
 	ld [wScriptVar], a
 	ret
 
