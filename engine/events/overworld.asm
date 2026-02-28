@@ -1701,12 +1701,20 @@ GotOffBikeText:
 
 TryCutOW::
 ; Step 2
+	ld hl, HATCHET
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .yes
+
 	ld hl, HM_CUT
 	call GetItemIDFromIndex
 	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
 	jr z, .cant_cut
+
 .yes
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
