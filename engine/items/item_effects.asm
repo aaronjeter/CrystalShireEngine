@@ -217,6 +217,7 @@ ItemEffectsKeyItems:
 	dw LanternEffect      ; LANTERN
 	dw HatchetEffect	  ; HATCHET
 	dw PickaxeEffect	  ; PICKAXE
+	dw FlippersEffect	  ; FLIPPERS
 .IndirectEnd:
 
 ItemEffectsBalls:
@@ -3052,4 +3053,8 @@ HatchetEffect:
 
 PickaxeEffect:
 	call RockSmashFunction
+	ret
+
+FlippersEffect:
+	call SurfFunction
 	ret

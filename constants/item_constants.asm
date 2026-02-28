@@ -195,6 +195,7 @@ DEF FIRST_KEY_ITEM EQU const_value
 	const LANTERN
 	const HATCHET
 	const PICKAXE
+	const FLIPPERS
 DEF NUM_KEY_ITEM_POCKET EQU const_value - FIRST_KEY_ITEM
 assert NUM_KEY_ITEM_POCKET <= $ff
 

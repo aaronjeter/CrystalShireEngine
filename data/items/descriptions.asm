@@ -197,6 +197,7 @@ ItemDescriptionsKeyItems:
 	dw LanternDesc
 	dw HatchetDesc
 	dw PickaxeDesc
+	dw FlippersDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -898,6 +899,10 @@ HatchetDesc:
 PickaxeDesc:
 	db   "A tool to"
 	next "SMASH ROCKS.@"
+
+FlippersDesc:
+	db   "Lets you"
+	next "Swim.@"
 
 KantoiteXDesc:
 	db   "Empowers certain"

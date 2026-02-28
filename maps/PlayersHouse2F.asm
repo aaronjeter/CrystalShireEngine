@@ -92,12 +92,23 @@ if DEF(_DEBUG)
 	giveitem JOHTOITE_X, 10
 	giveitem HOENNITE_X, 10
 
+	giveitem RAZOR_BERRY, 10
+	giveitem IRON_BERRY, 10
+	giveitem HASTE_BERRY, 10
+	giveitem FOCUS_BERRY, 10
+	giveitem WARD_BERRY, 10
+
 	giveitem HM_CUT
 	giveitem HM_SURF
 	giveitem HM_WHIRLPOOL
 	giveitem HM_WATERFALL
 	giveitem HM_FLASH
 	giveitem HM_STRENGTH
+	giveitem TM_ROCK_SMASH
+
+	giveitem HATCHET
+	giveitem PICKAXE
+	giveitem FLIPPERS
 
 	; all badges
 	;setflag ENGINE_ZEPHYRBADGE
@@ -134,6 +145,8 @@ if DEF(_DEBUG)
 	setevent EVENT_BEAT_BLUE
 	setevent EVENT_BEAT_ELITE_FOUR
 
+	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+
 	;clearevent EVENT_OLIVINE_GYM_JASMINE
 	;setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_GYM
 
@@ -168,6 +181,19 @@ if DEF(_DEBUG)
 	setflag ENGINE_FLYPOINT_FUCHSIA
 	setflag ENGINE_FLYPOINT_SAFFRON
 	setflag ENGINE_FLYPOINT_CINNABAR
+
+	setflag ENGINE_FLYPOINT_LITTLEROOT
+	setflag ENGINE_FLYPOINT_OLDALE
+	setflag ENGINE_FLYPOINT_PETALBURG
+	setflag ENGINE_FLYPOINT_RUSTBORO
+	setflag ENGINE_FLYPOINT_DEWFORD
+	setflag ENGINE_FLYPOINT_SLATEPORT
+	setflag ENGINE_FLYPOINT_MAUVILLE
+	setflag ENGINE_FLYPOINT_VERDANTURF
+	setflag ENGINE_FLYPOINT_LAVARIDGE
+	setflag ENGINE_FLYPOINT_FALLARBOR
+	setflag ENGINE_FLYPOINT_FORTREE
+	setflag ENGINE_FLYPOINT_LILYCOVE
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
@@ -177,20 +203,20 @@ if DEF(_DEBUG)
 	loadmem wPartyMon1DVs+1, $ff
 	loadmem wPartyMon1DVs+2, $ff
 	; hm slaves
-	givepoke SWALOT, 99, LEFTOVERS
-	givepoke FLYGON, 99, LEFTOVERS
+	givepoke SWALOT, 80, SACRED_ASH 
+	givepoke FLYGON, 80, ITEM_91
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove HAIL,		 wPartyMon2, 2
 	givepokemove CUT,        wPartyMon2, 3
 	givepokemove FLASH,      wPartyMon3, 0
-	givepokemove ROCK_SMASH, wPartyMon3, 1
+	;givepokemove ROCK_SMASH, wPartyMon3, 1
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke GOROCHU, 99
-	givepoke SNEASEL, 99
-	givepoke WEAVILE, 99
+	givepoke GOROCHU, 99, LIGHT_BALL
+	givepoke CHIMECHO, 99, POLKADOT_BOW
+	givepoke TENTACOOL2, 99, MIRAGE_MAIL
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
@@ -202,7 +228,6 @@ if DEF(_DEBUG)
 	;jumpstd UpdateWorldLevelsScript
 
 	closetext
-	;halloffame
 	end
 else
 
@@ -304,5 +329,5 @@ PlayersHouse2F_MapEvents:
 	object_event  4,  4, SPRITE_DOLL_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseDoll1Script, EVENT_PLAYERS_HOUSE_2F_DOLL_1
 	object_event  5,  4, SPRITE_DOLL_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseDoll2Script, EVENT_PLAYERS_HOUSE_2F_DOLL_2
 	object_event  0,  1, SPRITE_BIG_DOLL, SPRITEMOVEDATA_BIGDOLL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseBigDollScript, EVENT_PLAYERS_HOUSE_2F_BIG_DOLL
-	object_event 02, 04, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Playerhouse_RandomTestTrainer, -1
+	;object_event 02, 04, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Playerhouse_RandomTestTrainer, -1
 	

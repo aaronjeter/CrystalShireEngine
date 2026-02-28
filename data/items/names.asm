@@ -189,6 +189,7 @@ KeyItemNames::
 	li "LANTERN"
 	li "HATCHET"
 	li "PICKAXE"
+	li "FLIPPERS"
 	assert_list_length NUM_KEY_ITEM_POCKET
 
 BallNames::

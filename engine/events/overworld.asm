@@ -465,6 +465,13 @@ TrySurfOW::
 	jr c, .quit	
 
 ; Step 2
+	ld hl, FLIPPERS
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .yes
+
 	ld hl, HM_SURF
 	call GetItemIDFromIndex
 	ld [wCurItem], a
