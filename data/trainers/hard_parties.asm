@@ -5101,8 +5101,8 @@ SailorGroupHard:
 
 	next_list_item ; SAILOR (14) Dewford City Gym
 	db "BRENDEN@", TRAINERTYPE_NORMAL	
-	db 12
-	dw POLIWRATH
+	db 7
+	dw POLIWHIRL
 	db -1 ; end
 
 	next_list_item ; SAILOR (15) Route 109
@@ -6244,18 +6244,18 @@ BlackbeltGroupHard:
 
 	next_list_item ; BLACKBELT_T (10) Dewford City Gym
 	db "TAKAO@", TRAINERTYPE_NORMAL
-	db 10
+	db 7
 	dw MACHOKE
-	db 10
-	dw HITMONLEE
+	db 7
+	dw TYROGUE
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (11) Dewford City Gym
 	db "CRISTIAN@", TRAINERTYPE_NORMAL
-	db 10
+	db 7
 	dw MACHOKE
-	db 10
-	dw HITMONCHAN
+	db 7
+	dw TYROGUE
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (12) Route 103
@@ -8576,8 +8576,6 @@ BattleGirlGroupHard:
 	dw POLIWHIRL
 	db 7
 	dw FARFETCH_D
-	db 7
-	dw MACHOKE
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (3) Dewford City Gym
@@ -8585,9 +8583,7 @@ BattleGirlGroupHard:
 	db 7
 	dw COMBUSKEN
 	db 7
-	dw PRIMEAPE
-	db 7
-	dw BRELOOM
+	dw MANKEY
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (4) Lavaridge Gym
