@@ -66,6 +66,7 @@ DewfordTown_MapEvents:
 	warp_event  14, 33, DEWFORD_GYM, 1
 	warp_event  07, 31, DEWFORD_POKECENTER, 2
 	warp_event  05, 13, GRANITE_CAVE_B1F, 1
+	warp_event  17, 23, DEWFORD_BRINEY_HOUSE, 2
 
 	def_coord_events
 

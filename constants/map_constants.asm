@@ -564,6 +564,7 @@ ENDM
 	map_const DEWFORD_TOWN,								   20, 20 ;
 	map_const DEWFORD_GYM,								   09, 14 ;
 	map_const DEWFORD_POKECENTER,						   07, 04 ;	
+	map_const DEWFORD_BRINEY_HOUSE,                        05, 04 ;
 	map_const LAVARIDGE_TOWN,							   12, 10 ;
 	map_const LAVARIDGE_POKECENTER,						   07, 04 ;
 	map_const LAVARIDGE_MART,							   06, 04 ;

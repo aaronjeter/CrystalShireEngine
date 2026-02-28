@@ -523,6 +523,7 @@ INCLUDE "maps/hoenn/slateport/SlateportHarbor.asm"
 INCLUDE "maps/hoenn/dewford/DewfordTown.asm"
 INCLUDE "maps/hoenn/dewford/DewfordGym.asm"
 INCLUDE "maps/hoenn/dewford/DewfordPokecenter.asm"
+INCLUDE "maps/hoenn/dewford/DewfordBrineyHouse.asm"
 
 ENDSECTION
 
