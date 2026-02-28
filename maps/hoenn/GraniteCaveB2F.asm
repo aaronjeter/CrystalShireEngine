@@ -3,6 +3,7 @@
 	const GRANITECAVEB2F_ARON
 	const GRANITECAVEB2F_SHELLDER
 	const GRANITECAVEB2F_SANDSHREW
+	const GRANITECAVEB2F_ROCK
 
 GraniteCaveB2F_MapScripts:
 	def_scene_scripts
@@ -41,6 +42,9 @@ GraniteCaveB2F_Sandshrew:
 	disappear GRANITECAVEB2F_SANDSHREW
 	end
 
+GraniteCaveB2FRock:
+	jumpstd SmashRockScript
+
 GraniteCaveB2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -61,3 +65,5 @@ GraniteCaveB2F_MapEvents:
 	object_event  16, 44, SPRITE_ARON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Aron, -1
 	object_event  05, 28, SPRITE_SHELLDER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Shellder, -1
 	object_event  17, 13, SPRITE_SANDSHREW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Sandshrew, -1
+	object_event  11, 10, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FRock, -1
+	
