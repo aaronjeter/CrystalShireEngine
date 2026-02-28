@@ -21,10 +21,22 @@ PlayersHouse1FNoop2Scene:
 PlayerHouse1FConditionalWarpScript:
 	checkevent EVENT_START_HOENN
 	iffalse .notHoenn
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
 	warp LITTLEROOT_TOWN, 13, 08
 	sjump .done
 	
 .notHoenn
+	checkevent EVENT_START_JOHTO
+	iffalse .notJohto
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
+	warp NEW_BARK_TOWN, 13, 06
+	sjump .done
+
+.notJohto
 .done
 	end
 

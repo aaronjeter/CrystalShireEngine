@@ -27,6 +27,19 @@ NewBarkTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_SAFFRON
 	endcallback
 
+NewBarkTownConditionalWarpScript:
+	checkevent EVENT_START_JOHTO
+	iffalse .notJohto
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
+	warp PLAYERS_HOUSE_1F, 07, 06
+	sjump .done
+	
+.notJohto
+.done
+	end
+
 NewBarkTown_TeacherStopsYouScene1:
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
@@ -301,13 +314,14 @@ NewBarkTown_MapEvents:
 
 	def_warp_events
 	warp_event  6,  3, ELMS_LAB, 1
-	warp_event 13,  5, PLAYERS_HOUSE_1F, 1
+	warp_event 13, 06, PLAYERS_HOUSE_1F, 1
 	warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
 	warp_event 11, 13, ELMS_HOUSE, 1
 
 	def_coord_events
-	coord_event  1,  8, SCENE_NEWBARKTOWN_TEACHER_STOPS_YOU, NewBarkTown_TeacherStopsYouScene1
-	coord_event  1,  9, SCENE_NEWBARKTOWN_TEACHER_STOPS_YOU, NewBarkTown_TeacherStopsYouScene2
+	coord_event  1,  08, SCENE_NEWBARKTOWN_TEACHER_STOPS_YOU, NewBarkTown_TeacherStopsYouScene1
+	coord_event  1,  09, SCENE_NEWBARKTOWN_TEACHER_STOPS_YOU, NewBarkTown_TeacherStopsYouScene2
+	coord_event  13, 05, -1, NewBarkTownConditionalWarpScript
 
 	def_bg_events
 	bg_event  9,  9, BGEVENT_READ, NewBarkTownSign

@@ -17,6 +17,9 @@ LittlerootTownFlypointCallback:
 LittlerootTownConditionalWarpScript:
 	checkevent EVENT_START_HOENN
 	iffalse .notHoenn
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
 	warp PLAYERS_HOUSE_1F, 07, 06
 	sjump .done
 	
