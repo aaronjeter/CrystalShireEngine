@@ -490,7 +490,6 @@ INCLUDE "maps/johto/silver/SilverCaveOutside.asm"
 INCLUDE "maps/Route10North.asm"
 
 INCLUDE "maps/hoenn/littleroot/LittlerootTown.asm"
-INCLUDE "maps/hoenn/littleroot/BirchsLab.asm"
 INCLUDE "maps/hoenn/oldale/OldaleTown.asm"
 INCLUDE "maps/hoenn/oldale/OldalePokecenter.asm"
 INCLUDE "maps/hoenn/oldale/OldaleMart.asm"
@@ -524,6 +523,13 @@ INCLUDE "maps/hoenn/slateport/SlateportHarbor.asm"
 INCLUDE "maps/hoenn/dewford/DewfordTown.asm"
 INCLUDE "maps/hoenn/dewford/DewfordGym.asm"
 INCLUDE "maps/hoenn/dewford/DewfordPokecenter.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 25.2", ROMX
+
+INCLUDE "maps/hoenn/littleroot/BirchsLab.asm"
 
 ENDSECTION
 

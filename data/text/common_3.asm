@@ -1161,3 +1161,8 @@ _OakOriginText::
 	text "What kind of"
 	line "trainer are you?"
 	prompt
+
+_OakStartText::
+	text "Where do you"
+	line "want to start?"
+	prompt

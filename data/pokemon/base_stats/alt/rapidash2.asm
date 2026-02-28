@@ -4,7 +4,7 @@
 	evs  0,   0,   0,   0,   2,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIRE, ICE ; type
+	db FIRE, ELECTRIC ; type
 	db 60 ; catch rate
 	db 192 ; base exp
 	dw NO_ITEM, NO_ITEM ; items

@@ -18,6 +18,16 @@ PlayersHouse1FNoop1Scene:
 PlayersHouse1FNoop2Scene:
 	end
 
+PlayerHouse1FConditionalWarpScript:
+	checkevent EVENT_START_HOENN
+	iffalse .notHoenn
+	warp LITTLEROOT_TOWN, 13, 08
+	sjump .done
+	
+.notHoenn
+.done
+	end
+
 MeetMomLeftScript:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
@@ -390,6 +400,8 @@ PlayersHouse1F_MapEvents:
 	def_coord_events
 	coord_event  8,  4, SCENE_PLAYERSHOUSE1F_MEET_MOM, MeetMomLeftScript
 	coord_event  9,  4, SCENE_PLAYERSHOUSE1F_MEET_MOM, MeetMomRightScript
+	coord_event  6,  7, -1, PlayerHouse1FConditionalWarpScript
+	coord_event  7,  7, -1, PlayerHouse1FConditionalWarpScript
 
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, PlayersHouse1FStoveScript

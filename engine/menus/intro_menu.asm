@@ -624,6 +624,7 @@ endc
 	call PrintText
 	call NamePlayer
 	call SetRegion
+	call SetStart
 	call SetLevelCap
 	call SetHardMode
 
@@ -666,6 +667,10 @@ OakText7:
 
 OakTextRegion:
 	text_far _OakRegionText
+	text_end
+
+OakTextStart:
+	text_far _OakStartText
 	text_end
 
 OakTextHardMode:
@@ -752,6 +757,45 @@ SetRegion:
     ld b, SET_FLAG
 	call EventFlagAction
 	ret
+
+
+SetStart:
+	ld hl, OakTextStart
+	call PrintText
+	ld hl, .StartMenuHeader
+	call LoadMenuHeader
+	call VerticalMenu
+	call CloseWindow	
+	ld a, [wMenuCursorY]
+	cp $1
+	jr z, .StartJohto
+	cp $2
+	jr z, .StartHoenn
+
+.StartMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 15, TEXTBOX_Y - 1
+	dw .RegionMenuData
+	db 1 ; default option
+
+.RegionMenuData:
+	db STATICMENU_CURSOR ; flags
+	db 2 ; items	
+	db "Johto (Gen 2)@"
+	db "Hoenn (Gen 3)@"
+
+.StartJohto:
+	ld de, EVENT_START_JOHTO
+    ld b, SET_FLAG
+	call EventFlagAction
+	ret
+
+.StartHoenn:
+	ld de, EVENT_START_HOENN
+    ld b, SET_FLAG
+	call EventFlagAction
+	ret
+
 
 SetLevelCap:
 	ld hl, OakTextLevelCap

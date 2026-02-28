@@ -334,32 +334,6 @@ AvulpixPokeBallScript:
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
-Tentacool2PokeBallScript:	
-	pokepic TENTACOOL2
-	cry TENTACOOL2
-	waitbutton
-	closepokepic
-	opentext
-	writetext TakeTentacoolText
-	yesorno
-	iffalse DidntChooseStarterScript
-	disappear ELMSLAB_POKE_BALL1
-	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
-	writetext ChoseStarterText
-	promptbutton
-	waitsfx
-	getmonname STRING_BUFFER_3, TENTACOOL2
-	writetext ReceivedStarterText
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	promptbutton
-	givepoke TENTACOOL2, 5, BERRY
-	closetext
-	readvar VAR_FACING
-	ifequal RIGHT, ElmDirectionsScript
-	applymovement PLAYER, AfterCyndaquilMovement
-	sjump ElmDirectionsScript
-
 Vulpix2PokeBallScript:	
 	pokepic VULPIX2
 	cry VULPIX2
@@ -406,32 +380,6 @@ HonobeaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke HONOBEA, 5, BERRY
-	closetext
-	readvar VAR_FACING
-	ifequal RIGHT, ElmDirectionsScript
-	applymovement PLAYER, AfterCyndaquilMovement
-	sjump ElmDirectionsScript
-
-MunchlaxPokeBallScript:	
-	pokepic MUNCHLAX
-	cry MUNCHLAX
-	waitbutton
-	closepokepic
-	opentext
-	writetext TakeMunchlaxText
-	yesorno
-	iffalse DidntChooseStarterScript
-	disappear ELMSLAB_POKE_BALL1
-	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
-	writetext ChoseStarterText
-	promptbutton
-	waitsfx
-	getmonname STRING_BUFFER_3, MUNCHLAX
-	writetext ReceivedStarterText
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	promptbutton
-	givepoke MUNCHLAX, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -582,30 +530,6 @@ KotoraPokeBallScript:
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
-DelibirdPokeBallScript2:	
-	pokepic DELIBIRD
-	cry DELIBIRD
-	waitbutton
-	closepokepic
-	opentext
-	writetext TakeDelibirdText
-	yesorno
-	iffalse DidntChooseStarterScript
-	disappear ELMSLAB_POKE_BALL2
-	setevent EVENT_GOT_TOTODILE_FROM_ELM
-	writetext ChoseStarterText
-	promptbutton
-	waitsfx
-	getmonname STRING_BUFFER_3, DELIBIRD
-	writetext ReceivedStarterText
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	promptbutton
-	givepoke DELIBIRD, 5, BERRY
-	closetext
-	applymovement PLAYER, AfterTotodileMovement
-	sjump ElmDirectionsScript
-
 BulbasaurPokeBallScript:	
 	pokepic BULBASAUR
 	cry BULBASAUR
@@ -748,30 +672,6 @@ KurusuPokeBallScript:
 	givepoke KURUSU, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
-	sjump ElmDirectionsScript
-
-DelibirdPokeBallScript3:	
-	pokepic DELIBIRD
-	cry DELIBIRD
-	waitbutton
-	closepokepic
-	opentext
-	writetext TakeDelibirdText
-	yesorno
-	iffalse DidntChooseStarterScript
-	disappear ELMSLAB_POKE_BALL3
-	setevent EVENT_GOT_CHIKORITA_FROM_ELM
-	writetext ChoseStarterText
-	promptbutton
-	waitsfx
-	getmonname STRING_BUFFER_3, DELIBIRD
-	writetext ReceivedStarterText
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	promptbutton
-	givepoke DELIBIRD, 5, BERRY
-	closetext
-	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
 DidntChooseStarterScript:
@@ -1407,18 +1307,6 @@ TakeTorchicText:
 	cont "fire #MON?"
 	done
 
-TakeAmarowakText:
-	text "ELM: You'll take"
-	line "MAROWAK, the"
-	cont "fire #MON?"
-	done
-
-TakeDelibirdText:
-	text "ELM: You'll take"
-	line "DELIBIRD, the"
-	cont "delivery #MON?"
-	done
-
 TakeSquirtleText:
 	text "ELM: Do you want"
 	line "SQUIRTLE, the"
@@ -1435,12 +1323,6 @@ TakeMudkipText:
 	text "ELM: You'll take"
 	line "MUDKIP, the"
 	cont "mud #MON?"
-	done
-
-TakeAraichuText:
-	text "ELM: You'll take"
-	line "RAICHU, the"
-	cont "surfer #MON?"
 	done
 
 TakeAvulpixText:
@@ -1503,12 +1385,6 @@ TakeKotoraText:
 	cont "tiger #MON?"
 	done
 
-TakeTentacoolText:
-	text "ELM: Do you want"
-	line "Tentacool, the"
-	cont "rock #MON?"
-	done
-
 TakeVulpix2Text:
 	text "ELM: Do you want"
 	line "Vulpix, the"
@@ -1519,12 +1395,6 @@ TakeHonobeaText:
 	text "ELM: Do you want"
 	line "Honobea, the"
 	cont "fire #MON?"
-	done
-
-TakeMunchlaxText:
-	text "ELM: You'll take"
-	line "MUNCHLAX, the"
-	cont "hungry #MON?"
 	done
 
 DidntChooseStarterText:

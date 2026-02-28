@@ -706,7 +706,11 @@
 	const EVENT_DEFEATED_CELEBI_GUARDIAN_MR_MIME
 	const EVENT_GOT_CELEBI_EGG
 	const EVENT_GOT_GS_BALL_FROM_ILEX
-; Unused: next 167 events
+
+	const EVENT_START_KANTO
+	const EVENT_START_JOHTO
+	const EVENT_START_HOENN
+; Unused: next 164 events
 
 	const_next 1000
 ; Trainer flags

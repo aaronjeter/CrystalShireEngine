@@ -1010,22 +1010,24 @@ Tentacruel2EvosAttacks:
 Rapidash2EvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
-	dbw 5, GROWL
+	dbw 5, THUNDER_WAVE
 	dbw 10, EMBER
 	dbw 15, TAIL_WHIP
 	dbw 20, DOUBLE_KICK
 	dbw 24, STOMP
 	dbw 28, FIRE_SPIN
+	dbw 28, SPARK
 	dbw 36, SUNNY_DAY
 	dbw 40, FLAME_WHEEL
 	dbw 45, TAKE_DOWN
 	dbw 50, EXTREMESPEED
 	dbw 55, DRAGON_DANCE
 	dbw 60, SACRED_FIRE
+	dbw 60, SHOCKSLAM
 	dbw 65, MEGA_KICK
 	dbw 70, SOLARBEAM
-	dbw 75, ICICLE_CRASH
-	dbw 80, BLIZZARD	
+	dbw 75, THUNDER
+	dbw 80, FIRE_BLAST	
 	db 0 ; no more level-up moves
 
 Vulpix2EvosAttacks:
