@@ -1,4 +1,5 @@
 	object_const_def
+	const DEWFORDTOWN_GYM_GUARD
 
 DewfordTown_MapScripts:
 	def_scene_scripts
@@ -9,6 +10,14 @@ DewfordTown_MapScripts:
 DewfordTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_DEWFORD
 	endcallback
+
+DewfordGymGuardScript:
+	faceplayer
+	opentext
+	writetext DewfordGymGuardText
+	waitbutton
+	closetext
+	end
 
 DewfordTownSign:
 	jumptext DewfordTownSignText
@@ -32,6 +41,24 @@ DewfordGymSignText:
 	line "in Fighting."
 	done
 
+DewfordGymGuardText:
+	text "Hey kid,"
+	line "Gym's closed."
+
+	para "Brawly, the"
+	line "Gym Leader"
+
+	para "is off training"
+	line "in the Granite"
+
+	para "Caves north"
+	line "of town."
+
+	para "You could go"
+	line "find him, I"
+	cont "guess..."
+	done
+
 DewfordTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -47,4 +74,4 @@ DewfordTown_MapEvents:
 	bg_event  19, 33, BGEVENT_READ, DewfordGymSign
 
 	def_object_events
-	
+	object_event  14,  34, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DewfordGymGuardScript, EVENT_GOT_PICKAXE

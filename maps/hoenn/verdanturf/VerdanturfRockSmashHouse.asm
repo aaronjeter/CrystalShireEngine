@@ -9,20 +9,8 @@ VerdanturfRockSmashHouse_MapScripts:
 
 RockSmashGuyScript:
 	faceplayer
-	opentext
-	checkevent EVENT_GOT_PICKAXE
-	iftrue RockSmashGuyScript_AfterPickaxe
-
+	opentext	
 	writetext GivePickaxeText
-	waitbutton 
-	verbosegiveitem PICKAXE
-	setevent EVENT_GOT_PICKAXE
-	waitbutton
-	closetext
-	end
-
-RockSmashGuyScript_AfterPickaxe:
-	writetext AlreadyGivenPickaxeText
 	waitbutton
 	closetext
 	end
@@ -48,28 +36,8 @@ GivePickaxeText:
 	para "It's a lot"
 	line "harder to find"
 	cont "time to clear"
-	cont "the tunnel now!"
-
-	para "Here, take"
-	line "my spare PICKAXE."
-
-	para "It'll let you"
-	line "clear small"
-	cont "rocks."
-
-	para "You can get"
-	line "back to"
-	cont "RUSTBORO in"
-	cont "a pinch now."
+	cont "the tunnel now!"	
 	done
-
-AlreadyGivenPickaxeText:
-	text "I hope that"
-	line "PICKAXE of"
-	cont "mine serves"
-	cont "you well."
-	done
-
 
 RockSmashWifeScript:
 	faceplayer

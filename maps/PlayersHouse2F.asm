@@ -107,7 +107,7 @@ if DEF(_DEBUG)
 	giveitem TM_ROCK_SMASH
 
 	giveitem HATCHET
-	giveitem PICKAXE
+	;giveitem PICKAXE
 	giveitem FLIPPERS
 
 	; all badges
@@ -312,8 +312,7 @@ PlayersHouse2F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	;warp_event  7,  0, PLAYERS_HOUSE_1F, 3
-	warp_event  7,  0, FORTREE_CITY, 1
+	warp_event  7,  0, PLAYERS_HOUSE_1F, 3
 	warp_event  7,  4, LITTLEROOT_TOWN, 1
 
 	def_coord_events
