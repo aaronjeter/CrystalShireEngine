@@ -553,10 +553,14 @@ BirchDirectionsScript:
 	opentext
 	writetext BirchDirectionsText
 	waitbutton
+	verbosegiveitem BIRD_WHISTLE
+	waitbutton
+	verbosegiveitem POKE_BALL, 5
 	closetext
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
-	setscene SCENE_ELMSLAB_AIDE_GIVES_POTION
+	setflag ENGINE_POKEDEX
+	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
 	setmapscene NEW_BARK_TOWN, SCENE_NEWBARKTOWN_NOOP
 	end
 
@@ -726,6 +730,14 @@ BirchDirectionsText:
 
 	para "and try to have"
 	line "fun!"
+
+	para "Oh! And go"
+	line "see Mr."
+	cont "#MON sometime."
+
+	para "He lives around"
+	line "Cherrywood Town"
+	cont "in Johto."
 	done
 
 BirchsLab_MapEvents:
