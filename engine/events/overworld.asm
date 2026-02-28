@@ -1368,6 +1368,13 @@ HasRockSmash:
 	call CheckItem
 	jr c, .yes	
 
+	ld hl, TM_ROCK_SMASH
+	call GetItemIDFromIndex
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .yes	
+
 	ld hl, ROCK_SMASH
 	call CheckPartyMoveIndex
 	; a = carry ? TRUE : FALSE
