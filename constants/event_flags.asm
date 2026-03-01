@@ -283,6 +283,7 @@
 
 	const EVENT_GOT_HATCHET
 	const EVENT_GOT_PICKAXE
+	const EVENT_GOT_FLIPPERS
 
 	;Hoenn gym leaders
 	const EVENT_BEAT_ROXANNE

@@ -342,6 +342,7 @@ Route114_MapEvents:
 
 	def_warp_events	
 	warp_event  09, 69, METEOR_FALLS, 1
+	warp_event  27, 37, LANETTE_HOUSE, 1
 
 	def_coord_events
 

@@ -1183,4 +1183,7 @@ SECTION "Map Blocks Mt Moon", ROMX
 	SafariHouseSecret_Blocks:
 	INCBIN "maps/kanto/safari/SafariZoneHouse.ablk"
 
+	LanetteHouse_Blocks:
+	INCBIN "maps/hoenn/LanetteHouse.ablk"
+
 ENDSECTION
