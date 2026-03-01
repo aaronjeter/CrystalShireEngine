@@ -29,7 +29,7 @@ NewBarkTownFlypointCallback:
 
 NewBarkTownConditionalWarpScript:
 	checkevent EVENT_START_JOHTO
-	iffalse .notJohto
+	;iffalse .notJohto
 	playsound SFX_EXIT_BUILDING
 	special FadeOutToWhite
 	waitsfx

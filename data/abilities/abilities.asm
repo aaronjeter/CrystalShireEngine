@@ -350,6 +350,9 @@ StabilityMons::
 	dw AKUA
 	dw AKUERIA
 	dw ASHIBOMB
+	dw HONOBEA
+	dw BORUBEA
+	dw DYNABEA
 	dw BEEDRILLX
 	dw -1
 
@@ -413,10 +416,7 @@ SunbaskMons::
 	dw GROVYLE
 	dw SCEPTILE
 	dw TROPIUS
-	dw TROPIUSX
-	dw HONOBEA
-	dw BORUBEA
-	dw DYNABEA
+	dw TROPIUSX	
 	dw -1
 
 SandBodyMons::

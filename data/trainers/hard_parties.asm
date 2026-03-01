@@ -1429,17 +1429,17 @@ YoungsterGroupHard:
 
 	next_list_item ; YOUNGSTER (20) Route 102
 	db "CALVIN@", TRAINERTYPE_NORMAL
-	db 5
+	db 0
 	dw POOCHYENA
-	db 5
+	db 1
 	dw TAILLOW
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (21) Route 102
 	db "ALLEN@", TRAINERTYPE_NORMAL
-	db 5
+	db 0
 	dw ZIGZAGOON
-	db 5
+	db 1
 	dw TAILLOW
 	db -1 ; end
 
@@ -1447,7 +1447,7 @@ YoungsterGroupHard:
 	db "BILLY@", TRAINERTYPE_NORMAL
 	db 4
 	dw ZIGZAGOON
-	db 5
+	db 4
 	dw SEEDOT
 	db -1 ; end
 
@@ -2220,19 +2220,19 @@ LassGroupHard:
 	dw HITMONCHAN
 	db -1 ; end
 
-	next_list_item ; LASS (19) Route 101
+	next_list_item ; LASS (19) Route 102
 	db "TIANA@", TRAINERTYPE_NORMAL	
-	db 5
+	db 1
 	dw ZIGZAGOON
-	db 5
+	db 2
 	dw SHROOMISH
 	db -1 ; end
 
 	next_list_item ; LASS (20) Route 104
 	db "HALEY@", TRAINERTYPE_NORMAL	
-	db 5
+	db 3
 	dw HOPPIP
-	db 5
+	db 4
 	dw LOTAD
 	db -1 ; end
 
@@ -3137,7 +3137,7 @@ BeautyGroupHard:
 	next_list_item ; BEAUTY (19) Route 104
 	db "CINDY@", TRAINERTYPE_NORMAL
 	db 5
-	dw NOCTOWL
+	dw HOOTHOOT
 	db -1 ; end
 
 	next_list_item ; BEAUTY (20) Route 109
@@ -4157,25 +4157,25 @@ BugCatcherGroupHard:
 
 	next_list_item ; BUG_CATCHER (21) Route 102
 	db "RICK@", TRAINERTYPE_NORMAL
-	db 5
+	db 1
 	dw WURMPLE
-	db 5
+	db 1
 	dw WEEDLE
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (22) Petalburg Woods
 	db "LYLE@", TRAINERTYPE_NORMAL
-	db 8
+	db 4
 	dw NINCADA
-	db 8
+	db 5
 	dw SHROOMISH
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (23) Petalburg Woods
 	db "JAMES@", TRAINERTYPE_NORMAL
-	db 7
+	db 4
 	dw WURMPLE
-	db 7
+	db 5
 	dw WURMPLE
 	db -1 ; end
 
@@ -4490,17 +4490,17 @@ FisherGroupHard:
 
 	next_list_item ; FISHER (27) Route 104
 	db "DARIAN@", TRAINERTYPE_NORMAL
-	db 7
+	db 3
 	dw FEEBAS
-	db 7
+	db 3
 	dw TENTACOOL
 	db -1 ; end
 
 	next_list_item ; FISHER (28) Route 104
 	db "IVAN@", TRAINERTYPE_NORMAL
-	db 7
+	db 3
 	dw MAGNEMITE
-	db 7
+	db 4
 	dw STARYU
 	db -1 ; end
 
@@ -7020,7 +7020,7 @@ CamperGroupHard:
 
 	next_list_item ; CAMPER (23) Route 104
 	db "WINSTON@", TRAINERTYPE_NORMAL
-	db 6
+	db 3
 	dw LINOONE
 	db -1 ; end
 
@@ -7725,9 +7725,9 @@ TwinsGroupHard:
 
 	next_list_item ; TWINS (12) Route 104
 	db "GINA & MIA@", TRAINERTYPE_NORMAL
-	db 8
+	db 4
 	dw SEEDOT
-	db 8
+	db 4
 	dw LOTAD
 	db -1 ; end
 
