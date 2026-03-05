@@ -109,31 +109,46 @@ TateLizaText_PreFight:
 	text "I'm Tate!"
 
 	para "And I'm Liza!"
+
+	para "Both: And we're"
+	line "the Leaders here!"
+
+	para "Think you can"
+	line "take us both?"
+
+	para "At the same time?"
+
+	para "Tate: Good luck!"
+	line "Liza: You need it!"
 	done
 
 TateLizaWinLossText:
-	text "Whoah, wow!"
-
-	para "You made a much"
-	line "bigger splash"
-	cont "than I expected!"
+	text "Tate: Woah"
+	line "Liza: Well Done!"
 	done
 
 TateLizaText_ExplainBadge:
-	text "Okay, you've"
-	line "got me."
+	text "Both: Okay, you've"
+	line "earned it."
 
-	para "Take the"
+	para "Liza: Take the"
 	line "MIND BADGE!"
 
-	para "It's proof"
-	line "that you"
-	cont "tackled my"
-	cont "gym today!"
+	para "It's our"
+	line "emblem!"
+
+	para "Tate: It's shiny!"
+
+	para "And you'll need"
+	line "it if you ever"
+
+	para "Liza: Want to"
+	line "face the"
+	cont "Elite Four."
 	done
 
 TateLizaRematchText:
-	text "Fight me?"
+	text "Let's go?"
 	done
 
 TateLizaRematchWinLossText:
@@ -141,13 +156,16 @@ TateLizaRematchWinLossText:
 	done
 
 TateLizaPostBattleText:
-	text "I can see your"
-	line "talent becoming"
-	cont "a giant wave"
-	cont "to cause a storm"
-	cont "of astonishment"
-	cont "among TRAINERS "
-	cont "one day!"
+	text "Tate: You're"
+	line "close to ready"
+	cont "for Evergrande."
+
+	para "Liza: The Elite"
+	line "Four live there."
+
+	para "Both: They only"
+	line "accept challenges"
+	cont "from the best."
 	done
 
 MossdeepCliffScript:
@@ -162,15 +180,16 @@ MossdeepCliffScript:
 	end
 
 MossdeepCliffSeenText:
-	text "Hi"
+	text "Thinking with"
+	line "Portals yet?"
 	done
 
 MossdeepCliffBeatenText:
-	text "Aww"
+	text "Aha!"
 	done
 
 MossdeepCliffAfterBattleText:
-	text "Bye"
+	text "Well done kid."
 	done
 
 MossdeepNateScript:
@@ -185,15 +204,16 @@ MossdeepNateScript:
 	end
 
 MossdeepNateSeenText:
-	text "Hi"
+	text "Surprise?"
 	done
 
 MossdeepNateBeatenText:
-	text "Aww"
+	text "Not bad, kid!"
 	done
 
 MossdeepNateAfterBattleText:
-	text "Bye"
+	text "Warping around"
+	line "never gets old."
 	done
 
 
@@ -209,15 +229,16 @@ MossdeepPrestonScript:
 	end
 
 MossdeepPrestonSeenText:
-	text "Hi"
+	text "I saw this coming."
 	done
 
 MossdeepPrestonBeatenText:
-	text "Aww"
+	text "..."
 	done
 
 MossdeepPrestonAfterBattleText:
-	text "Bye"
+	text "I guess I didn't"
+	line "see it after all."
 	done
 
 
@@ -233,15 +254,21 @@ MossdeepBlakeScript:
 	end
 
 MossdeepBlakeSeenText:
-	text "Hi"
+	text "Portal Trap!"
 	done
 
 MossdeepBlakeBeatenText:
-	text "Aww"
+	text "Aww man."
+
+	para "Thought we had"
+	line "you."
 	done
 
 MossdeepBlakeAfterBattleText:
-	text "Bye"
+	text "You're really"
+	line "good at this."
+
+	para "Keep it up!"
 	done
 
 
@@ -257,15 +284,21 @@ MossdeepNicholasScript:
 	end
 
 MossdeepNicholasSeenText:
-	text "Hi"
+	text "I'll bet you've"
+	line "never seen a"
+
+	para "maze like this!"
 	done
 
 MossdeepNicholasBeatenText:
-	text "Aww"
+	text "Oh..."
+	line "Well then..."
 	done
 
 MossdeepNicholasAfterBattleText:
-	text "Bye"
+	text "I guess Saffron"
+	line "has a maze like"
+	cont "this, actually."
 	done
 
 
@@ -281,15 +314,17 @@ MossdeepVirgilScript:
 	end
 
 MossdeepVirgilSeenText:
-	text "Hi"
+	text "Are you lost?"
 	done
 
 MossdeepVirgilBeatenText:
-	text "Aww"
+	text "Woah!"
 	done
 
 MossdeepVirgilAfterBattleText:
-	text "Bye"
+	text "It's easy to get"
+	line "turned around"
+	cont "in here."
 	done
 
 
@@ -305,7 +340,7 @@ MossdeepMauraScript:
 	end
 
 MossdeepMauraSeenText:
-	text "Hi"
+	text "Boo!"
 	done
 
 MossdeepMauraBeatenText:
@@ -313,7 +348,9 @@ MossdeepMauraBeatenText:
 	done
 
 MossdeepMauraAfterBattleText:
-	text "Bye"
+	text "I guess it doesn't"
+	line "work unless I"
+	cont "go first..."
 	done
 
 
@@ -329,15 +366,20 @@ MossdeepSamanthaScript:
 	end
 
 MossdeepSamanthaSeenText:
-	text "Hi"
+	text "Having fun yet?"
 	done
 
 MossdeepSamanthaBeatenText:
-	text "Aww"
+	text "Fun!"
 	done
 
 MossdeepSamanthaAfterBattleText:
-	text "Bye"
+	text "You should stick"
+	line "around..."
+
+	para "We could use"
+	line "more Gym"
+	cont "Trainers."
 	done
 
 
@@ -353,15 +395,19 @@ MossdeepMaceyScript:
 	end
 
 MossdeepMaceySeenText:
-	text "Hi"
+	text "Need a hint?"
 	done
 
 MossdeepMaceyBeatenText:
-	text "Aww"
+	text "Good fight!"
 	done
 
 MossdeepMaceyAfterBattleText:
-	text "Bye"
+	text "A lot of the"
+	line "portals just"
+
+	para "go back to"
+	line "the entrance."
 	done
 
 
@@ -377,15 +423,17 @@ MossdeepKathleenScript:
 	end
 
 MossdeepKathleenSeenText:
-	text "Hi"
+	text "Fresh Meat!"
 	done
 
 MossdeepKathleenBeatenText:
-	text "Aww"
+	text "Dang it. I guess"
+	line "you were ready!"
 	done
 
 MossdeepKathleenAfterBattleText:
-	text "Bye"
+	text "I just like"
+	line "ambushes."
 	done
 
 
@@ -401,15 +449,21 @@ MossdeepSylviaScript:
 	end
 
 MossdeepSylviaSeenText:
-	text "Hi"
+	text "Oh! You look"
+	line "like you've"
+
+	para "seen a ghost."
+
+	para "Well, you will"
+	line "anyways!"
 	done
 
 MossdeepSylviaBeatenText:
-	text "Aww"
+	text "Spooky."
 	done
 
 MossdeepSylviaAfterBattleText:
-	text "Bye"
+	text "Bye!"
 	done
 
 
@@ -425,15 +479,19 @@ MossdeepHannahScript:
 	end
 
 MossdeepHannahSeenText:
-	text "Hi"
+	text "Be not afraid!"
 	done
 
 MossdeepHannahBeatenText:
-	text "Aww"
+	text "Oh!"
 	done
 
 MossdeepHannahAfterBattleText:
-	text "Bye"
+	text "I guess you"
+	line "really didn't"
+
+	para "need to be"
+	line "afraid."
 	done
 
 
