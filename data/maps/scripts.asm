@@ -533,6 +533,11 @@ SECTION "Map Scripts 25.2", ROMX
 
 INCLUDE "maps/hoenn/littleroot/BirchsLab.asm"
 
+INCLUDE "maps/hoenn/mossdeep/MossdeepCity.asm"
+INCLUDE "maps/hoenn/mossdeep/MossdeepPokecenter.asm"
+INCLUDE "maps/hoenn/mossdeep/MossdeepMart.asm"
+INCLUDE "maps/hoenn/mossdeep/MossdeepGym.asm"
+
 ENDSECTION
 
 

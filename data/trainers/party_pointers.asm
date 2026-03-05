@@ -88,6 +88,7 @@ TrainerGroups:
 	dba RangerMGroup
 	dba RangerFGroup
 	dba ExplorerGroup
+	dba PsychicFGroup
 	assert_table_length NUM_TRAINER_CLASSES
 
 	TrainerGroupsHard:
@@ -178,4 +179,5 @@ TrainerGroups:
 	dba RangerMGroupHard
 	dba RangerFGroupHard
 	dba ExplorerGroupHard
+	dba PsychicFGroupHard
 	assert_table_length NUM_TRAINER_CLASSES

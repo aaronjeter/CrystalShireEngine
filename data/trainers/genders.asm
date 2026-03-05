@@ -88,4 +88,5 @@ BTTrainerClassGenders:
 	db MALE   ; Ranger M
 	db FEMALE ; Ranger F
 	db MALE   ; Explorer
+	db FEMALE ; Psychic F
 	assert_table_length NUM_TRAINER_CLASSES ; 

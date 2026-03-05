@@ -89,6 +89,7 @@ TrainerEncounterMusic::
 	db MUSIC_HIKER_ENCOUNTER       ; ranger m
 	db MUSIC_BEAUTY_ENCOUNTER      ; ranger f
 	db MUSIC_HIKER_ENCOUNTER       ; explorer
+	db MUSIC_YOUNGSTER_ENCOUNTER   ; psychic_t
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

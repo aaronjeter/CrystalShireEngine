@@ -86,5 +86,6 @@ BTTrainerClassSprites:
 	db SPRITE_COOLTRAINER_M ;rangerM
 	db SPRITE_COOLTRAINER_F ;ranger f
 	db SPRITE_GENTLEMAN ;explorer
+	db SPRITE_LASS		;psychic f
 
 	assert_table_length NUM_TRAINER_CLASSES ; 

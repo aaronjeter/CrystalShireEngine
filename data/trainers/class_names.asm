@@ -86,4 +86,5 @@ TrainerClassNames::
 	li "RANGER"
 	li "RANGER"
 	li "EXPLORER"
+	li "PSYCHIC"
 	assert_list_length NUM_TRAINER_CLASSES

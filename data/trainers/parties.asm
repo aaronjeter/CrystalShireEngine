@@ -3742,6 +3742,26 @@ GentlemanGroup:
 	dw NOCTOWL
 	db -1 ; end
 
+	next_list_item ; GENTLEMAN (6) Mossdeep Gym
+	db "CLIFF@", TRAINERTYPE_NORMAL
+	db 7
+	dw GIRAFARIG
+	db 7
+	dw STANTLER
+	db 7
+	dw NOCTOWL
+	db -1 ; end
+
+	next_list_item ; GENTLEMAN (7) Mossdeep Gym
+	db "NATE@", TRAINERTYPE_NORMAL
+	db 7
+	dw MR__MIME
+	db 7
+	dw GRUMPIG	
+	db 7
+	dw XATU
+	db -1 ; end
+
 	end_list_items
 
 SkierGroup:
@@ -6412,6 +6432,38 @@ PsychicGroup:
 	dw JYNX
 	db -1 ; end
 
+	next_list_item ; PSYCHIC_T (14) Mossdeep Gym
+	db "PRESTON@", TRAINERTYPE_NORMAL
+	db 7
+	dw KADABRA
+	db 7
+	dw KIRLIA
+	db -1 ; end
+
+	next_list_item ; PSYCHIC_T (15) Mossdeep Gym
+	db "BLAKE@", TRAINERTYPE_NORMAL
+	db 7
+	dw ARAICHU
+	db 7
+	dw VENOMOTH
+	db -1 ; end
+
+	next_list_item ; PSYCHIC_T (16) Mossdeep Gym
+	db "NICHOLAS@", TRAINERTYPE_NORMAL
+	db 7
+	dw WOBBUFFET
+	db 7
+	dw UNOWN
+	db -1 ; end
+
+	next_list_item ; PSYCHIC_T (17) Mossdeep Gym
+	db "VIRGIL@", TRAINERTYPE_NORMAL
+	db 7
+	dw PORYGON2
+	db 7
+	dw HYPNO
+	db -1 ; end
+
 	end_list_items
 
 PicnickerGroup:
@@ -8406,20 +8458,40 @@ WinonaGroup:
 	end_list_items
 
 TateLizaGroup:
-	next_list_item; TATELIZA (1) Unreferenced
-	db "TATE & LIZA@", TRAINERTYPE_NORMAL
-	db 10
-	dw HYPNO
-	db 10
-	dw CLAYDOL
-	db 10
-	dw SLOWKING
-	db 10
-	dw XATU
+	next_list_item; TATELIZA (1) Mossdeep Gym
+	db "TATE&LIZA@", TRAINERTYPE_NORMAL	
 	db 10
 	dw SOLROCK
 	db 10
 	dw LUNATONE
+	db -1 ; end
+
+	next_list_item; TATELIZA (2) Mossdeep Gym
+	db "TATE&LIZA@", TRAINERTYPE_NORMAL
+	db 10
+	dw SOLROCK
+	db 10
+	dw LUNATONE
+	db 10
+	dw GARDEVOIR
+	db 10
+	dw GALLADE	
+	db -1 ; end
+
+	next_list_item; TATELIZA (3) Mossdeep Gym
+	db "TATE&LIZA@", TRAINERTYPE_NORMAL
+	db 10
+	dw SOLROCK
+	db 10
+	dw LUNATONE
+	db 10
+	dw GARDEVOIR
+	db 10
+	dw GALLADE
+	db 10
+	dw CLAYDOL
+	db 10
+	dw CHIMECHOX	
 	db -1 ; end
 
 	end_list_items
@@ -8961,6 +9033,59 @@ ExplorerGroup:
 	dw GLIGAR
 	db 7
 	dw MAGNETON
+	db -1 ; end
+
+	end_list_items
+
+
+	PsychicFGroup:
+
+	next_list_item; PSYCHIC_F (01) Mossdeep Gym
+	db "MAURA@", TRAINERTYPE_NORMAL
+	db 6
+	dw DROWZEE
+	db 7
+	dw KADABRA
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (02) Mossdeep Gym
+	db "SAMANTHA@", TRAINERTYPE_NORMAL
+	db 6
+	dw MISDREAVUS
+	db 7
+	dw XATU
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (03) Mossdeep Gym
+	db "MACEY@", TRAINERTYPE_NORMAL
+	db 6
+	dw NATU
+	db 7
+	dw SLOWKING
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (04) Mossdeep Gym
+	db "KATHLEEN@", TRAINERTYPE_NORMAL
+	db 6
+	dw SLOWPOKE
+	db 7
+	dw BANETTE
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (05) Mossdeep Gym
+	db "SYLVIA@", TRAINERTYPE_NORMAL
+	db 6
+	dw HAUNTER
+	db 7
+	dw MEDICHAM
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (06) Mossdeep Gym
+	db "HANNAH@", TRAINERTYPE_NORMAL
+	db 6
+	dw BALTOY
+	db 7
+	dw BUTTERFREE
 	db -1 ; end
 
 	end_list_items

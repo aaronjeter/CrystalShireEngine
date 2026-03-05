@@ -424,6 +424,8 @@ DEF KRIS EQU __trainer_class__
 	const GREGORY
 	const VIRGIL ; unused
 	const ALFRED
+	const MOSSDEEP_CLIFF
+	const MOSSDEEP_NATE
 
 	trainerclass SKIER ; 21
 	const ROXANNE
@@ -735,6 +737,10 @@ DEF KRIS EQU __trainer_class__
 	const JARED
 	const RODNEY
 	const ROUTE110_EDWARD
+	const MOSSDEEP_PRESTON
+	const MOSSDEEP_BLAKE
+	const MOSSDEEP_NICHOLAS
+	const MOSSDEEP_VIRGIL
 
 	trainerclass PICNICKER ; 35
 	const LIZ1
@@ -973,6 +979,8 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass TATELIZA
 	const TATELIZA1
+	const TATELIZA2
+	const TATELIZA3
 
 	trainerclass WALLACE
 	const WALLACE1
@@ -1037,6 +1045,14 @@ DEF KRIS EQU __trainer_class__
 	const DESERT_BRYAN
 	const ROUTE120_CHIP
 	const ROUTE120_DALE
+
+	trainerclass PSYCHIC_F
+	const MOSSDEEP_MAURA
+	const MOSSDEEP_SAMANTHA
+	const MOSSDEEP_MACEY
+	const MOSSDEEP_KATHLEEN
+	const MOSSDEEP_SYLVIA
+	const MOSSDEEP_HANNAH
 
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

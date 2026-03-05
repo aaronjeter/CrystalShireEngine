@@ -611,6 +611,10 @@ ENDM
 	map_const LILYCOVE_POKECENTER,                         07, 04 ;
 	map_const LILYCOVE_TRADE_HOUSE,                        04, 04 ;
 	map_const MT_PYRE,                                     20, 30 ;
+	map_const MOSSDEEP_CITY,                               40, 20 ;
+	map_const MOSSDEEP_POKECENTER,						   07, 04 ;
+	map_const MOSSDEEP_MART,							   06, 04 ;
+	map_const MOSSDEEP_GYM,				    			   20, 20 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

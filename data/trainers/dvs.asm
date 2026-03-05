@@ -87,4 +87,5 @@ TrainerClassDVs:
 	dn 11, 11, 11, 11 ; RANGERM
 	dn 11, 11, 11, 11 ; RANGERF
 	dn  2, 12, 12, 12 ; EXPLORER
+	dn  9,  8,  8,  8 ; PSYCHIC_F
 	assert_table_length NUM_TRAINER_CLASSES

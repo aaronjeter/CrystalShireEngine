@@ -720,8 +720,10 @@ ENDM
 	map_attributes FallarborPokecenter, FALLARBOR_POKECENTER, $00, 0
 	map_attributes FortreePokecenter, FORTREE_POKECENTER, $00, 0
 	map_attributes LilycovePokecenter, LILYCOVE_POKECENTER, $00, 0
+	map_attributes MossdeepPokecenter, MOSSDEEP_POKECENTER, $00, 0
 	map_attributes LavaridgeGym, LAVARIDGE_GYM, $0, 0
 	map_attributes FortreeGym, FORTREE_GYM, $0, 0
+	map_attributes MossdeepGym, MOSSDEEP_GYM, $0, 0
 	map_attributes GraniteCaveB1F, GRANITE_CAVE_B1F, $00, 0
 	map_attributes GraniteCaveB2F, GRANITE_CAVE_B2F, $00, 0
 	map_attributes GraniteCaveB3F, GRANITE_CAVE_B3F, $00, 0
@@ -754,6 +756,7 @@ ENDM
 	map_attributes FortreeMart, FORTREE_MART, $00, 0
 	map_attributes SlateportHarbor, SLATEPORT_HARBOR, $00, 0
 	map_attributes FallarborMart, FALLARBOR_MART, $00, 0
+	map_attributes MossdeepMart, MOSSDEEP_MART, $00, 0
 
 	map_attributes RustboroCutterHouse, RUSTBORO_CUTTER_HOUSE, $00, 0
 	map_attributes RustboroTradeHouse, RUSTBORO_TRADE_HOUSE, $00, 0
@@ -817,6 +820,8 @@ ENDM
 
 	map_attributes LilycoveCity, LILYCOVE_CITY, $05, WEST
 	connection west, Route121, ROUTE_121, 4
+
+	map_attributes MossdeepCity, MOSSDEEP_CITY, $05, 0
 
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0

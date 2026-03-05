@@ -3754,6 +3754,26 @@ GentlemanGroupHard:
 	dw NOCTOWL
 	db -1 ; end
 
+	next_list_item ; GENTLEMAN (6) Mossdeep Gym
+	db "CLIFF@", TRAINERTYPE_NORMAL
+	db 8
+	dw GIRAFARIG
+	db 8
+	dw STANTLER
+	db 9
+	dw NOCTOWL
+	db -1 ; end
+
+	next_list_item ; GENTLEMAN (7) Mossdeep Gym
+	db "NATE@", TRAINERTYPE_NORMAL
+	db 8
+	dw MR__MIME
+	db 8
+	dw GRUMPIG
+	db 9
+	dw XATU
+	db -1 ; end
+
 	end_list_items
 
 SkierGroupHard:
@@ -6460,6 +6480,38 @@ PsychicGroupHard:
 	dw JYNX
 	db -1 ; end
 
+	next_list_item ; PSYCHIC_T (14) Mossdeep Gym
+	db "PRESTON@", TRAINERTYPE_NORMAL
+	db 8
+	dw KADABRA
+	db 9
+	dw KIRLIA
+	db -1 ; end
+
+	next_list_item ; PSYCHIC_T (15) Mossdeep Gym
+	db "BLAKE@", TRAINERTYPE_NORMAL
+	db 8
+	dw ARAICHU
+	db 9
+	dw VENOMOTH
+	db -1 ; end
+
+	next_list_item ; PSYCHIC_T (16) Mossdeep Gym
+	db "NICHOLAS@", TRAINERTYPE_NORMAL
+	db 9
+	dw WOBBUFFET
+	db 9
+	dw UNOWN
+	db -1 ; end
+
+	next_list_item ; PSYCHIC_T (17) Mossdeep Gym
+	db "VIRGIL@", TRAINERTYPE_NORMAL
+	db 8
+	dw PORYGON2
+	db 9
+	dw HYPNO
+	db -1 ; end
+
 	end_list_items
 
 PicnickerGroupHard:
@@ -8471,14 +8523,52 @@ WinonaGroupHard:
 	end_list_items
 
 TateLizaGroupHard:
-	next_list_item; TATELIZA (1) Unreferenced
-	db "TATE & LIZA@", TRAINERTYPE_NORMAL
+	next_list_item; TATELIZA (1) Mossdeep Gym
+	db "TATE&LIZA@", TRAINERTYPE_NORMAL	
 	db 10
-	dw CHIKORITA
+	dw SOLROCK
 	db 10
-	dw CYNDAQUIL
+	dw LUNATONE
+	db -1 ; end
+
+	next_list_item; TATELIZA (2) Mossdeep Gym
+	db "TATE&LIZA@", TRAINERTYPE_NORMAL
 	db 10
-	dw TOTODILE
+	dw SOLROCK
+	db 10
+	dw LUNATONE
+	db 10
+	dw GARDEVOIR
+	db 10
+	dw GALLADE	
+	db -1 ; end
+
+	next_list_item; TATELIZA (3) Mossdeep Gym
+	db "TATE&LIZA@", TRAINERTYPE_ITEM_MOVES
+	db 10
+	dw SOLROCK
+	dw QUICK_CLAW
+	dw FIRE_BLAST, WILLOWISP, POWER_GEM, COSMIC_POWER
+	db 10
+	dw LUNATONE
+	dw BITTER_BERRY
+	dw PSYCHIC_M, FUTURE_SIGHT, MOONBLAST, REST
+	db 10
+	dw GARDEVOIR
+	dw TWISTEDSPOON
+	dw MOONBLAST, THUNDERBOLT, PSYCHIC_M, CALM_MIND
+	db 10
+	dw GALLADE
+	dw BLACKBELT_I
+	dw CROSS_CHOP, MACH_PUNCH, LEAF_BLADE, SWORDS_DANCE
+	db 10
+	dw CLAYDOL
+	dw BURNT_BERRY
+	dw EARTHPOWER, PSYCHIC_M, REST, COSMIC_POWER
+	db 10
+	dw CHIMECHOX
+	dw LEFTOVERS
+	dw FLASHCANNON, WILLOWISP, FUTURE_SIGHT, COSMIC_POWER
 	db -1 ; end
 
 	end_list_items
@@ -8986,6 +9076,57 @@ ExplorerGroupHard:
 	dw GLISCOR
 	db 8
 	dw MAGNEZONE
+	db -1 ; end
+
+	end_list_items
+
+	PsychicFGroupHard:
+	next_list_item; PSYCHIC_F (01) Mossdeep Gym
+	db "MAURA@", TRAINERTYPE_NORMAL
+	db 8
+	dw HYPNO
+	db 9
+	dw KADABRA
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (02) Mossdeep Gym
+	db "SAMANTHA@", TRAINERTYPE_NORMAL
+	db 8
+	dw MISDREAVUS
+	db 9
+	dw XATU
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (03) Mossdeep Gym
+	db "MACEY@", TRAINERTYPE_NORMAL
+	db 8
+	dw XATU
+	db 9
+	dw SLOWKING
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (04) Mossdeep Gym
+	db "KATHLEEN@", TRAINERTYPE_NORMAL
+	db 8
+	dw SLOWBRO
+	db 9
+	dw BANETTE
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (05) Mossdeep Gym
+	db "SYLVIA@", TRAINERTYPE_NORMAL
+	db 8
+	dw GENGAR
+	db 9
+	dw MEDICHAM
+	db -1 ; end
+
+	next_list_item; PSYCHIC_F (06) Mossdeep Gym
+	db "HANNAH@", TRAINERTYPE_NORMAL
+	db 8
+	dw CLAYDOL
+	db 9
+	dw BUTTERFREE
 	db -1 ; end
 
 	end_list_items

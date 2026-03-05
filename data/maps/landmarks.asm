@@ -116,7 +116,7 @@ Landmarks:
 	landmark  28,  44, FallarborName
 	landmark  84,  44, FortreeName
 	landmark 124,  60, LilycoveName
-	landmark 124,  60, MossdeepName
+	landmark 140,  68, MossdeepName
 	landmark 124,  60, SootopolisName
 	landmark 124,  60, PacifidlogName
 	landmark 124,  60, EvergrandeName

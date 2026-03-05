@@ -89,4 +89,5 @@ TrainerPicPointers::
 	dba RangerMPic
 	dba RangerFPic
 	dba ExplorerPic
+	dba PsychicFPic
 	assert_table_length NUM_TRAINER_CLASSES
