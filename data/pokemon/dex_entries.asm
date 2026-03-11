@@ -531,3 +531,7 @@ SECTION "Pokedex Entries 500+", ROMX
 
 VictreebelxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/victreebelx.asm"
 UnownxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/unownx.asm"
+ButterfreexPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/butterfreex.asm"
+LedianxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/ledianx.asm"
+MagcargoxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/magcargox.asm"
+JynxxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/jynxx.asm"

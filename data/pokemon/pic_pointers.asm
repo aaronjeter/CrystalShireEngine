@@ -1025,4 +1025,12 @@ PokemonPicPointers::
 	dba VictreebelxBackpic
 	dba UnownxFrontpic
 	dba UnownxBackpic
+	dba ButterfreexFrontpic
+	dba ButterfreexBackpic
+	dba LedianxFrontpic
+	dba LedianxBackpic
+	dba MagcargoxFrontpic
+	dba MagcargoxBackpic
+	dba JynxxFrontpic
+	dba JynxxBackpic
 	assert_table_length NUM_POKEMON + 1

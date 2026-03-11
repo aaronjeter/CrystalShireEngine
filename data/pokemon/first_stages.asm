@@ -507,4 +507,8 @@ FirstEvoStages::
 	dw CHIMECHO
 	dw BELLSPROUT
 	dw UNOWN
+	dw CATERPIE
+	dw LEDYBA
+	dw SLUGMA
+	dw SMOOCHUM
 	assert_table_length NUM_POKEMON

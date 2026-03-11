@@ -1098,8 +1098,8 @@ INCLUDE "gfx/pokegear/pokegear.pal"
 FemalePokegearPals:
 INCLUDE "gfx/pokegear/pokegear_f.pal"
 
-BetaPokerPals:
-INCLUDE "gfx/beta_poker/beta_poker.pal"
+;BetaPokerPals:
+;INCLUDE "gfx/beta_poker/beta_poker.pal"
 
 SlotMachinePals:
 INCLUDE "gfx/slots/slots.pal"

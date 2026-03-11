@@ -528,6 +528,10 @@ DEF JOHTO_POKEMON EQU const_value
 	const CHIMECHOX
 	const VICTREEBELX
 	const UNOWNX
+	const BUTTERFREEX
+	const LEDIANX
+	const MAGCARGOX
+	const JYNXX
 	
 
 

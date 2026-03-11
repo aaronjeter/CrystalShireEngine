@@ -506,4 +506,8 @@ FramesPointers:
 	dba ChimechoxFrames
 	dba VictreebelxFrames
 	dba UnownxFrames
+	dba ButterfreexFrames
+	dba LedianxFrames
+	dba MagcargoxFrames
+	dba JynxxFrames
 	assert_table_length NUM_POKEMON

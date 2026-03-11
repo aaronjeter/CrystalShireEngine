@@ -506,4 +506,8 @@ AnimationPointers:
 	dw ChimechoxAnimation
 	dw VictreebelxAnimation
 	dw UnownxAnimation
+	dw ButterfreexAnimation
+	dw LedianxAnimation
+	dw MagcargoxAnimation
+	dw JynxxAnimation
 	assert_table_length NUM_POKEMON
