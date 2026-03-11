@@ -506,4 +506,8 @@ BitmasksPointers:
 	dw ChimechoxBitmasks
 	dw VictreebelxBitmasks
 	dw UnownxBitmasks
+	dw ButterfreexBitmasks
+	dw LedianxBitmasks
+	dw MagcargoxBitmasks
+	dw JynxxBitmasks
 	assert_table_length NUM_POKEMON

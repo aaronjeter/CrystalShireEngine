@@ -41,7 +41,7 @@ SGBLayoutJumptable:
 	dw .SGB_MoveList
 	dw .SGB_BetaPikachuMinigame
 	dw .SGB_PokedexSearchOption
-	dw .SGB_BetaPoker
+	;dw .SGB_BetaPoker
 	dw .SGB_Pokepic
 	dw .SGB_MagnetTrain
 	dw .SGB_PackPals

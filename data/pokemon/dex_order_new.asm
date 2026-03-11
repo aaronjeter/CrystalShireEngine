@@ -507,4 +507,8 @@ NewPokedexOrder:
 	dw CHIMECHOX
 	dw VICTREEBELX
 	dw UNOWNX
+	dw BUTTERFREEX
+	dw LEDIANX
+	dw MAGCARGOX
+	dw JYNXX
 	assert_table_length NUM_POKEMON

@@ -506,4 +506,8 @@ AnimationIdlePointers:
 	dw ChimechoxAnimationIdle
 	dw VictreebelxAnimationIdle
 	dw UnownxAnimationIdle
+	dw ButterfreexAnimationIdle
+	dw LedianxAnimationIdle
+	dw MagcargoxAnimationIdle
+	dw JynxxAnimationIdle
 	assert_table_length NUM_POKEMON

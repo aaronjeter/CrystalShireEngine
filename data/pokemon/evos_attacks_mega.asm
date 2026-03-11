@@ -35,7 +35,11 @@ EvosAttacksPointersMega::
 	dw FlygonxEvosAttacks
 	dw ChimechoxEvosAttacks
 	dw VictreebelxEvosAttacks
-	dw UnownxEvosAttacks
+	dw UnownxEvosAttacks	
+	dw ButterfreexEvosAttacks
+	dw LedianxEvosAttacks
+	dw MagcargoxEvosAttacks
+	dw JynxxEvosAttacks
 .IndirectEnd::
 
 RaichuxEvosAttacks:
@@ -671,6 +675,88 @@ UnownxEvosAttacks:
 	dbw 50, SHADOW_FORCE
 	dbw 55, RECOVER
 	dbw 60, DRAGON_DANCE
+	db 0 ; no more level-up moves
+
+ButterfreexEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, PIXIE_DUST
+	dbw 1, STRING_SHOT
+	dbw 10, PIXIE_DUST
+	dbw 12, POISONPOWDER
+	dbw 16, STUN_SPORE
+	dbw 18, SLEEP_POWDER
+	dbw 20, SUPERSONIC
+	dbw 24, FAE_VOICE
+	dbw 28, SILVER_WIND
+	dbw 32, PSYBEAM
+	dbw 36, CALM_MIND
+	dbw 40, SIGNAL_BEAM
+	dbw 45, MOONBLAST
+	dbw 50, EXTRASENSORY
+	dbw 55, SAFEGUARD
+	dbw 60, MOONLIGHT
+	dbw 65, GIGA_DRAIN
+	dbw 70, LUSTER_PURGE
+	db 0 ; no more level-up moves
+
+LedianxEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, LEECH_LIFE
+	dbw 8, SUPERSONIC
+	dbw 12, POISONPOWDER
+	dbw 16, MACH_PUNCH
+	dbw 20, LIGHT_SCREEN
+	dbw 24, REFLECT
+	dbw 28, TWINEEDLE
+	dbw 30, BATON_PASS
+	dbw 32, BULK_UP
+	dbw 36, BRICK_BREAK
+	dbw 40, SHADOW_PUNCH
+	dbw 42, CROSS_CHOP
+	dbw 45, PLAY_ROUGH
+	dbw 50, MEGAHORN
+	dbw 55, SILVER_WIND
+	dbw 60, SUPERPOWER
+	db 0 ; no more level-up moves
+
+MagcargoxEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, SMOG
+	dbw 8, EMBER
+	dbw 15, ROCK_THROW
+	dbw 20, SUNNY_DAY
+	dbw 24, ANCIENTPOWER
+	dbw 24, FIRE_SPIN
+	dbw 32, SANDSTORM
+	dbw 36, COSMIC_POWER
+	dbw 40, FLAMETHROWER
+	dbw 45, POWER_GEM
+	dbw 50, PROTECT
+	dbw 55, SKULL_BASH
+	dbw 60, FIRE_BLAST
+	dbw 65, ROCK_SLIDE
+	dbw 70, BLAST_BURN
+	db 0 ; no more level-up moves
+
+JynxxEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, CONFUSION
+	dbw 1, LICK
+	dbw 9, LOVELY_KISS
+	dbw 13, POWDER_SNOW
+	dbw 18, DOUBLESLAP
+	dbw 24, ICE_PUNCH
+	dbw 28, PSYBEAM
+	dbw 32, ICY_WIND
+	dbw 36, PERISH_SONG
+	dbw 40, PSYCHIC_M
+	dbw 45, ICE_BEAM
+	dbw 50, CALM_MIND
+	dbw 55, HYPER_VOICE
+	dbw 60, BLIZZARD
+	dbw 55, FUTURE_SIGHT
+	dbw 70, MEDITATE
 	db 0 ; no more level-up moves
 
 ENDSECTION

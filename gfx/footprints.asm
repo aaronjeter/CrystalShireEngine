@@ -508,4 +508,8 @@ INCBIN "gfx/footprints/flygon.1bpp"
 INCBIN "gfx/footprints/chimecho.1bpp"
 INCBIN "gfx/footprints/victreebel.1bpp"
 INCBIN "gfx/footprints/unown.1bpp"
+INCBIN "gfx/footprints/butterfree.1bpp"
+INCBIN "gfx/footprints/ledian.1bpp"
+INCBIN "gfx/footprints/magcargo.1bpp"
+INCBIN "gfx/footprints/jynx.1bpp"
 	assert_table_length NUM_POKEMON

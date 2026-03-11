@@ -513,4 +513,8 @@ PokemonCries::
 	mon_cry CRY_KRABBY,      238,  352 ; CHIMECHOX
 	mon_cry CRY_WEEPINBELL,  102,  332 ; VICTREEBELX
 	mon_cry CRY_HOOTHOOT,    354,  256 ; UNOWNX
+	mon_cry CRY_CATERPIE,    119,  192 ; BUTTERFREEX
+	mon_cry CRY_LEDYBA,     -150,  312 ; LEDIANX
+	mon_cry CRY_MAGCARGO,   -525,  448 ; MAGCARGOX
+	mon_cry CRY_DROWZEE,     255,  383 ; JYNXX
 	assert_table_length NUM_POKEMON

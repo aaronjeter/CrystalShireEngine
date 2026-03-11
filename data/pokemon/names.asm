@@ -511,4 +511,8 @@ PokemonNames::
 	db "CHIMECHO@@"
 	db "VICTREEBEL"
 	db "UNOWN@@@@@"
+	db "BUTTERFREE"
+	db "LEDIAN@@@@"
+	db "MAGCARGO@@"
+	db "JYNX@@@@@@"
 	assert_table_length NUM_POKEMON

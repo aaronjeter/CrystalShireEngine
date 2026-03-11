@@ -1,0 +1,47 @@
+SECTION "BaseData 5", ROMX
+
+BaseData5:
+;megas
+INCLUDE "data/pokemon/base_stats/mega/raichux.asm"
+INCLUDE "data/pokemon/base_stats/mega/raichuy.asm"
+INCLUDE "data/pokemon/base_stats/mega/dragonitex.asm"
+INCLUDE "data/pokemon/base_stats/mega/dragonitey.asm"
+INCLUDE "data/pokemon/base_stats/mega/venusaurx.asm"
+INCLUDE "data/pokemon/base_stats/mega/charizardx.asm"
+INCLUDE "data/pokemon/base_stats/mega/charizardy.asm"
+INCLUDE "data/pokemon/base_stats/mega/blastoisex.asm"
+INCLUDE "data/pokemon/base_stats/mega/beedrillx.asm"
+INCLUDE "data/pokemon/base_stats/mega/alakazamx.asm"
+INCLUDE "data/pokemon/base_stats/mega/slowbrox.asm"
+INCLUDE "data/pokemon/base_stats/mega/gengarx.asm"
+INCLUDE "data/pokemon/base_stats/mega/pinsirx.asm"
+INCLUDE "data/pokemon/base_stats/mega/gyaradosx.asm"
+INCLUDE "data/pokemon/base_stats/mega/aerodactylx.asm"
+INCLUDE "data/pokemon/base_stats/mega/ampharosx.asm"
+INCLUDE "data/pokemon/base_stats/mega/steelixx.asm"
+INCLUDE "data/pokemon/base_stats/mega/scizorx.asm"
+INCLUDE "data/pokemon/base_stats/mega/heracrossx.asm"
+INCLUDE "data/pokemon/base_stats/mega/houndoomx.asm"
+INCLUDE "data/pokemon/base_stats/mega/tyranitarx.asm"
+INCLUDE "data/pokemon/base_stats/mega/aggronx.asm"
+INCLUDE "data/pokemon/base_stats/mega/cameruptx.asm"
+INCLUDE "data/pokemon/base_stats/mega/altariax.asm"
+INCLUDE "data/pokemon/base_stats/mega/absolx.asm"
+INCLUDE "data/pokemon/base_stats/mega/glaliex.asm"
+INCLUDE "data/pokemon/base_stats/mega/salamencex.asm"
+INCLUDE "data/pokemon/base_stats/mega/metagrossx.asm"
+INCLUDE "data/pokemon/base_stats/mega/kinglerx.asm"
+INCLUDE "data/pokemon/base_stats/mega/tropiusx.asm"
+INCLUDE "data/pokemon/base_stats/mega/swalotx.asm"
+INCLUDE "data/pokemon/base_stats/mega/flygonx.asm"
+INCLUDE "data/pokemon/base_stats/mega/chimechox.asm"
+INCLUDE "data/pokemon/base_stats/mega/victreebelx.asm"
+INCLUDE "data/pokemon/base_stats/mega/unownx.asm"
+INCLUDE "data/pokemon/base_stats/mega/butterfreex.asm"
+INCLUDE "data/pokemon/base_stats/mega/ledianx.asm"
+INCLUDE "data/pokemon/base_stats/mega/magcargox.asm"
+INCLUDE "data/pokemon/base_stats/mega/jynxx.asm"
+
+.IndirectEnd::
+
+ENDSECTION

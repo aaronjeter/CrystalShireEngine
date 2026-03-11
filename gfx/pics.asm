@@ -1324,6 +1324,19 @@ Vulpix2Frontpic:		    INCBIN "gfx/pokemon/vulpix2/front.animated.2bpp.lz"
 Vulpix2Backpic:			    INCBIN "gfx/pokemon/vulpix2/back.2bpp.lz"
 
 
+SECTION "Megas 6", ROMX
+
+ButterfreexFrontpic:	INCBIN "gfx/pokemon/butterfreex/front.animated.2bpp.lz"
+ButterfreexBackpic:		INCBIN "gfx/pokemon/butterfreex/back.2bpp.lz"
+LedianxFrontpic:		INCBIN "gfx/pokemon/ledianx/front.animated.2bpp.lz"
+LedianxBackpic:			INCBIN "gfx/pokemon/ledianx/back.2bpp.lz"
+MagcargoxFrontpic:		INCBIN "gfx/pokemon/magcargox/front.animated.2bpp.lz"
+MagcargoxBackpic:		INCBIN "gfx/pokemon/magcargox/back.2bpp.lz"
+JynxxFrontpic:			INCBIN "gfx/pokemon/jynxx/front.animated.2bpp.lz"
+JynxxBackpic:			INCBIN "gfx/pokemon/jynxx/back.2bpp.lz"
+
+
+
 SECTION "Hoenn Trainers 1", ROMX
 
 RoxannePic:			INCBIN "gfx/trainers/roxanne.2bpp.lz"
@@ -1341,3 +1354,4 @@ BattleGirlPic:		INCBIN "gfx/trainers/battlegirl.2bpp.lz"
 RangerMPic:			INCBIN "gfx/trainers/rangerm.2bpp.lz"
 RangerFPic:			INCBIN "gfx/trainers/rangerf.2bpp.lz"
 ExplorerPic:		INCBIN "gfx/trainers/explorer.2bpp.lz"
+PsychicFPic:		INCBIN "gfx/trainers/psychic_f.2bpp.lz"
