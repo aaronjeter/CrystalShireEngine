@@ -414,6 +414,10 @@ PokedexDataPointerTable:
 	dba YanmegaPokedexEntry
 	dba ProbopassPokedexEntry
 	dba DusknoirPokedexEntry
+	dba MrRimePokedexEntry
+	dba UrsalunaPokedexEntry
+	dba FarigirafPokedexEntry
+	dba SirfetchDPokedexEntry
 	;alt mons
 	dba AraichuPokedexEntry
 	dba AmarowakPokedexEntry
@@ -428,6 +432,13 @@ PokedexDataPointerTable:
 	dba AgolemPokedexEntry
 	dba HvoltorbPokedexEntry
 	dba HelectrodePokedexEntry
+	dba GrowlithePokedexEntry
+	dba ArcaninePokedexEntry
+	dba PonytaPokedexEntry
+	dba RapidashPokedexEntry
+	dba DiglettPokedexEntry
+	dba DugtrioPokedexEntry
+	dba WeezingPokedexEntry
 	dba IronbundlePokedexEntry
 	;reddit mons
 	dba Voltorb2PokedexEntry
@@ -442,12 +453,13 @@ PokedexDataPointerTable:
 	dba Scizor2PokedexEntry
 	dba Tentacool2PokedexEntry
 	dba Tentacruel2PokedexEntry
+	dba PonytaPokedexEntry
 	dba Rapidash2PokedexEntry
 	dba Vulpix2PokedexEntry
 	dba Ninetales2PokedexEntry
-	dba Tauros2PokedexEntry
-	dba Swinub2PokedexEntry
-	dba Piloswine2PokedexEntry
+	dba AbraPokedexEntry
+	dba KadabraPokedexEntry
+	dba AlakazamPokedexEntry
 	dba Skarmory2PokedexEntry
 	dba Totodile2PokedexEntry
 	dba Croconaw2PokedexEntry

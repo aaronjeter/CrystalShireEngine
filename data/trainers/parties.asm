@@ -291,7 +291,7 @@ PryceGroup: ;Gym Leader
 	dw SNEASEL
 	dw ICE_PUNCH, SLASH, MACH_PUNCH, PURSUIT
 	db 11
-	dw PILOSWINE2
+	dw PILOSWINE
 	dw EARTHQUAKE, BLIZZARD, BULK_UP, BODY_SLAM
 	db -1 ; end
 	
@@ -2896,7 +2896,7 @@ PokemaniacGroup:
 	db 7
 	dw TAUROS
 	db 7
-	dw TAUROS2
+	dw TAUROS
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (4) Route 42
@@ -6535,7 +6535,7 @@ BoarderGroup:
 	db 7
 	dw SWINUB
 	db 7
-	dw SWINUB2
+	dw SWINUB
 	db -1 ; end
 
 	next_list_item ; BOARDER (3) Mahogany Town Gym

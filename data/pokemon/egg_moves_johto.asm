@@ -262,6 +262,10 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw NoEggMoves2
 	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
 	;alt forms
 	dw NoEggMoves2			;ariachu
 	dw NoEggMoves2			;amarowak
@@ -276,6 +280,13 @@ EggMovePointers2::
 	dw NoEggMoves2			;agolem
 	dw NoEggMoves2			;hvoltorb
 	dw NoEggMoves2			;helectrode
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
 	dw NoEggMoves2			;ironbundle
 	;reddit mons
 	dw NoEggMoves2			;voltorb2
@@ -290,11 +301,12 @@ EggMovePointers2::
 	dw NoEggMoves2			;scizor2
 	dw Tentacool2EggMoves	;tentacool2
 	dw NoEggMoves2
+	dw NoEggMoves2
 	dw NoEggMoves2			;rapidash2
 	dw NoEggMoves2
 	dw NoEggMoves2			;ninetails2
 	dw NoEggMoves2
-	dw SwinubEggMoves		;swinub2
+	dw NoEggMoves2			;kadabra2
 	dw NoEggMoves2
 	dw SkarmoryEggMoves		;skarmory2
 	dw TotodileEggMoves

@@ -17,10 +17,14 @@ INCLUDE "engine/events/haircut.asm"
 
 SECTION "bank2", ROMX
 
+INCLUDE "engine/gfx/color.asm"
+
+
+SECTION "bank2.1", ROMX
+
 INCLUDE "engine/overworld/player_object.asm"
 INCLUDE "engine/math/sine.asm"
 INCLUDE "engine/predef.asm"
-INCLUDE "engine/gfx/color.asm"
 
 
 SECTION "bank3", ROMX
@@ -464,6 +468,11 @@ SECTION "Pic Animations 6", ROMX
 INCLUDE "gfx/pokemon/hoenn_frames.asm"
 
 
+SECTION "Pic Animations 7", ROMX
+
+INCLUDE "gfx/pokemon/mega_frames.asm"
+
+
 SECTION "bank38", ROMX
 
 INCLUDE "engine/events/print_unown_2.asm"
@@ -503,7 +512,7 @@ INCLUDE "engine/gfx/load_font.asm"
 
 SECTION "bank3E.4", ROMX
 
-INCLUDE "gfx/footprints.asm"
+;INCLUDE "gfx/footprints.asm"
 
 
 SECTION "bank3F", ROMX

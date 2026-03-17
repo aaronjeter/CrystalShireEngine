@@ -412,6 +412,10 @@ AnimationPointers:
 	dw YanmegaAnimation
 	dw ProbopassAnimation
 	dw DusknoirAnimation
+	dw MrRimeAnimation
+	dw UrsalunaAnimation
+	dw FarigirafAnimation
+	dw SirfetchDAnimation
 	;alt forms
 	dw AraichuAnimation
 	dw AmarowakAnimation
@@ -426,6 +430,13 @@ AnimationPointers:
 	dw AgolemAnimation
 	dw HvoltorbAnimation
 	dw HelectrodeAnimation
+	dw HgrowlitheAnimation
+	dw HarcanineAnimation
+	dw GponytaAnimation
+	dw GrapidashAnimation
+	dw AdiglettAnimation
+	dw AdugtrioAnimation
+	dw GweezingAnimation
 	dw IronbundleAnimation
 	;reddit mons
 	dw Voltorb2Animation
@@ -440,12 +451,13 @@ AnimationPointers:
 	dw Scizor2Animation
 	dw Tentacool2Animation
 	dw Tentacruel2Animation
+	dw Ponyta2Animation
 	dw Rapidash2Animation
 	dw Vulpix2Animation
 	dw Ninetales2Animation
-	dw Tauros2Animation
-	dw Swinub2Animation
-	dw Piloswine2Animation
+	dw Abra2Animation
+	dw Kadabra2Animation
+	dw Alakazam2Animation
 	dw Skarmory2Animation
 	dw Totodile2Animation
 	dw Croconaw2Animation

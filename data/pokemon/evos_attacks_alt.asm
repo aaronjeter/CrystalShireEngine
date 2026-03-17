@@ -2,7 +2,7 @@ SECTION "Evolutions and Attacks 4", ROMX
 
 EvosAttacksPointers4::
 
-;gen4+ mons
+;gen4+ mons 30
 	dw TogekissEvosAttacks
 	dw MamoswineEvosAttacks
 	dw SylveonEvosAttacks
@@ -29,7 +29,11 @@ EvosAttacksPointers4::
 	dw YanmegaEvosAttacks
 	dw ProbopassEvosAttacks
 	dw DusknoirEvosAttacks
-	;alt forms
+	dw MrRimeEvosAttacks
+	dw UrsalunaEvosAttacks
+	dw FarigirafEvosAttacks
+	dw SirfetchdEvosAttacks
+	;alt forms 21
 	dw AraichuEvosAttacks
 	dw AmarowakEvosAttacks
 	dw AgrimerEvosAttacks
@@ -43,8 +47,15 @@ EvosAttacksPointers4::
 	dw AgolemEvosAttacks
 	dw HvoltorbEvosAttacks
 	dw HelectrodeEvosAttacks
+	dw HgrowlitheEvosAttacks
+	dw HarcanineEvosAttacks
+	dw GponytaEvosAttacks
+	dw GrapidashEvosAttacks
+	dw AdiglettEvosAttacks
+	dw AdugtrioEvosAttacks
+	dw GweezingEvosAttacks
 	dw IronbundleEvosAttacks
-	;reddit mons
+	;reddit mons 26
 	dw Voltorb2EvosAttacks
 	dw Electrode2EvosAttacks
 	dw Exeggcute2EvosAttacks
@@ -57,12 +68,13 @@ EvosAttacksPointers4::
 	dw Scizor2EvosAttacks
 	dw Tentacool2EvosAttacks
 	dw Tentacruel2EvosAttacks
+	dw Ponyta2EvosAttacks
 	dw Rapidash2EvosAttacks
 	dw Vulpix2EvosAttacks
 	dw Ninetales2EvosAttacks
-	dw Tauros2EvosAttacks
-	dw Swinub2EvosAttacks
-	dw Piloswine2EvosAttacks
+	dw Abra2EvosAttacks
+	dw Kadabra2EvosAttacks
+	dw Alakazam2EvosAttacks
 	dw Skarmory2EvosAttacks
 	dw Totodile2EvosAttacks
 	dw Croconaw2EvosAttacks
@@ -70,7 +82,7 @@ EvosAttacksPointers4::
 	dw Cyndaquil2EvosAttacks
 	dw Quilava2EvosAttacks
 	dw Typhlosion2EvosAttacks
-	;beta mons
+	;beta mons 16
 	dw HanamoleEvosAttacks
 	dw HonobeaEvosAttacks
 	dw BorubeaEvosAttacks
@@ -102,6 +114,7 @@ TogekissEvosAttacks:
 	dbw 24, FAE_VOICE
 	dbw 28, DOUBLE_TEAM
 	dbw 32, PSYBEAM
+	dbw 36, MIRROR_COAT
 	dbw 40, MOONBLAST
 	dbw 45, RAZOR_WIND
 	dbw 50, CALM_MIND
@@ -390,7 +403,7 @@ WyrdeerEvosAttacks:
 	dbw 50, MEDITATE	
 	dbw 60, PURSUIT
 	dbw 65, MEGAHORN
-	dbw 70, EARTHQUAKE
+	dbw 70, EARTHPOWER
 	db 0 ; no more level-up moves
 
 PorygonzEvosAttacks:
@@ -734,6 +747,152 @@ HelectrodeEvosAttacks:
 	dbw 70, FLASHCANNON
 	db 0 ; no more level-up moves
 
+HgrowlitheEvosAttacks:
+	dbww EVOLVE_ITEM, FIRE_STONE, HARCANINE
+	dbbw EVOLVE_LEVEL, 36, HARCANINE
+	db 0 ; no more evolutions
+	dbw 1, EMBER
+	dbw 5, BITE
+	dbw 8, ROAR	
+	dbw 12, ROCK_THROW
+	dbw 16, LEER
+	dbw 20, MUD_SLAP
+	dbw 24, FIRE_FANG
+	dbw 28, ANCIENTPOWER	
+	dbw 32, GROWTH
+	dbw 36, FAINT_ATTACK	
+	dbw 40, ROCK_BLAST
+	dbw 45, FLAME_WHEEL	
+	dbw 50, AGILITY
+	dbw 55, PURSUIT
+	dbw 60, STONE_EDGE
+	dbw 65, EXTREMESPEED
+	dbw 70, SACRED_FIRE
+	db 0 ; no more level-up moves
+
+HarcanineEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, EMBER
+	dbw 5, BITE
+	dbw 8, ROAR	
+	dbw 12, ROCK_THROW
+	dbw 16, LEER
+	dbw 20, MUD_SLAP
+	dbw 24, FIRE_FANG
+	dbw 28, ANCIENTPOWER	
+	dbw 32, GROWTH
+	dbw 36, FAINT_ATTACK	
+	dbw 40, ROCK_BLAST
+	dbw 45, FLAME_WHEEL	
+	dbw 50, AGILITY
+	dbw 55, PURSUIT
+	dbw 60, STONE_EDGE
+	dbw 65, EXTREMESPEED
+	dbw 70, SACRED_FIRE
+	db 0 ; no more level-up moves
+
+GponytaEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, GRAPIDASH
+	db 0 ; no more evolutions
+	dbw 1, POUND
+	dbw 5, GROWL
+	dbw 10, CONFUSION
+	dbw 15, TAIL_WHIP
+	dbw 20, PSYWAVE
+	dbw 24, SWIFT
+	dbw 28, PSYBEAM
+	dbw 36, SAFEGUARD
+	dbw 40, PLAY_ROUGH
+	dbw 45, ZEN_HEADBUTT
+	dbw 50, BLAZE_KICK
+	dbw 55, DRAGON_DANCE
+	dbw 60, LUSTER_PURGE
+	dbw 65, MEGA_KICK
+	dbw 70, FUTURE_SIGHT
+	db 0 ; no more level-up moves
+
+GrapidashEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, POUND
+	dbw 5, GROWL
+	dbw 10, CONFUSION
+	dbw 15, TAIL_WHIP
+	dbw 20, PSYWAVE
+	dbw 24, SWIFT
+	dbw 28, PSYBEAM
+	dbw 36, SAFEGUARD
+	dbw 40, PLAY_ROUGH
+	dbw 45, ZEN_HEADBUTT
+	dbw 50, BLAZE_KICK
+	dbw 55, DRAGON_DANCE
+	dbw 60, LUSTER_PURGE
+	dbw 65, MEGA_KICK
+	dbw 70, FUTURE_SIGHT
+	db 0 ; no more level-up moves
+
+AdiglettEvosAttacks:
+	dbbw EVOLVE_LEVEL, 26, ADUGTRIO
+	db 0 ; no more evolutions
+	dbw 1, METAL_CLAW
+	dbw 1, SAND_ATTACK
+	dbw 5, GROWL
+	dbw 12, ROCK_THROW
+	dbw 16, SHARPEN
+	dbw 20, DIG
+	dbw 24, ROCK_TOMB
+	dbw 28, SLAM	
+	dbw 32, TRI_ATTACK	
+	dbw 36, SPIKE_CANNON
+	dbw 40, EARTHQUAKE
+	dbw 45, VICEGRIP	
+	dbw 50, SWORDS_DANCE
+	dbw 55, PURSUIT
+	dbw 60, FISSURE
+	dbw 65, STONE_EDGE
+	dbw 70, MUDDY_WATER
+	db 0 ; no more level-up moves
+
+AdugtrioEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, METAL_CLAW
+	dbw 1, SAND_ATTACK
+	dbw 5, GROWL
+	dbw 12, ROCK_THROW
+	dbw 16, SHARPEN
+	dbw 20, DIG
+	dbw 24, ROCK_TOMB
+	dbw 28, SLAM	
+	dbw 32, TRI_ATTACK	
+	dbw 36, SPIKE_CANNON
+	dbw 40, EARTHQUAKE
+	dbw 45, VICEGRIP	
+	dbw 50, SWORDS_DANCE
+	dbw 55, PURSUIT
+	dbw 60, FISSURE
+	dbw 65, STONE_EDGE
+	dbw 70, MUDDY_WATER
+	db 0 ; no more level-up moves
+
+GweezingEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, POISON_GAS
+	dbw 1, EMBER
+	dbw 10, SMOG
+	dbw 14, SMOKESCREEN
+	dbw 18, SELFDESTRUCT
+	dbw 24, SLUDGE
+	dbw 28, FIRE_SPIN	
+	dbw 32, WILLOWISP
+	dbw 36, CURSE
+	dbw 40, FLAMETHROWER
+	dbw 45, SLUDGE_BOMB
+	dbw 50, EXPLOSION
+	dbw 55, HAZE	
+	dbw 60, AMNESIA
+	dbw 65, FIRE_BLAST
+	dbw 70, DESTINY_BOND
+	db 0 ; no more level-up moves
+
 IronbundleEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, PRESENT
@@ -979,7 +1138,7 @@ Tentacool2EvosAttacks:
 	dbw 40, POWER_GEM
 	dbw 45, GIGA_DRAIN
 	dbw 50, SIGNAL_BEAM
-	dbw 55, EARTHQUAKE
+	dbw 55, EARTHPOWER
 	dbw 60, STONE_EDGE
 	dbw 65, MEGAHORN
 	dbw 70, MIST
@@ -1000,31 +1159,51 @@ Tentacruel2EvosAttacks:
 	dbw 40, POWER_GEM
 	dbw 45, GIGA_DRAIN
 	dbw 50, SIGNAL_BEAM
-	dbw 55, EARTHQUAKE
+	dbw 55, EARTHPOWER
 	dbw 60, STONE_EDGE
 	dbw 65, MEGAHORN
 	dbw 70, MIST
 	db 0 ; no more level-up moves
 
-Rapidash2EvosAttacks:
+Ponyta2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, RAPIDASH2
 	db 0 ; no more evolutions
-	dbw 1, TACKLE
-	dbw 5, GROWL
-	dbw 10, EMBER
+	dbw 1, THUNDERSHOCK
+	dbw 5, THUNDER_WAVE
+	dbw 10, TWISTER
 	dbw 15, TAIL_WHIP
 	dbw 20, DOUBLE_KICK
-	dbw 24, STOMP
+	dbw 24, SPARK	
 	dbw 28, FIRE_SPIN
-	dbw 36, SUNNY_DAY
-	dbw 40, FLAME_WHEEL
-	dbw 45, TAKE_DOWN
+	dbw 32, DRAGON_RAGE
+	dbw 36, RAIN_DANCE
+	dbw 40, THUNDERBOLT
+	dbw 45, DRAGONBREATH
 	dbw 50, EXTREMESPEED
-	dbw 55, DRAGON_DANCE
-	dbw 60, SACRED_FIRE
+	dbw 55, CHARGE
+	dbw 60, THUNDER
 	dbw 65, MEGA_KICK
-	dbw 70, SOLARBEAM
-	dbw 75, ICICLE_CRASH
-	dbw 80, BLIZZARD	
+	dbw 70, HURRICANE
+	db 0 ; no more level-up moves
+
+Rapidash2EvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, THUNDERSHOCK
+	dbw 5, THUNDER_WAVE
+	dbw 10, TWISTER
+	dbw 15, TAIL_WHIP
+	dbw 20, DOUBLE_KICK
+	dbw 24, SPARK	
+	dbw 28, FIRE_SPIN
+	dbw 32, DRAGON_RAGE
+	dbw 36, RAIN_DANCE
+	dbw 40, THUNDERBOLT
+	dbw 45, DRAGONBREATH
+	dbw 50, EXTREMESPEED
+	dbw 55, CHARGE
+	dbw 60, THUNDER
+	dbw 65, MEGA_KICK
+	dbw 70, HURRICANE
 	db 0 ; no more level-up moves
 
 Vulpix2EvosAttacks:
@@ -1074,24 +1253,25 @@ Ninetales2EvosAttacks:
 	dbw 70, MIST
 	db 0 ; no more level-up moves
 
-Tauros2EvosAttacks:
+Abra2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 16, KADABRA2
 	db 0 ; no more evolutions
-	dbw 1, TACKLE
-	dbw 5, TAIL_WHIP
-	dbw 12, LOW_KICK
-	dbw 16, RAGE
-	dbw 20, SCARY_FACE
-	dbw 24, DOUBLE_KICK	
-	dbw 28, HORN_ATTACK
-	dbw 32, MAGNITUDE
-	dbw 36, BRICK_BREAK
-	dbw 40, EARTHQUAKE
-	dbw 45, BODY_SLAM
-	dbw 50, BULK_UP
-	dbw 55, OUTRAGE
-	dbw 60, SUBMISSION
-	dbw 65, DOUBLE_EDGE
-	dbw 70, FISSURE
+	dbw 1, TELEPORT
+	dbw 5, CONFUSION
+	dbw 12, NIGHT_SHADE
+	dbw 16, HYPNOSIS
+	dbw 20, CHARM
+	dbw 24, PSYBEAM
+	dbw 28, ANCIENTPOWER
+	dbw 32, SHADOW_PUNCH
+	dbw 36, DREAM_EATER
+	dbw 40, DARK_PULSE	
+	dbw 45, PSYCHIC_M
+	dbw 50, MEDITATE
+	dbw 55, DESTINY_BOND
+	dbw 60, LIGHT_SCREEN
+	dbw 65, MOONBLAST
+	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 HanamoleEvosAttacks:
@@ -1554,6 +1734,86 @@ DusknoirEvosAttacks:
 	dbw 70, DESTINY_BOND
 	db 0 ; no more level-up moves
 
+MrRimeEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, BARRIER
+	dbw 1, PIXIE_DUST
+	dbw 6, CONFUSION
+	dbw 16, KINESIS
+	dbw 20, DIZZY_PUNCH
+	dbw 24, PSYBEAM
+	dbw 28, LIGHT_SCREEN
+	dbw 32, REFLECT
+	dbw 36, ICE_BEAM
+	dbw 40, PSYCHIC_M
+	dbw 45, MOONBLAST
+	dbw 50, CALM_MIND
+	dbw 55, BATON_PASS
+	dbw 60, BLIZZARD
+	dbw 65, RECOVER
+	dbw 70, FUTURE_SIGHT
+	db 0 ; no more level-up moves
+
+UrsalunaEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, SCRATCH
+	dbw 1, LEER
+	dbw 8, LICK
+	dbw 12, POUND
+	dbw 15, FURY_SWIPES
+	dbw 24, FAINT_ATTACK
+	dbw 28, REST
+	dbw 32, SNORE
+	dbw 36, CRUSH_CLAW
+	dbw 40, SLASH	
+	dbw 45, CRUNCH
+	dbw 50, BULK_UP
+	dbw 55, EARTHQUAKE
+	dbw 60, THRASH
+	dbw 65, OUTRAGE
+	dbw 70, FISSURE
+	db 0 ; no more level-up moves
+
+FarigirafEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, TACKLE
+	dbw 1, GROWL
+	dbw 10, CONFUSION
+	dbw 16, STOMP
+	dbw 20, AGILITY
+	dbw 24, PSYBEAM
+	dbw 28, MAGNITUDE
+	dbw 32, BATON_PASS
+	dbw 36, THRASH
+	dbw 40, PSYCHIC_M
+	dbw 45, HYPER_VOICE
+	dbw 50, CHARGE	
+	dbw 55, BODY_SLAM
+	dbw 60, DARK_PULSE
+	dbw 65, FUTURE_SIGHT
+	dbw 70, DOUBLE_EDGE
+	db 0 ; no more level-up moves
+
+SirfetchdEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, PECK
+	dbw 7, KARATE_CHOP
+	dbw 10, SHARPEN
+	dbw 15, FALSE_SWIPE
+	dbw 19, FURY_ATTACK
+	dbw 24, WING_ATTACK
+	dbw 28, JUMP_KICK
+	dbw 32, BRICK_BREAK
+	dbw 36, SWORDS_DANCE
+	dbw 40, CROSS_CHOP
+	dbw 45, LEAF_BLADE		
+	dbw 50, SLASH
+	dbw 55, SKY_ATTACK
+	dbw 60, HI_JUMP_KICK
+	dbw 65, PSYCHO_CUT
+	dbw 70, DRAGON_DANCE
+	db 0 ; no more level-up moves
+
 TotartleEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
@@ -1733,45 +1993,45 @@ Typhlosion2EvosAttacks:
 	dbw 70, BLAST_BURN
 	db 0 ; no more level-up moves
 
-Swinub2EvosAttacks:
-	dbbw EVOLVE_LEVEL, 30, PILOSWINE2
+Kadabra2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 42, ALAKAZAM2
 	db 0 ; no more evolutions
-	dbw 1, TACKLE
-	dbw 1, POWDER_SNOW
-	dbw 10, ENDURE
-	dbw 15, CURSE
-	dbw 20, HAIL
-	dbw 24, ANCIENTPOWER	
-	dbw 28, ICICLE_SPEAR
-	dbw 32, MAGNITUDE
-	dbw 36, BULK_UP
-	dbw 40, ICICLE_CRASH
-	dbw 45, EARTHQUAKE
-	dbw 50, MIST
-	dbw 55, AMNESIA
-	dbw 60, BLIZZARD
-	dbw 65, OUTRAGE
-	dbw 70, FISSURE
+	dbw 1, TELEPORT
+	dbw 5, CONFUSION
+	dbw 12, NIGHT_SHADE
+	dbw 16, HYPNOSIS
+	dbw 20, CHARM
+	dbw 24, PSYBEAM
+	dbw 28, ANCIENTPOWER
+	dbw 32, SHADOW_PUNCH
+	dbw 36, DREAM_EATER
+	dbw 40, DARK_PULSE	
+	dbw 45, PSYCHIC_M
+	dbw 50, MEDITATE
+	dbw 55, DESTINY_BOND
+	dbw 60, LIGHT_SCREEN
+	dbw 65, MOONBLAST
+	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
-Piloswine2EvosAttacks:
+Alakazam2EvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, TACKLE
-	dbw 1, POWDER_SNOW
-	dbw 10, ENDURE
-	dbw 15, CURSE
-	dbw 20, HAIL
-	dbw 24, ANCIENTPOWER	
-	dbw 28, ICICLE_SPEAR
-	dbw 32, MAGNITUDE
-	dbw 36, BULK_UP
-	dbw 40, ICICLE_CRASH
-	dbw 45, EARTHQUAKE
-	dbw 50, MIST
-	dbw 55, AMNESIA
-	dbw 60, BLIZZARD
-	dbw 65, OUTRAGE
-	dbw 70, FISSURE
+	dbw 1, TELEPORT
+	dbw 5, CONFUSION
+	dbw 12, NIGHT_SHADE
+	dbw 16, HYPNOSIS
+	dbw 20, CHARM
+	dbw 24, PSYBEAM
+	dbw 28, ANCIENTPOWER
+	dbw 32, SHADOW_PUNCH
+	dbw 36, DREAM_EATER
+	dbw 40, DARK_PULSE	
+	dbw 45, PSYCHIC_M
+	dbw 50, MEDITATE
+	dbw 55, DESTINY_BOND
+	dbw 60, LIGHT_SCREEN
+	dbw 65, MOONBLAST
+	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 Skarmory2EvosAttacks:

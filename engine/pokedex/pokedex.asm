@@ -2657,23 +2657,23 @@ Pokedex_LoadSelectedMonTiles:
 Pokedex_LoadCurrentFootprint:
 	call Pokedex_GetSelectedMon
 
-Pokedex_LoadAnyFootprint:
-	ld a, [wTempSpecies]
-	call GetPokemonIndexFromID
-	dec hl
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	ld de, Footprints
-	add hl, de
+;Pokedex_LoadAnyFootprint:
+	;ld a, [wTempSpecies]
+	;call GetPokemonIndexFromID
+	;dec hl
+	;add hl, hl
+	;add hl, hl
+	;add hl, hl
+	;add hl, hl
+	;add hl, hl
+	;ld de, Footprints
+	;add hl, de
 
-	ld e, l
-	ld d, h
-	ld hl, vTiles2 tile $62
-	lb bc, BANK(Footprints), 4
-	jmp Request1bpp
+	;ld e, l
+	;ld d, h
+	;ld hl, vTiles2 tile $62
+	;lb bc, BANK(Footprints), 4
+	;jmp Request1bpp
 
 Pokedex_LoadGFX:
 	call DisableLCD
@@ -2783,7 +2783,7 @@ _NewPokedexEntry:
 	call LoadStandardFont
 	call LoadFontsExtra
 	call Pokedex_LoadGFX
-	call Pokedex_LoadAnyFootprint
+	;call Pokedex_LoadAnyFootprint
 	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	call Pokedex_DrawDexEntryScreenBG

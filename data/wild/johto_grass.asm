@@ -653,7 +653,7 @@ JohtoGrassWildMons:
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 3, MACHOKE
 	dbw 5, MACHOKE
 	; day
@@ -661,7 +661,7 @@ JohtoGrassWildMons:
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 3, MACHOKE
 	dbw 5, MACHOKE
 	; nite
@@ -669,7 +669,7 @@ JohtoGrassWildMons:
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 3, MACHOKE
 	dbw 5, MACHOKE
 	end_grass_wildmons
@@ -681,7 +681,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	; day
@@ -689,7 +689,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	; nite
@@ -697,7 +697,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	end_grass_wildmons
@@ -709,7 +709,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	; day
@@ -717,7 +717,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	; nite
@@ -725,7 +725,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	end_grass_wildmons
@@ -737,7 +737,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	; day
@@ -745,7 +745,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	; nite
@@ -753,7 +753,7 @@ JohtoGrassWildMons:
 	dbw 1, MACHOP
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MAKUHITA
+	dbw 3, PONYTA2
 	dbw 2, MAGBY
 	dbw 5, MAGMAR
 	end_grass_wildmons
@@ -769,7 +769,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB2
+	dbw 1, SWINUB
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -797,7 +797,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB2
+	dbw 1, SWINUB
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -825,7 +825,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB2
+	dbw 1, SWINUB
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -853,7 +853,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB2
+	dbw 1, SWINUB
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -881,7 +881,7 @@ JohtoGrassWildMons:
 	dbw 3, SNEASEL
 	dbw 5, JYNX
 	; day
-	dbw 1, SWINUB2
+	dbw 1, SWINUB
 	dbw 1, ZUBAT
 	dbw 5, GOLBAT
 	dbw 1, DELIBIRD
@@ -1546,7 +1546,7 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, LOTAD
-	dbw 3, TAUROS2
+	dbw 3, TAUROS
 	dbw 1, MAGNEMITE
 	dbw 1, MEOWTH
 	dbw 1, TAUROS
@@ -1554,7 +1554,7 @@ JohtoGrassWildMons:
 	dbw 5, VOLTORB2
 	; day
 	dbw 1, LOTAD
-	dbw 3, TAUROS2
+	dbw 3, TAUROS
 	dbw 1, MAGNEMITE
 	dbw 1, MEOWTH
 	dbw 1, TAUROS
@@ -1562,7 +1562,7 @@ JohtoGrassWildMons:
 	dbw 5, VOLTORB2
 	; nite
 	dbw 1, LOTAD
-	dbw 3, TAUROS2
+	dbw 3, TAUROS
 	dbw 1, MAGNEMITE
 	dbw 1, MEOWTH
 	dbw 1, TAUROS
@@ -1574,7 +1574,7 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, SEEDOT
-	dbw 3, TAUROS2
+	dbw 3, TAUROS
 	dbw 1, MAGNEMITE
 	dbw 3, PIDGEOTTO
 	dbw 1, MILTANK
@@ -1582,7 +1582,7 @@ JohtoGrassWildMons:
 	dbw 5, VOLTORB2
 	; day
 	dbw 1, SEEDOT
-	dbw 3, TAUROS2
+	dbw 3, TAUROS
 	dbw 1, MAGNEMITE
 	dbw 3, PIDGEOTTO
 	dbw 1, MILTANK
@@ -1590,7 +1590,7 @@ JohtoGrassWildMons:
 	dbw 5, VOLTORB2
 	; nite
 	dbw 1, SEEDOT
-	dbw 3, TAUROS2
+	dbw 3, TAUROS
 	dbw 1, MAGNEMITE
 	dbw 3, PIDGEOTTO
 	dbw 1, MILTANK

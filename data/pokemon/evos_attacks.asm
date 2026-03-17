@@ -19,8 +19,8 @@ EvosAttacksPointers::
 	indirect_entries 151, EvosAttacksPointers1
 	indirect_entries 252, EvosAttacksPointers2
 	indirect_entries 385, EvosAttacksPointers3
-	indirect_entries 466, EvosAttacksPointers4
-	indirect_entries 505, EvosAttacksPointersMega
+	indirect_entries 478, EvosAttacksPointers4
+	indirect_entries 517, EvosAttacksPointersMega
 	indirect_table_end
 
 INCLUDE "data/pokemon/evos_attacks_kanto.asm"

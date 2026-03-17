@@ -412,6 +412,10 @@ AnimationIdlePointers:
 	dw YanmegaAnimationIdle
 	dw ProbopassAnimationIdle
 	dw DusknoirAnimationIdle
+	dw MrRimeAnimationIdle
+	dw UrsalunaAnimationIdle
+	dw FarigirafAnimationIdle
+	dw SirfetchDAnimationIdle
 	;alt forms
 	dw AraichuAnimationIdle
 	dw AmarowakAnimationIdle
@@ -426,6 +430,13 @@ AnimationIdlePointers:
 	dw AgolemAnimationIdle
 	dw HvoltorbAnimationIdle
 	dw HelectrodeAnimationIdle
+	dw HgrowlitheAnimationIdle
+	dw HarcanineAnimationIdle
+	dw GponytaAnimationIdle
+	dw GrapidashAnimationIdle
+	dw AdiglettAnimationIdle
+	dw AdugtrioAnimationIdle
+	dw GweezingAnimationIdle
 	dw IronbundleAnimationIdle
 	;reddit mons
 	dw Voltorb2AnimationIdle
@@ -440,12 +451,13 @@ AnimationIdlePointers:
 	dw Scizor2AnimationIdle
 	dw Tentacool2AnimationIdle
 	dw Tentacruel2AnimationIdle
+	dw Ponyta2AnimationIdle
 	dw Rapidash2AnimationIdle
 	dw Vulpix2AnimationIdle
 	dw Ninetales2AnimationIdle
-	dw Tauros2AnimationIdle
-	dw Swinub2AnimationIdle
-	dw Piloswine2AnimationIdle
+	dw Abra2AnimationIdle
+	dw Kadabra2AnimationIdle
+	dw Alakazam2AnimationIdle
 	dw Skarmory2AnimationIdle
 	dw Totodile2AnimationIdle
 	dw Croconaw2AnimationIdle

@@ -5,29 +5,113 @@ KantoGrassWildMons:
 	def_grass_wildmons DIGLETTS_CAVE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, WHISMUR
-	dbw 2, DIGLETT
+	dbw 1, ADIGLETT
+	dbw 1, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
 	dbw 5, DUGTRIO
 	dbw 6, DUGTRIO
-	dbw 7, DUGTRIO
+	dbw 7, ADUGTRIO
 	; day
-	dbw 1, WHISMUR
-	dbw 2, DIGLETT
+	dbw 1, ADIGLETT
+	dbw 1, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
 	dbw 5, DUGTRIO
 	dbw 6, DUGTRIO
-	dbw 7, DUGTRIO
+	dbw 7, ADUGTRIO
 	; nite
-	dbw 1, WHISMUR
-	dbw 2, DIGLETT
+	dbw 1, ADIGLETT
+	dbw 1, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
 	dbw 5, DUGTRIO
 	dbw 6, DUGTRIO
-	dbw 7, DUGTRIO
+	dbw 7, ADUGTRIO
+	end_grass_wildmons
+
+	def_grass_wildmons MT_MOON_1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, JIGGLYPUFF
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, JIGGLYPUFF
+	; day
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, JIGGLYPUFF
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, JIGGLYPUFF
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, JIGGLYPUFF
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, JIGGLYPUFF
+	end_grass_wildmons
+
+	def_grass_wildmons MT_MOON_B1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, GPONYTA
+	; day
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, GPONYTA
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 1, PARAS
+	dbw 3, PARAS
+	dbw 7, GPONYTA
+	end_grass_wildmons
+
+	def_grass_wildmons MT_MOON_B2F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 3, CLEFAIRY
+	dbw 1, CLEFFA
+	dbw 7, CLEFAIRY
+	; day
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 3, CLEFAIRY
+	dbw 1, CLEFFA
+	dbw 7, CLEFAIRY
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, GEODUDE
+	dbw 1, SANDSHREW
+	dbw 1, PARAS
+	dbw 3, CLEFAIRY
+	dbw 1, CLEFFA
+	dbw 7, CLEFAIRY
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MOON
@@ -175,24 +259,24 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, PIDGEY
 	dbw 1, RATTATA
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 1, PICHU
 	dbw 2, PICHU
 	; day
 	dbw 1, PIDGEY
 	dbw 1, RATTATA
-	dbw 1, PLUSLE
-	dbw 2, PIKACHU
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 1, PICHU
 	dbw 2, PICHU
 	; nite
 	dbw 1, HOOTHOOT
 	dbw 1, RATTATA
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 1, PICHU
 	dbw 2, PICHU
@@ -204,24 +288,24 @@ KantoGrassWildMons:
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, PIDGEY
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	; day
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, PIDGEY
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	; nite
 	dbw 1, CATERPIE
 	dbw 1, WEEDLE
 	dbw 1, HOOTHOOT
-	dbw 1, PLUSLE
-	dbw 1, MINUN
+	dbw 1, RATTATA
+	dbw 1, PIDGEY
 	dbw 3, PIKACHU
 	dbw 4, PIKACHU
 	end_grass_wildmons
@@ -427,7 +511,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -435,7 +519,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -443,7 +527,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, SPEAROW
 	dbw 1, VOLTORB
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 3, FEAROW
 	dbw 1, ELEKID
 	dbw 2, ELEKID
@@ -454,7 +538,7 @@ KantoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, ODDISH
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 1, MAGNEMITE
 	dbw 1, ROSELIA
 	dbw 1, ROSELIA
@@ -462,7 +546,7 @@ KantoGrassWildMons:
 	dbw 5, HYPNO
 	; day
 	dbw 1, ODDISH
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 1, MAGNEMITE
 	dbw 1, ROSELIA
 	dbw 1, ROSELIA
@@ -470,7 +554,7 @@ KantoGrassWildMons:
 	dbw 5, HYPNO
 	; nite
 	dbw 1, ODDISH
-	dbw 1, ELECTRIKE
+	dbw 1, HVOLTORB
 	dbw 1, MAGNEMITE
 	dbw 1, ROSELIA
 	dbw 1, ROSELIA
@@ -868,6 +952,118 @@ KantoGrassWildMons:
 	dbw 1, PIKACHU
 	dbw 3, MURKROW
 	dbw 5, BUTTERFREE
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_SOUTH
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, EXEGGCUTE
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, PINSIR
+	dbw 5, SCYTHER
+	; day
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, EXEGGCUTE
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, PINSIR
+	dbw 5, SCYTHER
+	; nite
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, EXEGGCUTE
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, PINSIR
+	dbw 5, SCYTHER
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_EAST
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, DODUO
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, KANGASKHAN
+	dbw 5, KANGASKHAN
+	; day
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, DODUO
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, KANGASKHAN
+	dbw 5, KANGASKHAN
+	; nite
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, DODUO
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, KANGASKHAN
+	dbw 5, KANGASKHAN
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_NORTH
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, TAUROS
+	dbw 5, SCYTHER
+	; day
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, TAUROS
+	dbw 5, SCYTHER
+	; nite
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, TAUROS
+	dbw 5, SCYTHER
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_WEST
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, CHANSEY
+	dbw 5, KANGASKHAN
+	; day
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, CHANSEY
+	dbw 5, KANGASKHAN
+	; nite
+	dbw 1, NIDORAN_F
+	dbw 1, NIDORAN_M
+	dbw 1, RHYHORN
+	dbw 1, NIDORINA
+	dbw 1, NIDORINO
+	dbw 3, CHANSEY
+	dbw 5, KANGASKHAN
 	end_grass_wildmons
 
 	db -1 ; end

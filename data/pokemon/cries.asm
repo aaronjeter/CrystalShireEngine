@@ -401,13 +401,13 @@ PokemonCries::
 	mon_cry CRY_GLIGAR,     -258,  256 ; GLISCOR
 	mon_cry CRY_BULBASAUR,   238,  129 ; GALLADE
 	mon_cry CRY_BULBASAUR,   238,  129 ; FROSLASS
-	mon_cry CRY_KRABBY,      238,  352 ; HONCHKROW
-	mon_cry CRY_KRABBY,      238,  352 ; WEAVILE
-	mon_cry CRY_KRABBY,      238,  352 ; MAGNEZONE
-	mon_cry CRY_KRABBY,      238,  352 ; TANGROWTH
+	mon_cry CRY_MARILL,      -31,  384 ; HONCHKROW
+	mon_cry CRY_WOOPER,       83,  175 ; WEAVILE
+	mon_cry CRY_METAPOD,      32,  320 ; MAGNEZONE
+	mon_cry CRY_GOLEM,         0,  256 ; TANGROWTH
 	mon_cry CRY_KRABBY,      238,  352 ; ELECTIVIRE
 	mon_cry CRY_KRABBY,      238,  352 ; MAGMORTAR
-	mon_cry CRY_KRABBY,      238,  352 ; WYRDEER
+	mon_cry CRY_AIPOM,      -352,  384 ; WYRDEER
 	mon_cry CRY_KRABBY,      238,  352 ; PORYGONZ
 	mon_cry CRY_KRABBY,      238,  352 ; ANNIHILAPE
 	mon_cry CRY_KRABBY,      238,  352 ; KLEAVOR
@@ -419,6 +419,10 @@ PokemonCries::
 	mon_cry CRY_KRABBY,      238,  352 ; YANMEGA
 	mon_cry CRY_KRABBY,      238,  352 ; PROBOPASS
 	mon_cry CRY_KRABBY,      238,  352 ; DUSKNOIR
+	mon_cry CRY_KRABBY,        8,  192 ; MR__RIME
+	mon_cry CRY_TEDDIURSA,  1600,  216 ; URSALUNA
+	mon_cry CRY_GIRAFARIG,    65,  512 ; FARIGIRAF
+	mon_cry CRY_SPEAROW,     221,  129 ; SIRFETCH_D
 	;alt forms
 	mon_cry CRY_TOGETIC,      59,   56 ; ARAICHU
 	mon_cry CRY_ODDISH,       79,  224 ; AMAROWAK
@@ -433,6 +437,13 @@ PokemonCries::
 	mon_cry CRY_KRABBY,      238,  352 ; AGOLEM
 	mon_cry CRY_KRABBY,      238,  352 ; HVOLTORB
 	mon_cry CRY_KRABBY,      238,  352 ; HELECTRODE
+	mon_cry CRY_GROWLITHE,    32,  192 ; HGROWLITHE
+	mon_cry CRY_WEEDLE,        0,  256 ; HARCANINE
+	mon_cry CRY_WEEPINBELL,    0,  256 ; GPONYTA
+	mon_cry CRY_WEEPINBELL,   32,  320 ; GRAPIDASH
+	mon_cry CRY_DIGLETT,     170,  129 ; ADIGLETT
+	mon_cry CRY_DIGLETT,      42,  144 ; ADUGTRIO
+	mon_cry CRY_GOLEM,       255,  383 ; GWEEZING
 	mon_cry CRY_KRABBY,      238,  352 ; IRONBUNDLE
 	;reddit mons
 	mon_cry CRY_VOLTORB,     237,  256 ; VOLTORB2
@@ -447,12 +458,13 @@ PokemonCries::
 	mon_cry CRY_AMPHAROS,      0,  352 ; SCIZOR2
 	mon_cry CRY_VENONAT,       0,  256 ; TENTACOOL2
 	mon_cry CRY_VENONAT,     238,  383 ; TENTACRUEL2
-	mon_cry CRY_WEEPINBELL,   32,  320 ; RAPIDASH
+	mon_cry CRY_WEEPINBELL,    0,  256 ; PONYTA2
+	mon_cry CRY_WEEPINBELL,   32,  320 ; RAPIDASH2
 	mon_cry CRY_VULPIX,       79,  144 ; VULPIX
 	mon_cry CRY_VULPIX,      136,  224 ; NINETALES2
-	mon_cry CRY_SQUIRTLE,     17,  192 ; TAUROS2
-	mon_cry CRY_CYNDAQUIL,   510,  320 ; SWINUB2
-	mon_cry CRY_MAGCARGO,   -265,  256 ; PILOSWINE2
+	mon_cry CRY_METAPOD,     192,  129 ; ABRA2
+	mon_cry CRY_METAPOD,     168,  320 ; KADABRA2
+	mon_cry CRY_METAPOD,     152,  383 ; ALAKAZAM2
 	mon_cry CRY_AMPHAROS,   2217,  384 ; SKARMORY2
 	mon_cry CRY_TOTODILE,   1132,  232 ; TOTODILE2
 	mon_cry CRY_TOTODILE,   1088,  272 ; CROCONAW2
