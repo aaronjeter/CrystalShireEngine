@@ -3,9 +3,11 @@
 AlphabeticalPokedexOrder:
 	table_width 2
 	dw ABRA
+	dw ABRA2
 	dw AERODACTYL
 	dw AIPOM
 	dw ALAKAZAM
+	dw ALAKAZAM2
 	dw AMPHAROS
 	dw ARBOK
 	dw ARCANINE
@@ -120,6 +122,7 @@ AlphabeticalPokedexOrder:
 	dw KABUTO
 	dw KABUTOPS
 	dw KADABRA
+	dw KADABRA2
 	dw KAKUNA
 	dw KANGASKHAN
 	dw KINGDRA
@@ -191,7 +194,6 @@ AlphabeticalPokedexOrder:
 	dw PIDGEY
 	dw PIKACHU
 	dw PILOSWINE
-	dw PILOSWINE2
 	dw PINECO
 	dw PINSIR
 	dw POLITOED
@@ -211,6 +213,7 @@ AlphabeticalPokedexOrder:
 	dw RAICHU
 	dw RAIKOU
 	dw RAPIDASH
+	dw PONYTA2
 	dw RAPIDASH2
 	dw RATICATE
 	dw RATTATA
@@ -256,11 +259,9 @@ AlphabeticalPokedexOrder:
 	dw SUNKERN
 	dw SWAMPERT
 	dw SWINUB
-	dw SWINUB2
 	dw SYLVEON
 	dw TANGELA
 	dw TAUROS
-	dw TAUROS2
 	dw TEDDIURSA
 	dw TENTACOOL
 	dw TENTACOOL2
@@ -438,6 +439,10 @@ AlphabeticalPokedexOrder:
 	dw YANMEGA
 	dw PROBOPASS
 	dw DUSKNOIR
+	dw MR__RIME
+	dw URSALUNA
+	dw FARIGIRAF
+	dw SIRFETCH_D
 	;alt forms
 	dw ARAICHU
 	dw AMAROWAK
@@ -452,6 +457,13 @@ AlphabeticalPokedexOrder:
 	dw AGOLEM
 	dw HVOLTORB
 	dw HELECTRODE
+	dw HGROWLITHE
+	dw HARCANINE
+	dw GPONYTA
+	dw GRAPIDASH	
+	dw ADIGLETT
+	dw ADUGTRIO
+	dw GWEEZING
 	dw IRONBUNDLE
 	;beta mons
 	dw HANAMOLE

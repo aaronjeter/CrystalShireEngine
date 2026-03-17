@@ -432,6 +432,11 @@ RhyperiorPokedexEntry::  INCLUDE "data/pokemon/dex_entries/gen4/rhyperior.asm"
 YanmegaPokedexEntry::    INCLUDE "data/pokemon/dex_entries/gen4/yanmega.asm"
 ProbopassPokedexEntry::  INCLUDE "data/pokemon/dex_entries/gen4/probopass.asm"
 DusknoirPokedexEntry::   INCLUDE "data/pokemon/dex_entries/gen4/dusknoir.asm"
+MrRimePokedexEntry::     INCLUDE "data/pokemon/dex_entries/gen4/mr__rime.asm"
+UrsalunaPokedexEntry::   INCLUDE "data/pokemon/dex_entries/gen4/ursaluna.asm"
+FarigirafPokedexEntry::  INCLUDE "data/pokemon/dex_entries/gen4/farigiraf.asm"
+SirfetchDPokedexEntry::  INCLUDE "data/pokemon/dex_entries/gen4/sirfetch_d.asm"
+
 ;alt mons
 AraichuPokedexEntry::    INCLUDE "data/pokemon/dex_entries/alt/araichu.asm"
 AmarowakPokedexEntry::   INCLUDE "data/pokemon/dex_entries/alt/amarowak.asm"
@@ -490,12 +495,14 @@ SunbouPokedexEntry::      INCLUDE "data/pokemon/dex_entries/beta/sunbou.asm"
 IkariPokedexEntry::       INCLUDE "data/pokemon/dex_entries/beta/ikari.asm"
 TotartlePokedexEntry::    INCLUDE "data/pokemon/dex_entries/beta/totartle.asm"
 GorochuPokedexEntry::     INCLUDE "data/pokemon/dex_entries/beta/gorochu.asm"
-;mega
+
+
+SECTION "Pokedex Entries 500+", ROMX
+
 RaichuxPokedexEntry::     INCLUDE "data/pokemon/dex_entries/mega/raichux.asm"
 RaichuyPokedexEntry::     INCLUDE "data/pokemon/dex_entries/mega/raichuy.asm"
 DragonitexPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/dragonitex.asm"
 DragoniteyPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/dragonitey.asm"
-
 VenusaurxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/venusaurx.asm"
 CharizardxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/charizardx.asm"
 CharizardyPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/charizardy.asm"
@@ -525,9 +532,6 @@ TropiusxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/tropiusx.asm"
 SwalotxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/swalotx.asm"
 FlygonxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/flygonx.asm"
 ChimechoxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/chimechox.asm"
-
-
-SECTION "Pokedex Entries 500+", ROMX
 
 VictreebelxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/victreebelx.asm"
 UnownxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/unownx.asm"

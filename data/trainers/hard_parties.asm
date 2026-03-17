@@ -3206,7 +3206,7 @@ PokemaniacGroupHard:
 	db 7
 	dw TAUROS
 	db 7
-	dw TAUROS2
+	dw TAUROS
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (4) Route 42
@@ -7417,7 +7417,7 @@ BoarderGroupHard:
 	db 7
 	dw SWINUB
 	db 7
-	dw SWINUB2
+	dw SWINUB
 	db -1 ; end
 
 	next_list_item ; BOARDER (3) Mahogany Town Gym

@@ -413,6 +413,10 @@ FirstEvoStages::
 	dw YANMA
 	dw NOSEPASS
 	dw DUSKULL
+	dw MR__MIME
+	dw TEDDIURSA
+	dw GIRAFARIG
+	dw FARFETCH_D
 	;alt forms
 	dw PIKACHU
 	dw CUBONE
@@ -427,6 +431,13 @@ FirstEvoStages::
 	dw AGEODUDE
 	dw HVOLTORB
 	dw HVOLTORB
+	dw HGROWLITHE
+	dw HGROWLITHE
+	dw GPONYTA
+	dw GPONYTA
+	dw ADIGLETT
+	dw ADIGLETT
+	dw KOFFING
 	dw IRONBUNDLE
 	;Reddit Mons
 	dw VOLTORB2
@@ -441,12 +452,13 @@ FirstEvoStages::
 	dw SCYTHER2
 	dw TENTACOOL2
 	dw TENTACOOL2
-	dw PONYTA
+	dw PONYTA2
+	dw PONYTA2
 	dw VULPIX2
 	dw VULPIX2
-	dw TAUROS2
-	dw SWINUB2
-	dw SWINUB2
+	dw ABRA2
+	dw ABRA2
+	dw ABRA2
 	dw SKARMORY2
 	dw TOTODILE2
 	dw TOTODILE2

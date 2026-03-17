@@ -64,10 +64,11 @@ IntimidateMons::
 	dw SHELGON
 	dw SALAMENCE
 	dw SALAMENCEX
-	dw TAUROS2
 	dw CYNDAQUIL2
 	dw QUILAVA2
 	dw TYPHLOSION2
+	dw HGROWLITHE
+	dw HARCANINE
 	dw -1
 
 MystifyMons::
@@ -118,8 +119,11 @@ SnareMons::
 HasteMons::	
 	dw DIGLETT
 	dw DUGTRIO
+	dw ADIGLETT
+	dw ADUGTRIO
 	dw PONYTA
 	dw RAPIDASH
+	dw PONYTA2
 	dw RAPIDASH2
 	dw DODUO
 	dw DODRIO
@@ -128,6 +132,7 @@ HasteMons::
 	dw YANMA
 	dw YANMEGA
 	dw GIRAFARIG
+	dw FARIGIRAF
 	dw TORCHIC
 	dw COMBUSKEN
 	dw BLAZIKEN
@@ -179,6 +184,8 @@ VeiledMons::
 	dw GARDEVOIR
 	dw HANAMOLE
 	dw HANEEI
+	dw GPONYTA
+	dw GRAPIDASH
 	dw -1
 
 InvisibleWallMons::
@@ -218,6 +225,7 @@ LevitateMons::
 	dw GENGARX
 	dw KOFFING
 	dw WEEZING
+	dw GWEEZING
 	dw VIBRAVA
 	dw FLYGON
 	dw LUNATONE
@@ -263,6 +271,8 @@ ElementalFistMons::
 	dw MEDITITE
 	dw MEDICHAM
 	dw ANNIHILAPE
+	dw KADABRA2
+	dw ALAKAZAM2
 	dw -1
 
 ElementalFangMons::
@@ -275,6 +285,7 @@ ElementalFangMons::
 	dw FURRET
 	dw TEDDIURSA
 	dw URSARING
+	dw URSALUNA
 	dw ZIGZAGOON
 	dw LINOONE
 	dw CARVANHA
@@ -291,6 +302,7 @@ ElementalBladeMons::
 	dw MEOWTH
 	dw PERSIAN
 	dw FARFETCH_D
+	dw SIRFETCH_D
 	dw SCYTHER
 	dw SCIZOR
 	dw SNEASEL	
@@ -447,6 +459,7 @@ IceBodyMons::
 	dw FROSLASS
 	dw ASANDSHREW
 	dw ASANDSLASH
+	dw MR__MIME
 	dw -1
 
 ;Weather Speed Abilities--------------------
@@ -508,8 +521,6 @@ SlushRushMons::
 	dw KABUTO
 	dw KABUTOPS
 	dw SWINUB
-	dw SWINUB2
-	dw PILOSWINE
 	dw PILOSWINE
 	dw MAMOSWINE
 	dw AVULPIX

@@ -1783,7 +1783,6 @@ PonytaEvosAttacks:
 	db 0 ; no more level-up moves
 
 RapidashEvosAttacks:
-	dbww EVOLVE_ITEM, KANTOITE_X, RAPIDASH2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 5, GROWL
@@ -1888,6 +1887,7 @@ MagnetonEvosAttacks:
 	db 0 ; no more level-up moves
 
 FarfetchDEvosAttacks:
+	dbbw EVOLVE_LEVEL, 42, SIRFETCH_D
 	db 0 ; no more evolutions
 	dbw 1, PECK
 	dbw 7, KARATE_CHOP
@@ -2444,7 +2444,7 @@ LickitungEvosAttacks:
 	db 0 ; no more level-up moves
 
 KoffingEvosAttacks:
-	dbbw EVOLVE_LEVEL, 35, WEEZING
+	dbbw EVOLVE_LEVEL, 28, WEEZING
 	db 0 ; no more evolutions
 	dbw 1, POISON_GAS
 	dbw 1, EMBER
@@ -2465,6 +2465,7 @@ KoffingEvosAttacks:
 	db 0 ; no more level-up moves
 
 WeezingEvosAttacks:
+	dbbw EVOLVE_LEVEL, 42, WEEZING
 	db 0 ; no more evolutions
 	dbw 1, POISON_GAS
 	dbw 1, EMBER
@@ -2712,6 +2713,7 @@ StarmieEvosAttacks:
 	db 0 ; no more level-up moves
 
 MrMimeEvosAttacks:
+	dbww EVOLVE_ITEM, ICE_STONE, MR__RIME
 	db 0 ; no more evolutions
 	dbw 1, BARRIER
 	dbw 1, PIXIE_DUST

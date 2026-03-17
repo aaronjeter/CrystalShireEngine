@@ -752,24 +752,24 @@ def_grass_wildmons METEOR_FALLS
 def_grass_wildmons MT_PYRE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, VULPIX
-	dbw 1, WINGULL
+	dbw 1, HGROWLITHE
+	dbw 1, GPONYTA
 	dbw 1, MEDITITE
 	dbw 1, SHUPPET
 	dbw 1, DUSKULL
 	dbw 5, CHIMECHO
 	dbw 7, CHIMECHO
 	; day
-	dbw 1, VULPIX
-	dbw 1, WINGULL
+	dbw 1, HGROWLITHE
+	dbw 1, GPONYTA
 	dbw 1, MEDITITE
 	dbw 1, SHUPPET
 	dbw 1, DUSKULL
 	dbw 5, CHIMECHO
 	dbw 7, CHIMECHO
 	; nite
-	dbw 1, VULPIX
-	dbw 1, WINGULL
+	dbw 1, HGROWLITHE
+	dbw 1, GPONYTA
 	dbw 1, MEDITITE
 	dbw 1, SHUPPET
 	dbw 1, DUSKULL

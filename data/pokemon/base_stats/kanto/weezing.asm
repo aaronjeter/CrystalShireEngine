@@ -4,7 +4,7 @@
 	evs  0,   0,   2,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db POISON, FIRE ; type
+	db POISON, POISON ; type
 	db 60 ; catch rate
 	db 173 ; base exp
 	dw NO_ITEM, NO_ITEM ; items

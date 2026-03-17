@@ -412,6 +412,10 @@ FramesPointers:
 	dba YanmegaFrames
 	dba ProbopassFrames
 	dba DusknoirFrames
+	dba MrRimeFrames
+	dba UrsalunaFrames
+	dba FarigirafFrames
+	dba SirfetchDFrames
 	;alt forms
 	dba AraichuFrames
 	dba AmarowakFrames
@@ -426,6 +430,13 @@ FramesPointers:
 	dba AgolemFrames
 	dba HvoltorbFrames
 	dba HelectrodeFrames
+	dba HgrowlitheFrames
+	dba HarcanineFrames
+	dba GponytaFrames
+	dba GrapidashFrames
+	dba AdiglettFrames
+	dba AdugtrioFrames
+	dba GweezingFrames
 	dba IronbundleFrames
 	;reddit mons
 	dba Voltorb2Frames
@@ -440,12 +451,13 @@ FramesPointers:
 	dba Scizor2Frames
 	dba Tentacool2Frames
 	dba Tentacruel2Frames
+	dba Ponyta2Frames
 	dba Rapidash2Frames
 	dba Vulpix2Frames
 	dba Ninetales2Frames
-	dba Tauros2Frames
-	dba Swinub2Frames
-	dba Piloswine2Frames
+	dba Abra2Frames
+	dba Kadabra2Frames
+	dba Alakazam2Frames
 	dba Skarmory2Frames
 	dba Totodile2Frames
 	dba Croconaw2Frames

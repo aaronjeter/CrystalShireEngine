@@ -432,7 +432,11 @@ DEF JOHTO_POKEMON EQU const_value
 	const RHYPERIOR
 	const YANMEGA
 	const PROBOPASS
-	const DUSKNOIR
+	const DUSKNOIR	
+	const MR__RIME
+	const URSALUNA
+	const FARIGIRAF
+	const SIRFETCH_D
 	;alt forms
 	const ARAICHU
 	const AMAROWAK
@@ -447,6 +451,13 @@ DEF JOHTO_POKEMON EQU const_value
 	const AGOLEM
 	const HVOLTORB
 	const HELECTRODE
+	const HGROWLITHE
+	const HARCANINE
+	const GPONYTA
+	const GRAPIDASH	
+	const ADIGLETT
+	const ADUGTRIO
+	const GWEEZING
 	const IRONBUNDLE
 	;reddit mons
 	const VOLTORB2
@@ -461,12 +472,13 @@ DEF JOHTO_POKEMON EQU const_value
 	const SCIZOR2
 	const TENTACOOL2  
 	const TENTACRUEL2
+	const PONYTA2
 	const RAPIDASH2
 	const VULPIX2
 	const NINETALES2
-	const TAUROS2
-	const SWINUB2
-	const PILOSWINE2
+	const ABRA2
+	const KADABRA2
+	const ALAKAZAM2
 	const SKARMORY2
 	const TOTODILE2 
 	const CROCONAW2  

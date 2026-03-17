@@ -423,6 +423,10 @@ MonMenuIconPals:
 	icon_pals GREEN,  BLUE   ; YANMEGA
 	icon_pals BLUE,   BROWN  ; PROBOPASS
 	icon_pals GRAY,   RED    ; DUSKNOIR
+	icon_pals BLUE,   GREEN  ; MR__RIME
+	icon_pals BROWN,  GREEN  ; URSALUNA
+	icon_pals RED,    BLUE   ; FARIGIRAF
+	icon_pals BROWN,  BROWN  ; FARFETCH_D
 	;alt forms
 	icon_pals RED,    BROWN  ; ARAICHU
 	icon_pals BROWN,  GRAY   ; AMAROWAK
@@ -437,6 +441,13 @@ MonMenuIconPals:
 	icon_pals GRAY,   BROWN  ; AGOLEM
 	icon_pals RED,    PURPLE ; HVOLTORB
 	icon_pals RED,    PURPLE ; HELECTRODE
+	icon_pals RED,    BROWN  ; HGROWLITHE
+	icon_pals RED,    BROWN  ; HARCANINE
+	icon_pals RED,    BROWN  ; GPONYTA
+	icon_pals RED,    PURPLE ; GRAPIDASH
+	icon_pals BROWN,  BLUE   ; ADIGLETT
+	icon_pals BROWN,  BLUE   ; ADUGTRIO
+	icon_pals PURPLE, BLUE   ; GWEEZING
 	icon_pals RED,    PURPLE ; IRONBUNDLE
 	;reddit mons
 	icon_pals BLUE,   BLUE   ; VOLTORB
@@ -451,12 +462,13 @@ MonMenuIconPals:
 	icon_pals RED,    GREEN  ; SCIZOR
 	icon_pals BROWN,  BLUE   ; TENTACOOL
 	icon_pals BROWN,  BLUE   ; TENTACRUEL
-	icon_pals BLUE,   PURPLE ; RAPIDASH
+	icon_pals RED,    BROWN  ; PONYTA2
+	icon_pals BLUE,   PURPLE ; RAPIDASH2
 	icon_pals PINK,   BLUE   ; VULPIX2
 	icon_pals PINK,   BLUE   ; NINETALES2
-	icon_pals RED,    BROWN  ; TAUROS
-	icon_pals RED,    BLUE   ; SWINUB
-	icon_pals RED,    BROWN  ; PILOSWINE
+	icon_pals BROWN,  PURPLE ; ABRA2
+	icon_pals BROWN,  PURPLE ; KADABRA2
+	icon_pals BROWN,  PURPLE ; ALAKAZAM2
 	icon_pals GRAY,   GREEN  ; SKARMORY
 	icon_pals BLUE,   TEAL   ; TOTODILE
 	icon_pals BLUE,   TEAL   ; CROCONAW

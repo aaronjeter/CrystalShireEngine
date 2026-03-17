@@ -418,6 +418,10 @@ IconPointers:
 	dw YanmegaIcon
 	dw ProbopassIcon
 	dw DusknoirIcon
+	dw MrRimeIcon
+	dw UrsalunaIcon
+	dw FarigirafIcon
+	dw SirfetchdIcon
 	;alt forms
 	dw AraichuIcon
 	dw AmarowakIcon
@@ -432,6 +436,13 @@ IconPointers:
 	dw AgolemIcon
 	dw HvoltorbIcon
 	dw HelectrodeIcon
+	dw HgrowlitheIcon
+	dw HarcanineIcon
+	dw GponytaIcon
+	dw GrapidashIcon
+	dw AdiglettIcon
+	dw AdugtrioIcon
+	dw GweezingIcon
 	dw IronbundleIcon
 	;reddit mons
 	dw Voltorb2Icon
@@ -446,12 +457,13 @@ IconPointers:
 	dw Scizor2Icon
 	dw Tentacool2Icon
 	dw Tentacruel2Icon
+	dw Ponyta2Icon
 	dw Rapidash2Icon
 	dw Vulpix2Icon
 	dw Ninetales2Icon
-	dw Tauros2Icon
-	dw Swinub2Icon
-	dw Piloswine2Icon
+	dw Abra2Icon
+	dw Kadabra2Icon
+	dw Alakazam2Icon
 	dw Skarmory2Icon
 	dw Totodile2Icon
 	dw Croconaw2Icon

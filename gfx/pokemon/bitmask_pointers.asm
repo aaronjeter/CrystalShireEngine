@@ -412,6 +412,10 @@ BitmasksPointers:
 	dw YanmegaBitmasks
 	dw ProbopassBitmasks
 	dw DusknoirBitmasks
+	dw MrRimeBitmasks
+	dw UrsalunaBitmasks
+	dw FarigirafBitmasks
+	dw SirfetchDBitmasks
 	;alt forms
 	dw AraichuBitmasks
 	dw AmarowakBitmasks
@@ -426,6 +430,13 @@ BitmasksPointers:
 	dw AgolemBitmasks
 	dw HvoltorbBitmasks
 	dw HelectrodeBitmasks
+	dw HgrowlitheBitmasks
+	dw HarcanineBitmasks
+	dw GponytaBitmasks
+	dw GrapidashBitmasks
+	dw AdiglettBitmasks
+	dw AdugtrioBitmasks
+	dw GweezingBitmasks
 	dw IronbundleBitmasks
 	;reddit mons
 	dw Voltorb2Bitmasks
@@ -440,12 +451,13 @@ BitmasksPointers:
 	dw Scizor2Bitmasks
 	dw Tentacool2Bitmasks
 	dw Tentacruel2Bitmasks
+	dw Ponyta2Bitmasks
 	dw Rapidash2Bitmasks
 	dw Vulpix2Bitmasks
 	dw Ninetales2Bitmasks
-	dw Tauros2Bitmasks
-	dw Swinub2Bitmasks
-	dw Piloswine2Bitmasks
+	dw Abra2Bitmasks
+	dw Kadabra2Bitmasks
+	dw Alakazam2Bitmasks
 	dw Skarmory2Bitmasks
 	dw Totodile2Bitmasks
 	dw Croconaw2Bitmasks

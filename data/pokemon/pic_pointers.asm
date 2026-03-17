@@ -840,6 +840,14 @@ PokemonPicPointers::
 	dba ProbopassBackpic
 	dba DusknoirFrontpic
 	dba DusknoirBackpic
+	dba MrRimeFrontpic
+	dba MrRimeBackpic
+	dba UrsalunaFrontpic
+	dba UrsalunaBackpic
+	dba FarigirafFrontpic
+	dba FarigirafBackpic
+	dba SirfetchDFrontpic
+	dba SirfetchDBackpic
 	;alt forms
 	dba AraichuFrontpic
 	dba AraichuBackpic
@@ -867,6 +875,20 @@ PokemonPicPointers::
 	dba HvoltorbBackpic
 	dba HelectrodeFrontpic
 	dba HelectrodeBackpic
+	dba HgrowlitheFrontpic
+	dba HgrowlitheBackpic
+	dba HarcanineFrontpic
+	dba HarcanineBackpic
+	dba GponytaFrontpic
+	dba GponytaBackpic
+	dba GrapidashFrontpic
+	dba GrapidashBackpic
+	dba AdiglettFrontpic
+	dba AdiglettBackpic
+	dba AdugtrioFrontpic
+	dba AdugtrioBackpic
+	dba GweezingFrontpic
+	dba GweezingBackpic
 	dba IronbundleFrontpic
 	dba IronbundleBackpic	
 	;reddit mons
@@ -894,18 +916,20 @@ PokemonPicPointers::
 	dba Tentacool2Backpic
 	dba Tentacruel2Frontpic
 	dba Tentacruel2Backpic
+	dba Ponyta2Frontpic
+	dba Ponyta2Backpic
 	dba Rapidash2Frontpic
 	dba Rapidash2Backpic
 	dba Vulpix2Frontpic
 	dba Vulpix2Backpic
 	dba Ninetales2Frontpic
 	dba Ninetales2Backpic
-	dba Tauros2Frontpic
-	dba Tauros2Backpic
-	dba Swinub2Frontpic
-	dba Swinub2Backpic
-	dba Piloswine2Frontpic
-	dba Piloswine2Backpic
+	dba Abra2Frontpic
+	dba Abra2Backpic
+	dba Kadabra2Frontpic
+	dba Kadabra2Backpic
+	dba Alakazam2Frontpic
+	dba Alakazam2Backpic
 	dba Skarmory2Frontpic
 	dba Skarmory2Backpic
 	dba Totodile2Frontpic

@@ -1193,6 +1193,7 @@ WobbuffetEvosAttacks:
 	db 0 ; no more level-up moves
 
 GirafarigEvosAttacks:
+	dbbw EVOLVE_LEVEL, 41, FARIGIRAF
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL
@@ -1208,8 +1209,8 @@ GirafarigEvosAttacks:
 	dbw 50, CHARGE	
 	dbw 55, BODY_SLAM
 	dbw 60, DARK_PULSE
-	dbw 60, FUTURE_SIGHT
-	dbw 60, DOUBLE_EDGE
+	dbw 65, FUTURE_SIGHT
+	dbw 70, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PinecoEvosAttacks:
@@ -1476,6 +1477,7 @@ TeddiursaEvosAttacks:
 	db 0 ; no more level-up moves
 
 UrsaringEvosAttacks:
+	dbbw EVOLVE_LEVEL, 48, URSALUNA
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER

@@ -5,29 +5,29 @@ KantoGrassWildMons:
 	def_grass_wildmons DIGLETTS_CAVE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, WHISMUR
-	dbw 2, DIGLETT
+	dbw 1, ADIGLETT
+	dbw 1, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
 	dbw 5, DUGTRIO
 	dbw 6, DUGTRIO
-	dbw 7, DUGTRIO
+	dbw 7, ADUGTRIO
 	; day
-	dbw 1, WHISMUR
-	dbw 2, DIGLETT
+	dbw 1, ADIGLETT
+	dbw 1, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
 	dbw 5, DUGTRIO
 	dbw 6, DUGTRIO
-	dbw 7, DUGTRIO
+	dbw 7, ADUGTRIO
 	; nite
-	dbw 1, WHISMUR
-	dbw 2, DIGLETT
+	dbw 1, ADIGLETT
+	dbw 1, DIGLETT
 	dbw 3, DIGLETT
 	dbw 4, DIGLETT
 	dbw 5, DUGTRIO
 	dbw 6, DUGTRIO
-	dbw 7, DUGTRIO
+	dbw 7, ADUGTRIO
 	end_grass_wildmons
 
 	def_grass_wildmons MT_MOON_1F
@@ -67,7 +67,7 @@ KantoGrassWildMons:
 	dbw 1, PARAS
 	dbw 1, PARAS
 	dbw 3, PARAS
-	dbw 7, PARAS
+	dbw 7, GPONYTA
 	; day
 	dbw 1, ZUBAT
 	dbw 1, GEODUDE
@@ -75,7 +75,7 @@ KantoGrassWildMons:
 	dbw 1, PARAS
 	dbw 1, PARAS
 	dbw 3, PARAS
-	dbw 7, PARAS
+	dbw 7, GPONYTA
 	; nite
 	dbw 1, ZUBAT
 	dbw 1, GEODUDE
@@ -83,7 +83,7 @@ KantoGrassWildMons:
 	dbw 1, PARAS
 	dbw 1, PARAS
 	dbw 3, PARAS
-	dbw 7, PARAS
+	dbw 7, GPONYTA
 	end_grass_wildmons
 
 	def_grass_wildmons MT_MOON_B2F
