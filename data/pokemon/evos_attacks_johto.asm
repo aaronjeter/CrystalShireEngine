@@ -416,6 +416,7 @@ LedybaEvosAttacks:
 	db 0 ; no more level-up moves
 
 LedianEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, LEDIANX
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, LEECH_LIFE
@@ -1518,6 +1519,7 @@ SlugmaEvosAttacks:
 	db 0 ; no more level-up moves
 
 MagcargoEvosAttacks:
+	dbww EVOLVE_ITEM, JOHTOITE_X, MAGCARGOX
 	db 0 ; no more evolutions
 	dbw 1, SMOG
 	dbw 8, EMBER
