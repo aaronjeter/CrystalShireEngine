@@ -1255,15 +1255,16 @@ Ninetales2EvosAttacks:
 
 Abra2EvosAttacks:
 	dbbw EVOLVE_LEVEL, 16, KADABRA2
+	dbww EVOLVE_ITEM, SUN_STONE, ABRA
 	db 0 ; no more evolutions
 	dbw 1, TELEPORT
 	dbw 5, CONFUSION
-	dbw 12, NIGHT_SHADE
+	dbw 12, PSYWAVE
 	dbw 16, HYPNOSIS
 	dbw 20, CHARM
-	dbw 24, PSYBEAM
-	dbw 28, ANCIENTPOWER
-	dbw 32, SHADOW_PUNCH
+	dbw 24, SNARL
+	dbw 28, PSYBEAM
+	dbw 32, ANCIENTPOWER	
 	dbw 36, DREAM_EATER
 	dbw 40, DARK_PULSE	
 	dbw 45, PSYCHIC_M
@@ -1995,15 +1996,16 @@ Typhlosion2EvosAttacks:
 
 Kadabra2EvosAttacks:
 	dbbw EVOLVE_LEVEL, 42, ALAKAZAM2
+	dbww EVOLVE_ITEM, SUN_STONE, KADABRA
 	db 0 ; no more evolutions
 	dbw 1, TELEPORT
 	dbw 5, CONFUSION
-	dbw 12, NIGHT_SHADE
+	dbw 12, PSYWAVE
 	dbw 16, HYPNOSIS
 	dbw 20, CHARM
-	dbw 24, PSYBEAM
-	dbw 28, ANCIENTPOWER
-	dbw 32, SHADOW_PUNCH
+	dbw 24, SNARL
+	dbw 28, PSYBEAM
+	dbw 32, ANCIENTPOWER	
 	dbw 36, DREAM_EATER
 	dbw 40, DARK_PULSE	
 	dbw 45, PSYCHIC_M
@@ -2015,15 +2017,16 @@ Kadabra2EvosAttacks:
 	db 0 ; no more level-up moves
 
 Alakazam2EvosAttacks:
+	dbww EVOLVE_ITEM, SUN_STONE, ALAKAZAM
 	db 0 ; no more evolutions
 	dbw 1, TELEPORT
 	dbw 5, CONFUSION
-	dbw 12, NIGHT_SHADE
+	dbw 12, PSYWAVE
 	dbw 16, HYPNOSIS
 	dbw 20, CHARM
-	dbw 24, PSYBEAM
-	dbw 28, ANCIENTPOWER
-	dbw 32, SHADOW_PUNCH
+	dbw 24, SNARL
+	dbw 28, PSYBEAM
+	dbw 32, ANCIENTPOWER	
 	dbw 36, DREAM_EATER
 	dbw 40, DARK_PULSE	
 	dbw 45, PSYCHIC_M

@@ -357,6 +357,7 @@ MovesGen2:
 	move EFFECT_DEFENSE_DOWN_HIT,   75, WATER,          PHYSICAL,		100, 15,  50      ;RAZOR_SHELL
 	move EFFECT_SP_DEF_DOWN_HIT ,   80, GROUND,         SPECIAL,		100, 15,  25      ;EARTH_POWER
 	move EFFECT_JUMP_KICK,         110, ELECTRIC,       PHYSICAL,		 90, 25,   0      ;SHOCKSLAM
+	move EFFECT_SP_ATK_DOWN_HIT,    50, DARK,           SPECIAL,		100, 15, 100      ;SNARL
 .IndirectEnd::
 
 POPS

@@ -441,7 +441,7 @@ HoundoomxEvosAttacks:
 	dbw 12, SMOG
 	dbw 16, BITE
 	dbw 20, SHARPEN
-	dbw 24, FAINT_ATTACK
+	dbw 24, SNARL
 	dbw 28, FIRE_FANG
 	dbw 32, SLAM
 	dbw 36, SWIFT

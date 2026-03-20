@@ -330,4 +330,5 @@ MoveNames::
 	li "RAZOR SHELL"
 	li "EARTH POWER"
 	li "SHOCK SLAM"
+	li "SNARL"
 	assert_list_length NUM_ATTACKS

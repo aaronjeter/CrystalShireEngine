@@ -1462,6 +1462,7 @@ PoliwrathEvosAttacks:
 
 AbraEvosAttacks:
 	dbbw EVOLVE_LEVEL, 16, KADABRA
+	dbww EVOLVE_ITEM, MOON_STONE, ABRA2
 	db 0 ; no more evolutions
 	dbw 1, TELEPORT
 	dbw 7, CONFUSION
@@ -1483,6 +1484,7 @@ AbraEvosAttacks:
 
 KadabraEvosAttacks:
 	dbbw EVOLVE_LEVEL, 40, ALAKAZAM
+	dbww EVOLVE_ITEM, MOON_STONE, KADABRA2
 	db 0 ; no more evolutions
 	dbw 1, TELEPORT
 	dbw 7, CONFUSION
@@ -1504,6 +1506,7 @@ KadabraEvosAttacks:
 
 AlakazamEvosAttacks:
 	dbww EVOLVE_ITEM, KANTOITE_X, ALAKAZAMX
+	dbww EVOLVE_ITEM, MOON_STONE, ALAKAZAM2
 	db 0 ; no more evolutions
 	dbw 1, TELEPORT
 	dbw 7, CONFUSION

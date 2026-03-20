@@ -337,6 +337,7 @@ MoveDescriptionsGen2:
 	dw RazorshellDescription
 	dw EarthpowerDescription
 	dw ShockslamDescription
+	dw SnarlDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1655,3 +1656,7 @@ EarthpowerDescription:
 ShockslamDescription:
 	db   "May miss, damaging"
 	next "the user.@"
+
+SnarlDescription:
+	db   "An attack that"
+	next "lowers SPCL.ATK.@"
