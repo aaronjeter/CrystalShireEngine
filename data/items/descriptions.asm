@@ -28,7 +28,7 @@ ItemDescriptions1:
 	dw FireStoneDesc    ; 0011
 	dw ThunderStoneDesc ; 0012
 	dw WaterStoneDesc   ; 0013
-	dw BirdWhistleDesc  ; 0014
+	dw MarvelScaleDesc  ; 0014
 	dw HPUpDesc         ; 0015
 	dw ProteinDesc      ; 0016
 	dw IronDesc         ; 0017
@@ -138,11 +138,11 @@ ItemDescriptions1:
 	dw DragonScaleDesc  ; 007F
 	dw BerserkGeneDesc  ; 0080
 	dw HoenniteXDesc    ; 0081
-	dw QuestionMarkDesc ; 0082
-	dw QuestionMarkDesc ; 0083
+	dw RazorberryDesc   ; 0082
+	dw IronberryDesc    ; 0083
 	dw SacredAshDesc    ; 0084
 	dw FlowerMailDesc   ; 0085
-	dw QuestionMarkDesc ; 0086
+	dw HasteberryDesc   ; 0086
 	dw LightBallDesc    ; 0087
 	dw NormalBoxDesc    ; 0088
 	dw GorgeousBoxDesc  ; 0089
@@ -152,8 +152,8 @@ ItemDescriptions1:
 	dw UpGradeDesc      ; 008D
 	dw BerryDesc        ; 008E
 	dw GoldBerryDesc    ; 008F
-	dw QuestionMarkDesc ; 0090
-	dw QuestionMarkDesc ; 0091
+	dw FocusberryDesc   ; 0090
+	dw WardberryDesc    ; 0091
 	dw BrickPieceDesc   ; 0092
 	dw SurfMailDesc     ; 0093
 	dw LiteBlueMailDesc ; 0094
@@ -197,6 +197,7 @@ ItemDescriptionsKeyItems:
 	dw LanternDesc
 	dw HatchetDesc
 	dw PickaxeDesc
+	dw FlippersDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -899,6 +900,10 @@ PickaxeDesc:
 	db   "A tool to"
 	next "SMASH ROCKS.@"
 
+FlippersDesc:
+	db   "Lets you"
+	next "Swim.@"
+
 KantoiteXDesc:
 	db   "Empowers certain"
 	next "KANTO #MON.@"
@@ -914,3 +919,27 @@ JohtoiteXDesc:
 HoenniteXDesc:
 	db   "Empowers certain"
 	next "HOENN #MON.@"
+
+RazorberryDesc:
+	db   "Eat to boost"
+	next "ATTACK (HOLD)@"
+
+IronberryDesc:
+	db   "Eat to boost"
+	next "DEFENSE (HOLD)@"
+
+HasteberryDesc:
+	db   "Eat to boost"
+	next "SPEED (HOLD)@"
+
+FocusberryDesc:
+	db   "Eat to boost"
+	next "SP ATK (HOLD)@"
+
+WardberryDesc:
+	db   "Eat to boost"
+	next "SP DEF (HOLD)@"
+
+MarvelScaleDesc:
+	db   "A very shiny"
+	next "scale (Rare).@"

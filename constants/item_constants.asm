@@ -25,7 +25,7 @@
 	const FIRE_STONE   ; 0011
 	const THUNDERSTONE ; 0012
 	const WATER_STONE  ; 0013
-	const TERU_SAMA    ; 0014
+	const MARVEL_SCALE ; 0014
 	const HP_UP        ; 0015
 	const PROTEIN      ; 0016
 	const IRON         ; 0017

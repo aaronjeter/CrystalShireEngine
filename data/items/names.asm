@@ -19,7 +19,7 @@ ItemNames::
 	li "FIRE STONE"   ; 0011
 	li "THUNDERSTONE" ; 0012
 	li "WATER STONE"  ; 0013
-	li "TERU-SAMA"    ; 0014
+	li "MARVEL SCALE" ; 0014
 	li "HP UP"        ; 0015
 	li "PROTEIN"      ; 0016
 	li "IRON"         ; 0017
