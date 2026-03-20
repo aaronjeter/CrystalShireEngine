@@ -143,6 +143,7 @@ HasteMons::
 
 AimMons::
 	dw BUTTERFREE
+	dw BUTTERFREEX
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
@@ -245,6 +246,7 @@ WaterproofMons::
 	dw QUAGSIRE
 	dw SLUGMA
 	dw MAGCARGO
+	dw MAGCARGOX
 	dw NUMEL
 	dw CAMERUPT
 	dw BARBOACH
@@ -263,6 +265,7 @@ ElementalFistMons::
 	dw HITMONCHAN
 	dw LEDYBA
 	dw LEDIAN
+	dw LEDIANX
 	dw HERACROSS
 	dw HERACROSSX
 	dw BRELOOM

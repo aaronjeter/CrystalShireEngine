@@ -356,6 +356,7 @@ MetapodEvosAttacks:
 	db 0 ; no more level-up moves
 
 ButterfreeEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, BUTTERFREEX
 	db 0 ; no more evolutions
 	dbw 1, PIXIE_DUST
 	dbw 1, STRING_SHOT
@@ -2337,7 +2338,7 @@ KoffingEvosAttacks:
 	db 0 ; no more level-up moves
 
 WeezingEvosAttacks:
-	dbbw EVOLVE_LEVEL, 42, WEEZING
+	dbbw EVOLVE_LEVEL, 42, GWEEZING
 	db 0 ; no more evolutions
 	dbw 1, POISON_GAS
 	dbw 1, EMBER
@@ -2623,6 +2624,7 @@ ScytherEvosAttacks:
 	db 0 ; no more level-up moves
 
 JynxEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, JYNXX
 	db 0 ; no more evolutions
 	dbw 1, CONFUSION
 	dbw 1, LICK
