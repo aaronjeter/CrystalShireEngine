@@ -1089,7 +1089,7 @@ UmbreonEvosAttacks:
 	dbw 16, QUICK_ATTACK
 	dbw 20, CONFUSE_RAY
 	dbw 24, NIGHT_SHADE
-	dbw 28, FAINT_ATTACK
+	dbw 28, SNARL
 	dbw 32, BATON_PASS
 	dbw 36, COSMIC_POWER
 	dbw 40, PURSUIT
@@ -1707,7 +1707,7 @@ HoundourEvosAttacks:
 	dbw 12, SMOG
 	dbw 16, BITE
 	dbw 20, SHARPEN
-	dbw 24, FAINT_ATTACK
+	dbw 24, SNARL
 	dbw 28, FIRE_FANG
 	dbw 32, SLAM
 	dbw 36, SWIFT
@@ -1729,7 +1729,7 @@ HoundoomEvosAttacks:
 	dbw 12, SMOG
 	dbw 16, BITE
 	dbw 20, SHARPEN
-	dbw 24, FAINT_ATTACK
+	dbw 24, SNARL
 	dbw 28, FIRE_FANG
 	dbw 32, SLAM
 	dbw 36, SWIFT

@@ -162,6 +162,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_RazorShell	;
 	dw BattleAnim_EarthPower	;
 	dw BattleAnim_ShockSlam		;
+	dw BattleAnim_Snarl			;
 
 .IndirectEnd::
 
@@ -2328,5 +2329,17 @@ BattleAnim_Hail:
 	anim_sound 0, 1, SFX_SHINE
 	anim_wait 8
 	anim_loop 8, .loop
+	anim_wait 8
+	anim_ret
+
+BattleAnim_Snarl:
+	anim_2gfx BATTLE_ANIM_GFX_STATUS, BATTLE_ANIM_GFX_NOISE
+	anim_wait 32
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $60, $2, $0
+	anim_sound 0, 0, SFX_SNORE
+.loop
+	anim_call BattleAnimSub_Sound
+	anim_wait 16
+	anim_loop 2, .loop
 	anim_wait 8
 	anim_ret

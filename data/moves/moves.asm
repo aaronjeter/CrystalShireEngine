@@ -50,7 +50,7 @@ MovesGen1:
 	move EFFECT_NORMAL_HIT,        120, NORMAL,         PHYSICAL,		 80, 10,   0      ;MEGA_KICK
 	move EFFECT_JUMP_KICK,          80, FIGHTING,       PHYSICAL,		 90, 25,   0      ;JUMP_KICK
 	move EFFECT_FLINCH_HIT,         60, FIGHTING,       PHYSICAL,		 85, 15,  30      ;ROLLING_KICK
-	move EFFECT_ACCURACY_DOWN_HIT,  35, GROUND,         SPECIAL,		100, 15,  25      ;SAND_ATTACK
+	move EFFECT_ACCURACY_DOWN_HIT,  35, GROUND,         PHYSICAL,		100, 15,  25      ;SAND_ATTACK
 	move EFFECT_FLINCH_HIT,         70, NORMAL,         PHYSICAL,		100, 15,  30      ;HEADBUTT
 	move EFFECT_NORMAL_HIT,         65, NORMAL,         PHYSICAL,		100, 25,   0      ;HORN_ATTACK
 	move EFFECT_MULTI_HIT,          20, NORMAL,         PHYSICAL,		 90, 20,   0      ;FURY_ATTACK
@@ -83,8 +83,8 @@ MovesGen1:
 	move EFFECT_FREEZE_HIT,         80, ICE,            SPECIAL,		100, 10,  10      ;ICE_BEAM
 	move EFFECT_BLIZZARD,          120, ICE,            SPECIAL,		 80, 10,  25      ;BLIZZARD
 	move EFFECT_CONFUSE_HIT,        65, PSYCHIC_TYPE,   SPECIAL,		100, 20,  10      ;PSYBEAM
-	move EFFECT_SPEED_DOWN_HIT,     60, WATER,          SPECIAL,		100, 20,  50      ;BUBBLEBEAM
-	move EFFECT_ATTACK_DOWN_HIT,    60, ICE,            SPECIAL,		100, 20,  50      ;AURORA_BEAM
+	move EFFECT_SPEED_DOWN_HIT,     55, WATER,          SPECIAL,		100, 20, 100      ;BUBBLEBEAM
+	move EFFECT_ATTACK_DOWN_HIT,    50, ICE,            SPECIAL,		100, 20, 100      ;AURORA_BEAM
 	move EFFECT_HYPER_BEAM,        180, NORMAL,         SPECIAL,		100, 10,   0      ;HYPER_BEAM
 	move EFFECT_NORMAL_HIT,         40, FLYING,         PHYSICAL,		100, 35,   0      ;PECK
 	move EFFECT_NORMAL_HIT,         90, FLYING,         PHYSICAL,		100, 20,   0      ;DRILL_PECK
@@ -161,13 +161,13 @@ MovesGen1:
 	move EFFECT_JUMP_KICK,         110, FIGHTING,       PHYSICAL,		 90, 20,   0      ;HI_JUMP_KICK
 	move EFFECT_PARALYZE,            0, NORMAL,         STATUS,			100, 30,   0      ;GLARE
 	move EFFECT_DREAM_EATER,       120, PSYCHIC_TYPE,   SPECIAL,		100, 15,   0      ;DREAM_EATER
-	move EFFECT_POISON,              0, POISON,         STATUS,			 55, 40,   0      ;POISON_GAS
+	move EFFECT_POISON_HIT,         35, POISON,         SPECIAL,		100, 30,  25      ;POISON_GAS
 	move EFFECT_MULTI_HIT,          25, NORMAL,         PHYSICAL,		 85, 20,   0      ;BARRAGE
 	move EFFECT_LEECH_HIT,          35, BUG,            SPECIAL,		100, 15,   0      ;LEECH_LIFE
 	move EFFECT_SLEEP,               0, NORMAL,         STATUS,			 75, 10,   0      ;LOVELY_KISS
 	move EFFECT_NORMAL_HIT,        100, FLYING,         PHYSICAL,		 90, 10,   0      ;SKY_ATTACK
 	move EFFECT_TRANSFORM,           0, NORMAL,         STATUS,			100, 10,   0      ;TRANSFORM
-	move EFFECT_SPEED_DOWN_HIT,     35, WATER,          SPECIAL,		100, 30,  50      ;BUBBLE
+	move EFFECT_SPEED_DOWN_HIT,     35, WATER,          SPECIAL,		100, 30, 100      ;BUBBLE
 	move EFFECT_CONFUSE_HIT,        75, FAIRY,          PHYSICAL,		100, 10,  25      ;DIZZY_PUNCH
 	move EFFECT_SLEEP,               0, GRASS,          STATUS,			 80, 15,   0      ;SPORE
 	move EFFECT_ACCURACY_DOWN_2,     0, NORMAL,         STATUS,			 75, 20,   0      ;FLASH
@@ -206,7 +206,7 @@ MovesGen2:
 	move EFFECT_REVERSAL,            1, NORMAL,         PHYSICAL,		100, 15,   0      ;FLAIL
 	move EFFECT_CONVERSION2,         0, NORMAL,         STATUS,			100, 30,   0      ;CONVERSION2
 	move EFFECT_NORMAL_HIT,        100, FLYING,         SPECIAL,		 95, 10,   0      ;AEROBLAST
-	move EFFECT_SPEED_DOWN_2,        0, GRASS,          STATUS,			 85, 40,   0      ;COTTON_SPORE
+	move EFFECT_SPEED_DOWN_2,        0, GRASS,          STATUS,			100, 40,   0      ;COTTON_SPORE
 	move EFFECT_REVERSAL,            1, FIGHTING,       SPECIAL,		100, 15,   0      ;REVERSAL
 	move EFFECT_SPITE,               0, GHOST,          STATUS,			100, 10,   0      ;SPITE
 	move EFFECT_FREEZE_HIT,         35, ICE,            SPECIAL,		100, 25,  25      ;POWDER_SNOW
@@ -282,7 +282,7 @@ MovesGen2:
 	move EFFECT_FLINCH_HIT,        100, DARK,           PHYSICAL,		 90, 10,  10      ;BEAT_UP
 	move EFFECT_BURN,                0, FIRE,           STATUS,			 90, 15,   0      ;WILLOWISP
 	move EFFECT_ACCURACY_DOWN_HIT,  35, FAIRY,          SPECIAL,		100, 25,  25      ;PIXIE_DUST
-	move EFFECT_FLINCH_HIT,         65, FAIRY,          SPECIAL,		100, 20,  20      ;FAE_VOICE
+	move EFFECT_SP_ATK_DOWN_HIT,    50, FAIRY,          SPECIAL,		100, 20, 100      ;FAE_VOICE
 	move EFFECT_RAMPAGE,           100, NORMAL,         SPECIAL,		100, 10,   0      ;UPROAR
 	move EFFECT_BURN_HIT,          100, FIRE,           SPECIAL,		 90, 10,  10      ;HEAT_WAVE
 	move EFFECT_HAIL,		         0, ICE,            STATUS,			100, 10,   0      ;HAIL 
@@ -295,7 +295,7 @@ MovesGen2:
 	move EFFECT_MULTI_HIT,          15, FIGHTING,       PHYSICAL,		100, 20,   0      ;ARM_THRUST
 	move EFFECT_NORMAL_HIT,        120, FAIRY,          SPECIAL,		 85, 10,   0      ;LUSTER_PURGE
 	move EFFECT_SP_DEF_DOWN_HIT,    80, WATER,          SPECIAL,		100, 10,  50      ;MIST_BALL
-	move EFFECT_BURN_HIT,           80, FIRE,           PHYSICAL,		100, 10,   5      ;BLAZE_KICK
+	move EFFECT_BURN_HIT,           80, FIRE,           PHYSICAL,		100, 10,  15      ;BLAZE_KICK
 	move EFFECT_ROLLOUT,            30, ICE,            PHYSICAL,		 90, 20,   0      ;ICE_BALL
 	move EFFECT_FLINCH_HIT,         60, GRASS,          PHYSICAL,		100, 15,  30      ;NEEDLE_ARM
 	move EFFECT_NORMAL_HIT,         90, NORMAL,         SPECIAL,		100, 10,   0      ;HYPER_VOICE
@@ -348,7 +348,7 @@ MovesGen2:
 	move EFFECT_FLINCH_HIT,         80, DARK,           SPECIAL,		100, 20,  20      ;DARK_PULSE
 	move EFFECT_NORMAL_HIT,         90, FAIRY,			SPECIAL,        100, 15,   0      ;FAERIEGLEAM (DAZZLING_GLEAM)
 	move EFFECT_POISON_HIT,         80, POISON,         SPECIAL,		100, 15,  25      ;SLUDGEWAVE
-	move EFFECT_PRIORITY_HIT,       40, STEEL,          PHYSICAL,		100, 20,   0      ;BULLETPUNCH
+	move EFFECT_PRIORITY_HIT,       40, STEEL,          PHYSICAL,		100, 20,   0      ;BULLET_PUNCH
 	move EFFECT_THUNDER,           120, FLYING,         SPECIAL,		 80, 10,  50      ;HURRICANE
 	move EFFECT_PRIORITY_HIT,       40, GHOST,          PHYSICAL,		100, 20,   0      ;SHADOWSNEAK
 	move EFFECT_NORMAL_HIT,        100, GHOST,          PHYSICAL,		 90, 15,   0      ;SHADOWFORCE
@@ -356,7 +356,8 @@ MovesGen2:
 	move EFFECT_BURN_HIT,           80, WATER,          SPECIAL,		100, 15,  25      ;SCALD
 	move EFFECT_DEFENSE_DOWN_HIT,   75, WATER,          PHYSICAL,		100, 15,  50      ;RAZOR_SHELL
 	move EFFECT_SP_DEF_DOWN_HIT ,   80, GROUND,         SPECIAL,		100, 15,  25      ;EARTH_POWER
-	move EFFECT_JUMP_KICK,         110, FIGHTING,       PHYSICAL,		 90, 25,   0      ;SHOCKSLAM
+	move EFFECT_JUMP_KICK,         110, ELECTRIC,       PHYSICAL,		 90, 25,   0      ;SHOCKSLAM
+	move EFFECT_SP_ATK_DOWN_HIT,    50, DARK,           SPECIAL,		100, 15, 100      ;SNARL
 .IndirectEnd::
 
 POPS
