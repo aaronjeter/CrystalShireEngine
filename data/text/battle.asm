@@ -1247,3 +1247,19 @@ StabBoostsDamageText:
 	text "<USER>'s"
 	line "STAB boosted!"
 	prompt
+
+EnervateCutsSpDefText:
+	text "<USER>'s"
+    line "Enervate cuts"
+
+    para "<TARGET>'s"
+    line "SPCL DEF!"
+	prompt
+
+DauntCutsDefText:
+	text "<USER>'s"
+    line "Daunt cuts"
+
+    para "<TARGET>'s"
+    line "DEF!"
+	prompt

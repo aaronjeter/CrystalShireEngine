@@ -121,3 +121,11 @@ SandRushDesc:
 SlushRushDesc:
 	db    "Increases SPEED"
 	next  "in HAIL.@"
+
+EnervateDesc:
+	db    "Cuts the foe's"
+	next  "SP. DEF.@"
+
+DauntDesc:
+	db    "Cuts the foe's"
+	next  "DEF.@"
