@@ -80,6 +80,12 @@ PrintAbility:
 	jp .Leech
 	.NotLeech
 
+	jp .Enervate
+	.NotEnervate
+
+	jp .Daunt
+	.NotDaunt
+
 	jp .SwiftSwim
 	.NotSwiftSwim
 
@@ -524,6 +530,38 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Enervate:
+	call GetAbilityMon	
+	farcall CheckEnervateAbility
+	jr c, .HasEnervate
+	jp .NotEnervate
+		
+.HasEnervate:
+	ld de, EnervateNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, EnervateDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.Daunt:
+	call GetAbilityMon	
+	farcall CheckDauntAbility
+	jr c, .HasDaunt
+	jp .NotDaunt
+		
+.HasDaunt:
+	ld de, DauntNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, DauntDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 .SwiftSwim:
 	call GetAbilityMon	
 	farcall CheckSwiftSwimAbility
@@ -685,3 +723,9 @@ SandRushNameString:
 
 SlushRushNameString:
 	db "Slush Rush@"
+
+EnervateNameString:
+	db "Enervate@"
+
+DauntNameString:
+	db "Daunt@"

@@ -40,11 +40,11 @@ SnowWarningMons::
 	dw -1
 
 IntimidateMons::
+	dw NIDORAN_F
+	dw NIDORINA
+	dw NIDOQUEEN
 	dw EKANS
-	dw ARBOK
-	dw GROWLITHE
-	dw ARCANINE
-	dw TAUROS
+	dw ARBOK	
 	dw GYARADOS
 	dw GYARADOSX
 	dw SNUBBULL
@@ -53,9 +53,7 @@ IntimidateMons::
 	dw HOUNDOOM
 	dw HOUNDOOMX
 	dw STANTLER
-	dw WYRDEER
-	dw POOCHYENA
-	dw MIGHTYENA
+	dw WYRDEER	
 	dw MASQUERAIN
 	dw MAWILE
 	dw ELECTRIKE
@@ -66,9 +64,7 @@ IntimidateMons::
 	dw SALAMENCEX
 	dw CYNDAQUIL2
 	dw QUILAVA2
-	dw TYPHLOSION2
-	dw HGROWLITHE
-	dw HARCANINE
+	dw TYPHLOSION2	
 	dw -1
 
 MystifyMons::
@@ -216,6 +212,28 @@ LeechMons::
 	dw JUMPLUFF
 	dw -1
 
+EnervateMons::
+	dw GOREBYSS
+	dw ABRA2
+	dw KADABRA2
+	dw ALAKAZAM2
+	dw -1
+
+DauntMons::
+	dw NIDORAN_M
+	dw NIDORINO
+	dw NIDOKING
+	dw TAUROS
+	dw GROWLITHE
+	dw ARCANINE	
+	dw POOCHYENA
+	dw MIGHTYENA
+	dw HUNTAIL
+	dw HGROWLITHE
+	dw HARCANINE
+	dw -1
+
+
 ;Levitate/Waterproof mons ----------------------------------------------
 
 LevitateMons::	
@@ -273,9 +291,7 @@ ElementalFistMons::
 	dw HARIYAMA
 	dw MEDITITE
 	dw MEDICHAM
-	dw ANNIHILAPE
-	dw KADABRA2
-	dw ALAKAZAM2
+	dw ANNIHILAPE	
 	dw -1
 
 ElementalFangMons::
@@ -460,7 +476,8 @@ IceBodyMons::
 	dw FROSLASS
 	dw ASANDSHREW
 	dw ASANDSLASH
-	dw MR__MIME
+	dw MR__RIME
+	dw JYNXX
 	dw -1
 
 ;Weather Speed Abilities--------------------
@@ -485,9 +502,7 @@ SwiftSwimMons::
 	dw MUDKIP
 	dw MARSHTOMP
 	dw SWAMPERT
-	dw SURSKIT
-	dw HUNTAIL
-	dw GOREBYSS
+	dw SURSKIT	
 	dw RELICANTH
 	dw VULPIX2
 	dw -1

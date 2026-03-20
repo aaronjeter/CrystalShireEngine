@@ -92,6 +92,18 @@ CheckLeechAbility:
 	call IsInWordArray
 	ret
 
+CheckEnervateAbility:
+	call SetupAbilityCheck
+	ld hl, EnervateMons
+	call IsInWordArray
+	ret
+
+CheckDauntAbility:
+	call SetupAbilityCheck
+	ld hl, DauntMons
+	call IsInWordArray
+	ret
+
 ;Immunity abilities-----
 
 CheckLevitateAbility:

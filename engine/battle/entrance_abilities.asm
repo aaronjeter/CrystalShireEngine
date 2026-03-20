@@ -30,6 +30,10 @@ Check_Entrance_Ability:
 
 	call .Leech
 
+	call .Enervate
+
+	call .Daunt
+
 	ret
 
 .Drizzle:
@@ -269,6 +273,36 @@ Check_Entrance_Ability:
 	ld de, LEECH_SEED
     farcall Call_PlayBattleAnim
     farcall BattleCommand_LeechSeed
+    ret
+
+.Enervate:
+	call GetAbilitySpecies	
+	farcall CheckEnervateAbility
+	jr c, .HasEnervate
+	ret
+		
+.HasEnervate:	
+	ld de, GIGA_DRAIN
+    farcall Call_PlayBattleAnim
+    farcall BattleCommand_SpecialDefenseDown
+
+    ld hl, EnervateCutsSpDefText
+    call StdBattleTextbox
+    ret
+
+.Daunt:
+	call GetAbilitySpecies	
+	farcall CheckDauntAbility
+	jr c, .HasDaunt
+	ret
+		
+.HasDaunt:	
+	ld de, LEER
+    farcall Call_PlayBattleAnim
+    farcall BattleCommand_DefenseDown
+
+    ld hl, DauntCutsDefText
+    call StdBattleTextbox
     ret
 
 
