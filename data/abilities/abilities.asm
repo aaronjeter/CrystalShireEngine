@@ -157,9 +157,7 @@ AimMons::
 	dw AGOLEM
 	dw -1
 
-FocusMons::
-	dw SPEAROW
-	dw FEAROW
+FocusMons::	
 	dw MACHOP
 	dw MACHOKE
 	dw MACHAMP
@@ -220,6 +218,8 @@ EnervateMons::
 	dw -1
 
 DauntMons::
+	dw SPEAROW
+	dw FEAROW
 	dw NIDORAN_M
 	dw NIDORINO
 	dw NIDOKING
