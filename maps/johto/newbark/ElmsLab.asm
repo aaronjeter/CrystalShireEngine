@@ -177,7 +177,7 @@ LeftPokeBallScript:
 	iftrue AvulpixPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue Vulpix2PokeBallScript
+	iftrue Abra2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue HonobeaPokeBallScript
@@ -328,6 +328,32 @@ AvulpixPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke AVULPIX, 5, BERRY
+	closetext
+	readvar VAR_FACING
+	ifequal RIGHT, ElmDirectionsScript
+	applymovement PLAYER, AfterCyndaquilMovement
+	sjump ElmDirectionsScript
+
+Abra2PokeBallScript:	
+	pokepic ABRA2
+	cry ABRA2
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeAbra2Text
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear ELMSLAB_POKE_BALL1
+	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, ABRA2
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke ABRA2, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -1389,6 +1415,12 @@ TakeVulpix2Text:
 	text "ELM: Do you want"
 	line "Vulpix, the"
 	cont "steam #MON?"
+	done
+
+TakeAbra2Text:
+	text "ELM: Do you want"
+	line "Abra, the"
+	cont "magician #MON?"
 	done
 
 TakeHonobeaText:

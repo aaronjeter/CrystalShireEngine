@@ -77,7 +77,7 @@ BirchLeftPokeBallScript:
 	iftrue BirchAvulpixPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue BirchVulpix2PokeBallScript
+	iftrue BirchAbra2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue BirchHonobeaPokeBallScript
@@ -222,6 +222,29 @@ BirchAvulpixPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke AVULPIX, 5, BERRY
+	closetext
+	sjump BirchDirectionsScript
+
+BirchAbra2PokeBallScript:	
+	pokepic ABRA2
+	cry ABRA2
+	waitbutton
+	closepokepic
+	opentext
+	writetext BirchTakeAbra2Text
+	yesorno
+	iffalse BirchDidntChooseStarterScript
+	disappear BIRCHSLAB_POKE_BALL1
+	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	writetext BirchChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, ABRA2
+	writetext BirchReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke ABRA2, 5, BERRY
 	closetext
 	sjump BirchDirectionsScript
 
@@ -634,6 +657,12 @@ BirchTakeVulpix2Text:
 	text "Birch: Take"
 	line "Vulpix, the"
 	cont "steam #MON?"
+	done
+
+BirchTakeAbra2Text:
+	text "Birch: Take"
+	line "Abra, the"
+	cont "magician #MON?"
 	done
 
 BirchTakeHonobeaText:

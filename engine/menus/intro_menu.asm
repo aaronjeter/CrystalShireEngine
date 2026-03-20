@@ -719,7 +719,7 @@ SetRegion:
 	db "Johto (Gen 2)@"
 	db "Hoenn (Gen 3)@"
 	db "Alola (Gen 7)@"
-	db "Reddit (alt)@"
+	db "Internet@"
 	db "Spaceworld@"
 
 .RegionKanto:
