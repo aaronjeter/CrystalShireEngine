@@ -28,7 +28,7 @@ ItemDescriptions1:
 	dw FireStoneDesc    ; 0011
 	dw ThunderStoneDesc ; 0012
 	dw WaterStoneDesc   ; 0013
-	dw BirdWhistleDesc  ; 0014
+	dw MarvelScaleDesc  ; 0014
 	dw HPUpDesc         ; 0015
 	dw ProteinDesc      ; 0016
 	dw IronDesc         ; 0017
@@ -939,3 +939,7 @@ FocusberryDesc:
 WardberryDesc:
 	db   "Eat to boost"
 	next "SP DEF (HOLD)@"
+
+MarvelScaleDesc:
+	db   "A very shiny"
+	next "scale (Rare).@"
