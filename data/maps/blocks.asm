@@ -1005,6 +1005,7 @@ SECTION "Map Blocks 4", ROMX
 	FortreeTradeHouse_Blocks:
 	LilycoveTradeHouse_Blocks:
 	LilycovePaintHouse_Blocks:
+	FallarborReminderHouse_Blocks:
 	PetalburgHouse1_Blocks:
 	PetalburgHouse2_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"

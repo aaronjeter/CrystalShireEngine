@@ -21,17 +21,27 @@ FallarborTownSignText:
 	cont "gardens."
 	done
 
+FallarborMoveReminderSign:
+	jumptext FallarborMoveReminderSignText
+
+FallarborMoveReminderSignText:
+	text "Move Reminder's"
+	line "House."
+	done
+
 FallarborTown_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
 	warp_event 13,  09, FALLARBOR_POKECENTER, 2
 	warp_event 15,  17, FALLARBOR_MART, 2
+	warp_event 03,  15, FALLARBOR_REMINDER_HOUSE, 2
 
 	def_coord_events
 
 	def_bg_events	
 	bg_event  10, 10, BGEVENT_READ, FallarborTownSign
+	bg_event  04, 16, BGEVENT_READ, FallarborMoveReminderSign
 
 	def_object_events
 	

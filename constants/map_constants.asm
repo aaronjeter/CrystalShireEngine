@@ -595,6 +595,7 @@ ENDM
 	map_const FALLARBOR_TOWN,							   12, 12 ;
 	map_const FALLARBOR_POKECENTER,						   07, 04 ;
 	map_const FALLARBOR_MART,							   06, 04 ;
+	map_const FALLARBOR_REMINDER_HOUSE,                    04, 04 ;
 	map_const ROUTE_114,                                   20, 40 ;
 	map_const LANETTE_HOUSE,                               05, 05 ;
 	map_const ROUTE_115,                                   20, 40 ;

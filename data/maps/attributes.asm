@@ -767,6 +767,7 @@ ENDM
 	map_attributes FortreeTradeHouse, FORTREE_TRADE_HOUSE, $00, 0
 	map_attributes LilycoveTradeHouse, LILYCOVE_TRADE_HOUSE, $00, 0
 	map_attributes LilycovePaintHouse, LILYCOVE_PAINT_HOUSE, $00, 0
+	map_attributes FallarborReminderHouse, FALLARBOR_REMINDER_HOUSE, $00, 0
 
 	map_attributes BirchsLab, BIRCHS_LAB, $00, 0
 
