@@ -7,7 +7,7 @@
 	db WATER, WATER ; type
 	db 255 ; catch rate
 	db 20 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, MARVEL_SCALE ; items
 	db GENDER_F50 ; gender ratio
 	db 5 ; step cycles to hatch
 	INCBIN "gfx/pokemon/magikarp/front.dimensions"

@@ -10,6 +10,30 @@ MossdeepCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_MOSSDEEP
 	endcallback
 
+MossdeepSign:
+	jumptext MossdeepSignText
+
+MossdeepSignText:
+	text "Mossdeep City"
+
+	para "Our Slogan:"
+	line "Cherish Pokemon"
+	done
+
+MossdeepGymSign:
+	jumptext MossdeepGymSignText
+
+MossdeepGymSignText:
+	text "Mossdeep City"
+	line "#MON Gym"
+
+	para "Leaders: "
+	line "Tate & Liza"
+
+	para "The Twin"
+	line "Masters"
+	done
+
 MossdeepCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -21,6 +45,8 @@ MossdeepCity_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  27, 17, BGEVENT_READ, MossdeepSign
+	bg_event  37, 09, BGEVENT_READ, MossdeepGymSign
 
 	def_object_events
 	

@@ -551,6 +551,7 @@ INCLUDE "maps/hoenn/mauville/MauvilleTradeHouse.asm"
 INCLUDE "maps/hoenn/slateport/SlateportTradeHouse.asm"
 INCLUDE "maps/hoenn/fortree/FortreeTradeHouse.asm"
 INCLUDE "maps/hoenn/lilycove/LilycoveTradeHouse.asm"
+INCLUDE "maps/hoenn/lilycove/LilycovePaintHouse.asm"
 
 INCLUDE "maps/hoenn/lavaridge/LavaridgeTown.asm"
 INCLUDE "maps/hoenn/lavaridge/LavaridgePokecenter.asm"

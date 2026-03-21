@@ -1004,6 +1004,7 @@ SECTION "Map Blocks 4", ROMX
 	SlateportTradeHouse_Blocks:
 	FortreeTradeHouse_Blocks:
 	LilycoveTradeHouse_Blocks:
+	LilycovePaintHouse_Blocks:
 	PetalburgHouse1_Blocks:
 	PetalburgHouse2_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"

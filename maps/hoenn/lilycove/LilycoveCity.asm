@@ -51,16 +51,45 @@ Lilycove_Wingull:
 	cry WINGULL
 	end
 
+LilycoveSign:
+	jumptext LilycoveSignText
+
+LilycoveSignText:
+	text "Lilycove City"
+
+	para "Where land ends"
+	line "and sea begins."
+	done
+
+LilycoveCleaHouseSign:
+	jumptext LilycoveCleaHouseSignText
+
+LilycoveCleaHouseSignText:
+	text "Clea's Paintshop"
+	done
+
+LilycoveDeptStoreSign:
+	jumptext LilycoveDeptStoreSignText
+
+LilycoveDeptStoreSignText:
+	text "Lilycove City"
+	line "Department Store"
+	done
+
 LilycoveCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
 	warp_event 23, 15, LILYCOVE_POKECENTER, 2
 	warp_event 53, 17, LILYCOVE_TRADE_HOUSE, 2
+	warp_event 55, 05, LILYCOVE_PAINT_HOUSE, 2
 
 	def_coord_events
 
 	def_bg_events	
+	bg_event  29, 15, BGEVENT_READ, LilycoveSign
+	bg_event  53, 07, BGEVENT_READ, LilycoveCleaHouseSign
+	bg_event  37, 07, BGEVENT_READ, LilycoveDeptStoreSign
 
 	def_object_events
 	object_event  46,  33, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, LilycoveMossdeepGuyScript, -1

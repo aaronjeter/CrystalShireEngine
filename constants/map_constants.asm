@@ -610,6 +610,7 @@ ENDM
 	map_const LILYCOVE_CITY,                               40, 22 ;
 	map_const LILYCOVE_POKECENTER,                         07, 04 ;
 	map_const LILYCOVE_TRADE_HOUSE,                        04, 04 ;
+	map_const LILYCOVE_PAINT_HOUSE,                        04, 04 ;
 	map_const MT_PYRE,                                     20, 30 ;
 	map_const MOSSDEEP_CITY,                               40, 20 ;
 	map_const MOSSDEEP_POKECENTER,						   07, 04 ;
