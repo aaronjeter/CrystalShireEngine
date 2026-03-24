@@ -258,6 +258,8 @@ DEF KRIS EQU __trainer_class__
 	const MOON_MIRIAM
 	const ROUTE118_SALLY
 	const ROUTE118_ANNIE
+	const SOOTOPOLIS_ANDREA
+	const SOOTOPOLIS_CRISSY
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -350,6 +352,10 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE112_SHAYLA
 	const ROUTE120_CLARISSA
 	const ROUTE120_ANGELICA
+	const SOOTOPOLIS_CONNIE
+	const SOOTOPOLIS_TIFFANY
+	const SOOTOPOLIS_OLIVIA
+	const SOOTOPOLIS_BRIDGET
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -440,6 +446,8 @@ DEF KRIS EQU __trainer_class__
 	const KLUTCH1
 	const KLUTCH2
 	const KLUTCH3
+	const SOOTOPOLIS_DAPHNE
+	const SOOTOPOLIS_BRIANNA
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
@@ -913,6 +921,8 @@ DEF KRIS EQU __trainer_class__
 	const JAIME
 	const ROUTE117_LYDIA
 	const ROUTE110_ISABEL
+	const SOOTOPOLIS_ANNIKA
+	const SOOTOPOLIS_BETHANY
 
 	trainerclass RED ; 3f
 	const RED1
@@ -984,6 +994,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass WALLACE
 	const WALLACE1
+	const WALLACE2
 
 	trainerclass ELITESIDNEY
 	const SIDNEY1

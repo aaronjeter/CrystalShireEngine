@@ -117,7 +117,7 @@ Landmarks:
 	landmark  84,  44, FortreeName
 	landmark 124,  60, LilycoveName
 	landmark 140,  68, MossdeepName
-	landmark 124,  60, SootopolisName
+	landmark 124,  84, SootopolisName
 	landmark 124,  60, PacifidlogName
 	landmark 124,  60, EvergrandeName
 	landmark  12,  92, PetalburgWoodsName

@@ -97,6 +97,7 @@ if DEF(_DEBUG)
 	giveitem HASTE_BERRY, 10
 	giveitem FOCUS_BERRY, 10
 	giveitem WARD_BERRY, 10
+	giveitem MARVEL_SCALE, 10
 
 	giveitem HM_CUT
 	giveitem HM_SURF
@@ -195,6 +196,7 @@ if DEF(_DEBUG)
 	setflag ENGINE_FLYPOINT_FORTREE
 	setflag ENGINE_FLYPOINT_LILYCOVE
 	setflag ENGINE_FLYPOINT_MOSSDEEP
+	setflag ENGINE_FLYPOINT_SOOTOPOLIS
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party

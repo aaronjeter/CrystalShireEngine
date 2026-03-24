@@ -538,6 +538,11 @@ INCLUDE "maps/hoenn/mossdeep/MossdeepPokecenter.asm"
 INCLUDE "maps/hoenn/mossdeep/MossdeepMart.asm"
 INCLUDE "maps/hoenn/mossdeep/MossdeepGym.asm"
 
+INCLUDE "maps/hoenn/sootopolis/SootopolisCity.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisPokecenter.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisMart.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisGym.asm"
+
 ENDSECTION
 
 

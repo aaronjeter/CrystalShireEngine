@@ -617,6 +617,10 @@ ENDM
 	map_const MOSSDEEP_POKECENTER,						   07, 04 ;
 	map_const MOSSDEEP_MART,							   06, 04 ;
 	map_const MOSSDEEP_GYM,				    			   20, 20 ;
+	map_const SOOTOPOLIS_CITY,                             30, 30 ;
+	map_const SOOTOPOLIS_POKECENTER,					   07, 04 ;
+	map_const SOOTOPOLIS_MART,							   06, 04 ;
+	map_const SOOTOPOLIS_GYM,							   12, 20 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

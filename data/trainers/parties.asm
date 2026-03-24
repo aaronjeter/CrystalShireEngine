@@ -2284,6 +2284,22 @@ LassGroup:
 	dw ROSELIA
 	db -1 ; end
 
+	next_list_item ; LASS (27) Sootopolis Gym
+	db "ANDREA@", TRAINERTYPE_NORMAL	
+	db 7
+	dw LUVDISC
+	db 7
+	dw WAILMER
+	db -1 ; end
+
+	next_list_item ; LASS (28) Sootopolis Gym
+	db "CRISSY@", TRAINERTYPE_NORMAL	
+	db 7
+	dw GOLDEEN
+	db 7
+	dw BLASTOISE
+	db -1 ; end
+
 	end_list_items
 
 JanineGroup: ;Gym Leader
@@ -3168,6 +3184,38 @@ BeautyGroup:
 	dw SYLVEON
 	db -1 ; end
 
+	next_list_item ; BEAUTY (24) Sootopolis Gym
+	db "CONNIE@", TRAINERTYPE_NORMAL
+	db 7
+	dw SEAKING
+	db 7
+	dw VAPOREON
+	db -1 ; end
+
+	next_list_item ; BEAUTY (25) Sootopolis Gym
+	db "TIFFANY@", TRAINERTYPE_NORMAL
+	db 7
+	dw SHARPEDO
+	db 7
+	dw MASQUERAIN
+	db -1 ; end
+
+	next_list_item ; BEAUTY (26) Sootopolis Gym
+	db "OLIVIA@", TRAINERTYPE_NORMAL
+	db 7
+	dw HUNTAIL
+	db 7
+	dw GOREBYSS
+	db -1 ; end
+
+	next_list_item ; BEAUTY (27) Sootopolis Gym
+	db "BRIDGET@", TRAINERTYPE_NORMAL
+	db 7
+	dw AZUMARILL
+	db 7
+	dw WAILMER
+	db -1 ; end
+
 	end_list_items
 
 PokemaniacGroup:
@@ -3888,6 +3936,22 @@ TeacherGroup:
 	dw FURRET2
 	db 11
 	dw GYARADOSX
+	db -1 ; end
+
+	next_list_item ; TEACHER (9) Sootopolis Gym
+	db "DAPHNE@", TRAINERTYPE_NORMAL
+	db 6
+	dw GYARADOS
+	db 6
+	dw WINGULL
+	db -1 ; end
+
+	next_list_item ; TEACHER (10) Sootopolis Gym
+	db "BRIANNA@", TRAINERTYPE_NORMAL
+	db 6
+	dw CLAMPERL
+	db 6
+	dw SHELLDER
 	db -1 ; end
 
 	end_list_items
@@ -7847,6 +7911,26 @@ PokefanFGroup:
 	dw BERRY
 	db -1 ; end
 
+	next_list_item ; POKEFANF (9) Sootopolos Gym
+	db "ANNIKA@", TRAINERTYPE_ITEM
+	db 6
+	dw SEADRA
+	dw BERRY
+	db 6
+	dw LUVDISC
+	dw BERRY
+	db -1 ; end
+
+	next_list_item ; POKEFANF (10) Sootopolos Gym
+	db "BETHANY@", TRAINERTYPE_ITEM
+	db 6
+	dw PELIPPER
+	dw BERRY
+	db 6
+	dw MARILL
+	dw BERRY
+	db -1 ; end
+
 	end_list_items
 
 RedGroup:
@@ -8497,20 +8581,60 @@ TateLizaGroup:
 	end_list_items
 
 WallaceGroup:
-	next_list_item; WALLACE (1) Unreferenced
-	db "WALLACE@", TRAINERTYPE_NORMAL
-	db 10
+	next_list_item; WALLACE (1) Sootopolis Gym
+	db "WALLACE@", TRAINERTYPE_ITEM_MOVES
+	db 8
 	dw LUVDISC
-	db 10
+	dw QUICK_CLAW
+	dw SURF, RAIN_DANCE, FAERIEGLEAM, BATON_PASS
+	db 9
 	dw LANTURN
-	db 10
+	dw BITTER_BERRY
+	dw SURF, THUNDER, THUNDER_WAVE, ICE_BEAM
+	db 9
 	dw WHISCASH
+	dw TWISTEDSPOON
+	dw SURF, MUD_SHOT, EARTHQUAKE, AMNESIA
 	db 10
 	dw SEAKING
+	dw BLACKBELT_I
+	dw DRILL_PECK, WATERFALL, AGILITY, SWORDS_DANCE
 	db 10
-	dw GYARADOS
-	db 10
+	dw WAILORD
+	dw BITTER_BERRY
+	dw WATER_SPOUT, AMNESIA, REST, BODY_SLAM
+	db 11
 	dw MILOTIC
+	dw LEFTOVERS
+	dw FLASHCANNON, CALM_MIND, MIST_BALL, DRAININGKISS
+	db -1 ; end
+
+	next_list_item; WALLACE (2) Sootopolis Gym
+	db "WALLACE@", TRAINERTYPE_ITEM_MOVES
+	db 11
+	dw LUVDISC
+	dw QUICK_CLAW
+	dw HYDRO_PUMP, RAIN_DANCE, FAERIEGLEAM, BATON_PASS
+	db 11
+	dw LANTURN
+	dw BITTER_BERRY
+	dw HYDRO_PUMP, THUNDER, THUNDER_WAVE, ICE_BEAM
+	db 11
+	dw WHISCASH
+	dw SOFT_SAND
+	dw HYDRO_PUMP, MUD_SHOT, EARTHQUAKE, AMNESIA
+	db 11
+	dw SEAKING
+	dw SHARP_BEAK
+	dw DRILL_PECK, WATERFALL, AGILITY, SWORDS_DANCE
+	db 11
+	dw KINGDRA
+	dw BITTER_BERRY
+	dw HYDRO_PUMP, OUTRAGE, REST, THUNDER
+	db 13
+	dw MILOTIC
+	dw LEFTOVERS
+	dw FLASHCANNON, CALM_MIND, MIST_BALL, DRAININGKISS
 	db -1 ; end
 
 	end_list_items

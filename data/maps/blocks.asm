@@ -979,6 +979,7 @@ SECTION "Map Blocks 4", ROMX
 	FortreePokecenter_Blocks:
 	LilycovePokecenter_Blocks:
 	MossdeepPokecenter_Blocks:
+	SootopolisPokecenter_Blocks:
 	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
 	OldaleMart_Blocks:
@@ -991,6 +992,7 @@ SECTION "Map Blocks 4", ROMX
 	FallarborMart_Blocks:
 	FortreeMart_Blocks:
 	MossdeepMart_Blocks:
+	SootopolisMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
 	BirchsLab_Blocks:
@@ -1157,6 +1159,12 @@ SECTION "Map Blocks 6", ROMX
 
 	MossdeepGym_Blocks:
 	INCBIN "maps/hoenn/mossdeep/MossdeepGym.ablk"
+
+	SootopolisCity_Blocks:
+	INCBIN "maps/hoenn/sootopolis/SootopolisCity.ablk"
+
+	SootopolisGym_Blocks:
+	INCBIN "maps/hoenn/sootopolis/SootopolisGym.ablk"
 
 ENDSECTION
 

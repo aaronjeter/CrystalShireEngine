@@ -52,7 +52,7 @@ SpawnPoints:
 	spawn FORTREE_CITY,               05, 08
 	spawn LILYCOVE_CITY,              23, 16
 	spawn MOSSDEEP_CITY,              31, 16
-	spawn LILYCOVE_CITY,              23, 16
+	spawn SOOTOPOLIS_CITY,            45, 22
 	spawn LILYCOVE_CITY,              23, 16
 	spawn LILYCOVE_CITY,              23, 16
 
