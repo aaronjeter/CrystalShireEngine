@@ -60,7 +60,8 @@ BirchNormalText:
 
 BirchLeftPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	iftrue LookAtElmPokeBallScript
+	iftrue LookAtBirchPokeBallScript
+
 	turnobject BIRCHSLAB_BIRCH, DOWN
 	reanchormap
 
@@ -84,7 +85,8 @@ BirchLeftPokeBallScript:
 
 BirchMiddlePokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	iftrue LookAtElmPokeBallScript
+	iftrue LookAtBirchPokeBallScript
+
 	turnobject BIRCHSLAB_BIRCH, DOWN
 	reanchormap
 
@@ -108,7 +110,8 @@ BirchMiddlePokeBallScript:
 
 BirchRightPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	iftrue LookAtElmPokeBallScript
+	iftrue LookAtBirchPokeBallScript
+
 	turnobject BIRCHSLAB_BIRCH, DOWN
 	reanchormap
 
@@ -129,8 +132,6 @@ BirchRightPokeBallScript:
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue BirchKotoraPokeBallScript
-
-
 
 
 BirchCharmanderPokeBallScript:
