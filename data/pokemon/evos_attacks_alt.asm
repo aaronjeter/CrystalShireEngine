@@ -126,14 +126,14 @@ TogekissEvosAttacks:
 
 MamoswineEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, TACKLE
+	dbw 1, SAND_ATTACK
 	dbw 1, POWDER_SNOW
 	dbw 10, ENDURE
 	dbw 15, CURSE
 	dbw 20, HAIL
-	dbw 24, ANCIENTPOWER	
-	dbw 28, ICICLE_SPEAR
-	dbw 32, MAGNITUDE
+	dbw 24, MAGNITUDE
+	dbw 28, ICICLE_SPEAR	
+	dbw 32, ANCIENTPOWER
 	dbw 36, BULK_UP
 	dbw 40, ICICLE_CRASH
 	dbw 45, EARTHQUAKE
