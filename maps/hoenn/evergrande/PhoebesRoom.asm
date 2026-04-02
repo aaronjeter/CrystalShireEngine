@@ -146,4 +146,4 @@ PhoebesRoom_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  7,  7, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, PhoebeScript_Battle, -1
+	object_event  7,  7, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PhoebeScript_Battle, -1

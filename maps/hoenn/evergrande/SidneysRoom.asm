@@ -142,4 +142,4 @@ SidneysRoom_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  7,  7, SPRITE_CHUCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SidneyScript_Battle, -1
+	object_event  7,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SidneyScript_Battle, -1

@@ -1399,3 +1399,11 @@ RangerMPic:			INCBIN "gfx/trainers/rangerm.2bpp.lz"
 RangerFPic:			INCBIN "gfx/trainers/rangerf.2bpp.lz"
 ExplorerPic:		INCBIN "gfx/trainers/explorer.2bpp.lz"
 PsychicFPic:		INCBIN "gfx/trainers/psychic_f.2bpp.lz"
+
+
+SECTION "Hoenn Trainers 3", ROMX
+SidneyPic:		INCBIN "gfx/trainers/sidney.2bpp.lz"
+PhoebePic:		INCBIN "gfx/trainers/phoebe.2bpp.lz"
+GlaciaPic:		INCBIN "gfx/trainers/glacia.2bpp.lz"
+DrakePic:		INCBIN "gfx/trainers/drake.2bpp.lz"
+StevenPic:		INCBIN "gfx/trainers/steven.2bpp.lz"

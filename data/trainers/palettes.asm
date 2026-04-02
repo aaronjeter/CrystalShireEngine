@@ -86,11 +86,11 @@ INCBIN "gfx/trainers/norman.gbcpal", middle_colors
 INCBIN "gfx/trainers/winona.gbcpal", middle_colors
 INCBIN "gfx/trainers/tateliza.gbcpal", middle_colors
 INCBIN "gfx/trainers/wallace.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
-INCBIN "gfx/trainers/oak.gbcpal", middle_colors
+INCBIN "gfx/trainers/sidney.gbcpal", middle_colors
+INCBIN "gfx/trainers/phoebe.gbcpal", middle_colors
+INCBIN "gfx/trainers/glacia.gbcpal", middle_colors
+INCBIN "gfx/trainers/drake.gbcpal", middle_colors
+INCBIN "gfx/trainers/steven.gbcpal", middle_colors
 INCBIN "gfx/trainers/battlegirl.gbcpal", middle_colors
 INCBIN "gfx/trainers/rangerm.gbcpal", middle_colors
 INCBIN "gfx/trainers/rangerf.gbcpal", middle_colors
