@@ -80,11 +80,11 @@ TrainerPicPointers::
 	dba WinonaPic
 	dba TateLizaPic
 	dba WallacePic
-	dba PokemonProfPic
-	dba PokemonProfPic
-	dba PokemonProfPic
-	dba PokemonProfPic
-	dba PokemonProfPic
+	dba SidneyPic
+	dba PhoebePic
+	dba GlaciaPic
+	dba DrakePic
+	dba StevenPic
 	dba BattleGirlPic
 	dba RangerMPic
 	dba RangerFPic
