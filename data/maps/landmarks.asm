@@ -119,7 +119,7 @@ Landmarks:
 	landmark 140,  68, MossdeepName
 	landmark 124,  84, SootopolisName
 	landmark 124,  60, PacifidlogName
-	landmark 124,  60, EvergrandeName
+	landmark 140, 108, EvergrandeName
 	landmark  12,  92, PetalburgWoodsName
 	landmark  36,  76, RusturfTunnelName
 	landmark  28, 132, GraniteCaveName

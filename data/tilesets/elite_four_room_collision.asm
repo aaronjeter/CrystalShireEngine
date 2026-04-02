@@ -66,3 +66,15 @@
 	tilecoll WALL, WALL, ICE, ICE ; 41
 	tilecoll ICE, ICE, FLOOR, FLOOR ; 42
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 43
+	tilecoll FLOOR, FLOOR, WALL, WALL ; 44
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 45
+	tilecoll WALL, WALL, WALL, WALL ; 46
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 47
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 48
+	tilecoll FLOOR, WALL, FLOOR, WALL ; 49
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 4a
+	tilecoll FLOOR, WALL, FLOOR, WALL ; 4b
+	tilecoll FLOOR, FLOOR, FLOOR, LADDER ; 4c
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 4d
+	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; 4e
+	tilecoll LADDER, LADDER, FLOOR, FLOOR ; 4f

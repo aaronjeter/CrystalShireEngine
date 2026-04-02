@@ -980,6 +980,7 @@ SECTION "Map Blocks 4", ROMX
 	LilycovePokecenter_Blocks:
 	MossdeepPokecenter_Blocks:
 	SootopolisPokecenter_Blocks:
+	EvergrandePokecenter_Blocks:
 	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
 	OldaleMart_Blocks:
@@ -1167,6 +1168,33 @@ SECTION "Map Blocks 6", ROMX
 	INCBIN "maps/hoenn/sootopolis/SootopolisGym.ablk"
 
 ENDSECTION
+	
+
+SECTION "Map Blocks 7", ROMX
+
+	EvergrandeCity_Blocks:
+	INCBIN "maps/hoenn/evergrande/EvergrandeCity.ablk"
+
+	HoennPokeleague_Blocks:
+	INCBIN "maps/hoenn/evergrande/HoennPokeleague.ablk"
+
+	SidneysRoom_Blocks:
+	INCBIN "maps/hoenn/evergrande/SidneysRoom.ablk"
+
+	PhoebesRoom_Blocks:
+	INCBIN "maps/hoenn/evergrande/PhoebesRoom.ablk"
+
+	GlaciasRoom_Blocks:
+	INCBIN "maps/hoenn/evergrande/GlaciasRoom.ablk"
+
+	DrakesRoom_Blocks:
+	INCBIN "maps/hoenn/evergrande/DrakesRoom.ablk"
+
+	StevensRoom_Blocks:
+	INCBIN "maps/hoenn/evergrande/StevensRoom.ablk"
+
+ENDSECTION
+
 
 SECTION "Map Blocks Mt Moon", ROMX
 

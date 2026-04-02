@@ -621,6 +621,14 @@ ENDM
 	map_const SOOTOPOLIS_POKECENTER,					   07, 04 ;
 	map_const SOOTOPOLIS_MART,							   06, 04 ;
 	map_const SOOTOPOLIS_GYM,							   12, 20 ;
+	map_const EVERGRANDE_CITY,                             20, 40 ;
+	map_const EVERGRANDE_POKECENTER,					   07, 04 ;
+	map_const HOENN_POKELEAGUE,                            07, 04 ;
+	map_const SIDNEYS_ROOM,                                07, 09 ;
+	map_const PHOEBES_ROOM,                                07, 09 ;
+	map_const GLACIAS_ROOM,                                07, 09 ;
+	map_const DRAKES_ROOM,                                 07, 09 ;
+	map_const STEVENS_ROOM,                                05, 12 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

@@ -543,6 +543,16 @@ INCLUDE "maps/hoenn/sootopolis/SootopolisPokecenter.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisMart.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisGym.asm"
 
+INCLUDE "maps/hoenn/evergrande/EvergrandeCity.asm"
+INCLUDE "maps/hoenn/evergrande/EvergrandePokecenter.asm"
+INCLUDE "maps/hoenn/evergrande/HoennPokeleague.asm"
+
+INCLUDE "maps/hoenn/evergrande/SidneysRoom.asm"
+INCLUDE "maps/hoenn/evergrande/PhoebesRoom.asm"
+INCLUDE "maps/hoenn/evergrande/GlaciasRoom.asm"
+INCLUDE "maps/hoenn/evergrande/DrakesRoom.asm"
+INCLUDE "maps/hoenn/evergrande/StevensRoom.asm"
+
 ENDSECTION
 
 

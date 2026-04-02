@@ -54,7 +54,7 @@ SpawnPoints:
 	spawn MOSSDEEP_CITY,              31, 16
 	spawn SOOTOPOLIS_CITY,            45, 22
 	spawn LILYCOVE_CITY,              23, 16
-	spawn LILYCOVE_CITY,              23, 16
+	spawn EVERGRANDE_CITY,            16, 06
 
 	spawn N_A,                        -1, -1
 

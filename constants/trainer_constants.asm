@@ -998,18 +998,24 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass ELITESIDNEY
 	const SIDNEY1
+	const SIDNEY2
 
 	trainerclass PHOEBE
 	const PHOEBE1
+	const PHOEBE2
 
 	trainerclass GLACIA
 	const GLACIA1
+	const GLACIA2
 
 	trainerclass DRAKE
 	const DRAKE1
+	const DRAKE2
 
 	trainerclass STEVEN
 	const STEVEN1
+	const STEVEN2
+	const STEVEN3
 
 	trainerclass BATTLE_GIRL
 	const DEWFORD_LAURA

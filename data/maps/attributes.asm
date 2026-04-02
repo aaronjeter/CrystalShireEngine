@@ -722,6 +722,8 @@ ENDM
 	map_attributes LilycovePokecenter, LILYCOVE_POKECENTER, $00, 0
 	map_attributes MossdeepPokecenter, MOSSDEEP_POKECENTER, $00, 0
 	map_attributes SootopolisPokecenter, SOOTOPOLIS_POKECENTER, $00, 0
+	map_attributes EvergrandePokecenter, EVERGRANDE_POKECENTER, $00, 0
+	map_attributes HoennPokeleague, HOENN_POKELEAGUE, $00, 0
 	map_attributes LavaridgeGym, LAVARIDGE_GYM, $0, 0
 	map_attributes FortreeGym, FORTREE_GYM, $0, 0
 	map_attributes MossdeepGym, MOSSDEEP_GYM, $0, 0
@@ -829,6 +831,8 @@ ENDM
 	map_attributes MossdeepCity, MOSSDEEP_CITY, $05, 0
 
 	map_attributes SootopolisCity, SOOTOPOLIS_CITY, $05, 0
+
+	map_attributes EvergrandeCity, EVERGRANDE_CITY, $05, 0
 
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0
@@ -938,3 +942,10 @@ ENDM
 	connection west, Route118, ROUTE_118, 0
 
 	map_attributes MtPyre, MT_PYRE, $00, 0
+
+
+	map_attributes SidneysRoom, SIDNEYS_ROOM, $00, 0
+	map_attributes PhoebesRoom, PHOEBES_ROOM, $00, 0
+	map_attributes GlaciasRoom, GLACIAS_ROOM, $00, 0
+	map_attributes DrakesRoom, DRAKES_ROOM, $00, 0
+	map_attributes StevensRoom, STEVENS_ROOM, $00, 0
