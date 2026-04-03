@@ -187,16 +187,20 @@ SootopolisConnieScript:
 	end
 
 SootopolisConnieSeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "I should teach you"
+	line "how harsh battles"
+	cont "can be."
 	done
 
 SootopolisConnieBeatenText:
-	text "Aha!"
+	text "Oh."
+	line "You're strong."
 	done
 
 SootopolisConnieAfterBattleText:
-	text "Well done kid."
+	text "Battle is harsh."
+	line "But slides are"
+	cont "fun!"
 	done
 
 
@@ -212,16 +216,23 @@ SootopolisTiffanyScript:
 	end
 
 SootopolisTiffanySeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "A graceful glide"
+	line "across the ice!"
 	done
 
 SootopolisTiffanyBeatenText:
-	text "Aha!"
+	text "Well, excuse me?!"
 	done
 
 SootopolisTiffanyAfterBattleText:
-	text "Well done kid."
+	text "This is really"
+	line "obvious, but how"
+
+	para "strong you are"
+	line "has a trainer has"
+
+	para "nothing to do"
+	line "with age."
 	done
 
 
@@ -237,16 +248,20 @@ SootopolisOliviaScript:
 	end
 
 SootopolisOliviaSeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "We all train"
+	line "together!"
 	done
 
 SootopolisOliviaBeatenText:
-	text "Aha!"
+	text "I was beaten."
 	done
 
 SootopolisOliviaAfterBattleText:
-	text "Well done kid."
+	text "You have potential"
+	line "as a trainer."
+
+	para "You should stick"
+	line "around!"
 	done
 
 
@@ -262,16 +277,24 @@ SootopolisBridgetScript:
 	end
 
 SootopolisBridgetSeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "This is the"
+	line "strongest Gym"
+	cont "in all Hoenn!"
 	done
 
 SootopolisBridgetBeatenText:
-	text "Aha!"
+	text "What a high level"
+	line "you are!"
 	done
 
 SootopolisBridgetAfterBattleText:
-	text "Well done kid."
+	text "I get a lot"
+	line "out of Gym"
+	cont "training."
+
+	para "But training"
+	line "outside seems"
+	cont "more fun."
 	done
 
 
@@ -287,16 +310,18 @@ SootopolisAndreaScript:
 	end
 
 SootopolisAndreaSeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "I'll show you"
+	line "sublime tricks!"
 	done
 
 SootopolisAndreaBeatenText:
-	text "Aha!"
+	text "Wallace forgive"
+	line "me!"
 	done
 
 SootopolisAndreaAfterBattleText:
-	text "Well done kid."
+	text "Just slip..."
+	line "and slide..."
 	done
 
 
@@ -312,16 +337,25 @@ SootopolisCrissyScript:
 	end
 
 SootopolisCrissySeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "You came a"
+	line "long way to"
+	cont "get here."
+
+	para "Shame you won't"
+	line "get past me!"
 	done
 
 SootopolisCrissyBeatenText:
-	text "Aha!"
+	text "You're strong!"
+
+	para "I was fooled by"
+	line "your cute looks!"
 	done
 
 SootopolisCrissyAfterBattleText:
-	text "Well done kid."
+	text "Maybe Wallace"
+	line "won't beat you"
+	cont "in one hit..."
 	done
 
 
@@ -337,16 +371,21 @@ SootopolisDaphneScript:
 	end
 
 SootopolisDaphneSeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "It was Wallace"
+	line "that made me"
+
+	para "want to train"
+	line "#MON."
 	done
 
 SootopolisDaphneBeatenText:
-	text "Aha!"
+	text "Beautiful"
+	line "performance!"
 	done
 
 SootopolisDaphneAfterBattleText:
-	text "Well done kid."
+	text "A graceful"
+	line "display!"
 	done
 
 
@@ -362,16 +401,18 @@ SootopolisBriannaScript:
 	end
 
 SootopolisBriannaSeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "Charmed to"
+	line "meet you!"
 	done
 
 SootopolisBriannaBeatenText:
-	text "Aha!"
+	text "Oh dear..."
 	done
 
 SootopolisBriannaAfterBattleText:
-	text "Well done kid."
+	text "Let's see if"
+	line "you can handle"
+	cont "Wallace that way."
 	done
 
 
@@ -387,16 +428,18 @@ SootopolisAnnikaScript:
 	end
 
 SootopolisAnnikaSeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "I'm just here"
+	line "to see rare"
+	cont "#MON."
 	done
 
 SootopolisAnnikaBeatenText:
-	text "Aha!"
+	text "Excellent!"
 	done
 
 SootopolisAnnikaAfterBattleText:
-	text "Well done kid."
+	text "I do love a"
+	line "good show!"
 	done
 
 
@@ -412,16 +455,18 @@ SootopolisBethanyScript:
 	end
 
 SootopolisBethanySeenText:
-	text "Thinking with"
-	line "Portals yet?"
+	text "Time flies here"
+	line "doesn't it?"
 	done
 
 SootopolisBethanyBeatenText:
-	text "Aha!"
+	text "Oops!"
 	done
 
 SootopolisBethanyAfterBattleText:
-	text "Well done kid."
+	text "I wish I could"
+	line "just forget the"
+	cont "defeats..."
 	done
 
 SootopolisGym_MapEvents:

@@ -538,11 +538,6 @@ INCLUDE "maps/hoenn/mossdeep/MossdeepPokecenter.asm"
 INCLUDE "maps/hoenn/mossdeep/MossdeepMart.asm"
 INCLUDE "maps/hoenn/mossdeep/MossdeepGym.asm"
 
-INCLUDE "maps/hoenn/sootopolis/SootopolisCity.asm"
-INCLUDE "maps/hoenn/sootopolis/SootopolisPokecenter.asm"
-INCLUDE "maps/hoenn/sootopolis/SootopolisMart.asm"
-INCLUDE "maps/hoenn/sootopolis/SootopolisGym.asm"
-
 INCLUDE "maps/hoenn/evergrande/EvergrandeCity.asm"
 INCLUDE "maps/hoenn/evergrande/EvergrandePokecenter.asm"
 INCLUDE "maps/hoenn/evergrande/HoennPokeleague.asm"
@@ -552,6 +547,16 @@ INCLUDE "maps/hoenn/evergrande/PhoebesRoom.asm"
 INCLUDE "maps/hoenn/evergrande/GlaciasRoom.asm"
 INCLUDE "maps/hoenn/evergrande/DrakesRoom.asm"
 INCLUDE "maps/hoenn/evergrande/StevensRoom.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 25.3", ROMX
+
+INCLUDE "maps/hoenn/sootopolis/SootopolisCity.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisPokecenter.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisMart.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisGym.asm"
 
 ENDSECTION
 

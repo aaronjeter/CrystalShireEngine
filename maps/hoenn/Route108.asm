@@ -24,15 +24,17 @@ Route108DeniseScript:
 	end
 
 Route108DeniseSeenText:
-	text "Hey!"
+	text "Ever been to"
+	line "Dewford?"
 	done
 
 Route108DeniseBeatenText:
-	text "Ugh!"
+	text "I hate this!"
 	done
 
 Route108DeniseAfterBattleText:
-	text "Buzz off."
+	text "Dewford is kinda"
+	line "lame these days."
 	done
 
 
@@ -48,15 +50,21 @@ Route108TonyScript:
 	end
 
 Route108TonySeenText:
-	text "Hey!"
+	text "The sea is like"
+	line "my backyard."
+
+	para "Let's battle!"
 	done
 
 Route108TonyBeatenText:
-	text "Ugh!"
+	text "I lost on my home"
+	line "field..."
 	done
 
 Route108TonyAfterBattleText:
-	text "Buzz off."
+	text "I swim the seas"
+	line "with a heart"
+	cont "full of dreams."
 	done
 
 
@@ -72,15 +80,18 @@ Route108LisaRiaScript:
 	end
 
 Route108LisaRiaSeenText:
-	text "Hey!"
+	text "We challenge you!"
 	done
 
 Route108LisaRiaBeatenText:
-	text "Ugh!"
+	text "Awesome!"
+
+	para "You're tough!"
 	done
 
 Route108LisaRiaAfterBattleText:
-	text "Buzz off."
+	text "We love going"
+	line "around together!"
 	done
 
 
@@ -96,15 +107,19 @@ Route108DarrinScript:
 	end
 
 Route108DarrinSeenText:
-	text "Hey!"
+	text "Yawn!"
+
+	para "I must have"
+	line "drifted off."
 	done
 
 Route108DarrinBeatenText:
-	text "Ugh!"
+	text "Ahaha!"
+	line "I lost..."
 	done
 
 Route108DarrinAfterBattleText:
-	text "Buzz off."
+	text "Floating is nice."
 	done
 
 
@@ -120,15 +135,18 @@ Route10BethScript:
 	end
 
 Route10BethSeenText:
-	text "Hey!"
+	text "Shall we fight?"
 	done
 
 Route10BethBeatenText:
-	text "Ugh!"
+	text "I wasn't good"
+	line "enough for you."
 	done
 
 Route10BethAfterBattleText:
-	text "Buzz off."
+	text "I think you're"
+	line "going to keep"
+	cont "getting better."
 	done
 
 
@@ -144,15 +162,17 @@ Route108CamronScript:
 	end
 
 Route108CamronSeenText:
-	text "Hey!"
+	text "I'm nowhere near"
+	line "tired!"
 	done
 
 Route108CamronBeatenText:
-	text "Ugh!"
+	text "That exhausted me!"
 	done
 
 Route108CamronAfterBattleText:
-	text "Buzz off."
+	text "Am I going to"
+	line "be okay?"
 	done
 
 Route108_MapEvents:
