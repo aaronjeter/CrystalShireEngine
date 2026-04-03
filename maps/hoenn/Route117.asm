@@ -28,15 +28,18 @@ Route117DylanScript:
 	end
 
 Route117DylanSeenText:
-	text "Hi"
+	text "Whatever, let's"
+	line "have a battle!"
 	done
 
 Route117DylanBeatenText:
-	text "Aiyiyi!"
+	text "I ran out of"
+	line "energy!"
 	done
 
 Route117DylanAfterBattleText:
-	text "Bye"
+	text "I may have blown"
+	line "it!"
 	done
 
 
@@ -52,15 +55,16 @@ Route117AnnaMegScript:
 	end
 
 Route117AnnaMegSeenText:
-	text "Hi"
+	text "Let's do this!"
 	done
 
 Route117AnnaMegBeatenText:
-	text "Aiyiyi!"
+	text "Oh no!"
 	done
 
 Route117AnnaMegAfterBattleText:
-	text "Bye"
+	text "We need to get"
+	line "better!"
 	done
 
 
@@ -76,15 +80,18 @@ Route117IsaacScript:
 	end
 
 Route117IsaacSeenText:
-	text "Hi"
+	text "Listen, could I"
+	line "get a battle?"
 	done
 
 Route117IsaacBeatenText:
-	text "Aiyiyi!"
+	text "You've done"
+	line "superbly!"
 	done
 
 Route117IsaacAfterBattleText:
-	text "Bye"
+	text "I'll raise these"
+	line "#MON well!"
 	done
 
 
@@ -100,15 +107,21 @@ Route117MariaScript:
 	end
 
 Route117MariaSeenText:
-	text "Hi"
+	text "I'm pretty"
+	line "confident about"
+	cont "my speed."
 	done
 
 Route117MariaBeatenText:
-	text "Aiyiyi!"
+	text "I need to get more"
+	line "practices in!"
 	done
 
 Route117MariaAfterBattleText:
-	text "Bye"
+	text "Okay! I'll resume"
+	line "my training!"
+
+	para "Tomorrow!"
 	done
 
 
@@ -124,15 +137,18 @@ Route117DerekScript:
 	end
 
 Route117DerekSeenText:
-	text "Hi"
+	text "Bug catching"
+	line "forever!!!"
 	done
 
 Route117DerekBeatenText:
-	text "Aiyiyi!"
+	text "My ineptitude"
+	line "also remains!"
 	done
 
 Route117DerekAfterBattleText:
-	text "Bye"
+	text "All I did was"
+	line "follow my heart."
 	done
 
 
@@ -148,15 +164,19 @@ Route117BrandiScript:
 	end
 
 Route117BrandiSeenText:
-	text "Hi"
+	text "Let me demonstrate"
+	line "the power of a"
+	cont "Psychic #MON."
 	done
 
 Route117BrandiBeatenText:
-	text "Aiyiyi!"
+	text "Astonishing!"
 	done
 
 Route117BrandiAfterBattleText:
-	text "Bye"
+	text "You should try"
+	line "catching a Psychic"
+	cont "#MON."
 	done
 
 
@@ -172,15 +192,21 @@ Route117MelinaScript:
 	end
 
 Route117MelinaSeenText:
-	text "Hi"
+	text "Isn't it nice?"
+
+	para "To battle while"
+	line "looking at all"
+	cont "these flowers?"
 	done
 
 Route117MelinaBeatenText:
-	text "Aiyiyi!"
+	text "Oh, that's quite"
+	line "impressive!"
 	done
 
 Route117MelinaAfterBattleText:
-	text "Bye"
+	text "I love jogging"
+	line "out here!"
 	done
 
 
@@ -196,15 +222,24 @@ Route117AishaScript:
 	end
 
 Route117AishaSeenText:
-	text "Hi"
+	text "Concentrate on"
+	line "getting the win."
+
+	para "That's how I"
+	line "battle!"
 	done
 
 Route117AishaBeatenText:
-	text "Aiyiyi!"
+	text "I don't waste any"
+	line "time being angry!"
 	done
 
 Route117AishaAfterBattleText:
-	text "Bye"
+	text "I think that if"
+	line "you worry about"
+	cont "losing..."
+
+	para "You're a loser."
 	done
 
 
@@ -220,15 +255,17 @@ Route117LydiaScript:
 	end
 
 Route117LydiaSeenText:
-	text "Hi"
+	text "Please, allow me"
+	line "to evaluate you."
 	done
 
 Route117LydiaBeatenText:
-	text "Aiyiyi!"
+	text "Yes, wonderful!"
 	done
 
 Route117LydiaAfterBattleText:
-	text "Bye"
+	text "You should raise"
+	line "more #MON!"
 	done
 
 Route117FruitTree1:

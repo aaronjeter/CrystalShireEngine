@@ -24,15 +24,19 @@ Route111TyronScript:
 	end
 
 Route111TyronSeenText:
-	text "Hey!"
+	text "This is my"
+	line "favorite kind"
+	cont "of #MON!"
 	done
 
 Route111TyronBeatenText:
-	text "Ugh!"
+	text "Wait!"
 	done
 
 Route111TyronAfterBattleText:
-	text "Buzz off."
+	text "Did you get a good"
+	line "look at my"
+	cont "#MON?"
 	done
 
 
@@ -48,15 +52,17 @@ Route111CelinaScript:
 	end
 
 Route111CelinaSeenText:
-	text "Hey!"
+	text "Show me something"
+	line "exciting!"
 	done
 
 Route111CelinaBeatenText:
-	text "Ugh!"
+	text "Oh...my..."
 	done
 
 Route111CelinaAfterBattleText:
-	text "Buzz off."
+	text "My pulse is"
+	line "still racing!"
 	done
 
 
@@ -72,15 +78,17 @@ Route111BiancaScript:
 	end
 
 Route111BiancaSeenText:
-	text "Hey!"
+	text "Did you come"
+	line "from Mauville?"
 	done
 
 Route111BiancaBeatenText:
-	text "Ugh!"
+	text "Ooh lala!"
 	done
 
 Route111BiancaAfterBattleText:
-	text "Buzz off."
+	text "You have quite"
+	line "a ways to travel."
 	done
 
 
@@ -96,7 +104,8 @@ Route111HaydenScript:
 	end
 
 Route111HaydenSeenText:
-	text "Hey!"
+	text "There's no room"
+	line "for pity!"
 	done
 
 Route111HaydenBeatenText:
@@ -104,7 +113,12 @@ Route111HaydenBeatenText:
 	done
 
 Route111HaydenAfterBattleText:
-	text "Buzz off."
+	text "My stomach is"
+	line "grumbling!"
+
+	para "I wonder if I"
+	line "could grill"
+	cont "some berries?"
 	done
 
 
@@ -120,7 +134,7 @@ Route111GabbyScript:
 	end
 
 Route111GabbySeenText:
-	text "Hey!"
+	text "Hi there!"
 	done
 
 Route111GabbyBeatenText:
@@ -128,7 +142,8 @@ Route111GabbyBeatenText:
 	done
 
 Route111GabbyAfterBattleText:
-	text "Buzz off."
+	text "I think I"
+	line "should be alone."
 	done
 
 
@@ -144,15 +159,20 @@ Route111IreneScript:
 	end
 
 Route111IreneSeenText:
-	text "Hey!"
+	text "I don't know where"
+	line "you're going,"
+
+	para "but would you like"
+	line "to battle?"
 	done
 
 Route111IreneBeatenText:
-	text "Ugh!"
+	text "Oh, you're good!"
 	done
 
 Route111IreneAfterBattleText:
-	text "Buzz off."
+	text "The view here is"
+	line "so nice!"
 	done
 
 
@@ -168,15 +188,16 @@ Route111TravisScript:
 	end
 
 Route111TravisSeenText:
-	text "Hey!"
+	text "I'm full of pep!"
 	done
 
 Route111TravisBeatenText:
-	text "Ugh!"
+	text "My #MON"
+	line "lost its pep."
 	done
 
 Route111TravisAfterBattleText:
-	text "Buzz off."
+	text "I can't help it!"
 	done
 
 Route111FruitTree1:
