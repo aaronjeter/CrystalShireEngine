@@ -26,15 +26,22 @@ Route110IsabelScript:
 	end
 
 Route110IsabelSeenText:
-	text "Hey!"
+	text "Ahahaha!"
+
+	para "I would go"
+	line "anywhere to show"
+	cont "off my #MON."
 	done
 
 Route110IsabelBeatenText:
-	text "Ugh!"
+	text "Oh dear."
+	line "this won't do."
 	done
 
 Route110IsabelAfterBattleText:
-	text "Buzz off."
+	text "Maybe I should"
+	line "just join a"
+	cont "fan club?"
 	done
 
 
@@ -50,15 +57,17 @@ Route110KalebScript:
 	end
 
 Route110KalebSeenText:
-	text "Hey!"
+	text "Cute, adorable"
+	line "#MON!"
 	done
 
 Route110KalebBeatenText:
-	text "Ugh!"
+	text "Have you no pity?"
 	done
 
 Route110KalebAfterBattleText:
-	text "Buzz off."
+	text "Well done, my"
+	line "pretties!"
 	done
 
 
@@ -74,15 +83,20 @@ Route110TimmyScript:
 	end
 
 Route110TimmySeenText:
-	text "Hey!"
+	text "I found some cool"
+	line "#MON in the"
+	cont "grass!"
 	done
 
 Route110TimmyBeatenText:
-	text "Ugh!"
+	text "Being cool isn't"
+	line "enough."
 	done
 
 Route110TimmyAfterBattleText:
-	text "Buzz off."
+	text "It's hard to win"
+	line "with #MON"
+	cont "this fresh."
 	done
 
 
@@ -98,15 +112,19 @@ Route110EdwinScript:
 	end
 
 Route110EdwinSeenText:
-	text "Hey!"
+	text "Can I see your"
+	line "#MON?"
 	done
 
 Route110EdwinBeatenText:
-	text "Ugh!"
+	text "I wanted to"
+	line "finish my"
+	cont "collection."
 	done
 
 Route110EdwinAfterBattleText:
-	text "Buzz off."
+	text "I'll catch em"
+	line "all one day."
 	done
 
 
@@ -122,15 +140,19 @@ Route110JosephScript:
 	end
 
 Route110JosephSeenText:
-	text "Hey!"
+	text "Okay!"
+	line "Full-throttle!"
 	done
 
 Route110JosephBeatenText:
-	text "Ugh!"
+	text "You got into"
+	line "the groove all"
+	cont "right!"
 	done
 
 Route110JosephAfterBattleText:
-	text "Buzz off."
+	text "This isn't going"
+	line "to bring me down!"
 	done
 
 
@@ -146,15 +168,23 @@ Route110EdwardScript:
 	end
 
 Route110EdwardSeenText:
-	text "Hey!"
+	text "I have foreseen"
+	line "your intentions!"
+
+	para "I cannot possibly"
+	line "lose!"
 	done
 
 Route110EdwardBeatenText:
-	text "Ugh!"
+	text "I failed to"
+	line "prophesize my"
+	cont "own demise!"
 	done
 
 Route110EdwardAfterBattleText:
-	text "Buzz off."
+	text "I see your future."
+
+	para "Hmm..."
 	done
 
 
