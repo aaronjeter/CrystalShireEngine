@@ -23,15 +23,20 @@ Route109HueyScript:
 	end
 
 Route109HueySeenText:
-	text "Hey!"
+	text "I've been to"
+	line "ports all over."
+
+	para "But Slateport"
+	line "is the best!"
 	done
 
 Route109HueyBeatenText:
-	text "Ugh!"
+	text "You're the best!"
 	done
 
 Route109HueyAfterBattleText:
-	text "Buzz off."
+	text "Best trainer in"
+	line "the best port!"
 	done
 
 
@@ -47,15 +52,17 @@ Route109EdmondScript:
 	end
 
 Route109EdmondSeenText:
-	text "Hey!"
+	text "Urrrrppp!"
 	done
 
 Route109EdmondBeatenText:
-	text "Ugh!"
+	text "Ooooooohhhhhh!"
 	done
 
 Route109EdmondAfterBattleText:
-	text "Buzz off."
+	text "I usually haven't"
+	line "had so much to"
+	cont "drink..."
 	done
 
 
@@ -71,15 +78,21 @@ Route109HaileyScript:
 	end
 
 Route109HaileySeenText:
-	text "Hey!"
+	text "I can't swim,"
+	line "so I'm just"
+	cont "lounging."
 	done
 
 Route109HaileyBeatenText:
-	text "Ugh!"
+	text "I thought so."
 	done
 
 Route109HaileyAfterBattleText:
-	text "Buzz off."
+	text "Once I learn to"
+	line "swim..."
+
+	para "Maybe my #MON"
+	line "will improve."
 	done
 
 
@@ -95,15 +108,17 @@ Route109RickyScript:
 	end
 
 Route109RickySeenText:
-	text "Hey!"
+	text "I'm so thirsty!"
 	done
 
 Route109RickyBeatenText:
-	text "Ugh!"
+	text "Groan!"
 	done
 
 Route109RickyAfterBattleText:
-	text "Buzz off."
+	text "I'm so hungry I"
+	line "could eat a"
+	cont "life vest!"
 	done
 
 
@@ -119,15 +134,19 @@ Route109LolaScript:
 	end
 
 Route109LolaSeenText:
-	text "Hey!"
+	text "Doesn't a beach"
+	line "umbrella look like"
+	cont "a big flower?"
 	done
 
 Route109LolaBeatenText:
-	text "Ugh!"
+	text "What a shame."
 	done
 
 Route109LolaAfterBattleText:
-	text "Buzz off."
+	text "From the sky,"
+	line "this must be"
+	cont "beautiful."
 	done
 
 
@@ -143,15 +162,18 @@ Route109ChandlerScript:
 	end
 
 Route109ChandlerSeenText:
-	text "Hey!"
+	text "Tada!"
+	line "Look at my"
+	cont "outfit!"
 	done
 
 Route109ChandlerBeatenText:
-	text "Ugh!"
+	text "Oh! Too bad!"
 	done
 
 Route109ChandlerAfterBattleText:
-	text "Buzz off."
+	text "I just can't"
+	line "get ahead..."
 	done
 
 Route109_MapEvents:

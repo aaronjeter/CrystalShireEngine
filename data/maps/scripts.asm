@@ -603,10 +603,6 @@ INCLUDE "maps/hoenn/Route104.asm"
 INCLUDE "maps/hoenn/MrBrineyHouse.asm"
 INCLUDE "maps/hoenn/Route104FlowerHouse.asm"
 INCLUDE "maps/hoenn/Route105.asm"
-INCLUDE "maps/hoenn/Route108.asm"
-INCLUDE "maps/hoenn/Route109.asm"
-INCLUDE "maps/hoenn/Route110.asm"
-INCLUDE "maps/hoenn/Route111.asm"
 INCLUDE "maps/hoenn/LavaridgeDesert.asm"
 INCLUDE "maps/hoenn/DesertRuin1F.asm"
 INCLUDE "maps/hoenn/DesertRuinB1F.asm"
@@ -630,6 +626,16 @@ INCLUDE "maps/hoenn/Route114.asm"
 INCLUDE "maps/hoenn/Route115.asm"
 INCLUDE "maps/hoenn/Route116.asm"
 INCLUDE "maps/hoenn/Route117.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 27.2", ROMX
+
+INCLUDE "maps/hoenn/Route108.asm"
+INCLUDE "maps/hoenn/Route109.asm"
+INCLUDE "maps/hoenn/Route110.asm"
+INCLUDE "maps/hoenn/Route111.asm"
 
 ENDSECTION
 
