@@ -33,15 +33,23 @@ Route120RobertScript:
 	end
 
 Route120RobertSeenText:
-	text "..."
+	text "My #MON are"
+	line "strong!"
+
+	para "How about yours?"
 	done
 
 Route120RobertBeatenText:
-	text "..."
+	text "Your #MON"
+	line "were stronger!"
 	done
 
 Route120RobertAfterBattleText:
-	text "..."
+	text "A #MON that"
+	line "grows steadily is"
+
+	para "one you can"
+	line "count on."
 	done
 
 Route120ColinScript:
@@ -56,15 +64,18 @@ Route120ColinScript:
 	end
 
 Route120ColinSeenText:
-	text "..."
+	text "Do you have any"
+	line "moves that can"
+	cont "strike birds?"
 	done
 
 Route120ColinBeatenText:
-	text "..."
+	text "You had a rock..."
 	done
 
 Route120ColinAfterBattleText:
-	text "..."
+	text "You soared above"
+	line "me!"
 	done
 
 Route120LeonelScript:
@@ -79,15 +90,22 @@ Route120LeonelScript:
 	end
 
 Route120LeonelSeenText:
-	text "..."
+	text "Your party"
+	line "#MON..."
+
+	para "Do you have"
+	line "different types?"
 	done
 
 Route120LeonelBeatenText:
-	text "..."
+	text "I've seen your"
+	line "policy in action!"
 	done
 
 Route120LeonelAfterBattleText:
-	text "..."
+	text "I think it's"
+	line "awesome you're"
+	cont "so strong!"
 	done
 
 Route120JenniferScript:
@@ -102,15 +120,19 @@ Route120JenniferScript:
 	end
 
 Route120JenniferSeenText:
-	text "..."
+	text "#MON have many"
+	line "special abilities."
 	done
 
 Route120JenniferBeatenText:
-	text "..."
+	text "You're obviously"
+	line "thinking."
 	done
 
 Route120JenniferAfterBattleText:
-	text "..."
+	text "#MON abilities"
+	line "really change"
+	cont "things!"
 	done
 
 Route120ClarissaScript:
@@ -125,15 +147,17 @@ Route120ClarissaScript:
 	end
 
 Route120ClarissaSeenText:
-	text "..."
+	text "Show me what"
+	line "you've got."
 	done
 
 Route120ClarissaBeatenText:
-	text "..."
+	text "Nice!"
 	done
 
 Route120ClarissaAfterBattleText:
-	text "..."
+	text "Well, that was"
+	line "fun!"
 	done
 
 Route120AngelicaScript:
@@ -148,15 +172,18 @@ Route120AngelicaScript:
 	end
 
 Route120AngelicaSeenText:
-	text "..."
+	text "Me and my"
+	line "#MON..."
 	done
 
 Route120AngelicaBeatenText:
-	text "..."
+	text "You've completely"
+	line "ruined my beauty."
 	done
 
 Route120AngelicaAfterBattleText:
-	text "..."
+	text "Get out of my"
+	line "way!"
 	done
 
 Route120JeffreyScript:
@@ -172,14 +199,28 @@ Route120JeffreyScript:
 
 Route120JeffreySeenText:
 	text "..."
+
+	para "..."
+
+	para "..."
+
+	para "..."
+
+	para "Wanna fight?"
 	done
 
 Route120JeffreyBeatenText:
-	text "..."
+	text "Lost it..."
 	done
 
 Route120JeffreyAfterBattleText:
 	text "..."
+
+	para "..."
+
+	para "..."
+
+	para "..."
 	done
 
 Route120CallieScript:
@@ -194,15 +235,19 @@ Route120CallieScript:
 	end
 
 Route120CallieSeenText:
-	text "..."
+	text "If you don't pay"
+	line "attention, you"
+	cont "could get hurt!"
 	done
 
 Route120CallieBeatenText:
-	text "..."
+	text "Ouch!"
 	done
 
 Route120CallieAfterBattleText:
-	text "..."
+	text "At least my"
+	line "#MON are"
+	cont "cute!"
 	done
 
 Route120RileyScript:
@@ -217,15 +262,19 @@ Route120RileyScript:
 	end
 
 Route120RileySeenText:
-	text "..."
+	text "We conceal"
+	line "ourselves in"
+	cont "nature!"
 	done
 
 Route120RileyBeatenText:
-	text "..."
+	text "I lost!"
 	done
 
 Route120RileyAfterBattleText:
-	text "..."
+	text "I wish I could"
+	line "conceal the"
+	cont "shame..."
 	done
 
 Route120LorenzoScript:
@@ -240,15 +289,22 @@ Route120LorenzoScript:
 	end
 
 Route120LorenzoSeenText:
-	text "..."
+	text "Let's see if your"
+	line "#MON are fit"
+	cont "for the wild!"
 	done
 
 Route120LorenzoBeatenText:
-	text "..."
+	text "Yeah, you're"
+	line "good!"
 	done
 
 Route120LorenzoAfterBattleText:
-	text "..."
+	text "I just love"
+	line "being able to"
+
+	para "go anywhere with"
+	line "my #MON!"
 	done
 
 Route120KeigoScript:
@@ -263,15 +319,20 @@ Route120KeigoScript:
 	end
 
 Route120KeigoSeenText:
-	text "..."
+	text "I like to adopt"
+	line "#MON moves"
+
+	para "to create new"
+	line "techniques."
 	done
 
 Route120KeigoBeatenText:
-	text "..."
+	text "Ugh..."
 	done
 
 Route120KeigoAfterBattleText:
-	text "..."
+	text "Maybe I need a"
+	line "teacher."
 	done
 
 Route120JennaScript:
@@ -286,15 +347,25 @@ Route120JennaScript:
 	end
 
 Route120JennaSeenText:
-	text "..."
+	text "How's your"
+	line "fitness?"
+
+	para "Nature is hard"
+	line "if you're out"
+	cont "shape!"
 	done
 
 Route120JennaBeatenText:
-	text "..."
+	text "I'm totally fit!"
+
+	para "But it wasn't"
+	line "enough!"
 	done
 
 Route120JennaAfterBattleText:
-	text "..."
+	text "I love training"
+	line "out here with"
+	cont "my #MON."
 	done
 
 Route120ChipScript:
@@ -309,15 +380,35 @@ Route120ChipScript:
 	end
 
 Route120ChipSeenText:
-	text "..."
+	text "Who might you be?"
+
+	para "Are you perhaps"
+	line "searching for"
+
+	para "ancient ruins that"
+	line "are rumored to"
+
+	para "possibly exist"
+	line "according to"
+	cont "legend?"
 	done
 
 Route120ChipBeatenText:
-	text "..."
+	text "What a disgraceful"
+	line "setback..."
 	done
 
 Route120ChipAfterBattleText:
-	text "..."
+	text "That giant rock..."
+
+	para "I would like to"
+	line "believe it may"
+
+	para "indeed contain"
+	line "ancient ruins."
+
+	para "But I see no"
+	line "entrance."
 	done
 
 Route120DaleScript:
@@ -332,15 +423,20 @@ Route120DaleScript:
 	end
 
 Route120DaleSeenText:
-	text "..."
+	text "Hey!"
+
+	para "Don't sneak up"
+	line "behind me like"
+	cont "that!"
 	done
 
 Route120DaleBeatenText:
-	text "..."
+	text "Drat!"
 	done
 
 Route120DaleAfterBattleText:
-	text "..."
+	text "Exploring is all"
+	line "about focus."
 	done
 
 Route120FruitTree1:

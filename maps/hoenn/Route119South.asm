@@ -31,15 +31,22 @@ Route119DonaldScript:
 	end
 
 Route119DonaldSeenText:
-	text "..."
+	text "So, we finally"
+	line "meet!"
+
+	para "My bug #MON"
+	line "will keep you"
+	cont "company!"
 	done
 
 Route119DonaldBeatenText:
-	text "..."
+	text "I wish we'd never"
+	line "met..."
 	done
 
 Route119DonaldAfterBattleText:
-	text "..."
+	text "Can you hurry up"
+	line "and move?"
 	done
 
 Route119TaylorScript:
@@ -54,15 +61,17 @@ Route119TaylorScript:
 	end
 
 Route119TaylorSeenText:
-	text "..."
+	text "Buzz Buzz!"
 	done
 
 Route119TaylorBeatenText:
-	text "..."
+	text "If you win,"
+	line "I lose!"
 	done
 
 Route119TaylorAfterBattleText:
-	text "..."
+	text "That's just"
+	line "impossible..."
 	done
 
 Route119BrentScript:
@@ -77,15 +86,17 @@ Route119BrentScript:
 	end
 
 Route119BrentSeenText:
-	text "..."
+	text "I'm a bug master!"
 	done
 
 Route119BrentBeatenText:
-	text "..."
+	text "Whoopsie!"
+	line "I lost!"
 	done
 
 Route119BrentAfterBattleText:
-	text "..."
+	text "You'll never"
+	line "understand..."
 	done
 
 Route119KentScript:
@@ -100,15 +111,17 @@ Route119KentScript:
 	end
 
 Route119KentSeenText:
-	text "..."
+	text "A battle starts"
+	line "the instant we"
+	cont "meet!"
 	done
 
 Route119KentBeatenText:
-	text "..."
+	text "I give up!"
 	done
 
 Route119KentAfterBattleText:
-	text "..."
+	text "Won't you join us?"
 	done
 
 Route119GregScript:
@@ -123,15 +136,21 @@ Route119GregScript:
 	end
 
 Route119GregSeenText:
-	text "..."
+	text "You don't know who"
+	line "I am, do you?"
+
+	para "Well, I don't"
+	line "know you either!"
 	done
 
 Route119GregBeatenText:
-	text "..."
+	text "You're pretty"
+	line "strong!"
 	done
 
 Route119GregAfterBattleText:
-	text "..."
+	text "Bye now! Have a"
+	line "nice life!"
 	done
 
 Route119DougScript:
@@ -146,15 +165,17 @@ Route119DougScript:
 	end
 
 Route119DougSeenText:
-	text "..."
+	text "Yep, you've"
+	line "finally caught me!"
 	done
 
 Route119DougBeatenText:
-	text "..."
+	text "Whoop, that was a"
+	line "great match!"
 	done
 
 Route119DougAfterBattleText:
-	text "..."
+	text "I think I'm lost."
 	done
 
 Route119ChrisScript:
@@ -169,15 +190,18 @@ Route119ChrisScript:
 	end
 
 Route119ChrisSeenText:
-	text "..."
+	text "Sure! I'll try out"
+	line "the #MON I"
+	cont "caught fishing!"
 	done
 
 Route119ChrisBeatenText:
-	text "..."
+	text "I don't have a"
+	line "clue how to win."
 	done
 
 Route119ChrisAfterBattleText:
-	text "..."
+	text "This is the life."
 	done
 
 
@@ -193,15 +217,24 @@ Route119JacksonScript:
 	end
 
 Route119JacksonSeenText:
-	text "..."
+	text "Who has the"
+	line "knowledge and"
+
+	para "the technique"
+	line "for survival?"
+
+	para "#MON Rangers!"
 	done
 
 Route119JacksonBeatenText:
-	text "..."
+	text "I didn't have"
+	line "enough #MON."
 	done
 
 Route119JacksonAfterBattleText:
-	text "..."
+	text "It's just nice"
+	line "to get away from"
+	cont "it all!"
 	done
 
 Route119TakashiScript:
@@ -216,15 +249,22 @@ Route119TakashiScript:
 	end
 
 Route119TakashiSeenText:
-	text "..."
+	text "If you're not on"
+	line "your guard,"
+
+	para "you're in for"
+	line "some pain!"
 	done
 
 Route119TakashiBeatenText:
-	text "..."
+	text "You're"
+	line "surprisingly good!"
 	done
 
 Route119TakashiAfterBattleText:
-	text "..."
+	text "I think I still"
+	line "have a lot to"
+	cont "learn."
 	done
 
 Route119CatherineScript:
@@ -239,15 +279,24 @@ Route119CatherineScript:
 	end
 
 Route119CatherineSeenText:
-	text "..."
+	text "Oh? Look at you."
+
+	para "For someone on"
+	line "an adventure,"
+
+	para "you're traveling"
+	line "awfully light."
 	done
 
 Route119CatherineBeatenText:
-	text "..."
+	text "Accidents happen"
+	line "when you're not"
+	cont "prepared!"
 	done
 
 Route119CatherineAfterBattleText:
-	text "..."
+	text "You're on top"
+	line "of things!"
 	done
 
 Route119FruitTree1:

@@ -670,6 +670,12 @@ SECTION "Map Scripts 29", ROMX
 INCLUDE "maps/hoenn/Route118.asm"
 INCLUDE "maps/hoenn/Route119South.asm" 
 INCLUDE "maps/hoenn/Route119North.asm" 
+
+ENDSECTION
+
+
+SECTION "Map Scripts 30", ROMX
+
 INCLUDE "maps/hoenn/Route120.asm"
 INCLUDE "maps/hoenn/Route121.asm"
 INCLUDE "maps/hoenn/Route122.asm"

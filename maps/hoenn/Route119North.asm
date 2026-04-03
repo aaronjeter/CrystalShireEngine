@@ -27,15 +27,22 @@ Route119PhilScript:
 	end
 
 Route119PhilSeenText:
-	text "..."
+	text "I'll show you the"
+	line "true potential of"
+	cont "my bird #MON!"
 	done
 
 Route119PhilBeatenText:
-	text "..."
+	text "We lacked"
+	line "potential."
 	done
 
 Route119PhilAfterBattleText:
-	text "..."
+	text "Ever since I was"
+	line "a little kid,"
+
+	para "I always admired"
+	line "bird #MON."
 	done
 
 Route119HughScript:
@@ -50,15 +57,20 @@ Route119HughScript:
 	end
 
 Route119HughSeenText:
-	text "..."
+	text "The vast sky holds"
+	line "untold promise!"
 	done
 
 Route119HughBeatenText:
-	text "..."
+	text "Down and out!"
 	done
 
 Route119HughAfterBattleText:
-	text "..."
+	text "My bird #MON"
+	line "made my dreams"
+
+	para "of flying come"
+	line "true!"
 	done
 
 Route119FabianScript:
@@ -73,15 +85,19 @@ Route119FabianScript:
 	end
 
 Route119FabianSeenText:
-	text "..."
+	text "Victory is mine!"
 	done
 
 Route119FabianBeatenText:
-	text "..."
+	text "You showed me"
+	line "who's the boss!"
+
+	para "We'll have to"
+	line "take the loss!"
 	done
 
 Route119FabianAfterBattleText:
-	text "..."
+	text "Leave me alone!"
 	done
 
 Route119DaytonScript:
@@ -96,15 +112,19 @@ Route119DaytonScript:
 	end
 
 Route119DaytonSeenText:
-	text "..."
+	text "Hohoho!"
+
+	para "Let's have a"
+	line "good one!"
 	done
 
 Route119DaytonBeatenText:
-	text "..."
+	text "You're pretty"
+	line "amazing!"
 	done
 
 Route119DaytonAfterBattleText:
-	text "..."
+	text "Hohoho!"
 	done
 
 Route119YasuScript:
@@ -119,15 +139,17 @@ Route119YasuScript:
 	end
 
 Route119YasuSeenText:
-	text "..."
+	text "I emerge to"
+	line "challenge you!"
 	done
 
 Route119YasuBeatenText:
-	text "..."
+	text "I admit defeat!"
 	done
 
 Route119YasuAfterBattleText:
-	text "..."
+	text "That, too,"
+	line "is destiny..."
 	done
 
 Route119HideoScript:
@@ -142,15 +164,21 @@ Route119HideoScript:
 	end
 
 Route119HideoSeenText:
-	text "..."
+	text "To hide a tree,"
+	line "use a forest!"
 	done
 
 Route119HideoBeatenText:
-	text "..."
+	text "I bow to your"
+	line "superiority."
 	done
 
 Route119HideoAfterBattleText:
-	text "..."
+	text "To hide a tree,"
+	line "use a forest!"
+
+	para "To hide a #MON"
+	line "use a #MON."
 	done
 
 Route119RachelScript:
@@ -165,15 +193,18 @@ Route119RachelScript:
 	end
 
 Route119RachelSeenText:
-	text "..."
+	text "Wherever and"
+	line "whenever!"
 	done
 
 Route119RachelBeatenText:
-	text "..."
+	text "Oh, but..."
+	line "That's not fair."
 	done
 
 Route119RachelAfterBattleText:
-	text "..."
+	text "Your bag is full"
+	line "of junk!"
 	done
 
 Route119DaniScript:
@@ -188,15 +219,16 @@ Route119DaniScript:
 	end
 
 Route119DaniSeenText:
-	text "..."
+	text "Let's do this!"
 	done
 
 Route119DaniBeatenText:
-	text "..."
+	text "Oh, please, no!"
 	done
 
 Route119DaniAfterBattleText:
-	text "..."
+	text "I got swept"
+	line "away!"
 	done
 
 Route119FruitTree5:
