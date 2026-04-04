@@ -57,6 +57,7 @@ MossdeepGymTateLizaScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MINDBADGE
+	setflag ENGINE_FLYPOINT_SOOTOPOLIS
 	scall MossdeepGymLevelcap
 
 	;disable gym trainers
@@ -66,6 +67,7 @@ MossdeepGymTateLizaScript:
 	end
 
 .FightDone:
+	setflag ENGINE_FLYPOINT_SOOTOPOLIS
 	writetext TateLizaRematchText
 	yesorno
 	iffalse .FightDoneText
@@ -145,6 +147,17 @@ TateLizaText_ExplainBadge:
 	para "Liza: Want to"
 	line "face the"
 	cont "Elite Four."
+
+	para "Now. Go on to"
+	line "Sootopolis!"
+
+	para "You'll find the"
+	line "final Gym there!"
+
+	para "Tate: Here, I"
+	line "marked it on"
+	cont "your flymap."
+
 	done
 
 TateLizaRematchText:

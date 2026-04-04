@@ -48,6 +48,7 @@ SootopolisGymWallaceScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_RAINBADGE
+	setflag ENGINE_FLYPOINT_EVERGRANDE
 	scall SootopolisGymLevelcap
 
 	;disable gym trainers
@@ -154,6 +155,10 @@ WallaceText_ExplainBadge:
 	para "Victory road will"
 	line "prove your"
 	cont "strength!"
+
+	para "Here, let me"
+	line "mark it on"
+	cont "your map!"
 	done
 
 WallaceRematchText:
@@ -170,7 +175,7 @@ WallacePostBattleText:
 	line "for the Elite"
 	cont "Four."
 
-	para "You should head"
+	para "You should fly"
 	line "to Evergrande."
 	done
 
@@ -482,14 +487,14 @@ SootopolisGym_MapEvents:
 
 	def_object_events
 	object_event 11, 02, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SootopolisGymWallaceScript, -1
-	object_event 09, 33, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, SootopolisConnieScript, -1
+	object_event 09, 33, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, SootopolisConnieScript, -1
 	object_event 11, 21, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SootopolisAndreaScript, -1
 	object_event 08, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, SootopolisDaphneScript, -1
 	object_event 12, 10, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SootopolisAnnikaScript, -1
 	object_event 23, 35, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, SootopolisTiffanyScript, -1
-	object_event 00, 35, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SootopolisCrissyScript, -1
-	object_event 22, 21, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, SootopolisBethanyScript, -1
-	object_event 07, 20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SootopolisOliviaScript, -1
+	object_event 00, 35, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SootopolisCrissyScript, -1
+	object_event 22, 21, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, SootopolisBethanyScript, -1
+	object_event 07, 20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SootopolisOliviaScript, -1
 	object_event 02, 15, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, SootopolisBriannaScript, -1
 	object_event 14, 31, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SootopolisBridgetScript, -1
 	
