@@ -12,6 +12,7 @@ LittlerootTown_MapScripts:
 
 LittlerootTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_LITTLEROOT
+	setflag ENGINE_FLYPOINT_SAFFRON
 	endcallback
 
 LittlerootTownConditionalWarpScript:
