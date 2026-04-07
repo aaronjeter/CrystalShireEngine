@@ -383,6 +383,8 @@ StabilityMons::
 	dw AKUERIA
 	dw ASHIBOMB
 	dw BEEDRILLX
+	dw SPOINK
+	dw GRUMPIG
 	dw -1
 
 ;Healing Ability Mons ----------------------------------------------
@@ -397,7 +399,10 @@ RegenerationMons:
 	dw STARMIE
 	dw CHANSEY
 	dw BLISSEY
+	dw MEWTWO
+	dw MEW
 	dw CORSOLA
+	dw RAIKOU
 	dw HO_OH
 	dw SHROOMISH
 	dw BRELOOM
