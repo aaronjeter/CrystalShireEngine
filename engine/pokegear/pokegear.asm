@@ -2200,12 +2200,7 @@ FlyMap:
 	jmp TownMapPlayerIcon
 
 .KantoFlyMap:
-	push af
-	ld c, SPAWN_SAFFRON
-	call HasVisitedSpawn
-	and a
-	jr z, .NoKanto
-; Kanto's map is only loaded if we've visited Saffron
+	push af	
 	ld a, KANTO_FLYPOINT ; first Kanto flypoint
 	ld [wStartFlypoint], a
 	ld a, HOENN_FLYPOINT - 1 ; last Kanto flypoint
@@ -2217,14 +2212,6 @@ FlyMap:
 	pop af
 	jmp TownMapPlayerIcon
 
-.NoKanto:
-	ld a, JOHTO_FLYPOINT ; first Johto flypoint
-	ld [wTownMapPlayerIconLandmark], a ; first one is default (New Bark Town)
-	ld [wStartFlypoint], a
-	ld a, KANTO_FLYPOINT - 1 ; last Johto flypoint
-	ld [wEndFlypoint], a
-	call FillJohtoMap
-	pop af
 .MapHud:
 	call TownMapBubble
 	call TownMapPals

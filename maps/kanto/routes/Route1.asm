@@ -6,68 +6,11 @@ Route1_MapScripts:
 
 	def_callbacks
 
-TrainerSchoolboyDanny:
-	trainer SCHOOLBOY, DANNY, EVENT_BEAT_SCHOOLBOY_DANNY, SchoolboyDannySeenText, SchoolboyDannyBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext SchoolboyDannyAfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerCooltrainerfQuinn:
-	trainer COOLTRAINERF, QUINN, EVENT_BEAT_COOLTRAINERF_QUINN, CooltrainerfQuinnSeenText, CooltrainerfQuinnBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfQuinnAfterBattleText
-	waitbutton
-	closetext
-	end
-
 Route1Sign:
 	jumptext Route1SignText
 
 Route1FruitTree:
 	fruittree FRUITTREE_ROUTE_1
-
-SchoolboyDannySeenText:
-	text "If trainers meet,"
-	line "the first thing to"
-	cont "do is battle."
-	done
-
-SchoolboyDannyBeatenText:
-	text "Awww… I've got a"
-	line "losing record…"
-	done
-
-SchoolboyDannyAfterBattleText:
-	text "For trainers, it's"
-	line "a given that we'll"
-
-	para "battle whenever we"
-	line "meet."
-	done
-
-CooltrainerfQuinnSeenText:
-	text "You there!"
-	line "Want to battle?"
-	done
-
-CooltrainerfQuinnBeatenText:
-	text "Down and out…"
-	done
-
-CooltrainerfQuinnAfterBattleText:
-	text "You're strong."
-
-	para "You obviously must"
-	line "have trained hard."
-	done
 
 Route1SignText:
 	text "ROUTE 1"

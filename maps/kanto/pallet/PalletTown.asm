@@ -10,7 +10,73 @@ PalletTown_MapScripts:
 
 PalletTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_PALLET
+	setflag ENGINE_FLYPOINT_GOLDENROD
 	endcallback
+
+
+PalletTownConditionalWarpScript:
+	checkevent EVENT_START_KANTO
+	iffalse .notHoenn
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
+	warp PLAYERS_HOUSE_1F, 07, 06
+	sjump .done
+	
+.notHoenn
+.done
+	end
+
+PalletTown_TeacherStopsYouScene1:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue .done
+	playmusic MUSIC_MOM
+	turnobject PALLETTOWN_TEACHER, UP
+	opentext
+	writetext PalletTown_WaitPlayer
+	waitbutton
+	closetext
+	turnobject PLAYER, DOWN
+	opentext
+	writetext PalletTown_WhatDoYouThinkYoureDoing
+	waitbutton
+	closetext
+	applymovement PLAYER, PalletTown_StepBackMovement
+	opentext
+	writetext PalletTown_ItsDangerousToGoAlone
+	waitbutton
+	closetext
+	special RestartMapMusic
+.done
+	end
+
+PalletTown_StepBackMovement:
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
+
+PalletTown_WaitPlayer:
+	text "Wait, <PLAY_G>!"
+	done
+
+PalletTown_WhatDoYouThinkYoureDoing:
+	text "What do you think"
+	line "you're doing?"
+	done
+
+PalletTown_ItsDangerousToGoAlone:
+	text "It's dangerous to"
+	line "go out without a"
+	cont "#MON!"
+
+	para "Wild #MON"
+	line "jump out of the"
+
+	para "grass on the way"
+	line "to the next town."
+	done
+
 
 PalletTownTeacherScript:
 	jumptextfaceplayer PalletTownTeacherText
@@ -76,6 +142,9 @@ PalletTown_MapEvents:
 	warp_event 12, 11, OAKS_LAB, 1
 
 	def_coord_events
+	coord_event  03, 11, -1, PalletTownConditionalWarpScript
+	coord_event  08, 02, -1, PalletTown_TeacherStopsYouScene1
+	coord_event  09, 02, -1, PalletTown_TeacherStopsYouScene1
 
 	def_bg_events
 	bg_event  7,  9, BGEVENT_READ, PalletTownSign
@@ -84,5 +153,5 @@ PalletTown_MapEvents:
 	bg_event 11,  5, BGEVENT_READ, BluesHouseSign
 
 	def_object_events
-	object_event  3,  8, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PalletTownTeacherScript, -1
+	object_event  9,  6, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PalletTownTeacherScript, -1
 	object_event 12, 14, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PalletTownFisherScript, -1

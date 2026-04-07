@@ -771,18 +771,21 @@ SetStart:
 	jr z, .StartJohto
 	cp $2
 	jr z, .StartHoenn
+	cp $3
+	jr z, .StartKanto
 
 .StartMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 0, 15, TEXTBOX_Y - 1
+	menu_coords 0, 0, 18, TEXTBOX_Y - 1
 	dw .RegionMenuData
 	db 1 ; default option
 
 .RegionMenuData:
 	db STATICMENU_CURSOR ; flags
-	db 2 ; items	
-	db "Johto (Gen 2)@"
+	db 3 ; items	
+	db "Johto (Default)@"
 	db "Hoenn (Gen 3)@"
+	db "Kanto (Gen 1)@"
 
 .StartJohto:
 	ld de, EVENT_START_JOHTO
@@ -792,6 +795,12 @@ SetStart:
 
 .StartHoenn:
 	ld de, EVENT_START_HOENN
+    ld b, SET_FLAG
+	call EventFlagAction
+	ret
+
+.StartKanto:
+	ld de, EVENT_START_KANTO
     ld b, SET_FLAG
 	call EventFlagAction
 	ret

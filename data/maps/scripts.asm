@@ -396,6 +396,9 @@ INCLUDE "maps/Route43Gate.asm"
 INCLUDE "maps/kanto/pallet/RedsHouse1F.asm"
 INCLUDE "maps/kanto/pallet/RedsHouse2F.asm"
 INCLUDE "maps/kanto/pallet/BluesHouse.asm"
+
+
+SECTION "Map Scripts 19.1", ROMX
 INCLUDE "maps/kanto/pallet/OaksLab.asm"
 
 

@@ -1518,7 +1518,7 @@ SchoolboyGroupHard:
 	dw ELECTRODE
 	db -1 ; end
 
-	next_list_item ; SCHOOLBOY (2) Unreferenced
+	next_list_item ; SCHOOLBOY (2) Route 15
 	db "KIPP@", TRAINERTYPE_NORMAL 
 	db 3
 	dw VOLTORB
@@ -1546,7 +1546,7 @@ SchoolboyGroupHard:
 	dw VICTREEBEL
 	db -1 ; end
 
-	next_list_item ; SCHOOLBOY (5) Unreferenced
+	next_list_item ; SCHOOLBOY (5) Viridian Forest
 	db "DANNY@", TRAINERTYPE_NORMAL	
 	db 1
 	dw RATTATA
@@ -2845,7 +2845,7 @@ CooltrainerFGroupHard:
 	dw NINETALES
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERF (14) Route 1
+	next_list_item ; COOLTRAINERF (14) Viridian Forest
 	db "QUINN@", TRAINERTYPE_NORMAL
 	db 1
 	dw BULBASAUR
@@ -4058,7 +4058,7 @@ BugCatcherGroupHard:
 	dw SURSKIT
 	db -1 ; end
 
-	next_list_item ; BUG_CATCHER (2) Route 02
+	next_list_item ; BUG_CATCHER (2) Viridian Forest
 	db "ROB@", TRAINERTYPE_NORMAL 
 	db 0
 	dw WEEDLE
@@ -4066,7 +4066,7 @@ BugCatcherGroupHard:
 	dw CATERPIE
 	db -1 ; end
 
-	next_list_item ; BUG_CATCHER (3) Route 02
+	next_list_item ; BUG_CATCHER (3) Viridian Forest
 	db "ED@", TRAINERTYPE_NORMAL
 	db 0
 	dw WEEDLE
@@ -4158,7 +4158,7 @@ BugCatcherGroupHard:
 	dw BUTTERFREE
 	db -1 ; end
 
-	next_list_item ; BUG_CATCHER (12) Route 02
+	next_list_item ; BUG_CATCHER (12) Viridian Forest
 	db "DOUG@", TRAINERTYPE_NORMAL
 	db 0
 	dw SPINARAK
@@ -7081,7 +7081,7 @@ CamperGroupHard:
 	next_list_item ; CAMPER (18) Pewter City Gym
 	db "JERRY@", TRAINERTYPE_NORMAL
 	db 7
-	dw SANDSLASH
+	dw SANDSHREW
 	db 7
 	dw KABUTO
 	db -1 ; end

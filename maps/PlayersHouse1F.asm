@@ -29,7 +29,7 @@ PlayerHouse1FConditionalWarpScript:
 	
 .notHoenn
 	checkevent EVENT_START_JOHTO
-	;iffalse .notJohto ;
+	iffalse .notJohto ;
 	playsound SFX_EXIT_BUILDING
 	special FadeOutToWhite
 	waitsfx
@@ -37,6 +37,10 @@ PlayerHouse1FConditionalWarpScript:
 	sjump .done
 
 .notJohto
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
+	warp PALLET_TOWN, 03, 12
 .done
 	end
 
@@ -232,7 +236,7 @@ ElmsLookingForYouText:
 	text "Oh, <PLAYER>…! Our"
 	line "neighbor, PROF."
 
-	para "ELM, was looking"
+	para "was looking"
 	line "for you."
 
 	para "He said he wanted"
