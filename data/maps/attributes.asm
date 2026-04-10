@@ -738,6 +738,7 @@ ENDM
 	map_attributes MtMoon1F, MT_MOON_1F, $00, 0
 	map_attributes MtMoonB1F, MT_MOON_B1F, $00, 0
 	map_attributes MtMoonB2F, MT_MOON_B2F, $00, 0
+	map_attributes MtMoonPokecenter, MT_MOON_POKECENTER, $00, 0
 
 	map_attributes SafariZoneSouth, SAFARI_ZONE_SOUTH, $00, 0
 	map_attributes SafariZoneEast, SAFARI_ZONE_EAST, $00, 0

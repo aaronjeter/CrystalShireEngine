@@ -173,6 +173,7 @@ ENDM
 	map_const MT_MOON_1F,                                  20, 20 ;
 	map_const MT_MOON_B1F,                                 20, 20 ;
 	map_const MT_MOON_B2F,                                 20, 20 ;
+	map_const MT_MOON_POKECENTER,                          05, 04 ;
 	map_const SAFARI_ZONE_SOUTH,                           20, 20 ;
 	map_const SAFARI_ZONE_EAST,                            20, 20 ;
 	map_const SAFARI_ZONE_NORTH,                           30, 30 ;

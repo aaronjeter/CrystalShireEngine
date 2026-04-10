@@ -659,6 +659,7 @@ INCLUDE "maps/hoenn/mauville/NewMauville.asm"
 INCLUDE "maps/kanto/dungeons/MtMoon1F.asm"
 INCLUDE "maps/kanto/dungeons/MtMoonB1F.asm"
 INCLUDE "maps/kanto/dungeons/MtMoonB2F.asm" 
+INCLUDE "maps/kanto/dungeons/MtMoonPokecenter.asm"
 
 INCLUDE "maps/johto/JohtoGames.asm"
 

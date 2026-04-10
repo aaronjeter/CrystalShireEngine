@@ -135,6 +135,7 @@ Route3_MapEvents:
 
 	def_warp_events
 	warp_event 52,  1, MT_MOON_1F, 1
+	warp_event 47,  3, MT_MOON_POKECENTER, 1
 
 	def_coord_events
 

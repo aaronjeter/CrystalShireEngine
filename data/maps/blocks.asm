@@ -295,6 +295,7 @@ CianwoodPokecenter1F_Blocks:
 ViridianPokecenter1F_Blocks:
 SaffronPokecenter1F_Blocks:
 CherrygrovePokecenter1F_Blocks:
+MtMoonPokecenter_Blocks:
 	INCBIN "maps/Pokecenter1F.ablk"
 
 EarlsPokemonAcademy_Blocks:
