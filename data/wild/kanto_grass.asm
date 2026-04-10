@@ -762,28 +762,28 @@ KantoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, SPOINK
-	dbw 1, DODUO
-	dbw 1, PONYTA
+	dbw 1, SPEAROW
+	dbw 1, NIDORAN_F
+	dbw 2, NIDORAN_M
 	dbw 2, DODUO
-	dbw 2, PONYTA
-	dbw 3, FEAROW
-	dbw 5, FEAROW
+	dbw 3, DODUO
+	dbw 5, DODUO
 	; day
 	dbw 1, SPOINK
-	dbw 1, DODUO
-	dbw 1, PONYTA
+	dbw 1, SPEAROW
+	dbw 1, NIDORAN_F
+	dbw 2, NIDORAN_M
 	dbw 2, DODUO
-	dbw 2, PONYTA
-	dbw 3, FEAROW
-	dbw 5, FEAROW
+	dbw 3, DODUO
+	dbw 5, DODUO
 	; nite
 	dbw 1, SPOINK
-	dbw 1, DODUO
-	dbw 1, PONYTA
+	dbw 1, SPEAROW
+	dbw 1, NIDORAN_F
+	dbw 2, NIDORAN_M
 	dbw 2, DODUO
-	dbw 2, PONYTA
-	dbw 3, FEAROW
-	dbw 5, FEAROW
+	dbw 3, DODUO
+	dbw 5, DODUO
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_24

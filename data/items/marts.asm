@@ -212,37 +212,30 @@ MartBlackthorn:
 	dw X_ATTACK
 
 MartViridian:
-	db 9 ; # items
-	dw ULTRA_BALL
-	dw HYPER_POTION
-	dw FULL_HEAL
-	dw REVIVE
+	db 6 ; # items
+	dw POKE_BALL
+	dw POTION
 	dw ANTIDOTE
 	dw PARLYZ_HEAL
 	dw AWAKENING
-	dw BURN_HEAL
 	dw FLOWER_MAIL
 
 MartPewter:
 	db 7 ; # items
-	dw GREAT_BALL
-	dw SUPER_POTION
-	dw SUPER_REPEL
+	dw POKE_BALL
+	dw POTION
+	dw REPEL
 	dw ANTIDOTE
 	dw PARLYZ_HEAL
 	dw AWAKENING
 	dw BURN_HEAL
 
 MartCerulean:
-	db 9 ; # items
-	dw GREAT_BALL
-	dw ULTRA_BALL
-	dw SUPER_POTION
-	dw SUPER_REPEL
+	db 5 ; # items
+	dw POKE_BALL
+	dw POTION
+	dw REPEL
 	dw FULL_HEAL
-	dw X_DEFEND
-	dw X_ATTACK
-	dw DIRE_HIT
 	dw SURF_MAIL
 
 MartLavender:
@@ -258,9 +251,9 @@ MartLavender:
 
 MartVermilion:
 	db 8 ; # items
-	dw ULTRA_BALL
+	dw GREAT_BALL
 	dw SUPER_POTION
-	dw HYPER_POTION
+	dw POTION
 	dw REVIVE
 	dw PARLYZ_HEAL
 	dw AWAKENING
