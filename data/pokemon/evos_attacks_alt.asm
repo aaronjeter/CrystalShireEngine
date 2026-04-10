@@ -709,9 +709,9 @@ AgolemEvosAttacks:
 HvoltorbEvosAttacks:
 	dbbw EVOLVE_LEVEL, 30, HELECTRODE
 	db 0 ; no more evolutions
-	dbw 1, THUNDERSHOCK	
-	dbw 8, THUNDER_WAVE
-	dbw 12, TACKLE
+	dbw 1, THUNDERSHOCK
+	dbw 5, ABSORB
+	dbw 10, THUNDER_WAVE
 	dbw 16, SELFDESTRUCT
 	dbw 20, SONICBOOM	
 	dbw 24, SPARK	
@@ -729,9 +729,9 @@ HvoltorbEvosAttacks:
 
 HelectrodeEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, THUNDERSHOCK	
-	dbw 8, THUNDER_WAVE
-	dbw 12, TACKLE
+	dbw 1, THUNDERSHOCK
+	dbw 5, ABSORB
+	dbw 10, THUNDER_WAVE
 	dbw 16, SELFDESTRUCT
 	dbw 20, SONICBOOM	
 	dbw 24, SPARK	
