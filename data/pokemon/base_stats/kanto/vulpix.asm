@@ -4,10 +4,10 @@
 	evs  0,   0,   0,   1,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIRE, GHOST ; type
+	db FIRE, FAIRY ; type
 	db 190 ; catch rate
 	db 63 ; base exp
-	dw BURNT_BERRY, BURNT_BERRY ; items
+	dw BURNT_BERRY, MYSTERYBERRY ; items
 	db GENDER_F75 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/vulpix/front.dimensions"
