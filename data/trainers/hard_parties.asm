@@ -1052,7 +1052,7 @@ MistyGroupHard:
 	db 10
 	dw GOLDUCK
 	dw SURF, SLASH, CALM_MIND, PSYBEAM
-	db 15
+	db 12
 	dw STARMIE
 	dw SURF, PSYCHIC_M, RECOVER, CALM_MIND
 	db -1 ; end
@@ -1101,26 +1101,26 @@ LtSurgeGroupHard:
 	dw THUNDERSHOCK, METAL_CLAW, SUPERSONIC, THUNDER_WAVE	
 	db 11
 	dw ELECTABUZZ
-	dw REFLECT, THUNDERPUNCH, DIZZY_PUNCH, THUNDERBOLT
+	dw REFLECT, THUNDERPUNCH, DIZZY_PUNCH, NO_MOVE
 	db -1 ; end
 	
 	next_list_item ; LT_SURGE (2)
 	db "LT.SURGE@", TRAINERTYPE_MOVES
-	db 12
+	db 10
 	dw LANTURN
 	dw WATER_PULSE, THUNDERBOLT, ICE_BEAM, THUNDER_WAVE
-	db 10
+	db 9
 	dw ARAICHU
 	dw DIG, SURF, VOLT_TACKLE, SWIFT	
-	db 10
+	db 9
 	dw MANECTRIC
-	dw VOLT_TACKLE, METAL_CLAW, PURSUIT, THUNDER_WAVE
+	dw VOLT_TACKLE, METAL_CLAW, PURSUIT, THUNDER_WAVE	
+	db 9
+	dw JOLTEON
+	dw THUNDERBOLT, PIN_MISSILE, PURSUIT, THUNDER_WAVE
 	db 12
 	dw ELECTIVIRE
 	dw REFLECT, THUNDERPUNCH, DIZZY_PUNCH, MACH_PUNCH
-	db 15
-	dw ZAPDOS
-	dw DETECT, THUNDER, DRILL_PECK, THUNDERBOLT
 	db -1 ; end
 	
 	next_list_item ; LT_SURGE (3)
@@ -1225,7 +1225,7 @@ ErikaGroupHard:
 	db 10
 	dw LUDICOLO
 	dw SUNNY_DAY, SOLARBEAM, GIGA_DRAIN, SURF
-	db 15
+	db 12
 	dw BELLOSSOM
 	dw SUNNY_DAY, SYNTHESIS, PETAL_DANCE, SOLARBEAM
 	db -1 ; end
@@ -2115,11 +2115,11 @@ LassGroupHard:
 	next_list_item ; LASS (9) Celadon City Gym
 	db "MICHELLE@", TRAINERTYPE_NORMAL
 	db 5
-	dw SKIPLOOM
+	dw PARAS
 	db 5
 	dw HOPPIP
 	db 7
-	dw JUMPLUFF
+	dw SKIPLOOM
 	db -1 ; end
 
 	next_list_item ; LASS (10) Route 38
@@ -3783,9 +3783,9 @@ GentlemanGroupHard:
 	next_list_item ; GENTLEMAN (3) Vermilion City Gym
 	db "GREGORY@", TRAINERTYPE_NORMAL
 	db 7
-	dw RAICHU
+	dw PIKACHU
 	db 7
-	dw AMPHAROS
+	dw FLAAFFY
 	db -1 ; end
 
 	next_list_item ; GENTLEMAN (4) Unreferenced
@@ -4014,7 +4014,7 @@ SabrinaGroupHard:
 	db 10
 	dw LUNATONE
 	dw CALM_MIND, ANCIENTPOWER, ROCK_TOMB, PSYCHIC_M
-	db 15
+	db 12
 	dw ALAKAZAM
 	dw PSYCHIC_M, CALM_MIND, RECOVER, SHADOW_BALL
 	db -1 ; end
@@ -5466,15 +5466,11 @@ GuitaristGroupHard:
 	db -1 ; end
 
 	next_list_item ; GUITARIST (2) Vermilion City Gym
-	db "VINCENT@", TRAINERTYPE_NORMAL
-	db 7
-	dw MANECTRIC
-	db 7
+	db "VINCENT@", TRAINERTYPE_NORMAL	
+	db 8
 	dw VOLBEAT
-	db 7
+	db 9
 	dw ILLUMISE
-	db 7
-	dw ELECTRODE2
 	db -1 ; end
 
 	next_list_item ; GUITARIST (3) Mauville City Gym
@@ -6183,14 +6179,12 @@ JugglerGroupHard:
 
 	next_list_item ; JUGGLER (3) Vermilion City Gym
 	db "HORTON@", TRAINERTYPE_NORMAL
-	db 3
-	dw ELECTRODE
-	db 5
-	dw ELECTRODE
-	db 7
-	dw ELECTRODE2
-	db 9
-	dw ELECTRODE2
+	db 8
+	dw VOLTORB
+	db 8
+	dw VOLTORB2
+	db 8
+	dw HVOLTORB
 	db -1 ; end
 
 	next_list_item ; JUGGLER (4) Route 35
@@ -6435,7 +6429,7 @@ PsychicGroupHard:
 	next_list_item ; PSYCHIC_T (2) Saffron City Gym
 	db "FRANKLIN@", TRAINERTYPE_NORMAL
 	db 7
-	dw KADABRA
+	dw ABRA
 	db 7
 	dw XATU
 	db 7
@@ -7782,7 +7776,7 @@ TwinsGroupHard:
 	next_list_item ; TWINS (5) Celadon City Gym
 	db "JO & ZOE@", TRAINERTYPE_NORMAL
 	db 7
-	dw VICTREEBEL
+	dw WEEPINBELL
 	db 7
 	dw VILEPLUME
 	db -1 ; end
@@ -7792,7 +7786,7 @@ TwinsGroupHard:
 	db 7
 	dw VILEPLUME
 	db 7
-	dw VICTREEBEL
+	dw WEEPINBELL
 	db -1 ; end
 
 	next_list_item ; TWINS (7) S.S. Aqua
