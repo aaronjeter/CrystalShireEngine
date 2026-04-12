@@ -896,17 +896,17 @@ VulpixEvosAttacks:
 	dbbw EVOLVE_LEVEL, 30, NINETALES
 	db 0 ; no more evolutions
 	dbw 1, EMBER
-	dbw 1, LICK
+	dbw 1, PIXIE_DUST
 	dbw 7, QUICK_ATTACK
 	dbw 12, ROAR
 	dbw 16, NIGHT_SHADE
 	dbw 20, WILLOWISP
-	dbw 24, HYPNOSIS
-	dbw 28, CURSE
+	dbw 24, FAE_VOICE
+	dbw 28, FIRE_SPIN
 	dbw 32, RECOVER
-	dbw 36, FIRE_SPIN
-	dbw 40, SHADOW_BALL
-	dbw 45, FLAMETHROWER
+	dbw 36, DRAININGKISS
+	dbw 40, FLAMETHROWER
+	dbw 45, MOONBLAST
 	dbw 48, DESTINY_BOND
 	dbw 50, CALM_MIND
 	dbw 55, SOLARBEAM
@@ -920,17 +920,17 @@ NinetalesEvosAttacks:
 	dbww EVOLVE_ITEM, WATER_STONE, NINETALES2
 	db 0 ; no more evolutions
 	dbw 1, EMBER
-	dbw 1, LICK
+	dbw 1, PIXIE_DUST
 	dbw 7, QUICK_ATTACK
 	dbw 12, ROAR
 	dbw 16, NIGHT_SHADE
 	dbw 20, WILLOWISP
-	dbw 24, HYPNOSIS
-	dbw 28, CURSE
+	dbw 24, FAE_VOICE
+	dbw 28, FIRE_SPIN
 	dbw 32, RECOVER
-	dbw 36, FIRE_SPIN
-	dbw 40, SHADOW_BALL
-	dbw 45, FLAMETHROWER	
+	dbw 36, DRAININGKISS
+	dbw 40, FLAMETHROWER
+	dbw 45, MOONBLAST
 	dbw 48, DESTINY_BOND
 	dbw 50, CALM_MIND
 	dbw 55, SOLARBEAM
