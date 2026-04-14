@@ -224,16 +224,16 @@ CeladonCity_MapEvents:
 	warp_event 29,  9, CELADON_POKECENTER_1F, 1
 	warp_event 18, 19, CELADON_GAME_CORNER, 1
 	warp_event 23, 19, CELADON_GAME_CORNER_PRIZE_ROOM, 1
-	warp_event 10, 29, CELADON_GYM, 1
+	warp_event  8, 29, CELADON_GYM, 1
 	warp_event 25, 29, CELADON_CAFE, 1
 
 	def_coord_events
 
 	def_bg_events
 	bg_event 23, 21, BGEVENT_READ, CeladonCitySign
-	bg_event 11, 31, BGEVENT_READ, CeladonGymSign
+	bg_event  6, 30, BGEVENT_READ, CeladonGymSign
 	bg_event  6,  9, BGEVENT_READ, CeladonCityDeptStoreSign
-	bg_event 13,  9, BGEVENT_READ, CeladonCityMansionSign
+	bg_event 12,  8, BGEVENT_READ, CeladonCityMansionSign
 	bg_event 19, 21, BGEVENT_READ, CeladonCityGameCornerSign
 	bg_event 29, 21, BGEVENT_READ, CeladonCityTrainerTips
 	bg_event 30,  9, BGEVENT_READ, CeladonCityPokecenterSign
@@ -243,8 +243,8 @@ CeladonCity_MapEvents:
 	object_event 26, 11, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCityFisherScript, -1
 	object_event 27, 11, SPRITE_POLIWAG, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonCityPoliwrath, -1
 	object_event 20, 24, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonCityTeacher1Script, -1
-	object_event 14, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CeladonCityGramps1Script, -1
-	object_event  8, 31, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonCityGramps2Script, -1
+	object_event 11, 18, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CeladonCityGramps1Script, -1
+	object_event  7, 30, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonCityGramps2Script, -1
 	object_event 18, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonCityYoungster1Script, -1
 	object_event 24, 33, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCityYoungster2Script, -1
 	object_event  6, 14, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCityTeacher2Script, -1

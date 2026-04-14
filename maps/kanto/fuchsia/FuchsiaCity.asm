@@ -128,9 +128,9 @@ FuchsiaCity_MapEvents:
 	def_warp_events
 	warp_event  5, 13, FUCHSIA_MART, 2
 	warp_event 22, 13, SAFARI_ZONE_MAIN_OFFICE, 1
-	warp_event  8, 27, FUCHSIA_GYM, 1
-	warp_event 11, 27, BILLS_OLDER_SISTERS_HOUSE, 1
-	warp_event 19, 27, FUCHSIA_POKECENTER_1F, 1
+	warp_event 10, 25, FUCHSIA_GYM, 1
+	warp_event 15, 25, BILLS_OLDER_SISTERS_HOUSE, 1
+	warp_event 19, 25, FUCHSIA_POKECENTER_1F, 1
 	warp_event 27, 27, SAFARI_ZONE_WARDENS_HOME, 1
 	warp_event 18,  3, SAFARI_ZONE_SOUTH, 1 ; inaccessible
 	warp_event 37, 22, ROUTE_15_FUCHSIA_GATE, 1
@@ -142,12 +142,12 @@ FuchsiaCity_MapEvents:
 
 	def_bg_events
 	bg_event 21, 15, BGEVENT_READ, FuchsiaCitySign
-	bg_event  5, 29, BGEVENT_READ, FuchsiaGymSign
+	bg_event  8, 26, BGEVENT_READ, FuchsiaGymSign
 	bg_event 25, 15, BGEVENT_READ, SafariZoneOfficeSign
 	bg_event 27, 29, BGEVENT_READ, WardensHomeSign
 	bg_event 17,  5, BGEVENT_READ, SafariZoneClosedSign
-	bg_event 13, 15, BGEVENT_READ, NoLitteringSign
-	bg_event 20, 27, BGEVENT_READ, FuchsiaCityPokecenterSign
+	bg_event 14, 14, BGEVENT_READ, NoLitteringSign
+	bg_event 20, 25, BGEVENT_READ, FuchsiaCityPokecenterSign
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
 
 	def_object_events

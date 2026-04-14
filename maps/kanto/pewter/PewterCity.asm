@@ -155,7 +155,7 @@ PewterCity_MapEvents:
 
 	def_warp_events
 	warp_event 29, 13, PEWTER_NIDORAN_SPEECH_HOUSE, 1
-	warp_event 16, 17, PEWTER_GYM, 1
+	warp_event  8, 17, PEWTER_GYM, 1
 	warp_event 23, 17, PEWTER_MART, 2
 	warp_event 13, 25, PEWTER_POKECENTER_1F, 1
 	warp_event  7, 29, PEWTER_SNOOZE_SPEECH_HOUSE, 1
@@ -163,11 +163,11 @@ PewterCity_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 25, 23, BGEVENT_READ, PewterCitySign
-	bg_event 11, 17, BGEVENT_READ, PewterGymSign
-	bg_event 15,  9, BGEVENT_READ, PewterMuseumSign
-	bg_event 33, 19, BGEVENT_READ, PewterCityMtMoonGiftShopSign
-	bg_event 19, 29, BGEVENT_READ, PewterCityWelcomeSign
+	bg_event 24, 24, BGEVENT_READ, PewterCitySign
+	bg_event  6, 18, BGEVENT_READ, PewterGymSign
+	bg_event 16, 12, BGEVENT_READ, PewterMuseumSign
+	bg_event 35, 17, BGEVENT_READ, PewterCityMtMoonGiftShopSign
+	bg_event 17, 29, BGEVENT_READ, PewterCityWelcomeSign
 	bg_event 14, 25, BGEVENT_READ, PewterCityPokecenterSign
 	bg_event 24, 17, BGEVENT_READ, PewterCityMartSign
 
