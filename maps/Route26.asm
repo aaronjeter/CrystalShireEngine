@@ -56,34 +56,7 @@ TrainerCooltrainermGaven3:
 .WantsBattle:
 	scall .Rematch
 	winlosstext CooltrainermGaven3BeatenText, 0
-	readmem wGavenFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight2
-.Fight1:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer COOLTRAINERM, GAVEN3
-	startbattle
-	reloadmapafterbattle
-	loadmem wGavenFightCount, 1
-	clearflag ENGINE_GAVEN_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer COOLTRAINERM, GAVEN1
-	startbattle
-	reloadmapafterbattle
-	loadmem wGavenFightCount, 2
-	clearflag ENGINE_GAVEN_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer COOLTRAINERM, GAVEN2
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_GAVEN_READY_FOR_REMATCH

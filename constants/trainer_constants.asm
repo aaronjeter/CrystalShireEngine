@@ -231,12 +231,6 @@ DEF KRIS EQU __trainer_class__
 	const MICHELLE
 	const DANA1
 	const ELLEN
-	const CONNIE2 ; unused
-	const CONNIE3 ; unused
-	const DANA2
-	const DANA3
-	const DANA4
-	const DANA5
 	const MAUVILLE_VIVIAN
 	const ROUTE102_TIANA
 	const ROUTE104_HALEY
@@ -260,11 +254,9 @@ DEF KRIS EQU __trainer_class__
 	const PAUL
 	const CODY
 	const MIKE
-	const GAVEN1
-	const GAVEN2
+	const GAVEN3
 	const RYAN
 	const JAKE
-	const GAVEN3
 	const BLAKE
 	const BRIAN
 	const ERICK ; unused

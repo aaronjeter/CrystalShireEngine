@@ -2012,80 +2012,6 @@ LassGroup:
 	dw SNUBBULL
 	db -1 ; end
 
-	next_list_item ; LASS (12) Glitter Lighthouse - 4F Rematch 1
-	db "CONNIE@", TRAINERTYPE_NORMAL
-	db 11
-	dw AZUMARILL
-	db 11
-	dw TOGEKISS
-	db 11
-	dw PLUSLE
-	db 11
-	dw MINUN
-	db -1 ; end
-
-	next_list_item ; LASS (13) Glitter Lighthouse - 4F Rematch 2
-	db "CONNIE@", TRAINERTYPE_NORMAL
-	db 11
-	dw AZUMARILL
-	db 11
-	dw TOGEKISS
-	db 11
-	dw PLUSLE
-	db 11
-	dw MINUN
-	db 11
-	dw RAICHU
-	db -1 ; end
-
-	next_list_item ; LASS (14) Route 38 Rematch 1
-	db "DANA@", TRAINERTYPE_NORMAL
-	db 9
-	dw AMPHAROS
-	db 9
-	dw GOLDUCK
-	db 9
-	dw VOLBEAT
-	db 9
-	dw ILLUMISE
-	db -1 ; end
-
-	next_list_item ; LASS (15) Route 38 Rematch 2
-	db "DANA@", TRAINERTYPE_NORMAL
-	db 11
-	dw AMPHAROS
-	db 11
-	dw GOLDUCK
-	db 9
-	dw VOLBEAT
-	db 9
-	dw ILLUMISE
-	db -1 ; end
-
-	next_list_item ; LASS (16) Route 38 Rematch 3
-	db "DANA@", TRAINERTYPE_NORMAL
-	db 11
-	dw AMPHAROS
-	db 11
-	dw GOLDUCK
-	db 9
-	dw VOLBEAT
-	db 9
-	dw ILLUMISE
-	db -1 ; end
-
-	next_list_item ; LASS (17) Route 38 Rematch 4
-	db "DANA@", TRAINERTYPE_NORMAL
-	db 11
-	dw AMPHAROS
-	db 11
-	dw GOLDUCK
-	db 9
-	dw VOLBEAT
-	db 9
-	dw ILLUMISE
-	db -1 ; end
-
 	next_list_item ; LASS (18) Mauville City Gym
 	db "VIVIAN@", TRAINERTYPE_NORMAL	
 	db 9
@@ -2308,20 +2234,6 @@ CooltrainerMGroup:
 	dw SEVIPER
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (7) Route 26 Rematch 1
-	db "GAVEN@", TRAINERTYPE_NORMAL
-	db 9
-	dw VICTREEBEL
-	db 9
-	dw KINGLER
-	db 9
-	dw FLAREON
-	db 9
-	dw SEVIPER
-	db 9
-	dw ZANGOOSE
-	db -1 ; end
-
 	next_list_item ; COOLTRAINERM (8) Route 45
 	db "RYAN@", TRAINERTYPE_NORMAL
 	db 7
@@ -2344,20 +2256,6 @@ CooltrainerMGroup:
 	dw TRAPINCH
 	db 9
 	dw CAMERUPT
-	db -1 ; end
-
-	next_list_item ; COOLTRAINERM (10) Route 26 Rematch 2
-	db "GAVEN@", TRAINERTYPE_NORMAL
-	db 11
-	dw VICTREEBEL
-	db 11
-	dw KINGLER
-	db 11
-	dw FLAREON
-	db 11
-	dw SEVIPER
-	db 11
-	dw ZANGOOSE
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (11) Route 27

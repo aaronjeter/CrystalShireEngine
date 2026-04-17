@@ -2866,7 +2866,7 @@ wToddFightCount::    db
 wGinaFightCount::    db
 wArnieFightCount::   db
 wAlanFightCount::    db ;unused
-wDanaFightCount::    db
+wDanaFightCount::    db ;unused
 wChadFightCount::    db ;unused
 wTullyFightCount::   db
 wBrentFightCount::   db
