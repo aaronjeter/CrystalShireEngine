@@ -99,6 +99,51 @@ VermilionGymBadgeGuy:
 	closetext
 	end
 
+VermillionCutGrannyScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_HATCHET
+	iftrue VermillionCutGrannyScript_AfterHatchet
+
+	writetext VermillionCutGrannyGiveHatchetText
+	waitbutton 
+	verbosegiveitem HATCHET
+	setevent EVENT_GOT_HATCHET
+	waitbutton
+	closetext
+	end
+
+VermillionCutGrannyScript_AfterHatchet:
+	writetext VermillionCutGrannyAlreadyGivenHatchetText
+	waitbutton
+	closetext
+	end
+
+VermillionCutGrannyGiveHatchetText:
+	text "Hey kid, you look"
+	line "like you could"
+
+	para "use a good"
+	line "sturdy HATCHET."
+
+	para "I keep finding"
+	line "stuff like this"
+
+	para "while we clear"
+	line "this old lot."
+
+	para "Seems like a"
+	line "waste to just"
+	cont "toss it..."
+	done
+
+VermillionCutGrannyAlreadyGivenHatchetText:
+	text "I keep finding"
+	line "junk while we"
+	cont "clear this"
+	cont "darned lot."
+	done
+
 VermilionCitySign:
 	jumptext VermilionCitySignText
 
@@ -299,3 +344,5 @@ VermilionCity_MapEvents:
 	object_event 14, 16, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionCitySuperNerdScript, -1
 	object_event 35,  8, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionSnorlax, EVENT_VERMILION_CITY_SNORLAX
 	object_event 31, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VermilionGymBadgeGuy, -1
+	object_event 26, 10, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermillionCutGrannyScript, -1
+	
