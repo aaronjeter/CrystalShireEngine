@@ -842,10 +842,10 @@
 	const EVENT_BEAT_FISHER_MARTIN
 	const EVENT_BEAT_FISHER_STEPHEN
 	const EVENT_BEAT_FISHER_BARNEY
-	const EVENT_BEAT_FISHER_RALPH2
-	const EVENT_BEAT_FISHER_RALPH3
-	const EVENT_BEAT_FISHER_TULLY2
-	const EVENT_BEAT_FISHER_TULLY3
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_FISHER_WILTON2
 	const EVENT_BEAT_FISHER_SCOTT
 	const EVENT_BEAT_FISHER_WILTON3
@@ -933,12 +933,12 @@
 ; Beauty
 	const EVENT_BEAT_BEAUTY_VICTORIA
 	const EVENT_BEAT_BEAUTY_SAMANTHA
-	const EVENT_BEAT_BEAUTY_JULIE
-	const EVENT_BEAT_BEAUTY_JACLYN
-	const EVENT_BEAT_BEAUTY_BRENDA
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_BEAUTY_CASSIE
-	const EVENT_BEAT_BEAUTY_CAROLINE
-	const EVENT_BEAT_BEAUTY_CARLENE
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_BEAUTY_JESSICA
 	const EVENT_BEAT_BEAUTY_RACHAEL
 	const EVENT_BEAT_BEAUTY_ANGELICA
@@ -1090,11 +1090,11 @@
 	const EVENT_BEAT_BUG_CATCHER_JOSH
 	const EVENT_BEAT_BUG_CATCHER_ARNIE
 	const EVENT_BEAT_BUG_CATCHER_KEN
-	const EVENT_BEAT_BUG_CATCHER_WADE2
-	const EVENT_BEAT_BUG_CATCHER_WADE3
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_BUG_CATCHER_DOUG
-	const EVENT_BEAT_BUG_CATCHER_ARNIE2
-	const EVENT_BEAT_BUG_CATCHER_ARNIE3
+	const_skip ; unused
+	const_skip ; unused
 ; Officer
 	const EVENT_BEAT_OFFICER_KEITH
 	const EVENT_BEAT_OFFICER_DIRK

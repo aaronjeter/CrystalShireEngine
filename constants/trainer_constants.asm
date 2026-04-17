@@ -310,12 +310,7 @@ DEF KRIS EQU __trainer_class__
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
 	const SAMANTHA
-	const JULIE ; unused
-	const JACLYN ; unused
-	const BRENDA ; unused
 	const CASSIE
-	const CAROLINE ; unused
-	const CARLENE ; unused
 	const JESSICA ; unused
 	const RACHAEL ; unused
 	const ANGELICA ; unused
@@ -444,15 +439,7 @@ DEF KRIS EQU __trainer_class__
 	const JOSH
 	const ARNIE1
 	const KEN
-	const WADE2
-	const WADE3
 	const DOUG
-	const ARNIE2
-	const ARNIE3
-	const WADE4
-	const WADE5
-	const ARNIE4
-	const ARNIE5
 	const WAYNE
 	const MAUVILLE_ANGELO
 	const ROUTE102_RICK
@@ -482,16 +469,9 @@ DEF KRIS EQU __trainer_class__
 	const MARTIN
 	const STEPHEN
 	const BARNEY
-	const RALPH2
-	const RALPH3
-	const TULLY2
-	const TULLY3
 	const WILTON2
 	const SCOTT
 	const WILTON3
-	const RALPH4
-	const RALPH5
-	const TULLY4
 	const ROUTE103_ANDREW
 	const ROUTE104_DARIAN
 	const ROUTE104_IVAN

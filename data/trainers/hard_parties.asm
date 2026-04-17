@@ -2849,46 +2849,12 @@ BeautyGroupHard:
 	dw BEAUTIFLY
 	db -1 ; end
 
-	next_list_item ; BEAUTY (3) Unreferenced
-	db "JULIE@", TRAINERTYPE_NORMAL
-	db 5
-	dw BEAUTIFLY
-	db -1 ; end
-
-	next_list_item ; BEAUTY (4) Unreferenced
-	db "JACLYN@", TRAINERTYPE_NORMAL
-	db 5
-	dw BEAUTIFLY
-	db -1 ; end
-
-	next_list_item ; BEAUTY (5) Unreferenced
-	db "BRENDA@", TRAINERTYPE_NORMAL
-	db 6
-	dw BEAUTIFLY
-	db -1 ; end
-
-	next_list_item ; BEAUTY (6) Unreferenced
+	next_list_item ; BEAUTY (6) Fastship Cabins
 	db "CASSIE@", TRAINERTYPE_NORMAL
 	db 7
 	dw VILEPLUME
 	db 5
 	dw BUTTERFREE
-	db -1 ; end
-
-	next_list_item ; BEAUTY (7) Unreferenced
-	db "CAROLINE@", TRAINERTYPE_NORMAL
-	db 3
-	dw MARILL
-	db 5
-	dw SEEL
-	db 3
-	dw MARILL
-	db -1 ; end
-
-	next_list_item ; BEAUTY (8) Unreferenced
-	db "CARLENE@", TRAINERTYPE_NORMAL
-	db 5
-	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; BEAUTY (9) Unreferenced
@@ -3939,97 +3905,14 @@ BugCatcherGroupHard:
 	dw ARIADOS
 	db 4
 	dw PINSIR
-	db -1 ; end
-
-	next_list_item ; BUG_CATCHER (10) Route 31 Rematch 1
-	db "WADE@", TRAINERTYPE_NORMAL
-	db 4
-	dw METAPOD
-	db 4
-	dw METAPOD
-	db 7
-	dw KAKUNA
-	db 5
-	dw METAPOD
-	db -1 ; end
-
-	next_list_item ; BUG_CATCHER (11) Route 31 Rematch 2
-	db "WADE@", TRAINERTYPE_NORMAL
-	db 5
-	dw BUTTERFREE
-	db 5
-	dw BUTTERFREE
-	db 7
-	dw BEEDRILL
-	db 5
-	dw BUTTERFREE
-	db -1 ; end
+	db -1 ; end	
 
 	next_list_item ; BUG_CATCHER (12) Viridian Forest
 	db "DOUG@", TRAINERTYPE_NORMAL
 	db 0
 	dw SPINARAK
 	db -1 ; end
-
-	next_list_item ; BUG_CATCHER (13) Route 35 Rematch 1
-	db "ARNIE@", TRAINERTYPE_NORMAL
-	db 7
-	dw VENONAT
-	db -1 ; end
-
-	next_list_item ; BUG_CATCHER (14) Route 35 Rematch 2
-	db "ARNIE@", TRAINERTYPE_MOVES
-	db 8
-	dw VENOMOTH
-	dw DISABLE, SUPERSONIC, CONFUSION, LEECH_LIFE
-	db -1 ; end
-
-	next_list_item ; BUG_CATCHER (15) Route 31 Rematch 3
-	db "WADE@", TRAINERTYPE_MOVES
-	db 6
-	dw BUTTERFREE
-	dw CONFUSION, POISONPOWDER, SUPERSONIC, WHIRLWIND
-	db 7
-	dw BUTTERFREE
-	dw CONFUSION, STUN_SPORE, SUPERSONIC, WHIRLWIND
-	db 9
-	dw BEEDRILL
-	dw FURY_ATTACK, FOCUS_ENERGY, TWINEEDLE, RAGE
-	db 7
-	dw BUTTERFREE
-	dw CONFUSION, SLEEP_POWDER, SUPERSONIC, WHIRLWIND
-	db -1 ; end
-
-	next_list_item ; BUG_CATCHER (16) Route 31 Rematch 3
-	db "WADE@", TRAINERTYPE_MOVES
-	db 10
-	dw BUTTERFREE
-	dw CONFUSION, POISONPOWDER, SUPERSONIC, GUST
-	db 10
-	dw BUTTERFREE
-	dw CONFUSION, STUN_SPORE, SUPERSONIC, GUST
-	db 10
-	dw BEEDRILL
-	dw FURY_ATTACK, PURSUIT, TWINEEDLE, DOUBLE_TEAM
-	db 10
-	dw BUTTERFREE
-	dw PSYBEAM, SLEEP_POWDER, GUST, WHIRLWIND
-	db -1 ; end
-
-	next_list_item ; BUG_CATCHER (17) Route 35 Rematch 3
-	db "ARNIE@", TRAINERTYPE_MOVES
-	db 10
-	dw VENOMOTH
-	dw GUST, SUPERSONIC, PSYBEAM, LEECH_LIFE
-	db -1 ; end
-
-	next_list_item ; BUG_CATCHER (18) Route 35 Rematch 4
-	db "ARNIE@", TRAINERTYPE_MOVES
-	db 12
-	dw VENOMOTH
-	dw GUST, SUPERSONIC, PSYCHIC_M, TOXIC
-	db -1 ; end
-
+	
 	next_list_item ; BUG_CATCHER (19) Ilex Forest
 	db "WAYNE@", TRAINERTYPE_NORMAL
 	db 5
@@ -4277,36 +4160,6 @@ FisherGroupHard:
 	dw GYARADOS
 	db -1 ; end
 
-	next_list_item ; FISHER (16) Route 32 Rematch 1
-	db "RALPH@", TRAINERTYPE_NORMAL
-	db 7
-	dw GOLDEEN
-	db -1 ; end
-
-	next_list_item ; FISHER (17) Route 32 Rematch 2
-	db "RALPH@", TRAINERTYPE_NORMAL
-	db 8
-	dw QWILFISH
-	db 9
-	dw GOLDEEN
-	db -1 ; end
-
-	next_list_item ; FISHER (18) Route 42 Rematch 1
-	db "TULLY@", TRAINERTYPE_NORMAL
-	db 8
-	dw QWILFISH
-	db -1 ; end
-
-	next_list_item ; FISHER (19) Route 42 Rematch 2
-	db "TULLY@", TRAINERTYPE_NORMAL
-	db 7
-	dw GOLDEEN
-	db 7
-	dw GOLDEEN
-	db 10
-	dw QWILFISH
-	db -1 ; end
-
 	next_list_item ; FISHER (20) Route 44
 	db "WILTON@", TRAINERTYPE_NORMAL
 	db 4
@@ -4338,38 +4191,7 @@ FisherGroupHard:
 	db 8
 	dw REMORAID
 	dw PSYBEAM, AURORA_BEAM, BUBBLEBEAM, HYPER_BEAM
-	db -1 ; end
-
-	next_list_item ; FISHER (23) Route 32 Rematch 3
-	db "RALPH@", TRAINERTYPE_NORMAL
-	db 8
-	dw QWILFISH
-	db 10
-	dw GOLDEEN
-	db -1 ; end
-
-	next_list_item ; FISHER (24) Route 32 Rematch 4
-	db "RALPH@", TRAINERTYPE_MOVES
-	db 10
-	dw QWILFISH
-	dw TOXIC, MINIMIZE, SURF, PIN_MISSILE
-	db 10
-	dw SEAKING
-	dw ENDURE, FLAIL, FURY_ATTACK, WATERFALL
-	db -1 ; end
-
-	next_list_item ; FISHER (25) Route 42 Rematch 3
-	db "TULLY@", TRAINERTYPE_MOVES
-	db 7
-	dw SEAKING
-	dw SUPERSONIC, RAIN_DANCE, WATERFALL, FURY_ATTACK
-	db 7
-	dw SEAKING
-	dw SUPERSONIC, RAIN_DANCE, WATERFALL, FURY_ATTACK
-	db 10
-	dw QWILFISH
-	dw ROLLOUT, SURF, PIN_MISSILE, TAKE_DOWN
-	db -1 ; end
+	db -1 ; end	
 
 	next_list_item ; FISHER (26) Route 103
 	db "ANDREW@", TRAINERTYPE_NORMAL

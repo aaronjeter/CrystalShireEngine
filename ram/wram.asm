@@ -2858,17 +2858,17 @@ wBethFightCount::    db
 wJoseFightCount::    db
 wReenaFightCount::   db
 wJoeyFightCount::    db
-wWadeFightCount::    db
-wRalphFightCount::   db
+wWadeFightCount::    db ;unused
+wRalphFightCount::   db ;unused
 wLizFightCount::     db
 wAnthonyFightCount:: db
 wToddFightCount::    db
 wGinaFightCount::    db
-wArnieFightCount::   db
+wArnieFightCount::   db ;unused
 wAlanFightCount::    db ;unused
 wDanaFightCount::    db ;unused
 wChadFightCount::    db ;unused
-wTullyFightCount::   db
+wTullyFightCount::   db ;unused
 wBrentFightCount::   db
 wTiffanyFightCount:: db
 wVanceFightCount::   db
