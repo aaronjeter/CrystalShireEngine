@@ -1923,9 +1923,18 @@ Movement_ContestResults_WalkAfterWarp:
 	step_end
 
 UpdateWorldLevelsScript:
+	readvar VAR_BADGES
 
-	;sjump .done
+	ifgreater 3, .MediumTrainers
+	clearevent EVENT_HIDE_EASY_TRAINERS
+	setevent EVENT_HIDE_MEDIUM_TRAINERS
+	sjump .CalculateLevels
 
+.MediumTrainers
+	setevent EVENT_HIDE_EASY_TRAINERS
+	clearevent EVENT_HIDE_MEDIUM_TRAINERS
+
+.CalculateLevels
 	readvar VAR_BADGES
 
 	ifequal 0, .NoBadges

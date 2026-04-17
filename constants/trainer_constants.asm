@@ -749,6 +749,8 @@ DEF KRIS EQU __trainer_class__
 	const MOSSDEEP_BLAKE
 	const MOSSDEEP_NICHOLAS
 	const MOSSDEEP_VIRGIL
+	const FRANKLIN2
+	const JARED2
 
 	trainerclass PICNICKER ; 35
 	const LIZ1
@@ -861,6 +863,8 @@ DEF KRIS EQU __trainer_class__
 	const REBECCA
 	const DORIS
 	const ROUTE117_BRANDI
+	const REBECCA2
+	const DORIS2
 
 	trainerclass BOARDER ; 3a
 	const RONALD
@@ -1075,6 +1079,6 @@ DEF KRIS EQU __trainer_class__
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
 
 const_def
-const BATTLETOWER_EASY
-const BATTLETOWER_HARD
-const BATTLETOWER_LEGEND
+const PSYCHIC_EASY
+const PSYCHIC_MEDIUM
+const PSYCHIC_HARD

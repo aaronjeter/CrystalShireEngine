@@ -6426,14 +6426,8 @@ PsychicGroupHard:
 	dw UNOWN
 	db -1 ; end
 
-	next_list_item ; PSYCHIC_T (2) Saffron City Gym
-	db "FRANKLIN@", TRAINERTYPE_NORMAL
-	db 7
-	dw ABRA
-	db 7
-	dw XATU
-	db 7
-	dw KADABRA
+	next_list_item; PSYCHIC_T (2) Saffron City Gym
+	db "FRANKLIN@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY	
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (3) Route 11
@@ -6512,14 +6506,8 @@ PsychicGroupHard:
 	dw GIRAFARIG
 	db -1 ; end
 
-	next_list_item ; PSYCHIC_T (11) Saffron City Gym
-	db "JARED@", TRAINERTYPE_NORMAL
-	db 7
-	dw MR__MIME
-	db 7
-	dw EXEGGCUTE
-	db 7
-	dw GRUMPIG
+	next_list_item; PSYCHIC_T (11) Saffron City Gym
+	db "JARED@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (12) Unreferenced
@@ -6568,6 +6556,14 @@ PsychicGroupHard:
 	dw PORYGON2
 	db 9
 	dw HYPNO
+	db -1 ; end
+
+	next_list_item; PSYCHIC_T (18) Saffron City Gym
+	db "FRANKLIN@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
+	db -1 ; end
+
+	next_list_item; PSYCHIC_T (11) Saffron City Gym
+	db "JARED@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
 	db -1 ; end
 
 	end_list_items
@@ -7431,20 +7427,12 @@ MediumGroupHard:
 	dw HAUNTER
 	db -1 ; end
 
-	next_list_item ; MEDIUM (6) Saffron City Gym
-	db "REBECCA@", TRAINERTYPE_NORMAL
-	db 7
-	dw DROWZEE
-	db 7
-	dw HYPNO
+	next_list_item; MEDIUM (6) Saffron City Gym
+	db "REBECCA@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
-	next_list_item ; MEDIUM (7) Saffron City Gym
-	db "DORIS@", TRAINERTYPE_NORMAL
-	db 7
-	dw SLOWKING
-	db 7
-	dw SLOWBRO
+	next_list_item; MEDIUM (7) Saffron City Gym
+	db "DORIS@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
 	next_list_item ; MEDIUM (8) Route 117
@@ -7455,6 +7443,14 @@ MediumGroupHard:
 	dw GRUMPIG
 	db 8
 	dw XATU
+	db -1 ; end
+
+	next_list_item; MEDIUM (9) Saffron City Gym
+	db "REBECCA@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
+	db -1 ; end
+
+	next_list_item; MEDIUM (10) Saffron City Gym
+	db "DORIS@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
 	db -1 ; end
 
 	end_list_items
@@ -9367,7 +9363,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (6) Testroom
-	db "TEST@", TRAINERTYPE_RANDOM | TRAINERTYPE_ITEM | TRAINERTYPE_MOVES, 3, BATTLETOWER_EASY	
+	db "TEST@", TRAINERTYPE_RANDOM | TRAINERTYPE_ITEM | TRAINERTYPE_MOVES, 3, PSYCHIC_EASY	
 	db -1 ; end
 
 	next_list_item; EXPLORER (7) Lavaridge Desert

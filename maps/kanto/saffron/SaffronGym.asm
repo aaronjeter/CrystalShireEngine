@@ -1,16 +1,20 @@
 	object_const_def
 	const SAFFRONGYM_SABRINA
-	const SAFFRONGYM_GRANNY1
-	const SAFFRONGYM_YOUNGSTER1
-	const SAFFRONGYM_GRANNY2
-	const SAFFRONGYM_YOUNGSTER2
+	const SAFFRONGYM_REBECCA1
+	const SAFFRONGYM_REBECCA2
+	const SAFFRONGYM_FRANKLIN1
+	const SAFFRONGYM_FRANKLIN2
+	const SAFFRONGYM_DORIS1
+	const SAFFRONGYM_DORIS2
+	const SAFFRONGYM_JARED1
+	const SAFFRONGYM_JARED2
 	const SAFFRONGYM_GYM_GUIDE
 
 SaffronGym_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-
+	
 SaffronGymSabrinaScript:
 	faceplayer
 	opentext
@@ -99,9 +103,20 @@ SaffronGymLevelcap:
 	jumpstd UpdateWorldLevelsScript
 	end
 
-TrainerMediumRebecca:
+TrainerMediumRebecca:	
 	trainer MEDIUM, REBECCA, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script
+	
+.Script:
+	endifjustbattled
+	opentext
+	writetext MediumRebeccaAfterBattleText
+	waitbutton
+	closetext
+	end
 
+TrainerMediumRebecca2:	
+	trainer MEDIUM, REBECCA2, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script
+	
 .Script:
 	endifjustbattled
 	opentext
@@ -112,6 +127,17 @@ TrainerMediumRebecca:
 
 TrainerPsychicFranklin:
 	trainer PSYCHIC_T, FRANKLIN, EVENT_BEAT_PSYCHIC_FRANKLIN, PsychicFranklinSeenText, PsychicFranklinBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PsychicFranklinAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerPsychicFranklin2:
+	trainer PSYCHIC_T, FRANKLIN2, EVENT_BEAT_PSYCHIC_FRANKLIN, PsychicFranklinSeenText, PsychicFranklinBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -132,8 +158,30 @@ TrainerMediumDoris:
 	closetext
 	end
 
+TrainerMediumDoris2:
+	trainer MEDIUM, DORIS2, EVENT_BEAT_MEDIUM_DORIS, MediumDorisSeenText, MediumDorisBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext MediumDorisAfterBattleText
+	waitbutton
+	closetext
+	end
+
 TrainerPsychicJared:
 	trainer PSYCHIC_T, JARED, EVENT_BEAT_PSYCHIC_JARED, PsychicJaredSeenText, PsychicJaredBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PsychicJaredAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerPsychicJared2:
+	trainer PSYCHIC_T, JARED2, EVENT_BEAT_PSYCHIC_JARED, PsychicJaredSeenText, PsychicJaredBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -395,8 +443,12 @@ SaffronGym_MapEvents:
 
 	def_object_events
 	object_event  9,  8, SPRITE_SABRINA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronGymSabrinaScript, -1
-	object_event 17, 16, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerMediumRebecca, -1
-	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFranklin, -1
-	object_event  3,  4, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerMediumDoris, -1
-	object_event 17,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicJared, -1
+	object_event 17, 16, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerMediumRebecca, EVENT_HIDE_EASY_TRAINERS
+	object_event 17, 16, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerMediumRebecca2, EVENT_HIDE_MEDIUM_TRAINERS
+	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFranklin, EVENT_HIDE_EASY_TRAINERS
+	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFranklin2, EVENT_HIDE_MEDIUM_TRAINERS	
+	object_event  3,  4, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerMediumDoris, EVENT_HIDE_EASY_TRAINERS
+	object_event  3,  4, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerMediumDoris2, EVENT_HIDE_MEDIUM_TRAINERS
+	object_event 17,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicJared, EVENT_HIDE_EASY_TRAINERS
+	object_event 17,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicJared2, EVENT_HIDE_MEDIUM_TRAINERS
 	object_event  9, 14, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronGymGuideScript, -1
