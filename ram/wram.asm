@@ -2851,7 +2851,7 @@ wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 
 ; fight counts
-wJackFightCount::    db
+wJackFightCount::    db ;unused
 wHueyFightCount::    db
 wGavenFightCount::   db
 wBethFightCount::    db
@@ -2865,9 +2865,9 @@ wAnthonyFightCount:: db
 wToddFightCount::    db
 wGinaFightCount::    db
 wArnieFightCount::   db
-wAlanFightCount::    db
+wAlanFightCount::    db ;unused
 wDanaFightCount::    db
-wChadFightCount::    db
+wChadFightCount::    db ;unused
 wTullyFightCount::   db
 wBrentFightCount::   db
 wTiffanyFightCount:: db

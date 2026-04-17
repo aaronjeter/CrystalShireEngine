@@ -183,18 +183,6 @@ DEF KRIS EQU __trainer_class__
 	const CHAD1
 	const NATE
 	const RICKY
-	const JACK2
-	const JACK3
-	const ALAN2
-	const ALAN3
-	const CHAD2
-	const CHAD3
-	const JACK4
-	const JACK5
-	const ALAN4
-	const ALAN5
-	const CHAD4
-	const CHAD5
 	const MAUVILLE_BEN
 	const ROUTE118_DALE
 
@@ -919,8 +907,6 @@ DEF KRIS EQU __trainer_class__
 	trainerclass POKEFANF ; 3e
 	const BEVERLY1
 	const RUTH
-	const BEVERLY2 ; unused
-	const BEVERLY3 ; unused
 	const GEORGIA
 	const JAIME
 	const ROUTE117_LYDIA

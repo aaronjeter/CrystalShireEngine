@@ -1594,7 +1594,7 @@ SchoolboyGroupHard:
 	dw MR__MIME
 	db -1 ; end
 
-	next_list_item ; SCHOOLBOY (11) Unreferenced
+	next_list_item ; SCHOOLBOY (11) Fast Ship B1F
 	db "NATE@", TRAINERTYPE_NORMAL
 	db 7
 	dw LEDIAN
@@ -1602,52 +1602,12 @@ SchoolboyGroupHard:
 	dw EXEGGUTOR
 	db -1 ; end
 
-	next_list_item ; SCHOOLBOY (12) Unreferenced
+	next_list_item ; SCHOOLBOY (12) Fast Ship B1F
 	db "RICKY@", TRAINERTYPE_NORMAL
 	db 7
 	dw AIPOM
 	db 7
 	dw DITTO
-	db -1 ; end
-
-	next_list_item ; SCHOOLBOY (13) National Park
-	db "JACK@", TRAINERTYPE_NORMAL
-	db 4
-	dw ODDISH
-	db 7
-	dw VOLTORB
-	db 7
-	dw VOLTORB2
-	db -1 ; end
-
-	next_list_item ; SCHOOLBOY (14) National Park Rematch 1
-	db "JACK@", TRAINERTYPE_NORMAL
-	db 4
-	dw GLOOM
-	db 7
-	dw ELECTRODE
-	db 7
-	dw ELECTRODE2
-	db -1 ; end
-
-	next_list_item ; SCHOOLBOY (15) Route 36 Rematch 1
-	db "ALAN@", TRAINERTYPE_NORMAL
-	db 11
-	dw TANGELA
-	db 11
-	dw YANMA
-	db -1 ; end
-
-	next_list_item ; SCHOOLBOY (16) Route 36 Rematch 2
-	db "ALAN@", TRAINERTYPE_NORMAL
-	db 9
-	dw NATU
-	db 11
-	dw TANGELA
-	db 11
-	dw QUAGSIRE
-	db 11
-	dw YANMA
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (17) Route 38 Rematch 1
@@ -1664,57 +1624,6 @@ SchoolboyGroupHard:
 	dw MR__MIME
 	db 11
 	dw MAGNETON
-	db -1 ; end
-
-	next_list_item ; SCHOOLBOY (19) National Park Rematch 2
-	db "JACK@", TRAINERTYPE_NORMAL
-	db 11
-	dw GLOOM
-	db 11
-	dw GROWLITHE
-	db 11
-	dw ELECTRODE
-	db -1 ; end
-
-	next_list_item ; SCHOOLBOY (20) National Park Rematch 3
-	db "JACK@", TRAINERTYPE_MOVES
-	db 10
-	dw ELECTRODE
-	dw SCREECH, SONICBOOM, ROLLOUT, LIGHT_SCREEN
-	db 10
-	dw GROWLITHE
-	dw SUNNY_DAY, LEER, TAKE_DOWN, FLAME_WHEEL
-	db 10
-	dw VILEPLUME
-	dw SOLARBEAM, SLEEP_POWDER, ACID, MOONLIGHT
-	db -1 ; end
-
-	next_list_item ; SCHOOLBOY (21) Route 36 Rematch 3
-	db "ALAN@", TRAINERTYPE_NORMAL
-	db 11
-	dw NATU
-	db 11
-	dw TANGELA
-	db 11
-	dw QUAGSIRE
-	db 11
-	dw YANMA
-	db -1 ; end
-
-	next_list_item ; SCHOOLBOY (22) Route 36 Rematch 4
-	db "ALAN@", TRAINERTYPE_MOVES
-	db 10
-	dw XATU
-	dw PECK, NIGHT_SHADE, SWIFT, FUTURE_SIGHT
-	db 10
-	dw TANGELA
-	dw POISONPOWDER, VINE_WHIP, BIND, MEGA_DRAIN
-	db 10
-	dw YANMA
-	dw QUICK_ATTACK, DOUBLE_TEAM, SONICBOOM, SUPERSONIC
-	db 10
-	dw QUAGSIRE
-	dw TAIL_WHIP, SLAM, AMNESIA, EARTHQUAKE
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (23) Route 38 Rematch 2
@@ -7881,21 +7790,7 @@ PokefanFGroupHard:
 	dw PIKACHU
 	dw BERRY
 	db -1 ; end
-
-	next_list_item ; POKEFANF (3) National Park
-	db "BEVERLY@", TRAINERTYPE_ITEM
-	db 6
-	dw SNUBBULL
-	dw BERRY
-	db -1 ; end
-
-	next_list_item ; POKEFANF (4) National Park
-	db "BEVERLY@", TRAINERTYPE_ITEM
-	db 8
-	dw GRANBULL
-	dw BERRY
-	db -1 ; end
-
+	
 	next_list_item ; POKEFANF (5) Unreferenced
 	db "GEORGIA@", TRAINERTYPE_ITEM
 	db 3

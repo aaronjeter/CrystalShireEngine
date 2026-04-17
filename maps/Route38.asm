@@ -204,58 +204,7 @@ TrainerSchoolboyChad1:
 .ChadRematch:
 	scall .Rematch
 	winlosstext SchoolboyChad1BeatenText, 0
-	readmem wChadFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight4
-.Fight3:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight3
-.Fight2:
-	checkevent EVENT_CLEARED_RADIO_TOWER
-	iftrue .LoadFight2
-.Fight1:
-	checkflag ENGINE_FLYPOINT_MAHOGANY
-	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer SCHOOLBOY, CHAD1
-	startbattle
-	reloadmapafterbattle
-	loadmem wChadFightCount, 1
-	clearflag ENGINE_CHAD_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer SCHOOLBOY, CHAD2
-	startbattle
-	reloadmapafterbattle
-	loadmem wChadFightCount, 2
-	clearflag ENGINE_CHAD_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer SCHOOLBOY, CHAD3
-	startbattle
-	reloadmapafterbattle
-	loadmem wChadFightCount, 3
-	clearflag ENGINE_CHAD_READY_FOR_REMATCH
-	end
-
-.LoadFight3:
-	loadtrainer SCHOOLBOY, CHAD4
-	startbattle
-	reloadmapafterbattle
-	loadmem wChadFightCount, 4
-	clearflag ENGINE_CHAD_READY_FOR_REMATCH
-	end
-
-.LoadFight4:
-	loadtrainer SCHOOLBOY, CHAD5
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_CHAD_READY_FOR_REMATCH
