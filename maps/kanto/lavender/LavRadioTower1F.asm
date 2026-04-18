@@ -36,6 +36,7 @@ LavRadioTower1FGentlemanScript:
 	promptbutton
 	getstring STRING_BUFFER_4, .expncardname
 	scall .receiveitem
+	setflag ENGINE_RADIO_CARD
 	setflag ENGINE_EXPN_CARD
 .GotExpnCard:
 	writetext LavRadioTower1FGentlemanText_GotExpnCard
