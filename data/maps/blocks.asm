@@ -686,6 +686,8 @@ RuinsOfAlphResearchCenter_Blocks:
 	INCBIN "maps/johto/alph/RuinsOfAlphResearchCenter.ablk"
 
 GoldenrodBikeShop_Blocks:
+CeruleanBikeShop_Blocks:
+MauvilleBikeShop_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodBikeShop.ablk"
 
 DanceTheater_Blocks:

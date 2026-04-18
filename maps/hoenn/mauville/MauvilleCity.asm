@@ -41,6 +41,13 @@ MauvilleGameCornerSignText:
 	line "Game Corner"
 	done
 
+MauvilleBikeShopSign:
+	jumptext MauvilleBikeShopSignText
+
+MauvilleBikeShopSignText:
+	text "Mauville Bikes!"
+	done
+
 MauvilleCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -49,6 +56,7 @@ MauvilleCity_MapEvents:
 	warp_event 23, 5, MAUVILLE_POKECENTER, 2
 	warp_event 23, 13, MAUVILLE_MART, 2
 	warp_event 37, 15, MAUVILLE_TRADE_HOUSE, 2
+	warp_event 33, 05, MAUVILLE_BIKE_SHOP, 2
 
 	def_coord_events
 
@@ -56,6 +64,7 @@ MauvilleCity_MapEvents:
 	bg_event  21, 07, BGEVENT_READ, MauvilleCitySign
 	bg_event  05, 07, BGEVENT_READ, MauvilleGymSign
 	bg_event  03, 15, BGEVENT_READ, MauvilleGameCornerSign
+	bg_event  34, 07, BGEVENT_READ, MauvilleBikeShopSign
 
 	def_object_events
 	

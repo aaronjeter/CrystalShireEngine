@@ -402,6 +402,11 @@ SECTION "Map Scripts 19.1", ROMX
 INCLUDE "maps/kanto/pallet/OaksLab.asm"
 
 
+SECTION "Map Scripts 19.2", ROMX
+INCLUDE "maps/kanto/cerulean/CeruleanBikeShop.asm"
+INCLUDE "maps/hoenn/mauville/MauvilleBikeShop.asm"
+
+
 SECTION "Map Scripts 20", ROMX
 
 INCLUDE "maps/johto/cherrygrove/CherrygroveCity.asm"

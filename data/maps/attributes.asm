@@ -514,6 +514,7 @@ ENDM
 	map_attributes CeruleanPokecenter2FBeta, CERULEAN_POKECENTER_2F_BETA, $00, 0
 	map_attributes CeruleanGym, CERULEAN_GYM, $00, 0
 	map_attributes CeruleanMart, CERULEAN_MART, $00, 0
+	map_attributes CeruleanBikeShop, CERULEAN_BIKE_SHOP, $00, 0
 	map_attributes Route10Pokecenter1F, ROUTE_10_POKECENTER_1F, $00, 0
 	map_attributes Route10Pokecenter2FBeta, ROUTE_10_POKECENTER_2F_BETA, $00, 0
 	map_attributes PowerPlant, POWER_PLANT, $00, 0
@@ -774,6 +775,8 @@ ENDM
 	map_attributes LilycoveTradeHouse, LILYCOVE_TRADE_HOUSE, $00, 0
 	map_attributes LilycovePaintHouse, LILYCOVE_PAINT_HOUSE, $00, 0
 	map_attributes FallarborReminderHouse, FALLARBOR_REMINDER_HOUSE, $00, 0
+
+	map_attributes MauvilleBikeShop, MAUVILLE_BIKE_SHOP, $00, 0
 
 	map_attributes BirchsLab, BIRCHS_LAB, $00, 0
 

@@ -239,6 +239,7 @@ ENDM
 	map_const ROUTE_24,                                    10,  9 ; 15
 	map_const ROUTE_25,                                    30,  9 ; 16
 	map_const CERULEAN_CITY,                               20, 18 ; 17
+	map_const CERULEAN_BIKE_SHOP,                          04, 04 ; 18
 	endgroup
 
 	newgroup AZALEA                                               ;  8
@@ -557,6 +558,7 @@ ENDM
 	map_const MAUVILLE_POKECENTER,						   07, 04 ;
 	map_const MAUVILLE_MART,							   06, 04 ;
 	map_const MAUVILLE_TRADE_HOUSE,  					   04, 04 ;
+	map_const MAUVILLE_BIKE_SHOP,                          04, 04 ; 
 	map_const SLATEPORT_CITY,							   20, 30 ;
 	map_const SLATEPORT_POKECENTER,						   07, 04 ;
 	map_const SLATEPORT_MART,							   06, 04 ;
