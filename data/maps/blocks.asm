@@ -28,13 +28,13 @@ ElmsHouse_Blocks:
 	INCBIN "maps/johto/newbark/ElmsHouse.ablk"
 
 Route11_Blocks:
-	INCBIN "maps/Route11.ablk"
+	INCBIN "maps/kanto/routes/Route11.ablk"
 
 Route15_Blocks:
-	INCBIN "maps/Route15.ablk"
+	INCBIN "maps/kanto/routes/Route15.ablk"
 
 Route19_Blocks:
-	INCBIN "maps/Route19.ablk"
+	INCBIN "maps/kanto/routes/Route19.ablk"
 
 Route10South_Blocks:
 	INCBIN "maps/kanto/routes/Route10South.ablk"
@@ -75,10 +75,10 @@ PewterCity_Blocks:
 	INCBIN "maps/kanto/pewter/PewterCity.ablk"
 
 Route12_Blocks:
-	INCBIN "maps/Route12.ablk"
+	INCBIN "maps/kanto/routes/Route12.ablk"
 
 Route20_Blocks:
-	INCBIN "maps/Route20.ablk"
+	INCBIN "maps/kanto/routes/Route20.ablk"
 
 Route30_Blocks:
 	INCBIN "maps/johto/routes/Route30.ablk"
@@ -178,13 +178,13 @@ ViridianCity_Blocks:
 	INCBIN "maps/kanto/viridian/ViridianCity.ablk"
 
 Route13_Blocks:
-	INCBIN "maps/Route13.ablk"
+	INCBIN "maps/kanto/routes/Route13.ablk"
 
 Route21_Blocks:
 	INCBIN "maps/Route21.ablk"
 
 Route17_Blocks:
-	INCBIN "maps/Route17.ablk"
+	INCBIN "maps/kanto/routes/Route17.ablk"
 
 Route31_Blocks:
 	INCBIN "maps/johto/routes/Route31.ablk"
@@ -241,7 +241,7 @@ Route22_Blocks:
 SECTION "Map Blocks 2", ROMX
 
 Route14_Blocks:
-	INCBIN "maps/Route14.ablk"
+	INCBIN "maps/kanto/routes/Route14.ablk"
 
 OlivineMart_Blocks:
 EcruteakMart_Blocks:
@@ -450,10 +450,10 @@ Route7_Blocks:
 	INCBIN "maps//kanto/routes/Route7.ablk"
 
 Route16_Blocks:
-	INCBIN "maps/Route16.ablk"
+	INCBIN "maps/kanto/routes/Route16.ablk"
 
 Route18_Blocks:
-	INCBIN "maps/Route18.ablk"
+	INCBIN "maps/kanto/routes/Route18.ablk"
 
 GoldenrodUnderground_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodUnderground.ablk"
