@@ -79,7 +79,7 @@ INCLUDE "maps/johto/violet/VioletNicknameSpeechHouse.asm"
 INCLUDE "maps/johto/violet/VioletPokecenter1F.asm"
 INCLUDE "maps/johto/violet/VioletKylesHouse.asm"
 INCLUDE "maps/johto/alph/Route32RuinsOfAlphGate.asm"
-INCLUDE "maps/Route32Pokecenter1F.asm"
+INCLUDE "maps/johto/routes/Route32Pokecenter1F.asm"
 INCLUDE "maps/Route35GoldenrodGate.asm"
 INCLUDE "maps/Route35NationalParkGate.asm"
 INCLUDE "maps/johto/alph/Route36RuinsOfAlphGate.asm"
@@ -152,7 +152,7 @@ INCLUDE "maps/johto/ecruteak/TinTowerRoof.asm"
 
 SECTION "Map Scripts 9", ROMX
 
-INCLUDE "maps/Route34.asm"
+INCLUDE "maps/johto/routes/Route34.asm"
 INCLUDE "maps/johto/newbark/ElmsLab.asm"
 INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
@@ -325,7 +325,7 @@ INCLUDE "maps/johto/azalea/AzaleaGym.asm"
 SECTION "Map Scripts 17", ROMX
 
 INCLUDE "maps/johto/mahogany/MahoganyTown.asm"
-INCLUDE "maps/Route32.asm"
+INCLUDE "maps/johto/routes/Route32.asm"
 INCLUDE "maps/kanto/vermilion/VermilionFishingSpeechHouse.asm"
 INCLUDE "maps/kanto/vermilion/VermilionPokecenter1F.asm"
 INCLUDE "maps/kanto/vermilion/PokemonFanClub.asm"
@@ -343,7 +343,7 @@ INCLUDE "maps/TimeCapsule.asm"
 
 SECTION "Map Scripts 18", ROMX
 
-INCLUDE "maps/Route36.asm"
+INCLUDE "maps/johto/routes/Route36.asm"
 INCLUDE "maps/kanto/fuchsia/FuchsiaCity.asm"
 INCLUDE "maps/johto/blackthorn/BlackthornGym1F.asm"
 INCLUDE "maps/johto/blackthorn/BlackthornGym2F.asm"
@@ -364,7 +364,7 @@ INCLUDE "maps/johto/cherrygrove/CherrygrovePokecenter1F.asm"
 INCLUDE "maps/johto/cherrygrove/CherrygroveGymSpeechHouse.asm"
 INCLUDE "maps/johto/cherrygrove/GuideGentsHouse.asm"
 INCLUDE "maps/johto/cherrygrove/CherrygroveEvolutionSpeechHouse.asm"
-INCLUDE "maps/Route30BerryHouse.asm"
+INCLUDE "maps/johto/routes/Route30BerryHouse.asm"
 INCLUDE "maps/johto/routes/MrPokemonsHouse.asm"
 INCLUDE "maps/johto/violet/Route31VioletGate.asm"
 
@@ -399,7 +399,7 @@ INCLUDE "maps/hoenn/mauville/MauvilleBikeShop.asm"
 SECTION "Map Scripts 20", ROMX
 
 INCLUDE "maps/johto/cherrygrove/CherrygroveCity.asm"
-INCLUDE "maps/Route35.asm"
+INCLUDE "maps/johto/routes/Route35.asm"
 INCLUDE "maps/Route43.asm"
 INCLUDE "maps/Route44.asm"
 INCLUDE "maps/Route45.asm"
@@ -413,7 +413,7 @@ INCLUDE "maps/johto/cianwood/CianwoodCity.asm"
 INCLUDE "maps/kanto/routes/Route27.asm"
 INCLUDE "maps/johto/routes/Route29.asm"
 INCLUDE "maps/johto/routes/Route30.asm"
-INCLUDE "maps/Route38.asm"
+INCLUDE "maps/johto/routes/Route38.asm"
 INCLUDE "maps/kanto/routes/Route13.asm"
 INCLUDE "maps/kanto/pewter/PewterNidoranSpeechHouse.asm"
 INCLUDE "maps/kanto/pewter/PewterGym.asm"
@@ -427,10 +427,10 @@ SECTION "Map Scripts 22", ROMX
 INCLUDE "maps/johto/ecruteak/EcruteakCity.asm"
 INCLUDE "maps/johto/blackthorn/BlackthornCity.asm"
 INCLUDE "maps/kanto/routes/Route26.asm"
-INCLUDE "maps/Route28.asm"
+INCLUDE "maps/johto/routes/Route28.asm"
 INCLUDE "maps/johto/routes/Route31.asm"
-INCLUDE "maps/Route39.asm"
-INCLUDE "maps/Route40.asm"
+INCLUDE "maps/johto/routes/Route39.asm"
+INCLUDE "maps/johto/routes/Route40.asm"
 INCLUDE "maps/Route41.asm"
 INCLUDE "maps/kanto/routes/Route12.asm"
 
@@ -440,7 +440,7 @@ SECTION "Map Scripts 23", ROMX
 INCLUDE "maps/johto/newbark/NewBarkTown.asm"
 INCLUDE "maps/johto/violet/VioletCity.asm"
 INCLUDE "maps/johto/olivine/OlivineCity.asm"
-INCLUDE "maps/Route37.asm"
+INCLUDE "maps/johto/routes/Route37.asm"
 INCLUDE "maps/Route42.asm"
 INCLUDE "maps/Route46.asm"
 INCLUDE "maps/kanto/viridian/ViridianCity.asm"
@@ -455,7 +455,7 @@ INCLUDE "maps/SeafoamGym.asm"
 
 SECTION "Map Scripts 24", ROMX
 
-INCLUDE "maps/Route33.asm"
+INCLUDE "maps/johto/routes/Route33.asm"
 INCLUDE "maps/kanto/routes/Route2.asm"
 INCLUDE "maps/kanto/routes/Route1.asm"
 INCLUDE "maps/kanto/pallet/PalletTown.asm"
@@ -476,7 +476,7 @@ INCLUDE "maps/kanto/routes/Route4.asm"
 INCLUDE "maps/kanto/routes/Route10South.asm"
 INCLUDE "maps/kanto/routes/Route23.asm"
 INCLUDE "maps/johto/silver/SilverCavePokecenter1F.asm"
-INCLUDE "maps/Route28SteelWingHouse.asm"
+INCLUDE "maps/johto/routes/Route28SteelWingHouse.asm"
 
 
 SECTION "Map Scripts 25", ROMX

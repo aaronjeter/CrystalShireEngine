@@ -1,19 +1,19 @@
 SECTION "Map Blocks 1", ROMX
 
 Route32_Blocks:
-	INCBIN "maps/Route32.ablk"
+	INCBIN "maps/johto/routes/Route32.ablk"
 
 Route40_Blocks:
-	INCBIN "maps/Route40.ablk"
+	INCBIN "maps/johto/routes/Route40.ablk"
 
 Route36_Blocks:
-	INCBIN "maps/Route36.ablk"
+	INCBIN "maps/johto/routes/Route36.ablk"
 
 Route44_Blocks:
 	INCBIN "maps/Route44.ablk"
 
 Route28_Blocks:
-	INCBIN "maps/Route28.ablk"
+	INCBIN "maps/johto/routes/Route28.ablk"
 
 CeladonCity_Blocks:
 	INCBIN "maps/kanto/celadon/CeladonCity.ablk"
@@ -45,7 +45,7 @@ Route41_Blocks:
 	INCBIN "maps/Route41.ablk"
 
 Route33_Blocks:
-	INCBIN "maps/Route33.ablk"
+	INCBIN "maps/johto/routes/Route33.ablk"
 
 Route45_Blocks:
 	INCBIN "maps/Route45.ablk"
@@ -54,7 +54,7 @@ Route29_Blocks:
 	INCBIN "maps/johto/routes/Route29.ablk"
 
 Route37_Blocks:
-	INCBIN "maps/Route37.ablk"
+	INCBIN "maps/johto/routes/Route37.ablk"
 
 LavenderTown_Blocks:
 	INCBIN "maps/kanto/lavender/LavenderTown.ablk"
@@ -90,7 +90,7 @@ Route42_Blocks:
 	INCBIN "maps/Route42.ablk"
 
 Route34_Blocks:
-	INCBIN "maps/Route34.ablk"
+	INCBIN "maps/johto/routes/Route34.ablk"
 
 Route46_Blocks:
 	INCBIN "maps/Route46.ablk"
@@ -99,7 +99,7 @@ FuchsiaCity_Blocks:
 	INCBIN "maps/kanto/fuchsia/FuchsiaCity.ablk"
 
 Route38_Blocks:
-	INCBIN "maps/Route38.ablk"
+	INCBIN "maps/johto/routes/Route38.ablk"
 
 OlivineTimsHouse_Blocks:
 OlivinePunishmentSpeechHouse_Blocks:
@@ -193,13 +193,13 @@ Route27_Blocks:
 	INCBIN "maps/kanto/routes/Route27.ablk"
 
 Route35_Blocks:
-	INCBIN "maps/Route35.ablk"
+	INCBIN "maps/johto/routes/Route35.ablk"
 
 Route43_Blocks:
 	INCBIN "maps/Route43.ablk"
 
 Route39_Blocks:
-	INCBIN "maps/Route39.ablk"
+	INCBIN "maps/johto/routes/Route39.ablk"
 
 PlayersHouse1F_Blocks:
 	INCBIN "maps/PlayersHouse1F.ablk"
