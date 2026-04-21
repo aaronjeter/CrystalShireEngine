@@ -63,10 +63,10 @@ PalletTown_Blocks:
 	INCBIN "maps/kanto/pallet/PalletTown.ablk"
 
 Route25_Blocks:
-	INCBIN "maps/Route25.ablk"
+	INCBIN "maps/kanto/routes/Route25.ablk"
 
 Route24_Blocks:
-	INCBIN "maps/Route24.ablk"
+	INCBIN "maps/kanto/routes/Route24.ablk"
 
 Route3_Blocks:
 	INCBIN "maps/kanto/routes/Route3.ablk"
@@ -84,7 +84,7 @@ Route30_Blocks:
 	INCBIN "maps/johto/routes/Route30.ablk"
 
 Route26_Blocks:
-	INCBIN "maps/Route26.ablk"
+	INCBIN "maps/kanto/routes/Route26.ablk"
 
 Route42_Blocks:
 	INCBIN "maps/Route42.ablk"
@@ -181,7 +181,7 @@ Route13_Blocks:
 	INCBIN "maps/kanto/routes/Route13.ablk"
 
 Route21_Blocks:
-	INCBIN "maps/Route21.ablk"
+	INCBIN "maps/kanto/routes/Route21.ablk"
 
 Route17_Blocks:
 	INCBIN "maps/kanto/routes/Route17.ablk"
@@ -190,7 +190,7 @@ Route31_Blocks:
 	INCBIN "maps/johto/routes/Route31.ablk"
 
 Route27_Blocks:
-	INCBIN "maps/Route27.ablk"
+	INCBIN "maps/kanto/routes/Route27.ablk"
 
 Route35_Blocks:
 	INCBIN "maps/Route35.ablk"
@@ -235,7 +235,7 @@ Route9_Blocks:
 	INCBIN "maps/kanto/routes/Route9.ablk"
 
 Route22_Blocks:
-	INCBIN "maps/Route22.ablk"
+	INCBIN "maps/kanto/routes/Route22.ablk"
 
 
 SECTION "Map Blocks 2", ROMX
@@ -825,7 +825,7 @@ VictoryRoad_Blocks:
 	INCBIN "maps/kanto/dungeons/VictoryRoad.ablk"
 
 Route23_Blocks:
-	INCBIN "maps/Route23.ablk"
+	INCBIN "maps/kanto/routes/Route23.ablk"
 
 LancesRoom_Blocks:
 	INCBIN "maps/kanto/indigo/LancesRoom.ablk"
