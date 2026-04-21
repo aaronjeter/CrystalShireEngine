@@ -10,7 +10,7 @@ Route36_Blocks:
 	INCBIN "maps/johto/routes/Route36.ablk"
 
 Route44_Blocks:
-	INCBIN "maps/Route44.ablk"
+	INCBIN "maps/johto/routes/Route44.ablk"
 
 Route28_Blocks:
 	INCBIN "maps/johto/routes/Route28.ablk"
@@ -42,13 +42,13 @@ Route10South_Blocks:
 Pokecenter2F_Blocks:
 	INCBIN "maps/Pokecenter2F.ablk"
 Route41_Blocks:
-	INCBIN "maps/Route41.ablk"
+	INCBIN "maps/johto/routes/Route41.ablk"
 
 Route33_Blocks:
 	INCBIN "maps/johto/routes/Route33.ablk"
 
 Route45_Blocks:
-	INCBIN "maps/Route45.ablk"
+	INCBIN "maps/johto/routes/Route45.ablk"
 
 Route29_Blocks:
 	INCBIN "maps/johto/routes/Route29.ablk"
@@ -87,13 +87,13 @@ Route26_Blocks:
 	INCBIN "maps/kanto/routes/Route26.ablk"
 
 Route42_Blocks:
-	INCBIN "maps/Route42.ablk"
+	INCBIN "maps/johto/routes/Route42.ablk"
 
 Route34_Blocks:
 	INCBIN "maps/johto/routes/Route34.ablk"
 
 Route46_Blocks:
-	INCBIN "maps/Route46.ablk"
+	INCBIN "maps/johto/routes/Route46.ablk"
 
 FuchsiaCity_Blocks:
 	INCBIN "maps/kanto/fuchsia/FuchsiaCity.ablk"
@@ -196,7 +196,7 @@ Route35_Blocks:
 	INCBIN "maps/johto/routes/Route35.ablk"
 
 Route43_Blocks:
-	INCBIN "maps/Route43.ablk"
+	INCBIN "maps/johto/routes/Route43.ablk"
 
 Route39_Blocks:
 	INCBIN "maps/johto/routes/Route39.ablk"
@@ -819,7 +819,7 @@ UndergroundPath_Blocks:
 	INCBIN "maps/UndergroundPath.ablk"
 
 Route39Barn_Blocks:
-	INCBIN "maps/Route39Barn.ablk"
+	INCBIN "maps/johto/routes/Route39Barn.ablk"
 
 VictoryRoad_Blocks:
 	INCBIN "maps/kanto/dungeons/VictoryRoad.ablk"
