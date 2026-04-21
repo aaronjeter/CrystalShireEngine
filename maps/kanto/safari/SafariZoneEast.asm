@@ -6,17 +6,7 @@
 SafariZoneEast_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, SafariZoneEastCallback
-
-SafariZoneEastCallback:
-	checkevent EVENT_BEAT_SAFARI_ROCKETS
-	iffalse .hideMew
-	endcallback
-
-.hideMew
-	disappear SAFARIEAST_FAKE_MEW
-	endcallback
+	def_callbacks
 
 SafariGrunt2Script:
 	trainer GRUNTM, SAFARI_GRUNT2, EVENT_BEAT_SAFARI_GRUNT2, SafariGrunt2SeenText, SafariGrunt2BeatenText, 0, .Script

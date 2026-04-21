@@ -955,7 +955,7 @@ KantoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons SAFARI_ZONE_SOUTH
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, NIDORAN_F
 	dbw 1, NIDORAN_M
@@ -983,7 +983,7 @@ KantoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons SAFARI_ZONE_EAST
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, NIDORAN_F
 	dbw 1, NIDORAN_M
@@ -1011,7 +1011,7 @@ KantoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons SAFARI_ZONE_NORTH
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, NIDORAN_F
 	dbw 1, NIDORAN_M
@@ -1039,7 +1039,7 @@ KantoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons SAFARI_ZONE_WEST
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, NIDORAN_F
 	dbw 1, NIDORAN_M

@@ -18,6 +18,7 @@ SafariRocketBoss:
 	special FadeOutToBlack
 	disappear SAFARISECRET_EXECUTIVE
 	special FadeInFromBlack
+	setevent EVENT_BEAT_SAFARI_ROCKETS
 	end
 
 SafariRocketBossSeenText:
@@ -62,6 +63,10 @@ SafariRocketBossAfterBattleText:
 
 SafariWarden:
 	faceplayer
+	clearevent EVENT_SAFARI_WEST_FAKE_MEW
+	clearevent EVENT_SAFARI_EAST_FAKE_MEW
+	clearevent EVENT_SAFARI_SOUTH_FAKE_MEW
+	clearevent EVENT_CAUGHT_SAFARI_MEW
 	opentext
 
 	checkevent GOT_REWARDS_FROM_SAFARI_WARDEN
