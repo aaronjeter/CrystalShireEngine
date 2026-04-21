@@ -37,7 +37,7 @@ Route19_Blocks:
 	INCBIN "maps/Route19.ablk"
 
 Route10South_Blocks:
-	INCBIN "maps/Route10South.ablk"
+	INCBIN "maps/kanto/routes/Route10South.ablk"
 
 Pokecenter2F_Blocks:
 	INCBIN "maps/Pokecenter2F.ablk"
@@ -172,7 +172,7 @@ Route4_Blocks:
 	INCBIN "maps/kanto/routes/Route4.ablk"
 
 Route8_Blocks:
-	INCBIN "maps/Route8.ablk"
+	INCBIN "maps/kanto/routes/Route8.ablk"
 
 ViridianCity_Blocks:
 	INCBIN "maps/kanto/viridian/ViridianCity.ablk"
@@ -232,7 +232,7 @@ Route5_Blocks:
 	INCBIN "maps/kanto/routes/Route5.ablk"
 
 Route9_Blocks:
-	INCBIN "maps/Route9.ablk"
+	INCBIN "maps/kanto/routes/Route9.ablk"
 
 Route22_Blocks:
 	INCBIN "maps/Route22.ablk"
@@ -259,7 +259,7 @@ CherrygroveMart_Blocks:
 	INCBIN "maps/Mart.ablk"
 
 Route10North_Blocks:
-	INCBIN "maps/Route10North.ablk"
+	INCBIN "maps/kanto/routes/Route10North.ablk"
 
 OlivinePokecenter1F_Blocks:
 MahoganyPokecenter1F_Blocks:
@@ -444,10 +444,10 @@ SilverCaveOutside_Blocks:
 	INCBIN "maps/johto/silver/SilverCaveOutside.ablk"
 
 Route6_Blocks:
-	INCBIN "maps/Route6.ablk"
+	INCBIN "maps/kanto/routes/Route6.ablk"
 
 Route7_Blocks:
-	INCBIN "maps/Route7.ablk"
+	INCBIN "maps//kanto/routes/Route7.ablk"
 
 Route16_Blocks:
 	INCBIN "maps/Route16.ablk"
