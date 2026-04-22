@@ -87,6 +87,8 @@ MystifyMons::
 	dw CHIMECHO
 	dw CHIMECHOX
 	dw MILOTIC
+	dw HGROWLITHE
+	dw HARCANINE
 	dw NOCTOWL2	
 	dw UNOWNX
 	dw -1
@@ -184,8 +186,7 @@ VeiledMons::
 	dw -1
 
 InvisibleWallMons::
-	dw MR__MIME
-	dw JYNX
+	dw MR__MIME	
 	dw -1
 
 ImpostorMons::
@@ -226,11 +227,11 @@ DauntMons::
 	dw TAUROS
 	dw GROWLITHE
 	dw ARCANINE	
+	dw AERODACTYL
+	dw AERODACTYLX
 	dw POOCHYENA
 	dw MIGHTYENA
-	dw HUNTAIL
-	dw HGROWLITHE
-	dw HARCANINE
+	dw HUNTAIL	
 	dw -1
 
 
@@ -399,6 +400,7 @@ RegenerationMons:
 	dw STARMIE
 	dw CHANSEY
 	dw BLISSEY
+	dw SNORLAX
 	dw MEWTWO
 	dw MEW
 	dw CORSOLA
@@ -482,6 +484,7 @@ IceBodyMons::
 	dw ASANDSHREW
 	dw ASANDSLASH
 	dw MR__RIME
+	dw JYNX
 	dw JYNXX
 	dw -1
 
