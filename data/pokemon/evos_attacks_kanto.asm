@@ -2582,6 +2582,7 @@ KangaskhanEvosAttacks:
 	dbw 20, SLAM
 	dbw 24, DIZZY_PUNCH
 	dbw 28, COMET_PUNCH
+	dbw 32, MAGNITUDE
 	dbw 36, CRUSH_CLAW
 	dbw 40, THRASH
 	dbw 45, CRUNCH
