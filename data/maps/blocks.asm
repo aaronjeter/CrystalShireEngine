@@ -968,6 +968,7 @@ SECTION "Map Blocks 4", ROMX
 	MossdeepPokecenter_Blocks:
 	SootopolisPokecenter_Blocks:
 	EvergrandePokecenter_Blocks:
+	BattleResortPokecenter_Blocks:
 	INCBIN "maps/hoenn/HoennPokecenter.ablk"
 
 	OldaleMart_Blocks:
@@ -1218,5 +1219,13 @@ SECTION "Map Blocks Mt Moon", ROMX
 
 	LanetteHouse_Blocks:
 	INCBIN "maps/hoenn/LanetteHouse.ablk"
+
+ENDSECTION
+
+
+SECTION "Map Blocks Battle Resort", ROMX
+
+	BattleResort_Blocks:
+	INCBIN "maps/hoenn/battle/BattleResort.ablk" 
 
 ENDSECTION

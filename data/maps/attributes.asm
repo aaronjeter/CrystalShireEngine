@@ -940,3 +940,6 @@ ENDM
 	map_attributes GlaciasRoom, GLACIAS_ROOM, $00, 0
 	map_attributes DrakesRoom, DRAKES_ROOM, $00, 0
 	map_attributes StevensRoom, STEVENS_ROOM, $00, 0
+
+	map_attributes BattleResort, BATTLE_RESORT, $00, 0
+	map_attributes BattleResortPokecenter, BATTLE_RESORT_POKECENTER, $00, 0

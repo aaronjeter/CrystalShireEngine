@@ -690,3 +690,11 @@ INCLUDE "maps/hoenn/Route123.asm"
 INCLUDE "maps/hoenn/MtPyre.asm"
 
 ENDSECTION
+
+
+SECTION "Map Scripts Battle Resort", ROMX
+
+INCLUDE "maps/hoenn/battle/BattleResort.asm"
+INCLUDE "maps/hoenn/battle/BattleResortPokecenter.asm"
+
+ENDSECTION
