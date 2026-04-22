@@ -621,6 +621,7 @@ ENDM
 	map_const STEVENS_ROOM,                                05, 12 ;
 	map_const BATTLE_RESORT,                               30, 30 ;
 	map_const BATTLE_RESORT_POKECENTER,					   07, 04 ;
+	map_const BATTLE_RESORT_MART,						   06, 04 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

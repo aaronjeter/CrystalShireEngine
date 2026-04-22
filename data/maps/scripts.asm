@@ -696,5 +696,6 @@ SECTION "Map Scripts Battle Resort", ROMX
 
 INCLUDE "maps/hoenn/battle/BattleResort.asm"
 INCLUDE "maps/hoenn/battle/BattleResortPokecenter.asm"
+INCLUDE "maps/hoenn/battle/BattleResortMart.asm"
 
 ENDSECTION

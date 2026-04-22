@@ -982,6 +982,7 @@ SECTION "Map Blocks 4", ROMX
 	FortreeMart_Blocks:
 	MossdeepMart_Blocks:
 	SootopolisMart_Blocks:
+	BattleResortMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
 	BirchsLab_Blocks:

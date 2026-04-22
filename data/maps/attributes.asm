@@ -943,3 +943,4 @@ ENDM
 
 	map_attributes BattleResort, BATTLE_RESORT, $00, 0
 	map_attributes BattleResortPokecenter, BATTLE_RESORT_POKECENTER, $00, 0
+	map_attributes BattleResortMart, BATTLE_RESORT_MART, $00, 0
