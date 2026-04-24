@@ -317,7 +317,7 @@ PlayersHouse2F_MapEvents:
 
 	def_warp_events
 	warp_event  7,  0, PLAYERS_HOUSE_1F, 3
-	warp_event  7,  4, LITTLEROOT_TOWN, 1
+	warp_event  7,  5, TESTROOM, 1
 
 	def_coord_events
 

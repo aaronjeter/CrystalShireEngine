@@ -61,4 +61,4 @@
 	tilecoll FF, FF, FF, FF ; 3c
 	tilecoll FF, FF, FF, FF ; 3d
 	tilecoll FF, FF, FF, FF ; 3e
-	tilecoll FF, FF, FF, FF ; 3f
+	tilecoll FLOOR, FLOOR, FLOOR, STAIRCASE ; 3f
