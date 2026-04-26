@@ -623,6 +623,7 @@ ENDM
 	map_const BATTLE_RESORT_POKECENTER,					   07, 04 ;
 	map_const BATTLE_RESORT_MART,						   06, 04 ;
 	map_const TREETOP_TRIAL,                               20, 20 ;
+	map_const ASHEN_GAUNTLET,                              20, 20 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

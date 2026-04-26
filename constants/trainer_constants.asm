@@ -276,6 +276,7 @@ DEF KRIS EQU __trainer_class__
 	const CONTEST_CRYSTAL1
 	const CONTEST_CRYSTAL2
 	const ROUTE120_LEONEL
+	const ASHEN_GAUNTLET1
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -1002,6 +1003,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE120_RILEY
 	const ROUTE120_LORENZO
 	const ROUTE120_KEIGO
+	const TREETOP_TRIAL1
 
 	trainerclass RANGERF
 	const RANGERF1
@@ -1040,3 +1042,4 @@ const_def
 const PSYCHIC_EASY
 const PSYCHIC_MEDIUM
 const PSYCHIC_HARD
+const TRIAL_EASY

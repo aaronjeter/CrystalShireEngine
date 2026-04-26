@@ -2454,6 +2454,10 @@ CooltrainerMGroup:
 	dw AKUERIA
 	db -1 ; end
 
+	next_list_item; COOLTRAINERM (30) Ashen Gauntlet
+	db "@", TRAINERTYPE_RANDOM, 6, TRIAL_EASY
+	db -1 ; end
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -8725,6 +8729,10 @@ RangerMGroup:
 	dw IKARI
 	db -1 ; end
 
+	next_list_item; RANGERM (15) Treetop Trial
+	db "RANGER@", TRAINERTYPE_RANDOM, 3, TRIAL_EASY
+	db -1 ; end
+
 	end_list_items
 
 RangerFGroup:
@@ -9089,5 +9097,119 @@ RandomPartyLists::
 	db $fe
 	db -1 ; end
 
+
+	;TRIAL_EASY
+	db 36 ;count
+	db 11
+	dw VENUSAUR
+	db $fe
+	db 11
+	dw CHARIZARD
+	db $fe
+	db 11
+	dw BLASTOISE
+	db $fe
+	db 11
+	dw BUTTERFREE
+	db $fe
+	db 11
+	dw PIDGEOT
+	db $fe
+	db 11
+	dw RAICHU
+	db $fe
+	db 11
+	dw NIDOQUEEN
+	db $fe
+	db 11
+	dw CLEFABLE
+	db $fe
+	db 11
+	dw PARASECT
+	db $fe
+	db 11
+	dw GOLDUCK
+	db $fe
+	db 11
+	dw ARCANINE
+	db $fe
+	db 11
+	dw POLIWRATH
+	db $fe
+
+	db 11
+	dw MEGANIUM
+	db $fe
+	db 11
+	dw TYPHLOSION
+	db $fe
+	db 11
+	dw FERALIGATR
+	db $fe
+	db 11
+	dw NOCTOWL
+	db $fe
+	db 11
+	dw ARIADOS
+	db $fe
+	db 11
+	dw LANTURN
+	db $fe
+	db 11
+	dw SUDOWOODO
+	db $fe
+	db 11
+	dw SUNFLORA
+	db $fe
+	db 11
+	dw QUAGSIRE
+	db $fe
+	db 11
+	dw UNOWN
+	db $fe
+	db 11
+	dw FORRETRESS
+	db $fe
+	db 11
+	dw DELIBIRD
+	db $fe
+
+	db 11
+	dw SCEPTILE
+	db $fe
+	db 11
+	dw BLAZIKEN
+	db $fe
+	db 11
+	dw SWAMPERT
+	db $fe
+	db 11
+	dw DUSTOX
+	db $fe
+	db 11
+	dw SHIFTRY
+	db $fe
+	db 11
+	dw PELIPPER
+	db $fe
+	db 11
+	dw GARDEVOIR
+	db $fe
+	db 11
+	dw EXPLOUD
+	db $fe
+	db 11
+	dw AGGRON
+	db $fe
+	db 11
+	dw VOLBEAT
+	db $fe
+	db 11
+	dw GRUMPIG
+	db $fe
+	db 11
+	dw BANETTE
+	db $fe
+	db -1 ; end
 
 ENDSECTION

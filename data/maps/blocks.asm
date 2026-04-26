@@ -1232,4 +1232,7 @@ SECTION "Map Blocks Battle Resort", ROMX
 	TreetopTrial_Blocks:
 	INCBIN "maps/hoenn/battle/TreetopTrial.ablk" 
 
+	AshenGauntlet_Blocks:
+	INCBIN "maps/hoenn/battle/AshenGauntlet.ablk" 
+
 ENDSECTION

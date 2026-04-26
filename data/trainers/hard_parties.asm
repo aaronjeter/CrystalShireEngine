@@ -2497,6 +2497,10 @@ CooltrainerMGroupHard:
 	dw AKUERIA
 	db -1 ; end
 
+	next_list_item; COOLTRAINERM (30) Ashen Gauntlet
+	db "@", TRAINERTYPE_RANDOM, 6, TRIAL_EASY
+	db -1 ; end
+
 	end_list_items
 
 CooltrainerFGroupHard:
@@ -8839,6 +8843,10 @@ RangerMGroupHard:
 	dw TANGROWTH
 	db 8
 	dw IKARI
+	db -1 ; end
+
+	next_list_item; RANGERM (15) Treetop Trial
+	db "RANGER@", TRAINERTYPE_RANDOM, 3, TRIAL_EASY
 	db -1 ; end
 
 	end_list_items

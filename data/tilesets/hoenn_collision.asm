@@ -236,9 +236,9 @@
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; eb
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ec
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ed
-	tilecoll 01, 01, 01, 01 ; ee
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; ee
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; ef
-	tilecoll 01, 01, 01, 01 ; f0
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; f0
 	tilecoll WALL, WALL, WALL, WALL ; f1
 	tilecoll 01, 01, 01, 01 ; f2
 	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; f3

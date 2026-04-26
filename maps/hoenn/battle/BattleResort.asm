@@ -34,7 +34,8 @@ BattleResort_MapEvents:
 	warp_event   29, 37, BATTLE_RESORT_MART, 2
 	warp_event   44, 28, TREETOP_TRIAL, 1
 	warp_event   45, 28, TREETOP_TRIAL, 2
-	;warp_event  17, 23, DEWFORD_BRINEY_HOUSE, 2
+	warp_event   10, 28, ASHEN_GAUNTLET, 1
+	warp_event   11, 28, ASHEN_GAUNTLET, 2
 
 	def_coord_events
 
