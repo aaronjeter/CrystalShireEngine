@@ -34,7 +34,7 @@ PlaceDiplomaOnScreen:
 	jmp DelayFrame
 
 .Player:
-	db "PLAYER@"
+	db "Player@"
 
 .EmptyString:
 	db "@"
@@ -72,8 +72,8 @@ PrintDiplomaPage2:
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	jmp PrintNum
 
-.PlayTime: db "PLAY TIME@"
-.GameFreak: db "GAME FREAK@"
+.PlayTime: db "Play Time@"
+.GameFreak: db "Game Freak@"
 
 DiplomaGFX:
 INCBIN "gfx/diploma/diploma.2bpp.lz"

@@ -114,11 +114,11 @@ PrintTempMonStats:
 	ret
 
 .StatNames:
-	db   "ATTACK"
-	next "DEFENSE"
-	next "SPCL.ATK"
-	next "SPCL.DEF"
-	next "SPEED"
+	db   "Attack"
+	next "Defense"
+	next "Spcl.Atk"
+	next "Spcl.Def"
+	next "Speed"
 	next "@"
 
 GetGender:
@@ -367,7 +367,7 @@ PlaceStatusString:
 	ret
 
 FntString:
-	db "FNT@"
+	db "Fnt@"
 
 CopyStatusString:
 	ld a, [de]
@@ -408,11 +408,11 @@ PlaceNonFaintStatus:
 	pop de
 	ret
 
-SlpString: db "SLP@"
-PsnString: db "PSN@"
-BrnString: db "BRN@"
-FrzString: db "FRZ@"
-ParString: db "PAR@"
+SlpString: db "Slp@"
+PsnString: db "Psn@"
+BrnString: db "Brn@"
+FrzString: db "Frz@"
+ParString: db "Par@"
 
 ListMoves:
 ; List moves at hl, spaced every [wListMovesLineSpacing] tiles.

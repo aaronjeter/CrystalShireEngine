@@ -20,35 +20,35 @@ SnowWarningDesc:
 
 IntimidateDesc:
 	db    "Cuts the foe's"
-	next  "ATTACK.@"
+	next  "Attack.@"
 
 MystifyDesc:
 	db    "Cuts the foe's"
-	next  "SP. ATK.@"
+	next  "Sp. Atk.@"
 
 SnareDesc:
 	db    "Cuts the foe's"
-	next  "SPEED.@"
+	next  "Speed.@"
 
 LevitateDesc:
 	db    "Protects against"
-	next  "GROUND moves.@"
+	next  "Ground moves.@"
 
 WaterproofDesc:
 	db    "Protects against"
-	next  "WATER moves.@"
+	next  "Water moves.@"
 
 ElementalFistDesc:
 	db    "Boosts off-type"
-	next  "PUNCH moves.@"
+	next  "Punch moves.@"
 
 ElementalFangDesc:
 	db    "Boosts off-type"
-	next  "FANG moves.@"
+	next  "Fang moves.@"
 
 ElementalBladeDesc:
 	db    "Boosts off-type"
-	next  "SLICE moves.@"
+	next  "Slice moves.@"
 
 StabilityDesc:
 	db    "Boosts same-type"
@@ -60,19 +60,19 @@ RegenerationDesc:
 
 RainDishDesc:
 	db    "Heals during"
-	next  "RAIN.@"
+	next  "Rain.@"
 
 SunbaskDesc:
 	db    "Heals during"
-	next  "SUN.@"
+	next  "Sun.@"
 
 SandBodyDesc:
 	db    "Heals during"
-	next  "SANDSTORM.@"
+	next  "Sandstorm.@"
 
 IceBodyDesc:
 	db    "Heals during"
-	next  "HAIL.@"
+	next  "Hail.@"
 
 HasteDesc:
 	db    "Boosts speed"
@@ -87,45 +87,45 @@ FocusDesc:
 	next  "hit ratio.@"
 
 VeiledDesc:
-	db    "Sets SAFEGUARD"
+	db    "Sets Safeguard"
 	next  "on entrance.@"
 
 InvisibleWallDesc:
-	db    "Sets REFLECT"
+	db    "Sets Reflect"
 	next  "on entrance.@"
 
 ImpostorDesc:
-	db    "Uses TRANSFORM"
+	db    "Uses Transform"
 	next  "on entrance.@"
 
 DebrisDesc:
-	db    "Scatters SPIKES"
+	db    "Scatters Spikes"
 	next  "on entrance.@"
 
 LeechDesc:
-	db    "Scatters SEEDS"
+	db    "Scatters Seeds"
 	next  "on entrance.@"
 
 SwiftSwimDesc:
-	db    "Increases SPEED"
-	next  "in RAIN.@"
+	db    "Increases Speed"
+	next  "in Rain.@"
 
 ChlorophyllDesc:
-	db    "Increases SPEED"
-	next  "in SUN.@"
+	db    "Increases Speed"
+	next  "in Sun.@"
 
 SandRushDesc:
-	db    "Increases SPEED"
-	next  "in SANDSTORM.@"
+	db    "Increases Speed"
+	next  "in Sandstorm.@"
 
 SlushRushDesc:
-	db    "Increases SPEED"
-	next  "in HAIL.@"
+	db    "Increases Speed"
+	next  "in Hail.@"
 
 EnervateDesc:
 	db    "Cuts the foe's"
-	next  "SP. DEF.@"
+	next  "Sp. Def.@"
 
 DauntDesc:
 	db    "Cuts the foe's"
-	next  "DEF.@"
+	next  "Def.@"

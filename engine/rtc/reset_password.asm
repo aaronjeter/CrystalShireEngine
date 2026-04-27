@@ -40,5 +40,5 @@ _ResetClock:
 .NoYes_MenuData:
 	db STATICMENU_CURSOR | STATICMENU_NO_TOP_SPACING ; flags
 	db 2 ; items
-	db "NO@"
-	db "YES@"
+	db "No@"
+	db "Yes@"

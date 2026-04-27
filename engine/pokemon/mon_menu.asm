@@ -432,8 +432,8 @@ GiveTakeItemMenuData:
 .Items:
 	db STATICMENU_CURSOR ; flags
 	db 2 ; # items
-	db "GIVE@"
-	db "TAKE@"
+	db "Give@"
+	db "Take@"
 
 PokemonSwapItemText:
 	text_far _PokemonSwapItemText
@@ -564,9 +564,9 @@ MonMailAction:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
-	db "READ@"
-	db "TAKE@"
-	db "QUIT@"
+	db "Read@"
+	db "Take@"
+	db "Quit@"
 
 TakeMail:
 	ld hl, .MailAskSendToPCText
@@ -1342,13 +1342,13 @@ String_MoveType_Top:
 String_MoveType_Bottom:
 	db "│        └@"
 String_MoveAtk:
-	db "ATK/@"
+	db "Atk/@"
 String_MoveNoPower:
 	db "---@"
 String_MoveAcc:
-	db "ACC/@"
+	db "Acc/@"
 String_MoveEff:
-	db "EFF/@"
+	db "Eff/@"
 
 ; This converts values out of 256 into a value
 ; out of 100. It achieves this by multiplying
