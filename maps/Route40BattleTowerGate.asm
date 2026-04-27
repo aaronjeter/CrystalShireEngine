@@ -20,7 +20,7 @@ Route40BattleTowerGateTwinScript:
 
 Route40BattleTowerGateRockerText:
 	text "Are you going to"
-	line "the BATTLE TOWER?"
+	line "the Battle Tower?"
 
 	para "This is a secret,"
 	line "but if you win a"

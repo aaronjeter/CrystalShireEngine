@@ -266,7 +266,7 @@ NationalParkLassText:
 	done
 
 NationalParkPokefanFText:
-	text "This is MAIL I got"
+	text "This is mail I got"
 	line "from my daughter."
 	cont "It cheers me up."
 	done
@@ -293,7 +293,7 @@ NationalParkTeacher1Text:
 
 NationalParkTeacher1Text_GotQuickClaw:
 	text "Let a #MON hold"
-	line "that QUICK CLAW."
+	line "that Quick Claw."
 
 	para "Sometimes it will"
 	line "strike first"
@@ -314,7 +314,7 @@ NationalParkYoungster2Text:
 
 NationalParkTeacher2Text:
 	text "I take walks in"
-	line "the PARK, but I"
+	line "the park, but I"
 
 	para "never go into the"
 	line "grass."
@@ -324,7 +324,7 @@ NationalParkTeacher2Text:
 	done
 
 NationalParkPersianText:
-	text "PERSIAN: Fufushaa!"
+	text "Persian: Fufushaa!"
 	done
 
 NationalParkGameboyKidText:
@@ -334,8 +334,8 @@ NationalParkGameboyKidText:
 	para "You can also print"
 	line "out stuff like"
 
-	para "MAIL and your PC"
-	line "BOXES."
+	para "mail and your PC"
+	line "Boxes"
 	done
 
 SchoolboyJack1SeenText:
@@ -393,7 +393,7 @@ PokefanmWilliamSeenText:
 	cont "dislike us."
 
 	para "That's what being"
-	line "a FAN is about."
+	line "a fan is about."
 	done
 
 PokefanmWilliamBeatenText:
@@ -410,13 +410,13 @@ PokefanmWilliamAfterBattleText:
 
 PokefanFBeverlyMarillFriendText:
 	text "My friend keeps a"
-	line "MARILL!"
+	line "Marill!"
 
 	para "I find them very"
 	line "endearing."
 
 	para "Oh, I wish for a"
-	line "MARILL of my own…"
+	line "Marill of my own…"
 	done
 
 LassKriseSeenText:
@@ -448,16 +448,16 @@ NationalParkBattleNoticeText:
 	para "Please battle only"
 	line "in the grass."
 
-	para "NATIONAL PARK"
-	line "WARDEN'S OFFICE"
+	para "National Park"
+	line "Warden's Office"
 	done
 
 NationalParkTrainerTipsText:
-	text "TRAINER TIPS"
+	text "Trainer Tips"
 
-	para "Print out MAIL by"
+	para "Print out mail by"
 	line "opening it then"
-	cont "pressing START."
+	cont "pressing Start."
 	done
 
 NationalParkHeracrossScript:

@@ -33,8 +33,8 @@ Route12SuperRodHouseFishingGuruScript:
 	end
 
 OfferSuperRodText:
-	text "I'm the FISHING"
-	line "GURU's younger"
+	text "I'm the Fishing"
+	line "Guru's younger"
 	cont "brother."
 
 	para "I can see that you"
@@ -53,7 +53,7 @@ GiveSuperRodText:
 
 	para "Here, fishing fan!"
 	line "Take this--it's a"
-	cont "SUPER ROD."
+	cont "Super Rod."
 	done
 
 GaveSuperRodText:
@@ -65,7 +65,7 @@ GaveSuperRodText:
 	line "catch different"
 
 	para "#MON using"
-	line "different RODS."
+	line "different Rods."
 	done
 
 DontWantSuperRodText:

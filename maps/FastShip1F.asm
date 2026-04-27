@@ -198,9 +198,9 @@ FastShip1F_PlayerLeavesShipRightMovement:
 	step_end
 
 FastShip1FSailor1Text_ToVermilion:
-	text "FAST SHIP S.S.AQUA"
+	text "Fast Ship S.S.Aqua"
 	line "is en route to"
-	cont "VERMILION CITY."
+	cont "Vermilion City."
 
 	para "We will make an"
 	line "announcement when"
@@ -208,9 +208,9 @@ FastShip1FSailor1Text_ToVermilion:
 	done
 
 FastShip1FSailor1Text_ToOlivine:
-	text "FAST SHIP S.S.AQUA"
+	text "Fast Ship S.S.Aqua"
 	line "is en route to"
-	cont "OLIVINE CITY."
+	cont "Olivine City."
 
 	para "We will make an"
 	line "announcement when"
@@ -264,15 +264,15 @@ FastShip1FGrandpaText:
 	done
 
 FastShip1FSailor1Text_InOlivine:
-	text "FAST SHIP S.S.AQUA"
+	text "Fast Ship S.S.Aqua"
 	line "has arrived in"
-	cont "OLIVINE CITY."
+	cont "Olivine City."
 	done
 
 FastShip1FSailor1Text_InVermilion:
-	text "FAST SHIP S.S.AQUA"
+	text "Fast Ship S.S.Aqua"
 	line "has arrived in"
-	cont "VERMILION CITY."
+	cont "Vermilion City."
 	done
 
 FastShip1F_MapEvents:

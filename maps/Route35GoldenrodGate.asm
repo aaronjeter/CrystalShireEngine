@@ -126,7 +126,7 @@ Route35GoldenrodGatePlayerReceivedAMonWithMailText:
 Route35GoldenrodGateRandyWeirdTreeBlockingRoadText:
 	text "You can read it,"
 	line "but don't lose it!"
-	cont "ROUTE 31!"
+	cont "Route 31!"
 
 	para "Oh, yeah. There"
 	line "was a weird tree"
@@ -172,7 +172,7 @@ Route35GoldenrodGatePokefanFText:
 	line "wild when someone"
 
 	para "watered it with a"
-	line "SQUIRTBOTTLE."
+	line "Squirtbottle."
 	done
 
 Route35GoldenrodGatePokefanFText_FoughtSudowoodo:
@@ -189,7 +189,7 @@ Route35GoldenrodGateFisherText:
 	line "world."
 
 	para "Three years ago,"
-	line "PROF.OAK said that"
+	line "Prof.Oak said that"
 
 	para "there were 150"
 	line "different kinds."

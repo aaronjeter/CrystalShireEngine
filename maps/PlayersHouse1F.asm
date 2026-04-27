@@ -234,7 +234,7 @@ MomWalksBackMovement:
 
 ElmsLookingForYouText:
 	text "Oh, <PLAYER>…! Our"
-	line "neighbor, PROF."
+	line "neighbor, Prof."
 
 	para "was looking"
 	line "for you."
@@ -246,14 +246,14 @@ ElmsLookingForYouText:
 	para "Oh! I almost for-"
 	line "got! Your #MON"
 
-	para "GEAR is back from"
+	para "Gear is back from"
 	line "the repair shop."
 
 	para "Here you go!"
 	done
 
 MomGivesPokegearText:
-	text "#MON GEAR, or"
+	text "#MON Gear, or"
 	line "just #GEAR."
 
 	para "It's essential if"
@@ -281,7 +281,7 @@ ComeHomeForDSTText:
 
 	para "By the way, do you"
 	line "know how to use"
-	cont "the PHONE?"
+	cont "the Phone?"
 	done
 
 KnowTheInstructionsText:
@@ -298,7 +298,7 @@ DontKnowTheInstructionsText:
 
 	para "Turn the #GEAR"
 	line "on and select the"
-	cont "PHONE icon."
+	cont "Phone icon."
 	done
 
 InstructionsNextText:
@@ -313,15 +313,15 @@ InstructionsNextText:
 	done
 
 HurryUpElmIsWaitingText:
-	text "PROF.ELM is wait-"
+	text "The Prof. is wait-"
 	line "ing for you."
 
 	para "Hurry up, baby!"
 	done
 
 SoWhatWasProfElmsErrandText:
-	text "So, what was PROF."
-	line "ELM's errand?"
+	text "So, what was"
+	line "Prof.'s errand?"
 
 	para "…"
 
@@ -366,8 +366,8 @@ NeighborText:
 	para "My daughter is"
 	line "adamant about"
 
-	para "becoming PROF."
-	line "ELM's assistant."
+	para "becoming Prof."
+	line "Elm's assistant."
 
 	para "She really loves"
 	line "#MON!"
@@ -376,8 +376,8 @@ NeighborText:
 PlayersHouse1FStoveText:
 	text "Mom's specialty!"
 
-	para "CINNABAR VOLCANO"
-	line "BURGER!"
+	para "Cinnabar Volcano"
+	line "Burger!"
 	done
 
 PlayersHouse1FSinkText:
@@ -390,8 +390,8 @@ PlayersHouse1FFridgeText:
 	text "Let's see what's"
 	line "in the fridge…"
 
-	para "FRESH WATER and"
-	line "tasty LEMONADE!"
+	para "Fresh Water and"
+	line "tasty Lemonade!"
 	done
 
 PlayersHouse1FTVText:

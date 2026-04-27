@@ -122,19 +122,19 @@ BugCatchingContestant1AText:
 	done
 
 BugCatchingContestant2AText:
-	text "ED: My PARASECT"
+	text "Ed: My Parasect"
 	line "puts #MON to"
-	cont "sleep with SPORE."
+	cont "sleep with Spore."
 	done
 
 BugCatchingContestant3AText:
-	text "NICK: I'm raising"
+	text "Nick: I'm raising"
 	line "fast #MON for"
 	cont "battles."
 	done
 
 BugCatchingContestant4AText:
-	text "WILLIAM: I'm not"
+	text "William: I'm not"
 	line "concerned about"
 	cont "winning."
 
@@ -143,23 +143,23 @@ BugCatchingContestant4AText:
 	done
 
 BugCatchingContestant5AText:
-	text "BENNY: Ssh! You'll"
-	line "scare off SCYTHER."
+	text "Benny: Ssh! You'll"
+	line "scare off Scyther."
 
 	para "I'll talk to you"
 	line "later."
 	done
 
 BugCatchingContestant6AText:
-	text "BARRY: You should"
+	text "Barry: You should"
 	line "weaken bug #MON"
 
 	para "first, then throw"
-	line "a BALL."
+	line "a Ball."
 	done
 
 BugCatchingContestant7AText:
-	text "CINDY: I love bug"
+	text "Cindy: I love bug"
 	line "#MON."
 
 	para "I guess you must"
@@ -167,7 +167,7 @@ BugCatchingContestant7AText:
 	done
 
 BugCatchingContestant8AText:
-	text "JOSH: I've been"
+	text "Josh: I've been"
 	line "collecting bug"
 
 	para "#MON since I"
@@ -178,7 +178,7 @@ BugCatchingContestant8AText:
 	done
 
 BugCatchingContestant9AText:
-	text "SAMUEL: If you've"
+	text "Samuel: If you've"
 	line "got the time to"
 
 	para "chat, go find some"
@@ -186,7 +186,7 @@ BugCatchingContestant9AText:
 	done
 
 BugCatchingContestant10AText:
-	text "KIPP: I've studied"
+	text "Kipp: I've studied"
 	line "about bug #MON"
 	cont "a lot."
 
@@ -195,8 +195,8 @@ BugCatchingContestant10AText:
 	done
 
 NationalParkBugContestRelaxationSquareText:
-	text "RELAXATION SQUARE"
-	line "NATIONAL PARK"
+	text "Relaxation Square"
+	line "National Park"
 	done
 
 NationalParkBugContestBattleNoticeText:
@@ -206,16 +206,16 @@ NationalParkBugContestBattleNoticeText:
 	para "Please battle only"
 	line "in the grass."
 
-	para "NATIONAL PARK"
-	line "WARDEN'S OFFICE"
+	para "National Park"
+	line "Warden's Office"
 	done
 
 NationalParkBugContestTrainerTipsText:
-	text "TRAINER TIPS"
+	text "Trainer Tips"
 
-	para "Print out MAIL by"
+	para "Print out mail by"
 	line "opening it then"
-	cont "pressing START."
+	cont "pressing Start."
 	done
 
 NationalParkBugContest_MapEvents:

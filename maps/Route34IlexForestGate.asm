@@ -99,7 +99,7 @@ Route34IlexForestGateTeacherText:
 	done
 
 Route34IlexForestGateTeacher_GotSweetScent:
-	text "It's SWEET SCENT."
+	text "It's Sweet Scent."
 
 	para "Use it wherever"
 	line "#MON appear."
@@ -110,14 +110,14 @@ Route34IlexForestGateTeacher_GotSweetScent:
 
 Route34IlexForestGateTeacher_ForestIsRestless:
 	text "Something's wrong"
-	line "in ILEX FOREST…"
+	line "in Ilex Forest…"
 
 	para "You should stay"
 	line "away right now."
 	done
 
 Route34IlexForestGateButterfreeText:
-	text "BUTTERFREE: Freeh!"
+	text "Butterfree: Freeh!"
 	done
 
 Route34IlexForestGateLassText:
@@ -126,7 +126,7 @@ Route34IlexForestGateLassText:
 	cont "the protector?"
 
 	para "It watches over"
-	line "the FOREST from"
+	line "the Forest from"
 	cont "across time."
 
 	para "I think that it"
