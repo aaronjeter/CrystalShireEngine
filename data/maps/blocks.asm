@@ -1235,4 +1235,7 @@ SECTION "Map Blocks Battle Resort", ROMX
 	AshenGauntlet_Blocks:
 	INCBIN "maps/hoenn/battle/AshenGauntlet.ablk" 
 
+	WorldCupLobby_Blocks:
+	INCBIN "maps/hoenn/battle/WorldCupLobby.ablk" 
+
 ENDSECTION

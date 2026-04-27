@@ -36,6 +36,7 @@ BattleResort_MapEvents:
 	warp_event   45, 28, TREETOP_TRIAL, 2
 	warp_event   10, 28, ASHEN_GAUNTLET, 1
 	warp_event   11, 28, ASHEN_GAUNTLET, 2
+	warp_event   24, 13, WORLD_CUP_LOBBY, 2
 
 	def_coord_events
 

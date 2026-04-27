@@ -946,3 +946,4 @@ ENDM
 	map_attributes BattleResortMart, BATTLE_RESORT_MART, $00, 0
 	map_attributes TreetopTrial, TREETOP_TRIAL, $00, 0
 	map_attributes AshenGauntlet, ASHEN_GAUNTLET, $00, 0
+	map_attributes WorldCupLobby, WORLD_CUP_LOBBY, $00, 0
