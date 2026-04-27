@@ -303,9 +303,9 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 
 .Dex_PlayTime:
 	db   "#DEX"
-	next "PLAY TIME"
-	next "LEVEL CAP"
-	next "HARD MODE@"
+	next "Play Time"
+	next "Level Cap"
+	next "Hard Mode@"
 
 .StatusTilemap:
 	db $29, $2a, $2b, $2c, $2d, -1
@@ -493,10 +493,10 @@ TrainerCard_Page1_PrintHardMode:
 
 
 .OnString:
-	db   "ON@"
+	db   "On@"
 
 .OffString:
-	db	 "OFF@"
+	db	 "Off@"
 
 
 TrainerCard_Page2_3_AnimateBadges:

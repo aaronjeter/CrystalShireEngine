@@ -127,8 +127,8 @@ NamingScreen:
 	jmp .StoreMonIconParams
 
 .NicknameStrings:
-	db "'S@"
-	db "NICKNAME?@"
+	db "'s@"
+	db "Nickname?@"
 
 .Player:
 	farcall GetPlayerIcon
@@ -139,7 +139,7 @@ NamingScreen:
 	jmp .StoreSpriteIconParams
 
 .PlayerNameString:
-	db "YOUR NAME?@"
+	db "Your Name?@"
 
 .Rival:
 	ld de, RivalSpriteGFX
@@ -151,7 +151,7 @@ NamingScreen:
 	jmp .StoreSpriteIconParams
 
 .RivalNameString:
-	db "RIVAL'S NAME?@"
+	db "Rival's Name?@"
 
 .Mom:
 	ld de, MomSpriteGFX
@@ -163,7 +163,7 @@ NamingScreen:
 	jmp .StoreSpriteIconParams
 
 .MomNameString:
-	db "MOTHER'S NAME?@"
+	db "Mother's Name?@"
 
 .Box:
 	ld de, PokeBallSpriteGFX
@@ -186,7 +186,7 @@ NamingScreen:
 	jr .StoreBoxIconParams
 
 .BoxNameString:
-	db "BOX NAME?@"
+	db "Box Name?@"
 
 .Tomodachi:
 	hlcoord 3, 2

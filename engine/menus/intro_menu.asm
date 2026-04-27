@@ -24,16 +24,16 @@ PrintDayOfWeek:
 	jmp PlaceString
 
 .Days:
-	db "SUN@"
-	db "MON@"
-	db "TUES@"
-	db "WEDNES@"
-	db "THURS@"
-	db "FRI@"
-	db "SATUR@"
+	db "Sun@"
+	db "Mon@"
+	db "Tues@"
+	db "Wednes@"
+	db "Thurs@"
+	db "Fri@"
+	db "Satur@"
 
 .Day:
-	db "DAY@"
+	db "Day@"
 
 NewGame_ClearTilemapEtc:
 	xor a
@@ -237,7 +237,7 @@ InitializeMagikarpHouse:
 	jmp CopyName2
 
 .Ralph:
-	db "RALPH@"
+	db "Ralph@"
 
 InitializeNPCNames:
 	ld hl, .Rival
@@ -260,9 +260,9 @@ InitializeNPCNames:
 	jmp CopyBytes
 
 .Rival:  db "???@"
-.Red:    db "RED@"
-.Green:  db "GREEN@"
-.Mom:    db "MOM@"
+.Red:    db "Red@"
+.Green:  db "Green@"
+.Mom:    db "Mom@"
 
 InitializeWorld:
 	call ShrinkPlayer
@@ -443,10 +443,10 @@ Continue_LoadMenuHeader:
 .MenuData_Dex:
 	db 0 ; flags
 	db 4 ; items
-	db "PLAYER@"
-	db "BADGES@"
+	db "Player@"
+	db "Badges@"
 	db "#DEX@"
-	db "TIME@"
+	db "Time@"
 
 .MenuHeader_NoDex:
 	db MENU_BACKUP_TILES ; flags
@@ -457,10 +457,10 @@ Continue_LoadMenuHeader:
 .MenuData_NoDex:
 	db 0 ; flags
 	db 4 ; items
-	db "PLAYER <PLAYER>@"
-	db "BADGES@"
+	db "Player <PLAYER>@"
+	db "Badges@"
 	db " @"
-	db "TIME@"
+	db "Time@"
 
 Continue_DisplayBadgesDexPlayerName:
 	call MenuBoxCoord2Tile
@@ -866,8 +866,8 @@ SetHardMode:
 .HardModeMenuData:
 	db STATICMENU_CURSOR ; flags
 	db 2 ; items
-	db "Hard Mode OFF@"
-	db "Hard Mode ON@"
+	db "Hard Mode Off@"
+	db "Hard Mode On@"
 
 .HardModeOn:
     ld de, EVENT_HARDMODE_ENABLED
@@ -922,9 +922,9 @@ NamePlayer:
 	jmp InitName
 
 .Chris:
-	db "CHRIS@@@@@@"
+	db "Chris@@@@@@"
 .Kris:
-	db "KRIS@@@@@@@"
+	db "Kris@@@@@@@"
 
 StorePlayerName:
 	ld a, "@"

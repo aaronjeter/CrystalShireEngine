@@ -222,7 +222,7 @@ _SeerNoLocationText::
 _SeerEggText::
 	text "Hey!"
 
-	para "That's an EGG!"
+	para "That's an Egg!"
 
 	para "You can't say that"
 	line "you've met it yet…"
@@ -386,7 +386,7 @@ _HerbalLadyThanksText::
 	done
 
 _HerbalLadyPackFullText::
-	text "Oh? Your PACK is"
+	text "Oh? Your Pack is"
 	line "full, dear."
 	done
 
@@ -424,7 +424,7 @@ _BargainShopThanksText::
 	done
 
 _BargainShopPackFullText::
-	text "Uh-oh, your PACK"
+	text "Uh-oh, your Pack"
 	line "is chock-full."
 	done
 
@@ -601,7 +601,7 @@ _PhoneJustTalkToThemText::
 	done
 
 _PasswordAskResetText::
-	text "Select CONTINUE &"
+	text "Select Continue &"
 	line "reset settings."
 	prompt
 
@@ -831,7 +831,7 @@ _TheMonMustNotHoldTheSameItemsText::
 
 _YouCantTakeAnEggText::
 	text "You can't take an"
-	line "EGG!"
+	line "Egg!"
 
 	para ""
 	done
@@ -906,14 +906,14 @@ _ItemCantUseOnMonText::
 	prompt
 
 _RepelUsedEarlierIsStillInEffectText::
-	text "The REPEL used"
+	text "The Repel used"
 	line "earlier is still"
 	cont "in effect."
 	prompt
 
 _PlayedFluteText::
 	text "Played the #"
-	line "FLUTE."
+	line "Flute."
 
 	para "Now, that's a"
 	line "catchy tune!"
@@ -926,7 +926,7 @@ _FluteWakeUpText::
 
 Text_PlayedPokeFlute::
 	text "<PLAYER> played the"
-	line "# FLUTE.@"
+	line "# Flute.@"
 	text_promptbutton
 	text_end
 
@@ -987,11 +987,11 @@ _ItemLooksBitterText::
 
 _ItemCantUseOnEggText::
 	text "That can't be used"
-	line "on an EGG."
+	line "on an Egg."
 	prompt
 
 _ItemOakWarningText::
-	text "OAK: <PLAYER>!"
+	text "Oak: <PLAYER>!"
 	line "This isn't the"
 	cont "time to use that!"
 	prompt
@@ -1003,7 +1003,7 @@ _ItemWontHaveEffectText::
 
 _BallBlockedText::
 	text "The trainer"
-	line "blocked the BALL!"
+	line "blocked the Ball!"
 	prompt
 
 _BallDontBeAThiefText::
@@ -1017,14 +1017,14 @@ _CurBoxFullText::
 	prompt
 
 _StorageFullText::
-	text "The STORAGE SYSTEM"
+	text "The Storage System"
 	line "is full. That"
 	cont "can't be used now."
 	prompt
 
 _DatabaseFullText::
 	; too technical? needs improvement
-	text "The STORAGE SYSTEM"
+	text "The Storage System"
 	line "is overtaxed."
 
 	para "You need to save"
@@ -1064,7 +1064,7 @@ _DeleterForgotMoveText::
 	done
 
 _DeleterEggText::
-	text "An EGG doesn't"
+	text "An Egg doesn't"
 	line "know any moves!"
 	done
 
@@ -1080,7 +1080,7 @@ _DeleterAskWhichMoveText::
 
 _DeleterIntroText::
 	text "Um… Oh, yes, I'm"
-	line "the MOVE DELETER."
+	line "the Move Deleter."
 
 	para "I can make #MON"
 	line "forget moves."

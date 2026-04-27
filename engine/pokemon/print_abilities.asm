@@ -632,7 +632,7 @@ GetAbilityMon:
 	ret
 
 NoAbilityNameString:
-	db "NO ABILITY@"
+	db "No Ability@"
 
 DroughtNameString:
 	db "Drought@"

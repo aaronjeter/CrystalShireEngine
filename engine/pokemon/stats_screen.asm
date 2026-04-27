@@ -543,7 +543,7 @@ LoadOrangePage:
 	ret
 
 AbilityNameString:
-	db "ABILITY:@"
+	db "Ability:@"
 
 LoadPinkPage:
 	hlcoord 0, 9
@@ -668,20 +668,20 @@ LoadPinkPage:
 	ret
 
 .Status_Type:
-	db   "STATUS/"
-	next "TYPE/@"
+	db   "Status/"
+	next "Type/@"
 
 .OK_str:
 	db "OK @"
 
 .ExpPointStr:
-	db "EXP POINTS@"
+	db "Exp Points@"
 
 .LevelUpStr:
-	db "LEVEL UP@"
+	db "Level Up@"
 
 .ToStr:
-	db "TO@"
+	db "To@"
 
 .PkrsStr:
 	db "#RUS@"
@@ -718,13 +718,13 @@ LoadGreenPage:
 	jmp GetItemName
 
 .Item:
-	db "ITEM@"
+	db "Item@"
 
 .ThreeDashes:
 	db "---@"
 
 .Move:
-	db "MOVE@"
+	db "Move@"
 
 LoadBluePage:
 	call .PlaceOTInfo
@@ -970,7 +970,7 @@ if DEF(_DEBUG)
 	jr .placed_push_start
 
 .PushStartString:
-	db "▶PUSH START.@"
+	db "▶Push Start.@"
 
 .placed_push_start
 endc
@@ -1004,7 +1004,7 @@ endc
 	jmp PlaySFX
 
 EggString:
-	db "EGG@"
+	db "Egg@"
 
 FiveQMarkString:
 	db "?????@"
@@ -1026,7 +1026,7 @@ EggMoreTimeString:
 	next "more time, though.@"
 
 EggALotMoreTimeString:
-	db   "This EGG needs a"
+	db   "This Egg needs a"
 	next "lot more time to"
 	next "hatch.@"
 
