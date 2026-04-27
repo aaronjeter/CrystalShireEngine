@@ -44,12 +44,12 @@ SlateportHarbor_MapScripts:
 
 	SlateportHarborJohtoText:
 	text "Do you want to"
-	line "sail to JOHTO?"
+	line "sail to Johto?"
 	done
 
 	SlateportHarborKantoText:
 	text "Do you want to"
-	line "sail to KANTO?"
+	line "sail to Kanto?"
 	done
 
 	SlateportHarborNotRidingText:

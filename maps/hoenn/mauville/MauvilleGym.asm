@@ -36,11 +36,11 @@ MauvilleVivianBeatenText:
 
 MauvilleVivianAfterBattleText:
 	text "I've heard that "
-	line "MAUVILLE was"
+	line "Mauville was"
 	cont "founded by"
-	cont "WATTSON."
+	cont "Wattson."
 
-	para "He was a TRAINER"
+	para "He was a trainer"
 	line "long before us."
 
 	para "He must know"
@@ -93,7 +93,7 @@ MauvilleShawn:
 
 MauvilleShawnSeenText:
 	text "I trained"
-	line "under WATTSON!"
+	line "under Wattson!"
 
 	para "There ain't no"
 	line "way I'll lose!"
@@ -105,8 +105,8 @@ MauvilleShawnBeatenText:
 	done
 
 MauvilleShawnAfterBattleText:
-	text "WATTSON, our"
-	line "GYM LEADER,"
+	text "Wattson, our"
+	line "Gym Leader,"
 	cont "has been around"
 	cont "a long time."
 
@@ -127,7 +127,7 @@ MauvilleBen:
 	end
 
 MauvilleBenSeenText:
-	text "This GYM"
+	text "This Gym"
 	line "used to"
 	cont "have puzzles."
 
@@ -141,7 +141,7 @@ MauvilleBenBeatenText:
 	done
 
 MauvilleBenAfterBattleText:
-	text "WATTSON says"
+	text "Wattson says"
 	line "he likes setting"
 	cont "up traps."
 	done
@@ -168,7 +168,7 @@ MauvilleAngeloBeatenText:
 	done
 
 MauvilleAngeloAfterBattleText:
-	text "WATTSON has "
+	text "Wattson has "
 	line "a shiny forehead."
 	done
 
@@ -278,9 +278,9 @@ WattsonText_PreFight:
 	line "made it this"
 	cont "far."
 
-	para "I, WATTSON,"
-	line "the LEADER of"
-	cont "MAUVILLE GYM,"
+	para "I, Wattson,"
+	line "the leader of"
+	cont "Mauville Gym,"
 	cont "shall electrify"
 	cont "you!"
 	done
@@ -296,9 +296,9 @@ WattsonWinLossText:
 	done
 
 WattsonText_ExplainBadge:
-	text "Take this BADGE!"
+	text "Take this Badge!"
 
-	para "The DYNAMO BADGE"
+	para "The Dynamo Badge"
 	line "marks your"
 	cont "victory here"
 	cont "today!"
@@ -316,7 +316,7 @@ WattsonPostBattleText:
 	text "I swell with"
 	line "optimism, seeing"
 	cont "a promising"
-	cont "young TRAINER"
+	cont "young trainer"
 	cont "like you!"
 	
 	para "Wahahahah!"

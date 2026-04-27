@@ -41,8 +41,8 @@ Route104BillyBeatenText:
 
 Route104BillyAfterBattleText:
 	text "South of here"
-	line "is DEWFORD"
-	cont "CITY."
+	line "is Dewford"
+	cont "Town."
 	done
 
 
@@ -153,7 +153,7 @@ Route104HaleyScript:
 
 Route104HaleySeenText:
 	text "Are you going"
-	line "to RUSTBORO?"
+	line "to Rustboro?"
 	done
 
 Route104HaleyBeatenText:
@@ -163,8 +163,8 @@ Route104HaleyBeatenText:
 
 Route104HaleyAfterBattleText:
 	text "I'm trying to"
-	line "get to PETALBURG"
-	cont "CITY."
+	line "get to Petalburg"
+	cont "City."
 
 	para "It's over the"
 	line "river and"
@@ -231,7 +231,7 @@ Route104IvanSeenText:
 
 Route104IvanBeatenText:
 	text "You made me"
-	line "lose that FEEBAS!"
+	line "lose that Feebas!"
 	done
 
 Route104IvanAfterBattleText:

@@ -166,7 +166,7 @@ Testroom_Mom:
 
 TestroomRareCandyText:
 	text "Do you want"
-	line "the RARE CANDY"
+	line "the Rare Candy"
 	cont "cheat?"
 	done
 
@@ -233,7 +233,7 @@ TestroomLevelcapsOffText:
 
 WelcomeToTheTestroomText:
 	text "Hi, welcome to"
-	line "the TEST ROOM!"
+	line "the Test Room!"
 
 	para "I keep stuff"
 	line "here to test"

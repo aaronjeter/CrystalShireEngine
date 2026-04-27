@@ -107,7 +107,7 @@ FlanneryText_PreFight:
 
 	para "I'm pretty new"
 	line "to leading a"
-	cont "GYM."
+	cont "Gym."
 
 	para "Well, let's see"
 	line "how this goes!"
@@ -124,7 +124,7 @@ FlanneryText_ExplainBadge:
 	line "win."
 
 	para "Take the"
-	line "HEAT BADGE!"
+	line "Heat Badge!"
 
 	para "It's proof"
 	line "that you"

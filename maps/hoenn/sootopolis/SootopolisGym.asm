@@ -143,7 +143,7 @@ WallaceText_ExplainBadge:
 
 	para "You're worthy to"
 	line "wear my"
-	cont "RAIN BADGE!"
+	cont "Rain Badge!"
 
 	para "You're almost"
 	line "ready to face the"

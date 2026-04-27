@@ -44,20 +44,20 @@ MrCutGiveHatchetText:
 	cont "around."
 
 	para "Here, take"
-	line "my spare HATCHET."
+	line "my spare Hatchet."
 
 	para "It'll let you"
 	line "clear small"
 	cont "trees."
 
 	para "Should be nice"
-	line "in PETALBURG"
-	cont "WOODS."
+	line "in Petalburg"
+	cont "Woods."
 	done
 
 MrCutAlreadyGivenHatchetText:
 	text "I hope that"
-	line "HATCHET of"
+	line "Hatchet of"
 	cont "mine serves"
 	cont "you well."
 	done

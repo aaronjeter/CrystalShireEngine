@@ -81,8 +81,8 @@ SidneyScript_SidneyBeforeText:
 	text "Welcome,"
 	line "<PLAYER>!"
 
-	para "I'm SIDNEY of"
-	line "the ELITE FOUR."
+	para "I'm Sidney of"
+	line "the Elite Four."
 
 	para "I like that look"
 	line "you're giving me."
@@ -101,7 +101,7 @@ SidneyScript_SidneyBeforeText:
 	line "only be staged"
 
 	para "here in the"
-	line "#MON LEAGUE!"
+	line "#MON League!"
 	done
 
 SidneyScript_SidneyBeatenText:

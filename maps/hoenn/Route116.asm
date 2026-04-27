@@ -147,7 +147,7 @@ Route116JoseScript:
 	end
 
 Route116JoseSeenText:
-	text "My BUG #MON"
+	text "My Bug #MON"
 	line "are tough!"
 
 	para "Let's battle!"
@@ -161,7 +161,7 @@ Route116JoseBeatenText:
 	done
 
 Route116JoseAfterBattleText:
-	text "BUG #MON evolve"
+	text "Bug #MON evolve"
 	line "quickly."
 
 	para "So they get"
@@ -202,7 +202,7 @@ Route116ClarkAfterBattleText:
 	line "if there's no"
 	cont "tunnel."
 
-	para "To a HIKER,"
+	para "To a hiker,"
 	line "mountains are"
 	cont "roads!"
 	done

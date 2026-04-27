@@ -72,11 +72,11 @@ GlaciaScript_AfterBattle:
 
 GlaciaScript_GlaciaBeforeText:
 	text "Welcome, my name"
-	line "is GLACIA of the"
-	cont "ELITE FOUR."
+	line "is Glacia of the"
+	cont "Elite Four."
 
 	para "I've traveled from"
-	line "afar to HOENN so"
+	line "afar to Hoenn so"
 
 	para "that I may hone my"
 	line "ice skills."

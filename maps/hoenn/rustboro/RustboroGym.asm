@@ -36,7 +36,7 @@ RustboroJoshBeatenText:
 RustboroJoshAfterBattleText:
 	text "You haven't seen"
 	line "anything of the"
-	cont "ROCK type's"
+	cont "Rock type's"
 	cont "terrifying power!"
 	done
 
@@ -56,7 +56,7 @@ RustboroTommySeenText:
 	text "If you can't beat"
 	line "me you don't"
 	cont "stand a chance"
-	cont "against ROXANNE!"
+	cont "against Roxanne!"
 	done
 
 RustboroTommyBeatenText:
@@ -65,7 +65,7 @@ RustboroTommyBeatenText:
 	done
 
 RustboroTommyAfterBattleText:
-	text "ROXANNE is many"
+	text "Roxanne is many"
 	line "times stronger"
 	cont "than I am."
 	done
@@ -83,7 +83,7 @@ RustboroMarc:
 	end
 
 RustboroMarcSeenText:
-	text "My ROCK types"
+	text "My Rock types"
 	line "need to rampage!"
 	done
 
@@ -97,7 +97,7 @@ RustboroMarcAfterBattleText:
 	line "it to our leader."
 
 	para "It took guts to"
-	line "pick ROCK types."
+	line "pick Rock types."
 
 	para "Especially for"
 	line "someone so young."
@@ -195,15 +195,15 @@ RustboroGymLevelcap:
 
 RoxanneText_PreFight:
 	text "Hello, I am"
-	line "ROXXANE, the"
-	cont "GYM LEADER of"
-	cont "RUSTBORO CITY."
+	line "Roxanne, the"
+	cont "Gym Leader of"
+	cont "Rustboro City."
 
 	para "I became a "
 	line "trainer to apply"
 	cont "what I learned"
-	cont "at the TRAINER"
-	cont "SCHOOL."
+	cont "at the Trainer"
+	cont "School."
 
 	para "Please, show"
 	line "me what you"
@@ -220,7 +220,7 @@ RoxanneWinLossText:
 
 RoxanneText_ExplainBadge:
 	text "Please accept the"
-	line "STONE badge."
+	line "Stone Badge."
 
 	para "It serves as"
 	line "proof of your"
@@ -240,8 +240,8 @@ RoxannePostBattleText:
 	line "so strong, you"
 	cont "should challenge"
 	
-	para "other GYM"
-	line "LEADERS. I'm"
+	para "other Gym"
+	line "Leaders. I'm"
 	cont "sure you will"
 	cont "learn from them."
 	done

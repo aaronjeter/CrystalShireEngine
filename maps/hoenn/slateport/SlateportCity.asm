@@ -20,14 +20,14 @@ SlateportCitySignText:
 	line "people and #MON"
 	
 	para "cross paths with"
-	line "Nature."
+	line "nature."
 	done
 
 SlateportCityHarborSign:
 	jumptext SlateportCityHarborSignText
 
 	SlateportCityHarborSignText:
-	text "SLATEPORT HARBOR:"
+	text "Slateport Harbor:"
 
 	para "International"
 	line "Voyages"

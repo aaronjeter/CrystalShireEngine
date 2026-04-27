@@ -117,7 +117,7 @@ PetalburgRandall:
 PetalburgRandallSeenText:
 	text "I'll show you"
 	line "just how scary"
-	cont "NORMAL types are!"
+	cont "Normal types are!"
 	done
 
 PetalburgRandallBeatenText:
@@ -226,7 +226,7 @@ PetalburgGeorge:
 	end
 
 PetalburgGeorgeSeenText:
-	text "NORMAN is"
+	text "Norman is"
 	line "counting on me!"
 	done
 
@@ -272,7 +272,7 @@ PetalburgJodyAfterBattleText:
 NormanText_PreFight:
 	text "Greetings!"
 	line "my name is"
-	cont "NORMAN."
+	cont "Norman."
 
 	para "In my gym, we"
 	line "focus what others"
@@ -293,11 +293,11 @@ NormanWinLossText:
 
 NormanText_ExplainBadge:
 	text "You have earned"
-	line "my BALANCE badge!"
+	line "my Balance badge!"
 
 	para "It proves your"
 	line "appreciation"
-	cont "of the NORMAL."
+	cont "of the Normal."
 	done
 
 NormanRematchText:
@@ -311,7 +311,7 @@ NormanRematchWinLossText:
 NormanPostBattleText:
 	text "I've always found"
 	line "the power of"
-	cont "'ordinary' NORMAL"
+	cont "'ordinary' normal"
 	
 	para "types to be"
 	line "quite special"

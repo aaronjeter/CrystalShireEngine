@@ -102,7 +102,7 @@ DewfordBrendenAfterBattleText:
 
 	para "You're worthy"
 	line "of seeing"
-	cont "our GYM LEADER."
+	cont "our Gym Leader."
 	done
 
 
@@ -164,7 +164,7 @@ DewfordCristianAfterBattleText:
 	text "You win!"
 
 	para "Go after"
-	line "that BADGE!"
+	line "that Badge!"
 	done
 
 
@@ -181,7 +181,7 @@ DewfordJocelyn:
 
 DewfordJocelynSeenText:
 	text "There's no need"
-	line "for BRAWLY to be"
+	line "for Brawly to be"
 	cont "involved!"
 
 	para "I'll crush you!"
@@ -205,7 +205,7 @@ DewfordJocelynAfterBattleText:
 
 	para "One day I'll"
 	line "become a"
-	cont "GYM LEADER!"
+	cont "Gym Leader!"
 	done
 
 
@@ -301,9 +301,9 @@ DewfordGymLevelcap:
 
 
 BrawlyText_PreFight:
-	text "I'm BRAWLY!"
-	line "DEWFORD's"
-	cont "GYM LEADER!"
+	text "I'm Brawly!"
+	line "Dewford's"
+	cont "Gym Leader!"
 	
 	para "I've been churned"
 	line "in the rough "
@@ -332,7 +332,7 @@ BrawlyText_ExplainBadge:
 	line "got me."
 
 	para "Take the"
-	line "KNUCKLE BADGE!"
+	line "Knuckle Badge!"
 
 	para "It's proof"
 	line "that you"
@@ -354,7 +354,7 @@ BrawlyPostBattleText:
 	cont "a giant wave"
 	cont "to cause a storm"
 	cont "of astonishment"
-	cont "among TRAINERS "
+	cont "among trainers "
 	cont "one day!"
 	done
 

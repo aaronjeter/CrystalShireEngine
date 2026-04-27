@@ -134,7 +134,7 @@ TateLizaText_ExplainBadge:
 	line "earned it."
 
 	para "Liza: Take the"
-	line "MIND BADGE!"
+	line "Mind Badge!"
 
 	para "It's our"
 	line "emblem!"

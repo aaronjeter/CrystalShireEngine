@@ -27,7 +27,7 @@ Route105ImaniSeenText:
 	text "Hi there!"
 
 	para "We're swimming to"
-	line "DEWFORD CITY."
+	line "Deword Town."
 	done
 
 Route105ImaniBeatenText:
@@ -60,7 +60,7 @@ Route105LuisSeenText:
 	para "Are you going"
 	line "to challenge"
 
-	para "BRAWLY as well?"
+	para "Brawly as well?"
 	done
 
 Route105LuisBeatenText:
@@ -72,7 +72,7 @@ Route105LuisAfterBattleText:
 	text "I hope I'm"
 	line "ready for"
 
-	para "DEWFORD GYM."
+	para "Dewford Gym."
 	done
 
 

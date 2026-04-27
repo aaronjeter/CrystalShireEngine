@@ -46,7 +46,7 @@ BirchGiveHoenniteText:
 
 BirchExplainsHoenniteText:
 	text "Certain #MON"
-	line "from HOENN could"
+	line "from Hoenn could"
 	cont "use this."
 	done
 
@@ -54,7 +54,7 @@ BirchNormalText:
 	text "Hey <PLAY_G>."
 
 	para "I hope you're"
-	line "enjoying HOENN!"
+	line "enjoying Hoenn!"
 	done
 
 
@@ -632,25 +632,25 @@ BirchPokeBallText:
 
 BirchTakeCharmanderText:
 	text "Birch: Take"
-	line "CHARMANDER, the"
+	line "Charmander, the"
 	cont "fire #MON?"
 	done
 
 BirchTakeCyndaquilText:
 	text "Birch: Take"
-	line "CYNDAQUIL, the"
+	line "Cyndaquil, the"
 	cont "fire #MON?"
 	done
 
 BirchTakeTorchicText:
 	text "Birch: Take"
-	line "TORCHIC, the"
+	line "Torchic, the"
 	cont "fire #MON?"
 	done
 
 BirchTakeAvulpixText:
 	text "Birch: Take"
-	line "VULPIX, the"
+	line "Vulpix, the"
 	cont "snow #MON?"
 	done
 
@@ -674,73 +674,73 @@ BirchTakeHonobeaText:
 
 BirchTakeSquirtleText:
 	text "Birch: Take"
-	line "SQUIRTLE, the"
+	line "Squirtle, the"
 	cont "water #MON?"
 	done
 
 BirchTakeTotodileText:
 	text "Birch: Take"
-	line "TOTODILE, the"
+	line "Totodile, the"
 	cont "water #MON?"
 	done
 
 BirchTakeMudkipText:
 	text "Birch: Take"
-	line "MUDKIP, the"
+	line "Mudkip, the"
 	cont "mud #MON?"
 	done
 
 BirchTakeAsandshrewText:
 	text "Birch: Take"
-	line "SANDSHREW, the"
+	line "Sandshrew, the"
 	cont "mouse #MON?"
 	done
 
 BirchTakeVoltorbText:
 	text "Birch: Take"
-	line "VOLTORB, the"
+	line "Voltorb, the"
 	cont "orb #MON?"
 	done
 
 BirchTakeKotoraText:
 	text "Birch: Take"
-	line "KOTORA, the"
+	line "Kotora, the"
 	cont "tiger #MON?"
 	done
 
 BirchTakeBulbasaurText:	
 	text "Birch: Take"
-	line "BULBASAUR, the"
+	line "Bulbasaur, the"
 	cont "grass #MON?"
 	done
 
 BirchTakeChikoritaText:	
 	text "Birch: Take"
-	line "CHIKORITA, the"
+	line "Chikorita, the"
 	cont "grass #MON?"
 	done
 
 BirchTakeTreeckoText:
 	text "Birch: Take"
-	line "TREECKO, the"
+	line "Treecko, the"
 	cont "grass #MON?"
 	done
 
 BirchTakeAgrimerText:
 	text "Birch: Take"
-	line "GRIMER, the"
+	line "Grimer, the"
 	cont "poison #MON?"
 	done
 
 BirchTakeExeggcuteText:	
 	text "Birch: Take"
-	line "EXEGGCUTE, the"
+	line "Exeggcute, the"
 	cont "grass #MON?"
 	done
 
 BirchTakeKurusuText:	
 	text "Birch: Take"
-	line "KURUSU, the"
+	line "Kurusu, the"
 	cont "water #MON?"
 	done
 

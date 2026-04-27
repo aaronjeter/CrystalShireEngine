@@ -19,7 +19,7 @@ GivePickaxeText:
 	text "Hi there."
 
 	para "I dug the"
-	line "RUSTURF Tunnel"
+	line "Rusturf Tunnel"
 	cont "so I could"
 	cont "visit my"
 	cont "girlfriend."

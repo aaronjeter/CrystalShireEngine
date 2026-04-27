@@ -53,7 +53,7 @@ LilycoveCleaOfferScaleText:
 	para "Give it to me,"
 	line "and I'll make"
 
-	para "Your First"
+	para "Your first"
 	line "Pokemon GLOW!"
 	done
 

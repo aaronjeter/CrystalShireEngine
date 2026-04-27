@@ -73,17 +73,17 @@ PhoebeScript_AfterBattle:
 PhoebeScript_PhoebeBeforeText:
 	text "Ahahaha!"
 
-	para "I'm PHOEBE of the"
-	line "ELITE FOUR."
+	para "I'm Phoebe of the"
+	line "Elite Four."
 
 	para "I did my training"
-	line "on MT. PYRE."
+	line "on Mt. Pyre."
 
 	para "While I trained,"
 	line "I gained the"
 
 	para "ability to commune"
-	line "with GHOST-type"
+	line "with Ghost-type"
 	cont "#MON."
 
 	para "Yes, the bond I"
