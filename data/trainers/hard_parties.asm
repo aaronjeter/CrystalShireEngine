@@ -11,7 +11,7 @@ SECTION "Hard Trainer Parties 1", ROMX
 
 FalknerGroupHard:
 	next_list_item ; FALKNER (1)
-	db "FALKNER@", TRAINERTYPE_MOVES
+	db "Falkner@", TRAINERTYPE_MOVES
 	db 6
 	dw NATU
 	dw TACKLE, CONFUSE_RAY, GUST, CONFUSION
@@ -24,7 +24,7 @@ FalknerGroupHard:
 	db -1 ; end
 
 	next_list_item ; FALKNER (2)
-	db "FALKNER@", TRAINERTYPE_MOVES
+	db "Falkner@", TRAINERTYPE_MOVES
 	db 10
 	dw XATU
 	dw PSYBEAM, CONFUSE_RAY, RAZOR_WIND, MUD_SLAP
@@ -40,7 +40,7 @@ FalknerGroupHard:
 	db -1 ; end
 
 	next_list_item ; FALKNER (3)
-	db "FALKNER@", TRAINERTYPE_ITEM_MOVES
+	db "Falkner@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw SKARMORY
 	dw LEFTOVERS
@@ -71,7 +71,7 @@ FalknerGroupHard:
 
 WhitneyGroupHard:
 	next_list_item ; WHITNEY (1)
-	db "WHITNEY@", TRAINERTYPE_MOVES
+	db "Whitney@", TRAINERTYPE_MOVES
 	db 10
 	dw CLEFAIRY
 	dw POUND, MIMIC, ENCORE, METRONOME
@@ -84,7 +84,7 @@ WhitneyGroupHard:
 	db -1 ; end
 	
 	next_list_item ; WHITNEY (2)
-	db "WHITNEY@", TRAINERTYPE_MOVES	
+	db "Whitney@", TRAINERTYPE_MOVES	
 	db 10
 	dw WIGGLYTUFF
 	dw WILLOWISP, COSMIC_POWER, DIZZY_PUNCH, REST
@@ -100,7 +100,7 @@ WhitneyGroupHard:
 	db -1 ; end
 	
 	next_list_item ; WHITNEY (3)
-	db "WHITNEY@", TRAINERTYPE_ITEM_MOVES
+	db "Whitney@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw FURRET2
 	dw DRAGON_FANG
@@ -131,7 +131,7 @@ WhitneyGroupHard:
 
 BugsyGroupHard:
 	next_list_item ; BUGSY (1)
-	db "BUGSY@", TRAINERTYPE_MOVES
+	db "Bugsy@", TRAINERTYPE_MOVES
 	db 10
 	dw LEDYBA
 	dw MACH_PUNCH, STRING_SHOT, ICE_PUNCH, LEECH_LIFE
@@ -144,7 +144,7 @@ BugsyGroupHard:
 	db -1 ; end
 	
 	next_list_item ; BUGSY (2)
-	db "BUGSY@", TRAINERTYPE_MOVES
+	db "Bugsy@", TRAINERTYPE_MOVES
 	db 10
 	dw MASQUERAIN
 	dw SURF, CONFUSE_RAY, FURY_CUTTER, SIGNAL_BEAM
@@ -160,7 +160,7 @@ BugsyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUGSY (3)
-	db "BUGSY@", TRAINERTYPE_ITEM_MOVES
+	db "Bugsy@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw MASQUERAIN
 	dw QUICK_CLAW
@@ -191,7 +191,7 @@ BugsyGroupHard:
 
 MortyGroupHard:
 	next_list_item ; MORTY (1)
-	db "MORTY@", TRAINERTYPE_MOVES
+	db "Morty@", TRAINERTYPE_MOVES
 	db 10
 	dw VULPIX
 	dw LICK, HYPNOSIS, EMBER, WILLOWISP
@@ -207,7 +207,7 @@ MortyGroupHard:
 	db -1 ; end
 	
 	next_list_item ; MORTY (2)
-	db "MORTY@", TRAINERTYPE_MOVES
+	db "Morty@", TRAINERTYPE_MOVES
 	db 10
 	dw NINETALES
 	dw SHADOW_BALL, HYPNOSIS, FLAMETHROWER, WILLOWISP
@@ -226,7 +226,7 @@ MortyGroupHard:
 	db -1 ; end
 	
 	next_list_item ; MORTY (3)
-	db "MORTY@", TRAINERTYPE_ITEM_MOVES
+	db "Morty@", TRAINERTYPE_ITEM_MOVES
 	db 15
 	dw SHEDINJA
 	dw QUICK_CLAW
@@ -257,7 +257,7 @@ MortyGroupHard:
 
 PryceGroupHard:
 	next_list_item ; PRYCE (1)
-	db "PRYCE@", TRAINERTYPE_MOVES
+	db "Pryce@", TRAINERTYPE_MOVES
 	db 12
 	dw DELIBIRD
 	dw ICY_WIND, GUST, AURORA_BEAM, SPIKES
@@ -270,7 +270,7 @@ PryceGroupHard:
 	db -1 ; end
 	
 	next_list_item ; PRYCE (2)
-	db "PRYCE@", TRAINERTYPE_MOVES
+	db "Pryce@", TRAINERTYPE_MOVES
 	db 12
 	dw DELIBIRD
 	dw BLIZZARD, RAZOR_WIND, ICY_WIND, SPIKES
@@ -286,7 +286,7 @@ PryceGroupHard:
 	db -1 ; end
 	
 	next_list_item ; PRYCE (3)
-	db "PRYCE@", TRAINERTYPE_ITEM_MOVES
+	db "Pryce@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw DELIBIRD
 	dw FOCUS_BAND
@@ -317,7 +317,7 @@ PryceGroupHard:
 
 JasmineGroupHard:
 	next_list_item ; JASMINE (1)
-	db "JASMINE@", TRAINERTYPE_MOVES
+	db "Jasmine@", TRAINERTYPE_MOVES
 	db 10
 	dw MAGNEMITE
 	dw METAL_CLAW, SUPERSONIC, THUNDER_WAVE, THUNDERSHOCK
@@ -330,7 +330,7 @@ JasmineGroupHard:
 	db -1 ; end
 	
 	next_list_item ; JASMINE (2)
-	db "JASMINE@", TRAINERTYPE_MOVES
+	db "Jasmine@", TRAINERTYPE_MOVES
 	db 12
 	dw MAWILE
 	dw SANDSTORM, VICEGRIP, CRUNCH, DIZZY_PUNCH
@@ -346,7 +346,7 @@ JasmineGroupHard:
 	db -1 ; end
 	
 	next_list_item ; JASMINE (3)
-	db "JASMINE@", TRAINERTYPE_ITEM_MOVES
+	db "Jasmine@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw SKARMORY
 	dw QUICK_CLAW
@@ -377,7 +377,7 @@ JasmineGroupHard:
 
 ChuckGroupHard:
 	next_list_item ; CHUCK (1)
-	db "CHUCK@", TRAINERTYPE_MOVES
+	db "Chuck@", TRAINERTYPE_MOVES
 	db 12
 	dw HITMONCHAN
 	dw MACH_PUNCH, FIRE_PUNCH, DIZZY_PUNCH, ICE_PUNCH
@@ -390,7 +390,7 @@ ChuckGroupHard:
 	db -1 ; end
 	
 	next_list_item ; CHUCK (2)
-	db "CHUCK@", TRAINERTYPE_MOVES
+	db "Chuck@", TRAINERTYPE_MOVES
 	db 12
 	dw HITMONCHAN
 	dw MACH_PUNCH, FIRE_PUNCH, DIZZY_PUNCH, ICE_PUNCH
@@ -406,7 +406,7 @@ ChuckGroupHard:
 	db -1 ; end
 	
 	next_list_item ; CHUCK (3)
-	db "CHUCK@", TRAINERTYPE_ITEM_MOVES
+	db "Chuck@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw HITMONCHAN
 	dw BLACKBELT_I
@@ -437,7 +437,7 @@ ChuckGroupHard:
 
 ClairGroupHard:
 	next_list_item ; CLAIR (1)
-	db "CLAIR@", TRAINERTYPE_MOVES
+	db "Clair@", TRAINERTYPE_MOVES
 	db 12
 	dw GYARADOS
 	dw DRAGONBREATH, WATERFALL, WHIRLPOOL, RAIN_DANCE
@@ -450,7 +450,7 @@ ClairGroupHard:
 	db -1 ; end
 	
 	next_list_item ; CLAIR (1)
-	db "CLAIR@", TRAINERTYPE_MOVES
+	db "Clair@", TRAINERTYPE_MOVES
 	db 12
 	dw GYARADOS
 	dw DRAGONBREATH, WATERFALL, WHIRLPOOL, RAIN_DANCE
@@ -466,7 +466,7 @@ ClairGroupHard:
 	db -1 ; end
 	
 	next_list_item ; CLAIR (3)
-	db "CLAIR@", TRAINERTYPE_ITEM_MOVES	
+	db "Clair@", TRAINERTYPE_ITEM_MOVES	
 	db 15
 	dw DRAGONITEY
 	dw LEFTOVERS
@@ -656,7 +656,7 @@ PokemonProfGroupHard:
 
 WillGroupHard:
 	next_list_item ; WILL (1)
-	db "WILL@", TRAINERTYPE_MOVES
+	db "Will@", TRAINERTYPE_MOVES
 	db 12
 	dw GARDEVOIR
 	dw PSYCHIC_M, SWIFT, CALM_MIND, HYPNOSIS
@@ -678,7 +678,7 @@ WillGroupHard:
 	db -1 ; end
 	
 	next_list_item ; WILL (2)
-	db "WILL@", TRAINERTYPE_ITEM_MOVES
+	db "Will@", TRAINERTYPE_ITEM_MOVES
 	db 13
 	dw GARDEVOIR
 	dw QUICK_CLAW
@@ -709,7 +709,7 @@ WillGroupHard:
 
 PKMNTrainerGroupHard:
 	next_list_item ; CAL (1)
-	db "CAL@", TRAINERTYPE_NORMAL
+	db "Cal@", TRAINERTYPE_NORMAL
 	db 10
 	dw CHIKORITA
 	db 10
@@ -719,7 +719,7 @@ PKMNTrainerGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAL (2)
-	db "CAL@", TRAINERTYPE_NORMAL
+	db "Cal@", TRAINERTYPE_NORMAL
 	db 10
 	dw BAYLEEF
 	db 10
@@ -729,7 +729,7 @@ PKMNTrainerGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAL (3)
-	db "CAL@", TRAINERTYPE_NORMAL
+	db "Cal@", TRAINERTYPE_NORMAL
 	db 10
 	dw MEGANIUM
 	db 10
@@ -742,7 +742,7 @@ PKMNTrainerGroupHard:
 
 BrunoGroupHard:
 	next_list_item ; BRUNO (1)
-	db "BRUNO@", TRAINERTYPE_MOVES
+	db "Bruno@", TRAINERTYPE_MOVES
 	db 12
 	dw HITMONTOP
 	dw PURSUIT, TRIPLE_KICK, DIG, DETECT
@@ -764,7 +764,7 @@ BrunoGroupHard:
 	db -1 ; end
 	
 	next_list_item ; BRUNO (2)
-	db "BRUNO@", TRAINERTYPE_ITEM_MOVES
+	db "Bruno@", TRAINERTYPE_ITEM_MOVES
 	db 13
 	dw BLAZIKEN
 	dw BLACKBELT_I
@@ -795,7 +795,7 @@ BrunoGroupHard:
 
 KarenGroupHard:
 	next_list_item ; KAREN (1)
-	db "KAREN@", TRAINERTYPE_MOVES
+	db "Karen@", TRAINERTYPE_MOVES
 	db 12
 	dw UMBREON
 	dw CONFUSE_RAY, TOXIC, SNARL, REST
@@ -817,7 +817,7 @@ KarenGroupHard:
 	db -1 ; end
 	
 	next_list_item ; KAREN (2)
-	db "KAREN@", TRAINERTYPE_ITEM_MOVES
+	db "Karen@", TRAINERTYPE_ITEM_MOVES
 	db 13
 	dw UMBREON
 	dw LEFTOVERS
@@ -848,7 +848,7 @@ KarenGroupHard:
 
 KogaGroupHard:
 	next_list_item ; KOGA (1)
-	db "KOGA@", TRAINERTYPE_MOVES
+	db "Koga@", TRAINERTYPE_MOVES
 	db 12
 	dw FORRETRESS
 	dw PROTECT, SWIFT, EXPLOSION, SPIKES
@@ -870,7 +870,7 @@ KogaGroupHard:
 	db -1 ; end
 	
 	next_list_item ; KOGA (2)
-	db "KOGA@", TRAINERTYPE_ITEM_MOVES
+	db "Koga@", TRAINERTYPE_ITEM_MOVES
 	db 13
 	dw TENTACRUEL
 	dw LEFTOVERS
@@ -901,7 +901,7 @@ KogaGroupHard:
 
 ChampionGroupHard:
 	next_list_item ; CHAMPION (1)
-	db "LANCE@", TRAINERTYPE_MOVES
+	db "Lance@", TRAINERTYPE_MOVES
 	db 13
 	dw GYARADOS
 	dw THUNDER, RAIN_DANCE, HYDRO_PUMP, HYPER_BEAM
@@ -923,7 +923,7 @@ ChampionGroupHard:
 	db -1 ; end
 	
 	next_list_item ; CHAMPION (2)
-	db "LANCE@", TRAINERTYPE_ITEM_MOVES
+	db "Lance@", TRAINERTYPE_ITEM_MOVES
 	db 15
 	dw GYARADOS
 	dw MYSTIC_WATER
@@ -951,7 +951,7 @@ ChampionGroupHard:
 	dw REST, CURSE, EARTHQUAKE, METEOR_MASH
 
 	next_list_item ; CHAMPION (3)
-	db "LANCE@", TRAINERTYPE_MOVES
+	db "Lance@", TRAINERTYPE_MOVES
 	db 20
 	dw DRAGONITEX
 	dw WATERFALL, EXTREMESPEED, OUTRAGE, HYPER_BEAM
@@ -961,7 +961,7 @@ ChampionGroupHard:
 
 BrockGroupHard:
 	next_list_item ; BROCK (1)
-	db "BROCK@", TRAINERTYPE_MOVES
+	db "Brock@", TRAINERTYPE_MOVES
 	db 4
 	dw GEODUDE
 	dw ROCK_THROW, HARDEN, BIDE, SAND_ATTACK
@@ -974,7 +974,7 @@ BrockGroupHard:
 	db -1 ; end
 	
 	next_list_item ; BROCK (2)
-	db "BROCK@", TRAINERTYPE_MOVES
+	db "Brock@", TRAINERTYPE_MOVES
 	db 12
 	dw RHYDON
 	dw ROCK_TOMB, OUTRAGE, EARTHQUAKE, SANDSTORM
@@ -993,7 +993,7 @@ BrockGroupHard:
 	db -1 ; end
 	
 	next_list_item ; BROCK (3)
-	db "BROCK@", TRAINERTYPE_ITEM_MOVES
+	db "Brock@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw RHYPERIOR
 	dw LEFTOVERS
@@ -1023,7 +1023,7 @@ BrockGroupHard:
 
 MistyGroupHard:
 	next_list_item ; MISTY (1)
-	db "MISTY@", TRAINERTYPE_MOVES
+	db "Misty@", TRAINERTYPE_MOVES
 	db 7
 	dw CHINCHOU
 	dw BUBBLEBEAM, THUNDERSHOCK, RAIN_DANCE, WHIRLPOOL
@@ -1039,7 +1039,7 @@ MistyGroupHard:
 	db -1 ; end
 	
 	next_list_item ; MISTY (2)
-	db "MISTY@", TRAINERTYPE_MOVES
+	db "Misty@", TRAINERTYPE_MOVES
 	db 10
 	dw PELIPPER
 	dw SURF, THUNDER, RAIN_DANCE, WHIRLPOOL
@@ -1058,7 +1058,7 @@ MistyGroupHard:
 	db -1 ; end
 	
 	next_list_item ; MISTY (3)
-	db "MISTY@", TRAINERTYPE_ITEM_MOVES
+	db "Misty@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw LUVDISC
 	dw KINGS_ROCK
@@ -1089,7 +1089,7 @@ MistyGroupHard:
 
 LtSurgeGroupHard:
 	next_list_item ; LT_SURGE (1)
-	db "LT.SURGE@", TRAINERTYPE_MOVES
+	db "Lt.Surge@", TRAINERTYPE_MOVES
 	db 7
 	dw CHINCHOU
 	dw WATER_GUN, THUNDERSHOCK, POWDER_SNOW, THUNDER_WAVE
@@ -1105,7 +1105,7 @@ LtSurgeGroupHard:
 	db -1 ; end
 	
 	next_list_item ; LT_SURGE (2)
-	db "LT.SURGE@", TRAINERTYPE_MOVES
+	db "Lt.Surge@", TRAINERTYPE_MOVES
 	db 10
 	dw LANTURN
 	dw WATER_PULSE, THUNDERBOLT, ICE_BEAM, THUNDER_WAVE
@@ -1124,7 +1124,7 @@ LtSurgeGroupHard:
 	db -1 ; end
 	
 	next_list_item ; LT_SURGE (3)
-	db "LT.SURGE@", TRAINERTYPE_ITEM_MOVES
+	db "Lt.Surge@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw LANTURN
 	dw LEFTOVERS
@@ -1155,7 +1155,7 @@ LtSurgeGroupHard:
 
 ScientistGroupHard:
 	next_list_item ; SCIENTIST (1) Team Rocket Hideout - B3F
-	db "ROSS@", TRAINERTYPE_NORMAL
+	db "Ross@", TRAINERTYPE_NORMAL
 	db 8
 	dw WEEZING
 	db 8
@@ -1163,13 +1163,13 @@ ScientistGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (2) Team Rocket Hideout - B3F
-	db "MITCH@", TRAINERTYPE_NORMAL
+	db "Mitch@", TRAINERTYPE_NORMAL
 	db 15
 	dw DITTO
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (3) Team Rocket Hideout - B1F
-	db "JED@", TRAINERTYPE_NORMAL
+	db "Jed@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGNETON
 	db 7
@@ -1179,7 +1179,7 @@ ScientistGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (4) Goldenrod City - Radio Tower
-	db "MARC@", TRAINERTYPE_NORMAL
+	db "Marc", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGNETON
 	db 7
@@ -1189,7 +1189,7 @@ ScientistGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (5) Goldenrod City - Radio Tower
-	db "RICH@", TRAINERTYPE_MOVES
+	db "Rich@", TRAINERTYPE_MOVES
 	db 11
 	dw PORYGON2
 	dw CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
@@ -1199,7 +1199,7 @@ ScientistGroupHard:
 
 ErikaGroupHard:
 	next_list_item ; ERIKA (1)
-	db "ERIKA@", TRAINERTYPE_MOVES
+	db "Erika@", TRAINERTYPE_MOVES
 	db 8
 	dw TANGELA
 	dw STUN_SPORE, REFLECT, ABSORB, SLEEP_POWDER
@@ -1212,7 +1212,7 @@ ErikaGroupHard:
 	db -1 ; end
 	
 	next_list_item ; ERIKA (2)
-	db "ERIKA@", TRAINERTYPE_MOVES
+	db "Erika@", TRAINERTYPE_MOVES
 	db 10
 	dw SUNFLORA
 	dw FIRE_BLAST, STUN_SPORE, SOLARBEAM, SUNNY_DAY
@@ -1231,7 +1231,7 @@ ErikaGroupHard:
 	db -1 ; end
 	
 	next_list_item ; ERIKA (3)
-	db "ERIKA@", TRAINERTYPE_MOVES
+	db "Erika@", TRAINERTYPE_MOVES
 	db 12
 	dw ROSELIA
 	dw STUN_SPORE, REFLECT, MEGA_DRAIN, SLEEP_POWDER
@@ -1256,13 +1256,13 @@ ErikaGroupHard:
 
 YoungsterGroupHard:
 	next_list_item ; YOUNGSTER (1) Route 30 
-	db "JOEY@", TRAINERTYPE_NORMAL
+	db "Joey@", TRAINERTYPE_NORMAL
 	db 2
 	dw RATTATA
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (2) Route 30
-	db "MIKEY@", TRAINERTYPE_NORMAL
+	db "Mikey@", TRAINERTYPE_NORMAL
 	db 2
 	dw PIDGEY
 	db 3
@@ -1270,7 +1270,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (3) Route 32
-	db "ALBERT@", TRAINERTYPE_NORMAL
+	db "Albert@", TRAINERTYPE_NORMAL
 	db 5
 	dw RATTATA
 	db 5
@@ -1278,7 +1278,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (4) Route 32
-	db "GORDON@", TRAINERTYPE_NORMAL
+	db "Gordon@", TRAINERTYPE_NORMAL
 	db 7
 	dw WOOPER
 	db 7
@@ -1286,7 +1286,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (5) Route 34
-	db "SAMUEL@", TRAINERTYPE_NORMAL
+	db "Samuel@", TRAINERTYPE_NORMAL
 	db 5
 	dw RATTATA
 	db 5
@@ -1298,7 +1298,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (6) Route 34
-	db "IAN@", TRAINERTYPE_NORMAL
+	db "Ian@", TRAINERTYPE_NORMAL
 	db 5
 	dw MANKEY
 	db 5
@@ -1308,19 +1308,19 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (7) Route 30 Rematch 1
-	db "JOEY@", TRAINERTYPE_NORMAL
+	db "Joey@", TRAINERTYPE_NORMAL
 	db 10
 	dw RATTATA
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (8) Route 30 Rematch 2
-	db "JOEY@", TRAINERTYPE_NORMAL
+	db "Joey@", TRAINERTYPE_NORMAL
 	db 12
 	dw RATICATE
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (9) Route 03
-	db "WARREN@", TRAINERTYPE_NORMAL
+	db "Warren@", TRAINERTYPE_NORMAL
 	db 3
 	dw SPEAROW
 	db 3
@@ -1328,7 +1328,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (10) Route 03
-	db "JIMMY@", TRAINERTYPE_NORMAL
+	db "Jimmy@", TRAINERTYPE_NORMAL
 	db 3
 	dw RATTATA
 	db 4
@@ -1336,7 +1336,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (11) Route 11
-	db "OWEN@", TRAINERTYPE_NORMAL
+	db "Owen@", TRAINERTYPE_NORMAL
 	db 5
 	dw GROWLITHE
 	db 5
@@ -1344,7 +1344,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (12) Route 11
-	db "JASON@", TRAINERTYPE_NORMAL
+	db "Jason@", TRAINERTYPE_NORMAL
 	db 3
 	dw SANDSLASH
 	db 4
@@ -1352,19 +1352,19 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (13) Route 30 Rematch 3
-	db "JOEY@", TRAINERTYPE_NORMAL
+	db "Joey@", TRAINERTYPE_NORMAL
 	db 15
 	dw RATICATE
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (14) Route 30 Rematch 4
-	db "JOEY@", TRAINERTYPE_NORMAL
+	db "Joey@", TRAINERTYPE_NORMAL
 	db 20
 	dw RATICATE
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (15) Ilex West (Contest placeholder team)
-	db "RONALD@", TRAINERTYPE_NORMAL
+	db "Ronald@", TRAINERTYPE_NORMAL
 	db 10
 	dw GIRAFARIG
 	db 8
@@ -1380,7 +1380,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (16) Johto Games (Contest placeholder team)
-	db "RONALD@", TRAINERTYPE_NORMAL
+	db "Ronald@", TRAINERTYPE_NORMAL
 	db 10
 	dw GIRAFARIG
 	db 10
@@ -1396,7 +1396,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (17) Unreferenced (Contest placeholder team)
-	db "RONALD@", TRAINERTYPE_NORMAL
+	db "Ronald@", TRAINERTYPE_NORMAL
 	db 10
 	dw GIRAFARIG
 	db 10
@@ -1412,7 +1412,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (18) Rustboro Gym
-	db "JOSH@", TRAINERTYPE_NORMAL
+	db "Josh@", TRAINERTYPE_NORMAL
 	db 6
 	dw GEODUDE
 	db 6
@@ -1420,7 +1420,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (19) Rustboro Gym
-	db "TOMMY@", TRAINERTYPE_NORMAL
+	db "Tommy@", TRAINERTYPE_NORMAL
 	db 6
 	dw SANDSHREW
 	db 6
@@ -1428,7 +1428,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (20) Route 102
-	db "CALVIN@", TRAINERTYPE_NORMAL
+	db "Calvin@", TRAINERTYPE_NORMAL
 	db 0
 	dw POOCHYENA
 	db 1
@@ -1436,7 +1436,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (21) Route 102
-	db "ALLEN@", TRAINERTYPE_NORMAL
+	db "Allen@", TRAINERTYPE_NORMAL
 	db 0
 	dw ZIGZAGOON
 	db 1
@@ -1444,7 +1444,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (21) Route 104
-	db "BILLY@", TRAINERTYPE_NORMAL
+	db "Billy@", TRAINERTYPE_NORMAL
 	db 4
 	dw ZIGZAGOON
 	db 4
@@ -1452,13 +1452,13 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (23) Route 116
-	db "JOEY@", TRAINERTYPE_NORMAL
+	db "Joey@", TRAINERTYPE_NORMAL
 	db 5
 	dw MACHOKE
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (24) Route 116
-	db "JOHNSON@", TRAINERTYPE_NORMAL
+	db "Johnson@", TRAINERTYPE_NORMAL
 	db 5
 	dw BRELOOM
 	db 5
@@ -1466,7 +1466,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (25) Route 110
-	db "TIMMY@", TRAINERTYPE_NORMAL
+	db "Timmy@", TRAINERTYPE_NORMAL
 	db 7
 	dw LAIRON
 	db 7
@@ -1474,7 +1474,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (26) Mount Moon
-	db "JOSH@", TRAINERTYPE_NORMAL
+	db "Josh@", TRAINERTYPE_NORMAL
 	db 5
 	dw ARON
 	db 6
@@ -1484,7 +1484,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (27) Route 113
-	db "LAO@", TRAINERTYPE_NORMAL
+	db "Lao@", TRAINERTYPE_NORMAL
 	db 5
 	dw WEEZING
 	db 6
@@ -1494,7 +1494,7 @@ YoungsterGroupHard:
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (28) Route 113
-	db "DILLON@", TRAINERTYPE_NORMAL
+	db "Dillon@", TRAINERTYPE_NORMAL
 	db 5
 	dw AMUK
 	db 6
@@ -1509,7 +1509,7 @@ SECTION "Hard Trainer Parties 2", ROMX
 
 SchoolboyGroupHard:
 	next_list_item ; SCHOOLBOY (1) National Park 
-	db "JACK@", TRAINERTYPE_NORMAL
+	db "Jack@", TRAINERTYPE_NORMAL
 	db 5
 	dw ODDISH
 	db 5
@@ -1519,7 +1519,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (2) Route 15
-	db "KIPP@", TRAINERTYPE_NORMAL 
+	db "Kipp@", TRAINERTYPE_NORMAL 
 	db 3
 	dw VOLTORB
 	db 3
@@ -1531,13 +1531,13 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (3) Route 36
-	db "ALAN@", TRAINERTYPE_NORMAL
+	db "Alan@", TRAINERTYPE_NORMAL
 	db 9
 	dw TANGELA
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (4) Route 15
-	db "JOHNNY@", TRAINERTYPE_NORMAL
+	db "Johnny@", TRAINERTYPE_NORMAL
 	db 2
 	dw BELLSPROUT
 	db 4
@@ -1547,13 +1547,13 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (5) Viridian Forest
-	db "DANNY@", TRAINERTYPE_NORMAL	
+	db "Danny@", TRAINERTYPE_NORMAL	
 	db 1
 	dw RATTATA
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (6) Route 15
-	db "TOMMY@", TRAINERTYPE_NORMAL
+	db "Tommy@", TRAINERTYPE_NORMAL
 	db 7
 	dw XATU
 	db 8
@@ -1561,7 +1561,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (7) Route 24
-	db "DUDLEY@", TRAINERTYPE_NORMAL
+	db "Dudley@", TRAINERTYPE_NORMAL
 	db 5
 	dw ODDISH
 	db 5
@@ -1569,7 +1569,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (8) Route 25
-	db "JOE@", TRAINERTYPE_NORMAL
+	db "Joe@", TRAINERTYPE_NORMAL
 	db 3
 	dw TANGELA
 	db 5
@@ -1577,7 +1577,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (9) Route 15
-	db "BILLY@", TRAINERTYPE_NORMAL
+	db "Billy@", TRAINERTYPE_NORMAL
 	db 4
 	dw PARAS
 	db 4
@@ -1589,13 +1589,13 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (10) Route 38
-	db "CHAD@", TRAINERTYPE_NORMAL
+	db "Chad@", TRAINERTYPE_NORMAL
 	db 9
 	dw MR__MIME
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (11) Fast Ship B1F
-	db "NATE@", TRAINERTYPE_NORMAL
+	db "Nate@", TRAINERTYPE_NORMAL
 	db 7
 	dw LEDIAN
 	db 7
@@ -1603,7 +1603,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (12) Fast Ship B1F
-	db "RICKY@", TRAINERTYPE_NORMAL
+	db "Ricky@", TRAINERTYPE_NORMAL
 	db 7
 	dw AIPOM
 	db 7
@@ -1611,7 +1611,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (17) Route 38 Rematch 1
-	db "CHAD@", TRAINERTYPE_NORMAL
+	db "Chad@", TRAINERTYPE_NORMAL
 	db 11
 	dw MR__MIME
 	db 11
@@ -1619,7 +1619,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (18) Route 38 Rematch 1
-	db "CHAD@", TRAINERTYPE_NORMAL
+	db "Chad@", TRAINERTYPE_NORMAL
 	db 11
 	dw MR__MIME
 	db 11
@@ -1627,7 +1627,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (23) Route 38 Rematch 2
-	db "CHAD@", TRAINERTYPE_NORMAL
+	db "Chad@", TRAINERTYPE_NORMAL
 	db 11
 	dw MR__MIME
 	db 11
@@ -1635,7 +1635,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (24) Route 38 Rematch 3
-	db "CHAD@", TRAINERTYPE_MOVES
+	db "Chad@", TRAINERTYPE_MOVES
 	db 11
 	dw MR__MIME
 	dw PSYCHIC_M, LIGHT_SCREEN, REFLECT, ENCORE
@@ -1645,7 +1645,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (25) Mauville City Gym
-	db "BEN@", TRAINERTYPE_NORMAL
+	db "Ben@", TRAINERTYPE_NORMAL
 	db 9
 	dw RAICHU
 	db 9
@@ -1653,7 +1653,7 @@ SchoolboyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCHOOLBOY (26) Route 118
-	db "DALE@", TRAINERTYPE_NORMAL
+	db "Dale@", TRAINERTYPE_NORMAL
 	db 5
 	dw MINUN
 	db 7
@@ -1664,7 +1664,7 @@ SchoolboyGroupHard:
 
 BirdKeeperGroupHard:
 	next_list_item ; BIRD_KEEPER (1) Violet City Gym
-	db "ROD@", TRAINERTYPE_NORMAL
+	db "Rod@", TRAINERTYPE_NORMAL
 	db 4
 	dw PIDGEY
 	db 4
@@ -1676,7 +1676,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (2) Violet City Gym
-	db "ABE@", TRAINERTYPE_NORMAL
+	db "Abe@", TRAINERTYPE_NORMAL
 	db 5
 	dw SPEAROW
 	db 5
@@ -1686,7 +1686,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (3) Route 35
-	db "BRYAN@", TRAINERTYPE_NORMAL
+	db "Bryan@", TRAINERTYPE_NORMAL
 	db 4
 	dw PIDGEY
 	db 7
@@ -1698,7 +1698,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (4) Glitter Lighthouse - 3F
-	db "THEO@", TRAINERTYPE_NORMAL
+	db "Theo@", TRAINERTYPE_NORMAL
 	db 4
 	dw PIDGEY
 	db 7
@@ -1710,7 +1710,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (5) Route 38
-	db "TOBY@", TRAINERTYPE_NORMAL
+	db "Toby@", TRAINERTYPE_NORMAL
 	db 5
 	dw DODUO
 	db 6
@@ -1720,7 +1720,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (6) Glitter Lighthouse - 5F
-	db "DENIS@", TRAINERTYPE_NORMAL
+	db "Denis@", TRAINERTYPE_NORMAL
 	db 3
 	dw SPEAROW
 	db 7
@@ -1730,7 +1730,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (7) Route 44
-	db "VANCE@", TRAINERTYPE_NORMAL
+	db "Vance@", TRAINERTYPE_NORMAL
 	db 4
 	dw PIDGEOTTO
 	db 5
@@ -1740,7 +1740,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (8) Route 04
-	db "HANK@", TRAINERTYPE_NORMAL
+	db "Hank@", TRAINERTYPE_NORMAL
 	db 5
 	dw PIDGEY
 	db 7
@@ -1748,7 +1748,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (9) Route 14
-	db "ROY@", TRAINERTYPE_NORMAL
+	db "Roy@", TRAINERTYPE_NORMAL
 	db 4
 	dw FEAROW
 	db 5
@@ -1758,7 +1758,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (10) Route 18
-	db "BORIS@", TRAINERTYPE_NORMAL
+	db "Boris@", TRAINERTYPE_NORMAL
 	db 2
 	dw DODUO
 	db 3
@@ -1770,7 +1770,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (11) Route 18
-	db "BOB@", TRAINERTYPE_NORMAL
+	db "Bob@", TRAINERTYPE_NORMAL
 	db 7
 	dw NOCTOWL
 	db 7
@@ -1778,7 +1778,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (12) Route 27
-	db "JOSE@", TRAINERTYPE_NORMAL
+	db "Jose@", TRAINERTYPE_NORMAL
 	db 7
 	dw FARFETCH_D
 	db 7
@@ -1786,7 +1786,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (13) Route 32
-	db "PETER@", TRAINERTYPE_NORMAL
+	db "Peter@", TRAINERTYPE_NORMAL
 	db 2
 	dw PIDGEY
 	db 3
@@ -1796,19 +1796,19 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (14) Route 27 Rematch 1
-	db "JOSE@", TRAINERTYPE_NORMAL
+	db "Jose@", TRAINERTYPE_NORMAL
 	db 9
 	dw FARFETCH_D
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (15) Route 13
-	db "PERRY@", TRAINERTYPE_NORMAL
+	db "Perry@", TRAINERTYPE_NORMAL
 	db 9
 	dw FARFETCH_D
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (16) Route 13
-	db "BRET@", TRAINERTYPE_NORMAL
+	db "Bret@", TRAINERTYPE_NORMAL
 	db 6
 	dw PIDGEOTTO
 	db 8
@@ -1816,14 +1816,14 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (17) Route 27 Rematch 2
-	db "JOSE@", TRAINERTYPE_NORMAL
+	db "Jose@", TRAINERTYPE_NORMAL
 	db 12
 	dw FARFETCH_D
 	dw FURY_ATTACK, DETECT, FLY, SLASH
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (18) Route 44 Rematch 1
-	db "VANCE@", TRAINERTYPE_NORMAL
+	db "Vance@", TRAINERTYPE_NORMAL
 	db 9
 	dw PIDGEOTTO
 	db 9
@@ -1831,7 +1831,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (19) Route 44 Rematch 2
-	db "VANCE@", TRAINERTYPE_MOVES
+	db "Vance@", TRAINERTYPE_MOVES
 	db 11
 	dw PIDGEOT
 	dw TOXIC, QUICK_ATTACK, WHIRLWIND, FLY
@@ -1841,7 +1841,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (20) Route 105
-	db "JOSUE@", TRAINERTYPE_NORMAL
+	db "Josue@", TRAINERTYPE_NORMAL
 	db 7
 	dw FEAROW
 	db 7
@@ -1853,7 +1853,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (21) Fortree Gym
-	db "HUMBERT@", TRAINERTYPE_NORMAL
+	db "Humbert@", TRAINERTYPE_NORMAL
 	db 9
 	dw SKARMORY
 	db 9
@@ -1861,7 +1861,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (22) Fortree Gym
-	db "JARED@", TRAINERTYPE_NORMAL
+	db "Jared@", TRAINERTYPE_NORMAL
 	db 9
 	dw FEAROW
 	db 9
@@ -1869,7 +1869,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (23) Fortree Gym
-	db "EDWARDO@", TRAINERTYPE_NORMAL
+	db "Edwardo@", TRAINERTYPE_NORMAL
 	db 9
 	dw PIDGEOT
 	db 9
@@ -1877,7 +1877,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (24) Fortree Gym
-	db "DARIUS@", TRAINERTYPE_NORMAL
+	db "Darius@", TRAINERTYPE_NORMAL
 	db 9
 	dw FARFETCH_D
 	db 9
@@ -1885,7 +1885,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (25) Route 118
-	db "CHESTER@", TRAINERTYPE_NORMAL
+	db "Chester@", TRAINERTYPE_NORMAL
 	db 5
 	dw FEAROW
 	db 7
@@ -1893,7 +1893,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (26) Route 118
-	db "PERRY@", TRAINERTYPE_NORMAL
+	db "Perry@", TRAINERTYPE_NORMAL
 	db 5
 	dw GOLBAT
 	db 7
@@ -1901,7 +1901,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (27) Route 113
-	db "COBY@", TRAINERTYPE_NORMAL
+	db "Coby@", TRAINERTYPE_NORMAL
 	db 7
 	dw SKARMORY
 	db 7
@@ -1909,7 +1909,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (28) Route 119
-	db "PHIL@", TRAINERTYPE_NORMAL
+	db "Phil@", TRAINERTYPE_NORMAL
 	db 6
 	dw FEAROW
 	db 7
@@ -1917,7 +1917,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (29) Route 119
-	db "HUGH@", TRAINERTYPE_NORMAL
+	db "Hugh@", TRAINERTYPE_NORMAL
 	db 6
 	dw PELIPPER
 	db 7
@@ -1925,7 +1925,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (30) Route 120
-	db "ROBERT@", TRAINERTYPE_NORMAL
+	db "Robert@", TRAINERTYPE_NORMAL
 	db 6
 	dw ALTARIA
 	db 7
@@ -1933,7 +1933,7 @@ BirdKeeperGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (31) Route 120
-	db "COLIN@", TRAINERTYPE_NORMAL
+	db "Colin@", TRAINERTYPE_NORMAL
 	db 6
 	dw PELIPPER
 	db 7
@@ -1944,7 +1944,7 @@ BirdKeeperGroupHard:
 
 LassGroupHard:
 	next_list_item ; LASS (1) Goldenrod City Gym
-	db "CARRIE@", TRAINERTYPE_NORMAL
+	db "Carrie@", TRAINERTYPE_NORMAL
 	db 7
 	dw SNUBBULL
 	db 7
@@ -1954,7 +1954,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (2) Goldenrod City Gym
-	db "BRIDGET@", TRAINERTYPE_NORMAL 
+	db "Bridget@", TRAINERTYPE_NORMAL 
 	db 7
 	dw JIGGLYPUFF
 	db 7
@@ -1964,7 +1964,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (3) Fuschia City Gym
-	db "ALICE@", TRAINERTYPE_NORMAL
+	db "Alice@", TRAINERTYPE_NORMAL
 	db 7
 	dw GLOOM
 	db 7
@@ -1974,7 +1974,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (4) Unreferenced
-	db "KRISE@", TRAINERTYPE_NORMAL
+	db "Krise@", TRAINERTYPE_NORMAL
 	db 7
 	dw ODDISH
 	db 7
@@ -1982,7 +1982,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (5) Glitter Lighthouse - 4F
-	db "CONNIE@", TRAINERTYPE_NORMAL
+	db "Connie@", TRAINERTYPE_NORMAL
 	db 7
 	dw AZUMARILL
 	db 7
@@ -1992,7 +1992,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (6) Fuschia City Gym
-	db "LINDA@", TRAINERTYPE_NORMAL
+	db "Linda@", TRAINERTYPE_NORMAL
 	db 7
 	dw TANGELA
 	db 7
@@ -2002,7 +2002,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (7) Route 25
-	db "LAURA@", TRAINERTYPE_NORMAL
+	db "Laura@", TRAINERTYPE_NORMAL
 	db 5
 	dw GLOOM
 	db 5
@@ -2012,7 +2012,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (8) Route 25
-	db "SHANNON@", TRAINERTYPE_NORMAL
+	db "Shannon@", TRAINERTYPE_NORMAL
 	db 5
 	dw PARAS
 	db 5
@@ -2022,7 +2022,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (9) Celadon City Gym
-	db "MICHELLE@", TRAINERTYPE_NORMAL
+	db "Michelle@", TRAINERTYPE_NORMAL
 	db 5
 	dw PARAS
 	db 5
@@ -2032,7 +2032,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (10) Route 38
-	db "DANA@", TRAINERTYPE_NORMAL
+	db "Dana@", TRAINERTYPE_NORMAL
 	db 7
 	dw FLAAFFY
 	db 7
@@ -2040,7 +2040,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (11) Route 24
-	db "ELLEN@", TRAINERTYPE_NORMAL
+	db "Ellen@", TRAINERTYPE_NORMAL
 	db 5
 	dw JIGGLYPUFF
 	db 5
@@ -2048,7 +2048,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (18) Mauville City Gym
-	db "VIVIAN@", TRAINERTYPE_NORMAL	
+	db "Vivian@", TRAINERTYPE_NORMAL	
 	db 9
 	dw LANTURN
 	db 9
@@ -2056,7 +2056,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (19) Route 102
-	db "TIANA@", TRAINERTYPE_NORMAL	
+	db "Tiana@", TRAINERTYPE_NORMAL	
 	db 1
 	dw ZIGZAGOON
 	db 2
@@ -2064,7 +2064,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (20) Route 104
-	db "HALEY@", TRAINERTYPE_NORMAL	
+	db "Haley@", TRAINERTYPE_NORMAL	
 	db 3
 	dw HOPPIP
 	db 4
@@ -2072,7 +2072,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (21) Route 116
-	db "KAREN@", TRAINERTYPE_NORMAL	
+	db "Karen@", TRAINERTYPE_NORMAL	
 	db 5
 	dw SHROOMISH
 	db 6
@@ -2080,7 +2080,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (22) Route 116
-	db "JANICE@", TRAINERTYPE_NORMAL	
+	db "Janice@", TRAINERTYPE_NORMAL	
 	db 5
 	dw MARILL
 	db 4
@@ -2088,7 +2088,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (23) Mount Moon
-	db "IRIS@", TRAINERTYPE_NORMAL	
+	db "Iris@", TRAINERTYPE_NORMAL	
 	db 5
 	dw CLEFAIRY
 	db 7
@@ -2096,7 +2096,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (24) Mount Moon
-	db "MIRIAM@", TRAINERTYPE_NORMAL	
+	db "Miriam@", TRAINERTYPE_NORMAL	
 	db 5
 	dw GLOOM
 	db 7
@@ -2104,7 +2104,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (25) Route 118
-	db "SALLY@", TRAINERTYPE_NORMAL	
+	db "Sally@", TRAINERTYPE_NORMAL	
 	db 5
 	dw GLOOM
 	db 6
@@ -2112,7 +2112,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (26) Route 118
-	db "ANNIE@", TRAINERTYPE_NORMAL	
+	db "Annie@", TRAINERTYPE_NORMAL	
 	db 5
 	dw MUNCHLAX
 	db 7
@@ -2120,7 +2120,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (27) Sootopolis Gym
-	db "ANDREA@", TRAINERTYPE_NORMAL	
+	db "Andrea@", TRAINERTYPE_NORMAL	
 	db 8
 	dw LUVDISC
 	db 8
@@ -2128,7 +2128,7 @@ LassGroupHard:
 	db -1 ; end
 
 	next_list_item ; LASS (28) Sootopolis Gym
-	db "CRISSY@", TRAINERTYPE_NORMAL	
+	db "Crissy@", TRAINERTYPE_NORMAL	
 	db 8
 	dw SEAKING
 	db 8
@@ -2139,7 +2139,7 @@ LassGroupHard:
 
 JanineGroupHard:
 	next_list_item ; JANINE (1)
-	db "JANINE@", TRAINERTYPE_MOVES
+	db "Janine@", TRAINERTYPE_MOVES
 	db 9
 	dw KOFFING
 	dw ACID, EMBER, TOXIC, WILLOWISP
@@ -2152,7 +2152,7 @@ JanineGroupHard:
 	db -1 ; end
 	
 	next_list_item ; JANINE (1)
-	db "JANINE@", TRAINERTYPE_MOVES
+	db "Janine@", TRAINERTYPE_MOVES
 	db 10
 	dw WEEZING
 	dw SLUDGE, FIRE_SPIN, TOXIC, WILLOWISP
@@ -2171,7 +2171,7 @@ JanineGroupHard:
 	db -1 ; end
 	
 	next_list_item ; JANINE (3)
-	db "JANINE@", TRAINERTYPE_ITEM_MOVES
+	db "Janine@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw WEEZING
 	dw LEFTOVERS
@@ -2202,7 +2202,7 @@ JanineGroupHard:
 
 CooltrainerMGroupHard:
 	next_list_item ; COOLTRAINERM (1) Union Cave - B2F
-	db "NICK@", TRAINERTYPE_NORMAL
+	db "Nick@", TRAINERTYPE_NORMAL
 	db 9
 	dw CHARIZARD
 	db 9
@@ -2218,7 +2218,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (2) Unreferenced
-	db "AARON@", TRAINERTYPE_NORMAL
+	db "Aaron@", TRAINERTYPE_NORMAL
 	db 6
 	dw IVYSAUR
 	db 6
@@ -2228,7 +2228,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (3) Blackthorn City Gym
-	db "PAUL@", TRAINERTYPE_NORMAL
+	db "Paul@", TRAINERTYPE_NORMAL
 	db 9
 	dw DRAGONAIR
 	db 9
@@ -2238,7 +2238,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (4) Blackthorn City Gym
-	db "CODY@", TRAINERTYPE_NORMAL
+	db "Cody@", TRAINERTYPE_NORMAL
 	db 7
 	dw HORSEA
 	db 9
@@ -2250,7 +2250,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (5) Blackthorn City Gym
-	db "MIKE@", TRAINERTYPE_NORMAL
+	db "Mike@", TRAINERTYPE_NORMAL
 	db 9
 	dw CHARIZARD
 	db 9
@@ -2260,7 +2260,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (6) Route 26
-	db "GAVEN@", TRAINERTYPE_NORMAL
+	db "Gaven@", TRAINERTYPE_NORMAL
 	db 9
 	dw VICTREEBEL
 	db 9
@@ -2272,7 +2272,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (8) Route 45
-	db "RYAN@", TRAINERTYPE_NORMAL
+	db "Ryan@", TRAINERTYPE_NORMAL
 	db 7
 	dw PIDGEOT
 	db 7
@@ -2284,7 +2284,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (9) Route 26
-	db "JAKE@", TRAINERTYPE_NORMAL
+	db "Jake@", TRAINERTYPE_NORMAL
 	db 9
 	dw PARASECT
 	db 9
@@ -2296,7 +2296,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (11) Route 27
-	db "BLAKE@", TRAINERTYPE_NORMAL
+	db "Blake@", TRAINERTYPE_NORMAL
 	db 10
 	dw MAGNEZONE
 	db 10
@@ -2306,7 +2306,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (12) Route 27
-	db "BRIAN@", TRAINERTYPE_NORMAL
+	db "Brian@", TRAINERTYPE_NORMAL
 	db 10
 	dw ASANDSLASH
 	db 10
@@ -2316,7 +2316,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (13) Unreferenced
-	db "ERICK@", TRAINERTYPE_NORMAL
+	db "Erick@", TRAINERTYPE_NORMAL
 	db 10
 	dw BULBASAUR
 	db 10
@@ -2326,7 +2326,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (14) Unreferenced
-	db "ANDY@", TRAINERTYPE_NORMAL
+	db "Andy@", TRAINERTYPE_NORMAL
 	db 10
 	dw BULBASAUR
 	db 10
@@ -2336,7 +2336,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (15) Unreferenced
-	db "TYLER@", TRAINERTYPE_NORMAL
+	db "Tyler@", TRAINERTYPE_NORMAL
 	db 10
 	dw BULBASAUR
 	db 10
@@ -2346,7 +2346,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (16) Unreferenced
-	db "SEAN@", TRAINERTYPE_NORMAL
+	db "Sean@", TRAINERTYPE_NORMAL
 	db 10
 	dw FLAREON
 	db 10
@@ -2356,7 +2356,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (17) Route 25
-	db "KEVIN@", TRAINERTYPE_NORMAL
+	db "Kevin@", TRAINERTYPE_NORMAL
 	db 8
 	dw RHYHORN
 	db 5
@@ -2366,7 +2366,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (18) Unreferenced
-	db "STEVE@", TRAINERTYPE_NORMAL
+	db "Steve@", TRAINERTYPE_NORMAL
 	db 7
 	dw BULBASAUR
 	db 7
@@ -2376,21 +2376,21 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (19) Unreferenced
-	db "ALLEN@", TRAINERTYPE_MOVES
+	db "Allen@", TRAINERTYPE_MOVES
 	db 7
 	dw CHARMELEON
 	dw EMBER, SMOKESCREEN, RAGE, SCARY_FACE
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (20) Dragon's Den
-	db "DARIN@", TRAINERTYPE_MOVES
+	db "Darin@", TRAINERTYPE_MOVES
 	db 15
 	dw DRAGONAIR
 	dw WRAP, SURF, DRAGON_RAGE, SLAM
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (21) Petalburg Gym
-	db "RANDALL@", TRAINERTYPE_NORMAL
+	db "Randal@", TRAINERTYPE_NORMAL
 	db 11
 	dw DELCATTY
 	db 11
@@ -2398,7 +2398,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (22) Petalburg Gym
-	db "PARKER@", TRAINERTYPE_NORMAL
+	db "Parker@", TRAINERTYPE_NORMAL
 	db 11
 	dw WIGGLYTUFF
 	db 11
@@ -2406,7 +2406,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (23) Petalburg Gym
-	db "GEORGE@", TRAINERTYPE_NORMAL
+	db "George@", TRAINERTYPE_NORMAL
 	db 11
 	dw RATICATE
 	db 11
@@ -2414,7 +2414,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (24) Lavaridge Gym
-	db "GERALD@", TRAINERTYPE_NORMAL
+	db "Gerald@", TRAINERTYPE_NORMAL
 	db 11
 	dw AMAROWAK
 	db 11
@@ -2422,7 +2422,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (25) Daloric contest team #1
-	db "DALORIC@", TRAINERTYPE_NORMAL
+	db "Daloric@", TRAINERTYPE_NORMAL
 	db 11
 	dw CHARIZARD
 	db 11
@@ -2438,7 +2438,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (26) Daloric contest team #2
-	db "DALORIC@", TRAINERTYPE_NORMAL
+	db "Daloric@", TRAINERTYPE_NORMAL
 	db 11
 	dw CHARIZARDX
 	db 11
@@ -2454,7 +2454,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (27) DominantDragon26 contest team #1
-	db "CRYSTAL@", TRAINERTYPE_NORMAL
+	db "Crystal@", TRAINERTYPE_NORMAL
 	db 11
 	dw NOCTOWL
 	db 11
@@ -2470,7 +2470,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (28) DominantDragon26 contest team #2
-	db "CRYSTAL@", TRAINERTYPE_NORMAL
+	db "Crystal@", TRAINERTYPE_NORMAL
 	db 11
 	dw NOCTOWL2
 	db 11
@@ -2486,7 +2486,7 @@ CooltrainerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (29) Route 120
-	db "LEONEL@", TRAINERTYPE_NORMAL
+	db "Leonel@", TRAINERTYPE_NORMAL
 	db 9
 	dw MANECTRIC
 	db 9
@@ -2505,7 +2505,7 @@ CooltrainerMGroupHard:
 
 CooltrainerFGroupHard:
 	next_list_item ; COOLTRAINERF (1) Union Cave - B2F
-	db "GWEN@", TRAINERTYPE_NORMAL
+	db "Gwen@", TRAINERTYPE_NORMAL
 	db 7
 	dw EEVEE
 	db 10
@@ -2517,7 +2517,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (2) Unreferenced
-	db "LOIS@", TRAINERTYPE_NORMAL
+	db "Lois@", TRAINERTYPE_NORMAL
 	db 5
 	dw SKIPLOOM
 	db 7
@@ -2525,7 +2525,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (3) Blackthorn City Gym
-	db "FRAN@", TRAINERTYPE_NORMAL
+	db "Fran@", TRAINERTYPE_NORMAL
 	db 7
 	dw SEADRA
 	db 7
@@ -2537,7 +2537,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (4) Unreferenced
-	db "LOLA@", TRAINERTYPE_NORMAL
+	db "Lola@", TRAINERTYPE_NORMAL
 	db 4
 	dw DRATINI
 	db 6
@@ -2545,7 +2545,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (5) Route 34
-	db "KATE@", TRAINERTYPE_NORMAL
+	db "Kate@", TRAINERTYPE_NORMAL
 	db 7
 	dw LUDICOLO
 	db 8
@@ -2553,7 +2553,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (6) Route 34
-	db "IRENE@", TRAINERTYPE_NORMAL
+	db "Irene@", TRAINERTYPE_NORMAL
 	db 7
 	dw MASQUERAIN
 	db 8
@@ -2561,7 +2561,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (7) Route 45
-	db "KELLY@", TRAINERTYPE_NORMAL
+	db "Kelly@", TRAINERTYPE_NORMAL
 	db 7
 	dw MARILL
 	db 4
@@ -2571,7 +2571,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (8) Route 26
-	db "JOYCE@", TRAINERTYPE_NORMAL
+	db "Joyce@", TRAINERTYPE_NORMAL
 	db 8
 	dw PIKACHU
 	db 9
@@ -2587,7 +2587,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (9) Route 26
-	db "BETH@", TRAINERTYPE_NORMAL
+	db "Beth@", TRAINERTYPE_NORMAL
 	db 9
 	dw RAPIDASH
 	db 9
@@ -2603,7 +2603,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (10) Route 27
-	db "REENA@", TRAINERTYPE_NORMAL
+	db "Reena@", TRAINERTYPE_NORMAL
 	db 8
 	dw STARMIE
 	db 8
@@ -2617,7 +2617,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (11) Route 27
-	db "MEGAN@", TRAINERTYPE_NORMAL
+	db "Megan@", TRAINERTYPE_NORMAL
 	db 7
 	dw FERALIGATR2
 	db 7
@@ -2631,7 +2631,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (12) Route 26 Rematch 1
-	db "BETH@", TRAINERTYPE_NORMAL
+	db "Beth@", TRAINERTYPE_NORMAL
 	db 11
 	dw RAPIDASH
 	db 11
@@ -2647,7 +2647,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (13) Unreferenced
-	db "CAROL@", TRAINERTYPE_NORMAL
+	db "Carol@", TRAINERTYPE_NORMAL
 	db 5
 	dw ELECTRODE
 	db 5
@@ -2657,13 +2657,13 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (14) Viridian Forest
-	db "QUINN@", TRAINERTYPE_NORMAL
+	db "Quinn@", TRAINERTYPE_NORMAL
 	db 1
 	dw BULBASAUR
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (15) Union Cave - B2F
-	db "EMMA@", TRAINERTYPE_NORMAL
+	db "Emma@", TRAINERTYPE_NORMAL
 	db 9
 	dw POLITOED
 	db 9
@@ -2675,7 +2675,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (16) Route 44
-	db "CYBIL@", TRAINERTYPE_NORMAL
+	db "Cybil@", TRAINERTYPE_NORMAL
 	db 7
 	dw BUTTERFREE
 	db 7
@@ -2687,7 +2687,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (17) Route 34
-	db "JENN@", TRAINERTYPE_NORMAL
+	db "Jenn@", TRAINERTYPE_NORMAL
 	db 8 
 	dw GLACEON
 	db 8
@@ -2695,7 +2695,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (18) Route 26 Rematch 2
-	db "BETH@", TRAINERTYPE_NORMAL
+	db "Beth@", TRAINERTYPE_NORMAL
 	db 11
 	dw RAPIDASH
 	db 11
@@ -2711,7 +2711,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (19) Route 27 Rematch 1
-	db "REENA@", TRAINERTYPE_NORMAL
+	db "Reena@", TRAINERTYPE_NORMAL
 	db 9
 	dw STARMIE
 	db 9
@@ -2725,7 +2725,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (20) Route 27 Rematch 2
-	db "REENA@", TRAINERTYPE_NORMAL
+	db "Reena@", TRAINERTYPE_NORMAL
 	db 11
 	dw STARMIE
 	db 11
@@ -2739,7 +2739,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (21) Dragon's Den
-	db "CARA@", TRAINERTYPE_NORMAL
+	db "Cara@", TRAINERTYPE_NORMAL
 	db 8
 	dw SHARPEDO
 	db 8
@@ -2749,7 +2749,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (21) Ilex West (LelouchIsKing contest party #1)
-	db "MARINA@", TRAINERTYPE_NORMAL
+	db "Marina@", TRAINERTYPE_NORMAL
 	db 9
 	dw GROWLITHE
 	db 9
@@ -2765,7 +2765,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (21) Johto Games (LelouchIsKing contest party #2)
-	db "MARINA@", TRAINERTYPE_NORMAL
+	db "Marina@", TRAINERTYPE_NORMAL
 	db 10
 	dw ARCANINE
 	db 10
@@ -2781,7 +2781,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (21) Unreferenced (LelouchIsKing contest party #3)
-	db "MARINA@", TRAINERTYPE_NORMAL
+	db "Marina@", TRAINERTYPE_NORMAL
 	db 12
 	dw ARCANINE
 	db 12
@@ -2797,7 +2797,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (22) Petalburg Gym
-	db "MARY@", TRAINERTYPE_NORMAL
+	db "Mary@", TRAINERTYPE_NORMAL
 	db 11
 	dw FURRET
 	db 11
@@ -2805,7 +2805,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (22) Petalburg Gym
-	db "MARY@", TRAINERTYPE_NORMAL
+	db "Mary@", TRAINERTYPE_NORMAL
 	db 11
 	dw DODRIO
 	db 11
@@ -2813,7 +2813,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (22) Petalburg Gym
-	db "MARY@", TRAINERTYPE_NORMAL
+	db "Mary@", TRAINERTYPE_NORMAL
 	db 11
 	dw SWELLOW
 	db 11
@@ -2821,7 +2821,7 @@ CooltrainerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (23) Route 120
-	db "JENNI@", TRAINERTYPE_NORMAL
+	db "Jenni@", TRAINERTYPE_NORMAL
 	db 9
 	dw SABLEYE
 	db 9
@@ -2836,7 +2836,7 @@ CooltrainerFGroupHard:
 
 BeautyGroupHard:
 	next_list_item ; BEAUTY (1) Goldenrod City Gym
-	db "VICTORIA@", TRAINERTYPE_NORMAL
+	db "Victoria@", TRAINERTYPE_NORMAL
 	db 7
 	dw SENTRET
 	db 7
@@ -2846,7 +2846,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (2) Goldenrod City Gym
-	db "SAMANTHA@", TRAINERTYPE_NORMAL
+	db "Samantha@", TRAINERTYPE_NORMAL
 	db 9
 	dw MEOWTH
 	db 9
@@ -2854,7 +2854,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (6) Fastship Cabins
-	db "CASSIE@", TRAINERTYPE_NORMAL
+	db "Cassie@", TRAINERTYPE_NORMAL
 	db 7
 	dw VILEPLUME
 	db 5
@@ -2862,37 +2862,37 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (9) Unreferenced
-	db "JESSICA@", TRAINERTYPE_NORMAL
+	db "Jessica@", TRAINERTYPE_NORMAL
 	db 5
 	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; BEAUTY (10) Unreferenced
-	db "RACHAEL@", TRAINERTYPE_NORMAL
+	db "Rachael@", TRAINERTYPE_NORMAL
 	db 5
 	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; BEAUTY (11) Unreferenced
-	db "ANGELICA@", TRAINERTYPE_NORMAL
+	db "Angelica@", TRAINERTYPE_NORMAL
 	db 15
 	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; BEAUTY (12) Unreferenced
-	db "KENDRA@", TRAINERTYPE_NORMAL
+	db "Kendra@", TRAINERTYPE_NORMAL
 	db 5
 	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; BEAUTY (13) Unreferenced
-	db "VERONICA@", TRAINERTYPE_NORMAL
+	db "Veronica@", TRAINERTYPE_NORMAL
 	db 5
 	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; BEAUTY (14) Celadon City Gym
-	db "JULIA@", TRAINERTYPE_NORMAL
+	db "Julia@", TRAINERTYPE_NORMAL
 	db 7
 	dw EXEGGCUTE2
 	db 7
@@ -2902,13 +2902,13 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (15) Unreferenced
-	db "THERESA@", TRAINERTYPE_NORMAL
+	db "Theresa@", TRAINERTYPE_NORMAL
 	db 5
 	dw SENTRET
 	db -1 ; end
 
 	next_list_item ; BEAUTY (16) Route 38
-	db "VALERIE@", TRAINERTYPE_NORMAL
+	db "Valerie@", TRAINERTYPE_NORMAL
 	db 5
 	dw SKIPLOOM
 	db 7
@@ -2916,25 +2916,25 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (17) Route 38
-	db "OLIVIA@", TRAINERTYPE_NORMAL
+	db "Olivia@", TRAINERTYPE_NORMAL
 	db 12
 	dw CORSOLA
 	db -1 ; end
 
 	next_list_item ; BEAUTY (18) Route 103
-	db "DAISY@", TRAINERTYPE_NORMAL
+	db "Daisy@", TRAINERTYPE_NORMAL
 	db 5
 	dw FURRET
 	db -1 ; end
 
 	next_list_item ; BEAUTY (19) Route 104
-	db "CINDY@", TRAINERTYPE_NORMAL
+	db "Cindy@", TRAINERTYPE_NORMAL
 	db 5
 	dw HOOTHOOT
 	db -1 ; end
 
 	next_list_item ; BEAUTY (20) Route 109
-	db "HAILEY@", TRAINERTYPE_NORMAL
+	db "Hailey@", TRAINERTYPE_NORMAL
 	db 6
 	dw NOCTOWL
 	db 7
@@ -2942,7 +2942,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (21) Route 109
-	db "LOLA@", TRAINERTYPE_NORMAL
+	db "Lola@", TRAINERTYPE_NORMAL
 	db 7
 	dw ANINETALES
 	db 7
@@ -2950,7 +2950,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (22) Route 112
-	db "SHAYLA@", TRAINERTYPE_NORMAL
+	db "Shayla@", TRAINERTYPE_NORMAL
 	db 7
 	dw BRELOOM
 	db 7
@@ -2958,7 +2958,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (23) Route 120
-	db "CLARISSA@", TRAINERTYPE_NORMAL
+	db "Clarissa@", TRAINERTYPE_NORMAL
 	db 7
 	dw ROSERADE
 	db 7
@@ -2966,7 +2966,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (23) Route 120
-	db "CLARISSA@", TRAINERTYPE_NORMAL
+	db "Clarissa@", TRAINERTYPE_NORMAL
 	db 7
 	dw LEAFEON
 	db 7
@@ -2974,7 +2974,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (24) Sootopolis Gym
-	db "CONNIE@", TRAINERTYPE_NORMAL
+	db "Connie@", TRAINERTYPE_NORMAL
 	db 8
 	dw SEAKING
 	db 9
@@ -2982,7 +2982,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (25) Sootopolis Gym
-	db "TIFFANY@", TRAINERTYPE_NORMAL
+	db "Tiffany@", TRAINERTYPE_NORMAL
 	db 8
 	dw SHARPEDO
 	db 9
@@ -2990,7 +2990,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (26) Sootopolis Gym
-	db "OLIVIA@", TRAINERTYPE_NORMAL
+	db "Olivia@", TRAINERTYPE_NORMAL
 	db 8
 	dw HUNTAIL
 	db 8
@@ -2998,7 +2998,7 @@ BeautyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BEAUTY (27) Sootopolis Gym
-	db "BRIDGET@", TRAINERTYPE_NORMAL
+	db "Bridget@", TRAINERTYPE_NORMAL
 	db 9
 	dw AZUMARILL
 	db 7
@@ -3009,7 +3009,7 @@ BeautyGroupHard:
 
 PokemaniacGroupHard:
 	next_list_item ; POKEMANIAC (1) Union Cave - 1F
-	db "LARRY@", TRAINERTYPE_NORMAL
+	db "Larry@", TRAINERTYPE_NORMAL
 	db 7
 	dw SLOWPOKE
 	db 7
@@ -3017,7 +3017,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (2) Union Cave - B1F
-	db "ANDREW@", TRAINERTYPE_NORMAL
+	db "Andrew@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAROWAK
 	db 7
@@ -3025,7 +3025,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (3) Union Cave - B1F
-	db "CALVIN@", TRAINERTYPE_NORMAL
+	db "Calvin@", TRAINERTYPE_NORMAL
 	db 7
 	dw KANGASKHAN
 	db 7
@@ -3035,7 +3035,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (4) Route 42
-	db "SHANE@", TRAINERTYPE_NORMAL
+	db "Shane@", TRAINERTYPE_NORMAL
 	db 8
 	dw NIDOQUEEN
 	db 8
@@ -3043,7 +3043,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (5) Route 43
-	db "BEN@", TRAINERTYPE_NORMAL
+	db "Ben@", TRAINERTYPE_NORMAL
 	db 5
 	dw SLOWBRO
 	db 5
@@ -3053,7 +3053,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (6) Route 43
-	db "BRENT@", TRAINERTYPE_NORMAL
+	db "Brent@", TRAINERTYPE_NORMAL
 	db 5
 	dw LICKITUNG
 	db 7
@@ -3063,7 +3063,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (7) Route 43
-	db "RON@", TRAINERTYPE_NORMAL
+	db "Ron@", TRAINERTYPE_NORMAL
 	db 4
 	dw HITMONLEE
 	db 5
@@ -3073,7 +3073,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (8) Unreferenced
-	db "ETHAN@", TRAINERTYPE_NORMAL
+	db "Ethan@", TRAINERTYPE_NORMAL
 	db 3
 	dw RHYHORN
 	db 7
@@ -3081,7 +3081,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (9) Route 43 Rematch 1
-	db "BRENT@", TRAINERTYPE_NORMAL
+	db "Brent@", TRAINERTYPE_NORMAL
 	db 9
 	dw LICKITUNG
 	db 9
@@ -3091,7 +3091,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (10) Route 43 Rematch 2
-	db "BRENT@", TRAINERTYPE_MOVES
+	db "Brent@", TRAINERTYPE_MOVES
 	db 9
 	dw LICKITUNG
 	db 9
@@ -3101,14 +3101,14 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (11) Goldenrod Underground
-	db "ISSAC@", TRAINERTYPE_MOVES
+	db "Issac@", TRAINERTYPE_MOVES
 	db 7
 	dw LICKITUNG
 	dw LICK, SUPERSONIC, CUT, NO_MOVE
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (12) Goldenrod Underground
-	db "DONALD@", TRAINERTYPE_NORMAL
+	db "Donald@", TRAINERTYPE_NORMAL
 	db 5
 	dw SLOWPOKE
 	db 5
@@ -3116,7 +3116,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (13) Route 44
-	db "ZACH@", TRAINERTYPE_NORMAL
+	db "Zach@", TRAINERTYPE_NORMAL
 	db 7
 	dw RHYHORN
 	db 7
@@ -3126,7 +3126,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (14) Route 43 Rematch 3
-	db "BRENT@", TRAINERTYPE_NORMAL
+	db "Brent@", TRAINERTYPE_NORMAL
 	db 11
 	dw LICKITUNG
 	db 11
@@ -3136,7 +3136,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (15) Mt. Mortar
-	db "MILLER@", TRAINERTYPE_NORMAL
+	db "Miller@", TRAINERTYPE_NORMAL
 	db 9
 	dw NIDOKING
 	db 9
@@ -3144,7 +3144,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (16) Route 113
-	db "WYATT@", TRAINERTYPE_NORMAL
+	db "Wyatt@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGNETON
 	db 7
@@ -3152,7 +3152,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (17) Route 114
-	db "WYATT@", TRAINERTYPE_NORMAL
+	db "Wyatt@", TRAINERTYPE_NORMAL
 	db 6
 	dw LAIRON
 	db 7
@@ -3160,7 +3160,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (18) Route 119
-	db "DONALD@", TRAINERTYPE_NORMAL
+	db "Donald@", TRAINERTYPE_NORMAL
 	db 7
 	dw BUTTERFREE
 	db 7
@@ -3168,7 +3168,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (19) Route 119
-	db "TAYLOR@", TRAINERTYPE_NORMAL
+	db "Taylor@", TRAINERTYPE_NORMAL
 	db 7
 	dw BEEDRILL
 	db 7
@@ -3176,7 +3176,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (20) Route 119
-	db "BRENT@", TRAINERTYPE_NORMAL
+	db "Brent@", TRAINERTYPE_NORMAL
 	db 7
 	dw PINSIR
 	db 7
@@ -3184,7 +3184,7 @@ PokemaniacGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (21) Route 120
-	db "JEFFREY@", TRAINERTYPE_NORMAL
+	db "Jeffrey@", TRAINERTYPE_NORMAL
 	db 5
 	dw MASQUERAIN
 	db 5
@@ -3195,7 +3195,7 @@ PokemaniacGroupHard:
 
 GruntMGroupHard:
 	next_list_item ; GRUNTM (1) Slowpoke Well BF1
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw KOFFING
 	db 7
@@ -3203,7 +3203,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (2) Slowpoke Well BF1
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw RATICATE
 	db 6
@@ -3213,7 +3213,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (3) Radio Tower 1F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw RATICATE
 	db 7
@@ -3221,7 +3221,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (4) Radio Tower 2F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw MUK
 	db 5
@@ -3231,7 +3231,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (5) Radio Tower 2F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw SHIFTRY
 	db 5
@@ -3241,7 +3241,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (6) Radio Tower 2F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 6
 	dw GOLBAT
 	db 6
@@ -3249,7 +3249,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (7) Radio Tower 3F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw WEEZING
 	db 5
@@ -3259,7 +3259,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (8) Radio Tower 3F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw WEEZING
 	db 7
@@ -3267,7 +3267,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (9) Radio Tower 3F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw RATICATE
 	db 7
@@ -3275,7 +3275,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (10) Radio Tower 4F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw ZUBAT
 	db 6
@@ -3285,7 +3285,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (11) Goldenrod Underground
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw AMUK
 	db 5
@@ -3295,13 +3295,13 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (12) Unreferenced
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 10
 	dw HOUNDOUR
 	db -1 ; end
 
 	next_list_item ; GRUNTM (13) Goldenrod Underground
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw RATICATE
 	db 5
@@ -3309,7 +3309,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (14) Goldenrod Underground
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 4
 	dw RATICATE
 	db 4
@@ -3317,7 +3317,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (15) Goldenrod Underground
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 4
 	dw AMUK
 	db 7
@@ -3325,7 +3325,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (16) Team Rocket Base B1F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw PERSIAN
 	db 5
@@ -3337,7 +3337,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (17) Team Rocket Base B2F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 8
 	dw GOLBAT
 	db 8
@@ -3345,7 +3345,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (18) Team Rocket Base B2F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw RATICATE
 	db 5
@@ -3355,7 +3355,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (19) Team Rocket Base B2F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw VENOMOTH
 	db 7
@@ -3363,7 +3363,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (20) Unreferenced
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw HYPNO
 	db 5
@@ -3371,7 +3371,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (21) Unreferenced
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 6
 	dw ZUBAT
 	db 7
@@ -3381,19 +3381,19 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (22) Unreferenced
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 10
 	dw GOLBAT
 	db -1 ; end
 
 	next_list_item ; GRUNTM (23) Unreferenced
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 10
 	dw KOFFING
 	db -1 ; end
 
 	next_list_item ; GRUNTM (24) Goldenrod Underground
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw WEEZING
 	db 5
@@ -3401,7 +3401,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (25) Goldenrod Underground
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw CACTURNE
 	db 4
@@ -3409,7 +3409,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (26) Unreferenced
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw RATTATA
 	db 5
@@ -3417,19 +3417,19 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (27) Unreferenced
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 10
 	dw ZUBAT
 	db -1 ; end
 
 	next_list_item ; GRUNTM (28) Team Rocket Base B3F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 15
 	dw RATICATE
 	db -1 ; end
 
 	next_list_item ; GRUNTM (29) Slowpoke Well B1F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw SEEL
 	db 6
@@ -3437,7 +3437,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (30) Unreferenced
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw GOLBAT
 	db 5
@@ -3447,13 +3447,13 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (31) Unreferenced
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw GOLBAT
 	db -1 ; end
 
 	next_list_item ; GRUNTM (32) Mount Moon 1
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 5
 	dw GOLBAT
 	db 5
@@ -3461,7 +3461,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (33) Mount Moon 2
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw EKANS
 	db 7
@@ -3469,7 +3469,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (34) Mount Moon 3
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw RATICATE
 	db 7
@@ -3477,7 +3477,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (35) Mount Moon 4
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw GRIMER
 	db 7
@@ -3485,7 +3485,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (36) Safari Grunt 1
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw MUK
 	db 7
@@ -3493,7 +3493,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (37) Safari Grunt 2
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAROWAK
 	db 7
@@ -3501,7 +3501,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (38) Safari Grunt 3
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw TENTACRUEL
 	db 7
@@ -3509,7 +3509,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (39) Safari Grunt 4
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw LICKILICKY
 	db 7
@@ -3517,7 +3517,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (40) Safari Grunt 5
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw HELECTRODE
 	db 7
@@ -3525,7 +3525,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (41) Safari Grunt 6
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw CRAWDAUNT
 	db 7
@@ -3533,7 +3533,7 @@ GruntMGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTM (42) Safari Grunt 7
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw DUSCLOPS
 	db 7
@@ -3544,7 +3544,7 @@ GruntMGroupHard:
 
 GentlemanGroupHard:
 	next_list_item ; GENTLEMAN (1) Glitter Lighthouse - 3F
-	db "PRESTON@", TRAINERTYPE_NORMAL
+	db "Preston@", TRAINERTYPE_NORMAL
 	db 7
 	dw ARCANINE
 	db 7
@@ -3552,13 +3552,13 @@ GentlemanGroupHard:
 	db -1 ; end
 
 	next_list_item ; GENTLEMAN (2) Unreferenced
-	db "EDWARD@", TRAINERTYPE_NORMAL
+	db "Edward@", TRAINERTYPE_NORMAL
 	db 7
 	dw PERSIAN
 	db -1 ; end
 
 	next_list_item ; GENTLEMAN (3) Vermilion City Gym
-	db "GREGORY@", TRAINERTYPE_NORMAL
+	db "Gregory@", TRAINERTYPE_NORMAL
 	db 7
 	dw PIKACHU
 	db 7
@@ -3566,13 +3566,13 @@ GentlemanGroupHard:
 	db -1 ; end
 
 	next_list_item ; GENTLEMAN (4) Unreferenced
-	db "VIRGIL@", TRAINERTYPE_NORMAL
+	db "Virgil@", TRAINERTYPE_NORMAL
 	db 20
 	dw PONYTA
 	db -1 ; end
 
 	next_list_item ; GENTLEMAN (5) Glitter Lighthouse - 2F
-	db "ALFRED@", TRAINERTYPE_NORMAL
+	db "Alfred@", TRAINERTYPE_NORMAL
 	db 7
 	dw NOCTOWL
 	db 7
@@ -3580,7 +3580,7 @@ GentlemanGroupHard:
 	db -1 ; end
 
 	next_list_item ; GENTLEMAN (6) Mossdeep Gym
-	db "CLIFF@", TRAINERTYPE_NORMAL
+	db "Cliff@", TRAINERTYPE_NORMAL
 	db 8
 	dw GIRAFARIG
 	db 8
@@ -3590,7 +3590,7 @@ GentlemanGroupHard:
 	db -1 ; end
 
 	next_list_item ; GENTLEMAN (7) Mossdeep Gym
-	db "NATE@", TRAINERTYPE_NORMAL
+	db "Nate@", TRAINERTYPE_NORMAL
 	db 8
 	dw MR__MIME
 	db 8
@@ -3603,7 +3603,7 @@ GentlemanGroupHard:
 
 SkierGroupHard:
 	next_list_item ; SKIER (1) Mahogany Town Gym
-	db "ROXANNE@", TRAINERTYPE_NORMAL
+	db "Roxanne@", TRAINERTYPE_NORMAL
 	db 7
 	dw JYNX
 	db 7
@@ -3611,7 +3611,7 @@ SkierGroupHard:
 	db -1 ; end
 
 	next_list_item ; SKIER (2) Mahogany Town Gym
-	db "CLARISSA@", TRAINERTYPE_NORMAL
+	db "Clarissa@", TRAINERTYPE_NORMAL
 	db 7
 	dw DEWGONG
 	db 7
@@ -3622,13 +3622,13 @@ SkierGroupHard:
 
 TeacherGroupHard:
 	next_list_item ; TEACHER (1) Route 15
-	db "COLETTE@", TRAINERTYPE_NORMAL
+	db "Colette@", TRAINERTYPE_NORMAL
 	db 7
 	dw CLEFAIRY
 	db -1 ; end
 
 	next_list_item ; TEACHER (2) Route 15
-	db "HILLARY@", TRAINERTYPE_NORMAL
+	db "Hillary@", TRAINERTYPE_NORMAL
 	db 5
 	dw AIPOM
 	db 6
@@ -3636,13 +3636,13 @@ TeacherGroupHard:
 	db -1 ; end
 
 	next_list_item ; TEACHER (3) Unreferenced
-	db "SHIRLEY@", TRAINERTYPE_NORMAL
+	db "Shirley@", TRAINERTYPE_NORMAL
 	db 5
 	dw JIGGLYPUFF
 	db -1 ; end
 
 	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #1)
-	db "JESS@", TRAINERTYPE_NORMAL
+	db "Jess@", TRAINERTYPE_NORMAL
 	db 7
 	dw XATU
 	db 7
@@ -3658,7 +3658,7 @@ TeacherGroupHard:
 	db -1 ; end
 
 	next_list_item ; TEACHER (3) Ilex East (Jessadactyl contest party #2)
-	db "JESS@", TRAINERTYPE_ITEM_MOVES
+	db "Jess@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw XATU
 	dw KINGS_ROCK
@@ -3686,7 +3686,7 @@ TeacherGroupHard:
 	db -1 ; end
 
 	next_list_item ; TEACHER (6)  (Klutch contest party #1)
-	db "KLUTCH@", TRAINERTYPE_NORMAL
+	db "Klutch@", TRAINERTYPE_NORMAL
 	db 7
 	dw RHYHORN
 	db 7
@@ -3702,7 +3702,7 @@ TeacherGroupHard:
 	db -1 ; end
 
 	next_list_item ; TEACHER (7)  (Klutch contest party #2)
-	db "KLUTCH@", TRAINERTYPE_NORMAL
+	db "Klutch@", TRAINERTYPE_NORMAL
 	db 9
 	dw RHYDON
 	db 9
@@ -3718,7 +3718,7 @@ TeacherGroupHard:
 	db -1 ; end
 
 	next_list_item ; TEACHER (8)  (Klutch contest party #3)
-	db "KLUTCH@", TRAINERTYPE_ITEM_MOVES
+	db "Klutch@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw RHYPERIOR
 	dw QUICK_CLAW
@@ -3746,7 +3746,7 @@ TeacherGroupHard:
 	db -1 ; end
 
 	next_list_item ; TEACHER (9) Sootopolis Gym
-	db "DAPHNE@", TRAINERTYPE_NORMAL
+	db "Daphne@", TRAINERTYPE_NORMAL
 	db 8
 	dw GYARADOS
 	db 8
@@ -3754,7 +3754,7 @@ TeacherGroupHard:
 	db -1 ; end
 
 	next_list_item ; TEACHER (10) Sootopolis Gym
-	db "BRIANNA@", TRAINERTYPE_NORMAL
+	db "Brianna@", TRAINERTYPE_NORMAL
 	db 8
 	dw GOREBYSS
 	db 8
@@ -3765,7 +3765,7 @@ TeacherGroupHard:
 
 SabrinaGroupHard:
 	next_list_item ; SABRINA (1)
-	db "SABRINA@", TRAINERTYPE_MOVES
+	db "Sabrina@", TRAINERTYPE_MOVES
 	db 9
 	dw SMOOCHUM
 	dw POWDER_SNOW, CONFUSION, SWEET_KISS, DIZZY_PUNCH
@@ -3778,7 +3778,7 @@ SabrinaGroupHard:
 	db -1 ; end
 	
 	next_list_item ; SABRINA (2)
-	db "SABRINA@", TRAINERTYPE_MOVES
+	db "Sabrina@", TRAINERTYPE_MOVES
 	db 10
 	dw JYNX
 	dw ICY_WIND, PSYCHIC_M, DIZZY_PUNCH, CALM_MIND
@@ -3797,7 +3797,7 @@ SabrinaGroupHard:
 	db -1 ; end
 	
 	next_list_item ; SABRINA (3)
-	db "SABRINA@", TRAINERTYPE_ITEM_MOVES
+	db "Sabrina@", TRAINERTYPE_ITEM_MOVES
 	db 11
 	dw JYNX
 	dw NEVERMELTICE
@@ -3828,7 +3828,7 @@ SabrinaGroupHard:
 
 BugCatcherGroupHard:
 	next_list_item ; BUG_CATCHER (1) Route 30
-	db "DON@", TRAINERTYPE_NORMAL
+	db "Don@", TRAINERTYPE_NORMAL
 	db 3
 	dw CATERPIE
 	db 3
@@ -3836,7 +3836,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (2) Viridian Forest
-	db "ROB@", TRAINERTYPE_NORMAL 
+	db "Rob@", TRAINERTYPE_NORMAL 
 	db 0
 	dw WEEDLE
 	db 0
@@ -3844,7 +3844,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (3) Viridian Forest
-	db "ED@", TRAINERTYPE_NORMAL
+	db "Ed@", TRAINERTYPE_NORMAL
 	db 0
 	dw WEEDLE
 	db 0
@@ -3852,7 +3852,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (4) Route 31
-	db "WADE@", TRAINERTYPE_NORMAL
+	db "Wade@", TRAINERTYPE_NORMAL
 	db 2
 	dw CATERPIE
 	db 2
@@ -3864,7 +3864,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (5) Azalea Town Gym
-	db "BENNY@", TRAINERTYPE_NORMAL
+	db "Benny@", TRAINERTYPE_NORMAL
 	db 2
 	dw WEEDLE
 	db 4
@@ -3874,7 +3874,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (6) Azalea Town Gym
-	db "AL@", TRAINERTYPE_NORMAL
+	db "Al@", TRAINERTYPE_NORMAL
 	db 3
 	dw WURMPLE
 	db 3
@@ -3886,7 +3886,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (7) Azalea Town Gym
-	db "JOSH@", TRAINERTYPE_NORMAL
+	db "Josh@", TRAINERTYPE_NORMAL
 	db 7
 	dw PARAS
 	db 7
@@ -3896,7 +3896,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (8) Route 35
-	db "ARNIE@", TRAINERTYPE_NORMAL
+	db "Arnie@", TRAINERTYPE_NORMAL
 	db 5
 	dw VENONAT
 	db 5
@@ -3904,7 +3904,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (9) Unreferenced
-	db "KEN@", TRAINERTYPE_NORMAL
+	db "Ken@", TRAINERTYPE_NORMAL
 	db 2
 	dw ARIADOS
 	db 4
@@ -3912,13 +3912,13 @@ BugCatcherGroupHard:
 	db -1 ; end	
 
 	next_list_item ; BUG_CATCHER (12) Viridian Forest
-	db "DOUG@", TRAINERTYPE_NORMAL
+	db "Doug@", TRAINERTYPE_NORMAL
 	db 0
 	dw SPINARAK
 	db -1 ; end
 	
 	next_list_item ; BUG_CATCHER (19) Ilex Forest
-	db "WAYNE@", TRAINERTYPE_NORMAL
+	db "Wayne@", TRAINERTYPE_NORMAL
 	db 5
 	dw LEDYBA
 	db 6
@@ -3926,7 +3926,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (20) Mauville City Gym
-	db "ANGELO@", TRAINERTYPE_NORMAL
+	db "Angelo@", TRAINERTYPE_NORMAL
 	db 10
 	dw ILLUMISE
 	db 10
@@ -3934,7 +3934,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (21) Route 102
-	db "RICK@", TRAINERTYPE_NORMAL
+	db "Rick@", TRAINERTYPE_NORMAL
 	db 1
 	dw WURMPLE
 	db 1
@@ -3942,7 +3942,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (22) Petalburg Woods
-	db "LYLE@", TRAINERTYPE_NORMAL
+	db "Lyle@", TRAINERTYPE_NORMAL
 	db 4
 	dw NINCADA
 	db 5
@@ -3950,7 +3950,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (23) Petalburg Woods
-	db "JAMES@", TRAINERTYPE_NORMAL
+	db "James@", TRAINERTYPE_NORMAL
 	db 4
 	dw WURMPLE
 	db 5
@@ -3958,7 +3958,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (24) Route 116
-	db "JOSE@", TRAINERTYPE_NORMAL
+	db "Jose@", TRAINERTYPE_NORMAL
 	db 5
 	dw DUSTOX
 	db 7
@@ -3966,7 +3966,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (25) Route 117
-	db "DEREK@", TRAINERTYPE_NORMAL
+	db "Derek@", TRAINERTYPE_NORMAL
 	db 7
 	dw DUSTOX
 	db 7
@@ -3976,7 +3976,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (26) Mt Moon
-	db "KENT@", TRAINERTYPE_NORMAL
+	db "Kent@", TRAINERTYPE_NORMAL
 	db 5
 	dw BEEDRILL
 	db 5
@@ -3984,7 +3984,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (27) Mt Moon
-	db "ROBBY@", TRAINERTYPE_NORMAL
+	db "Robby@", TRAINERTYPE_NORMAL
 	db 5
 	dw CATERPIE
 	db 4
@@ -3994,7 +3994,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (28) Route119
-	db "KENT@", TRAINERTYPE_NORMAL
+	db "Kent@", TRAINERTYPE_NORMAL
 	db 5
 	dw NINCADA
 	db 8
@@ -4002,7 +4002,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (29) Route119
-	db "GREG@", TRAINERTYPE_NORMAL
+	db "Greg@", TRAINERTYPE_NORMAL
 	db 6
 	dw VOLBEAT
 	db 6
@@ -4010,7 +4010,7 @@ BugCatcherGroupHard:
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (30) Route119
-	db "DOUG@", TRAINERTYPE_NORMAL
+	db "Doug@", TRAINERTYPE_NORMAL
 	db 6
 	dw FORRETRESS
 	db 7
@@ -4021,7 +4021,7 @@ BugCatcherGroupHard:
 
 FisherGroupHard:
 	next_list_item ; FISHER (1) Route 32
-	db "JUSTIN@", TRAINERTYPE_NORMAL
+	db "Justin@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGIKARP
 	db 5
@@ -4033,7 +4033,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (2) Route 32
-	db "RALPH@", TRAINERTYPE_NORMAL
+	db "Ralph@", TRAINERTYPE_NORMAL
 	db 7
 	dw GOLDEEN
 	db 7
@@ -4043,7 +4043,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (3) Route 21
-	db "ARNOLD@", TRAINERTYPE_NORMAL
+	db "Arnold@", TRAINERTYPE_NORMAL
 	db 4
 	dw TENTACRUEL
 	db 4
@@ -4051,7 +4051,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (4) Route 12
-	db "KYLE@", TRAINERTYPE_NORMAL
+	db "Kyle@", TRAINERTYPE_NORMAL
 	db 3
 	dw SEAKING
 	db 5
@@ -4061,7 +4061,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (5) Route 32
-	db "HENRY@", TRAINERTYPE_NORMAL
+	db "Henry@", TRAINERTYPE_NORMAL
 	db 5
 	dw POLIWAG
 	db 5
@@ -4069,7 +4069,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (6) Route 43
-	db "MARVIN@", TRAINERTYPE_NORMAL
+	db "Marvin@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGIKARP
 	db 5
@@ -4081,19 +4081,19 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (7) Route 42
-	db "TULLY@", TRAINERTYPE_NORMAL
+	db "Tully@", TRAINERTYPE_NORMAL
 	db 8
 	dw QWILFISH
 	db -1 ; end
 
 	next_list_item ; FISHER (8) Unreferenced
-	db "ANDRE@", TRAINERTYPE_NORMAL
+	db "Andre@", TRAINERTYPE_NORMAL
 	db 7
 	dw GYARADOS
 	db -1 ; end
 
 	next_list_item ; FISHER (9) Unreferenced
-	db "RAYMOND@", TRAINERTYPE_NORMAL
+	db "Raymond@", TRAINERTYPE_NORMAL
 	db 2
 	dw MAGIKARP
 	db 2
@@ -4105,7 +4105,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (10) Route 44
-	db "WILTON@", TRAINERTYPE_NORMAL
+	db "Wilton@", TRAINERTYPE_NORMAL
 	db 3
 	dw GOLDEEN
 	db 3
@@ -4115,7 +4115,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (11) Route 44
-	db "EDGAR@", TRAINERTYPE_NORMAL
+	db "Edgar@", TRAINERTYPE_NORMAL
 	db 5
 	dw REMORAID
 	db 5
@@ -4123,7 +4123,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (12) Unreferenced
-	db "JONAH@", TRAINERTYPE_NORMAL
+	db "Jonah@", TRAINERTYPE_NORMAL
 	db 5
 	dw SHELLDER
 	db 9
@@ -4135,7 +4135,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (13) Route 12
-	db "MARTIN@", TRAINERTYPE_NORMAL
+	db "Martin@", TRAINERTYPE_NORMAL
 	db 6
 	dw REMORAID
 	db 6
@@ -4143,7 +4143,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (14) Route 12
-	db "STEPHEN@", TRAINERTYPE_NORMAL
+	db "Stephen@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGIKARP
 	db 5
@@ -4155,7 +4155,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (15) Route 12
-	db "BARNEY@", TRAINERTYPE_NORMAL
+	db "Barney@", TRAINERTYPE_NORMAL
 	db 2
 	dw GYARADOS
 	db 2
@@ -4165,7 +4165,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (20) Route 44
-	db "WILTON@", TRAINERTYPE_NORMAL
+	db "Wilton@", TRAINERTYPE_NORMAL
 	db 4
 	dw GOLDEEN
 	db 4
@@ -4175,7 +4175,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (21) Route 26
-	db "SCOTT@", TRAINERTYPE_NORMAL
+	db "Scott@", TRAINERTYPE_NORMAL
 	db 2
 	dw QWILFISH
 	db 2
@@ -4185,7 +4185,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (22) Route 44 Rematch 1
-	db "WILTON@", TRAINERTYPE_MOVES
+	db "Wilton@", TRAINERTYPE_MOVES
 	db 4
 	dw SEAKING
 	dw SUPERSONIC, WATERFALL, FLAIL, FURY_ATTACK
@@ -4198,7 +4198,7 @@ FisherGroupHard:
 	db -1 ; end	
 
 	next_list_item ; FISHER (26) Route 103
-	db "ANDREW@", TRAINERTYPE_NORMAL
+	db "Andrew@", TRAINERTYPE_NORMAL
 	db 7
 	dw QWILFISH
 	db 7
@@ -4206,7 +4206,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (27) Route 104
-	db "DARIAN@", TRAINERTYPE_NORMAL
+	db "Darian@", TRAINERTYPE_NORMAL
 	db 3
 	dw FEEBAS
 	db 3
@@ -4214,7 +4214,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (28) Route 104
-	db "IVAN@", TRAINERTYPE_NORMAL
+	db "Ivan@", TRAINERTYPE_NORMAL
 	db 3
 	dw MAGNEMITE
 	db 4
@@ -4222,7 +4222,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (29) Route 105
-	db "NED@", TRAINERTYPE_NORMAL
+	db "Ned@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGNETON
 	db 7
@@ -4232,7 +4232,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (30) Route 105
-	db "ELLIOT@", TRAINERTYPE_NORMAL
+	db "Elliot@", TRAINERTYPE_NORMAL
 	db 7
 	dw WAILORD
 	db 7
@@ -4242,7 +4242,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (31) Route 110
-	db "ELLIOT@", TRAINERTYPE_NORMAL
+	db "Elliot@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGNETON
 	db 5
@@ -4252,7 +4252,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (32) Route 118
-	db "ELLIOT@", TRAINERTYPE_NORMAL
+	db "Elliot@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGNEMITE
 	db 5
@@ -4262,7 +4262,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (33) Route 114
-	db "NOLAN@", TRAINERTYPE_NORMAL	
+	db "Nolan@", TRAINERTYPE_NORMAL	
 	db 6
 	dw WHISCASH
 	db 7
@@ -4270,7 +4270,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (34) Route 114
-	db "KAI@", TRAINERTYPE_NORMAL	
+	db "Kai@", TRAINERTYPE_NORMAL	
 	db 7
 	dw SHARPEDO
 	db 6
@@ -4278,7 +4278,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (34) Route 114
-	db "CLAUDE@", TRAINERTYPE_NORMAL	
+	db "Claude@", TRAINERTYPE_NORMAL	
 	db 7
 	dw SLOWBRO
 	db 7
@@ -4286,7 +4286,7 @@ FisherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FISHER (35) Route 119
-	db "CHRIS@", TRAINERTYPE_NORMAL	
+	db "Chris@", TRAINERTYPE_NORMAL	
 	db 7
 	dw MILOTIC
 	db 7
@@ -4301,7 +4301,7 @@ FisherGroupHard:
 
 SwimmerMGroupHard:
 	next_list_item ; SWIMMERM (1) Route 19
-	db "HAROLD@", TRAINERTYPE_NORMAL
+	db "Harold@", TRAINERTYPE_NORMAL
 	db 6
 	dw REMORAID
 	db 4
@@ -4309,7 +4309,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (2) Route 40
-	db "SIMON@", TRAINERTYPE_NORMAL
+	db "Simon@", TRAINERTYPE_NORMAL
 	db 3
 	dw TENTACOOL
 	db 5
@@ -4317,7 +4317,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (3) Route 40
-	db "RANDALL@", TRAINERTYPE_NORMAL
+	db "Randal@", TRAINERTYPE_NORMAL
 	db 3
 	dw SHELLDER
 	db 5
@@ -4327,7 +4327,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (4) Route 41
-	db "CHARLIE@", TRAINERTYPE_NORMAL
+	db "Charlie@", TRAINERTYPE_NORMAL
 	db 5
 	dw SHELLDER
 	db 3
@@ -4337,7 +4337,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (5) Route 41
-	db "GEORGE@", TRAINERTYPE_NORMAL
+	db "George@", TRAINERTYPE_NORMAL
 	db 1
 	dw TENTACOOL
 	db 2
@@ -4353,13 +4353,13 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (6) Route 41
-	db "BERKE@", TRAINERTYPE_NORMAL
+	db "Berke@", TRAINERTYPE_NORMAL
 	db 8
 	dw QWILFISH
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (7) Route 41
-	db "KIRK@", TRAINERTYPE_NORMAL
+	db "Kirk@", TRAINERTYPE_NORMAL
 	db 3
 	dw GYARADOS
 	db 3
@@ -4367,13 +4367,13 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (8) Unreferenced
-	db "MATHEW@", TRAINERTYPE_NORMAL
+	db "Mathew@", TRAINERTYPE_NORMAL
 	db 7
 	dw KRABBY
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (9) Unreferenced
-	db "HAL@", TRAINERTYPE_NORMAL
+	db "Hal@", TRAINERTYPE_NORMAL
 	db 4
 	dw SEEL
 	db 6
@@ -4383,7 +4383,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (10) Unreferenced
-	db "PATON@", TRAINERTYPE_NORMAL
+	db "Paton@", TRAINERTYPE_NORMAL
 	db 6
 	dw PILOSWINE
 	db 6
@@ -4391,7 +4391,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (11) Unreferenced
-	db "DARYL@", TRAINERTYPE_NORMAL
+	db "Daryl@", TRAINERTYPE_NORMAL
 	db 4
 	dw SHELLDER
 	db 5
@@ -4401,7 +4401,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (12) Unreferenced
-	db "WALTER@", TRAINERTYPE_NORMAL
+	db "Walter@", TRAINERTYPE_NORMAL
 	db 5
 	dw HORSEA
 	db 5
@@ -4411,7 +4411,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (13) Unreferenced
-	db "TONY@", TRAINERTYPE_NORMAL
+	db "Tony@", TRAINERTYPE_NORMAL
 	db 3
 	dw STARYU
 	db 8
@@ -4421,7 +4421,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (14) Route 19
-	db "JEROME@", TRAINERTYPE_NORMAL
+	db "Jerome@", TRAINERTYPE_NORMAL
 	db 6
 	dw SEADRA
 	db 3
@@ -4433,7 +4433,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (15) Route 19
-	db "TUCKER@", TRAINERTYPE_NORMAL
+	db "Tucker@", TRAINERTYPE_NORMAL
 	db 3
 	dw SHELLDER
 	db 6
@@ -4441,7 +4441,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (16) Unreferenced
-	db "RICK@", TRAINERTYPE_NORMAL
+	db "Rick@", TRAINERTYPE_NORMAL
 	db 3
 	dw STARYU
 	db 8
@@ -4451,13 +4451,13 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (17) Route 20
-	db "CAMERON@", TRAINERTYPE_NORMAL
+	db "Cameron@", TRAINERTYPE_NORMAL
 	db 7
 	dw MARILL
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (18) Route 21
-	db "SETH@", TRAINERTYPE_NORMAL
+	db "Seth@", TRAINERTYPE_NORMAL
 	db 4
 	dw QUAGSIRE
 	db 4
@@ -4467,7 +4467,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (19) Unreferenced
-	db "JAMES@", TRAINERTYPE_NORMAL
+	db "James@", TRAINERTYPE_NORMAL
 	db 3
 	dw STARYU
 	db 8
@@ -4477,7 +4477,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (20) Unreferenced
-	db "LEWIS@", TRAINERTYPE_NORMAL
+	db "Lewis@", TRAINERTYPE_NORMAL
 	db 3
 	dw STARYU
 	db 8
@@ -4487,7 +4487,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (21) Cerulean City Gym
-	db "PARKER@", TRAINERTYPE_NORMAL
+	db "Parker@", TRAINERTYPE_NORMAL
 	db 7
 	dw HORSEA
 	db 7
@@ -4497,7 +4497,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (22) Route105
-	db "LUIS@", TRAINERTYPE_NORMAL
+	db "Luis@", TRAINERTYPE_NORMAL
 	db 10
 	dw LUVDISC
 	db 7
@@ -4507,7 +4507,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (23) Route108
-	db "TONY@", TRAINERTYPE_NORMAL
+	db "Tony@", TRAINERTYPE_NORMAL
 	db 8
 	dw LUVDISC
 	db 8
@@ -4517,7 +4517,7 @@ SwimmerMGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERM (24) Route108
-	db "DARRIN@", TRAINERTYPE_NORMAL
+	db "Darrin@", TRAINERTYPE_NORMAL
 	db 8
 	dw WHISCASH
 	db 8
@@ -4530,13 +4530,13 @@ SwimmerMGroupHard:
 
 SwimmerFGroupHard:
 	next_list_item ; SWIMMERF (1) Route 40
-	db "ELAINE@", TRAINERTYPE_NORMAL
+	db "Elaine@", TRAINERTYPE_NORMAL
 	db 6
 	dw STARYU
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (2) Route 40
-	db "PAULA@", TRAINERTYPE_NORMAL
+	db "Paula@", TRAINERTYPE_NORMAL
 	db 5
 	dw STARYU
 	db 5
@@ -4544,7 +4544,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (3) Route 41
-	db "KAYLEE@", TRAINERTYPE_NORMAL
+	db "Kaylee@", TRAINERTYPE_NORMAL
 	db 3
 	dw GOLDEEN
 	db 5
@@ -4554,7 +4554,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (4) Route 41
-	db "SUSIE@", TRAINERTYPE_MOVES
+	db "Susie@", TRAINERTYPE_MOVES
 	db 5
 	dw PSYDUCK
 	dw SCRATCH, TAIL_WHIP, DISABLE, CONFUSION
@@ -4564,13 +4564,13 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (5) Route 41
-	db "DENISE@", TRAINERTYPE_NORMAL
+	db "Denise@", TRAINERTYPE_NORMAL
 	db 7
 	dw SEEL
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (6) Route 41
-	db "KARA@", TRAINERTYPE_NORMAL
+	db "Kara@", TRAINERTYPE_NORMAL
 	db 4
 	dw STARYU
 	db 6
@@ -4578,7 +4578,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (7) Route 41
-	db "WENDY@", TRAINERTYPE_MOVES
+	db "Wendy@", TRAINERTYPE_MOVES
 	db 6
 	dw HORSEA
 	dw BUBBLE, SMOKESCREEN, LEER, WATER_GUN
@@ -4588,43 +4588,43 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (8) Unreferenced
-	db "LISA@", TRAINERTYPE_NORMAL
+	db "Lisa@", TRAINERTYPE_NORMAL
 	db 8
 	dw JYNX
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (9) Unreferenced
-	db "JILL@", TRAINERTYPE_NORMAL
+	db "Jill@", TRAINERTYPE_NORMAL
 	db 8
 	dw DEWGONG
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (10) Unreferenced
-	db "MARY@", TRAINERTYPE_NORMAL
+	db "Mary@", TRAINERTYPE_NORMAL
 	db 7
 	dw SEAKING
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (11) Unreferenced
-	db "KATIE@", TRAINERTYPE_NORMAL
+	db "Katie@", TRAINERTYPE_NORMAL
 	db 7
 	dw DEWGONG
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (12) Route 19
-	db "DAWN@", TRAINERTYPE_NORMAL
+	db "Dawn@", TRAINERTYPE_NORMAL
 	db 8
 	dw SEAKING
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (13) Unreferenced
-	db "TARA@", TRAINERTYPE_NORMAL
+	db "Tara@", TRAINERTYPE_NORMAL
 	db 7
 	dw SEAKING
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (14) Route 20
-	db "NICOLE@", TRAINERTYPE_NORMAL
+	db "Nicole@", TRAINERTYPE_NORMAL
 	db 4
 	dw MARILL
 	db 4
@@ -4634,7 +4634,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (15) Route 20
-	db "LORI@", TRAINERTYPE_NORMAL
+	db "Lori@", TRAINERTYPE_NORMAL
 	db 2
 	dw STARMIE
 	db 2
@@ -4642,13 +4642,13 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (16) Unreferenced
-	db "JODY@", TRAINERTYPE_NORMAL
+	db "Jody@", TRAINERTYPE_NORMAL
 	db 7
 	dw SEAKING
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (17) Route 21
-	db "NIKKI@", TRAINERTYPE_NORMAL
+	db "Nikki@", TRAINERTYPE_NORMAL
 	db 2
 	dw SEEL
 	db 2
@@ -4660,7 +4660,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (18) Cerulean City Gym
-	db "DIANA@", TRAINERTYPE_NORMAL
+	db "Diana@", TRAINERTYPE_NORMAL
 	db 7
 	dw GOLDUCK
 	db 7
@@ -4668,7 +4668,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (19) Cerulean City Gym
-	db "BRIANA@", TRAINERTYPE_NORMAL
+	db "Briana@", TRAINERTYPE_NORMAL
 	db 5
 	dw SEAKING
 	db 5
@@ -4676,7 +4676,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (20) Route 105
-	db "IMANI@", TRAINERTYPE_NORMAL
+	db "Imani@", TRAINERTYPE_NORMAL
 	db 7
 	dw MANTINE
 	db 7
@@ -4684,7 +4684,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (21) Route 108
-	db "DENISE@", TRAINERTYPE_NORMAL
+	db "Denise@", TRAINERTYPE_NORMAL
 	db 7
 	dw PELIPPER
 	db 7
@@ -4692,7 +4692,7 @@ SwimmerFGroupHard:
 	db -1 ; end
 
 	next_list_item ; SWIMMERF (22) Route 108
-	db "BETH@", TRAINERTYPE_NORMAL
+	db "Beth@", TRAINERTYPE_NORMAL
 	db 9
 	dw WAILORD
 	db 7
@@ -4703,7 +4703,7 @@ SwimmerFGroupHard:
 
 SailorGroupHard:
 	next_list_item ; SAILOR (1) Route 39
-	db "EUGENE@", TRAINERTYPE_NORMAL
+	db "Eugene@", TRAINERTYPE_NORMAL
 	db 3
 	dw POLIWHIRL
 	db 5
@@ -4713,7 +4713,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (2) Glitter Lighthouse - 2F
-	db "HUEY@", TRAINERTYPE_NORMAL
+	db "Huey@", TRAINERTYPE_NORMAL
 	db 6
 	dw POLITOED
 	db 6
@@ -4721,7 +4721,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (3) Glitter Lighthouse - 3F
-	db "TERRELL@", TRAINERTYPE_NORMAL
+	db "Terrell@", TRAINERTYPE_NORMAL
 	db 8
 	dw POLIWHIRL
 	db 8
@@ -4729,7 +4729,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (4) Glitter Lighthouse - 4F
-	db "KENT@", TRAINERTYPE_MOVES
+	db "Kent@", TRAINERTYPE_MOVES
 	db 6
 	dw KRABBY
 	dw BUBBLE, LEER, VICEGRIP, HARDEN
@@ -4739,7 +4739,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (5) Glitter Lighthouse - 5F
-	db "ERNEST@", TRAINERTYPE_NORMAL
+	db "Ernest@", TRAINERTYPE_NORMAL
 	db 6
 	dw MACHOKE
 	db 7
@@ -4749,7 +4749,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (6) S.S. Aqua
-	db "JEFF@", TRAINERTYPE_NORMAL
+	db "Jeff@", TRAINERTYPE_NORMAL
 	db 7
 	dw RATICATE
 	db 7
@@ -4757,13 +4757,13 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (7) Unreferenced
-	db "GARRETT@", TRAINERTYPE_NORMAL
+	db "Garrett@", TRAINERTYPE_NORMAL
 	db 7
 	dw KINGLER
 	db -1 ; end
 
 	next_list_item ; SAILOR (8) Unreferenced
-	db "KENNETH@", TRAINERTYPE_NORMAL
+	db "Kenneth@", TRAINERTYPE_NORMAL
 	db 3
 	dw MACHOP
 	db 3
@@ -4775,7 +4775,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (9) S.S. Aqua
-	db "STANLY@", TRAINERTYPE_NORMAL
+	db "Stanly@", TRAINERTYPE_NORMAL
 	db 1
 	dw MACHOP
 	db 7
@@ -4785,13 +4785,13 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (10) Route 38
-	db "HARRY@", TRAINERTYPE_NORMAL
+	db "Harry@", TRAINERTYPE_NORMAL
 	db 7
 	dw WOOPER
 	db -1 ; end
 
 	next_list_item ; SAILOR (11) Glitter Lighthouse - 2F Rematch 1
-	db "HUEY@", TRAINERTYPE_NORMAL
+	db "Huey@", TRAINERTYPE_NORMAL
 	db 8
 	dw POLIWHIRL
 	db 8
@@ -4799,7 +4799,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (12) Glitter Lighthouse - 2F Rematch 2
-	db "HUEY@", TRAINERTYPE_NORMAL
+	db "Huey@", TRAINERTYPE_NORMAL
 	db 9
 	dw POLIWHIRL
 	db 9
@@ -4807,7 +4807,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (13) Glitter Lighthouse - 2F Rematch 3
-	db "HUEY@", TRAINERTYPE_MOVES
+	db "Huey@", TRAINERTYPE_MOVES
 	db 10
 	dw POLITOED
 	dw WHIRLPOOL, RAIN_DANCE, BODY_SLAM, PERISH_SONG
@@ -4817,13 +4817,13 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (14) Dewford City Gym
-	db "BRENDEN@", TRAINERTYPE_NORMAL	
+	db "Brenden@", TRAINERTYPE_NORMAL	
 	db 7
 	dw POLIWHIRL
 	db -1 ; end
 
 	next_list_item ; SAILOR (15) Route 109
-	db "HUEY@", TRAINERTYPE_NORMAL	
+	db "Huey@", TRAINERTYPE_NORMAL	
 	db 8
 	dw MACHAMP
 	db 9
@@ -4831,7 +4831,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (16) Route 109
-	db "EDMOND@", TRAINERTYPE_NORMAL	
+	db "Edmond@", TRAINERTYPE_NORMAL	
 	db 8
 	dw HITMONLEE
 	db 9
@@ -4839,7 +4839,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (17) Route 109
-	db "RICKY@", TRAINERTYPE_NORMAL	
+	db "Ricky@", TRAINERTYPE_NORMAL	
 	db 7
 	dw DEWGONG
 	db 8
@@ -4847,7 +4847,7 @@ SailorGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAILOR (18) Route 109
-	db "CHANDLER@", TRAINERTYPE_NORMAL	
+	db "Chandler@", TRAINERTYPE_NORMAL	
 	db 8
 	dw HITMONCHAN
 	db 8
@@ -4858,13 +4858,13 @@ SailorGroupHard:
 
 SuperNerdGroupHard:
 	next_list_item ; SUPER_NERD (1) Unreferenced
-	db "STAN@", TRAINERTYPE_NORMAL
+	db "Stan@", TRAINERTYPE_NORMAL
 	db 7
 	dw GRIMER
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (2) Goldenrod Underground
-	db "ERIC@", TRAINERTYPE_NORMAL
+	db "Eric@", TRAINERTYPE_NORMAL
 	db 4
 	dw GRIMER
 	db 6
@@ -4872,7 +4872,7 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (3) Unreferenced
-	db "GREGG@", TRAINERTYPE_NORMAL
+	db "Gregg@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGNEMITE
 	db 5
@@ -4882,7 +4882,7 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (4) Unreferenced
-	db "JAY@", TRAINERTYPE_NORMAL
+	db "Jay@", TRAINERTYPE_NORMAL
 	db 7
 	dw KOFFING
 	db 7
@@ -4890,13 +4890,13 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (5) Unreferenced
-	db "DAVE@", TRAINERTYPE_NORMAL
+	db "Dave@", TRAINERTYPE_NORMAL
 	db 10
 	dw DITTO
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (6) Route 8
-	db "SAM@", TRAINERTYPE_NORMAL
+	db "Sam@", TRAINERTYPE_NORMAL
 	db 4
 	dw GRIMER
 	db 6
@@ -4904,7 +4904,7 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (7) Route 8
-	db "TOM@", TRAINERTYPE_NORMAL
+	db "Tom@", TRAINERTYPE_NORMAL
 	db 4
 	dw MAGNEMITE
 	db 4
@@ -4914,13 +4914,13 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (8) Route 25
-	db "PAT@", TRAINERTYPE_NORMAL
+	db "Pat@", TRAINERTYPE_NORMAL
 	db 7
 	dw PORYGON
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (9) Unreferenced
-	db "SHAWN@", TRAINERTYPE_NORMAL
+	db "Shawn@", TRAINERTYPE_NORMAL
 	db 2
 	dw MAGNEMITE
 	db 5
@@ -4930,7 +4930,7 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (10) Goldenrod Underground
-	db "TERU@", TRAINERTYPE_NORMAL
+	db "Teru@", TRAINERTYPE_NORMAL
 	db 4
 	dw ELECTRIKE
 	db 8
@@ -4942,7 +4942,7 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (11) Unreferenced
-	db "RUSS@", TRAINERTYPE_NORMAL
+	db "Russ@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGNEMITE
 	db 7
@@ -4952,28 +4952,28 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (12) Unreferenced
-	db "NORTON@", TRAINERTYPE_MOVES
+	db "Norton@", TRAINERTYPE_MOVES
 	db 7
 	dw PORYGON
 	dw CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (13) Mt. Mortar
-	db "HUGH@", TRAINERTYPE_MOVES
+	db "Hugh@", TRAINERTYPE_MOVES
 	db 15
 	dw KINGDRA
 	dw SMOKESCREEN, TWISTER, SURF, WATERFALL
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (14) Mt. Mortar
-	db "MARKUS@", TRAINERTYPE_MOVES
+	db "Markus@", TRAINERTYPE_MOVES
 	db 15
 	dw SLOWPOKE
 	dw CURSE, WATER_GUN, GROWL, STRENGTH
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (15) Mount Moon
-	db "JOVAN@", TRAINERTYPE_NORMAL
+	db "Jovan@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGNEMITE
 	db 7
@@ -4981,7 +4981,7 @@ SuperNerdGroupHard:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (16) Mount Moon
-	db "MIGUEL@", TRAINERTYPE_NORMAL
+	db "Miguel@", TRAINERTYPE_NORMAL
 	db 5
 	dw GRIMER
 	db 7
@@ -5093,13 +5093,13 @@ Rival2GroupHard:
 
 GuitaristGroupHard:
 	next_list_item ; GUITARIST (1) Unreferenced
-	db "CLYDE@", TRAINERTYPE_NORMAL
+	db "Clyde@", TRAINERTYPE_NORMAL
 	db 7
 	dw ELECTABUZZ
 	db -1 ; end
 
 	next_list_item ; GUITARIST (2) Vermilion City Gym
-	db "VINCENT@", TRAINERTYPE_NORMAL	
+	db "Vincent@", TRAINERTYPE_NORMAL	
 	db 8
 	dw VOLBEAT
 	db 9
@@ -5107,7 +5107,7 @@ GuitaristGroupHard:
 	db -1 ; end
 
 	next_list_item ; GUITARIST (3) Mauville City Gym
-	db "KIRK@", TRAINERTYPE_NORMAL
+	db "Kirk@", TRAINERTYPE_NORMAL
 	db 7
 	dw ELECTRIKE
 	db 7
@@ -5117,7 +5117,7 @@ GuitaristGroupHard:
 	db -1 ; end
 
 	next_list_item ; GUITARIST (4) Mauville City Gym
-	db "SHAWN@", TRAINERTYPE_NORMAL
+	db "Shawn@", TRAINERTYPE_NORMAL
 	db 9
 	dw MINUN
 	db 9
@@ -5127,7 +5127,7 @@ GuitaristGroupHard:
 	db -1 ; end
 
 	next_list_item ; GUITARIST (5) Route 103
-	db "SHAWN@", TRAINERTYPE_NORMAL
+	db "Marcos@", TRAINERTYPE_NORMAL
 	db 7
 	dw MINUN
 	db 7
@@ -5135,7 +5135,7 @@ GuitaristGroupHard:
 	db -1 ; end
 
 	next_list_item ; GUITARIST (6) Route 110
-	db "SHAWN@", TRAINERTYPE_NORMAL
+	db "Joseph@", TRAINERTYPE_NORMAL
 	db 7
 	dw ELECTRODE
 	db 7
@@ -5143,7 +5143,7 @@ GuitaristGroupHard:
 	db -1 ; end
 
 	next_list_item ; GUITARIST (7) Route 119
-	db "FABIAN@", TRAINERTYPE_NORMAL
+	db "Fabian@", TRAINERTYPE_NORMAL
 	db 7
 	dw MANECTRIC
 	db 7
@@ -5154,7 +5154,7 @@ GuitaristGroupHard:
 
 HikerGroupHard:
 	next_list_item ; HIKER (1) Route 33
-	db "ANTHONY@", TRAINERTYPE_NORMAL
+	db "Anthony@", TRAINERTYPE_NORMAL
 	db 6
 	dw GEODUDE
 	db 8
@@ -5162,7 +5162,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (2) Union Cave - 1F
-	db "RUSSELL@", TRAINERTYPE_NORMAL
+	db "Russell@", TRAINERTYPE_NORMAL
 	db 4
 	dw GRAVELER
 	db 6
@@ -5172,7 +5172,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (3) Union Cave - B1F
-	db "PHILLIP@", TRAINERTYPE_NORMAL
+	db "Phillip@", TRAINERTYPE_NORMAL
 	db 3
 	dw GEODUDE
 	db 3
@@ -5182,7 +5182,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (4) Union Cave - B1F
-	db "LEONARD@", TRAINERTYPE_NORMAL
+	db "Leonard@", TRAINERTYPE_NORMAL
 	db 3
 	dw ARON
 	db 5
@@ -5190,7 +5190,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (5) Route 33
-	db "ANTHONY@", TRAINERTYPE_NORMAL
+	db "Anthony@", TRAINERTYPE_NORMAL
 	db 6
 	dw GEODUDE
 	db 6
@@ -5198,7 +5198,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (6) Route 42
-	db "BENJAMIN@", TRAINERTYPE_NORMAL
+	db "Benjamin@", TRAINERTYPE_NORMAL
 	db 4
 	dw DIGLETT
 	db 4
@@ -5208,7 +5208,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (7) Route 45
-	db "ERIK@", TRAINERTYPE_NORMAL
+	db "Erik@", TRAINERTYPE_NORMAL
 	db 4
 	dw MACHOP
 	db 7
@@ -5218,7 +5218,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (8) Route 45
-	db "MICHAEL@", TRAINERTYPE_NORMAL
+	db "Michael@", TRAINERTYPE_NORMAL
 	db 3
 	dw GEODUDE
 	db 5
@@ -5228,7 +5228,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (9) Route 45
-	db "PARRY@", TRAINERTYPE_NORMAL
+	db "Parry@", TRAINERTYPE_NORMAL
 	db 6
 	dw ONIX
 	db 5
@@ -5236,7 +5236,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (10) Route 45
-	db "TIMOTHY@", TRAINERTYPE_MOVES
+	db "Timothy@", TRAINERTYPE_MOVES
 	db 6
 	dw DIGLETT
 	dw MAGNITUDE, DIG, SAND_ATTACK, SLASH
@@ -5246,7 +5246,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (11) Route 46
-	db "BAILEY@", TRAINERTYPE_NORMAL
+	db "Bailey@", TRAINERTYPE_NORMAL
 	db 3
 	dw GEODUDE
 	db 3
@@ -5260,7 +5260,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (12) Route 33
-	db "ANTHONY@", TRAINERTYPE_NORMAL
+	db "Anthony@", TRAINERTYPE_NORMAL
 	db 5
 	dw GRAVELER
 	db 7
@@ -5270,7 +5270,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (13) Route 9
-	db "TIM@", TRAINERTYPE_NORMAL
+	db "TimM@", TRAINERTYPE_NORMAL
 	db 3
 	dw GRAVELER
 	db 5
@@ -5280,7 +5280,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (14) S.S. Aqua
-	db "NOLAND@", TRAINERTYPE_NORMAL
+	db "Noland@", TRAINERTYPE_NORMAL
 	db 4
 	dw SANDSLASH
 	db 6
@@ -5288,7 +5288,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (15) Route 9
-	db "SIDNEY@", TRAINERTYPE_NORMAL
+	db "Sidney@", TRAINERTYPE_NORMAL
 	db 6
 	dw DUGTRIO
 	db 4
@@ -5296,7 +5296,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (16) Route 13
-	db "KENNY@", TRAINERTYPE_NORMAL
+	db "Kenny@", TRAINERTYPE_NORMAL
 	db 3
 	dw SANDSLASH
 	db 5
@@ -5308,13 +5308,13 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (17) Route 10
-	db "JIM@", TRAINERTYPE_NORMAL
+	db "Jim@", TRAINERTYPE_NORMAL
 	db 8
 	dw MACHAMP
 	db -1 ; end
 
 	next_list_item ; HIKER (18) Union Cave - 1F
-	db "DANIEL@", TRAINERTYPE_NORMAL
+	db "Daniel@", TRAINERTYPE_NORMAL
 	db 6
 	dw ONIX
 	db 6
@@ -5324,7 +5324,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (19) Route 45
-	db "PARRY@", TRAINERTYPE_MOVES
+	db "Parry@", TRAINERTYPE_MOVES
 	db 5
 	dw PILOSWINE
 	dw EARTHQUAKE, BLIZZARD, REST, TAKE_DOWN
@@ -5337,13 +5337,13 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (20) Route 45
-	db "PARRY@", TRAINERTYPE_NORMAL
+	db "Parry@", TRAINERTYPE_NORMAL
 	db 9
 	dw ONIX
 	db -1 ; end
 
 	next_list_item ; HIKER (21) Route 33
-	db "ANTHONY@", TRAINERTYPE_NORMAL
+	db "Anthony@", TRAINERTYPE_NORMAL
 	db 5
 	dw GRAVELER
 	db 5
@@ -5353,7 +5353,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (22) Route 33
-	db "ANTHONY@", TRAINERTYPE_MOVES
+	db "Anthony@", TRAINERTYPE_MOVES
 	db 7
 	dw GRAVELER
 	dw MAGNITUDE, SELFDESTRUCT, DEFENSE_CURL, ROLLOUT
@@ -5366,7 +5366,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (23) Rustboro Gym
-	db "MARC@", TRAINERTYPE_NORMAL
+	db "Marc@", TRAINERTYPE_NORMAL
 	db 7
 	dw LILEEP
 	db 7
@@ -5374,13 +5374,13 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (24) Route 116
-	db "CLARK@", TRAINERTYPE_NORMAL
+	db "Clark@", TRAINERTYPE_NORMAL
 	db 9
 	dw AGEODUDE
 	db -1 ; end
 
 	next_list_item ; HIKER (25) Route 116
-	db "DEVAN@", TRAINERTYPE_NORMAL
+	db "Devan@", TRAINERTYPE_NORMAL
 	db 7
 	dw GEODUDE
 	db 7
@@ -5388,7 +5388,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (26) Lavaridge Gym
-	db "ELI@", TRAINERTYPE_NORMAL
+	db "Eli@", TRAINERTYPE_NORMAL
 	db 8
 	dw FLAREON
 	db 10
@@ -5396,7 +5396,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (27) Mount Moon
-	db "MARCOS@", TRAINERTYPE_NORMAL
+	db "Marcos@", TRAINERTYPE_NORMAL
 	db 5
 	dw GEODUDE
 	db 5
@@ -5406,7 +5406,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (28) Route 112
-	db "TRENT@", TRAINERTYPE_NORMAL
+	db "Trent@", TRAINERTYPE_NORMAL
 	db 5
 	dw GEODUDE
 	db 6
@@ -5416,7 +5416,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (29) Route 112
-	db "BRICE@", TRAINERTYPE_NORMAL
+	db "Brice@", TRAINERTYPE_NORMAL
 	db 5
 	dw CAMERUPT
 	db 6
@@ -5426,7 +5426,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (30) Route 114
-	db "LUCAS@", TRAINERTYPE_NORMAL
+	db "Lucas@", TRAINERTYPE_NORMAL
 	db 7
 	dw ONIX
 	db 7
@@ -5436,7 +5436,7 @@ HikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; HIKER (31) Route 114
-	db "LENNY@", TRAINERTYPE_NORMAL
+	db "Lenny@", TRAINERTYPE_NORMAL
 	db 8
 	dw MAROWAK
 	db 7
@@ -5449,7 +5449,7 @@ HikerGroupHard:
 
 BikerGroupHard:
 	next_list_item ; BIKER (1)  Unreferenced
-	db "BENNY@", TRAINERTYPE_NORMAL
+	db "Benny@", TRAINERTYPE_NORMAL
 	db 7
 	dw KOFFING
 	db 7
@@ -5459,7 +5459,7 @@ BikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIKER (2) Unreferenced
-	db "KAZU@", TRAINERTYPE_NORMAL
+	db "Kazu@", TRAINERTYPE_NORMAL
 	db 7
 	dw KOFFING
 	db 7
@@ -5469,7 +5469,7 @@ BikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIKER (3) Route 8
-	db "DWAYNE@", TRAINERTYPE_NORMAL
+	db "Dwayne@", TRAINERTYPE_NORMAL
 	db 5
 	dw KOFFING
 	db 6
@@ -5481,13 +5481,13 @@ BikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIKER (4) Route 8
-	db "HARRIS@", TRAINERTYPE_NORMAL
+	db "Harris@", TRAINERTYPE_NORMAL
 	db 7
 	dw FLAREON
 	db -1 ; end
 
 	next_list_item ; BIKER (5) Route 8
-	db "ZEKE@", TRAINERTYPE_NORMAL
+	db "Zeke@", TRAINERTYPE_NORMAL
 	db 6
 	dw KOFFING
 	db 6
@@ -5495,7 +5495,7 @@ BikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIKER (6) Route 17
-	db "CHARLES@", TRAINERTYPE_NORMAL
+	db "Charles@", TRAINERTYPE_NORMAL
 	db 5
 	dw KOFFING
 	db 5
@@ -5505,13 +5505,13 @@ BikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIKER (7) Route 17
-	db "RILEY@", TRAINERTYPE_NORMAL
+	db "Riley@", TRAINERTYPE_NORMAL
 	db 7
 	dw WEEZING
 	db -1 ; end
 
 	next_list_item ; BIKER (8) Route 17
-	db "JOEL@", TRAINERTYPE_NORMAL
+	db "Joel@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGMAR
 	db 5
@@ -5519,7 +5519,7 @@ BikerGroupHard:
 	db -1 ; end
 
 	next_list_item ; BIKER (9) Route 17
-	db "GLENN@", TRAINERTYPE_NORMAL
+	db "Glenn@", TRAINERTYPE_NORMAL
 	db 3
 	dw KOFFING
 	db 5
@@ -5532,7 +5532,7 @@ BikerGroupHard:
 
 BlaineGroupHard:
 	next_list_item ; BLAINE (1)
-	db "BLAINE@", TRAINERTYPE_MOVES
+	db "Blaine@", TRAINERTYPE_MOVES
 	db 7
 	dw MAGCARGO
 	dw ROCK_SLIDE, FIRE_BLAST, FISSURE, CURSE
@@ -5545,7 +5545,7 @@ BlaineGroupHard:
 	db -1 ; end
 	
 	next_list_item ; BLAINE (2)
-	db "BLAINE@", TRAINERTYPE_MOVES
+	db "Blaine@", TRAINERTYPE_MOVES
 	db 12
 	dw NINETALES
 	dw SUNNY_DAY, SHADOW_BALL, SOLARBEAM, FIRE_BLAST
@@ -5564,7 +5564,7 @@ BlaineGroupHard:
 	db -1 ; end
 	
 	next_list_item ; BLAINE (3)
-	db "BLAINE@", TRAINERTYPE_ITEM_MOVES	
+	db "Blaine@", TRAINERTYPE_ITEM_MOVES	
 	db 10
 	dw NINETALES
 	dw LEFTOVERS
@@ -5595,7 +5595,7 @@ BlaineGroupHard:
 
 BurglarGroupHard:
 	next_list_item ; BURGLAR (1) Goldenrod City - Underground Warehouse
-	db "DUNCAN@", TRAINERTYPE_NORMAL
+	db "Duncan@", TRAINERTYPE_NORMAL
 	db 3
 	dw GROWLITHE
 	db 5
@@ -5605,7 +5605,7 @@ BurglarGroupHard:
 	db -1 ; end
 
 	next_list_item ; BURGLAR (2) Goldenrod City - Underground Warehouse
-	db "EDDIE@", TRAINERTYPE_MOVES
+	db "Eddie@", TRAINERTYPE_MOVES
 	db 6
 	dw GROWLITHE
 	dw ROAR, EMBER, LEER, TAKE_DOWN
@@ -5615,7 +5615,7 @@ BurglarGroupHard:
 	db -1 ; end
 
 	next_list_item ; BURGLAR (3) Unreferenced
-	db "COREY@", TRAINERTYPE_NORMAL
+	db "Corey@", TRAINERTYPE_NORMAL
 	db 5
 	dw KOFFING
 	db 8
@@ -5630,7 +5630,7 @@ BurglarGroupHard:
 
 FirebreatherGroupHard:
 	next_list_item ; FIREBREATHER (1) Route 03
-	db "OTIS@", TRAINERTYPE_NORMAL
+	db "Otis@", TRAINERTYPE_NORMAL
 	db 3
 	dw MAGBY
 	db 3
@@ -5638,13 +5638,13 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (2) Unreferenced
-	db "DICK@", TRAINERTYPE_NORMAL
+	db "Dick@", TRAINERTYPE_NORMAL
 	db 7
 	dw CHARMELEON
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (3) Unreferenced
-	db "NED@", TRAINERTYPE_NORMAL
+	db "Ned@", TRAINERTYPE_NORMAL
 	db 5
 	dw KOFFING
 	db 6
@@ -5654,7 +5654,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (4) Route 03
-	db "BURT@", TRAINERTYPE_NORMAL
+	db "Burt@", TRAINERTYPE_NORMAL
 	db 3
 	dw KOFFING
 	db 4
@@ -5662,7 +5662,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (5) Union Cave - 1F
-	db "BILL@", TRAINERTYPE_NORMAL
+	db "Bill@", TRAINERTYPE_NORMAL
 	db 6
 	dw KOFFING
 	db 6
@@ -5670,7 +5670,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (6) Route 35
-	db "WALT@", TRAINERTYPE_NORMAL
+	db "Walt@", TRAINERTYPE_NORMAL
 	db 4
 	dw MAGMAR
 	db 6
@@ -5678,7 +5678,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (7) Union Cave - 1F
-	db "RAY@", TRAINERTYPE_NORMAL
+	db "Ray@", TRAINERTYPE_NORMAL
 	db 7
 	dw VULPIX
 	db 7
@@ -5686,7 +5686,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (8) S.S. Aqua
-	db "LYLE@", TRAINERTYPE_NORMAL
+	db "Lyle@", TRAINERTYPE_NORMAL
 	db 6
 	dw KOFFING
 	db 8
@@ -5696,7 +5696,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (9) Lavaridge Gym
-	db "JEFF@", TRAINERTYPE_NORMAL
+	db "Jeff@", TRAINERTYPE_NORMAL
 	db 7
 	dw SLUGMA
 	db 8
@@ -5706,7 +5706,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (10) Lavaridge Gym
-	db "JACE@", TRAINERTYPE_NORMAL
+	db "Jace@", TRAINERTYPE_NORMAL
 	db 8
 	dw CHARMELEON
 	db 7
@@ -5716,7 +5716,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (11) Lavaridge Gym
-	db "COLE@", TRAINERTYPE_NORMAL
+	db "Cole@", TRAINERTYPE_NORMAL
 	db 6
 	dw MAGBY
 	db 9
@@ -5726,7 +5726,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (12) Lavaridge Gym
-	db "AXLE@", TRAINERTYPE_NORMAL
+	db "Axle@", TRAINERTYPE_NORMAL
 	db 8
 	dw MAGBY
 	db 9
@@ -5736,7 +5736,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (13) Lavaridge Gym
-	db "KEEGAN@", TRAINERTYPE_NORMAL
+	db "Keegan@", TRAINERTYPE_NORMAL
 	db 7
 	dw SUNKERN
 	db 9
@@ -5746,7 +5746,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (14) Route 111
-	db "HAYDEN@", TRAINERTYPE_NORMAL
+	db "Hayden@", TRAINERTYPE_NORMAL
 	db 7
 	dw KANGASKHAN
 	db 8
@@ -5756,7 +5756,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (15) Route 112
-	db "BRYAN@", TRAINERTYPE_NORMAL
+	db "Bryan@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGCARGO
 	db 6
@@ -5766,7 +5766,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (16) Route 114
-	db "BERNY@", TRAINERTYPE_NORMAL
+	db "Berny@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGMAR
 	db 6
@@ -5776,7 +5776,7 @@ FirebreatherGroupHard:
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (17) Route 119
-	db "DAYTON@", TRAINERTYPE_NORMAL
+	db "Dayton@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGCARGO
 	db 6
@@ -5789,7 +5789,7 @@ FirebreatherGroupHard:
 
 JugglerGroupHard:
 	next_list_item ; JUGGLER (1) Route 35
-	db "IRWIN@", TRAINERTYPE_NORMAL
+	db "Irwin@", TRAINERTYPE_NORMAL
 	db 2
 	dw VOLTORB
 	db 4
@@ -5801,7 +5801,7 @@ JugglerGroupHard:
 	db -1 ; end
 
 	next_list_item ; JUGGLER (2) S.S. Aqua
-	db "FRITZ@", TRAINERTYPE_NORMAL
+	db "Fritz@", TRAINERTYPE_NORMAL
 	db 6
 	dw MR__MIME
 	db 6
@@ -5811,7 +5811,7 @@ JugglerGroupHard:
 	db -1 ; end
 
 	next_list_item ; JUGGLER (3) Vermilion City Gym
-	db "HORTON@", TRAINERTYPE_NORMAL
+	db "Horton@", TRAINERTYPE_NORMAL
 	db 8
 	dw VOLTORB
 	db 8
@@ -5821,7 +5821,7 @@ JugglerGroupHard:
 	db -1 ; end
 
 	next_list_item ; JUGGLER (4) Route 35
-	db "IRWIN@", TRAINERTYPE_NORMAL
+	db "Irwin@", TRAINERTYPE_NORMAL
 	db 3
 	dw VOLTORB
 	db 5
@@ -5833,7 +5833,7 @@ JugglerGroupHard:
 	db -1 ; end
 
 	next_list_item ; JUGGLER (5) Route 35
-	db "IRWIN@", TRAINERTYPE_NORMAL
+	db "Irwin@", TRAINERTYPE_NORMAL
 	db 4
 	dw VOLTORB2
 	db 6
@@ -5845,7 +5845,7 @@ JugglerGroupHard:
 	db -1 ; end
 
 	next_list_item ; JUGGLER (6) Route 35
-	db "IRWIN@", TRAINERTYPE_NORMAL
+	db "Irwin@", TRAINERTYPE_NORMAL
 	db 9
 	dw VOLTORB2
 	db 9
@@ -5860,7 +5860,7 @@ JugglerGroupHard:
 
 BlackbeltGroupHard:
 	next_list_item ; BLACKBELT_T (1) Route 45
-	db "KENJI@", TRAINERTYPE_NORMAL
+	db "Kenji@", TRAINERTYPE_NORMAL
 	db 7
 	dw MEDICHAM
 	db 7
@@ -5872,7 +5872,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (2) Cianwood City Gym
-	db "YOSHI@", TRAINERTYPE_NORMAL
+	db "Yoshi@", TRAINERTYPE_NORMAL
 	db 7
 	dw HITMONLEE
 	db 7
@@ -5880,7 +5880,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (3) Route 45
-	db "KENJI@", TRAINERTYPE_MOVES
+	db "Kenji@", TRAINERTYPE_MOVES
 	db 8
 	dw ONIX
 	dw BIND, ROCK_THROW, TOXIC, DIG
@@ -5896,7 +5896,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (4) Cianwood City Gym
-	db "LAO@", TRAINERTYPE_NORMAL
+	db "Lao@", TRAINERTYPE_NORMAL
 	db 7
 	dw HITMONCHAN
 	db 7
@@ -5904,7 +5904,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (5) Cianwood City Gym
-	db "NOB@", TRAINERTYPE_NORMAL
+	db "Nob@", TRAINERTYPE_NORMAL
 	db 5
 	dw TAUROS
 	db 7
@@ -5912,7 +5912,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (6) Mt. Mortar
-	db "KIYO@", TRAINERTYPE_NORMAL
+	db "Kiyo@", TRAINERTYPE_NORMAL
 	db 10
 	dw HITMONLEE
 	db 10
@@ -5928,7 +5928,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (7) Cianwood City Gym
-	db "LUNG@", TRAINERTYPE_NORMAL
+	db "Lung@", TRAINERTYPE_NORMAL
 	db 5
 	dw MANKEY
 	db 5
@@ -5938,13 +5938,13 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (8) Route 45
-	db "KENJI@", TRAINERTYPE_NORMAL
+	db "Kenji@", TRAINERTYPE_NORMAL
 	db 7
 	dw MACHOKE
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (9) Unreferenced
-	db "WAI@", TRAINERTYPE_NORMAL
+	db "Wai@", TRAINERTYPE_NORMAL
 	db 2
 	dw MACHOKE
 	db 4
@@ -5954,7 +5954,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (10) Dewford City Gym
-	db "TAKAO@", TRAINERTYPE_NORMAL
+	db "Takao@", TRAINERTYPE_NORMAL
 	db 7
 	dw MACHOKE
 	db 7
@@ -5962,7 +5962,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (11) Dewford City Gym
-	db "CRISTIAN@", TRAINERTYPE_NORMAL
+	db "Cristian@", TRAINERTYPE_NORMAL
 	db 7
 	dw MACHOKE
 	db 7
@@ -5970,7 +5970,7 @@ BlackbeltGroupHard:
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (12) Route 103
-	db "MARCOS@", TRAINERTYPE_NORMAL
+	db "Marcos@", TRAINERTYPE_NORMAL
 	db 7
 	dw TYROGUE
 	db 7
@@ -5981,7 +5981,7 @@ BlackbeltGroupHard:
 
 ExecutiveMGroupHard:
 	next_list_item ; EXECUTIVEM (1) Goldenrod City - Radio Tower
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 8
 	dw MIGHTYENA
 	db 8
@@ -5997,7 +5997,7 @@ ExecutiveMGroupHard:
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEM (2) Goldenrod City - Radio Tower
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 10
 	dw CROBAT
 	db 10
@@ -6007,7 +6007,7 @@ ExecutiveMGroupHard:
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEM (3) Goldenrod City - Radio Tower
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 7
 	dw ELECTRODE
 	db 7
@@ -6023,7 +6023,7 @@ ExecutiveMGroupHard:
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEM (4) Team Rocket Hideout - B3F
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 5
 	dw GOLBAT
 	db 9
@@ -6037,7 +6037,7 @@ ExecutiveMGroupHard:
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEM (5) Goldenrod City - Radio Tower Mega
-	db "EXECUTIVE@", TRAINERTYPE_ITEM_MOVES	
+	db "Executive@", TRAINERTYPE_ITEM_MOVES	
 	db 15
 	dw HOUNDOOMX
 	dw LEFTOVERS
@@ -6048,7 +6048,7 @@ ExecutiveMGroupHard:
 
 PsychicGroupHard:
 	next_list_item ; PSYCHIC_T (1) Ruins of Alph
-	db "NATHAN@", TRAINERTYPE_NORMAL
+	db "Nathan@", TRAINERTYPE_NORMAL
 	db 6
 	dw GIRAFARIG
 	db 7
@@ -6060,11 +6060,11 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item; PSYCHIC_T (2) Saffron City Gym
-	db "FRANKLIN@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY	
+	db "Franklin@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY	
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (3) Route 11
-	db "HERMAN@", TRAINERTYPE_NORMAL
+	db "Herman@", TRAINERTYPE_NORMAL
 	db 6
 	dw EXEGGCUTE
 	db 6
@@ -6074,20 +6074,20 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (4) Route 11
-	db "FIDEL@", TRAINERTYPE_NORMAL
+	db "Fidel@", TRAINERTYPE_NORMAL
 	db 6
 	dw XATU
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (5) Route 37
-	db "GREG@", TRAINERTYPE_MOVES
+	db "Greg@", TRAINERTYPE_MOVES
 	db 7
 	dw DROWZEE
 	dw HYPNOSIS, DISABLE, DREAM_EATER, NO_MOVE
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (6) Route 39
-	db "NORMAN@", TRAINERTYPE_MOVES
+	db "Norman@", TRAINERTYPE_MOVES
 	db 4
 	dw SLOWPOKE
 	dw TACKLE, GROWL, WATER_GUN, NO_MOVE
@@ -6097,7 +6097,7 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (7) Route 36
-	db "MARK@", TRAINERTYPE_MOVES
+	db "Mark@", TRAINERTYPE_MOVES
 	db 1
 	dw ABRA
 	dw TELEPORT, FLASH, NO_MOVE, NO_MOVE
@@ -6110,7 +6110,7 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (8) Route 44
-	db "PHIL@", TRAINERTYPE_MOVES
+	db "Phil@", TRAINERTYPE_MOVES
 	db 4
 	dw NATU
 	dw LEER, NIGHT_SHADE, FUTURE_SIGHT, CONFUSE_RAY
@@ -6120,13 +6120,13 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (9) Route 26
-	db "RICHARD@", TRAINERTYPE_NORMAL
+	db "Richard@", TRAINERTYPE_NORMAL
 	db 7
 	dw ESPEON
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (10) Route 27
-	db "GILBERT@", TRAINERTYPE_NORMAL
+	db "Gilbert@", TRAINERTYPE_NORMAL
 	db 7
 	dw STARMIE
 	db 7
@@ -6140,11 +6140,11 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item; PSYCHIC_T (11) Saffron City Gym
-	db "JARED@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
+	db "Jared@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (12) Unreferenced
-	db "RODNEY@", TRAINERTYPE_NORMAL
+	db "Rodney@", TRAINERTYPE_NORMAL
 	db 5
 	dw DROWZEE
 	db 8
@@ -6152,7 +6152,7 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (13) Route 110
-	db "EDWARD@", TRAINERTYPE_NORMAL
+	db "Edward@", TRAINERTYPE_NORMAL
 	db 9
 	dw MR__MIME
 	db 9
@@ -6160,7 +6160,7 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (14) Mossdeep Gym
-	db "PRESTON@", TRAINERTYPE_NORMAL
+	db "Preston@", TRAINERTYPE_NORMAL
 	db 8
 	dw KADABRA
 	db 9
@@ -6168,7 +6168,7 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (15) Mossdeep Gym
-	db "BLAKE@", TRAINERTYPE_NORMAL
+	db "Blake@", TRAINERTYPE_NORMAL
 	db 8
 	dw ARAICHU
 	db 9
@@ -6176,7 +6176,7 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (16) Mossdeep Gym
-	db "NICHOLAS@", TRAINERTYPE_NORMAL
+	db "Nicholas@", TRAINERTYPE_NORMAL
 	db 9
 	dw WOBBUFFET
 	db 9
@@ -6184,7 +6184,7 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item ; PSYCHIC_T (17) Mossdeep Gym
-	db "VIRGIL@", TRAINERTYPE_NORMAL
+	db "Virgil@", TRAINERTYPE_NORMAL
 	db 8
 	dw PORYGON2
 	db 9
@@ -6192,18 +6192,18 @@ PsychicGroupHard:
 	db -1 ; end
 
 	next_list_item; PSYCHIC_T (18) Saffron City Gym
-	db "FRANKLIN@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
+	db "Franklin@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
 	db -1 ; end
 
 	next_list_item; PSYCHIC_T (11) Saffron City Gym
-	db "JARED@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
+	db "Jared@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
 	db -1 ; end
 
 	end_list_items
 
 PicnickerGroupHard:
 	next_list_item ; PICNICKER (1) Route 32
-	db "LIZ@", TRAINERTYPE_NORMAL
+	db "Liz@", TRAINERTYPE_NORMAL
 	db 5
 	dw NIDORAN_F
 	db 5
@@ -6211,7 +6211,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (2) Route 34
-	db "GINA@", TRAINERTYPE_NORMAL
+	db "Gina@", TRAINERTYPE_NORMAL
 	db 3
 	dw HOPPIP
 	db 3
@@ -6221,32 +6221,32 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (3) Route 35
-	db "BROOKE@", TRAINERTYPE_MOVES
+	db "Brooke@", TRAINERTYPE_MOVES
 	db 6
 	dw PIKACHU
 	dw THUNDERSHOCK, GROWL, QUICK_ATTACK, DOUBLE_TEAM
 	db -1 ; end
 
 	next_list_item ; PICNICKER (4) Route 35
-	db "KIM@", TRAINERTYPE_NORMAL
+	db "Kim@", TRAINERTYPE_NORMAL
 	db 5
 	dw VULPIX
 	db -1 ; end
 
 	next_list_item ; PICNICKER (5) Fuschia City Gym
-	db "CINDY@", TRAINERTYPE_NORMAL
+	db "Cindy@", TRAINERTYPE_NORMAL
 	db 11
 	dw NIDOQUEEN
 	db -1 ; end
 
 	next_list_item ; PICNICKER (6) Route 04
-	db "HOPE@", TRAINERTYPE_NORMAL
+	db "Hope@", TRAINERTYPE_NORMAL
 	db 7
 	dw FLAAFFY
 	db -1 ; end
 
 	next_list_item ; PICNICKER (7) Route 04
-	db "SHARON@", TRAINERTYPE_NORMAL	
+	db "Sharon@", TRAINERTYPE_NORMAL	
 	db 5
 	dw PONYTA
 	db 7
@@ -6254,13 +6254,13 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (8) S.S. Aqua
-	db "DEBRA@", TRAINERTYPE_NORMAL
+	db "Debra@", TRAINERTYPE_NORMAL
 	db 7
 	dw SEAKING
 	db -1 ; end
 
 	next_list_item ; PICNICKER (9) Route 34
-	db "GINA@", TRAINERTYPE_NORMAL
+	db "Gina@", TRAINERTYPE_NORMAL
 	db 4
 	dw HOPPIP
 	db 4
@@ -6270,7 +6270,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (10) Route 46
-	db "ERIN@", TRAINERTYPE_NORMAL
+	db "Erin@", TRAINERTYPE_NORMAL
 	db 6
 	dw VULPIX
 	db 6
@@ -6278,7 +6278,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (11) Route 32
-	db "LIZ@", TRAINERTYPE_NORMAL
+	db "Liz@", TRAINERTYPE_NORMAL
 	db 5
 	dw WEEPINBELL
 	db 6
@@ -6286,7 +6286,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (12) Route 32
-	db "LIZ@", TRAINERTYPE_NORMAL
+	db "Liz@", TRAINERTYPE_NORMAL
 	db 6
 	dw WEEPINBELL
 	db 7
@@ -6296,7 +6296,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (13) Route 9
-	db "HEIDI@", TRAINERTYPE_NORMAL
+	db "Heidi@", TRAINERTYPE_NORMAL
 	db 5
 	dw SKIPLOOM
 	db 5
@@ -6304,7 +6304,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (14) Route 9
-	db "EDNA@", TRAINERTYPE_NORMAL
+	db "Edna@", TRAINERTYPE_NORMAL
 	db 2
 	dw NIDORINA
 	db 6
@@ -6312,7 +6312,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (15) Route 34
-	db "GINA@", TRAINERTYPE_NORMAL
+	db "Gina@", TRAINERTYPE_NORMAL
 	db 6
 	dw SKIPLOOM
 	db 6
@@ -6322,21 +6322,21 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (16) Route 43
-	db "TIFFANY@", TRAINERTYPE_MOVES
+	db "Tiffany@", TRAINERTYPE_MOVES
 	db 6
 	dw CLEFAIRY
 	dw ENCORE, SING, DOUBLESLAP, MINIMIZE
 	db -1 ; end
 
 	next_list_item ; PICNICKER (17) Route 43
-	db "TIFFANY@", TRAINERTYPE_MOVES
+	db "Tiffany@", TRAINERTYPE_MOVES
 	db 7
 	dw CLEFAIRY
 	dw ENCORE, DOUBLESLAP, MINIMIZE, METRONOME
 	db -1 ; end
 
 	next_list_item ; PICNICKER (18) Route 46
-	db "ERIN@", TRAINERTYPE_NORMAL
+	db "Erin@", TRAINERTYPE_NORMAL
 	db 7
 	dw PONYTA
 	db 7
@@ -6344,20 +6344,20 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (19) Celadon City Gym
-	db "TANYA@", TRAINERTYPE_NORMAL
+	db "Tanya@", TRAINERTYPE_NORMAL
 	db 7
 	dw EXEGGUTOR
 	db -1 ; end
 
 	next_list_item ; PICNICKER (20) Route 43
-	db "TIFFANY@", TRAINERTYPE_MOVES
+	db "Tiffany@", TRAINERTYPE_MOVES
 	db 9
 	dw CLEFAIRY
 	dw ENCORE, SING, DOUBLESLAP, MINIMIZE
 	db -1 ; end
 
 	next_list_item ; PICNICKER (21) Route 46
-	db "ERIN@", TRAINERTYPE_MOVES
+	db "Erin@", TRAINERTYPE_MOVES
 	db 8
 	dw PONYTA
 	dw DOUBLE_TEAM, STOMP, FIRE_SPIN, SUNNY_DAY
@@ -6370,7 +6370,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (22) Route 32
-	db "LIZ@", TRAINERTYPE_NORMAL
+	db "Liz@", TRAINERTYPE_NORMAL
 	db 4
 	dw WEEPINBELL
 	db 6
@@ -6380,7 +6380,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (23) Route 32
-	db "LIZ@", TRAINERTYPE_MOVES
+	db "Liz@", TRAINERTYPE_MOVES
 	db 7
 	dw WEEPINBELL
 	dw SLEEP_POWDER, POISONPOWDER, STUN_SPORE, SLUDGE_BOMB
@@ -6393,7 +6393,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (24) Route 34
-	db "GINA@", TRAINERTYPE_NORMAL
+	db "Gina@", TRAINERTYPE_NORMAL
 	db 7
 	dw SKIPLOOM
 	db 7
@@ -6403,7 +6403,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (25) Route 34
-	db "GINA@", TRAINERTYPE_MOVES
+	db "Gina@", TRAINERTYPE_MOVES
 	db 9
 	dw JUMPLUFF
 	dw STUN_SPORE, SUNNY_DAY, LEECH_SEED, COTTON_SPORE
@@ -6416,20 +6416,20 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (26) Route 43
-	db "TIFFANY@", TRAINERTYPE_MOVES
+	db "Tiffany@", TRAINERTYPE_MOVES
 	db 12
 	dw CLEFAIRY
 	dw METRONOME, ENCORE, MOONLIGHT, MINIMIZE
 	db -1 ; end
 
 	next_list_item ; PICNICKER (27) Route 117
-	db "MARIA@", TRAINERTYPE_NORMAL
+	db "Marina", TRAINERTYPE_NORMAL
 	db 10
 	dw DELCATTY
 	db -1 ; end
 
 	next_list_item ; PICNICKER (28) Route 117
-	db "MELINA@", TRAINERTYPE_NORMAL
+	db "Melina@", TRAINERTYPE_NORMAL
 	db 9
 	dw EXPLOUD
 	db 9
@@ -6437,7 +6437,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (29) Route 111
-	db "CELINA@", TRAINERTYPE_NORMAL
+	db "Celina@", TRAINERTYPE_NORMAL
 	db 7
 	dw NIDOQUEEN
 	db 5
@@ -6445,7 +6445,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (30) Route 111
-	db "BIANCA@", TRAINERTYPE_NORMAL
+	db "Bianca@", TRAINERTYPE_NORMAL
 	db 7
 	dw MEGANIUM
 	db 8
@@ -6453,7 +6453,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (31) Route 111
-	db "GABBY@", TRAINERTYPE_NORMAL
+	db "Gabby@", TRAINERTYPE_NORMAL
 	db 7
 	dw EXPLOUD
 	db 7
@@ -6461,7 +6461,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (32) Route 111
-	db "IRENE@", TRAINERTYPE_NORMAL
+	db "Irene@", TRAINERTYPE_NORMAL
 	db 7
 	dw MISDREAVUS
 	db 7
@@ -6469,7 +6469,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (33) Fortree Gym
-	db "ASHLEY@", TRAINERTYPE_NORMAL
+	db "Ashley@", TRAINERTYPE_NORMAL
 	db 9
 	dw SWABLU
 	db 9
@@ -6477,7 +6477,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (34) Route 112
-	db "CAROL@", TRAINERTYPE_NORMAL
+	db "Carol@", TRAINERTYPE_NORMAL
 	db 6
 	dw ALTARIA
 	db 7
@@ -6485,7 +6485,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (35) Route 113
-	db "MADDIE@", TRAINERTYPE_NORMAL
+	db "Maddie@", TRAINERTYPE_NORMAL
 	db 6
 	dw ALTARIA
 	db 7
@@ -6493,7 +6493,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (36) Route 113
-	db "SOPHIE@", TRAINERTYPE_NORMAL
+	db "Sophie@", TRAINERTYPE_NORMAL
 	db 6
 	dw AZUMARILL
 	db 7
@@ -6501,7 +6501,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (37) Route 114
-	db "CHARLOTE@", TRAINERTYPE_NORMAL
+	db "Charlote@", TRAINERTYPE_NORMAL
 	db 7
 	dw IVYSAUR
 	db 8
@@ -6509,7 +6509,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (38) Route 114
-	db "NANCY@", TRAINERTYPE_NORMAL
+	db "Nancy@", TRAINERTYPE_NORMAL
 	db 6
 	dw VOLBEAT
 	db 8
@@ -6517,7 +6517,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (39) Route 114
-	db "ANGELINA@", TRAINERTYPE_NORMAL
+	db "Angelina@", TRAINERTYPE_NORMAL
 	db 6
 	dw FLAAFFY
 	db 8
@@ -6525,7 +6525,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (40) Lavaridge Desert
-	db "HEIDI@", TRAINERTYPE_NORMAL
+	db "Heidi@", TRAINERTYPE_NORMAL
 	db 6
 	dw CLAYDOL
 	db 7
@@ -6533,7 +6533,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (41) Lavaridge Desert
-	db "BECKY@", TRAINERTYPE_NORMAL
+	db "Becky@", TRAINERTYPE_NORMAL
 	db 7
 	dw NIDOQUEEN
 	db 6
@@ -6541,7 +6541,7 @@ PicnickerGroupHard:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (42) Lavaridge Desert
-	db "CELIA@", TRAINERTYPE_NORMAL
+	db "Celia@", TRAINERTYPE_NORMAL
 	db 7
 	dw AMAROWAK
 	db 7
@@ -6552,7 +6552,7 @@ PicnickerGroupHard:
 
 CamperGroupHard:
 	next_list_item ; CAMPER (1) Route 32
-	db "ROLAND@", TRAINERTYPE_NORMAL
+	db "Roland@", TRAINERTYPE_NORMAL
 	db 3
 	dw NIDORAN_M
 	db 3
@@ -6560,7 +6560,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (2) Route 34
-	db "TODD@", TRAINERTYPE_NORMAL
+	db "Todd@", TRAINERTYPE_NORMAL
 	db 4
 	dw GOLDUCK
 	db 4
@@ -6568,7 +6568,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (3) Route 35
-	db "IVAN@", TRAINERTYPE_NORMAL
+	db "Ivam@", TRAINERTYPE_NORMAL
 	db 4
 	dw DIGLETT
 	db 4
@@ -6578,7 +6578,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (4) Route 35
-	db "ELLIOT@", TRAINERTYPE_NORMAL
+	db "Elliot@", TRAINERTYPE_NORMAL
 	db 3
 	dw SANDSHREW
 	db 5
@@ -6586,19 +6586,19 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (5) Fuschia City Gym
-	db "BARRY@", TRAINERTYPE_NORMAL
+	db "Barry@", TRAINERTYPE_NORMAL
 	db 11
 	dw NIDOKING
 	db -1 ; end
 
 	next_list_item ; CAMPER (6) Route 25
-	db "LLOYD@", TRAINERTYPE_NORMAL
+	db "Lloyd@", TRAINERTYPE_NORMAL
 	db 6
 	dw NIDORINO
 	db -1 ; end
 
 	next_list_item ; CAMPER (7) Route 9
-	db "DEAN@", TRAINERTYPE_NORMAL
+	db "Dean@", TRAINERTYPE_NORMAL
 	db 6
 	dw GOLDUCK
 	db 4
@@ -6606,7 +6606,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (8) Route 9
-	db "SID@", TRAINERTYPE_NORMAL
+	db "Sid@", TRAINERTYPE_NORMAL
 	db 2
 	dw DUGTRIO
 	db 7
@@ -6616,25 +6616,25 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (9) Unreferenced
-	db "HARVEY@", TRAINERTYPE_NORMAL
+	db "Harvey@", TRAINERTYPE_NORMAL
 	db 5
 	dw NIDORINO
 	db -1 ; end
 
 	next_list_item ; CAMPER (10) Unreferenced
-	db "DALE@", TRAINERTYPE_NORMAL
+	db "Dale@", TRAINERTYPE_NORMAL
 	db 5
 	dw NIDORINO
 	db -1 ; end
 
 	next_list_item ; CAMPER (11) Route 46
-	db "TED@", TRAINERTYPE_NORMAL
+	db "Ted@", TRAINERTYPE_NORMAL
 	db 7
 	dw MANKEY
 	db -1 ; end
 
 	next_list_item ; CAMPER (12) Route 34
-	db "TODD@", TRAINERTYPE_NORMAL
+	db "Todd@", TRAINERTYPE_NORMAL
 	db 5
 	dw GEODUDE
 	db 5
@@ -6644,7 +6644,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (13) Route 34
-	db "TODD@", TRAINERTYPE_NORMAL
+	db "Todd@", TRAINERTYPE_NORMAL
 	db 6
 	dw GEODUDE
 	db 6
@@ -6654,7 +6654,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (14) Unreferenced
-	db "THOMAS@", TRAINERTYPE_NORMAL
+	db "Thomas@", TRAINERTYPE_NORMAL
 	db 3
 	dw GRAVELER
 	db 6
@@ -6666,7 +6666,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (15) Unreferenced
-	db "LEROY@", TRAINERTYPE_NORMAL
+	db "Leroy@", TRAINERTYPE_NORMAL
 	db 3
 	dw GRAVELER
 	db 6
@@ -6678,7 +6678,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (16) Unreferenced
-	db "DAVID@", TRAINERTYPE_NORMAL
+	db "David@", TRAINERTYPE_NORMAL
 	db 3
 	dw GRAVELER
 	db 6
@@ -6690,7 +6690,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (17) Unreferenced
-	db "JOHN@", TRAINERTYPE_NORMAL
+	db "John@", TRAINERTYPE_NORMAL
 	db 3
 	dw GRAVELER
 	db 6
@@ -6702,7 +6702,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (18) Pewter City Gym
-	db "JERRY@", TRAINERTYPE_NORMAL
+	db "Jerry@", TRAINERTYPE_NORMAL
 	db 7
 	dw SANDSHREW
 	db 7
@@ -6710,7 +6710,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (19) Route 43
-	db "SPENCER@", TRAINERTYPE_NORMAL
+	db "Spencer@", TRAINERTYPE_NORMAL
 	db 3
 	dw SANDSHREW
 	db 5
@@ -6720,7 +6720,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (20) Route 34
-	db "TODD@", TRAINERTYPE_NORMAL
+	db "Todd@", TRAINERTYPE_NORMAL
 	db 5
 	dw GRAVELER
 	db 5
@@ -6732,7 +6732,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (21) Route 34
-	db "TODD@", TRAINERTYPE_MOVES
+	db "Todd@", TRAINERTYPE_MOVES
 	db 7
 	dw GRAVELER
 	dw SELFDESTRUCT, ROCK_THROW, HARDEN, MAGNITUDE
@@ -6748,7 +6748,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (22) Unreferenced
-	db "QUENTIN@", TRAINERTYPE_NORMAL
+	db "Quentin@", TRAINERTYPE_NORMAL
 	db 2
 	dw FEAROW
 	db 3
@@ -6758,13 +6758,13 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (23) Route 104
-	db "WINSTON@", TRAINERTYPE_NORMAL
+	db "Winston@", TRAINERTYPE_NORMAL
 	db 3
 	dw LINOONE
 	db -1 ; end
 
 	next_list_item ; CAMPER (24) Route 117
-	db "DYLAN@", TRAINERTYPE_NORMAL
+	db "Dylan@", TRAINERTYPE_NORMAL
 	db 7
 	dw DODRIO
 	db 7
@@ -6772,7 +6772,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (25) Route 108
-	db "DYLAN@", TRAINERTYPE_NORMAL
+	db "Dylan@", TRAINERTYPE_NORMAL
 	db 7
 	dw DONPHAN
 	db 7
@@ -6782,7 +6782,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (26) Route 111
-	db "TYRON@", TRAINERTYPE_NORMAL
+	db "Tyron@", TRAINERTYPE_NORMAL
 	db 7
 	dw TOGETIC
 	db 8
@@ -6790,7 +6790,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (27) Route 111
-	db "TRAVIS@", TRAINERTYPE_NORMAL
+	db "Travis@", TRAINERTYPE_NORMAL
 	db 7
 	dw GLIGAR
 	db 9
@@ -6798,7 +6798,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (28) Fortree Gym
-	db "FLINT@", TRAINERTYPE_NORMAL
+	db "Flint@", TRAINERTYPE_NORMAL
 	db 9
 	dw CROBAT
 	db 9
@@ -6806,7 +6806,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (29) Route 112
-	db "LARRY@", TRAINERTYPE_NORMAL
+	db "Larry@", TRAINERTYPE_NORMAL
 	db 7
 	dw SHIFTRY
 	db 6
@@ -6814,7 +6814,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (30) Route 113
-	db "JAYLEN@", TRAINERTYPE_NORMAL
+	db "Jaylen@", TRAINERTYPE_NORMAL
 	db 5
 	dw VIBRAVA
 	db 6
@@ -6822,7 +6822,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (31) Route 113
-	db "LUNG@", TRAINERTYPE_NORMAL
+	db "Lung@", TRAINERTYPE_NORMAL
 	db 5
 	dw WEEZING
 	db 6
@@ -6830,7 +6830,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (32) Route 113
-	db "LAWRY@", TRAINERTYPE_NORMAL
+	db "Lawry@", TRAINERTYPE_NORMAL
 	db 5
 	dw CLAYDOL
 	db 6
@@ -6838,7 +6838,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (33) Route 114
-	db "SHANE@", TRAINERTYPE_NORMAL
+	db "Shane@", TRAINERTYPE_NORMAL
 	db 7
 	dw URSARING
 	db 7
@@ -6846,7 +6846,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (34) Lavaridge Desert
-	db "BEAU@", TRAINERTYPE_NORMAL	
+	db "Beau@", TRAINERTYPE_NORMAL	
 	db 7
 	dw VIBRAVA
 	db 6
@@ -6854,7 +6854,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (35) Lavaridge Desert
-	db "DREW@", TRAINERTYPE_NORMAL	
+	db "Drew@", TRAINERTYPE_NORMAL	
 	db 6
 	dw SUDOWOODO
 	db 7
@@ -6862,7 +6862,7 @@ CamperGroupHard:
 	db -1 ; end
 
 	next_list_item ; CAMPER (36) Lavaridge Desert
-	db "BRANDEN@", TRAINERTYPE_NORMAL	
+	db "Branden@", TRAINERTYPE_NORMAL	
 	db 7
 	dw SKARMORY
 	db 7
@@ -6873,7 +6873,7 @@ CamperGroupHard:
 
 ExecutiveFGroupHard:
 	next_list_item ; EXECUTIVEF (1) Goldenrod City - Radio Tower
-	db "EXECUTIVE@", TRAINERTYPE_MOVES
+	db "Executive@", TRAINERTYPE_MOVES
 	db 8
 	dw ARBOK
 	dw WRAP, POISON_STING, BITE, GLARE
@@ -6886,7 +6886,7 @@ ExecutiveFGroupHard:
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEF (2) Unreferenced
-	db "EXECUTIVE@", TRAINERTYPE_MOVES
+	db "Executive@", TRAINERTYPE_MOVES
 	db 9
 	dw ARBOK
 	dw WRAP, LEER, POISON_STING, BITE
@@ -6899,7 +6899,7 @@ ExecutiveFGroupHard:
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEF (3) Safari Zone Executive
-	db "EXECUTIVE@", TRAINERTYPE_NORMAL
+	db "Executive@", TRAINERTYPE_NORMAL
 	db 9
 	dw RHYDON
 	db 9
@@ -6918,7 +6918,7 @@ ExecutiveFGroupHard:
 
 SageGroupHard:
 	next_list_item ; SAGE (1) Sprout Tower - 1F
-	db "CHOW@", TRAINERTYPE_NORMAL
+	db "Chow@", TRAINERTYPE_NORMAL
 	db 3
 	dw BELLSPROUT
 	db 3
@@ -6928,7 +6928,7 @@ SageGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAGE (2) Sprout Tower - 2F
-	db "NICO@", TRAINERTYPE_NORMAL
+	db "Nico@", TRAINERTYPE_NORMAL
 	db 3
 	dw BELLSPROUT
 	db 3
@@ -6938,13 +6938,13 @@ SageGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAGE (3) Unreferenced
-	db "JIN@", TRAINERTYPE_NORMAL
+	db "Jin@", TRAINERTYPE_NORMAL
 	db 6
 	dw BELLSPROUT
 	db -1 ; end
 
 	next_list_item ; SAGE (4) Sprout Tower - 3F
-	db "TROY@", TRAINERTYPE_NORMAL
+	db "Troy@", TRAINERTYPE_NORMAL
 	db 3
 	dw BELLSPROUT
 	db 5
@@ -6952,13 +6952,13 @@ SageGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAGE (5) Unreferenced
-	db "JEFFREY@", TRAINERTYPE_NORMAL
+	db "Jeffrey@", TRAINERTYPE_NORMAL
 	db 7
 	dw HAUNTER
 	db -1 ; end
 
 	next_list_item ; SAGE (6) Ecruteak City Gym
-	db "PING@", TRAINERTYPE_NORMAL
+	db "Ping@", TRAINERTYPE_NORMAL
 	db 7
 	dw BELLSPROUT
 	db 7
@@ -6970,7 +6970,7 @@ SageGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAGE (7) Sprout Tower - 2F
-	db "EDMOND@", TRAINERTYPE_NORMAL
+	db "Edmond@", TRAINERTYPE_NORMAL
 	db 3
 	dw BELLSPROUT
 	db 3
@@ -6980,13 +6980,13 @@ SageGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAGE (8) Sprout Tower - 3F
-	db "NEAL@", TRAINERTYPE_NORMAL
+	db "Neal@", TRAINERTYPE_NORMAL
 	db 7
 	dw BELLSPROUT
 	db -1 ; end
 
 	next_list_item ; SAGE (9) Sprout Tower - 3F
-	db "LI@", TRAINERTYPE_NORMAL
+	db "Li@", TRAINERTYPE_NORMAL
 	db 4
 	dw BELLSPROUT
 	db 4
@@ -6998,7 +6998,7 @@ SageGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAGE (10) Tin Tower 1F
-	db "GAKU@", TRAINERTYPE_NORMAL
+	db "Gaku@", TRAINERTYPE_NORMAL
 	db 7
 	dw NOCTOWL
 	db 7
@@ -7006,7 +7006,7 @@ SageGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAGE (11) Tin Tower 1F
-	db "MASA@", TRAINERTYPE_NORMAL
+	db "Masa@", TRAINERTYPE_NORMAL
 	db 7
 	dw NOCTOWL
 	db 7
@@ -7014,7 +7014,7 @@ SageGroupHard:
 	db -1 ; end
 
 	next_list_item ; SAGE (12) Tin Tower 1F
-	db "KOJI@", TRAINERTYPE_NORMAL
+	db "Koji@", TRAINERTYPE_NORMAL
 	db 7
 	dw NOCTOWL
 	db 7
@@ -7025,7 +7025,7 @@ SageGroupHard:
 
 MediumGroupHard:
 	next_list_item ; MEDIUM (1) Ecruteak City Gym
-	db "MARTHA@", TRAINERTYPE_NORMAL
+	db "Martha@", TRAINERTYPE_NORMAL
 	db 5
 	dw GASTLY
 	db 7
@@ -7035,7 +7035,7 @@ MediumGroupHard:
 	db -1 ; end
 
 	next_list_item ; MEDIUM (2) Ecruteak City Gym
-	db "GRACE@", TRAINERTYPE_NORMAL
+	db "Grace@", TRAINERTYPE_NORMAL
 	db 7
 	dw HAUNTER
 	db 7
@@ -7043,33 +7043,33 @@ MediumGroupHard:
 	db -1 ; end
 
 	next_list_item ; MEDIUM (3) Unreferenced
-	db "BETHANY@", TRAINERTYPE_NORMAL
+	db "Bethany@", TRAINERTYPE_NORMAL
 	db 5
 	dw HAUNTER
 	db -1 ; end
 
 	next_list_item ; MEDIUM (4) Unreferenced
-	db "MARGRET@", TRAINERTYPE_NORMAL
+	db "Margret@", TRAINERTYPE_NORMAL
 	db 5
 	dw HAUNTER
 	db -1 ; end
 
 	next_list_item ; MEDIUM (5) Unreferenced
-	db "ETHEL@", TRAINERTYPE_NORMAL
+	db "Ethel@", TRAINERTYPE_NORMAL
 	db 5
 	dw HAUNTER
 	db -1 ; end
 
 	next_list_item; MEDIUM (6) Saffron City Gym
-	db "REBECCA@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
+	db "Rebecca@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
 	next_list_item; MEDIUM (7) Saffron City Gym
-	db "DORIS@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
+	db "Doris@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
 	next_list_item ; MEDIUM (8) Route 117
-	db "BRANDI@", TRAINERTYPE_NORMAL
+	db "Brandi@", TRAINERTYPE_NORMAL
 	db 7
 	dw KIRLIA
 	db 8
@@ -7079,18 +7079,18 @@ MediumGroupHard:
 	db -1 ; end
 
 	next_list_item; MEDIUM (9) Saffron City Gym
-	db "REBECCA@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
+	db "Rebecca@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
 	db -1 ; end
 
 	next_list_item; MEDIUM (10) Saffron City Gym
-	db "DORIS@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
+	db "Doris@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
 	db -1 ; end
 
 	end_list_items
 
 BoarderGroupHard:
 	next_list_item ; BOARDER (1) Mahogany Town Gym
-	db "RONALD@", TRAINERTYPE_NORMAL
+	db "Ronald@", TRAINERTYPE_NORMAL
 	db 7
 	dw SEEL
 	db 7
@@ -7100,7 +7100,7 @@ BoarderGroupHard:
 	db -1 ; end
 
 	next_list_item ; BOARDER (2) Mahogany Town Gym
-	db "BRAD@", TRAINERTYPE_NORMAL
+	db "Brad@", TRAINERTYPE_NORMAL
 	db 7
 	dw SWINUB
 	db 7
@@ -7108,7 +7108,7 @@ BoarderGroupHard:
 	db -1 ; end
 
 	next_list_item ; BOARDER (3) Mahogany Town Gym
-	db "DOUGLAS@", TRAINERTYPE_NORMAL
+	db "Douglas@", TRAINERTYPE_NORMAL
 	db 7
 	dw SHELLDER
 	db 7
@@ -7121,28 +7121,28 @@ BoarderGroupHard:
 
 PokefanMGroupHard:
 	next_list_item ; POKEFANM (1) National Park
-	db "WILLIAM@", TRAINERTYPE_ITEM
+	db "William@", TRAINERTYPE_ITEM
 	db 4
 	dw RAICHU
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (2) Route 39
-	db "DEREK@", TRAINERTYPE_ITEM
+	db "Derek@", TRAINERTYPE_ITEM
 	db 7
 	dw PIKACHU
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (3) Route 10
-	db "ROBERT@", TRAINERTYPE_ITEM
+	db "Robert@", TRAINERTYPE_ITEM
 	db 6
 	dw QUAGSIRE
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (4) Route 13
-	db "JOSHUA@", TRAINERTYPE_ITEM
+	db "Joshua@", TRAINERTYPE_ITEM
 	db 3
 	dw PIKACHU
 	dw BERRY
@@ -7164,7 +7164,7 @@ PokefanMGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANM (5) Route 14
-	db "CARTER@", TRAINERTYPE_ITEM
+	db "Carter@", TRAINERTYPE_ITEM
 	db 3
 	dw BULBASAUR
 	dw BERRY
@@ -7177,21 +7177,21 @@ PokefanMGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANM (6) Unreferenced
-	db "TREVOR@", TRAINERTYPE_ITEM
+	db "Trevor@", TRAINERTYPE_ITEM
 	db 5
 	dw PSYDUCK
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (7) Route 34
-	db "BRANDON@", TRAINERTYPE_ITEM
+	db "Brandon@", TRAINERTYPE_ITEM
 	db 4
 	dw SNUBBULL
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (8) Unreferenced
-	db "JEREMY@", TRAINERTYPE_ITEM
+	db "Jeremy@", TRAINERTYPE_ITEM
 	db 8
 	dw MEOWTH
 	dw BERRY
@@ -7204,28 +7204,28 @@ PokefanMGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANM (9) S.S. Aqua
-	db "COLIN@", TRAINERTYPE_ITEM
+	db "Colin@", TRAINERTYPE_ITEM
 	db 7
 	dw DELIBIRD
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (10) Route 39
-	db "DEREK@", TRAINERTYPE_ITEM
+	db "Derek@", TRAINERTYPE_ITEM
 	db 9
 	dw PIKACHU
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (11) Route 39
-	db "DEREK@", TRAINERTYPE_ITEM
+	db "Derek@", TRAINERTYPE_ITEM
 	db 10
 	dw PIKACHU
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (12) Route 13
-	db "ALEX@", TRAINERTYPE_ITEM
+	db "Alex@", TRAINERTYPE_ITEM
 	db 7
 	dw NIDOKING
 	dw BERRY
@@ -7238,21 +7238,21 @@ PokefanMGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANM (13) Route 6
-	db "REX@", TRAINERTYPE_ITEM
+	db "Rex@", TRAINERTYPE_ITEM
 	db 5
 	dw PHANPY
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (14) Route 6
-	db "ALLAN@", TRAINERTYPE_ITEM
+	db "Allan@", TRAINERTYPE_ITEM
 	db 5
 	dw TEDDIURSA
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANM (15) Route 103
-	db "MIGUEL@", TRAINERTYPE_ITEM
+	db "Miguel@", TRAINERTYPE_ITEM
 	db 7
 	dw TRAPINCH
 	dw BERRY
@@ -7262,7 +7262,7 @@ PokefanMGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANM (16) Route 117
-	db "ISAAC@", TRAINERTYPE_ITEM
+	db "Isaac@", TRAINERTYPE_ITEM
 	db 5
 	dw URSARING
 	dw BERRY
@@ -7281,7 +7281,7 @@ PokefanMGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANM (17) Route 110
-	db "KALEB@", TRAINERTYPE_ITEM
+	db "Kaleb@", TRAINERTYPE_ITEM
 	db 7
 	dw ARAICHU
 	dw BERRY
@@ -7291,7 +7291,7 @@ PokefanMGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANM (18) Route 110
-	db "EDWIN@", TRAINERTYPE_ITEM
+	db "Edwin@", TRAINERTYPE_ITEM
 	db 7
 	dw CLEFABLE
 	dw BERRY
@@ -7304,7 +7304,7 @@ PokefanMGroupHard:
 
 KimonoGirlGroupHard:
 	next_list_item ; KIMONO_GIRL (1) Unreferenced
-	db "NAOKO@", TRAINERTYPE_NORMAL
+	db "Naoko@", TRAINERTYPE_NORMAL
 	db 7
 	dw SKIPLOOM
 	db 7
@@ -7314,7 +7314,7 @@ KimonoGirlGroupHard:
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (2) Ecruteak City
-	db "NAOKO@", TRAINERTYPE_NORMAL
+	db "Naoko@", TRAINERTYPE_NORMAL
 	db 5
 	dw QUILAVA
 	db 6
@@ -7324,7 +7324,7 @@ KimonoGirlGroupHard:
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (3) Ecruteak City
-	db "SAYO@", TRAINERTYPE_NORMAL
+	db "Sayo@", TRAINERTYPE_NORMAL
 	db 5
 	dw NATU
 	db 6
@@ -7334,7 +7334,7 @@ KimonoGirlGroupHard:
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (4) Ecruteak City
-	db "ZUKI@", TRAINERTYPE_NORMAL
+	db "Zuki@", TRAINERTYPE_NORMAL
 	db 5
 	dw UNOWN
 	db 6
@@ -7344,7 +7344,7 @@ KimonoGirlGroupHard:
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (5) Ecruteak City
-	db "KUNI@", TRAINERTYPE_NORMAL
+	db "Kuni@", TRAINERTYPE_NORMAL
 	db 5
 	dw WINGULL
 	db 6
@@ -7354,7 +7354,7 @@ KimonoGirlGroupHard:
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (6) Ecruteak City
-	db "MIKI@", TRAINERTYPE_NORMAL
+	db "Miki@", TRAINERTYPE_NORMAL
 	db 5
 	dw PLUSLE
 	db 6
@@ -7367,7 +7367,7 @@ KimonoGirlGroupHard:
 
 TwinsGroupHard:
 	next_list_item ; TWINS (1) Azalea Town Gym
-	db "AMY & MAY@", TRAINERTYPE_NORMAL
+	db "Amy & May@", TRAINERTYPE_NORMAL
 	db 7
 	dw SPINARAK
 	db 7
@@ -7375,7 +7375,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (2) Route 37
-	db "ANN & ANNE@", TRAINERTYPE_MOVES
+	db "Ann & Anne@", TRAINERTYPE_MOVES
 	db 7
 	dw CLEFAIRY
 	dw GROWL, ENCORE, DOUBLESLAP, METRONOME
@@ -7385,7 +7385,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (3) Route 37
-	db "ANN & ANNE@", TRAINERTYPE_MOVES
+	db "Ann & Anne@", TRAINERTYPE_MOVES
 	db 7
 	dw JIGGLYPUFF
 	dw SING, DEFENSE_CURL, POUND, DISABLE
@@ -7395,7 +7395,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (4) Azalea Town Gym
-	db "AMY & MAY@", TRAINERTYPE_NORMAL
+	db "Amy & May@", TRAINERTYPE_NORMAL
 	db 7
 	dw LEDYBA
 	db 7
@@ -7403,7 +7403,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (5) Celadon City Gym
-	db "JO & ZOE@", TRAINERTYPE_NORMAL
+	db "Jo & Zoe@", TRAINERTYPE_NORMAL
 	db 7
 	dw WEEPINBELL
 	db 7
@@ -7411,7 +7411,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (6) Celadon City Gym
-	db "JO & ZOE@", TRAINERTYPE_NORMAL
+	db "Jo & Zoe@", TRAINERTYPE_NORMAL
 	db 7
 	dw VILEPLUME
 	db 7
@@ -7419,7 +7419,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (7) S.S. Aqua
-	db "MEG & PEG@", TRAINERTYPE_NORMAL
+	db "Meg & Peg@", TRAINERTYPE_NORMAL
 	db 7
 	dw TEDDIURSA
 	db 7
@@ -7427,7 +7427,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (8) S.S. Aqua
-	db "MEG & PEG@", TRAINERTYPE_NORMAL
+	db "Meg & Peg@", TRAINERTYPE_NORMAL
 	db 7
 	dw PHANPY
 	db 7
@@ -7435,7 +7435,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (9) Dragon's Den
-	db "LEA & PIA@", TRAINERTYPE_MOVES
+	db "Lea & Pia@", TRAINERTYPE_MOVES
 	db 7
 	dw DRATINI
 	dw THUNDER_WAVE, TWISTER, FLAMETHROWER, HEADBUTT
@@ -7445,7 +7445,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (10) Dragon's Den
-	db "LEA & PIA@", TRAINERTYPE_MOVES
+	db "Lea & Pia@", TRAINERTYPE_MOVES
 	db 7
 	dw DRATINI
 	dw THUNDER_WAVE, TWISTER, ICE_BEAM, HEADBUTT
@@ -7455,7 +7455,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (11) Route 103
-	db "AMY & LIV@", TRAINERTYPE_NORMAL
+	db "Amy & Liv@", TRAINERTYPE_NORMAL
 	db 9
 	dw ZANGOOSE
 	db 9
@@ -7463,7 +7463,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (12) Route 104
-	db "GINA & MIA@", TRAINERTYPE_NORMAL
+	db "Gina & Mia@", TRAINERTYPE_NORMAL
 	db 4
 	dw SEEDOT
 	db 4
@@ -7471,7 +7471,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (13) Route 117
-	db "ANNA & MEG@", TRAINERTYPE_NORMAL
+	db "Anna & Meg@", TRAINERTYPE_NORMAL
 	db 8
 	dw LINOONE
 	db 8
@@ -7479,7 +7479,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (14) Route 108
-	db "LISA & RIA@", TRAINERTYPE_NORMAL
+	db "Lisa & Ria@", TRAINERTYPE_NORMAL
 	db 8
 	dw TENTACRUEL
 	db 7
@@ -7491,7 +7491,7 @@ TwinsGroupHard:
 	db -1 ; end
 
 	next_list_item ; TWINS (15) Route 113
-	db "TORI & TIA@", TRAINERTYPE_NORMAL
+	db "Tori & Tia@", TRAINERTYPE_NORMAL
 	db 9
 	dw SPINDA
 	db 9
@@ -7502,21 +7502,21 @@ TwinsGroupHard:
 
 PokefanFGroupHard:
 	next_list_item ; POKEFANF (1) National Park
-	db "BEVERLY@", TRAINERTYPE_ITEM
+	db "Beverly@", TRAINERTYPE_ITEM
 	db 4
 	dw SNUBBULL
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANF (2) Route 39
-	db "RUTH@", TRAINERTYPE_ITEM
+	db "Ruth@", TRAINERTYPE_ITEM
 	db 7
 	dw PIKACHU
 	dw BERRY
 	db -1 ; end
 	
 	next_list_item ; POKEFANF (5) Unreferenced
-	db "GEORGIA@", TRAINERTYPE_ITEM
+	db "Georgia@", TRAINERTYPE_ITEM
 	db 3
 	dw SENTRET
 	dw BERRY
@@ -7535,14 +7535,14 @@ PokefanFGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANF (6) Route 39
-	db "JAIME@", TRAINERTYPE_ITEM
+	db "Jaime@", TRAINERTYPE_ITEM
 	db 6
 	dw MEOWTH
 	dw BERRY
 	db -1 ; end
 
 	next_list_item ; POKEFANF (7) Route 117
-	db "LYDIA@", TRAINERTYPE_ITEM
+	db "Lydia@", TRAINERTYPE_ITEM
 	db 5
 	dw PELIPPER
 	dw BERRY
@@ -7561,7 +7561,7 @@ PokefanFGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANF (8) Route 110
-	db "ISABEL@", TRAINERTYPE_ITEM
+	db "Isabel@", TRAINERTYPE_ITEM
 	db 8
 	dw PLUSLE
 	dw BERRY
@@ -7571,7 +7571,7 @@ PokefanFGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANF (9) Sootopolos Gym
-	db "ANNIKA@", TRAINERTYPE_ITEM
+	db "Annika@", TRAINERTYPE_ITEM
 	db 7
 	dw SEADRA
 	dw BERRY
@@ -7581,7 +7581,7 @@ PokefanFGroupHard:
 	db -1 ; end
 
 	next_list_item ; POKEFANF (10) Sootopolos Gym
-	db "BETHANY@", TRAINERTYPE_ITEM
+	db "Bethany@", TRAINERTYPE_ITEM
 	db 7
 	dw PELIPPER
 	dw BERRY
@@ -7594,7 +7594,7 @@ PokefanFGroupHard:
 
 RedGroupHard:
 	next_list_item ; RED (1)
-	db "RED@", TRAINERTYPE_MOVES
+	db "Red@", TRAINERTYPE_MOVES
 	db 21
 	dw PIKACHU
 	dw SURF, EXTREMESPEED, SWIFT, VOLT_TACKLE
@@ -7619,7 +7619,7 @@ RedGroupHard:
 
 BlueGroupHard:
 	next_list_item ; BLUE (1)
-	db "BLUE@", TRAINERTYPE_ITEM_MOVES
+	db "Blue@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw PIDGEOT
 	dw SHARP_BEAK
@@ -7647,7 +7647,7 @@ BlueGroupHard:
 	db -1 ; end
 	
 	next_list_item ; BLUE (1)
-	db "BLUE@", TRAINERTYPE_MOVES
+	db "Blue@", TRAINERTYPE_MOVES
 	db 12
 	dw PIDGEOT
 	dw EXTREMESPEED, SKY_ATTACK, BODY_SLAM, STEEL_WING
@@ -7669,7 +7669,7 @@ BlueGroupHard:
 	db -1 ; end
 	
 	next_list_item ; BLUE (1)
-	db "BLUE@", TRAINERTYPE_MOVES
+	db "Blue@", TRAINERTYPE_MOVES
 	db 12
 	dw PIDGEOT
 	dw EXTREMESPEED, SKY_ATTACK, BODY_SLAM, STEEL_WING
@@ -7694,13 +7694,13 @@ BlueGroupHard:
 
 OfficerGroupHard:
 	next_list_item ; OFFICER (1) Route 34
-	db "KEITH@", TRAINERTYPE_NORMAL
+	db "Keith@", TRAINERTYPE_NORMAL
 	db 7
 	dw GROWLITHE
 	db -1 ; end
 
 	next_list_item ; OFFICER (2) Route 35
-	db "DIRK@", TRAINERTYPE_NORMAL
+	db "Dirk@", TRAINERTYPE_NORMAL
 	db 4
 	dw GROWLITHE
 	db 4
@@ -7711,7 +7711,7 @@ OfficerGroupHard:
 
 GruntFGroupHard:
 	next_list_item ; GRUNTF (1) Slowpoke Well B1f
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 4
 	dw ZUBAT
 	db 6
@@ -7719,13 +7719,13 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (2) Radio Tower 2F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 9
 	dw ARBOK
 	db -1 ; end
 
 	next_list_item ; GRUNTF (3) Goldenrod Underground Exit
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw GLOOM
 	db 7
@@ -7737,7 +7737,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (4) Radio Tower 4F
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw EKANS
 	db 7
@@ -7749,7 +7749,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (5) Team Rocket Base B3F
-	db "GRUNT@", TRAINERTYPE_MOVES
+	db "Grunt@", TRAINERTYPE_MOVES
 	db 8
 	dw SEVIPER
 	dw WRAP, LEER, POISON_TAIL, BITE
@@ -7759,7 +7759,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (6) Contest Amaya #1
-	db "AMAYA@", TRAINERTYPE_NORMAL
+	db "Amaya@", TRAINERTYPE_NORMAL
 	db 9
 	dw PIKACHU
 	db 9
@@ -7775,7 +7775,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (7) Contest Amaya #2
-	db "AMAYA@", TRAINERTYPE_NORMAL
+	db "Amaya@", TRAINERTYPE_NORMAL
 	db 7
 	dw ARAICHU
 	db 8
@@ -7791,7 +7791,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (8) Contest Amaya #3
-	db "AMAYA@", TRAINERTYPE_NORMAL
+	db "Amaya@", TRAINERTYPE_NORMAL
 	db 10
 	dw ARAICHU
 	db 10
@@ -7807,7 +7807,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (9) Safari Gruntf 1
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw ARBOK
 	db 7
@@ -7815,7 +7815,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (10) Safari Gruntf 2
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw PRIMEAPE
 	db 7
@@ -7823,7 +7823,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (11) Safari Gruntf 3
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw DEWGONG
 	db 7
@@ -7831,7 +7831,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (12) Safari Gruntf 4
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw SEAKING
 	db 7
@@ -7839,7 +7839,7 @@ GruntFGroupHard:
 	db -1 ; end
 
 	next_list_item ; GRUNTF (13) Safari Gruntf 5
-	db "GRUNT@", TRAINERTYPE_NORMAL
+	db "Grunt@", TRAINERTYPE_NORMAL
 	db 7
 	dw GRANBULL
 	db 7
@@ -7850,7 +7850,7 @@ GruntFGroupHard:
 
 MysticalmanGroupHard:
 	next_list_item ; MYSTICALMAN (1) Cianwood City
-	db "EUSINE@", TRAINERTYPE_MOVES
+	db "Eusine@", TRAINERTYPE_MOVES
 	db 8
 	dw HYPNO
 	dw DREAM_EATER, HYPNOSIS, DISABLE, CONFUSION
@@ -7866,7 +7866,7 @@ MysticalmanGroupHard:
 
 KrisGroupHard:
 	next_list_item; KRIS (1) Unreferenced
-	db "KRIS@", TRAINERTYPE_NORMAL
+	db "Kris@", TRAINERTYPE_NORMAL
 	db 10
 	dw CHIKORITA
 	db 10
@@ -7880,7 +7880,7 @@ KrisGroupHard:
 
 RoxanneGroupHard:
 	next_list_item; ROXXANE (1) Unreferenced
-	db "ROXXANE@", TRAINERTYPE_NORMAL
+	db "Roxxane@", TRAINERTYPE_NORMAL
 	db 7
 	dw AGEODUDE
 	db 7
@@ -7890,7 +7890,7 @@ RoxanneGroupHard:
 	db -1 ; end
 
 	next_list_item; ROXXANE (2) Unreferenced
-	db "ROXXANE@", TRAINERTYPE_NORMAL
+	db "Roxxane@", TRAINERTYPE_NORMAL
 	db 10
 	dw NOSEPASS
 	db 10
@@ -7904,7 +7904,7 @@ RoxanneGroupHard:
 	db -1 ; end
 
 	next_list_item ; ROXXANE (3)
-	db "ROXXANE@", TRAINERTYPE_ITEM_MOVES
+	db "Roxxane@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw TENTACRUEL2
 	dw KINGS_ROCK
@@ -7934,7 +7934,7 @@ RoxanneGroupHard:
 
 BrawlyGroupHard:
 	next_list_item; BRAWLY (1) Unreferenced
-	db "BRAWLY@", TRAINERTYPE_NORMAL
+	db "Brawly@", TRAINERTYPE_NORMAL
 	db 7
 	dw MACHOP
 	db 8
@@ -7944,7 +7944,7 @@ BrawlyGroupHard:
 	db -1 ; end
 
 	next_list_item; BRAWLY (2) Unreferenced
-	db "BRAWLY@", TRAINERTYPE_NORMAL
+	db "Brawly@", TRAINERTYPE_NORMAL
 	db 9
 	dw MACHOKE
 	db 10
@@ -7958,7 +7958,7 @@ BrawlyGroupHard:
 	db -1 ; end
 
 	next_list_item ; BRAWLY (3)
-	db "BRAWLY@", TRAINERTYPE_ITEM_MOVES	
+	db "Brawly@", TRAINERTYPE_ITEM_MOVES	
 	db 10
 	dw BRELOOM
 	dw MAGNET
@@ -7989,7 +7989,7 @@ BrawlyGroupHard:
 
 WattsonGroupHard:
 	next_list_item; WATTSON (1) Unreferenced
-	db "WATTSON@", TRAINERTYPE_NORMAL
+	db "Wattson@", TRAINERTYPE_NORMAL
 	db 7
 	dw HVOLTORB
 	db 7
@@ -8003,7 +8003,7 @@ WattsonGroupHard:
 	db -1 ; end
 
 	next_list_item; WATTSON (2) Unreferenced
-	db "WATTSON@", TRAINERTYPE_NORMAL
+	db "Wattson@", TRAINERTYPE_NORMAL
 	db 11
 	dw HELECTRODE
 	db 11
@@ -8017,7 +8017,7 @@ WattsonGroupHard:
 	db -1 ; end
 
 	next_list_item ; WATTSON (3)
-	db "WATTSON@", TRAINERTYPE_ITEM_MOVES
+	db "Wattson@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw HELECTRODE
 	dw MAGNET
@@ -8048,7 +8048,7 @@ WattsonGroupHard:
 
 FlanneryGroupHard:
 	next_list_item; FLANNERY (1) Unreferenced
-	db "FLANNERY@", TRAINERTYPE_NORMAL
+	db "Flannery@", TRAINERTYPE_NORMAL
 	db 9
 	dw SUNFLORA
 	db 10
@@ -8060,7 +8060,7 @@ FlanneryGroupHard:
 	db -1 ; end
 
 	next_list_item; FLANNERY (2) Unreferenced
-	db "FLANNERY@", TRAINERTYPE_NORMAL
+	db "Flannery@", TRAINERTYPE_NORMAL
 	db 10
 	dw SUNFLORA
 	db 10
@@ -8076,7 +8076,7 @@ FlanneryGroupHard:
 	db -1 ; end
 
 	next_list_item ; FLANNERY (3)
-	db "FLANNERY@", TRAINERTYPE_ITEM_MOVES
+	db "Flannery@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw SUNFLORA
 	dw QUICK_CLAW
@@ -8107,7 +8107,7 @@ FlanneryGroupHard:
 
 NormanGroupHard:
 	next_list_item; NORMAN (1) Unreferenced
-	db "NORMAN@", TRAINERTYPE_NORMAL
+	db "Norman@", TRAINERTYPE_NORMAL
 	db 12
 	dw LINOONE
 	db 12
@@ -8117,7 +8117,7 @@ NormanGroupHard:
 	db -1 ; end
 
 	next_list_item; NORMAN (2) Unreferenced
-	db "NORMAN@", TRAINERTYPE_NORMAL
+	db "Norman@", TRAINERTYPE_NORMAL
 	db 12
 	dw LINOONE
 	db 12
@@ -8131,7 +8131,7 @@ NormanGroupHard:
 	db -1 ; end
 
 	next_list_item ; NORMAN (3)
-	db "NORMAN@", TRAINERTYPE_ITEM_MOVES
+	db "Norman@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw DITTO
 	dw QUICK_CLAW
@@ -8162,7 +8162,7 @@ NormanGroupHard:
 
 WinonaGroupHard:
 	next_list_item; WINONA (1) Fortree Gym Easy
-	db "WINONA@", TRAINERTYPE_NORMAL
+	db "Winona@", TRAINERTYPE_NORMAL
 	db 9
 	dw SWELLOW
 	db 9
@@ -8172,7 +8172,7 @@ WinonaGroupHard:
 	db -1 ; end
 
 	next_list_item; WINONA (2) Fortree Gym Medium
-	db "WINONA@", TRAINERTYPE_NORMAL
+	db "Winona@", TRAINERTYPE_NORMAL
 	db 10
 	dw SWELLOW
 	db 10
@@ -8186,7 +8186,7 @@ WinonaGroupHard:
 	db -1 ; end
 
 	next_list_item; WINONA (3) Fortree Gym Hard
-	db "WINONA@", TRAINERTYPE_ITEM_MOVES
+	db "Winona@", TRAINERTYPE_ITEM_MOVES
 	db 11
 	dw PELIPPER
 	dw QUICK_CLAW
@@ -8217,7 +8217,7 @@ WinonaGroupHard:
 
 TateLizaGroupHard:
 	next_list_item; TATELIZA (1) Mossdeep Gym
-	db "TATE&LIZA@", TRAINERTYPE_NORMAL	
+	db "Tate&Liza@", TRAINERTYPE_NORMAL	
 	db 10
 	dw SOLROCK
 	db 10
@@ -8225,7 +8225,7 @@ TateLizaGroupHard:
 	db -1 ; end
 
 	next_list_item; TATELIZA (2) Mossdeep Gym
-	db "TATE&LIZA@", TRAINERTYPE_NORMAL
+	db "Tate&Liza@", TRAINERTYPE_NORMAL
 	db 10
 	dw SOLROCK
 	db 10
@@ -8237,7 +8237,7 @@ TateLizaGroupHard:
 	db -1 ; end
 
 	next_list_item; TATELIZA (3) Mossdeep Gym
-	db "TATE&LIZA@", TRAINERTYPE_ITEM_MOVES
+	db "Tate&Liza@", TRAINERTYPE_ITEM_MOVES
 	db 10
 	dw SOLROCK
 	dw QUICK_CLAW
@@ -8268,7 +8268,7 @@ TateLizaGroupHard:
 
 WallaceGroupHard:
 	next_list_item; WALLACE (1) Sootopolis Gym
-	db "WALLACE@", TRAINERTYPE_ITEM_MOVES
+	db "Wallace@", TRAINERTYPE_ITEM_MOVES
 	db 9
 	dw LUVDISC
 	dw QUICK_CLAW
@@ -8296,7 +8296,7 @@ WallaceGroupHard:
 	db -1 ; end
 
 	next_list_item; WALLACE (2) Sootopolis Gym
-	db "WALLACE@", TRAINERTYPE_ITEM_MOVES
+	db "Wallace@", TRAINERTYPE_ITEM_MOVES
 	db 11
 	dw LUVDISC
 	dw QUICK_CLAW
@@ -8327,7 +8327,7 @@ WallaceGroupHard:
 
 SidneyGroupHard:
 	next_list_item ; SIDNEY (1)
-	db "SIDNEY@", TRAINERTYPE_MOVES
+	db "Sidney@", TRAINERTYPE_MOVES
 	db 12
 	dw MIGHTYENA
 	dw CRUNCH, DIG, BULK_UP, SNARL
@@ -8349,7 +8349,7 @@ SidneyGroupHard:
 	db -1 ; end
 
 	next_list_item ; SIDNEY (2)
-	db "SIDNEY@", TRAINERTYPE_ITEM_MOVES
+	db "Sidney@", TRAINERTYPE_ITEM_MOVES
 	db 13
 	dw MIGHTYENA
 	dw NO_ITEM
@@ -8380,7 +8380,7 @@ SidneyGroupHard:
 
 PhoebeGroupHard:
 	next_list_item ; PHOEBE (1)
-	db "PHOEBE@", TRAINERTYPE_MOVES
+	db "Phoebe@", TRAINERTYPE_MOVES
 	db 12
 	dw NINETALES
 	dw SHADOW_BALL, FLAMETHROWER, DESTINY_BOND, CONFUSE_RAY
@@ -8402,7 +8402,7 @@ PhoebeGroupHard:
 	db -1 ; end
 
 	next_list_item ; PHOEBE (2)
-	db "PHOEBE@", TRAINERTYPE_ITEM_MOVES
+	db "Phoebe@", TRAINERTYPE_ITEM_MOVES
 	db 13
 	dw NINETALES
 	dw CHARCOAL
@@ -8433,7 +8433,7 @@ PhoebeGroupHard:
 
 GlaciaGroupHard:
 	next_list_item ; GLACIA (1)
-	db "GLACIA@", TRAINERTYPE_MOVES
+	db "Glacia@", TRAINERTYPE_MOVES
 	db 12
 	dw ANINETALES
 	dw ICE_BEAM, FAERIEGLEAM, ICY_WIND, CALM_MIND
@@ -8455,7 +8455,7 @@ GlaciaGroupHard:
 	db -1 ; end
 
 	next_list_item ; GLACIA (2)
-	db "GLACIA@", TRAINERTYPE_ITEM_MOVES
+	db "Glacia@", TRAINERTYPE_ITEM_MOVES
 	db 13
 	dw ANINETALES
 	dw NEVERMELTICE
@@ -8486,7 +8486,7 @@ GlaciaGroupHard:
 
 DrakeGroupHard:
 	next_list_item ; DRAKE (1)
-	db "DRAKE@", TRAINERTYPE_MOVES
+	db "Drake@", TRAINERTYPE_MOVES
 	db 12
 	dw ALTARIA
 	dw DRAGON_DANCE, PLAY_ROUGH, DRAGON_CLAW, EARTHQUAKE
@@ -8508,7 +8508,7 @@ DrakeGroupHard:
 	db -1 ; end
 
 	next_list_item ; DRAKE (2)
-	db "DRAKE@", TRAINERTYPE_ITEM_MOVES
+	db "Drake@", TRAINERTYPE_ITEM_MOVES
 	db 13
 	dw ALTARIA
 	dw DRAGON_FANG
@@ -8539,7 +8539,7 @@ DrakeGroupHard:
 
 StevenGroupHard:
 	next_list_item ; STEVEN (1)
-	db "STEVEN@", TRAINERTYPE_MOVES
+	db "Steven@", TRAINERTYPE_MOVES
 	db 13
 	dw SKARMORY
 	dw MUD_SLAP, DRILL_PECK, RECOVER, VICEGRIP
@@ -8561,7 +8561,7 @@ StevenGroupHard:
 	db -1 ; end
 	
 	next_list_item ; STEVEN (2)
-	db "STEVEN@", TRAINERTYPE_ITEM_MOVES
+	db "Steven@", TRAINERTYPE_ITEM_MOVES
 	db 15
 	dw SKARMORY
 	dw LEFTOVERS
@@ -8589,7 +8589,7 @@ StevenGroupHard:
 	db -1 ; end
 
 	next_list_item ; STEVEN (3)
-	db "STEVEN@", TRAINERTYPE_ITEM_MOVES
+	db "Steven@", TRAINERTYPE_ITEM_MOVES
 	db 25
 	dw METAGROSSX
 	dw LEFTOVERS
@@ -8600,7 +8600,7 @@ StevenGroupHard:
 
 BattleGirlGroupHard:
 	next_list_item; BATTLE_GIRL (1) Dewford City Gym
-	db "LAURA@", TRAINERTYPE_NORMAL
+	db "Laura@", TRAINERTYPE_NORMAL
 	db 7
 	dw MEDICHAM
 	db 7
@@ -8608,7 +8608,7 @@ BattleGirlGroupHard:
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (2) Dewford City Gym
-	db "LILITH@", TRAINERTYPE_NORMAL
+	db "Lilith@", TRAINERTYPE_NORMAL
 	db 7
 	dw POLIWHIRL
 	db 7
@@ -8616,7 +8616,7 @@ BattleGirlGroupHard:
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (3) Dewford City Gym
-	db "JOCELYN@", TRAINERTYPE_NORMAL
+	db "Jocelyn@", TRAINERTYPE_NORMAL
 	db 7
 	dw COMBUSKEN
 	db 7
@@ -8624,7 +8624,7 @@ BattleGirlGroupHard:
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (4) Lavaridge Gym
-	db "DANIELLE@", TRAINERTYPE_NORMAL
+	db "Danielle@", TRAINERTYPE_NORMAL
 	db 9
 	dw MEDICHAM
 	db 9
@@ -8632,7 +8632,7 @@ BattleGirlGroupHard:
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (4) Route 117
-	db "AISHA@", TRAINERTYPE_NORMAL
+	db "Aisha@", TRAINERTYPE_NORMAL
 	db 9
 	dw HITMONLEE
 	db 9
@@ -8640,7 +8640,7 @@ BattleGirlGroupHard:
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (5) Route 120
-	db "CALLIE@", TRAINERTYPE_NORMAL
+	db "Callie@", TRAINERTYPE_NORMAL
 	db 8
 	dw HITMONTOP
 	db 8
@@ -8652,7 +8652,7 @@ BattleGirlGroupHard:
 
 RangerMGroupHard:
 	next_list_item; STEVEN (1) Unreferenced
-	db "STEVEN@", TRAINERTYPE_NORMAL
+	db "Steven@", TRAINERTYPE_NORMAL
 	db 10
 	dw CHIKORITA
 	db 10
@@ -8746,7 +8746,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (5) Safari Zone Eli
-	db "ELI@", TRAINERTYPE_NORMAL
+	db "Eli@", TRAINERTYPE_NORMAL
 	db 9
 	dw MEGANIUM
 	db 9
@@ -8756,7 +8756,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (6) Safari Zone Randal
-	db "RANDAL@", TRAINERTYPE_NORMAL
+	db "Randal@", TRAINERTYPE_NORMAL
 	db 9
 	dw TYPHLOSION
 	db 9
@@ -8766,7 +8766,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (7) Safari Zone Steven
-	db "STEVEN@", TRAINERTYPE_NORMAL
+	db "Steven@", TRAINERTYPE_NORMAL
 	db 9
 	dw RHYDON
 	db 9
@@ -8776,7 +8776,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (8) Route 119
-	db "JACKSON@", TRAINERTYPE_NORMAL
+	db "Jackson@", TRAINERTYPE_NORMAL
 	db 8
 	dw MEGANIUM
 	db 8
@@ -8786,7 +8786,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (9) Route 119
-	db "TAKASHI@", TRAINERTYPE_NORMAL
+	db "Takashi@", TRAINERTYPE_NORMAL
 	db 8
 	dw LEAFEON
 	db 8
@@ -8796,7 +8796,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (10) Route 119
-	db "YASU@", TRAINERTYPE_NORMAL
+	db "Yasu@", TRAINERTYPE_NORMAL
 	db 8
 	dw ESPEON
 	db 8
@@ -8806,7 +8806,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (11) Route 119
-	db "HIDEO@", TRAINERTYPE_NORMAL
+	db "Hideo@", TRAINERTYPE_NORMAL
 	db 8
 	dw JOLTEON
 	db 8
@@ -8816,7 +8816,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (12) Route 120
-	db "RILEY@", TRAINERTYPE_NORMAL
+	db "Riley@", TRAINERTYPE_NORMAL
 	db 8
 	dw NINJASK
 	db 8
@@ -8826,7 +8826,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (13) Route 120
-	db "LORENZO@", TRAINERTYPE_NORMAL
+	db "Lorenzo@", TRAINERTYPE_NORMAL
 	db 8
 	dw AMUK
 	db 8
@@ -8836,7 +8836,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (14) Route 120
-	db "KEIGO@", TRAINERTYPE_NORMAL
+	db "Keigo@", TRAINERTYPE_NORMAL
 	db 8
 	dw WEEZING
 	db 8
@@ -8846,14 +8846,14 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (15) Treetop Trial
-	db "RANGER@", TRAINERTYPE_RANDOM, 3, TRIAL_EASY
+	db "@", TRAINERTYPE_RANDOM, 3, TRIAL_EASY
 	db -1 ; end
 
 	end_list_items
 
 RangerFGroupHard:
 	next_list_item; STEVEN (1) Unreferenced
-	db "STEVEN@", TRAINERTYPE_NORMAL
+	db "Steven@", TRAINERTYPE_NORMAL
 	db 10
 	dw CHIKORITA
 	db 10
@@ -8863,7 +8863,7 @@ RangerFGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERF (2) Safari Zone Monica
-	db "MONICA@", TRAINERTYPE_NORMAL
+	db "Monica@", TRAINERTYPE_NORMAL
 	db 9
 	dw JYNX
 	db 9
@@ -8873,7 +8873,7 @@ RangerFGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERF (3) Safari Zone Tina
-	db "TINA@", TRAINERTYPE_NORMAL
+	db "Tina@", TRAINERTYPE_NORMAL
 	db 9
 	dw CHIMECHO
 	db 9
@@ -8883,7 +8883,7 @@ RangerFGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERF (4) Safari Zone Rachael
-	db "RACHAEL@", TRAINERTYPE_NORMAL
+	db "Rachael@", TRAINERTYPE_NORMAL
 	db 9
 	dw LUDICOLO
 	db 9
@@ -8893,7 +8893,7 @@ RangerFGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERF (5) Route 119
-	db "CATHERINE@", TRAINERTYPE_NORMAL
+	db "Catherine@", TRAINERTYPE_NORMAL
 	db 7
 	dw LUVDISC
 	db 7
@@ -8903,7 +8903,7 @@ RangerFGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERF (6) Route 119
-	db "RACHEL@", TRAINERTYPE_NORMAL
+	db "Rachel@", TRAINERTYPE_NORMAL
 	db 7
 	dw TORKOAL
 	db 7
@@ -8913,7 +8913,7 @@ RangerFGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERF (7) Route 119
-	db "DANI@", TRAINERTYPE_NORMAL
+	db "Dani@", TRAINERTYPE_NORMAL
 	db 7
 	dw ANINETALES
 	db 7
@@ -8923,7 +8923,7 @@ RangerFGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERF (8) Route 120
-	db "JENNA@", TRAINERTYPE_NORMAL
+	db "Jenna@", TRAINERTYPE_NORMAL
 	db 8
 	dw NINETALES
 	db 8
@@ -8936,7 +8936,7 @@ RangerFGroupHard:
 
 ExplorerGroupHard:
 	next_list_item; EXPLORER (1) Route 105
-	db "FOSTER@", TRAINERTYPE_NORMAL
+	db "Foster@", TRAINERTYPE_NORMAL
 	db 7
 	dw RELICANTH
 	db 7
@@ -8946,7 +8946,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (2) Route 105
-	db "ANDRES@", TRAINERTYPE_NORMAL
+	db "Andres@", TRAINERTYPE_NORMAL
 	db 7
 	dw ASANDSLASH
 	db 7
@@ -8956,7 +8956,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (3) Safari Zone Joey
-	db "JOEY@", TRAINERTYPE_NORMAL
+	db "Joey@", TRAINERTYPE_NORMAL
 	db 8
 	dw ASANDSLASH
 	db 9
@@ -8966,7 +8966,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (4) Safari Zone Ross
-	db "ROSS@", TRAINERTYPE_NORMAL
+	db "Ross@", TRAINERTYPE_NORMAL
 	db 8
 	dw METANG
 	db 9
@@ -8976,7 +8976,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (5) Safari Zone Chandler
-	db "CHANDLER@", TRAINERTYPE_NORMAL
+	db "Chandler@", TRAINERTYPE_NORMAL
 	db 8
 	dw WHISCASH
 	db 9
@@ -8986,11 +8986,11 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (6) Testroom
-	db "TEST@", TRAINERTYPE_RANDOM | TRAINERTYPE_ITEM | TRAINERTYPE_MOVES, 3, PSYCHIC_EASY	
+	db "Test@", TRAINERTYPE_RANDOM | TRAINERTYPE_ITEM | TRAINERTYPE_MOVES, 3, PSYCHIC_EASY	
 	db -1 ; end
 
 	next_list_item; EXPLORER (7) Lavaridge Desert
-	db "DUSTY@", TRAINERTYPE_NORMAL
+	db "Dusty@", TRAINERTYPE_NORMAL
 	db 7
 	dw GLISCOR
 	db 7
@@ -9000,7 +9000,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (8) Lavaridge Desert
-	db "BRYAN@", TRAINERTYPE_NORMAL
+	db "Bryan@", TRAINERTYPE_NORMAL
 	db 7
 	dw RELICANTH
 	db 7
@@ -9010,7 +9010,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (9) Route 120
-	db "CHIP@", TRAINERTYPE_NORMAL
+	db "Chip@", TRAINERTYPE_NORMAL
 	db 7
 	dw YANMEGA
 	db 7
@@ -9020,7 +9020,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; EXPLORER (10) Route 120
-	db "DALE@", TRAINERTYPE_NORMAL
+	db "Dale@", TRAINERTYPE_NORMAL
 	db 7
 	dw YANMEGA
 	db 7
@@ -9033,7 +9033,7 @@ ExplorerGroupHard:
 
 	PsychicFGroupHard:
 	next_list_item; PSYCHIC_F (01) Mossdeep Gym
-	db "MAURA@", TRAINERTYPE_NORMAL
+	db "Maura@", TRAINERTYPE_NORMAL
 	db 8
 	dw HYPNO
 	db 9
@@ -9041,7 +9041,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; PSYCHIC_F (02) Mossdeep Gym
-	db "SAMANTHA@", TRAINERTYPE_NORMAL
+	db "Samantha@", TRAINERTYPE_NORMAL
 	db 8
 	dw MISDREAVUS
 	db 9
@@ -9049,7 +9049,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; PSYCHIC_F (03) Mossdeep Gym
-	db "MACEY@", TRAINERTYPE_NORMAL
+	db "Macey@", TRAINERTYPE_NORMAL
 	db 8
 	dw XATU
 	db 9
@@ -9057,7 +9057,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; PSYCHIC_F (04) Mossdeep Gym
-	db "KATHLEEN@", TRAINERTYPE_NORMAL
+	db "Kathleen@", TRAINERTYPE_NORMAL
 	db 8
 	dw SLOWBRO
 	db 9
@@ -9065,7 +9065,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; PSYCHIC_F (05) Mossdeep Gym
-	db "SYLVIA@", TRAINERTYPE_NORMAL
+	db "Sylvia@", TRAINERTYPE_NORMAL
 	db 8
 	dw GENGAR
 	db 9
@@ -9073,7 +9073,7 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	next_list_item; PSYCHIC_F (06) Mossdeep Gym
-	db "HANNAH@", TRAINERTYPE_NORMAL
+	db "Hannah@", TRAINERTYPE_NORMAL
 	db 8
 	dw CLAYDOL
 	db 9
