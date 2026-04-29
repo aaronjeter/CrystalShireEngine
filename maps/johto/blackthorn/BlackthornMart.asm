@@ -21,8 +21,8 @@ BlackthornMartBlackBeltScript:
 	jumptextfaceplayer BlackthornMartBlackBeltText
 
 BlackthornMartCooltrainerMText:
-	text "You can't buy MAX"
-	line "REVIVE, but it"
+	text "You can't buy Max"
+	line "Revive, but it"
 
 	para "fully restores a"
 	line "fainted #MON."
@@ -30,18 +30,18 @@ BlackthornMartCooltrainerMText:
 	para "Beware--it won't"
 	line "restore PP, the"
 
-	para "POWER POINTS"
+	para "Power Points"
 	line "needed for moves."
 	done
 
 BlackthornMartBlackBeltText:
-	text "MAX REPEL keeps"
+	text "Max Repel keeps"
 	line "weak #MON away"
 	cont "from you."
 
 	para "It's the longest"
 	line "lasting of the"
-	cont "REPEL sprays."
+	cont "Repel sprays."
 	done
 
 BlackthornMart_MapEvents:

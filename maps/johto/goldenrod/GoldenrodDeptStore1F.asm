@@ -28,19 +28,19 @@ GoldenrodDeptStore1FElevatorButton:
 	jumpstd ElevatorButtonScript
 
 GoldenrodDeptStore1FReceptionistText:
-	text "Welcome to GOLDEN-"
-	line "ROD DEPT.STORE."
+	text "Welcome to Golden-"
+	line "rod Dept.Store."
 	done
 
 GoldenrodDeptStore1FGentlemanText:
-	text "The DEPT.STORE"
+	text "The Dept.Store"
 	line "has a decent se-"
 	cont "lection."
 
 	para "But some items"
 	line "are only available"
 
-	para "as GAME CORNER"
+	para "as Game Corner"
 	line "prizes."
 	done
 
@@ -59,21 +59,21 @@ GoldenrodDeptStore1FBugCatcherText:
 	done
 
 GoldenrodDeptStore1FDirectoryText:
-	text "1F SERVICE COUNTER"
+	text "1F Service Counter"
 
-	para "2F TRAINER'S"
-	line "   MARKET"
+	para "2F Trainer's"
+	line "   Market"
 
-	para "3F BATTLE"
-	line "   COLLECTION"
+	para "3F Battle"
+	line "   Collection"
 
-	para "4F MEDICINE BOX"
+	para "4F Medicine Box"
 
-	para "5F TM CORNER"
+	para "5F TM Corner"
 
-	para "6F TRANQUIL SQUARE"
+	para "6F Tranquil Square"
 
-	para "ROOFTOP LOOKOUT"
+	para "Rooftop Lookout"
 	done
 
 GoldenrodDeptStore1F_MapEvents:

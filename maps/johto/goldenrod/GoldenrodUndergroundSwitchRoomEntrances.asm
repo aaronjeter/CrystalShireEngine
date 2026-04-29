@@ -673,8 +673,8 @@ UndergroundRivalBeforeText:
 	para "I don't need you"
 	line "underfoot while I"
 
-	para "take care of TEAM"
-	line "ROCKET."
+	para "take care of Team"
+	line "Rocket."
 
 	para "…Wait a second."
 	line "You beat me be-"
@@ -704,7 +704,7 @@ UndergroundRivalAfterText:
 	text "…I don't under-"
 	line "stand…"
 
-	para "Is what that LANCE"
+	para "Is what that Lance"
 	line "guy said true?"
 
 	para "That I don't treat"
@@ -740,11 +740,11 @@ UndergroundRivalLossText:
 	text "Humph. This is my"
 	line "real power, wimp."
 
-	para "I'll make TEAM"
-	line "ROCKET history."
+	para "I'll make Team"
+	line "Rocket history."
 
 	para "And I'm going to"
-	line "grind that LANCE"
+	line "grind that Lance"
 	cont "under my heels."
 	done
 
@@ -846,8 +846,8 @@ BurglarEddieBeatenText:
 	done
 
 BurglarEddieAfterBattleText:
-	text "UNDERGROUND WARE-"
-	line "HOUSE?"
+	text "Underground Ware-"
+	line "house?"
 
 	para "What do you want"
 	line "to go there for?"
@@ -873,12 +873,12 @@ GruntM13BeatenText:
 GruntM13AfterBattleText:
 	text "You must have ice"
 	line "in your veins to"
-	cont "dis TEAM ROCKET."
+	cont "dis Team Rocket."
 	done
 
 SwitchRoomText_Switch1:
 	text "It's labeled"
-	line "SWITCH 1."
+	line "Switch 1."
 	done
 
 GruntF3SeenText:
@@ -904,28 +904,28 @@ GruntF3AfterBattleText:
 	done
 
 SwitchRoomText_OffTurnOn:
-	text "It's OFF."
-	line "Turn it ON?"
+	text "It's Off."
+	line "Turn it On?"
 	done
 
 SwitchRoomText_OnTurnOff:
-	text "It's ON."
-	line "Turn it OFF?"
+	text "It's On."
+	line "Turn it Off?"
 	done
 
 SwitchRoomText_Switch2:
 	text "It's labeled"
-	line "SWITCH 2."
+	line "Switch 2."
 	done
 
 SwitchRoomText_Switch3:
 	text "It's labeled"
-	line "SWITCH 3."
+	line "Switch 3."
 	done
 
 SwitchRoomText_Emergency:
 	text "It's labeled"
-	line "EMERGENCY."
+	line "Emergency."
 	done
 
 GoldenrodUndergroundSwitchRoomEntrances_MapEvents:

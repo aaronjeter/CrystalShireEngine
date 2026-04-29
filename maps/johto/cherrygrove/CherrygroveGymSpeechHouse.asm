@@ -24,16 +24,16 @@ CherrygroveGymSpeechHousePokefanMText:
 	line "trainer?"
 
 	para "You better visit"
-	line "the #MON GYMS"
+	line "the #MON Gyms"
 
-	para "all over JOHTO and"
-	line "collect BADGES."
+	para "all over Johto and"
+	line "collect Badges."
 	done
 
 CherrygroveGymSpeechHouseBugCatcherText:
 	text "When I get older,"
 	line "I'm going to be a"
-	cont "GYM LEADER!"
+	cont "Gym Leader!"
 
 	para "I make my #MON"
 	line "battle with my"

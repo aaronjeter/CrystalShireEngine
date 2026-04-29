@@ -187,8 +187,8 @@ GoldenrodGameCornerTMVendorMenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 5 ; items
-	db "RARECNDY 500@"
-	db "PP UP    500@"
+	db "Rarecndy 500@"
+	db "PP Up    500@"
 	db "TM25    2000@"
 	db "TM14    2000@"
 	db "TM38    2000@"
@@ -313,11 +313,11 @@ GoldenrodGameCornerPrizeMonVendorScript:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 5 ; items
-	db "BALTOY      500@"
-	db "LILEEP      500@"
-	db "ANORITH     500@"
-	db "LUVDISC     500@"
-	db "RELICANTH  1000@"
+	db "Baltoy      500@"
+	db "Lileep      500@"
+	db "Anorith     500@"
+	db "Luvdisc     500@"
+	db "Relicanth  1000@"
 	db "CANCEL@"
 
 
@@ -443,12 +443,12 @@ GoldenrodGameCornerPrizeMonVendor3Script:
 .MenuData3:
 	db STATICMENU_CURSOR ; flags
 	db 5 ; items
-	db "FEEBAS     1000@"
-	db "KECLEON    1000@"
-	db "TROPIUS    1500@"
-	db "CHIMECHO   1500@"
-	db "ABSOL      1500@"
-	db "CANCEL@"
+	db "Feebas     1000@"
+	db "Kecleon    1000@"
+	db "Tropius    1500@"
+	db "Chimecho   1500@"
+	db "Absol      1500@"
+	db "Cancel@"
 
 GoldenrodGameCornerPharmacistScript:
 	faceplayer
@@ -567,7 +567,7 @@ GoldenrodGameCornerPrizeVendorQuitText:
 
 GoldenrodGameCornerPrizeVendorNoCoinCaseText:
 	text "Oh? You don't have"
-	line "a COIN CASE."
+	line "a Coin Case."
 	done
 
 GoldenrodGameCornerPharmacistText:
@@ -584,7 +584,7 @@ GoldenrodGameCornerPokefanM1Text:
 
 	para "It's more of a"
 	line "challenge than the"
-	cont "ones in CELADON."
+	cont "ones in Celadon."
 	done
 
 GoldenrodGameCornerCooltrainerMText:
@@ -612,7 +612,7 @@ GoldenrodGameCornerCooltrainerFText:
 	done
 
 GoldenrodGameCornerGentlemanText:
-	text "I taught BLIZZARD"
+	text "I taught Blizzard"
 	line "to my #MON."
 
 	para "It was hard to get"
@@ -632,8 +632,8 @@ GoldenrodGameCornerPokefanM2Text:
 	para "I got so furious,"
 	line "I tossed out my"
 
-	para "COIN CASE in the"
-	line "UNDERGROUND."
+	para "Coin Case in the"
+	line "Underground."
 	done
 
 MoveTutorInsideText:

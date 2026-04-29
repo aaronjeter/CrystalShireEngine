@@ -315,7 +315,7 @@ TinTower1FSage3EntersMovement:
 	step_end
 
 TinTower1FEusineSuicuneText:
-	text "EUSINE: Awesome!"
+	text "Eusine: Awesome!"
 	line "Too awesome, even!"
 
 	para "I've never seen a"
@@ -330,7 +330,7 @@ TinTower1FEusineSuicuneText:
 	para "more incredible,"
 	line "<PLAYER>."
 
-	para "I heard SUICUNE's"
+	para "I heard Suicune's"
 	line "mystic power"
 
 	para "summons a rainbow-"
@@ -373,8 +373,8 @@ TinTower1FSage1Text:
 	done
 
 TinTower1FSage2Text:
-	text "When the BRASS"
-	line "TOWER burned down,"
+	text "When the Brass"
+	line "Tower burned down,"
 
 	para "three nameless"
 	line "#MON were said"
@@ -397,15 +397,15 @@ TinTower1FSage2Text:
 
 	para "They are…"
 
-	para "SUICUNE, ENTEI and"
-	line "RAIKOU."
+	para "Suicune, Entei and"
+	line "Raikou."
 
 	para "That is what they"
 	line "say."
 	done
 
 TinTower1FSage3Text:
-	text "The two TOWERS are"
+	text "The two Towers are"
 	line "said to have been"
 
 	para "built to foster"
@@ -422,11 +422,11 @@ TinTower1FSage3Text:
 	done
 
 TinTower1FSage4Text1:
-	text "HO-OH appears to"
+	text "Ho-oh appears to"
 	line "have descended"
 
-	para "upon this, the TIN"
-	line "TOWER!"
+	para "upon this, the Tin"
+	line "Tower!"
 	done
 
 TinTower1FSage5Text1:
@@ -477,10 +477,10 @@ TinTower1FSage4Text2:
 	line "powers…"
 
 	para "The lightning that"
-	line "struck the TOWER."
+	line "struck the Tower."
 
 	para "The fire that"
-	line "burned the TOWER."
+	line "burned the Tower."
 
 	para "And the rain that"
 	line "put out the fire…"
@@ -509,22 +509,22 @@ TinTower1FSage5Text3:
 
 TinTower1FSage6Text2:
 	text "Of the legendary"
-	line "#MON, SUICUNE"
+	line "#MON, Suicune"
 
 	para "is said to be the"
-	line "closest to HO-OH."
+	line "closest to Ho-oh."
 
 	para "I hear there may"
 	line "also be a link to"
 
 	para "#MON known as"
-	line "UNOWN."
+	line "Unown."
 
-	para "The #MON UNOWN"
+	para "The #MON Unown"
 	line "must be sharing a"
 
 	para "cooperative bond"
-	line "with SUICUNE."
+	line "with Suicune."
 	done
 
 TinTower1F_MapEvents:

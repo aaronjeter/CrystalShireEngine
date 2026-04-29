@@ -45,7 +45,7 @@ CianwoodPokecenter1FLassText:
 	done
 
 CianwoodGymGuideText:
-	text "The #MON GYM"
+	text "The #MON Gym"
 	line "trainers here are"
 	cont "macho bullies."
 
@@ -54,9 +54,9 @@ CianwoodGymGuideText:
 	cont "after me."
 
 	para "Here's some ad-"
-	line "vice: the GYM"
+	line "vice: the Gym"
 
-	para "LEADER uses the"
+	para "Leader uses the"
 	line "fighting-type."
 
 	para "So you should"
@@ -71,13 +71,13 @@ CianwoodGymGuideText:
 
 	para "And those boulders"
 	line "in the middle of"
-	cont "the GYM?"
+	cont "the Gym?"
 
 	para "If you don't move"
 	line "them correctly,"
 
 	para "you won't reach"
-	line "the GYM LEADER."
+	line "the Gym Leader."
 
 	para "If you get stuck,"
 	line "go outside."

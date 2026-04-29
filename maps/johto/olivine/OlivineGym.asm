@@ -137,7 +137,7 @@ OlivineGymStatue:
 Jasmine_SteelTypeIntro:
 	text "…Thank you for"
 	line "your help at the"
-	cont "LIGHTHOUSE…"
+	cont "Lighthouse…"
 
 	para "But this is dif-"
 	line "ferent. Please"
@@ -145,8 +145,8 @@ Jasmine_SteelTypeIntro:
 	para "allow me to intro-"
 	line "duce myself."
 
-	para "I am JASMINE, a"
-	line "GYM LEADER. I use"
+	para "I am Jasmine, a"
+	line "Gym Leader. I use"
 	cont "the steel-type."
 
 	para "…Do you know about"
@@ -167,30 +167,26 @@ Jasmine_BetterTrainer:
 	line "kindness."
 
 	para "In accordance with"
-	line "LEAGUE rules, I"
+	line "LeageE rules, I"
 
 	para "confer upon you"
-	line "this BADGE."
+	line "this Badge."
 	done
 
 Text_ReceivedMineralBadge:
 	text "<PLAYER> received"
-	line "MINERALBADGE."
+	line "Mineralbadge."
 	done
 
 Jasmine_BadgeSpeech:
-	text "MINERALBADGE"
-	line "raises #MON's"
-	cont "DEFENSE."
-
-	para "…Um… Please take"
+	text "…Um… Please take"
 	line "this too…"
 	done
 
 Jasmine_IronTailSpeech:
 	text "…You could use"
 	line "that TM to teach"
-	cont "IRON TAIL."
+	cont "Iron Tail."
 	done
 
 JasmineRematchText:
@@ -208,7 +204,7 @@ Jasmine_GoodLuck:
 	done
 
 OlivineGymGuideText:
-	text "JASMINE uses the"
+	text "Jasmine uses the"
 	line "newly discovered"
 	cont "steel-type."
 
@@ -228,9 +224,9 @@ OlivineGymGuideWinText:
 	done
 
 OlivineGymGuidePreText:
-	text "JASMINE, the GYM"
-	line "LEADER, is at the"
-	cont "LIGHTHOUSE."
+	text "Jasmine, the Gym"
+	line "Leader, is at the"
+	cont "Lighthouse."
 
 	para "She's been tending"
 	line "to a sick #MON."

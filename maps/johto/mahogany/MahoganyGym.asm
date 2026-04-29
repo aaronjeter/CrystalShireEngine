@@ -217,7 +217,7 @@ PryceText_Intro:
 	para "I do not lose"
 	line "easily."
 
-	para "I, PRYCE--the"
+	para "I, Pryce--the"
 	line "winter trainer--"
 
 	para "shall demonstrate"
@@ -235,20 +235,20 @@ PryceText_Impressed:
 	line "life's obstacles."
 
 	para "You are worthy of"
-	line "this BADGE!"
+	line "this Badge!"
 	done
 
 Text_ReceivedGlacierBadge:
 	text "<PLAYER> received"
-	line "GLACIERBADGE."
+	line "Glacierbadge."
 	done
 
 PryceText_IcyWindSpeech:
 	text "That TM contains"
-	line "ICY WIND."
+	line "Icy Wind."
 
-	para "It inflicts damage"
-	line "and lowers speed."
+	para "It inflicts"
+	line "Frostbite."
 
 	para "It demonstrates"
 	line "the harshness of"
@@ -298,7 +298,7 @@ BoarderRonaldAfterBattleText:
 	done
 
 BoarderBradSeenText:
-	text "This GYM has a"
+	text "This Gym has a"
 	line "slippery floor."
 
 	para "It's fun, isn't"
@@ -315,7 +315,7 @@ BoarderBradBeatenText:
 	done
 
 BoarderBradAfterBattleText:
-	text "This GYM is great."
+	text "This Gym is great."
 	line "I love boarding"
 	cont "with my #MON!"
 	done
@@ -327,12 +327,12 @@ BoarderDouglasSeenText:
 
 BoarderDouglasBeatenText:
 	text "OK. I'll tell you"
-	line "PRYCE's secret."
+	line "Pryce's secret."
 	done
 
 BoarderDouglasAfterBattleText:
 	text "The secret behind"
-	line "PRYCE's power…"
+	line "Pryce's power…"
 
 	para "He meditates under"
 	line "a waterfall daily"
@@ -342,8 +342,8 @@ BoarderDouglasAfterBattleText:
 	done
 
 SkierRoxanneSeenText:
-	text "To get to PRYCE,"
-	line "our GYM LEADER,"
+	text "To get to Pryce,"
+	line "our Gym Leader,"
 
 	para "you need to think"
 	line "before you skate."
@@ -359,7 +359,7 @@ SkierRoxanneAfterBattleText:
 	line "with precision,"
 
 	para "you won't get far"
-	line "in this GYM."
+	line "in this Gym."
 	done
 
 SkierClarissaSeenText:
@@ -379,7 +379,7 @@ SkierClarissaAfterBattleText:
 	done
 
 MahoganyGymGuideText:
-	text "PRYCE is a veteran"
+	text "Pryce is a veteran"
 	line "who has trained"
 
 	para "#MON for some"
@@ -399,7 +399,7 @@ MahoganyGymGuideText:
 	done
 
 MahoganyGymGuideWinText:
-	text "PRYCE is some-"
+	text "Pryce is some-"
 	line "thing, but you're"
 	cont "something else!"
 

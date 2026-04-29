@@ -95,7 +95,7 @@ CooltrainermCodyAfterBattleText:
 	para "can use dragon"
 	line "#MON only after"
 
-	para "our MASTER allows"
+	para "our Master allows"
 	line "it."
 	done
 
@@ -104,7 +104,7 @@ CooltrainerfFranSeenText:
 	line "nameless trainer"
 	cont "past me!"
 
-	para "CLAIR would be"
+	para "Clair would be"
 	line "livid if I did!"
 	done
 
@@ -113,7 +113,7 @@ CooltrainerfFranBeatenText:
 	done
 
 CooltrainerfFranAfterBattleText:
-	text "Uh-oh… CLAIR is"
+	text "Uh-oh… Clair is"
 	line "going to be mad…"
 	done
 

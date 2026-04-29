@@ -22,13 +22,13 @@ MahoganyPokecenter1FCooltrainerFScript:
 	jumptextfaceplayer MahoganyPokecenter1FCooltrainerFText
 
 MahoganyPokecenter1FPokefanMText:
-	text "What's this? TEAM"
-	line "ROCKET has come"
+	text "What's this? Team"
+	line "Rocket has come"
 	cont "back?"
 
 	para "I saw some men in"
-	line "black at LAKE OF"
-	cont "RAGE…"
+	line "black at Lake of"
+	cont "Rage…"
 	done
 
 MahoganyPokecenter1FYoungsterText:

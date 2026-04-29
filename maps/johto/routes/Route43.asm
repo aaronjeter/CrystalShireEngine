@@ -375,7 +375,7 @@ PokemaniacRonSeenText:
 	done
 
 PokemaniacRonBeatenText:
-	text "My NIDOKING did"
+	text "My Nidoking did"
 	line "pretty right on!"
 	done
 
@@ -407,7 +407,7 @@ FisherMarvinBeatenText:
 	done
 
 FisherMarvinAfterBattleText:
-	text "KURT's LURE BALL"
+	text "Kurt's Lure Ball"
 	line "is the best for"
 
 	para "catching hooked"
@@ -415,7 +415,7 @@ FisherMarvinAfterBattleText:
 
 	para "It's much more"
 	line "effective than a"
-	cont "ULTRA BALL."
+	cont "Ultra Ball."
 	done
 
 CamperSpencerSeenText:
@@ -431,7 +431,7 @@ CamperSpencerBeatenText:
 
 CamperSpencerAfterBattleText:
 	text "What is going on"
-	line "at LAKE OF RAGE?"
+	line "at Lake of Rage?"
 
 	para "We were planning"
 	line "to camp there."
@@ -439,7 +439,7 @@ CamperSpencerAfterBattleText:
 
 PicnickerTiffanySeenText:
 	text "Are you going to"
-	line "LAKE OF RAGE too?"
+	line "Lake of Rage too?"
 
 	para "Let's play for a"
 	line "little while!"
@@ -457,27 +457,27 @@ PicnickerTiffanyWantsPicnicText:
 	done
 
 PicnickerTiffanyClefairyText:
-	text "Isn't my CLEFAIRY"
+	text "Isn't my Clefairy"
 	line "just the most"
 	cont "adorable thing?"
 	done
 
 Route43Sign1Text:
-	text "ROUTE 43"
+	text "Route 43"
 
-	para "LAKE OF RAGE -"
-	line "MAHOGANY TOWN"
+	para "Lake of Rage -"
+	line "Mahogany Town"
 	done
 
 Route43Sign2Text:
-	text "ROUTE 43"
+	text "Route 43"
 
-	para "LAKE OF RAGE -"
-	line "MAHOGANY TOWN"
+	para "Lake of Rage -"
+	line "Mahogany Town"
 	done
 
 Route43TrainerTipsText:
-	text "TRAINER TIPS"
+	text "Trainer Tips"
 
 	para "All #MON have"
 	line "pros and cons"

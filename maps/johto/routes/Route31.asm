@@ -215,7 +215,7 @@ Route31PokeBall:
 	itemball POKE_BALL
 
 Route31CooltrainerMText:
-	text "DARK CAVE…"
+	text "Dark Cave…"
 
 	para "If #MON could"
 	line "light it up, I'd"
@@ -265,19 +265,19 @@ Text_Route31SleepyManGotMail:
 	text "…Zzzz… Huh?"
 
 	para "What's that? You"
-	line "have MAIL for me?"
+	line "have mail for me?"
 	done
 
 Text_Route31HandOverMailMon:
 	text "<PLAYER> handed"
 	line "over the #MON"
-	cont "holding the MAIL."
+	cont "holding the mail."
 	done
 
 Text_Route31ReadingMail:
 	text "Let's see…"
 
-	para "…DARK CAVE leads"
+	para "…Dark Cave leads"
 	line "to another road…"
 
 	para "That's good to"
@@ -299,7 +299,7 @@ Text_Route31ReadingMail:
 	done
 
 Text_Route31DescribeNightmare:
-	text "TM50 is NIGHTMARE."
+	text "TM50 is Nightmare."
 
 	para "It's a wicked move"
 	line "that steadily cuts"
@@ -315,7 +315,7 @@ Text_Route31DescribeNightmare:
 	done
 
 Text_Route31WrongMail:
-	text "This MAIL isn't"
+	text "This mail isn't"
 	line "for me."
 	done
 
@@ -324,7 +324,7 @@ Text_Route31MissingMail:
 	line "MON so special?"
 
 	para "It doesn't have"
-	line "any MAIL."
+	line "any mail."
 	done
 
 Text_Route31DeclinedToHandOverMail:
@@ -342,26 +342,26 @@ Text_Route31CantTakeLastMon:
 
 Route31YoungsterText:
 	text "I found a good"
-	line "#MON in DARK"
-	cont "CAVE."
+	line "#MON in Dark"
+	cont "Cave."
 
 	para "I'm going to raise"
 	line "it to take on"
-	cont "FALKNER."
+	cont "Falkner."
 
 	para "He's the leader of"
-	line "VIOLET CITY's GYM."
+	line "Violet City's Gym."
 	done
 
 Route31SignText:
-	text "ROUTE 31"
+	text "Route 31"
 
-	para "VIOLET CITY -"
-	line "CHERRYGROVE CITY"
+	para "Violet City -"
+	line "Cherrygrove City"
 	done
 
 DarkCaveSignText:
-	text "DARK CAVE"
+	text "Dark Cave"
 	done
 
 Route31_MapEvents:

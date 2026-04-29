@@ -92,7 +92,7 @@ EcruteakPokecenter1FPlayerMovement1:
 	step_end
 
 EcruteakPokecenter1F_BillText1:
-	text "Hi, I'm BILL. And"
+	text "Hi, I'm Bill. And"
 	line "who are you?"
 
 	para "Hmm, <PLAYER>, huh?"
@@ -103,7 +103,7 @@ EcruteakPokecenter1F_BillText1:
 EcruteakPokecenter1F_BillText2:
 	text "I just finished"
 	line "adjustments on my"
-	cont "TIME CAPSULE."
+	cont "Time Capsule."
 
 	para "It's broken."
 	line "So I hit it a "
@@ -113,15 +113,15 @@ EcruteakPokecenter1F_BillText2:
 	line "broken."
 	
 	para "I have to hurry on"
-	line "back to GOLDENROD"
+	line "back to Goldenrod"
 	cont "and see my folks."
 
 	para "Buh-bye!"
 	done
 
 EcruteakPokecenter1FPokefanMText:
-	text "The way the KIMONO"
-	line "GIRLS dance is"
+	text "The way the Kimono"
+	line "Girls dance is"
 
 	para "marvelous. Just"
 	line "like the way they"
@@ -129,8 +129,8 @@ EcruteakPokecenter1FPokefanMText:
 	done
 
 EcruteakPokecenter1FCooltrainerFText:
-	text "MORTY, the GYM"
-	line "LEADER, is soooo"
+	text "Morty, the Gym"
+	line "Leader, is soooo"
 	cont "cool."
 
 	para "His #MON are"
@@ -138,10 +138,10 @@ EcruteakPokecenter1FCooltrainerFText:
 	done
 
 EcruteakPokecenter1FGymGuideText:
-	text "LAKE OF RAGE…"
+	text "Lake of Rage…"
 
 	para "The appearance of"
-	line "a GYARADOS swarm…"
+	line "a Gyarados swarm…"
 
 	para "I smell a conspir-"
 	line "acy. I know it!"

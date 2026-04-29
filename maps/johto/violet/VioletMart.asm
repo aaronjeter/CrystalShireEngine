@@ -36,8 +36,8 @@ VioletMartGrannyText:
 
 VioletMartCooltrainerMText:
 	text "#MON can hold"
-	line "items like POTION"
-	cont "and ANTIDOTE."
+	line "items like Potion"
+	cont "and Antidote."
 
 	para "But they don't"
 	line "appear to know how"

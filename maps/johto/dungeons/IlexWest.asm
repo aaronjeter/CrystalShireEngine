@@ -48,7 +48,7 @@ TrainerYoungsterRonaldBeatenText:
 TrainerYoungsterRonaldAfterBattleText:
 	text "I'm training"
 	line "for the"
-	cont "JOHTO GAMES."
+	cont "Johto Games."
 
 	para "You should "
 	line "compete!"

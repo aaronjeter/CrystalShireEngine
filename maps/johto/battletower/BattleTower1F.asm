@@ -273,25 +273,25 @@ MovementData_BattleTowerBattleRoomPlayerTurnsToFaceNextOpponent:
 	step_end
 
 Text_BattleTowerWelcomesYou:
-	text "BATTLE TOWER"
+	text "Battle Tower"
 	line "welcomes you!"
 
 	para "I could show you"
-	line "to a BATTLE ROOM."
+	line "to a Battle Room."
 	done
 
 Text_WantToGoIntoABattleRoom:
 	text "Want to go into a"
-	line "BATTLE ROOM?"
+	line "Battle Room?"
 	done
 
 Text_RightThisWayToYourBattleRoom:
 	text "Right this way to"
-	line "your BATTLE ROOM."
+	line "your Battle Room."
 	done
 
 Text_BattleTowerIntroduction_2:
-	text "BATTLE TOWER is a"
+	text "Battle Tower is a"
 	line "facility made for"
 	cont "#MON battles."
 
@@ -302,13 +302,13 @@ Text_BattleTowerIntroduction_2:
 	line "hold battles in"
 
 	para "specially designed"
-	line "BATTLE ROOMS."
+	line "Battle Rooms."
 
 	para "There are many"
-	line "BATTLE ROOMS in"
-	cont "the BATTLE TOWER."
+	line "Battle Rooms in"
+	cont "the Battle Tower."
 
-	para "Each ROOM holds"
+	para "Each Room holds"
 	line "seven trainers."
 
 	para "Beat them all, and"
@@ -317,10 +317,10 @@ Text_BattleTowerIntroduction_2:
 	para "To interrupt a"
 	line "session, you must"
 
-	para "SAVE. If not, you"
+	para "Save. If not, you"
 	line "won't be able to"
 
-	para "resume your ROOM"
+	para "resume your Room"
 	line "challenge."
 
 	para ""
@@ -353,7 +353,7 @@ Text_PlayerGotFive:
 	text_end
 
 Text_YourPackIsStuffedFull:
-	text "Oops, your PACK is"
+	text "Oops, your Pack is"
 	line "stuffed full."
 
 	para "Please make room"
@@ -373,11 +373,11 @@ Text_PleaseStepThisWay:
 Text_WouldYouLikeToHearAboutTheBattleTower:
 	text "Would you like to"
 	line "hear about the"
-	cont "BATTLE TOWER?"
+	cont "Battle Tower?"
 	done
 
 Text_ReadBattleTowerRules:
-	text "BATTLE TOWER rules"
+	text "Battle Tower rules"
 	line "are written here."
 
 	para "Read the rules?"
@@ -406,7 +406,7 @@ Text_BattleTower_LeftWithoutSaving:
 	line "You didn't SAVE"
 
 	para "before exiting"
-	line "the BATTLE ROOM."
+	line "the Battle Room."
 
 	para "I'm awfully sorry,"
 	line "but your challenge"
@@ -430,27 +430,27 @@ Text_NextUpOpponentNo:
 
 Text_SaveBeforeEnteringBattleRoom:
 	text "Before entering"
-	line "the BATTLE ROOM,"
+	line "the Battle Room,"
 
 	para "your progress will"
 	line "be saved."
 	done
 
 Text_SaveAndEndTheSession:
-	text "SAVE and end the"
+	text "Save and end the"
 	line "session?"
 	done
 
 Text_CancelYourBattleRoomChallenge:
-	text "Cancel your BATTLE"
-	line "ROOM challenge?"
+	text "Cancel your Battle"
+	line "Room challenge?"
 	done
 
 Text_WeveBeenWaitingForYou:
 	text "We've been waiting"
 	line "for you. This way"
 
-	para "to a BATTLE ROOM,"
+	para "to a Battle Room,"
 	line "please."
 	done
 
@@ -464,7 +464,7 @@ Text_BattleTowerYoungster:
 
 Text_BattleTowerCooltrainerF:
 	text "There are lots of"
-	line "BATTLE ROOMS, but"
+	line "Battle Rooms, but"
 
 	para "I'm going to win"
 	line "them all!"

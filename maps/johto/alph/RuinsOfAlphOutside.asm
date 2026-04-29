@@ -154,7 +154,7 @@ RuinsOfAlphOutsideScientistText:
 	line "strange writing on"
 
 	para "the walls of the"
-	line "RUINS."
+	line "Ruins."
 
 	para "If those drawings"
 	line "are really #-"
@@ -181,26 +181,26 @@ PsychicNathanAfterBattleText:
 	done
 
 RuinsOfAlphOutsideMysteryChamberSignText:
-	text "MYSTERY STONE"
-	line "PANEL CHAMBER"
+	text "Mystery Stone"
+	line "Panel Chamber"
 	done
 
 RuinsOfAlphSignText:
-	text "RUINS OF ALPH"
-	line "VISITORS WELCOME"
+	text "Ruins of Alph"
+	line "Visitors Welcome"
 	done
 
 RuinsOfAlphResearchCenterSignText:
-	text "RUINS OF ALPH"
-	line "RESEARCH CENTER"
+	text "Ruins of Alph"
+	line "Research Center"
 
-	para "THE AUTHORITY ON"
-	line "THE RUINS OF ALPH"
+	para "The Authority on"
+	line "The Ruins of Alph"
 	done
 
 RuinsOfAlphOutsideFisherText1:
 	text "While exploring"
-	line "the RUINS, we"
+	line "the Ruins, we"
 
 	para "suddenly noticed"
 	line "an odd presence."
@@ -213,7 +213,7 @@ RuinsOfAlphOutsideFisherText1:
 	done
 
 RuinsOfAlphOutsideFisherText2:
-	text "The RUINS hide a"
+	text "The Ruins hide a"
 	line "huge secret!"
 
 	para "…I think…"
@@ -221,7 +221,7 @@ RuinsOfAlphOutsideFisherText2:
 
 RuinsOfAlphOutsideYoungster1Text:
 	text "There are many"
-	line "kinds of UNOWN, so"
+	line "kinds of Unown, so"
 
 	para "we use them for"
 	line "our secret codes."

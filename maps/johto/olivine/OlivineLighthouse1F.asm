@@ -15,7 +15,7 @@ OlivineLighthouse1FPokefanFScript:
 
 OlivineLighthouse1FSailorText:
 	text "People train at"
-	line "this LIGHTHOUSE."
+	line "this Lighthouse."
 
 	para "It's not easy to"
 	line "climb because of"
@@ -27,9 +27,9 @@ OlivineLighthouse1FPokefanFText:
 	line "MON used to light"
 
 	para "the sea around"
-	line "OLIVINE at night."
+	line "Olivine at night."
 
-	para "The LIGHTHOUSE was"
+	para "The Lighthouse was"
 	line "made in honor of"
 	cont "those #MON."
 	done

@@ -121,12 +121,12 @@ TwinsAnnandanne1SeenText:
 	done
 
 TwinsAnnandanne1BeatenText:
-	text "ANN & ANNE: Nnn… A"
+	text "Ann & Anne: Nnn… A"
 	line "little too strong."
 	done
 
 TwinsAnnandanne1AfterBattleText:
-	text "ANN: I can tell"
+	text "Ann: I can tell"
 	line "what my sister and"
 
 	para "my #MON are"
@@ -134,18 +134,18 @@ TwinsAnnandanne1AfterBattleText:
 	done
 
 TwinsAnnandanne2SeenText:
-	text "ANNE: ANN and I"
+	text "Anne: Ann and I"
 	line "are in this to-"
 	cont "gether!"
 	done
 
 TwinsAnnandanne2BeatenText:
-	text "ANN & ANNE: Nnn… A"
+	text "Ann & Anne: Nnn… A"
 	line "little too strong."
 	done
 
 TwinsAnnandanne2AfterBattleText:
-	text "ANNE: We share the"
+	text "Anne: We share the"
 	line "same feelings as"
 	cont "our #MON."
 	done
@@ -172,9 +172,9 @@ PsychicGregAfterBattleText:
 	done
 
 MeetSunnyText:
-	text "SUNNY: Hi!"
+	text "Sunny: Hi!"
 
-	para "I'm SUNNY of Sun-"
+	para "I'm Sunny of Sun-"
 	line "day, meaning it's"
 	cont "Sunday today!"
 	done
@@ -192,7 +192,7 @@ SunnyGivesGiftText2:
 	done
 
 SunnyGaveGiftText:
-	text "SUNNY: That thing…"
+	text "Sunny: That thing…"
 
 	para "Um…"
 
@@ -209,30 +209,30 @@ SunnyGaveGiftText:
 	para "moves should hold"
 	line "it."
 
-	para "My sis MONICA said"
+	para "My sis Monica said"
 	line "it powers up"
 	cont "electric moves!"
 	done
 
 SunnySundayText:
-	text "SUNNY: My sisters"
+	text "Sunny: My sisters"
 	line "and brothers are"
-	cont "MONICA, TUSCANY,"
-	cont "WESLEY, ARTHUR,"
-	cont "FRIEDA and SANTOS."
+	cont "Monica, Tuscany,"
+	cont "Wesley, Arthur,"
+	cont "Frieda and Santos."
 
 	para "They're all older"
 	line "than me!"
 	done
 
 SunnyNotSundayText:
-	text "SUNNY: Isn't today"
+	text "Sunny: Isn't today"
 	line "Sunday?"
 	cont "Um… I forgot!"
 	done
 
 Route37SignText:
-	text "ROUTE 37"
+	text "Route 37"
 	done
 
 Route37_MapEvents:

@@ -265,9 +265,9 @@ Route30_MikeysRattataAttacksMovement:
 	step_end
 
 Text_UseTackle:
-	text "Go, RATTATA!"
+	text "Go, Rattata!"
 
-	para "TACKLE!"
+	para "Tackle!"
 	done
 
 Text_ThisIsABigBattle:
@@ -339,7 +339,7 @@ BugCatcherDonBeatenText:
 
 BugCatcherDonAfterText:
 	text "I ran out of #"
-	line "BALLS while I was"
+	line "Balls while I was"
 	cont "catching #MON."
 
 	para "I should've bought"
@@ -347,7 +347,7 @@ BugCatcherDonAfterText:
 	done
 
 Route30YoungsterText_DirectionsToMrPokemonsHouse:
-	text "MR.#MON's"
+	text "Mr.#MON's"
 	line "house? It's a bit"
 	cont "farther ahead."
 	done
@@ -367,28 +367,28 @@ Route30CooltrainerFText:
 	done
 
 Route30SignText:
-	text "ROUTE 30"
+	text "Route 30"
 
-	para "VIOLET CITY -"
-	line "CHERRYGROVE CITY"
+	para "Violet City -"
+	line "Cherrygrove City"
 	done
 
 MrPokemonsHouseDirectionsSignText:
-	text "MR.#MON'S HOUSE"
-	line "STRAIGHT AHEAD!"
+	text "Mr.#MON'S House"
+	line "Straight Ahead!"
 	done
 
 MrPokemonsHouseSignText:
-	text "MR.#MON'S HOUSE"
+	text "Mr.#MON's House"
 	done
 
 Route30TrainerTipsText:
-	text "TRAINER TIPS"
+	text "Trainer Tips"
 
 	para "No stealing other"
 	line "people's #MON!"
 
-	para "# BALLS are to"
+	para "# Balls are to"
 	line "be thrown only at"
 	cont "wild #MON!"
 	done

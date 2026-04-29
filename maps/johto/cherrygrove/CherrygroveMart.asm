@@ -42,14 +42,14 @@ CherrygroveMartYoungsterScript:
 
 CherrygroveMartCooltrainerMText:
 	text "They're fresh out"
-	line "of # BALLS!"
+	line "of # Balls!"
 
 	para "When will they get"
 	line "more of them?"
 	done
 
 CherrygroveMartCooltrainerMText_PokeBallsInStock:
-	text "# BALLS are in"
+	text "# Balls are in"
 	line "stock! Now I can"
 	cont "catch #MON!"
 	done
@@ -66,7 +66,7 @@ CherrygroveMartYoungsterText:
 	cont "#MON fainted."
 
 	para "You should keep an"
-	line "ANTIDOTE with you."
+	line "Antidote with you."
 	done
 
 CherrygroveMart_MapEvents:

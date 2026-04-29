@@ -154,8 +154,8 @@ VioletGymStatue:
 	jumpstd GymStatue2Script
 
 FalknerIntroText:
-	text "I'm FALKNER, the"
-	line "VIOLET #MON GYM"
+	text "I'm Falkner, the"
+	line "Violet #MON Gym"
 	cont "leader!"
 
 	para "People say you can"
@@ -185,27 +185,17 @@ FalknerWinLossText:
 	line "Take this."
 
 	para "It's the official"
-	line "#MON LEAGUE"
-	cont "ZEPHYRBADGE."
+	line "#MON League"
+	cont "Zephyrbadge."
 	done
 
 ReceivedZephyrBadgeText:
 	text "<PLAYER> received"
-	line "ZEPHYRBADGE."
+	line "Zephyrbadge."
 	done
 
 FalknerZephyrBadgeText:
-	text "ZEPHYRBADGE"
-	line "raises the attack"
-	cont "power of #MON."
-
-	para "It also enables"
-	line "#MON to use"
-
-	para "FLASH, if they"
-	line "have it, anytime."
-
-	para "Here--take this"
+	text "Here--take this"
 	line "too."
 	done
 
@@ -217,7 +207,7 @@ FalknerTMMudSlapText:
 	line "new move."	
 
 	para "TM31 contains"
-	line "MUD-SLAP."
+	line "Mud-Slap."
 
 	para "It reduces the"
 	line "enemy's accuracy"
@@ -240,12 +230,12 @@ FalknerRematchWinLossText:
 
 FalknerFightDoneText:
 	text "There are #MON"
-	line "GYMS in cities and"
+	line "Gyms in cities and"
 	cont "towns ahead."
 
 	para "You should test"
 	line "your skills at"
-	cont "these GYMS."
+	cont "these Gyms."
 
 	para "I'm going to train"
 	line "harder to become"
@@ -272,7 +262,7 @@ BirdKeeperRodBeatenText:
 	done
 
 BirdKeeperRodAfterBattleText:
-	text "FALKNER's skills"
+	text "Falkner's skills"
 	line "are for real!"
 
 	para "Don't get cocky"
@@ -283,7 +273,7 @@ BirdKeeperRodAfterBattleText:
 BirdKeeperAbeSeenText:
 	text "Let me see if you"
 	line "are good enough to"
-	cont "face FALKNER!"
+	cont "face Falkner!"
 	done
 
 BirdKeeperAbeBeatenText:
@@ -322,7 +312,7 @@ VioletGymGuideWinText:
 	text "Nice battle! Keep"
 	line "it up, and you'll"
 
-	para "be the CHAMP in no"
+	para "be the Champ in no"
 	line "time at all!"
 	done
 

@@ -296,8 +296,8 @@ OlivinePortCantBoardText:
 	done
 
 OlivinePortAskBoardText:
-	text "Welcome to FAST"
-	line "SHIP S.S.AQUA."
+	text "Welcome to Fast"
+	line "Ship S.S.Aqua."
 
 	para "Will you be board-"
 	line "ing today?"
@@ -305,7 +305,7 @@ OlivinePortAskBoardText:
 
 OlivinePortAskTicketText:
 	text "May I see your"
-	line "S.S.TICKET?"
+	line "S.S.Ticket?"
 	done
 
 OlivinePortComeAgainText:
@@ -315,7 +315,7 @@ OlivinePortComeAgainText:
 
 OlivinePortFlashTicketText:
 	text "<PLAYER> flashed"
-	line "the S.S.TICKET."
+	line "the S.S.Ticket."
 
 	para "That's it."
 	line "Thank you!"
@@ -324,29 +324,29 @@ OlivinePortFlashTicketText:
 OlivinePortNoTicketText:
 	text "<PLAYER> tried to"
 	line "show the S.S."
-	cont "TICKET…"
+	cont "Ticket…"
 
-	para "…But no TICKET!"
+	para "…But no Ticket!"
 
 	para "Sorry!"
 	line "You may board only"
 
 	para "if you have an"
-	line "S.S.TICKET."
+	line "S.S.Ticket."
 	done
 
 OlivinePortMondayShipText:
-	text "The FAST SHIP will"
+	text "The Fast Ship will"
 	line "sail next Monday."
 	done
 
 OlivinePortFridayShipText:
-	text "The FAST SHIP will"
+	text "The Fast Ship will"
 	line "sail next Friday."
 	done
 
 OlivinePortFishingGuru1Text:
-	text "SHELLDER are easy"
+	text "Shellder are easy"
 	line "to catch here."
 
 	para "They're kind of"
@@ -354,23 +354,23 @@ OlivinePortFishingGuru1Text:
 	done
 
 OlivinePortFishingGuru2Text:
-	text "How many RODS do"
+	text "How many Rods do"
 	line "you have?"
 
-	para "Different RODS"
+	para "Different Rods"
 	line "catch different"
 	cont "#MON."
 	done
 
 OlivinePortYoungsterText:
-	text "S.S.AQUA uses jets"
+	text "S.S.Aqua uses jets"
 	line "to skim over the"
 	cont "waves!"
 	done
 
 OlivinePortCooltrainerFText:
 	text "There are lots of"
-	line "#MON in KANTO."
+	line "#MON in Kanto."
 
 	para "I wish I could go…"
 	done
@@ -406,7 +406,7 @@ OlivinePortNotRidingToHoennScript:
 
 OlivinePortHoennText:
 	text "Do you want to"
-	line "sail to HOENN?"
+	line "sail to Hoenn?"
 	done
 
 OlivinePortNotRidingText:

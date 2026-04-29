@@ -231,10 +231,10 @@ BirdKeeperTobyBeatenText:
 
 BirdKeeperTobyAfterBattleText:
 	text "I plan to train in"
-	line "CIANWOOD CITY to"
+	line "Cianwood City to"
 
 	para "teach my #MON"
-	line "how to FLY."
+	line "how to Fly."
 	done
 
 SchoolboyChad1SeenText:
@@ -278,7 +278,7 @@ LassDanaMoomooMilkText:
 	text "I know something"
 	line "good!"
 
-	para "MOOMOO FARM's milk"
+	para "Moomoo Farm's milk"
 	line "is famous for its"
 	cont "flavor."
 	done
@@ -330,12 +330,12 @@ BeautyOliviaSeenText:
 	done
 
 BeautyOliviaBeatenText:
-	text "We drink MOOMOO"
-	line "MILK every day."
+	text "We drink Moomoo"
+	line "Milk every day."
 	done
 
 BeautyOliviaAfterBattleText:
-	text "MOOMOO MILK is"
+	text "Moomoo Milk is"
 	line "good for beauty"
 
 	para "and health, but"
@@ -346,14 +346,14 @@ BeautyOliviaAfterBattleText:
 	done
 
 Route38SignText:
-	text "ROUTE 38"
+	text "Route 38"
 
-	para "OLIVINE CITY -"
-	line "ECRUTEAK CITY"
+	para "Olivine City -"
+	line "Ecruteak City"
 	done
 
 Route38TrainerTipsText:
-	text "TRAINER TIPS"
+	text "Trainer Tips"
 
 	para "If a #MON is"
 	line "trying to evolve,"

@@ -82,10 +82,10 @@ SailorTerrellBeatenText:
 
 SailorTerrellAfterBattleText:
 	text "Every time I come"
-	line "back to OLIVINE, I"
-	cont "visit the GYM."
+	line "back to Olivine, I"
+	cont "visit the Gym."
 
-	para "The GYM LEADER's"
+	para "The Gym Leader's"
 	line "#MON type has"
 
 	para "changed without me"
@@ -105,7 +105,7 @@ GentlemanPrestonBeatenText:
 	done
 
 GentlemanPrestonAfterBattleText:
-	text "JASMINE used to"
+	text "Jasmine used to"
 	line "use rock #MON"
 	cont "like ONIX."
 	done

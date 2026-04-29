@@ -179,14 +179,14 @@ OlivineCityRivalText:
 	para "Speaking of weak-"
 	line "lings, the city's"
 
-	para "GYM LEADER isn't"
+	para "Gym Leader isn't"
 	line "here."
 
 	para "Supposedly taking"
 	line "care of a sick"
 
 	para "#MON at the"
-	line "LIGHTHOUSE."
+	line "Lighthouse."
 
 	para "Humph! Boo-hoo!"
 	line "Just let sick"
@@ -198,7 +198,7 @@ OlivineCityRivalText:
 
 	para "Why don't you go"
 	line "train at the"
-	cont "LIGHTHOUSE?"
+	cont "Lighthouse?"
 
 	para "Who knows. It may"
 	line "make you a bit"
@@ -217,7 +217,7 @@ OlivineCitySailor1Text:
 	line "more treacherous!"
 
 	para "Without the beacon"
-	line "of the LIGHTHOUSE"
+	line "of the Lighthouse"
 
 	para "to guide it, no"
 	line "ship can sail."
@@ -250,34 +250,34 @@ OlivineCitySailor2Text:
 	done
 
 OlivineCitySignText:
-	text "OLIVINE CITY"
+	text "Olivine City"
 
 	para "The Port Closest"
 	line "to Foreign Lands"
 	done
 
 OlivineCityPortSignText:
-	text "OLIVINE PORT"
-	line "FAST SHIP PIER"
+	text "Olivine Port"
+	line "Fast Ship Pier"
 	done
 
 OlivineGymSignText:
-	text "OLIVINE CITY"
-	line "#MON GYM"
-	cont "LEADER: JASMINE"
+	text "Olivine City"
+	line "#MON Gym"
+	cont "Leader: Jasmine"
 
 	para "The Steel-Clad"
 	line "Defense Girl"
 	done
 
 OlivineLighthouseSignText:
-	text "OLIVINE LIGHTHOUSE"
+	text "Olivine Lighthouse"
 	line "Also known as the"
-	cont "GLITTER LIGHTHOUSE"
+	cont "Glitter Lighthouse"
 	done
 
 OlivineCityBattleTowerSignText:
-	text "BATTLE TOWER AHEAD"
+	text "Battle Tower Ahead"
 	line "Opening Now!"
 	done
 

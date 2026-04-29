@@ -29,12 +29,12 @@ OlivineMartCooltrainerFText:
 	done
 
 OlivineMartLassText:
-	text "My BUTTERFREE came"
+	text "My Butterfree came"
 	line "from my boyfriend"
 	cont "overseas."
 
 	para "It carried some"
-	line "MAIL from him."
+	line "mail from him."
 
 	para "Want to know what"
 	line "it says?"

@@ -235,7 +235,7 @@ KimonoGirlMikiAfterBattleText:
 
 SurfGuyNeverLeftAScratchText:
 	text "Not only are the"
-	line "KIMONO GIRLS great"
+	line "Kimono Girls great"
 
 	para "dancers, they're"
 	line "also skilled at"
@@ -252,7 +252,7 @@ SurfGuyLadGiftText:
 	text "Lad! If you can"
 	line "defeat all the"
 
-	para "KIMONO GIRLS, I'll"
+	para "Kimono Girls, I'll"
 	line "give you a gift."
 	done
 
@@ -260,7 +260,7 @@ SurfGuyLassieGiftText:
 	text "Lassie, if you can"
 	line "defeat all the"
 
-	para "KIMONO GIRLS, I'll"
+	para "Kimono Girls, I'll"
 	line "give you a gift."
 	done
 
@@ -278,7 +278,7 @@ SurfGuyLikeADanceText:
 	done
 
 SurfGuySurfExplanationText:
-	text "That's SURF."
+	text "That's Surf."
 
 	para "It's a move that"
 	line "lets #MON swim"
@@ -288,21 +288,21 @@ SurfGuySurfExplanationText:
 SurfGuyElegantKimonoGirlsText:
 	text "I wish my #MON"
 	line "were as elegant as"
-	cont "the KIMONO GIRLS…"
+	cont "the Kimono Girls…"
 	done
 
 RhydonText:
-	text "RHYDON: Gugooh"
+	text "Rhydon: Gugooh"
 	line "gugogooh!"
 	done
 
 DanceTheaterCooltrainerMText:
 	text "That man's always"
-	line "with his RHYDON."
+	line "with his Rhydon."
 
 	para "Says he wants a"
 	line "#MON that can"
-	cont "SURF and dance."
+	cont "Surf and dance."
 
 	para "Is he trying to"
 	line "make a synchro-"
@@ -311,7 +311,7 @@ DanceTheaterCooltrainerMText:
 	done
 
 DanceTheaterGrannyText:
-	text "The KIMONO GIRLS"
+	text "The Kimono Girls"
 	line "are so beautiful…"
 
 	para "But they have to"

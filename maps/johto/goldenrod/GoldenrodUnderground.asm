@@ -418,8 +418,8 @@ GoldenrodUndergroundHiddenAntidote:
 
 SupernerdEricSeenText:
 	text "I got booted out"
-	line "of the GAME COR-"
-	cont "NER."
+	line "of the Game Cor-"
+	cont "ner."
 
 	para "I was trying to"
 	line "cheat using my"
@@ -498,8 +498,8 @@ PokemaniacDonaldAfterBattleText:
 	line "#DEX? Here's a"
 	cont "hot tip."
 
-	para "The HIKER on ROUTE"
-	line "33, ANTHONY, is a"
+	para "The Hiker on Route"
+	line "33, Anthony, is a"
 	cont "good guy."
 
 	para "He'll phone you if"
@@ -516,7 +516,7 @@ GoldenrodUndergroundTheDoorIsOpenText:
 	done
 
 GoldenrodUndergroundBasementKeyOpenedDoorText:
-	text "The BASEMENT KEY"
+	text "The Basement Key"
 	line "opened the door."
 	done
 
@@ -524,11 +524,11 @@ GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText:
 	text "Welcome!"
 
 	para "I run the #MON"
-	line "SALON!"
+	line "Salon!"
 
 	para "I'm the older and"
 	line "better of the two"
-	cont "HAIRCUT BROTHERS."
+	cont "Haircut Brothers."
 
 	para "I can make your"
 	line "#MON beautiful"
@@ -570,12 +570,12 @@ GoldenrodUndergroundOlderHaircutBrotherOneHaircutADayText:
 
 GoldenrodUndergroundYoungerHaircutBrotherOfferHaircutText:
 	text "Welcome to the"
-	line "#MON SALON!"
+	line "#MON Salon!"
 
 	para "I'm the younger"
 	line "and less expen-"
 	cont "sive of the two"
-	cont "HAIRCUT BROTHERS."
+	cont "Haircut Brothers."
 
 	para "I'll spiff up your"
 	line "#MON for just"
@@ -641,8 +641,8 @@ GoldenrodUndergroundWeAreNotOpenTodayText:
 	done
 
 GoldenrodUndergroundNoEntryText:
-	text "NO ENTRY BEYOND"
-	line "THIS POINT"
+	text "No Entry Beyond"
+	line "This Point"
 	done
 
 GoldenrodUnderground_MapEvents:

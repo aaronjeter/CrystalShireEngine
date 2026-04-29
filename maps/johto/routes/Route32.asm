@@ -481,12 +481,12 @@ Route32CooltrainerMText_AideIsWaiting:
 	line "He's waiting for"
 
 	para "you at the #MON"
-	line "CENTER."
+	line "Center."
 	done
 
 Route32CooltrainerMText_VioletGym:
 	text "Have you gone to"
-	line "the #MON GYM?"
+	line "the #MON Gym?"
 
 	para "You can test your"
 	line "#MON and your-"
@@ -505,16 +505,16 @@ Route32CooltrainerMText_HaveThisSeed:
 	line "the training you"
 
 	para "gave them around"
-	line "VIOLET CITY."
+	line "Violet City."
 
 	para "The training at"
-	line "the GYM must have"
+	line "the Gym must have"
 
 	para "been especially"
 	line "helpful."
 
 	para "As a souvenir of"
-	line "VIOLET CITY, take"
+	line "Violet City, take"
 	cont "this."
 
 	para "It increases the"
@@ -524,7 +524,7 @@ Route32CooltrainerMText_HaveThisSeed:
 
 Route32CooltrainerMText_ExperiencesShouldBeUseful:
 	text "Your experiences"
-	line "in VIOLET CITY"
+	line "in Violet City"
 
 	para "should be useful"
 	line "for your journey."
@@ -535,7 +535,7 @@ Text_MillionDollarSlowpokeTail:
 	line "to have this"
 
 	para "tasty, nutritious"
-	line "SLOWPOKETAIL?"
+	line "Slowpoketail?"
 
 	para "For you right now,"
 	line "just ¥1,000,000!"
@@ -612,7 +612,7 @@ FisherHenrySeenText:
 	done
 
 FisherHenryBeatenText:
-	text "SPLASH?"
+	text "Splash?"
 	done
 
 FisherHenryAfterText:
@@ -702,8 +702,8 @@ PicnickerLiz1AfterText:
 	done
 
 BirdKeeperPeterSeenText:
-	text "That BADGE! It's"
-	line "from VIOLET CITY!"
+	text "That Badge! It's"
+	line "from Violet City!"
 
 	para "You beat FALKNER?"
 	done
@@ -716,7 +716,7 @@ BirdKeeperPeterBeatenText:
 BirdKeeperPeterAfterText:
 	text "I should train"
 	line "again at the GYM"
-	cont "in VIOLET CITY."
+	cont "in Violet City."
 	done
 
 Text_RoarIntro:
@@ -739,22 +739,22 @@ Text_RoarOutro:
 	done
 
 MeetFriedaText:
-	text "FRIEDA: Yahoo!"
+	text "Frieda: Yahoo!"
 	line "It's Friday!"
 
-	para "I'm FRIEDA of"
+	para "I'm Frieda of"
 	line "Friday!"
 
 	para "Nice to meet you!"
 	done
 
 FriedaGivesGiftText:
-	text "Here's a POISON"
-	line "BARB for you!"
+	text "Here's a Poison"
+	line "Barb for you!"
 	done
 
 FriedaGaveGiftText:
-	text "FRIEDA: Give it to"
+	text "Frieda: Give it to"
 	line "a #MON that has"
 	cont "poison-type moves."
 
@@ -768,7 +768,7 @@ FriedaGaveGiftText:
 	done
 
 FriedaFridayText:
-	text "FRIEDA: Hiya! What"
+	text "Frieda: Hiya! What"
 	line "day do you like?"
 
 	para "I love Friday. No"
@@ -779,7 +779,7 @@ FriedaFridayText:
 	done
 
 FriedaNotFridayText:
-	text "FRIEDA: Isn't it"
+	text "Frieda: Isn't it"
 	line "Friday today?"
 
 	para "It's so boring"
@@ -787,20 +787,20 @@ FriedaNotFridayText:
 	done
 
 Route32SignText:
-	text "ROUTE 32"
+	text "Route 32"
 
-	para "VIOLET CITY -"
-	line "AZALEA TOWN"
+	para "Violet City -"
+	line "Azalea Town"
 	done
 
 Route32RuinsSignText:
-	text "RUINS OF ALPH"
-	line "EAST ENTRANCE"
+	text "Ruins of Alph"
+	line "East Entrance"
 	done
 
 Route32UnionCaveSignText:
-	text "UNION CAVE"
-	line "AHEAD"
+	text "Union Cave"
+	line "Ahead"
 	done
 
 Route32_MapEvents:

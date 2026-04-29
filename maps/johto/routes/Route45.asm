@@ -321,9 +321,9 @@ HikerErikBeatenText:
 
 HikerErikAfterBattleText:
 	text "I'll head back to"
-	line "BLACKTHORN's ICE"
+	line "Blackthorn's Ice"
 
-	para "PATH and train"
+	para "Path and train"
 	line "some more."
 	done
 
@@ -498,20 +498,20 @@ CamperQuentinSeenText:
 
 CamperQuentinBeatenText:
 	text "I was tough at the"
-	line "BATTLE TOWER…"
+	line "Battle Tower…"
 	done
 
 CamperQuentinAfterBattleText:
 	text "Have you been to"
-	line "the BATTLE TOWER?"
+	line "the Battle Tower?"
 
 	para "I never, ever lose"
 	line "there, but…"
 	done
 
 Route45SignText:
-	text "ROUTE 45"
-	line "MOUNTAIN RD. AHEAD"
+	text "Route 45"
+	line "Montain Rd. Ahead"
 	done
 
 Route45_MapEvents:

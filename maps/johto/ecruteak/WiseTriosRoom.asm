@@ -131,8 +131,8 @@ WiseTriosRoomSageAllowsPassageMovement:
 WiseTriosRoomSage1Text:
 	text "Astounding…"
 
-	para "SUICUNE, ENTEI and"
-	line "RAIKOU have arisen"
+	para "Suicune, Entei and"
+	line "Raikou have arisen"
 	cont "from their sleep…"
 
 	para "Is the legend"
@@ -141,7 +141,7 @@ WiseTriosRoomSage1Text:
 
 WiseTriosRoomSage2Text:
 	text "We train at the"
-	line "BURNED TOWER, but"
+	line "Burned Tower, but"
 
 	para "we've never heard"
 	line "of a hole opening"
@@ -154,16 +154,16 @@ WiseTriosRoomSage2Text:
 	done
 
 WiseTriosRoomSage3BlocksExitText:
-	text "TIN TOWER may be"
+	text "Tin Tower may be"
 	line "entered by those"
 
-	para "bearing ECRUTEAK's"
-	line "GYM BADGE."
+	para "bearing Ecruteak's"
+	line "Gym Badge."
 
 	para "However, now that"
-	line "SUICUNE, RAIKOU"
+	line "Suicune, Raikou"
 
-	para "and ENTEI have"
+	para "and Entei have"
 	line "arisen, I ask you"
 
 	para "to refrain from"
@@ -171,7 +171,7 @@ WiseTriosRoomSage3BlocksExitText:
 	done
 
 WiseTriosRoomSage3Text:
-	text "We, the WISE TRIO,"
+	text "We, the Wise Trio,"
 	line "are the protectors"
 
 	para "of the legendary"
@@ -191,17 +191,17 @@ SageGakuSeenText:
 	para "will come forth to"
 	line "put that trainer"
 
-	para "to test at the TIN"
-	line "TOWER."
+	para "to test at the Tin"
+	line "Tower."
 
 	para "The legend has"
 	line "come true!"
 
 	para "The legendary"
-	line "#MON SUICUNE"
+	line "#MON Suicune"
 	cont "has arrived!"
 
-	para "We, the WISE TRIO,"
+	para "We, the Wise Trio,"
 	line "shall test your"
 
 	para "worthiness to go"
@@ -217,8 +217,8 @@ SageGakuAfterBattleText:
 	text "Ah, so it is you"
 	line "who claim to have"
 
-	para "seen SUICUNE,"
-	line "ENTEI and RAIKOU"
+	para "seen Suicune,"
+	line "Entei and Raikou"
 	cont "while they slept?"
 
 	para "Unbelievable!"
@@ -246,17 +246,17 @@ SageMasaAfterBattleText:
 	line "were two nine-tier"
 	cont "towers here."
 
-	para "The BRASS TOWER,"
+	para "The Brass Tower,"
 	line "which was said to"
 
 	para "awaken #MON,"
-	line "and the TIN TOWER,"
+	line "and the Tin Tower,"
 
 	para "where #MON were"
 	line "said to rest."
 
 	para "The view from the"
-	line "tops of the TOWERS"
+	line "tops of the Towers"
 
 	para "must have been"
 	line "magnificent."
@@ -268,7 +268,7 @@ SageMasaAfterBattleText:
 	line "was said to make"
 
 	para "its roost atop the"
-	line "BRASS TOWER."
+	line "Brass Tower."
 
 	para "However…"
 
@@ -276,7 +276,7 @@ SageMasaAfterBattleText:
 	line "ago, a lightning"
 
 	para "bolt struck one of"
-	line "the TOWERS."
+	line "the Towers."
 
 	para "It was engulfed in"
 	line "flames that raged"
@@ -287,7 +287,7 @@ SageMasaAfterBattleText:
 	cont "the blaze."
 
 	para "And that is how"
-	line "the BURNED TOWER"
+	line "the Burned Tower"
 	cont "came to be."
 	done
 
@@ -312,7 +312,7 @@ SageKojiAfterBattleQuestionText:
 SageKojiAfterBattleSpeechText:
 	text "I see…"
 
-	para "We, the WISE TRIO,"
+	para "We, the Wise Trio,"
 	line "have been given"
 
 	para "the responsibility"
@@ -328,17 +328,17 @@ SageKojiAfterBattleSpeechText:
 	line "and soul of truth."
 
 	para "Please, do go on"
-	line "and enter the TIN"
-	cont "TOWER ahead."
+	line "and enter the Tin"
+	cont "Tower ahead."
 
-	para "SUICUNE will put"
+	para "Suicune will put"
 	line "you to the test."
 	done
 
 SageKojiAfterBattleFinalText:
 	text "Please, do go on."
 
-	para "SUICUNE will put"
+	para "Suicune will put"
 	line "you to the test."
 	done
 

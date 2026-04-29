@@ -67,7 +67,7 @@ ElmsHousePCText:
 	para "…"
 
 	para "It's a part of"
-	line "PROF.ELM's re-"
+	line "Prof.Elm's re-"
 	cont "search papers."
 	done
 

@@ -37,14 +37,14 @@ AzaleaPokecenter1FGentlemanText:
 	done
 
 AzaleaPokecenter1FFishingGuruText:
-	text "BILL's PC can"
+	text "Bill's PC can"
 	line "store up to 20"
-	cont "#MON per BOX."
+	cont "#MON per Box."
 	done
 
 AzaleaPokecenter1FPokefanFText:
 	text "Do you know about"
-	line "APRICORNS?"
+	line "Apricorns?"
 
 	para "Crack one open,"
 	line "hollow it out and"
@@ -59,7 +59,7 @@ AzaleaPokecenter1FPokefanFText:
 	line "were invented,"
 
 	para "everyone used"
-	line "APRICORNS."
+	line "Apricorns."
 	done
 
 AzaleaPokecenter1F_MapEvents:

@@ -113,15 +113,15 @@ RadioTower4FFisherText:
 	done
 
 RadioTower4FDJMaryText:
-	text "MARY: Why? Why do"
+	text "Mary: Why? Why do"
 	line "I have to suffer"
 	cont "through this?"
 
-	para "MEOWTH, help me!"
+	para "Meowth, help me!"
 	done
 
 RadioTower4FDJMaryText_ClearedRockets:
-	text "MARY: Oh! You're"
+	text "Mary: Oh! You're"
 	line "my little savior!"
 
 	para "Will you take this"
@@ -129,7 +129,7 @@ RadioTower4FDJMaryText_ClearedRockets:
 	done
 
 RadioTower4FDJMaryText_GivePinkBow:
-	text "MARY: It's just"
+	text "Mary: It's just"
 	line "right for #MON"
 
 	para "that know normal-"
@@ -137,20 +137,20 @@ RadioTower4FDJMaryText_GivePinkBow:
 	done
 
 RadioTower4FDJMaryText_After:
-	text "MARY: Please tune"
-	line "into me on PROF."
+	text "Mary: Please tune"
+	line "into me on Prof."
 
-	para "OAK'S #MON TALK"
+	para "Oak's #MON Talk"
 	line "show."
 	done
 
 RadioTowerMeowthText:
-	text "MEOWTH: Meowth…"
+	text "Meowth: Meowth…"
 	done
 
 GruntM10SeenText:
 	text "You plan to rescue"
-	line "the DIRECTOR?"
+	line "the Director?"
 
 	para "That won't be pos-"
 	line "sible because I'm"
@@ -168,7 +168,7 @@ GruntM10AfterBattleText:
 
 Executivem2SeenText:
 	text "Stop! I'm known as"
-	line "the TEAM ROCKET"
+	line "the Team Rocket"
 	cont "fortress!"
 
 	para "You're not taking"
@@ -217,7 +217,7 @@ GruntF4AfterBattleText:
 ScientistRichSeenText:
 	text "Most excellent."
 
-	para "This RADIO TOWER"
+	para "This Radio Tower"
 	line "will fulfill our"
 	cont "grand design."
 	done
@@ -232,15 +232,15 @@ ScientistRichBeatenText:
 ScientistRichAfterBattleText:
 	text "Do you honestly"
 	line "believe you can"
-	cont "stop TEAM ROCKET?"
+	cont "stop Team Rocket?"
 	done
 
 RadioTower4FProductionSignText:
-	text "4F PRODUCTION"
+	text "4F Production"
 	done
 
 RadioTower4FStudio2SignText:
-	text "4F STUDIO 2"
+	text "4F Studio 2"
 	done
 
 RadioTower4F_MapEvents:

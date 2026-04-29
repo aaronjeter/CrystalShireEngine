@@ -114,12 +114,12 @@ AcademyBlackboard:
 	dbw BANK(@), NULL
 
 .Text:
-	db "PSN@"
-	db "PAR@"
-	db "SLP@"
-	db "BRN@"
-	db "FRZ@"
-	db "QUIT@"
+	db "Psn@"
+	db "Par@"
+	db "Slp@"
+	db "Brn@"
+	db "Frz@"
+	db "Quit@"
 
 AcademyNotebook:
 	opentext
@@ -158,7 +158,7 @@ AcademyEarlSpinMovement:
 	step_end
 
 AcademyEarlIntroText:
-	text "EARL, I am!"
+	text "Earl, I am!"
 
 	para "Wonderful are"
 	line "#MON, yes!"
@@ -201,7 +201,7 @@ AcademyEarlTeachHowToRaiseWellText:
 	para "If #MON come"
 	line "out in battle even"
 
-	para "briefly, some EXP."
+	para "briefly, some Exp."
 	line "Points it gets."
 
 	para "At top of list put"
@@ -248,7 +248,7 @@ EarlsPokemonAcademyGameboyKid2Text:
 
 EarlsPokemonAcademyYoungster2Text:
 	text "A #MON holding"
-	line "a BERRY will heal"
+	line "a Berry will heal"
 	cont "itself in battle."
 
 	para "Many other items"
@@ -279,7 +279,7 @@ AcademyPoisonText:
 	line "you walk."
 
 	para "To cure it, use an"
-	line "ANTIDOTE."
+	line "Antidote."
 	done
 
 AcademyParalysisText:
@@ -289,7 +289,7 @@ AcademyParalysisText:
 
 	para "It remains after"
 	line "battle, so use"
-	cont "a PARLYZ HEAL."
+	cont "a Parlyz Heal."
 	done
 
 AcademySleepText:
@@ -302,7 +302,7 @@ AcademySleepText:
 	cont "after battle."
 
 	para "Wake it up with"
-	line "an AWAKENING."
+	line "an Awakening."
 	done
 
 AcademyBurnText:
@@ -315,7 +315,7 @@ AcademyBurnText:
 	para "A burn lingers"
 	line "after battle."
 
-	para "Use a BURN HEAL as"
+	para "Use a Burn Heal as"
 	line "the cure."
 	done
 
@@ -328,7 +328,7 @@ AcademyFreezeText:
 	line "after battle."
 
 	para "Thaw it out with"
-	line "an ICE HEAL."
+	line "an Ice Heal."
 	done
 
 AcademyNotebookText:
@@ -336,7 +336,7 @@ AcademyNotebookText:
 	line "notebook…"
 
 	para "Catch #MON"
-	line "using # BALLS."
+	line "using # Balls."
 
 	para "Up to six can be"
 	line "in your party."
@@ -346,7 +346,7 @@ AcademyNotebookText:
 
 AcademyNotebookText1:
 	text "Before throwing a"
-	line "# BALL, weaken"
+	line "# Ball, weaken"
 	cont "the target first."
 
 	para "A poisoned or"

@@ -189,7 +189,7 @@ CianwoodGymMovement_ChuckChucksBoulder:
 	step_end
 
 ChuckIntroText1:
-	text "WAHAHAH!"
+	text "Wahahah!"
 
 	para "So you've come"
 	line "this far!"
@@ -205,7 +205,7 @@ ChuckIntroText1:
 	done
 
 ChuckIntroText2:
-	text "CHUCK: Urggh!"
+	text "Chuck: Urggh!"
 	line "…"
 
 	para "Oooarrgh!"
@@ -231,18 +231,18 @@ ChuckLossText:
 
 	para "How about that!"
 	line "You're worthy of"
-	cont "STORMBADGE!"
+	cont "Stormbadge!"
 	done
 
 GetStormBadgeText:
 	text "<PLAYER> received"
-	line "STORMBADGE."
+	line "Stormbadge."
 	done
 
 
 ChuckExplainTMText:
-	text "That is DYNAMIC-"
-	line "PUNCH."
+	text "That is Dynamic-"
+	line "Punch."
 
 	para "It doesn't always"
 	line "hit, but when it"
@@ -256,11 +256,11 @@ ChuckRematchText:
 	done
 
 ChuckRematchWinLossText:
-	text "WAHAHAH! Good Job!"
+	text "Wahahah! Good Job!"
 	done
 
 ChuckAfterText:
-	text "WAHAHAH! I enjoyed"
+	text "Wahahah! I enjoyed"
 	line "battling you!"
 
 	para "But a loss is a"

@@ -137,7 +137,7 @@ GoldenrodDeptStoreRoofPokefanMText:
 	line "necessary cash…"
 
 	para "Maybe I'll sell"
-	line "off the BERRIES"
+	line "off the Berries"
 	cont "I've collected…"
 	done
 
@@ -146,7 +146,7 @@ GoldenrodDeptStoreRoofTeacherText:
 	line "so cheap!"
 
 	para "I bought so much,"
-	line "my PACK's crammed!"
+	line "my Pack's crammed!"
 	done
 
 GoldenrodDeptStoreRoofBugCatcherText:
@@ -157,7 +157,7 @@ GoldenrodDeptStoreRoofBugCatcherText:
 	line "chips are down…"
 
 	para "So I came to buy"
-	line "some FULL HEAL."
+	line "some Full Heal."
 
 	para "I wonder if"
 	line "there's any left?"
@@ -188,10 +188,10 @@ Binoculars2Text:
 	done
 
 Binoculars3Text:
-	text "A FISHER caught a"
-	line "lot of MAGIKARP…"
+	text "A Fisher caught a"
+	line "lot of Magikarp…"
 
-	para "They're SPLASHing"
+	para "They're Splashing"
 	line "at the same time!"
 
 	para "Look at the water"

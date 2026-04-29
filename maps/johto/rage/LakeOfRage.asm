@@ -251,10 +251,10 @@ LakeOfRageLanceTeleportIntoSkyMovement:
 
 LakeOfRageLanceForcedToEvolveText:
 	text "This lake is full"
-	line "of GYARADOS but"
+	line "of Gyarados but"
 	cont "nothing else…"
 
-	para "So the MAGIKARP"
+	para "So the Magikarp"
 	line "are being forced"
 	cont "to evolve…"
 	done
@@ -265,7 +265,7 @@ LakeOfRageLanceIntroText:
 	cont "rumors?"
 
 	para "You're <PLAYER>?"
-	line "I'm LANCE, a"
+	line "I'm Lance, a"
 	cont "trainer like you."
 
 	para "I heard some ru-"
@@ -288,10 +288,10 @@ LakeOfRageLanceIntroText:
 	done
 
 LakeOfRageLanceRadioSignalText:
-	text "LANCE: Excellent!"
+	text "Lance: Excellent!"
 
 	para "It seems that the"
-	line "LAKE's MAGIKARP"
+	line "Lake's Magikarp"
 
 	para "are being forced"
 	line "to evolve."
@@ -299,7 +299,7 @@ LakeOfRageLanceRadioSignalText:
 	para "A mysterious radio"
 	line "broadcast coming"
 
-	para "from MAHOGANY is"
+	para "from Mahogany is"
 	line "the cause."
 
 	para "I'll be waiting"
@@ -313,35 +313,35 @@ LakeOfRageLanceRefusedText:
 	done
 
 LakeOfRageLanceAskHelpText:
-	text "LANCE: Hm? Are you"
+	text "Lance: Hm? Are you"
 	line "going to help me?"
 	done
 
 LakeOfRageGyaradosCryText:
-	text "GYARADOS: Gyashaa!"
+	text "Gyarados: Gyashaa!"
 	done
 
 LakeOfRageGotRedScaleText:
 	text "<PLAYER> obtained a"
-	line "RED SCALE."
+	line "Red Scale."
 	done
 
 LakeOfRageGrampsText:
-	text "The GYARADOS are"
+	text "The Gyarados are"
 	line "angry!"
 
 	para "It's a bad omen!"
 	done
 
 LakeOfRageGrampsText_ClearedRocketHideout:
-	text "Hahah! The MAGI-"
-	line "KARP are biting!"
+	text "Hahah! The Magi-"
+	line "karp are biting!"
 	done
 
 LakeOfRageSuperNerdText:
 	text "I heard this lake"
 	line "was made by ram-"
-	cont "paging GYARADOS."
+	cont "paging Gyarados."
 
 	para "I wonder if there"
 	line "is any connection"
@@ -354,11 +354,11 @@ LakeOfRageCooltrainerFText:
 	text "Did my eyes de-"
 	line "ceive me? I saw a"
 
-	para "red GYARADOS in"
+	para "red Gyarados in"
 	line "the LAKE…"
 
 	para "But I thought"
-	line "GYARADOS were"
+	line "Gyarados were"
 	cont "usually blue?"
 	done
 
@@ -426,7 +426,7 @@ CooltrainermAaronAfterBattleText:
 
 CooltrainerfLoisSeenText:
 	text "What happened to"
-	line "the red GYARADOS?"
+	line "the red Gyarados?"
 
 	para "It's gone?"
 
@@ -444,17 +444,17 @@ CooltrainerfLoisBeatenText:
 CooltrainerfLoisAfterBattleText:
 	text "Come to think of"
 	line "it, I've seen a"
-	cont "pink BUTTERFREE."
+	cont "pink Butterfree."
 	done
 
 MeetWesleyText:
-	text "WESLEY: Well, how"
+	text "Wesley: Well, how"
 	line "do you do?"
 
 	para "Seeing as how it's"
 	line "Wednesday today,"
 
-	para "I'm WESLEY of"
+	para "I'm Wesley of"
 	line "Wednesday."
 	done
 
@@ -465,13 +465,13 @@ WesleyGivesGiftText:
 	done
 
 WesleyGaveGiftText:
-	text "WESLEY: BLACKBELT"
+	text "Wesley: Blackbelt"
 	line "beefs up the power"
 	cont "of fighting moves."
 	done
 
 WesleyWednesdayText:
-	text "WESLEY: Since you"
+	text "Wesley: Since you"
 	line "found me, you must"
 
 	para "have met my broth-"
@@ -482,20 +482,20 @@ WesleyWednesdayText:
 	done
 
 WesleyNotWednesdayText:
-	text "WESLEY: Today's"
+	text "Wesley: Today's"
 	line "not Wednesday."
 	cont "That's too bad."
 	done
 
 LakeOfRageSignText:
-	text "LAKE OF RAGE,"
+	text "Lake of Rage,"
 	line "also known as"
-	cont "GYARADOS LAKE."
+	cont "Gyarados Lake."
 	done
 
 FishingGurusHouseSignText:
-	text "FISHING GURU'S"
-	line "HOUSE"
+	text "Fishing Guru's"
+	line "House"
 	done
 
 LakeOfRage_MapEvents:

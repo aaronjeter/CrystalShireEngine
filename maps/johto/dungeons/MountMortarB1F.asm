@@ -75,8 +75,8 @@ MountMortarB1FHiddenMaxRevive:
 MountMortarB1FKiyoIntroText:
 	text "Hey!"
 
-	para "I am the KARATE"
-	line "KING!"
+	para "I am the Karate"
+	line "King!"
 
 	para "I train alone here"
 	line "in the dark!"
@@ -110,11 +110,11 @@ MountMortarB1FTyrogueRewardText:
 
 MountMortarB1FReceiveMonText:
 	text "<PLAYER> received"
-	line "TYROGUE."
+	line "Tyrogue."
 	done
 
 MountMortarB1FKiyoGotTyrogueText:
-	text "TYROGUE is a"
+	text "Tyrogue is a"
 	line "fighting-type."
 
 	para "It evolves into a"

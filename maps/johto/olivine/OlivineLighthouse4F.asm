@@ -30,7 +30,7 @@ TrainerSailorKent:
 	end
 
 SailorKentSeenText:
-	text "JASMINE must be"
+	text "Jasmine must be"
 	line "worried sick about"
 	cont "the #MON here."
 
@@ -47,13 +47,13 @@ SailorKentAfterBattleText:
 	text "Speaking of sick,"
 	line "I've heard there's"
 
-	para "a good PHARMACY in"
-	line "CIANWOOD."
+	para "a good Pharmacy in"
+	line "Cianwood."
 	done
 
 LassConnie1SeenText:
-	text "JASMINE is this"
-	line "city's GYM LEADER."
+	text "Jasmine is this"
+	line "city's Gym Leader."
 
 	para "I mean to bring"
 	line "her back with me."
@@ -75,7 +75,7 @@ LassConnie1AfterBattleText:
 	para "I'll pray for the"
 	line "#MON here, so"
 
-	para "JASMINE can come"
+	para "Jasmine can come"
 	line "back to the GYM."
 	done
 

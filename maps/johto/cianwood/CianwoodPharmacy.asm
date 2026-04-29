@@ -47,7 +47,7 @@ PharmacistGiveSecretpotionText:
 
 	para "…"
 
-	para "The LIGHTHOUSE"
+	para "The Lighthouse"
 	line "#MON is in"
 	cont "trouble?"
 
@@ -59,11 +59,11 @@ PharmacistGiveSecretpotionText:
 
 ReceivedSecretpotionText:
 	text "<PLAYER> received"
-	line "SECRETPOTION."
+	line "Secretpotion."
 	done
 
 PharmacistDescribeSecretpotionText:
-	text "My SECRETPOTION is"
+	text "My Secretpotion is"
 	line "a tad too strong."
 
 	para "I only offer it in"

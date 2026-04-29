@@ -94,11 +94,11 @@ FarmhouseBookshelf:
 	jumpstd PictureBookshelfScript
 
 FarmerMText_SickCow:
-	text "My MILTANK ain't"
+	text "My Miltank ain't"
 	line "givin' me milk"
 	cont "n'more."
 
-	para "This here FARM's"
+	para "This here Farm's"
 	line "got famous milk."
 
 	para "Most everyone"
@@ -108,12 +108,12 @@ FarmerMText_SickCow:
 	line "o' milk if'n I"
 
 	para "feed it lots o'"
-	line "BERRIES, I reckon."
+	line "Berries, I reckon."
 	done
 
 FarmerMText_BuyMilk:
 	text "How'd you like my"
-	line "MOOMOO MILK?"
+	line "Moomoo Milk?"
 
 	para "It's my pride and"
 	line "joy, there."
@@ -137,7 +137,7 @@ FarmerMText_NoMoney:
 
 FarmerMText_NoRoom:
 	text "I reckon yer"
-	line "PACK's full."
+	line "Pack's full."
 	done
 
 FarmerMText_NoSale:
@@ -152,10 +152,10 @@ FarmerMText_Milking:
 
 FarmerFText_InTrouble:
 	text "Our milk even goes"
-	line "out to KANTO."
+	line "out to Kanto."
 
 	para "So if our own"
-	line "MILTANK won't give"
+	line "Miltank won't give"
 
 	para "us any milk, we're"
 	line "in trouble."
@@ -163,10 +163,10 @@ FarmerFText_InTrouble:
 
 FarmerFText_HealedMiltank:
 	text "You fixed our"
-	line "MILTANK, hon. Now"
+	line "Miltank, hon. Now"
 
-	para "it gives MOOMOO"
-	line "MILK again."
+	para "it gives Moomoo"
+	line "Milk again."
 
 	para "Here's somethin'"
 	line "fer your trouble."
@@ -174,7 +174,7 @@ FarmerFText_HealedMiltank:
 
 FarmerFText_SnoreSpeech:
 	text "That there's"
-	line "SNORE."
+	line "Snore."
 
 	para "It's a rare move"
 	line "that only works"

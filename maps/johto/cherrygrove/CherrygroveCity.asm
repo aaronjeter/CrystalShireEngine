@@ -93,7 +93,7 @@ CherrygroveCityGuideGent:
 	end
 
 .mapcardname
-	db "MAP CARD@"
+	db "Map Card@"
 
 .No:
 	writetext GuideGentNoText
@@ -352,7 +352,7 @@ GuideGentTourText1:
 
 GuideGentPokecenterText:
 	text "This is a #MON"
-	line "CENTER. They heal"
+	line "Center. They heal"
 
 	para "your #MON in no"
 	line "time at all."
@@ -366,9 +366,9 @@ GuideGentPokecenterText:
 
 GuideGentMartText:
 	text "This is a #MON"
-	line "MART."
+	line "Mart."
 
-	para "They sell BALLS"
+	para "They sell Balls"
 	line "for catching wild"
 
 	para "#MON and other"
@@ -376,7 +376,7 @@ GuideGentMartText:
 	done
 
 GuideGentRoute30Text:
-	text "ROUTE 30 is out"
+	text "Route 30 is out"
 	line "this way."
 
 	para "Trainers will be"
@@ -408,13 +408,13 @@ GuideGentGiftText:
 
 GotMapCardText:
 	text "<PLAYER>'s #GEAR"
-	line "now has a MAP!"
+	line "now has a Map!"
 	done
 
 GuideGentPokegearText:
 	text "#GEAR becomes"
 	line "more useful as you"
-	cont "add CARDS."
+	cont "add Cards."
 
 	para "I wish you luck on"
 	line "your journey!"
@@ -432,7 +432,7 @@ CherrygroveRivalText_Seen:
 	text "<……> <……> <……>"
 
 	para "You got a #MON"
-	line "at the LAB."
+	line "at the Lab."
 
 	para "What a waste."
 	line "A wimp like you."
@@ -484,10 +484,10 @@ CherrygroveRivalText_YouWon:
 CherrygroveTeacherText_NoMapCard:
 	text "Did you talk to"
 	line "the old man by the"
-	cont "#MON CENTER?"
+	cont "#MON Center?"
 
-	para "He'll put a MAP of"
-	line "JOHTO on your"
+	para "He'll put a Map of"
+	line "Johto on your"
 	cont "#GEAR."
 	done
 
@@ -498,7 +498,7 @@ CherrygroveTeacherText_HaveMapCard:
 	done
 
 CherrygroveYoungsterText_NoPokedex:
-	text "MR.#MON's house"
+	text "Mr.#MON's house"
 	line "is still farther"
 	cont "up ahead."
 	done
@@ -512,7 +512,7 @@ CherrygroveYoungsterText_HavePokedex:
 	line "They're a mess! I"
 
 	para "must take them to"
-	line "a #MON CENTER."
+	line "a #MON Center."
 	done
 
 MysticWaterGuyTextBefore:
@@ -520,7 +520,7 @@ MysticWaterGuyTextBefore:
 	line "had an item."
 
 	para "I think it's"
-	line "MYSTIC WATER."
+	line "Mystic Water."
 
 	para "I don't need it,"
 	line "so do you want it?"
@@ -532,14 +532,14 @@ MysticWaterGuyTextAfter:
 	done
 
 CherrygroveCitySignText:
-	text "CHERRYGROVE CITY"
+	text "Cherrygrove City"
 
 	para "The City of Cute,"
 	line "Fragrant Flowers"
 	done
 
 GuideGentsHouseSignText:
-	text "GUIDE GENT'S HOUSE"
+	text "Guide Gent's House"
 	done
 
 Cherrygrove_Hoothoot:

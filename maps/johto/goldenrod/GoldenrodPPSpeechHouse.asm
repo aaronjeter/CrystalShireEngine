@@ -29,7 +29,7 @@ GoldenrodPPSpeechHouseFisherText:
 	para "#MON couldn't"
 	line "make any moves."
 
-	para "The POWER POINTS,"
+	para "The Power Points,"
 	line "or PP, of its"
 
 	para "moves were all"
@@ -45,7 +45,7 @@ GoldenrodPPSpeechHouseLassText:
 
 	para "If that happens,"
 	line "heal it at a #-"
-	cont "MON CENTER or use"
+	cont "MON Center or use"
 	cont "an item."
 	done
 

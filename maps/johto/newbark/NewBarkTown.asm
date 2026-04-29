@@ -271,7 +271,7 @@ Text_CallMomOnGear:
 Text_ElmDiscoveredNewMon:
 	text "Yo, <PLAYER>!"
 
-	para "I hear PROF.ELM"
+	para "I hear Prof.Elm"
 	line "discovered some"
 	cont "new #MON."
 	done
@@ -280,7 +280,7 @@ NewBarkTownRivalText1:
 	text "<……>"
 
 	para "So this is the"
-	line "famous ELM #MON"
+	line "famous Elm #MON"
 	cont "LAB…"
 	done
 
@@ -290,7 +290,7 @@ NewBarkTownRivalText2:
 	done
 
 NewBarkTownSignText:
-	text "NEW BARK TOWN"
+	text "New Bark Town"
 
 	para "The Town Where the"
 	line "Winds of a New"
@@ -302,11 +302,11 @@ NewBarkTownPlayersHouseSignText:
 	done
 
 NewBarkTownElmsLabSignText:
-	text "ELM #MON LAB"
+	text "Elm #MON Lab"
 	done
 
 NewBarkTownElmsHouseSignText:
-	text "ELM'S HOUSE"
+	text "Elm's House"
 	done
 
 NewBarkTown_MapEvents:

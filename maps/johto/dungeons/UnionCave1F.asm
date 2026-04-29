@@ -83,7 +83,7 @@ UnionCave1FAwakening:
 
 HikerRussellSeenText:
 	text "You're headed to"
-	line "AZALEA, are you?"
+	line "Azalea, are you?"
 
 	para "Let my #MON see"
 	line "if you are good"
@@ -143,15 +143,15 @@ HikerDanielBeatenText:
 
 HikerDanielAfterBattleText:
 	text "I was conned into"
-	line "buying a SLOWPOKE-"
-	cont "TAIL."
+	line "buying a Slowpoke-"
+	cont "Tail."
 
 	para "I feel sorry for"
 	line "the poor #MON."
 	done
 
 FirebreatherBillSeenText:
-	text "ZUBAT's SUPERSONIC"
+	text "Zubat's Supersonic"
 	line "keeps confusing"
 	cont "my #MON."
 
@@ -181,7 +181,7 @@ FirebreatherRaySeenText:
 	done
 
 FirebreatherRayBeatenText:
-	text "FLASH!"
+	text "Flash!"
 	done
 
 FirebreatherRayAfterBattleText:

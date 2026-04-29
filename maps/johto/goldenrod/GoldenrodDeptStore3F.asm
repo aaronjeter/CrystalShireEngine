@@ -31,7 +31,7 @@ GoldenrodDeptStore3FSuperNerdText:
 	text "I, I, I'm really"
 	line "impatient!"
 
-	para "I use X SPEED in"
+	para "I use X Speed in"
 	line "battle to speed up"
 	cont "my #MON."
 	done
@@ -39,19 +39,19 @@ GoldenrodDeptStore3FSuperNerdText:
 GoldenrodDeptStore3FRockerText:
 	text "Hey! When you bat-"
 	line "tle, do you use X"
-	cont "SPECIAL?"
+	cont "Special?"
 
 	para "It's awesome. It"
 	line "really jacks up"
-	cont "SPECIAL ATTACK!"
+	cont "Spcial Attack!"
 	done
 
 GoldenrodDeptStore3FDirectoryText:
 	text "For Victory"
 	line "Seekers"
 
-	para "3F BATTLE"
-	line "   COLLECTION"
+	para "3F Battle"
+	line "   Collection"
 	done
 
 GoldenrodDeptStore3F_MapEvents:

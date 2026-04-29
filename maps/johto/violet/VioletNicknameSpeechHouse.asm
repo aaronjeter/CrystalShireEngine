@@ -34,12 +34,12 @@ VioletNicknameSpeechHouseTeacherText:
 	done
 
 VioletNicknameSpeechHouseLassText:
-	text "I call my PIDGEY"
-	line "STRAWBERRY!"
+	text "I call my Pidgey"
+	line "Strawberry!"
 	done
 
 VioletNicknameSpeechHouseBirdText:
-	text "STRAWBERRY: Pijji!"
+	text "Strawberry: Pijji!"
 	done
 
 VioletNicknameSpeechHouse_MapEvents:

@@ -78,10 +78,10 @@ GoldenrodVendingMachine:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "FRESH WATER  ¥{d:GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE}@"
-	db "SODA POP     ¥{d:GOLDENRODDEPTSTORE6F_SODA_POP_PRICE}@"
-	db "LEMONADE     ¥{d:GOLDENRODDEPTSTORE6F_LEMONADE_PRICE}@"
-	db "CANCEL@"
+	db "Fresh Water  ¥{d:GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE}@"
+	db "Soda Pop     ¥{d:GOLDENRODDEPTSTORE6F_SODA_POP_PRICE}@"
+	db "Lemonade     ¥{d:GOLDENRODDEPTSTORE6F_LEMONADE_PRICE}@"
+	db "Cancel@"
 
 GoldenrodDeptStore6FLassScript:
 	jumptextfaceplayer GoldenrodDeptStore6FLassText
@@ -120,7 +120,7 @@ GoldenrodVendingNoSpaceText:
 
 GoldenrodDeptStore6FLassText:
 	text "Do you listen to"
-	line "LUCKY CHANNEL?"
+	line "Lucky Channel?"
 
 	para "If you want to"
 	line "win, trade #MON"
@@ -145,7 +145,7 @@ GoldenrodDeptStore6FDirectoryText:
 	text "Take a Break from"
 	line "Shopping!"
 
-	para "6F TRANQUIL SQUARE"
+	para "6F Tranquil Square"
 	done
 
 GoldenrodDeptStore6F_MapEvents:
