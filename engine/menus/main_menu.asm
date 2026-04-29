@@ -220,7 +220,7 @@ MainMenu_PrintCurrentTimeAndDay:
 	jmp PlaceString
 
 .TimeNotSetString:
-	db "TIME NOT SET@"
+	db "Time Not Set@"
 
 .PrintDayOfWeek:
 	push de

@@ -189,10 +189,10 @@ RuinsOfAlphResearchCenterModifiedDexText:
 	text "Done!"
 
 	para "I modified your"
-	line "#DEX."
+	line "#dex."
 
 	para "I added an"
-	line "optional #DEX"
+	line "optional #dex"
 
 	para "to store Unown"
 	line "data."
@@ -203,7 +203,7 @@ RuinsOfAlphResearchCenterModifiedDexText:
 	done
 
 RuinsOfAlphResearchCenterDexUpgradedText:
-	text "<PLAYER>'s #DEX"
+	text "<PLAYER>'s #dex"
 	line "was upgraded."
 	done
 
@@ -243,12 +243,12 @@ RuinsOfAlphResearchCenterScientist1Text:
 
 RuinsOfAlphResearchCenterScientist1Text_GotUnownDex:
 	text "I wonder how many"
-	line "kinds of #MON"
+	line "kinds of #mon"
 	cont "are in the Ruins?"
 	done
 
 RuinsOfAlphResearchCenterScientist1Text_UnownAppeared:
-	text "#MON appeared"
+	text "#mon appeared"
 	line "in the Ruins?"
 
 	para "That's incredible"
@@ -269,7 +269,7 @@ RuinsOfAlphResearchCenterScientist1Text_GotAllUnown:
 	line "to have been built"
 
 	para "as a habitat for"
-	line "#MON."
+	line "#mon."
 	done
 
 RuinsOfAlphResearchCenterScientist2Text:
@@ -287,7 +287,7 @@ RuinsOfAlphResearchCenterScientist2Text:
 
 RuinsOfAlphResearchCenterScientist2Text_UnownAppeared:
 	text "The strange #-"
-	line "MON you saw in the"
+	line "mon you saw in the"
 	cont "Ruins?"
 
 	para "They appear to be"
@@ -322,7 +322,7 @@ RuinsOfAlphResearchCenterComputerText:
 	done
 
 RuinsOfAlphResearchCenterComputerText_GotAllUnown:
-	text "Mystery #MON"
+	text "Mystery #mon"
 	line "Name: Unown"
 
 	para "A total of {d:NUM_UNOWN}"

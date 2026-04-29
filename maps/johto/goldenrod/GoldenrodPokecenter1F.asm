@@ -164,7 +164,7 @@ GoldenrodPokecenter1FGameboyKidText:
 
 GoldenrodPokecenter1FLassText:
 	text "A higher level"
-	line "#MON doesn't"
+	line "#mon doesn't"
 	cont "always win."
 
 	para "After all, it may"
@@ -174,7 +174,7 @@ GoldenrodPokecenter1FLassText:
 	para "I don't think"
 	line "there is a single"
 
-	para "#MON that is"
+	para "#mon that is"
 	line "the toughest."
 	done
 

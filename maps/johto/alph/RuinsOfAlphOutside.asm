@@ -139,16 +139,16 @@ RuinsOfAlphOutsidePlayerEnterLabMovement:
 
 RuinsOfAlphOutsideScientistText:
 	text "Hm? That's a #-"
-	line "DEX, isn't it?"
+	line "dex, isn't it?"
 	cont "May I see it?"
 
 	para "There are so many"
-	line "kinds of #MON."
+	line "kinds of #mon."
 
 	para "Hm? What's this?"
 
 	para "What is this"
-	line "#MON?"
+	line "#mon?"
 
 	para "It looks like the"
 	line "strange writing on"
@@ -158,12 +158,12 @@ RuinsOfAlphOutsideScientistText:
 
 	para "If those drawings"
 	line "are really #-"
-	cont "MON, there should"
+	cont "mon, there should"
 	cont "be many more."
 
 	para "I know! Let me up-"
 	line "grade your #-"
-	cont "DEX. Follow me."
+	cont "dex. Follow me."
 	done
 
 PsychicNathanSeenText:

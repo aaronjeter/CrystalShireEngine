@@ -388,7 +388,7 @@ FloriaText1:
 	line "jumped right up!"
 
 	para "It just has to be"
-	line "a #MON."
+	line "a #mon."
 
 	para "I bet it would be"
 	line "shocked out of its"
@@ -470,7 +470,7 @@ Route36LassText_ClearedSudowoodo:
 	cont "trace."
 
 	para "Oh! That tree was"
-	line "really a #MON?"
+	line "really a #mon?"
 	done
 
 PsychicMarkSeenText:
@@ -493,7 +493,7 @@ PsychicMarkAfterBattleText:
 SchoolboyAlan1SeenText:
 	text "Thanks to my stud-"
 	line "ies, I'm ready for"
-	cont "any #MON!"
+	cont "any #mon!"
 	done
 
 SchoolboyAlan1BeatenText:
@@ -524,7 +524,7 @@ ArthurGivesGiftText:
 	done
 
 ArthurGaveGiftText:
-	text "Arthur: A #MON"
+	text "Arthur: A #mon"
 	line "that uses rock-"
 
 	para "type moves should"
@@ -560,7 +560,7 @@ RuinsOfAlphNorthSignText:
 Route36TrainerTips1Text:
 	text "Trainer Tips"
 
-	para "#MON stats"
+	para "#mon stats"
 	line "vary--even within"
 	cont "the same species."
 
@@ -571,13 +571,13 @@ Route36TrainerTips1Text:
 	line "ences will become"
 
 	para "pronounced as the"
-	line "#MON grow."
+	line "#mon grow."
 	done
 
 Route36TrainerTips2Text:
 	text "Trainer Tips"
 
-	para "Use DIG to return"
+	para "Use Dig to return"
 	line "to the entrance of"
 	cont "any place."
 

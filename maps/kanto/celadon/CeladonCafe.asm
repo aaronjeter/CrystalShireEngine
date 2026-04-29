@@ -155,8 +155,8 @@ Fisher3Text_MunchMunch:
 
 Fisher3Text_GoldenrodIsBest:
 	text "The food is good"
-	line "here, but GOLDEN-"
-	cont "ROD has the best"
+	line "here, but Golden-"
+	cont "rod has the best"
 	cont "food anywhere."
 	done
 
@@ -166,9 +166,9 @@ TeacherText_CrunchCrunch:
 
 TeacherText_NoCoinCase:
 	text "Nobody here will"
-	line "give you a COIN"
+	line "give you a Coin"
 
-	para "CASE. You should"
+	para "Case. You should"
 	line "look in JOHTO."
 	done
 
@@ -179,7 +179,7 @@ TeacherText_KeepEating:
 	done
 
 TeacherText_MoreChef:
-	text "More, CHEF!"
+	text "More, Chef!"
 	done
 
 EatathonContestPosterText:

@@ -59,7 +59,7 @@ PlayerNeighborPikachuText:
 
 PlayersNeighborsDaughterText:
 	text "Pikachu is an"
-	line "evolved #MON."
+	line "evolved #mon."
 
 	para "I was amazed by"
 	line "Prof.Elm's find-"
@@ -67,7 +67,7 @@ PlayersNeighborsDaughterText:
 
 	para "He's so famous for"
 	line "his research on"
-	cont "#MON evolution."
+	cont "#mon evolution."
 
 	para "…sigh…"
 
@@ -84,19 +84,19 @@ PlayersNeighborText:
 	line "Elm's assistant."
 
 	para "She really loves"
-	line "#MON!"
+	line "#mon!"
 
 	para "But then, so do I!"
 	done
 
 PlayerNeighborRadioText1:
-	text "Prof.Oak'S #MON"
+	text "Prof.Oak'S #mon"
 	line "Talk! Please tune"
 	cont "in next time!"
 	done
 
 PlayerNeighborRadioText2:
-	text "#MON Channel!"
+	text "#mon Channel!"
 	done
 
 PlayerNeighborRadioText3:
@@ -105,8 +105,8 @@ PlayerNeighborRadioText3:
 	done
 
 PlayerNeighborRadioText4:
-	text "#MON!"
-	line "#MON Channel…"
+	text "#mon!"
+	line "#mon Channel…"
 	done
 
 PlayersNeighborsHouse_MapEvents:

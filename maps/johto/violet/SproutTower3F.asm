@@ -165,12 +165,12 @@ SproutTowerElderLecturesRivalText:
 	line "this: You should"
 
 	para "treat your"
-	line "#MON better."
+	line "#mon better."
 
 	para "The way you battle"
 	line "is far too harsh."
 
-	para "#MON are not"
+	para "#mon are not"
 	line "tools of war…"
 	done
 
@@ -189,15 +189,15 @@ SproutTowerRivalOnlyCareAboutStrongText:
 	line "fools who babble"
 
 	para "about being nice"
-	line "to #MON."
+	line "to #mon."
 
 	para "I only care about"
-	line "strong #MON"
+	line "strong #mon"
 	cont "that can win."
 
 	para "I really couldn't"
 	line "care less about"
-	cont "weak #MON."
+	cont "weak #mon."
 	done
 
 SproutTowerRivalUsedEscapeRopeText:
@@ -212,7 +212,7 @@ SageLiSeenText:
 	para "Sprout Tower is a"
 	line "place of training."
 
-	para "People and #MON"
+	para "People and #mon"
 	line "test their bonds"
 
 	para "to build a bright"
@@ -224,7 +224,7 @@ SageLiSeenText:
 	para "Allow me to check"
 	line "the ties between"
 
-	para "your #MON and"
+	para "your #mon and"
 	line "you!"
 	done
 
@@ -258,7 +258,7 @@ SageLiAfterBattleText:
 SageJinSeenText:
 	text "I train to find"
 	line "enlightenment in"
-	cont "#MON!"
+	cont "#mon!"
 	done
 
 SageJinBeatenText:
@@ -267,7 +267,7 @@ SageJinBeatenText:
 	done
 
 SageJinAfterBattleText:
-	text "As #MON grow"
+	text "As #mon grow"
 	line "stronger, so does"
 	cont "the trainer."
 
@@ -275,13 +275,13 @@ SageJinAfterBattleText:
 	line "trainer grows"
 
 	para "stronger, so do"
-	line "the #MON."
+	line "the #mon."
 	done
 
 SageTroySeenText:
 	text "Let me see how"
 	line "much you trust"
-	cont "your #MON."
+	cont "your #mon."
 	done
 
 SageTroyBeatenText:
@@ -317,7 +317,7 @@ SproutTower3FPaintingText:
 	done
 
 SproutTower3FStatueText:
-	text "A #MON statue…"
+	text "A #mon statue…"
 
 	para "It looks very"
 	line "distinguished."

@@ -41,7 +41,7 @@ MahoganyRedGyaradosSpeechHouseBlackBeltText:
 MahoganyRedGyaradosSpeechHouseTeacherText:
 	text "My favorite radio"
 	line "program? I'd say"
-	cont "#MON music."
+	cont "#mon music."
 	done
 
 MahoganyRedGyaradosSpeechHouseTeacherText_RocketsInRadioTower:

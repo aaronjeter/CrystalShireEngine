@@ -191,7 +191,7 @@ MrPokemonsHouse_GotEggText:
 
 MrPokemonIntroText3:
 	text "I know a couple"
-	line "who run a #MON"
+	line "who run a #mon"
 	cont "Day-Care service."
 
 	para "They gave me that"
@@ -201,7 +201,7 @@ MrPokemonIntroText3:
 	line "so I sent mail to"
 	cont "Prof.Elm."
 
-	para "For #MON evolu-"
+	para "For #mon evolu-"
 	line "tion, Prof.Elm is"
 	cont "the authority."
 	done
@@ -221,7 +221,7 @@ MrPokemonsHouse_MrPokemonHealText:
 	text "You are returning"
 	line "to Prof.Elm?"
 
-	para "Here. Your #MON"
+	para "Here. Your #mon"
 	line "should have some"
 	cont "rest."
 	done
@@ -243,12 +243,12 @@ MrPokemonsHouse_OakText1:
 	text "Oak: Aha! So"
 	line "you're <PLAY_G>!"
 
-	para "I'm Oak! A #MON"
+	para "I'm Oak! A #mon"
 	line "researcher."
 
 	para "I was just visit-"
 	line "ing my old friend"
-	cont "Mr.#MON."
+	cont "Mr.#mon."
 
 	para "I heard you were"
 	line "running an errand"
@@ -257,7 +257,7 @@ MrPokemonsHouse_OakText1:
 	line "waited here."
 
 	para "Oh! What's this?"
-	line "A rare #MON!"
+	line "A rare #mon!"
 
 	para "Let's see…"
 
@@ -266,19 +266,19 @@ MrPokemonsHouse_OakText1:
 	para "I understand why"
 	line "Prof.Elm gave you"
 
-	para "a #MON for this"
+	para "a #mon for this"
 	line "errand."
 
 	para "To researchers"
 	line "like Prof.Elm and"
 
-	para "I, #MON are our"
+	para "I, #mon are our"
 	line "friends."
 
 	para "He saw that you"
 	line "would treat your"
 
-	para "#MON with love"
+	para "#mon with love"
 	line "and care."
 
 	para "…Ah!"
@@ -291,12 +291,12 @@ MrPokemonsHouse_OakText1:
 
 	para "See? This is the"
 	line "latest version of"
-	cont "#DEX."
+	cont "#dex."
 
 	para "It automatically"
 	line "records data on"
 
-	para "#MON you've"
+	para "#mon you've"
 	line "seen or caught."
 
 	para "It's a hi-tech"
@@ -305,15 +305,15 @@ MrPokemonsHouse_OakText1:
 
 MrPokemonsHouse_GetDexText:
 	text "<PLAYER> received"
-	line "#DEX!"
+	line "#dex!"
 	done
 
 MrPokemonsHouse_OakText2:
 	text "Go meet many kinds"
-	line "of #MON and"
+	line "of #mon and"
 
 	para "complete that"
-	line "#DEX!"
+	line "#dex!"
 
 	para "But I've stayed"
 	line "too long."

@@ -125,7 +125,7 @@ EcruteakPokecenter1FPokefanMText:
 
 	para "marvelous. Just"
 	line "like the way they"
-	cont "use their #MON."
+	cont "use their #mon."
 	done
 
 EcruteakPokecenter1FCooltrainerFText:
@@ -133,7 +133,7 @@ EcruteakPokecenter1FCooltrainerFText:
 	line "Leader, is soooo"
 	cont "cool."
 
-	para "His #MON are"
+	para "His #mon are"
 	line "really tough too."
 	done
 

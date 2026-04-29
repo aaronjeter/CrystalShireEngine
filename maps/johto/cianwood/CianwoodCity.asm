@@ -186,7 +186,7 @@ ChucksWifeEasierToFlyText:
 	para "It would be much"
 	line "easier if your"
 
-	para "#MON knew how"
+	para "#mon knew how"
 	line "to Fly…"
 	done
 
@@ -209,7 +209,7 @@ ChucksWifeGiveHMText:
 
 ChucksWifeFlySpeechText:
 	text "Teach Fly to your"
-	line "#MON."
+	line "#mon."
 
 	para "You will be able"
 	line "to Fly instantly"
@@ -244,7 +244,7 @@ CianwoodCityPokefanMText:
 	para "They may be hiding"
 	line "something."
 
-	para "Your #MON could"
+	para "Your #mon could"
 	line "use Rock Smash to"
 	cont "break them."
 	done
@@ -254,7 +254,7 @@ CianwoodCityLassText:
 	line "Leader, spars with"
 
 	para "his fighting #-"
-	line "MON."
+	line "mon."
 	done
 
 EusineSuicuneText:
@@ -304,7 +304,7 @@ EusineAfterText:
 	text "You're amazing,"
 	line "<PLAYER>!"
 
-	para "No wonder #MON"
+	para "No wonder #mon"
 	line "gravitate to you."
 
 	para "I get it now."
@@ -328,7 +328,7 @@ CianwoodCitySignText:
 
 CianwoodGymSignText:
 	text "Cianwood City"
-	line "#MON Gym"
+	line "#mon Gym"
 
 	para "Leader: Chuck"
 

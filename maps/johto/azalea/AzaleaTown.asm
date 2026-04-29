@@ -252,19 +252,19 @@ AzaleaTownRivalBeforeText:
 
 AzaleaTownRivalWinText:
 	text "… Humph! Useless"
-	line "#MON!"
+	line "#mon!"
 
 	para "Listen, you. You"
 	line "only won because"
 
-	para "my #MON were"
+	para "my #mon were"
 	line "weak."
 	done
 
 AzaleaTownRivalAfterText:
 	text "I hate the weak."
 
-	para "#MON, trainers."
+	para "#mon, trainers."
 	line "It doesn't matter"
 	cont "who or what."
 
@@ -356,7 +356,7 @@ AzaleaTownYoungsterText:
 	line "through."
 
 	para "The Charcoal Man's"
-	line "#MON can Cut"
+	line "#mon can Cut"
 	cont "down trees."
 	done
 
@@ -392,7 +392,7 @@ AzaleaTownSignText:
 	text "Azalea Town"
 	line "Where People and"
 
-	para "#MON Live in"
+	para "#mon Live in"
 	line "Happy Harmony"
 	done
 
@@ -402,11 +402,11 @@ KurtsHouseSignText:
 
 AzaleaGymSignText:
 	text "Azalea Town"
-	line "#MON Gym"
+	line "#mon Gym"
 	cont "Leader: Bugsy"
 
 	para "The Walking"
-	line "Bug #MON"
+	line "Bug #mon"
 	cont "Encyclopedia"
 	done
 

@@ -39,7 +39,7 @@ GoldenrodDeptStore4FElevatorButton:
 
 GoldenrodDeptStore4FCooltrainerMText:
 	text "Hey. I love strong"
-	line "#MON."
+	line "#mon."
 
 	para "I feed them Pro-"
 	line "tein to crank up"
@@ -48,11 +48,11 @@ GoldenrodDeptStore4FCooltrainerMText:
 
 GoldenrodDeptStore4FBugCatcherText:
 	text "Iron adds to your"
-	line "#MON's Defense."
+	line "#mon's Defense."
 	done
 
 GoldenrodDeptStore4FGameboyKidText:
-	text "Some #MON"
+	text "Some #mon"
 	line "used to evolve "
 	cont "only by"
 
@@ -62,7 +62,7 @@ GoldenrodDeptStore4FGameboyKidText:
 
 GoldenrodDeptStore4FDirectoryText:
 	text "Let Us Pump Up"
-	line "Your #MON!"
+	line "Your #mon!"
 
 	para "4F Medicine Box"
 	done

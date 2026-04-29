@@ -35,13 +35,13 @@ BattleTowerOutsideYoungsterText:
 	line "Tower is huge!"
 
 	para "There must be many"
-	line "kinds of #MON"
+	line "kinds of #mon"
 	cont "in there!"
 	done
 
 BattleTowerOutsideBeautyText:
 	text "You can use only"
-	line "three #MON."
+	line "three #mon."
 
 	para "It's so hard to"
 	line "decide which three"

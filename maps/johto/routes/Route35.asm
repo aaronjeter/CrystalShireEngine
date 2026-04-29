@@ -225,7 +225,7 @@ Route35FruitTree:
 
 CamperIvanSeenText:
 	text "I've been getting"
-	line "#MON data off"
+	line "#mon data off"
 
 	para "my radio. I think"
 	line "I'm good."
@@ -238,7 +238,7 @@ CamperIvanBeatenText:
 CamperIvanAfterBattleText:
 	text "Music on the radio"
 	line "changes the moods"
-	cont "of wild #MON."
+	cont "of wild #mon."
 	done
 
 CamperElliotSeenText:
@@ -271,7 +271,7 @@ PicnickerBrookeBeatenText:
 
 PicnickerBrookeAfterBattleText:
 	text "I can count on my"
-	line "#MON more than"
+	line "#mon more than"
 	cont "my boyfriend."
 	done
 
@@ -302,7 +302,7 @@ BirdKeeperBryanBeatenText:
 	done
 
 BirdKeeperBryanAfterBattleText:
-	text "Some #MON flee"
+	text "Some #mon flee"
 	line "right away."
 
 	para "Try catching them"
@@ -330,7 +330,7 @@ JugglerIrwin1BeatenText:
 JugglerIrwinAfterBattleText:
 	text "I was going to"
 	line "dazzle you with my"
-	cont "prize #MON."
+	cont "prize #mon."
 
 	para "But your prowess"
 	line "electrified me!"
@@ -338,7 +338,7 @@ JugglerIrwinAfterBattleText:
 
 BugCatcherArnieSeenText:
 	text "I'll go anywhere"
-	line "if bug #MON"
+	line "if bug #mon"
 	cont "appear there."
 	done
 
@@ -374,9 +374,9 @@ FirebreatherWaltBeatenText:
 	done
 
 FirebreatherWaltAfterBattleText:
-	text "The #MON March"
+	text "The #mon March"
 	line "on the radio lures"
-	cont "wild #MON."
+	cont "wild #mon."
 	done
 
 OfficerDirkSeenText:
@@ -398,7 +398,7 @@ OfficerDirkAfterBattleText:
 	done
 
 OfficerDirkPrettyToughText:
-	text "Your #MON look"
+	text "Your #mon look"
 	line "pretty tough."
 
 	para "You could go any-"

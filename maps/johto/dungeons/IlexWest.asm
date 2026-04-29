@@ -33,7 +33,7 @@ TrainerYoungsterRonald:
 
 TrainerYoungsterRonaldSeenText:
 	text "I'm looking for"
-	line "rare #MON."
+	line "rare #mon."
 
 	para "I think the"
 	line "forest hides one."
@@ -56,7 +56,7 @@ TrainerYoungsterRonaldAfterBattleText:
 
 TrainerCooltrainerFMarinaSeenText:
 	text "I heard there's"
-	line "a rare #MON"
+	line "a rare #mon"
 
 	para "hidden around"
 	line "here somewhere"

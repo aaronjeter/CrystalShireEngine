@@ -302,7 +302,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	jmp ClearBox
 
 .Dex_PlayTime:
-	db   "#DEX"
+	db   "#dex"
 	next "Play Time"
 	next "Level Cap"
 	next "Hard Mode@"

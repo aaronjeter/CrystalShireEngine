@@ -359,7 +359,7 @@ OlivinePortFishingGuru2Text:
 
 	para "Different Rods"
 	line "catch different"
-	cont "#MON."
+	cont "#mon."
 	done
 
 OlivinePortYoungsterText:
@@ -370,7 +370,7 @@ OlivinePortYoungsterText:
 
 OlivinePortCooltrainerFText:
 	text "There are lots of"
-	line "#MON in Kanto."
+	line "#mon in Kanto."
 
 	para "I wish I could go…"
 	done

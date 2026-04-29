@@ -25,7 +25,7 @@ BlackthornPokecenter1FGentlemanText:
 	text "Deep inside far-"
 	line "off Indigo Plateau"
 
-	para "is the #MON"
+	para "is the #mon"
 	line "League."
 
 	para "I hear the best"
@@ -40,7 +40,7 @@ BlackthornPokecenter1FTwinText:
 	line "move I just had"
 
 	para "to teach my #-"
-	line "MON."
+	line "mon."
 
 	para "So I got the Move"
 	line "Deleter to make it"

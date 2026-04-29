@@ -174,7 +174,7 @@ Route46_Sandshrew:
 HikerBaileySeenText:
 	text "Awright! I'll show"
 	line "you the power of"
-	cont "mountain #MON!"
+	cont "mountain #mon!"
 	done
 
 HikerBaileyBeatenText:
@@ -209,7 +209,7 @@ CamperTedAfterBattleText:
 	done
 
 PicnickerErin1SeenText:
-	text "I raise #MON"
+	text "I raise #mon"
 	line "too!"
 
 	para "Will you battle"

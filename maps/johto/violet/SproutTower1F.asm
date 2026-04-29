@@ -47,7 +47,7 @@ SageChowSeenText:
 
 	para "Here, we express"
 	line "our gratitude to"
-	cont "honor all #MON."
+	cont "honor all #mon."
 	done
 
 SageChowBeatenText:
@@ -74,7 +74,7 @@ SproutTower1FSage2Text:
 	line "built long ago"
 
 	para "as a place for"
-	line "#MON training."
+	line "#mon training."
 	done
 
 SproutTower1FGrannyText:
@@ -95,7 +95,7 @@ SproutTower1FTeacherText:
 	done
 
 SproutTower1FStatueText:
-	text "A #MON statue…"
+	text "A #mon statue…"
 
 	para "It looks very"
 	line "distinguished."

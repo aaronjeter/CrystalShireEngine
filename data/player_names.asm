@@ -15,7 +15,7 @@ ChrisNameMenuHeader:
 	db "Caleb@"
 	db "Andrew@"
 	db 2 ; title indent
-	db " NAME @" ; title
+	db " Name @" ; title
 
 KrisNameMenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -27,11 +27,11 @@ KrisNameMenuHeader:
 .FemaleNames:
 	db STATICMENU_CURSOR | STATICMENU_PLACE_TITLE | STATICMENU_DISABLE_B ; flags
 	db 5 ; items
-	db "NEW NAME@"
+	db "New Name@"
 ; FemalePlayerNameArray:
 	db "Katie@"
 	db "Laura@"
 	db "Beth@"
 	db "Kris@"
 	db 2 ; title indent
-	db " NAME @" ; title
+	db " Name @" ; title

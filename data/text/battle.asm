@@ -120,13 +120,13 @@ BattleText_SafeguardFaded:
 
 BattleText_MonsLightScreenFell:
 	text_ram wStringBuffer1
-	text " #MON's"
+	text " #mon's"
 	line "Light Screen fell!"
 	prompt
 
 BattleText_MonsReflectFaded:
 	text_ram wStringBuffer1
-	text " #MON's"
+	text " #mon's"
 	line "Reflect faded!"
 	prompt
 
@@ -215,7 +215,7 @@ BattleText_MonFainted:
 	prompt
 
 BattleText_UseNextMon:
-	text "Use next #MON?"
+	text "Use next #mon?"
 	done
 
 LostAgainstText:
@@ -231,7 +231,7 @@ BattleText_EnemyIsAboutToUseWillPlayerChangeMon:
 	text "."
 
 	para "Will <PLAYER>"
-	line "change #MON?"
+	line "change #mon?"
 	done
 
 BattleText_EnemySentOut:
@@ -994,7 +994,7 @@ IdentifiedText:
 	prompt
 
 StartPerishText:
-	text "Both #MON will"
+	text "Both #mon will"
 	line "faint in 3 turns!"
 	prompt
 
