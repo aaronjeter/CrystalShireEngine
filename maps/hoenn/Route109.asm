@@ -91,7 +91,7 @@ Route109HaileyAfterBattleText:
 	text "Once I learn to"
 	line "swim..."
 
-	para "Maybe my #MON"
+	para "Maybe my #mon"
 	line "will improve."
 	done
 

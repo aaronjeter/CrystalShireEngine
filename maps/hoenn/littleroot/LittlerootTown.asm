@@ -102,9 +102,9 @@ Littleroot_WhatDoYouThinkYoureDoing:
 Littleroot_ItsDangerousToGoAlone:
 	text "It's dangerous to"
 	line "go out without a"
-	cont "#MON!"
+	cont "#mon!"
 
-	para "Wild #MON"
+	para "Wild #mon"
 	line "jump out of the"
 
 	para "grass on the way"
@@ -112,7 +112,7 @@ Littleroot_ItsDangerousToGoAlone:
 	done
 
 Littleroot_YourMonIsAdorable:
-	text "Oh! Your #MON"
+	text "Oh! Your #mon"
 	line "is adorable!"
 	cont "I wish I had one!"
 	done
@@ -128,14 +128,14 @@ Littleroot_TellMomIfLeaving:
 
 Littleroot_CallMomOnGear:
 	text "Call your mom on"
-	line "your #GEAR to"
+	line "your #gear to"
 
 	para "let her know how"
 	line "you're doing."
 	done
 
 Littleroot_GearIsImpressive:
-	text "Wow, your #GEAR"
+	text "Wow, your #gear"
 	line "is impressive!"
 
 	para "Did your mom get"

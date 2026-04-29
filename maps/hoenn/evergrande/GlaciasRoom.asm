@@ -86,7 +86,7 @@ GlaciaScript_GlaciaBeforeText:
 
 	para "challenges by"
 	line "weak trainers and"
-	cont "their #MON."
+	cont "their #mon."
 
 	para "What about you?"
 
@@ -99,7 +99,7 @@ GlaciaScript_GlaciaBeforeText:
 
 GlaciaScript_GlaciaBeatenText:
 	text "You and your"
-	line "#MON..."
+	line "#mon..."
 
 	para "How hot your"
 	line "spirits burn!"
@@ -122,7 +122,7 @@ GlaciaScript_GlaciaDefeatText:
 	line "the truly fearsome"
 
 	para "side of the"
-	line "#MON league."
+	line "#mon league."
 	done
 
 GlaciasRoom_MapEvents:

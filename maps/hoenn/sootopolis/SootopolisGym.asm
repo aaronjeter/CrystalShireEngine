@@ -380,7 +380,7 @@ SootopolisDaphneSeenText:
 	line "that made me"
 
 	para "want to train"
-	line "#MON."
+	line "#mon."
 	done
 
 SootopolisDaphneBeatenText:
@@ -435,7 +435,7 @@ SootopolisAnnikaScript:
 SootopolisAnnikaSeenText:
 	text "I'm just here"
 	line "to see rare"
-	cont "#MON."
+	cont "#mon."
 	done
 
 SootopolisAnnikaBeatenText:

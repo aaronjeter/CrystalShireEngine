@@ -26,7 +26,7 @@ Route111TyronScript:
 Route111TyronSeenText:
 	text "This is my"
 	line "favorite kind"
-	cont "of #MON!"
+	cont "of #mon!"
 	done
 
 Route111TyronBeatenText:
@@ -36,7 +36,7 @@ Route111TyronBeatenText:
 Route111TyronAfterBattleText:
 	text "Did you get a good"
 	line "look at my"
-	cont "#MON?"
+	cont "#mon?"
 	done
 
 
@@ -192,7 +192,7 @@ Route111TravisSeenText:
 	done
 
 Route111TravisBeatenText:
-	text "My #MON"
+	text "My #mon"
 	line "lost its pep."
 	done
 

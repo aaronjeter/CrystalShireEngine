@@ -134,7 +134,7 @@ TreetopTrialIntroText:
 	line "Treetop Trial!"
 
 	para "Pick three"
-	line "#MON and"
+	line "#mon and"
 	cont "prove yourself!"
 
 	para "There's a prize"
@@ -148,7 +148,7 @@ TreetopTrialIntroText:
 PartyFullText:
 	text "Please come back"
 	line "with exactly"
-	cont "three #MON."
+	cont "three #mon."
 	done
 
 TreetopTrialSeenText:

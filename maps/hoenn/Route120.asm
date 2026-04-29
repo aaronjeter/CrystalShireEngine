@@ -33,19 +33,19 @@ Route120RobertScript:
 	end
 
 Route120RobertSeenText:
-	text "My #MON are"
+	text "My #mon are"
 	line "strong!"
 
 	para "How about yours?"
 	done
 
 Route120RobertBeatenText:
-	text "Your #MON"
+	text "Your #mon"
 	line "were stronger!"
 	done
 
 Route120RobertAfterBattleText:
-	text "A #MON that"
+	text "A #mon that"
 	line "grows steadily is"
 
 	para "one you can"
@@ -91,7 +91,7 @@ Route120LeonelScript:
 
 Route120LeonelSeenText:
 	text "Your party"
-	line "#MON..."
+	line "#mon..."
 
 	para "Do you have"
 	line "different types?"
@@ -120,7 +120,7 @@ Route120JenniferScript:
 	end
 
 Route120JenniferSeenText:
-	text "#MON have many"
+	text "#mon have many"
 	line "special abilities."
 	done
 
@@ -130,7 +130,7 @@ Route120JenniferBeatenText:
 	done
 
 Route120JenniferAfterBattleText:
-	text "#MON abilities"
+	text "#mon abilities"
 	line "really change"
 	cont "things!"
 	done
@@ -173,7 +173,7 @@ Route120AngelicaScript:
 
 Route120AngelicaSeenText:
 	text "Me and my"
-	line "#MON..."
+	line "#mon..."
 	done
 
 Route120AngelicaBeatenText:
@@ -246,7 +246,7 @@ Route120CallieBeatenText:
 
 Route120CallieAfterBattleText:
 	text "At least my"
-	line "#MON are"
+	line "#mon are"
 	cont "cute!"
 	done
 
@@ -290,7 +290,7 @@ Route120LorenzoScript:
 
 Route120LorenzoSeenText:
 	text "Let's see if your"
-	line "#MON are fit"
+	line "#mon are fit"
 	cont "for the wild!"
 	done
 
@@ -304,7 +304,7 @@ Route120LorenzoAfterBattleText:
 	line "being able to"
 
 	para "go anywhere with"
-	line "my #MON!"
+	line "my #mon!"
 	done
 
 Route120KeigoScript:
@@ -320,7 +320,7 @@ Route120KeigoScript:
 
 Route120KeigoSeenText:
 	text "I like to adopt"
-	line "#MON moves"
+	line "#mon moves"
 
 	para "to create new"
 	line "techniques."
@@ -365,7 +365,7 @@ Route120JennaBeatenText:
 Route120JennaAfterBattleText:
 	text "I love training"
 	line "out here with"
-	cont "my #MON."
+	cont "my #mon."
 	done
 
 Route120ChipScript:

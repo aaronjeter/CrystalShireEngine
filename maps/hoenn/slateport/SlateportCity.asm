@@ -17,7 +17,7 @@ SlateportCitySignText:
 	text "Slateport City"
 
 	para "The port where"
-	line "people and #MON"
+	line "people and #mon"
 	
 	para "cross paths with"
 	line "nature."

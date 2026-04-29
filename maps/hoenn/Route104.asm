@@ -209,7 +209,7 @@ Route104GinaMiaBeatenText:
 Route104GinaMiaAfterBattleText:
 	text "We hope our"
 	line "bond will make"
-	cont "our #MON"
+	cont "our #mon"
 	cont "stronger too."
 	done
 

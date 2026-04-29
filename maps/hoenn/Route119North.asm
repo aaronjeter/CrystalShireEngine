@@ -29,7 +29,7 @@ Route119PhilScript:
 Route119PhilSeenText:
 	text "I'll show you the"
 	line "true potential of"
-	cont "my bird #MON!"
+	cont "my bird #mon!"
 	done
 
 Route119PhilBeatenText:
@@ -42,7 +42,7 @@ Route119PhilAfterBattleText:
 	line "a little kid,"
 
 	para "I always admired"
-	line "bird #MON."
+	line "bird #mon."
 	done
 
 Route119HughScript:
@@ -66,7 +66,7 @@ Route119HughBeatenText:
 	done
 
 Route119HughAfterBattleText:
-	text "My bird #MON"
+	text "My bird #mon"
 	line "made my dreams"
 
 	para "of flying come"
@@ -177,8 +177,8 @@ Route119HideoAfterBattleText:
 	text "To hide a tree,"
 	line "use a forest!"
 
-	para "To hide a #MON"
-	line "use a #MON."
+	para "To hide a #mon"
+	line "use a #mon."
 	done
 
 Route119RachelScript:

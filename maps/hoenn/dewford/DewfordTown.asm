@@ -34,7 +34,7 @@ DewfordGymSign:
 
 DewfordGymSignText:
 	text "Dewford Town"
-	line "#MON Gym"
+	line "#mon Gym"
 	cont "Leader: Brawly"
 
 	para "A big wave"

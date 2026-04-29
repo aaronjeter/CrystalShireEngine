@@ -28,7 +28,7 @@ FortreeGymSign:
 
 FortreeGymSignText:
 	text "Fortree City"
-	line "#MON Gym"
+	line "#mon Gym"
 	cont "Leader: Winona"
 
 	para "Taking flight"

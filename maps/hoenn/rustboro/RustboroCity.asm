@@ -32,7 +32,7 @@ RustboroGymSign:
 
 RustboroGymSignText:
 	text "Rustboro City"
-	line "#MON Gym"
+	line "#mon Gym"
 	cont "Leader: Roxanne"
 
 	para "Rock and"

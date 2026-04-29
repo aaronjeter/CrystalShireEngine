@@ -30,7 +30,7 @@ Route110IsabelSeenText:
 
 	para "I would go"
 	line "anywhere to show"
-	cont "off my #MON."
+	cont "off my #mon."
 	done
 
 Route110IsabelBeatenText:
@@ -58,7 +58,7 @@ Route110KalebScript:
 
 Route110KalebSeenText:
 	text "Cute, adorable"
-	line "#MON!"
+	line "#mon!"
 	done
 
 Route110KalebBeatenText:
@@ -84,7 +84,7 @@ Route110TimmyScript:
 
 Route110TimmySeenText:
 	text "I found some cool"
-	line "#MON in the"
+	line "#mon in the"
 	cont "grass!"
 	done
 
@@ -95,7 +95,7 @@ Route110TimmyBeatenText:
 
 Route110TimmyAfterBattleText:
 	text "It's hard to win"
-	line "with #MON"
+	line "with #mon"
 	cont "this fresh."
 	done
 
@@ -113,7 +113,7 @@ Route110EdwinScript:
 
 Route110EdwinSeenText:
 	text "Can I see your"
-	line "#MON?"
+	line "#mon?"
 	done
 
 Route110EdwinBeatenText:

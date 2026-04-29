@@ -26,7 +26,7 @@ MauvilleGymSign:
 
 MauvilleGymSignText:
 	text "Mauville City"
-	line "#MON Gym"
+	line "#mon Gym"
 	cont "Leader: Wattson"
 
 	para "The cheerfully"

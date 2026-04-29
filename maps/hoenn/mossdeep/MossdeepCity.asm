@@ -25,7 +25,7 @@ MossdeepGymSign:
 
 MossdeepGymSignText:
 	text "Mossdeep City"
-	line "#MON Gym"
+	line "#mon Gym"
 
 	para "Leaders: "
 	line "Tate & Liza"

@@ -45,7 +45,7 @@ BirchGiveHoenniteText:
 	done
 
 BirchExplainsHoenniteText:
-	text "Certain #MON"
+	text "Certain #mon"
 	line "from Hoenn could"
 	cont "use this."
 	done
@@ -614,7 +614,7 @@ BirchDidntChooseStarterText:
 BirchChoseStarterText:
 	text "Birch: I think"
 	line "that's a great"
-	cont "#MON too!"
+	cont "#mon too!"
 	done
 
 BirchReceivedStarterText:
@@ -626,122 +626,122 @@ BirchReceivedStarterText:
 
 BirchPokeBallText:
 	text "It contains a"
-	line "#MON caught by"
-	cont "PROF.Birch."
+	line "#mon caught by"
+	cont "Prof.Birch."
 	done
 
 BirchTakeCharmanderText:
 	text "Birch: Take"
 	line "Charmander, the"
-	cont "fire #MON?"
+	cont "fire #mon?"
 	done
 
 BirchTakeCyndaquilText:
 	text "Birch: Take"
 	line "Cyndaquil, the"
-	cont "fire #MON?"
+	cont "fire #mon?"
 	done
 
 BirchTakeTorchicText:
 	text "Birch: Take"
 	line "Torchic, the"
-	cont "fire #MON?"
+	cont "fire #mon?"
 	done
 
 BirchTakeAvulpixText:
 	text "Birch: Take"
 	line "Vulpix, the"
-	cont "snow #MON?"
+	cont "snow #mon?"
 	done
 
 BirchTakeVulpix2Text:
 	text "Birch: Take"
 	line "Vulpix, the"
-	cont "steam #MON?"
+	cont "steam #mon?"
 	done
 
 BirchTakeAbra2Text:
 	text "Birch: Take"
 	line "Abra, the"
-	cont "magician #MON?"
+	cont "magician #mon?"
 	done
 
 BirchTakeHonobeaText:
 	text "Birch: Take"
 	line "Honobea, the"
-	cont "fire #MON?"
+	cont "fire #mon?"
 	done
 
 BirchTakeSquirtleText:
 	text "Birch: Take"
 	line "Squirtle, the"
-	cont "water #MON?"
+	cont "water #mon?"
 	done
 
 BirchTakeTotodileText:
 	text "Birch: Take"
 	line "Totodile, the"
-	cont "water #MON?"
+	cont "water #mon?"
 	done
 
 BirchTakeMudkipText:
 	text "Birch: Take"
 	line "Mudkip, the"
-	cont "mud #MON?"
+	cont "mud #mon?"
 	done
 
 BirchTakeAsandshrewText:
 	text "Birch: Take"
 	line "Sandshrew, the"
-	cont "mouse #MON?"
+	cont "mouse #mon?"
 	done
 
 BirchTakeVoltorbText:
 	text "Birch: Take"
 	line "Voltorb, the"
-	cont "orb #MON?"
+	cont "orb #mon?"
 	done
 
 BirchTakeKotoraText:
 	text "Birch: Take"
 	line "Kotora, the"
-	cont "tiger #MON?"
+	cont "tiger #mon?"
 	done
 
 BirchTakeBulbasaurText:	
 	text "Birch: Take"
 	line "Bulbasaur, the"
-	cont "grass #MON?"
+	cont "grass #mon?"
 	done
 
 BirchTakeChikoritaText:	
 	text "Birch: Take"
 	line "Chikorita, the"
-	cont "grass #MON?"
+	cont "grass #mon?"
 	done
 
 BirchTakeTreeckoText:
 	text "Birch: Take"
 	line "Treecko, the"
-	cont "grass #MON?"
+	cont "grass #mon?"
 	done
 
 BirchTakeAgrimerText:
 	text "Birch: Take"
 	line "Grimer, the"
-	cont "poison #MON?"
+	cont "poison #mon?"
 	done
 
 BirchTakeExeggcuteText:	
 	text "Birch: Take"
 	line "Exeggcute, the"
-	cont "grass #MON?"
+	cont "grass #mon?"
 	done
 
 BirchTakeKurusuText:	
 	text "Birch: Take"
 	line "Kurusu, the"
-	cont "water #MON?"
+	cont "water #mon?"
 	done
 
 
@@ -749,21 +749,21 @@ BirchDirectionsText:
 	text "Alright, now"
 	line "it's time for"
 
-	para "your #MON"
+	para "your #mon"
 	line "adventure."
 
 	para "You should"
 	line "explore and"
 
 	para "challenge gyms,"
-	line "catch #MON."
+	line "catch #mon."
 
 	para "and try to have"
 	line "fun!"
 
 	para "Oh! And go"
 	line "see Mr."
-	cont "#MON sometime."
+	cont "#mon sometime."
 
 	para "He lives around"
 	line "Cherrywood Town"

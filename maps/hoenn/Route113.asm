@@ -162,7 +162,7 @@ Route113WyattScript:
 
 Route113WyattSeenText:
 	text "Behold, my"
-	line "beautiful #MON"
+	line "beautiful #mon"
 	done
 
 Route113WyattBeatenText:
@@ -170,7 +170,7 @@ Route113WyattBeatenText:
 	done
 
 Route113WyattAfterBattleText:
-	text "My #MON"
+	text "My #mon"
 	line "will win one day!"
 	done
 

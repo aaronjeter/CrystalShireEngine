@@ -26,7 +26,7 @@ SootopolisGymSign:
 
 SootopolisGymSignText:
 	text "Sootopolis City"
-	line "#MON Gym"
+	line "#mon Gym"
 
 	para "Leader: Wallace"
 	done

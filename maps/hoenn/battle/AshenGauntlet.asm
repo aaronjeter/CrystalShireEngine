@@ -134,7 +134,7 @@ AshenGauntletIntroText:
 	line "Ashen Gauntlet!"
 
 	para "Pick six"
-	line "#MON and"
+	line "#mon and"
 	cont "prove yourself!"
 
 	para "There's a prize"
@@ -148,7 +148,7 @@ AshenGauntletIntroText:
 PartyNotFullText:
 	text "Please come back"
 	line "with exactly"
-	cont "six #MON."
+	cont "six #mon."
 	done
 
 AshenGauntletSeenText:

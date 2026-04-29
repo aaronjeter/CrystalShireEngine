@@ -84,11 +84,11 @@ PhoebeScript_PhoebeBeforeText:
 
 	para "ability to commune"
 	line "with Ghost-type"
-	cont "#MON."
+	cont "#mon."
 
 	para "Yes, the bond I"
 	line "developed with"
-	cont "#MON"
+	cont "#mon"
 
 	para "is extremely"
 	line "tight."
@@ -98,7 +98,7 @@ PhoebeScript_PhoebeBeforeText:
 	
 	para "you can even"
 	line "inflict damage"
-	cont "on my #MON!"
+	cont "on my #mon!"
 	done
 
 PhoebeScript_PhoebeBeatenText:
@@ -111,7 +111,7 @@ PhoebeScript_PhoebeDefeatText:
 	text "There's a definite"
 	line "bond between you"
 
-	para "and your #MON,"
+	para "and your #mon,"
 	line "too."
 
 	para "I didn't recognize"

@@ -170,7 +170,7 @@ Route112ShaylaScript:
 
 Route112ShaylaSeenText:
 	text "Do you have any"
-	line "water #MON?"
+	line "water #mon?"
 	done
 
 Route112ShaylaBeatenText:

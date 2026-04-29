@@ -24,7 +24,7 @@ Route116JoeyScript:
 	end
 
 Route116JoeySeenText:
-	text "My #MON rule!"
+	text "My #mon rule!"
 	done
 
 Route116JoeyBeatenText:
@@ -115,7 +115,7 @@ Route116JaniceSeenText:
 	text "Let me teach you "
 	line "how strong my"
 
-	para "adorable #MON"
+	para "adorable #mon"
 	line "is."
 	done
 
@@ -125,7 +125,7 @@ Route116JaniceBeatenText:
 	done
 
 Route116JaniceAfterBattleText:
-	text "#MON that "
+	text "#mon that "
 	line "possess cuteness"
 
 	para "and power..."
@@ -147,7 +147,7 @@ Route116JoseScript:
 	end
 
 Route116JoseSeenText:
-	text "My Bug #MON"
+	text "My Bug #mon"
 	line "are tough!"
 
 	para "Let's battle!"
@@ -161,7 +161,7 @@ Route116JoseBeatenText:
 	done
 
 Route116JoseAfterBattleText:
-	text "Bug #MON evolve"
+	text "Bug #mon evolve"
 	line "quickly."
 
 	para "So they get"
@@ -232,7 +232,7 @@ Route116DevanBeatenText:
 
 Route116DevanAfterBattleText:
 	text "I should try"
-	line "different #MON"
+	line "different #mon"
 
 	para "types, that's"
 	line "what I ought"

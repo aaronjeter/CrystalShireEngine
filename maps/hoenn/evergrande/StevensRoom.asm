@@ -115,7 +115,7 @@ StevenScript_RoundTwoText:
 	line "of my true team."
 
 	para "One of the"
-	line "#MON you"
+	line "#mon you"
 
 	para "would face if"
 	line "we meet in the"

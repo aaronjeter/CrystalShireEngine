@@ -31,7 +31,7 @@ Route114SteveScript:
 
 Route114SteveSeenText:
 	text "Yo, check out"
-	line "my #MON!"
+	line "my #mon!"
 	done
 
 Route114SteveBeatenText:
@@ -39,7 +39,7 @@ Route114SteveBeatenText:
 	done
 
 Route114SteveAfterBattleText:
-	text "My #MON"
+	text "My #mon"
 	line "are awesome!"
 	done
 

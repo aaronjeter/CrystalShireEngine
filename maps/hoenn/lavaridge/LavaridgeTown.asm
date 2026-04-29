@@ -26,7 +26,7 @@ LavaridgeGymSign:
 
 LavaridgeGymSignText:
 	text "Lavaridge Town"
-	line "#MON Gym"
+	line "#mon Gym"
 	cont "Leader: Flannery"
 
 	para "One with"

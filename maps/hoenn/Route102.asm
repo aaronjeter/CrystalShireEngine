@@ -57,7 +57,7 @@ Route102AllenSeenText:
 	text "Shh!"
 
 	para "I'm trying to"
-	line "catch a #MON!"
+	line "catch a #mon!"
 	done
 
 Route102AllenBeatenText:
@@ -85,7 +85,7 @@ Route102RickScript:
 	end
 
 Route102RickSeenText:
-	text "Bug #MON evolve"
+	text "Bug #mon evolve"
 	line "young. So they get"
 
 	para "stronger that much"
@@ -98,7 +98,7 @@ Route102RickBeatenText:
 	done
 
 Route102RickAfterBattleText:
-	text "#MON become"
+	text "#mon become"
 	line "stronger if they"
 	cont "evolve. Really!"
 	done

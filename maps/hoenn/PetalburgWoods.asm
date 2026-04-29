@@ -20,7 +20,7 @@ PetalburgWoodsLyleScript:
 
 PetalburgWoodsLyleSeenText:
 	text "I caught a whole"
-	line "bunch of #MON!"
+	line "bunch of #mon!"
 	done
 
 PetalburgWoodsLyleBeatenText:
@@ -28,7 +28,7 @@ PetalburgWoodsLyleBeatenText:
 	done
 
 PetalburgWoodsLyleBattleText:
-	text "Lots of #MON"
+	text "Lots of #mon"
 	line "won't cut it."
 	done
 
@@ -46,7 +46,7 @@ PetalburgWoodsJamesScript:
 
 PetalburgWoodsJamesSeenText:
 	text "I caught a bunch"
-	line "of #MON."
+	line "of #mon."
 
 	para "Now I'm out"
 	line "of balls."
@@ -58,7 +58,7 @@ PetalburgWoodsJamesBeatenText:
 
 PetalburgWoodsJamesBattleText:
 	text "At least my bug"
-	line "#MON make me"
+	line "#mon make me"
 	cont "popular."
 	done
 

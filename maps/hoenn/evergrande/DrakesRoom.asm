@@ -72,13 +72,13 @@ DrakeScript_AfterBattle:
 
 DrakeScript_DrakeBeforeText:
 	text "I am the last of"
-	line "the #MON league"
+	line "the #mon league"
 
 	para "Elite Four, Drake"
 	line "the Dragon master!"
 
 	para "In their natural"
-	line "state, #MON"
+	line "state, #mon"
 
 	para "are wild living"
 	line "things."
@@ -92,7 +92,7 @@ DrakeScript_DrakeBeforeText:
 	line "help us."
 
 	para "For us to battle"
-	line "with #MON as"
+	line "with #mon as"
 
 	para "partners, do you"
 	line "know what it"
@@ -118,7 +118,7 @@ DrakeScript_DrakeDefeatText:
 
 	para "this far as a"
 	line "trainer of"
-	cont "#MON."
+	cont "#mon."
 
 	para "You do seem to"
 	line "know what is"
@@ -128,7 +128,7 @@ DrakeScript_DrakeDefeatText:
 	line "trainer needs is a"
 	cont "virtuous heart."
 
-	para "#MON touch"
+	para "#mon touch"
 	line "the good hearts of"
 
 	para "trainers and learn"

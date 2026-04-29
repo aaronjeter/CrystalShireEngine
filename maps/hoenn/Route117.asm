@@ -91,7 +91,7 @@ Route117IsaacBeatenText:
 
 Route117IsaacAfterBattleText:
 	text "I'll raise these"
-	line "#MON well!"
+	line "#mon well!"
 	done
 
 
@@ -166,7 +166,7 @@ Route117BrandiScript:
 Route117BrandiSeenText:
 	text "Let me demonstrate"
 	line "the power of a"
-	cont "Psychic #MON."
+	cont "Psychic #mon."
 	done
 
 Route117BrandiBeatenText:
@@ -176,7 +176,7 @@ Route117BrandiBeatenText:
 Route117BrandiAfterBattleText:
 	text "You should try"
 	line "catching a Psychic"
-	cont "#MON."
+	cont "#mon."
 	done
 
 
@@ -265,7 +265,7 @@ Route117LydiaBeatenText:
 
 Route117LydiaAfterBattleText:
 	text "You should raise"
-	line "more #MON!"
+	line "more #mon!"
 	done
 
 Route117FruitTree1:

@@ -228,7 +228,7 @@ FortreeGymEdwardoScript:
 
 FortreeGymEdwardoSeenText:
 	text "Lovers of Bird"
-	line "#MON aspire to"
+	line "#mon aspire to"
 	cont "this Gym."
 	done
 
@@ -260,7 +260,7 @@ FortreeGymDariusScript:
 FortreeGymDariusSeenText:
 	text "There are tons"
 	line "of different"
-	cont "Flying #MON."
+	cont "Flying #mon."
 
 	para "It's not just"
 	line "birds."

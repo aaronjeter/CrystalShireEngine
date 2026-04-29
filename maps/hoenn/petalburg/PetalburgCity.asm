@@ -26,7 +26,7 @@ PetalburgGymSign:
 
 PetalburgGymSignText:
 	text "Petalburg City"
-	line "#MON Gym"
+	line "#mon Gym"
 	cont "Leader: Norman"
 
 	para "The Ordinary"

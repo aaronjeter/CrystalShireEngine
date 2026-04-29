@@ -101,7 +101,7 @@ SidneyScript_SidneyBeforeText:
 	line "only be staged"
 
 	para "here in the"
-	line "#MON League!"
+	line "#mon League!"
 	done
 
 SidneyScript_SidneyBeatenText:

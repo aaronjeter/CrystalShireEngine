@@ -34,7 +34,7 @@ Route119DonaldSeenText:
 	text "So, we finally"
 	line "meet!"
 
-	para "My bug #MON"
+	para "My bug #mon"
 	line "will keep you"
 	cont "company!"
 	done
@@ -191,7 +191,7 @@ Route119ChrisScript:
 
 Route119ChrisSeenText:
 	text "Sure! I'll try out"
-	line "the #MON I"
+	line "the #mon I"
 	cont "caught fishing!"
 	done
 
@@ -223,12 +223,12 @@ Route119JacksonSeenText:
 	para "the technique"
 	line "for survival?"
 
-	para "#MON Rangers!"
+	para "#mon Rangers!"
 	done
 
 Route119JacksonBeatenText:
 	text "I didn't have"
-	line "enough #MON."
+	line "enough #mon."
 	done
 
 Route119JacksonAfterBattleText:
