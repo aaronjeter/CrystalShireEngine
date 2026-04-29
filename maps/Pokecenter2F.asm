@@ -367,8 +367,8 @@ Pokecenter2FMovementData_ReceptionistStepsRightAndDown:
 	step_end
 
 Text_BattleReceptionistIntro:
-	text "Welcome to CABLE"
-	line "CLUB COLOSSEUM."
+	text "Welcome to Cable"
+	line "Club Colosseum."
 
 	para "You may battle a"
 	line "friend here."
@@ -378,11 +378,11 @@ Text_BattleReceptionistIntro:
 	done
 
 Text_TradeReceptionistIntro:
-	text "Welcome to CABLE"
-	line "TRADE CENTER."
+	text "Welcome to Cable"
+	line "Trade Center."
 
 	para "You may trade your"
-	line "#MON here with"
+	line "#mon here with"
 	cont "a friend."
 
 	para "Would you like to"
@@ -390,12 +390,12 @@ Text_TradeReceptionistIntro:
 	done
 
 Text_TimeCapsuleReceptionistIntro:
-	text "Welcome to CABLE"
-	line "CLUB TIME CAPSULE."
+	text "Welcome to Cable"
+	line "Club Time Capsule."
 
 	para "You can travel to"
 	line "the past and trade"
-	cont "your #MON."
+	cont "your #mon."
 
 	para "Would you like to"
 	line "trade across time?"
@@ -466,24 +466,24 @@ Text_RejectMonWithMail:
 	line "@"
 	text_ram wStringBuffer1
 	text " that"
-	cont "has MAIL with you."
+	cont "has mail with you."
 	prompt
 
 Text_TimeCapsuleClosed:
 	text "I'm sorry--the"
-	line "TIME CAPSULE is"
+	line "Time Capsule is"
 	cont "being adjusted."
 	done
 
 Text_TradeRoomClosed:
 	text "I'm sorry--the"
-	line "TRADE MACHINE is"
+	line "Trade Machine is"
 	cont "being adjusted."
 	done
 
 Text_BattleRoomClosed:
 	text "I'm sorry--the"
-	line "BATTLE MACHINE is"
+	line "Battle Machine is"
 	cont "being adjusted."
 	done
 
@@ -509,7 +509,7 @@ Text_MysteryGiftDeliveryGuy_NoRoom:
 	line "space for this."
 
 	para "Stop in at any"
-	line "#MON CENTER"
+	line "#mon Center"
 
 	para "across the country"
 	line "to pick it up."

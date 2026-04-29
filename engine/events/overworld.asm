@@ -366,7 +366,7 @@ SurfFromMenuScript:
 	special UpdateTimePals
 
 UsedSurfScript:
-	writetext UsedSurfText ; "used SURF!"
+	writetext UsedSurfText ; "used Surf!"
 	waitbutton
 	closetext
 

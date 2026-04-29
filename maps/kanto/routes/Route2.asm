@@ -28,14 +28,14 @@ Route2HiddenRevive:
 
 
 Route2SignText:
-	text "ROUTE 2"
+	text "Route 2"
 
-	para "VIRIDIAN CITY -"
-	line "PEWTER CITY"
+	para "Viridian City -"
+	line "Pewter City"
 	done
 
 Route2DiglettsCaveSignText:
-	text "DIGLETT'S CAVE"
+	text "Diglett's Cave"
 	done
 
 Route2_MapEvents:

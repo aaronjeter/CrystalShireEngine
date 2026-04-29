@@ -380,7 +380,7 @@ SailorKennethSeenText:
 	text "I'm a sailor man!"
 
 	para "But I'm training"
-	line "#MON, so I can"
+	line "#mon, so I can"
 	cont "become the Champ!"
 	done
 
@@ -390,7 +390,7 @@ SailorKennethBeatenText:
 	done
 
 SailorKennethAfterBattleText:
-	text "BADGES!"
+	text "Badges!"
 	line "They must prove"
 
 	para "that you've beaten"

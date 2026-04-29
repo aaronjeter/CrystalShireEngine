@@ -122,7 +122,7 @@ BlaineIntroText:
 	line "burned down."
 
 	para "My fire-breathing"
-	line "#MON and I are"
+	line "#mon and I are"
 
 	para "homeless because"
 	line "of the volcano."
@@ -180,7 +180,7 @@ BlaineRematchWinLossText:
 
 BlaineFightDoneText:
 	text "Blaine: My fire"
-	line "#MON will be"
+	line "#mon will be"
 
 	para "even stronger."
 	line "Just you watch!"
@@ -208,7 +208,7 @@ SeafoamGymGuideWinText:
 	done
 
 SeafoamGymGuideWinText2:
-	text "A #MON Gym can"
+	text "A #mon Gym can"
 	line "be anywhere as"
 
 	para "long as the Gym"

@@ -610,12 +610,12 @@ MoveTypeTopString:
 ; This is the string that displays
 ; above the move's type.
 MoveTypeString:
-	db "│TYPE/└@"
+	db "│Type/└@"
 
 ; This is the string that precedes
 ; the move's attack number.
 MoveAttackString:
-	db "ATK/@"
+	db "Atk/@"
 
 ; This displays when a move has
 ; a metric with a null value.
@@ -629,7 +629,7 @@ MoveReminderIntroText:
 	line "Reminder!"
 
 	para "For ¥2500, I can"
-	line "make #MON"
+	line "make #mon"
 	cont "remember a move."
 
 	para "Are you"
@@ -639,7 +639,7 @@ MoveReminderIntroText:
 ; This is the text that displays just
 ; before the party menu opens.
 MoveReminderWhichMonText:
-	text "Which #MON?"
+	text "Which #mon?"
 	prompt
 
 ; This is the text that displays after
@@ -660,7 +660,7 @@ MoveReminderCancelText:
 ; This is the text that displays if the player
 ; selects an egg in the party menu.
 MoveReminderEggText:
-	text "An EGG can't learn"
+	text "An Egg can't learn"
 	line "any moves!"
 	done
 
@@ -672,7 +672,7 @@ MoveReminderNotaMonText:
 
 	para "I'm sorry, but I"
 	line "can only teach"
-	cont "moves to #MON!"
+	cont "moves to #mon!"
 	done
 
 ; This is the text that displays if the player
@@ -680,7 +680,7 @@ MoveReminderNotaMonText:
 ; has no moves that can be learned.
 MoveReminderNoMovesText:
 	text "There are no moves"
-	line "for this #MON"
+	line "for this #mon"
 	cont "to learn."
 	done
 
@@ -697,7 +697,7 @@ MoveReminderNotEnoughMoneyText:
 ; This is the text that displays after a
 ; Pokémon successfully learns a move.
 MoveReminderMoveLearnedText:
-	text "Done! Your #MON"
+	text "Done! Your #mon"
 	line "remembered the"
 	cont "move."
 	done

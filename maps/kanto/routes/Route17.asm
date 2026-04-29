@@ -66,8 +66,7 @@ Route17HiddenMaxElixer:
 	hiddenitem MAX_ELIXER, EVENT_ROUTE_17_HIDDEN_MAX_ELIXER
 
 BikerRileySeenText:
-	text "Hey, you! You're"
-	line "from JOHTO, huh?"
+	text "Hey, you!"
 	done
 
 BikerRileyBeatenText:
@@ -76,12 +75,12 @@ BikerRileyBeatenText:
 
 BikerRileyAfterBattleText:
 	text "Don't get cocky,"
-	line "you JOHTO punk!"
+	line "punk!"
 	done
 
 BikerJoelSeenText:
 	text "Wow. That's a cool"
-	line "BICYCLE!"
+	line "Bicycle!"
 	done
 
 BikerJoelBeatenText:
@@ -111,7 +110,7 @@ BikerGlennBeatenText:
 BikerGlennAfterBattleText:
 	text "Hands-free riding"
 	line "is considered cool"
-	cont "on CYCLING ROAD."
+	cont "on Cycling Road."
 	done
 
 BikerCharlesSeenText:

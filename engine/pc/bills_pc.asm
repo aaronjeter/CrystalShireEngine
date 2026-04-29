@@ -1252,7 +1252,7 @@ InitializeBoxes:
 	; ensure that all entries are allocated properly.
 	jmp FlushStorageSystem
 .Box:
-	db "BOX @"
+	db "Box @"
 
 INCLUDE "data/pc/default_box_themes.asm"
 

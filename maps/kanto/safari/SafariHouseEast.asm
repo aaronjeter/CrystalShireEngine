@@ -52,7 +52,7 @@ SafariRandalScript:
 
 SafariRandalSeenText:
 	text "You won't get"
-	line "my #MON!"
+	line "my #mon!"
 	done
 
 SafariRandalBeatenText:

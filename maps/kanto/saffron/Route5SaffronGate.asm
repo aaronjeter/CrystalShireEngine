@@ -10,11 +10,8 @@ Route5SaffronGateOfficerScript:
 	jumptextfaceplayer Route5SaffronGateOfficerText
 
 Route5SaffronGateOfficerText:
-	text "You're from JOHTO,"
-	line "aren't you?"
-
-	para "How do you like"
-	line "KANTO? It's nice,"
+	text "How do you like"
+	line "Kanto? It's nice,"
 	cont "don't you agree?"
 	done
 

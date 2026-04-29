@@ -68,8 +68,8 @@ VictoryRoadGateNotEnoughBadgesText:
 	done
 
 VictoryRoadGateEightBadgesText:
-	text "Oh! The eight"
-	line "BADGES of JOHTO!"
+	text "Oh! Eight"
+	line "Badges!"
 
 	para "Please, go right"
 	line "on through!"
@@ -77,18 +77,18 @@ VictoryRoadGateEightBadgesText:
 
 VictoryRoadGateLeftBlackBeltText:
 	text "This way leads to"
-	line "MT.SILVER."
+	line "Mt.Silver."
 
 	para "You'll see scary-"
-	line "strong #MON out"
+	line "strong #mon out"
 	cont "there."
 	done
 
 VictoryRoadGateRightBlackBeltText:
-	text "Off to the #MON"
-	line "LEAGUE, are you?"
+	text "Off to the #mon"
+	line "League, are you?"
 
-	para "The ELITE FOUR are"
+	para "The Elite Four are"
 	line "so strong it's"
 
 	para "scary, and they're"

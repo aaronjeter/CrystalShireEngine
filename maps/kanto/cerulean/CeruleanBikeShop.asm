@@ -43,11 +43,11 @@ CeruleanBikeShopClerkIntroText:
 	text "…sigh… I moved"
 	line "here, but I can't"
 
-	para "sell my BICYCLES."
+	para "sell my Bicycles."
 	line "Why is that?"
 
 	para "Could you ride a"
-	line "BICYCLE and adver-"
+	line "Bicycle and adver-"
 	cont "tise for me?"
 	done
 
@@ -58,16 +58,16 @@ CeruleanBikeShopClerkAgreedText:
 	line "and phone number,"
 
 	para "and I'll loan you"
-	line "a BICYCLE."
+	line "a Bicycle."
 	done
 
 CeruleanBorrowedABicycleText:
 	text "<PLAYER> borrowed a"
-	line "BICYCLE."
+	line "Bicycle."
 	done
 
 CeruleanBikeShopClerkFirstRateBikesText:
-	text "My BICYCLES are"
+	text "My Bicycles are"
 	line "first-rate! You"
 
 	para "can ride them"
@@ -82,7 +82,7 @@ CeruleanBikeShopClerkRefusedText:
 
 CeruleanBikeShopBicycleText:
 	text "It's a shiny new"
-	line "BICYCLE!"
+	line "Bicycle!"
 	done
 
 CeruleanBikeShop_MapEvents:

@@ -202,13 +202,13 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "BELDUM     {d:CELADONGAMECORNERPRIZEROOM_BELDUM_COINS}@"
-	db "PORYGON    {d:CELADONGAMECORNERPRIZEROOM_PORYGON_COINS}@"
-	db "LARVITAR   {d:CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS}@"
-	db "CANCEL@"
+	db "Beldum     {d:CELADONGAMECORNERPRIZEROOM_BELDUM_COINS}@"
+	db "Porygon    {d:CELADONGAMECORNERPRIZEROOM_PORYGON_COINS}@"
+	db "Larvitar   {d:CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS}@"
+	db "Cancel@"
 
 CeladonGameCornerPrizeRoomGentlemanText:
-	text "I wanted PORYGON,"
+	text "I wanted Porygon,"
 	line "but I was short by"
 	cont "100 coins…"
 	done
@@ -265,7 +265,7 @@ CeladonPrizeRoom_ComeAgainText:
 
 CeladonPrizeRoom_NoCoinCaseText:
 	text "Oh? You don't have"
-	line "a COIN CASE."
+	line "a Coin Case."
 	done
 
 CeladonGameCornerPrizeRoom_MapEvents:

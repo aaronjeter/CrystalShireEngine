@@ -95,7 +95,7 @@ SafariWardenRarePokemonText:
 	text "I've heard rumors"
 	line "of a Mythic"
 
-	para "#MON"
+	para "#mon"
 	line "somewhere in"
 	cont "the park."
 
@@ -125,7 +125,7 @@ SafariWardenGivesRewardsText:
 	line "can give you two!"
 
 	para "First, the HM for"
-	line "SURF: HM03"
+	line "Surf: HM03"
 
 	para "This will help"
 	line "you cross vast"

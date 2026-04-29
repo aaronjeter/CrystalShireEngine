@@ -78,11 +78,11 @@ OaksLabPC:
 	jumptext OaksLabPCText
 
 OakWelcomeKantoText:
-	text "OAK: Ah, <PLAY_G>!"
+	text "Oak: Ah, <PLAY_G>!"
 	line "It's good of you"
 
 	para "to come all this"
-	line "way to KANTO."
+	line "way to Kanto."
 
 	para "What do you think"
 	line "of the trainers"
@@ -100,14 +100,14 @@ OakGiveKantoiteText:
 	done
 
 OakExplainsKantoiteText:
-	text "Certain #MON"
-	line "from KANTO could"
+	text "Certain #mon"
+	line "from Kanto could"
 	cont "use this."
 	done
 
 OakLabDexCheckText:
 	text "How is your #-"
-	line "DEX coming?"
+	line "dex coming?"
 
 	para "Let's see…"
 	done
@@ -119,11 +119,11 @@ OakLabGoodbyeText:
 	done
 
 OakOpenMtSilverText:
-	text "OAK: Wow! That's"
+	text "Oak: Wow! That's"
 	line "excellent!"
 
 	para "You collected the"
-	line "BADGES of GYMS in"
+	line "Badges of Gyms in"
 	cont "KANTO. Well done!"
 
 	para "I was right in my"
@@ -134,13 +134,13 @@ OakOpenMtSilverText:
 
 	para "arrangements so"
 	line "that you can go to"
-	cont "MT.SILVER."
+	cont "Mt.Silver."
 
-	para "MT.SILVER is a big"
+	para "Mt.Silver is a big"
 	line "mountain that is"
 
 	para "home to many wild"
-	line "#MON."
+	line "#mon."
 
 	para "It's too dangerous"
 	line "for your average"
@@ -152,23 +152,17 @@ OakOpenMtSilverText:
 	line "exception in your"
 	cont "case, <PLAY_G>."
 
-	para "Go up to INDIGO"
-	line "PLATEAU. You can"
+	para "Go up to Indigo"
+	line "Plateau. You can"
 
-	para "reach MT.SILVER"
+	para "reach Mt.Silver"
 	line "from there."
 	done
 
 OakNoKantoBadgesText:
-	text "OAK: Hmm? You're"
+	text "Oak: Hmm? You're"
 	line "not collecting"
-	cont "KANTO GYM BADGES?"
-
-	para "The GYM LEADERS in"
-	line "KANTO are as tough"
-
-	para "as any you battled"
-	line "in JOHTO."
+	cont "Badges?"
 
 	para "I recommend that"
 	line "you challenge"
@@ -176,9 +170,9 @@ OakNoKantoBadgesText:
 	done
 
 OakYesKantoBadgesText:
-	text "OAK: Ah, you're"
-	line "collecting KANTO"
-	cont "GYM BADGES."
+	text "Oak: Ah, you're"
+	line "collecting"
+	cont "Gym Badges."
 
 	para "I imagine that"
 	line "it's hard, but the"
@@ -197,11 +191,11 @@ OakYesKantoBadgesText:
 	done
 
 OaksAssistant1Text:
-	text "The PROF's #MON"
-	line "TALK radio program"
+	text "The Prof's #mon"
+	line "Talk radio program"
 
 	para "isn't aired here"
-	line "in KANTO."
+	line "in Kanto."
 
 	para "It's a shame--I'd"
 	line "like to hear it."
@@ -210,7 +204,7 @@ OaksAssistant1Text:
 OaksAssistant2Text:
 	text "Thanks to your"
 	line "work on the #-"
-	cont "DEX, the PROF's"
+	cont "dex, the Prof's"
 
 	para "research is coming"
 	line "along great."
@@ -218,20 +212,20 @@ OaksAssistant2Text:
 
 OaksAssistant3Text:
 	text "Don't tell anyone,"
-	line "but PROF.OAK'S"
+	line "but Prof.Oak'S"
 
-	para "#MON TALK isn't"
+	para "#mon Talk isn't"
 	line "a live broadcast."
 	done
 
 OaksLabPoster1Text:
-	text "Press START to"
-	line "open the MENU."
+	text "Press Start to"
+	line "open the Menu."
 	done
 
 OaksLabPoster2Text:
-	text "The SAVE option is"
-	line "on the MENU."
+	text "The Save option is"
+	line "on the Menu."
 
 	para "Use it in a timely"
 	line "manner."
@@ -248,7 +242,7 @@ OaksLabPCText:
 
 	para "…"
 
-	para "PROF.OAK, how is"
+	para "Prof.Oak, how is"
 	line "your research"
 	cont "coming along?"
 
@@ -264,7 +258,7 @@ OaksLabPCText:
 	para "I'm delighted to"
 	line "hear that."
 
-	para "ELM in NEW BARK"
+	para "Elm in New Bark"
 	line "TOWN 8-)"
 	done
 
@@ -824,7 +818,7 @@ OakDidntChooseStarterText:
 OakChoseStarterText:
 	text "Oak: I think"
 	line "that's a great"
-	cont "#MON too!"
+	cont "#mon too!"
 	done
 
 OakReceivedStarterText:
@@ -836,143 +830,143 @@ OakReceivedStarterText:
 
 OakPokeBallText:
 	text "It contains a"
-	line "#MON caught by"
-	cont "PROF.Oak."
+	line "#mon caught by"
+	cont "Prof.Oak."
 	done
 
 OakTakeCharmanderText:
 	text "Oak: Take"
-	line "CHARMANDER, the"
-	cont "fire #MON?"
+	line "Charmander, the"
+	cont "fire #mon?"
 	done
 
 OakTakeCyndaquilText:
 	text "Oak: Take"
-	line "CYNDAQUIL, the"
-	cont "fire #MON?"
+	line "Cyndaquil, the"
+	cont "fire #mon?"
 	done
 
 OakTakeTorchicText:
 	text "Oak: Take"
-	line "TORCHIC, the"
-	cont "fire #MON?"
+	line "Torchic, the"
+	cont "fire #mon?"
 	done
 
 OakTakeAvulpixText:
 	text "Oak: Take"
-	line "VULPIX, the"
-	cont "snow #MON?"
+	line "Vulpix, the"
+	cont "snow #mon?"
 	done
 
 OakTakeVulpix2Text:
 	text "Oak: Take"
 	line "Vulpix, the"
-	cont "steam #MON?"
+	cont "steam #mon?"
 	done
 
 OakTakeAbra2Text:
 	text "Oak: Take"
 	line "Abra, the"
-	cont "magician #MON?"
+	cont "magician #mon?"
 	done
 
 OakTakeHonobeaText:
 	text "Oak: Take"
 	line "Honobea, the"
-	cont "fire #MON?"
+	cont "fire #mon?"
 	done
 
 OakTakeSquirtleText:
 	text "Oak: Take"
-	line "SQUIRTLE, the"
-	cont "water #MON?"
+	line "Squirtle, the"
+	cont "water #mon?"
 	done
 
 OakTakeTotodileText:
 	text "Oak: Take"
-	line "TOTODILE, the"
-	cont "water #MON?"
+	line "Totodile, the"
+	cont "water #mon?"
 	done
 
 OakTakeMudkipText:
 	text "Oak: Take"
-	line "MUDKIP, the"
-	cont "mud #MON?"
+	line "Mudkip, the"
+	cont "mud #mon?"
 	done
 
 OakTakeAsandshrewText:
 	text "Oak: Take"
-	line "SANDSHREW, the"
-	cont "mouse #MON?"
+	line "Sandshrew, the"
+	cont "mouse #mon?"
 	done
 
 OakTakeVoltorbText:
 	text "Oak: Take"
-	line "VOLTORB, the"
-	cont "orb #MON?"
+	line "Voltorb, the"
+	cont "orb #mon?"
 	done
 
 OakTakeKotoraText:
 	text "Oak: Take"
-	line "KOTORA, the"
-	cont "tiger #MON?"
+	line "Kotora, the"
+	cont "tiger #mon?"
 	done
 
 OakTakeBulbasaurText:	
 	text "Oak: Take"
-	line "BULBASAUR, the"
-	cont "grass #MON?"
+	line "Bulbasaur, the"
+	cont "grass #mon?"
 	done
 
 OakTakeChikoritaText:	
 	text "Oak: Take"
-	line "CHIKORITA, the"
-	cont "grass #MON?"
+	line "Chikorita, the"
+	cont "grass #mon?"
 	done
 
 OakTakeTreeckoText:
 	text "Oak: Take"
-	line "TREECKO, the"
-	cont "grass #MON?"
+	line "Treecko, the"
+	cont "grass #mon?"
 	done
 
 OakTakeAgrimerText:
 	text "Oak: Take"
-	line "GRIMER, the"
-	cont "poison #MON?"
+	line "Grimer, the"
+	cont "poison #mon?"
 	done
 
 OakTakeExeggcuteText:	
 	text "Oak: Take"
-	line "EXEGGCUTE, the"
-	cont "grass #MON?"
+	line "Exeggcute, the"
+	cont "grass #mon?"
 	done
 
 OakTakeKurusuText:	
 	text "Oak: Take"
-	line "KURUSU, the"
-	cont "water #MON?"
+	line "Kurusu, the"
+	cont "water #mon?"
 	done
 
 OakDirectionsText:
 	text "Alright, now"
 	line "it's time for"
 
-	para "your #MON"
+	para "your #mon"
 	line "adventure."
 
 	para "You should"
 	line "explore and"
 
 	para "challenge gyms,"
-	line "catch #MON."
+	line "catch #mon."
 
 	para "and try to have"
 	line "fun!"
 
 	para "Oh! And go"
 	line "see Mr."
-	cont "#MON sometime."
+	cont "#mon sometime."
 
 	para "He lives around"
 	line "Cherrywood Town"

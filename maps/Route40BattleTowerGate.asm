@@ -31,7 +31,7 @@ Route40BattleTowerGateRockerText:
 
 Route40BattleTowerGateTwinText:
 	text "The levels of the"
-	line "#MON I want to"
+	line "#mon I want to"
 
 	para "use are all"
 	line "different."

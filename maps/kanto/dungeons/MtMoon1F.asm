@@ -27,7 +27,7 @@ TrainerMoonKent:
 TrainerMoonKentSeenText:
 	text "Dang it!"
 
-	para "I hate ZUBAT"
+	para "I hate Zubat"
 	line "so much!"
 	done
 
@@ -39,7 +39,7 @@ TrainerMoonKentAfterBattleText:
 	text "I just want to"
 	line "catch a stuid"
 
-	para "JIGGLYPUFF..."
+	para "Jigglypuff..."
 	done
 
 
@@ -66,7 +66,7 @@ TrainerMoonIrisBeatenText:
 
 TrainerMoonIrisAfterBattleText:
 	text "I just saw a"
-	line "CLEFAIRY in"
+	line "Clefairy in"
 	cont "the square!"
 	done
 
@@ -111,7 +111,7 @@ TrainerMoonRobby:
 
 TrainerMoonRobbySeenText:
 	text "I heard there"
-	line "are wild PARAS"
+	line "are wild Paras"
 
 	para "in here somewhere."
 	line "Seen one yet?"
@@ -122,7 +122,7 @@ TrainerMoonRobbyBeatenText:
 	done
 
 TrainerMoonRobbyAfterBattleText:
-	text "I think PARAS"
+	text "I think Paras"
 	line "might be deeper."
 	done
 
@@ -139,7 +139,7 @@ TrainerMoonMiriam:
 	end
 
 TrainerMoonMiriamSeenText:
-	text "CLEFAIRY is so"
+	text "Clefairy is so"
 	line "freaking cute!"
 	done
 
@@ -149,7 +149,7 @@ TrainerMoonMiriamBeatenText:
 
 TrainerMoonMiriamAfterBattleText:
 	text "I'm gonna catch"
-	line "a CLEFAIRY."
+	line "a Clefairy."
 	done
 
 
@@ -165,7 +165,7 @@ TrainerMoonJosh:
 	end
 
 TrainerMoonJoshSeenText:
-	text "These GEODUDE"
+	text "These Geodude"
 	line "are good training."
 	done
 
@@ -201,8 +201,8 @@ TrainerMoonMarcosBeatenText:
 
 TrainerMoonMarcosAfterBattleText:
 	text "I'm on my way"
-	line "from CERULEAN"
-	cont "CITY."
+	line "from Cerulean"
+	cont "City."
 	done
 
 

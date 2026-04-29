@@ -324,10 +324,10 @@ Route27FisherText:
 
 	para "You've taken your"
 	line "first step into"
-	cont "KANTO."
+	cont "Kanto."
 
 	para "Check your #-"
-	line "GEAR MAP and see."
+	line "gear map and see."
 	done
 
 CooltrainermBlakeSeenText:
@@ -371,7 +371,7 @@ CooltrainerfReenaSeenText:
 	text "You shouldn't"
 	line "underestimate the"
 
-	para "wild #MON in"
+	para "wild #mon in"
 	line "these parts."
 	done
 
@@ -404,10 +404,10 @@ CooltrainerfMeganBeatenText:
 CooltrainerfMeganAfterBattleText:
 	text "I'm checking out"
 	line "pre- and post-"
-	cont "evolution #MON."
+	cont "evolution #mon."
 
 	para "Evolution really"
-	line "does make #MON"
+	line "does make #mon"
 	cont "stronger."
 
 	para "But evolved forms"
@@ -424,8 +424,8 @@ PsychicGilbertSeenText:
 	para "Mmmmmmm…"
 
 	para "I got it! You're"
-	line "on the #MON"
-	cont "LEAGUE challenge!"
+	line "on the #mon"
+	cont "League challenge!"
 	done
 
 PsychicGilbertBeatenText:
@@ -435,7 +435,7 @@ PsychicGilbertBeatenText:
 PsychicGilbertAfterBattleText:
 	text "With your skills,"
 	line "you'll do well at"
-	cont "the LEAGUE."
+	cont "the League."
 
 	para "That's what my"
 	line "premonition says."
@@ -451,18 +451,18 @@ BirdKeeperJose2BeatenText:
 	done
 
 BirdKeeperJose2AfterBattleText:
-	text "BIRD KEEPERS like"
+	text "Bird Keepers like"
 	line "me mimic bird"
 
 	para "whistles to com-"
-	line "mand #MON."
+	line "mand #mon."
 	done
 
 TohjoFallsSignText:
-	text "TOHJO FALLS"
+	text "Tohjo Falls"
 
-	para "THE LINK BETWEEN"
-	line "KANTO AND JOHTO"
+	para "The Link Between"
+	line "Kanto and Johto"
 	done
 
 Route27_MapEvents:

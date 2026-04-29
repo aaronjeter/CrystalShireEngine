@@ -25,7 +25,7 @@ TrainerMoonMiguel:
 
 TrainerMoonMiguelSeenText:
 	text "Hey, do you"
-	line "see any FOSSILS?"
+	line "see any Fossils?"
 	done
 
 TrainerMoonMiguelBeatenText:
@@ -34,7 +34,7 @@ TrainerMoonMiguelBeatenText:
 
 TrainerMoonMiguelAfterBattleText:
 	text "I found some"
-	line "FOSSILS here"
+	line "Fossils here"
 	cont "a while back."
 	done
 
@@ -61,7 +61,7 @@ TrainerMoonGrunt1BeatenText:
 
 TrainerMoonGrunt1AfterBattleText:
 	text "We're looking for"
-	line "FOSSILS here."
+	line "Fossils here."
 
 	para "You'd better give"
 	line "us any you find."
@@ -90,7 +90,7 @@ TrainerMoonGrunt2BeatenText:
 
 TrainerMoonGrunt2AfterBattleText:
 	text "We're looking for"
-	line "FOSSILS here."
+	line "Fossils here."
 
 	para "You'd better give"
 	line "us any you find."
@@ -119,7 +119,7 @@ TrainerMoonGrunt3BeatenText:
 
 TrainerMoonGrunt3AfterBattleText:
 	text "We're looking for"
-	line "FOSSILS here."
+	line "Fossils here."
 
 	para "You'd better give"
 	line "us any you find."
@@ -147,7 +147,7 @@ TrainerMoonGrunt4BeatenText:
 
 TrainerMoonGrunt4AfterBattleText:
 	text "We're looking for"
-	line "FOSSILS here."
+	line "Fossils here."
 
 	para "You'd better give"
 	line "us any you find."

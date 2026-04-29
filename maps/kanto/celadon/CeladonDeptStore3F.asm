@@ -49,7 +49,7 @@ CeladonDeptStore3FDirectory:
 
 CeladonDeptStore3FYoungsterText:
 	text "I can't decide"
-	line "which #MON I"
+	line "which #mon I"
 
 	para "should use this TM"
 	line "on…"
@@ -57,15 +57,15 @@ CeladonDeptStore3FYoungsterText:
 
 CeladonDeptStore3FGameboyKid1Text:
 	text "Uh-oh! I traded my"
-	line "#MON without"
+	line "#mon without"
 
-	para "removing the UP-"
-	line "GRADE from it."
+	para "removing the Up-"
+	line "grade from it."
 	done
 
 CeladonDeptStore3FGameboyKid2Text:
 	text "Yeah! I'm finally"
-	line "getting a PORYGON!"
+	line "getting a Porygon!"
 
 	para "I'm no good at the"
 	line "slots, so I could"
@@ -75,20 +75,20 @@ CeladonDeptStore3FGameboyKid2Text:
 
 	para "…Huh?"
 
-	para "The traded PORYGON"
+	para "The traded Porygon"
 	line "turned into a dif-"
-	cont "ferent #MON!"
+	cont "ferent #mon!"
 	done
 
 CeladonDeptStore3FSuperNerdText:
-	text "The TM SHOP sells"
+	text "The TM Shop sells"
 	line "some rare moves."
 	done
 
 CeladonDeptStore3FDirectoryText:
-	text "3F: TM SHOP"
+	text "3F: TM Shop"
 
-	para "Make Your #MON"
+	para "Make Your #mon"
 	line "Stronger!"
 	done
 
