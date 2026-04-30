@@ -169,11 +169,11 @@ BulbasaurEvosAttacks:
 	dbw 32, GROWTH
 	dbw 36, STOMP
 	dbw 40, LEAF_BLADE
-	dbw 45, SLUDGE_BOMB
+	dbw 45, SLUDGE_WAVE
 	dbw 50, SOLARBEAM
 	dbw 55, BULK_UP
 	dbw 60, TOXIC
-	dbw 65, DOUBLE_EDGE
+	dbw 65, SLUDGE_BOMB
 	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
@@ -192,11 +192,11 @@ IvysaurEvosAttacks:
 	dbw 32, GROWTH
 	dbw 36, STOMP
 	dbw 40, LEAF_BLADE
-	dbw 45, SLUDGE_BOMB
+	dbw 45, SLUDGE_WAVE
 	dbw 50, SOLARBEAM
 	dbw 55, BULK_UP
 	dbw 60, TOXIC
-	dbw 65, DOUBLE_EDGE
+	dbw 65, SLUDGE_BOMB
 	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
@@ -215,11 +215,11 @@ VenusaurEvosAttacks:
 	dbw 32, GROWTH
 	dbw 36, STOMP
 	dbw 40, LEAF_BLADE
-	dbw 45, SLUDGE_BOMB
+	dbw 45, SLUDGE_WAVE
 	dbw 50, SOLARBEAM
 	dbw 55, BULK_UP
 	dbw 60, TOXIC
-	dbw 65, DOUBLE_EDGE
+	dbw 65, SLUDGE_BOMB
 	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
