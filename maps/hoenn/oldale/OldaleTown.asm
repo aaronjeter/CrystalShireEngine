@@ -26,6 +26,8 @@ OldaleTown_MapEvents:
 	def_warp_events	
 	warp_event  5, 15, OLDALE_POKECENTER, 2
 	warp_event 13,  7, OLDALE_MART, 2
+	warp_event 05, 07, OLDALE_HOUSE1, 2
+	warp_event 13, 15, OLDALE_HOUSE2, 2
 
 	def_coord_events
 

@@ -523,6 +523,8 @@ ENDM
 	map_const OLDALE_TOWN,                                 10, 10 ;  2
 	map_const OLDALE_POKECENTER,						   07, 04 ;
 	map_const OLDALE_MART,								   06, 04 ;
+	map_const OLDALE_HOUSE1,							   04, 04 ;
+	map_const OLDALE_HOUSE2,							   04, 04 ;
 	map_const PETALBURG_CITY,                              15, 15 ;  3
 	map_const PETALBURG_GYM,							   05, 40 ;
 	map_const PETALBURG_POKECENTER,						   07, 04 ;

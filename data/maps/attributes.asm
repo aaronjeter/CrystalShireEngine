@@ -783,6 +783,9 @@ ENDM
 	connection south, Route101, ROUTE_101, 0
 	connection west, Route102, ROUTE_102, 0
 
+	map_attributes OldaleHouse1, OLDALE_HOUSE1, $00, 0
+	map_attributes OldaleHouse2, OLDALE_HOUSE2, $00, 0
+
 	map_attributes PetalburgCity, PETALBURG_CITY, $05, WEST | EAST 
 	connection west, Route104, ROUTE_104, -15
 	connection east, Route102, ROUTE_102, 4

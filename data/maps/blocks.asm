@@ -1000,6 +1000,8 @@ SECTION "Map Blocks 4", ROMX
 	FallarborReminderHouse_Blocks:
 	PetalburgHouse1_Blocks:
 	PetalburgHouse2_Blocks:
+	OldaleHouse1_Blocks:
+	OldaleHouse2_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
 	MrBrineyHouse_Blocks:
