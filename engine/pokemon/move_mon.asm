@@ -1067,7 +1067,17 @@ CalcMonStatC:
 	and a
 	jr z, .no_stat_exp
 	add hl, bc
-	;ld a, [hl]
+
+	ld a, [wHardMode]
+	cp a, 0
+	jr z, .SetMaxEV
+
+	;if hardmode is not on, calculate evs normally
+	ld a, [hl]
+	ld b, a
+	jr .no_stat_exp
+
+.SetMaxEV ;if hardmdoe is on, set all evs to max for player and ai
 	ld a, $ff
 	ld b, a
 
