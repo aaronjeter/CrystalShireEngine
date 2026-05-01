@@ -19,6 +19,75 @@ DewfordGymGuardScript:
 	closetext
 	end
 
+DewfordTownFishingGuruScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_OLD_ROD
+	iftrue .GotOldRod
+	writetext DewfordTownFishingGuruText_Question
+	yesorno
+	iffalse .Refused
+	writetext DewfordTownFishingGuruText_Yes
+	promptbutton
+	verbosegiveitem OLD_ROD
+	writetext DewfordTownFishingGuruText_GiveOldRod
+	waitbutton
+	closetext
+	setevent EVENT_GOT_OLD_ROD
+	end
+
+.Refused:
+	writetext DewfordTownFishingGuruText_No
+	waitbutton
+	closetext
+	end
+
+.GotOldRod:
+	writetext DewfordTownFishingGuruText_After
+	waitbutton
+	closetext
+	end
+
+DewfordTownFishingGuruText_Question:
+	text "This is a great"
+	line "fishing spot."
+
+	para "You saw people"
+	line "fishing? How"
+	cont "about you?"
+
+	para "Would you like one"
+	line "of my Rods?"
+	done
+
+DewfordTownFishingGuruText_Yes:
+	text "Heh, that's good"
+	line "to hear."
+
+	para "Now you're an"
+	line "angler too!"
+	done
+
+DewfordTownFishingGuruText_GiveOldRod:
+	text "Fishing is great!"
+
+	para "If there's water,"
+	line "be it the sea or a"
+
+	para "stream, try out"
+	line "your Rod."
+	done
+
+DewfordTownFishingGuruText_No:
+	text "Oh. That's rather"
+	line "disappointing."
+	done
+
+DewfordTownFishingGuruText_After:
+	text "Yo, kid. How are"
+	line "they biting?"
+	done
+
 DewfordTownSign:
 	jumptext DewfordTownSignText
 
@@ -76,3 +145,5 @@ DewfordTown_MapEvents:
 
 	def_object_events
 	object_event  14,  34, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DewfordGymGuardScript, EVENT_GOT_PICKAXE
+	object_event  10,  09, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DewfordTownFishingGuruScript, -1
+	
