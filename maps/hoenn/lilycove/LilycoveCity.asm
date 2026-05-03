@@ -76,6 +76,13 @@ LilycoveDeptStoreSignText:
 	line "Department Store"
 	done
 
+LilycoveHarborSign:
+	jumptext LilycoveHarborSignText
+
+LilycoveHarborSignText:
+	text "Lilycove Voyages"
+	done
+
 LilycoveCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -83,6 +90,7 @@ LilycoveCity_MapEvents:
 	warp_event 23, 15, LILYCOVE_POKECENTER, 2
 	warp_event 53, 17, LILYCOVE_TRADE_HOUSE, 2
 	warp_event 55, 05, LILYCOVE_PAINT_HOUSE, 2
+	warp_event 13, 33, LILYCOVE_HARBOR, 2
 
 	def_coord_events
 
@@ -90,6 +98,7 @@ LilycoveCity_MapEvents:
 	bg_event  29, 15, BGEVENT_READ, LilycoveSign
 	bg_event  53, 07, BGEVENT_READ, LilycoveCleaHouseSign
 	bg_event  37, 07, BGEVENT_READ, LilycoveDeptStoreSign
+	bg_event  11, 33, BGEVENT_READ, LilycoveHarborSign
 
 	def_object_events
 	object_event  46,  33, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, LilycoveMossdeepGuyScript, -1

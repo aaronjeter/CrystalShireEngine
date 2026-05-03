@@ -1240,4 +1240,10 @@ SECTION "Map Blocks Battle Resort", ROMX
 	WorldCupLobby_Blocks:
 	INCBIN "maps/hoenn/battle/WorldCupLobby.ablk" 
 
+	BattleResortHarbor_Blocks:
+	INCBIN "maps/hoenn/battle/BattleResortHarbor.ablk" 
+
+	LilycoveHarbor_Blocks:
+	INCBIN "maps/hoenn/lilycove/LilycoveHarbor.ablk" 
+
 ENDSECTION

@@ -761,6 +761,7 @@ ENDM
 	map_attributes FortreeTradeHouse, FORTREE_TRADE_HOUSE, $00, 0
 	map_attributes LilycoveTradeHouse, LILYCOVE_TRADE_HOUSE, $00, 0
 	map_attributes LilycovePaintHouse, LILYCOVE_PAINT_HOUSE, $00, 0
+	map_attributes LilycoveHarbor, LILYCOVE_HARBOR, $00, 0
 	map_attributes FallarborReminderHouse, FALLARBOR_REMINDER_HOUSE, $00, 0
 
 	map_attributes MauvilleBikeShop, MAUVILLE_BIKE_SHOP, $00, 0
@@ -950,3 +951,4 @@ ENDM
 	map_attributes TreetopTrial, TREETOP_TRIAL, $00, 0
 	map_attributes AshenGauntlet, ASHEN_GAUNTLET, $00, 0
 	map_attributes WorldCupLobby, WORLD_CUP_LOBBY, $00, 0
+	map_attributes BattleResortHarbor, BATTLE_RESORT_HARBOR, $00, 0

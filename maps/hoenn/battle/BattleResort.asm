@@ -37,6 +37,8 @@ BattleResort_MapEvents:
 	warp_event   10, 28, ASHEN_GAUNTLET, 1
 	warp_event   11, 28, ASHEN_GAUNTLET, 2
 	warp_event   24, 13, WORLD_CUP_LOBBY, 2
+	warp_event   24, 51, BATTLE_RESORT_HARBOR, 1
+	warp_event   25, 51, BATTLE_RESORT_HARBOR, 2
 
 	def_coord_events
 

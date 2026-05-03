@@ -702,5 +702,7 @@ INCLUDE "maps/hoenn/battle/BattleResortMart.asm"
 INCLUDE "maps/hoenn/battle/TreetopTrial.asm"
 INCLUDE "maps/hoenn/battle/AshenGauntlet.asm"
 INCLUDE "maps/hoenn/battle/WorldCupLobby.asm"
+INCLUDE "maps/hoenn/battle/BattleResortHarbor.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveHarbor.asm"
 
 ENDSECTION
