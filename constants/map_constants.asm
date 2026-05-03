@@ -614,6 +614,7 @@ ENDM
 	map_const SOOTOPOLIS_POKECENTER,					   07, 04 ;
 	map_const SOOTOPOLIS_MART,							   06, 04 ;
 	map_const SOOTOPOLIS_GYM,							   12, 20 ;
+	map_const SOOTOPOLIS_FISHER_HOUSE,					   04, 04 ;
 	map_const EVERGRANDE_CITY,                             20, 40 ;
 	map_const EVERGRANDE_POKECENTER,					   07, 04 ;
 	map_const HOENN_POKELEAGUE,                            07, 04 ;

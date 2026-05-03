@@ -554,6 +554,7 @@ INCLUDE "maps/hoenn/sootopolis/SootopolisCity.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisPokecenter.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisMart.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisGym.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisFisherHouse.asm"
 
 ENDSECTION
 

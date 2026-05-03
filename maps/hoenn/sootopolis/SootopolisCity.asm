@@ -38,6 +38,7 @@ SootopolisCity_MapEvents:
 	warp_event 45, 21, SOOTOPOLIS_POKECENTER, 2
 	warp_event 13, 21, SOOTOPOLIS_MART, 2
 	warp_event 30, 33, SOOTOPOLIS_GYM, 2
+	warp_event 07, 19, SOOTOPOLIS_FISHER_HOUSE, 2
 
 	def_coord_events
 

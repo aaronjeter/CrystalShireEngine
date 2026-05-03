@@ -1002,6 +1002,7 @@ SECTION "Map Blocks 4", ROMX
 	PetalburgHouse2_Blocks:
 	OldaleHouse1_Blocks:
 	OldaleHouse2_Blocks:
+	SootopolisFisherHouse_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
 	MrBrineyHouse_Blocks:

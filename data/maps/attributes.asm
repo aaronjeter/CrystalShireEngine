@@ -826,6 +826,7 @@ ENDM
 	map_attributes MossdeepCity, MOSSDEEP_CITY, $05, 0
 
 	map_attributes SootopolisCity, SOOTOPOLIS_CITY, $05, 0
+	map_attributes SootopolisFisherHouse, SOOTOPOLIS_FISHER_HOUSE, $00, 0
 
 	map_attributes EvergrandeCity, EVERGRANDE_CITY, $05, 0
 
