@@ -37,9 +37,45 @@ LilycoveHarborTourist2Text:
 
 
 LilycoveHarborAgentScript:
-	jumptextfaceplayer LilycoveHarborAgentScriptText
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_HOENN_LEAGUE
+	iffalse .NoScrubs
+	writetext LilycoveHarborAgentScriptText
+	yesorno
+	iffalse .NotSailing
+	writetext LilycoveHarborSailingText
+	promptbutton
+	closetext
+	special FadeOutToWhite
+	waitsfx
+	warp BATTLE_RESORT_HARBOR, 03, 11
+	end
+
+.NoScrubs:
+	writetext LilycoveHarborAgentNoScrubsText
+	waitbutton
+	closetext
+	end
+
+.NotSailing
+	writetext LilycoveHarborNotRidingText
+	waitbutton
+	closetext
+	end
 
 LilycoveHarborAgentScriptText:
+	text "Hi, welcome to"
+	line "Resort Seaways!"
+
+	para "Would you "
+	line "like to travel"
+
+	para "to the"
+	line "Battle Resort?"
+	done
+
+LilycoveHarborAgentNoScrubsText:
 	text "Hi, welcome to"
 	line "Resort Seaways!"
 
@@ -53,6 +89,16 @@ LilycoveHarborAgentScriptText:
 
 	para "Sorry, we don't"
 	line "take scrubs."
+	done
+
+LilycoveHarborNotRidingText:
+	text "OK."
+	line "I'll just be here."
+	done
+
+LilycoveHarborSailingText:
+	text "Alright, let's"
+	line "get sailing!"
 	done
 
 LilycoveHarbor_MapEvents:
