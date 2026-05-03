@@ -13,6 +13,7 @@
 	const MAPROUTE119_FRUITTREE2
 	const MAPROUTE119_FRUITTREE3
 	const MAPROUTE119_FRUITTREE4
+	const MAPROUTE119_FISHER
 
 Route119South_MapScripts:
 	def_scene_scripts
@@ -299,6 +300,76 @@ Route119CatherineAfterBattleText:
 	line "of things!"
 	done
 
+
+Route119GoodRodGuru:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_GOOD_ROD
+	iftrue .AlreadyGotItem
+	writetext Route119OfferGoodRodText
+	yesorno
+	iffalse .DontWantIt
+	writetext Route119GiveGoodRodText
+	promptbutton
+	verbosegiveitem GOOD_ROD
+	writetext Route119GaveGoodRodText
+	waitbutton
+	closetext
+	setevent EVENT_GOT_GOOD_ROD
+	end
+
+.DontWantIt:
+	writetext Route119DontWantGoodRodText
+	waitbutton
+	closetext
+	end
+
+.AlreadyGotItem:
+	writetext Route119HaveGoodRodText
+	waitbutton
+	closetext
+	end
+
+Route119OfferGoodRodText:
+	text "River fishing"
+	line "is the best!"
+
+	para "It winds and"
+	line "flows, there are"
+	cont "bound to be fish!"
+
+	para "I've fished here"
+	line "for 30 years."
+
+	para "Would you like to"
+	line "give it a try?"
+	done
+
+Route119GiveGoodRodText:
+	text "Ah, hahah!"
+	line "We have ourselves"
+	cont "a new angler!"
+	done
+
+Route119GaveGoodRodText:
+	text "Fish aren't found"
+	line "in the sea alone."
+
+	para "They go wherever"
+	line "there is water."
+	done
+
+Route119DontWantGoodRodText:
+	text "Whaaat? You don't"
+	line "like to fish!?"
+	cont "Incomprehensible!"
+	done
+
+Route119HaveGoodRodText:
+	text "How are things?"
+	line "Land the big one?"
+	done
+
 Route119FruitTree1:
 	fruittree FRUITTREE_ROUTE_119_1
 
@@ -336,4 +407,5 @@ Route119South_MapEvents:
 	object_event 11, 28, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree2, -1
 	object_event 07, 21, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree3, -1
 	object_event 26, 14, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree4, -1
+	object_event 17, 41, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route119GoodRodGuru, -1
 	
