@@ -232,6 +232,8 @@ if DEF(_DEBUG)
 	;jumpstd UpdateWorldLevelsScript
 
 	closetext
+
+	setevent EVENT_BEAT_HOENN_LEAGUE
 	end
 else
 
