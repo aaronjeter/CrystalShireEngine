@@ -117,7 +117,6 @@ MartGoldenrod3F:
 	dw SUN_STONE
 	dw DAWN_STONE
 	dw ICE_STONE
-	dw EXP_SHARE
 
 MartGoldenrod4F:
 	db 5 ; # items
