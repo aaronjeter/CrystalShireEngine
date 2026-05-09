@@ -1247,4 +1247,9 @@ SECTION "Map Blocks Battle Resort", ROMX
 	LilycoveHarbor_Blocks:
 	INCBIN "maps/hoenn/lilycove/LilycoveHarbor.ablk" 
 
+	WCQualifier1_Blocks:
+	WCQualifier2_Blocks:
+	WCQualifier3_Blocks:
+	INCBIN "maps/hoenn/battle/WorldCupQualifierRoom.ablk" 
+
 ENDSECTION

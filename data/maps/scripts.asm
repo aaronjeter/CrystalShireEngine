@@ -706,4 +706,8 @@ INCLUDE "maps/hoenn/battle/WorldCupLobby.asm"
 INCLUDE "maps/hoenn/battle/BattleResortHarbor.asm"
 INCLUDE "maps/hoenn/lilycove/LilycoveHarbor.asm"
 
+INCLUDE "maps/hoenn/battle/WCQualifier1.asm"
+INCLUDE "maps/hoenn/battle/WCQualifier2.asm"
+INCLUDE "maps/hoenn/battle/WCQualifier3.asm"
+
 ENDSECTION

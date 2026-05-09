@@ -630,6 +630,9 @@ ENDM
 	map_const ASHEN_GAUNTLET,                              20, 20 ;
 	map_const WORLD_CUP_LOBBY,                             09, 10 ;
 	map_const BATTLE_RESORT_HARBOR,                        10, 10 ;
+	map_const WC_QUALIFIER_1,                              07, 06 ;
+	map_const WC_QUALIFIER_2,                              07, 06 ;
+	map_const WC_QUALIFIER_3,                              07, 06 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

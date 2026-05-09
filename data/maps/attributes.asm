@@ -953,3 +953,7 @@ ENDM
 	map_attributes AshenGauntlet, ASHEN_GAUNTLET, $00, 0
 	map_attributes WorldCupLobby, WORLD_CUP_LOBBY, $00, 0
 	map_attributes BattleResortHarbor, BATTLE_RESORT_HARBOR, $00, 0
+
+	map_attributes WCQualifier1, WC_QUALIFIER_1, $00, 0
+	map_attributes WCQualifier2, WC_QUALIFIER_2, $00, 0
+	map_attributes WCQualifier3, WC_QUALIFIER_3, $00, 0
