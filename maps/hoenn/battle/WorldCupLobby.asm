@@ -20,6 +20,15 @@ WorldCupQualifierRoomScript:
 	checkevent EVENT_BEAT_QUALIFIER_ROUND_THREE
 	iffalse .roundThree
 
+	setevent EVENT_WORLD_CUP_QUALIFIED
+	opentext
+	writetext WCQualifierClerkQualifiedText
+	waitbutton
+	closetext
+	applymovement PLAYER, WCLobby_NotRegisteredMovement
+	end
+
+
 .roundOne
 	opentext
 	writetext WCQualifierClerkRoundOneText
@@ -88,6 +97,13 @@ WCQualifierClerkRoundThreeText:
 
 	para "Last round!"
 	line "Good Luck!"
+	done
+
+WCQualifierClerkQualifiedText:
+	text "Hey <PLAY_G>!"
+
+	para "You're already"
+	line "qualified!"
 	done
 
 WCLobby_NotRegisteredMovement:
@@ -169,13 +185,14 @@ WorldCupLobbyRegistrationClerkScript:
 	setevent EVENT_WORLD_CUP_REGISTERED
 	opentext 
 	writetext WorldCupRegistrationText
-	waitbutton
+	promptbutton
+	closetext
 	end
 
 .notWorthy
 	opentext
 	writetext WorldCupRegistrationNotWorthyText
-	waitbutton
+	promptbutton
 	closetext
 	end
 

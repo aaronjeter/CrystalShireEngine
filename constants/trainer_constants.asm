@@ -277,6 +277,9 @@ DEF KRIS EQU __trainer_class__
 	const CONTEST_CRYSTAL2
 	const ROUTE120_LEONEL
 	const ASHEN_GAUNTLET1
+	const WEEKDAY_WESLEY
+	const WEEKDAY_ARTHUR
+	const WEEKDAY_SANTOS
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -307,6 +310,9 @@ DEF KRIS EQU __trainer_class__
 	const PETALBURG_LORI
 	const PETALBURG_JODY
 	const ROUTE120_JENNIFER
+	const WEEKDAY_MONICA
+	const WEEKDAY_TUSCANY
+	const WEEKDAY_FRIEDA
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
