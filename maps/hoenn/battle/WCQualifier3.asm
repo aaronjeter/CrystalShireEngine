@@ -48,6 +48,7 @@ WorldCupQualifierRoundThreeScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_QUALIFIER_ROUND_THREE
+	setevent EVENT_WORLD_CUP_QUALIFIED
 	special HealParty
 	warp WORLD_CUP_LOBBY, 08, 09
 	end
