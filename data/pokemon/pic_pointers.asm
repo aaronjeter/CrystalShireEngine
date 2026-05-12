@@ -1057,4 +1057,6 @@ PokemonPicPointers::
 	dba MagcargoxBackpic
 	dba JynxxFrontpic
 	dba JynxxBackpic
+	dba GardevoirxFrontpic
+	dba GardevoirxBackpic
 	assert_table_length NUM_POKEMON + 1

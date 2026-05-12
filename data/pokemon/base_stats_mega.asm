@@ -41,6 +41,7 @@ INCLUDE "data/pokemon/base_stats/mega/butterfreex.asm"
 INCLUDE "data/pokemon/base_stats/mega/ledianx.asm"
 INCLUDE "data/pokemon/base_stats/mega/magcargox.asm"
 INCLUDE "data/pokemon/base_stats/mega/jynxx.asm"
+INCLUDE "data/pokemon/base_stats/mega/gardevoirx.asm"
 
 .IndirectEnd::
 

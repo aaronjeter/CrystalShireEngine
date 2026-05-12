@@ -527,4 +527,5 @@ PokemonNames::
 	db "Ledian@@@@"
 	db "Magcargo@@"
 	db "Jynx@@@@@@"
+	db "Gardevoir@"
 	assert_table_length NUM_POKEMON

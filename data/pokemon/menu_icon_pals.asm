@@ -533,4 +533,5 @@ MonMenuIconPals:
 	icon_pals RED,    PINK   ; LEDIAN
 	icon_pals RED,    BLUE   ; MAGCARGO
 	icon_pals BLUE,   PURPLE ; JYNX
+	icon_pals GREEN,  TEAL   ; GARDEVOIRX
 	assert_table_length NUM_POKEMON

@@ -544,6 +544,7 @@ DEF JOHTO_POKEMON EQU const_value
 	const LEDIANX
 	const MAGCARGOX
 	const JYNXX
+	const GARDEVOIRX
 	
 
 

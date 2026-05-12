@@ -845,4 +845,24 @@ JynxxEvosAttacks:
 	dbw 70, MEDITATE
 	db 0 ; no more level-up moves
 
+GardevoirxEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, PIXIE_DUST
+	dbw 6, CONFUSION
+	dbw 12, CHARM
+	dbw 16, TELEPORT
+	dbw 20, CONFUSE_RAY
+	dbw 24, DRAININGKISS
+	dbw 28, PSYBEAM
+	dbw 32, HYPNOSIS
+	dbw 36, CALM_MIND
+	dbw 40, PSYCHIC_M
+	dbw 45, DREAM_EATER
+	dbw 50, MOONBLAST
+	dbw 55, RECOVER	
+	dbw 60, SUBSTITUTE
+	dbw 65, LUSTER_PURGE
+	dbw 70, FUTURE_SIGHT
+	db 0 ; no more level-up moves
+
 ENDSECTION

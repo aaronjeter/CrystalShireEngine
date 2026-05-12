@@ -1379,6 +1379,8 @@ PinsirxFrontpic:			INCBIN "gfx/pokemon/pinsirx/front.animated.2bpp.lz"
 PinsirxBackpic:				INCBIN "gfx/pokemon/pinsirx/back.2bpp.lz"
 GyaradosxFrontpic:			INCBIN "gfx/pokemon/gyaradosx/front.animated.2bpp.lz"
 GyaradosxBackpic:			INCBIN "gfx/pokemon/gyaradosx/back.2bpp.lz"
+GardevoirxFrontpic:			INCBIN "gfx/pokemon/gardevoirx/front.animated.2bpp.lz"
+GardevoirxBackpic:			INCBIN "gfx/pokemon/gardevoirx/back.2bpp.lz"
 
 
 SECTION "Hoenn Trainers 1", ROMX

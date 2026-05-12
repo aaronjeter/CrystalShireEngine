@@ -524,5 +524,6 @@ PokedexDataPointerTable:
 	dba LedianxPokedexEntry
 	dba MagcargoxPokedexEntry
 	dba JynxxPokedexEntry
+	dba GardevoirxPokedexEntry
 
 	assert_table_length NUM_POKEMON

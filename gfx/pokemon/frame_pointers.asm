@@ -522,4 +522,5 @@ FramesPointers:
 	dba LedianxFrames
 	dba MagcargoxFrames
 	dba JynxxFrames
+	dba GardevoirxFrames
 	assert_table_length NUM_POKEMON

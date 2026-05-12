@@ -522,4 +522,5 @@ AnimationPointers:
 	dw LedianxAnimation
 	dw MagcargoxAnimation
 	dw JynxxAnimation
+	dw GardevoirAnimation
 	assert_table_length NUM_POKEMON

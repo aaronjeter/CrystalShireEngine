@@ -528,4 +528,5 @@ IconPointers:
 	dw LedianxIcon
 	dw MagcargoxIcon
 	dw JynxxIcon
+	dw GardevoirxIcon
 	assert_table_length NUM_POKEMON + 1

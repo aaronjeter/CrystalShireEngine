@@ -524,4 +524,5 @@ INCBIN "gfx/footprints/butterfree.1bpp"
 INCBIN "gfx/footprints/ledian.1bpp"
 INCBIN "gfx/footprints/magcargo.1bpp"
 INCBIN "gfx/footprints/jynx.1bpp"
+INCBIN "gfx/footprints/gardevoir.1bpp"
 	assert_table_length NUM_POKEMON

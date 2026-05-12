@@ -522,4 +522,5 @@ AnimationIdlePointers:
 	dw LedianxAnimationIdle
 	dw MagcargoxAnimationIdle
 	dw JynxxAnimationIdle
+	dw GardevoirxAnimationIdle
 	assert_table_length NUM_POKEMON

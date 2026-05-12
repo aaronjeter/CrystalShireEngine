@@ -532,6 +532,7 @@ TropiusxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/tropiusx.asm"
 SwalotxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/swalotx.asm"
 FlygonxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/flygonx.asm"
 ChimechoxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/chimechox.asm"
+GardevoirxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/gardevoirx.asm"
 
 VictreebelxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/victreebelx.asm"
 UnownxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/unownx.asm"
