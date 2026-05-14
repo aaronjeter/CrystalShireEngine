@@ -134,6 +134,7 @@ HasteMons::
 	dw TORCHIC
 	dw COMBUSKEN
 	dw BLAZIKEN
+	dw BLAZIKENX
 	dw NINJASK
 	dw SUNBOU
 	dw IKARI
@@ -145,6 +146,7 @@ AimMons::
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
+	dw PIDGEOTX
 	dw MAGNEMITE
 	dw MAGNETON
 	dw MAGNEZONE
@@ -179,6 +181,7 @@ VeiledMons::
 	dw RALTS
 	dw KIRLIA
 	dw GARDEVOIR
+	dw GARDEVOIRX
 	dw HANAMOLE
 	dw HANEEI
 	dw GPONYTA
@@ -314,6 +317,8 @@ ElementalFangMons::
 	dw FURRET2	
 	dw KOTORA
 	dw RAITORA
+	dw EXEGGCUTE2
+	dw EXEGGUTOR2
 	dw -1
 
 ElementalBladeMons::	
@@ -323,10 +328,7 @@ ElementalBladeMons::
 	dw SIRFETCH_D
 	dw SCYTHER
 	dw SCIZOR
-	dw SNEASEL
-	dw TREECKO
-	dw GROVYLE
-	dw SCEPTILE
+	dw SNEASEL	
 	dw ABSOL
 	dw ABSOLX
 	dw GALLADE
@@ -383,6 +385,9 @@ StabilityMons::
 	dw AKUA
 	dw AKUERIA
 	dw ASHIBOMB
+	dw HONOBEA
+	dw BORUBEA
+	dw DYNABEA
 	dw BEEDRILLX
 	dw SPOINK
 	dw GRUMPIG
@@ -448,11 +453,12 @@ SunbaskMons::
 	dw CHARMELEON 
 	dw CHARIZARD
 	dw CHARIZARDX
+	dw TREECKO
+	dw GROVYLE
+	dw SCEPTILE
+	dw SCEPTILEX
 	dw TROPIUS
-	dw TROPIUSX
-	dw HONOBEA
-	dw BORUBEA
-	dw DYNABEA
+	dw TROPIUSX	
 	dw -1
 
 SandBodyMons::
@@ -510,6 +516,7 @@ SwiftSwimMons::
 	dw MUDKIP
 	dw MARSHTOMP
 	dw SWAMPERT
+	dw SWAMPERTX
 	dw SURSKIT	
 	dw RELICANTH
 	dw VULPIX2
@@ -521,9 +528,7 @@ ChlorophyllMons::
 	dw VILEPLUME
 	dw BELLOSSOM
 	dw EXEGGCUTE
-	dw EXEGGUTOR
-	dw EXEGGCUTE2
-	dw EXEGGUTOR2
+	dw EXEGGUTOR	
 	dw SEEDOT
 	dw NUZLEAF
 	dw SHIFTRY
