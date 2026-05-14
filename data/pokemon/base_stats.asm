@@ -35,7 +35,7 @@ BaseData::
 	indirect_entries 252, BaseData2
 	indirect_entries 385, BaseData3
 	indirect_entries 478, BaseData4
-	indirect_entries 517, BaseData5
+	indirect_entries 522, BaseData5
 	indirect_table_end
 
 INCLUDE "data/pokemon/base_stats_kanto.asm"

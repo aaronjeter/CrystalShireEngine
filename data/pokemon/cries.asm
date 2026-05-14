@@ -529,4 +529,9 @@ PokemonCries::
 	mon_cry CRY_LEDYBA,     -150,  312 ; LEDIANX
 	mon_cry CRY_MAGCARGO,   -525,  448 ; MAGCARGOX
 	mon_cry CRY_DROWZEE,     255,  383 ; JYNXX
+	mon_cry CRY_BULBASAUR,   238,  129 ; SCEPTILEX
+	mon_cry CRY_BULBASAUR,   238,  129 ; BLAZIKENX
+	mon_cry CRY_BULBASAUR,   238,  129 ; SWAMPERTX
+	mon_cry CRY_BULBASAUR,   238,  129 ; GARDEVOIRX
+	mon_cry CRY_PIDGEOTTO,    17,  383 ; PIDGEOTX
 	assert_table_length NUM_POKEMON

@@ -539,3 +539,10 @@ ButterfreexPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/butterfreex.as
 LedianxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/ledianx.asm"
 MagcargoxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/magcargox.asm"
 JynxxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/jynxx.asm"
+
+SceptilexPokedexEntry::   INCLUDE "data/pokemon/dex_entries/mega/sceptilex.asm"
+BlazikenxPokedexEntry::   INCLUDE "data/pokemon/dex_entries/mega/blazikenx.asm"
+SwampertxPokedexEntry::   INCLUDE "data/pokemon/dex_entries/mega/swampertx.asm"
+GardevoirxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/gardevoirx.asm"
+PidgeotxPokedexEntry::    INCLUDE "data/pokemon/dex_entries/mega/pidgeotx.asm"
+

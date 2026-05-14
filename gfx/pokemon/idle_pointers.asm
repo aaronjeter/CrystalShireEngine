@@ -522,4 +522,9 @@ AnimationIdlePointers:
 	dw LedianxAnimationIdle
 	dw MagcargoxAnimationIdle
 	dw JynxxAnimationIdle
+	dw SceptilexAnimationIdle
+	dw BlazikenxAnimationIdle
+	dw SwampertxAnimationIdle
+	dw GardevoirxAnimationIdle
+	dw PidgeotxAnimationIdle
 	assert_table_length NUM_POKEMON

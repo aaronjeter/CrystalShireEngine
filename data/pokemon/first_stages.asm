@@ -523,4 +523,9 @@ FirstEvoStages::
 	dw LEDYBA
 	dw SLUGMA
 	dw SMOOCHUM
+	dw TREECKO
+	dw TORCHIC
+	dw MUDKIP
+	dw RALTS
+	dw PIDGEY
 	assert_table_length NUM_POKEMON

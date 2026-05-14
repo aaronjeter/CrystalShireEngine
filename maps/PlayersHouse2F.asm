@@ -146,6 +146,18 @@ if DEF(_DEBUG)
 	setevent EVENT_BEAT_BLUE
 	setevent EVENT_BEAT_ELITE_FOUR
 
+	setflag ENGINE_STONEBADGE
+	setflag ENGINE_KNUCKLEBADGE
+	setflag ENGINE_DYNAMOBADGE
+	setflag ENGINE_HEATBADGE
+	setflag ENGINE_BALANCEBADGE
+	setflag ENGINE_FEATHERBADGE
+	setflag ENGINE_MINDBADGE
+	setflag ENGINE_RAINBADGE
+
+	setevent EVENT_DECIDED_TO_HELP_LANCE
+	setevent EVENT_STARTED_RADIO_ROCKETS
+
 	;setevent EVENT_GOT_A_POKEMON_FROM_ELM
 
 	;clearevent EVENT_OLIVINE_GYM_JASMINE
@@ -207,8 +219,8 @@ if DEF(_DEBUG)
 	loadmem wPartyMon1DVs+1, $ff
 	loadmem wPartyMon1DVs+2, $ff
 	; hm slaves
-	givepoke SWALOT, 80, SACRED_ASH 
-	givepoke FLYGON, 80, ITEM_91
+	givepoke SCEPTILE, 80, SACRED_ASH 
+	givepoke BLAZIKEN, 80, ITEM_91
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove HAIL,		 wPartyMon2, 2
@@ -218,9 +230,9 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke GOROCHU, 99, LIGHT_BALL
-	givepoke CHIMECHO, 99, POLKADOT_BOW
-	givepoke TENTACOOL2, 99, MIRAGE_MAIL
+	givepoke SWAMPERT, 99, LIGHT_BALL
+	givepoke GARDEVOIR, 99, POLKADOT_BOW
+	givepoke PIDGEOT, 99, MIRAGE_MAIL
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
@@ -234,6 +246,13 @@ if DEF(_DEBUG)
 	closetext
 
 	setevent EVENT_BEAT_HOENN_LEAGUE
+	setevent EVENT_BEAT_ELITE_FOUR
+
+	setevent EVENT_WORLD_CUP_REGISTERED
+	setevent EVENT_BEAT_QUALIFIER_ROUND_ONE
+	setevent EVENT_BEAT_QUALIFIER_ROUND_TWO
+
+	warp WORLD_CUP_LOBBY, 08, 16
 	end
 else
 

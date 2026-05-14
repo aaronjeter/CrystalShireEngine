@@ -522,5 +522,10 @@ AlphabeticalPokedexOrder:
 	dw LEDIANX
 	dw MAGCARGOX
 	dw JYNXX
+	dw SCEPTILEX
+	dw BLAZIKENX
+	dw SWAMPERTX
+	dw GARDEVOIRX
+	dw PIDGEOTX
 
 	assert_table_length NUM_POKEMON

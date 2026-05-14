@@ -524,5 +524,10 @@ PokedexDataPointerTable:
 	dba LedianxPokedexEntry
 	dba MagcargoxPokedexEntry
 	dba JynxxPokedexEntry
+	dba SceptilexPokedexEntry
+	dba BlazikenxPokedexEntry
+	dba SwampertxPokedexEntry
+	dba GardevoirxPokedexEntry
+	dba PidgeotxPokedexEntry
 
 	assert_table_length NUM_POKEMON

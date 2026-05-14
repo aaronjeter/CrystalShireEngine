@@ -1057,4 +1057,14 @@ PokemonPicPointers::
 	dba MagcargoxBackpic
 	dba JynxxFrontpic
 	dba JynxxBackpic
+	dba SceptilexFrontpic
+	dba SceptilexBackpic
+	dba BlazikenxFrontpic
+	dba BlazikenxBackpic
+	dba SwampertxFrontpic
+	dba SwampertxBackpic
+	dba GardevoirxFrontpic
+	dba GardevoirxBackpic
+	dba PidgeotxFrontpic
+	dba PidgeotxBackpic
 	assert_table_length NUM_POKEMON + 1
