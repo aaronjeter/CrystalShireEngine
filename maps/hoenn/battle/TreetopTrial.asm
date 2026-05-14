@@ -112,7 +112,9 @@ TreetopTrialAdminScript:
 	clearevent EVENT_BEAT_TREETOP_ROUND5
 	clearevent EVENT_BEAT_TREETOP_ROUND6
 	clearevent EVENT_BEAT_TREETOP_ROUND7
-	warp TREETOP_TRIAL, 24, 18
+	special FadeOutToWhite
+	waitsfx
+	warpfacing UP, TREETOP_TRIAL, 24, 18
 
 	.Done
 	closetext	
@@ -125,7 +127,8 @@ TreetopTrialExitScript:
 	waitbutton
 	verbosegiveitem MARVEL_SCALE
 	closetext
-
+	special FadeOutToWhite
+	waitsfx
 	warp TREETOP_TRIAL, 13, 24
 	end
 

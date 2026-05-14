@@ -49,6 +49,8 @@ WorldCupQualifierRoundOneScript:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_QUALIFIER_ROUND_ONE
 	special HealParty
+	special FadeOutToWhite
+	waitsfx
 	warp WORLD_CUP_LOBBY, 08, 09
 	end
 

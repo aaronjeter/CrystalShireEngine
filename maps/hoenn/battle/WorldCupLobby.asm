@@ -35,7 +35,9 @@ WorldCupQualifierRoomScript:
 	waitbutton
 	closetext
 	applymovement PLAYER, WCLobby_RoundOneMovement
-	warp WC_QUALIFIER_1, 06, 10
+	special FadeOutToWhite
+	waitsfx
+	warpfacing UP, WC_QUALIFIER_1, 06, 10
 	end
 
 .roundTwo
@@ -44,7 +46,9 @@ WorldCupQualifierRoomScript:
 	waitbutton
 	closetext
 	applymovement PLAYER, WCLobby_RoundTwoMovement
-	warp WC_QUALIFIER_2, 06, 10
+	special FadeOutToWhite
+	waitsfx
+	warpfacing UP, WC_QUALIFIER_2, 06, 10
 	end
 
 .roundThree
@@ -53,7 +57,9 @@ WorldCupQualifierRoomScript:
 	waitbutton
 	closetext
 	applymovement PLAYER, WCLobby_RoundThreeMovement
-	warp WC_QUALIFIER_3, 06, 10
+	special FadeOutToWhite
+	waitsfx
+	warpfacing UP, WC_QUALIFIER_3, 06, 10
 	end
 
 	

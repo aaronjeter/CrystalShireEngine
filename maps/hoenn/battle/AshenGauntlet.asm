@@ -112,7 +112,9 @@ AshenGauntletAdminScript:
 	clearevent EVENT_BEAT_ASH_ROUND5
 	clearevent EVENT_BEAT_ASH_ROUND6
 	clearevent EVENT_BEAT_ASH_ROUND7
-	warp ASHEN_GAUNTLET, 25, 20
+	special FadeOutToWhite
+	waitsfx
+	warpfacing UP, ASHEN_GAUNTLET, 25, 20
 
 	.Done
 	closetext	
@@ -125,7 +127,8 @@ AshenGauntletExitScript:
 	waitbutton
 	verbosegiveitem MARVEL_SCALE
 	closetext
-
+	special FadeOutToWhite
+	waitsfx
 	warp ASHEN_GAUNTLET, 12, 23
 	end
 
