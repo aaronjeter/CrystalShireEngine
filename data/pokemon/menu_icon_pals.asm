@@ -533,4 +533,9 @@ MonMenuIconPals:
 	icon_pals RED,    PINK   ; LEDIAN
 	icon_pals RED,    BLUE   ; MAGCARGO
 	icon_pals BLUE,   PURPLE ; JYNX
+	icon_pals GREEN,  BLUE   ; SCEPTILEX
+	icon_pals RED,    PINK   ; BLAZIKENX
+	icon_pals BLUE,   PURPLE ; SWAMPERTX
+	icon_pals GREEN,  TEAL   ; GARDEVOIRX
+	icon_pals BROWN,  GREEN  ; PIDGEOTX
 	assert_table_length NUM_POKEMON

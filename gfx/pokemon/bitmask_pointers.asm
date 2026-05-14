@@ -522,4 +522,9 @@ BitmasksPointers:
 	dw LedianxBitmasks
 	dw MagcargoxBitmasks
 	dw JynxxBitmasks
+	dw SceptilexBitmasks
+	dw BlazikenxBitmasks
+	dw SwampertxBitmasks
+	dw GardevoirxBitmasks
+	dw PidgeotxBitmasks
 	assert_table_length NUM_POKEMON

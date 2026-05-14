@@ -180,6 +180,7 @@ GrovyleEvosAttacks:
 	db 0 ; no more level-up moves
 
 SceptileEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, SCEPTILEX
 	db 0 ; no more evolutions
 	dbw 1, LEER
 	dbw 1, POUND
@@ -244,6 +245,7 @@ CombuskenEvosAttacks:
 	db 0 ; no more level-up moves
 
 BlazikenEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, BLAZIKENX
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, SCRATCH
@@ -307,6 +309,7 @@ MarshtompEvosAttacks:
 	db 0 ; no more level-up moves
 
 SwampertEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, SWAMPERTX
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, TACKLE
@@ -722,6 +725,7 @@ KirliaEvosAttacks:
 	db 0 ; no more level-up moves
 
 GardevoirEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, GARDEVOIRX
 	db 0 ; no more evolutions
 	dbw 1, PIXIE_DUST
 	dbw 6, CONFUSION

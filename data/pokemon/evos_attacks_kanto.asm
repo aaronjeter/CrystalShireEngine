@@ -470,6 +470,7 @@ PidgeottoEvosAttacks:
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
+	dbww EVOLVE_ITEM, KANTOITE_X, PIDGEOTX
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, SAND_ATTACK
