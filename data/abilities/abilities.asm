@@ -134,6 +134,7 @@ HasteMons::
 	dw TORCHIC
 	dw COMBUSKEN
 	dw BLAZIKEN
+	dw BLAZIKENX
 	dw NINJASK
 	dw SUNBOU
 	dw IKARI
@@ -145,6 +146,7 @@ AimMons::
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
+	dw PIDGEOTX
 	dw MAGNEMITE
 	dw MAGNETON
 	dw MAGNEZONE
@@ -179,6 +181,7 @@ VeiledMons::
 	dw RALTS
 	dw KIRLIA
 	dw GARDEVOIR
+	dw GARDEVOIRX
 	dw HANAMOLE
 	dw HANEEI
 	dw GPONYTA
@@ -453,6 +456,7 @@ SunbaskMons::
 	dw TREECKO
 	dw GROVYLE
 	dw SCEPTILE
+	dw SCEPTILEX
 	dw TROPIUS
 	dw TROPIUSX	
 	dw -1
@@ -512,6 +516,7 @@ SwiftSwimMons::
 	dw MUDKIP
 	dw MARSHTOMP
 	dw SWAMPERT
+	dw SWAMPERTX
 	dw SURSKIT	
 	dw RELICANTH
 	dw VULPIX2

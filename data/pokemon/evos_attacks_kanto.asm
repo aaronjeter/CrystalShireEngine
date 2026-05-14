@@ -435,17 +435,18 @@ PidgeyEvosAttacks:
 	dbw 8, GUST
 	dbw 12, QUICK_ATTACK
 	dbw 16, WHIRLWIND
-	dbw 24, WING_ATTACK
+	dbw 24, AERIAL_ACE
 	dbw 28, SLAM
-	dbw 30, STEEL_WING	
+	dbw 30, STEEL_WING
 	dbw 36, MIRROR_MOVE
-	dbw 40, DRILL_PECK
+	dbw 40, RAZOR_WIND
 	dbw 45, EXTREMESPEED
-	dbw 50, BULK_UP	
-	dbw 55, DRAGON_CLAW
-	dbw 60, SKY_ATTACK	
-	dbw 65, DOUBLE_EDGE
-	dbw 70, HURRICANE
+	dbw 50, BULK_UP
+	dbw 55, DRAGONBREATH
+	dbw 60, HURRICANE
+	dbw 65, HYPER_VOICE
+	dbw 70, SKY_ATTACK
+	dbw 80, AEROBLAST
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
@@ -456,17 +457,18 @@ PidgeottoEvosAttacks:
 	dbw 8, GUST
 	dbw 12, QUICK_ATTACK
 	dbw 16, WHIRLWIND
-	dbw 24, WING_ATTACK
+	dbw 24, AERIAL_ACE
 	dbw 28, SLAM
-	dbw 30, STEEL_WING	
+	dbw 30, STEEL_WING
 	dbw 36, MIRROR_MOVE
-	dbw 40, DRILL_PECK
+	dbw 40, RAZOR_WIND
 	dbw 45, EXTREMESPEED
-	dbw 50, BULK_UP	
-	dbw 55, DRAGON_CLAW
-	dbw 60, SKY_ATTACK	
-	dbw 65, DOUBLE_EDGE
-	dbw 70, HURRICANE
+	dbw 50, BULK_UP
+	dbw 55, DRAGONBREATH
+	dbw 60, HURRICANE
+	dbw 65, HYPER_VOICE
+	dbw 70, SKY_ATTACK
+	dbw 80, AEROBLAST
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
@@ -477,17 +479,18 @@ PidgeotEvosAttacks:
 	dbw 8, GUST
 	dbw 12, QUICK_ATTACK
 	dbw 16, WHIRLWIND
-	dbw 24, WING_ATTACK
+	dbw 24, AERIAL_ACE
 	dbw 28, SLAM
-	dbw 30, STEEL_WING	
+	dbw 30, STEEL_WING
 	dbw 36, MIRROR_MOVE
-	dbw 40, DRILL_PECK
+	dbw 40, RAZOR_WIND
 	dbw 45, EXTREMESPEED
-	dbw 50, BULK_UP	
-	dbw 55, DRAGON_CLAW
-	dbw 60, SKY_ATTACK	
-	dbw 65, DOUBLE_EDGE
-	dbw 70, HURRICANE
+	dbw 50, BULK_UP
+	dbw 55, DRAGONBREATH
+	dbw 60, HURRICANE
+	dbw 65, HYPER_VOICE
+	dbw 70, SKY_ATTACK
+	dbw 80, AEROBLAST
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:
