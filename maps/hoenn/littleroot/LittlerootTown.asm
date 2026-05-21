@@ -178,7 +178,7 @@ LittlerootTown_MapEvents:
 
 	warp_event 10, 15, PLAYERS_HOUSE_2F, 2
 	warp_event 11, 15, PLAYERS_HOUSE_2F, 2
-	warp_event 04, 13, BIRCHS_LAB, 2
+	warp_event  5, 13, BIRCHS_LAB, 2
 
 	def_coord_events
 	coord_event  13,  07, -1, LittlerootTownConditionalWarpScript
