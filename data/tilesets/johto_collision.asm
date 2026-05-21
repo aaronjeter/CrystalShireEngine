@@ -236,19 +236,19 @@
 	tilecoll 01, 01, 01, 01 ; eb
 	tilecoll WALL, WALL, WALL, DOOR ; ec
 	tilecoll WALL, WALL, WALL, WALL ; ed
-	tilecoll 01, 01, 01, 01 ; ee
-	tilecoll 01, 01, 01, 01 ; ef
+	tilecoll WALL, WALL, DOOR, WALL ; ee
+	tilecoll WALL, WALL, WALL, DOOR ; ef
 	tilecoll 01, 01, 01, 01 ; f0
 	tilecoll 01, 01, 01, 01 ; f1
 	tilecoll 01, 01, 01, 01 ; f2
-	tilecoll 01, 01, 01, 01 ; f3
-	tilecoll 01, 01, 01, 01 ; f4
-	tilecoll 01, 01, 01, 01 ; f5
-	tilecoll 01, 01, 01, 01 ; f6
+	tilecoll WALL, WALL, WALL, WALL ; f3
+	tilecoll WALL, WALL, WALL, WALL ; f4
+	tilecoll WALL, WALL, WALL, WALL ; f5
+	tilecoll WALL, WALL, WALL, WALL ; f6
 	tilecoll 01, 01, 01, 01 ; f7
-	tilecoll 01, 01, 01, 01 ; f8
+	tilecoll FLOOR, FLOOR, WALL, WALL ; f8
 	tilecoll 01, 01, 01, 01 ; f9
-	tilecoll 01, 01, 01, 01 ; fa
+	tilecoll FLOOR, FLOOR, WALL, WALL ; fa
 	tilecoll 01, 01, 01, 01 ; fb
 	tilecoll 01, 01, 01, 01 ; fc
 	tilecoll 01, 01, 01, 01 ; fd
