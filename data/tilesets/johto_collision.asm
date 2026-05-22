@@ -250,7 +250,7 @@
 	tilecoll 01, 01, 01, 01 ; f9
 	tilecoll FLOOR, FLOOR, WALL, WALL ; fa
 	tilecoll 01, 01, 01, 01 ; fb
-	tilecoll 01, 01, 01, 01 ; fc
-	tilecoll 01, 01, 01, 01 ; fd
+	tilecoll WALL, WALL, WALL, WALL ; fc
+	tilecoll WALL, WALL, WALL, WALL ; fd
 	tilecoll 01, 01, 01, 01 ; fe
-	tilecoll 01, 01, 01, 01 ; ff
+	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; ff
