@@ -792,6 +792,8 @@ HarcanineEvosAttacks:
 	db 0 ; no more level-up moves
 
 GponytaEvosAttacks:
+	dbww EVOLVE_ITEM, FIRE_STONE, PONYTA
+	dbww EVOLVE_ITEM, THUNDERSTONE, PONYTA2
 	dbbw EVOLVE_LEVEL, 30, GRAPIDASH
 	db 0 ; no more evolutions
 	dbw 1, POUND
@@ -812,6 +814,8 @@ GponytaEvosAttacks:
 	db 0 ; no more level-up moves
 
 GrapidashEvosAttacks:
+	dbww EVOLVE_ITEM, FIRE_STONE, RAPIDASH
+	dbww EVOLVE_ITEM, THUNDERSTONE, RAPIDASH2
 	db 0 ; no more evolutions
 	dbw 1, POUND
 	dbw 5, GROWL
@@ -1166,6 +1170,8 @@ Tentacruel2EvosAttacks:
 	db 0 ; no more level-up moves
 
 Ponyta2EvosAttacks:
+	dbww EVOLVE_ITEM, DAWN_STONE, GPONYTA
+	dbww EVOLVE_ITEM, FIRE_STONE, PONYTA
 	dbbw EVOLVE_LEVEL, 30, RAPIDASH2
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
@@ -1187,6 +1193,8 @@ Ponyta2EvosAttacks:
 	db 0 ; no more level-up moves
 
 Rapidash2EvosAttacks:
+	dbww EVOLVE_ITEM, DAWN_STONE, GRAPIDASH
+	dbww EVOLVE_ITEM, FIRE_STONE, RAPIDASH
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 5, THUNDER_WAVE

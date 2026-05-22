@@ -1768,6 +1768,8 @@ GolemEvosAttacks:
 	db 0 ; no more level-up moves
 
 PonytaEvosAttacks:
+	dbww EVOLVE_ITEM, DAWN_STONE, GPONYTA
+	dbww EVOLVE_ITEM, THUNDERSTONE, PONYTA2
 	dbbw EVOLVE_LEVEL, 30, RAPIDASH
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
@@ -1788,6 +1790,8 @@ PonytaEvosAttacks:
 	db 0 ; no more level-up moves
 
 RapidashEvosAttacks:
+	dbww EVOLVE_ITEM, DAWN_STONE, GRAPIDASH
+	dbww EVOLVE_ITEM, THUNDERSTONE, RAPIDASH2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 5, GROWL
