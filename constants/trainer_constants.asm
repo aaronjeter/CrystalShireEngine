@@ -1041,6 +1041,12 @@ DEF KRIS EQU __trainer_class__
 	const MOSSDEEP_SYLVIA
 	const MOSSDEEP_HANNAH
 
+	trainerclass AGATHA
+	const AGATHA1
+
+	trainerclass LORELEI
+	const LORELEI1
+
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
 

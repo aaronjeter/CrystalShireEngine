@@ -89,4 +89,6 @@ BTTrainerClassGenders:
 	db FEMALE ; Ranger F
 	db MALE   ; Explorer
 	db FEMALE ; Psychic F
+	db FEMALE ; Agatha
+	db FEMALE ; Lorlei
 	assert_table_length NUM_TRAINER_CLASSES ; 

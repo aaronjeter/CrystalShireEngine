@@ -9250,4 +9250,57 @@ ExplorerGroupHard:
 
 	end_list_items
 
+
+	AgathaGroupHard:
+	next_list_item ; AGATHA (1)
+	db "Agatha@", TRAINERTYPE_MOVES
+	db 11
+	dw FROSLASS
+	dw ICY_WIND, SHADOW_BALL, HAIL, ICE_BEAM
+	db 11
+	dw CROBAT
+	dw FLY, SLUDGE_BOMB, CRUNCH, GIGA_DRAIN
+	db 11
+	dw MISMAGIUS
+	dw SHADOW_BALL, GLARE, PAIN_SPLIT, PSYWAVE
+	db 11
+	dw PARASECT
+	dw GIGA_DRAIN, SPORE, SLASH, REST
+	db 12
+	dw ARBOK
+	dw CRUNCH, GLARE, DIG, SWORDS_DANCE
+	db 13
+	dw GENGAR
+	dw SHADOW_BALL, HYPNOSIS, DREAM_EATER, PSYCHIC_M
+	db -1 ; end
+
+	end_list_items
+
+
+	LoreleiGroupHard:
+	next_list_item ; LORELEI (1)
+	db "Lorelei@", TRAINERTYPE_MOVES
+	db 12
+	dw DELIBIRD
+	dw RAZOR_WIND, ICY_WIND, FLY, SPIKES
+	db 11
+	dw ANINETALES
+	dw ICY_WIND, BLIZZARD, HAIL, MOONBLAST
+	db 11
+	dw GLACEON
+	dw CALM_MIND, BLIZZARD, MUD_SHOT, RECOVER
+	db 11
+	dw CLOYSTER
+	dw BLIZZARD, SURF, REST, WHIRLPOOL
+	db 11
+	dw DEWGONG
+	dw SURF, BLIZZARD, HAIL, REST	
+	db 13
+	dw LAPRAS
+	dw HAIL, BLIZZARD, DRAGONBREATH, REST
+	db -1 ; end
+
+	end_list_items
+
+
 ENDSECTION

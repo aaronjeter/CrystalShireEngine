@@ -1467,3 +1467,8 @@ PhoebePic:		INCBIN "gfx/trainers/phoebe.2bpp.lz"
 GlaciaPic:		INCBIN "gfx/trainers/glacia.2bpp.lz"
 DrakePic:		INCBIN "gfx/trainers/drake.2bpp.lz"
 StevenPic:		INCBIN "gfx/trainers/steven.2bpp.lz"
+
+
+SECTION "Old Elite 4 Trainers", ROMX
+AgathaPic:		INCBIN "gfx/trainers/agatha.2bpp.lz"
+LoreleiPic:		INCBIN "gfx/trainers/lorelei.2bpp.lz"

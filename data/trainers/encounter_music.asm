@@ -90,6 +90,8 @@ TrainerEncounterMusic::
 	db MUSIC_BEAUTY_ENCOUNTER      ; ranger f
 	db MUSIC_HIKER_ENCOUNTER       ; explorer
 	db MUSIC_YOUNGSTER_ENCOUNTER   ; psychic_t
+	db MUSIC_OFFICER_ENCOUNTER     ; agatha
+	db MUSIC_OFFICER_ENCOUNTER     ; lorelei
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused
