@@ -595,6 +595,7 @@ ENDM
 	map_const ROUTE_118,                                   40, 10 ;
 	map_const NEW_MAUVILLE,		                           22, 22 ;
 	map_const ROUTE_119_SOUTH,                             20, 40 ;
+	map_const ROUTE_119_FISHER_HOUSE,                      04, 04 ;
 	map_const ROUTE_119_NORTH,                             20, 40 ;
 	map_const ROUTE_120,                                   20, 40 ;
 	map_const ROUTE_121,                                   40, 12 ;

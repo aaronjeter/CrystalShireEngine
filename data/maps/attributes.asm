@@ -920,6 +920,8 @@ ENDM
 	connection south, Route119South, ROUTE_119_SOUTH, 0
 	connection east, FortreeCity, FORTREE_CITY, 0
 
+	map_attributes Route119FisherHouse, ROUTE_119_FISHER_HOUSE, $00, 0
+
 	map_attributes Route120, ROUTE_120, $05, WEST | EAST
 	connection west, FortreeCity, FORTREE_CITY, 0
 	connection east, Route121, ROUTE_121, 28
