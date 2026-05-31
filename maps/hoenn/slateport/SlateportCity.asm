@@ -54,7 +54,7 @@ SlateportCity_MapEvents:
 
 	def_bg_events	
 	bg_event 13, 21, BGEVENT_READ, SlateportCitySign
-	bg_event 28, 14, BGEVENT_READ, SlateportCityHarborSign
+	bg_event 27, 13, BGEVENT_READ, SlateportCityHarborSign
 	bg_event 23, 37, BGEVENT_READ, SlateportShipyardSign
 
 	def_object_events

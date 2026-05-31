@@ -140,8 +140,8 @@ DewfordTown_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  09, 35, BGEVENT_READ, DewfordTownSign
-	bg_event  19, 33, BGEVENT_READ, DewfordGymSign
+	bg_event  7, 27, BGEVENT_READ, DewfordTownSign
+	bg_event 18, 33, BGEVENT_READ, DewfordGymSign
 
 	def_object_events
 	object_event  14,  34, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DewfordGymGuardScript, EVENT_GOT_PICKAXE

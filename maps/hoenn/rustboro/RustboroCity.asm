@@ -53,7 +53,7 @@ RustboroCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event  24, 19, RUSTBORO_GYM, 1
+	warp_event 26, 15, RUSTBORO_GYM, 1
 	warp_event  13, 35, RUSTBORO_POKECENTER, 2
 	warp_event  13, 43, RUSTBORO_MART, 2
 	warp_event   7, 35, RUSTBORO_CUTTER_HOUSE, 2
@@ -64,7 +64,7 @@ RustboroCity_MapEvents:
 	def_bg_events	
 	bg_event  16, 46, BGEVENT_READ, RustboroCitySign
 	bg_event  10, 34, BGEVENT_READ, RustboroCutterHouseSign
-	bg_event  28, 18, BGEVENT_READ, RustboroGymSign
+	bg_event 27, 15, BGEVENT_READ, RustboroGymSign
 	bg_event 12, 20, BGEVENT_READ, RustboroDevonSign
 
 	def_object_events

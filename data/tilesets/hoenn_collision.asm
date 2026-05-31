@@ -140,7 +140,7 @@
 	tilecoll 01, 01, 01, 01 ; 8b
 	tilecoll WALL, WALL, WALL, WALL ; 8c
 	tilecoll WALL, WALL, WALL, WALL ; 8d
-	tilecoll 01, 01, 01, 01 ; 8e
+	tilecoll FLOOR, FLOOR, WALL, WALL ; 8e
 	tilecoll WALL, WALL, WALL, WALL ; 8f
 	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; 90
 	tilecoll WALL, WALL, WALL, WALL ; 91

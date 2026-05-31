@@ -3708,6 +3708,22 @@ GruntMGroupHard:
 	dw VICTREEBEL
 	db -1 ; end
 
+	next_list_item ; GRUNTM (43) Rustturf Grunt 1
+	db "Alex@", TRAINERTYPE_NORMAL
+	db 6
+	dw BALTOY
+	db 7
+	dw POOCHYENA
+	db -1 ; end
+
+	next_list_item ; GRUNTM (43) Rustturf Grunt 2
+	db "Ryan@", TRAINERTYPE_NORMAL
+	db 6
+	dw LOUDRED
+	db 7
+	dw CARVANHA
+	db -1 ; end
+
 	end_list_items
 
 GentlemanGroupHard:
@@ -8012,6 +8028,14 @@ GruntFGroupHard:
 	dw GRANBULL
 	db 7
 	dw MIGHTYENA
+	db -1 ; end
+
+	next_list_item ; GRUNTF (14) Rustturf Gruntf 1
+	db "Lisa@", TRAINERTYPE_NORMAL
+	db 6
+	dw SNUBBULL
+	db 7
+	dw HOUNDOUR
 	db -1 ; end
 
 	end_list_items

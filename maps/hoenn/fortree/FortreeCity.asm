@@ -41,7 +41,7 @@ FortreeCity_MapEvents:
 	def_warp_events	
 	warp_event  05, 07, FORTREE_POKECENTER, 2
 	warp_event  03, 17, FORTREE_MART, 2
-	warp_event  22, 11, FORTREE_GYM, 1
+	warp_event 20, 11, FORTREE_GYM, 1
 	warp_event  31, 15, FORTREE_TRADE_HOUSE, 2
 
 	def_coord_events
