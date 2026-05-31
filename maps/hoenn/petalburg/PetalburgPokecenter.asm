@@ -1,6 +1,8 @@
 	object_const_def
 	const PETALBURGPOKECENTER_NURSE
 	const PETALBURGPOKECENTER_CHANSEY
+	const PETALBURGPOKECENTER_TEACHER
+	const PETALBURGPOKECENTER_PIKACHU
 
 PetalburgPokecenter_MapScripts:
 	def_scene_scripts
@@ -14,6 +16,20 @@ PetalburgPokecenterChanseyScript:
 	cry CHANSEY
 	end
 
+PetalburgPokecenterPikachuScript:
+	cry PIKACHU
+	end
+
+PetalburgPokecenterTeacherScript:
+	jumptextfaceplayer PetalburgPokecenterTeacherText
+
+PetalburgPokecenterTeacherText:
+	text "Hi <PLAY_G>!"
+
+	para "You're a long"
+	line "way from home!"
+	done
+
 PetalburgPokecenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -26,6 +42,8 @@ PetalburgPokecenter_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterNurseScript, -1
-	object_event  7,  1, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterChanseyScript, -1
+	object_event 05, 01, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterNurseScript, -1
+	object_event 07, 01, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterChanseyScript, -1
+	object_event 01, 05, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterTeacherScript, -1
+	object_event 08, 06, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterPikachuScript, -1
 	
