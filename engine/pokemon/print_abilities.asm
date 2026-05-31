@@ -116,7 +116,7 @@ PrintAbility:
 
 .Drought:
 	call GetAbilityMon	
-	farcall CheckDroughtAbility
+	call CheckDroughtAbility
 	jr c, .HasDrought
 	jp .NotDrought
 		
@@ -132,7 +132,7 @@ PrintAbility:
 
 .Drizzle:
 	call GetAbilityMon	
-	farcall CheckDrizzleAbility
+	call CheckDrizzleAbility
 	jr c, .HasDrizzle
 	jp .NotDrizzle
 		
@@ -148,7 +148,7 @@ PrintAbility:
 
 .SandStream:
 	call GetAbilityMon	
-	farcall CheckSandStreamAbility
+	call CheckSandStreamAbility
 	jr c, .HasSandStream
 	jp .NotSandStream
 		
@@ -164,7 +164,7 @@ PrintAbility:
 
 .SnowWarning:
 	call GetAbilityMon	
-	farcall CheckSnowWarningAbility
+	call CheckSnowWarningAbility
 	jr c, .HasSnowWarning
 	jp .NotSnowWarning
 		
@@ -180,7 +180,7 @@ PrintAbility:
 
 .Intimidate:
 	call GetAbilityMon	
-	farcall CheckIntimidateAbility
+	call CheckIntimidateAbility
 	jr c, .HasIntimidate
 	jp .NotIntimidate
 		
@@ -196,7 +196,7 @@ PrintAbility:
 
 .Mystify:
 	call GetAbilityMon	
-	farcall CheckMystifyAbility
+	call CheckMystifyAbility
 	jr c, .HasMystify
 	jp .NotMystify
 		
@@ -212,7 +212,7 @@ PrintAbility:
 
 .Snare:
 	call GetAbilityMon	
-	farcall CheckSnareAbility
+	call CheckSnareAbility
 	jr c, .HasSnare
 	jp .NotSnare
 		
@@ -228,7 +228,7 @@ PrintAbility:
 
 .Levitate:
 	call GetAbilityMon	
-	farcall CheckLevitateAbility
+	call CheckLevitateAbility
 	jr c, .HasLevitate
 	jp .NotLevitate
 		
@@ -244,7 +244,7 @@ PrintAbility:
 
 .Waterproof:
 	call GetAbilityMon	
-	farcall CheckWaterproofAbility
+	call CheckWaterproofAbility
 	jr c, .HasWaterproof
 	jp .NotWaterproof
 		
@@ -260,7 +260,7 @@ PrintAbility:
 
 .ElementalFist:
 	call GetAbilityMon	
-	farcall CheckElementalFistAbility
+	call CheckElementalFistAbility
 	jr c, .HasElementalFist
 	jp .NotElementalFist
 		
@@ -276,7 +276,7 @@ PrintAbility:
 
 .ElementalFang:
 	call GetAbilityMon	
-	farcall CheckElementalFangAbility
+	call CheckElementalFangAbility
 	jr c, .HasElementalFang
 	jp .NotElementalFang
 		
@@ -292,7 +292,7 @@ PrintAbility:
 
 .ElementalBlade:
 	call GetAbilityMon
-	farcall CheckElementalBladeAbility
+	call CheckElementalBladeAbility
 	jr c, .HasElementalBlade
 	jp .NotElementalBlade
 		
@@ -308,7 +308,7 @@ PrintAbility:
 
 .Stability:
 	call GetAbilityMon	
-	farcall CheckStabilityAbility
+	call CheckStabilityAbility
 	jr c, .HasStability
 	jp .NotStability
 		
@@ -324,7 +324,7 @@ PrintAbility:
 
 .Regeneration:
 	call GetAbilityMon	
-	farcall CheckRegenerationAbility
+	call CheckRegenerationAbility
 	jr c, .HasRegeneration
 	jp .NotRegeneration
 		
@@ -340,7 +340,7 @@ PrintAbility:
 
 .RainDish:
 	call GetAbilityMon	
-	farcall CheckRainDishAbility
+	call CheckRainDishAbility
 	jr c, .HasRainDish
 	jp .NotRainDish
 		
@@ -356,7 +356,7 @@ PrintAbility:
 
 .Sunbask:
 	call GetAbilityMon	
-	farcall CheckSunbaskAbility
+	call CheckSunbaskAbility
 	jr c, .HasSunbask
 	jp .NotSunbask
 		
@@ -372,7 +372,7 @@ PrintAbility:
 
 .SandBody:
 	call GetAbilityMon	
-	farcall CheckSandBodyAbility
+	call CheckSandBodyAbility
 	jr c, .HasSandBody
 	jp .NotSandBody
 		
@@ -388,7 +388,7 @@ PrintAbility:
 
 .IceBody:
 	call GetAbilityMon	
-	farcall CheckIceBodyAbility
+	call CheckIceBodyAbility
 	jr c, .HasIceBody
 	jp .NotIceBody
 		
@@ -404,7 +404,7 @@ PrintAbility:
 
 .Haste:
 	call GetAbilityMon	
-	farcall CheckHasteAbility
+	call CheckHasteAbility
 	jr c, .HasHaste
 	jp .NotHaste
 		
@@ -420,7 +420,7 @@ PrintAbility:
 
 .Aim:
 	call GetAbilityMon	
-	farcall CheckAimAbility
+	call CheckAimAbility
 	jr c, .HasAim
 	jp .NotAim
 		
@@ -436,7 +436,7 @@ PrintAbility:
 
 .Focus:
 	call GetAbilityMon	
-	farcall CheckFocusAbility
+	call CheckFocusAbility
 	jr c, .HasFocus
 	jp .NotFocus
 		
@@ -452,7 +452,7 @@ PrintAbility:
 
 .Veiled:
 	call GetAbilityMon	
-	farcall CheckVeiledAbility
+	call CheckVeiledAbility
 	jr c, .HasVeiled
 	jp .NotVeiled
 		
@@ -468,7 +468,7 @@ PrintAbility:
 
 .InvisibleWall:
 	call GetAbilityMon	
-	farcall CheckInvisibleWallAbility
+	call CheckInvisibleWallAbility
 	jr c, .HasInvisibleWall
 	jp .NotInvisibleWall
 		
@@ -484,7 +484,7 @@ PrintAbility:
 
 .Impostor:
 	call GetAbilityMon	
-	farcall CheckImpostorAbility
+	call CheckImpostorAbility
 	jr c, .HasImpostor
 	jp .NotImpostor
 		
@@ -500,7 +500,7 @@ PrintAbility:
 
 .Debris:
 	call GetAbilityMon	
-	farcall CheckDebrisAbility
+	call CheckDebrisAbility
 	jr c, .HasDebris
 	jp .NotDebris
 		
@@ -516,7 +516,7 @@ PrintAbility:
 
 .Leech:
 	call GetAbilityMon	
-	farcall CheckLeechAbility
+	call CheckLeechAbility
 	jr c, .HasLeech
 	jp .NotLeech
 		
@@ -532,7 +532,7 @@ PrintAbility:
 
 .Enervate:
 	call GetAbilityMon	
-	farcall CheckEnervateAbility
+	call CheckEnervateAbility
 	jr c, .HasEnervate
 	jp .NotEnervate
 		
@@ -548,7 +548,7 @@ PrintAbility:
 
 .Daunt:
 	call GetAbilityMon	
-	farcall CheckDauntAbility
+	call CheckDauntAbility
 	jr c, .HasDaunt
 	jp .NotDaunt
 		
@@ -564,7 +564,7 @@ PrintAbility:
 
 .SwiftSwim:
 	call GetAbilityMon	
-	farcall CheckSwiftSwimAbility
+	call CheckSwiftSwimAbility
 	jr c, .HasSwiftSwim
 	jp .NotSwiftSwim
 		
@@ -580,7 +580,7 @@ PrintAbility:
 
 .Chlorophyll:
 	call GetAbilityMon	
-	farcall CheckChlorophyllAbility
+	call CheckChlorophyllAbility
 	jr c, .HasChlorophyll
 	jp .NotChlorophyll
 		
@@ -596,7 +596,7 @@ PrintAbility:
 
 .SandRush:
 	call GetAbilityMon	
-	farcall CheckSandRushAbility
+	call CheckSandRushAbility
 	jr c, .HasSandRush
 	jp .NotSandRush
 		
@@ -612,7 +612,7 @@ PrintAbility:
 
 .SlushRush:
 	call GetAbilityMon	
-	farcall CheckSlushRushAbility
+	call CheckSlushRushAbility
 	jr c, .HasSlushRush
 	jp .NotSlushRush
 		
