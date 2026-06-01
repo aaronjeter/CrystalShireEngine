@@ -716,5 +716,7 @@ INCLUDE "maps/hoenn/battle/WCQualifier2.asm"
 INCLUDE "maps/hoenn/battle/WCQualifier3.asm"
 
 INCLUDE "maps/hoenn/Route119FisherHouse.asm"
+INCLUDE "maps/hoenn/mauville/NewMauvilleBasement.asm"
+INCLUDE "maps/hoenn/mauville/MauvilleGameCorner.asm"
 
 ENDSECTION

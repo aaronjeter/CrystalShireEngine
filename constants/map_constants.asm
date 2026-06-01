@@ -594,6 +594,8 @@ ENDM
 	map_const METEOR_FALLS,                                16, 22 ;
 	map_const ROUTE_118,                                   40, 10 ;
 	map_const NEW_MAUVILLE,		                           22, 22 ;
+	map_const NEW_MAUVILLE_BASEMENT,                       20, 20 ;
+	map_const MAUVILLE_GAME_CORNER,                        10, 12 ;
 	map_const ROUTE_119_SOUTH,                             20, 40 ;
 	map_const ROUTE_119_FISHER_HOUSE,                      04, 04 ;
 	map_const ROUTE_119_NORTH,                             20, 40 ;

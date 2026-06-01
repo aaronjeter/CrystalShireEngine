@@ -1119,6 +1119,12 @@ SECTION "Map Blocks 6", ROMX
 	NewMauville_Blocks:
 	INCBIN "maps/hoenn/mauville/NewMauville.ablk"
 
+	NewMauvilleBasement_Blocks:
+	INCBIN "maps/hoenn/mauville/NewMauvilleBasement.ablk"
+
+	MauvilleGameCorner_Blocks:
+	INCBIN "maps/hoenn/mauville/MauvilleGameCorner.ablk"
+
 	Route119South_Blocks:
 	INCBIN "maps/hoenn/Route119South.ablk" 
 

@@ -911,6 +911,8 @@ ENDM
 	connection east, Route123, ROUTE_123, 0
 
 	map_attributes NewMauville, NEW_MAUVILLE, $00, 0
+	map_attributes NewMauvilleBasement, NEW_MAUVILLE_BASEMENT, $00, 0
+	map_attributes MauvilleGameCorner, MAUVILLE_GAME_CORNER, $00, 0
 
 	map_attributes Route119South, ROUTE_119_SOUTH, $05, NORTH | SOUTH
 	connection north, Route119North, ROUTE_119_NORTH, 0

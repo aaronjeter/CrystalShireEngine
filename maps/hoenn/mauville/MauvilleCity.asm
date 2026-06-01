@@ -57,6 +57,7 @@ MauvilleCity_MapEvents:
 	warp_event 23, 13, MAUVILLE_MART, 2
 	warp_event 37, 15, MAUVILLE_TRADE_HOUSE, 2
 	warp_event 33, 05, MAUVILLE_BIKE_SHOP, 2
+	warp_event 06, 13, MAUVILLE_GAME_CORNER, 1
 
 	def_coord_events
 

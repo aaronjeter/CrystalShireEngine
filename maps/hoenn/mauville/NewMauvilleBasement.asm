@@ -1,16 +1,15 @@
 	object_const_def
 
-NewMauville_MapScripts:
+NewMauvilleBasement_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-NewMauville_MapEvents:
+NewMauvilleBasement_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  25,  40, ROUTE_110, 1
-	warp_event  37,  04, NEW_MAUVILLE_BASEMENT, 1
+	warp_event  35,  34, NEW_MAUVILLE, 2
 
 	def_coord_events
 
