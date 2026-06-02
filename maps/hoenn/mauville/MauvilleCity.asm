@@ -48,6 +48,27 @@ MauvilleBikeShopSignText:
 	text "Mauville Bikes!"
 	done
 
+MauvilleAngryGuyScript:
+	jumptextfaceplayer MauvilleAngryGuyText
+
+MauvilleAngryGuyText:
+	text "Kick me out"
+	line "will you!"
+
+	para "Fine!"
+
+	para "I'll make my own"
+	line "Game Corner!"
+
+	para "With Voltorb Flip!"
+	line "And Gardevoirs!"
+
+	para "..."
+
+	para "And maybe a few"
+	line "Jynx too..."
+	done
+
 MauvilleCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -68,4 +89,4 @@ MauvilleCity_MapEvents:
 	bg_event  34, 07, BGEVENT_READ, MauvilleBikeShopSign
 
 	def_object_events
-	
+	object_event  02, 14, SPRITE_ROCKER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleAngryGuyScript, -1
