@@ -49,6 +49,21 @@ MauvilleBikeShopSignText:
 	done
 
 MauvilleAngryGuyScript:
+	opentext
+	writetext MauvilleAngryGuyText
+	waitbutton
+
+	checkevent EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
+	iftrue .done
+
+	writetext MauvilleAngryGuyGivesCaseText
+	waitbutton
+	verbosegiveitem COIN_CASE
+
+.done
+	closetext
+	end
+
 	jumptextfaceplayer MauvilleAngryGuyText
 
 MauvilleAngryGuyText:
@@ -67,6 +82,15 @@ MauvilleAngryGuyText:
 
 	para "And maybe a few"
 	line "Jynx too..."
+	done
+
+MauvilleAngryGuyGivesCaseText:
+	text "I guess I won't"
+	line "need a Coin"
+	cont "Case anymore."
+
+	para "You'd better"
+	line "take this."
 	done
 
 MauvilleCity_MapEvents:

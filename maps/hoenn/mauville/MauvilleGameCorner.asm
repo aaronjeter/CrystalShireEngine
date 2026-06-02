@@ -4,6 +4,11 @@ DEF MAUVILLE_1500_COINS		EQU 1500
 DEF MAUVILLE_2000_COINS		EQU 2000
 
 	object_const_def
+	const MAUVILLE_GC_CLERK
+	const MAUVILLE_GC_ITEM_VENDOR
+	const MAUVILLE_GC_POKEMON_VENDOR1
+	const MAUVILLE_GC_POKEMON_VENDOR2
+	const MAUVILLE_GC_VIP_GUARD
 
 MauvilleGameCorner_MapScripts:
 	def_scene_scripts
@@ -421,6 +426,50 @@ MauvilleGameCornerPrizeVendorNoCoinCaseText:
 	line "a Coin Case."
 	done
 
+
+MauvilleGameCorner_ClerkStopsYouScript:
+	checkevent EVENT_BEAT_MAUVILLE_ROCKETS
+	iftrue .done
+	playmusic MUSIC_ROCKET_ENCOUNTER
+	showemote EMOTE_SHOCK, MAUVILLE_GC_VIP_GUARD, 10
+	opentext
+	writetext MauvilleGameCorner_WaitPlayer
+	waitbutton
+	closetext
+	turnobject PLAYER, DOWN
+	opentext
+	writetext MauvilleGameCorner_WhatDoYouThinkYoureDoing
+	waitbutton
+	closetext
+	applymovement PLAYER, MauvilleGameCorner_StepBackMovement
+	opentext
+	writetext MauvilleGameCorner_ItsDangerousToGoAlone
+	waitbutton
+	closetext
+	special RestartMapMusic
+.done
+	end
+
+MauvilleGameCorner_StepBackMovement:
+	step DOWN
+	step DOWN
+	step_end
+
+MauvilleGameCorner_WaitPlayer:
+	text "Wait!"
+	done
+
+MauvilleGameCorner_WhatDoYouThinkYoureDoing:
+	text "What do you think"
+	line "you're doing?"
+	done
+
+MauvilleGameCorner_ItsDangerousToGoAlone:
+	text "Guests aren't"
+	line "allowed back"
+	cont "there!"
+	done
+
 MauvilleGameCorner_MapEvents:
 	db 0, 0 ; filler
 
@@ -429,6 +478,8 @@ MauvilleGameCorner_MapEvents:
 	warp_event  17,  23, MAUVILLE_CITY, 6
 
 	def_coord_events
+	coord_event  02, 06, -1, MauvilleGameCorner_ClerkStopsYouScript
+	coord_event  03, 06, -1, MauvilleGameCorner_ClerkStopsYouScript
 
 	def_bg_events
 	bg_event  06, 14, BGEVENT_READ, MauvilleGameCornerSlotsMachineScript
@@ -455,3 +506,4 @@ MauvilleGameCorner_MapEvents:
 	object_event  13, 18, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerTMVendorScript, -1
 	object_event  18, 18, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerPrizeMonVendorScript, -1
 	object_event  19, 18, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerPrizeMonVendorScript2, -1
+	object_event  00, 08, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerCoinVendorScript, -1
