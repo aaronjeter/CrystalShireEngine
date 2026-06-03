@@ -93,6 +93,42 @@ MauvilleAngryGuyGivesCaseText:
 	line "take this."
 	done
 
+
+MauvilleRocketBlockerScript:
+	jumptext MauvilleRocketBlockerText
+
+
+MauvilleRocketBlockerText:
+	text "Sorry, no one"
+	line "gets through"
+
+	para "until the boss"
+	line "Rocket is ready."
+	done
+
+MauvilleRocketBikerScript:
+	jumptext MauvilleRocketBikerText
+
+MauvilleRocketBikerText:
+	text "Man, I really"
+	line "wanna buy a"
+	cont "bike..."
+	done
+
+
+MauvilleRocketGirlScript:
+	jumptext MauvilleRocketGirlText
+
+MauvilleRocketGirlText:
+	text "Ugh...I hate"
+	line "waiting out"
+	cont "here..."
+
+	para "If I could swim"
+	line "I'd wait inside"
+	cont "the base..."
+	done
+
 MauvilleCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -114,3 +150,7 @@ MauvilleCity_MapEvents:
 
 	def_object_events
 	object_event  02, 14, SPRITE_ROCKER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleAngryGuyScript, -1
+	object_event  36, 08, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MauvilleRocketBlockerScript, EVENT_BEAT_MAUVILLE_ROCKETS
+	object_event  36, 09, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MauvilleRocketBlockerScript, EVENT_BEAT_MAUVILLE_ROCKETS
+	object_event  29, 05, SPRITE_ROCKET, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MauvilleRocketBikerScript, EVENT_BEAT_MAUVILLE_ROCKETS
+	object_event  07, 16, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MauvilleRocketGirlScript, EVENT_BEAT_MAUVILLE_ROCKETS

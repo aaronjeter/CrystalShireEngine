@@ -14,6 +14,25 @@ MauvillePokecenterChanseyScript:
 	cry CHANSEY
 	end
 
+MauvillePokecenterGrannyScript:
+	jumptextfaceplayer MauvillePokecenterGrannyText
+
+MauvillePokecenterGrannyText:
+	text "There used to"
+	line "be a huge"
+
+	para "project south"
+	line "of town called"
+	cont "New Mauville"
+
+	para "I used to swim"
+	line "out there on"
+	cont "hot dates..."
+
+	para "Now it's just"
+	line "full of thugs."
+	done
+
 MauvillePokecenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -26,6 +45,6 @@ MauvillePokecenter_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterNurseScript, -1
-	object_event  7,  1, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterChanseyScript, -1
-	
+	object_event  05, 01, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterNurseScript, -1
+	object_event  07, 01, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterChanseyScript, -1
+	object_event  10, 04, SPRITE_GRANNY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterGrannyScript, -1
