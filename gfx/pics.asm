@@ -1401,6 +1401,10 @@ VenusaurxFrontpic:			INCBIN "gfx/pokemon/venusaurx/front.animated.2bpp.lz"
 VenusaurxBackpic:			INCBIN "gfx/pokemon/venusaurx/back.2bpp.lz"
 CharizardxFrontpic:			INCBIN "gfx/pokemon/charizardx/front.animated.2bpp.lz"
 CharizardxBackpic:			INCBIN "gfx/pokemon/charizardx/back.2bpp.lz"
+
+
+SECTION "Megas 7.1", ROMX
+
 CharizardyFrontpic:			INCBIN "gfx/pokemon/charizardy/front.animated.2bpp.lz"
 CharizardyBackpic:			INCBIN "gfx/pokemon/charizardy/back.2bpp.lz"
 BlastoisexFrontpic:			INCBIN "gfx/pokemon/blastoisex/front.animated.2bpp.lz"

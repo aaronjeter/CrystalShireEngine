@@ -411,6 +411,10 @@ DEF KRIS EQU __trainer_class__
 	const SAFARI_GRUNT7
 	const RUSTTURF_GRUNT1
 	const RUSTTURF_GRUNT2
+	const MAUVILLE_GRUNT1
+	const MAUVILLE_GRUNT2
+	const MAUVILLE_GRUNT3
+	const MAUVILLE_GRUNT4
 
 	trainerclass GENTLEMAN ; 20
 	const PRESTON
@@ -927,6 +931,9 @@ DEF KRIS EQU __trainer_class__
 	const SAFARI_GRUNTF4
 	const SAFARI_GRUNTF5
 	const RUSTTURF_GRUNTF1
+	const MAUVILLE_GRUNTF1
+	const MAUVILLE_GRUNTF2
+	const MAUVILLE_GRUNTF3
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE

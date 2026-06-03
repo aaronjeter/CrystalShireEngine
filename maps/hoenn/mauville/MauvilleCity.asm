@@ -100,7 +100,7 @@ MauvilleCity_MapEvents:
 	warp_event  6, 5, MAUVILLE_GYM, 1
 	warp_event 23, 5, MAUVILLE_POKECENTER, 2
 	warp_event 23, 13, MAUVILLE_MART, 2
-	warp_event 37, 15, MAUVILLE_TRADE_HOUSE, 2
+	warp_event 37, 13, MAUVILLE_TRADE_HOUSE, 2
 	warp_event 33, 05, MAUVILLE_BIKE_SHOP, 2
 	warp_event 06, 13, MAUVILLE_GAME_CORNER, 1
 

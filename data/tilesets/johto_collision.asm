@@ -232,7 +232,7 @@
 	tilecoll 01, 01, 01, 01 ; e7
 	tilecoll 01, 01, 01, 01 ; e8
 	tilecoll WALL, WALL, WALL, WALL ; e9
-	tilecoll 01, 01, 01, 01 ; ea
+	tilecoll WALL, WALL, WALL, WALL ; ea
 	tilecoll 01, 01, 01, 01 ; eb
 	tilecoll WALL, WALL, WALL, DOOR ; ec
 	tilecoll WALL, WALL, WALL, WALL ; ed

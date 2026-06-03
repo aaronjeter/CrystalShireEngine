@@ -716,6 +716,12 @@ INCLUDE "maps/hoenn/battle/WCQualifier2.asm"
 INCLUDE "maps/hoenn/battle/WCQualifier3.asm"
 
 INCLUDE "maps/hoenn/Route119FisherHouse.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts Mauville Game Corner", ROMX
+
 INCLUDE "maps/hoenn/mauville/NewMauvilleBasement.asm"
 INCLUDE "maps/hoenn/mauville/MauvilleGameCorner.asm"
 

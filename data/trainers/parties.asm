@@ -3671,6 +3671,38 @@ GruntMGroup:
 	dw CARVANHA
 	db -1 ; end
 
+	next_list_item ; GRUNTM (44) Mauville Grunt 1
+	db "Ryan@", TRAINERTYPE_NORMAL
+	db 6
+	dw LOUDRED
+	db 7
+	dw SHARPEDO
+	db -1 ; end
+
+	next_list_item ; GRUNTM (45) Mauville Grunt 2
+	db "Alex@", TRAINERTYPE_NORMAL
+	db 6
+	dw BALTOY
+	db 7
+	dw MIGHTYENA
+	db -1 ; end
+
+	next_list_item ; GRUNTM (46) Mauville Grunt 3
+	db "Jordan@", TRAINERTYPE_NORMAL
+	db 6
+	dw NUMEL
+	db 7
+	dw ARIADOS
+	db -1 ; end
+
+	next_list_item ; GRUNTM (47) Mauville Grunt 4
+	db "Frank@", TRAINERTYPE_NORMAL
+	db 6
+	dw MAGMAR
+	db 7
+	dw HUNTAIL
+	db -1 ; end
+
 	end_list_items
 
 GentlemanGroup:
@@ -5100,6 +5132,8 @@ SuperNerdGroup:
 	db -1 ; end
 
 	end_list_items
+
+SECTION "Enemy Trainer Parties 3", ROMX
 
 Rival2Group:
 	next_list_item ; RIVAL2 (1) Mt. Moon
@@ -7959,6 +7993,30 @@ GruntFGroup:
 	dw SNUBBULL
 	db 5
 	dw HOUNDOUR
+	db -1 ; end
+
+	next_list_item ; GRUNTF (15) Mauville Gruntf 1
+	db "Lisa@", TRAINERTYPE_NORMAL
+	db 5
+	dw HOUNDOUR
+	db 7
+	dw GRANBULL
+	db -1 ; end
+
+	next_list_item ; GRUNTF (16) Mauville Gruntf 2
+	db "Jamie@", TRAINERTYPE_NORMAL
+	db 5
+	dw CARVANHA
+	db 7
+	dw GOLBAT
+	db -1 ; end
+
+	next_list_item ; GRUNTF (17) Mauville Gruntf 3
+	db "Jenna@", TRAINERTYPE_NORMAL
+	db 5
+	dw MANTINE
+	db 7
+	dw QUAGSIRE
 	db -1 ; end
 
 	end_list_items
