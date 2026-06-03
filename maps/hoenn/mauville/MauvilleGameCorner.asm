@@ -9,6 +9,7 @@ DEF MAUVILLE_2000_COINS		EQU 2000
 	const MAUVILLE_GC_POKEMON_VENDOR1
 	const MAUVILLE_GC_POKEMON_VENDOR2
 	const MAUVILLE_GC_VIP_GUARD
+	const MAUVILLE_GC_ROCKET_BOSS
 
 MauvilleGameCorner_MapScripts:
 	def_scene_scripts
@@ -426,6 +427,101 @@ MauvilleGameCornerPrizeVendorNoCoinCaseText:
 	line "a Coin Case."
 	done
 
+MauvilleGameCornerLeftBossScript:
+	checkevent EVENT_BEAT_MAUVILLE_ROCKETS
+	iftrue .done
+	turnobject PLAYER, RIGHT
+	applymovement PLAYER, MauvilleGameCorner_StepRightMovement
+	turnobject PLAYER, DOWN
+	sjump MauvilleGameCornerRightBossScript
+.done
+	end
+
+MauvilleGameCornerRightBossScript:
+	checkevent EVENT_BEAT_MAUVILLE_ROCKETS
+	iftrue .done
+	playmusic MUSIC_ROCKET_ENCOUNTER	
+	applymovement PLAYER, MauvilleGameCorner_ApproachBossMovement
+	turnobject PLAYER, LEFT
+	showemote EMOTE_SHOCK, MAUVILLE_GC_ROCKET_BOSS, 15
+	turnobject MAUVILLE_GC_ROCKET_BOSS, RIGHT
+
+	opentext
+	writetext MauvilleRocketBossSeenText
+	promptbutton
+	closetext
+
+	winlosstext MauvilleRocketBossWinLossText, 0
+	loadtrainer EXECUTIVEF, MAUVILLE_EXECUTIVEF
+	startbattle
+	reloadmapafterbattle
+
+	opentext
+	writetext MauvilleRocketBossAfterBattleText
+	promptbutton
+	setevent EVENT_BEAT_MAUVILLE_ROCKETS	
+
+	special FadeOutToBlack
+	disappear MAUVILLE_GC_ROCKET_BOSS
+	special FadeInFromBlack
+
+	writetext MauvilleFoundWaterfallText
+	setevent EVENT_GOT_HM07_WATERFALL
+	verbosegiveitem HM_WATERFALL
+	closetext
+
+.done
+	end
+
+MauvilleRocketBossSeenText:
+	text "Huh. You got past"
+	line "the guards..."
+
+	para "You must be"
+	line "pretty tough."
+
+	para "Are you sure"
+	line "you wouldn't"
+	cont "rather join us?"
+
+	para "No? Then you're"
+	line "going down!"
+	done
+
+MauvilleRocketBossWinLossText:
+	text "What! How?"
+	done
+
+MauvilleRocketBossAfterBattleText:
+	text "This is bad..."
+	line "No, boss will"
+	cont "understand."
+
+	para "We WILL meet"
+	line "again runt."
+	done
+
+MauvilleFoundWaterfallText:
+	text "In her rush out,"
+	line "it looks like she"
+
+	para "left something"
+	line "valuable..."
+	done
+
+MauvilleGameCorner_StepRightMovement:
+	step RIGHT
+	step_end
+
+MauvilleGameCorner_ApproachBossMovement:
+	step DOWN
+	step DOWN
+	step DOWN
+	step RIGHT
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
 
 MauvilleGameCorner_ClerkStopsYouScript:
 	checkevent EVENT_BEAT_MAUVILLE_ROCKETS
@@ -476,10 +572,13 @@ MauvilleGameCorner_MapEvents:
 	def_warp_events
 	warp_event  16,  23, MAUVILLE_CITY, 6
 	warp_event  17,  23, MAUVILLE_CITY, 6
+	warp_event  19,  00, NEW_MAUVILLE_BASEMENT, 2
 
 	def_coord_events
 	coord_event  02, 06, -1, MauvilleGameCorner_ClerkStopsYouScript
 	coord_event  03, 06, -1, MauvilleGameCorner_ClerkStopsYouScript
+	coord_event  16, 04, -1, MauvilleGameCornerLeftBossScript
+	coord_event  17, 04, -1, MauvilleGameCornerRightBossScript
 
 	def_bg_events
 	bg_event  06, 14, BGEVENT_READ, MauvilleGameCornerSlotsMachineScript
@@ -507,3 +606,4 @@ MauvilleGameCorner_MapEvents:
 	object_event  18, 18, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerPrizeMonVendorScript, -1
 	object_event  19, 18, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerPrizeMonVendorScript2, -1
 	object_event  00, 08, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerCoinVendorScript, -1
+	object_event  17, 10, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerCoinVendorScript, EVENT_BEAT_MAUVILLE_ROCKETS

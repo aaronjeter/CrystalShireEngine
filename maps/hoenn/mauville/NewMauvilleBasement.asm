@@ -10,6 +10,7 @@ NewMauvilleBasement_MapEvents:
 
 	def_warp_events
 	warp_event  35,  34, NEW_MAUVILLE, 2
+	warp_event  05,  04, MAUVILLE_GAME_CORNER, 3
 
 	def_coord_events
 

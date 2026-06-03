@@ -1195,6 +1195,38 @@ ScientistGroupHard:
 	dw CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
 	db -1 ; end
 
+	next_list_item ; SCIENTIST (6) New Mauville Basement Scientist 1
+	db "Adam@", TRAINERTYPE_NORMAL
+	db 6
+	dw PORYGON2
+	db 7
+	dw AMUK
+	db -1 ; end
+
+	next_list_item ; SCIENTIST (7) New Mauville Basement Scientist 2
+	db "James@", TRAINERTYPE_NORMAL
+	db 6
+	dw MUK
+	db 7
+	dw JOLTEON
+	db -1 ; end
+
+	next_list_item ; SCIENTIST (8) New Mauville Basement Scientist 3
+	db "Jeffrey@", TRAINERTYPE_NORMAL
+	db 6
+	dw KIRLIA
+	db 7
+	dw HYPNO
+	db -1 ; end
+
+	next_list_item ; SCIENTIST (9) New Mauville Basement Scientist 4
+	db "Bruce@", TRAINERTYPE_NORMAL
+	db 6
+	dw KADABRA
+	db 7
+	dw MAGNETON
+	db -1 ; end
+
 	end_list_items
 
 ErikaGroupHard:
@@ -7096,6 +7128,20 @@ ExecutiveFGroupHard:
 	dw FERALIGATR2
 	db 12
 	dw ABSOLX
+	db -1 ; end
+
+	next_list_item ; EXECUTIVEF (4) Mauville Game Corner Executive
+	db "Jane@", TRAINERTYPE_NORMAL
+	db 7
+	dw MURKROW
+	db 8
+	dw IVYSAUR
+	db 9
+	dw YANMA
+	db 9
+	dw GOREBYSS
+	db 12
+	dw OCTILLERY
 	db -1 ; end
 
 	end_list_items

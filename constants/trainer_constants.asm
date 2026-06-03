@@ -134,6 +134,10 @@ DEF KRIS EQU __trainer_class__
 	const JED
 	const MARC
 	const RICH
+	const MAUVILLE_ADAM
+	const MAUVILLE_JAMES
+	const MAUVILLE_JEFFREY
+	const MAUVILLE_BRUCE
 
 	trainerclass ERIKA ; 15
 	const ERIKA1
@@ -808,6 +812,7 @@ DEF KRIS EQU __trainer_class__
 	const EXECUTIVEF_1
 	const EXECUTIVEF_2
 	const SAFARI_EXECUTIVEF
+	const MAUVILLE_EXECUTIVEF
 
 	trainerclass SAGE ; 38
 	const CHOW
