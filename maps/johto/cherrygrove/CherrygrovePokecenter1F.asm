@@ -20,16 +20,8 @@ CherrygrovePokecenter1FGentlemanScript:
 
 CherrygrovePokecenter1FTeacherScript:
 	faceplayer
-	opentext
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	iftrue .CommCenterOpen
+	opentext	
 	writetext CherrygrovePokecenter1FTeacherText
-	waitbutton
-	closetext
-	end
-
-.CommCenterOpen:
-	writetext CherrygrovePokecenter1FTeacherText_CommCenterOpen
 	waitbutton
 	closetext
 	end
@@ -55,15 +47,6 @@ CherrygrovePokecenter1FTeacherText:
 
 	para "But they're still"
 	line "finishing it up."
-	done
-
-CherrygrovePokecenter1FTeacherText_CommCenterOpen:
-	text "The Communication"
-	line "Center upstairs"
-	cont "was just built."
-
-	para "I traded #mon"
-	line "there already!"
 	done
 
 CherrygrovePokecenter1F_MapEvents:

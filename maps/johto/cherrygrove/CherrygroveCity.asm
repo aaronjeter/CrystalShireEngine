@@ -407,12 +407,12 @@ GuideGentGiftText:
 	done
 
 GotMapCardText:
-	text "<PLAYER>'s #GEAR"
+	text "<PLAYER>'s #gear"
 	line "now has a Map!"
 	done
 
 GuideGentPokegearText:
-	text "#GEAR becomes"
+	text "#gear becomes"
 	line "more useful as you"
 	cont "add Cards."
 
@@ -488,7 +488,7 @@ CherrygroveTeacherText_NoMapCard:
 
 	para "He'll put a Map of"
 	line "Johto on your"
-	cont "#GEAR."
+	cont "#gear."
 	done
 
 CherrygroveTeacherText_HaveMapCard:

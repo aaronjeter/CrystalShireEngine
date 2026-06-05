@@ -20,6 +20,18 @@ OldaleTownSignText:
 	line "start off scare."
 	done
 
+OldaleNerdScript:
+	jumptextfaceplayer OldaleNerdText
+
+OldaleNerdText:
+	text "This town is"
+	line "a dump..."
+
+	para "One day I'm"
+	line "gonna move to"
+	cont "Rustboro!"
+	done
+
 OldaleTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -35,4 +47,4 @@ OldaleTown_MapEvents:
 	bg_event  11, 09, BGEVENT_READ, OldaleTownSign
 
 	def_object_events
-	
+	object_event  07, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OldaleNerdScript, -1
