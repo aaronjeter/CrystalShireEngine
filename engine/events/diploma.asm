@@ -43,7 +43,7 @@ PlaceDiplomaOnScreen:
 	db   "This certifies"
 	next "that you have"
 	next "completed the"
-	next "new #DEX."
+	next "new #Dex."
 	next "Congratulations!"
 	db   "@"
 

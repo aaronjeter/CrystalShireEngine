@@ -389,10 +389,10 @@ PlaceCommandCharacter::
 	jmp NextChar
 
 TMCharText::      db "TM@"
-TrainerCharText:: db "TRAINER@"
+TrainerCharText:: db "Trainer@"
 PCCharText::      db "PC@"
-RocketCharText::  db "ROCKET@"
-PlacePOKeText::   db "POKé@"
+RocketCharText::  db "Rocket@"
+PlacePOKeText::   db "Poké@"
 KougekiText::     db "こうげき@"
 SixDotsCharText:: db "……@"
 EnemyText::       db "Enemy @"
@@ -1014,11 +1014,11 @@ TextCommand_DAY::
 	dw .Fri
 	dw .Satur
 
-.Sun:    db "SUN@"
-.Mon:    db "MON@"
-.Tues:   db "TUES@"
-.Wednes: db "WEDNES@"
-.Thurs:  db "THURS@"
-.Fri:    db "FRI@"
-.Satur:  db "SATUR@"
-.Day:    db "DAY@"
+.Sun:    db "Sun@"
+.Mon:    db "Mon@"
+.Tues:   db "Tues@"
+.Wednes: db "Wednes@"
+.Thurs:  db "Thurs@"
+.Fri:    db "Fri@"
+.Satur:  db "Satur@"
+.Day:    db "day@"
