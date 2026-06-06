@@ -30,14 +30,4 @@ NPCTrades:
 	npctrade TRADE_DIALOGSET_GIRL,      CHIMECHO,   CORSOLA,    "Cora@@@@@@@", $ff, $ff, LEFTOVERS,    50087, "Dani@@@@", TRADE_GENDER_EITHER
 	npctrade TRADE_DIALOGSET_COLLECTOR, ABSOL,      ASHIBOMB,   "Ashi@@@@@@@", $ff, $ff, MARVEL_SCALE, 50088, "Parker@@", TRADE_GENDER_EITHER
 	
-	npctrade TRADE_DIALOGSET_COLLECTOR, DELIBIRD,   IRONBUNDLE, "Rust@@@@@@@", $ff, $ff, AMULET_COIN,  50082, "Aaron@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_COLLECTOR, KADABRA,    MR__MIME,   "Mister@@@@@", $ff, $ff, MARVEL_SCALE, 50081, "David@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_GIRL,      UNOWN,      HITMONLEE,  "Bruce@@@@@@", $ff, $ff, BLACKBELT_I,  50083, "Megan@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_GIRL,      HERACROSS,  KLEAVOR,    "Blade@@@@@@", $ff, $ff, MARVEL_SCALE, 50084, "Amber@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_GIRL,      RAITORA,    VOLTORB2,   "Bob-omb@@@@", $ff, $ff, METAL_COAT,   50085, "Jenna@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_COLLECTOR, FEEBAS,     EXEGGCUTE2, "Piranha@@@@", $ff, $ff, LUCKY_EGG,    50086, "Isaac@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_GIRL,      LARVITAR,   BELDUM,     "Platinum@@@", $ff, $ff, SCOPE_LENS,   50087, "Mia@@@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_COLLECTOR, LUVDISC,    DITTO,      "Eve@@@@@@@@", $ff, $ff, MARVEL_SCALE, 50088, "Eli@@@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_COLLECTOR, RELICANTH,  HANEEI,     "Mirage@@@@@", $ff, $ff, MYSTIC_WATER, 50088, "Gary@@@@", TRADE_GENDER_EITHER
-	
 	assert_table_length NUM_NPC_TRADES

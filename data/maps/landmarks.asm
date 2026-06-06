@@ -104,51 +104,6 @@ Landmarks:
 	landmark  12, 100, TohjoFallsName
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
-	landmark  36, 116, LittlerootName
-	landmark  36, 100, OldaleName
-	landmark  20, 100, PetalburgName
-	landmark  12,  76, RustboroName
-	landmark  28, 132, DewfordName
-	landmark  52, 108, SlateportName
-	landmark  52,  84, MauvilleName
-	landmark  36,  84, VerdanturfName
-	landmark  36,  60, LavaridgeName
-	landmark  28,  44, FallarborName
-	landmark  84,  44, FortreeName
-	landmark 124,  60, LilycoveName
-	landmark 140,  68, MossdeepName
-	landmark 124,  84, SootopolisName
-	landmark 124,  60, PacifidlogName
-	landmark 140, 108, EvergrandeName
-	landmark  12,  92, PetalburgWoodsName
-	landmark  36,  76, RusturfTunnelName
-	landmark  28, 132, GraniteCaveName
-	landmark  52,  92, NewMauvilleName
-	landmark  52,  68, LavaridgeDesertName
-	landmark  44,  68, FieryPathName
-	landmark  12,  60, MeteorFallsName
-	landmark 108,  76, MtPyreName
-	landmark  36, 108, Route101Name
-	landmark  44, 100, Route102Name
-	landmark  28, 100, Route103Name
-	landmark  12,  92, Route104Name
-	landmark  12, 108, Route105Name
-	landmark  44, 132, Route108Name
-	landmark  52, 124, Route109Name
-	landmark  52, 100, Route110Name
-	landmark  52,  76, Route111Name
-	landmark  44,  60, Route112Name
-	landmark  36,  44, Route113Name
-	landmark  12,  44, Route114Name
-	landmark  12,  68, Route115Name
-	landmark  28,  76, Route116Name
-	landmark  44,  84, Route117Name
-	landmark  68,  84, Route118Name
-	landmark  76,  60, Route119Name
-	landmark  92,  52, Route120Name
-	landmark 108,  60, Route121Name
-	landmark 108,  76, Route122Name
-	landmark 100,  84, Route123Name
 	assert_table_length NUM_LANDMARKS
 
 NewBarkTownName:     db "New Bark<BSP>Town@"
