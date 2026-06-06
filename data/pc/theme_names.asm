@@ -26,7 +26,7 @@ BillsPC_ThemeNames:
 	dw .Dark
 	assert_table_length NUM_BILLS_PC_THEMES
 
-.Pokedex:   db "#Dex@"
+.Pokedex:   db "#dex@"
 .PokegearM: db "#gear@"
 .PokegearF: db "#gear@"
 .PackM:     db "Pack@"
