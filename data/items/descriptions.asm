@@ -197,7 +197,6 @@ ItemDescriptionsKeyItems:
 	dw LanternDesc
 	dw HatchetDesc
 	dw PickaxeDesc
-	dw FlippersDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
