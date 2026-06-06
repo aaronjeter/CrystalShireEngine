@@ -88,7 +88,7 @@ SouthsidePetShopRatVendor:
 	db "Zigzagoon   {d:SSP_LOW}@"
 	db "Sandshrew   {d:SSP_MID}@"
 	db "Pikachu     {d:SSP_HIGH}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 
 
@@ -163,7 +163,7 @@ SouthsidePetShopFishVendor:
 	db "Lotad       {d:SSP_LOW}@"
 	db "Horsea      {d:SSP_MID}@"
 	db "Tentacool   {d:SSP_MID}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 
 SouthsidePetShopBirdVendor:
@@ -237,7 +237,7 @@ SouthsidePetShopBirdVendor:
 	db "Taillow     {d:SSP_LOW}@"
 	db "Doduo       {d:SSP_MID}@"
 	db "Natu        {d:SSP_MID}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 
 SouthsidePetShopBugVendor:
@@ -311,7 +311,7 @@ SouthsidePetShopBugVendor:
 	db "Ledyba      {d:SSP_LOW}@"
 	db "Spinarak    {d:SSP_LOW}@"
 	db "Wurmple     {d:SSP_LOW}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 SouthsidePetShopPikachu:
 	cry PIKACHU

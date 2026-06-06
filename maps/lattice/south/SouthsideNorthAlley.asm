@@ -84,7 +84,7 @@ GruntM2AfterBattleText:
 	cont "our fun!"
 
 	para "It's tough being a"
-	line "ROCKET GRUNT!"
+	line "Rocket Grunt!"
 	done
 
 GruntF1SeenText:
@@ -98,8 +98,8 @@ GruntF1BeatenText:
 
 GruntF1AfterBattleText:
 	text "You shouldn't"
-	line "mess with TEAM"
-	cont "ROCKET."
+	line "mess with Team"
+	cont "Rocket."
 
 	para "We'll mess you"
 	line "up!"

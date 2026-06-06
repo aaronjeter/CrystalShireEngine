@@ -42,7 +42,7 @@ TrainerYoungsterMikey:
 	end
 
 YoungsterMikeySeenText:
-	text "You're a #MON"
+	text "You're a #mon"
 	line "trainer, right?"
 
 	para "Then you have to"
@@ -78,7 +78,7 @@ TrainerBugCatcherDon:
 
 BugCatcherDonSeenText:
 	text "Instead of a bug"
-	line "#MON, I found"
+	line "#mon, I found"
 	cont "a trainer!"
 	done
 
@@ -107,7 +107,7 @@ TrainerYoungsterGordon:
 
 YoungsterGordonSeenText:
 	text "I found some good"
-	line "#MON in the"
+	line "#mon in the"
 	cont "grass!"
 
 	para "I think they'll do"

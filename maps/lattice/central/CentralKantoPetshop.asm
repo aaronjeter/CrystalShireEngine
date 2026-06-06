@@ -84,14 +84,14 @@ CentralKantoPetshopVendor:
 	db "Bulbasaur    {d:CKP_MID}@"
 	db "Pikachu      {d:CKP_LOW}@"
 	db "Eevee        {d:CKP_HIGH}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 CentralKantoPetshop_VendorIntroText:
 	text "Welcome!"
 
 	para "Kanto Exotic"
 	line "Pets has the"
-	cont "#MON for you!"
+	cont "#mon for you!"
 	done
 
 CentralKantoPetshop_notenoughcoins:

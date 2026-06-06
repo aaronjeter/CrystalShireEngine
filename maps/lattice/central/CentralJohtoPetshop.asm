@@ -85,14 +85,14 @@ CentralJohtoPetshopVendor:
 	db "Chikorita   {d:CJP_MID}@"
 	db "Marill      {d:CJP_LOW}@"
 	db "Mareep      {d:CJP_LOW}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 CentralJohtoPetshop_VendorIntroText:
 	text "Welcome!"
 
 	para "Johto Exotic"
 	line "Pets has the"
-	cont "#MON for you!"
+	cont "#mon for you!"
 	done
 
 CentralJohtoPetshop_notenoughcoins:

@@ -124,7 +124,7 @@ PicnickerTanyaBeatenText:
 
 PicnickerTanyaAfterBattleText:
 	text "Oh, look at all"
-	line "your #MON. No"
+	line "your #mon. No"
 
 	para "wonder I couldn't"
 	line "win!"
@@ -148,7 +148,7 @@ BeautyJuliaAfterBattleText:
 
 TwinsJoAndZoeSeenText:
 	text "We'll show you"
-	line "some #MON moves!"
+	line "some #mon moves!"
 	done
 
 TwinsJoAndZoeBeatenText:
@@ -167,7 +167,7 @@ IellaBeforeBattleText:
 	para "isn't it?"
 
 	para "My name is Iella."
-	line "I am the LEADER of"
+	line "I am the leader of"
 	cont "this park club."
 
 	para "Oh. I'm sorry, I"

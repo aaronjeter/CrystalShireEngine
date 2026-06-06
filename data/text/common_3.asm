@@ -9,7 +9,7 @@ _OakText7::
 
 if !DEF(_DEBUG)
 	para "Your very own"
-	line "#MON story is"
+	line "#mon story is"
 	cont "about to unfold."
 
 	para "You'll face fun"
@@ -19,7 +19,7 @@ if !DEF(_DEBUG)
 	para "A world of dreams"
 	line "and adventures"
 
-	para "with #MON"
+	para "with #mon"
 	line "awaits! Let's go!"
 endc
 	para "I'll be seeing you"
@@ -59,7 +59,7 @@ _LinkTimeoutText::
 
 _LinkTradeCantBattleText::
 	text "If you trade that"
-	line "#MON, you won't"
+	line "#mon, you won't"
 	cont "be able to battle."
 	prompt
 
@@ -147,7 +147,7 @@ _SeerSeeAllText::
 	line "I know all…"
 
 	para "Certainly, I know"
-	line "of your #MON!"
+	line "of your #mon!"
 	done
 
 _SeerCantTellAThingText::
@@ -239,7 +239,7 @@ _SeerMoreCareText::
 	para "It would be wise"
 	line "to raise your"
 
-	para "#MON with a"
+	para "#mon with a"
 	line "little more care."
 	done
 
@@ -278,7 +278,7 @@ _SeerMightyText::
 	line "must have come"
 
 	para "through numerous"
-	line "#MON battles."
+	line "#mon battles."
 
 	para "It looks brimming"
 	line "with confidence."
@@ -293,7 +293,7 @@ _SeerImpressedText::
 	para "It's been a long"
 	line "time since I've"
 
-	para "seen a #MON as"
+	para "seen a #mon as"
 	line "mighty as this"
 	cont "@"
 	text_ram wSeerNickname
@@ -360,7 +360,7 @@ _HerbShopLadyIntroText::
 	para "They're good, but"
 	line "a trifle bitter."
 
-	para "Your #MON may"
+	para "Your #mon may"
 	line "not like them."
 
 	para "Hehehehe…"
@@ -803,7 +803,7 @@ _BattleTowerReturnWhenReadyText::
 	done
 
 _OnlyThreeMonMayBeEnteredText::
-	text "Only three #MON"
+	text "Only three #mon"
 	line "may be entered."
 
 	para ""
@@ -812,7 +812,7 @@ _OnlyThreeMonMayBeEnteredText::
 _TheMonMustAllBeDifferentKindsText::
 	text "The @"
 	text_ram wStringBuffer2
-	text " #MON"
+	text " #mon"
 	line "must all be"
 	cont "different kinds."
 
@@ -822,7 +822,7 @@ _TheMonMustAllBeDifferentKindsText::
 _TheMonMustNotHoldTheSameItemsText::
 	text "The @"
 	text_ram wStringBuffer2
-	text " #MON"
+	text " #mon"
 	line "must not hold the"
 	cont "same items."
 
@@ -837,7 +837,7 @@ _YouCantTakeAnEggText::
 	done
 
 _BallBrokeFreeText::
-	text "Oh no! The #MON"
+	text "Oh no! The #mon"
 	line "broke free!"
 	prompt
 
@@ -902,7 +902,7 @@ _ItemStatRoseText::
 
 _ItemCantUseOnMonText::
 	text "That can't be used"
-	line "on this #MON."
+	line "on this #mon."
 	prompt
 
 _RepelUsedEarlierIsStillInEffectText::
@@ -921,7 +921,7 @@ _PlayedFluteText::
 
 _FluteWakeUpText::
 	text "All sleeping"
-	line "#MON woke up."
+	line "#mon woke up."
 	prompt
 
 Text_PlayedPokeFlute::
@@ -1047,7 +1047,7 @@ _KnowsMoveText::
 	prompt
 
 _MoveKnowsOneText::
-	text "That #MON knows"
+	text "That #mon knows"
 	line "only one move."
 	done
 
@@ -1059,7 +1059,7 @@ _AskDeleteMoveText::
 	done
 
 _DeleterForgotMoveText::
-	text "Done! Your #MON"
+	text "Done! Your #mon"
 	line "forgot the move."
 	done
 
@@ -1082,15 +1082,15 @@ _DeleterIntroText::
 	text "Um… Oh, yes, I'm"
 	line "the Move Deleter."
 
-	para "I can make #MON"
+	para "I can make #mon"
 	line "forget moves."
 
 	para "Shall I make a"
-	line "#MON forget?"
+	line "#mon forget?"
 	done
 
 _DeleterAskWhichMonText::
-	text "Which #MON?"
+	text "Which #mon?"
 	prompt
 
 _DSTIsThatOKText::

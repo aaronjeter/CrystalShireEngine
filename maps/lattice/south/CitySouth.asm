@@ -21,8 +21,8 @@ CitySouthGymSign:
 	jumptext CitySouthGymSignText
 
 CitySouthGymSignText:
-	text "RODNEY's"
-	line "RODENTORIUM"
+	text "Rodney's"
+	line "Rodentorium"
 	done
 
 CitySouthApartmentsSign:

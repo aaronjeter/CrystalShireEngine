@@ -99,7 +99,7 @@ CentralGymCleaScript:
 
 
 CleaIntroText:
-	text "CLEA: Oh,"
+	text "Clea: Oh,"
 	line "hello there."
 
 	para "If you want a"
@@ -113,11 +113,11 @@ CleaIntroText:
 
 	para "Well then..."
 
-	para "My name is CLEA."
+	para "My name is Clea."
 
 	para "I'm both the"
 	line "leader and owner"
-	cont "of this CAFE."
+	cont "of this cafe."
 
 	para "Well, I need to"
 	line "get a fresh."
@@ -127,22 +127,22 @@ CleaIntroText:
 	done
 
 CleaWinLossText:
-	text "CLEA: Well then!"
+	text "Clea: Well then!"
 
 	para "That was"
 	line "excellent!"
 
 	para "Go ahead--take"
-	line "this BADGE."
+	line "this badge."
 	done
 
 ReceivedCleaBadgeText:
 	text "<PLAYER> received"
-	line "a Badge."
+	line "a badge."
 	done
 
 CleaBadgeText:
-	text "CLEA: <PLAY_G>,"
+	text "Clea: <PLAY_G>,"
 	line "thanks. I enjoyed"
 
 	para "that quite a bit."
@@ -162,7 +162,7 @@ CleaRematchWinLossText:
 	done
 
 CleaFightDoneText:
-	text "CLEA: You"
+	text "Clea: You"
 	line "should head north"
 
 	para "and face more"
@@ -239,10 +239,10 @@ LassCarrieAfterBattleText:
 LassBridgetSeenText:
 	text "I like cute #-"
 	line "MON better than"
-	cont "strong #MON."
+	cont "strong #mon."
 
 	para "But I have strong"
-	line "and cute #MON!"
+	line "and cute #mon!"
 	done
 
 LassBridgetBeatenText:

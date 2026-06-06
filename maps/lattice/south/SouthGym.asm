@@ -95,14 +95,14 @@ SouthGymRodneyScript:
 
 
 RodneyIntroText:
-	text "RODNEY: Yo!"
+	text "Rodney: Yo!"
 
 	para "How are you"
 	line "liking my little"
-	cont "GYM?"
+	cont "Gym?"
 
-	para "RODNEY'S"
-	line "RODENTORIUM!"
+	para "Rodney's"
+	line "Rodentorium!"
 
 	para "I've always had"
 	line "a passion for the"
@@ -121,7 +121,7 @@ RodneyIntroText:
 	done
 
 RodneyWinLossText:
-	text "RODNEY: Woah!"
+	text "Rodney: Woah!"
 
 	para "I think I got"
 	line "hit by a Truck!"
@@ -133,7 +133,7 @@ RodneyWinLossText:
 	line "than I expected."
 
 	para "Go ahead--take"
-	line "this BADGE."
+	line "this Badge."
 	done
 
 ReceivedBoulderBadgeText:
@@ -142,7 +142,7 @@ ReceivedBoulderBadgeText:
 	done
 
 RodneyBoulderBadgeText:
-	text "RODNEY: <PLAY_G>,"
+	text "Rodney: <PLAY_G>,"
 	line "thanks. I enjoyed"
 
 	para "battling you, even"
@@ -159,7 +159,7 @@ RodneyRematchWinLossText:
 	done
 
 RodneyFightDoneText:
-	text "RODNEY: You"
+	text "Rodney: You"
 	line "should head north"
 
 	para "and face more"
@@ -211,8 +211,8 @@ TrainerCamperJerry:
 
 CamperJerrySeenText:
 	text "The trainers of"
-	line "this GYM use"
-	cont "Rodent #MON."
+	line "this Gym use"
+	cont "Rodent #mon."
 
 	para "It's more of a"
 	line "theme than a"
@@ -227,7 +227,7 @@ CamperJerryBeatenText:
 
 CamperJerryAfterBattleText:
 	text "Hey, you!"
-	line "RODNEY is tough."
+	line "Rodney is tough."
 
 	para "He'll punish"
 	line "you if you"
@@ -258,7 +258,7 @@ YoungsterAlbertBeatenText:
 
 YoungsterAlbertAfterText:
 	text "Seriously, what"
-	line "makes a #MON"
+	line "makes a #mon"
 	cont "a rodent?"
 
 	para "Why can't we"

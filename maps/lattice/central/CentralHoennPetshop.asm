@@ -91,7 +91,7 @@ CentralHoennPetshop_VendorIntroText:
 
 	para "Hoenn Exotic"
 	line "Pets has the"
-	cont "#MON for you!"
+	cont "#mon for you!"
 	done
 
 CentralHoennPetshop_notenoughcoins:

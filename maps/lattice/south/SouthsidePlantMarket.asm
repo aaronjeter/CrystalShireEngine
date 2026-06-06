@@ -89,7 +89,7 @@ SouthsidePlantMarketPlantVendor:
 	db "Hoppip      {d:SSPM_LOW}@"
 	db "Sunkern     {d:SSPM_LOW}@"
 	db "Shroomish   {d:SSPM_LOW}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 
 
@@ -164,7 +164,7 @@ SouthsidePlantMarketPlantVendor2:
 	db "Cacnea      {d:SSPM_LOW}@"
 	db "Lileep      {d:SSPM_MID}@"
 	db "Exeggcute   {d:SSPM_MID}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 
 SouthsidePlantMarketRockVendor:
@@ -238,7 +238,7 @@ SouthsidePlantMarketRockVendor:
 	db "Aron        {d:SSPM_LOW}@"
 	db "Omanyte     {d:SSPM_MID}@"
 	db "Kabuto      {d:SSPM_MID}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 
 SouthsidePlantMarketBugVendor:
@@ -312,7 +312,7 @@ SouthsidePlantMarketBugVendor:
 	db "Surskit     {d:SSPM_MID}@"
 	db "Anorith     {d:SSPM_MID}@"
 	db "Yanma       {d:SSPM_HIGH}@"
-	db "CANCEL@"
+	db "Cancel@"
 
 SouthsidePlantMarketOddish:
 	cry ODDISH

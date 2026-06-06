@@ -103,7 +103,7 @@ GruntM4AfterBattleText:
 GruntM5SeenText:
 	text "We're TEAM ROCKET,"
 	line "the exploiters of"
-	cont "#MON!"
+	cont "#mon!"
 
 	para "We love being"
 	line "evil! Scared?"
@@ -130,7 +130,7 @@ GruntM6BeatenText:
 	done
 
 GruntM6AfterBattleText:
-	text "Our EXECUTIVES are"
+	text "Our Executives are"
 	line "trying to take"
 	cont "this place over."
 

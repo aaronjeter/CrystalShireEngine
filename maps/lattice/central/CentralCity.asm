@@ -9,14 +9,14 @@ CentralCityMintHouseSign:
 	jumptext CentralCityMintHouseSignText
 
 CentralCityMintHouseSignText:
-	text "MINT's House"
+	text "Mint's House"
 	done
 
 CentralCityGymSign:
 	jumptext CentralCityGymSignText
 
 CentralCityGymSignText:
-	text "CLEA's Cosmic"
+	text "Clea's Cosmic"
 	line "Cafe."
 
 	para "No Rockets"
@@ -28,7 +28,7 @@ CentralCityHoennPetsSign:
 
 CentralCityHoennPetsSignText:
 	text "Exotic Pets"
-	line "- HOENN -"
+	line "- Hoenn -"
 	done
 
 CentralCityJohtoPetsSign:
@@ -36,7 +36,7 @@ CentralCityJohtoPetsSign:
 
 CentralCityJohtoPetsSignText:
 	text "Exotic Pets"
-	line "- JOHTO -"
+	line "- Johto -"
 	done
 
 CentralCityKantoPetsSign:
@@ -44,7 +44,7 @@ CentralCityKantoPetsSign:
 
 CentralCityKantoPetsSignText:
 	text "Exotic Pets"
-	line "- KANTO -"
+	line "- Kanto -"
 	done
 
 
