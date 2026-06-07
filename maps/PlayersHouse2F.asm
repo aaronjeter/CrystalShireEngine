@@ -232,7 +232,7 @@ if DEF(_DEBUG)
 	; misc pokemon for testing
 	givepoke SWAMPERT, 99, LIGHT_BALL
 	givepoke GARDEVOIR, 99, POLKADOT_BOW
-	givepoke PIDGEOT, 99, MIRAGE_MAIL
+	givepoke HO_OH, 99, POLKADOT_BOW
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

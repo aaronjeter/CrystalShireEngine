@@ -1,4 +1,6 @@
 	object_const_def
+	const RUSTBORO_FISHER
+	const RUSTBORO_GRAMPS
 
 RustboroCity_MapScripts:
 	def_scene_scripts
@@ -49,6 +51,34 @@ RustboroDevonSignText:
 	line "Progress"
 	done
 
+RustboroFisherScript:
+	jumptextfaceplayer RustboroFisherText
+
+RustboroFisherText:
+	text "I really want"
+	line "to hike North"
+	cont "to Meteor Falls."
+
+	para "You can't get"
+	line "up there from"
+	cont "this side though."
+	done
+
+
+RustboroGrampsScript:
+	jumptextfaceplayer RustboroGrampsText
+
+RustboroGrampsText:
+	text "It used to be"
+	line "easier to get"
+
+	para "around in the"
+	line "Petalburg Woods."
+
+	para "But then the"
+	line "Cutter retired."
+	done
+
 RustboroCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -68,4 +98,5 @@ RustboroCity_MapEvents:
 	bg_event 12, 20, BGEVENT_READ, RustboroDevonSign
 
 	def_object_events
-	
+	object_event  16,  09, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RustboroFisherScript, -1
+	object_event  15,  39, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RustboroGrampsScript, -1
