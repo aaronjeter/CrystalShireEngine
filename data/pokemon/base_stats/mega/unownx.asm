@@ -5,7 +5,7 @@
 	;   hp  atk  def  spd  sat  sdf
 
 	db GHOST, DARK ; type
-	db 25 ; catch rate
+	db 7 ; catch rate
 	db 245 ; base exp
 	dw NO_ITEM, NO_ITEM ; items
 	db GENDER_UNKNOWN ; gender ratio

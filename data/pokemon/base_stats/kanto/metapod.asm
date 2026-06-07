@@ -7,7 +7,7 @@
 	db BUG, BUG ; type
 	db 120 ; catch rate
 	db 72 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw BERRY, BERRY ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/metapod/front.dimensions"

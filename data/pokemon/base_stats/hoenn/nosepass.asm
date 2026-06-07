@@ -7,7 +7,7 @@
 	db ROCK, ELECTRIC ; type
 	db 255 ; catch rate
 	db 108 ; base exp
-	dw NO_ITEM, HARD_STONE ; items
+	dw MAGNET, HARD_STONE ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/nosepass/front.dimensions"

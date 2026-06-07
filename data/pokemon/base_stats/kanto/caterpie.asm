@@ -7,7 +7,7 @@
 	db BUG, BUG ; type
 	db 255 ; catch rate
 	db 53 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, BERRY ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/caterpie/front.dimensions"

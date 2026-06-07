@@ -7,7 +7,7 @@
 	db ROCK, PSYCHIC_TYPE ; type
 	db 45 ; catch rate
 	db 150 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw SUN_STONE, SUN_STONE ; items
 	db GENDER_UNKNOWN ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/solrock/front.dimensions"
