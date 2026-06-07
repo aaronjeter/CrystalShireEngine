@@ -813,7 +813,7 @@ SunStoneDesc:
 	next "kinds of #mon.@"
 
 PolkadotBowDesc:
-	db   "Powers up normal-"
+	db   "Powers up Fairy-"
 	next "type moves. (Hold)@"
 
 UpGradeDesc:
