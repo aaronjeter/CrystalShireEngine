@@ -7,7 +7,7 @@
 	db STEEL, STEEL ; type
 	db 180 ; catch rate
 	db 96 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, METAL_COAT ; items
 	db GENDER_F50 ; gender ratio
 	db 35 ; step cycles to hatch
 	INCBIN "gfx/pokemon/aron/front.dimensions"

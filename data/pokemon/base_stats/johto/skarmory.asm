@@ -7,7 +7,7 @@
 	db STEEL, FLYING ; type
 	db 25 ; catch rate
 	db 168 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, METAL_COAT ; items
 	db GENDER_F50 ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/skarmory/front.dimensions"
