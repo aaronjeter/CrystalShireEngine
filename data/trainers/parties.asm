@@ -3703,6 +3703,26 @@ GruntMGroup:
 	dw HUNTAIL
 	db -1 ; end
 
+	next_list_item ; GRUNTM (48) Route 121 Grunt 1
+	db "Ryan@", TRAINERTYPE_NORMAL
+	db 5
+	dw EXPLOUD
+	db 6
+	dw SHARPEDO
+	db 7
+	dw DODRIO
+	db -1 ; end
+
+	next_list_item ; GRUNTM (49) Route 121 Grunt 2
+	db "Alex@", TRAINERTYPE_NORMAL
+	db 6
+	dw MIGHTYENA
+	db 6
+	dw CAMERUPT
+	db 8
+	dw CLAYDOL	
+	db -1 ; end
+
 	end_list_items
 
 GentlemanGroup:
@@ -8017,6 +8037,26 @@ GruntFGroup:
 	dw MANTINE
 	db 7
 	dw QUAGSIRE
+	db -1 ; end
+
+	next_list_item ; GRUNTF (18) Route 121 Gruntf 1
+	db "Lisa@", TRAINERTYPE_NORMAL
+	db 7
+	dw HOUNDOOM
+	db 8
+	dw MEGANIUM
+	db 9
+	dw GRANBULL
+	db -1 ; end
+
+	next_list_item ; GRUNTF (19) Route 121 Gruntf 2
+	db "Jamie@", TRAINERTYPE_NORMAL
+	db 7
+	dw SLOWKING
+	db 7
+	dw CROBAT
+	db 8
+	dw AMUK
 	db -1 ; end
 
 	end_list_items
