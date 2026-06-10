@@ -30,6 +30,20 @@ PetalburgPokecenterTeacherText:
 	line "way from home!"
 	done
 
+
+PetalburgPokecenterCooltrainerScript:
+	jumptextfaceplayer PetalburgPokecenterCooltrainerText
+
+PetalburgPokecenterCooltrainerText:
+	text "I think I"
+	line "pushed my #mon"
+	cont "too hard."
+
+	para "The Gym leader"
+	line "in this town is"
+	cont "really tough!"
+	done
+
 PetalburgPokecenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -46,4 +60,5 @@ PetalburgPokecenter_MapEvents:
 	object_event 07, 01, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterChanseyScript, -1
 	object_event 01, 05, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterTeacherScript, -1
 	object_event 08, 06, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterPikachuScript, -1
+	object_event 09, 03, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterCooltrainerScript, -1
 	

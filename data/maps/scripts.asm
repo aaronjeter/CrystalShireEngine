@@ -490,12 +490,6 @@ INCLUDE "maps/hoenn/oldale/OldalePokecenter.asm"
 INCLUDE "maps/hoenn/oldale/OldaleMart.asm"
 INCLUDE "maps/hoenn/oldale/OldaleHouse1.asm"
 INCLUDE "maps/hoenn/oldale/OldaleHouse2.asm"
-INCLUDE "maps/hoenn/petalburg/PetalburgCity.asm"
-INCLUDE "maps/hoenn/petalburg/PetalburgGym.asm"
-INCLUDE "maps/hoenn/petalburg/PetalburgPokecenter.asm"
-INCLUDE "maps/hoenn/petalburg/PetalburgMart.asm"
-INCLUDE "maps/hoenn/petalburg/PetalburgHouse1.asm"
-INCLUDE "maps/hoenn/petalburg/PetalburgHouse2.asm"
 INCLUDE "maps/hoenn/rustboro/RustboroCity.asm"
 INCLUDE "maps/hoenn/rustboro/RustboroGym.asm"
 INCLUDE "maps/hoenn/rustboro/RustboroPokecenter.asm"
@@ -555,6 +549,18 @@ INCLUDE "maps/hoenn/sootopolis/SootopolisPokecenter.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisMart.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisGym.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisFisherHouse.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 25.4", ROMX
+
+INCLUDE "maps/hoenn/petalburg/PetalburgCity.asm"
+INCLUDE "maps/hoenn/petalburg/PetalburgGym.asm"
+INCLUDE "maps/hoenn/petalburg/PetalburgPokecenter.asm"
+INCLUDE "maps/hoenn/petalburg/PetalburgMart.asm"
+INCLUDE "maps/hoenn/petalburg/PetalburgHouse1.asm"
+INCLUDE "maps/hoenn/petalburg/PetalburgHouse2.asm"
 
 ENDSECTION
 

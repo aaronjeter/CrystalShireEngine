@@ -33,6 +33,45 @@ PetalburgGymSignText:
 	line "Master"
 	done
 
+PetalburgFisherScript:
+	jumptextfaceplayer PetalburgFisherText
+
+PetalburgFisherText:
+	text "Yo, welcome to"
+	line "my little corner"
+	cont "of town."
+
+	para "Pull up some"
+	line "grass and enjoy"
+	cont "the fishing!"
+	done
+
+
+PetalburgGrannyScript:
+	jumptextfaceplayer PetalburgGrannyText
+
+PetalburgGrannyText:
+	text "Hi there sweetie."
+	line "Please don't step"
+	cont "on the flowers."
+	done
+
+PetalburgCooltrainerFScript:
+	jumptextfaceplayer PetalburgCooltrainerFText
+
+PetalburgCooltrainerFText:
+	text "I don't think"
+	line "I'm ready for"
+	cont "Petalburg Gym."
+
+	para "I think there's"
+	line "another gym in"
+	cont "Rustboro."
+
+	para "I heard it's a"
+	line "lot easier."
+	done
+
 PetalburgCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -50,4 +89,6 @@ PetalburgCity_MapEvents:
 	bg_event  13, 11, BGEVENT_READ, PetalburgGymSign
 
 	def_object_events
-	
+	object_event 19, 02, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PetalburgFisherScript, -1
+	object_event 23, 23, SPRITE_GRANNY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PetalburgGrannyScript, -1
+	object_event 14, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgCooltrainerFScript, -1
