@@ -3808,6 +3808,46 @@ GruntMGroupHard:
 	dw CLAYDOL	
 	db -1 ; end
 
+	next_list_item ; GRUNTM (50) Mt Pyre Grunt 1
+	db "Elite@", TRAINERTYPE_NORMAL
+	db 7
+	dw TORKOAL
+	db 7
+	dw CHARIZARD
+	db 10
+	dw DYNABEA
+	db -1 ; end
+
+	next_list_item ; GRUNTM (51) Mt Pyre Grunt 2
+	db "Elite@", TRAINERTYPE_NORMAL
+	db 7
+	dw MANTINE
+	db 7
+	dw BLASTOISE
+	db 10
+	dw AKUERIA
+	db -1 ; end
+
+	next_list_item ; GRUNTM (52) Mt Pyre Grunt 3
+	db "Elite@", TRAINERTYPE_NORMAL
+	db 7
+	dw DUNSPARCE
+	db 7
+	dw MAROWAK
+	db 10
+	dw GLISCOR
+	db -1 ; end
+
+	next_list_item ; GRUNTM (53) Mt Pyre Grunt 4
+	db "Elite@", TRAINERTYPE_NORMAL
+	db 7
+	dw DELIBIRD
+	db 7
+	dw DEWGONG
+	db 10
+	dw GLACEON
+	db -1 ; end
+
 	end_list_items
 
 GentlemanGroupHard:
@@ -8180,6 +8220,46 @@ GruntFGroupHard:
 	dw CROBAT
 	db 8
 	dw AMUK
+	db -1 ; end
+
+	next_list_item ; GRUNTF (20) Mt Pyre Gruntf 1
+	db "Elite@", TRAINERTYPE_NORMAL
+	db 7
+	dw MANECTRIC
+	db 7
+	dw ELECTRODE2
+	db 9
+	dw AMPHAROS
+	db -1 ; end
+
+	next_list_item ; GRUNTF (21) Mt Pyre Gruntf 2
+	db "Elite@", TRAINERTYPE_NORMAL
+	db 7
+	dw GOLDUCK
+	db 7
+	dw VAPOREON
+	db 9
+	dw SWAMPERT
+	db -1 ; end
+
+	next_list_item ; GRUNTF (22) Mt Pyre Gruntf 3
+	db "Elite@", TRAINERTYPE_NORMAL
+	db 7
+	dw WIGGLYTUFF
+	db 7
+	dw CLEFABLE
+	db 11
+	dw SYLVEON
+	db -1 ; end
+
+	next_list_item ; GRUNTF (23) Mt Pyre Gruntf 4
+	db "Elite@", TRAINERTYPE_NORMAL
+	db 7
+	dw IKARI
+	db 7
+	dw ASANDSLASH
+	db 10
+	dw AGGRON
 	db -1 ; end
 
 	end_list_items

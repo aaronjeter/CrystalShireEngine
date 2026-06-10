@@ -417,6 +417,10 @@ DEF KRIS EQU __trainer_class__
 	const MAUVILLE_GRUNT4
 	const ROUTE121_GRUNT1
 	const ROUTE121_GRUNT2
+	const PYRE_GRUNT1
+	const PYRE_GRUNT2
+	const PYRE_GRUNT3
+	const PYRE_GRUNT4
 
 	trainerclass GENTLEMAN ; 20
 	const PRESTON
@@ -938,6 +942,10 @@ DEF KRIS EQU __trainer_class__
 	const MAUVILLE_GRUNTF3
 	const ROUTE121_GRUNTF1
 	const ROUTE121_GRUNTF2
+	const PYRE_GRUNTF1
+	const PYRE_GRUNTF2
+	const PYRE_GRUNTF3
+	const PYRE_GRUNTF4
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE

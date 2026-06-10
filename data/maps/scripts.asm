@@ -690,6 +690,12 @@ INCLUDE "maps/hoenn/Route120.asm"
 INCLUDE "maps/hoenn/Route121.asm"
 INCLUDE "maps/hoenn/Route122.asm"
 INCLUDE "maps/hoenn/Route123.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 31", ROMX
+
 INCLUDE "maps/hoenn/MtPyre.asm"
 
 ENDSECTION
