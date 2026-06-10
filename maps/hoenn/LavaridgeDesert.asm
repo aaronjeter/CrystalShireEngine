@@ -246,6 +246,18 @@ DesertBryanAfterBattleText:
 	line "inside there!"
 	done
 
+
+DesertRocketBlocksRuinsScript:
+	jumptextfaceplayer DesertRocketText
+
+DesertRocketText:
+	text "Sorry, no one"
+	line "gets past here."
+
+	para "Not until the"
+	line "Boss gets here."
+	done
+
 LavaridgeDesert_MapEvents:
 	db 0, 0 ; filler
 
@@ -270,4 +282,5 @@ LavaridgeDesert_MapEvents:
 	object_event 23, 35, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, DesertBrandenScript, -1
 	object_event 42, 39, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, DesertDustyScript, -1
 	object_event 27, 22, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, DesertBryanScript, -1
+	object_event 43, 44, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DesertRocketBlocksRuinsScript, EVENT_BEAT_PYRE_ROCKETS
 	
