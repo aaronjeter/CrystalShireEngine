@@ -34,6 +34,15 @@ LavaridgeGymSignText:
 	cont "that burns."
 	done
 
+LavaridgeGrannyScript:
+	jumptextfaceplayer LavaridgeGrannyText
+
+LavaridgeGrannyText:
+	text "This hot spring"
+	line "feels great on"
+	cont "my old joints."
+	done
+
 LavaridgeTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -49,4 +58,5 @@ LavaridgeTown_MapEvents:
 	bg_event  5, 15, BGEVENT_READ, LavaridgeGymSign
 
 	def_object_events
+	object_event 07, 07, SPRITE_GRANNY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LavaridgeGrannyScript, -1
 	

@@ -571,11 +571,6 @@ INCLUDE "maps/hoenn/fortree/FortreeTradeHouse.asm"
 INCLUDE "maps/hoenn/lilycove/LilycoveTradeHouse.asm"
 INCLUDE "maps/hoenn/lilycove/LilycovePaintHouse.asm"
 
-INCLUDE "maps/hoenn/lavaridge/LavaridgeTown.asm"
-INCLUDE "maps/hoenn/lavaridge/LavaridgePokecenter.asm"
-INCLUDE "maps/hoenn/lavaridge/LavaridgeMart.asm"
-INCLUDE "maps/hoenn/lavaridge/LavaridgeGym.asm"
-
 ENDSECTION
 
 
@@ -588,6 +583,16 @@ INCLUDE "maps/hoenn/GraniteCaveB3F.asm"
 INCLUDE "maps/hoenn/RegiceLair.asm"
 INCLUDE "maps/hoenn/RegirockLair.asm"
 INCLUDE "maps/hoenn/RegisteelLair.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 26.2", ROMX
+
+INCLUDE "maps/hoenn/lavaridge/LavaridgeTown.asm"
+INCLUDE "maps/hoenn/lavaridge/LavaridgePokecenter.asm"
+INCLUDE "maps/hoenn/lavaridge/LavaridgeMart.asm"
+INCLUDE "maps/hoenn/lavaridge/LavaridgeGym.asm"
 
 ENDSECTION
 

@@ -12,6 +12,28 @@ LavaridgeMart_Clerk:
 	closetext
 	end
 
+LavaridgeMartCooltrainerScript:
+	jumptextfaceplayer LavaridgeMartCooltrainerText
+
+LavaridgeMartCooltrainerText:
+	text "Ugh, I need"
+	line "a Burn Heal"
+
+	para "after facing"
+	line "Flannery."
+	done
+
+LavaridgeMartCooltrainerFScript:
+	jumptextfaceplayer LavaridgeMartCooltrainerFText
+
+LavaridgeMartCooltrainerFText:
+	text "I need to stock"
+	line "up if I want"
+
+	para "to explore the"
+	line "Lavaridge Desert."
+	done
+
 LavaridgeMart_MapEvents:
 	db 0, 0 ; filler
 
@@ -25,3 +47,5 @@ LavaridgeMart_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavaridgeMart_Clerk, -1
+	object_event 09, 06, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LavaridgeMartCooltrainerScript, -1
+	object_event 01, 03, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LavaridgeMartCooltrainerFScript, -1
