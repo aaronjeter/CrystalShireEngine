@@ -35,13 +35,26 @@ FortreeGymSignText:
 	line "into the world."
 	done
 
+FortreeHikerScript:
+	jumptextfaceplayer FortreeHikerText
+
+FortreeHikerText:
+	text "Whew! The trek"
+	line "up here was"
+	cont "exhausting."
+
+	para "And I'm still"
+	line "only halfway to"
+	cont "Lilycove."
+	done
+
 FortreeCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
 	warp_event  05, 07, FORTREE_POKECENTER, 2
 	warp_event  03, 17, FORTREE_MART, 2
-	warp_event 20, 11, FORTREE_GYM, 1
+	warp_event  20, 11, FORTREE_GYM, 1
 	warp_event  31, 15, FORTREE_TRADE_HOUSE, 2
 
 	def_coord_events
@@ -51,4 +64,5 @@ FortreeCity_MapEvents:
 	bg_event  27, 11, BGEVENT_READ, FortreeGymSign
 
 	def_object_events
+	object_event 08, 10, SPRITE_PHARMACIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FortreeHikerScript, -1
 	
