@@ -469,6 +469,8 @@ KleavorEvosAttacks:
 	db 0 ; no more level-up moves
 
 AraichuEvosAttacks:
+	dbww EVOLVE_ITEM, DRAGON_FANG, GOROCHU
+	dbww EVOLVE_ITEM, DRAGON_SCALE, GOROCHU
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 1, PSYWAVE
