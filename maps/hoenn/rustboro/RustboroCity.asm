@@ -79,6 +79,18 @@ RustboroGrampsText:
 	line "Cutter retired."
 	done
 
+RustboroBugCatcherScript:
+	jumptextfaceplayer RustboroBugCatcherText
+
+RustboroBugCatcherText:
+	text "Rustboro's gym"
+	line "leader is tough."
+
+	para "I don't know how"
+	line "my bugs are going"
+	cont "to beat her..."
+	done
+
 RustboroCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -99,4 +111,5 @@ RustboroCity_MapEvents:
 
 	def_object_events
 	object_event  16,  09, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RustboroFisherScript, -1
-	object_event  15,  39, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RustboroGrampsScript, -1
+	object_event  15,  39, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, RustboroGrampsScript, -1
+	object_event  23,  18, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RustboroBugCatcherScript, -1
