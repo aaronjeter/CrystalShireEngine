@@ -58,13 +58,12 @@ MauvilleAngryGuyScript:
 
 	writetext MauvilleAngryGuyGivesCaseText
 	waitbutton
+	setevent EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
 	verbosegiveitem COIN_CASE
 
 .done
 	closetext
 	end
-
-	jumptextfaceplayer MauvilleAngryGuyText
 
 MauvilleAngryGuyText:
 	text "Kick me out"

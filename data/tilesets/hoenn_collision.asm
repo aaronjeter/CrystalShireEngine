@@ -88,8 +88,8 @@
 	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; 57
 	tilecoll WATER, WATER, WATER, WATER ; 58
 	tilecoll WATER, WATER, WATER, WATER ; 59
-	tilecoll 01, 01, 01, 01 ; 5a
-	tilecoll 01, 01, 01, 01 ; 5b
+	tilecoll WALL, WALL, WALL, WALL ; 5a
+	tilecoll WALL, WALL, WALL, WALL ; 5b
 	tilecoll WALL, WALL, WALL, WALL ; 5c
 	tilecoll WALL, WALL, WALL, WALL ; 5d
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 5e
