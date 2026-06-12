@@ -65,6 +65,7 @@ IntimidateMons::
 	dw CYNDAQUIL2
 	dw QUILAVA2
 	dw TYPHLOSION2	
+	dw GOROCHU
 	dw -1
 
 MystifyMons::
