@@ -828,8 +828,8 @@ SetLevelCap:
 .LevelCapMenuData:
 	db STATICMENU_CURSOR ; flags
 	db 2 ; items
-	db "LevelCaps OFF@"
-	db "LevelCaps ON@"
+	db "LevelCaps Off@"
+	db "LevelCaps On@"
 
 .LevelCapOn:
     ld de, EVENT_LEVELCAPS_ENABLED
