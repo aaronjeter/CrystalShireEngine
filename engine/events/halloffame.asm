@@ -405,7 +405,7 @@ _HallOfFamePC:
 	db "@"
 
 .HOFMaster:
-	db "    HOF Master!@"
+	db "    HoF Master!@"
 
 .TimeFamer:
 	db "    -Time Famer@"
@@ -617,4 +617,4 @@ HOF_AnimatePlayerPic:
 	farjp ProfOaksPCRating
 
 .PlayTime:
-	db "PLAY TIME@"
+	db "Play Time@"

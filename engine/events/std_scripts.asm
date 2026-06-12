@@ -1891,7 +1891,7 @@ CoinVendor_IntroScript:
 	db 3 ; items
 	db " 50 :  ¥1000@"
 	db "500 : ¥10000@"
-	db "CANCEL@"
+	db "Cancel@"
 
 HappinessCheckScript:
 	faceplayer
