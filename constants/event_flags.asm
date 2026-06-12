@@ -202,7 +202,14 @@
 	const EVENT_GAVE_GS_BALL_TO_KURT
 	const EVENT_FOREST_IS_RESTLESS
 	const EVENT_ANSWERED_DRAGON_MASTER_QUIZ_WRONG
+
 ; Unused: next 6 events
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 
 	const_next 200
 ; Kanto story events
@@ -510,8 +517,139 @@
 	const EVENT_BEAT_PYRE_ROCKETF3
 	const EVENT_BEAT_PYRE_ROCKETF4
 
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
 
-; Unused: next 320 events
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
 
 	const_next 600
 ; Kurt Apricorn events
@@ -763,7 +901,178 @@
 	const EVENT_START_KANTO
 	const EVENT_START_JOHTO
 	const EVENT_START_HOENN
-; Unused: next 164 events
+
+	;Hoenn items (room for 150-ish)
+
+	;Important Items
+	const EVENT_GOT_HOENN_PINK_BOW
+	const EVENT_GOT_HOENN_BLACKBELT_I  ;Route115
+	const EVENT_GOT_HOENN_SHARP_BEAK
+	const EVENT_GOT_HOENN_POISON_BARB
+	const EVENT_GOT_HOENN_SOFT_SAND    ;Desert
+	const EVENT_GOT_HOENN_HARD_STONE
+	const EVENT_GOT_HOENN_SILVERPOWDER ;route 119 south
+	const EVENT_GOT_HOENN_SPELL_TAG
+	const EVENT_GOT_HOENN_CHARCOAL
+	const EVENT_GOT_HOENN_MYSTIC_WATER
+	const EVENT_GOT_HOENN_MIRACLE_SEED
+	const EVENT_GOT_HOENN_MAGNET ;New Mauville
+	const EVENT_GOT_HOENN_TWISTEDSPOON
+	const EVENT_GOT_HOENN_NEVERMELTICE ;Granite Cave BF2
+	const EVENT_GOT_HOENN_DRAGON_SCALE
+	const EVENT_GOT_HOENN_DRAGON_FANG
+	const EVENT_GOT_HOENN_BLACKGLASSES
+	const EVENT_GOT_HOENN_METAL_COAT
+	const EVENT_GOT_HOENN_POLKADOT_BOW
+
+	const EVENT_GOT_HOENN_QUICK_CLAW
+	const EVENT_GOT_HOENN_KINGS_ROCK
+	const EVENT_GOT_HOENN_AMULET_COIN
+	const EVENT_GOT_HOENN_LEFTOVERS	;Mauville Game Corner
+	const EVENT_GOT_HOENN_SCOPE_LENS
+
+
+	;Hoenn tm events. To be renamed once actual TMs are finalized
+	const EVENT_GOT_TM_51
+	const EVENT_GOT_TM_52
+	const EVENT_GOT_TM_53
+	const EVENT_GOT_TM_54
+	const EVENT_GOT_TM_55
+	const EVENT_GOT_TM_56
+	const EVENT_GOT_TM_57
+	const EVENT_GOT_TM_58
+	const EVENT_GOT_TM_59
+	const EVENT_GOT_TM_60
+	const EVENT_GOT_TM_61
+	const EVENT_GOT_TM_62
+	const EVENT_GOT_TM_63
+	const EVENT_GOT_TM_64
+	const EVENT_GOT_TM_65
+	const EVENT_GOT_TM_66
+	const EVENT_GOT_TM_67
+	const EVENT_GOT_TM_68
+	const EVENT_GOT_TM_69
+	const EVENT_GOT_TM_70
+	const EVENT_GOT_TM_71
+	const EVENT_GOT_TM_72
+	const EVENT_GOT_TM_73
+	const EVENT_GOT_TM_74
+	const EVENT_GOT_TM_75
+
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+
+	;Normal Route Items
+	const EVENT_PETALBURG_CITY_RARE_CANDY
+	const EVENT_PETALBURG_CITY_POKE_BALL
+
+	const EVENT_ROUTE_103_POTION
+	const EVENT_ROUTE_104_RARE_CANDY
+	const EVENT_ROUTE_104_FULL_HEAL
+	const EVENT_ROUTE_110_RARE_CANDY
+	const EVENT_ROUTE_110_LEMONADE
+	const EVENT_ROUTE_111_HEAVY_BALL
+	const EVENT_ROUTE_112_LEMONADE
+	const EVENT_ROUTE_113_ETHER
+	const EVENT_ROUTE_114_RARE_CANDY
+	const EVENT_ROUTE_114_STARDUST
+	const EVENT_ROUTE_116_REVIVE
+	const EVENT_ROUTE_116_ETHER
+	const EVENT_ROUTE_117_PP_UP
+	const EVENT_ROUTE_117_FULL_HEAL
+	const EVENT_ROUTE_118_ELIXER
+	const EVENT_ROUTE_119_PP_UP
+	const EVENT_ROUTE_119_MAX_REVIVE
+	const EVENT_ROUTE_119_TM_RAIN_DANCE
+	const EVENT_ROUTE_120_TM_SUNNY_DAY
+
+	const EVENT_RUSTTURF_PEARL
+	const EVENT_RUSTTURF_RARE_CANDY
+	const EVENT_GRANITE_CAVE_B1F_SUPER_POTION
+	const EVENT_GRANITE_CAVE_B2F_NUGGET1
+	const EVENT_GRANITE_CAVE_B2F_NUGGET2
+	const EVENT_GRANITE_CAVE_B3F_ESCAPE_ROPE
+	const EVENT_FIERY_PATH_PP_UP
+	const EVENT_FIERY_PATH_FIRE_STONE
+	const EVENT_DESERT_TM_SANDSTORM
+	const EVENT_METEOR_FALLS_MOON_STONE
+	const EVENT_METEOR_FALLS_SUN_STONE
+	const EVENT_NEW_MAUVILLE_THUNDERSTONE
+	const EVENT_NEW_MAUVILLE_ELIXER
+	const EVENT_NEW_MAUVILLE_MAX_REVIVE
+	const EVENT_NEW_MAUVILLE_MAX_POTION
+	const EVENT_MAUVILLE_GAME_CORNER_SODA_POP
+
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 
 	const_next 1000
 ; Trainer flags
@@ -1435,8 +1744,15 @@
 	const EVENT_HIDE_MEDIUM_TRAINERS
 	const EVENT_HIDE_HARD_TRAINERS ;unused
 
-	
-; Unused: next 10 events
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 
 	const_next 1600
 ; Sprite visibility flags
@@ -1853,7 +2169,6 @@
 	const EVENT_RADIO_TOWER_5F_ULTRA_BALL
 	const EVENT_DARK_CAVE_VIOLET_ENTRANCE_DIRE_HIT
 	const EVENT_BATTLE_TOWER_OPEN_CIVILIANS
-; Unused: next 48 events
 
 	const EVENT_GOT_HOENNITE_FROM_BIRCH
 
@@ -1867,6 +2182,47 @@
 	const EVENT_WORLD_CUP_BEAT_ROUND_THREE
 	const EVENT_WORLD_CUP_BEAT_ROUND_FOUR
 	const EVENT_WORLD_CUP_CHAMPION
+
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
+
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused	
 
 	const_next 2048
 DEF NUM_EVENTS EQU const_value ; 800

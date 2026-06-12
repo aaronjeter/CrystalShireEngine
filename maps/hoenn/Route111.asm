@@ -206,6 +206,9 @@ Route111FruitTree1:
 Route111FruitTree2:
 	fruittree FRUITTREE_ROUTE_111_2
 
+Route111HeavyBall:
+	itemball HEAVY_BALL
+
 Route111_MapEvents:
 	db 0, 0 ; filler
 
@@ -226,3 +229,4 @@ Route111_MapEvents:
 	object_event 12, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route111TravisScript, -1
 	object_event 04, 22, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route111FruitTree1, -1
 	object_event 05, 22, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route111FruitTree2, -1
+	object_event 26, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route111HeavyBall, EVENT_ROUTE_111_HEAVY_BALL

@@ -445,6 +445,9 @@ Route120FruitTree1:
 Route120FruitTree2:
 	fruittree FRUITTREE_ROUTE_120_2
 
+Route120HiddenTmSunnyDay:
+	hiddenitem TM_SUNNY_DAY, EVENT_ROUTE_120_TM_SUNNY_DAY
+
 
 Route120_MapEvents:
 	db 0, 0 ; filler
@@ -455,6 +458,7 @@ Route120_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  18, 18, BGEVENT_ITEM, Route120HiddenTmSunnyDay
 
 	def_object_events
 	object_event 06, 06, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route120RobertScript, -1

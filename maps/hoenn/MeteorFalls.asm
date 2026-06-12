@@ -5,6 +5,12 @@ MeteorFalls_MapScripts:
 
 	def_callbacks	
 
+MeteorFallsMoonStone:
+	itemball MOON_STONE
+
+MeteorFallsSunStone:
+	itemball SUN_STONE
+
 MeteorFalls_MapEvents:
 	db 0, 0 ; filler
 
@@ -17,3 +23,6 @@ MeteorFalls_MapEvents:
 	def_bg_events	
 
 	def_object_events
+	object_event 04, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsMoonStone, EVENT_METEOR_FALLS_MOON_STONE
+	object_event 11, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsSunStone, EVENT_METEOR_FALLS_SUN_STONE
+	

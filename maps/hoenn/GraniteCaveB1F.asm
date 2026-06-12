@@ -14,6 +14,9 @@ GraniteCaveB1F_Sableye:
 	disappear GRANITECAVEB1F_SABLEYE
 	end
 
+GraniteCaveB1FSuperPotion:
+	itemball SUPER_POTION
+
 GraniteCaveB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -21,7 +24,7 @@ GraniteCaveB1F_MapEvents:
 
 	warp_event  35, 13, DEWFORD_TOWN, 3
 	warp_event  07, 15, GRANITE_CAVE_B2F, 1
-	warp_event  07,  1, GRANITE_CAVE_B2F, 2
+	warp_event  07, 01, GRANITE_CAVE_B2F, 2
 
 	def_coord_events
 
@@ -29,3 +32,4 @@ GraniteCaveB1F_MapEvents:
 
 	def_object_events
 	object_event  08, 04, SPRITE_SABLEYE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB1F_Sableye, -1
+	object_event  20, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB1FSuperPotion, EVENT_GRANITE_CAVE_B1F_SUPER_POTION

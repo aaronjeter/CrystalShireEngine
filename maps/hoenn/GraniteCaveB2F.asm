@@ -45,6 +45,15 @@ GraniteCaveB2F_Sandshrew:
 GraniteCaveB2FRock:
 	jumpstd SmashRockScript
 
+GraniteCaveB2FHiddenNugget1:
+	hiddenitem NUGGET, EVENT_GRANITE_CAVE_B2F_NUGGET1
+
+GraniteCaveB2FHiddenNugget2:
+	hiddenitem NUGGET, EVENT_GRANITE_CAVE_B2F_NUGGET2
+
+GraniteCaveB2FNeverMeltIce:
+	itemball NEVERMELTICE
+
 GraniteCaveB2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -59,11 +68,14 @@ GraniteCaveB2F_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event  14, 55, BGEVENT_ITEM, GraniteCaveB2FHiddenNugget1
+	bg_event  04, 31, BGEVENT_ITEM, GraniteCaveB2FHiddenNugget2
 
 	def_object_events
 	object_event  23, 50, SPRITE_GASTLY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Gastly, -1
 	object_event  16, 44, SPRITE_ARON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Aron, -1
 	object_event  05, 28, SPRITE_SHELLDER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Shellder, -1
 	object_event  17, 13, SPRITE_SANDSHREW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Sandshrew, -1
-	object_event  7, 46, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FRock, -1
+	object_event  07, 46, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FRock, -1
+	object_event  13, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB2FNeverMeltIce, EVENT_GOT_HOENN_NEVERMELTICE
 	

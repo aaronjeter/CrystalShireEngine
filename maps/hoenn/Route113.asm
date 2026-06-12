@@ -281,6 +281,10 @@ Route113FruitTree1:
 Route113FruitTree2:
 	fruittree FRUITTREE_ROUTE_113_2
 
+Route113Ether:
+	itemball ETHER
+
+
 Route113_MapEvents:
 	db 0, 0 ; filler
 
@@ -305,4 +309,5 @@ Route113_MapEvents:
 	object_event 67, 15, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_TRAINER, 1, Route113ToriTiaScript, -1
 	object_event 92, 04, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route113FruitTree1, -1
 	object_event 93, 04, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route113FruitTree2, -1
+	object_event 23, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route113Ether, EVENT_ROUTE_113_ETHER
 	

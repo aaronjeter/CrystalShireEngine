@@ -323,6 +323,11 @@ Route119FisherHouseSignText:
 	done
 
 
+
+Route119SilverPowder:
+	itemball SILVERPOWDER
+
+
 Route119South_MapEvents:
 	db 0, 0 ; filler
 
@@ -349,3 +354,4 @@ Route119South_MapEvents:
 	object_event 11, 28, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree2, -1
 	object_event 07, 21, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree3, -1
 	object_event 26, 14, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree4, -1
+	object_event 21, 63, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route119SilverPowder, EVENT_GOT_HOENN_SILVERPOWDER

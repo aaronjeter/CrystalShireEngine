@@ -72,6 +72,13 @@ PetalburgCooltrainerFText:
 	line "lot easier."
 	done
 
+PetalburgRareCandy:
+	itemball RARE_CANDY
+
+PetalburgPokeball:
+	itemball POKE_BALL
+
+
 PetalburgCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -92,3 +99,5 @@ PetalburgCity_MapEvents:
 	object_event 19, 02, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PetalburgFisherScript, -1
 	object_event 23, 23, SPRITE_GRANNY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PetalburgGrannyScript, -1
 	object_event 14, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgCooltrainerFScript, -1
+	object_event 06, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgRareCandy, EVENT_PETALBURG_CITY_RARE_CANDY
+	object_event 27, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgPokeball, EVENT_PETALBURG_CITY_POKE_BALL

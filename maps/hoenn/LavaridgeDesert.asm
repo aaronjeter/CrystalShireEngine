@@ -258,6 +258,12 @@ DesertRocketText:
 	line "Boss gets here."
 	done
 
+DesertTMSandstorm:
+	itemball TM_SANDSTORM
+
+DesertSoftSand:
+	itemball SOFT_SAND
+
 LavaridgeDesert_MapEvents:
 	db 0, 0 ; filler
 
@@ -283,4 +289,6 @@ LavaridgeDesert_MapEvents:
 	object_event 42, 39, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, DesertDustyScript, -1
 	object_event 27, 22, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, DesertBryanScript, -1
 	object_event 43, 44, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DesertRocketBlocksRuinsScript, EVENT_BEAT_PYRE_ROCKETS
+	object_event 45, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DesertTMSandstorm, EVENT_DESERT_TM_SANDSTORM
+	object_event 48, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DesertSoftSand, EVENT_GOT_HOENN_SOFT_SAND
 	

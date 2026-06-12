@@ -17,6 +17,9 @@ Route115FruitTree3:
 Route115FruitTree4:
 	fruittree FRUITTREE_ROUTE_115_4
 
+Route115BlackBeltItem:
+	itemball BLACKBELT_I
+
 Route115_MapEvents:
 	db 0, 0 ; filler
 
@@ -32,4 +35,5 @@ Route115_MapEvents:
 	object_event 18, 06, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route115FruitTree2, -1
 	object_event 30, 50, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route115FruitTree3, -1
 	object_event 31, 50, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route115FruitTree4, -1
+	object_event 07, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route115BlackBeltItem, EVENT_GOT_HOENN_BLACKBELT_I
 	

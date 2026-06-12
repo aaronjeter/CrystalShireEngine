@@ -566,6 +566,12 @@ MauvilleGameCorner_ItsDangerousToGoAlone:
 	cont "there!"
 	done
 
+MauvilleGameCornerHiddenLeftovers:
+	hiddenitem LEFTOVERS, EVENT_GOT_HOENN_LEFTOVERS
+
+MauvilleGameCornerHiddenSodaPop:
+	hiddenitem SODA_POP, EVENT_MAUVILLE_GAME_CORNER_SODA_POP
+
 MauvilleGameCorner_MapEvents:
 	db 0, 0 ; filler
 
@@ -599,6 +605,9 @@ MauvilleGameCorner_MapEvents:
 	bg_event  01, 17, BGEVENT_READ, MauvilleGameCornerCardFlipMachineScript
 	bg_event  01, 18, BGEVENT_READ, MauvilleGameCornerCardFlipMachineScript
 	bg_event  01, 19, BGEVENT_READ, MauvilleGameCornerCardFlipMachineScript
+	bg_event  19, 11, BGEVENT_ITEM, MauvilleGameCornerHiddenLeftovers
+	bg_event  13, 23, BGEVENT_ITEM, MauvilleGameCornerHiddenSodaPop
+
 
 	def_object_events
 	object_event  16, 18, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerCoinVendorScript, -1

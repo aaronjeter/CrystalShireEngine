@@ -352,6 +352,12 @@ MauvilleFrankAfterBattleText:
 	line "this stupid"
 	cont "thing!"
 	done
+
+NewMauvilleBasementMaxRevive:
+	itemball MAX_REVIVE
+
+NewMauvilleBasementMaxPotion:
+	itemball MAX_POTION
 	
 
 NewMauvilleBasement_MapEvents:
@@ -377,5 +383,7 @@ NewMauvilleBasement_MapEvents:
 	object_event 25, 20, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, MauvilleAlexScript, EVENT_BEAT_MAUVILLE_ROCKETS
 	object_event 03, 05, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, MauvilleJordanScript, EVENT_BEAT_MAUVILLE_ROCKETS
 	object_event 22, 05, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, MauvilleFrankScript, -1
+	object_event 09, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NewMauvilleBasementMaxRevive, EVENT_NEW_MAUVILLE_MAX_REVIVE
+	object_event 29, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NewMauvilleBasementMaxPotion, EVENT_NEW_MAUVILLE_MAX_POTION
 
 

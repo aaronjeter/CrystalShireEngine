@@ -32,6 +32,12 @@ FieryPath_Slugma2:
 	disappear FIERYPATH_SLUGMA2
 	end
 
+FieryPathFireStone:
+	itemball FIRE_STONE
+
+FieryPathPpUp:
+	itemball PP_UP
+
 FieryPath_MapEvents:
 	db 0, 0 ; filler
 
@@ -47,3 +53,5 @@ FieryPath_MapEvents:
 	object_event  08, 37, SPRITE_TORKOAL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FieryPath_Torkoal, -1
 	object_event  09, 15, SPRITE_SLUGMA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FieryPath_Slugma1, -1
 	object_event  21, 37, SPRITE_SLUGMA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FieryPath_Slugma2, -1
+	object_event  15, 05, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FieryPathFireStone, EVENT_FIERY_PATH_FIRE_STONE
+	object_event  08, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FieryPathPpUp, EVENT_FIERY_PATH_PP_UP
