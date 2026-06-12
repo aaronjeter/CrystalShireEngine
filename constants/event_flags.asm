@@ -993,6 +993,8 @@
 	const EVENT_ROUTE_119_MAX_REVIVE
 	const EVENT_ROUTE_119_TM_RAIN_DANCE
 	const EVENT_ROUTE_120_TM_SUNNY_DAY
+	const EVENT_ROUTE_123_RARE_CANDY
+	const EVENT_ROUTE_123_PP_UP
 
 	const EVENT_RUSTTURF_PEARL
 	const EVENT_RUSTTURF_RARE_CANDY
@@ -1011,8 +1013,7 @@
 	const EVENT_NEW_MAUVILLE_MAX_POTION
 	const EVENT_MAUVILLE_GAME_CORNER_SODA_POP
 
-	const_skip ; unused
-	const_skip ; unused
+	
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
