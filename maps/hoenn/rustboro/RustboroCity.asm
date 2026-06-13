@@ -133,10 +133,10 @@ RustboroCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event 26, 15, RUSTBORO_GYM, 1
+	warp_event  26, 15, RUSTBORO_GYM, 1
 	warp_event  13, 35, RUSTBORO_POKECENTER, 2
 	warp_event  13, 43, RUSTBORO_MART, 2
-	warp_event   7, 35, RUSTBORO_CUTTER_HOUSE, 2
+	warp_event  07, 35, RUSTBORO_CUTTER_HOUSE, 2
 	warp_event  29, 49, RUSTBORO_TRADE_HOUSE, 2
 
 	def_coord_events
