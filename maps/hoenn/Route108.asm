@@ -175,6 +175,9 @@ Route108CamronAfterBattleText:
 	line "be okay?"
 	done
 
+Route108MysticWater:
+	itemball MYSTIC_WATER
+
 Route108_MapEvents:
 	db 0, 0 ; filler
 
@@ -192,4 +195,5 @@ Route108_MapEvents:
 	object_event 46, 05, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route108DarrinScript, -1
 	object_event 47, 05, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route10BethScript, -1
 	object_event 26, 05, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route108CamronScript, -1
+	object_event 13, 09, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route108MysticWater, EVENT_GOT_HOENN_MYSTIC_WATER
 	
