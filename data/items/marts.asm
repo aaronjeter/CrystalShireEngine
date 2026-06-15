@@ -108,7 +108,7 @@ MartGoldenrod2F2:
 	dw FLOWER_MAIL
 
 MartGoldenrod3F:
-	db 9 ; # items
+	db 8 ; # items
 	dw FIRE_STONE
 	dw THUNDERSTONE
 	dw WATER_STONE
