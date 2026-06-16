@@ -216,6 +216,8 @@ LeechMons::
 	dw -1
 
 EnervateMons::
+	dw DROWZEE
+	dw HYPNO
 	dw PSYDUCK
 	dw GOLDUCK
 	dw NATU

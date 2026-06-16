@@ -1031,7 +1031,7 @@ Noctowl2EvosAttacks:
 	dbw 1, GROWL
 	dbw 5, PECK
 	dbw 10, NIGHT_SHADE
-	dbw 12, CONFUSION
+	dbw 12, SHADOWSNEAK
 	dbw 16, FORESIGHT	
 	dbw 20, HYPNOSIS
 	dbw 24, WING_ATTACK
@@ -1039,12 +1039,12 @@ Noctowl2EvosAttacks:
 	dbw 32, WILLOWISP
 	dbw 36, DREAM_EATER
 	dbw 40, DRILL_PECK
-	dbw 45, PSYCHIC_M	
-	dbw 50, MOONBLAST
+	dbw 45, SHADOW_BALL	
+	dbw 50, PSYCHIC_M
 	dbw 55, ICY_WIND
 	dbw 60, HURRICANE
-	dbw 65, GROWTH
-	dbw 70, FUTURE_SIGHT
+	dbw 65, FUTURE_SIGHT
+	dbw 70, SHADOW_FORCE
 	db 0 ; no more level-up moves
 
 Octillery2EvosAttacks:

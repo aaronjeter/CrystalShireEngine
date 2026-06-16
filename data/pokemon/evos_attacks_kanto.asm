@@ -2184,20 +2184,20 @@ DrowzeeEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, CONFUSION
 	dbw 1, HYPNOSIS
-	dbw 6, BITE
+	dbw 6, ASTONISH
 	dbw 10, DISABLE
 	dbw 16, SHARPEN
 	dbw 20, FURY_SWIPES
-	dbw 24, FAINT_ATTACK
-	dbw 28, PSYBEAM
-	dbw 32, DIZZY_PUNCH
+	dbw 24, PSYBEAM
+	dbw 28, SHADOW_PUNCH
+	dbw 32, NIGHTMARE
 	dbw 36, DREAM_EATER
-	dbw 40, DARK_PULSE
-	dbw 45, PSYCHIC_M
+	dbw 40, PSYCHIC_M
+	dbw 45, SHADOW_BALL
 	dbw 50, CALM_MIND
 	dbw 55, BODY_SLAM
 	dbw 60, PLAY_ROUGH
-	dbw 65, FUTURE_SIGHT
+	dbw 65, SHADOW_FORCE
 	dbw 70, SUBMISSION
 	db 0 ; no more level-up moves
 
@@ -2205,20 +2205,20 @@ HypnoEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, CONFUSION
 	dbw 1, HYPNOSIS
-	dbw 6, BITE
+	dbw 6, ASTONISH
 	dbw 10, DISABLE
 	dbw 16, SHARPEN
 	dbw 20, FURY_SWIPES
-	dbw 24, FAINT_ATTACK
-	dbw 28, PSYBEAM
-	dbw 32, DIZZY_PUNCH
+	dbw 24, PSYBEAM
+	dbw 28, SHADOW_PUNCH
+	dbw 32, NIGHTMARE
 	dbw 36, DREAM_EATER
-	dbw 40, DARK_PULSE
-	dbw 45, PSYCHIC_M
+	dbw 40, PSYCHIC_M
+	dbw 45, SHADOW_BALL
 	dbw 50, CALM_MIND
 	dbw 55, BODY_SLAM
 	dbw 60, PLAY_ROUGH
-	dbw 65, FUTURE_SIGHT
+	dbw 65, SHADOW_FORCE
 	dbw 70, SUBMISSION
 	db 0 ; no more level-up moves
 
