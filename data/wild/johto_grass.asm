@@ -343,7 +343,7 @@ JohtoGrassWildMons:
 	; morn
 	dbw 1, NIDORAN_M
 	dbw 1, NIDORAN_F
-	dbw 2, YANMA2
+	dbw 2, YANMA
 	dbw 2, SUNKERN
 	dbw 3, CATERPIE
 	dbw 3, YANMA
@@ -351,7 +351,7 @@ JohtoGrassWildMons:
 	; day
 	dbw 1, NIDORAN_M
 	dbw 1, NIDORAN_F
-	dbw 2, YANMA2
+	dbw 2, YANMA
 	dbw 2, SUNKERN
 	dbw 3, CATERPIE
 	dbw 3, YANMA
@@ -359,7 +359,7 @@ JohtoGrassWildMons:
 	; nite
 	dbw 1, NIDORAN_M
 	dbw 1, NIDORAN_F
-	dbw 2, YANMA2
+	dbw 2, YANMA
 	dbw 2, SUNKERN
 	dbw 3, CATERPIE
 	dbw 3, YANMA
