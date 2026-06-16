@@ -160,7 +160,7 @@ MovesGen1:
 	move EFFECT_HEAL,                0, NORMAL,         STATUS,			100, 10,   0      ;SOFTBOILED
 	move EFFECT_JUMP_KICK,         110, FIGHTING,       PHYSICAL,		 90, 20,   0      ;HI_JUMP_KICK
 	move EFFECT_PARALYZE,            0, NORMAL,         STATUS,			100, 30,   0      ;GLARE
-	move EFFECT_DREAM_EATER,       120, PSYCHIC_TYPE,   SPECIAL,		100, 15,   0      ;DREAM_EATER
+	move EFFECT_DREAM_EATER,       120, GHOST,          SPECIAL,		100, 15,   0      ;DREAM_EATER
 	move EFFECT_POISON_HIT,         35, POISON,         SPECIAL,		100, 30,  25      ;POISON_GAS
 	move EFFECT_MULTI_HIT,          25, NORMAL,         PHYSICAL,		 85, 20,   0      ;BARRAGE
 	move EFFECT_LEECH_HIT,          35, BUG,            SPECIAL,		100, 15,   0      ;LEECH_LIFE
