@@ -79,8 +79,7 @@ MystifyMons::
 	dw DRAGONITEX
 	dw DRAGONITEY
 	dw HOOTHOOT
-	dw NOCTOWL
-	dw SLOWKING
+	dw NOCTOWL	
 	dw MISDREAVUS
 	dw MISMAGIUS
 	dw UNOWN
@@ -90,6 +89,9 @@ MystifyMons::
 	dw MILOTIC
 	dw HGROWLITHE
 	dw HARCANINE
+	dw ABRA2
+	dw KADABRA2
+	dw ALAKAZAM2
 	dw NOCTOWL2	
 	dw UNOWNX
 	dw -1
@@ -165,9 +167,7 @@ AimMons::
 FocusMons::	
 	dw MACHOP
 	dw MACHOKE
-	dw MACHAMP
-	dw NATU
-	dw XATU
+	dw MACHAMP	
 	dw MURKROW
 	dw HONCHKROW
 	dw TAILLOW
@@ -216,10 +216,12 @@ LeechMons::
 	dw -1
 
 EnervateMons::
+	dw PSYDUCK
+	dw GOLDUCK
+	dw NATU
+	dw XATU
+	dw SLOWKING
 	dw GOREBYSS
-	dw ABRA2
-	dw KADABRA2
-	dw ALAKAZAM2
 	dw -1
 
 DauntMons::
@@ -228,6 +230,9 @@ DauntMons::
 	dw NIDORAN_M
 	dw NIDORINO
 	dw NIDOKING
+	dw ZUBAT
+	dw GOLBAT
+	dw CROBAT
 	dw TAUROS
 	dw GROWLITHE
 	dw ARCANINE	
