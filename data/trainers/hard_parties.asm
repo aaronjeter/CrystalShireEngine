@@ -2266,7 +2266,7 @@ CooltrainerMGroupHard:
 	db 9
 	dw SEADRA
 	db 9
-	dw YANMA2
+	dw YANMA
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (4) Blackthorn City Gym
@@ -3445,7 +3445,7 @@ GruntMGroupHard:
 	db 6
 	dw GOLBAT
 	db 6
-	dw YANMA2
+	dw YANMA
 	db -1 ; end
 
 	next_list_item ; GRUNTM (7) Radio Tower 3F

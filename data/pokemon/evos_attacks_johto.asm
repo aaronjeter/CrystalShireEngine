@@ -995,6 +995,7 @@ SunfloraEvosAttacks:
 	db 0 ; no more level-up moves
 
 YanmaEvosAttacks:
+	dbww EVOLVE_ITEM, SUN_STONE, YANMA2
 	dbbw EVOLVE_LEVEL, 42, YANMEGA
 	db 0 ; no more evolutions
 	dbw 1, TWISTER

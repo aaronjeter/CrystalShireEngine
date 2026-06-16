@@ -451,7 +451,7 @@ PokemonNames::
 	db "Furret@@@@"
 	db "Noctowl@@@"
 	db "Octillery@"
-	db "Yanma@@@@@"
+	db "Yanmega@@@"
 	db "Scyther@@@"
 	db "Scizor@@@@"
 	db "Tentacool@"

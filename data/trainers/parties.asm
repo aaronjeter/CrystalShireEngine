@@ -2229,7 +2229,7 @@ CooltrainerMGroup:
 	db 9
 	dw SEADRA
 	db 7
-	dw YANMA2
+	dw YANMA
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (4) Blackthorn City Gym
@@ -3360,7 +3360,7 @@ GruntMGroup:
 	db 6
 	dw GOLBAT
 	db 6
-	dw YANMA2
+	dw YANMA
 	db -1 ; end
 
 	next_list_item ; GRUNTM (7) Radio Tower 3F
@@ -9276,7 +9276,7 @@ ExplorerGroup:
 	next_list_item; EXPLORER (9) Route 120
 	db "Chip@", TRAINERTYPE_NORMAL
 	db 5
-	dw YANMA2
+	dw YANMA
 	db 5
 	dw SKARMORY
 	db 7
