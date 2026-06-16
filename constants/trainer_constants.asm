@@ -1074,6 +1074,18 @@ DEF KRIS EQU __trainer_class__
 	trainerclass LORELEI
 	const LORELEI1
 
+	trainerclass FERGUS
+	const FERGUS1
+
+	trainerclass NEESHA
+	const NEESHA1
+
+	trainerclass LILY
+	const LILY1
+
+	trainerclass GUY
+	const GUY1
+
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
 

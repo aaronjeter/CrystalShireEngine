@@ -89,4 +89,8 @@ TrainerClassNames::
 	li "Psychic"
 	li "Ancient"
 	li "Elite"
+	li "Elite"
+	li "Elite"
+	li "Elite"
+	li "Elite"
 	assert_list_length NUM_TRAINER_CLASSES

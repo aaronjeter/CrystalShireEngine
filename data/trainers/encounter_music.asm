@@ -92,6 +92,10 @@ TrainerEncounterMusic::
 	db MUSIC_YOUNGSTER_ENCOUNTER   ; psychic_t
 	db MUSIC_OFFICER_ENCOUNTER     ; agatha
 	db MUSIC_OFFICER_ENCOUNTER     ; lorelei
+	db MUSIC_OFFICER_ENCOUNTER     ; fergus
+	db MUSIC_OFFICER_ENCOUNTER     ; neesha
+	db MUSIC_OFFICER_ENCOUNTER     ; lily
+	db MUSIC_OFFICER_ENCOUNTER     ; guy
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

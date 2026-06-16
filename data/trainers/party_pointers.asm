@@ -91,6 +91,10 @@ TrainerGroups:
 	dba PsychicFGroup
 	dba AgathaGroup
 	dba LoreleiGroup
+	dba FergusGroup
+	dba NeeshaGroup
+	dba LilyGroup
+	dba GuyGroup
 	assert_table_length NUM_TRAINER_CLASSES
 
 	TrainerGroupsHard:
@@ -184,4 +188,8 @@ TrainerGroups:
 	dba PsychicFGroupHard
 	dba AgathaGroupHard
 	dba LoreleiGroupHard
+	dba FergusGroupHard
+	dba NeeshaGroupHard
+	dba LilyGroupHard
+	dba GuyGroupHard
 	assert_table_length NUM_TRAINER_CLASSES

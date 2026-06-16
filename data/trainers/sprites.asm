@@ -89,5 +89,9 @@ BTTrainerClassSprites:
 	db SPRITE_LASS		;psychic f
 	db SPRITE_KAREN		;agatha
 	db SPRITE_KAREN		;lorelei
+	db SPRITE_COOLTRAINER_M ; Fergus
+	db SPRITE_COOLTRAINER_F ; Neesha
+	db SPRITE_KIMONO_GIRL ; Lily
+	db SPRITE_GENTLEMAN ; Guy
 
 	assert_table_length NUM_TRAINER_CLASSES ; 

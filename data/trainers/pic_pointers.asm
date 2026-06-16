@@ -92,4 +92,8 @@ TrainerPicPointers::
 	dba PsychicFPic
 	dba AgathaPic
 	dba LoreleiPic
+	dba FergusPic
+	dba NeeshaPic
+	dba LilyPic
+	dba GuyPic
 	assert_table_length NUM_TRAINER_CLASSES
