@@ -200,7 +200,7 @@ MoveNames::
 	li "Bone Rush"
 	li "Lock-On"
 	li "Outrage"
-	li "Sandstrorm"
+	li "Sandstorm"
 	li "Giga Drain"
 	li "Endure"
 	li "Charm"
