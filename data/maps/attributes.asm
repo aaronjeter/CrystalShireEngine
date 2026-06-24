@@ -961,3 +961,8 @@ ENDM
 	map_attributes WCQualifier1, WC_QUALIFIER_1, $00, 0
 	map_attributes WCQualifier2, WC_QUALIFIER_2, $00, 0
 	map_attributes WCQualifier3, WC_QUALIFIER_3, $00, 0
+
+	map_attributes WCChallengerLobby, WC_CHALLENGER_LOBBY, $00, 0
+
+	map_attributes WCRoundOne, WC_ROUND_ONE, $00, 0
+	map_attributes WCRoundTwo, WC_ROUND_TWO, $00, 0

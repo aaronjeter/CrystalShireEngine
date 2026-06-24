@@ -743,3 +743,12 @@ INCLUDE "maps/hoenn/mauville/NewMauvilleBasement.asm"
 INCLUDE "maps/hoenn/mauville/MauvilleGameCorner.asm"
 
 ENDSECTION
+
+
+SECTION "Map Scripts World Cup Challenger", ROMX
+
+INCLUDE "maps/hoenn/battle/WCChallengerLobby.asm"
+INCLUDE "maps/hoenn/battle/WCRoundOne.asm"
+INCLUDE "maps/hoenn/battle/WCRoundTwo.asm"
+
+ENDSECTION

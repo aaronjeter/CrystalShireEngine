@@ -636,6 +636,9 @@ ENDM
 	map_const WC_QUALIFIER_1,                              07, 06 ;
 	map_const WC_QUALIFIER_2,                              07, 06 ;
 	map_const WC_QUALIFIER_3,                              07, 06 ;
+	map_const WC_CHALLENGER_LOBBY,                         20, 20 ;
+	map_const WC_ROUND_ONE,                                07, 09 ;
+	map_const WC_ROUND_TWO,                                07, 09 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

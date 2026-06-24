@@ -1259,4 +1259,13 @@ SECTION "Map Blocks Battle Resort", ROMX
 	WCQualifier3_Blocks:
 	INCBIN "maps/hoenn/battle/WorldCupQualifierRoom.ablk" 
 
+	WCChallengerLobby_Blocks:
+	INCBIN "maps/hoenn/battle/WCChallengerLobby.ablk"
+
+	WCRoundOne_Blocks:
+	INCBIN "maps/hoenn/battle/WCRoundOne.ablk"
+
+	WCRoundTwo_Blocks:
+	INCBIN "maps/hoenn/battle/WCRoundTwo.ablk"
+
 ENDSECTION

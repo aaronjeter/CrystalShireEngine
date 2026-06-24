@@ -32,6 +32,7 @@ DEF KRIS EQU __trainer_class__
 	const FALKNER1
 	const FALKNER2
 	const FALKNER3
+	const WCFALKNER
 
 	trainerclass WHITNEY ; 2
 	const WHITNEY1
