@@ -603,6 +603,7 @@ DEF KRIS EQU __trainer_class__
 	const RIVAL2_2_CHIKORITA
 	const RIVAL2_2_CYNDAQUIL
 	const RIVAL2_2_TOTODILE
+	const RIVAL2_WC
 
 	trainerclass GUITARIST ; 2b
 	const CLYDE

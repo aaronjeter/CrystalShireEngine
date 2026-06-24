@@ -966,3 +966,4 @@ ENDM
 
 	map_attributes WCRoundOne, WC_ROUND_ONE, $00, 0
 	map_attributes WCRoundTwo, WC_ROUND_TWO, $00, 0
+	map_attributes WCRoundThree, WC_ROUND_THREE, $00, 0

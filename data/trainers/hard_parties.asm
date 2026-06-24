@@ -5427,6 +5427,22 @@ Rival2GroupHard:
 	dw FERALIGATR
 	db -1 ; end
 
+	next_list_item ; RIVAL2 (7) World Cup Rival
+	db "?@", TRAINERTYPE_NORMAL
+	db 10
+	dw WEAVILE
+	db 10
+	dw CROBAT
+	db 10
+	dw MAGNEZONE
+	db 10
+	dw MEGANIUM
+	db 10
+	dw TYPHLOSION
+	db 10
+	dw FERALIGATR
+	db -1 ; end
+
 	end_list_items
 
 GuitaristGroupHard:
