@@ -113,6 +113,8 @@ WCRoundThree_MapEvents:
 	def_warp_events	
 	warp_event   06, 17, WC_ROUND_TWO, 3
 	warp_event   07, 17, WC_ROUND_TWO, 4
+	warp_event   06, 02, WC_ROUND_FOUR, 1
+	warp_event   07, 02, WC_ROUND_FOUR, 2
 
 	def_coord_events
 	coord_event  06,  16, -1, WCRoundThreeDoorLocksBehindYouScript

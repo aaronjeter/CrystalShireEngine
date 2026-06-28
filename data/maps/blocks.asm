@@ -1271,4 +1271,7 @@ SECTION "Map Blocks Battle Resort", ROMX
 	WCRoundThree_Blocks:
 	INCBIN "maps/hoenn/battle/WCRoundThree.ablk"
 
+	WCRoundFour_Blocks:
+	INCBIN "maps/hoenn/battle/WCRoundFour.ablk"
+
 ENDSECTION

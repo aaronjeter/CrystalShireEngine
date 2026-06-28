@@ -640,6 +640,7 @@ ENDM
 	map_const WC_ROUND_ONE,                                07, 09 ;
 	map_const WC_ROUND_TWO,                                07, 09 ;
 	map_const WC_ROUND_THREE,                              07, 09 ;
+	map_const WC_ROUND_FOUR,                               07, 12 ;
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

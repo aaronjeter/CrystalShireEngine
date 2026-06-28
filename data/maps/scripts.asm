@@ -751,5 +751,6 @@ INCLUDE "maps/hoenn/battle/WCChallengerLobby.asm"
 INCLUDE "maps/hoenn/battle/WCRoundOne.asm"
 INCLUDE "maps/hoenn/battle/WCRoundTwo.asm"
 INCLUDE "maps/hoenn/battle/WCRoundThree.asm"
+INCLUDE "maps/hoenn/battle/WCRoundFour.asm"
 
 ENDSECTION
