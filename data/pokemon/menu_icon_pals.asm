@@ -341,7 +341,7 @@ MonMenuIconPals:
 	icon_pals RED,    GREEN  ; SPINDA
 	icon_pals RED,    BROWN  ; TRAPINCH
 	icon_pals GREEN,  BROWN  ; VIBRAVA
-	icon_pals GREEN,  TEAL   ; FLYGON
+	icon_pals GREEN,  BROWN  ; FLYGON
 	icon_pals GREEN,  RED    ; CACNEA
 	icon_pals GREEN,  RED    ; CACTURNE
 	icon_pals BLUE,   BROWN  ; SWABLU
@@ -525,7 +525,7 @@ MonMenuIconPals:
 	icon_pals RED,    GRAY   ; KINGLERX
 	icon_pals GREEN,  BROWN  ; TROPIUSX
 	icon_pals PURPLE, TEAL   ; SWALOTX
-	icon_pals GREEN,  TEAL   ; FLYGONX
+	icon_pals GREEN,  BROWN  ; FLYGONX
 	icon_pals RED,    BROWN  ; CHIMECHOX
 	icon_pals GREEN,  PURPLE ; VICTREEBELX
 	icon_pals GRAY,   RED    ; UNOWNX
