@@ -95,4 +95,5 @@ BTTrainerClassGenders:
 	db FEMALE ; Neesha
 	db FEMALE ; Lily
 	db MALE   ; Guy
+	db MALE   ; Giovanni
 	assert_table_length NUM_TRAINER_CLASSES ; 

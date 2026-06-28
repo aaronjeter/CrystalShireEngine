@@ -102,4 +102,5 @@ INCBIN "gfx/trainers/cooltrainer_m.gbcpal", middle_colors ;fergus placeholder
 INCBIN "gfx/trainers/cooltrainer_f.gbcpal", middle_colors ;neesha placeholder
 INCBIN "gfx/trainers/kimono_girl.gbcpal", middle_colors ;Lily placeholder
 INCBIN "gfx/trainers/gentleman.gbcpal", middle_colors ;guy placeholder
+INCBIN "gfx/trainers/giovanni.gbcpal", middle_colors 
 	assert_table_length NUM_TRAINER_CLASSES + 1

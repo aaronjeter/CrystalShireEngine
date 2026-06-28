@@ -82,7 +82,7 @@ TrainerClassNames::
 	li "Elite"
 	li "Elite"
 	li "Champion"
-	li "Blacbelt"
+	li "Blackbelt"
 	li "Ranger"
 	li "Ranger"
 	li "Explorer"
@@ -93,4 +93,5 @@ TrainerClassNames::
 	li "Elite"
 	li "Elite"
 	li "Elite"
+	li "Leader"
 	assert_list_length NUM_TRAINER_CLASSES

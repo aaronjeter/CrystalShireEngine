@@ -93,5 +93,6 @@ BTTrainerClassSprites:
 	db SPRITE_COOLTRAINER_F ; Neesha
 	db SPRITE_KIMONO_GIRL ; Lily
 	db SPRITE_GENTLEMAN ; Guy
+	db SPRITE_GENTLEMAN ; Giovanni placeholder
 
 	assert_table_length NUM_TRAINER_CLASSES ; 

@@ -96,4 +96,5 @@ TrainerPicPointers::
 	dba NeeshaPic
 	dba LilyPic
 	dba GuyPic
+	dba GiovanniPic
 	assert_table_length NUM_TRAINER_CLASSES

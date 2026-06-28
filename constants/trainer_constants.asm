@@ -1088,6 +1088,9 @@ DEF KRIS EQU __trainer_class__
 	trainerclass GUY
 	const GUY1
 
+	trainerclass GIOVANNI
+	const WC_GIOVANNI
+
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
 

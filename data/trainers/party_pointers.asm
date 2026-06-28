@@ -95,6 +95,7 @@ TrainerGroups:
 	dba NeeshaGroup
 	dba LilyGroup
 	dba GuyGroup
+	dba GiovanniGroup
 	assert_table_length NUM_TRAINER_CLASSES
 
 	TrainerGroupsHard:
@@ -192,4 +193,5 @@ TrainerGroups:
 	dba NeeshaGroupHard
 	dba LilyGroupHard
 	dba GuyGroupHard
+	dba GiovanniGroupHard
 	assert_table_length NUM_TRAINER_CLASSES
