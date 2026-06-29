@@ -50,7 +50,13 @@ StevenScript_Battle:
 	;Give beat elite 4 goodies
 	loadmem wEliteFourXpBoost, 1
 	setevent EVENT_BEAT_HOENN_LEAGUE
+	scall StevensRoomLevelcap
+
 	halloffame
+	end
+
+StevensRoomLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
 
 StevenScript_StevenBeforeText:

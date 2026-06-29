@@ -11,6 +11,7 @@ WCRoundOneDoorLocksBehindYouScript:
 	clearevent EVENT_WORLD_CUP_BEAT_ROUND_TWO
 	clearevent EVENT_WORLD_CUP_BEAT_ROUND_THREE
 	clearevent EVENT_WORLD_CUP_BEAT_ROUND_FOUR
+	scall WCRoundOneLevelcap
 
 	applymovement PLAYER, WCRoundOne_EnterMovement
 	reanchormap $86
@@ -20,6 +21,10 @@ WCRoundOneDoorLocksBehindYouScript:
 	refreshmap
 	closetext
 	waitsfx
+	end
+
+WCRoundOneLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
 
 WCRoundOne_EnterMovement:

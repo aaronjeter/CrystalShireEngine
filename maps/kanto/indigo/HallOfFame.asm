@@ -16,6 +16,8 @@ HallOfFameNoopScene:
 	end
 
 HallOfFameEnterScript:
+	setevent EVENT_BEAT_INDIGO_LEAGUE
+	scall HallOfFameLevelcap
 	follow HALLOFFAME_LANCE, PLAYER
 	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
 	stopfollow
@@ -44,6 +46,10 @@ HallOfFameEnterScript:
 	specialphonecall SPECIALCALL_SSTICKET
 .SkipPhoneCall:
 	halloffame
+	end
+
+HallOfFameLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
 
 HallOfFame_WalkUpWithLance:

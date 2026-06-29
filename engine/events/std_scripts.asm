@@ -2075,5 +2075,20 @@ UpdateWorldLevelsScript:
 	addval 16
 	writemem wLevelCap ;base wLevelCap = 16
 
+	;check for League Victories, these increment only level cap
+
+	checkevent EVENT_BEAT_INDIGO_LEAGUE
+	iffalse .skipIndigo
+	readmem wLevelCap
+	addval 2
+	writemem wLevelCap
+.skipIndigo
+	checkevent EVENT_BEAT_HOENN_LEAGUE
+	iffalse .skipEvergrande
+	readmem wLevelCap
+	addval 2
+	writemem wLevelCap
+.skipEvergrande
+
 .done
 	end
