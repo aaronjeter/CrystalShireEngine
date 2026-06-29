@@ -6,6 +6,12 @@ WCRoundOne_MapScripts:
 	def_callbacks
 
 WCRoundOneDoorLocksBehindYouScript:
+	;World Cup Challenge event cleanup
+	clearevent EVENT_WORLD_CUP_BEAT_ROUND_ONE
+	clearevent EVENT_WORLD_CUP_BEAT_ROUND_TWO
+	clearevent EVENT_WORLD_CUP_BEAT_ROUND_THREE
+	clearevent EVENT_WORLD_CUP_BEAT_ROUND_FOUR
+
 	applymovement PLAYER, WCRoundOne_EnterMovement
 	reanchormap $86
 	playsound SFX_STRENGTH

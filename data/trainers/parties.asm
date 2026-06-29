@@ -683,6 +683,30 @@ Rival1Group:
 
 PokemonProfGroup:
 
+	next_list_item ; OAK (1)
+	db "Oak@", TRAINERTYPE_MOVES
+	db 15
+	dw TAUROS
+	dw DOUBLE_EDGE, FISSURE, BULK_UP, RECOVER
+	db 15
+	dw NIDOKING
+	dw COSMIC_POWER, ANCIENTPOWER, SLUDGE_BOMB, FISSURE
+	db 15
+	dw WYRDEER
+	dw BODY_SLAM, HYPNOSIS, REFLECT, PSYCHIC_M
+	db 15
+	dw VENUSAURX
+	dw SUNNY_DAY, SOLARBEAM, GIGA_DRAIN, EARTHQUAKE
+	db 15
+	dw CHARIZARDX
+	dw DRAGON_CLAW, SACRED_FIRE, WILLOWISP, SKY_ATTACK
+	db 15
+	dw BLASTOISEX
+	dw SCALD, RAIN_DANCE, HYDRO_PUMP, COSMIC_POWER
+	db -1 ; end
+
+	end_list_items
+
 WillGroup:	;Elite 4
 	next_list_item ; WILL (1)
 	db "Will@", TRAINERTYPE_MOVES
@@ -1320,6 +1344,8 @@ ErikaGroup: ;Gym Leader
 	db -1 ; end
 
 	end_list_items
+
+SECTION "Enemy Trainer Parties 1.5", ROMX
 
 YoungsterGroup:
 	next_list_item ; YOUNGSTER (1) Route 30 
