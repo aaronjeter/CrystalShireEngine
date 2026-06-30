@@ -613,18 +613,16 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE119_FABIAN
 
 	trainerclass HIKER ; 2c
-	const ANTHONY1
+	const ANTHONY
 	const RUSSELL
 	const PHILLIP
 	const LEONARD
-	const ANTHONY2
 	const BENJAMIN
 	const ERIK
 	const MICHAEL
 	const PARRY1
 	const TIMOTHY
 	const BAILEY
-	const ANTHONY3
 	const TIM
 	const NOLAND
 	const SIDNEY
@@ -633,8 +631,6 @@ DEF KRIS EQU __trainer_class__
 	const DANIEL
 	const PARRY2
 	const PARRY3
-	const ANTHONY4
-	const ANTHONY5
 	const RUSTBORO_MARC
 	const ROUTE116_CLARK
 	const ROUTE116_DEVAN

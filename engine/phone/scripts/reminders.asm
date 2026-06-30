@@ -30,10 +30,6 @@ RalphReminderScript:
 	farwritetext RalphReminderText
 	end
 
-AnthonyReminderScript:
-	farwritetext AnthonyReminderText
-	end
-
 ToddForwardScript:
 	farwritetext ToddLookingForwardToBattleText
 	end

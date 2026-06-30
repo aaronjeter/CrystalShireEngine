@@ -5434,14 +5434,6 @@ HikerGroup:
 	dw MAKUHITA
 	db -1 ; end
 
-	next_list_item ; HIKER (5) Route 33
-	db "Anthony@", TRAINERTYPE_NORMAL
-	db 6
-	dw GEODUDE
-	db 6
-	dw MAKUHITA
-	db -1 ; end
-
 	next_list_item ; HIKER (6) Route 42
 	db "Benjamin@", TRAINERTYPE_NORMAL
 	db 4
@@ -5502,16 +5494,6 @@ HikerGroup:
 	dw GEODUDE
 	db 5
 	dw GEODUDE
-	db -1 ; end
-
-	next_list_item ; HIKER (12) Route 33
-	db "Anthony@", TRAINERTYPE_NORMAL
-	db 5
-	dw GRAVELER
-	db 7
-	dw GRAVELER
-	db 9
-	dw MACHOKE
 	db -1 ; end
 
 	next_list_item ; HIKER (13) Route 9
@@ -5585,29 +5567,6 @@ HikerGroup:
 	db "Parry@", TRAINERTYPE_NORMAL
 	db 9
 	dw ONIX
-	db -1 ; end
-
-	next_list_item ; HIKER (21) Route 33
-	db "Anthony@", TRAINERTYPE_NORMAL
-	db 5
-	dw GRAVELER
-	db 5
-	dw GRAVELER
-	db 7
-	dw MACHOKE
-	db -1 ; end
-
-	next_list_item ; HIKER (22) Route 33
-	db "Anthony@", TRAINERTYPE_MOVES
-	db 7
-	dw GRAVELER
-	dw MAGNITUDE, SELFDESTRUCT, DEFENSE_CURL, ROLLOUT
-	db 9
-	dw GOLEM
-	dw MAGNITUDE, SELFDESTRUCT, DEFENSE_CURL, ROLLOUT
-	db 7
-	dw MACHOKE
-	dw KARATE_CHOP, VITAL_THROW, HEADBUTT, DIG
 	db -1 ; end
 
 	next_list_item ; HIKER (23) Rustboro Gym
