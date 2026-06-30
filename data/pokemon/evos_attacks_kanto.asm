@@ -1620,7 +1620,7 @@ BellsproutEvosAttacks:
 	db 0 ; no more level-up moves
 
 WeepinbellEvosAttacks:
-	dbbw EVOLVE_LEVEL, 36, TSUBOMITT
+	dbbw EVOLVE_LEVEL, 36, VICTREEBEL
 	dbww EVOLVE_ITEM, LEAF_STONE, VICTREEBEL
 	db 0 ; no more evolutions
 	dbw 1, VINE_WHIP
