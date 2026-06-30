@@ -177,7 +177,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE113_DILLON
 
 	trainerclass SCHOOLBOY ; 17
-	const JACK1
+	const JACK
 	const KIPP
 	const ALAN1
 	const JOHNNY
@@ -898,7 +898,7 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE113_TORITIA
 
 	trainerclass POKEFANF ; 3e
-	const BEVERLY1
+	const BEVERLY
 	const RUTH
 	const GEORGIA
 	const JAIME

@@ -71,68 +71,14 @@ NationalParkGameboyKidScript:
 	end
 
 TrainerSchoolboyJack1:
-	trainer SCHOOLBOY, JACK1, EVENT_BEAT_SCHOOLBOY_JACK, SchoolboyJack1SeenText, SchoolboyJack1BeatenText, 0, .Script
+	trainer SCHOOLBOY, JACK, EVENT_BEAT_SCHOOLBOY_JACK, SchoolboyJack1SeenText, SchoolboyJack1BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_SCHOOLBOY_JACK
+	endifjustbattled
 	opentext
-	checkflag ENGINE_JACK_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkcellnum PHONE_SCHOOLBOY_JACK
-	iftrue .NumberAccepted
-	checkevent EVENT_JACK_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
 	writetext SchoolboyJackTradeMonText
-	promptbutton
-	setevent EVENT_JACK_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .RequestNumber
-
-.AskAgain:
-	scall .AskNumber2
-.RequestNumber:
-	askforphonenumber PHONE_SCHOOLBOY_JACK
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, SCHOOLBOY, JACK1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
-	scall .RematchStd
-	winlosstext SchoolboyJack1BeatenText, 0
-	loadtrainer SCHOOLBOY, JACK1
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_JACK_READY_FOR_REMATCH
-	end
-
-.AskNumber1:
-	jumpstd AskNumber1MScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2MScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberMScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedMScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedMScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullMScript
-	end
-
-.RematchStd:
-	jumpstd RematchMScript
+	waitbutton
+	closetext
 	end
 
 TrainerPokefanmWilliam:
@@ -147,82 +93,14 @@ TrainerPokefanmWilliam:
 	end
 
 TrainerPokefanfBeverly1:
-	trainer POKEFANF, BEVERLY1, EVENT_BEAT_POKEFANF_BEVERLY, PokefanfBeverly1SeenText, PokefanfBeverly1BeatenText, 0, .Script
+	trainer POKEFANF, BEVERLY, EVENT_BEAT_POKEFANF_BEVERLY, PokefanfBeverly1SeenText, PokefanfBeverly1BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_POKEFAN_BEVERLY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_BEVERLY_HAS_NUGGET
-	iftrue .GiveNugget
-	checkcellnum PHONE_POKEFAN_BEVERLY
-	iftrue .NumberAccepted
-	checkpoke MARILL
-	iffalse .NoMarill
-	checkevent EVENT_BEVERLY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
 	writetext PokefanBeverlyCuteMonText
-	promptbutton
-	setevent EVENT_BEVERLY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .RequestNumber
-
-.AskAgain:
-	scall .AskNumber2
-.RequestNumber:
-	askforphonenumber PHONE_POKEFAN_BEVERLY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, POKEFANF, BEVERLY1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.GiveNugget:
-	scall .Gift
-	verbosegiveitem NUGGET
-	iffalse .NoRoom
-	clearflag ENGINE_BEVERLY_HAS_NUGGET
-	sjump .NumberAccepted
-
-.NoRoom:
-	sjump .PackFull
-
-.NoMarill:
-	writetext PokefanFBeverlyMarillFriendText
 	waitbutton
 	closetext
-	end
-
-.AskNumber1:
-	jumpstd AskNumber1FScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2FScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberFScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedFScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedFScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullFScript
-	end
-
-.Gift:
-	jumpstd GiftFScript
-	end
-
-.PackFull:
-	jumpstd PackFullFScript
 	end
 
 TrainerLassKrise:
