@@ -54,10 +54,6 @@ ArnieReminderScript:
 	farwritetext ArnieReminderText
 	end
 
-AlanReminderScript:
-	farwritetext AlanReminderText
-	end
-
 DanaReminderScript:
 	farwritetext DanaReminderText
 	end

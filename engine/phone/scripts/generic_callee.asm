@@ -35,7 +35,6 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_JUGGLER_IRWIN, .Irwin
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_ALAN, .Alan
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
@@ -100,11 +99,6 @@ PhoneScript_AnswerPhone_Male:
 	promptbutton
 	end
 
-.Alan:
-	farwritetext AlanAnswerPhoneText
-	promptbutton
-	end
-
 .Chad:
 	farwritetext ChadAnswerPhoneText
 	promptbutton
@@ -158,7 +152,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_JUGGLER_IRWIN, .Irwin
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_ALAN, .Alan
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
@@ -223,11 +216,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	promptbutton
 	end
 
-.Alan:
-	farwritetext AlanAnswerPhoneDayText
-	promptbutton
-	end
-
 .Chad:
 	farwritetext ChadAnswerPhoneDayText
 	promptbutton
@@ -281,7 +269,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_JUGGLER_IRWIN, .Irwin
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_ALAN, .Alan
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
@@ -343,11 +330,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 
 .Arnie:
 	farwritetext ArnieAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Alan:
-	farwritetext AlanAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -565,7 +547,6 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_JUGGLER_IRWIN, .Irwin
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_ALAN, .Alan
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
@@ -630,11 +611,6 @@ PhoneScript_GreetPhone_Male:
 	promptbutton
 	end
 
-.Alan:
-	farwritetext AlanGreetText
-	promptbutton
-	end
-
 .Chad:
 	farwritetext ChadGreetText
 	promptbutton
@@ -688,7 +664,6 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_JUGGLER_IRWIN, .Irwin
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_ALAN, .Alan
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
@@ -753,11 +728,6 @@ PhoneScript_GreetPhone_Male_Day:
 	promptbutton
 	end
 
-.Alan:
-	farwritetext AlanGreetDayText
-	promptbutton
-	end
-
 .Chad:
 	farwritetext ChadGreetDayText
 	promptbutton
@@ -811,7 +781,6 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_JUGGLER_IRWIN, .Irwin
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_ALAN, .Alan
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
@@ -873,11 +842,6 @@ PhoneScript_GreetPhone_Male_Nite:
 
 .Arnie:
 	farwritetext ArnieGreetNiteText
-	promptbutton
-	end
-
-.Alan:
-	farwritetext AlanGreetNiteText
 	promptbutton
 	end
 
@@ -1089,7 +1053,6 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_ALAN, .Alan
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
@@ -1140,11 +1103,6 @@ PhoneScript_Generic_Male:
 
 .Arnie:
 	farwritetext ArnieGenericText
-	promptbutton
-	end
-
-.Alan:
-	farwritetext AlanGenericText
 	promptbutton
 	end
 

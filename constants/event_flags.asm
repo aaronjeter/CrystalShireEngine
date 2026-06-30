@@ -699,7 +699,7 @@
 	const_skip ; unused in Crystal
 	const EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
 	const_skip ; unused in Crystal
-	const EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
+	const_skip ; now unused EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
 	const_skip ; unused in Crystal
 	const_skip ; unused
 	const_skip ; unused
