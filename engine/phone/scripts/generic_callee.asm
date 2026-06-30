@@ -33,8 +33,6 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyAnswerPhoneText
@@ -81,16 +79,6 @@ PhoneScript_AnswerPhone_Male:
 	promptbutton
 	end
 
-.Kenji:
-	farwritetext KenjiAnswerPhoneText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryAnswerPhoneText
-	promptbutton
-	end
-
 PhoneScript_AnswerPhone_Male_Day:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
@@ -102,8 +90,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyAnswerPhoneDayText
@@ -150,16 +136,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	promptbutton
 	end
 
-.Kenji:
-	farwritetext KenjiAnswerPhoneDayText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryAnswerPhoneDayText
-	promptbutton
-	end
-
 PhoneScript_AnswerPhone_Male_Nite:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
@@ -171,8 +147,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyAnswerPhoneNiteText
@@ -216,16 +190,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 
 .Tully:
 	farwritetext TullyAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Kenji:
-	farwritetext KenjiAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -347,8 +311,6 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyGreetText
@@ -395,16 +357,6 @@ PhoneScript_GreetPhone_Male:
 	promptbutton
 	end
 
-.Kenji:
-	farwritetext KenjiGreetText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryGreetText
-	promptbutton
-	end
-
 PhoneScript_GreetPhone_Male_Day:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
@@ -416,8 +368,6 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyGreetDayText
@@ -464,16 +414,6 @@ PhoneScript_GreetPhone_Male_Day:
 	promptbutton
 	end
 
-.Kenji:
-	farwritetext KenjiGreetDayText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryGreetDayText
-	promptbutton
-	end
-
 PhoneScript_GreetPhone_Male_Nite:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
@@ -485,8 +425,6 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyGreetNiteText
@@ -530,16 +468,6 @@ PhoneScript_GreetPhone_Male_Nite:
 
 .Tully:
 	farwritetext TullyGreetNiteText
-	promptbutton
-	end
-
-.Kenji:
-	farwritetext KenjiGreetNiteText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryGreetNiteText
 	promptbutton
 	end
 
@@ -656,7 +584,6 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Gaven:
 	farwritetext GavenGenericText
@@ -695,11 +622,6 @@ PhoneScript_Generic_Male:
 
 .Tully:
 	farwritetext TullyGenericText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryGenericText
 	promptbutton
 	end
 

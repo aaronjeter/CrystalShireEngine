@@ -654,8 +654,6 @@ AskNumber1MScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyAskNumber1Text
@@ -684,12 +682,6 @@ AskNumber1MScript:
 .Tully:
 	farwritetext TullyAskNumber1Text
 	end
-.Kenji:
-	farwritetext KenjiAskNumber1Text
-	end
-.Parry:
-	farwritetext ParryAskNumber1Text
-	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -703,8 +695,6 @@ AskNumber2MScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyAskNumber2Text
@@ -733,12 +723,6 @@ AskNumber2MScript:
 .Tully:
 	farwritetext TullyAskNumber2Text
 	end
-.Kenji:
-	farwritetext KenjiAskNumber2Text
-	end
-.Parry:
-	farwritetext ParryAskNumber2Text
-	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -758,8 +742,6 @@ NumberAcceptedMScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyNumberAcceptedText
@@ -806,16 +788,6 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
-.Kenji:
-	farwritetext KenjiNumberAcceptedText
-	waitbutton
-	closetext
-	end
-.Parry:
-	farwritetext ParryNumberAcceptedText
-	waitbutton
-	closetext
-	end
 
 NumberDeclinedMScript:
 	readvar VAR_CALLERID
@@ -828,8 +800,6 @@ NumberDeclinedMScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyNumberDeclinedText
@@ -876,16 +846,6 @@ NumberDeclinedMScript:
 	waitbutton
 	closetext
 	end
-.Kenji:
-	farwritetext KenjiNumberDeclinedText
-	waitbutton
-	closetext
-	end
-.Parry:
-	farwritetext ParryNumberDeclinedText
-	waitbutton
-	closetext
-	end
 
 PhoneFullMScript:
 	readvar VAR_CALLERID
@@ -898,8 +858,6 @@ PhoneFullMScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyPhoneFullText
@@ -946,16 +904,6 @@ PhoneFullMScript:
 	waitbutton
 	closetext
 	end
-.Kenji:
-	farwritetext KenjiPhoneFullText
-	waitbutton
-	closetext
-	end
-.Parry:
-	farwritetext ParryPhoneFullText
-	waitbutton
-	closetext
-	end
 
 RematchMScript:
 	readvar VAR_CALLERID
@@ -967,7 +915,6 @@ RematchMScript:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyRematchText
@@ -1009,11 +956,6 @@ RematchMScript:
 	waitbutton
 	closetext
 	end
-.Parry:
-	farwritetext ParryRematchText
-	waitbutton
-	closetext
-	end
 
 GiftMScript:
 	readvar VAR_CALLERID
@@ -1021,7 +963,6 @@ GiftMScript:
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 
 .Jose:
 	farwritetext JoseGiftText
@@ -1039,10 +980,6 @@ GiftMScript:
 	farwritetext TullyGiftText
 	promptbutton
 	end
-.Kenji:
-	farwritetext KenjiGiftText
-	promptbutton
-	end
 
 PackFullMScript:
 	readvar VAR_CALLERID
@@ -1052,8 +989,6 @@ PackFullMScript:
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyPackFullText
@@ -1085,23 +1020,12 @@ PackFullMScript:
 	waitbutton
 	closetext
 	end
-.Kenji:
-	farwritetext KenjiPackFullText
-	waitbutton
-	closetext
-	end
-.Parry:
-	farwritetext ParryPackFullText
-	waitbutton
-	closetext
-	end
 
 RematchGiftMScript:
 	opentext
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyRematchGiftText
@@ -1109,10 +1033,6 @@ RematchGiftMScript:
 	end
 .Joey:
 	farwritetext JoeyRematchGiftText
-	promptbutton
-	end
-.Parry:
-	farwritetext ParryRematchGiftText
 	promptbutton
 	end
 

@@ -616,7 +616,7 @@ DEF KRIS EQU __trainer_class__
 	const BENJAMIN
 	const ERIK
 	const MICHAEL
-	const PARRY1
+	const PARRY
 	const TIMOTHY
 	const BAILEY
 	const TIM
@@ -625,8 +625,6 @@ DEF KRIS EQU __trainer_class__
 	const KENNY
 	const JIM
 	const DANIEL
-	const PARRY2
-	const PARRY3
 	const RUSTBORO_MARC
 	const ROUTE116_CLARK
 	const ROUTE116_DEVAN
@@ -683,14 +681,12 @@ DEF KRIS EQU __trainer_class__
 	const HORTON
 
 	trainerclass BLACKBELT_T ; 32
-	const KENJI1 ; unused
+	const KENJI
 	const YOSHI
-	const KENJI2 ; unused
 	const LAO
 	const NOB
 	const KIYO
 	const LUNG
-	const KENJI3
 	const WAI
 	const DEWFORD_TAKAO
 	const DEWFORD_CRISTIAN

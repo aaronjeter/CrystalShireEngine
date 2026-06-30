@@ -46,10 +46,6 @@ TiffanyAsleepScript:
 	farwritetext TiffanyAsleepText
 	end
 
-ParryHaventYouGottenToScript:
-	farwritetext ParryHaventYouGottenToText
-	end
-
 ErinComeBattleScript:
 	farwritetext ErinComeBattleText
 	end

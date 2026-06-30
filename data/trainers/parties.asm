@@ -5509,25 +5509,6 @@ HikerGroup:
 	dw SABLEYE
 	db -1 ; end
 
-	next_list_item ; HIKER (19) Route 45
-	db "Parry@", TRAINERTYPE_MOVES
-	db 5
-	dw PILOSWINE
-	dw EARTHQUAKE, BLIZZARD, REST, TAKE_DOWN
-	db 5
-	dw DUGTRIO
-	dw MAGNITUDE, DIG, MUD_SLAP, SLASH
-	db 8
-	dw STEELIX
-	dw DIG, IRON_TAIL, SANDSTORM, SLAM
-	db -1 ; end
-
-	next_list_item ; HIKER (20) Route 45
-	db "Parry@", TRAINERTYPE_NORMAL
-	db 9
-	dw ONIX
-	db -1 ; end
-
 	next_list_item ; HIKER (23) Rustboro Gym
 	db "Marc@", TRAINERTYPE_NORMAL
 	db 7
@@ -6004,22 +5985,6 @@ BlackbeltGroup:
 	dw MEDITITE
 	db -1 ; end
 
-	next_list_item ; BLACKBELT_T (3) Route 45
-	db "Kenji@", TRAINERTYPE_MOVES
-	db 8
-	dw ONIX
-	dw BIND, ROCK_THROW, TOXIC, DIG
-	db 10
-	dw MACHAMP
-	dw HEADBUTT, SWAGGER, THUNDERPUNCH, VITAL_THROW
-	db 8
-	dw STEELIX
-	dw EARTHQUAKE, ROCK_THROW, IRON_TAIL, SANDSTORM
-	db 10
-	dw HITMONLEE
-	dw DOUBLE_TEAM, HI_JUMP_KICK, MUD_SLAP, SWIFT
-	db -1 ; end
-
 	next_list_item ; BLACKBELT_T (4) Cianwood City Gym
 	db "Lao@", TRAINERTYPE_NORMAL
 	db 7
@@ -6060,12 +6025,6 @@ BlackbeltGroup:
 	dw VIGOROTH
 	db 7
 	dw PRIMEAPE
-	db -1 ; end
-
-	next_list_item ; BLACKBELT_T (8) Route 45
-	db "Kenji@", TRAINERTYPE_NORMAL
-	db 7
-	dw MACHOKE
 	db -1 ; end
 
 	next_list_item ; BLACKBELT_T (9) Unreferenced

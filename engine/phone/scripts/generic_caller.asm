@@ -64,7 +64,6 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Gaven:
 	farwritetext GavenMonGreaterThanImaginedText
@@ -103,11 +102,6 @@ Phone_WhosBragging_Male:
 
 .Tully:
 	farwritetext TullyMonHasGrownText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryNothingCanMatchText
 	promptbutton
 	end
 
@@ -154,7 +148,6 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Gaven:
 	farwritetext GavenDefeatedMonText
@@ -193,11 +186,6 @@ Phone_WhoDefeatedMon_Male:
 
 .Tully:
 	farwritetext TullyDefeatedMonText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryDefeatedMonText
 	promptbutton
 	end
 
@@ -244,7 +232,6 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Gaven:
 	farwritetext GavenLostAMonText
@@ -283,11 +270,6 @@ Phone_WhoLostAMon_Male:
 
 .Tully:
 	farwritetext TullyLostAMonText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryLostAMonText
 	promptbutton
 	end
 
@@ -342,7 +324,6 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyBattleRematchText
@@ -381,11 +362,6 @@ PhoneScript_RematchText_Male:
 
 .Tully:
 	farwritetext TullyBattleRematchText
-	promptbutton
-	end
-
-.Parry:
-	farwritetext ParryBattleRematchText
 	promptbutton
 	end
 
@@ -437,8 +413,6 @@ PhoneScript_HangUpText_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BLACKBELT_KENJI, .Kenji
-	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
 	farwritetext HueyHangUpText
@@ -474,14 +448,6 @@ PhoneScript_HangUpText_Male:
 
 .Tully:
 	farwritetext TullyHangUpText
-	end
-
-.Kenji:
-	farwritetext KenjiHangUpText
-	end
-
-.Parry:
-	farwritetext ParryHangUpText
 	end
 
 PhoneScript_HangUpText_Female:
@@ -595,10 +561,5 @@ PhoneScript_FoundItem_Female:
 
 ToddItemScript:
 	farwritetext ToddDepartmentStoreBargainSaleText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-KenjiCallingPhoneScript:
-	farwritetext KenjiRemainDedicatedText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male

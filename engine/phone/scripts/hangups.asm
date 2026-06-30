@@ -63,45 +63,7 @@ TiffanyNoItemScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Female
 
-ParryBattleWithMeScript:
-	farwritetext ParryBattleWithMeText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
 ErinWorkingHardScript:
 	farwritetext ErinWorkingHardText
 	promptbutton
 	sjump PhoneScript_HangUpText_Female
-
-KenjiAnswerPhoneScript:
-	readvar VAR_KENJI_BREAK
-	ifequal 2, .Training
-	ifequal 1, .OnBreak
-	farwritetext KenjiCallMeBackAnotherTimeText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-.Training:
-	farwritetext KenjiIllHaveTimeToChatTomorrowText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-.OnBreak:
-	checktime MORN
-	iftrue .Morning
-	checktime EVE | NITE
-	iftrue .Night
-	setevent EVENT_KENJI_ON_BREAK
-	farwritetext KenjiTakingABreakText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-.Morning:
-	farwritetext KenjiHangUpMorningText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-.Night:
-	farwritetext KenjiHangUpNightText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male

@@ -19,107 +19,14 @@ Route45_MapScripts:
 	def_callbacks
 
 TrainerBlackbeltKenji:
-	trainer BLACKBELT_T, KENJI3, EVENT_BEAT_BLACKBELT_KENJI, BlackbeltKenji3SeenText, BlackbeltKenji3BeatenText, 0, .Script
+	trainer BLACKBELT_T, KENJI, EVENT_BEAT_BLACKBELT_KENJI, BlackbeltKenji3SeenText, BlackbeltKenji3BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_BLACKBELT_KENJI
 	endifjustbattled
 	opentext
-	checkcellnum PHONE_BLACKBELT_KENJI
-	iftrue .Registered
-	checkevent EVENT_KENJI_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
-	special SampleKenjiBreakCountdown
 	writetext BlackbeltKenjiAfterBattleText
 	waitbutton
-	setevent EVENT_KENJI_ASKED_FOR_PHONE_NUMBER
-	scall Route45AskNumber1M
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall Route45AskNumber2M
-.AskForNumber:
-	askforphonenumber PHONE_BLACKBELT_KENJI
-	ifequal PHONE_CONTACTS_FULL, Route45PhoneFullM
-	ifequal PHONE_CONTACT_REFUSED, Route45NumberDeclinedM
-	gettrainername STRING_BUFFER_3, BLACKBELT_T, KENJI3
-	scall Route45RegisteredNumberM
-	sjump Route45NumberAcceptedM
-
-.Registered:
-	readvar VAR_KENJI_BREAK
-	ifnotequal 1, Route45NumberAcceptedM
-	checktime MORN
-	iftrue .Morning
-	checktime EVE | NITE
-	iftrue .Night
-	checkevent EVENT_KENJI_ON_BREAK
-	iffalse Route45NumberAcceptedM
-	scall Route45GiftM
-	verbosegiveitem PP_UP
-	iffalse .NoRoom
-	clearevent EVENT_KENJI_ON_BREAK
-	special SampleKenjiBreakCountdown
-	sjump Route45NumberAcceptedM
-
-.Morning:
-	writetext BlackbeltKenjiMorningText
-	waitbutton
 	closetext
-	end
-
-.Night:
-	writetext BlackbeltKenjiNightText
-	waitbutton
-	closetext
-	end
-
-.NoRoom:
-	sjump Route45PackFullM
-
-Route45AskNumber1M:
-	jumpstd AskNumber1MScript
-	end
-
-Route45AskNumber2M:
-	jumpstd AskNumber2MScript
-	end
-
-Route45RegisteredNumberM:
-	jumpstd RegisteredNumberMScript
-	end
-
-Route45NumberAcceptedM:
-	jumpstd NumberAcceptedMScript
-	end
-
-Route45NumberDeclinedM:
-	jumpstd NumberDeclinedMScript
-	end
-
-Route45PhoneFullM:
-	jumpstd PhoneFullMScript
-	end
-
-Route45RematchM:
-	jumpstd RematchMScript
-	end
-
-Route45GiftM:
-	jumpstd GiftMScript
-	end
-
-Route45PackFullM:
-	jumpstd PackFullMScript
-	end
-
-HikerParryHasIron:
-	setevent EVENT_PARRY_IRON
-	jumpstd PackFullMScript
-	end
-
-Route45RematchGiftM:
-	jumpstd RematchGiftMScript
 	end
 
 TrainerHikerErik:
@@ -145,90 +52,15 @@ TrainerHikerMichael:
 	end
 
 TrainerHikerParry:
-	trainer HIKER, PARRY3, EVENT_BEAT_HIKER_PARRY, HikerParry3SeenText, HikerParry3BeatenText, 0, .Script
+	trainer HIKER, PARRY, EVENT_BEAT_HIKER_PARRY, HikerParry3SeenText, HikerParry3BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_HIKER_PARRY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_PARRY_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_HIKER_PARRY
-	iftrue Route45NumberAcceptedM
-	checkevent EVENT_PARRY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
 	writetext HikerParryAfterBattleText
-	promptbutton
-	setevent EVENT_PARRY_ASKED_FOR_PHONE_NUMBER
-	scall Route45AskNumber1M
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall Route45AskNumber2M
-.AskForNumber:
-	askforphonenumber PHONE_HIKER_PARRY
-	ifequal PHONE_CONTACTS_FULL, Route45PhoneFullM
-	ifequal PHONE_CONTACT_REFUSED, Route45NumberDeclinedM
-	gettrainername STRING_BUFFER_3, HIKER, PARRY1
-	scall Route45RegisteredNumberM
-	sjump Route45NumberAcceptedM
-
-.WantsBattle:
-	scall Route45RematchM
-	winlosstext HikerParry3BeatenText, 0
-	readmem wParryFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight2
-.Fight1:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight1
-.LoadFight0:
-	loadtrainer HIKER, PARRY3
-	startbattle
-	reloadmapafterbattle
-	loadmem wParryFightCount, 1
-	clearflag ENGINE_PARRY_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer HIKER, PARRY1
-	startbattle
-	reloadmapafterbattle
-	loadmem wParryFightCount, 2
-	clearflag ENGINE_PARRY_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer HIKER, PARRY2
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_PARRY_READY_FOR_REMATCH
-	checkevent EVENT_PARRY_IRON
-	iftrue .HasIron
-	checkevent EVENT_GOT_IRON_FROM_PARRY
-	iftrue .GotIron
-	scall Route45RematchGiftM
-	verbosegiveitem IRON
-	iffalse HikerParryHasIron
-	setevent EVENT_GOT_IRON_FROM_PARRY
-	sjump Route45NumberAcceptedM
-
-.GotIron:
-	end
-
-.HasIron:
-	opentext
-	writetext HikerParryGivesIronText
 	waitbutton
-	verbosegiveitem IRON
-	iffalse HikerParryHasIron
-	clearevent EVENT_PARRY_IRON
-	setevent EVENT_GOT_IRON_FROM_PARRY
-	sjump Route45NumberAcceptedM
+	closetext
+	end
 
 TrainerHikerTimothy:
 	trainer HIKER, TIMOTHY, EVENT_BEAT_HIKER_TIMOTHY, HikerTimothySeenText, HikerTimothyBeatenText, 0, .Script
