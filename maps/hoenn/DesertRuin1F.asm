@@ -5,6 +5,9 @@ DesertRuin1F_MapScripts:
 
 	def_callbacks	
 
+DesertRuin1FHardStone:
+	itemball HARD_STONE
+
 DesertRuin1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -19,3 +22,5 @@ DesertRuin1F_MapEvents:
 	def_bg_events	
 
 	def_object_events
+	object_event 07, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DesertRuin1FHardStone, EVENT_GOT_HOENN_HARD_STONE
+

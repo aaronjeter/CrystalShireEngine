@@ -5,6 +5,9 @@ DesertRuinB1F_MapScripts:
 
 	def_callbacks	
 
+DesertRuinB1FKingsRock:
+	itemball KINGS_ROCK
+
 DesertRuinB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -20,3 +23,4 @@ DesertRuinB1F_MapEvents:
 	def_bg_events	
 
 	def_object_events
+	object_event 05, 27, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DesertRuinB1FKingsRock, EVENT_GOT_HOENN_KINGS_ROCK
