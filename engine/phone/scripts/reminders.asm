@@ -66,10 +66,6 @@ TullyForwardScript:
 	farwritetext TullyForwardText
 	end
 
-BrentReminderScript:
-	farwritetext BrentReminderText
-	end
-
 TiffanyAsleepScript:
 	farwritetext TiffanyAsleepText
 	end

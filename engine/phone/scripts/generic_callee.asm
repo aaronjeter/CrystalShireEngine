@@ -38,7 +38,6 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -114,11 +113,6 @@ PhoneScript_AnswerPhone_Male:
 	promptbutton
 	end
 
-.Brent:
-	farwritetext BrentAnswerPhoneText
-	promptbutton
-	end
-
 .Vance:
 	farwritetext VanceAnswerPhoneText
 	promptbutton
@@ -155,7 +149,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -231,11 +224,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	promptbutton
 	end
 
-.Brent:
-	farwritetext BrentAnswerPhoneDayText
-	promptbutton
-	end
-
 .Vance:
 	farwritetext VanceAnswerPhoneDayText
 	promptbutton
@@ -272,7 +260,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -345,11 +332,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 
 .Tully:
 	farwritetext TullyAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Brent:
-	farwritetext BrentAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -550,7 +532,6 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -626,11 +607,6 @@ PhoneScript_GreetPhone_Male:
 	promptbutton
 	end
 
-.Brent:
-	farwritetext BrentGreetText
-	promptbutton
-	end
-
 .Vance:
 	farwritetext VanceGreetText
 	promptbutton
@@ -667,7 +643,6 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -743,11 +718,6 @@ PhoneScript_GreetPhone_Male_Day:
 	promptbutton
 	end
 
-.Brent:
-	farwritetext BrentGreetDayText
-	promptbutton
-	end
-
 .Vance:
 	farwritetext VanceGreetDayText
 	promptbutton
@@ -784,7 +754,6 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -857,11 +826,6 @@ PhoneScript_GreetPhone_Male_Nite:
 
 .Tully:
 	farwritetext TullyGreetNiteText
-	promptbutton
-	end
-
-.Brent:
-	farwritetext BrentGreetNiteText
 	promptbutton
 	end
 
@@ -1056,7 +1020,6 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
@@ -1118,11 +1081,6 @@ PhoneScript_Generic_Male:
 
 .Tully:
 	farwritetext TullyGenericText
-	promptbutton
-	end
-
-.Brent:
-	farwritetext BrentGenericText
 	promptbutton
 	end
 

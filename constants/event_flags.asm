@@ -711,7 +711,7 @@
 	const_skip ; unused in Crystal
 	const EVENT_TULLY_ASKED_FOR_PHONE_NUMBER
 	const_skip ; unused in Crystal
-	const EVENT_BRENT_ASKED_FOR_PHONE_NUMBER
+	const EVENT_BRENT_ASKED_FOR_PHONE_NUMBER ;unused now
 	const_skip ; unused
 	const EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
 	const_skip ; unused in Crystal

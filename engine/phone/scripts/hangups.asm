@@ -93,11 +93,6 @@ TullyNoItemScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-BrentHangUpScript:
-	farwritetext BrentSorryImTooBusyText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
 TiffanyNoItemScript:
 	farwritetext TiffanyNoItemText
 	promptbutton

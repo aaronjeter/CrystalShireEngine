@@ -659,7 +659,6 @@ AskNumber1MScript:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -707,9 +706,6 @@ AskNumber1MScript:
 .Tully:
 	farwritetext TullyAskNumber1Text
 	end
-.Brent:
-	farwritetext BrentAskNumber1Text
-	end
 .Vance:
 	farwritetext VanceAskNumber1Text
 	end
@@ -740,7 +736,6 @@ AskNumber2MScript:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -788,9 +783,6 @@ AskNumber2MScript:
 .Tully:
 	farwritetext TullyAskNumber2Text
 	end
-.Brent:
-	farwritetext BrentAskNumber2Text
-	end
 .Vance:
 	farwritetext VanceAskNumber2Text
 	end
@@ -827,7 +819,6 @@ NumberAcceptedMScript:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -903,11 +894,6 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
-.Brent:
-	farwritetext BrentNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Vance:
 	farwritetext VanceNumberAcceptedText
 	waitbutton
@@ -945,7 +931,6 @@ NumberDeclinedMScript:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -1021,11 +1006,6 @@ NumberDeclinedMScript:
 	waitbutton
 	closetext
 	end
-.Brent:
-	farwritetext BrentNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Vance:
 	farwritetext VanceNumberDeclinedText
 	waitbutton
@@ -1063,7 +1043,6 @@ PhoneFullMScript:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -1139,11 +1118,6 @@ PhoneFullMScript:
 	waitbutton
 	closetext
 	end
-.Brent:
-	farwritetext BrentPhoneFullText
-	waitbutton
-	closetext
-	end
 .Vance:
 	farwritetext VancePhoneFullText
 	waitbutton
@@ -1179,7 +1153,6 @@ RematchMScript:
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
@@ -1241,11 +1214,6 @@ RematchMScript:
 	end
 .Tully:
 	farwritetext TullyRematchText
-	waitbutton
-	closetext
-	end
-.Brent:
-	farwritetext BrentRematchText
 	waitbutton
 	closetext
 	end

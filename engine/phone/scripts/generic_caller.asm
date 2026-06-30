@@ -68,7 +68,6 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
@@ -130,11 +129,6 @@ Phone_WhosBragging_Male:
 
 .Tully:
 	farwritetext TullyMonHasGrownText
-	promptbutton
-	end
-
-.Brent:
-	farwritetext BrentRareTradeText
 	promptbutton
 	end
 
@@ -218,7 +212,6 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
@@ -280,11 +273,6 @@ Phone_WhoDefeatedMon_Male:
 
 .Tully:
 	farwritetext TullyDefeatedMonText
-	promptbutton
-	end
-
-.Brent:
-	farwritetext BrentDefeatedMonText
 	promptbutton
 	end
 
@@ -368,7 +356,6 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
@@ -430,11 +417,6 @@ Phone_WhoLostAMon_Male:
 
 .Tully:
 	farwritetext TullyLostAMonText
-	promptbutton
-	end
-
-.Brent:
-	farwritetext BrentLostAMonText
 	promptbutton
 	end
 
@@ -526,7 +508,6 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
@@ -588,11 +569,6 @@ PhoneScript_RematchText_Male:
 
 .Tully:
 	farwritetext TullyBattleRematchText
-	promptbutton
-	end
-
-.Brent:
-	farwritetext BrentBattleRematchText
 	promptbutton
 	end
 
@@ -680,7 +656,6 @@ PhoneScript_HangUpText_Male:
 	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_POKEMANIAC_BRENT, .Brent
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
@@ -740,10 +715,6 @@ PhoneScript_HangUpText_Male:
 
 .Tully:
 	farwritetext TullyHangUpText
-	end
-
-.Brent:
-	farwritetext BrentHangUpText
 	end
 
 .Vance:
