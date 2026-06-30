@@ -41,7 +41,7 @@ Route101_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  09, 09, BGEVENT_READ, Route101Sign
+	bg_event  9,  8, BGEVENT_READ, Route101Sign
 
 	def_object_events
 	object_event  6, 10, SPRITE_POOCHYENA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, Route101_Poochyena, -1

@@ -44,7 +44,7 @@ SootopolisCity_MapEvents:
 
 	def_bg_events	
 	bg_event  50, 20, BGEVENT_READ, SootopolisSign
-	bg_event 29, 35, BGEVENT_READ, SootopolisGymSign
+	bg_event 31, 33, BGEVENT_READ, SootopolisGymSign
 
 	def_object_events
 	

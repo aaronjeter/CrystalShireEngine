@@ -337,7 +337,7 @@ Route119South_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  29,  47, BGEVENT_READ, Route119FisherHouseSign
+	bg_event 29, 46, BGEVENT_READ, Route119FisherHouseSign
 
 	def_object_events
 	object_event 15, 69, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route119DonaldScript, -1

@@ -61,7 +61,7 @@ FortreeCity_MapEvents:
 
 	def_bg_events	
 	bg_event  05, 11, BGEVENT_READ, FortreeCitySign
-	bg_event  27, 11, BGEVENT_READ, FortreeGymSign
+	bg_event 21, 11, BGEVENT_READ, FortreeGymSign
 
 	def_object_events
 	object_event 08, 10, SPRITE_PHARMACIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FortreeHikerScript, -1

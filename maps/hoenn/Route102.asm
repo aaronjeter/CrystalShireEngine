@@ -180,8 +180,8 @@ Route102_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  35, 11, BGEVENT_READ, Route102Sign
-	bg_event  09, 03, BGEVENT_READ, Route102Sign
+	bg_event 35, 10, BGEVENT_READ, Route102Sign
+	bg_event  9,  2, BGEVENT_READ, Route102Sign
 
 	def_object_events
 	object_event  32,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route102CalvinScript, -1

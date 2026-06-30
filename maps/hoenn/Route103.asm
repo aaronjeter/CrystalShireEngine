@@ -86,7 +86,7 @@ Route103_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  11, 15, BGEVENT_READ, Route103Sign
+	bg_event 11, 14, BGEVENT_READ, Route103Sign
 
 	def_object_events
 	object_event  17, 08, SPRITE_ZIGZAGOON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route103_Zigzagoon, -1

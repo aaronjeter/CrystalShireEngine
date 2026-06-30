@@ -97,7 +97,7 @@ LilycoveCity_MapEvents:
 	def_bg_events	
 	bg_event  29, 15, BGEVENT_READ, LilycoveSign
 	bg_event  53, 07, BGEVENT_READ, LilycoveCleaHouseSign
-	bg_event  37, 07, BGEVENT_READ, LilycoveDeptStoreSign
+	bg_event 42,  5, BGEVENT_READ, LilycoveDeptStoreSign
 	bg_event  11, 33, BGEVENT_READ, LilycoveHarborSign
 
 	def_object_events

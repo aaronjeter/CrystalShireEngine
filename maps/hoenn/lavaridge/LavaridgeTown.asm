@@ -55,7 +55,7 @@ LavaridgeTown_MapEvents:
 
 	def_bg_events	
 	bg_event 13, 11, BGEVENT_READ, LavaridgeTownSign
-	bg_event  5, 15, BGEVENT_READ, LavaridgeGymSign
+	bg_event  7, 13, BGEVENT_READ, LavaridgeGymSign
 
 	def_object_events
 	object_event 07, 07, SPRITE_GRANNY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LavaridgeGrannyScript, -1

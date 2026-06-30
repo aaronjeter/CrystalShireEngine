@@ -163,7 +163,7 @@ Route121_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  39, 05, BGEVENT_READ, Route121SafariSign
+	bg_event 39,  4, BGEVENT_READ, Route121SafariSign
 
 	def_object_events
 	object_event 12, 08, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route121FruitTree1, -1

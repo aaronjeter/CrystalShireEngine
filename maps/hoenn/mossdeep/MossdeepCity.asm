@@ -46,7 +46,7 @@ MossdeepCity_MapEvents:
 
 	def_bg_events	
 	bg_event  27, 17, BGEVENT_READ, MossdeepSign
-	bg_event  37, 09, BGEVENT_READ, MossdeepGymSign
+	bg_event 41,  9, BGEVENT_READ, MossdeepGymSign
 
 	def_object_events
 	

@@ -353,8 +353,8 @@ Route114_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  17, 37, BGEVENT_READ, Route114Sign
-	bg_event  25, 37, BGEVENT_READ, Route114LanettesHouseSign
+	bg_event 17, 36, BGEVENT_READ, Route114Sign
+	bg_event 25, 36, BGEVENT_READ, Route114LanettesHouseSign
 
 	def_object_events
 	object_event 10, 43, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_TRAINER, 3, Route114SteveScript, -1

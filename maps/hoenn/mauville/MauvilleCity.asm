@@ -143,7 +143,7 @@ MauvilleCity_MapEvents:
 
 	def_bg_events	
 	bg_event  21, 07, BGEVENT_READ, MauvilleCitySign
-	bg_event  05, 07, BGEVENT_READ, MauvilleGymSign
+	bg_event  7,  5, BGEVENT_READ, MauvilleGymSign
 	bg_event  03, 15, BGEVENT_READ, MauvilleGameCornerSign
 	bg_event  34, 07, BGEVENT_READ, MauvilleBikeShopSign
 

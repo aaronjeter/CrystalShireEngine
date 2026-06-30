@@ -315,8 +315,8 @@ Route104_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  17, 41, BGEVENT_READ, Route104Sign
-	bg_event  17, 03, BGEVENT_READ, Route104RustboroSign
+	bg_event 17, 40, BGEVENT_READ, Route104Sign
+	bg_event 17,  2, BGEVENT_READ, Route104RustboroSign
 
 	def_object_events
 	object_event  22, 51, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route104BillyScript, -1
