@@ -7191,6 +7191,22 @@ ExecutiveFGroup:
 	dw OCTILLERY
 	db -1 ; end
 
+	next_list_item ; EXECUTIVEF (5) Desert Shrine Jane
+	db "Jane@", TRAINERTYPE_NORMAL
+	db 8
+	dw HONCHKROW
+	db 9
+	dw VENUSAUR
+	db 9
+	dw YANMEGA
+	db 9
+	dw GOREBYSS
+	db 11
+	dw OCTILLERY
+	db 12
+	dw LATIAS
+	db -1 ; end
+
 	end_list_items
 
 SageGroup:

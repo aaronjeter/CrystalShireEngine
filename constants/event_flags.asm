@@ -517,7 +517,7 @@
 	const EVENT_BEAT_PYRE_ROCKETF3
 	const EVENT_BEAT_PYRE_ROCKETF4
 
-	const_skip ; unused
+	const EVENT_BEAT_SHRINE_JANE
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
