@@ -12,6 +12,17 @@ MauvilleMart_Clerk:
 	closetext
 	end
 
+MauvilleMartHikerScript:
+	jumptextfaceplayer MauvilleMartHikerText
+
+MauvilleMartHikerText:
+	text "Yo, have you"
+	line "tried Repels?"
+
+	para "They really make"
+	line "exploring quicker!"
+	done
+
 MauvilleMart_MapEvents:
 	db 0, 0 ; filler
 
@@ -24,4 +35,5 @@ MauvilleMart_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MauvilleMart_Clerk, -1
+	object_event  05, 01, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MauvilleMart_Clerk, -1
+	object_event  07, 05, SPRITE_BLACK_BELT, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleMartHikerScript, -1

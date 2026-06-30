@@ -571,6 +571,39 @@ MauvilleGameCorner_ItsDangerousToGoAlone:
 	cont "there!"
 	done
 
+MauvilleGameCornerGrannyScript:
+	jumptextfaceplayer MauvilleGrannyText
+
+MauvilleGrannyText:
+	text "I think today"
+	line "is my lucky"
+	cont "day!"
+	done
+
+MauvilleGameCornerNerdScript:
+	jumptextfaceplayer MauvilleNerdText
+
+MauvilleNerdText:
+	text "Hush, I'm trying"
+	line "to keep count!"
+	done
+
+MauvilleGameCornerRocketScript:
+	jumptextfaceplayer MauvilleGameCornerRocketText
+
+MauvilleGameCornerRocketText:
+	text "Oi! This is a"
+	line "private game!"
+	done
+
+MauvilleGameCornerBeautyScript:
+	jumptextfaceplayer MauvilleGameCornerBeautyText
+
+MauvilleGameCornerBeautyText:
+	text "Oh, hi there!"
+	line "Having any luck?"
+	done
+
 MauvilleGameCornerHiddenLeftovers:
 	hiddenitem LEFTOVERS, EVENT_GOT_HOENN_LEFTOVERS
 
@@ -621,3 +654,8 @@ MauvilleGameCorner_MapEvents:
 	object_event  19, 18, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerPrizeMonVendorScript2, -1
 	object_event  00, 08, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerCoinVendorScript, -1
 	object_event  17, 10, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerCoinVendorScript, EVENT_BEAT_MAUVILLE_ROCKETS
+	object_event  08, 15, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerGrannyScript, -1
+	object_event  02, 23, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerNerdScript, -1
+	object_event  12, 01, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerRocketScript, -1
+	object_event  15, 01, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerRocketScript, -1
+	object_event  05, 17, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerBeautyScript, -1
