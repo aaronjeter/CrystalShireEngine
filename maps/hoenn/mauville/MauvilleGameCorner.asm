@@ -460,6 +460,7 @@ MauvilleGameCornerRightBossScript:
 	writetext MauvilleRocketBossAfterBattleText
 	promptbutton
 	setevent EVENT_BEAT_MAUVILLE_ROCKETS	
+	scall MauvilleRocketLevelcap
 
 	special FadeOutToBlack
 	disappear MAUVILLE_GC_ROCKET_BOSS
@@ -471,6 +472,10 @@ MauvilleGameCornerRightBossScript:
 	closetext
 
 .done
+	end
+
+MauvilleRocketLevelcap:
+	jumpstd UpdateWorldLevelsScript
 	end
 
 MauvilleRocketBossSeenText:

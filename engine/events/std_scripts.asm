@@ -2058,6 +2058,14 @@ UpdateWorldLevelsScript:
 
 .skipRadioRockets
 
+checkevent EVENT_BEAT_MAUVILLE_ROCKETS
+	iffalse .skipMauvilleRockets
+	readmem wLevelMod
+	addval 2
+	writemem wLevelMod
+
+.skipMauvilleRockets
+
 .setLevels
 
 	readmem wLevelMod
