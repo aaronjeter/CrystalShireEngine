@@ -42,10 +42,6 @@ GinaReminderScript:
 	farwritetext GinaReminderText
 	end
 
-ArnieReminderScript:
-	farwritetext ArnieReminderText
-	end
-
 TullyForwardScript:
 	farwritetext TullyForwardText
 	end

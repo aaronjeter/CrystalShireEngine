@@ -32,8 +32,6 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
-	ifequal PHONE_JUGGLER_IRWIN, .Irwin
-	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -81,16 +79,6 @@ PhoneScript_AnswerPhone_Male:
 	promptbutton
 	end
 
-.Irwin:
-	farwritetext IrwinAnswerPhoneText
-	promptbutton
-	end
-
-.Arnie:
-	farwritetext ArnieAnswerPhoneText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekAnswerPhoneText
 	promptbutton
@@ -131,8 +119,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
-	ifequal PHONE_JUGGLER_IRWIN, .Irwin
-	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -180,16 +166,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	promptbutton
 	end
 
-.Irwin:
-	farwritetext IrwinAnswerPhoneDayText
-	promptbutton
-	end
-
-.Arnie:
-	farwritetext ArnieAnswerPhoneDayText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekAnswerPhoneDayText
 	promptbutton
@@ -230,8 +206,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
-	ifequal PHONE_JUGGLER_IRWIN, .Irwin
-	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -276,16 +250,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 
 .Todd:
 	farwritetext ToddAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Irwin:
-	farwritetext IrwinAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Arnie:
-	farwritetext ArnieAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -436,8 +400,6 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
-	ifequal PHONE_JUGGLER_IRWIN, .Irwin
-	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -485,16 +447,6 @@ PhoneScript_GreetPhone_Male:
 	promptbutton
 	end
 
-.Irwin:
-	farwritetext IrwinGreetText
-	promptbutton
-	end
-
-.Arnie:
-	farwritetext ArnieGreetText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekGreetText
 	promptbutton
@@ -535,8 +487,6 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
-	ifequal PHONE_JUGGLER_IRWIN, .Irwin
-	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -584,16 +534,6 @@ PhoneScript_GreetPhone_Male_Day:
 	promptbutton
 	end
 
-.Irwin:
-	farwritetext IrwinGreetDayText
-	promptbutton
-	end
-
-.Arnie:
-	farwritetext ArnieGreetDayText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekGreetDayText
 	promptbutton
@@ -634,8 +574,6 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
-	ifequal PHONE_JUGGLER_IRWIN, .Irwin
-	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -680,16 +618,6 @@ PhoneScript_GreetPhone_Male_Nite:
 
 .Todd:
 	farwritetext ToddGreetNiteText
-	promptbutton
-	end
-
-.Irwin:
-	farwritetext IrwinGreetNiteText
-	promptbutton
-	end
-
-.Arnie:
-	farwritetext ArnieGreetNiteText
 	promptbutton
 	end
 
@@ -835,7 +763,6 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
-	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -874,11 +801,6 @@ PhoneScript_Generic_Male:
 
 .Todd:
 	farwritetext ToddGenericText
-	promptbutton
-	end
-
-.Arnie:
-	farwritetext ArnieGenericText
 	promptbutton
 	end
 

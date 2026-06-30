@@ -6063,42 +6063,6 @@ JugglerGroup:
 	dw HVOLTORB
 	db -1 ; end
 
-	next_list_item ; JUGGLER (4) Route 35
-	db "Irwin@", TRAINERTYPE_NORMAL
-	db 3
-	dw VOLTORB
-	db 5
-	dw VOLTORB
-	db 7
-	dw VOLTORB2
-	db 9
-	dw VOLTORB
-	db -1 ; end
-
-	next_list_item ; JUGGLER (5) Route 35
-	db "Irwin@", TRAINERTYPE_NORMAL
-	db 4
-	dw VOLTORB2
-	db 6
-	dw VOLTORB
-	db 8
-	dw VOLTORB
-	db 10
-	dw ELECTRODE
-	db -1 ; end
-
-	next_list_item ; JUGGLER (6) Route 35
-	db "Irwin@", TRAINERTYPE_NORMAL
-	db 9
-	dw VOLTORB2
-	db 9
-	dw VOLTORB
-	db 9
-	dw VOLTORB
-	db 10
-	dw ELECTRODE2
-	db -1 ; end
-
 	end_list_items
 
 BlackbeltGroup:

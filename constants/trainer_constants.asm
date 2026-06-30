@@ -459,7 +459,7 @@ DEF KRIS EQU __trainer_class__
 	const BUG_CATCHER_BENNY
 	const AL
 	const JOSH
-	const ARNIE1
+	const ARNIE
 	const KEN
 	const DOUG
 	const WAYNE
@@ -686,12 +686,9 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE119_DAYTON
 
 	trainerclass JUGGLER ; 31
-	const IRWIN1
+	const IRWIN
 	const FRITZ
 	const HORTON
-	const IRWIN2 ; unused
-	const IRWIN3 ; unused
-	const IRWIN4 ; unused
 
 	trainerclass BLACKBELT_T ; 32
 	const KENJI1 ; unused
