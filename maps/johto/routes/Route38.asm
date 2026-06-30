@@ -125,66 +125,11 @@ TrainerSchoolboyChad1:
 	trainer SCHOOLBOY, CHAD1, EVENT_BEAT_SCHOOLBOY_CHAD, SchoolboyChad1SeenText, SchoolboyChad1BeatenText, 0, .Script
 
 .Script
-	loadvar VAR_CALLERID, PHONE_SCHOOLBOY_CHAD
 	endifjustbattled
 	opentext
-	checkflag ENGINE_CHAD_READY_FOR_REMATCH
-	iftrue .ChadRematch
-	checkcellnum PHONE_SCHOOLBOY_CHAD
-	iftrue .HaveChadsNumber
-	checkevent EVENT_CHAD_ASKED_FOR_PHONE_NUMBER
-	iftrue .SecondTimeAsking
 	writetext SchoolboyChadSoManyTestsText
-	promptbutton
-	setevent EVENT_CHAD_ASKED_FOR_PHONE_NUMBER
-	scall .AskPhoneNumber1
-	sjump .AskToRegisterNumber
-
-.SecondTimeAsking:
-	scall .AskPhoneNumber2
-.AskToRegisterNumber:
-	askforphonenumber PHONE_SCHOOLBOY_CHAD
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .SaidNo
-	gettrainername STRING_BUFFER_3, SCHOOLBOY, CHAD1
-	scall .RegisteredChad
-	sjump .HaveChadsNumber
-
-.ChadRematch:
-	scall .Rematch
-	winlosstext SchoolboyChad1BeatenText, 0
-	loadtrainer SCHOOLBOY, CHAD1
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_CHAD_READY_FOR_REMATCH
-	end
-
-.AskPhoneNumber1:
-	jumpstd AskNumber1MScript
-	end
-
-.AskPhoneNumber2:
-	jumpstd AskNumber2MScript
-	end
-
-.RegisteredChad:
-	jumpstd RegisteredNumberMScript
-	end
-
-.HaveChadsNumber:
-	jumpstd NumberAcceptedMScript
-	end
-
-.SaidNo:
-	jumpstd NumberDeclinedMScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullMScript
-	end
-
-.Rematch:
-	jumpstd RematchMScript
+	waitbutton
+	closetext
 	end
 
 TrainerBeautyValerie:

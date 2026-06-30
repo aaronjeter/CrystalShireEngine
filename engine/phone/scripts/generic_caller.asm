@@ -65,7 +65,6 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -114,11 +113,6 @@ Phone_WhosBragging_Male:
 
 .Arnie:
 	farwritetext ArnieMonIsSoCuteText
-	promptbutton
-	end
-
-.Chad:
-	farwritetext ChadObservingWildText
 	promptbutton
 	end
 
@@ -209,7 +203,6 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -258,11 +251,6 @@ Phone_WhoDefeatedMon_Male:
 
 .Arnie:
 	farwritetext ArnieDefeatedMonText
-	promptbutton
-	end
-
-.Chad:
-	farwritetext ChadDefeatedMonText
 	promptbutton
 	end
 
@@ -353,7 +341,6 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -402,11 +389,6 @@ Phone_WhoLostAMon_Male:
 
 .Arnie:
 	farwritetext ArnieLostAMonText
-	promptbutton
-	end
-
-.Chad:
-	farwritetext ChadLostAMonText
 	promptbutton
 	end
 
@@ -506,7 +488,6 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_HIKER_ANTHONY, .Anthony
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
@@ -559,11 +540,6 @@ PhoneScript_RematchText_Male:
 
 .Arnie:
 	farwritetext ArnieBattleRematchText
-	promptbutton
-	end
-
-.Chad:
-	farwritetext ChadBattleRematchText
 	promptbutton
 	end
 
@@ -653,7 +629,6 @@ PhoneScript_HangUpText_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_JUGGLER_IRWIN, .Irwin
 	ifequal PHONE_BUG_CATCHER_ARNIE, .Arnie
-	ifequal PHONE_SCHOOLBOY_CHAD, .Chad
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
@@ -703,10 +678,6 @@ PhoneScript_HangUpText_Male:
 
 .Arnie:
 	farwritetext ArnieHangUpText
-	end
-
-.Chad:
-	farwritetext ChadHangUpText
 	end
 
 .Derek:
