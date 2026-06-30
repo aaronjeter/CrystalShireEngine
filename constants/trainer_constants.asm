@@ -199,7 +199,7 @@ DEF KRIS EQU __trainer_class__
 	const THEO
 	const TOBY
 	const DENIS
-	const VANCE1
+	const VANCE
 	const HANK
 	const ROY
 	const BORIS
@@ -210,8 +210,6 @@ DEF KRIS EQU __trainer_class__
 	const PERRY
 	const BRET
 	const JOSE3
-	const VANCE2
-	const VANCE3
 	const ROUTE105_JOSUE
 	const FORTREE_HUMBERT
 	const FORTREE_JARED
@@ -485,15 +483,13 @@ DEF KRIS EQU __trainer_class__
 	const TULLY1
 	const ANDRE
 	const RAYMOND
-	const WILTON1
+	const WILTON
 	const EDGAR
 	const JONAH
 	const MARTIN
 	const STEPHEN
 	const BARNEY
-	const WILTON2
 	const SCOTT
-	const WILTON3
 	const ROUTE103_ANDREW
 	const ROUTE104_DARIAN
 	const ROUTE104_IVAN

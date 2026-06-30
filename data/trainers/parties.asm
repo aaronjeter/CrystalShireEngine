@@ -1877,24 +1877,6 @@ BirdKeeperGroup:
 	dw FURY_ATTACK, DETECT, FLY, SLASH
 	db -1 ; end
 
-	next_list_item ; BIRD_KEEPER (18) Route 44 Rematch 1
-	db "Vance@", TRAINERTYPE_NORMAL
-	db 9
-	dw PIDGEOTTO
-	db 9
-	dw PIDGEOTTO
-	db -1 ; end
-
-	next_list_item ; BIRD_KEEPER (19) Route 44 Rematch 2
-	db "Vance@", TRAINERTYPE_MOVES
-	db 11
-	dw PIDGEOT
-	dw TOXIC, QUICK_ATTACK, WHIRLWIND, FLY
-	db 11
-	dw PIDGEOT
-	dw SWIFT, DETECT, STEEL_WING, FLY
-	db -1 ; end
-
 	next_list_item ; BIRD_KEEPER (20) Route 105
 	db "Josue@", TRAINERTYPE_NORMAL
 	db 6
@@ -4391,16 +4373,6 @@ FisherGroup:
 	dw GYARADOS
 	db -1 ; end
 
-	next_list_item ; FISHER (20) Route 44
-	db "Wilton@", TRAINERTYPE_NORMAL
-	db 4
-	dw GOLDEEN
-	db 4
-	dw GOLDEEN
-	db 7
-	dw SEAKING
-	db -1 ; end
-
 	next_list_item ; FISHER (21) Route 26
 	db "Scott@", TRAINERTYPE_NORMAL
 	db 2
@@ -4409,19 +4381,6 @@ FisherGroup:
 	dw QWILFISH
 	db 6
 	dw SEAKING
-	db -1 ; end
-
-	next_list_item ; FISHER (22) Route 44 Rematch 1
-	db "Wilton@", TRAINERTYPE_MOVES
-	db 4
-	dw SEAKING
-	dw SUPERSONIC, WATERFALL, FLAIL, FURY_ATTACK
-	db 4
-	dw SEAKING
-	dw SUPERSONIC, WATERFALL, FLAIL, FURY_ATTACK
-	db 8
-	dw REMORAID
-	dw PSYBEAM, AURORA_BEAM, BUBBLEBEAM, HYPER_BEAM
 	db -1 ; end
 
 	next_list_item ; FISHER (26) Route 103

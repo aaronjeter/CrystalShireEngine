@@ -654,8 +654,6 @@ AskNumber1MScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
-	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 
@@ -686,12 +684,6 @@ AskNumber1MScript:
 .Tully:
 	farwritetext TullyAskNumber1Text
 	end
-.Vance:
-	farwritetext VanceAskNumber1Text
-	end
-.Wilton:
-	farwritetext WiltonAskNumber1Text
-	end
 .Kenji:
 	farwritetext KenjiAskNumber1Text
 	end
@@ -711,8 +703,6 @@ AskNumber2MScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
-	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 
@@ -743,12 +733,6 @@ AskNumber2MScript:
 .Tully:
 	farwritetext TullyAskNumber2Text
 	end
-.Vance:
-	farwritetext VanceAskNumber2Text
-	end
-.Wilton:
-	farwritetext WiltonAskNumber2Text
-	end
 .Kenji:
 	farwritetext KenjiAskNumber2Text
 	end
@@ -774,8 +758,6 @@ NumberAcceptedMScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
-	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 
@@ -824,16 +806,6 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
-.Vance:
-	farwritetext VanceNumberAcceptedText
-	waitbutton
-	closetext
-	end
-.Wilton:
-	farwritetext WiltonNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Kenji:
 	farwritetext KenjiNumberAcceptedText
 	waitbutton
@@ -856,8 +828,6 @@ NumberDeclinedMScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
-	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 
@@ -906,16 +876,6 @@ NumberDeclinedMScript:
 	waitbutton
 	closetext
 	end
-.Vance:
-	farwritetext VanceNumberDeclinedText
-	waitbutton
-	closetext
-	end
-.Wilton:
-	farwritetext WiltonNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Kenji:
 	farwritetext KenjiNumberDeclinedText
 	waitbutton
@@ -938,8 +898,6 @@ PhoneFullMScript:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
-	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 
@@ -988,16 +946,6 @@ PhoneFullMScript:
 	waitbutton
 	closetext
 	end
-.Vance:
-	farwritetext VancePhoneFullText
-	waitbutton
-	closetext
-	end
-.Wilton:
-	farwritetext WiltonPhoneFullText
-	waitbutton
-	closetext
-	end
 .Kenji:
 	farwritetext KenjiPhoneFullText
 	waitbutton
@@ -1019,8 +967,6 @@ RematchMScript:
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
-	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
@@ -1063,16 +1009,6 @@ RematchMScript:
 	waitbutton
 	closetext
 	end
-.Vance:
-	farwritetext VanceRematchText
-	waitbutton
-	closetext
-	end
-.Wilton:
-	farwritetext WiltonRematchText
-	waitbutton
-	closetext
-	end
 .Parry:
 	farwritetext ParryRematchText
 	waitbutton
@@ -1085,7 +1021,6 @@ GiftMScript:
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 
 .Jose:
@@ -1104,10 +1039,6 @@ GiftMScript:
 	farwritetext TullyGiftText
 	promptbutton
 	end
-.Wilton:
-	farwritetext WiltonGiftText
-	promptbutton
-	end
 .Kenji:
 	farwritetext KenjiGiftText
 	promptbutton
@@ -1121,8 +1052,6 @@ PackFullMScript:
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
-	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 
@@ -1156,16 +1085,6 @@ PackFullMScript:
 	waitbutton
 	closetext
 	end
-.Vance:
-	farwritetext VancePackFullText
-	waitbutton
-	closetext
-	end
-.Wilton:
-	farwritetext WiltonPackFullText
-	waitbutton
-	closetext
-	end
 .Kenji:
 	farwritetext KenjiPackFullText
 	waitbutton
@@ -1182,7 +1101,6 @@ RematchGiftMScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
-	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_HIKER_PARRY, .Parry
 
 .Huey:
@@ -1191,10 +1109,6 @@ RematchGiftMScript:
 	end
 .Joey:
 	farwritetext JoeyRematchGiftText
-	promptbutton
-	end
-.Vance:
-	farwritetext VanceRematchGiftText
 	promptbutton
 	end
 .Parry:

@@ -46,14 +46,6 @@ TiffanyAsleepScript:
 	farwritetext TiffanyAsleepText
 	end
 
-VanceHurryHurryScript:
-	farwritetext VanceHurryHurryText
-	end
-
-WiltonNotBitingScript:
-	farwritetext WiltonNotBitingText
-	end
-
 ParryHaventYouGottenToScript:
 	farwritetext ParryHaventYouGottenToText
 	end
