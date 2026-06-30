@@ -6645,24 +6645,6 @@ PicnickerGroupHard:
 	dw PONYTA
 	db -1 ; end
 
-	next_list_item ; PICNICKER (11) Route 32
-	db "Liz@", TRAINERTYPE_NORMAL
-	db 5
-	dw WEEPINBELL
-	db 6
-	dw NIDORINA
-	db -1 ; end
-
-	next_list_item ; PICNICKER (12) Route 32
-	db "Liz@", TRAINERTYPE_NORMAL
-	db 6
-	dw WEEPINBELL
-	db 7
-	dw NIDORINO
-	db 8
-	dw NIDOQUEEN
-	db -1 ; end
-
 	next_list_item ; PICNICKER (13) Route 9
 	db "Heidi@", TRAINERTYPE_NORMAL
 	db 5
@@ -6735,29 +6717,6 @@ PicnickerGroupHard:
 	db 8
 	dw PONYTA
 	dw DOUBLE_TEAM, STOMP, FIRE_SPIN, SUNNY_DAY
-	db -1 ; end
-
-	next_list_item ; PICNICKER (22) Route 32
-	db "Liz@", TRAINERTYPE_NORMAL
-	db 4
-	dw WEEPINBELL
-	db 6
-	dw NIDORINO
-	db 6
-	dw NIDOQUEEN
-	db -1 ; end
-
-	next_list_item ; PICNICKER (23) Route 32
-	db "Liz@", TRAINERTYPE_MOVES
-	db 7
-	dw WEEPINBELL
-	dw SLEEP_POWDER, POISONPOWDER, STUN_SPORE, SLUDGE_BOMB
-	db 8
-	dw NIDOKING
-	dw EARTHQUAKE, DOUBLE_KICK, POISON_STING, IRON_TAIL
-	db 8
-	dw NIDOQUEEN
-	dw EARTHQUAKE, DOUBLE_KICK, TAIL_WHIP, BODY_SLAM
 	db -1 ; end
 
 	next_list_item ; PICNICKER (24) Route 34

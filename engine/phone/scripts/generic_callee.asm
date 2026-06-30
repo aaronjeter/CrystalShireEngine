@@ -346,7 +346,6 @@ PhoneScript_AnswerPhone_Female:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -363,11 +362,6 @@ PhoneScript_AnswerPhone_Female:
 
 .Reena:
 	farwritetext ReenaAnswerPhoneText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizAnswerPhoneText
 	promptbutton
 	end
 
@@ -391,7 +385,6 @@ PhoneScript_AnswerPhone_Female_Day:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -408,11 +401,6 @@ PhoneScript_AnswerPhone_Female_Day:
 
 .Reena:
 	farwritetext ReenaAnswerPhoneDayText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizAnswerPhoneDayText
 	promptbutton
 	end
 
@@ -436,7 +424,6 @@ PhoneScript_AnswerPhone_Female_Nite:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -453,11 +440,6 @@ PhoneScript_AnswerPhone_Female_Nite:
 
 .Reena:
 	farwritetext ReenaAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -804,7 +786,6 @@ PhoneScript_GreetPhone_Female:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -821,11 +802,6 @@ PhoneScript_GreetPhone_Female:
 
 .Reena:
 	farwritetext ReenaGreetText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizGreetText
 	promptbutton
 	end
 
@@ -849,7 +825,6 @@ PhoneScript_GreetPhone_Female_Day:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -866,11 +841,6 @@ PhoneScript_GreetPhone_Female_Day:
 
 .Reena:
 	farwritetext ReenaGreetDayText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizGreetDayText
 	promptbutton
 	end
 
@@ -894,7 +864,6 @@ PhoneScript_GreetPhone_Female_Nite:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -911,11 +880,6 @@ PhoneScript_GreetPhone_Female_Nite:
 
 .Reena:
 	farwritetext ReenaGreetNiteText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizGreetNiteText
 	promptbutton
 	end
 
@@ -1026,7 +990,6 @@ PhoneScript_Generic_Female:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -1043,11 +1006,6 @@ PhoneScript_Generic_Female:
 
 .Reena:
 	farwritetext ReenaGenericText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizGenericText
 	promptbutton
 	end
 

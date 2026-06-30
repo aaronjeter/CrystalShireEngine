@@ -1329,7 +1329,6 @@ AskNumber1FScript:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -1342,9 +1341,6 @@ AskNumber1FScript:
 	end
 .Reena:
 	farwritetext ReenaAskNumber1Text
-	end
-.Liz:
-	farwritetext LizAskNumber1Text
 	end
 .Gina:
 	farwritetext GinaAskNumber1Text
@@ -1361,7 +1357,6 @@ AskNumber2FScript:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -1374,9 +1369,6 @@ AskNumber2FScript:
 	end
 .Reena:
 	farwritetext ReenaAskNumber2Text
-	end
-.Liz:
-	farwritetext LizAskNumber2Text
 	end
 .Gina:
 	farwritetext GinaAskNumber2Text
@@ -1400,7 +1392,6 @@ NumberAcceptedFScript:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -1417,11 +1408,6 @@ NumberAcceptedFScript:
 	end
 .Reena:
 	farwritetext ReenaNumberAcceptedText
-	waitbutton
-	closetext
-	end
-.Liz:
-	farwritetext LizNumberAcceptedText
 	waitbutton
 	closetext
 	end
@@ -1446,7 +1432,6 @@ NumberDeclinedFScript:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -1463,11 +1448,6 @@ NumberDeclinedFScript:
 	end
 .Reena:
 	farwritetext ReenaNumberDeclinedText
-	waitbutton
-	closetext
-	end
-.Liz:
-	farwritetext LizNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1492,7 +1472,6 @@ PhoneFullFScript:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -1509,11 +1488,6 @@ PhoneFullFScript:
 	end
 .Reena:
 	farwritetext ReenaPhoneFullText
-	waitbutton
-	closetext
-	end
-.Liz:
-	farwritetext LizPhoneFullText
 	waitbutton
 	closetext
 	end
@@ -1537,7 +1511,6 @@ RematchFScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -1549,11 +1522,6 @@ RematchFScript:
 	end
 .Reena:
 	farwritetext ReenaRematchText
-	waitbutton
-	closetext
-	end
-.Liz:
-	farwritetext LizRematchText
 	waitbutton
 	closetext
 	end

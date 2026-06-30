@@ -146,7 +146,6 @@ Phone_WhosBragging_Female:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -163,11 +162,6 @@ Phone_WhosBragging_Female:
 
 .Reena:
 	farwritetext ReenaMonsIsAPerfectMatchText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizMonAlwaysWantsToNuzzleText
 	promptbutton
 	end
 
@@ -278,7 +272,6 @@ Phone_WhoDefeatedMon_Female:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -295,11 +288,6 @@ Phone_WhoDefeatedMon_Female:
 
 .Reena:
 	farwritetext ReenaDefeatedMonText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizDefeatedMonText
 	promptbutton
 	end
 
@@ -410,7 +398,6 @@ Phone_WhoLostAMon_Female:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -427,11 +414,6 @@ Phone_WhoLostAMon_Female:
 
 .Reena:
 	farwritetext ReenaLostAMonText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizLostAMonText
 	promptbutton
 	end
 
@@ -549,7 +531,6 @@ PhoneScript_RematchText_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -561,11 +542,6 @@ PhoneScript_RematchText_Female:
 
 .Reena:
 	farwritetext ReenaBattleRematchText
-	promptbutton
-	end
-
-.Liz:
-	farwritetext LizBattleRematchText
 	promptbutton
 	end
 
@@ -582,10 +558,6 @@ PhoneScript_RematchText_Female:
 .Erin:
 	farwritetext ErinBattleRematchText
 	promptbutton
-	end
-
-LizWrongNumberScript:
-	farwritetext LizWrongNumberText
 	end
 
 TiffanyItsAwful:
@@ -685,7 +657,6 @@ PhoneScript_HangUpText_Female:
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
-	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
@@ -700,10 +671,6 @@ PhoneScript_HangUpText_Female:
 
 .Reena:
 	farwritetext ReenaHangUpText
-	end
-
-.Liz:
-	farwritetext LizHangUpText
 	end
 
 .Gina:

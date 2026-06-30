@@ -354,12 +354,9 @@ DEF KRIS EQU __trainer_class__
 	const BRENT1
 	const RON
 	const ETHAN
-	const BRENT2
-	const BRENT3
 	const ISSAC
 	const DONALD
 	const ZACH
-	const BRENT4
 	const MILLER
 	const ROUTE113_WYATT
 	const ROUTE114_STEVE
@@ -739,7 +736,7 @@ DEF KRIS EQU __trainer_class__
 	const JARED2
 
 	trainerclass PICNICKER ; 35
-	const LIZ1
+	const LIZ
 	const GINA1
 	const BROOKE
 	const KIM
@@ -749,8 +746,6 @@ DEF KRIS EQU __trainer_class__
 	const DEBRA
 	const GINA2
 	const ERIN1
-	const LIZ2
-	const LIZ3
 	const HEIDI
 	const EDNA
 	const GINA3
@@ -760,8 +755,6 @@ DEF KRIS EQU __trainer_class__
 	const TANYA
 	const TIFFANY3
 	const ERIN3
-	const LIZ4
-	const LIZ5
 	const GINA4
 	const GINA5
 	const TIFFANY4

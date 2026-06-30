@@ -48,11 +48,6 @@ RalphNoItemScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-LizHangUpScript:
-	farwritetext LizFawningOverMonText
-	promptbutton
-	sjump PhoneScript_HangUpText_Female
-
 AnthonyHangUpScript:
 	farwritetext AnthonyWasntPayingAttentionText
 	promptbutton

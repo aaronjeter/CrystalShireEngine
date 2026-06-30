@@ -34,10 +34,6 @@ RalphReminderScript:
 	farwritetext RalphReminderText
 	end
 
-LizReminderScript:
-	farwritetext LizReminderText
-	end
-
 AnthonyReminderScript:
 	farwritetext AnthonyReminderText
 	end
