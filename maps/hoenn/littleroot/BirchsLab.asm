@@ -11,44 +11,11 @@ BirchsLab_MapScripts:
 
 ProfBirchScript:
 	faceplayer
-	opentext
-	checkevent EVENT_GOT_HOENNITE_FROM_BIRCH
-	iftrue BirchNormalScript
-
-	sjump BirchGiveHoenniteScript
-
-	closetext
-	end
-
-BirchGiveHoenniteScript:
-	writetext BirchGiveHoenniteText
-	promptbutton
-	verbosegiveitem HOENNITE_X
-	writetext BirchExplainsHoenniteText
-	waitbutton
-	setevent EVENT_GOT_HOENNITE_FROM_BIRCH
-	closetext
-	end	
-
-BirchNormalScript:
+	opentext 
 	writetext BirchNormalText
 	waitbutton
 	closetext
 	end
-
-BirchGiveHoenniteText:
-	text "Hey <PLAY_G>."
-
-	para "Prof. Elm said"
-	line "you might have a"
-	cont "use for this."
-	done
-
-BirchExplainsHoenniteText:
-	text "Certain #mon"
-	line "from Hoenn could"
-	cont "use this."
-	done
 
 BirchNormalText:
 	text "Hey <PLAY_G>."
