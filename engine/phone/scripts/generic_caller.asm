@@ -56,7 +56,6 @@ Phone_GotAwayCall_Female:
 
 Phone_WhosBragging_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -64,11 +63,6 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Gaven:
-	farwritetext GavenMonGreaterThanImaginedText
-	promptbutton
-	end
 
 .Jose:
 	farwritetext JoseMonsStickHasADeliciousAromaText
@@ -107,16 +101,10 @@ Phone_WhosBragging_Male:
 
 Phone_WhosBragging_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Beth:
-	farwritetext BethExhilaratingRideText
-	promptbutton
-	end
 
 .Reena:
 	farwritetext ReenaMonsIsAPerfectMatchText
@@ -140,7 +128,6 @@ Phone_WhosBragging_Female:
 
 Phone_WhoDefeatedMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -148,11 +135,6 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Gaven:
-	farwritetext GavenDefeatedMonText
-	promptbutton
-	end
 
 .Jose:
 	farwritetext JoseDefeatedMonText
@@ -191,16 +173,10 @@ Phone_WhoDefeatedMon_Male:
 
 Phone_WhoDefeatedMon_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Beth:
-	farwritetext BethDefeatedMonText
-	promptbutton
-	end
 
 .Reena:
 	farwritetext ReenaDefeatedMonText
@@ -224,7 +200,6 @@ Phone_WhoDefeatedMon_Female:
 
 Phone_WhoLostAMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -232,11 +207,6 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Gaven:
-	farwritetext GavenLostAMonText
-	promptbutton
-	end
 
 .Jose:
 	farwritetext JoseLostAMonText
@@ -275,16 +245,10 @@ Phone_WhoLostAMon_Male:
 
 Phone_WhoLostAMon_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Beth:
-	farwritetext BethLostAMonText
-	promptbutton
-	end
 
 .Reena:
 	farwritetext ReenaLostAMonText
@@ -317,7 +281,6 @@ PhoneScript_WantsToBattle_Female:
 PhoneScript_RematchText_Male:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -327,11 +290,6 @@ PhoneScript_RematchText_Male:
 
 .Huey:
 	farwritetext HueyBattleRematchText
-	promptbutton
-	end
-
-.Gaven:
-	farwritetext GavenBattleRematchText
 	promptbutton
 	end
 
@@ -367,16 +325,10 @@ PhoneScript_RematchText_Male:
 
 PhoneScript_RematchText_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Beth:
-	farwritetext BethBattleRematchText
-	promptbutton
-	end
 
 .Reena:
 	farwritetext ReenaBattleRematchText
@@ -405,7 +357,6 @@ TiffanyItsAwful:
 PhoneScript_HangUpText_Male:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -416,10 +367,6 @@ PhoneScript_HangUpText_Male:
 
 .Huey:
 	farwritetext HueyHangUpText
-	end
-
-.Gaven:
-	farwritetext GavenHangUpText
 	end
 
 .Jose:
@@ -452,15 +399,10 @@ PhoneScript_HangUpText_Male:
 
 PhoneScript_HangUpText_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Beth:
-	farwritetext BethHangUpText
-	end
 
 .Reena:
 	farwritetext ReenaHangUpText

@@ -646,7 +646,6 @@ AskNumber1MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -657,9 +656,6 @@ AskNumber1MScript:
 
 .Huey:
 	farwritetext HueyAskNumber1Text
-	end
-.Gaven:
-	farwritetext GavenAskNumber1Text
 	end
 .Jose:
 	farwritetext JoseAskNumber1Text
@@ -687,7 +683,6 @@ AskNumber2MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -698,9 +693,6 @@ AskNumber2MScript:
 
 .Huey:
 	farwritetext HueyAskNumber2Text
-	end
-.Gaven:
-	farwritetext GavenAskNumber2Text
 	end
 .Jose:
 	farwritetext JoseAskNumber2Text
@@ -734,7 +726,6 @@ RegisteredNumberMScript:
 NumberAcceptedMScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -745,11 +736,6 @@ NumberAcceptedMScript:
 
 .Huey:
 	farwritetext HueyNumberAcceptedText
-	waitbutton
-	closetext
-	end
-.Gaven:
-	farwritetext GavenNumberAcceptedText
 	waitbutton
 	closetext
 	end
@@ -792,7 +778,6 @@ NumberAcceptedMScript:
 NumberDeclinedMScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -803,11 +788,6 @@ NumberDeclinedMScript:
 
 .Huey:
 	farwritetext HueyNumberDeclinedText
-	waitbutton
-	closetext
-	end
-.Gaven:
-	farwritetext GavenNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -850,7 +830,6 @@ NumberDeclinedMScript:
 PhoneFullMScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -861,11 +840,6 @@ PhoneFullMScript:
 
 .Huey:
 	farwritetext HueyPhoneFullText
-	waitbutton
-	closetext
-	end
-.Gaven:
-	farwritetext GavenPhoneFullText
 	waitbutton
 	closetext
 	end
@@ -908,7 +882,6 @@ PhoneFullMScript:
 RematchMScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
@@ -918,11 +891,6 @@ RematchMScript:
 
 .Huey:
 	farwritetext HueyRematchText
-	waitbutton
-	closetext
-	end
-.Gaven:
-	farwritetext GavenRematchText
 	waitbutton
 	closetext
 	end
@@ -1038,15 +1006,11 @@ RematchGiftMScript:
 
 AskNumber1FScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Beth:
-	farwritetext BethAskNumber1Text
-	end
 .Reena:
 	farwritetext ReenaAskNumber1Text
 	end
@@ -1062,15 +1026,11 @@ AskNumber1FScript:
 
 AskNumber2FScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Beth:
-	farwritetext BethAskNumber2Text
-	end
 .Reena:
 	farwritetext ReenaAskNumber2Text
 	end
@@ -1093,17 +1053,11 @@ RegisteredNumberFScript:
 
 NumberAcceptedFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Beth:
-	farwritetext BethNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Reena:
 	farwritetext ReenaNumberAcceptedText
 	waitbutton
@@ -1127,17 +1081,11 @@ NumberAcceptedFScript:
 
 NumberDeclinedFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Beth:
-	farwritetext BethNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Reena:
 	farwritetext ReenaNumberDeclinedText
 	waitbutton
@@ -1161,17 +1109,11 @@ NumberDeclinedFScript:
 
 PhoneFullFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Beth:
-	farwritetext BethPhoneFullText
-	waitbutton
-	closetext
-	end
 .Reena:
 	farwritetext ReenaPhoneFullText
 	waitbutton
@@ -1195,17 +1137,11 @@ PhoneFullFScript:
 
 RematchFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_BETH, .Beth
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Beth:
-	farwritetext BethRematchText
-	waitbutton
-	closetext
-	end
 .Reena:
 	farwritetext ReenaRematchText
 	waitbutton

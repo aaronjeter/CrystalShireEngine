@@ -2,14 +2,6 @@ HueyWantsBattleScript:
 	farwritetext HueyReminderText
 	end
 
-GavenReminderScript:
-	farwritetext GavenReminderText
-	end
-
-BethBattleReminderScript:
-	farwritetext BethReminderText
-	end
-
 JoseReminderScript:
 	farwritetext JoseReminderText
 	end

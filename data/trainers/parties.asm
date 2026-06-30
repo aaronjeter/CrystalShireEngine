@@ -2721,22 +2721,6 @@ CooltrainerFGroup:
 	dw TORKOAL
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERF (12) Route 26 Rematch 1
-	db "Beth@", TRAINERTYPE_NORMAL
-	db 11
-	dw RAPIDASH
-	db 11
-	dw RAPIDASH2
-	db 11
-	dw NINETALES
-	db 11
-	dw ANINETALES
-	db 11
-	dw NOCTOWL
-	db 11
-	dw EXEGGCUTE2
-	db -1 ; end
-
 	next_list_item ; COOLTRAINERF (13) Unreferenced
 	db "Carol@", TRAINERTYPE_NORMAL
 	db 5
@@ -2783,22 +2767,6 @@ CooltrainerFGroup:
 	dw GLACEON
 	db 8
 	dw STARMIE
-	db -1 ; end
-
-	next_list_item ; COOLTRAINERF (18) Route 26 Rematch 2
-	db "Beth@", TRAINERTYPE_NORMAL
-	db 11
-	dw RAPIDASH
-	db 11
-	dw RAPIDASH2
-	db 11
-	dw NINETALES
-	db 11
-	dw ANINETALES
-	db 11
-	dw NOCTOWL
-	db 11
-	dw EXEGGCUTE2
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (19) Route 27 Rematch 1

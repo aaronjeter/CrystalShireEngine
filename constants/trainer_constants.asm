@@ -258,7 +258,7 @@ DEF KRIS EQU __trainer_class__
 	const PAUL
 	const CODY
 	const MIKE
-	const GAVEN3
+	const GAVEN
 	const RYAN
 	const JAKE
 	const BLAKE
@@ -294,16 +294,14 @@ DEF KRIS EQU __trainer_class__
 	const IRENE
 	const KELLY
 	const JOYCE
-	const BETH1
+	const BETH
 	const REENA1
 	const MEGAN
-	const BETH2
 	const CAROL
 	const QUINN
 	const EMMA
 	const CYBIL
 	const JENN
-	const BETH3
 	const REENA2
 	const REENA3
 	const CARA
