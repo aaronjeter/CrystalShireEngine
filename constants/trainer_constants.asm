@@ -204,12 +204,10 @@ DEF KRIS EQU __trainer_class__
 	const ROY
 	const BORIS
 	const BOB
-	const JOSE1
+	const JOSE
 	const PETER
-	const JOSE2
 	const PERRY
 	const BRET
-	const JOSE3
 	const ROUTE105_JOSUE
 	const FORTREE_HUMBERT
 	const FORTREE_JARED
@@ -295,15 +293,13 @@ DEF KRIS EQU __trainer_class__
 	const KELLY
 	const JOYCE
 	const BETH
-	const REENA1
+	const REENA
 	const MEGAN
 	const CAROL
 	const QUINN
 	const EMMA
 	const CYBIL
 	const JENN
-	const REENA2
-	const REENA3
 	const CARA
 	const MARINA1
 	const MARINA2

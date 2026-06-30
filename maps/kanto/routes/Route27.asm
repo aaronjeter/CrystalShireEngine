@@ -58,116 +58,14 @@ TrainerPsychicGilbert:
 	end
 
 TrainerBirdKeeperJose2:
-	trainer BIRD_KEEPER, JOSE2, EVENT_BEAT_BIRD_KEEPER_JOSE2, BirdKeeperJose2SeenText, BirdKeeperJose2BeatenText, 0, .Script
+	trainer BIRD_KEEPER, JOSE, EVENT_BEAT_BIRD_KEEPER_JOSE2, BirdKeeperJose2SeenText, BirdKeeperJose2BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_BIRDKEEPER_JOSE
 	endifjustbattled
 	opentext
-	checkflag ENGINE_JOSE_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkflag ENGINE_JOSE_HAS_STAR_PIECE
-	iftrue .HasStarPiece
-	checkcellnum PHONE_BIRDKEEPER_JOSE
-	iftrue .NumberAccepted
-	checkevent EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
 	writetext BirdKeeperJose2AfterBattleText
-	promptbutton
-	setevent EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_BIRDKEEPER_JOSE
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, BIRD_KEEPER, JOSE2
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
-	scall .Rematch
-	winlosstext BirdKeeperJose2BeatenText, 0
-	readmem wJoseFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight2
-.Fight1:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight1
-.LoadFight0:
-	loadtrainer BIRD_KEEPER, JOSE2
-	startbattle
-	reloadmapafterbattle
-	loadmem wJoseFightCount, 1
-	clearflag ENGINE_JOSE_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer BIRD_KEEPER, JOSE1
-	startbattle
-	reloadmapafterbattle
-	loadmem wJoseFightCount, 2
-	clearflag ENGINE_JOSE_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer BIRD_KEEPER, JOSE3
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_JOSE_READY_FOR_REMATCH
-	end
-
-.HasStarPiece:
-	scall .Gift
-	verbosegiveitem STAR_PIECE
-	iffalse .NoRoom
-	clearflag ENGINE_JOSE_HAS_STAR_PIECE
-	sjump .NumberAccepted
-
-.NoRoom:
-	sjump .PackFull
-
-.AskNumber1:
-	jumpstd AskNumber1MScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2MScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberMScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedMScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedMScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullMScript
-	end
-
-.Rematch:
-	jumpstd RematchMScript
-	end
-
-.Gift:
-	jumpstd GiftMScript
-	end
-
-.PackFull:
-	jumpstd PackFullMScript
+	waitbutton
+	closetext
 	end
 
 TrainerCooltrainermBlake:
@@ -193,96 +91,14 @@ TrainerCooltrainermBrian:
 	end
 
 TrainerCooltrainerfReena:
-	trainer COOLTRAINERF, REENA1, EVENT_BEAT_COOLTRAINERF_REENA, CooltrainerfReenaSeenText, CooltrainerfReenaBeatenText, 0, .Script
+	trainer COOLTRAINERF, REENA, EVENT_BEAT_COOLTRAINERF_REENA, CooltrainerfReenaSeenText, CooltrainerfReenaBeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_COOLTRAINERF_REENA
 	endifjustbattled
 	opentext
-	checkflag ENGINE_REENA_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_COOLTRAINERF_REENA
-	iftrue .NumberAccepted
-	checkevent EVENT_REENA_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
 	writetext CooltrainerfReenaAfterBattleText
-	promptbutton
-	setevent EVENT_REENA_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_COOLTRAINERF_REENA
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, COOLTRAINERF, REENA1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
-	scall .Rematch
-	winlosstext CooltrainerfReenaBeatenText, 0
-	readmem wReenaFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight2
-.Fight1:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight1
-.LoadFight0:
-	loadtrainer COOLTRAINERF, REENA1
-	startbattle
-	reloadmapafterbattle
-	loadmem wReenaFightCount, 1
-	clearflag ENGINE_REENA_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer COOLTRAINERF, REENA2
-	startbattle
-	reloadmapafterbattle
-	loadmem wReenaFightCount, 2
-	clearflag ENGINE_REENA_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer COOLTRAINERF, REENA3
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_REENA_READY_FOR_REMATCH
-	end
-
-.AskNumber1:
-	jumpstd AskNumber1FScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2FScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberFScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedFScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedFScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullFScript
-	end
-
-.Rematch:
-	jumpstd RematchFScript
+	waitbutton
+	closetext
 	end
 
 TrainerCooltrainerfMegan:

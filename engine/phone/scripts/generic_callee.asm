@@ -25,7 +25,6 @@ PhoneScript_AnswerPhone_Male:
 	iftrue PhoneScript_AnswerPhone_Male_Nite
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
@@ -35,11 +34,6 @@ PhoneScript_AnswerPhone_Male:
 
 .Huey:
 	farwritetext HueyAnswerPhoneText
-	promptbutton
-	end
-
-.Jose:
-	farwritetext JoseAnswerPhoneText
 	promptbutton
 	end
 
@@ -76,7 +70,6 @@ PhoneScript_AnswerPhone_Male:
 PhoneScript_AnswerPhone_Male_Day:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
@@ -86,11 +79,6 @@ PhoneScript_AnswerPhone_Male_Day:
 
 .Huey:
 	farwritetext HueyAnswerPhoneDayText
-	promptbutton
-	end
-
-.Jose:
-	farwritetext JoseAnswerPhoneDayText
 	promptbutton
 	end
 
@@ -127,7 +115,6 @@ PhoneScript_AnswerPhone_Male_Day:
 PhoneScript_AnswerPhone_Male_Nite:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
@@ -137,11 +124,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 
 .Huey:
 	farwritetext HueyAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Jose:
-	farwritetext JoseAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -181,15 +163,9 @@ PhoneScript_AnswerPhone_Female:
 	checktime EVE | NITE
 	iftrue PhoneScript_AnswerPhone_Female_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Reena:
-	farwritetext ReenaAnswerPhoneText
-	promptbutton
-	end
 
 .Gina:
 	farwritetext GinaAnswerPhoneText
@@ -208,15 +184,9 @@ PhoneScript_AnswerPhone_Female:
 
 PhoneScript_AnswerPhone_Female_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Reena:
-	farwritetext ReenaAnswerPhoneDayText
-	promptbutton
-	end
 
 .Gina:
 	farwritetext GinaAnswerPhoneDayText
@@ -235,15 +205,9 @@ PhoneScript_AnswerPhone_Female_Day:
 
 PhoneScript_AnswerPhone_Female_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Reena:
-	farwritetext ReenaAnswerPhoneNiteText
-	promptbutton
-	end
 
 .Gina:
 	farwritetext GinaAnswerPhoneNiteText
@@ -267,7 +231,6 @@ PhoneScript_GreetPhone_Male:
 	iftrue PhoneScript_GreetPhone_Male_Nite
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
@@ -277,11 +240,6 @@ PhoneScript_GreetPhone_Male:
 
 .Huey:
 	farwritetext HueyGreetText
-	promptbutton
-	end
-
-.Jose:
-	farwritetext JoseGreetText
 	promptbutton
 	end
 
@@ -318,7 +276,6 @@ PhoneScript_GreetPhone_Male:
 PhoneScript_GreetPhone_Male_Day:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
@@ -328,11 +285,6 @@ PhoneScript_GreetPhone_Male_Day:
 
 .Huey:
 	farwritetext HueyGreetDayText
-	promptbutton
-	end
-
-.Jose:
-	farwritetext JoseGreetDayText
 	promptbutton
 	end
 
@@ -369,7 +321,6 @@ PhoneScript_GreetPhone_Male_Day:
 PhoneScript_GreetPhone_Male_Nite:
 	readvar VAR_CALLERID
 	ifequal PHONE_SAILOR_HUEY, .Huey
-	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
@@ -379,11 +330,6 @@ PhoneScript_GreetPhone_Male_Nite:
 
 .Huey:
 	farwritetext HueyGreetNiteText
-	promptbutton
-	end
-
-.Jose:
-	farwritetext JoseGreetNiteText
 	promptbutton
 	end
 
@@ -423,15 +369,9 @@ PhoneScript_GreetPhone_Female:
 	checktime EVE | NITE
 	iftrue PhoneScript_GreetPhone_Female_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Reena:
-	farwritetext ReenaGreetText
-	promptbutton
-	end
 
 .Gina:
 	farwritetext GinaGreetText
@@ -450,15 +390,9 @@ PhoneScript_GreetPhone_Female:
 
 PhoneScript_GreetPhone_Female_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Reena:
-	farwritetext ReenaGreetDayText
-	promptbutton
-	end
 
 .Gina:
 	farwritetext GinaGreetDayText
@@ -477,15 +411,9 @@ PhoneScript_GreetPhone_Female_Day:
 
 PhoneScript_GreetPhone_Female_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Reena:
-	farwritetext ReenaGreetNiteText
-	promptbutton
-	end
 
 .Gina:
 	farwritetext GinaGreetNiteText
@@ -504,18 +432,12 @@ PhoneScript_GreetPhone_Female_Nite:
 
 PhoneScript_Generic_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Jose:
-	farwritetext JoseGenericText
-	promptbutton
-	end
 
 .Joey:
 	farwritetext JoeyGenericText
@@ -549,15 +471,9 @@ PhoneScript_Generic_Male:
 
 PhoneScript_Generic_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Reena:
-	farwritetext ReenaGenericText
-	promptbutton
-	end
 
 .Gina:
 	farwritetext GinaGenericText

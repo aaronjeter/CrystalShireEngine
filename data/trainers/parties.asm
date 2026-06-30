@@ -1838,6 +1838,10 @@ BirdKeeperGroup:
 	dw FARFETCH_D
 	db 7
 	dw GOLBAT
+	db 7
+	dw FEAROW
+	db 7
+	dw AERODACTYL
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (13) Route 32
@@ -1848,12 +1852,6 @@ BirdKeeperGroup:
 	dw HOOTHOOT
 	db 5
 	dw SPEAROW
-	db -1 ; end
-
-	next_list_item ; BIRD_KEEPER (14) Route 27 Rematch 1
-	db "Jose@", TRAINERTYPE_NORMAL
-	db 9
-	dw FARFETCH_D
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (15) Route 13
@@ -1868,13 +1866,6 @@ BirdKeeperGroup:
 	dw PIDGEOTTO
 	db 8
 	dw FEAROW
-	db -1 ; end
-
-	next_list_item ; BIRD_KEEPER (17) Route 27 Rematch 2
-	db "Jose@", TRAINERTYPE_NORMAL
-	db 12
-	dw FARFETCH_D
-	dw FURY_ATTACK, DETECT, FLY, SLASH
 	db -1 ; end
 
 	next_list_item ; BIRD_KEEPER (20) Route 105
@@ -2767,34 +2758,6 @@ CooltrainerFGroup:
 	dw GLACEON
 	db 8
 	dw STARMIE
-	db -1 ; end
-
-	next_list_item ; COOLTRAINERF (19) Route 27 Rematch 1
-	db "Reena@", TRAINERTYPE_NORMAL
-	db 9
-	dw STARMIE
-	db 9
-	dw NIDOQUEEN
-	db 10
-	dw GLISCOR
-	db 9
-	dw LUNATONE
-	db 11
-	dw FROSLASS
-	db -1 ; end
-
-	next_list_item ; COOLTRAINERF (20) Route 27 Rematch 2
-	db "Reena@", TRAINERTYPE_NORMAL
-	db 11
-	dw STARMIE
-	db 11
-	dw NIDOQUEEN
-	db 11
-	dw GLISCOR
-	db 11
-	dw LUNATONE
-	db 11
-	dw FROSLASS
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (21) Dragon's Den

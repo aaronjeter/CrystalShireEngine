@@ -3,16 +3,6 @@ HueyHangUpScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-JoseHangUpScript:
-	farwritetext JoseHaventGottenItemYetText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-ReenaForwardScript:
-	farwritetext ReenaForwardText
-	promptbutton
-	sjump PhoneScript_HangUpText_Female
-
 JoeyHangUpScript:
 	farwritetext JoeyDevisingStrategiesText
 	promptbutton
