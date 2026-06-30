@@ -1331,7 +1331,6 @@ AskNumber1FScript:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -1350,9 +1349,6 @@ AskNumber1FScript:
 .Gina:
 	farwritetext GinaAskNumber1Text
 	end
-.Dana:
-	farwritetext DanaAskNumber1Text
-	end
 .Tiffany:
 	farwritetext TiffanyAskNumber1Text
 	end
@@ -1367,7 +1363,6 @@ AskNumber2FScript:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -1385,9 +1380,6 @@ AskNumber2FScript:
 	end
 .Gina:
 	farwritetext GinaAskNumber2Text
-	end
-.Dana:
-	farwritetext DanaAskNumber2Text
 	end
 .Tiffany:
 	farwritetext TiffanyAskNumber2Text
@@ -1410,7 +1402,6 @@ NumberAcceptedFScript:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -1439,11 +1430,6 @@ NumberAcceptedFScript:
 	waitbutton
 	closetext
 	end
-.Dana:
-	farwritetext DanaNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyNumberAcceptedText
 	waitbutton
@@ -1462,7 +1448,6 @@ NumberDeclinedFScript:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -1491,11 +1476,6 @@ NumberDeclinedFScript:
 	waitbutton
 	closetext
 	end
-.Dana:
-	farwritetext DanaNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyNumberDeclinedText
 	waitbutton
@@ -1514,7 +1494,6 @@ PhoneFullFScript:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -1543,11 +1522,6 @@ PhoneFullFScript:
 	waitbutton
 	closetext
 	end
-.Dana:
-	farwritetext DanaPhoneFullText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyPhoneFullText
 	waitbutton
@@ -1565,7 +1539,6 @@ RematchFScript:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -1589,11 +1562,6 @@ RematchFScript:
 	waitbutton
 	closetext
 	end
-.Dana:
-	farwritetext DanaRematchText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyRematchText
 	waitbutton
@@ -1609,7 +1577,6 @@ GiftFScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 
 .Beverly:
@@ -1618,10 +1585,6 @@ GiftFScript:
 	end
 .Gina:
 	farwritetext GinaGiftText
-	promptbutton
-	end
-.Dana:
-	farwritetext DanaGiftText
 	promptbutton
 	end
 .Tiffany:
@@ -1633,7 +1596,6 @@ PackFullFScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -1644,11 +1606,6 @@ PackFullFScript:
 	end
 .Gina:
 	farwritetext GinaPackFullText
-	waitbutton
-	closetext
-	end
-.Dana:
-	farwritetext DanaPackFullText
 	waitbutton
 	closetext
 	end

@@ -348,7 +348,6 @@ PhoneScript_AnswerPhone_Female:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -377,11 +376,6 @@ PhoneScript_AnswerPhone_Female:
 	promptbutton
 	end
 
-.Dana:
-	farwritetext DanaAnswerPhoneText
-	promptbutton
-	end
-
 .Tiffany:
 	farwritetext TiffanyAnswerPhoneText
 	promptbutton
@@ -399,7 +393,6 @@ PhoneScript_AnswerPhone_Female_Day:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -428,11 +421,6 @@ PhoneScript_AnswerPhone_Female_Day:
 	promptbutton
 	end
 
-.Dana:
-	farwritetext DanaAnswerPhoneDayText
-	promptbutton
-	end
-
 .Tiffany:
 	farwritetext TiffanyAnswerPhoneDayText
 	promptbutton
@@ -450,7 +438,6 @@ PhoneScript_AnswerPhone_Female_Nite:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -476,11 +463,6 @@ PhoneScript_AnswerPhone_Female_Nite:
 
 .Gina:
 	farwritetext GinaAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Dana:
-	farwritetext DanaAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -824,7 +806,6 @@ PhoneScript_GreetPhone_Female:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -853,11 +834,6 @@ PhoneScript_GreetPhone_Female:
 	promptbutton
 	end
 
-.Dana:
-	farwritetext DanaGreetText
-	promptbutton
-	end
-
 .Tiffany:
 	farwritetext TiffanyGreetText
 	promptbutton
@@ -875,7 +851,6 @@ PhoneScript_GreetPhone_Female_Day:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -904,11 +879,6 @@ PhoneScript_GreetPhone_Female_Day:
 	promptbutton
 	end
 
-.Dana:
-	farwritetext DanaGreetDayText
-	promptbutton
-	end
-
 .Tiffany:
 	farwritetext TiffanyGreetDayText
 	promptbutton
@@ -926,7 +896,6 @@ PhoneScript_GreetPhone_Female_Nite:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -952,11 +921,6 @@ PhoneScript_GreetPhone_Female_Nite:
 
 .Gina:
 	farwritetext GinaGreetNiteText
-	promptbutton
-	end
-
-.Dana:
-	farwritetext DanaGreetNiteText
 	promptbutton
 	end
 
@@ -1064,7 +1028,6 @@ PhoneScript_Generic_Female:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -1090,11 +1053,6 @@ PhoneScript_Generic_Female:
 
 .Gina:
 	farwritetext GinaGenericText
-	promptbutton
-	end
-
-.Dana:
-	farwritetext DanaGenericText
 	promptbutton
 	end
 

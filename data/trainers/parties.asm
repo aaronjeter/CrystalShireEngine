@@ -3249,26 +3249,6 @@ PokemaniacGroup:
 	dw RHYDON
 	db -1 ; end
 
-	next_list_item ; POKEMANIAC (9) Route 43 Rematch 1
-	db "Brent@", TRAINERTYPE_NORMAL
-	db 9
-	dw LICKITUNG
-	db 9
-	dw MR__MIME
-	db 9
-	dw CHANSEY
-	db -1 ; end
-
-	next_list_item ; POKEMANIAC (10) Route 43 Rematch 2
-	db "Brent@", TRAINERTYPE_NORMAL
-	db 9
-	dw LICKITUNG
-	db 9
-	dw MR__MIME
-	db 9
-	dw CHANSEY
-	db -1 ; end
-
 	next_list_item ; POKEMANIAC (11) Goldenrod Underground
 	db "Issac@", TRAINERTYPE_MOVES
 	db 7
@@ -3292,16 +3272,6 @@ PokemaniacGroup:
 	dw AERODACTYL
 	db 7
 	dw AIPOM
-	db -1 ; end
-
-	next_list_item ; POKEMANIAC (14) Route 43 Rematch 3
-	db "Brent@", TRAINERTYPE_NORMAL
-	db 11
-	dw LICKITUNG
-	db 11
-	dw MR__MIME
-	db 11
-	dw CHANSEY
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (15) Mt. Mortar

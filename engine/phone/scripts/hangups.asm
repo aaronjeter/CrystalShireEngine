@@ -73,11 +73,6 @@ ArnieHangUpScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-DanaHangUpScript:
-	farwritetext DanaCanYouWaitABitLongerText
-	promptbutton
-	sjump PhoneScript_HangUpText_Female
-
 DerekHangUpScript:
 	farwritetext DerekLetsGetTogetherText
 	promptbutton

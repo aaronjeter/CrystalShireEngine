@@ -37,7 +37,7 @@ PhoneContacts:
 	phone BUG_CATCHER,  ARNIE1,                ROUTE_35,                  ANYTIME, ArniePhoneCalleeScript,   ANYTIME, ArniePhoneCallerScript
 	phone SCHOOLBOY,    ALAN1,                 ROUTE_36,                  ANYTIME, UnusedPhoneScript,		 ANYTIME, UnusedPhoneScript
 	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
-	phone LASS,         DANA1,                 ROUTE_38,                  ANYTIME, DanaPhoneCalleeScript,    ANYTIME, DanaPhoneCallerScript
+	phone LASS,         DANA1,                 ROUTE_38,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone SCHOOLBOY,    CHAD1,                 ROUTE_38,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone POKEFANM,     DEREK1,                ROUTE_39,                  ANYTIME, DerekPhoneCalleeScript,   ANYTIME, DerekPhoneCallerScript
 	phone FISHER,       TULLY1,                ROUTE_42,                  ANYTIME, TullyPhoneCalleeScript,   ANYTIME, TullyPhoneCallerScript

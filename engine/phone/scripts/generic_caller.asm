@@ -148,7 +148,6 @@ Phone_WhosBragging_Female:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -174,11 +173,6 @@ Phone_WhosBragging_Female:
 
 .Gina:
 	farwritetext GinaGettingInSyncWithMonText
-	promptbutton
-	end
-
-.Dana:
-	farwritetext DanaTakingPhotosText
 	promptbutton
 	end
 
@@ -286,7 +280,6 @@ Phone_WhoDefeatedMon_Female:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -312,11 +305,6 @@ Phone_WhoDefeatedMon_Female:
 
 .Gina:
 	farwritetext GinaDefeatedMonText
-	promptbutton
-	end
-
-.Dana:
-	farwritetext DanaDefeatedMonText
 	promptbutton
 	end
 
@@ -424,7 +412,6 @@ Phone_WhoLostAMon_Female:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -450,11 +437,6 @@ Phone_WhoLostAMon_Female:
 
 .Gina:
 	farwritetext GinaLostAMonText
-	promptbutton
-	end
-
-.Dana:
-	farwritetext DanaLostAMonText
 	promptbutton
 	end
 
@@ -569,7 +551,6 @@ PhoneScript_RematchText_Female:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -590,11 +571,6 @@ PhoneScript_RematchText_Female:
 
 .Gina:
 	farwritetext GinaBattleRematchText
-	promptbutton
-	end
-
-.Dana:
-	farwritetext DanaBattleRematchText
 	promptbutton
 	end
 
@@ -711,7 +687,6 @@ PhoneScript_HangUpText_Female:
 	ifequal PHONE_COOLTRAINERF_REENA, .Reena
 	ifequal PHONE_PICNICKER_LIZ, .Liz
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
@@ -733,10 +708,6 @@ PhoneScript_HangUpText_Female:
 
 .Gina:
 	farwritetext GinaHangUpText
-	end
-
-.Dana:
-	farwritetext DanaHangUpText
 	end
 
 .Tiffany:
@@ -839,7 +810,6 @@ PhoneScript_FoundItem_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
 	ifequal PHONE_PICNICKER_GINA, .Gina
-	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 
 .Beverly:
@@ -848,10 +818,6 @@ PhoneScript_FoundItem_Female:
 
 .Gina:
 	farwritetext GinaFoundItemText
-	end
-
-.Dana:
-	farwritetext DanaFoundItemText
 	end
 
 .Tiffany:
