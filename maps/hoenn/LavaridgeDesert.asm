@@ -7,12 +7,30 @@
 	const MAPROUTEDESERT_BRANDEN
 	const MAPROUTEDESERT_DUSTY
 	const MAPROUTEDESERT_BRYAN
+	const MAPROUTEDESERT_ROCKET_GUARD
+	const MAPROUTEDESERT_BALL1
+	const MAPROUTEDESERT_BALL2
+	const MAPROUTEDESERT_JANE
+	const MAPROUTEDESERT_LATIAS
+	const MAPROUTEDESERT_LATIOS
 
 
 LavaridgeDesert_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, DesertCallback
+
+DesertCallback:
+	checkevent EVENT_BEAT_DESERT_SHRINE_UNOWN
+	iffalse .HideJane
+	endcallback
+
+.HideJane:
+	disappear MAPROUTEDESERT_JANE
+	disappear MAPROUTEDESERT_LATIOS
+	disappear MAPROUTEDESERT_LATIAS
+	endcallback
 
 DesertHeidiScript:
 	trainer PICNICKER, DESERT_HEIDI, EVENT_BEAT_DESERT_HEIDI, DesertHeidiSeenText, DesertHeidiBeatenText, 0, .AfterScript
@@ -258,6 +276,75 @@ DesertRocketText:
 	line "Boss gets here."
 	done
 
+DesertJaneScript:
+	jumptextfaceplayer DesertJaneText
+
+DesertJaneText:
+	text "You saved my life"
+	line "back in the"
+	cont "shrine..."
+
+	para "Our plan never"
+	line "really had a"
+	cont "chance."
+
+	para "Latias and Latios"
+	line "were supposed to"
+	cont "be the key, but..."
+
+	para "Seeing them"
+	line "captive, it"
+	
+	para "drove the guardian"
+	line "into a frightful"
+	cont "rage."
+
+	para "I think it was"
+	line "right; I am"
+	cont "unworthy to"
+	cont "tame such a"
+	cont "majestic #mon."
+
+	para "You, however,"
+	line "may just have"
+	cont "what it takes."
+	done
+
+DesertLatiasScript:
+	opentext
+	writetext DesertLatiasAttacksText
+	pause 15
+	cry LATIAS
+	closetext
+	loadwildmon LATIAS, 10
+	startbattle
+	reloadmapafterbattle
+	ifequal LOSE, .NotBeaten
+	setevent EVENT_GOT_LATIAS
+	disappear MAPROUTEDESERT_LATIAS
+	disappear MAPROUTEDESERT_JANE
+.NotBeaten
+	end
+
+DesertLatiasAttacksText:
+	text "The majestic"
+	line "beast regards you"
+	cont "with joy."
+	done
+
+DesertLatiosScript:
+	opentext
+	writetext DesertLatiasAttacksText
+	pause 15
+	cry LATIOS
+	closetext
+	loadwildmon LATIOS, 10
+	startbattle
+	reloadmapafterbattle
+	disappear MAPROUTEDESERT_LATIOS
+	setevent EVENT_GOT_LATIOS	
+	end
+
 DesertTMSandstorm:
 	itemball TM_SANDSTORM
 
@@ -291,4 +378,7 @@ LavaridgeDesert_MapEvents:
 	object_event 43, 44, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DesertRocketBlocksRuinsScript, EVENT_BEAT_PYRE_ROCKETS
 	object_event 45, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DesertTMSandstorm, EVENT_DESERT_TM_SANDSTORM
 	object_event 48, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DesertSoftSand, EVENT_GOT_HOENN_SOFT_SAND
-	
+	object_event 40, 10, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertJaneScript, EVENT_GOT_LATIAS
+	object_event 41, 10, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, DesertLatiasScript, EVENT_GOT_LATIAS
+	object_event 11, 50, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DesertLatiosScript, EVENT_GOT_LATIOS
+

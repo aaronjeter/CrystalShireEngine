@@ -518,8 +518,8 @@
 	const EVENT_BEAT_PYRE_ROCKETF4
 
 	const EVENT_BEAT_SHRINE_JANE
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_GOT_LATIAS
+	const EVENT_GOT_LATIOS
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
