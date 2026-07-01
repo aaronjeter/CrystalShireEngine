@@ -1,8 +1,3 @@
-WadeComeQuickScript:
-	farwritetext WadeComeQuickText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
 DerekComePickUpScript:
 	farwritetext DerekComePickUpText
 	promptbutton

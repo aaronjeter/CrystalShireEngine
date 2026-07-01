@@ -23,110 +23,14 @@ Route31CheckMomCallCallback:
 	endcallback
 
 TrainerBugCatcherWade1:
-	trainer BUG_CATCHER, WADE1, EVENT_BEAT_BUG_CATCHER_WADE, BugCatcherWade1SeenText, BugCatcherWade1BeatenText, 0, .Script
+	trainer BUG_CATCHER, WADE, EVENT_BEAT_BUG_CATCHER_WADE, BugCatcherWade1SeenText, BugCatcherWade1BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_BUG_CATCHER_WADE
 	endifjustbattled
 	opentext
-	checkflag ENGINE_WADE_READY_FOR_REMATCH
-	iftrue .WadeRematch
-	checkflag ENGINE_WADE_HAS_ITEM
-	iftrue .WadeItem
-	checkcellnum PHONE_BUG_CATCHER_WADE
-	iftrue .AcceptedNumberSTD
-	checkevent EVENT_WADE_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
 	writetext BugCatcherWade1AfterText
 	waitbutton
-	setevent EVENT_WADE_ASKED_FOR_PHONE_NUMBER
-	scall .AskPhoneNumberSTD
-	sjump .Continue
-
-.AskAgain:
-	scall .AskAgainSTD
-.Continue:
-	askforphonenumber PHONE_BUG_CATCHER_WADE
-	ifequal PHONE_CONTACTS_FULL, .PhoneFullSTD
-	ifequal PHONE_CONTACT_REFUSED, .DeclinedNumberSTD
-	gettrainername STRING_BUFFER_3, BUG_CATCHER, WADE1
-	scall .RegisterNumberSTD
-	sjump .AcceptedNumberSTD
-
-.WadeRematch:
-	scall .RematchSTD
-	winlosstext BugCatcherWade1BeatenText, 0
-	loadtrainer BUG_CATCHER, WADE1
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_WADE_READY_FOR_REMATCH
-	end
-
-.WadeItem:
-	scall .ItemSTD
-	checkevent EVENT_WADE_HAS_BERRY
-	iftrue .Berry
-	checkevent EVENT_WADE_HAS_PSNCUREBERRY
-	iftrue .Psncureberry
-	checkevent EVENT_WADE_HAS_PRZCUREBERRY
-	iftrue .Przcureberry
-	checkevent EVENT_WADE_HAS_BITTER_BERRY
-	iftrue .BitterBerry
-.Berry:
-	verbosegiveitem BERRY
-	iffalse .PackFull
-	sjump .Done
-.Psncureberry:
-	verbosegiveitem PSNCUREBERRY
-	iffalse .PackFull
-	sjump .Done
-.Przcureberry:
-	verbosegiveitem PRZCUREBERRY
-	iffalse .PackFull
-	sjump .Done
-.BitterBerry:
-	verbosegiveitem BITTER_BERRY
-	iffalse .PackFull
-.Done:
-	clearflag ENGINE_WADE_HAS_ITEM
-	sjump .AcceptedNumberSTD
-.PackFull:
-	sjump .PackFullSTD
-
-.AskPhoneNumberSTD:
-	jumpstd AskNumber1MScript
-	end
-
-.AskAgainSTD:
-	jumpstd AskNumber2MScript
-	end
-
-.RegisterNumberSTD:
-	jumpstd RegisteredNumberMScript
-	end
-
-.AcceptedNumberSTD:
-	jumpstd NumberAcceptedMScript
-	end
-
-.DeclinedNumberSTD:
-	jumpstd NumberDeclinedMScript
-	end
-
-.PhoneFullSTD:
-	jumpstd PhoneFullMScript
-	end
-
-.RematchSTD:
-	jumpstd RematchMScript
-	end
-
-.ItemSTD:
-	jumpstd GiftMScript
-	end
-
-.PackFullSTD:
-	jumpstd PackFullMScript
+	closetext
 	end
 
 Route31MailRecipientScript:

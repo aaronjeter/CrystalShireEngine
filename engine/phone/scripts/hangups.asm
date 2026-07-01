@@ -1,8 +1,3 @@
-WadeNoBerriesScript:
-	farwritetext WadeNoBerriesText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
 RalphNoItemScript:
 	farwritetext RalphNoItemText
 	promptbutton

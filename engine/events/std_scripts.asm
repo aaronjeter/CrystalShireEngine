@@ -645,14 +645,10 @@ InitializeEventsScript:
 AskNumber1MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Wade:
-	farwritetext WadeAskNumber1Text
-	end
 .Ralph:
 	farwritetext RalphAskNumber1Text
 	end
@@ -666,14 +662,10 @@ AskNumber1MScript:
 AskNumber2MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Wade:
-	farwritetext WadeAskNumber2Text
-	end
 .Ralph:
 	farwritetext RalphAskNumber2Text
 	end
@@ -693,16 +685,10 @@ RegisteredNumberMScript:
 
 NumberAcceptedMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Wade:
-	farwritetext WadeNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Ralph:
 	farwritetext RalphNumberAcceptedText
 	waitbutton
@@ -721,16 +707,10 @@ NumberAcceptedMScript:
 
 NumberDeclinedMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Wade:
-	farwritetext WadeNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Ralph:
 	farwritetext RalphNumberDeclinedText
 	waitbutton
@@ -749,16 +729,10 @@ NumberDeclinedMScript:
 
 PhoneFullMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Wade:
-	farwritetext WadePhoneFullText
-	waitbutton
-	closetext
-	end
 .Ralph:
 	farwritetext RalphPhoneFullText
 	waitbutton
@@ -777,15 +751,9 @@ PhoneFullMScript:
 
 RematchMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Wade:
-	farwritetext WadeRematchText
-	waitbutton
-	closetext
-	end
 .Ralph:
 	farwritetext RalphRematchText
 	waitbutton
@@ -799,13 +767,9 @@ RematchMScript:
 
 GiftMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-.Wade:
-	farwritetext WadeGiftText
-	promptbutton
-	end
+
 .Derek:
 	farwritetext DerekGiftText
 	promptbutton
@@ -817,15 +781,9 @@ GiftMScript:
 
 PackFullMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Wade:
-	farwritetext WadePackFullText
-	waitbutton
-	closetext
-	end
 .Derek:
 	farwritetext DerekPackFullText
 	waitbutton

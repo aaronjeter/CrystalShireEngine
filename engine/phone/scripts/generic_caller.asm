@@ -56,15 +56,9 @@ Phone_GotAwayCall_Female:
 
 Phone_WhosBragging_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Wade:
-	farwritetext WadeAreYourMonGrowingText
-	promptbutton
-	end
 
 .Ralph:
 	farwritetext RalphNeglectingKidsText
@@ -86,15 +80,9 @@ Phone_WhosBragging_Female:
 
 Phone_WhoDefeatedMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Wade:
-	farwritetext WadeDefeatedMonText
-	promptbutton
-	end
 
 .Ralph:
 	farwritetext RalphDefeatedMonText
@@ -116,15 +104,9 @@ Phone_WhoDefeatedMon_Female:
 
 Phone_WhoLostAMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Wade:
-	farwritetext WadeLostAMonText
-	promptbutton
-	end
 
 .Ralph:
 	farwritetext RalphLostAMonText
@@ -154,14 +136,8 @@ PhoneScript_WantsToBattle_Female:
 
 PhoneScript_RematchText_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Wade:
-	farwritetext WadeBattleRematchText
-	promptbutton
-	end
 
 .Ralph:
 	farwritetext RalphBattleRematchText
@@ -178,14 +154,9 @@ PhoneScript_RematchText_Female:
 
 PhoneScript_HangUpText_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Wade:
-	farwritetext WadeHangUpText
-	end
 
 .Ralph:
 	farwritetext RalphHangUpText
@@ -224,13 +195,7 @@ PhoneScriptRareWildMon:
 
 PhoneScript_BugCatchingContest:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
-
-.Wade:
-	farwritetext WadeBugCatchingContestText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
 
 .Derek:
 	farwritetext DerekBugCatchingContestText
@@ -244,13 +209,8 @@ RalphItemScript:
 
 PhoneScript_FoundItem_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Wade:
-	farwritetext WadeFoundItemText
-	end
 
 .Derek:
 	farwritetext DerekFoundItemText
