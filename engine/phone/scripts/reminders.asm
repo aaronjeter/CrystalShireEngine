@@ -17,7 +17,3 @@ RalphReminderScript:
 TullyForwardScript:
 	farwritetext TullyForwardText
 	end
-
-TiffanyAsleepScript:
-	farwritetext TiffanyAsleepText
-	end

@@ -80,137 +80,14 @@ TrainerFisherMarvin:
 	end
 
 TrainerPicnickerTiffany:
-	trainer PICNICKER, TIFFANY3, EVENT_BEAT_PICNICKER_TIFFANY, PicnickerTiffanySeenText, PicnickerTiffanyBeatenText, 0, .Script
+	trainer PICNICKER, TIFFANY, EVENT_BEAT_PICNICKER_TIFFANY, PicnickerTiffanySeenText, PicnickerTiffanyBeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_PICNICKER_TIFFANY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkflag ENGINE_TIFFANY_HAS_PINK_BOW
-	iftrue .HasPinkBow
-	checkcellnum PHONE_PICNICKER_TIFFANY
-	iftrue .NumberAccepted
-	checkpoke CLEFAIRY
-	iffalse .NoClefairy
-	checkevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
 	writetext PicnickerTiffanyWantsPicnicText
-	promptbutton
-	setevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_PICNICKER_TIFFANY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, PICNICKER, TIFFANY3
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
-	scall .Rematch
-	winlosstext PicnickerTiffanyBeatenText, 0
-	readmem wTiffanyFightCount
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight3:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight3
-.Fight2:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight2
-.Fight1:
-	checkevent EVENT_CLEARED_RADIO_TOWER
-	iftrue .LoadFight1
-.LoadFight0:
-	loadtrainer PICNICKER, TIFFANY3
-	startbattle
-	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 1
-	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer PICNICKER, TIFFANY1
-	startbattle
-	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 2
-	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer PICNICKER, TIFFANY2
-	startbattle
-	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 3
-	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
-	end
-
-.LoadFight3:
-	loadtrainer PICNICKER, TIFFANY4
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
-	end
-
-.HasPinkBow:
-	scall .Gift
-	verbosegiveitem PINK_BOW
-	iffalse .NoRoom
-	clearflag ENGINE_TIFFANY_HAS_PINK_BOW
-	setevent EVENT_TIFFANY_GAVE_PINK_BOW
-	sjump .NumberAccepted
-
-.NoRoom:
-	sjump .PackFull
-
-.NoClefairy:
-	writetext PicnickerTiffanyClefairyText
 	waitbutton
 	closetext
-	end
-
-.AskNumber1:
-	jumpstd AskNumber1FScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2FScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberFScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedFScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedFScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullFScript
-	end
-
-.Rematch:
-	jumpstd RematchFScript
-	end
-
-.Gift:
-	jumpstd GiftFScript
-	end
-
-.PackFull:
-	jumpstd PackFullFScript
 	end
 
 Route43Sign1:

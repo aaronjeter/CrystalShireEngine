@@ -258,7 +258,6 @@ SECTION "Crystal Phone Text", ROMX
 
 INCLUDE "data/phone/text/derek_caller.asm"
 INCLUDE "data/phone/text/tully_caller.asm"
-INCLUDE "data/phone/text/tiffany_caller.asm"
 
 
 SECTION "bank20", ROMX
@@ -322,7 +321,6 @@ SECTION "Phone Text", ROMX
 
 INCLUDE "data/phone/text/derek_overworld.asm"
 INCLUDE "data/phone/text/tully_overworld.asm"
-INCLUDE "data/phone/text/tiffany_overworld.asm"
 
 
 SECTION "bank2E", ROMX
@@ -348,7 +346,6 @@ INCLUDE "engine/phone/scripts/wade.asm"
 INCLUDE "engine/phone/scripts/ralph.asm"
 INCLUDE "engine/phone/scripts/derek.asm"
 INCLUDE "engine/phone/scripts/tully.asm"
-INCLUDE "engine/phone/scripts/tiffany.asm"
 INCLUDE "engine/phone/scripts/generic_callee.asm"
 INCLUDE "engine/events/trainer_scripts.asm"
 
@@ -560,7 +557,6 @@ INCLUDE "data/phone/text/wade_callee.asm"
 INCLUDE "data/phone/text/ralph_callee.asm"
 INCLUDE "data/phone/text/derek_callee.asm"
 INCLUDE "data/phone/text/tully_callee.asm"
-INCLUDE "data/phone/text/tiffany_callee.asm"
 INCLUDE "data/phone/text/unused.asm"
 
 

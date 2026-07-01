@@ -140,34 +140,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 	end
 
 PhoneScript_AnswerPhone_Female:
-	checktime DAY
-	iftrue PhoneScript_AnswerPhone_Female_Day
-	checktime EVE | NITE
-	iftrue PhoneScript_AnswerPhone_Female_Nite
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyAnswerPhoneText
-	promptbutton
-	end
-
-PhoneScript_AnswerPhone_Female_Day:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyAnswerPhoneDayText
-	promptbutton
-	end
-
-PhoneScript_AnswerPhone_Female_Nite:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyAnswerPhoneNiteText
-	promptbutton
 	end
 
 PhoneScript_GreetPhone_Male:
@@ -292,34 +264,6 @@ PhoneScript_GreetPhone_Male_Nite:
 	end
 
 PhoneScript_GreetPhone_Female:
-	checktime DAY
-	iftrue PhoneScript_GreetPhone_Female_Day
-	checktime EVE | NITE
-	iftrue PhoneScript_GreetPhone_Female_Nite
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyGreetText
-	promptbutton
-	end
-
-PhoneScript_GreetPhone_Female_Day:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyGreetDayText
-	promptbutton
-	end
-
-PhoneScript_GreetPhone_Female_Nite:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyGreetNiteText
-	promptbutton
 	end
 
 PhoneScript_Generic_Male:
@@ -356,12 +300,6 @@ PhoneScript_Generic_Male:
 	end
 
 PhoneScript_Generic_Female:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyGenericText
-	promptbutton
 	end
 
 PhoneScript_MonFlavorText:

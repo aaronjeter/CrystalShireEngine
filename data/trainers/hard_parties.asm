@@ -6425,36 +6425,15 @@ PicnickerGroupHard:
 
 	next_list_item ; PICNICKER (16) Route 43
 	db "Tiffany@", TRAINERTYPE_MOVES
-	db 6
-	dw CLEFAIRY
-	dw ENCORE, SING, DOUBLESLAP, MINIMIZE
-	db -1 ; end
-
-	next_list_item ; PICNICKER (17) Route 43
-	db "Tiffany@", TRAINERTYPE_MOVES
-	db 7
-	dw CLEFAIRY
-	dw ENCORE, DOUBLESLAP, MINIMIZE, METRONOME
+	db 12
+	dw CLEFABLE
+	dw ENCORE, SING, MOONBLAST, MINIMIZE
 	db -1 ; end
 
 	next_list_item ; PICNICKER (19) Celadon City Gym
 	db "Tanya@", TRAINERTYPE_NORMAL
 	db 7
 	dw EXEGGUTOR
-	db -1 ; end
-
-	next_list_item ; PICNICKER (20) Route 43
-	db "Tiffany@", TRAINERTYPE_MOVES
-	db 9
-	dw CLEFAIRY
-	dw ENCORE, SING, DOUBLESLAP, MINIMIZE
-	db -1 ; end
-
-	next_list_item ; PICNICKER (26) Route 43
-	db "Tiffany@", TRAINERTYPE_MOVES
-	db 12
-	dw CLEFAIRY
-	dw METRONOME, ENCORE, MOONLIGHT, MINIMIZE
 	db -1 ; end
 
 	next_list_item ; PICNICKER (27) Route 117

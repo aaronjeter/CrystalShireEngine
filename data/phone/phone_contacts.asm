@@ -42,7 +42,7 @@ PhoneContacts:
 	phone POKEFANM,     DEREK1,                ROUTE_39,                  ANYTIME, DerekPhoneCalleeScript,   ANYTIME, DerekPhoneCallerScript
 	phone FISHER,       TULLY1,                ROUTE_42,                  ANYTIME, TullyPhoneCalleeScript,   ANYTIME, TullyPhoneCallerScript
 	phone POKEMANIAC,   BRENT1,                ROUTE_43,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone PICNICKER,    TIFFANY3,              ROUTE_43,                  ANYTIME, TiffanyPhoneCalleeScript, ANYTIME, TiffanyPhoneCallerScript
+	phone PICNICKER,    TIFFANY,               ROUTE_43,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone BIRD_KEEPER,  VANCE,                 ROUTE_44,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone FISHER,       WILTON,                ROUTE_44,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone BLACKBELT_T,  KENJI,                 ROUTE_45,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript

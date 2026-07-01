@@ -39,15 +39,15 @@ StdScripts::
 	add_stdscript GiftMScript
 	add_stdscript PackFullMScript
 	add_stdscript RematchGiftMScript
-	add_stdscript AskNumber1FScript
-	add_stdscript AskNumber2FScript
-	add_stdscript RegisteredNumberFScript
-	add_stdscript NumberAcceptedFScript
-	add_stdscript NumberDeclinedFScript
-	add_stdscript PhoneFullFScript
-	add_stdscript RematchFScript
-	add_stdscript GiftFScript
-	add_stdscript PackFullFScript
+	add_stdscript AskNumber1FScript	;unused
+	add_stdscript AskNumber2FScript	;unused
+	add_stdscript RegisteredNumberFScript ;unused
+	add_stdscript NumberAcceptedFScript ;unused
+	add_stdscript NumberDeclinedFScript ;unused
+	add_stdscript PhoneFullFScript	;unused
+	add_stdscript RematchFScript	;unused
+	add_stdscript GiftFScript	;unused
+	add_stdscript PackFullFScript ;unused
 	add_stdscript RematchGiftFScript  ;unused
 	add_stdscript GymStatue1Script
 	add_stdscript GymStatue2Script
@@ -929,85 +929,30 @@ RematchGiftMScript:
 	end
 
 AskNumber1FScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyAskNumber1Text
 	end
 
 AskNumber2FScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyAskNumber2Text
 	end
 
 RegisteredNumberFScript:
-	farwritetext RegisteredNumber2Text
-	playsound SFX_REGISTER_PHONE_NUMBER
-	waitsfx
-	promptbutton
 	end
 
 NumberAcceptedFScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyNumberAcceptedText
-	waitbutton
-	closetext
 	end
 
 NumberDeclinedFScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyNumberDeclinedText
-	waitbutton
-	closetext
 	end
 
 PhoneFullFScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyPhoneFullText
-	waitbutton
-	closetext
 	end
 
 RematchFScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyRematchText
-	waitbutton
-	closetext
 	end
 
 GiftFScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyGiftText
-	promptbutton
 	end
 
 PackFullFScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Tiffany:
-	farwritetext TiffanyPackFullText
-	waitbutton
-	closetext
 	end
 
 RematchGiftFScript:
