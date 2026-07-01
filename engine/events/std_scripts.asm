@@ -38,7 +38,7 @@ StdScripts::
 	add_stdscript RematchMScript
 	add_stdscript GiftMScript
 	add_stdscript PackFullMScript
-	add_stdscript RematchGiftMScript
+	add_stdscript RematchGiftMScript ;unused
 	add_stdscript AskNumber1FScript	;unused
 	add_stdscript AskNumber2FScript	;unused
 	add_stdscript RegisteredNumberFScript ;unused
@@ -645,15 +645,11 @@ InitializeEventsScript:
 AskNumber1MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Joey:
-	farwritetext JoeyAskNumber1Text
-	end
 .Wade:
 	farwritetext WadeAskNumber1Text
 	end
@@ -670,15 +666,11 @@ AskNumber1MScript:
 AskNumber2MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Joey:
-	farwritetext JoeyAskNumber2Text
-	end
 .Wade:
 	farwritetext WadeAskNumber2Text
 	end
@@ -701,17 +693,11 @@ RegisteredNumberMScript:
 
 NumberAcceptedMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Joey:
-	farwritetext JoeyNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Wade:
 	farwritetext WadeNumberAcceptedText
 	waitbutton
@@ -735,17 +721,11 @@ NumberAcceptedMScript:
 
 NumberDeclinedMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Joey:
-	farwritetext JoeyNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Wade:
 	farwritetext WadeNumberDeclinedText
 	waitbutton
@@ -769,17 +749,11 @@ NumberDeclinedMScript:
 
 PhoneFullMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Joey:
-	farwritetext JoeyPhoneFullText
-	waitbutton
-	closetext
-	end
 .Wade:
 	farwritetext WadePhoneFullText
 	waitbutton
@@ -803,16 +777,10 @@ PhoneFullMScript:
 
 RematchMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Joey:
-	farwritetext JoeyRematchText
-	waitbutton
-	closetext
-	end
 .Wade:
 	farwritetext WadeRematchText
 	waitbutton
@@ -849,16 +817,10 @@ GiftMScript:
 
 PackFullMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Joey:
-	farwritetext JoeyPackFullText
-	waitbutton
-	closetext
-	end
 .Wade:
 	farwritetext WadePackFullText
 	waitbutton
@@ -876,13 +838,6 @@ PackFullMScript:
 	end
 
 RematchGiftMScript:
-	opentext
-	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
-
-.Joey:
-	farwritetext JoeyRematchGiftText
-	promptbutton
 	end
 
 AskNumber1FScript:

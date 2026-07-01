@@ -24,16 +24,10 @@ PhoneScript_AnswerPhone_Male:
 	checktime EVE | NITE
 	iftrue PhoneScript_AnswerPhone_Male_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyAnswerPhoneText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeAnswerPhoneText
@@ -57,16 +51,10 @@ PhoneScript_AnswerPhone_Male:
 
 PhoneScript_AnswerPhone_Male_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyAnswerPhoneDayText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeAnswerPhoneDayText
@@ -90,16 +78,10 @@ PhoneScript_AnswerPhone_Male_Day:
 
 PhoneScript_AnswerPhone_Male_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyAnswerPhoneNiteText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeAnswerPhoneNiteText
@@ -130,16 +112,10 @@ PhoneScript_GreetPhone_Male:
 	checktime EVE | NITE
 	iftrue PhoneScript_GreetPhone_Male_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyGreetText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeGreetText
@@ -163,16 +139,10 @@ PhoneScript_GreetPhone_Male:
 
 PhoneScript_GreetPhone_Male_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyGreetDayText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeGreetDayText
@@ -196,16 +166,10 @@ PhoneScript_GreetPhone_Male_Day:
 
 PhoneScript_GreetPhone_Male_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyGreetNiteText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeGreetNiteText
@@ -232,16 +196,10 @@ PhoneScript_GreetPhone_Female:
 
 PhoneScript_Generic_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyGenericText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeGenericText

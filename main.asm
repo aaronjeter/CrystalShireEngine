@@ -340,7 +340,6 @@ INCLUDE "engine/phone/scripts/unused.asm"
 INCLUDE "engine/phone/scripts/mom.asm"
 INCLUDE "engine/phone/scripts/bill.asm"
 INCLUDE "engine/phone/scripts/elm.asm"
-INCLUDE "engine/phone/scripts/joey.asm"
 INCLUDE "engine/phone/scripts/wade.asm"
 INCLUDE "engine/phone/scripts/ralph.asm"
 INCLUDE "engine/phone/scripts/derek.asm"
@@ -519,7 +518,6 @@ INCLUDE "mobile/mobile_5c.asm"
 SECTION "Crystal Phone Text 2", ROMX
 
 INCLUDE "data/phone/text/bike_shop.asm"
-INCLUDE "data/phone/text/joey_caller.asm"
 INCLUDE "data/phone/text/wade_caller.asm"
 INCLUDE "data/phone/text/ralph_caller.asm"
 
@@ -537,7 +535,6 @@ INCLUDE "mobile/mobile_5f.asm"
 SECTION "Phone Text 2", ROMX
 
 INCLUDE "data/text/std_text.asm"
-INCLUDE "data/phone/text/joey_overworld.asm"
 INCLUDE "data/phone/text/wade_overworld.asm"
 INCLUDE "data/phone/text/ralph_overworld.asm"
 
@@ -548,7 +545,6 @@ INCLUDE "data/phone/text/mom.asm"
 INCLUDE "data/phone/text/bill.asm"
 INCLUDE "data/phone/text/elm.asm"
 INCLUDE "data/phone/text/unknown_callee.asm"
-INCLUDE "data/phone/text/joey_callee.asm"
 INCLUDE "data/phone/text/wade_callee.asm"
 INCLUDE "data/phone/text/ralph_callee.asm"
 INCLUDE "data/phone/text/derek_callee.asm"

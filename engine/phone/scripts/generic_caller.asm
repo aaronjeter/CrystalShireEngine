@@ -56,16 +56,10 @@ Phone_GotAwayCall_Female:
 
 Phone_WhosBragging_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyMonLookingSharperText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeAreYourMonGrowingText
@@ -92,16 +86,10 @@ Phone_WhosBragging_Female:
 
 Phone_WhoDefeatedMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyDefeatedMonText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeDefeatedMonText
@@ -128,16 +116,10 @@ Phone_WhoDefeatedMon_Female:
 
 Phone_WhoLostAMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyLostAMonText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeLostAMonText
@@ -172,15 +154,9 @@ PhoneScript_WantsToBattle_Female:
 
 PhoneScript_RematchText_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyBattleRematchText
-	promptbutton
-	end
 
 .Wade:
 	farwritetext WadeBattleRematchText
@@ -202,15 +178,10 @@ PhoneScript_RematchText_Female:
 
 PhoneScript_HangUpText_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Joey:
-	farwritetext JoeyHangUpText
-	end
 
 .Wade:
 	farwritetext WadeHangUpText

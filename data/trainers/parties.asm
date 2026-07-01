@@ -1400,18 +1400,6 @@ YoungsterGroup:
 	dw DIGLETT
 	db -1 ; end
 
-	next_list_item ; YOUNGSTER (7) Route 30 Rematch 1
-	db "Joey@", TRAINERTYPE_NORMAL
-	db 10
-	dw RATTATA
-	db -1 ; end
-
-	next_list_item ; YOUNGSTER (8) Route 30 Rematch 2
-	db "Joey@", TRAINERTYPE_NORMAL
-	db 12
-	dw RATICATE
-	db -1 ; end
-
 	next_list_item ; YOUNGSTER (9) Route 03
 	db "Warren@", TRAINERTYPE_NORMAL
 	db 3
@@ -1442,18 +1430,6 @@ YoungsterGroup:
 	dw SANDSLASH
 	db 4
 	dw CROBAT
-	db -1 ; end
-
-	next_list_item ; YOUNGSTER (13) Route 30 Rematch 3
-	db "Joey@", TRAINERTYPE_NORMAL
-	db 15
-	dw RATICATE
-	db -1 ; end
-
-	next_list_item ; YOUNGSTER (14) Route 30 Rematch 4
-	db "Joey@", TRAINERTYPE_NORMAL
-	db 20
-	dw RATICATE
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (15) Ilex West (Contest placeholder team)
