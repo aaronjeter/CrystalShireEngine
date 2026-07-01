@@ -83,6 +83,13 @@ LilycoveHarborSignText:
 	text "Lilycove Voyages"
 	done
 
+LilycoveTwinScript:
+	jumptextfaceplayer LilycoveTwinText
+
+LilycoveTwinText:
+	text "Hi!"
+	done
+
 LilycoveCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -103,7 +110,8 @@ LilycoveCity_MapEvents:
 	def_object_events
 	object_event  46,  33, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, LilycoveMossdeepGuyScript, -1
 	object_event  46,  34, SPRITE_ESPEON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Lilycove_Espeon, -1
-	object_event  66,  08, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
+	object_event  66,  04, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
 	object_event  50,  31, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
 	object_event  22,  32, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
-	
+	object_event  39,  22, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, LilycoveTwinScript, -1
+	object_event  42,  23, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, LilycoveTwinScript, -1

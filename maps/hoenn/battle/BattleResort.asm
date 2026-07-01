@@ -69,6 +69,23 @@ BattleResortBlueText:
 	cont "the Cup!"
 	done
 
+BattleResortGuideScript:
+	jumptextfaceplayer BattleResortGuideText
+
+BattleResortGuideText:
+	text "Yo, Champ in the"
+	line "making!"
+
+	para "This is the real"
+	line "deal, the Big"
+	cont "Leagues!"
+
+	para "The World Cup"
+	line "Tournament is"
+	cont "dead ahead, if"
+	cont "you're ready."
+	done
+
 BattleResortRedScript:
 	jumptextfaceplayer BattleResortRedText
 
@@ -114,3 +131,4 @@ BattleResort_MapEvents:
 	object_event 46, 44, SPRITE_DAISY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BattleResortDaisyScript, -1
 	object_event 47, 53, SPRITE_BLUE, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BattleResortBlueScript, -1
 	object_event 05, 05, SPRITE_RED, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BattleResortRedScript, -1
+	object_event 27, 46, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BattleResortGuideScript, -1
