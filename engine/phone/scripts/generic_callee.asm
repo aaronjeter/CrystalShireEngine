@@ -146,45 +146,27 @@ PhoneScript_AnswerPhone_Female:
 	iftrue PhoneScript_AnswerPhone_Female_Nite
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyAnswerPhoneText
 	promptbutton
 	end
 
-.Erin:
-	farwritetext ErinAnswerPhoneText
-	promptbutton
-	end
-
 PhoneScript_AnswerPhone_Female_Day:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyAnswerPhoneDayText
 	promptbutton
 	end
 
-.Erin:
-	farwritetext ErinAnswerPhoneDayText
-	promptbutton
-	end
-
 PhoneScript_AnswerPhone_Female_Nite:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyAnswerPhoneNiteText
-	promptbutton
-	end
-
-.Erin:
-	farwritetext ErinAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -316,45 +298,27 @@ PhoneScript_GreetPhone_Female:
 	iftrue PhoneScript_GreetPhone_Female_Nite
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyGreetText
 	promptbutton
 	end
 
-.Erin:
-	farwritetext ErinGreetText
-	promptbutton
-	end
-
 PhoneScript_GreetPhone_Female_Day:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyGreetDayText
 	promptbutton
 	end
 
-.Erin:
-	farwritetext ErinGreetDayText
-	promptbutton
-	end
-
 PhoneScript_GreetPhone_Female_Nite:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyGreetNiteText
-	promptbutton
-	end
-
-.Erin:
-	farwritetext ErinGreetNiteText
 	promptbutton
 	end
 
@@ -394,15 +358,9 @@ PhoneScript_Generic_Male:
 PhoneScript_Generic_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyGenericText
-	promptbutton
-	end
-
-.Erin:
-	farwritetext ErinGenericText
 	promptbutton
 	end
 

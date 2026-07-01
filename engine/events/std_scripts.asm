@@ -48,7 +48,7 @@ StdScripts::
 	add_stdscript RematchFScript
 	add_stdscript GiftFScript
 	add_stdscript PackFullFScript
-	add_stdscript RematchGiftFScript
+	add_stdscript RematchGiftFScript  ;unused
 	add_stdscript GymStatue1Script
 	add_stdscript GymStatue2Script
 	add_stdscript ReceiveItemScript
@@ -931,25 +931,17 @@ RematchGiftMScript:
 AskNumber1FScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyAskNumber1Text
-	end
-.Erin:
-	farwritetext ErinAskNumber1Text
 	end
 
 AskNumber2FScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyAskNumber2Text
-	end
-.Erin:
-	farwritetext ErinAskNumber2Text
 	end
 
 RegisteredNumberFScript:
@@ -962,15 +954,9 @@ RegisteredNumberFScript:
 NumberAcceptedFScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyNumberAcceptedText
-	waitbutton
-	closetext
-	end
-.Erin:
-	farwritetext ErinNumberAcceptedText
 	waitbutton
 	closetext
 	end
@@ -978,15 +964,9 @@ NumberAcceptedFScript:
 NumberDeclinedFScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyNumberDeclinedText
-	waitbutton
-	closetext
-	end
-.Erin:
-	farwritetext ErinNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -994,15 +974,9 @@ NumberDeclinedFScript:
 PhoneFullFScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyPhoneFullText
-	waitbutton
-	closetext
-	end
-.Erin:
-	farwritetext ErinPhoneFullText
 	waitbutton
 	closetext
 	end
@@ -1010,15 +984,9 @@ PhoneFullFScript:
 RematchFScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyRematchText
-	waitbutton
-	closetext
-	end
-.Erin:
-	farwritetext ErinRematchText
 	waitbutton
 	closetext
 	end
@@ -1035,27 +1003,14 @@ GiftFScript:
 PackFullFScript:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyPackFullText
 	waitbutton
 	closetext
 	end
-.Erin:
-	farwritetext ErinPackFullText
-	waitbutton
-	closetext
-	end
 
 RematchGiftFScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Erin:
-	opentext
-	farwritetext ErinRematchGiftText
-	promptbutton
 	end
 
 GymStatue1Script:

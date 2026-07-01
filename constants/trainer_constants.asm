@@ -723,15 +723,13 @@ DEF KRIS EQU __trainer_class__
 	const HOPE
 	const SHARON
 	const DEBRA
-	const ERIN1
+	const ERIN
 	const HEIDI
 	const EDNA
 	const TIFFANY1
 	const TIFFANY2
-	const ERIN2
 	const TANYA
 	const TIFFANY3
-	const ERIN3
 	const TIFFANY4
 	const ROUTE117_MARIA
 	const ROUTE117_MELINA

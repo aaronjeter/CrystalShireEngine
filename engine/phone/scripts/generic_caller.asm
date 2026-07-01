@@ -90,15 +90,9 @@ Phone_WhosBragging_Male:
 Phone_WhosBragging_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyMonIsAdorableText
-	promptbutton
-	end
-
-.Erin:
-	farwritetext ErinMonIsMuchStrongerText
 	promptbutton
 	end
 
@@ -138,15 +132,9 @@ Phone_WhoDefeatedMon_Male:
 Phone_WhoDefeatedMon_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyDefeatedMonText
-	promptbutton
-	end
-
-.Erin:
-	farwritetext ErinDefeatedMonText
 	promptbutton
 	end
 
@@ -186,15 +174,9 @@ Phone_WhoLostAMon_Male:
 Phone_WhoLostAMon_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyLostAMonText
-	promptbutton
-	end
-
-.Erin:
-	farwritetext ErinLostAMonText
 	promptbutton
 	end
 
@@ -242,15 +224,9 @@ PhoneScript_RematchText_Male:
 PhoneScript_RematchText_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyBattleRematchText
-	promptbutton
-	end
-
-.Erin:
-	farwritetext ErinBattleRematchText
 	promptbutton
 	end
 
@@ -294,14 +270,9 @@ PhoneScript_HangUpText_Male:
 PhoneScript_HangUpText_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-	ifequal PHONE_PICNICKER_ERIN, .Erin
 
 .Tiffany:
 	farwritetext TiffanyHangUpText
-	end
-
-.Erin:
-	farwritetext ErinHangUpText
 	end
 
 Phone_CheckIfUnseenRare_Male:

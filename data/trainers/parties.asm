@@ -6304,14 +6304,6 @@ PicnickerGroup:
 	dw ENCORE, DOUBLESLAP, MINIMIZE, METRONOME
 	db -1 ; end
 
-	next_list_item ; PICNICKER (18) Route 46
-	db "Erin@", TRAINERTYPE_NORMAL
-	db 7
-	dw PONYTA
-	db 7
-	dw PONYTA
-	db -1 ; end
-
 	next_list_item ; PICNICKER (19) Celadon City Gym
 	db "Tanya@", TRAINERTYPE_NORMAL
 	db 7
@@ -6323,19 +6315,6 @@ PicnickerGroup:
 	db 9
 	dw CLEFAIRY
 	dw ENCORE, SING, DOUBLESLAP, MINIMIZE
-	db -1 ; end
-
-	next_list_item ; PICNICKER (21) Route 46
-	db "Erin@", TRAINERTYPE_MOVES
-	db 8
-	dw PONYTA
-	dw DOUBLE_TEAM, STOMP, FIRE_SPIN, SUNNY_DAY
-	db 9
-	dw RAICHU
-	dw SWIFT, MUD_SLAP, QUICK_ATTACK, THUNDERBOLT
-	db 8
-	dw PONYTA
-	dw DOUBLE_TEAM, STOMP, FIRE_SPIN, SUNNY_DAY
 	db -1 ; end
 
 	next_list_item ; PICNICKER (26) Route 43

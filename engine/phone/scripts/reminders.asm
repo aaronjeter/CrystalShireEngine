@@ -21,7 +21,3 @@ TullyForwardScript:
 TiffanyAsleepScript:
 	farwritetext TiffanyAsleepText
 	end
-
-ErinComeBattleScript:
-	farwritetext ErinComeBattleText
-	end

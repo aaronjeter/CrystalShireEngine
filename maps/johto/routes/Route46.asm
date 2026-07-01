@@ -24,120 +24,14 @@ TrainerCamperTed:
 	end
 
 TrainerPicnickerErin1:
-	trainer PICNICKER, ERIN1, EVENT_BEAT_PICNICKER_ERIN, PicnickerErin1SeenText, PicnickerErin1BeatenText, 0, .Script
+	trainer PICNICKER, ERIN, EVENT_BEAT_PICNICKER_ERIN, PicnickerErin1SeenText, PicnickerErin1BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_PICNICKER_ERIN
 	endifjustbattled
 	opentext
-	checkflag ENGINE_ERIN_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_PICNICKER_ERIN
-	iftrue Route46NumberAcceptedF
-	checkevent EVENT_ERIN_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedAlready
 	writetext PicnickerErinAfterBattleText
-	promptbutton
-	setevent EVENT_ERIN_ASKED_FOR_PHONE_NUMBER
-	scall Route46AskNumber1F
-	sjump .AskForNumber
-
-.AskedAlready:
-	scall Route46AskNumber2F
-.AskForNumber:
-	askforphonenumber PHONE_PICNICKER_ERIN
-	ifequal PHONE_CONTACTS_FULL, Route46PhoneFullF
-	ifequal PHONE_CONTACT_REFUSED, Route46NumberDeclinedF
-	gettrainername STRING_BUFFER_3, PICNICKER, ERIN1
-	scall Route46RegisteredNumberF
-	sjump Route46NumberAcceptedF
-
-.WantsBattle:
-	scall Route46RematchF
-	winlosstext PicnickerErin1BeatenText, 0
-.Fight2:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight2
-.Fight1:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight1
-.LoadFight0:
-	loadtrainer PICNICKER, ERIN1
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_ERIN_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer PICNICKER, ERIN2
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_ERIN_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer PICNICKER, ERIN3
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_ERIN_READY_FOR_REMATCH
-	checkevent EVENT_ERIN_CALCIUM
-	iftrue .HasCalcium
-	checkevent EVENT_GOT_CALCIUM_FROM_ERIN
-	iftrue .GotCalciumAlready
-	scall Route46RematchGiftF
-	verbosegiveitem CALCIUM
-	iffalse ErinNoRoomForCalcium
-	setevent EVENT_GOT_CALCIUM_FROM_ERIN
-	sjump Route46NumberAcceptedF
-
-.GotCalciumAlready:
-	end
-
-.HasCalcium:
-	opentext
-	writetext PicnickerErin2BeatenText
 	waitbutton
-	verbosegiveitem CALCIUM
-	iffalse ErinNoRoomForCalcium
-	clearevent EVENT_ERIN_CALCIUM
-	setevent EVENT_GOT_CALCIUM_FROM_ERIN
-	sjump Route46NumberAcceptedF
-
-Route46AskNumber1F:
-	jumpstd AskNumber1FScript
-	end
-
-Route46AskNumber2F:
-	jumpstd AskNumber2FScript
-	end
-
-Route46RegisteredNumberF:
-	jumpstd RegisteredNumberFScript
-	end
-
-Route46NumberAcceptedF:
-	jumpstd NumberAcceptedFScript
-	end
-
-Route46NumberDeclinedF:
-	jumpstd NumberDeclinedFScript
-	end
-
-Route46PhoneFullF:
-	jumpstd PhoneFullFScript
-	end
-
-Route46RematchF:
-	jumpstd RematchFScript
-	end
-
-ErinNoRoomForCalcium:
-	setevent EVENT_ERIN_CALCIUM
-	jumpstd PackFullFScript
-	end
-
-Route46RematchGiftF:
-	jumpstd RematchGiftFScript
+	closetext
 	end
 
 TrainerHikerBailey:
