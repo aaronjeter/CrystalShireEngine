@@ -1,3 +1,0 @@
-RalphHurryScript:
-	farwritetext RalphHurryText
-	end

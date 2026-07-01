@@ -28,7 +28,7 @@ PhoneContacts:
 	phone COOLTRAINERF, REENA,                 ROUTE_27,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone YOUNGSTER,    JOEY,                  ROUTE_30,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone BUG_CATCHER,  WADE,                  ROUTE_31,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone FISHER,       RALPH1,                ROUTE_32,                  ANYTIME, RalphPhoneCalleeScript,   ANYTIME, RalphPhoneCallerScript
+	phone FISHER,       RALPH,                 ROUTE_32,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone PICNICKER,    LIZ,                   ROUTE_32,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone HIKER,        ANTHONY,               ROUTE_33,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone CAMPER,       TODD,                  ROUTE_34,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript

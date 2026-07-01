@@ -56,14 +56,8 @@ Phone_GotAwayCall_Female:
 
 Phone_WhosBragging_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphNeglectingKidsText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekCheekPinchingText
@@ -80,14 +74,8 @@ Phone_WhosBragging_Female:
 
 Phone_WhoDefeatedMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphDefeatedMonText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekDefeatedMonText
@@ -104,14 +92,8 @@ Phone_WhoDefeatedMon_Female:
 
 Phone_WhoLostAMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphLostAMonText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekLostAMonText
@@ -136,13 +118,7 @@ PhoneScript_WantsToBattle_Female:
 
 PhoneScript_RematchText_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphBattleRematchText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyBattleRematchText
@@ -154,13 +130,8 @@ PhoneScript_RematchText_Female:
 
 PhoneScript_HangUpText_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphHangUpText
-	end
 
 .Derek:
 	farwritetext DerekHangUpText
@@ -199,11 +170,6 @@ PhoneScript_BugCatchingContest:
 
 .Derek:
 	farwritetext DerekBugCatchingContestText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-RalphItemScript:
-	farwritetext RalphItemText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 

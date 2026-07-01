@@ -158,77 +158,14 @@ TrainerFisherJustin:
 	end
 
 TrainerFisherRalph1:
-	trainer FISHER, RALPH1, EVENT_BEAT_FISHER_RALPH, FisherRalph1SeenText, FisherRalph1BeatenText, 0, .Script
+	trainer FISHER, RALPH, EVENT_BEAT_FISHER_RALPH, FisherRalph1SeenText, FisherRalph1BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_FISHER_RALPH
 	endifjustbattled
 	opentext
-	checkflag ENGINE_RALPH_READY_FOR_REMATCH
-	iftrue .Rematch
-	checkflag ENGINE_QWILFISH_SWARM
-	iftrue .Swarm
-	checkcellnum PHONE_FISHER_RALPH
-	iftrue .NumberAccepted
-	checkevent EVENT_RALPH_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgain
 	writetext FisherRalphAfterText
-	promptbutton
-	setevent EVENT_RALPH_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskAgain:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_FISHER_RALPH
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, FISHER, RALPH1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.Rematch:
-	scall .RematchStd
-	winlosstext FisherRalph1BeatenText, 0
-	loadtrainer FISHER, RALPH1
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_RALPH_READY_FOR_REMATCH
-	end
-
-.Swarm:
-	writetext FisherRalphSwarmText
 	waitbutton
 	closetext
-	end
-
-.AskNumber1:
-	jumpstd AskNumber1MScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2MScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberMScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedMScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedMScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullMScript
-	end
-
-.RematchStd:
-	jumpstd RematchMScript
 	end
 
 TrainerFisherHenry:

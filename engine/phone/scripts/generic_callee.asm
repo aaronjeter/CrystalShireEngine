@@ -24,14 +24,8 @@ PhoneScript_AnswerPhone_Male:
 	checktime EVE | NITE
 	iftrue PhoneScript_AnswerPhone_Male_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphAnswerPhoneText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekAnswerPhoneText
@@ -45,14 +39,8 @@ PhoneScript_AnswerPhone_Male:
 
 PhoneScript_AnswerPhone_Male_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphAnswerPhoneDayText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekAnswerPhoneDayText
@@ -66,14 +54,8 @@ PhoneScript_AnswerPhone_Male_Day:
 
 PhoneScript_AnswerPhone_Male_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphAnswerPhoneNiteText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekAnswerPhoneNiteText
@@ -94,14 +76,8 @@ PhoneScript_GreetPhone_Male:
 	checktime EVE | NITE
 	iftrue PhoneScript_GreetPhone_Male_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphGreetText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekGreetText
@@ -115,14 +91,8 @@ PhoneScript_GreetPhone_Male:
 
 PhoneScript_GreetPhone_Male_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphGreetDayText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekGreetDayText
@@ -136,14 +106,8 @@ PhoneScript_GreetPhone_Male_Day:
 
 PhoneScript_GreetPhone_Male_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphGreetNiteText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekGreetNiteText
@@ -160,14 +124,8 @@ PhoneScript_GreetPhone_Female:
 
 PhoneScript_Generic_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Ralph:
-	farwritetext RalphGenericText
-	promptbutton
-	end
 
 .Derek:
 	farwritetext DerekGenericText

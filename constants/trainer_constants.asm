@@ -465,7 +465,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass FISHER ; 25
 	const JUSTIN
-	const RALPH1
+	const RALPH
 	const ARNOLD
 	const KYLE
 	const HENRY

@@ -1,8 +1,3 @@
-RalphNoItemScript:
-	farwritetext RalphNoItemText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
 DerekHangUpScript:
 	farwritetext DerekLetsGetTogetherText
 	promptbutton
