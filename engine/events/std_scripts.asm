@@ -645,12 +645,8 @@ InitializeEventsScript:
 AskNumber1MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Derek:
-	farwritetext DerekAskNumber1Text
-	end
 .Tully:
 	farwritetext TullyAskNumber1Text
 	end
@@ -658,12 +654,8 @@ AskNumber1MScript:
 AskNumber2MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Derek:
-	farwritetext DerekAskNumber2Text
-	end
 .Tully:
 	farwritetext TullyAskNumber2Text
 	end
@@ -677,14 +669,8 @@ RegisteredNumberMScript:
 
 NumberAcceptedMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Derek:
-	farwritetext DerekNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Tully:
 	farwritetext TullyNumberAcceptedText
 	waitbutton
@@ -693,14 +679,8 @@ NumberAcceptedMScript:
 
 NumberDeclinedMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Derek:
-	farwritetext DerekNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Tully:
 	farwritetext TullyNumberDeclinedText
 	waitbutton
@@ -709,14 +689,8 @@ NumberDeclinedMScript:
 
 PhoneFullMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Derek:
-	farwritetext DerekPhoneFullText
-	waitbutton
-	closetext
-	end
 .Tully:
 	farwritetext TullyPhoneFullText
 	waitbutton
@@ -735,13 +709,8 @@ RematchMScript:
 
 GiftMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Derek:
-	farwritetext DerekGiftText
-	promptbutton
-	end
 .Tully:
 	farwritetext TullyGiftText
 	promptbutton
@@ -749,14 +718,8 @@ GiftMScript:
 
 PackFullMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Derek:
-	farwritetext DerekPackFullText
-	waitbutton
-	closetext
-	end
 .Tully:
 	farwritetext TullyPackFullText
 	waitbutton

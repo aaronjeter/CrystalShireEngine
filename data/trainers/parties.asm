@@ -7021,20 +7021,6 @@ PokefanMGroup:
 	dw BERRY
 	db -1 ; end
 
-	next_list_item ; POKEFANM (10) Route 39
-	db "Derek@", TRAINERTYPE_ITEM
-	db 9
-	dw PIKACHU
-	dw BERRY
-	db -1 ; end
-
-	next_list_item ; POKEFANM (11) Route 39
-	db "Derek@", TRAINERTYPE_ITEM
-	db 10
-	dw PIKACHU
-	dw BERRY
-	db -1 ; end
-
 	next_list_item ; POKEFANM (12) Route 13
 	db "Alex@", TRAINERTYPE_ITEM
 	db 7

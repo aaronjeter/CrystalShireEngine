@@ -56,13 +56,7 @@ Phone_GotAwayCall_Female:
 
 Phone_WhosBragging_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekCheekPinchingText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyMonHasGrownText
@@ -74,13 +68,7 @@ Phone_WhosBragging_Female:
 
 Phone_WhoDefeatedMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekDefeatedMonText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyDefeatedMonText
@@ -92,13 +80,7 @@ Phone_WhoDefeatedMon_Female:
 
 Phone_WhoLostAMon_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekLostAMonText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyLostAMonText
@@ -130,12 +112,7 @@ PhoneScript_RematchText_Female:
 
 PhoneScript_HangUpText_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekHangUpText
-	end
 
 .Tully:
 	farwritetext TullyHangUpText
@@ -165,22 +142,11 @@ PhoneScriptRareWildMon:
 	end
 
 PhoneScript_BugCatchingContest:
-	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
-
-.Derek:
-	farwritetext DerekBugCatchingContestText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
+	end
 
 PhoneScript_FoundItem_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekFoundItemText
-	end
 
 .Tully:
 	farwritetext TullyFoundItemText

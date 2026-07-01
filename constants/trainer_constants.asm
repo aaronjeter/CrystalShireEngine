@@ -813,7 +813,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass POKEFANM ; 3b
 	const WILLIAM
-	const DEREK1
+	const DEREK
 	const ROBERT
 	const JOSHUA
 	const CARTER
@@ -821,8 +821,6 @@ DEF KRIS EQU __trainer_class__
 	const BRANDON
 	const JEREMY
 	const COLIN
-	const DEREK2 ; unused
-	const DEREK3 ; unused
 	const ALEX
 	const REX
 	const ALLAN

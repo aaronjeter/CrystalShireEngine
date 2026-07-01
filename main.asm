@@ -256,7 +256,6 @@ INCLUDE "data/pokemon/names.asm"
 
 SECTION "Crystal Phone Text", ROMX
 
-INCLUDE "data/phone/text/derek_caller.asm"
 INCLUDE "data/phone/text/tully_caller.asm"
 
 
@@ -318,7 +317,6 @@ INCLUDE "engine/phone/scripts/buena.asm"
 
 SECTION "Phone Text", ROMX
 
-INCLUDE "data/phone/text/derek_overworld.asm"
 INCLUDE "data/phone/text/tully_overworld.asm"
 
 
@@ -339,7 +337,6 @@ INCLUDE "engine/phone/scripts/unused.asm"
 INCLUDE "engine/phone/scripts/mom.asm"
 INCLUDE "engine/phone/scripts/bill.asm"
 INCLUDE "engine/phone/scripts/elm.asm"
-INCLUDE "engine/phone/scripts/derek.asm"
 INCLUDE "engine/phone/scripts/tully.asm"
 INCLUDE "engine/phone/scripts/generic_callee.asm"
 INCLUDE "engine/events/trainer_scripts.asm"
@@ -538,7 +535,6 @@ INCLUDE "data/phone/text/mom.asm"
 INCLUDE "data/phone/text/bill.asm"
 INCLUDE "data/phone/text/elm.asm"
 INCLUDE "data/phone/text/unknown_callee.asm"
-INCLUDE "data/phone/text/derek_callee.asm"
 INCLUDE "data/phone/text/tully_callee.asm"
 INCLUDE "data/phone/text/unused.asm"
 

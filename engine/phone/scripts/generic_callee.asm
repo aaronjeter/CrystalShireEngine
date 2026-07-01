@@ -24,13 +24,7 @@ PhoneScript_AnswerPhone_Male:
 	checktime EVE | NITE
 	iftrue PhoneScript_AnswerPhone_Male_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekAnswerPhoneText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyAnswerPhoneText
@@ -39,13 +33,7 @@ PhoneScript_AnswerPhone_Male:
 
 PhoneScript_AnswerPhone_Male_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekAnswerPhoneDayText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyAnswerPhoneDayText
@@ -54,13 +42,7 @@ PhoneScript_AnswerPhone_Male_Day:
 
 PhoneScript_AnswerPhone_Male_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekAnswerPhoneNiteText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyAnswerPhoneNiteText
@@ -76,13 +58,7 @@ PhoneScript_GreetPhone_Male:
 	checktime EVE | NITE
 	iftrue PhoneScript_GreetPhone_Male_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekGreetText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyGreetText
@@ -91,13 +67,7 @@ PhoneScript_GreetPhone_Male:
 
 PhoneScript_GreetPhone_Male_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekGreetDayText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyGreetDayText
@@ -106,13 +76,7 @@ PhoneScript_GreetPhone_Male_Day:
 
 PhoneScript_GreetPhone_Male_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekGreetNiteText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyGreetNiteText
@@ -124,13 +88,7 @@ PhoneScript_GreetPhone_Female:
 
 PhoneScript_Generic_Male:
 	readvar VAR_CALLERID
-	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Derek:
-	farwritetext DerekGenericText
-	promptbutton
-	end
 
 .Tully:
 	farwritetext TullyGenericText

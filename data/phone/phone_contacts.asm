@@ -39,7 +39,7 @@ PhoneContacts:
 	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone LASS,         DANA1,                 ROUTE_38,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone SCHOOLBOY,    CHAD1,                 ROUTE_38,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone POKEFANM,     DEREK1,                ROUTE_39,                  ANYTIME, DerekPhoneCalleeScript,   ANYTIME, DerekPhoneCallerScript
+	phone POKEFANM,     DEREK,                 ROUTE_39,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone FISHER,       TULLY1,                ROUTE_42,                  ANYTIME, TullyPhoneCalleeScript,   ANYTIME, TullyPhoneCallerScript
 	phone POKEMANIAC,   BRENT1,                ROUTE_43,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone PICNICKER,    TIFFANY,               ROUTE_43,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
