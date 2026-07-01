@@ -29,15 +29,15 @@ StdScripts::
 	add_stdscript BugContestResultsWarpScript
 	add_stdscript BugContestResultsScript
 	add_stdscript InitializeEventsScript
-	add_stdscript AskNumber1MScript
-	add_stdscript AskNumber2MScript
+	add_stdscript AskNumber1MScript	;unused
+	add_stdscript AskNumber2MScript	;unused
 	add_stdscript RegisteredNumberMScript
-	add_stdscript NumberAcceptedMScript
-	add_stdscript NumberDeclinedMScript
-	add_stdscript PhoneFullMScript
-	add_stdscript RematchMScript
-	add_stdscript GiftMScript
-	add_stdscript PackFullMScript
+	add_stdscript NumberAcceptedMScript	;unused
+	add_stdscript NumberDeclinedMScript	;unused
+	add_stdscript PhoneFullMScript	;unused
+	add_stdscript RematchMScript	;unused
+	add_stdscript GiftMScript	;unused
+	add_stdscript PackFullMScript	;unused
 	add_stdscript RematchGiftMScript ;unused
 	add_stdscript AskNumber1FScript	;unused
 	add_stdscript AskNumber2FScript	;unused
@@ -643,21 +643,9 @@ InitializeEventsScript:
 	endcallback
 
 AskNumber1MScript:
-	special RandomPhoneMon
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyAskNumber1Text
 	end
 
 AskNumber2MScript:
-	special RandomPhoneMon
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyAskNumber2Text
 	end
 
 RegisteredNumberMScript:
@@ -668,62 +656,21 @@ RegisteredNumberMScript:
 	end
 
 NumberAcceptedMScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyNumberAcceptedText
-	waitbutton
-	closetext
 	end
 
 NumberDeclinedMScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyNumberDeclinedText
-	waitbutton
-	closetext
 	end
 
 PhoneFullMScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyPhoneFullText
-	waitbutton
-	closetext
 	end
 
 RematchMScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyRematchText
-	waitbutton
-	closetext
 	end
 
 GiftMScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyGiftText
-	promptbutton
 	end
 
 PackFullMScript:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyPackFullText
-	waitbutton
-	closetext
 	end
 
 RematchGiftMScript:

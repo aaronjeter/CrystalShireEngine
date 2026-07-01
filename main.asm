@@ -256,9 +256,6 @@ INCLUDE "data/pokemon/names.asm"
 
 SECTION "Crystal Phone Text", ROMX
 
-INCLUDE "data/phone/text/tully_caller.asm"
-
-
 SECTION "bank20", ROMX
 
 INCLUDE "engine/overworld/player_movement.asm"
@@ -308,17 +305,11 @@ INCLUDE "data/pokemon/first_stages.asm"
 SECTION "Phone Scripts 1", ROMX
 
 INCLUDE "engine/phone/scripts/generic_caller.asm"
-INCLUDE "engine/phone/scripts/hangups.asm"
-INCLUDE "engine/phone/scripts/reminders.asm"
-INCLUDE "engine/phone/scripts/hangups_2.asm"
 INCLUDE "engine/phone/scripts/bike_shop.asm"
 INCLUDE "engine/phone/scripts/buena.asm"
 
 
 SECTION "Phone Text", ROMX
-
-INCLUDE "data/phone/text/tully_overworld.asm"
-
 
 SECTION "bank2E", ROMX
 
@@ -337,7 +328,6 @@ INCLUDE "engine/phone/scripts/unused.asm"
 INCLUDE "engine/phone/scripts/mom.asm"
 INCLUDE "engine/phone/scripts/bill.asm"
 INCLUDE "engine/phone/scripts/elm.asm"
-INCLUDE "engine/phone/scripts/tully.asm"
 INCLUDE "engine/phone/scripts/generic_callee.asm"
 INCLUDE "engine/events/trainer_scripts.asm"
 
@@ -535,7 +525,6 @@ INCLUDE "data/phone/text/mom.asm"
 INCLUDE "data/phone/text/bill.asm"
 INCLUDE "data/phone/text/elm.asm"
 INCLUDE "data/phone/text/unknown_callee.asm"
-INCLUDE "data/phone/text/tully_callee.asm"
 INCLUDE "data/phone/text/unused.asm"
 
 

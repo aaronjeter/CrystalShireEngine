@@ -55,36 +55,18 @@ Phone_GotAwayCall_Female:
 	farsjump PhoneScript_HangUpText_Female
 
 Phone_WhosBragging_Male:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyMonHasGrownText
-	promptbutton
 	end
 
 Phone_WhosBragging_Female:
 	end
 
 Phone_WhoDefeatedMon_Male:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyDefeatedMonText
-	promptbutton
 	end
 
 Phone_WhoDefeatedMon_Female:
 	end
 
 Phone_WhoLostAMon_Male:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyLostAMonText
-	promptbutton
 	end
 
 Phone_WhoLostAMon_Female:
@@ -99,23 +81,12 @@ PhoneScript_WantsToBattle_Female:
 	farsjump PhoneScript_HangUpText_Female
 
 PhoneScript_RematchText_Male:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyBattleRematchText
-	promptbutton
 	end
 
 PhoneScript_RematchText_Female:
 	end
 
 PhoneScript_HangUpText_Male:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyHangUpText
 	end
 
 PhoneScript_HangUpText_Female:
@@ -145,11 +116,6 @@ PhoneScript_BugCatchingContest:
 	end
 
 PhoneScript_FoundItem_Male:
-	readvar VAR_CALLERID
-	ifequal PHONE_FISHER_TULLY, .Tully
-
-.Tully:
-	farwritetext TullyFoundItemText
 	end
 
 PhoneScript_FoundItem_Female:

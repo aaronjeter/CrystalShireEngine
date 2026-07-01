@@ -1,3 +1,0 @@
-TullyForwardScript:
-	farwritetext TullyForwardText
-	end

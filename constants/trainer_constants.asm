@@ -470,7 +470,7 @@ DEF KRIS EQU __trainer_class__
 	const KYLE
 	const HENRY
 	const MARVIN
-	const TULLY1
+	const TULLY
 	const ANDRE
 	const RAYMOND
 	const WILTON
