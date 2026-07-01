@@ -6399,16 +6399,6 @@ PicnickerGroupHard:
 	dw SEAKING
 	db -1 ; end
 
-	next_list_item ; PICNICKER (9) Route 34
-	db "Gina@", TRAINERTYPE_NORMAL
-	db 4
-	dw HOPPIP
-	db 4
-	dw HOPPIP
-	db 7
-	dw IVYSAUR
-	db -1 ; end
-
 	next_list_item ; PICNICKER (10) Route 46
 	db "Erin@", TRAINERTYPE_NORMAL
 	db 6
@@ -6431,16 +6421,6 @@ PicnickerGroupHard:
 	dw NIDORINA
 	db 6
 	dw RAICHU
-	db -1 ; end
-
-	next_list_item ; PICNICKER (15) Route 34
-	db "Gina@", TRAINERTYPE_NORMAL
-	db 6
-	dw SKIPLOOM
-	db 6
-	dw SKIPLOOM
-	db 9
-	dw IVYSAUR
 	db -1 ; end
 
 	next_list_item ; PICNICKER (16) Route 43
@@ -6489,29 +6469,6 @@ PicnickerGroupHard:
 	db 8
 	dw PONYTA
 	dw DOUBLE_TEAM, STOMP, FIRE_SPIN, SUNNY_DAY
-	db -1 ; end
-
-	next_list_item ; PICNICKER (24) Route 34
-	db "Gina@", TRAINERTYPE_NORMAL
-	db 7
-	dw SKIPLOOM
-	db 7
-	dw SKIPLOOM
-	db 9
-	dw IVYSAUR
-	db -1 ; end
-
-	next_list_item ; PICNICKER (25) Route 34
-	db "Gina@", TRAINERTYPE_MOVES
-	db 9
-	dw JUMPLUFF
-	dw STUN_SPORE, SUNNY_DAY, LEECH_SEED, COTTON_SPORE
-	db 9
-	dw JUMPLUFF
-	dw SUNNY_DAY, SLEEP_POWDER, LEECH_SEED, COTTON_SPORE
-	db 10
-	dw VENUSAUR
-	dw SOLARBEAM, RAZOR_LEAF, HEADBUTT, MUD_SLAP
 	db -1 ; end
 
 	next_list_item ; PICNICKER (26) Route 43
@@ -6732,26 +6689,6 @@ CamperGroupHard:
 	dw MANKEY
 	db -1 ; end
 
-	next_list_item ; CAMPER (12) Route 34
-	db "Todd@", TRAINERTYPE_NORMAL
-	db 5
-	dw GEODUDE
-	db 5
-	dw GEODUDE
-	db 9
-	dw PSYDUCK
-	db -1 ; end
-
-	next_list_item ; CAMPER (13) Route 34
-	db "Todd@", TRAINERTYPE_NORMAL
-	db 6
-	dw GEODUDE
-	db 6
-	dw GEODUDE
-	db 9
-	dw PSYDUCK
-	db -1 ; end
-
 	next_list_item ; CAMPER (14) Unreferenced
 	db "Thomas@", TRAINERTYPE_NORMAL
 	db 3
@@ -6816,34 +6753,6 @@ CamperGroupHard:
 	dw SANDSLASH
 	db 4
 	dw ZUBAT
-	db -1 ; end
-
-	next_list_item ; CAMPER (20) Route 34
-	db "Todd@", TRAINERTYPE_NORMAL
-	db 5
-	dw GRAVELER
-	db 5
-	dw GRAVELER
-	db 6
-	dw SLUGMA
-	db 8
-	dw PSYDUCK
-	db -1 ; end
-
-	next_list_item ; CAMPER (21) Route 34
-	db "Todd@", TRAINERTYPE_MOVES
-	db 7
-	dw GRAVELER
-	dw SELFDESTRUCT, ROCK_THROW, HARDEN, MAGNITUDE
-	db 7
-	dw GRAVELER
-	dw SELFDESTRUCT, ROCK_THROW, HARDEN, MAGNITUDE
-	db 9
-	dw MAGCARGO
-	dw ROCK_THROW, HARDEN, AMNESIA, FLAMETHROWER
-	db 10
-	dw GOLDUCK
-	dw DISABLE, PSYCHIC_M, SURF, PSYCH_UP
 	db -1 ; end
 
 	next_list_item ; CAMPER (22) Unreferenced

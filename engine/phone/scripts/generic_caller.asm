@@ -59,7 +59,6 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -78,11 +77,6 @@ Phone_WhosBragging_Male:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddLooksCuteLikeMeText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekCheekPinchingText
 	promptbutton
@@ -95,14 +89,8 @@ Phone_WhosBragging_Male:
 
 Phone_WhosBragging_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaGettingInSyncWithMonText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyMonIsAdorableText
@@ -119,7 +107,6 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -138,11 +125,6 @@ Phone_WhoDefeatedMon_Male:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddDefeatedMonText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekDefeatedMonText
 	promptbutton
@@ -155,14 +137,8 @@ Phone_WhoDefeatedMon_Male:
 
 Phone_WhoDefeatedMon_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaDefeatedMonText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyDefeatedMonText
@@ -179,7 +155,6 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -198,11 +173,6 @@ Phone_WhoLostAMon_Male:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddLostAMonText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekLostAMonText
 	promptbutton
@@ -215,14 +185,8 @@ Phone_WhoLostAMon_Male:
 
 Phone_WhoLostAMon_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaLostAMonText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyLostAMonText
@@ -248,7 +212,6 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_FISHER_TULLY, .Tully
 
 .Huey:
@@ -271,11 +234,6 @@ PhoneScript_RematchText_Male:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddBattleRematchText
-	promptbutton
-	end
-
 .Tully:
 	farwritetext TullyBattleRematchText
 	promptbutton
@@ -283,14 +241,8 @@ PhoneScript_RematchText_Male:
 
 PhoneScript_RematchText_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaBattleRematchText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyBattleRematchText
@@ -312,7 +264,6 @@ PhoneScript_HangUpText_Male:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -332,10 +283,6 @@ PhoneScript_HangUpText_Male:
 	farwritetext RalphHangUpText
 	end
 
-.Todd:
-	farwritetext ToddHangUpText
-	end
-
 .Derek:
 	farwritetext DerekHangUpText
 	end
@@ -346,13 +293,8 @@ PhoneScript_HangUpText_Male:
 
 PhoneScript_HangUpText_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaHangUpText
-	end
 
 .Tiffany:
 	farwritetext TiffanyHangUpText
@@ -397,11 +339,6 @@ PhoneScript_BugCatchingContest:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-GinaRocketRumorScript:
-	farwritetext GinaRocketTakeoverRumorText
-	promptbutton
-	sjump PhoneScript_HangUpText_Female
-
 RalphItemScript:
 	farwritetext RalphItemText
 	promptbutton
@@ -427,18 +364,8 @@ PhoneScript_FoundItem_Male:
 
 PhoneScript_FoundItem_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
-
-.Gina:
-	farwritetext GinaFoundItemText
-	end
 
 .Tiffany:
 	farwritetext TiffanyFoundItemText
 	end
-
-ToddItemScript:
-	farwritetext ToddDepartmentStoreBargainSaleText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male

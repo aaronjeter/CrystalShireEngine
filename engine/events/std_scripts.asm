@@ -649,7 +649,6 @@ AskNumber1MScript:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -665,9 +664,6 @@ AskNumber1MScript:
 .Ralph:
 	farwritetext RalphAskNumber1Text
 	end
-.Todd:
-	farwritetext ToddAskNumber1Text
-	end
 .Derek:
 	farwritetext DerekAskNumber1Text
 	end
@@ -682,7 +678,6 @@ AskNumber2MScript:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -697,9 +692,6 @@ AskNumber2MScript:
 	end
 .Ralph:
 	farwritetext RalphAskNumber2Text
-	end
-.Todd:
-	farwritetext ToddAskNumber2Text
 	end
 .Derek:
 	farwritetext DerekAskNumber2Text
@@ -721,7 +713,6 @@ NumberAcceptedMScript:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -745,11 +736,6 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
-.Todd:
-	farwritetext ToddNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Derek:
 	farwritetext DerekNumberAcceptedText
 	waitbutton
@@ -767,7 +753,6 @@ NumberDeclinedMScript:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -791,11 +776,6 @@ NumberDeclinedMScript:
 	waitbutton
 	closetext
 	end
-.Todd:
-	farwritetext ToddNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Derek:
 	farwritetext DerekNumberDeclinedText
 	waitbutton
@@ -813,7 +793,6 @@ PhoneFullMScript:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -837,11 +816,6 @@ PhoneFullMScript:
 	waitbutton
 	closetext
 	end
-.Todd:
-	farwritetext ToddPhoneFullText
-	waitbutton
-	closetext
-	end
 .Derek:
 	farwritetext DerekPhoneFullText
 	waitbutton
@@ -859,7 +833,6 @@ RematchMScript:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_FISHER_TULLY, .Tully
 
 .Huey:
@@ -879,11 +852,6 @@ RematchMScript:
 	end
 .Ralph:
 	farwritetext RalphRematchText
-	waitbutton
-	closetext
-	end
-.Todd:
-	farwritetext ToddRematchText
 	waitbutton
 	closetext
 	end
@@ -962,13 +930,9 @@ RematchGiftMScript:
 
 AskNumber1FScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Gina:
-	farwritetext GinaAskNumber1Text
-	end
 .Tiffany:
 	farwritetext TiffanyAskNumber1Text
 	end
@@ -978,13 +942,9 @@ AskNumber1FScript:
 
 AskNumber2FScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Gina:
-	farwritetext GinaAskNumber2Text
-	end
 .Tiffany:
 	farwritetext TiffanyAskNumber2Text
 	end
@@ -1001,15 +961,9 @@ RegisteredNumberFScript:
 
 NumberAcceptedFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Gina:
-	farwritetext GinaNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyNumberAcceptedText
 	waitbutton
@@ -1023,15 +977,9 @@ NumberAcceptedFScript:
 
 NumberDeclinedFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Gina:
-	farwritetext GinaNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyNumberDeclinedText
 	waitbutton
@@ -1045,15 +993,9 @@ NumberDeclinedFScript:
 
 PhoneFullFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Gina:
-	farwritetext GinaPhoneFullText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyPhoneFullText
 	waitbutton
@@ -1067,15 +1009,9 @@ PhoneFullFScript:
 
 RematchFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Gina:
-	farwritetext GinaRematchText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyRematchText
 	waitbutton
@@ -1089,13 +1025,8 @@ RematchFScript:
 
 GiftFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 
-.Gina:
-	farwritetext GinaGiftText
-	promptbutton
-	end
 .Tiffany:
 	farwritetext TiffanyGiftText
 	promptbutton
@@ -1103,15 +1034,9 @@ GiftFScript:
 
 PackFullFScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
-.Gina:
-	farwritetext GinaPackFullText
-	waitbutton
-	closetext
-	end
 .Tiffany:
 	farwritetext TiffanyPackFullText
 	waitbutton

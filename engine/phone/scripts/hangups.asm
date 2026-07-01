@@ -18,16 +18,6 @@ RalphNoItemScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-ToddNoItemScript:
-	farwritetext ToddSavingUpForBargainSaleText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-GinaHangUpScript:
-	farwritetext GinaHaventFoundAnythingYetText
-	promptbutton
-	sjump PhoneScript_HangUpText_Female
-
 DerekHangUpScript:
 	farwritetext DerekLetsGetTogetherText
 	promptbutton

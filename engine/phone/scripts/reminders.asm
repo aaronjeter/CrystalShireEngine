@@ -14,14 +14,6 @@ RalphReminderScript:
 	farwritetext RalphReminderText
 	end
 
-ToddForwardScript:
-	farwritetext ToddLookingForwardToBattleText
-	end
-
-GinaReminderScript:
-	farwritetext GinaReminderText
-	end
-
 TullyForwardScript:
 	farwritetext TullyForwardText
 	end

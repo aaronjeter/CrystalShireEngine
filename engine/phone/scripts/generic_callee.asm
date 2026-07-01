@@ -28,7 +28,6 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -52,11 +51,6 @@ PhoneScript_AnswerPhone_Male:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddAnswerPhoneText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekAnswerPhoneText
 	promptbutton
@@ -73,7 +67,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -97,11 +90,6 @@ PhoneScript_AnswerPhone_Male_Day:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddAnswerPhoneDayText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekAnswerPhoneDayText
 	promptbutton
@@ -118,7 +106,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -142,11 +129,6 @@ PhoneScript_AnswerPhone_Male_Nite:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddAnswerPhoneNiteText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekAnswerPhoneNiteText
 	promptbutton
@@ -163,14 +145,8 @@ PhoneScript_AnswerPhone_Female:
 	checktime EVE | NITE
 	iftrue PhoneScript_AnswerPhone_Female_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaAnswerPhoneText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyAnswerPhoneText
@@ -184,14 +160,8 @@ PhoneScript_AnswerPhone_Female:
 
 PhoneScript_AnswerPhone_Female_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaAnswerPhoneDayText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyAnswerPhoneDayText
@@ -205,14 +175,8 @@ PhoneScript_AnswerPhone_Female_Day:
 
 PhoneScript_AnswerPhone_Female_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaAnswerPhoneNiteText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyAnswerPhoneNiteText
@@ -234,7 +198,6 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -258,11 +221,6 @@ PhoneScript_GreetPhone_Male:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddGreetText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekGreetText
 	promptbutton
@@ -279,7 +237,6 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -303,11 +260,6 @@ PhoneScript_GreetPhone_Male_Day:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddGreetDayText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekGreetDayText
 	promptbutton
@@ -324,7 +276,6 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -348,11 +299,6 @@ PhoneScript_GreetPhone_Male_Nite:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddGreetNiteText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekGreetNiteText
 	promptbutton
@@ -369,14 +315,8 @@ PhoneScript_GreetPhone_Female:
 	checktime EVE | NITE
 	iftrue PhoneScript_GreetPhone_Female_Nite
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaGreetText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyGreetText
@@ -390,14 +330,8 @@ PhoneScript_GreetPhone_Female:
 
 PhoneScript_GreetPhone_Female_Day:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaGreetDayText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyGreetDayText
@@ -411,14 +345,8 @@ PhoneScript_GreetPhone_Female_Day:
 
 PhoneScript_GreetPhone_Female_Nite:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaGreetNiteText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyGreetNiteText
@@ -435,7 +363,6 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
-	ifequal PHONE_CAMPER_TODD, .Todd
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
@@ -454,11 +381,6 @@ PhoneScript_Generic_Male:
 	promptbutton
 	end
 
-.Todd:
-	farwritetext ToddGenericText
-	promptbutton
-	end
-
 .Derek:
 	farwritetext DerekGenericText
 	promptbutton
@@ -471,14 +393,8 @@ PhoneScript_Generic_Male:
 
 PhoneScript_Generic_Female:
 	readvar VAR_CALLERID
-	ifequal PHONE_PICNICKER_GINA, .Gina
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
-
-.Gina:
-	farwritetext GinaGenericText
-	promptbutton
-	end
 
 .Tiffany:
 	farwritetext TiffanyGenericText

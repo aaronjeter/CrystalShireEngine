@@ -31,8 +31,8 @@ PhoneContacts:
 	phone FISHER,       RALPH1,                ROUTE_32,                  ANYTIME, RalphPhoneCalleeScript,   ANYTIME, RalphPhoneCallerScript
 	phone PICNICKER,    LIZ,                   ROUTE_32,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone HIKER,        ANTHONY,               ROUTE_33,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone CAMPER,       TODD1,                 ROUTE_34,                  ANYTIME, ToddPhoneCalleeScript,    ANYTIME, ToddPhoneCallerScript
-	phone PICNICKER,    GINA1,                 ROUTE_34,                  ANYTIME, GinaPhoneCalleeScript,    ANYTIME, GinaPhoneCallerScript
+	phone CAMPER,       TODD,                  ROUTE_34,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
+	phone PICNICKER,    GINA,                  ROUTE_34,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone JUGGLER,      IRWIN,                 ROUTE_35,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone BUG_CATCHER,  ARNIE,                 ROUTE_35,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone SCHOOLBOY,    ALAN1,                 ROUTE_36,                  ANYTIME, UnusedPhoneScript,		 ANYTIME, UnusedPhoneScript
