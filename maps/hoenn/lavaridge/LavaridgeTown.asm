@@ -43,6 +43,18 @@ LavaridgeGrannyText:
 	cont "my old joints."
 	done
 
+LavaridgeAceScript:
+	jumptextfaceplayer LavaridgeAceText
+
+LavaridgeAceText:
+	text "Ugh, my team"
+	line "got smoked."
+
+	para "I thought Flannery"
+	line "would just fold"
+	cont "to a water type."
+	done
+
 LavaridgeTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -59,4 +71,5 @@ LavaridgeTown_MapEvents:
 
 	def_object_events
 	object_event 07, 07, SPRITE_GRANNY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LavaridgeGrannyScript, -1
+	object_event 12, 14, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, LavaridgeAceScript, -1
 	

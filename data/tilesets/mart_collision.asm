@@ -74,3 +74,7 @@
 	tilecoll COUNTER, COUNTER, FLOOR, FLOOR ; 49
 	tilecoll COUNTER, FLOOR, FLOOR, FLOOR ; 4a
 	tilecoll FLOOR, WALL, FLOOR, MART_SHELF ; 4b
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 4c
+	tilecoll WALL, WALL, WALL, WALL ; 4d
+	tilecoll WALL, WALL, WALL, WALL ; 4e
+	tilecoll WALL, WALL, WALL, WALL ; 4f

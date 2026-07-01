@@ -629,6 +629,7 @@ ENDM
 	map_const BATTLE_RESORT,                               30, 30 ;
 	map_const BATTLE_RESORT_POKECENTER,					   07, 04 ;
 	map_const BATTLE_RESORT_MART,						   06, 04 ;
+	map_const FANCY_ROCKS,                                 05, 03 ;
 	map_const TREETOP_TRIAL,                               20, 20 ;
 	map_const ASHEN_GAUNTLET,                              20, 20 ;
 	map_const WORLD_CUP_LOBBY,                             09, 10 ;

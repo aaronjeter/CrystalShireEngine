@@ -717,6 +717,7 @@ SECTION "Map Scripts Battle Resort", ROMX
 INCLUDE "maps/hoenn/battle/BattleResort.asm"
 INCLUDE "maps/hoenn/battle/BattleResortPokecenter.asm"
 INCLUDE "maps/hoenn/battle/BattleResortMart.asm"
+INCLUDE "maps/hoenn/battle/FancyRocks.asm"
 INCLUDE "maps/hoenn/battle/TreetopTrial.asm"
 INCLUDE "maps/hoenn/battle/AshenGauntlet.asm"
 INCLUDE "maps/hoenn/battle/WorldCupLobby.asm"

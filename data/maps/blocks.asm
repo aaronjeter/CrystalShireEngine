@@ -1239,6 +1239,9 @@ SECTION "Map Blocks Battle Resort", ROMX
 	BattleResort_Blocks:
 	INCBIN "maps/hoenn/battle/BattleResort.ablk" 
 
+	FancyRocks_Blocks:
+	INCBIN "maps/hoenn/battle/FancyRocks.ablk" 
+
 	TreetopTrial_Blocks:
 	INCBIN "maps/hoenn/battle/TreetopTrial.ablk" 
 
