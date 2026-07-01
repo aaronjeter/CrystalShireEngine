@@ -645,16 +645,12 @@ InitializeEventsScript:
 AskNumber1MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
-	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Huey:
-	farwritetext HueyAskNumber1Text
-	end
 .Joey:
 	farwritetext JoeyAskNumber1Text
 	end
@@ -674,16 +670,12 @@ AskNumber1MScript:
 AskNumber2MScript:
 	special RandomPhoneMon
 	readvar VAR_CALLERID
-	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Huey:
-	farwritetext HueyAskNumber2Text
-	end
 .Joey:
 	farwritetext JoeyAskNumber2Text
 	end
@@ -709,18 +701,12 @@ RegisteredNumberMScript:
 
 NumberAcceptedMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Huey:
-	farwritetext HueyNumberAcceptedText
-	waitbutton
-	closetext
-	end
 .Joey:
 	farwritetext JoeyNumberAcceptedText
 	waitbutton
@@ -749,18 +735,12 @@ NumberAcceptedMScript:
 
 NumberDeclinedMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Huey:
-	farwritetext HueyNumberDeclinedText
-	waitbutton
-	closetext
-	end
 .Joey:
 	farwritetext JoeyNumberDeclinedText
 	waitbutton
@@ -789,18 +769,12 @@ NumberDeclinedMScript:
 
 PhoneFullMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Huey:
-	farwritetext HueyPhoneFullText
-	waitbutton
-	closetext
-	end
 .Joey:
 	farwritetext JoeyPhoneFullText
 	waitbutton
@@ -829,17 +803,11 @@ PhoneFullMScript:
 
 RematchMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_FISHER_RALPH, .Ralph
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Huey:
-	farwritetext HueyRematchText
-	waitbutton
-	closetext
-	end
 .Joey:
 	farwritetext JoeyRematchText
 	waitbutton
@@ -881,17 +849,11 @@ GiftMScript:
 
 PackFullMScript:
 	readvar VAR_CALLERID
-	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 
-.Huey:
-	farwritetext HueyPackFullText
-	waitbutton
-	closetext
-	end
 .Joey:
 	farwritetext JoeyPackFullText
 	waitbutton
@@ -916,13 +878,8 @@ PackFullMScript:
 RematchGiftMScript:
 	opentext
 	readvar VAR_CALLERID
-	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
 
-.Huey:
-	farwritetext HueyRematchGiftText
-	promptbutton
-	end
 .Joey:
 	farwritetext JoeyRematchGiftText
 	promptbutton

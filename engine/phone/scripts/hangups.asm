@@ -1,8 +1,3 @@
-HueyHangUpScript:
-	farwritetext HueyWeHaveToBattleAgainSometimeText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
 JoeyHangUpScript:
 	farwritetext JoeyDevisingStrategiesText
 	promptbutton

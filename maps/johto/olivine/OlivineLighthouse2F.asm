@@ -19,136 +19,14 @@ TrainerGentlemanAlfred:
 	end
 
 TrainerSailorHuey:
-	trainer SAILOR, HUEY1, EVENT_BEAT_SAILOR_HUEY, SailorHueySeenText, SailorHueyBeatenText, 0, .Script
+	trainer SAILOR, HUEY, EVENT_BEAT_SAILOR_HUEY, SailorHueySeenText, SailorHueyBeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_SAILOR_HUEY
 	endifjustbattled
 	opentext
-	checkflag ENGINE_HUEY_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	checkcellnum PHONE_SAILOR_HUEY
-	iftrue .NumberAccepted
-	checkevent EVENT_HUEY_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskedBefore
-	setevent EVENT_HUEY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .AskForNumber
-
-.AskedBefore:
-	scall .AskNumber2
-.AskForNumber:
-	askforphonenumber PHONE_SAILOR_HUEY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, SAILOR, HUEY1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.WantsBattle:
-	scall .Rematch
-	winlosstext SailorHueyBeatenText, 0
-	readmem wHueyFightCount
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight3:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight3
-.Fight2:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight2
-.Fight1:
-	checkevent EVENT_CLEARED_RADIO_TOWER
-	iftrue .LoadFight1
-.LoadFight0:
-	loadtrainer SAILOR, HUEY1
-	startbattle
-	reloadmapafterbattle
-	loadmem wHueyFightCount, 1
-	clearflag ENGINE_HUEY_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer SAILOR, HUEY2
-	startbattle
-	reloadmapafterbattle
-	loadmem wHueyFightCount, 2
-	clearflag ENGINE_HUEY_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer SAILOR, HUEY3
-	startbattle
-	reloadmapafterbattle
-	loadmem wHueyFightCount, 3
-	clearflag ENGINE_HUEY_READY_FOR_REMATCH
-	end
-
-.LoadFight3:
-	loadtrainer SAILOR, HUEY4
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_HUEY_READY_FOR_REMATCH
-	checkevent EVENT_HUEY_PROTEIN
-	iftrue .HasProtein
-	checkevent EVENT_GOT_PROTEIN_FROM_HUEY
-	iftrue .SkipGift
-	scall .RematchGift
-	verbosegiveitem PROTEIN
-	iffalse .PackFull
-	setevent EVENT_GOT_PROTEIN_FROM_HUEY
-	sjump .NumberAccepted
-
-.SkipGift:
-	end
-
-.HasProtein:
-	opentext
-	writetext SailorHueyGiveProteinText
+	writetext SailorHueyBeatenText
 	waitbutton
-	verbosegiveitem PROTEIN
-	iffalse .PackFull
-	clearevent EVENT_HUEY_PROTEIN
-	setevent EVENT_GOT_PROTEIN_FROM_HUEY
-	sjump .NumberAccepted
-
-.AskNumber1:
-	jumpstd AskNumber1MScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2MScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberMScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedMScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedMScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullMScript
-	end
-
-.Rematch:
-	jumpstd RematchMScript
-	end
-
-.PackFull:
-	setevent EVENT_HUEY_PROTEIN
-	jumpstd PackFullMScript
-	end
-
-.RematchGift:
-	jumpstd RematchGiftMScript
+	closetext
 	end
 
 SailorHueySeenText:

@@ -4831,7 +4831,7 @@ SailorGroup:
 
 	next_list_item ; SAILOR (2) Glitter Lighthouse - 2F
 	db "Huey@", TRAINERTYPE_NORMAL
-	db 6
+	db 8
 	dw POLITOED
 	db 6
 	dw POLIWHIRL
@@ -4905,32 +4905,6 @@ SailorGroup:
 	db "Harry@", TRAINERTYPE_NORMAL
 	db 7
 	dw WOOPER
-	db -1 ; end
-
-	next_list_item ; SAILOR (11) Glitter Lighthouse - 2F Rematch 1
-	db "Huey@", TRAINERTYPE_NORMAL
-	db 8
-	dw POLIWHIRL
-	db 8
-	dw POLIWHIRL
-	db -1 ; end
-
-	next_list_item ; SAILOR (12) Glitter Lighthouse - 2F Rematch 2
-	db "Huey@", TRAINERTYPE_NORMAL
-	db 9
-	dw POLIWHIRL
-	db 9
-	dw POLIWRATH
-	db -1 ; end
-
-	next_list_item ; SAILOR (13) Glitter Lighthouse - 2F Rematch 3
-	db "Huey@", TRAINERTYPE_MOVES
-	db 10
-	dw POLITOED
-	dw WHIRLPOOL, RAIN_DANCE, BODY_SLAM, PERISH_SONG
-	db 10
-	dw POLIWRATH
-	dw SURF, STRENGTH, ICE_PUNCH, SUBMISSION
 	db -1 ; end
 
 	next_list_item ; SAILOR (14) Dewford City Gym

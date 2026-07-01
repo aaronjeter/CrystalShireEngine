@@ -548,7 +548,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass SAILOR ; 28
 	const EUGENE
-	const HUEY1
+	const HUEY
 	const TERRELL
 	const KENT
 	const ERNEST
@@ -557,9 +557,6 @@ DEF KRIS EQU __trainer_class__
 	const KENNETH
 	const STANLY
 	const HARRY
-	const HUEY2
-	const HUEY3
-	const HUEY4
 	const DEWFORD_BRENDEN
 	const ROUTE109_HUEY
 	const ROUTE109_EDMOND
