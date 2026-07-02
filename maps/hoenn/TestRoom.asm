@@ -1,26 +1,15 @@
 	object_const_def
-	const TESTROOM_GOROCHU
+	const TESTROOM_MEW
 	const TESTROOM_IRONBUNDLE
-	;const TESTROOM_REGISTEEL
+	const TESTROOM_ARTICUNO
+	const TESTROOM_LUGIA
 	const TESTROOM_LATIOS
-	const TESTROOM_KYOGRE
-	const TESTROOM_GROUDON
-	const TESTROOM_RAYQUAZA
-	const TESTROOM_JIRACHI
 	const TESTROOM_CANDY
 
 TestRoom_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-
-Testroom_Gorochu:
-	cry GOROCHU
-	opentext
-	givepoke GOROCHU, 5
-	closetext
-	disappear TESTROOM_GOROCHU
-	end
 
 Testroom_Ironbubdle:
 	cry IRONBUNDLE
@@ -30,53 +19,61 @@ Testroom_Ironbubdle:
 	disappear TESTROOM_IRONBUNDLE
 	end
 
-Testroom_Registeel:
-	cry REGISTEEL
+Testroom_Myth:
+	cry MEW
 	opentext
-	givepoke REGISTEEL, 5
-	closetext
-	disappear TESTROOM_IRONBUNDLE
-	end
-
-Testroom_Latios:
-	cry LATIOS
-	opentext
-	givepoke LATIOS, 5
-	givepoke LATIAS, 5
-	closetext
-	disappear TESTROOM_LATIOS
-	end
-
-Testroom_Kyogre:
-	cry KYOGRE
-	opentext
-	givepoke KYOGRE, 5
-	closetext
-	disappear TESTROOM_KYOGRE
-	end
-
-Testroom_Groudon:
-	cry GROUDON
-	opentext
-	givepoke GROUDON, 5
-	closetext
-	disappear TESTROOM_GROUDON
-	end
-
-Testroom_Rayquaza:
-	cry RAYQUAZA
-	opentext
-	givepoke RAYQUAZA, 5
-	closetext
-	disappear TESTROOM_RAYQUAZA
-	end
-
-Testroom_Jirachi:
-	cry JIRACHI
-	opentext
+	writetext TestroomMythicalText
+	yesorno
+	iffalse .Done
+	givepoke MEW, 5
+	givepoke CELEBI, 5
 	givepoke JIRACHI, 5
-	closetext
-	disappear TESTROOM_JIRACHI
+	.Done
+	closetext	
+	end
+
+Testroom_Gen1Legends:
+	cry ARTICUNO
+	opentext
+	writetext TestroomGen1LegendsText
+	yesorno
+	iffalse .Done
+	givepoke ARTICUNO, 5
+	givepoke ZAPDOS, 5
+	givepoke MOLTRES, 5
+	givepoke MEWTWO, 5
+	.Done
+	closetext	
+	end
+
+Testroom_Gen2Legends:
+	cry LUGIA
+	opentext
+	writetext TestroomGen2LegendsText
+	yesorno
+	iffalse .Done
+	givepoke SUICUNE, 5
+	givepoke RAIKOU, 5
+	givepoke ENTEI, 5
+	givepoke HO_OH, 5
+	givepoke LUGIA, 5
+	.Done
+	closetext	
+	end
+
+Testroom_Gen3Legends:
+	cry LUGIA
+	opentext
+	writetext TestroomGen3LegendsText
+	yesorno
+	iffalse .Done
+	givepoke LATIAS, 5
+	givepoke LATIOS, 5
+	givepoke KYOGRE, 5
+	givepoke GROUDON, 5
+	givepoke RAYQUAZA, 5
+	.Done
+	closetext	
 	end
 
 Testroom_Candy:
@@ -168,6 +165,30 @@ TestroomRareCandyText:
 	text "Do you want"
 	line "the Rare Candy"
 	cont "cheat?"
+	done
+
+TestroomMythicalText:
+	text "Do you want"
+	line "the Mythical"
+	cont "#mon cheat?"
+	done
+
+TestroomGen1LegendsText:
+	text "Do you want"
+	line "the Gen 1 Legends"
+	cont "#mon cheat?"
+	done
+
+TestroomGen2LegendsText:
+	text "Do you want"
+	line "the Gen 2 Legends"
+	cont "#mon cheat?"
+	done
+
+TestroomGen3LegendsText:
+	text "Do you want"
+	line "the Gen 3 Legends"
+	cont "#mon cheat?"
 	done
 
 
@@ -992,14 +1013,11 @@ TestRoom_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 00, 01, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Gorochu, -1
-	object_event 02, 01, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Ironbubdle, -1
-	;object_event 04, 01, SPRITE_REGISTEEL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, Testroom_Registeel, -1
-	object_event 06, 01, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Latios, -1
-	object_event 08, 01, SPRITE_KYOGRE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Kyogre, -1
-	object_event 10, 01, SPRITE_GROUDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Groudon, -1
-	object_event 12, 01, SPRITE_RAYQUAZA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Testroom_Rayquaza, -1
-	object_event 14, 01, SPRITE_JIRACHI, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Jirachi, -1
+	object_event 00, 01, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Myth, -1
+	object_event 19, 01, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Ironbubdle, -1
+	object_event 00, 03, SPRITE_ARTICUNO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Gen1Legends, -1
+	object_event 02, 03, SPRITE_LUGIA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Gen2Legends, -1
+	object_event 04, 03, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Gen3Legends, -1
 	object_event 19, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Testroom_Candy, -1
 	object_event 19, 17, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Testroom_Guy, -1
 	object_event 15, 15, SPRITE_MOM, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Testroom_Mom, -1
