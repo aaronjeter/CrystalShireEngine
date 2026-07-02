@@ -433,7 +433,7 @@ AnnihilapeEvosAttacks:
 	dbw 5, SAND_ATTACK
 	dbw 8, LEER	
 	dbw 12, SHADOWSNEAK
-	dwb 16, ROAR
+	dbw 16, ROAR
 	dbw 20, FURY_SWIPES
 	dbw 24, DOUBLE_KICK
 	dbw 28, SHADOW_PUNCH
