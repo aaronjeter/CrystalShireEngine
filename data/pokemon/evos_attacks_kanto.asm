@@ -2965,7 +2965,7 @@ VaporeonEvosAttacks:
 	dbw 28, AURORA_BEAM	
 	dbw 32, BATON_PASS
 	dbw 36, ACID_ARMOR
-	dbw 40, SCALD
+	dbw 40, MIST_BALL
 	dbw 45, ICE_BEAM
 	dbw 50, AMNESIA
 	dbw 55, RECOVER
