@@ -294,7 +294,7 @@ MovesGen2:
 	move EFFECT_RECOIL_HIT,        100, FIRE,           SPECIAL,		100, 10,   0      ;ERUPTION
 	move EFFECT_MULTI_HIT,          15, FIGHTING,       PHYSICAL,		100, 20,   0      ;ARM_THRUST
 	move EFFECT_NORMAL_HIT,        120, FAIRY,          SPECIAL,		 85, 10,   0      ;LUSTER_PURGE
-	move EFFECT_SP_DEF_DOWN_HIT,    80, WATER,          SPECIAL,		100, 10,  50      ;MIST_BALL
+	move EFFECT_SP_DEF_DOWN_HIT,    80, WATER,          SPECIAL,		100, 10,  25      ;MIST_BALL
 	move EFFECT_BURN_HIT,           80, FIRE,           PHYSICAL,		100, 10,  15      ;BLAZE_KICK
 	move EFFECT_ROLLOUT,            30, ICE,            PHYSICAL,		 90, 20,   0      ;ICE_BALL
 	move EFFECT_FLINCH_HIT,         60, GRASS,          PHYSICAL,		100, 15,  30      ;NEEDLE_ARM
