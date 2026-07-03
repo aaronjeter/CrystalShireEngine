@@ -11,9 +11,8 @@ EvergrandeCity_MapEvents:
 	def_warp_events	
 	warp_event 29, 43, EVERGRANDE_POKECENTER, 2
 	warp_event 16, 05, HOENN_POKELEAGUE, 2
-	;warp_event 17, 33, HOENN_VICTORY_ROAD, 1
-	;warp_event 15, 19, HOENN_VICTORY_ROAD, 2
-
+	warp_event 17, 35, EVERGRANDE_DUNGEON, 1
+	warp_event 15, 19, EVERGRANDE_DUNGEON, 2
 	def_coord_events
 
 	def_bg_events	

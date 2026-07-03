@@ -530,6 +530,10 @@ INCLUDE "maps/hoenn/mossdeep/MossdeepMart.asm"
 INCLUDE "maps/hoenn/mossdeep/MossdeepGym.asm"
 
 INCLUDE "maps/hoenn/evergrande/EvergrandeCity.asm"
+INCLUDE "maps/hoenn/evergrande/EvergrandeDungeon.asm"
+INCLUDE "maps/hoenn/evergrande/EvergrandeDungeonB1F.asm"
+INCLUDE "maps/hoenn/evergrande/EvergrandeDungeonB2F.asm"
+
 INCLUDE "maps/hoenn/evergrande/EvergrandePokecenter.asm"
 INCLUDE "maps/hoenn/evergrande/HoennPokeleague.asm"
 

@@ -829,6 +829,10 @@ ENDM
 	map_attributes SootopolisFisherHouse, SOOTOPOLIS_FISHER_HOUSE, $00, 0
 
 	map_attributes EvergrandeCity, EVERGRANDE_CITY, $05, 0
+	map_attributes EvergrandeDungeon, EVERGRANDE_DUNGEON, $09, 0
+	map_attributes EvergrandeDungeonB1F, EVERGRANDE_DUNGEON_B1F, $09, 0
+	map_attributes EvergrandeDungeonB2F, EVERGRANDE_DUNGEON_B2F, $09, 0
+
 
 	map_attributes Route101, ROUTE_101, $05, NORTH | SOUTH
 	connection north, OldaleTown, OLDALE_TOWN, 0

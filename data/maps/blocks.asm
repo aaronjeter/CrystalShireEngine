@@ -1174,6 +1174,15 @@ SECTION "Map Blocks 7", ROMX
 	EvergrandeCity_Blocks:
 	INCBIN "maps/hoenn/evergrande/EvergrandeCity.ablk"
 
+	EvergrandeDungeon_Blocks:
+	INCBIN "maps/hoenn/evergrande/EvergrandeDungeon.ablk"
+
+	EvergrandeDungeonB1F_Blocks:
+	INCBIN "maps/hoenn/evergrande/EvergrandeDungeonB1F.ablk"
+
+	EvergrandeDungeonB2F_Blocks:
+	INCBIN "maps/hoenn/evergrande/EvergrandeDungeonB2F.ablk"
+
 	HoennPokeleague_Blocks:
 	INCBIN "maps/hoenn/evergrande/HoennPokeleague.ablk"
 
