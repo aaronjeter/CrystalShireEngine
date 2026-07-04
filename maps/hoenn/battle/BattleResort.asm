@@ -122,9 +122,9 @@ BattleResort_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  14, 29, BGEVENT_READ, AshGauntletSign
+	bg_event 15, 29, BGEVENT_READ, AshGauntletSign
 	bg_event  41, 29, BGEVENT_READ, TreetopTrialSign
-	bg_event  07, 13, BGEVENT_READ, FancyRocksSign
+	bg_event 12, 14, BGEVENT_READ, FancyRocksSign
 
 	def_object_events
 	object_event 23, 22, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, BattleResortAceScript, -1

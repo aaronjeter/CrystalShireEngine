@@ -92,7 +92,7 @@ PetalburgCity_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  15, 17, BGEVENT_READ, PetalburgCitySign
+	bg_event 13, 15, BGEVENT_READ, PetalburgCitySign
 	bg_event 15,  9, BGEVENT_READ, PetalburgGymSign
 
 	def_object_events

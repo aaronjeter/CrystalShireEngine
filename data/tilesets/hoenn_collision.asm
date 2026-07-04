@@ -134,12 +134,12 @@
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 85
 	tilecoll 01, 01, 01, 01 ; 86
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 87
-	tilecoll 01, 01, 01, 01 ; 88
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 88
 	tilecoll 01, 01, 01, 01 ; 89
 	tilecoll 01, 01, 01, 01 ; 8a
 	tilecoll 01, 01, 01, 01 ; 8b
-	tilecoll WALL, WALL, WALL, WALL ; 8c
-	tilecoll WALL, WALL, WALL, WALL ; 8d
+	tilecoll WATER, WATER, WATER, WATER ; 8c
+	tilecoll WATER, WATER, WATER, WATER ; 8d
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 8e
 	tilecoll WALL, WALL, WALL, WALL ; 8f
 	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; 90
@@ -150,7 +150,7 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 95
 	tilecoll 01, 01, 01, 01 ; 96
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 97
-	tilecoll WALL, WALL, WALL, WALL ; 98
+	tilecoll 01, 01, 01, 01 ; 98
 	tilecoll 01, 01, 01, 01 ; 99
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 9a
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 9b
