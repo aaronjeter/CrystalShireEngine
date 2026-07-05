@@ -48,7 +48,6 @@ SootopolisGymWallaceScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_RAINBADGE
-	setflag ENGINE_FLYPOINT_EVERGRANDE
 	scall SootopolisGymLevelcap
 
 	;disable gym trainers
@@ -156,9 +155,10 @@ WallaceText_ExplainBadge:
 	line "prove your"
 	cont "strength!"
 
-	para "Here, let me"
-	line "mark it on"
-	cont "your map!"
+	para "You should be"
+	line "able to catch the"
+	cont "boat from"
+	cont "Lilycove."
 	done
 
 WallaceRematchText:
@@ -175,8 +175,13 @@ WallacePostBattleText:
 	line "for the Elite"
 	cont "Four."
 
-	para "You should fly"
-	line "to Evergrande."
+	para "Head for"
+	line "Evergrande City."
+
+	para "You should be"
+	line "able to catch the"
+	cont "boat from"
+	cont "Lilycove."
 	done
 
 
