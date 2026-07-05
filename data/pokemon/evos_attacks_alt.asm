@@ -1946,10 +1946,10 @@ Cyndaquil2EvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, LEER
-	dbw 6, SMOKESCREEN
+	dbw 6, BITE
 	dbw 10, EMBER
 	dbw 14, QUICK_ATTACK
-	dbw 20, TWISTER
+	dbw 20, SNARL
 	dbw 24, FIRE_FANG
 	dbw 28, FAINT_ATTACK
 	dbw 32, SLAM
@@ -1968,10 +1968,10 @@ Quilava2EvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, LEER
-	dbw 6, SMOKESCREEN
+	dbw 6, BITE
 	dbw 10, EMBER
 	dbw 14, QUICK_ATTACK
-	dbw 20, TWISTER
+	dbw 20, SNARL
 	dbw 24, FIRE_FANG
 	dbw 28, FAINT_ATTACK
 	dbw 32, SLAM
@@ -1989,10 +1989,10 @@ Typhlosion2EvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, LEER
-	dbw 6, SMOKESCREEN
+	dbw 6, BITE
 	dbw 10, EMBER
 	dbw 14, QUICK_ATTACK
-	dbw 20, TWISTER
+	dbw 20, SNARL
 	dbw 24, FIRE_FANG
 	dbw 28, FAINT_ATTACK
 	dbw 32, SLAM
