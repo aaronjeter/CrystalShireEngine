@@ -474,7 +474,7 @@ AnimationIdlePointers:
 	dw AkuaAnimationIdle
 	dw AkueriaAnimationIdle
 	dw HaneeiAnimationIdle
-	dw TsubomittAnimationIdle
+	dw Chikorita2AnimationIdle
 	dw KotoraAnimationIdle
 	dw RaitoraAnimationIdle
 	dw AshibombAnimationIdle
@@ -483,8 +483,8 @@ AnimationIdlePointers:
 	dw TotartleAnimationIdle
 	dw GorochuAnimationIdle
 	;mega
-	dw RaichuxAnimationIdle
-	dw RaichuyAnimationIdle
+	dw Bayleef2AnimationIdle
+	dw Meganium2AnimationIdle
 	dw DragonitexAnimationIdle
 	dw DragoniteyAnimationIdle
 	dw VenusaurxAnimationIdle

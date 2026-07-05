@@ -475,7 +475,7 @@ NewPokedexOrder:
 	dw AKUA
 	dw AKUERIA
 	dw HANEEI
-	dw TSUBOMITT
+	dw CHIKORITA2
 	dw KOTORA
 	dw RAITORA
 	dw ASHIBOMB
@@ -484,8 +484,8 @@ NewPokedexOrder:
 	dw TOTARTLE
 	dw GOROCHU
 	;mega
-	dw RAICHUX
-	dw RAICHUY
+	dw BAYLEEF2
+	dw MEGANIUM2
 	dw DRAGONITEX
 	dw DRAGONITEY
 	dw VENUSAURX

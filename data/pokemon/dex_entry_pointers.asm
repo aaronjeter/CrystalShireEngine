@@ -476,7 +476,7 @@ PokedexDataPointerTable:
 	dba AkuaPokedexEntry
 	dba AkueriaPokedexEntry
 	dba HaneeiPokedexEntry
-	dba TsubomittPokedexEntry
+	dba Chikorita2PokedexEntry
 	dba KotoraPokedexEntry
 	dba RaitoraPokedexEntry
 	dba AshibombPokedexEntry

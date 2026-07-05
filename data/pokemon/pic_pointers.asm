@@ -961,8 +961,8 @@ PokemonPicPointers::
 	dba AkueriaBackpic
 	dba HaneeiFrontpic
 	dba HaneeiBackpic
-	dba TsubomittFrontpic
-	dba TsubomittBackpic
+	dba Chikorita2Frontpic
+	dba Chikorita2Backpic
 	dba KotoraFrontpic
 	dba KotoraBackpic
 	dba RaitoraFrontpic
@@ -978,10 +978,10 @@ PokemonPicPointers::
 	dba GorochuFrontpic
 	dba GorochuBackpic
 	;mega
-	dba RaichuxFrontpic
-	dba RaichuxBackpic
-	dba RaichuyFrontpic
-	dba RaichuyBackpic
+	dba Bayleef2Frontpic
+	dba Bayleef2Backpic
+	dba Meganium2Frontpic
+	dba Meganium2Backpic
 	dba DragonitexFrontpic
 	dba DragonitexBackpic
 	dba DragoniteyFrontpic

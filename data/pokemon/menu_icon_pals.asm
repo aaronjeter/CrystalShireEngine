@@ -485,7 +485,7 @@ MonMenuIconPals:
 	icon_pals BLUE,   PURPLE ; AKUA
 	icon_pals BLUE,   PURPLE ; AKUERIA
 	icon_pals BLUE,   PURPLE ; HANEEI
-	icon_pals GREEN,  PURPLE ; TSUBOMITT
+	icon_pals BLUE,   TEAL   ; CHIKORITA2
 	icon_pals BROWN,  PURPLE ; KOTORA
 	icon_pals BROWN,  PURPLE ; RAITORA
 	icon_pals RED,    PURPLE ; ASHIBOMB
@@ -494,8 +494,8 @@ MonMenuIconPals:
 	icon_pals BLUE,   TEAL   ; TOTARTLE
 	icon_pals RED,    BROWN	 ; GOROCHU
 	;mega
-	icon_pals RED,    BROWN	 ; RAICHUX
-	icon_pals RED,    BROWN	 ; RAICHUY
+	icon_pals BLUE,   TEAL	 ; BAYLEEF2
+	icon_pals BLUE,   TEAL	 ; MEGANIUM2
 	icon_pals RED,    GRAY   ; DRAGONITEX
 	icon_pals BLUE,   PURPLE ; DRAGONITEY
 	icon_pals GREEN,  TEAL   ; VENUSAURX

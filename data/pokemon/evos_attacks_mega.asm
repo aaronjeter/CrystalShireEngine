@@ -1,8 +1,8 @@
 SECTION "Evolutions and Attacks Mega", ROMX
 
 EvosAttacksPointersMega::
-	dw RaichuxEvosAttacks
-	dw RaichuyEvosAttacks
+	dw Bayleef2EvosAttacks
+	dw Meganium2EvosAttacks
 	dw DragonitexEvosAttacks
 	dw DragoniteyEvosAttacks
 	dw VenusaurxEvosAttacks
@@ -47,46 +47,49 @@ EvosAttacksPointersMega::
 	dw PidgeotxEvosAttacks
 .IndirectEnd::
 
-RaichuxEvosAttacks:
+Bayleef2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 32, MEGANIUM2
+	dbww EVOLVE_ITEM, LEAF_STONE, BAYLEEF
 	db 0 ; no more evolutions
-	dbw 1, THUNDERSHOCK
-	dbw 1, GROWL
-	dbw 6, TAIL_WHIP
-	dbw 8, THUNDER_WAVE
-	dbw 12, QUICK_ATTACK
-	dbw 16, DOUBLE_TEAM
-	dbw 20, CHARM
-	dbw 24, SHOCK_WAVE
-	dbw 32, GROWTH
-	dbw 36, SWIFT
-	dbw 40, THUNDERBOLT
-	dbw 45, FAERIEGLEAM
-	dbw 50, MEDITATE	
-	dbw 55, LIGHT_SCREEN
-	dbw 60, THUNDER
-	dbw 65, RAIN_DANCE
-	dbw 70, VOLT_TACKLE
+	dbw 1, BUBBLE
+	dbw 5, ABSORB
+	dbw 8, GROWL
+	dbw 12, LEECH_SEED
+	dbw 16, VINE_WHIP
+	dbw 20, RAIN_DANCE
+	dbw 24, BUBBLEBEAM
+	dbw 28, RAZOR_LEAF
+	dbw 32, AURORA_BEAM
+	dbw 36, COSMIC_POWER
+	dbw 40, GIGA_DRAIN
+	dbw 45, MIST_BALL
+	dbw 50, RECOVER	
+	dbw 55, ICE_BEAM
+	dbw 60, HYDRO_PUMP
+	dbw 65, MIRROR_COAT
+	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
-RaichuyEvosAttacks:
+Meganium2EvosAttacks:
+	dbww EVOLVE_ITEM, LEAF_STONE, MEGANIUM
 	db 0 ; no more evolutions
-	dbw 1, THUNDERSHOCK
-	dbw 1, GROWL
-	dbw 6, TAIL_WHIP
-	dbw 8, THUNDER_WAVE
-	dbw 12, QUICK_ATTACK
-	dbw 16, DOUBLE_TEAM
-	dbw 20, CHARM
-	dbw 24, SHOCK_WAVE
-	dbw 32, GROWTH
-	dbw 36, SWIFT
-	dbw 40, THUNDERBOLT
-	dbw 45, FAERIEGLEAM
-	dbw 50, MEDITATE	
-	dbw 55, LIGHT_SCREEN
-	dbw 60, THUNDER
-	dbw 65, RAIN_DANCE
-	dbw 70, VOLT_TACKLE
+	dbw 1, BUBBLE
+	dbw 5, ABSORB
+	dbw 8, GROWL
+	dbw 12, LEECH_SEED
+	dbw 16, VINE_WHIP
+	dbw 20, RAIN_DANCE
+	dbw 24, BUBBLEBEAM
+	dbw 28, RAZOR_LEAF
+	dbw 32, AURORA_BEAM
+	dbw 36, COSMIC_POWER
+	dbw 40, GIGA_DRAIN
+	dbw 45, MIST_BALL
+	dbw 50, RECOVER	
+	dbw 55, ICE_BEAM
+	dbw 60, HYDRO_PUMP
+	dbw 65, MIRROR_COAT
+	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
 DragonitexEvosAttacks:

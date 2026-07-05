@@ -495,7 +495,7 @@ DEF JOHTO_POKEMON EQU const_value
 	const AKUA
 	const AKUERIA
 	const HANEEI
-	const TSUBOMITT
+	const CHIKORITA2
 	const KOTORA
 	const RAITORA
 	const ASHIBOMB
@@ -504,8 +504,8 @@ DEF JOHTO_POKEMON EQU const_value
 	const TOTARTLE
 	const GOROCHU
 	;Megas
-	const RAICHUX
-	const RAICHUY
+	const BAYLEEF2
+	const MEGANIUM2
 	const DRAGONITEX
 	const DRAGONITEY
 	;Kester megas

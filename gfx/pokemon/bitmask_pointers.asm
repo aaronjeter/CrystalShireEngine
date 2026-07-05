@@ -474,7 +474,7 @@ BitmasksPointers:
 	dw AkuaBitmasks
 	dw AkueriaBitmasks
 	dw HaneeiBitmasks
-	dw TsubomittBitmasks
+	dw Chikorita2Bitmasks
 	dw KotoraBitmasks
 	dw RaitoraBitmasks
 	dw AshibombBitmasks
@@ -483,8 +483,8 @@ BitmasksPointers:
 	dw TotartleBitmasks
 	dw GorochuBitmasks
 	;mega
-	dw RaichuxBitmasks
-	dw RaichuyBitmasks
+	dw Bayleef2Bitmasks
+	dw Meganium2Bitmasks
 	dw DragonitexBitmasks
 	dw DragoniteyBitmasks
 	dw VenusaurxBitmasks
