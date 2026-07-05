@@ -177,7 +177,7 @@ LeftPokeBallScript:
 	iftrue AvulpixPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue Abra2PokeBallScript
+	iftrue Cyndaquil2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue HonobeaPokeBallScript
@@ -201,7 +201,7 @@ MiddlePokeBallScript:
 	iftrue AsandshrewPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue Voltorb2PokeBallScript
+	iftrue Totodile2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue KurusuPokeBallScript
@@ -225,7 +225,7 @@ RightPokeBallScript:
 	iftrue AgrimerPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue ExeggcutePokeBallScript
+	iftrue Chikorita2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue KotoraPokeBallScript
@@ -334,13 +334,13 @@ AvulpixPokeBallScript:
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
-Abra2PokeBallScript:	
-	pokepic ABRA2
-	cry ABRA2
+Cyndaquil2PokeBallScript:	
+	pokepic CYNDAQUIL2
+	cry CYNDAQUIL2
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeAbra2Text
+	writetext TakeCyndaquilText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL1
@@ -348,38 +348,12 @@ Abra2PokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, ABRA2
+	getmonname STRING_BUFFER_3, CYNDAQUIL2
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke ABRA2, 5, BERRY
-	closetext
-	readvar VAR_FACING
-	ifequal RIGHT, ElmDirectionsScript
-	applymovement PLAYER, AfterCyndaquilMovement
-	sjump ElmDirectionsScript
-
-Vulpix2PokeBallScript:	
-	pokepic VULPIX2
-	cry VULPIX2
-	waitbutton
-	closepokepic
-	opentext
-	writetext TakeVulpix2Text
-	yesorno
-	iffalse DidntChooseStarterScript
-	disappear ELMSLAB_POKE_BALL1
-	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
-	writetext ChoseStarterText
-	promptbutton
-	waitsfx
-	getmonname STRING_BUFFER_3, VULPIX2
-	writetext ReceivedStarterText
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	promptbutton
-	givepoke VULPIX2, 5, BERRY
+	givepoke CYNDAQUIL2, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -508,13 +482,13 @@ AsandshrewPokeBallScript:
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
-Voltorb2PokeBallScript:	
-	pokepic VOLTORB2
-	cry VOLTORB2
+Totodile2PokeBallScript:	
+	pokepic TOTODILE2
+	cry TOTODILE2
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeVoltorbText
+	writetext TakeTotodileText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL2
@@ -522,12 +496,12 @@ Voltorb2PokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, VOLTORB2
+	getmonname STRING_BUFFER_3, TOTODILE2
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke VOLTORB2, 5, BERRY
+	givepoke TOTODILE2, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -652,13 +626,13 @@ AgrimerPokeBallScript:
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
-ExeggcutePokeBallScript:	
-	pokepic EXEGGCUTE2
-	cry EXEGGCUTE2
+Chikorita2PokeBallScript:	
+	pokepic CHIKORITA2
+	cry CHIKORITA2
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeExeggcuteText
+	writetext TakeChikoritaText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL3
@@ -666,12 +640,12 @@ ExeggcutePokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, EXEGGCUTE2
+	getmonname STRING_BUFFER_3, CHIKORITA2
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke EXEGGCUTE2, 5, BERRY
+	givepoke CHIKORITA2, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -1387,40 +1361,16 @@ TakeAgrimerText:
 	cont "poison #mon?"
 	done
 
-TakeExeggcuteText:	
-	text "Elm: So, you like"
-	line "Exeggcute, the"
-	cont "grass #mon?"
-	done
-
 TakeKurusuText:	
 	text "Elm: So, you like"
 	line "Kurusu, the"
 	cont "water #mon?"
 	done
 
-TakeVoltorbText:
-	text "Elm: Do you want"
-	line "Voltorb, the"
-	cont "orb #mon?"
-	done
-
 TakeKotoraText:
 	text "Elm: Do you want"
 	line "Kotora, the"
 	cont "tiger #mon?"
-	done
-
-TakeVulpix2Text:
-	text "Elm: Do you want"
-	line "Vulpix, the"
-	cont "steam #mon?"
-	done
-
-TakeAbra2Text:
-	text "Elm: Do you want"
-	line "Abra, the"
-	cont "magician #mon?"
 	done
 
 TakeHonobeaText:

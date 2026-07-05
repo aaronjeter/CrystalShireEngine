@@ -283,7 +283,7 @@ OakLeftPokeBallScript:
 	iftrue OakAvulpixPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue OakAbra2PokeBallScript
+	iftrue OakCyndaquil2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue OakHonobeaPokeBallScript
@@ -308,7 +308,7 @@ OakMiddlePokeBallScript:
 	iftrue OakAsandshrewPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue OakVoltorb2PokeBallScript
+	iftrue OakTotodile2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue OakKurusuPokeBallScript
@@ -333,7 +333,7 @@ OakRightPokeBallScript:
 	iftrue OakAgrimerPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
-	iftrue OakExeggcutePokeBallScript
+	iftrue OakChikorita2PokeBallScript
 
 	checkevent EVENT_ORIGIN_BETA
 	iftrue OakKotoraPokeBallScript
@@ -431,13 +431,13 @@ OakAvulpixPokeBallScript:
 	closetext
 	sjump OakDirectionsScript
 
-OakAbra2PokeBallScript:	
-	pokepic ABRA2
-	cry ABRA2
+OakCyndaquil2PokeBallScript:	
+	pokepic CYNDAQUIL2
+	cry CYNDAQUIL2
 	waitbutton
 	closepokepic
 	opentext
-	writetext OakTakeAbra2Text
+	writetext OakTakeCyndaquilText
 	yesorno
 	iffalse OakDidntChooseStarterScript
 	disappear OAKSLAB_POKE_BALL1
@@ -445,35 +445,12 @@ OakAbra2PokeBallScript:
 	writetext OakChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, ABRA2
+	getmonname STRING_BUFFER_3, CYNDAQUIL2
 	writetext OakReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke ABRA2, 5, BERRY
-	closetext
-	sjump OakDirectionsScript
-
-OakVulpix2PokeBallScript:	
-	pokepic VULPIX2
-	cry VULPIX2
-	waitbutton
-	closepokepic
-	opentext
-	writetext OakTakeVulpix2Text
-	yesorno
-	iffalse OakDidntChooseStarterScript
-	disappear OAKSLAB_POKE_BALL1
-	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
-	writetext OakChoseStarterText
-	promptbutton
-	waitsfx
-	getmonname STRING_BUFFER_3, VULPIX2
-	writetext OakReceivedStarterText
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	promptbutton
-	givepoke VULPIX2, 5, BERRY
+	givepoke CYNDAQUIL2, 5, BERRY
 	closetext
 	sjump OakDirectionsScript
 
@@ -592,13 +569,13 @@ OakAsandshrewPokeBallScript:
 	closetext
 	sjump OakDirectionsScript
 
-OakVoltorb2PokeBallScript:	
-	pokepic VOLTORB2
-	cry VOLTORB2
+OakTotodile2PokeBallScript:	
+	pokepic TOTODILE2
+	cry TOTODILE2
 	waitbutton
 	closepokepic
 	opentext
-	writetext OakTakeVoltorbText
+	writetext OakTakeTotodileText
 	yesorno
 	iffalse OakDidntChooseStarterScript
 	disappear OAKSLAB_POKE_BALL2
@@ -606,12 +583,12 @@ OakVoltorb2PokeBallScript:
 	writetext OakChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, VOLTORB2
+	getmonname STRING_BUFFER_3, TOTODILE2
 	writetext OakReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke VOLTORB2, 5, BERRY
+	givepoke TOTODILE2, 5, BERRY
 	closetext
 	sjump OakDirectionsScript
 
@@ -730,13 +707,13 @@ OakAgrimerPokeBallScript:
 	closetext
 	sjump OakDirectionsScript
 
-OakExeggcutePokeBallScript:	
-	pokepic EXEGGCUTE2
-	cry EXEGGCUTE2
+OakChikorita2PokeBallScript:	
+	pokepic CHIKORITA2
+	cry CHIKORITA2
 	waitbutton
 	closepokepic
 	opentext
-	writetext OakTakeExeggcuteText
+	writetext OakTakeChikoritaText
 	yesorno
 	iffalse OakDidntChooseStarterScript
 	disappear OAKSLAB_POKE_BALL3
@@ -744,12 +721,12 @@ OakExeggcutePokeBallScript:
 	writetext OakChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, EXEGGCUTE2
+	getmonname STRING_BUFFER_3, CHIKORITA2
 	writetext OakReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke EXEGGCUTE2, 5, BERRY
+	givepoke CHIKORITA2, 5, BERRY
 	closetext
 	sjump OakDirectionsScript
 
@@ -858,18 +835,6 @@ OakTakeAvulpixText:
 	cont "snow #mon?"
 	done
 
-OakTakeVulpix2Text:
-	text "Oak: Take"
-	line "Vulpix, the"
-	cont "steam #mon?"
-	done
-
-OakTakeAbra2Text:
-	text "Oak: Take"
-	line "Abra, the"
-	cont "magician #mon?"
-	done
-
 OakTakeHonobeaText:
 	text "Oak: Take"
 	line "Honobea, the"
@@ -900,12 +865,6 @@ OakTakeAsandshrewText:
 	cont "mouse #mon?"
 	done
 
-OakTakeVoltorbText:
-	text "Oak: Take"
-	line "Voltorb, the"
-	cont "orb #mon?"
-	done
-
 OakTakeKotoraText:
 	text "Oak: Take"
 	line "Kotora, the"
@@ -934,12 +893,6 @@ OakTakeAgrimerText:
 	text "Oak: Take"
 	line "Grimer, the"
 	cont "poison #mon?"
-	done
-
-OakTakeExeggcuteText:	
-	text "Oak: Take"
-	line "Exeggcute, the"
-	cont "grass #mon?"
 	done
 
 OakTakeKurusuText:	
