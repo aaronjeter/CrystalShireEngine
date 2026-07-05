@@ -16,6 +16,7 @@ AlphabeticalPokedexOrder:
 	dw AZUMARILL
 	dw BARBOACH
 	dw BAYLEEF
+	dw BAYLEEF2
 	dw BEEDRILL
 	dw BELLOSSOM
 	dw BELLSPROUT
@@ -31,6 +32,7 @@ AlphabeticalPokedexOrder:
 	dw CHARMANDER
 	dw CHARMELEON
 	dw CHIKORITA
+	dw CHIKORITA2
 	dw CHINCHOU
 	dw CLEFABLE
 	dw CLEFAIRY
@@ -154,6 +156,7 @@ AlphabeticalPokedexOrder:
 	dw MAROWAK
 	dw MARSHTOMP
 	dw MEGANIUM
+	dw MEGANIUM2
 	dw MEOWTH
 	dw METAPOD
 	dw MEW
@@ -474,7 +477,6 @@ AlphabeticalPokedexOrder:
 	dw AKUA
 	dw AKUERIA
 	dw HANEEI
-	dw TSUBOMITT
 	dw KOTORA
 	dw RAITORA
 	dw ASHIBOMB
@@ -483,8 +485,6 @@ AlphabeticalPokedexOrder:
 	dw TOTARTLE
 	dw GOROCHU
 	;mega
-	dw RAICHUX
-	dw RAICHUY
 	dw DRAGONITEX
 	dw DRAGONITEY
 	dw VENUSAURX

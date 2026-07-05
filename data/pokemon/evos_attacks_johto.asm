@@ -107,6 +107,7 @@ EvosAttacksPointers2::
 
 ChikoritaEvosAttacks:
 	dbbw EVOLVE_LEVEL, 16, BAYLEEF
+	dbww EVOLVE_ITEM, WATER_STONE, CHIKORITA2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL
@@ -129,6 +130,7 @@ ChikoritaEvosAttacks:
 
 BayleefEvosAttacks:
 	dbbw EVOLVE_LEVEL, 32, MEGANIUM
+	dbww EVOLVE_ITEM, WATER_STONE, BAYLEEF2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL
@@ -150,6 +152,7 @@ BayleefEvosAttacks:
 	db 0 ; no more level-up moves
 
 MeganiumEvosAttacks:
+	dbww EVOLVE_ITEM, WATER_STONE, MEGANIUM2
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, GROWL

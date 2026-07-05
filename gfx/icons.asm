@@ -503,8 +503,8 @@ GorochuIcon::	INCBIN "gfx/icons/raichu.2bpp"
 
 SECTION "Mon Icons 5", ROMX
 
-RaichuxIcon::		INCBIN "gfx/icons/raichu.2bpp"
-RaichuyIcon::		INCBIN "gfx/icons/raichu.2bpp"
+RaichuxIcon::		INCBIN "gfx/icons/bayleef.2bpp"
+RaichuyIcon::		INCBIN "gfx/icons/meganium.2bpp"
 DragonitexIcon::	INCBIN "gfx/icons/dragonite.2bpp"
 DragoniteyIcon::	INCBIN "gfx/icons/dragonair.2bpp"
 VenusaurxIcon::		INCBIN "gfx/icons/venusaur.2bpp"

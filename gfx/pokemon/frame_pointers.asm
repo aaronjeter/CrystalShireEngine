@@ -474,7 +474,7 @@ FramesPointers:
 	dba AkuaFrames
 	dba AkueriaFrames
 	dba HaneeiFrames
-	dba TsubomittFrames
+	dba Chikorita2Frames
 	dba KotoraFrames
 	dba RaitoraFrames
 	dba AshibombFrames
@@ -483,8 +483,8 @@ FramesPointers:
 	dba TotartleFrames
 	dba GorochuFrames
 	;mega
-	dba RaichuxFrames
-	dba RaichuyFrames
+	dba Bayleef2Frames
+	dba Meganium2Frames
 	dba DragonitexFrames
 	dba DragoniteyFrames
 	dba VenusaurxFrames

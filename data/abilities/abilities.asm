@@ -101,7 +101,6 @@ SnareMons::
 	dw WEEPINBELL
 	dw VICTREEBEL
 	dw VICTREEBELX
-	dw TSUBOMITT
 	dw TENTACOOL
 	dw TENTACRUEL
 	dw TANGELA
@@ -450,6 +449,9 @@ RainDishMons::
 	dw TOTODILE2 
 	dw CROCONAW2 
 	dw FERALIGATR2
+	dw CHIKORITA2
+	dw BAYLEEF2
+	dw MEGANIUM2
 	dw -1
 
 SunbaskMons::

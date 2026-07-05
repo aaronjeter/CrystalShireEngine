@@ -1284,8 +1284,8 @@ SECTION "Pokemon Beta 3", ROMX
 
 HaneeiFrontpic:			INCBIN "gfx/pokemon/haneei/front.animated.2bpp.lz"
 HaneeiBackpic:			INCBIN "gfx/pokemon/haneei/back.2bpp.lz"
-TsubomittFrontpic:		INCBIN "gfx/pokemon/tsubomitt/front.animated.2bpp.lz"
-TsubomittBackpic:		INCBIN "gfx/pokemon/tsubomitt/back.2bpp.lz"
+Chikorita2Frontpic:     INCBIN "gfx/pokemon/chikorita2/front.animated.2bpp.lz"
+Chikorita2Backpic:      INCBIN "gfx/pokemon/chikorita2/back.2bpp.lz"
 
 
 SECTION "Pokemon Beta 4", ROMX
@@ -1304,10 +1304,10 @@ TotartleFrontpic:			INCBIN "gfx/pokemon/totartle/front.animated.2bpp.lz"
 TotartleBackpic:			INCBIN "gfx/pokemon/totartle/back.2bpp.lz"
 GorochuFrontpic:			INCBIN "gfx/pokemon/gorochu/front.animated.2bpp.lz"
 GorochuBackpic:				INCBIN "gfx/pokemon/gorochu/back.2bpp.lz"
-RaichuxFrontpic:			INCBIN "gfx/pokemon/raichux/front.animated.2bpp.lz"
-RaichuxBackpic:				INCBIN "gfx/pokemon/raichux/back.2bpp.lz"
-RaichuyFrontpic:			INCBIN "gfx/pokemon/raichuy/front.animated.2bpp.lz"
-RaichuyBackpic:				INCBIN "gfx/pokemon/raichuy/back.2bpp.lz"
+Bayleef2Frontpic:           INCBIN "gfx/pokemon/bayleef2/front.animated.2bpp.lz"
+Bayleef2Backpic:            INCBIN "gfx/pokemon/bayleef2/back.2bpp.lz"
+Meganium2Frontpic:          INCBIN "gfx/pokemon/meganium2/front.animated.2bpp.lz"
+Meganium2Backpic:           INCBIN "gfx/pokemon/meganium2/back.2bpp.lz"
 DragonitexFrontpic:			INCBIN "gfx/pokemon/dragonitex/front.animated.2bpp.lz"
 DragonitexBackpic:			INCBIN "gfx/pokemon/dragonitex/back.2bpp.lz"
 DragoniteyFrontpic:			INCBIN "gfx/pokemon/dragonitey/front.animated.2bpp.lz"

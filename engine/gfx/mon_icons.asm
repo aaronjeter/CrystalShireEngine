@@ -526,10 +526,10 @@ ld a, h
 
 
     ld a, h
-	cp HIGH(RAICHUX) ; first species in "Mon Icons 5"
+	cp HIGH(BAYLEEF2) ; first species in "Mon Icons 5"
 	jr c, .check_5
 	ld a, l
-	cp LOW(RAICHUX)
+	cp LOW(BAYLEEF2)
 	jr c, .check_5
 	ld b, BANK("Mon Icons 5") 
 	jr .return

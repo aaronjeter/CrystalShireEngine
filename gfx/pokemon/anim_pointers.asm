@@ -474,7 +474,7 @@ AnimationPointers:
 	dw AkuaAnimation
 	dw AkueriaAnimation
 	dw HaneeiAnimation
-	dw TsubomittAnimation
+	dw Chikorita2Animation
 	dw KotoraAnimation
 	dw RaitoraAnimation
 	dw AshibombAnimation
@@ -483,8 +483,8 @@ AnimationPointers:
 	dw TotartleAnimation
 	dw GorochuAnimation
 	;mega
-	dw RaichuxAnimation
-	dw RaichuyAnimation
+	dw Bayleef2Animation
+	dw Meganium2Animation
 	dw DragonitexAnimation
 	dw DragoniteyAnimation
 	dw VenusaurxAnimation

@@ -479,7 +479,7 @@ PokemonNames::
 	db "Akua@@@@@@"
 	db "Akueria@@@"
 	db "Haneei@@@@"
-	db "Tsubomitt@"
+	db "Chikorita@"
 	db "Kotora@@@@"
 	db "Raitora@@@"
 	db "Ashibomb@@"
@@ -488,8 +488,8 @@ PokemonNames::
 	db "Totartle@@"
 	db "Gorochu@@@"
 	;mega
-	db "Raichu@@@@"
-	db "Raichu@@@@"
+	db "Bayleef@@@" ;bayleef2
+	db "Meganium@@" ;Meganium2
 	db "Dragonite@"
 	db "Dragonite@"
 	db "Venusaur@@"

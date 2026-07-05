@@ -480,7 +480,7 @@ IconPointers:
 	dw AkuaIcon
 	dw AkueriaIcon
 	dw HaneeiIcon
-	dw TsubomittIcon
+	dw HanamoleIcon ;chikorita2
 	dw KotoraIcon
 	dw RaitoraIcon
 	dw AshibombIcon

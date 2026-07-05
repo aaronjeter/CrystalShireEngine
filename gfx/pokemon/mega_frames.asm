@@ -1,6 +1,6 @@
 ;mega
-RaichuxFrames:		INCLUDE "gfx/pokemon/raichux/frames.asm"
-RaichuyFrames:		INCLUDE "gfx/pokemon/raichuy/frames.asm"
+Bayleef2Frames:     INCLUDE "gfx/pokemon/bayleef2/frames.asm"
+Meganium2Frames:    INCLUDE "gfx/pokemon/meganium2/frames.asm"
 DragonitexFrames:	INCLUDE "gfx/pokemon/dragonitex/frames.asm"
 DragoniteyFrames:	INCLUDE "gfx/pokemon/dragonitey/frames.asm"
 VenusaurxFrames:	INCLUDE "gfx/pokemon/venusaurx/frames.asm"

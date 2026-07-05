@@ -91,7 +91,7 @@ EvosAttacksPointers4::
 	dw AkuaEvosAttacks
 	dw AkueriaEvosAttacks
 	dw HaneeiEvosAttacks
-	dw TsubomittEvosAttacks
+	dw Chikorita2EvosAttacks
 	dw KotoraEvosAttacks
 	dw RaitoraEvosAttacks
 	dw AshibombEvosAttacks
@@ -1457,24 +1457,26 @@ HaneeiEvosAttacks:
 	dbw 70, CURSE
 	db 0 ; no more level-up moves
 
-TsubomittEvosAttacks:
+Chikorita2EvosAttacks:
+	dbbw EVOLVE_LEVEL, 16, BAYLEEF2
+	dbww EVOLVE_ITEM, LEAF_STONE, CHIKORITA
 	db 0 ; no more evolutions
-	dbw 1, VINE_WHIP
-	dbw 1, ACID
-	dbw 6, GROWTH
-	dbw 11, WRAP
-	dbw 16, SLEEP_POWDER
-	dbw 20, POISONPOWDER	
-	dbw 24, RAZOR_LEAF
-	dbw 28, SWEET_SCENT
-	dbw 32, STUN_SPORE
-	dbw 36, LEECH_SEED	
-	dbw 40, SLUDGE_BOMB
-	dbw 45, NATURE_POWER
-	dbw 50, BULK_UP
-	dbw 55, BODY_SLAM
-	dbw 60, SOLARBEAM
-	dbw 65, TOXIC
+	dbw 1, BUBBLE
+	dbw 5, ABSORB
+	dbw 8, GROWL
+	dbw 12, LEECH_SEED
+	dbw 16, VINE_WHIP
+	dbw 20, RAIN_DANCE
+	dbw 24, BUBBLEBEAM
+	dbw 28, RAZOR_LEAF
+	dbw 32, AURORA_BEAM
+	dbw 36, COSMIC_POWER
+	dbw 40, GIGA_DRAIN
+	dbw 45, MIST_BALL
+	dbw 50, RECOVER	
+	dbw 55, ICE_BEAM
+	dbw 60, HYDRO_PUMP
+	dbw 65, MIRROR_COAT
 	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
