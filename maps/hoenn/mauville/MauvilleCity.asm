@@ -145,7 +145,7 @@ MauvilleCity_MapEvents:
 	bg_event  21, 07, BGEVENT_READ, MauvilleCitySign
 	bg_event  7,  5, BGEVENT_READ, MauvilleGymSign
 	bg_event  03, 15, BGEVENT_READ, MauvilleGameCornerSign
-	bg_event  34, 07, BGEVENT_READ, MauvilleBikeShopSign
+	bg_event 31,  5, BGEVENT_READ, MauvilleBikeShopSign
 
 	def_object_events
 	object_event  02, 14, SPRITE_ROCKER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleAngryGuyScript, -1

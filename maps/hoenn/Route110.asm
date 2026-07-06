@@ -262,7 +262,7 @@ Route110_MapEvents:
 	bg_event 17,  6, BGEVENT_READ, Route110Sign
 	bg_event  32, 16, BGEVENT_READ, Route110NewMauvilleSign
 	bg_event 21, 50, BGEVENT_READ, Route110CyclingRoadSign
-	bg_event 19, 16, BGEVENT_READ, Route110CyclingRoadSign
+	bg_event 17, 14, BGEVENT_READ, Route110CyclingRoadSign
 
 	def_object_events
 	object_event 02, 47, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route110IsabelScript, -1

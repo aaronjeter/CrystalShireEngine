@@ -44,7 +44,7 @@ OldaleTown_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event 10,  7, BGEVENT_READ, OldaleTownSign
+	bg_event 10, 11, BGEVENT_READ, OldaleTownSign
 
 	def_object_events
 	object_event  07, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OldaleNerdScript, -1

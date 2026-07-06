@@ -145,7 +145,7 @@ RustboroCity_MapEvents:
 	bg_event  16, 46, BGEVENT_READ, RustboroCitySign
 	bg_event  10, 34, BGEVENT_READ, RustboroCutterHouseSign
 	bg_event  27, 15, BGEVENT_READ, RustboroGymSign
-	bg_event  12, 20, BGEVENT_READ, RustboroDevonSign
+	bg_event 12, 18, BGEVENT_READ, RustboroDevonSign
 
 	def_object_events
 	object_event  16,  09, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RustboroFisherScript, -1
