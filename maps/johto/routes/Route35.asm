@@ -326,15 +326,15 @@ Route35_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  9, 33, ROUTE_35_GOLDENROD_GATE, 1
-	warp_event 10, 33, ROUTE_35_GOLDENROD_GATE, 2
+	warp_event  9, 31, ROUTE_35_GOLDENROD_GATE, 1
+	warp_event 10, 31, ROUTE_35_GOLDENROD_GATE, 2
 	warp_event  3,  5, ROUTE_35_NATIONAL_PARK_GATE, 3
 
 	def_coord_events
 
 	def_bg_events
 	bg_event  1,  7, BGEVENT_READ, Route35Sign
-	bg_event 11, 31, BGEVENT_READ, Route35Sign
+	bg_event 11, 29, BGEVENT_READ, Route35Sign
 
 	def_object_events
 	object_event  4, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperIvan, -1
