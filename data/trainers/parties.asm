@@ -2559,6 +2559,114 @@ CooltrainerMGroup:
 	dw DRAGON_DANCE, WILLOWISP, SHADOW_FORCE, PURSUIT
 	db -1 ; end
 
+	next_list_item ; COOLTRAINERM (34) Evergrande Dungeon Generic #1
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw CHARIZARD
+	db 7
+	dw BLASTOISE
+	db 7
+	dw VENUSAUR
+	db 8
+	dw ELECTRODE
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (35) Evergrande Dungeon Generic #2
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw MEGANIUM
+	db 7
+	dw FERALIGATR
+	db 7
+	dw TYPHLOSION
+	db 8
+	dw HYPNO
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (36) Evergrande Dungeon Generic #3
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw SCEPTILE
+	db 7
+	dw BLAZIKEN
+	db 7
+	dw SWAMPERT
+	db 8
+	dw WIGGLYTUFF
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (37) Evergrande Dungeon Generic #4
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw RAPIDASH
+	db 7
+	dw GOLDUCK
+	db 7
+	dw LUDICOLO
+	db 8
+	dw SCYTHER
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (38) Evergrande Dungeon Generic #5
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw TAUROS
+	db 7
+	dw STEELIX
+	db 7
+	dw NOCTOWL
+	db 8
+	dw AGGRON
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (39) Evergrande Dungeon Generic #6
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw MAGMAR
+	db 7
+	dw JYNX
+	db 7
+	dw ELECTABUZZ
+	db 8
+	dw URSARING
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (40) Evergrande Dungeon Generic #7
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw AMUK
+	db 7
+	dw MUK
+	db 7
+	dw HARIYAMA
+	db 8
+	dw MAGNETON
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (41) Evergrande Dungeon Generic #8
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw PIDGEOT
+	db 7
+	dw GIRAFARIG
+	db 7
+	dw CORSOLA
+	db 8
+	dw MAGCARGO
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (42) Evergrande Dungeon Generic #9
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw AMPHAROS
+	db 7
+	dw CLEFABLE
+	db 7
+	dw HOUNDOOM
+	db 8
+	dw WAILORD
+	db -1 ; end
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -2824,7 +2932,7 @@ CooltrainerFGroup:
 	dw MAWILE
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (24) World Cup
+	next_list_item ; COOLTRAINERF (24) World Cup
 	db "Monica@", TRAINERTYPE_MOVES
 	db 9
 	dw BUTTERFREE
@@ -2846,7 +2954,7 @@ CooltrainerFGroup:
 	dw DRILL_PECK, FLY, DRAGON_DANCE, RAZORSHELL
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (25) World Cup
+	next_list_item ; COOLTRAINERF (25) World Cup
 	db "Tuscany@", TRAINERTYPE_MOVES
 	db 9
 	dw WIGGLYTUFF
@@ -2868,7 +2976,7 @@ CooltrainerFGroup:
 	dw DOUBLE_EDGE, FISSURE, REST, BULK_UP
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (26) World Cup
+	next_list_item ; COOLTRAINERF (26) World Cup
 	db "Frieda@", TRAINERTYPE_MOVES
 	db 9
 	dw TENTACRUEL
@@ -2888,6 +2996,114 @@ CooltrainerFGroup:
 	db 11
 	dw GWEEZING
 	dw SLUDGE_BOMB, PLAY_ROUGH, EXPLOSION, AMNESIA
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (27) Evergrande Dungeon Generic F #1
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw RHYDON
+	db 7
+	dw HITMONCHAN
+	db 7
+	dw TANGROWTH
+	db 8
+	dw ARCANINE
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (28) Evergrande Dungeon Generic F #2
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw NINETALES
+	db 7
+	dw HITMONLEE
+	db 7
+	dw JUMPLUFF
+	db 8
+	dw SLOWBRO
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (29) Evergrande Dungeon Generic F #3
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw POLITOED
+	db 7
+	dw WEAVILE
+	db 7
+	dw SABLEYE
+	db 8
+	dw MAWILE
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (30) Evergrande Dungeon Generic F #4
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw MR__RIME
+	db 7
+	dw LANTURN
+	db 7
+	dw HELECTRODE
+	db 8
+	dw PERSIAN
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (31) Evergrande Dungeon Generic F #5
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw EXPLOUD
+	db 7
+	dw GLALIE
+	db 7
+	dw HUNTAIL
+	db 8
+	dw MILTANK
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (32) Evergrande Dungeon Generic F #6
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw DELIBIRD
+	db 7
+	dw MANTINE
+	db 7
+	dw DUNSPARCE
+	db 8
+	dw TORKOAL
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (33) Evergrande Dungeon Generic F #7
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw ARAICHU
+	db 7
+	dw BLISSEY
+	db 7
+	dw DELCATTY
+	db 8
+	dw WHISCASH
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (34) Evergrande Dungeon Generic F #8
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw AMAROWAK
+	db 7
+	dw LICKILICKY
+	db 7
+	dw CLAYDOL
+	db 8
+	dw WALREIN
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (34) Evergrande Dungeon Generic F #9
+	db "@", TRAINERTYPE_NORMAL
+	db 7
+	dw DUSTOX
+	db 7
+	dw GRANBULL
+	db 7
+	dw SIRFETCH_D
+	db 8
+	dw SLAKING
 	db -1 ; end
 
 	end_list_items

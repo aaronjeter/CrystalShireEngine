@@ -520,24 +520,26 @@
 	const EVENT_BEAT_SHRINE_JANE
 	const EVENT_GOT_LATIAS
 	const EVENT_GOT_LATIOS
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
-	const_skip ; unused
+
+	;Hoenn Victory Road Trainers
+	const EVENT_BEAT_EVERGRANDE_M1
+	const EVENT_BEAT_EVERGRANDE_M2
+	const EVENT_BEAT_EVERGRANDE_M3
+	const EVENT_BEAT_EVERGRANDE_M4
+	const EVENT_BEAT_EVERGRANDE_M5
+	const EVENT_BEAT_EVERGRANDE_M6
+	const EVENT_BEAT_EVERGRANDE_M7
+	const EVENT_BEAT_EVERGRANDE_M8
+	const EVENT_BEAT_EVERGRANDE_M9
+	const EVENT_BEAT_EVERGRANDE_F1
+	const EVENT_BEAT_EVERGRANDE_F2
+	const EVENT_BEAT_EVERGRANDE_F3
+	const EVENT_BEAT_EVERGRANDE_F4
+	const EVENT_BEAT_EVERGRANDE_F5
+	const EVENT_BEAT_EVERGRANDE_F6
+	const EVENT_BEAT_EVERGRANDE_F7
+	const EVENT_BEAT_EVERGRANDE_F8
+	const EVENT_BEAT_EVERGRANDE_F9
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
