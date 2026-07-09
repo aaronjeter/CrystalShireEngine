@@ -7,10 +7,6 @@ ElmsHouse_MapScripts:
 
 	def_callbacks
 
-WarpScript:
-	warp FAST_SHIP_1F, 25, 1
-	end
-
 ElmsWife:
 	jumptextfaceplayer ElmsWifeText
 
@@ -79,7 +75,6 @@ ElmsHouse_MapEvents:
 	warp_event  3,  7, NEW_BARK_TOWN, 4
 
 	def_coord_events
-	coord_event  03, 01, -1, WarpScript
 
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, ElmsHousePC
