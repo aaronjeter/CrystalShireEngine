@@ -178,20 +178,20 @@ CyndaquilEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, LEER
-	dbw 6, SMOKESCREEN
+	dbw 6, SAND_ATTACK
 	dbw 10, EMBER
 	dbw 14, QUICK_ATTACK
 	dbw 20, TWISTER
-	dbw 24, FIRE_FANG
-	dbw 28, FAINT_ATTACK
-	dbw 32, SLAM
-	dbw 36, DRAGON_DANCE
-	dbw 40, FLAME_WHEEL
-	dbw 45, PURSUIT
-	dbw 50, FLAMETHROWER
-	dbw 55, OUTRAGE
+	dbw 24, FIRE_SPIN
+	dbw 28, MUD_SHOT
+	dbw 32, FAINT_ATTACK
+	dbw 36, CALM_MIND
+	dbw 40, FLAMETHROWER
+	dbw 45, EARTHPOWER
+	dbw 50, FLAME_WHEEL
+	dbw 55, DRAGONBREATH
 	dbw 60, FIRE_BLAST
-	dbw 65, BEAT_UP
+	dbw 65, EARTHQUAKE
 	dbw 70, BLAST_BURN
 	db 0 ; no more level-up moves
 
@@ -200,20 +200,20 @@ QuilavaEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, LEER
-	dbw 6, SMOKESCREEN
+	dbw 6, SAND_ATTACK
 	dbw 10, EMBER
 	dbw 14, QUICK_ATTACK
 	dbw 20, TWISTER
-	dbw 24, FIRE_FANG
-	dbw 28, FAINT_ATTACK
-	dbw 32, SLAM
-	dbw 36, DRAGON_DANCE
-	dbw 40, FLAME_WHEEL
-	dbw 45, PURSUIT
-	dbw 50, FLAMETHROWER
-	dbw 55, OUTRAGE
+	dbw 24, FIRE_SPIN
+	dbw 28, MUD_SHOT
+	dbw 32, FAINT_ATTACK
+	dbw 36, CALM_MIND
+	dbw 40, FLAMETHROWER
+	dbw 45, EARTHPOWER
+	dbw 50, FLAME_WHEEL
+	dbw 55, DRAGONBREATH
 	dbw 60, FIRE_BLAST
-	dbw 65, BEAT_UP
+	dbw 65, EARTHQUAKE
 	dbw 70, BLAST_BURN
 	db 0 ; no more level-up moves
 
@@ -221,20 +221,20 @@ TyphlosionEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, LEER
-	dbw 6, SMOKESCREEN
+	dbw 6, SAND_ATTACK
 	dbw 10, EMBER
 	dbw 14, QUICK_ATTACK
 	dbw 20, TWISTER
-	dbw 24, FIRE_FANG
-	dbw 28, FAINT_ATTACK
-	dbw 32, SLAM
-	dbw 36, DRAGON_DANCE
-	dbw 40, FLAME_WHEEL
-	dbw 45, PURSUIT
-	dbw 50, FLAMETHROWER
-	dbw 55, OUTRAGE
+	dbw 24, FIRE_SPIN
+	dbw 28, MUD_SHOT
+	dbw 32, FAINT_ATTACK
+	dbw 36, CALM_MIND
+	dbw 40, FLAMETHROWER
+	dbw 45, EARTHPOWER
+	dbw 50, FLAME_WHEEL
+	dbw 55, DRAGONBREATH
 	dbw 60, FIRE_BLAST
-	dbw 65, BEAT_UP
+	dbw 65, EARTHQUAKE
 	dbw 70, BLAST_BURN
 	db 0 ; no more level-up moves
 

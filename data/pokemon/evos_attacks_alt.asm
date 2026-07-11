@@ -1883,17 +1883,17 @@ Totodile2EvosAttacks:
 	dbw 14, BITE
 	dbw 18, THUNDER_WAVE
 	dbw 24, BUBBLEBEAM
-	dbw 28, THUNDER_FANG
-	dbw 32, POISON_FANG
-	dbw 36, DRAGON_DANCE
-	dbw 40, WATERFALL
+	dbw 28, SHOCK_WAVE
+	dbw 32, SNARL
+	dbw 36, CHARGE
+	dbw 40, MIST_BALL
 	dbw 45, THUNDERBOLT
-	dbw 50, CRUNCH
+	dbw 50, DARK_PULSE
 	dbw 55, SCREECH
 	dbw 60, RAIN_DANCE
 	dbw 65, HYDRO_PUMP
-	dbw 70, SHOCKSLAM
-	dbw 75, THUNDER
+	dbw 70, THUNDER
+	dbw 75, CALM_MIND
 	db 0 ; no more level-up moves
 
 Croconaw2EvosAttacks:
@@ -1906,17 +1906,17 @@ Croconaw2EvosAttacks:
 	dbw 14, BITE
 	dbw 18, THUNDER_WAVE
 	dbw 24, BUBBLEBEAM
-	dbw 28, THUNDER_FANG
-	dbw 32, POISON_FANG
-	dbw 36, DRAGON_DANCE
-	dbw 40, WATERFALL
+	dbw 28, SHOCK_WAVE
+	dbw 32, SNARL
+	dbw 36, CHARGE
+	dbw 40, MIST_BALL
 	dbw 45, THUNDERBOLT
-	dbw 50, CRUNCH
+	dbw 50, DARK_PULSE
 	dbw 55, SCREECH
 	dbw 60, RAIN_DANCE
 	dbw 65, HYDRO_PUMP
-	dbw 70, SHOCKSLAM
-	dbw 75, THUNDER
+	dbw 70, THUNDER
+	dbw 75, CALM_MIND
 	db 0 ; no more level-up moves
 
 Feraligatr2EvosAttacks:
@@ -1928,17 +1928,17 @@ Feraligatr2EvosAttacks:
 	dbw 14, BITE
 	dbw 18, THUNDER_WAVE
 	dbw 24, BUBBLEBEAM
-	dbw 28, THUNDER_FANG
-	dbw 32, POISON_FANG
-	dbw 36, DRAGON_DANCE
-	dbw 40, WATERFALL
+	dbw 28, SHOCK_WAVE
+	dbw 32, SNARL
+	dbw 36, CHARGE
+	dbw 40, MIST_BALL
 	dbw 45, THUNDERBOLT
-	dbw 50, CRUNCH
+	dbw 50, DARK_PULSE
 	dbw 55, SCREECH
 	dbw 60, RAIN_DANCE
 	dbw 65, HYDRO_PUMP
-	dbw 70, SHOCKSLAM
-	dbw 75, THUNDER
+	dbw 70, THUNDER
+	dbw 75, CALM_MIND
 	db 0 ; no more level-up moves
 
 Cyndaquil2EvosAttacks:
@@ -1960,7 +1960,7 @@ Cyndaquil2EvosAttacks:
 	dbw 55, OUTRAGE
 	dbw 60, FIRE_BLAST
 	dbw 65, BEAT_UP
-	dbw 70, BLAST_BURN
+	dbw 70, SACRED_FIRE
 	db 0 ; no more level-up moves
 
 Quilava2EvosAttacks:
@@ -1982,7 +1982,7 @@ Quilava2EvosAttacks:
 	dbw 55, OUTRAGE
 	dbw 60, FIRE_BLAST
 	dbw 65, BEAT_UP
-	dbw 70, BLAST_BURN
+	dbw 70, SACRED_FIRE
 	db 0 ; no more level-up moves
 
 Typhlosion2EvosAttacks:
@@ -2003,7 +2003,7 @@ Typhlosion2EvosAttacks:
 	dbw 55, OUTRAGE
 	dbw 60, FIRE_BLAST
 	dbw 65, BEAT_UP
-	dbw 70, BLAST_BURN
+	dbw 70, SACRED_FIRE
 	db 0 ; no more level-up moves
 
 Kadabra2EvosAttacks:
