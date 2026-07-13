@@ -179,6 +179,7 @@ if DEF(_DEBUG)
 
 	giveitem TM_DRAGON_CLAW
 	giveitem TM_BRICK_BREAK
+	giveitem TM_ANCIENTPOWER
 
 	giveitem HATCHET
 	giveitem PICKAXE
