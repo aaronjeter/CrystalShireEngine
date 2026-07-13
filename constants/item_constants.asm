@@ -303,9 +303,9 @@ DEF TM01 EQU const_value
 	add_tm SCALD
 	add_tm BUBBLEBEAM
 	add_tm MAGICAL_LEAF
-	add_tm CHARGE
-	add_tm DRAGON_DANCE	
 	add_tm DRAGON_CLAW
+	add_tm CHARGE
+	add_tm DRAGON_DANCE		
 	add_tm MUD_SHOT	
 	add_tm BRICK_BREAK	
 	add_tm SILVER_WIND
