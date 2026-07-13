@@ -320,6 +320,8 @@ ElementalFangMons::
 	dw LINOONE
 	dw CARVANHA
 	dw SHARPEDO
+	dw SEVIPER
+	dw ZANGOOSE
 	dw EXEGGUTOR2
 	dw FURRET2	
 	dw KOTORA
