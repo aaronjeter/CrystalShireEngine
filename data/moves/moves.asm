@@ -306,7 +306,7 @@ MovesGen2:
 	move EFFECT_ATTACK_UP_HIT,      85, STEEL,          PHYSICAL,		100, 10,  10      ;METEOR_MASH
 	move EFFECT_FLINCH_HIT,         30, GHOST,          PHYSICAL,		100, 15,  30      ;ASTONISH
 	move EFFECT_NORMAL_HIT,         65, FLYING,         SPECIAL,		100, 25,   0      ;AIR_CUTTER
-	move EFFECT_SPEED_DOWN_HIT,     60, ROCK,           PHYSICAL,		 95, 15, 100      ;ROCK_TOMB
+	move EFFECT_SPEED_DOWN_HIT,     55, ROCK,           PHYSICAL,		100, 15, 100      ;ROCK_TOMB
 	move EFFECT_ALL_UP_HIT,         60, BUG,            SPECIAL,		100, 10,  10      ;SILVER_WIND
 	move EFFECT_COSMIC_POWER,        0, PSYCHIC_TYPE,   STATUS,			100, 20,   0      ;COSMIC_POWER
 	move EFFECT_RECOIL_HIT,        100, WATER,          SPECIAL,		100, 10,   0      ;WATER_SPOUT 
