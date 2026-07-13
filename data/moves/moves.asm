@@ -315,7 +315,7 @@ MovesGen2:
 	move EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,   SPECIAL,		100, 30,  15      ;EXTRASENSORY
 	move EFFECT_ACCURACY_DOWN_HIT,  80, WATER,          SPECIAL,		 95, 10,  10      ;MUDDY_WATER
 	move EFFECT_MULTI_HIT,          15, GRASS,          PHYSICAL,		100, 30,   0      ;BULLET_SEED
-	move EFFECT_ALWAYS_HIT,         60, FLYING,         SPECIAL,		100, 20,   0      ;AERIAL_ACE
+	move EFFECT_ALWAYS_HIT,         60, FLYING,         PHYSICAL,		100, 20,   0      ;AERIAL_ACE
 	move EFFECT_MULTI_HIT,          25, ICE,            PHYSICAL,		100, 30,   0      ;ICICLE_SPEAR
 	move EFFECT_ATTACK_UP_HIT,      80, DRAGON,         PHYSICAL,		100, 15,  10      ;DRAGON_CLAW
 	move EFFECT_HYPER_BEAM,        150, GRASS,          SPECIAL,		 90, 10,   0      ;FRENZY_PLANT
