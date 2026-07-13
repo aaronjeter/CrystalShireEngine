@@ -99,18 +99,89 @@ if DEF(_DEBUG)
 	giveitem WARD_BERRY, 10
 	giveitem MARVEL_SCALE, 10
 
+	; Give all HMs/TMs
 	giveitem HM_CUT
+	giveitem HM_FLY
 	giveitem HM_SURF
 	giveitem HM_WHIRLPOOL
 	giveitem HM_WATERFALL
 	giveitem HM_FLASH
 	giveitem HM_STRENGTH
+
+
+	giveitem TM_DYNAMICPUNCH
+	giveitem TM_HEADBUTT
+	giveitem TM_CURSE
+	giveitem TM_ROLLOUT
+	giveitem TM_ROAR
+	giveitem TM_TOXIC
+	giveitem TM_ZAP_CANNON
 	giveitem TM_ROCK_SMASH
+	giveitem TM_PSYCH_UP
+	giveitem TM_HIDDEN_POWER
+	giveitem TM_SUNNY_DAY
+	giveitem TM_SWEET_SCENT
+	giveitem TM_SNORE
+	giveitem TM_BLIZZARD
+	giveitem TM_HYPER_BEAM
+	giveitem TM_ICY_WIND
+	giveitem TM_PROTECT
+	giveitem TM_RAIN_DANCE
+	giveitem TM_GIGA_DRAIN
+	giveitem TM_ENDURE
 	giveitem TM_FRUSTRATION
 	giveitem TM_SOLARBEAM
+	giveitem TM_IRON_TAIL
+	giveitem TM_DRAGONBREATH
+	giveitem TM_THUNDER
+	giveitem TM_EARTHQUAKE
+	giveitem TM_RETURN
+	giveitem TM_DIG
+	giveitem TM_PSYCHIC_M
+	giveitem TM_SHADOW_BALL
+	giveitem TM_MUD_SLAP
+	giveitem TM_DOUBLE_TEAM
+	giveitem TM_ICE_PUNCH
+	giveitem TM_SWAGGER
+	giveitem TM_SLEEP_TALK
+	giveitem TM_SLUDGE_BOMB
+	giveitem TM_SANDSTORM
+	giveitem TM_FIRE_BLAST
+	giveitem TM_SWIFT
+	giveitem TM_DEFENSE_CURL
+	giveitem TM_THUNDERPUNCH
+	giveitem TM_DREAM_EATER
+	giveitem TM_DETECT
+	giveitem TM_REST
+	giveitem TM_ATTRACT
+	giveitem TM_THIEF
+	giveitem TM_STEEL_WING
+	giveitem TM_FIRE_PUNCH
+	giveitem TM_FURY_CUTTER
+	giveitem TM_NIGHTMARE
+	
+	giveitem TM_HAIL
+	giveitem TM_FIRE_FANG
+	giveitem TM_ICE_FANG
+	giveitem TM_THUNDER_FANG
+	giveitem TM_POISON_FANG
+
+	giveitem TM_ROCK_TOMB
+	giveitem TM_BULK_UP
+	giveitem TM_SHOCK_WAVE
+	giveitem TM_WILLOWISP
+	giveitem TM_AERIAL_ACE
+	giveitem TM_CALM_MIND
+	giveitem TM_SCALD
+
+	giveitem TM_BUBBLEBEAM
+	giveitem TM_MAGICAL_LEAF
+
+	giveitem TM_DRAGON_CLAW
+	giveitem TM_BRICK_BREAK
 
 	giveitem HATCHET
-	;giveitem PICKAXE
+	giveitem PICKAXE
 	giveitem FLIPPERS
 
 	; all badges
@@ -232,9 +303,15 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; misc pokemon for testing
-	givepoke SWAMPERT, 99, LIGHT_BALL
-	givepoke GARDEVOIR, 99, POLKADOT_BOW
-	givepoke HO_OH, 99, POLKADOT_BOW
+	givepoke MEW, 99, LIGHT_BALL
+	givepoke MEW, 99, SCOPE_LENS
+	givepoke MEW, 99, PINK_BOW
+
+
+	loadmem wPartyMon2DVs+0, $ff
+	loadmem wPartyMon2DVs+1, $ff
+	loadmem wPartyMon2DVs+2, $ff
+
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
@@ -242,19 +319,21 @@ if DEF(_DEBUG)
 	clearevent EVENT_PLAYERS_HOUSE_MOM_2
 
 	setevent EVENT_BEAT_RIVAL_IN_MT_MOON
-	scall PHLevelcap
-	;jumpstd UpdateWorldLevelsScript
 
 	closetext
 
 	setevent EVENT_BEAT_HOENN_LEAGUE
-	setevent EVENT_BEAT_ELITE_FOUR
+	setevent EVENT_BEAT_INDIGO_LEAGUE
 
-	setevent EVENT_WORLD_CUP_REGISTERED
-	;setevent EVENT_BEAT_QUALIFIER_ROUND_ONE
-	;setevent EVENT_BEAT_QUALIFIER_ROUND_TWO
+	scall PHLevelcap	
 
-	warp WORLD_CUP_LOBBY, 08, 16
+	;halloffame
+
+	;warp WORLD_CUP_LOBBY, 09, 16
+	;warp SAFARI_ZONE_WEST, 7, 9
+	;warp SOOTOPOLIS_GYM, 10, 05
+	;warp EVERGRANDE_DUNGEON_B2F, 52, 12
+	;warp GOLDENROD_CITY, 19, 29
 	end
 else
 
