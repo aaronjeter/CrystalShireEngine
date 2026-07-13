@@ -106,6 +106,8 @@ if DEF(_DEBUG)
 	giveitem HM_FLASH
 	giveitem HM_STRENGTH
 	giveitem TM_ROCK_SMASH
+	giveitem TM_FRUSTRATION
+	giveitem TM_SOLARBEAM
 
 	giveitem HATCHET
 	;giveitem PICKAXE
