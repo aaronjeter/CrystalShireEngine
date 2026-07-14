@@ -103,16 +103,70 @@ RustboroMarcAfterBattleText:
 	line "someone so young."
 	done
 
-
 RustboroGymRoxanneScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_ROXANNE
+	faceplayer	
+	checkflag ENGINE_STONEBADGE
 	iftrue .FightDone
+	opentext
 	writetext RoxanneText_PreFight
-	waitbutton
+	promptbutton
 	closetext
+	scall RoxanneFight
+	opentext
+	scall RoxanneGiveBadge
+	scall RoxanneGiveTm
+	writetext RoxannePostBattleText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall RoxanneGiveTm
+	closetext
+	scall RoxanneRematch
+	end
+
+
+RoxanneRematch:
+	opentext
+	writetext RoxanneRematchText
+	yesorno
+	iffalse .FightDoneText
+	closetext
+	scall RoxanneFight
+	opentext
+.FightDoneText:	
+	writetext RoxannePostBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+RoxanneGiveTm:
+	checkitem TM_ROCK_TOMB
+	iftrue .Done
+	writetext RoxanneExplainTMText
+	promptbutton
+	verbosegiveitem TM_ROCK_TOMB
+.Done	
+	end
+
+RoxanneGiveBadge:	
+	setevent EVENT_BEAT_ROXANNE	
+	writetext RoxanneText_ExplainBadge	
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_STONEBADGE
+	scall RustboroGymLevelcap
+
+	;disable gym trainers
+	setevent EVENT_BEAT_RUSTBORO_JOSH
+	setevent EVENT_BEAT_RUSTBORO_TOMMY
+	setevent EVENT_BEAT_RUSTBORO_MARC	
+	end
+
+RoxanneFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -137,55 +191,6 @@ RustboroGymRoxanneScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_ROXANNE
-	opentext
-	writetext RoxanneText_ExplainBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_STONEBADGE
-	scall RustboroGymLevelcap
-
-	;disable gym trainers
-	setevent EVENT_BEAT_RUSTBORO_JOSH
-	setevent EVENT_BEAT_RUSTBORO_TOMMY
-	setevent EVENT_BEAT_RUSTBORO_MARC
-
-	closetext
-	end
-
-.FightDone:
-	writetext RoxanneRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext RoxanneRematchWinLossText, 0
-	loadtrainer LEADERROXANNE, ROXANNE3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext RoxanneRematchWinLossText, 0
-	loadtrainer LEADERROXANNE, ROXANNE2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext RoxanneRematchWinLossText, 0
-	loadtrainer LEADERROXANNE, ROXANNE1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	opentext
-.FightDoneText
-	writetext RoxannePostBattleText
-	waitbutton
-	closetext
 	end
 
 RustboroGymLevelcap:
@@ -215,7 +220,7 @@ RoxanneWinLossText:
 
 	para "It seems I have"
 	line "yet more to"
-	cont "learn"
+	cont "learn."
 	done
 
 RoxanneText_ExplainBadge:
@@ -244,6 +249,15 @@ RoxannePostBattleText:
 	line "Leaders. I'm"
 	cont "sure you will"
 	cont "learn from them."
+	done
+
+RoxanneExplainTMText:
+	text "Rock Tomb is"
+	line "my favorite move."
+
+	para "Please use this"
+	line "TM to teach your"
+	cont "#mon."
 	done
 
 RustboroGym_MapEvents:
