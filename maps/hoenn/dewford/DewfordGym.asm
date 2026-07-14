@@ -210,14 +210,70 @@ DewfordJocelynAfterBattleText:
 
 
 DewfordGymBrawlyScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_BRAWLY
+	faceplayer	
+	checkflag ENGINE_KNUCKLEBADGE
 	iftrue .FightDone
+	opentext
 	writetext BrawlyText_PreFight
-	waitbutton
+	promptbutton
 	closetext
+	scall BrawlyFight
+	opentext
+	scall BrawlyGiveBadge
+	scall BrawlyGiveTm
+	writetext BrawlyPostBattleText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall BrawlyGiveTm
+	closetext
+	scall BrawlyRematch
+	end
+
+BrawlyRematch:
+	opentext
+	writetext BrawlyRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall BrawlyFight
+	opentext
+.FightDone:	
+	writetext BrawlyPostBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+BrawlyGiveBadge:
+	setevent EVENT_BEAT_BRAWLY	
+	writetext BrawlyText_ExplainBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_KNUCKLEBADGE
+	scall DewfordGymLevelcap
+	;disable gym trainers
+	setevent EVENT_BEAT_DEWFORD_LAURA
+	setevent EVENT_BEAT_DEWFORD_LILITH
+	setevent EVENT_BEAT_DEWFORD_BRENDEN
+	setevent EVENT_BEAT_DEWFORD_TAKAO
+	setevent EVENT_BEAT_DEWFORD_CRISTIAN
+	setevent EVENT_BEAT_DEWFORD_JOCELYN	
+	end
+
+BrawlyGiveTm:
+	checkitem TM_BULK_UP
+	iftrue .Done
+	writetext BrawlyExplainTMText
+	promptbutton
+	verbosegiveitem TM_BULK_UP
+.Done	
+	end
+
+BrawlyFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -241,58 +297,6 @@ DewfordGymBrawlyScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_BRAWLY
-	opentext
-	writetext BrawlyText_ExplainBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_KNUCKLEBADGE
-	scall DewfordGymLevelcap
-
-	;disable gym trainers
-	setevent EVENT_BEAT_DEWFORD_LAURA
-	setevent EVENT_BEAT_DEWFORD_LILITH
-	setevent EVENT_BEAT_DEWFORD_BRENDEN
-	setevent EVENT_BEAT_DEWFORD_TAKAO
-	setevent EVENT_BEAT_DEWFORD_CRISTIAN
-	setevent EVENT_BEAT_DEWFORD_JOCELYN
-
-	closetext
-	end
-
-.FightDone:
-	writetext BrawlyRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext BrawlyRematchWinLossText, 0
-	loadtrainer BRAWLY, BRAWLY3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext BrawlyRematchWinLossText, 0
-	loadtrainer BRAWLY, BRAWLY2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext BrawlyRematchWinLossText, 0
-	loadtrainer BRAWLY, BRAWLY1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	opentext
-.FightDoneText
-	writetext BrawlyPostBattleText
-	waitbutton
-	closetext
 	end
 
 DewfordGymLevelcap:
@@ -356,6 +360,17 @@ BrawlyPostBattleText:
 	cont "of astonishment"
 	cont "among trainers "
 	cont "one day!"
+	done
+
+BrawlyExplainTMText:
+	text "Oh, and here:"
+	line "have this TM"
+	cont "for Bulk Up."
+
+	para "It's an amazing"
+	line "move that boosts"
+	cont "attack and"
+	cont "defense."
 	done
 
 DewfordGym_MapEvents:
