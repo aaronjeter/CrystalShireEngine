@@ -57,14 +57,45 @@ CeruleanGymGruntRunsOutScript:
 	end
 
 CeruleanGymMistyScript:
-	faceplayer
-	opentext
+	faceplayer	
 	checkflag ENGINE_CASCADEBADGE
 	iftrue .FightDone
+	opentext
 	writetext MistyIntroText
-	waitbutton
+	promptbutton
 	closetext
+	scall MistyFight
+	opentext
+	scall MistyGiveBadge
+	scall MistyGiveTm
+	writetext MistyFightDoneText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall MistyGiveTm
+	closetext
+	scall MistyRematch
+	end
+
+MistyRematch:
+	opentext
+	writetext MistyRematchText
+	yesorno
+	iffalse .FightDoneText
+	closetext
+	scall MistyFight
+	opentext
+.FightDoneText:	
+	writetext MistyFightDoneText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+MistyFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -88,51 +119,28 @@ CeruleanGymMistyScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
+	end
+
+MistyGiveTm:
+	checkitem TM_BUBBLEBEAM
+	iftrue .Done
+	writetext MistyExplainTMText
+	promptbutton
+	verbosegiveitem TM_BUBBLEBEAM
+.Done	
+	end
+
+MistyGiveBadge:
 	setevent EVENT_BEAT_MISTY
 	setevent EVENT_BEAT_SWIMMERF_DIANA
 	setevent EVENT_BEAT_SWIMMERF_BRIANA
-	setevent EVENT_BEAT_SWIMMERM_PARKER
-	opentext
+	setevent EVENT_BEAT_SWIMMERM_PARKER	
 	writetext ReceivedCascadeBadgeText
+	promptbutton
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_CASCADEBADGE
 	scall CeruleanGymLevelcap
-.FightDone:
-	writetext MistyRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext MistyRematchWinLossText, 0
-	loadtrainer MISTY, MISTY3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext MistyRematchWinLossText, 0
-	loadtrainer MISTY, MISTY2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext MistyRematchWinLossText, 0
-	loadtrainer MISTY, MISTY1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	sjump .EndRematch
-
-.FightDoneText:
-	writetext MistyFightDoneText
-	waitbutton
-.EndRematch:
-	closetext
 	end
 
 CeruleanGymLevelcap:
@@ -333,6 +341,18 @@ MistyFightDoneText:
 
 	para "I can battle some"
 	line "skilled trainers."
+	done
+
+MistyExplainTMText:
+	text "Misty: And here,"
+	line "you should have"
+	cont "this."
+
+	para "Bubble Beam is"
+	line "fabulous!"
+
+	para "Slowing enemies"
+	line "is super handy."
 	done
 
 SwimmerfDianaSeenText:

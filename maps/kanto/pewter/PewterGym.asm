@@ -12,17 +12,16 @@ PewterGymBrockScript:
 	faceplayer	
 	checkflag ENGINE_BOULDERBADGE
 	iftrue .FightDone
-
 	opentext
 	writetext BrockIntroText
 	promptbutton
 	closetext
-
 	scall BrockFight
-
 	opentext
 	scall BrockGiveBadge
 	scall BrockGiveTm
+	writetext BrockFightDoneText
+	promptbutton
 	closetext
 	end
 
@@ -30,7 +29,6 @@ PewterGymBrockScript:
 	opentext
 	scall BrockGiveTm
 	closetext
-
 	scall BrockRematch
 	end
 
