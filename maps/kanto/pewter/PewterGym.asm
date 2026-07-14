@@ -9,14 +9,69 @@ PewterGym_MapScripts:
 	def_callbacks
 
 PewterGymBrockScript:
-	faceplayer
-	opentext
+	faceplayer	
 	checkflag ENGINE_BOULDERBADGE
 	iftrue .FightDone
+
+	opentext
 	writetext BrockIntroText
-	waitbutton
+	promptbutton
 	closetext
 
+	scall BrockFight
+
+	opentext
+	scall BrockGiveBadge
+	scall BrockGiveTm
+	closetext
+	end
+
+.FightDone:	
+	opentext
+	scall BrockGiveTm
+	closetext
+
+	scall BrockRematch
+	end
+
+BrockGiveTm:
+	checkitem TM_ANCIENTPOWER
+	iftrue .Done
+	writetext BrockExplainTMText
+	promptbutton
+	verbosegiveitem TM_ANCIENTPOWER
+.Done	
+	end
+
+BrockGiveBadge:	
+	setevent EVENT_BEAT_BROCK
+	setevent EVENT_BEAT_CAMPER_JERRY
+	writetext ReceivedBoulderBadgeText
+	promptbutton
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_BOULDERBADGE
+	scall PewterGymLevelcap
+	writetext BrockBoulderBadgeText
+	promptbutton
+	end
+
+BrockRematch:
+	opentext
+	writetext BrockRematchText
+	yesorno
+	iffalse .FightDoneText
+	closetext
+	scall BrockFight
+	opentext
+.FightDoneText:	
+	writetext BrockFightDoneText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+BrockFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -40,54 +95,6 @@ PewterGymBrockScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_BROCK
-	setevent EVENT_BEAT_CAMPER_JERRY
-	opentext
-	writetext ReceivedBoulderBadgeText
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_BOULDERBADGE
-	scall PewterGymLevelcap
-	writetext BrockBoulderBadgeText
-	waitbutton
-	closetext
-	end
-
-.FightDone:
-	writetext BrockRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext BrockRematchWinLossText, 0
-	loadtrainer BROCK, BROCK3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext BrockRematchWinLossText, 0
-	loadtrainer BROCK, BROCK2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext BrockRematchWinLossText, 0
-	loadtrainer BROCK, BROCK1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	sjump .EndRematch
-
-.FightDoneText:
-	writetext BrockFightDoneText
-	waitbutton
-.EndRematch:
-	closetext
 	end
 
 PewterGymLevelcap:
@@ -206,6 +213,17 @@ BrockFightDoneText:
 	line "I'm going to be-"
 	cont "come a lot strong-"
 	cont "er too."
+	done
+
+BrockExplainTMText:
+	text "Brock: You should"
+	line "take this, as a"
+	cont "gift from me."
+
+	para "This TM contains"
+	line "Ancient Power,"
+	cont "a favorite of "
+	cont "mine."
 	done
 
 CamperJerrySeenText:
