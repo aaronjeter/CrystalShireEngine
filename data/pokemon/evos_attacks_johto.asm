@@ -361,7 +361,7 @@ HoothootEvosAttacks:
 	dbw 16, FORESIGHT	
 	dbw 20, HYPNOSIS
 	dbw 24, WING_ATTACK
-	dbw 28, PSYBEAM
+	dbw 28, HEX
 	dbw 32, WILLOWISP
 	dbw 36, DREAM_EATER
 	dbw 40, DRILL_PECK
@@ -384,7 +384,7 @@ NoctowlEvosAttacks:
 	dbw 16, FORESIGHT	
 	dbw 20, HYPNOSIS
 	dbw 24, WING_ATTACK
-	dbw 28, PSYBEAM
+	dbw 28, HEX
 	dbw 32, WILLOWISP
 	dbw 36, DREAM_EATER
 	dbw 40, DRILL_PECK
@@ -673,7 +673,7 @@ NatuEvosAttacks:
 	dbw 15, TELEPORT
 	dbw 20, CONFUSE_RAY
 	dbw 24, PSYBEAM
-	dbw 28, WING_ATTACK
+	dbw 28, HEX
 	dbw 32, MEDITATE	
 	dbw 36, RAZOR_WIND
 	dbw 40, PSYCHIC_M	
@@ -693,7 +693,7 @@ XatuEvosAttacks:
 	dbw 15, TELEPORT
 	dbw 20, CONFUSE_RAY
 	dbw 24, PSYBEAM
-	dbw 28, WING_ATTACK
+	dbw 28, HEX
 	dbw 32, MEDITATE	
 	dbw 36, RAZOR_WIND
 	dbw 40, PSYCHIC_M	
@@ -1155,7 +1155,7 @@ MisdreavusEvosAttacks:
 	dbw 12, PSYWAVE
 	dbw 15, POISON_GAS
 	dbw 20, WILLOWISP
-	dbw 24, SHADOWSNEAK
+	dbw 24, HEX
 	dbw 28, CONFUSE_RAY
 	dbw 32, MEAN_LOOK
 	dbw 36, ICY_WIND
@@ -1178,6 +1178,7 @@ UnownEvosAttacks:
 	dbw 20, CONFUSE_RAY
 	dbw 24, FAINT_ATTACK	
 	dbw 28, SHADOW_CLAW
+	dbw 30, HEX
 	dbw 32, WILLOWISP
 	dbw 36, GLARE
 	dbw 40, DARK_PULSE
@@ -1906,13 +1907,13 @@ SmoochumEvosAttacks:
 	dbw 24, ICE_PUNCH
 	dbw 28, PSYBEAM
 	dbw 32, ICY_WIND
-	dbw 36, PERISH_SONG
+	dbw 36, HEX
 	dbw 40, PSYCHIC_M
 	dbw 45, ICE_BEAM
 	dbw 50, CALM_MIND
 	dbw 55, HYPER_VOICE
 	dbw 60, BLIZZARD
-	dbw 55, FUTURE_SIGHT
+	dbw 65, PERISH_SONG
 	dbw 70, MEDITATE
 	db 0 ; no more level-up moves
 

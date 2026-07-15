@@ -2267,7 +2267,7 @@ DuskullEvosAttacks:
 	dbw 20, CONFUSE_RAY
 	dbw 22, SHADOWSNEAK
 	dbw 24, FAINT_ATTACK
-	dbw 28, SHADOW_CLAW
+	dbw 28, HEX
 	dbw 32, COSMIC_POWER
 	dbw 36, PURSUIT
 	dbw 40, SHADOW_BALL
@@ -2291,7 +2291,7 @@ DusclopsEvosAttacks:
 	dbw 20, CONFUSE_RAY
 	dbw 22, SHADOWSNEAK
 	dbw 24, FAINT_ATTACK
-	dbw 28, SHADOW_CLAW
+	dbw 28, HEX
 	dbw 32, COSMIC_POWER
 	dbw 36, PURSUIT
 	dbw 40, SHADOW_BALL

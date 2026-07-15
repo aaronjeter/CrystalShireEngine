@@ -908,7 +908,7 @@ VulpixEvosAttacks:
 	dbw 24, FAE_VOICE
 	dbw 28, FIRE_SPIN
 	dbw 32, RECOVER
-	dbw 36, DRAININGKISS
+	dbw 36, HEX
 	dbw 40, FLAMETHROWER
 	dbw 45, MOONBLAST
 	dbw 48, DESTINY_BOND
@@ -932,7 +932,7 @@ NinetalesEvosAttacks:
 	dbw 24, FAE_VOICE
 	dbw 28, FIRE_SPIN
 	dbw 32, RECOVER
-	dbw 36, DRAININGKISS
+	dbw 36, HEX
 	dbw 40, FLAMETHROWER
 	dbw 45, MOONBLAST
 	dbw 48, DESTINY_BOND
@@ -2099,7 +2099,7 @@ GastlyEvosAttacks:
 	dbw 16, CURSE
 	dbw 21, NIGHT_SHADE
 	dbw 25, CONFUSE_RAY
-	dbw 28, SHADOW_PUNCH
+	dbw 28, HEX
 	dbw 32, DREAM_EATER
 	dbw 36, GROWTH
 	dbw 40, SHADOW_BALL
@@ -2121,7 +2121,7 @@ HaunterEvosAttacks:
 	dbw 16, CURSE
 	dbw 21, NIGHT_SHADE
 	dbw 25, CONFUSE_RAY
-	dbw 28, SHADOW_PUNCH
+	dbw 28, HEX
 	dbw 32, DREAM_EATER
 	dbw 36, GROWTH
 	dbw 40, SHADOW_BALL
@@ -2143,7 +2143,7 @@ GengarEvosAttacks:
 	dbw 16, CURSE
 	dbw 21, NIGHT_SHADE
 	dbw 25, CONFUSE_RAY
-	dbw 28, SHADOW_PUNCH
+	dbw 28, HEX
 	dbw 32, DREAM_EATER
 	dbw 36, GROWTH
 	dbw 40, SHADOW_BALL
@@ -2188,7 +2188,7 @@ DrowzeeEvosAttacks:
 	dbw 20, FURY_SWIPES
 	dbw 24, PSYBEAM
 	dbw 28, SHADOW_PUNCH
-	dbw 32, NIGHTMARE
+	dbw 32, HEX
 	dbw 36, DREAM_EATER
 	dbw 40, PSYCHIC_M
 	dbw 45, SHADOW_BALL
@@ -2209,7 +2209,7 @@ HypnoEvosAttacks:
 	dbw 20, FURY_SWIPES
 	dbw 24, PSYBEAM
 	dbw 28, SHADOW_PUNCH
-	dbw 32, NIGHTMARE
+	dbw 32, HEX
 	dbw 36, DREAM_EATER
 	dbw 40, PSYCHIC_M
 	dbw 45, SHADOW_BALL
@@ -2780,13 +2780,13 @@ JynxEvosAttacks:
 	dbw 24, ICE_PUNCH
 	dbw 28, PSYBEAM
 	dbw 32, ICY_WIND
-	dbw 36, PERISH_SONG
+	dbw 36, HEX
 	dbw 40, PSYCHIC_M
 	dbw 45, ICE_BEAM
 	dbw 50, CALM_MIND
 	dbw 55, HYPER_VOICE
 	dbw 60, BLIZZARD
-	dbw 55, FUTURE_SIGHT
+	dbw 65, PERISH_SONG
 	dbw 70, MEDITATE
 	db 0 ; no more level-up moves
 

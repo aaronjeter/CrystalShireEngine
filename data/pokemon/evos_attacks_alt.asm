@@ -256,7 +256,7 @@ FroslassEvosAttacks:
 	dbw 20, ICE_FANG
 	dbw 24, DRAININGKISS
 	dbw 28, HAIL
-	dbw 32, SHADOW_CLAW
+	dbw 32, HEX
 	dbw 36, CALM_MIND
 	dbw 40, ICE_BEAM
 	dbw 45, SHADOW_BALL
@@ -502,6 +502,7 @@ AmarowakEvosAttacks:
 	dbw 20, HEADBUTT
 	dbw 24, NIGHT_SHADE
 	dbw 28, BONEMERANG
+	dbw 30, HEX
 	dbw 32, CURSE
 	dbw 36, SHADOW_CLAW
 	dbw 40, FLAME_WHEEL	
@@ -612,7 +613,7 @@ AvulpixEvosAttacks:
 	dbw 20, ICY_WIND
 	dbw 24, DRAININGKISS
 	dbw 28, AURORA_BEAM
-	dbw 32, RECOVER
+	dbw 32, HEX
 	dbw 36, HYPNOSIS
 	dbw 40, FAERIEGLEAM
 	dbw 45, EXTRASENSORY
@@ -635,7 +636,7 @@ AninetalesEvosAttacks:
 	dbw 20, ICY_WIND
 	dbw 24, DRAININGKISS
 	dbw 28, AURORA_BEAM
-	dbw 32, RECOVER
+	dbw 32, HEX
 	dbw 36, HYPNOSIS
 	dbw 40, FAERIEGLEAM
 	dbw 45, EXTRASENSORY
@@ -1035,7 +1036,7 @@ Noctowl2EvosAttacks:
 	dbw 16, FORESIGHT	
 	dbw 20, HYPNOSIS
 	dbw 24, WING_ATTACK
-	dbw 28, PSYBEAM
+	dbw 28, HEX
 	dbw 32, WILLOWISP
 	dbw 36, DREAM_EATER
 	dbw 40, DRILL_PECK
@@ -1294,6 +1295,7 @@ HanamoleEvosAttacks:
 	dbw 20, LEECH_SEED
 	dbw 24, STUN_SPORE
 	dbw 28, MAGICAL_LEAF
+	dbw 30, HEX
 	dbw 32, CHARM
 	dbw 36, DRAGONBREATH
 	dbw 40, GIGA_DRAIN
@@ -1443,7 +1445,7 @@ HaneeiEvosAttacks:
 	dbw 8, WATER_GUN
 	dbw 12, CURSE	
 	dbw 16, NIGHT_SHADE
-	dbw 20, CONFUSE_RAY
+	dbw 20, HEX
 	dbw 24, BUBBLEBEAM
 	dbw 28, AURORA_BEAM	
 	dbw 32, HYPNOSIS
@@ -1633,7 +1635,7 @@ MismagiusEvosAttacks:
 	dbw 12, PSYWAVE
 	dbw 15, POISON_GAS
 	dbw 20, WILLOWISP
-	dbw 24, SHADOWSNEAK
+	dbw 24, HEX
 	dbw 28, CONFUSE_RAY
 	dbw 32, MEAN_LOOK
 	dbw 36, ICY_WIND
@@ -1735,7 +1737,7 @@ DusknoirEvosAttacks:
 	dbw 20, CONFUSE_RAY
 	dbw 22, SHADOWSNEAK
 	dbw 24, FAINT_ATTACK
-	dbw 28, SHADOW_CLAW
+	dbw 28, HEX
 	dbw 32, COSMIC_POWER
 	dbw 36, PURSUIT
 	dbw 40, SHADOW_BALL
