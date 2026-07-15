@@ -340,6 +340,7 @@ MoveDescriptionsGen2:
 	dw SnarlDescription
 	dw HexDescription
 	dw VenoshockDescription
+
 .IndirectEnd::
 
 InvalidMoveDescription:
