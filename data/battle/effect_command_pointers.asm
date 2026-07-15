@@ -181,4 +181,5 @@ BattleCommandPointers:
 	dw BattleCommand_Burn
 	dw BattleCommand_Freeze
 	dw BattleCommand_StartHail
+	dw BattleCommand_ConditionalBoost
 	assert_table_length NUM_EFFECT_COMMANDS

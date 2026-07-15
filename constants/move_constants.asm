@@ -336,6 +336,8 @@ DEF GEN1_MOVES EQU const_value - 1
 	const EARTHPOWER
 	const SHOCKSLAM
 	const SNARL
+	const HEX
+	const VENOSHOCK
 
 DEF GEN2_MOVES EQU const_value - 1
 

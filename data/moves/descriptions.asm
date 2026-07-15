@@ -338,6 +338,8 @@ MoveDescriptionsGen2:
 	dw EarthpowerDescription
 	dw ShockslamDescription
 	dw SnarlDescription
+	dw HexDescription
+	dw VenoshockDescrption
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1660,3 +1662,11 @@ ShockslamDescription:
 SnarlDescription:
 	db   "An attack that"
 	next "lowers Spcl.Atk.@"
+
+HexDescription:
+	db   "Double damage on"
+	next "statused targets.@"
+
+VenoshockDescrption:
+	db   "Double damage on"
+	next "poisoned targets.@"
