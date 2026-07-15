@@ -332,7 +332,7 @@ MauvilleFrankScript:
 
 MauvilleFrankSeenText:
 	text "PC load letter?"
-	line "The **** does"
+	line "The ---- does"
 	cont "that mean?"
 
 	para "I'm gonna hurt"
