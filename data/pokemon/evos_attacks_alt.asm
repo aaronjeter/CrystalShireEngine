@@ -525,6 +525,7 @@ AgrimerEvosAttacks:
 	dbw 20, SHADOWSNEAK
 	dbw 24, POISON_FANG	
 	dbw 28, FAINT_ATTACK
+	dbw 30, VENOSHOCK
 	dbw 32, MAGNITUDE
 	dbw 36, COSMIC_POWER
 	dbw 40, SLUDGE_BOMB
@@ -546,6 +547,7 @@ AmukEvosAttacks:
 	dbw 20, SHADOWSNEAK
 	dbw 24, POISON_FANG	
 	dbw 28, FAINT_ATTACK
+	dbw 30, VENOSHOCK
 	dbw 32, MAGNITUDE
 	dbw 36, COSMIC_POWER
 	dbw 40, SLUDGE_BOMB
@@ -887,6 +889,7 @@ GweezingEvosAttacks:
 	dbw 10, SMOG
 	dbw 14, SMOKESCREEN
 	dbw 18, SELFDESTRUCT
+	dbw 20, VENOSHOCK
 	dbw 24, SLUDGE
 	dbw 28, FIRE_SPIN	
 	dbw 32, WILLOWISP
@@ -1230,7 +1233,7 @@ Vulpix2EvosAttacks:
 	dbw 20, WILLOWISP
 	dbw 24, BUBBLEBEAM
 	dbw 28, FIRE_SPIN
-	dbw 32, POISON_FANG
+	dbw 32, VENOSHOCK
 	dbw 36, HYPNOSIS
 	dbw 40, SCALD
 	dbw 45, FLAMETHROWER
@@ -1253,7 +1256,7 @@ Ninetales2EvosAttacks:
 	dbw 20, WILLOWISP
 	dbw 24, BUBBLEBEAM
 	dbw 28, FIRE_SPIN
-	dbw 32, POISON_FANG
+	dbw 32, VENOSHOCK
 	dbw 36, HYPNOSIS
 	dbw 40, SCALD
 	dbw 45, FLAMETHROWER
@@ -1595,9 +1598,11 @@ RoseradeEvosAttacks:
 	dbw 9, POISON_STING
 	dbw 12, STUN_SPORE
 	dbw 16, LEECH_SEED
+	dbw 18, POISONPOWDER
 	dbw 20, SWEET_SCENT
 	dbw 24, MAGICAL_LEAF	
 	dbw 28, SLUDGE
+	dbw 30, VENOSHOCK
 	dbw 32, TOXIC
 	dbw 36, GROWTH
 	dbw 40, GIGA_DRAIN	

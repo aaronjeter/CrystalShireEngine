@@ -117,6 +117,7 @@ ChikoritaEvosAttacks:
 	dbw 20, SYNTHESIS
 	dbw 24, RAZOR_LEAF
 	dbw 28, LIGHT_SCREEN
+	dbw 30, VENOSHOCK
 	dbw 32, SAFEGUARD
 	dbw 36, GROWTH
 	dbw 40, GIGA_DRAIN
@@ -140,6 +141,7 @@ BayleefEvosAttacks:
 	dbw 20, SYNTHESIS
 	dbw 24, RAZOR_LEAF
 	dbw 28, LIGHT_SCREEN
+	dbw 30, VENOSHOCK
 	dbw 32, SAFEGUARD
 	dbw 36, GROWTH
 	dbw 40, GIGA_DRAIN
@@ -162,6 +164,7 @@ MeganiumEvosAttacks:
 	dbw 20, SYNTHESIS
 	dbw 24, RAZOR_LEAF
 	dbw 28, LIGHT_SCREEN
+	dbw 30, VENOSHOCK
 	dbw 32, SAFEGUARD
 	dbw 36, GROWTH
 	dbw 40, GIGA_DRAIN
@@ -495,6 +498,7 @@ CrobatEvosAttacks:
 	dbw 19, CONFUSE_RAY
 	dbw 24, WING_ATTACK
 	dbw 28, POISON_FANG
+	dbw 30, VENOSHOCK
 	dbw 32, HAZE
 	dbw 36, BELLY_DRUM
 	dbw 40, SLUDGE_BOMB
@@ -781,6 +785,7 @@ BellossomEvosAttacks:
 	dbw 20, SLEEP_POWDER
 	dbw 24, MEGA_DRAIN	
 	dbw 28, RAZOR_LEAF
+	dbw 30, VENOSHOCK
 	dbw 32, FAE_VOICE
 	dbw 36, SYNTHESIS
 	dbw 40, GIGA_DRAIN	
@@ -886,6 +891,7 @@ HoppipEvosAttacks:
 	dbw 20, COTTON_SPORE
 	dbw 24, RAZOR_LEAF	
 	dbw 28, SYNTHESIS
+	dbw 30, VENOSHOCK
 	dbw 32, RAZOR_WIND
 	dbw 36, SUNNY_DAY
 	dbw 40, SOLARBEAM
@@ -907,6 +913,7 @@ SkiploomEvosAttacks:
 	dbw 20, COTTON_SPORE
 	dbw 24, RAZOR_LEAF	
 	dbw 28, SYNTHESIS
+	dbw 30, VENOSHOCK
 	dbw 32, RAZOR_WIND
 	dbw 36, SUNNY_DAY
 	dbw 40, SOLARBEAM
@@ -927,6 +934,7 @@ JumpluffEvosAttacks:
 	dbw 20, COTTON_SPORE
 	dbw 24, RAZOR_LEAF	
 	dbw 28, SYNTHESIS
+	dbw 30, VENOSHOCK
 	dbw 32, RAZOR_WIND
 	dbw 36, SUNNY_DAY
 	dbw 40, SOLARBEAM
@@ -2158,7 +2166,8 @@ CelebiEvosAttacks:
 	dbw 18, SLEEP_POWDER
 	dbw 20, ANCIENTPOWER
 	dbw 24, RAZOR_LEAF
-	dbw 28, FAE_VOICE	
+	dbw 28, FAE_VOICE
+	dbw 30, VENOSHOCK
 	dbw 32, PSYBEAM
 	dbw 36, MOONBLAST
 	dbw 40, RECOVER

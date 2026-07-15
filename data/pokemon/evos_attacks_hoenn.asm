@@ -447,7 +447,8 @@ BeautiflyEvosAttacks:
 	dbw 10, ABSORB
 	dbw 12, GUST
 	dbw 16, STUN_SPORE
-	dbw 20, MORNING_SUN
+	dbw 18, POISONPOWDER
+	dbw 20, VENOSHOCK
 	dbw 24, MEGA_DRAIN
 	dbw 28, SILVER_WIND
 	dbw 32, ATTRACT
@@ -475,7 +476,8 @@ DustoxEvosAttacks:
 	dbw 10, CONFUSION
 	dbw 12, GUST
 	dbw 16, PROTECT
-	dbw 20, MOONLIGHT
+	dbw 18, POISONPOWDER
+	dbw 20, VENOSHOCK
 	dbw 24, PSYBEAM
 	dbw 28, SILVER_WIND
 	dbw 32, ATTRACT
@@ -1451,9 +1453,11 @@ RoseliaEvosAttacks:
 	dbw 9, POISON_STING
 	dbw 12, STUN_SPORE
 	dbw 16, LEECH_SEED
+	dbw 18, POISONPOWDER
 	dbw 20, SWEET_SCENT
 	dbw 24, MAGICAL_LEAF	
 	dbw 28, SLUDGE
+	dbw 30, VENOSHOCK
 	dbw 32, TOXIC
 	dbw 36, GROWTH
 	dbw 40, GIGA_DRAIN	
@@ -1474,6 +1478,7 @@ GulpinEvosAttacks:
 	dbw 20, SLUDGE
 	dbw 24, MUD_SHOT
 	dbw 28, ENCORE
+	dbw 30, VENOSHOCK
 	dbw 32, TOXIC
 	dbw 36, POISON_JAB
 	dbw 40, BODY_SLAM
@@ -1494,6 +1499,7 @@ SwalotEvosAttacks:
 	dbw 20, SLUDGE
 	dbw 24, MUD_SHOT
 	dbw 28, ENCORE
+	dbw 30, VENOSHOCK
 	dbw 32, TOXIC
 	dbw 36, POISON_JAB
 	dbw 40, BODY_SLAM
@@ -1888,6 +1894,7 @@ SeviperEvosAttacks:
 	dbw 20, GLARE
 	dbw 24, POISON_TAIL
 	dbw 28, FIRE_FANG
+	dbw 30, VENOSHOCK
 	dbw 32, BULK_UP
 	dbw 36, CRUNCH
 	dbw 40, POISON_JAB

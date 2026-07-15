@@ -165,7 +165,7 @@ BulbasaurEvosAttacks:
 	dbw 16, SLEEP_POWDER
 	dbw 20, SYNTHESIS
 	dbw 24, RAZOR_LEAF		
-	dbw 28, SLUDGE
+	dbw 28, VENOSHOCK
 	dbw 32, GROWTH
 	dbw 36, STOMP
 	dbw 40, LEAF_BLADE
@@ -188,7 +188,7 @@ IvysaurEvosAttacks:
 	dbw 16, SLEEP_POWDER
 	dbw 20, SYNTHESIS
 	dbw 24, RAZOR_LEAF		
-	dbw 28, SLUDGE
+	dbw 28, VENOSHOCK
 	dbw 32, GROWTH
 	dbw 36, STOMP
 	dbw 40, LEAF_BLADE
@@ -211,7 +211,7 @@ VenusaurEvosAttacks:
 	dbw 16, SLEEP_POWDER
 	dbw 20, SYNTHESIS
 	dbw 24, RAZOR_LEAF		
-	dbw 28, SLUDGE
+	dbw 28, VENOSHOCK
 	dbw 32, GROWTH
 	dbw 36, STOMP
 	dbw 40, LEAF_BLADE
@@ -383,7 +383,7 @@ ButterfreeEvosAttacks:
 	dbw 20, SUPERSONIC
 	dbw 24, FAE_VOICE
 	dbw 28, SILVER_WIND
-	dbw 32, PSYBEAM
+	dbw 32, VENOSHOCK
 	dbw 36, CALM_MIND
 	dbw 40, SIGNAL_BEAM
 	dbw 45, MOONBLAST
@@ -998,6 +998,7 @@ ZubatEvosAttacks:
 	dbw 19, CONFUSE_RAY
 	dbw 24, WING_ATTACK
 	dbw 28, POISON_FANG
+	dbw 30, VENOSHOCK
 	dbw 32, HAZE
 	dbw 36, BELLY_DRUM
 	dbw 40, SLUDGE_BOMB
@@ -1021,6 +1022,7 @@ GolbatEvosAttacks:
 	dbw 19, CONFUSE_RAY
 	dbw 24, WING_ATTACK
 	dbw 28, POISON_FANG
+	dbw 30, VENOSHOCK
 	dbw 32, HAZE
 	dbw 36, BELLY_DRUM
 	dbw 40, SLUDGE_BOMB
@@ -1042,7 +1044,7 @@ OddishEvosAttacks:
 	dbw 14, STUN_SPORE
 	dbw 18, SLEEP_POWDER
 	dbw 24, MEGA_DRAIN
-	dbw 28, FAINT_ATTACK
+	dbw 28, VENOSHOCK
 	dbw 32, GROWTH
 	dbw 36, SLUDGE
 	dbw 40, GIGA_DRAIN	
@@ -1066,7 +1068,7 @@ GloomEvosAttacks:
 	dbw 14, STUN_SPORE
 	dbw 18, SLEEP_POWDER
 	dbw 24, MEGA_DRAIN
-	dbw 28, FAINT_ATTACK
+	dbw 28, VENOSHOCK
 	dbw 32, GROWTH
 	dbw 36, SLUDGE
 	dbw 40, GIGA_DRAIN	
@@ -1087,7 +1089,7 @@ VileplumeEvosAttacks:
 	dbw 14, STUN_SPORE
 	dbw 18, SLEEP_POWDER
 	dbw 24, MEGA_DRAIN
-	dbw 28, FAINT_ATTACK
+	dbw 28, VENOSHOCK
 	dbw 32, GROWTH
 	dbw 36, SLUDGE
 	dbw 40, GIGA_DRAIN	
@@ -1107,7 +1109,7 @@ ParasEvosAttacks:
 	dbw 7, STUN_SPORE
 	dbw 12, POISONPOWDER	
 	dbw 16, LEECH_SEED
-	dbw 20, FURY_ATTACK
+	dbw 20, VENOSHOCK
 	dbw 24, RAZOR_LEAF
 	dbw 28, SLAM
 	dbw 32, GROWTH
@@ -1128,7 +1130,7 @@ ParasectEvosAttacks:
 	dbw 7, STUN_SPORE
 	dbw 12, POISONPOWDER	
 	dbw 16, LEECH_SEED
-	dbw 20, FURY_ATTACK
+	dbw 20, VENOSHOCK
 	dbw 24, RAZOR_LEAF
 	dbw 28, SLAM
 	dbw 32, GROWTH
@@ -1153,7 +1155,7 @@ VenonatEvosAttacks:
 	dbw 20, SLEEP_POWDER
 	dbw 24, PSYBEAM
 	dbw 28, STUN_SPORE
-	dbw 32, DETECT
+	dbw 32, VENOSHOCK
 	dbw 36, SILVER_WIND
 	dbw 40, PSYCHIC_M
 	dbw 45, SIGNAL_BEAM	
@@ -1174,7 +1176,7 @@ VenomothEvosAttacks:
 	dbw 20, SLEEP_POWDER
 	dbw 24, PSYBEAM
 	dbw 28, STUN_SPORE
-	dbw 32, DETECT
+	dbw 32, VENOSHOCK
 	dbw 36, SILVER_WIND
 	dbw 40, PSYCHIC_M
 	dbw 45, SIGNAL_BEAM	
@@ -1605,7 +1607,7 @@ BellsproutEvosAttacks:
 	dbw 16, SLEEP_POWDER
 	dbw 20, POISONPOWDER	
 	dbw 24, RAZOR_LEAF
-	dbw 28, SWEET_SCENT
+	dbw 28, VENOSHOCK
 	dbw 32, STUN_SPORE
 	dbw 36, LEECH_SEED	
 	dbw 40, SLUDGE_BOMB
@@ -1628,7 +1630,7 @@ WeepinbellEvosAttacks:
 	dbw 16, SLEEP_POWDER
 	dbw 20, POISONPOWDER	
 	dbw 24, RAZOR_LEAF
-	dbw 28, SWEET_SCENT
+	dbw 28, VENOSHOCK
 	dbw 32, STUN_SPORE
 	dbw 36, LEECH_SEED	
 	dbw 40, SLUDGE_BOMB
@@ -1650,7 +1652,7 @@ VictreebelEvosAttacks:
 	dbw 16, SLEEP_POWDER
 	dbw 20, POISONPOWDER	
 	dbw 24, RAZOR_LEAF
-	dbw 28, SWEET_SCENT
+	dbw 28, VENOSHOCK
 	dbw 32, STUN_SPORE
 	dbw 36, LEECH_SEED	
 	dbw 40, SLUDGE_BOMB
@@ -1672,7 +1674,7 @@ TentacoolEvosAttacks:
 	dbw 16, WRAP
 	dbw 20, GROWTH
 	dbw 24, WATER_PULSE	
-	dbw 28, SLUDGE
+	dbw 28, VENOSHOCK
 	dbw 32, AURORA_BEAM
 	dbw 36, ICY_WIND	
 	dbw 40, MIST_BALL
@@ -1693,7 +1695,7 @@ TentacruelEvosAttacks:
 	dbw 16, WRAP
 	dbw 20, GROWTH
 	dbw 24, WATER_PULSE	
-	dbw 28, SLUDGE
+	dbw 28, VENOSHOCK
 	dbw 32, AURORA_BEAM
 	dbw 36, ICY_WIND	
 	dbw 40, MIST_BALL
@@ -2013,6 +2015,7 @@ GrimerEvosAttacks:
 	dbw 22, SHADOWSNEAK
 	dbw 24, SLUDGE
 	dbw 28, MAGNITUDE
+	dbw 30, VENOSHOCK
 	dbw 32, CRUSH_CLAW
 	dbw 36, COSMIC_POWER
 	dbw 40, POISON_JAB
@@ -2034,6 +2037,7 @@ MukEvosAttacks:
 	dbw 22, SHADOWSNEAK
 	dbw 24, SLUDGE
 	dbw 28, MAGNITUDE
+	dbw 30, VENOSHOCK
 	dbw 32, CRUSH_CLAW
 	dbw 36, COSMIC_POWER
 	dbw 40, POISON_JAB
@@ -2098,7 +2102,7 @@ GastlyEvosAttacks:
 	dbw 12, ASTONISH
 	dbw 16, CURSE
 	dbw 21, NIGHT_SHADE
-	dbw 25, CONFUSE_RAY
+	dbw 25, VENOSHOCK
 	dbw 28, HEX
 	dbw 32, DREAM_EATER
 	dbw 36, GROWTH
@@ -2120,7 +2124,7 @@ HaunterEvosAttacks:
 	dbw 12, ASTONISH
 	dbw 16, CURSE
 	dbw 21, NIGHT_SHADE
-	dbw 25, CONFUSE_RAY
+	dbw 25, VENOSHOCK
 	dbw 28, HEX
 	dbw 32, DREAM_EATER
 	dbw 36, GROWTH
@@ -2142,7 +2146,7 @@ GengarEvosAttacks:
 	dbw 12, ASTONISH
 	dbw 16, CURSE
 	dbw 21, NIGHT_SHADE
-	dbw 25, CONFUSE_RAY
+	dbw 25, VENOSHOCK
 	dbw 28, HEX
 	dbw 32, DREAM_EATER
 	dbw 36, GROWTH
@@ -2463,6 +2467,7 @@ KoffingEvosAttacks:
 	dbw 10, SMOG
 	dbw 14, SMOKESCREEN
 	dbw 18, SELFDESTRUCT
+	dbw 20, VENOSHOCK
 	dbw 24, SLUDGE
 	dbw 28, FIRE_SPIN	
 	dbw 32, WILLOWISP
@@ -2484,6 +2489,7 @@ WeezingEvosAttacks:
 	dbw 10, SMOG
 	dbw 14, SMOKESCREEN
 	dbw 18, SELFDESTRUCT
+	dbw 20, VENOSHOCK
 	dbw 24, SLUDGE
 	dbw 28, FIRE_SPIN	
 	dbw 32, WILLOWISP

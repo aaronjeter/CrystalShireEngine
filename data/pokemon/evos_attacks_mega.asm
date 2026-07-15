@@ -142,7 +142,7 @@ VenusaurxEvosAttacks:
 	dbw 16, SLEEP_POWDER
 	dbw 20, SYNTHESIS
 	dbw 24, RAZOR_LEAF		
-	dbw 28, SLUDGE
+	dbw 28, VENOSHOCK
 	dbw 32, GROWTH
 	dbw 36, STOMP
 	dbw 40, LEAF_BLADE
@@ -288,7 +288,7 @@ GengarxEvosAttacks:
 	dbw 12, ASTONISH
 	dbw 16, CURSE
 	dbw 21, NIGHT_SHADE
-	dbw 25, CONFUSE_RAY
+	dbw 25, VENOSHOCK
 	dbw 28, HEX
 	dbw 32, DREAM_EATER
 	dbw 36, GROWTH
@@ -679,6 +679,7 @@ SwalotxEvosAttacks:
 	dbw 20, SLUDGE
 	dbw 24, MUD_SHOT
 	dbw 28, ENCORE
+	dbw 30, VENOSHOCK
 	dbw 32, TOXIC
 	dbw 36, POISON_JAB
 	dbw 40, BODY_SLAM
@@ -739,7 +740,7 @@ VictreebelxEvosAttacks:
 	dbw 16, SLEEP_POWDER
 	dbw 20, POISONPOWDER	
 	dbw 24, RAZOR_LEAF
-	dbw 28, SWEET_SCENT
+	dbw 28, VENOSHOCK
 	dbw 32, STUN_SPORE
 	dbw 36, LEECH_SEED	
 	dbw 40, SLUDGE_BOMB
@@ -783,7 +784,7 @@ ButterfreexEvosAttacks:
 	dbw 20, SUPERSONIC
 	dbw 24, FAE_VOICE
 	dbw 28, SILVER_WIND
-	dbw 32, PSYBEAM
+	dbw 32, VENOSHOCK
 	dbw 36, CALM_MIND
 	dbw 40, SIGNAL_BEAM
 	dbw 45, MOONBLAST
