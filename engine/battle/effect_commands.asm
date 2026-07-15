@@ -6032,10 +6032,9 @@ BattleCommand_DoubleUndergroundDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
+DoubleDamageIfNZ:
 	ret z
-
 	; fallthrough
-
 DoubleDamage:
 	ld hl, wCurDamage + 1
 	sla [hl]
@@ -6303,6 +6302,8 @@ INCLUDE "engine/battle/move_effects/selfdestruct.asm"
 INCLUDE "engine/battle/move_effects/mirror_move.asm"
 
 INCLUDE "engine/battle/move_effects/metronome.asm"
+
+INCLUDE "engine/battle/move_effects/conditional_boost.asm"
 
 CheckUserMove:
 ; Return z if the user has move a.

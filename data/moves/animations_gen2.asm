@@ -163,6 +163,8 @@ BattleAnimationsGen2::
 	dw BattleAnim_EarthPower	;
 	dw BattleAnim_ShockSlam		;
 	dw BattleAnim_Snarl			;
+	dw BattleAnim_Hex    		;Hex
+	dw BattleAnim_Venoshock		;Venoshock
 
 .IndirectEnd::
 
@@ -424,6 +426,7 @@ BattleAnim_Reversal:
 	anim_ret
 
 BattleAnim_Spite:
+BattleAnim_Hex:
 	anim_1gfx BATTLE_ANIM_GFX_ANGELS
 	anim_obj BATTLE_ANIM_OBJ_SPITE, 132, 16, $0
 	anim_sound 0, 1, SFX_SPITE
@@ -565,6 +568,7 @@ BattleAnim_BellyDrum:
 	anim_ret
 
 BattleAnim_SludgeBomb:
+BattleAnim_Venoshock:
 	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_POISON
 	anim_bgeffect BATTLE_BG_EFFECT_BLACK_HUES, $0, $8, $0
 	anim_sound 6, 2, SFX_SLUDGE_BOMB

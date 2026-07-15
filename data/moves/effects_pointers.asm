@@ -167,4 +167,5 @@ MoveEffectsPointers:
 	dw CosmicPower
 	dw Growth
 	dw Charge
+	dw ConditionalBoostHit
 	assert_table_length NUM_MOVE_EFFECTS

@@ -331,4 +331,6 @@ MoveNames::
 	li "Earth Power"
 	li "Shock Slam"
 	li "Snarl"
+	li "Hex"
+	li "Venoshock"
 	assert_list_length NUM_ATTACKS
