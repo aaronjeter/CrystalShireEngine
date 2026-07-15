@@ -5824,6 +5824,8 @@ BattleCommand_Paralyze:
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
 	jr z, .didnt_affect
+	call CheckMoveTypeMatchesTarget ; Don't paralyze an Electric-type
+	jr z, .didnt_affect
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_PARALYZE
@@ -5882,6 +5884,8 @@ BattleCommand_Burn:
 	ld a, [wTypeModifier]
 	and $7f
 	jr z, .didnt_affect	
+	call CheckMoveTypeMatchesTarget ; Don't burn a Fire-type
+	jr z, .didnt_affect	
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
@@ -5927,6 +5931,8 @@ BattleCommand_Freeze:
 	jr nz, .frozen
 	ld a, [wTypeModifier]
 	and $7f
+	jr z, .didnt_affect	
+	call CheckMoveTypeMatchesTarget ; Don't freeze an Ice-type
 	jr z, .didnt_affect	
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
