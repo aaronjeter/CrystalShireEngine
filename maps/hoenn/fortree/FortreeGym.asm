@@ -6,15 +6,66 @@ FortreeGym_MapScripts:
 
 	def_callbacks	
 
-FortreeGymWinonaScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_WINONA
-	iftrue .FightDone
-	writetext WinonaText_PreFight
-	waitbutton
-	closetext
 
+FortreeGymWinonaScript:
+	faceplayer	
+	checkflag ENGINE_FEATHERBADGE
+	iftrue .FightDone
+	opentext
+	writetext WinonaText_PreFight
+	promptbutton
+	closetext
+	scall WinonaFight
+	opentext
+	scall WinonaGiveBadge
+	scall WinonaGiveTm
+	writetext WinonaPostBattleText
+	promptbutton
+	closetext
+	end
+
+.FightDone:	
+	opentext
+	scall WinonaGiveTm
+	closetext
+	scall WinonaRematch
+	end
+
+WinonaRematch:
+	opentext
+	writetext WinonaRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall WinonaFight
+	opentext
+.FightDone:	
+	writetext WinonaPostBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+WinonaGiveTm:
+	checkitem TM_AERIAL_ACE
+	iftrue .Done
+	writetext WinonaExplainTMText
+	promptbutton
+	verbosegiveitem TM_AERIAL_ACE
+.Done	
+	end
+
+WinonaGiveBadge:
+	setevent EVENT_BEAT_WINONA
+	opentext
+	writetext WinonaText_ExplainBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_FEATHERBADGE
+	scall FortreeGymLevelcap
+	end
+
+WinonaFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -38,50 +89,6 @@ FortreeGymWinonaScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_WINONA
-	opentext
-	writetext WinonaText_ExplainBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_FEATHERBADGE
-	scall FortreeGymLevelcap
-
-	closetext
-	end
-
-.FightDone:
-	writetext WinonaRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext WinonaRematchWinLossText, 0
-	loadtrainer WINONA, WINONA3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext WinonaRematchWinLossText, 0
-	loadtrainer WINONA, WINONA2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext WinonaRematchWinLossText, 0
-	loadtrainer WINONA, WINONA1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	opentext
-.FightDoneText
-	writetext WinonaPostBattleText
-	waitbutton
-	closetext
 	end
 
 FortreeGymLevelcap:
@@ -155,6 +162,17 @@ WinonaPostBattleText:
 
 	para "I think I"
 	line "need a nap!"
+	done
+
+WinonaExplainTMText:
+	text "Here, take this TM"
+	line "for Aerial Ace."
+
+	para "It's a solid move"
+	line "that never misses."
+
+	para "Nothing fancy, but"
+	line "it puts in work."
 	done
 
 
