@@ -12,18 +12,66 @@
 LavaridgeGym_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
-
+	def_callbacks
 
 LavaridgeGymFlanneryScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_FLANERY
+	faceplayer	
+	checkflag ENGINE_HEATBADGE
 	iftrue .FightDone
+	opentext
 	writetext FlanneryText_PreFight
-	waitbutton
+	promptbutton
 	closetext
+	scall FlanneryFight
+	opentext
+	scall FlanneryGiveBadge
+	scall FlanneryGiveTm
+	writetext FlanneryPostBattleText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall FlanneryGiveTm
+	closetext
+	scall FlanneryRematch
+	end
+
+FlanneryRematch:
+	opentext
+	writetext FlanneryRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall FlanneryFight
+	opentext
+.FightDone:	
+	writetext FlanneryPostBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+FlanneryGiveTm:
+	checkitem TM_WILLOWISP
+	iftrue .Done
+	writetext FlanneryExplainTMText
+	promptbutton
+	verbosegiveitem TM_WILLOWISP
+.Done	
+	end
+
+FlanneryGiveBadge:
+	setevent EVENT_BEAT_FLANERY	
+	writetext FlanneryText_ExplainBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_HEATBADGE
+	scall LavaridgeGymLevelcap
+	end
+
+FlanneryFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -47,56 +95,11 @@ LavaridgeGymFlanneryScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_FLANERY
-	opentext
-	writetext FlanneryText_ExplainBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_HEATBADGE
-	scall LavaridgeGymLevelcap
-
-	closetext
-	end
-
-.FightDone:
-	writetext FlanneryRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext FlanneryRematchWinLossText, 0
-	loadtrainer FLANNERY, FLANNERY3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext FlanneryRematchWinLossText, 0
-	loadtrainer FLANNERY, FLANNERY2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext FlanneryRematchWinLossText, 0
-	loadtrainer FLANNERY, FLANNERY1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	opentext
-.FightDoneText
-	writetext FlanneryPostBattleText
-	waitbutton
-	closetext
 	end
 
 LavaridgeGymLevelcap:
 	jumpstd UpdateWorldLevelsScript
 	end
-
 
 FlanneryText_PreFight:
 	text "Welcome "
@@ -147,6 +150,28 @@ FlanneryPostBattleText:
 
 	para "You should try"
 	line "it one day!"
+	done
+
+FlanneryExplainTMText:
+	text "Alright, now for"
+	line "the fun part!"
+
+	para "This TM has my"
+	line "very favorite move"
+	cont "...Will-O-Wisp."
+
+	para "As a wise man once"
+	line "said..."
+
+	para "Build a guy a"
+	line "fire, and he'll"
+	cont "be warm for a"
+	cont "day."
+
+	para "SET a guy on fire"
+	line "and he'll be warm"
+	cont "for the rest of"
+	cont "his life!"
 	done
 
 
