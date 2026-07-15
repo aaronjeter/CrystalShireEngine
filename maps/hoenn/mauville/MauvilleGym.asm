@@ -172,17 +172,70 @@ MauvilleAngeloAfterBattleText:
 	line "a shiny forehead."
 	done
 
-
-
 MauvilleGymWattsonScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_WATTSON
+	faceplayer	
+	checkflag ENGINE_DYNAMOBADGE
 	iftrue .FightDone
+	opentext
 	writetext WattsonText_PreFight
-	waitbutton
+	promptbutton
 	closetext
+	scall WattsonFight
+	opentext
+	scall WattsonGiveBadge
+	scall WattsonGiveTm
+	writetext WattsonPostBattleText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall WattsonGiveTm
+	closetext
+	scall WattsonRematch
+	end
+
+WattsonRematch:
+	opentext
+	writetext WattsonRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall WattsonFight
+	opentext
+.FightDone:	
+	writetext WattsonPostBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+WattsonGiveTm:
+	checkitem TM_SHOCK_WAVE
+	iftrue .Done
+	writetext WattsonExplainTMText
+	promptbutton
+	verbosegiveitem TM_SHOCK_WAVE
+.Done	
+	end
+
+WattsonGiveBadge:
+	setevent EVENT_BEAT_WATTSON
+	writetext WattsonText_ExplainBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_DYNAMOBADGE
+	scall MauvilleGymLevelcap
+	;disable gym trainers
+	setevent EVENT_BEAT_MAUVILLE_VIVIAN
+	setevent EVENT_BEAT_MAUVILLE_KIRK
+	setevent EVENT_BEAT_MAUVILLE_SHAWN
+	setevent EVENT_BEAT_MAUVILLE_BEN
+	setevent EVENT_BEAT_MAUVILLE_ANGELO
+	end
+
+WattsonFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -205,64 +258,12 @@ MauvilleGymWattsonScript:
 
 .Fight	
 	startbattle
-	reloadmapafterbattle
-	setevent EVENT_BEAT_WATTSON
-	opentext
-	writetext WattsonText_ExplainBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_DYNAMOBADGE
-	scall MauvilleGymLevelcap
-
-	;disable gym trainers
-	setevent EVENT_BEAT_MAUVILLE_VIVIAN
-	setevent EVENT_BEAT_MAUVILLE_KIRK
-	setevent EVENT_BEAT_MAUVILLE_SHAWN
-	setevent EVENT_BEAT_MAUVILLE_BEN
-	setevent EVENT_BEAT_MAUVILLE_ANGELO
-
-	closetext
-	end
-
-.FightDone:
-	writetext WattsonRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext WattsonRematchWinLossText, 0
-	loadtrainer WATTSON, WATTSON3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext WattsonRematchWinLossText, 0
-	loadtrainer WATTSON, WATTSON2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext WattsonRematchWinLossText, 0
-	loadtrainer WATTSON, WATTSON1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	opentext
-.FightDoneText
-	writetext WattsonPostBattleText
-	waitbutton
-	closetext
+	reloadmapafterbattle	
 	end
 
 MauvilleGymLevelcap:
 	jumpstd UpdateWorldLevelsScript
 	end
-
 
 WattsonText_PreFight:
 	text "I've given up"
@@ -324,6 +325,16 @@ WattsonPostBattleText:
 	para "Go forth and"
 	line "endeavor,"
 	cont "youngster!"
+	done
+
+WattsonExplainTMText:
+	text "And here, from"
+	line "me: the TM for"
+	cont "Shock Wave."
+
+	para "It never misses!"
+	line "It hasn't failed"
+	cont "me yet!"
 	done
 
 MauvilleGym_MapEvents:
