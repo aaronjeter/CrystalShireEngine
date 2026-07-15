@@ -96,23 +96,17 @@ FortreeGymLevelcap:
 	end
 
 WinonaText_PreFight:
-	text "Hey there,"
-	line "trainer!"
-
-	para "My name is"
-	line "Winona."
+	text "Hey there trainer,"
+	line "My name is Winona."
 
 	para "Welcome to my"
-	line "little slice"
-
-	para "of tropical"
-	line "paradise!"
+	line "little slice of"
+	cont "tropical paradise!"
 
 	para "I think you'll"
 	line "find your stay"
-
-	para "here relaxing"
-	line "and fruitful."
+	cont "here relaxing"
+	cont "and fruitful."
 
 	para "..."
 
@@ -126,22 +120,17 @@ WinonaText_PreFight:
 
 WinonaWinLossText:
 	text "Ha haha!"
-
-	para "That was great!"
+	line "That was great!"
 	done
 
 WinonaText_ExplainBadge:
-	text "Okay, you"
-	line "win."
+	text "Okay, you win."
+	line "Take this"
+	cont "Feather Badge!"
 
-	para "Take this"
-	line "Feather Badge!"
-
-	para "It's proof"
-	line "that you"
-
-	para "can handle"
-	line "the skies!"
+	para "It's proof that"
+	line "you can handle"
+	cont "the skies!"
 	done
 
 WinonaRematchText:
