@@ -395,7 +395,7 @@ StabilityMons::
 
 ;Healing Ability Mons ----------------------------------------------
 
-RegenerationMons:
+RegenerationMons::
 	dw GRIMER
 	dw MUK
 	dw AGRIMER
