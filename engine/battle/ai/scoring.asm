@@ -3347,3 +3347,66 @@ AI_CheckMoveInList:
 	pop hl
 	ld de, 2
 	jmp IsInWordArray
+
+AI_Ability:
+	;Dismiss moves based on immunity abilities
+	;Dismiss Water moves against Waterproof mons
+	;Dismiss Ground moves against Levitate mons
+
+	ld hl, wEnemyAIMoveScores - 1
+	ld de, wEnemyMonMoves
+	ld b, NUM_MOVES + 1
+.checkmove
+	dec b
+	ret z
+
+	inc hl
+	ld a, [de]
+	and a
+	ret z
+
+	inc de
+
+	push hl
+	push bc
+	push de
+
+	;Levitate Check	
+	call AIGetEnemyMove
+	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
+	cp GROUND
+	jr nz, .SkipLevitate
+
+	ld a, [wBattleMonSpecies]
+	call GetPokemonIndexFromID
+	farcall CheckLevitateAbility
+	jr c, .immune
+
+.SkipLevitate
+
+	;Waterproof Check
+	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
+	cp WATER
+	jr nz, .SkipWaterproof
+
+	ld a, [wBattleMonSpecies]
+	call GetPokemonIndexFromID
+	farcall CheckWaterproofAbility
+	jr c, .immune
+
+.SkipWaterproof
+	
+	pop de
+	pop bc
+	pop hl	
+	jr .checkmove
+
+.immune
+	pop de
+	pop bc
+	pop hl
+
+	call AIDiscourageMove
+	jr .checkmove
