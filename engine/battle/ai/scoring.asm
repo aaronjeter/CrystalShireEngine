@@ -3206,8 +3206,12 @@ AI_Status:
 	ld a, [wBattleMonType1]
 	cp ELECTRIC
 	jr z, .immune
+	cp GROUND
+	jr z, .immune
 	ld a, [wBattleMonType2]
 	cp ELECTRIC
+	jr z, .immune
+	cp GROUND
 	jr z, .immune
 	jr .typeimmunity
 
@@ -3232,7 +3236,7 @@ AI_Status:
 
 	ld a, [wTypeMatchup]
 	and a
-	jr nz, .checkmove
+	jp nz, .checkmove
 
 .immune
 	call AIDiscourageMove
