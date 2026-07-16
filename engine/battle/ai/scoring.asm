@@ -3172,12 +3172,43 @@ AI_Status:
 	cp EFFECT_SLEEP
 	jr z, .typeimmunity
 	cp EFFECT_PARALYZE
-	jr z, .typeimmunity
+	jr z, .paralyzeimmunity
+	cp EFFECT_BURN
+	jr z, .burnimmunity
+	cp EFFECT_FREEZE
+	jr z, .freezeimmunity
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
 	jr z, .checkmove
 
+	jr .typeimmunity
+
+.freezeimmunity
+	ld a, [wBattleMonType1]
+	cp ICE
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp ICE
+	jr z, .immune
+	jr .typeimmunity
+
+.burnimmunity
+	ld a, [wBattleMonType1]
+	cp FIRE
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp FIRE
+	jr z, .immune
+	jr .typeimmunity
+
+.paralyzeimmunity
+	ld a, [wBattleMonType1]
+	cp ELECTRIC
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp ELECTRIC
+	jr z, .immune
 	jr .typeimmunity
 
 .poisonimmunity
@@ -3205,7 +3236,7 @@ AI_Status:
 
 .immune
 	call AIDiscourageMove
-	jr .checkmove
+	jp .checkmove
 
 
 AI_Risky:
