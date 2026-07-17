@@ -12,14 +12,66 @@ SeafoamGymNoopScene:
 	end
 
 SeafoamGymBlaineScript:
-	faceplayer
-	opentext
+	faceplayer	
 	checkflag ENGINE_VOLCANOBADGE
 	iftrue .FightDone
+	opentext
 	writetext BlaineIntroText
-	waitbutton
+	promptbutton
 	closetext
+	scall BlaineFight
+	opentext
+	scall BlaineGiveBadge
+	scall BlaineGiveTm
+	writetext BlaineFightDoneText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall BlaineGiveTm
+	closetext
+	scall BlaineRematch
+	end
+
+BlaineRematch:
+	opentext
+	writetext BlaineRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall BlaineFight
+	opentext
+.FightDone:	
+	writetext BlaineFightDoneText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+BlaineGiveTm:
+	checkitem TM_WILLOWISP
+	iftrue .Done
+	writetext BlaineExplainTMText
+	promptbutton
+	verbosegiveitem TM_WILLOWISP
+.Done	
+	end
+
+BlaineGiveBadge:
+	setevent EVENT_BEAT_BLAINE
+	opentext
+	writetext ReceivedVolcanoBadgeText
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_VOLCANOBADGE
+	scall SeafoamGymLevelcap
+	writetext BlaineAfterBattleText
+	waitbutton
+	end
+
+BlaineFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -41,57 +93,7 @@ SeafoamGymBlaineScript:
 	sjump .Fight
 .Fight	
 	startbattle
-	iftrue .ReturnAfterBattle
-	appear SEAFOAMGYM_GYM_GUIDE
-.ReturnAfterBattle:
 	reloadmapafterbattle
-	setevent EVENT_BEAT_BLAINE
-	opentext
-	writetext ReceivedVolcanoBadgeText
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_VOLCANOBADGE
-	scall SeafoamGymLevelcap
-	writetext BlaineAfterBattleText
-	waitbutton
-	closetext
-	end
-
-.FightDone:
-	writetext BlaineRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext BlaineRematchWinLossText, 0
-	loadtrainer BLAINE, BLAINE3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext BlaineRematchWinLossText, 0
-	loadtrainer BLAINE, BLAINE2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext BlaineRematchWinLossText, 0
-	loadtrainer BLAINE, BLAINE1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	sjump .EndRematch
-
-.FightDoneText:
-	writetext BlaineFightDoneText
-	waitbutton
-.EndRematch:
-	closetext
 	end
 
 SeafoamGymLevelcap:
@@ -168,6 +170,19 @@ BlaineAfterBattleText:
 
 	para "we'll have to have"
 	line "a rematch."
+	done
+
+BlaineExplainTMText:
+	text "Oh, my favorite"
+	line "TM: Will-o-Wisp!"
+
+	para "It sets stuff"
+	line "on fire. It's"
+	cont "awesome!"
+
+	para "Remember: If it"
+	line "breathes, it'll"
+	cont "burn!"
 	done
 
 BlaineRematchText:
