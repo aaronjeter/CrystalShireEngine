@@ -12,14 +12,68 @@ CeladonGym_MapScripts:
 	def_callbacks
 
 CeladonGymErikaScript:
-	faceplayer
-	opentext
+	faceplayer	
 	checkflag ENGINE_RAINBOWBADGE
 	iftrue .FightDone
+	opentext
 	writetext ErikaBeforeBattleText
-	waitbutton
+	promptbutton
 	closetext
+	scall ErikaFight
+	opentext
+	scall ErikaGiveBadge
+	scall ErikaGiveTm
+	writetext ErikaAfterBattleText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall ErikaGiveTm
+	closetext
+	scall ErikaRematch
+	end
+
+ErikaRematch:
+	opentext
+	writetext ErikaRematchText
+	yesorno
+	iffalse .FightDoneText
+	closetext
+	scall ErikaFight
+	opentext
+.FightDoneText:	
+	writetext ErikaAfterBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+ErikaGiveTm:
+	checkitem TM_MAGICAL_LEAF
+	iftrue .Done
+	writetext ErikaExplainTMText
+	promptbutton
+	verbosegiveitem TM_MAGICAL_LEAF
+.Done	
+	end
+
+ErikaGiveBadge:	
+	setevent EVENT_BEAT_ERIKA
+	setevent EVENT_BEAT_LASS_MICHELLE
+	setevent EVENT_BEAT_PICNICKER_TANYA
+	setevent EVENT_BEAT_BEAUTY_JULIA
+	setevent EVENT_BEAT_TWINS_JO_AND_ZOE
+	opentext
+	writetext PlayerReceivedRainbowBadgeText
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_RAINBOWBADGE
+	scall CeladonGymLevelcap
+	end
+
+ErikaFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -43,60 +97,6 @@ CeladonGymErikaScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_ERIKA
-	setevent EVENT_BEAT_LASS_MICHELLE
-	setevent EVENT_BEAT_PICNICKER_TANYA
-	setevent EVENT_BEAT_BEAUTY_JULIA
-	setevent EVENT_BEAT_TWINS_JO_AND_ZOE
-	opentext
-	writetext PlayerReceivedRainbowBadgeText
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_RAINBOWBADGE
-.FightDone:
-	checkevent EVENT_GOT_TM19_GIGA_DRAIN
-	iftrue .GotGigaDrain
-	writetext ErikaExplainTMText
-	promptbutton
-	verbosegiveitem TM_GIGA_DRAIN
-	iffalse .GotGigaDrain
-	setevent EVENT_GOT_TM19_GIGA_DRAIN
-	scall CeladonGymLevelcap
-.GotGigaDrain:
-	writetext ErikaRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext ErikaRematchWinLossText, 0
-	loadtrainer ERIKA, ERIKA3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext ErikaRematchWinLossText, 0
-	loadtrainer ERIKA, ERIKA2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext ErikaRematchWinLossText, 0
-	loadtrainer ERIKA, ERIKA1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	sjump .EndRematch
-
-.FightDoneText:
-	writetext ErikaAfterBattleText
-	waitbutton
-.EndRematch:
-	closetext
 	end
 
 CeladonGymLevelcap:
@@ -196,9 +196,6 @@ ErikaBeatenText:
 
 	para "You are remarkably"
 	line "strong…"
-
-	para "I shall give you"
-	line "Rainbowbadge…"
 	done
 
 PlayerReceivedRainbowBadgeText:
@@ -214,14 +211,12 @@ ErikaExplainTMText:
 	line "Please, I wish you"
 	cont "to have this TM."
 
-	para "It is Giga Drain."
+	para "It is Magical"
+	line "Leaf."
 
 	para "It is a wonderful"
-	line "move that drains"
-
-	para "half the damage it"
-	line "inflicts to heal"
-	cont "your #mon."
+	line "move that strikes"
+	cont "without fail."
 
 	para "Please use it if"
 	line "it pleases you…"
