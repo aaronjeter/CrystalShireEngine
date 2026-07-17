@@ -56,9 +56,9 @@ MauvilleGameCornerTMVendor_LoopScript:
 	closewindow
 	ifequal 1, .RareCandy
 	ifequal 2, .PpUp
-	ifequal 3, .Thunder
-	ifequal 4, .Blizzard
-	ifequal 5, .FireBlast
+	ifequal 3, .FireFang
+	ifequal 4, .IceFang
+	ifequal 5, .ThunderFang
 	sjump MauvilleGameCornerPrizeVendor_CancelPurchaseScript
 
 
@@ -84,37 +84,37 @@ MauvilleGameCornerTMVendor_LoopScript:
 	takecoins MAUVILLE_500_COINS
 	sjump MauvilleGameCornerTMVendor_FinishScript
 
-.Thunder:
-	checkcoins MAUVILLE_2000_COINS
+.ThunderFang:
+	checkcoins MAUVILLE_500_COINS
 	ifequal HAVE_LESS, MauvilleGameCornerPrizeVendor_NotEnoughCoinsScript
-	getitemname STRING_BUFFER_3, TM_THUNDER
+	getitemname STRING_BUFFER_3, TM_THUNDER_FANG
 	scall MauvilleGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse MauvilleGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_THUNDER
+	giveitem TM_THUNDER_FANG
 	iffalse MauvilleGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	takecoins MAUVILLE_2000_COINS
+	takecoins MAUVILLE_500_COINS
 	sjump MauvilleGameCornerTMVendor_FinishScript
 
-.Blizzard:
-	checkcoins MAUVILLE_2000_COINS
+.IceFang:
+	checkcoins MAUVILLE_500_COINS
 	ifequal HAVE_LESS, MauvilleGameCornerPrizeVendor_NotEnoughCoinsScript
-	getitemname STRING_BUFFER_3, TM_BLIZZARD
+	getitemname STRING_BUFFER_3, TM_ICE_FANG
 	scall MauvilleGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse MauvilleGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_BLIZZARD
+	giveitem TM_ICE_FANG
 	iffalse MauvilleGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	takecoins MAUVILLE_2000_COINS
+	takecoins MAUVILLE_500_COINS
 	sjump MauvilleGameCornerTMVendor_FinishScript
 
-.FireBlast:
-	checkcoins MAUVILLE_2000_COINS
+.FireFang:
+	checkcoins MAUVILLE_500_COINS
 	ifequal HAVE_LESS, MauvilleGameCornerPrizeVendor_NotEnoughCoinsScript
-	getitemname STRING_BUFFER_3, TM_FIRE_BLAST
+	getitemname STRING_BUFFER_3, TM_FIRE_FANG
 	scall MauvilleGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse MauvilleGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_FIRE_BLAST
+	giveitem TM_FIRE_FANG
 	iffalse MauvilleGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	takecoins MAUVILLE_2000_COINS
+	takecoins MAUVILLE_500_COINS
 	sjump MauvilleGameCornerTMVendor_FinishScript
 
 
@@ -376,11 +376,11 @@ MauvilleGameCornerTMVendorMenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 5 ; items
-	db "Rarecndy {d:MAUVILLE_500_COINS}@"
-	db "PP Up    {d:MAUVILLE_500_COINS}@"
-	db "TM25    {d:MAUVILLE_2000_COINS}@"
-	db "TM14    {d:MAUVILLE_2000_COINS}@"
-	db "TM38    {d:MAUVILLE_2000_COINS}@"
+	db "Rarecandy   {d:MAUVILLE_500_COINS}@"
+	db "PP Up       {d:MAUVILLE_500_COINS}@"
+	db "Fire Fang   {d:MAUVILLE_500_COINS}@"
+	db "Ice Fang    {d:MAUVILLE_500_COINS}@"
+	db "Thunder Fang{d:MAUVILLE_500_COINS}@"
 
 
 MauvilleGameCornerPrizeVendorIntroText:
