@@ -8,20 +8,55 @@ ViridianGym_MapScripts:
 	def_callbacks
 
 ViridianGymBlueScript:
-	faceplayer
-	opentext
+	faceplayer	
 	checkflag ENGINE_EARTHBADGE
 	iftrue .FightDone
-	writetext LeaderBlueBeforeText
-	waitbutton
-	closetext
-
-	winlosstext LeaderBlueWinText, 0
-	loadtrainer BLUE, BLUE1
-	startbattle
-	reloadmapafterbattle
-	setevent EVENT_BEAT_BLUE
 	opentext
+	writetext LeaderBlueBeforeText
+	promptbutton
+	closetext
+	scall BlueFight
+	opentext
+	scall BlueGiveBadge
+	scall BlueGiveTm
+	writetext LeaderBlueEpilogueText
+	promptbutton
+	closetext
+	end
+
+.FightDone:	
+	opentext
+	scall BlueGiveTm
+	closetext
+	scall BlueRematch
+	end
+
+BlueRematch:
+	opentext
+	writetext LeaderBlueRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall BlueFight
+	opentext
+.FightDone:	
+	writetext LeaderBlueEpilogueText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+BlueGiveTm:
+	checkitem TM_DRAGON_CLAW
+	iftrue .Done
+	writetext LeaderBlueExplainTMText
+	promptbutton
+	verbosegiveitem TM_DRAGON_CLAW
+.Done	
+	end
+
+BlueGiveBadge:
+	setevent EVENT_BEAT_BLUE	
 	writetext Text_ReceivedEarthBadge
 	playsound SFX_GET_BADGE
 	waitsfx
@@ -29,24 +64,13 @@ ViridianGymBlueScript:
 	scall ViridianGymLevelcap
 	writetext LeaderBlueAfterText
 	waitbutton
-	closetext
 	end
 
-.FightDone:
-	writetext LeaderBlueRematchText
-	yesorno
-	iffalse .FightDoneText
-	winlosstext LeaderBlueRematchWinLossText, 0
+BlueFight:
+	winlosstext LeaderBlueWinText, 0
 	loadtrainer BLUE, BLUE1
 	startbattle
 	reloadmapafterbattle
-	sjump .EndRematch
-
-.FightDoneText:
-	writetext LeaderBlueEpilogueText
-	waitbutton
-.EndRematch:
-	closetext
 	end
 
 ViridianGymLevelcap:
@@ -111,8 +135,6 @@ LeaderBlueWinText:
 	para "…"
 
 	para "Tch, all right…"
-	line "Here, take this--"
-	cont "it's Earthbadge."
 	done
 
 Text_ReceivedEarthBadge:
@@ -150,6 +172,20 @@ LeaderBlueEpilogueText:
 	para "You'd better not"
 	line "lose until I beat"
 	cont "you. Got it?"
+	done
+
+LeaderBlueExplainTMText:
+	text "Take this TM for"
+	line "the Elite Four."
+
+	para "Dragon Claw is"
+	line "just a really"
+	cont "good move."
+
+	para "Might come in"
+	line "handy against a"
+	cont "certain Dragon"
+	cont "Master..."
 	done
 
 ViridianGymGuideText:
