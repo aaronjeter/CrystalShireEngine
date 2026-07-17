@@ -13,14 +13,71 @@ PetalburgGym_MapScripts:
 	def_callbacks	
 
 PetalburgGymNormanScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_NORMAN
+	faceplayer	
+	checkflag ENGINE_BALANCEBADGE
 	iftrue .FightDone
+	opentext
 	writetext NormanText_PreFight
-	waitbutton
+	promptbutton
 	closetext
+	scall NormanFight
+	opentext
+	scall NormanGiveBadge
+	scall NormanGiveTm
+	writetext NormanPostBattleText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall NormanGiveTm
+	closetext
+	scall NormanRematch
+	end
+
+NormanRematch:
+	opentext
+	writetext NormanRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall NormanFight
+	opentext
+.FightDone:	
+	writetext NormanPostBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+NormanGiveTm:
+	checkitem TM_RETURN
+	iftrue .Done
+	writetext NormanExplainTMText
+	promptbutton
+	verbosegiveitem TM_RETURN
+.Done	
+	end
+
+NormanGiveBadge:
+	setevent EVENT_BEAT_NORMAN
+	writetext NormanText_ExplainBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_BALANCEBADGE
+	scall PetalburgGymLevelcap
+
+	;disable gym trainers
+	setevent EVENT_BEAT_PETALBURG_RANDALL
+	setevent EVENT_BEAT_PETALBURG_MARY
+	setevent EVENT_BEAT_PETALBURG_PARKER
+	setevent EVENT_BEAT_PETALBURG_LORI
+	setevent EVENT_BEAT_PETALBURG_GEORGE
+	setevent EVENT_BEAT_PETALBURG_JODY
+	end
+
+NormanFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -44,58 +101,6 @@ PetalburgGymNormanScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_NORMAN
-	opentext
-	writetext NormanText_ExplainBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_BALANCEBADGE
-	scall PetalburgGymLevelcap
-
-	;disable gym trainers
-	setevent EVENT_BEAT_PETALBURG_RANDALL
-	setevent EVENT_BEAT_PETALBURG_MARY
-	setevent EVENT_BEAT_PETALBURG_PARKER
-	setevent EVENT_BEAT_PETALBURG_LORI
-	setevent EVENT_BEAT_PETALBURG_GEORGE
-	setevent EVENT_BEAT_PETALBURG_JODY
-
-	closetext
-	end
-
-.FightDone:
-	writetext NormanRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext NormanRematchWinLossText, 0
-	loadtrainer LEADERNORMAN, NORMAN3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext NormanRematchWinLossText, 0
-	loadtrainer LEADERNORMAN, NORMAN2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext NormanRematchWinLossText, 0
-	loadtrainer LEADERNORMAN, NORMAN1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	opentext
-.FightDoneText
-	writetext NormanPostBattleText
-	waitbutton
-	closetext
 	end
 
 PetalburgGymLevelcap:
@@ -316,6 +321,19 @@ NormanPostBattleText:
 	para "types to be"
 	line "quite special"
 	cont "indeed."
+	done
+
+NormanExplainTMText:
+	text "As well, this is"
+	line "the TM for Return."
+
+	para "It gets stronger"
+	line "the more your"
+	cont "#mon love you."
+
+	para "If you want to"
+	line "go anywhere, it'll"
+	cont "help you."
 	done
 
 PetalburgGym_MapEvents:
