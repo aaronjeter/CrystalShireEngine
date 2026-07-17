@@ -32,28 +32,28 @@ CeladonPrizeRoom_tmcounterloop:
 	verticalmenu
 	closewindow
 	ifequal 1, .DoubleTeam
-	ifequal 2, .Psychic
+	ifequal 2, .GigaDrain
 	ifequal 3, .HyperBeam
 	sjump CeladonPrizeRoom_CancelPurchaseScript
 
 .DoubleTeam:
-	checkcoins CELADON_1500_COINS
+	checkcoins CELADON_500_COINS
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
 	getitemname STRING_BUFFER_3, TM_DOUBLE_TEAM
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
 	giveitem TM_DOUBLE_TEAM
 	iffalse CeladonPrizeRoom_notenoughroom
-	takecoins CELADON_1500_COINS
+	takecoins CELADON_500_COINS
 	sjump CeladonPrizeRoom_purchased
 
-.Psychic:
+.GigaDrain:
 	checkcoins CELADON_1500_COINS
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
-	getitemname STRING_BUFFER_3, TM_PSYCHIC_M
+	getitemname STRING_BUFFER_3, TM_GIGA_DRAIN
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
-	giveitem TM_PSYCHIC_M
+	giveitem TM_GIGA_DRAIN
 	iffalse CeladonPrizeRoom_notenoughroom
 	takecoins CELADON_1500_COINS
 	sjump CeladonPrizeRoom_purchased
@@ -107,16 +107,16 @@ CeladonPrizeRoom_NoCoinCase:
 
 CeladonPrizeRoom_TMMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	menu_coords 0, 2, 16, TEXTBOX_Y - 1
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "TM32    {d:CELADON_1500_COINS}@"
-	db "TM29    {d:CELADON_1500_COINS}@"
-	db "TM15    {d:CELADON_1500_COINS}@"
+	db "DoubleTeam {d:CELADON_500_COINS}@"
+	db "GigaDrain {d:CELADON_1500_COINS}@"
+	db "HyperBeam {d:CELADON_1500_COINS}@"
 	db "Cancel@"
 
 CeladonGameCornerPrizeRoomPokemonVendor:
