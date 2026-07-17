@@ -87,6 +87,7 @@ if DEF(_DEBUG)
 	giveitem BIRD_WHISTLE
 	giveitem LANTERN
 	giveitem COIN_CASE
+	givecoins 9000
 	giveitem KANTOITE_X, 10
 	giveitem KANTOITE_Y, 10
 	giveitem JOHTOITE_X, 10
