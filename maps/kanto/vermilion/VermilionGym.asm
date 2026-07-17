@@ -10,15 +10,71 @@ VermilionGym_MapScripts:
 
 	def_callbacks
 
+
 VermilionGymSurgeScript:
-	faceplayer
-	opentext
+	faceplayer	
 	checkflag ENGINE_THUNDERBADGE
 	iftrue .FightDone
+	opentext
 	writetext LtSurgeIntroText
-	waitbutton
+	promptbutton
 	closetext
+	scall SurgeFight
+	opentext
+	scall SurgeGiveBadge
+	scall SurgeGiveTm
+	writetext LtSurgeFightDoneText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall SurgeGiveTm
+	closetext
+	scall SurgeRematch
+	end
+
+SurgeRematch:
+	opentext
+	writetext LtSurgeRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall SurgeFight
+	opentext
+.FightDone:	
+	writetext LtSurgeFightDoneText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+SurgeGiveTm:
+	checkitem TM_SHOCK_WAVE
+	iftrue .Done
+	writetext LtSurgeExplainTMText
+	promptbutton
+	verbosegiveitem TM_SHOCK_WAVE
+.Done	
+	end
+
+SurgeGiveBadge:
+	setevent EVENT_BEAT_LTSURGE
+	setevent EVENT_BEAT_GENTLEMAN_GREGORY
+	setevent EVENT_BEAT_GUITARIST_VINCENT
+	setevent EVENT_BEAT_JUGGLER_HORTON
+	opentext
+	writetext ReceivedThunderBadgeText
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_THUNDERBADGE
+	scall VermilionGymLevelcap
+	writetext LtSurgeThunderBadgeText
+	waitbutton
+	end
+
+SurgeFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -42,56 +98,6 @@ VermilionGymSurgeScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_LTSURGE
-	setevent EVENT_BEAT_GENTLEMAN_GREGORY
-	setevent EVENT_BEAT_GUITARIST_VINCENT
-	setevent EVENT_BEAT_JUGGLER_HORTON
-	opentext
-	writetext ReceivedThunderBadgeText
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_THUNDERBADGE
-	scall VermilionGymLevelcap
-	writetext LtSurgeThunderBadgeText
-	waitbutton
-	closetext
-	end
-
-.FightDone:
-	writetext LtSurgeRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext LtSurgeRematchWinLossText, 0
-	loadtrainer LT_SURGE, LT_SURGE3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext LtSurgeRematchWinLossText, 0
-	loadtrainer LT_SURGE, LT_SURGE2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext LtSurgeRematchWinLossText, 0
-	loadtrainer LT_SURGE, LT_SURGE1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	sjump .EndRematch
-
-.FightDoneText:
-	writetext LtSurgeFightDoneText
-	waitbutton
-.EndRematch:
-	closetext
 	end
 
 VermilionGymLevelcap:
@@ -221,6 +227,16 @@ LtSurgeFightDoneText:
 
 	para "My #mon and I"
 	line "are still at it!"
+	done
+
+LtSurgeExplainTMText:
+	text "Here, take this:"
+	line "The TM for"
+	cont "Shock Wave."
+
+	para "It never misses."
+	line "It'll never let"
+	cont "you down!"
 	done
 
 GentlemanGregorySeenText:
