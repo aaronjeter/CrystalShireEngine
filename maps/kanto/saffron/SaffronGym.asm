@@ -14,16 +14,71 @@ SaffronGym_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	
+
 SaffronGymSabrinaScript:
-	faceplayer
-	opentext
+	faceplayer	
 	checkflag ENGINE_MARSHBADGE
 	iftrue .FightDone
+	opentext
 	writetext SabrinaIntroText
-	waitbutton
+	promptbutton
 	closetext
+	scall SabrinaFight
+	opentext
+	scall SabrinaGiveBadge
+	scall SabrinaGiveTm
+	writetext SabrinaFightDoneText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall SabrinaGiveTm
+	closetext
+	scall SabrinaRematch
+	end
+
+SabrinaRematch:
+	opentext
+	writetext SabrinaRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall SabrinaFight
+	opentext
+.FightDone:	
+	writetext SabrinaFightDoneText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+SabrinaGiveTm:
+	checkitem TM_CALM_MIND
+	iftrue .Done
+	writetext SabrinaExplainTMText
+	promptbutton
+	verbosegiveitem TM_CALM_MIND
+.Done	
+	end
+
+SabrinaGiveBadge:
+	setevent EVENT_BEAT_SABRINA
+	setevent EVENT_BEAT_MEDIUM_REBECCA
+	setevent EVENT_BEAT_MEDIUM_DORIS
+	setevent EVENT_BEAT_PSYCHIC_FRANKLIN
+	setevent EVENT_BEAT_PSYCHIC_JARED	
+	writetext ReceivedMarshBadgeText
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_MARSHBADGE
+	scall SaffronGymLevelcap
+	writetext SabrinaMarshBadgeText
+	waitbutton
+	end
+
+SabrinaFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -46,57 +101,6 @@ SaffronGymSabrinaScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_SABRINA
-	setevent EVENT_BEAT_MEDIUM_REBECCA
-	setevent EVENT_BEAT_MEDIUM_DORIS
-	setevent EVENT_BEAT_PSYCHIC_FRANKLIN
-	setevent EVENT_BEAT_PSYCHIC_JARED
-	opentext
-	writetext ReceivedMarshBadgeText
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_MARSHBADGE
-	scall SaffronGymLevelcap
-	writetext SabrinaMarshBadgeText
-	waitbutton
-	closetext
-	end
-
-.FightDone:
-	writetext SabrinaRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext SabrinaRematchWinLossText, 0
-	loadtrainer SABRINA, SABRINA3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext SabrinaRematchWinLossText, 0
-	loadtrainer SABRINA, SABRINA2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext SabrinaRematchWinLossText, 0
-	loadtrainer SABRINA, SABRINA1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	sjump .EndRematch
-
-.FightDoneText:
-	writetext SabrinaFightDoneText
-	waitbutton
-.EndRematch:
-	closetext
 	end
 
 SaffronGymLevelcap:
@@ -252,11 +256,7 @@ SabrinaWinLossText:
 	line "possible to fully"
 
 	para "predict what the"
-	line "future holds…"
-
-	para "OK, you win. You"
-	line "earned yourself"
-	cont "Marshbadge."
+	line "future holds…"	
 	done
 
 ReceivedMarshBadgeText:
@@ -265,11 +265,9 @@ ReceivedMarshBadgeText:
 	done
 
 SabrinaMarshBadgeText:
-	text "Sabrina: Marsh-"
-	line "badge draws out"
-
-	para "your subliminal"
-	line "powers…"
+	text "OK, you win. You"
+	line "earned yourself"
+	cont "the Marshbadge."
 
 	para "Although I failed"
 	line "to accurately pre-"
@@ -302,6 +300,16 @@ SabrinaFightDoneText:
 
 	para "kind of psychic"
 	line "power…"
+	done
+
+SabrinaExplainTMText:
+	text "I forsee your"
+	line "need for this"
+	cont "TM as well."
+
+	para "Calm Mind is an"
+	line "excellent setup"
+	cont "move."
 	done
 
 MediumRebeccaSeenText:
