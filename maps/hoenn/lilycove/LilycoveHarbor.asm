@@ -42,6 +42,8 @@ LilycoveHarborElite4AgentScript:
 	opentext
 	checkevent EVENT_BEAT_WALLACE
 	iffalse .NoScrubs
+	readvar VAR_BADGES
+	ifless 8, .NoScrubs
 	writetext LilycoveHarborElite4AgentScriptText
 	yesorno
 	iffalse .NotSailing
@@ -95,7 +97,10 @@ LilycoveHarborAgentElite4NoScrubsText:
 
 	para "If you can beat"
 	line "Sootopolis Gym,"
-	cont "we can reconsider."
+
+	para "and collect eight"
+	line "badges, we can"
+	cont "reconsider."
 	done
 
 
