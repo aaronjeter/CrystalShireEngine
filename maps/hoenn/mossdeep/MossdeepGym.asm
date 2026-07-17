@@ -19,15 +19,70 @@ MossdeepGym_MapScripts:
 
 	def_callbacks	
 
-MossdeepGymTateLizaScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_TATELIZA
-	iftrue .FightDone
-	writetext TateLizaText_PreFight
-	waitbutton
-	closetext
 
+MossdeepGymTateLizaScript:
+	faceplayer	
+	checkflag ENGINE_MINDBADGE
+	iftrue .FightDone
+	opentext
+	writetext TateLizaText_PreFight
+	promptbutton
+	closetext
+	scall TateLizaFight
+	opentext
+	scall TateLizaGiveBadge
+	scall TateLizaGiveTm
+	writetext TateLizaPostBattleText
+	promptbutton
+	closetext
+	end
+
+.FightDone:	
+	opentext
+	scall TateLizaGiveTm
+	closetext
+	scall TateLizaRematch
+	end
+
+TateLizaRematch:
+	opentext
+	writetext TateLizaRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall TateLizaFight
+	opentext
+.FightDone:	
+	writetext TateLizaPostBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+TateLizaGiveTm:
+	setflag ENGINE_FLYPOINT_SOOTOPOLIS
+	checkitem TM_CALM_MIND
+	iftrue .Done
+	writetext TateLizaExplainTMText
+	promptbutton
+	verbosegiveitem TM_CALM_MIND
+.Done	
+	end
+
+TateLizaGiveBadge:
+	setevent EVENT_BEAT_TATELIZA
+	opentext
+	writetext TateLizaText_ExplainBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_MINDBADGE
+	setflag ENGINE_FLYPOINT_SOOTOPOLIS
+	scall MossdeepGymLevelcap
+
+	;disable gym trainers
+	end
+
+TateLizaFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -51,55 +106,6 @@ MossdeepGymTateLizaScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_TATELIZA
-	opentext
-	writetext TateLizaText_ExplainBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_MINDBADGE
-	setflag ENGINE_FLYPOINT_SOOTOPOLIS
-	scall MossdeepGymLevelcap
-
-	;disable gym trainers
-	
-
-	closetext
-	end
-
-.FightDone:
-	setflag ENGINE_FLYPOINT_SOOTOPOLIS
-	writetext TateLizaRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext TateLizaRematchWinLossText, 0
-	loadtrainer TATELIZA, TATELIZA3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext TateLizaRematchWinLossText, 0
-	loadtrainer TATELIZA, TATELIZA2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext TateLizaRematchWinLossText, 0
-	loadtrainer TATELIZA, TATELIZA1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	opentext
-.FightDoneText
-	writetext TateLizaPostBattleText
-	waitbutton
-	closetext
 	end
 
 MossdeepGymLevelcap:
@@ -179,6 +185,19 @@ TateLizaPostBattleText:
 	para "Both: They only"
 	line "accept challenges"
 	cont "from the best."
+	done
+
+TateLizaExplainTMText:
+	text "Tate: Calm Mind"
+	line "Liza: is awesome!"
+
+	para "Tate: It boosts"
+	line "both special"
+	cont "stats."
+
+	para "Liza: It's "
+	line "offensive and"
+	cont "defensive!"
 	done
 
 MossdeepCliffScript:
