@@ -14,17 +14,67 @@
 SootopolisGym_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
+	def_callbacks
 
 SootopolisGymWallaceScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_WALLACE
+	faceplayer	
+	checkflag ENGINE_RAINBADGE
 	iftrue .FightDone
+	opentext
 	writetext WallaceText_PreFight
-	waitbutton
+	promptbutton
 	closetext
+	scall WallaceFight
+	opentext
+	scall WallaceGiveBadge
+	scall WallaceGiveTm
+	writetext WallacePostBattleText
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall WallaceGiveTm
+	closetext
+	scall WallaceRematch
+	end
+
+WallaceRematch:
+	opentext
+	writetext WallaceRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall WallaceFight
+	opentext
+.FightDone:	
+	writetext WallacePostBattleText
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+WallaceGiveTm:
+	checkitem TM_SCALD
+	iftrue .Done
+	writetext WallaceExplainTMText
+	promptbutton
+	verbosegiveitem TM_SCALD
+.Done	
+	end
+
+WallaceGiveBadge:
+	setevent EVENT_BEAT_WALLACE
+	writetext WallaceText_ExplainBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_RAINBADGE
+	scall SootopolisGymLevelcap
+	;disable gym trainers
+	end
+
+WallaceFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	sjump .Medium
@@ -42,72 +92,26 @@ SootopolisGymWallaceScript:
 .Fight	
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_WALLACE
-	opentext
-	writetext WallaceText_ExplainBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_RAINBADGE
-	scall SootopolisGymLevelcap
-
-	;disable gym trainers
-	
-
-	closetext
-	end
-
-.FightDone:
-	writetext WallaceRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	sjump .MediumRematch
-
-.HardRematch
-	winlosstext WallaceRematchWinLossText, 0
-	loadtrainer WALLACE, WALLACE2
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext WallaceRematchWinLossText, 0
-	loadtrainer WALLACE, WALLACE1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	opentext
-.FightDoneText
-	writetext WallacePostBattleText
-	waitbutton
-	closetext
 	end
 
 SootopolisGymLevelcap:
 	jumpstd UpdateWorldLevelsScript
 	end
 
-
 WallaceText_PreFight:
 	text "Well, hello"
 	line "<PLAY_G>."
 
 	para "Oak told me"
-	line "you would make"
-	
-	para "it here one"
-	line "day."
+	line "you would make"	
+	cont "it here one day."
 
 	para "My name is"
 	line "Wallace!"
 
-	para "I am the"
-	line "true Master"
-
-	para "of Water type"
-	line "Pokemon!"
+	para "I am the true"
+	line "Master of Water"
+	cont "type #mon!"
 
 	para "For a while, I"
 	line "was even the"
@@ -143,22 +147,6 @@ WallaceText_ExplainBadge:
 	para "You're worthy to"
 	line "wear my"
 	cont "Rain Badge!"
-
-	para "You're almost"
-	line "ready to face the"
-	cont "Elite Four."
-
-	para "Head for"
-	line "Evergrande City."
-
-	para "Victory road will"
-	line "prove your"
-	cont "strength!"
-
-	para "You should be"
-	line "able to catch the"
-	cont "boat from"
-	cont "Lilycove."
 	done
 
 WallaceRematchText:
@@ -182,6 +170,20 @@ WallacePostBattleText:
 	line "able to catch the"
 	cont "boat from"
 	cont "Lilycove."
+	done
+
+WallaceExplainTMText:
+	text "Here, have this"
+	line "as well; my gift"
+	cont "to you."
+
+	para "This is the TM"
+	line "for Scald; a"
+	cont "rather harsh"
+	cont "technique."
+
+	para "It can even"
+	line "burn Fire types!"
 	done
 
 
