@@ -20,6 +20,9 @@ Route115FruitTree4:
 Route115BlackBeltItem:
 	itemball BLACKBELT_I
 
+Route115PoisonFangItem:
+	itemball TM_POISON_FANG
+
 
 Route115ShadesScript:
 	faceplayer
@@ -76,4 +79,4 @@ Route115_MapEvents:
 	object_event 31, 50, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route115FruitTree4, -1
 	object_event 07, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route115BlackBeltItem, EVENT_GOT_HOENN_BLACKBELT_I
 	object_event 14, 04, SPRITE_PHARMACIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Route115ShadesScript, -1
-	
+	object_event 20, 58, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route115PoisonFangItem, EVENT_ROUTE_115_TM_POISON_FANG

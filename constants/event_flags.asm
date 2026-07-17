@@ -1014,9 +1014,8 @@
 	const EVENT_NEW_MAUVILLE_MAX_REVIVE
 	const EVENT_NEW_MAUVILLE_MAX_POTION
 	const EVENT_MAUVILLE_GAME_CORNER_SODA_POP
-
 	
-	const_skip ; unused
+	const EVENT_ROUTE_115_TM_POISON_FANG
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
