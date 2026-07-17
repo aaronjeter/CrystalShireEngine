@@ -18,9 +18,68 @@ FuchsiaGymJanineScript:
 	faceplayer
 	opentext
 	writetext JanineText_DisappointYou
-	waitbutton
+	promptbutton
 	closetext
+	scall JanineFight
+	opentext
+	scall JanineGiveBadge
+	scall JanineGiveTm
+	writetext JanineText_ApplyMyself
+	promptbutton
+	closetext
+	end
 
+.FightDone:	
+	opentext
+	scall JanineGiveTm
+	closetext
+	scall JanineRematch
+	end
+
+JanineRematch:
+	opentext
+	writetext JanineRematchText
+	yesorno
+	iffalse .FightDone
+	closetext
+	scall JanineFight
+	opentext
+.FightDone:	
+	writetext JanineText_ApplyMyself
+	promptbutton
+.EndRematch:
+	closetext
+	end
+
+JanineGiveTm:
+	checkitem TM_TOXIC
+	iftrue .Done
+	writetext JanineText_ToxicSpeech
+	promptbutton
+	verbosegiveitem TM_TOXIC
+.Done	
+	end
+
+JanineGiveBadge:
+	writetext Text_ReceivedSoulBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_SOULBADGE
+	scall FuchsiaGymLevelcap
+	setevent EVENT_BEAT_JANINE
+	setevent EVENT_BEAT_LASS_ALICE
+	setevent EVENT_BEAT_LASS_LINDA
+	setevent EVENT_BEAT_PICNICKER_CINDY
+	setevent EVENT_BEAT_CAMPER_BARRY
+	variablesprite SPRITE_FUCHSIA_GYM_1, SPRITE_LASS
+	variablesprite SPRITE_FUCHSIA_GYM_2, SPRITE_LASS
+	variablesprite SPRITE_FUCHSIA_GYM_3, SPRITE_LASS
+	variablesprite SPRITE_FUCHSIA_GYM_4, SPRITE_YOUNGSTER
+	special LoadUsedSpritesGFX
+	opentext
+	end
+
+JanineFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
 	ifgreater 3, .Medium
@@ -44,69 +103,6 @@ FuchsiaGymJanineScript:
 .Fight
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_JANINE
-	setevent EVENT_BEAT_LASS_ALICE
-	setevent EVENT_BEAT_LASS_LINDA
-	setevent EVENT_BEAT_PICNICKER_CINDY
-	setevent EVENT_BEAT_CAMPER_BARRY
-	variablesprite SPRITE_FUCHSIA_GYM_1, SPRITE_LASS
-	variablesprite SPRITE_FUCHSIA_GYM_2, SPRITE_LASS
-	variablesprite SPRITE_FUCHSIA_GYM_3, SPRITE_LASS
-	variablesprite SPRITE_FUCHSIA_GYM_4, SPRITE_YOUNGSTER
-	special LoadUsedSpritesGFX
-	opentext
-	writetext Text_ReceivedSoulBadge
-	playsound SFX_GET_BADGE
-	waitsfx
-	setflag ENGINE_SOULBADGE
-	sjump .AfterBattle
-.FightDone:
-	faceplayer
-	opentext
-.AfterBattle:
-	checkevent EVENT_GOT_TM06_TOXIC
-	iftrue .AfterTM
-	writetext JanineText_ToxicSpeech
-	promptbutton
-	verbosegiveitem TM_TOXIC
-	iffalse .AfterTM
-	setevent EVENT_GOT_TM06_TOXIC
-	scall FuchsiaGymLevelcap
-.AfterTM:
-	writetext JanineRematchText
-	yesorno
-	iffalse .FightDoneText
-
-	readvar VAR_BADGES
-	ifgreater 13, .HardRematch
-	ifgreater 3, .MediumRematch
-	sjump .EasyRematch
-
-.HardRematch
-	winlosstext JanineRematchWinLossText, 0
-	loadtrainer JANINE, JANINE3
-	sjump .Rematch
-
-.MediumRematch
-	winlosstext JanineRematchWinLossText, 0
-	loadtrainer JANINE, JANINE2
-	sjump .Rematch
-
-.EasyRematch
-	winlosstext JanineRematchWinLossText, 0
-	loadtrainer JANINE, JANINE1
-	sjump .Rematch
-
-.Rematch	
-	startbattle
-	reloadmapafterbattle
-	sjump .EndRematch
-
-.FightDoneText:
-	writetext JanineText_ApplyMyself
-	waitbutton
-.EndRematch:
-	closetext
 	end
 
 FuchsiaGymLevelcap:
