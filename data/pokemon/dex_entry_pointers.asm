@@ -289,15 +289,15 @@ PokedexDataPointerTable:
 	dba MasquerainPokedexEntry
 	dba ShroomishPokedexEntry
 	dba BreloomPokedexEntry
-	dba SlakothPokedexEntry
-	dba VigorothPokedexEntry
-	dba SlakingPokedexEntry
-	dba NincadaPokedexEntry
-	dba NinjaskPokedexEntry
-	dba ShedinjaPokedexEntry
-	dba WhismurPokedexEntry
-	dba LoudredPokedexEntry
-	dba ExploudPokedexEntry
+	dba RowletPokedexEntry
+	dba DartrixPokedexEntry
+	dba DecidueyePokedexEntry
+	dba LittenPokedexEntry
+	dba TorracatPokedexEntry
+	dba IncineroarPokedexEntry
+	dba PopplioPokedexEntry
+	dba BrionnePokedexEntry
+	dba PrimarinaPokedexEntry
 	dba MakuhitaPokedexEntry
 	dba HariyamaPokedexEntry
 	dba AzurillPokedexEntry

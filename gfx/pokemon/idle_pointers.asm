@@ -287,15 +287,15 @@ AnimationIdlePointers:
 	dw MasquerainAnimationIdle
 	dw ShroomishAnimationIdle
 	dw BreloomAnimationIdle
-	dw SlakothAnimationIdle
-	dw VigorothAnimationIdle
-	dw SlakingAnimationIdle
-	dw NincadaAnimationIdle
-	dw NinjaskAnimationIdle
-	dw ShedinjaAnimationIdle
-	dw WhismurAnimationIdle
-	dw LoudredAnimationIdle
-	dw ExploudAnimationIdle
+	dw RowletAnimationIdle
+	dw DartrixAnimationIdle
+	dw DecidueyeAnimationIdle
+	dw LittenAnimationIdle
+	dw TorracatAnimationIdle
+	dw IncineroarAnimationIdle
+	dw PopplioAnimationIdle
+	dw BrionneAnimationIdle
+	dw PrimarinaAnimationIdle
 	dw MakuhitaAnimationIdle
 	dw HariyamaAnimationIdle
 	dw AzurillAnimationIdle

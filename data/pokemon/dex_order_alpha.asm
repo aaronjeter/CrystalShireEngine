@@ -332,15 +332,15 @@ AlphabeticalPokedexOrder:
 	dw MASQUERAIN 
 	dw SHROOMISH  
 	dw BRELOOM    
-	dw SLAKOTH    
-	dw VIGOROTH   
-	dw SLAKING    
-	dw NINCADA    
-	dw NINJASK    
-	dw SHEDINJA   
-	dw WHISMUR    
-	dw LOUDRED    
-	dw EXPLOUD    
+	dw ROWLET
+	dw DARTRIX
+	dw DECIDUEYE
+	dw LITTEN
+	dw TORRACAT
+	dw INCINEROAR
+	dw POPPLIO
+	dw BRIONNE
+	dw PRIMARINA
 	dw MAKUHITA   
 	dw HARIYAMA   
 	dw AZURILL    

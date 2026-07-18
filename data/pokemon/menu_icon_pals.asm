@@ -298,15 +298,15 @@ MonMenuIconPals:
 	icon_pals RED,    GREEN  ; MASQUERAIN
 	icon_pals GREEN,  RED    ; SHROOMISH
 	icon_pals GREEN,  RED    ; BRELOOM
-	icon_pals BROWN,  PURPLE ; SLAKOTH
-	icon_pals BROWN,  PURPLE ; VIGOROTH
-	icon_pals BROWN,  PURPLE ; SLAKING
-	icon_pals GREEN,  GRAY   ; NINCADA
-	icon_pals BROWN,  RED    ; NINJASK
-	icon_pals BROWN,  RED    ; SHEDINJA
-	icon_pals PURPLE, GREEN  ; WHISMUR
-	icon_pals BLUE,   PURPLE ; LOUDRED
-	icon_pals BLUE,   PURPLE ; EXPLOUD
+	icon_pals GREEN,  TEAL   ; ROWLET
+	icon_pals GREEN,  TEAL   ; DARTRIX
+	icon_pals GREEN,  TEAL   ; DECIDUEYE
+	icon_pals RED,    GRAY   ; LITTEN
+	icon_pals RED,    GRAY   ; TORRACAT
+	icon_pals RED,    GRAY   ; INCINEROAR
+	icon_pals BLUE,   PURPLE ; POPPLIO
+	icon_pals BLUE,   PURPLE ; BRIONNE
+	icon_pals BLUE,   PURPLE ; PRIMARINA
 	icon_pals RED,    PURPLE ; MAKUHITA
 	icon_pals RED,    PURPLE ; HARIYAMA
 	icon_pals BLUE,   GREEN  ; AZURILL

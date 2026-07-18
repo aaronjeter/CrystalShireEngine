@@ -293,15 +293,15 @@ IconPointers:
 	dw MasquerainIcon
 	dw ShroomishIcon
 	dw BreloomIcon
-	dw SlakothIcon
-	dw VigorothIcon
-	dw SlakingIcon
-	dw NincadaIcon
-	dw NinjaskIcon
-	dw ShedinjaIcon
-	dw WhismurIcon
-	dw LoudredIcon
-	dw ExploudIcon
+	dw RowletIcon
+	dw DartrixIcon
+	dw DecidueyeIcon
+	dw LittenIcon
+	dw TorracatIcon
+	dw IncineroarIcon
+	dw PopplioIcon
+	dw BrionneIcon
+	dw PrimarinaIcon
 	dw MakuhitaIcon
 	dw HariyamaIcon
 	dw AzurillIcon

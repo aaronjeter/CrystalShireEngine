@@ -287,15 +287,15 @@ BitmasksPointers:
 	dw MasquerainBitmasks
 	dw ShroomishBitmasks
 	dw BreloomBitmasks
-	dw SlakothBitmasks
-	dw VigorothBitmasks
-	dw SlakingBitmasks
-	dw NincadaBitmasks
-	dw NinjaskBitmasks
-	dw ShedinjaBitmasks
-	dw WhismurBitmasks
-	dw LoudredBitmasks
-	dw ExploudBitmasks
+	dw RowletBitmasks
+	dw DartrixBitmasks
+	dw DecidueyeBitmasks
+	dw LittenBitmasks
+	dw TorracatBitmasks
+	dw IncineroarBitmasks
+	dw PopplioBitmasks
+	dw BrionneBitmasks
+	dw PrimarinaBitmasks
 	dw MakuhitaBitmasks
 	dw HariyamaBitmasks
 	dw AzurillBitmasks

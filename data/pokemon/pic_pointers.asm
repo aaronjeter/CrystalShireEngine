@@ -591,24 +591,24 @@ PokemonPicPointers::
 	dba ShroomishBackpic
 	dba BreloomFrontpic
 	dba BreloomBackpic
-	dba SlakothFrontpic
-	dba SlakothBackpic
-	dba VigorothFrontpic
-	dba VigorothBackpic
-	dba SlakingFrontpic
-	dba SlakingBackpic
-	dba NincadaFrontpic
-	dba NincadaBackpic
-	dba NinjaskFrontpic
-	dba NinjaskBackpic
-	dba ShedinjaFrontpic
-	dba ShedinjaBackpic
-	dba WhismurFrontpic
-	dba WhismurBackpic
-	dba LoudredFrontpic
-	dba LoudredBackpic
-	dba ExploudFrontpic
-	dba ExploudBackpic
+	dba RowletFrontpic
+	dba RowletBackpic
+	dba DartrixFrontpic
+	dba DartrixBackpic
+	dba DecidueyeFrontpic
+	dba DecidueyeBackpic
+	dba LittenFrontpic
+	dba LittenBackpic
+	dba TorracatFrontpic
+	dba TorracatBackpic
+	dba IncineroarFrontpic
+	dba IncineroarBackpic
+	dba PopplioFrontpic
+	dba PopplioBackpic
+	dba BrionneFrontpic
+	dba BrionneBackpic
+	dba PrimarinaFrontpic
+	dba PrimarinaBackpic
 	dba MakuhitaFrontpic
 	dba MakuhitaBackpic
 	dba HariyamaFrontpic
