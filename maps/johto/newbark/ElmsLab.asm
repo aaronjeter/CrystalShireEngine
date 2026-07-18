@@ -174,7 +174,7 @@ LeftPokeBallScript:
 	iftrue TorchicPokeBallScript
 
 	checkevent EVENT_ORIGIN_ALOLA
-	iftrue AvulpixPokeBallScript
+	iftrue LittenPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Cyndaquil2PokeBallScript
@@ -198,7 +198,7 @@ MiddlePokeBallScript:
 	iftrue MudkipPokeBallScript
 
 	checkevent EVENT_ORIGIN_ALOLA
-	iftrue AsandshrewPokeBallScript
+	iftrue PopplioPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Totodile2PokeBallScript
@@ -222,7 +222,7 @@ RightPokeBallScript:
 	iftrue TreeckoPokeBallScript
 
 	checkevent EVENT_ORIGIN_ALOLA
-	iftrue AgrimerPokeBallScript
+	iftrue RowletPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue Chikorita2PokeBallScript
@@ -308,13 +308,13 @@ TorchicPokeBallScript:
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
-AvulpixPokeBallScript:
-	pokepic AVULPIX
-	cry AVULPIX
+LittenPokeBallScript:
+	pokepic LITTEN
+	cry LITTEN
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeAvulpixText
+	writetext TakeLittenText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL1
@@ -322,12 +322,12 @@ AvulpixPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, AVULPIX
+	getmonname STRING_BUFFER_3, LITTEN
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke AVULPIX, 5, BERRY
+	givepoke LITTEN, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -458,13 +458,13 @@ MudkipPokeBallScript:
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
-AsandshrewPokeBallScript:	
-	pokepic ASANDSHREW
-	cry ASANDSHREW
+PopplioPokeBallScript:	
+	pokepic POPPLIO
+	cry POPPLIO
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeAsandshrewText
+	writetext TakePopplioText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL2
@@ -472,12 +472,12 @@ AsandshrewPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, ASANDSHREW
+	getmonname STRING_BUFFER_3, POPPLIO
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke ASANDSHREW, 5, BERRY
+	givepoke POPPLIO, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -602,13 +602,13 @@ TreeckoPokeBallScript:
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
-AgrimerPokeBallScript:	
-	pokepic AGRIMER
-	cry AGRIMER
+RowletPokeBallScript:	
+	pokepic ROWLET
+	cry ROWLET
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeAgrimerText
+	writetext TakeRowletText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL3
@@ -616,12 +616,12 @@ AgrimerPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, AGRIMER
+	getmonname STRING_BUFFER_3, ROWLET
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke AGRIMER, 5, BERRY
+	givepoke ROWLET, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -1325,16 +1325,16 @@ TakeMudkipText:
 	cont "mud #mon?"
 	done
 
-TakeAvulpixText:
+TakeLittenText:
 	text "Elm: You'll take"
-	line "Vulpix, the"
-	cont "snow #mon?"
+	line "Litten, the"
+	cont "Fire #mon?"
 	done
 
-TakeAsandshrewText:
+TakePopplioText:
 	text "Elm: You'll take"
-	line "Sandshrew, the"
-	cont "mouse #mon?"
+	line "Popplio, the"
+	cont "Water #mon?"
 	done
 
 TakeBulbasaurText:	
@@ -1355,10 +1355,10 @@ TakeTreeckoText:
 	cont "grass #mon?"
 	done
 
-TakeAgrimerText:
+TakeRowletText:
 	text "Elm: You'll take"
-	line "Grimer, the"
-	cont "poison #mon?"
+	line "Rowlet, the"
+	cont "Grass #mon?"
 	done
 
 TakeKurusuText:	

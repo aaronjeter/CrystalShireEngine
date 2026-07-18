@@ -280,7 +280,7 @@ OakLeftPokeBallScript:
 	iftrue OakTorchicPokeBallScript
 
 	checkevent EVENT_ORIGIN_ALOLA
-	iftrue OakAvulpixPokeBallScript
+	iftrue OakLittenPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue OakCyndaquil2PokeBallScript
@@ -305,7 +305,7 @@ OakMiddlePokeBallScript:
 	iftrue OakMudkipPokeBallScript
 
 	checkevent EVENT_ORIGIN_ALOLA
-	iftrue OakAsandshrewPokeBallScript
+	iftrue OakPopplioPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue OakTotodile2PokeBallScript
@@ -330,7 +330,7 @@ OakRightPokeBallScript:
 	iftrue OakTreeckoPokeBallScript
 
 	checkevent EVENT_ORIGIN_ALOLA
-	iftrue OakAgrimerPokeBallScript
+	iftrue OakRowletPokeBallScript
 
 	checkevent EVENT_ORIGIN_REDDIT
 	iftrue OakChikorita2PokeBallScript
@@ -408,13 +408,13 @@ OakTorchicPokeBallScript:
 	closetext
 	sjump OakDirectionsScript
 
-OakAvulpixPokeBallScript:
-	pokepic AVULPIX
-	cry AVULPIX
+OakLittenPokeBallScript:
+	pokepic LITTEN
+	cry LITTEN
 	waitbutton
 	closepokepic
 	opentext
-	writetext OakTakeAvulpixText
+	writetext OakTakeLittenText
 	yesorno
 	iffalse OakDidntChooseStarterScript
 	disappear OAKSLAB_POKE_BALL1
@@ -422,12 +422,12 @@ OakAvulpixPokeBallScript:
 	writetext OakChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, AVULPIX
+	getmonname STRING_BUFFER_3, LITTEN
 	writetext OakReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke AVULPIX, 5, BERRY
+	givepoke LITTEN, 5, BERRY
 	closetext
 	sjump OakDirectionsScript
 
@@ -546,13 +546,13 @@ OakMudkipPokeBallScript:
 	closetext
 	sjump OakDirectionsScript
 
-OakAsandshrewPokeBallScript:	
-	pokepic ASANDSHREW
-	cry ASANDSHREW
+OakPopplioPokeBallScript:	
+	pokepic POPPLIO
+	cry POPPLIO
 	waitbutton
 	closepokepic
 	opentext
-	writetext OakTakeAsandshrewText
+	writetext OakTakePopplioText
 	yesorno
 	iffalse OakDidntChooseStarterScript
 	disappear OAKSLAB_POKE_BALL2
@@ -560,12 +560,12 @@ OakAsandshrewPokeBallScript:
 	writetext OakChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, ASANDSHREW
+	getmonname STRING_BUFFER_3, POPPLIO
 	writetext OakReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke ASANDSHREW, 5, BERRY
+	givepoke POPPLIO, 5, BERRY
 	closetext
 	sjump OakDirectionsScript
 
@@ -684,13 +684,13 @@ OakTreeckoPokeBallScript:
 	closetext
 	sjump OakDirectionsScript
 
-OakAgrimerPokeBallScript:	
-	pokepic AGRIMER
-	cry AGRIMER
+OakRowletPokeBallScript:	
+	pokepic ROWLET
+	cry ROWLET
 	waitbutton
 	closepokepic
 	opentext
-	writetext OakTakeAgrimerText
+	writetext OakTakeRowletText
 	yesorno
 	iffalse OakDidntChooseStarterScript
 	disappear OAKSLAB_POKE_BALL3
@@ -698,12 +698,12 @@ OakAgrimerPokeBallScript:
 	writetext OakChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, AGRIMER
+	getmonname STRING_BUFFER_3, ROWLET
 	writetext OakReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke AGRIMER, 5, BERRY
+	givepoke ROWLET, 5, BERRY
 	closetext
 	sjump OakDirectionsScript
 
@@ -829,10 +829,10 @@ OakTakeTorchicText:
 	cont "fire #mon?"
 	done
 
-OakTakeAvulpixText:
+OakTakeLittenText:
 	text "Oak: Take"
-	line "Vulpix, the"
-	cont "snow #mon?"
+	line "Litten, the"
+	cont "fire #mon?"
 	done
 
 OakTakeHonobeaText:
@@ -859,10 +859,10 @@ OakTakeMudkipText:
 	cont "mud #mon?"
 	done
 
-OakTakeAsandshrewText:
+OakTakePopplioText:
 	text "Oak: Take"
-	line "Sandshrew, the"
-	cont "mouse #mon?"
+	line "Popplio, the"
+	cont "water #mon?"
 	done
 
 OakTakeKotoraText:
@@ -889,10 +889,10 @@ OakTakeTreeckoText:
 	cont "grass #mon?"
 	done
 
-OakTakeAgrimerText:
+OakTakeRowletText:
 	text "Oak: Take"
-	line "Grimer, the"
-	cont "poison #mon?"
+	line "Rowlet, the"
+	cont "grass #mon?"
 	done
 
 OakTakeKurusuText:	
