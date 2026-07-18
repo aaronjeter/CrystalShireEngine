@@ -712,10 +712,10 @@ TestroomGetHoennMon:
 	givepoke SHROOMISH, 5
 	end
 .Nincada
-	givepoke NINCADA, 5
+	givepoke PLUSLE, 5
 	end
 .Whismur
-	givepoke WHISMUR, 5
+	givepoke MINUN, 5
 	end
 .Makuhita
 	givepoke MAKUHITA, 5
@@ -736,7 +736,7 @@ TestroomGetHoennMon:
 	givepoke RALTS, 5
 	end
 .Slakoth
-	givepoke SLAKOTH, 5
+	givepoke ILLUMISE, 5
 	end
 .Nosepass
 	givepoke NOSEPASS, 5

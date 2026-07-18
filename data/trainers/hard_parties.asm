@@ -255,10 +255,10 @@ MortyGroupHard:
 	
 	next_list_item ; MORTY (3)
 	db "Morty@", TRAINERTYPE_ITEM_MOVES
-	db 15
-	dw SHEDINJA
+	db 10
+	dw PARASECT
 	dw QUICK_CLAW
-	dw DESTINY_BOND, NO_MOVE, NO_MOVE, NO_MOVE
+	dw DESTINY_BOND, SHADOW_CLAW, GIGA_DRAIN, SPORE
 	db 10
 	dw NINETALES
 	dw LEFTOVERS
@@ -1558,7 +1558,7 @@ YoungsterGroupHard:
 	db 6
 	dw GRIMER
 	db 7
-	dw NINJASK
+	dw DUSTOX
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (28) Route 113
@@ -1568,7 +1568,7 @@ YoungsterGroupHard:
 	db 6
 	dw GULPIN
 	db 7
-	dw SHEDINJA
+	dw PARASECT
 	db -1 ; end
 
 	end_list_items
@@ -2001,7 +2001,7 @@ LassGroupHard:
 	db 7
 	dw TEDDIURSA
 	db 7
-	dw LOUDRED
+	dw LINOONE
 	db -1 ; end
 
 	next_list_item ; LASS (3) Fuschia City Gym
@@ -3040,7 +3040,7 @@ CooltrainerFGroupHard:
 	dw LEFTOVERS
 	dw WILLOWISP, GLARE, DRAININGKISS, CALM_MIND 
 	db 9
-	dw EXPLOUD
+	dw LINOONE
 	dw PINK_BOW
 	dw HYPER_VOICE, HYPER_BEAM, SUPERSONIC, ROAR
 	db 9
@@ -3140,7 +3140,7 @@ CooltrainerFGroupHard:
 	next_list_item ; COOLTRAINERF (31) Evergrande Dungeon Generic F #5
 	db "@", TRAINERTYPE_NORMAL
 	db 7
-	dw EXPLOUD
+	dw LINOONE
 	db 7
 	dw GLALIE
 	db 7
@@ -3194,7 +3194,7 @@ CooltrainerFGroupHard:
 	db 7
 	dw SIRFETCH_D
 	db 8
-	dw SLAKING
+	dw SNORLAX
 	db -1 ; end
 
 	end_list_items
@@ -3606,7 +3606,7 @@ GruntMGroupHard:
 	db 5
 	dw RATICATE
 	db 7
-	dw EXPLOUD
+	dw LINOONE
 	db -1 ; end
 
 	next_list_item ; GRUNTM (10) Radio Tower 4F
@@ -3666,9 +3666,9 @@ GruntMGroupHard:
 	db 5
 	dw RATICATE
 	db 5
-	dw NINJASK
+	dw DUSTOX
 	db 5
-	dw VIGOROTH
+	dw FURRET
 	db -1 ; end
 
 	next_list_item ; GRUNTM (17) Team Rocket Base B2F
@@ -3886,7 +3886,7 @@ GruntMGroupHard:
 	next_list_item ; GRUNTM (43) Rustturf Grunt 2
 	db "Ryan@", TRAINERTYPE_NORMAL
 	db 6
-	dw LOUDRED
+	dw LINOONE
 	db 7
 	dw CARVANHA
 	db -1 ; end
@@ -3894,7 +3894,7 @@ GruntMGroupHard:
 	next_list_item ; GRUNTM (44) Mauville Grunt 1
 	db "Ryan@", TRAINERTYPE_NORMAL
 	db 6
-	dw LOUDRED
+	dw FURRET
 	db 9
 	dw SHARPEDO
 	db -1 ; end
@@ -3926,7 +3926,7 @@ GruntMGroupHard:
 	next_list_item ; GRUNTM (48) Route 121 Grunt 1
 	db "Ryan@", TRAINERTYPE_NORMAL
 	db 7
-	dw EXPLOUD
+	dw LINOONE
 	db 8
 	dw SHARPEDO
 	db 9
@@ -4387,7 +4387,7 @@ BugCatcherGroupHard:
 	next_list_item ; BUG_CATCHER (22) Petalburg Woods
 	db "Lyle@", TRAINERTYPE_NORMAL
 	db 4
-	dw NINCADA
+	dw PARAS
 	db 5
 	dw SHROOMISH
 	db -1 ; end
@@ -4405,7 +4405,7 @@ BugCatcherGroupHard:
 	db 5
 	dw DUSTOX
 	db 7
-	dw NINCADA
+	dw PARAS
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (25) Route 117
@@ -4415,7 +4415,7 @@ BugCatcherGroupHard:
 	db 7
 	dw BEAUTIFLY
 	db 9
-	dw NINJASK
+	dw DUSTOX
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (26) Mt Moon
@@ -4439,9 +4439,9 @@ BugCatcherGroupHard:
 	next_list_item ; BUG_CATCHER (28) Route119
 	db "Kent@", TRAINERTYPE_NORMAL
 	db 5
-	dw NINCADA
+	dw PARAS
 	db 8
-	dw NINJASK
+	dw DUSTOX
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (29) Route119
@@ -5571,7 +5571,7 @@ GuitaristGroupHard:
 	db 7
 	dw MANECTRIC
 	db 7
-	dw EXPLOUD
+	dw LINOONE
 	db -1 ; end
 
 	end_list_items
@@ -6244,7 +6244,7 @@ BlackbeltGroupHard:
 	db 5
 	dw MANKEY
 	db 5
-	dw VIGOROTH
+	dw FURRET
 	db 7
 	dw PRIMEAPE
 	db -1 ; end
@@ -6295,7 +6295,7 @@ ExecutiveMGroupHard:
 	db 10
 	dw SHIFTRY
 	db 8
-	dw NINJASK
+	dw DUSTOX
 	db 8
 	dw MANECTRIC
 	db 12
@@ -6611,7 +6611,7 @@ PicnickerGroupHard:
 	next_list_item ; PICNICKER (28) Route 117
 	db "Melina@", TRAINERTYPE_NORMAL
 	db 9
-	dw EXPLOUD
+	dw LINOONE
 	db 9
 	dw SWELLOW
 	db -1 ; end
@@ -6635,7 +6635,7 @@ PicnickerGroupHard:
 	next_list_item ; PICNICKER (31) Route 111
 	db "Gabby@", TRAINERTYPE_NORMAL
 	db 7
-	dw EXPLOUD
+	dw LINOONE
 	db 7
 	dw PINSIR
 	db -1 ; end
@@ -8349,7 +8349,7 @@ NormanGroupHard:
 	db 12
 	dw URSARING
 	db 12
-	dw SLAKING
+	dw SNORLAX
 	db 17
 	dw DITTO
 	db -1 ; end
@@ -8373,7 +8373,7 @@ NormanGroupHard:
 	dw LEFTOVERS
 	dw SLEEP_TALK, SNORE, REST, COSMIC_POWER
 	db 10
-	dw SLAKING
+	dw SNORLAX
 	dw LEFTOVERS
 	dw BODY_SLAM, EARTHQUAKE, REST, SLEEP_TALK
 	db 12
@@ -9042,7 +9042,7 @@ RangerMGroupHard:
 	next_list_item; RANGERM (12) Route 120
 	db "Riley@", TRAINERTYPE_NORMAL
 	db 8
-	dw NINJASK
+	dw DUSTOX
 	db 8
 	dw POLIWRATH
 	db 8

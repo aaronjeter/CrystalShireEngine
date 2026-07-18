@@ -256,10 +256,10 @@ MortyGroup: ;Gym Leader
 	
 	next_list_item ; MORTY (3)
 	db "Morty@", TRAINERTYPE_ITEM_MOVES
-	db 20
-	dw SHEDINJA
+	db 9
+	dw PARASECT
 	dw QUICK_CLAW
-	dw DESTINY_BOND, NO_MOVE, NO_MOVE, NO_MOVE
+	dw DESTINY_BOND, SHADOW_CLAW, NO_MOVE, NO_MOVE
 	db 9
 	dw NINETALES
 	dw NO_ITEM
@@ -1555,7 +1555,7 @@ YoungsterGroup:
 	db 4
 	dw GRIMER
 	db 5
-	dw NINJASK
+	dw DUSTOX
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (28) Route 113
@@ -1565,7 +1565,7 @@ YoungsterGroup:
 	db 4
 	dw GULPIN
 	db 5
-	dw SHEDINJA
+	dw PARASECT
 	db -1 ; end
 
 	end_list_items
@@ -1964,7 +1964,7 @@ LassGroup:
 	db 7
 	dw TEDDIURSA
 	db 7
-	dw LOUDRED
+	dw LINOONE
 	db -1 ; end
 
 	next_list_item ; LASS (3) Fuschia City Gym
@@ -2960,7 +2960,7 @@ CooltrainerFGroup:
 	dw WIGGLYTUFF
 	dw WILLOWISP, GLARE, DRAININGKISS, CALM_MIND 
 	db 9
-	dw EXPLOUD
+	dw LINOONE
 	dw HYPER_VOICE, HYPER_BEAM, SUPERSONIC, ROAR
 	db 9
 	dw PERSIAN
@@ -3049,7 +3049,7 @@ CooltrainerFGroup:
 	next_list_item ; COOLTRAINERF (31) Evergrande Dungeon Generic F #5
 	db "@", TRAINERTYPE_NORMAL
 	db 7
-	dw EXPLOUD
+	dw LINOONE
 	db 7
 	dw GLALIE
 	db 7
@@ -3103,7 +3103,7 @@ CooltrainerFGroup:
 	db 7
 	dw SIRFETCH_D
 	db 8
-	dw SLAKING
+	dw SNORLAX
 	db -1 ; end
 
 	end_list_items
@@ -3515,7 +3515,7 @@ GruntMGroup:
 	db 4
 	dw RATICATE
 	db 6
-	dw EXPLOUD
+	dw LINOONE
 	db -1 ; end
 
 	next_list_item ; GRUNTM (10) Radio Tower 4F
@@ -3575,9 +3575,9 @@ GruntMGroup:
 	db 5
 	dw RATICATE
 	db 5
-	dw NINJASK
+	dw DUSTOX
 	db 5
-	dw VIGOROTH
+	dw FURRET
 	db -1 ; end
 
 	next_list_item ; GRUNTM (17) Team Rocket Base B2F
@@ -3795,7 +3795,7 @@ GruntMGroup:
 	next_list_item ; GRUNTM (43) Rustturf Grunt 2
 	db "Ryan@", TRAINERTYPE_NORMAL
 	db 5
-	dw LOUDRED
+	dw LINOONE
 	db 5
 	dw CARVANHA
 	db -1 ; end
@@ -3803,7 +3803,7 @@ GruntMGroup:
 	next_list_item ; GRUNTM (44) Mauville Grunt 1
 	db "Ryan@", TRAINERTYPE_NORMAL
 	db 6
-	dw LOUDRED
+	dw LINOONE
 	db 7
 	dw SHARPEDO
 	db -1 ; end
@@ -3835,7 +3835,7 @@ GruntMGroup:
 	next_list_item ; GRUNTM (48) Route 121 Grunt 1
 	db "Ryan@", TRAINERTYPE_NORMAL
 	db 5
-	dw EXPLOUD
+	dw LINOONE
 	db 6
 	dw SHARPEDO
 	db 7
@@ -4278,7 +4278,7 @@ BugCatcherGroup:
 	next_list_item ; BUG_CATCHER (22) Petalburg Woods
 	db "Lyle@", TRAINERTYPE_NORMAL
 	db 3
-	dw NINCADA
+	dw PARAS
 	db 4
 	dw SHROOMISH
 	db -1 ; end
@@ -4296,7 +4296,7 @@ BugCatcherGroup:
 	db 5
 	dw WURMPLE
 	db 7
-	dw NINCADA
+	dw PARAS
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (25) Route 117
@@ -4328,9 +4328,9 @@ BugCatcherGroup:
 	next_list_item ; BUG_CATCHER (28) Route119
 	db "Kent@", TRAINERTYPE_NORMAL
 	db 4
-	dw NINCADA
+	dw PARAS
 	db 4
-	dw NINJASK
+	dw DUSTOX
 	db -1 ; end
 
 	next_list_item ; BUG_CATCHER (29) Route119
@@ -5448,7 +5448,7 @@ GuitaristGroup:
 	db 7
 	dw MANECTRIC
 	db 7
-	dw LOUDRED
+	dw LINOONE
 	db -1 ; end
 
 	end_list_items
@@ -6119,7 +6119,7 @@ BlackbeltGroup:
 	db 5
 	dw MANKEY
 	db 5
-	dw VIGOROTH
+	dw FURRET
 	db 7
 	dw PRIMEAPE
 	db -1 ; end
@@ -6164,7 +6164,7 @@ ExecutiveMGroup:
 	db 7
 	dw NUZLEAF
 	db 7
-	dw NINJASK
+	dw DUSTOX
 	db 7
 	dw MANECTRIC
 	db 8
@@ -6478,7 +6478,7 @@ PicnickerGroup:
 	next_list_item ; PICNICKER (28) Route 117
 	db "Melina@", TRAINERTYPE_NORMAL
 	db 7
-	dw LOUDRED
+	dw LINOONE
 	db 7
 	dw SWELLOW
 	db -1 ; end
@@ -6502,7 +6502,7 @@ PicnickerGroup:
 	next_list_item ; PICNICKER (31) Route 111
 	db "Gabby@", TRAINERTYPE_NORMAL
 	db 6
-	dw LOUDRED
+	dw LINOONE
 	db 5
 	dw PINSIR
 	db -1 ; end
@@ -8229,7 +8229,7 @@ NormanGroup:
 	db 8
 	dw URSARING
 	db 11
-	dw SLAKING
+	dw SNORLAX
 	db -1 ; end
 
 	next_list_item ; NORMAN (3)
@@ -8251,7 +8251,7 @@ NormanGroup:
 	dw LEFTOVERS
 	dw SLEEP_TALK, SNORE, REST, COSMIC_POWER
 	db 10
-	dw SLAKING
+	dw SNORLAX
 	dw LEFTOVERS
 	dw BODY_SLAM, EARTHQUAKE, REST, SLEEP_TALK
 	db 11
@@ -8894,7 +8894,7 @@ RangerMGroup:
 	next_list_item; RANGERM (12) Route 120
 	db "Riley@", TRAINERTYPE_NORMAL
 	db 7
-	dw NINJASK
+	dw DUSTOX
 	db 7
 	dw POLIWRATH
 	db 7
@@ -9577,7 +9577,7 @@ RandomPartyLists::
 	dw GARDEVOIR
 	db $fe
 	db 11
-	dw EXPLOUD
+	dw LINOONE
 	db $fe
 	db 11
 	dw AGGRON

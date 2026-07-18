@@ -270,28 +270,28 @@ def_grass_wildmons ROUTE_115
 def_grass_wildmons ROUTE_116
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, NINCADA
-	dbw 1, WHISMUR
+	dbw 1, PARAS
+	dbw 1, NIDORAN_F
 	dbw 1, SKITTY
 	dbw 2, ZIGZAGOON
 	dbw 2, TAILLOW
-	dbw 2, WHISMUR
+	dbw 2, NIDORAN_M
 	dbw 5, DELCATTY
 	; day
-	dbw 1, NINCADA
-	dbw 1, WHISMUR
+	dbw 1, PARAS
+	dbw 1, NIDORAN_F
 	dbw 1, SKITTY
 	dbw 2, ZIGZAGOON
 	dbw 2, TAILLOW
-	dbw 2, WHISMUR
+	dbw 2, NIDORAN_M
 	dbw 5, DELCATTY
 	; nite
-	dbw 1, NINCADA
-	dbw 1, WHISMUR
+	dbw 1, PARAS
+	dbw 1, NIDORAN_F
 	dbw 1, SKITTY
 	dbw 2, ZIGZAGOON
 	dbw 2, TAILLOW
-	dbw 2, WHISMUR
+	dbw 2, NIDORAN_M
 	dbw 5, DELCATTY
 	end_grass_wildmons
 
@@ -475,7 +475,7 @@ def_grass_wildmons PETALBURG_WOODS
 	dbw 1, TREECKO
 	dbw 1, WURMPLE
 	dbw 1, SHROOMISH
-	dbw 1, SLAKOTH
+	dbw 1, TEDDIURSA
 	dbw 1, TAILLOW
 	dbw 5, SILCOON
 	dbw 5, CASCOON
@@ -483,7 +483,7 @@ def_grass_wildmons PETALBURG_WOODS
 	dbw 1, TREECKO
 	dbw 1, WURMPLE
 	dbw 1, SHROOMISH
-	dbw 1, SLAKOTH
+	dbw 1, TEDDIURSA
 	dbw 1, TAILLOW
 	dbw 5, SILCOON
 	dbw 5, CASCOON
@@ -491,7 +491,7 @@ def_grass_wildmons PETALBURG_WOODS
 	dbw 1, TREECKO
 	dbw 1, WURMPLE
 	dbw 1, SHROOMISH
-	dbw 1, SLAKOTH
+	dbw 1, TEDDIURSA
 	dbw 1, TAILLOW
 	dbw 5, SILCOON
 	dbw 5, CASCOON
@@ -500,29 +500,29 @@ def_grass_wildmons PETALBURG_WOODS
 def_grass_wildmons RUSTURF_TUNNEL
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, WHISMUR
+	dbw 1, NIDORAN_M
 	dbw 1, GEODUDE
 	dbw 1, DIGLETT
-	dbw 1, WHISMUR
-	dbw 2, LOUDRED
-	dbw 3, LOUDRED
-	dbw 7, EXPLOUD
+	dbw 1, NIDORAN_F
+	dbw 2, NIDORINA
+	dbw 3, NIDORINO
+	dbw 7, ADIGLETT
 	; day
-	dbw 1, WHISMUR
+	dbw 1, NIDORAN_M
 	dbw 1, GEODUDE
 	dbw 1, DIGLETT
-	dbw 1, WHISMUR
-	dbw 2, LOUDRED
-	dbw 3, LOUDRED
-	dbw 7, EXPLOUD
+	dbw 1, NIDORAN_F
+	dbw 2, NIDORINA
+	dbw 3, NIDORINO
+	dbw 7, ADIGLETT
 	; nite
-	dbw 1, WHISMUR
+	dbw 1, NIDORAN_M
 	dbw 1, GEODUDE
 	dbw 1, DIGLETT
-	dbw 1, WHISMUR
-	dbw 2, LOUDRED
-	dbw 3, LOUDRED
-	dbw 7, EXPLOUD
+	dbw 1, NIDORAN_F
+	dbw 2, NIDORINA
+	dbw 3, NIDORINO
+	dbw 7, ADIGLETT
 	end_grass_wildmons
 
 def_grass_wildmons GRANITE_CAVE_B1F

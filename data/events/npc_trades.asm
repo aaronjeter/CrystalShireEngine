@@ -22,7 +22,7 @@ NPCTrades:
 	npctrade TRADE_DIALOGSET_COLLECTOR, DUGTRIO,    HUNTAIL,    "Maggie@@@@@", $ff, $ff, METAL_COAT,   50082, "Forest@@", TRADE_GENDER_EITHER
 	
 	npctrade TRADE_DIALOGSET_HAPPY,     ROSELIA,    HITMONCHAN, "Jackie@@@@@", $ff, $ff, LUCKY_PUNCH,  50082, "Frank@@@", TRADE_GENDER_EITHER
-	npctrade TRADE_DIALOGSET_HAPPY,     NINCADA,    LUVDISC,    "Valentine@@", $ff, $ff, MYSTIC_WATER, 50081, "Greg@@@@", TRADE_GENDER_EITHER
+	npctrade TRADE_DIALOGSET_HAPPY,     PARAS,      LUVDISC,    "Valentine@@", $ff, $ff, MYSTIC_WATER, 50081, "Greg@@@@", TRADE_GENDER_EITHER
 	npctrade TRADE_DIALOGSET_COLLECTOR, SHROOMISH,  PILOSWINE,  "Mook@@@@@@@", $ff, $ff, SOFT_SAND,    50083, "Ryan@@@@", TRADE_GENDER_EITHER
 	npctrade TRADE_DIALOGSET_GIRL,      PLUSLE,     AVULPIX,    "Lily@@@@@@@", $ff, $ff, NEVERMELTICE, 50084, "Lily@@@@", TRADE_GENDER_EITHER
 	npctrade TRADE_DIALOGSET_COLLECTOR, MINUN,      AGRAVELER,  "Pyrite@@@@@", $ff, $ff, MAGNET,       50085, "Joanne@@", TRADE_GENDER_EITHER

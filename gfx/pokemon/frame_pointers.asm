@@ -287,15 +287,15 @@ FramesPointers:
 	dba MasquerainFrames
 	dba ShroomishFrames
 	dba BreloomFrames
-	dba SlakothFrames
-	dba VigorothFrames
-	dba SlakingFrames
-	dba NincadaFrames
-	dba NinjaskFrames
-	dba ShedinjaFrames
-	dba WhismurFrames
-	dba LoudredFrames
-	dba ExploudFrames
+	dba RowletFrames
+	dba DartrixFrames
+	dba DecidueyeFrames
+	dba LittenFrames
+	dba TorracatFrames
+	dba IncineroarFrames
+	dba PopplioFrames
+	dba BrionneFrames
+	dba PrimarinaFrames
 	dba MakuhitaFrames
 	dba HariyamaFrames
 	dba AzurillFrames

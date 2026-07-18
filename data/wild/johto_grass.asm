@@ -1405,7 +1405,7 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_33
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, NINCADA
+	dbw 1, PARAS
 	dbw 1, SPEAROW
 	dbw 1, GEODUDE
 	dbw 1, EKANS
@@ -1413,7 +1413,7 @@ JohtoGrassWildMons:
 	dbw 2, IGGLYBUFF
 	dbw 3, FEAROW
 	; day
-	dbw 1, NINCADA
+	dbw 1, PARAS
 	dbw 1, SPEAROW
 	dbw 1, GEODUDE
 	dbw 1, EKANS
@@ -1421,7 +1421,7 @@ JohtoGrassWildMons:
 	dbw 2, IGGLYBUFF
 	dbw 3, FEAROW
 	; nite
-	dbw 1, NINCADA
+	dbw 1, PARAS
 	dbw 1, ZUBAT
 	dbw 1, GEODUDE
 	dbw 1, EKANS

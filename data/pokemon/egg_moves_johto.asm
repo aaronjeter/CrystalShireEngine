@@ -138,13 +138,13 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw ShroomishEggMoves
 	dw NoEggMoves2
-	dw SlakothEggMoves
 	dw NoEggMoves2
 	dw NoEggMoves2
-	dw NincadaEggMoves
 	dw NoEggMoves2
 	dw NoEggMoves2
-	dw WhismurEggMoves
+	dw NoEggMoves2
+	dw NoEggMoves2
+	dw NoEggMoves2
 	dw NoEggMoves2
 	dw NoEggMoves2
 	dw MakuhitaEggMoves

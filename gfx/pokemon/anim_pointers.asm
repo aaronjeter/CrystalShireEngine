@@ -287,15 +287,15 @@ AnimationPointers:
 	dw MasquerainAnimation
 	dw ShroomishAnimation
 	dw BreloomAnimation
-	dw SlakothAnimation
-	dw VigorothAnimation
-	dw SlakingAnimation
-	dw NincadaAnimation
-	dw NinjaskAnimation
-	dw ShedinjaAnimation
-	dw WhismurAnimation
-	dw LoudredAnimation
-	dw ExploudAnimation
+	dw RowletAnimation
+	dw DartrixAnimation
+	dw DecidueyeAnimation
+	dw LittenAnimation
+	dw TorracatAnimation
+	dw IncineroarAnimation
+	dw PopplioAnimation
+	dw BrionneAnimation
+	dw PrimarinaAnimation
 	dw MakuhitaAnimation
 	dw HariyamaAnimation
 	dw AzurillAnimation

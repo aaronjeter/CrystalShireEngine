@@ -66,6 +66,9 @@ IntimidateMons::
 	dw QUILAVA2
 	dw TYPHLOSION2	
 	dw GOROCHU
+	dw LITTEN
+	dw TORRACAT
+	dw INCINEROAR
 	dw -1
 
 MystifyMons::
@@ -94,6 +97,9 @@ MystifyMons::
 	dw ALAKAZAM2
 	dw NOCTOWL2	
 	dw UNOWNX
+	dw POPPLIO
+	dw BRIONNE
+	dw PRIMARINA
 	dw -1
 
 SnareMons::
@@ -114,6 +120,9 @@ SnareMons::
 	dw TENTACOOL2
 	dw TENTACRUEL2
 	dw YANMA2
+	dw ROWLET
+	dw DARTRIX
+	dw DECIDUEYE
 	dw -1
 
 HasteMons::	
@@ -137,7 +146,6 @@ HasteMons::
 	dw COMBUSKEN
 	dw BLAZIKEN
 	dw BLAZIKENX
-	dw NINJASK
 	dw SUNBOU
 	dw IKARI
 	dw -1

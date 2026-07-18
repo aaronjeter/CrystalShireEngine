@@ -308,15 +308,15 @@ DEF JOHTO_POKEMON EQU const_value
 	const MASQUERAIN ; 11c
 	const SHROOMISH  ; 11d
 	const BRELOOM    ; 11e
-	const SLAKOTH    ; 11f
-	const VIGOROTH   ; 120
-	const SLAKING    ; 121
-	const NINCADA    ; 122
-	const NINJASK    ; 123
-	const SHEDINJA   ; 124
-	const WHISMUR    ; 125
-	const LOUDRED    ; 126
-	const EXPLOUD    ; 127
+	const ROWLET     ; 11f
+	const DARTRIX    ; 120
+	const DECIDUEYE  ; 121
+	const LITTEN     ; 122
+	const TORRACAT   ; 123
+	const INCINEROAR ; 124
+	const POPPLIO    ; 125
+	const BRIONNE    ; 126
+	const PRIMARINA  ; 127
 	const MAKUHITA   ; 128
 	const HARIYAMA   ; 129
 	const AZURILL    ; 12a
