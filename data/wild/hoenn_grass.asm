@@ -190,7 +190,7 @@ def_grass_wildmons ROUTE_113
 	dbw 1, SLUGMA
 	dbw 1, SPOINK
 	dbw 2, SPINDA
-	dbw 2, SKARMORY
+	dbw 2, LITTEN
 	dbw 3, SKARMORY
 	dbw 7, SKARMORY
 	; day
@@ -198,7 +198,7 @@ def_grass_wildmons ROUTE_113
 	dbw 1, SLUGMA
 	dbw 1, SPOINK
 	dbw 2, SPINDA
-	dbw 2, SKARMORY
+	dbw 2, LITTEN
 	dbw 3, SKARMORY
 	dbw 7, SKARMORY
 	; nite
@@ -206,7 +206,7 @@ def_grass_wildmons ROUTE_113
 	dbw 1, SLUGMA
 	dbw 1, SPOINK
 	dbw 2, SPINDA
-	dbw 2, SKARMORY
+	dbw 2, LITTEN
 	dbw 3, SKARMORY
 	dbw 7, SKARMORY
 	end_grass_wildmons
@@ -218,7 +218,7 @@ def_grass_wildmons ROUTE_114
 	dbw 1, LOTAD
 	dbw 1, SEEDOT
 	dbw 2, ZANGOOSE
-	dbw 2, SEVIPER
+	dbw 2, LITTEN
 	dbw 2, SEVIPER
 	dbw 5, ZANGOOSE
 	; day
@@ -226,7 +226,7 @@ def_grass_wildmons ROUTE_114
 	dbw 1, LOTAD
 	dbw 1, SEEDOT
 	dbw 2, ZANGOOSE
-	dbw 2, SEVIPER
+	dbw 2, LITTEN
 	dbw 2, SEVIPER
 	dbw 5, ZANGOOSE
 	; nite
@@ -234,7 +234,7 @@ def_grass_wildmons ROUTE_114
 	dbw 1, LOTAD
 	dbw 1, SEEDOT
 	dbw 2, ZANGOOSE
-	dbw 2, SEVIPER
+	dbw 2, LITTEN
 	dbw 2, SEVIPER
 	dbw 5, ZANGOOSE
 	end_grass_wildmons
@@ -245,7 +245,7 @@ def_grass_wildmons ROUTE_115
 	dbw 1, JIGGLYPUFF
 	dbw 1, MEDITITE
 	dbw 1, WINGULL
-	dbw 2, SWABLU
+	dbw 2, LITTEN
 	dbw 2, JIGGLYPUFF
 	dbw 2, SWELLOW
 	dbw 5, ALTARIA
@@ -253,7 +253,7 @@ def_grass_wildmons ROUTE_115
 	dbw 1, JIGGLYPUFF
 	dbw 1, MEDITITE
 	dbw 1, WINGULL
-	dbw 2, SWABLU
+	dbw 2, LITTEN
 	dbw 2, JIGGLYPUFF
 	dbw 2, SWELLOW
 	dbw 5, ALTARIA
@@ -261,7 +261,7 @@ def_grass_wildmons ROUTE_115
 	dbw 1, JIGGLYPUFF
 	dbw 1, MEDITITE
 	dbw 1, WINGULL
-	dbw 2, SWABLU
+	dbw 2, LITTEN
 	dbw 2, JIGGLYPUFF
 	dbw 2, SWELLOW
 	dbw 5, ALTARIA

@@ -569,7 +569,7 @@ JohtoGrassWildMons:
 	dbw 1, KOTORA
 	dbw 1, ODDISH
 	dbw 1, VENONAT
-	dbw 1, FARFETCH_D
+	dbw 1, ROWLET
 	dbw 2, FARFETCH_D
 	dbw 7, HANAMOLE
 	; day
@@ -577,7 +577,7 @@ JohtoGrassWildMons:
 	dbw 1, KOTORA
 	dbw 1, ODDISH
 	dbw 1, VENONAT
-	dbw 1, FARFETCH_D
+	dbw 1, ROWLET
 	dbw 2, FARFETCH_D
 	dbw 7, HANAMOLE
 	; nite
@@ -585,7 +585,7 @@ JohtoGrassWildMons:
 	dbw 1, KOTORA
 	dbw 1, ODDISH
 	dbw 1, VENONAT
-	dbw 1, FARFETCH_D
+	dbw 1, ROWLET
 	dbw 2, FARFETCH_D
 	dbw 7, HANAMOLE
 	end_grass_wildmons
@@ -597,7 +597,7 @@ JohtoGrassWildMons:
 	dbw 1, SHUPPET
 	dbw 1, ODDISH
 	dbw 1, WURMPLE
-	dbw 1, ZANGOOSE
+	dbw 1, ROWLET
 	dbw 2, ZANGOOSE
 	dbw 7, HANAMOLE
 	; day
@@ -605,14 +605,14 @@ JohtoGrassWildMons:
 	dbw 1, SHUPPET
 	dbw 1, ODDISH
 	dbw 1, WURMPLE
-	dbw 1, ZANGOOSE
+	dbw 1, ROWLET
 	dbw 2, ZANGOOSE
 	dbw 7, HANAMOLE
 	; nite
 	dbw 1, CHIKORITA
 	dbw 1, SHUPPET
 	dbw 1, ODDISH
-	dbw 1, WURMPLE
+	dbw 1, ROWLET
 	dbw 1, ZANGOOSE
 	dbw 5, HANAMOLE
 	dbw 7, HANAMOLE
@@ -625,7 +625,7 @@ JohtoGrassWildMons:
 	dbw 1, KOTORA
 	dbw 1, ODDISH
 	dbw 1, DUSKULL
-	dbw 1, SEVIPER
+	dbw 1, ROWLET
 	dbw 2, SEVIPER
 	dbw 7, HANAMOLE
 	; day
@@ -633,7 +633,7 @@ JohtoGrassWildMons:
 	dbw 1, KOTORA
 	dbw 1, ODDISH
 	dbw 1, DUSKULL
-	dbw 1, SEVIPER
+	dbw 1, ROWLET
 	dbw 2, SEVIPER
 	dbw 7, HANAMOLE
 	; nite
@@ -641,8 +641,8 @@ JohtoGrassWildMons:
 	dbw 1, PARAS
 	dbw 1, ODDISH
 	dbw 1, DUSKULL
-	dbw 1, SEVIPER
-	dbw 5, HANAMOLE
+	dbw 1, ROWLET
+	dbw 5, SEVIPER
 	dbw 7, HANAMOLE
 	end_grass_wildmons
 
@@ -905,7 +905,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; day
@@ -913,7 +913,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; nite
@@ -921,7 +921,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	end_grass_wildmons
@@ -933,7 +933,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; day
@@ -941,7 +941,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; nite
@@ -949,7 +949,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	end_grass_wildmons
@@ -961,7 +961,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; day
@@ -969,7 +969,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; nite
@@ -977,7 +977,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	end_grass_wildmons
@@ -989,7 +989,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; day
@@ -997,7 +997,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; nite
@@ -1005,7 +1005,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	end_grass_wildmons
@@ -1017,7 +1017,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; day
@@ -1025,7 +1025,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; nite
@@ -1033,7 +1033,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	end_grass_wildmons
@@ -1045,7 +1045,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; day
@@ -1053,7 +1053,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; nite
@@ -1061,7 +1061,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	end_grass_wildmons
@@ -1073,7 +1073,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; day
@@ -1081,7 +1081,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	; nite
@@ -1089,7 +1089,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 5, DEWGONG
 	end_grass_wildmons
@@ -1101,7 +1101,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 7, LUGIA
 	; day
@@ -1109,7 +1109,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 7, LUGIA
 	; nite
@@ -1117,7 +1117,7 @@ JohtoGrassWildMons:
 	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, CORPHISH
-	dbw 5, GOLBAT
+	dbw 5, POPPLIO
 	dbw 3, DEWGONG
 	dbw 7, LUGIA
 	end_grass_wildmons
