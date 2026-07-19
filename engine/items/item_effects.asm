@@ -3017,10 +3017,7 @@ GetMthMoveOfCurrentMon:
 BirdWhistleEffect:
 	ld a, 1	
 	ld [wUsingHMItem], a
-	ld [wFlyingWithHMItem], a	
-	ld a, DELIBIRD
-	ld [wTempIconSpecies], a
-	ld [wCurIcon], a
+	ld [wFlyingWithHMItem], a		
 	call FlyFunction
 	ld a, [wFieldMoveSucceeded]
 	cp $2
