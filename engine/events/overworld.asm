@@ -582,7 +582,7 @@ FlyFunction:
 
 .FailFly:
 	call FieldMoveFailed
-	ld a, JUMPTABLE_EXIT | $2
+	ld a, JUMPTABLE_EXIT
 	ret
 
 .FlyScript:
