@@ -1,7 +1,7 @@
 	db 0 ; species ID placeholder
-	;BST: 320
-	db  68,  55,  55,  45,  49,  65
-	evs  3,   0,   0,   0,   0,   0
+	;BST: 530
+	db  78, 107,  75,  70, 100, 100
+	evs  0,   3,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GHOST ; type
