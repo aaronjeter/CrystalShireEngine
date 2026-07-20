@@ -6565,7 +6565,7 @@ PicnickerGroupHard:
 	dw SEAKING
 	db -1 ; end
 
-	next_list_item ; PICNICKER (10) Route 46
+	next_list_item ; PICNICKER (9) Route 46
 	db "Erin@", TRAINERTYPE_NORMAL
 	db 6
 	dw VULPIX
@@ -6573,7 +6573,7 @@ PicnickerGroupHard:
 	dw PONYTA
 	db -1 ; end
 
-	next_list_item ; PICNICKER (13) Route 9
+	next_list_item ; PICNICKER (10) Route 9
 	db "Heidi@", TRAINERTYPE_NORMAL
 	db 5
 	dw SKIPLOOM
@@ -6581,7 +6581,7 @@ PicnickerGroupHard:
 	dw SKIPLOOM
 	db -1 ; end
 
-	next_list_item ; PICNICKER (14) Route 9
+	next_list_item ; PICNICKER (11) Route 9
 	db "Edna@", TRAINERTYPE_NORMAL
 	db 2
 	dw NIDORINA
@@ -6589,26 +6589,26 @@ PicnickerGroupHard:
 	dw RAICHU
 	db -1 ; end
 
-	next_list_item ; PICNICKER (16) Route 43
+	next_list_item ; PICNICKER (12) Route 43
 	db "Tiffany@", TRAINERTYPE_MOVES
 	db 12
 	dw CLEFABLE
 	dw ENCORE, SING, MOONBLAST, MINIMIZE
 	db -1 ; end
 
-	next_list_item ; PICNICKER (19) Celadon City Gym
+	next_list_item ; PICNICKER (13) Celadon City Gym
 	db "Tanya@", TRAINERTYPE_NORMAL
 	db 7
 	dw EXEGGUTOR
 	db -1 ; end
 
-	next_list_item ; PICNICKER (27) Route 117
-	db "Marina", TRAINERTYPE_NORMAL
+	next_list_item ; PICNICKER (14) Route 117
+	db "Maria@", TRAINERTYPE_NORMAL
 	db 10
 	dw DELCATTY
 	db -1 ; end
 
-	next_list_item ; PICNICKER (28) Route 117
+	next_list_item ; PICNICKER (15) Route 117
 	db "Melina@", TRAINERTYPE_NORMAL
 	db 9
 	dw LINOONE
@@ -6616,7 +6616,7 @@ PicnickerGroupHard:
 	dw SWELLOW
 	db -1 ; end
 
-	next_list_item ; PICNICKER (29) Route 111
+	next_list_item ; PICNICKER (16) Route 111
 	db "Celina@", TRAINERTYPE_NORMAL
 	db 7
 	dw NIDOQUEEN
@@ -6624,7 +6624,7 @@ PicnickerGroupHard:
 	dw MILTANK
 	db -1 ; end
 
-	next_list_item ; PICNICKER (30) Route 111
+	next_list_item ; PICNICKER (17) Route 111
 	db "Bianca@", TRAINERTYPE_NORMAL
 	db 7
 	dw MEGANIUM
@@ -6632,7 +6632,7 @@ PicnickerGroupHard:
 	dw AMAROWAK
 	db -1 ; end
 
-	next_list_item ; PICNICKER (31) Route 111
+	next_list_item ; PICNICKER (18) Route 111
 	db "Gabby@", TRAINERTYPE_NORMAL
 	db 7
 	dw LINOONE
@@ -6640,7 +6640,7 @@ PicnickerGroupHard:
 	dw PINSIR
 	db -1 ; end
 
-	next_list_item ; PICNICKER (32) Route 111
+	next_list_item ; PICNICKER (19) Route 111
 	db "Irene@", TRAINERTYPE_NORMAL
 	db 7
 	dw MISDREAVUS
@@ -6648,7 +6648,7 @@ PicnickerGroupHard:
 	dw PILOSWINE
 	db -1 ; end
 
-	next_list_item ; PICNICKER (33) Fortree Gym
+	next_list_item ; PICNICKER (20) Fortree Gym
 	db "Ashley@", TRAINERTYPE_NORMAL
 	db 9
 	dw SWABLU
@@ -6656,7 +6656,7 @@ PicnickerGroupHard:
 	dw DELIBIRD
 	db -1 ; end
 
-	next_list_item ; PICNICKER (34) Route 112
+	next_list_item ; PICNICKER (21) Route 112
 	db "Carol@", TRAINERTYPE_NORMAL
 	db 6
 	dw ALTARIA
@@ -6664,7 +6664,7 @@ PicnickerGroupHard:
 	dw LUDICOLO
 	db -1 ; end
 
-	next_list_item ; PICNICKER (35) Route 113
+	next_list_item ; PICNICKER (22) Route 113
 	db "Maddie@", TRAINERTYPE_NORMAL
 	db 6
 	dw ALTARIA
@@ -6672,7 +6672,7 @@ PicnickerGroupHard:
 	dw CAMERUPT
 	db -1 ; end
 
-	next_list_item ; PICNICKER (36) Route 113
+	next_list_item ; PICNICKER (23) Route 113
 	db "Sophie@", TRAINERTYPE_NORMAL
 	db 6
 	dw AZUMARILL
@@ -6680,7 +6680,7 @@ PicnickerGroupHard:
 	dw LUDICOLO
 	db -1 ; end
 
-	next_list_item ; PICNICKER (37) Route 114
+	next_list_item ; PICNICKER (24) Route 114
 	db "Charlote@", TRAINERTYPE_NORMAL
 	db 7
 	dw IVYSAUR
@@ -6688,7 +6688,7 @@ PicnickerGroupHard:
 	dw MEGANIUM
 	db -1 ; end
 
-	next_list_item ; PICNICKER (38) Route 114
+	next_list_item ; PICNICKER (25) Route 114
 	db "Nancy@", TRAINERTYPE_NORMAL
 	db 6
 	dw VOLBEAT
@@ -6696,7 +6696,7 @@ PicnickerGroupHard:
 	dw ROSELIA
 	db -1 ; end
 
-	next_list_item ; PICNICKER (39) Route 114
+	next_list_item ; PICNICKER (26) Route 114
 	db "Angelina@", TRAINERTYPE_NORMAL
 	db 6
 	dw FLAAFFY
@@ -6704,7 +6704,7 @@ PicnickerGroupHard:
 	dw ARAICHU
 	db -1 ; end
 
-	next_list_item ; PICNICKER (40) Lavaridge Desert
+	next_list_item ; PICNICKER (27) Lavaridge Desert
 	db "Heidi@", TRAINERTYPE_NORMAL
 	db 6
 	dw CLAYDOL
@@ -6712,7 +6712,7 @@ PicnickerGroupHard:
 	dw SANDSLASH
 	db -1 ; end
 
-	next_list_item ; PICNICKER (41) Lavaridge Desert
+	next_list_item ; PICNICKER (28) Lavaridge Desert
 	db "Becky@", TRAINERTYPE_NORMAL
 	db 7
 	dw NIDOQUEEN
@@ -6720,7 +6720,7 @@ PicnickerGroupHard:
 	dw AZUMARILL
 	db -1 ; end
 
-	next_list_item ; PICNICKER (42) Lavaridge Desert
+	next_list_item ; PICNICKER (29) Lavaridge Desert
 	db "Celia@", TRAINERTYPE_NORMAL
 	db 7
 	dw AMAROWAK
