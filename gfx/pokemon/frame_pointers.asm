@@ -521,10 +521,13 @@ FramesPointers:
 	dba ButterfreexFrames
 	dba LedianxFrames
 	dba MagcargoxFrames
-	dba JynxxFrames
 	dba SceptilexFrames
 	dba BlazikenxFrames
 	dba SwampertxFrames
 	dba GardevoirxFrames
 	dba PidgeotxFrames
+	dba MercuryFrames
+	dba VenusFrames
+	dba MarsFrames
+	dba JupiterFrames
 	assert_table_length NUM_POKEMON

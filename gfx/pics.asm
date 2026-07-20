@@ -1391,8 +1391,17 @@ SECTION "Megas 6.1", ROMX
 
 MagcargoxFrontpic:		INCBIN "gfx/pokemon/magcargox/front.animated.2bpp.lz"
 MagcargoxBackpic:		INCBIN "gfx/pokemon/magcargox/back.2bpp.lz"
-JynxxFrontpic:			INCBIN "gfx/pokemon/jynxx/front.animated.2bpp.lz"
-JynxxBackpic:			INCBIN "gfx/pokemon/jynxx/back.2bpp.lz"
+
+
+SECTION "Djinn", ROMX
+MercuryFrontpic:		INCBIN "gfx/pokemon/mercury/front.animated.2bpp.lz"
+MercuryBackpic:			INCBIN "gfx/pokemon/mercury/back.2bpp.lz"
+VenusFrontpic:			INCBIN "gfx/pokemon/venus/front.animated.2bpp.lz"
+VenusBackpic:			INCBIN "gfx/pokemon/venus/back.2bpp.lz"
+MarsFrontpic:			INCBIN "gfx/pokemon/mars/front.animated.2bpp.lz"
+MarsBackpic:			INCBIN "gfx/pokemon/mars/back.2bpp.lz"
+JupiterFrontpic:		INCBIN "gfx/pokemon/jupiter/front.animated.2bpp.lz"
+JupiterBackpic:			INCBIN "gfx/pokemon/jupiter/back.2bpp.lz"
 
 
 SECTION "Megas 7", ROMX

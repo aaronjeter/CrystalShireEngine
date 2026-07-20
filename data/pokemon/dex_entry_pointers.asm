@@ -523,11 +523,13 @@ PokedexDataPointerTable:
 	dba ButterfreexPokedexEntry
 	dba LedianxPokedexEntry
 	dba MagcargoxPokedexEntry
-	dba JynxxPokedexEntry
 	dba SceptilexPokedexEntry
 	dba BlazikenxPokedexEntry
 	dba SwampertxPokedexEntry
 	dba GardevoirxPokedexEntry
 	dba PidgeotxPokedexEntry
-
+	dba MercuryPokedexEntry
+	dba VenusPokedexEntry
+	dba MarsPokedexEntry
+	dba JupiterPokedexEntry
 	assert_table_length NUM_POKEMON

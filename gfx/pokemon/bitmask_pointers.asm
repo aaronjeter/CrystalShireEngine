@@ -521,10 +521,13 @@ BitmasksPointers:
 	dw ButterfreexBitmasks
 	dw LedianxBitmasks
 	dw MagcargoxBitmasks
-	dw JynxxBitmasks
 	dw SceptilexBitmasks
 	dw BlazikenxBitmasks
 	dw SwampertxBitmasks
 	dw GardevoirxBitmasks
 	dw PidgeotxBitmasks
+	dw MercuryBitmasks
+	dw VenusBitmasks
+	dw MarsBitmasks
+	dw JupiterBitmasks
 	assert_table_length NUM_POKEMON

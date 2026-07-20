@@ -5,6 +5,7 @@
 	const TESTROOM_LUGIA
 	const TESTROOM_LATIOS
 	const TESTROOM_CANDY
+	const TESTROOM_DJINN
 
 TestRoom_MapScripts:
 	def_scene_scripts
@@ -17,6 +18,20 @@ Testroom_Ironbubdle:
 	givepoke IRONBUNDLE, 5
 	closetext
 	disappear TESTROOM_IRONBUNDLE
+	end
+
+Testroom_Djiin:
+	cry MEW
+	opentext
+	writetext TestroomDjinnText
+	yesorno
+	iffalse .Done
+	givepoke MERCURY, 5
+	givepoke VENUS, 5
+	givepoke MARS, 5
+	givepoke JUPITER, 5
+	.Done
+	closetext	
 	end
 
 Testroom_Myth:
@@ -170,6 +185,12 @@ TestroomRareCandyText:
 TestroomMythicalText:
 	text "Do you want"
 	line "the Mythical"
+	cont "#mon cheat?"
+	done
+
+TestroomDjinnText:
+	text "Do you want"
+	line "the Djinn"
 	cont "#mon cheat?"
 	done
 
@@ -1023,4 +1044,5 @@ TestRoom_MapEvents:
 	object_event 15, 15, SPRITE_MOM, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Testroom_Mom, -1
 	object_event 14, 15, SPRITE_KRIS_BIKE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Testroom_Kris, -1
 	object_event 16, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, TestroomGenerateTeamScript, -1
+	object_event 19, 05, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Testroom_Djiin, -1
 	

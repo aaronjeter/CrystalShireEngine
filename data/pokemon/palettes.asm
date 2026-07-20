@@ -1073,8 +1073,6 @@ INCBIN "gfx/pokemon/ledianx/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/ledianx/shiny.pal"
 INCBIN "gfx/pokemon/magcargox/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/magcargox/shiny.pal"
-INCBIN "gfx/pokemon/jynxx/normal.gbcpal", middle_colors
-INCLUDE "gfx/pokemon/jynxx/shiny.pal"
 INCBIN "gfx/pokemon/sceptilex/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/sceptilex/shiny.pal"
 INCBIN "gfx/pokemon/blazikenx/normal.gbcpal", middle_colors
@@ -1085,4 +1083,12 @@ INCBIN "gfx/pokemon/gardevoirx/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/gardevoirx/shiny.pal"
 INCBIN "gfx/pokemon/pidgeotx/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/pidgeotx/shiny.pal"
+INCBIN "gfx/pokemon/mercury/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/mercury/shiny.pal"
+INCBIN "gfx/pokemon/venus/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/venus/shiny.pal"
+INCBIN "gfx/pokemon/mars/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/mars/shiny.pal"
+INCBIN "gfx/pokemon/jupiter/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/jupiter/shiny.pal"
 	assert_table_length NUM_POKEMON + 1

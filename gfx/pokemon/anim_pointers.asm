@@ -521,10 +521,13 @@ AnimationPointers:
 	dw ButterfreexAnimation
 	dw LedianxAnimation
 	dw MagcargoxAnimation
-	dw JynxxAnimation
 	dw SceptilexAnimation
 	dw BlazikenxAnimation
 	dw SwampertxAnimation
 	dw GardevoirxAnimation
 	dw PidgeotxAnimation
+	dw MercuryAnimation
+	dw VenusAnimation
+	dw MarsAnimation
+	dw JupiterAnimation
 	assert_table_length NUM_POKEMON

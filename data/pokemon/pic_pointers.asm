@@ -1055,8 +1055,6 @@ PokemonPicPointers::
 	dba LedianxBackpic
 	dba MagcargoxFrontpic
 	dba MagcargoxBackpic
-	dba JynxxFrontpic
-	dba JynxxBackpic
 	dba SceptilexFrontpic
 	dba SceptilexBackpic
 	dba BlazikenxFrontpic
@@ -1067,4 +1065,12 @@ PokemonPicPointers::
 	dba GardevoirxBackpic
 	dba PidgeotxFrontpic
 	dba PidgeotxBackpic
+	dba MercuryFrontpic
+	dba MercuryBackpic
+	dba VenusFrontpic
+	dba VenusBackpic
+	dba MarsFrontpic
+	dba MarsBackpic
+	dba JupiterFrontpic
+	dba JupiterBackpic
 	assert_table_length NUM_POKEMON + 1

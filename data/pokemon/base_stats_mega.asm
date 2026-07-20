@@ -40,13 +40,15 @@ INCLUDE "data/pokemon/base_stats/mega/unownx.asm"
 INCLUDE "data/pokemon/base_stats/mega/butterfreex.asm"
 INCLUDE "data/pokemon/base_stats/mega/ledianx.asm"
 INCLUDE "data/pokemon/base_stats/mega/magcargox.asm"
-INCLUDE "data/pokemon/base_stats/mega/jynxx.asm"
 INCLUDE "data/pokemon/base_stats/mega/sceptilex.asm"
 INCLUDE "data/pokemon/base_stats/mega/blazikenx.asm"
 INCLUDE "data/pokemon/base_stats/mega/swampertx.asm"
 INCLUDE "data/pokemon/base_stats/mega/gardevoirx.asm"
 INCLUDE "data/pokemon/base_stats/mega/pidgeotx.asm"
-
+INCLUDE "data/pokemon/base_stats/weyard/mercury.asm"
+INCLUDE "data/pokemon/base_stats/weyard/venus.asm"
+INCLUDE "data/pokemon/base_stats/weyard/mars.asm"
+INCLUDE "data/pokemon/base_stats/weyard/jupiter.asm"
 .IndirectEnd::
 
 ENDSECTION

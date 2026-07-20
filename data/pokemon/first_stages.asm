@@ -522,10 +522,13 @@ FirstEvoStages::
 	dw CATERPIE
 	dw LEDYBA
 	dw SLUGMA
-	dw SMOOCHUM
 	dw TREECKO
 	dw TORCHIC
 	dw MUDKIP
 	dw RALTS
 	dw PIDGEY
+	dw MERCURY
+	dw VENUS
+	dw MARS
+	dw JUPITER
 	assert_table_length NUM_POKEMON

@@ -521,11 +521,14 @@ AlphabeticalPokedexOrder:
 	dw BUTTERFREEX
 	dw LEDIANX
 	dw MAGCARGOX
-	dw JYNXX
 	dw SCEPTILEX
 	dw BLAZIKENX
 	dw SWAMPERTX
 	dw GARDEVOIRX
 	dw PIDGEOTX
+	dw MERCURY
+	dw VENUS
+	dw MARS
+	dw JUPITER
 
 	assert_table_length NUM_POKEMON
