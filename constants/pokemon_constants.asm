@@ -543,12 +543,15 @@ DEF JOHTO_POKEMON EQU const_value
 	const BUTTERFREEX
 	const LEDIANX
 	const MAGCARGOX
-	const JYNXX
 	const SCEPTILEX
 	const BLAZIKENX
 	const SWAMPERTX
 	const GARDEVOIRX
 	const PIDGEOTX
+	const MERCURY
+	const VENUS
+	const MARS
+	const JUPITER
 
 	
 

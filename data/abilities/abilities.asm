@@ -390,6 +390,10 @@ StabilityMons::
 	dw BEEDRILLX
 	dw SPOINK
 	dw GRUMPIG
+	dw MERCURY
+	dw VENUS
+	dw MARS
+	dw JUPITER
 	dw -1
 
 ;Healing Ability Mons ----------------------------------------------
@@ -493,7 +497,6 @@ IceBodyMons::
 	dw ASANDSLASH
 	dw MR__RIME
 	dw JYNX
-	dw JYNXX
 	dw -1
 
 ;Weather Speed Abilities--------------------

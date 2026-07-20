@@ -538,11 +538,16 @@ UnownxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/unownx.asm"
 ButterfreexPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/butterfreex.asm"
 LedianxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/ledianx.asm"
 MagcargoxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/magcargox.asm"
-JynxxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/jynxx.asm"
 
 SceptilexPokedexEntry::   INCLUDE "data/pokemon/dex_entries/mega/sceptilex.asm"
 BlazikenxPokedexEntry::   INCLUDE "data/pokemon/dex_entries/mega/blazikenx.asm"
 SwampertxPokedexEntry::   INCLUDE "data/pokemon/dex_entries/mega/swampertx.asm"
 GardevoirxPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mega/gardevoirx.asm"
 PidgeotxPokedexEntry::    INCLUDE "data/pokemon/dex_entries/mega/pidgeotx.asm"
+
+MercuryPokedexEntry::    INCLUDE "data/pokemon/dex_entries/weyard/mercury.asm"
+VenusPokedexEntry::      INCLUDE "data/pokemon/dex_entries/weyard/venus.asm"
+MarsPokedexEntry::       INCLUDE "data/pokemon/dex_entries/weyard/mars.asm"
+JupiterPokedexEntry::    INCLUDE "data/pokemon/dex_entries/weyard/jupiter.asm"
+
 

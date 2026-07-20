@@ -1748,18 +1748,18 @@ HoundoomEvosAttacks:
 KingdraEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, BUBBLE
-	dbw 8, SMOKESCREEN
+	dbw 8, ACID
 	dbw 12, TWISTER
-	dbw 16, WATER_GUN
-	dbw 20, AQUA_JET
+	dbw 16, AQUA_JET
+	dbw 20, AGILITY
 	dbw 24, BUBBLEBEAM
-	dbw 28, AURORA_BEAM
+	dbw 28, POISON_TAIL
 	dbw 32, DRAGON_RAGE	
 	dbw 36, RAIN_DANCE
 	dbw 40, DRAGONBREATH
 	dbw 45, MIST_BALL
-	dbw 50, RECOVER
-	dbw 55, AGILITY
+	dbw 50, DRAGON_DANCE 
+	dbw 55, RECOVER
 	dbw 60, HYDRO_PUMP
 	dbw 65, AMNESIA	
 	dbw 70, OUTRAGE

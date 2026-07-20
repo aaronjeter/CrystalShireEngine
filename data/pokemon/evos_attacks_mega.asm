@@ -39,12 +39,15 @@ EvosAttacksPointersMega::
 	dw ButterfreexEvosAttacks
 	dw LedianxEvosAttacks
 	dw MagcargoxEvosAttacks
-	dw JynxxEvosAttacks
 	dw SceptilexEvosAttacks
 	dw BlazikenxEvosAttacks
 	dw SwampertxEvosAttacks
 	dw GardevoirxEvosAttacks
 	dw PidgeotxEvosAttacks
+	dw MercuryEvosAttacks
+	dw VenusEvosAttacks
+	dw MarsEvosAttacks
+	dw JupiterEvosAttacks
 .IndirectEnd::
 
 Bayleef2EvosAttacks:
@@ -833,26 +836,6 @@ MagcargoxEvosAttacks:
 	dbw 70, BLAST_BURN
 	db 0 ; no more level-up moves
 
-JynxxEvosAttacks:
-	db 0 ; no more evolutions
-	dbw 1, CONFUSION
-	dbw 1, LICK
-	dbw 9, LOVELY_KISS
-	dbw 13, POWDER_SNOW
-	dbw 18, DOUBLESLAP
-	dbw 24, ICE_PUNCH
-	dbw 28, PSYBEAM
-	dbw 32, ICY_WIND
-	dbw 36, PERISH_SONG
-	dbw 40, PSYCHIC_M
-	dbw 45, ICE_BEAM
-	dbw 50, CALM_MIND
-	dbw 55, HYPER_VOICE
-	dbw 60, BLIZZARD
-	dbw 55, FUTURE_SIGHT
-	dbw 70, MEDITATE
-	db 0 ; no more level-up moves
-
 SceptilexEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, LEER
@@ -955,6 +938,98 @@ PidgeotxEvosAttacks:
 	dbw 65, HYPER_VOICE
 	dbw 70, SKY_ATTACK
 	dbw 80, AEROBLAST
+	db 0 ; no more level-up moves
+
+MercuryEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, BUBBLE
+	dbw 1, POWDER_SNOW
+	dbw 8, PIXIE_DUST
+	dbw 12, AQUA_JET
+	dbw 16, ICY_WIND
+	dbw 20, RAIN_DANCE
+	dbw 24, BUBBLEBEAM
+	dbw 25, AURORA_BEAM
+	dbw 28, FAE_VOICE
+	dbw 32, RECOVER
+	dbw 36, CALM_MIND
+	dbw 40, SCALD
+	dbw 45, ICE_BEAM
+	dbw 50, HEAL_BELL
+	dbw 55, RAIN_DANCE
+	dbw 60, HYDRO_PUMP
+	dbw 65, BLIZZARD
+	dbw 70, HYDRO_CANNON
+	dbw 75, HURRICANE
+	db 0 ; no more level-up moves
+
+VenusEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, SAND_ATTACK
+	dbw 1, LEECH_SEED
+	dbw 8, VINE_WHIP
+	dbw 12, ROCK_THROW
+	dbw 16, SPIKES
+	dbw 20, SANDSTORM
+	dbw 24, MAGNITUDE
+	dbw 25, ROCK_TOMB
+	dbw 28, NEEDLE_ARM
+	dbw 32, REFLECT
+	dbw 36, BULK_UP
+	dbw 40, EARTHQUAKE
+	dbw 45, LEAF_BLADE
+	dbw 50, ROCK_SLIDE
+	dbw 55, RECOVER
+	dbw 60, TOXIC
+	dbw 65, FISSURE
+	dbw 70, STONE_EDGE
+	dbw 75, FRENZY_PLANT
+	db 0 ; no more level-up moves
+
+MarsEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, EMBER
+	dbw 1, TWISTER
+	dbw 8, BITE
+	dbw 12, GROWL
+	dbw 16, WILLOWISP
+	dbw 20, SUNNY_DAY
+	dbw 24, FIRE_FANG
+	dbw 25, FAINT_ATTACK
+	dbw 28, DRAGON_RAGE
+	dbw 32, LIGHT_SCREEN
+	dbw 36, BULK_UP
+	dbw 40, BLAZE_KICK
+	dbw 45, DRAGON_CLAW
+	dbw 50, RECOVER
+	dbw 55, PURSUIT
+	dbw 60, DRAGON_DANCE
+	dbw 65, BEAT_UP
+	dbw 70, SACRED_FIRE
+	dbw 75, OUTRAGE
+	db 0 ; no more level-up moves
+
+JupiterEvosAttacks:
+	db 0 ; no more evolutions
+	dbw 1, THUNDERSHOCK
+	dbw 1, GUST
+	dbw 8, GUST
+	dbw 12, QUICK_ATTACK
+	dbw 16, THUNDER_WAVE
+	dbw 20, SILVER_WIND
+	dbw 24, SHOCK_WAVE
+	dbw 25, AIR_CUTTER
+	dbw 28, PSYWAVE
+	dbw 32, LIGHT_SCREEN
+	dbw 36, CALM_MIND
+	dbw 40, THUNDERBOLT
+	dbw 45, RAZOR_WIND
+	dbw 50, CHARGE
+	dbw 55, RAIN_DANCE
+	dbw 60, THUNDER
+	dbw 65, HURRICANE
+	dbw 70, PSYCHIC_M
+	dbw 75, AEROBLAST
 	db 0 ; no more level-up moves
 
 ENDSECTION
