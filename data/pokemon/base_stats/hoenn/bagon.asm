@@ -7,7 +7,7 @@
 	db DRAGON, DRAGON ; type
 	db 45 ; catch rate
 	db 110 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw DRAGON_FANG, DRAGON_SCALE ; items
 	db GENDER_F50 ; gender ratio
 	db 40 ; step cycles to hatch
 	INCBIN "gfx/pokemon/bagon/front.dimensions"

@@ -7,7 +7,7 @@
 	db WATER, WATER ; type
 	db 250 ; catch rate
 	db 142 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw DRAGON_FANG, DRAGON_SCALE ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/clamperl/front.dimensions"
