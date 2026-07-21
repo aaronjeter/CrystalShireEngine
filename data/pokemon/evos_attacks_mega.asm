@@ -979,7 +979,7 @@ VenusEvosAttacks:
 	dbw 40, EARTHQUAKE
 	dbw 45, LEAF_BLADE
 	dbw 50, ROCK_SLIDE
-	dbw 55, RECOVER
+	dbw 55, HEAL_BELL
 	dbw 60, TOXIC
 	dbw 65, PETAL_DANCE
 	dbw 70, STONE_EDGE
