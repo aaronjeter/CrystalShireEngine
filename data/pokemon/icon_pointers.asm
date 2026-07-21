@@ -532,8 +532,8 @@ IconPointers:
 	dw SwampertxIcon
 	dw GardevoirxIcon
 	dw PidgeotxIcon
-	dw PidgeotxIcon
-	dw PidgeotxIcon
-	dw PidgeotxIcon
-	dw PidgeotxIcon
+	dw MercuryIcon
+	dw VenusIcon
+	dw MarsIcon
+	dw JupiterIcon
 	assert_table_length NUM_POKEMON + 1
