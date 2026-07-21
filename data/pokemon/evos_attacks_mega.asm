@@ -946,23 +946,23 @@ MercuryEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, BUBBLE
 	dbw 1, POWDER_SNOW
-	dbw 8, PIXIE_DUST
-	dbw 12, AQUA_JET
+	dbw 8, GROWL
+	dbw 12, PIXIE_DUST
 	dbw 16, ICY_WIND
 	dbw 20, RAIN_DANCE
 	dbw 24, BUBBLEBEAM
 	dbw 25, AURORA_BEAM
-	dbw 28, FAE_VOICE
+	dbw 28, DRAININGKISS
 	dbw 32, RECOVER
 	dbw 36, CALM_MIND
 	dbw 40, SCALD
-	dbw 45, ICE_BEAM
-	dbw 50, HEAL_BELL
-	dbw 55, RAIN_DANCE
+	dbw 45, ICE_BEAM	
+	dbw 50, FAERIEGLEAM
+	dbw 55, HEAL_BELL
 	dbw 60, HYDRO_PUMP
-	dbw 65, BLIZZARD
-	dbw 70, HYDRO_CANNON
-	dbw 75, HURRICANE
+	dbw 65, MOONBLAST
+	dbw 70, BLIZZARD
+	dbw 75, HYDRO_CANNON
 	db 0 ; no more level-up moves
 
 VenusEvosAttacks:
@@ -976,16 +976,16 @@ VenusEvosAttacks:
 	dbw 24, MAGNITUDE
 	dbw 25, ROCK_TOMB
 	dbw 28, NEEDLE_ARM
-	dbw 32, REFLECT
+	dbw 32, RECOVER
 	dbw 36, BULK_UP
 	dbw 40, EARTHQUAKE
 	dbw 45, LEAF_BLADE
 	dbw 50, ROCK_SLIDE
 	dbw 55, RECOVER
 	dbw 60, TOXIC
-	dbw 65, FISSURE
+	dbw 65, PETAL_DANCE
 	dbw 70, STONE_EDGE
-	dbw 75, FRENZY_PLANT
+	dbw 75, FISSURE
 	db 0 ; no more level-up moves
 
 MarsEvosAttacks:
@@ -996,32 +996,32 @@ MarsEvosAttacks:
 	dbw 12, GROWL
 	dbw 16, WILLOWISP
 	dbw 20, SUNNY_DAY
-	dbw 24, FIRE_FANG
-	dbw 25, FAINT_ATTACK
+	dbw 24, FIRE_SPIN
+	dbw 25, SNARL
 	dbw 28, DRAGON_RAGE
-	dbw 32, LIGHT_SCREEN
-	dbw 36, BULK_UP
-	dbw 40, BLAZE_KICK
-	dbw 45, DRAGON_CLAW
-	dbw 50, RECOVER
-	dbw 55, PURSUIT
-	dbw 60, DRAGON_DANCE
+	dbw 32, REFLECT
+	dbw 36, CALM_MIND
+	dbw 40, FLAMETHROWER
+	dbw 45, DRAGONBREATH
+	dbw 50, CHARGE
+	dbw 55, DARK_PULSE
+	dbw 60, RECOVER
 	dbw 65, BEAT_UP
-	dbw 70, SACRED_FIRE
-	dbw 75, OUTRAGE
+	dbw 70, SOLARBEAM
+	dbw 75, BLAST_BURN
 	db 0 ; no more level-up moves
 
 JupiterEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 1, GUST
-	dbw 8, GUST
-	dbw 12, QUICK_ATTACK
+	dbw 8, CONFUSION
+	dbw 12, GROWL
 	dbw 16, THUNDER_WAVE
 	dbw 20, SILVER_WIND
 	dbw 24, SHOCK_WAVE
 	dbw 25, AIR_CUTTER
-	dbw 28, PSYWAVE
+	dbw 28, PSYBEAM
 	dbw 32, LIGHT_SCREEN
 	dbw 36, CALM_MIND
 	dbw 40, THUNDERBOLT
