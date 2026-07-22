@@ -166,37 +166,13 @@ UndergroundRivalBattleScript:
 	writetext UndergroundRivalBeforeText
 	waitbutton
 	closetext
-	setevent EVENT_RIVAL_GOLDENROD_UNDERGROUND
-	checkevent EVENT_GOT_TOTODILE_FROM_ELM
-	iftrue .Totodile
-	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
-	iftrue .Chikorita
+	setevent EVENT_RIVAL_GOLDENROD_UNDERGROUND	
 	winlosstext UndergroundRivalWinText, UndergroundRivalLossText
 	setlasttalked GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_RIVAL
-	loadtrainer RIVAL1, RIVAL1_4_TOTODILE
+	loadtrainer RIVAL1, RIVAL1_4
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	sjump .FinishRivalBattle
-
-.Totodile:
-	winlosstext UndergroundRivalWinText, UndergroundRivalLossText
-	setlasttalked GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_RIVAL
-	loadtrainer RIVAL1, RIVAL1_4_CHIKORITA
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	sjump .FinishRivalBattle
-
-.Chikorita:
-	winlosstext UndergroundRivalWinText, UndergroundRivalLossText
-	setlasttalked GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_RIVAL
-	loadtrainer RIVAL1, RIVAL1_4_CYNDAQUIL
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-; fallthrough
-.FinishRivalBattle:
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
 	writetext UndergroundRivalAfterText

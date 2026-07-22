@@ -507,175 +507,65 @@ Rival1GroupHard:
 	next_list_item ; RIVAL1 (1)
 	db "?@", TRAINERTYPE_NORMAL
 	db 2
-	dw CHIKORITA
+	dw TEDDIURSA
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (2)
 	db "?@", TRAINERTYPE_NORMAL
-	db 2
-	dw CYNDAQUIL
+	db 8
+	dw MAREEP
+	db 8
+	dw NATU
+	db 8
+	dw REMORAID
+	db 11
+	dw BAYLEEF
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (3)
 	db "?@", TRAINERTYPE_NORMAL
-	db 2
-	dw TOTODILE
+	db 6
+	dw PINECO
+	db 8
+	dw FLAAFFY
+	db 8
+	dw XATU
+	db 9
+	dw REMORAID
+	db 11
+	dw URSARING
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (4)
 	db "?@", TRAINERTYPE_NORMAL
 	db 7
-	dw GASTLY
-	db 6
-	dw ZUBAT
-	db 11
-	dw BAYLEEF
+	dw FORRETRESS
+	db 8
+	dw SNEASEL
+	db 8
+	dw AMPHAROS
+	db 9
+	dw XATU
+	db 10
+	dw OCTILLERY
+	db 13
+	dw URSARING
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (5)
 	db "?@", TRAINERTYPE_NORMAL
-	db 7
-	dw GASTLY
-	db 6
-	dw ZUBAT
-	db 8
-	dw QUILAVA
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (6)
-	db "?@", TRAINERTYPE_NORMAL
-	db 7
-	dw GASTLY
-	db 6
-	dw ZUBAT
-	db 8
-	dw CROCONAW
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (7)
-	db "?@", TRAINERTYPE_NORMAL
-	db 7
-	dw HAUNTER
-	db 6
-	dw MAGNEMITE
-	db 6
-	dw ZUBAT
-	db 10
-	dw BAYLEEF
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (8)
-	db "?@", TRAINERTYPE_NORMAL
-	db 7
-	dw HAUNTER
-	db 6
-	dw MAGNEMITE
-	db 6
-	dw ZUBAT
-	db 10
-	dw QUILAVA
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (9)
-	db "?@", TRAINERTYPE_NORMAL
-	db 7
-	dw HAUNTER
-	db 6
-	dw MAGNEMITE
-	db 6
-	dw ZUBAT
-	db 10
-	dw CROCONAW
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (10)
-	db "?@", TRAINERTYPE_NORMAL
-	db 8
-	dw GOLBAT
-	db 7
-	dw MAGNEMITE
-	db 7
-	dw HAUNTER
-	db 9
-	dw SNEASEL
-	db 10
-	dw MEGANIUM
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (11)
-	db "?@", TRAINERTYPE_NORMAL
-	db 8
-	dw GOLBAT
-	db 7
-	dw MAGNEMITE
-	db 7
-	dw HAUNTER
-	db 9
-	dw SNEASEL
-	db 10
-	dw QUILAVA
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (12)
-	db "?@", TRAINERTYPE_NORMAL
-	db 8
-	dw GOLBAT
-	db 7
-	dw MAGNEMITE
-	db 7
-	dw HAUNTER
-	db 9
-	dw SNEASEL
-	db 10
-	dw FERALIGATR
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (13)
-	db "?@", TRAINERTYPE_NORMAL
-	db 9
+	db 12
+	dw FORRETRESS
+	db 12
 	dw WEAVILE
-	db 8
-	dw CROBAT
-	db 8
-	dw MAGNEZONE
-	db 9
-	dw GENGAR
-	db 9
-	dw ALAKAZAM
-	db 10
-	dw MEGANIUM
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (14)
-	db "?@", TRAINERTYPE_NORMAL
-	db 9
-	dw WEAVILE
-	db 8
-	dw CROBAT
-	db 8
-	dw MAGNEZONE
-	db 9
-	dw GENGAR
-	db 9
-	dw ALAKAZAM
-	db 10
-	dw TYPHLOSION
-	db -1 ; end
-
-	next_list_item ; RIVAL1 (15)
-	db "?@", TRAINERTYPE_NORMAL
-	db 9
-	dw WEAVILE
-	db 8
-	dw CROBAT
-	db 8
-	dw MAGNEZONE
-	db 9
-	dw GENGAR
-	db 9
-	dw ALAKAZAM
-	db 10
-	dw FERALIGATR
+	db 12
+	dw AMPHAROS
+	db 12
+	dw XATU
+	db 12
+	dw OCTILLERY
+	db 15
+	dw URSALUNA
 	db -1 ; end
 
 	end_list_items
@@ -5392,29 +5282,29 @@ Rival2GroupHard:
 	next_list_item ; RIVAL2 (7) World Cup Rival
 	db "?@", TRAINERTYPE_ITEM_MOVES
 	db 12
+	dw FORRETRESS
+	dw QUICK_CLAW
+	dw LEECH_SEED, TOXIC, RECOVER, EXPLOSION
+	db 12
 	dw WEAVILE
 	dw NEVERMELTICE
-	dw ICICLE_CRASH, PURSUIT, MACH_PUNCH, PSYCHO_CUT
+	dw ICICLE_CRASH, PURSUIT, MACH_PUNCH, PSYCHO_CUT	
 	db 12
-	dw CROBAT
-	dw KINGS_ROCK
-	dw SKY_ATTACK, SLUDGE_BOMB, WHIRLWIND, DOUBLE_TEAM
-	db 12
-	dw MAGNEZONE
+	dw AMPHAROS
 	dw MAGNET
-	dw ZAP_CANNON, FLASHCANNON, THUNDER_WAVE, TRI_ATTACK
+	dw THUNDERBOLT, FLASHCANNON, THUNDER_WAVE, DRAGONBREATH
 	db 13
-	dw MEGANIUM
-	dw LEFTOVERS
-	dw RAZOR_LEAF, RECOVER, STUN_SPORE, GIGA_DRAIN
+	dw XATU
+	dw TWISTEDSPOON
+	dw SKY_ATTACK, PSYCHIC_M, HYPNOSIS, DREAM_EATER
 	db 13
-	dw TYPHLOSION
+	dw OCTILLERY
 	dw CHARCOAL
-	dw BLAST_BURN, DIG, WILLOWISP, FIRE_BLAST
+	dw BLAST_BURN, HYDRO_PUMP, WILLOWISP, FIRE_BLAST
 	db 13
-	dw FERALIGATR
-	dw QUICK_CLAW
-	dw DRAGON_DANCE, WATERFALL, CRUNCH, POISON_FANG
+	dw URSALUNA
+	dw LEFTOVERS
+	dw BULK_UP, EARTHQUAKE, CRUNCH, THUNDER_FANG
 	db -1 ; end
 
 	end_list_items
