@@ -9293,5 +9293,97 @@ ExplorerGroupHard:
 
 	end_list_items
 
+	WallyGroupHard:
+
+	next_list_item ; WALLY (1)
+	db "Wally@", TRAINERTYPE_NORMAL
+	db 0
+	dw RALTS
+	db -1 ; end
+
+	next_list_item ; WALLY (2)
+	db "Wally@", TRAINERTYPE_NORMAL
+	db 5
+	dw SWABLU
+	db 5
+	dw SKITTY
+	db 8
+	dw RALTS
+	db -1 ; end
+
+	next_list_item ; WALLY (3)
+	db "Wally@", TRAINERTYPE_NORMAL
+	db 7
+	dw MINUN
+	db 8
+	dw BARBOACH
+	db 7
+	dw SWABLU
+	db 7
+	dw DELCATTY
+	db 10
+	dw KIRLIA
+	db -1 ; end
+
+	next_list_item ; WALLY (4)
+	db "Wally@", TRAINERTYPE_NORMAL
+	db 7
+	dw CHIMECHO
+	db 8
+	dw WHISCASH
+	db 7
+	dw ALTARIA
+	db 7
+	dw TROPIUS
+	db 10
+	dw GARDEVOIR
+	db -1 ; end
+
+	next_list_item ; WALLY (5)
+	db "Wally@", TRAINERTYPE_NORMAL
+	db 8
+	dw CHIMECHO
+	db 8
+	dw WHISCASH
+	db 8
+	dw ALTARIA
+	db 9
+	dw TROPIUS
+	db 9
+	dw ABSOL
+	db 12
+	dw GARDEVOIR
+	db -1 ; end
+
+	next_list_item ; WC_WALLY (6) World Cup Wally
+	db "Wally@", TRAINERTYPE_ITEM_MOVES
+	db 12
+	dw CHIMECHOX
+	dw LEFTOVERS
+	dw CALM_MIND, WILLOWISP, RECOVER, PSYCHIC_M
+	db 12
+	dw WHISCASH
+	dw SOFT_SAND
+	dw MUDDY_WATER, EARTHQUAKE, TOXIC, REST	
+	db 12
+	dw ALTARIAX
+	dw DRAGON_FANG
+	dw DRAGON_DANCE, DRAGON_CLAW, PLAY_ROUGH, SKY_ATTACK
+	db 13
+	dw TROPIUSX
+	dw MIRACLE_SEED
+	dw SKY_ATTACK, LEECH_SEED, FRENZY_PLANT, RECOVER
+	db 13
+	dw ABSOLX
+	dw FOCUS_BAND
+	dw SLASH, BEAT_UP, DRAGON_CLAW, SKY_ATTACK
+	db 15
+	dw GARDEVOIRX
+	dw LEFTOVERS
+	dw CALM_MIND, PSYCHIC_M, MOONBLAST, RECOVER
+	db -1 ; end
+
+	end_list_items
+
 
 ENDSECTION

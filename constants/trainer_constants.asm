@@ -1045,6 +1045,13 @@ DEF KRIS EQU __trainer_class__
 	trainerclass GIOVANNI
 	const WC_GIOVANNI
 
+	trainerclass WALLY
+	const WALLY1
+	const WALLY2
+	const WALLY3
+	const WALLY4
+	const WALLY5
+	const WC_WALLY
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
 

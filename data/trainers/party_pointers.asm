@@ -96,6 +96,7 @@ TrainerGroups:
 	dba LilyGroup
 	dba GuyGroup
 	dba GiovanniGroup
+	dba WallyGroup
 	assert_table_length NUM_TRAINER_CLASSES
 
 	TrainerGroupsHard:
@@ -194,4 +195,5 @@ TrainerGroups:
 	dba LilyGroupHard
 	dba GuyGroupHard
 	dba GiovanniGroupHard
+	dba WallyGroupHard
 	assert_table_length NUM_TRAINER_CLASSES

@@ -94,4 +94,5 @@ TrainerClassNames::
 	li "Elite"
 	li "Elite"
 	li "Leader"
+	li "Trainer"
 	assert_list_length NUM_TRAINER_CLASSES

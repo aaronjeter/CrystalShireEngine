@@ -1494,3 +1494,7 @@ NeeshaPic:     INCBIN "gfx/trainers/cooltrainer_f.2bpp.lz"
 LilyPic:       INCBIN "gfx/trainers/kimono_girl.2bpp.lz"
 GuyPic:		   INCBIN "gfx/trainers/gentleman.2bpp.lz"
 GiovanniPic:   INCBIN "gfx/trainers/giovanni.2bpp.lz"
+
+
+SECTION "New Rival Trainers", ROMX
+WallyPic:     INCBIN "gfx/trainers/wally.2bpp.lz"

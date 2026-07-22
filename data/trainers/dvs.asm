@@ -95,4 +95,5 @@ TrainerClassDVs:
 	dn 13, 12, 13, 13 ; LILY
 	dn 13, 12, 13, 13 ; GUY
 	dn 13, 12, 13, 13 ; GIOVANNI
+	dn 13, 13, 13, 13 ; WALLY
 	assert_table_length NUM_TRAINER_CLASSES
