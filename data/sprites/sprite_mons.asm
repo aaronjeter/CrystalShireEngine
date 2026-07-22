@@ -111,4 +111,13 @@ SpriteMons:
 	dw REGIROCK		;377
 	dw REGICE		;378
 	dw REGISTEEL	;379
+	dw LATIOS       ;381
+	dw KYOGRE       ;382
+	dw GROUDON      ;383
+	dw RAYQUAZA     ;384
+	dw JIRACHI      ;385
+	dw MERCURY
+	dw VENUS
+	dw MARS
+	dw JUPITER
 	assert_table_length NUM_POKEMON_SPRITES

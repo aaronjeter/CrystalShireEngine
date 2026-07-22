@@ -219,6 +219,15 @@ DEF SPRITE_POKEMON EQU const_value
 	const SPRITE_REGIROCK ; 377
 	const SPRITE_REGICE ; 378
 	const SPRITE_REGISTEEL ; 379
+	const SPRITE_LATIOS ; 381
+	const SPRITE_KYOGRE ; 382
+	const SPRITE_GROUDON ; 383
+	const SPRITE_RAYQUAZA ; 384
+	const SPRITE_JIRACHI ; 385
+	const SPRITE_MERCURY ; 385
+	const SPRITE_VENUS ; 385
+	const SPRITE_MARS ; 385
+	const SPRITE_JUPITER ; 385
 DEF NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
