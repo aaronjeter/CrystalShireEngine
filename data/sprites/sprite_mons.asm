@@ -117,4 +117,8 @@ SpriteMons:
 	dw GROUDON      ;383
 	dw RAYQUAZA     ;384
 	dw JIRACHI      ;385
+	dw MERCURY
+	dw VENUS
+	dw MARS
+	dw JUPITER
 	assert_table_length NUM_POKEMON_SPRITES
