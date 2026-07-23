@@ -241,7 +241,7 @@ GalladeEvosAttacks:
 	dbw 45, CROSS_CHOP
 	dbw 50, RECOVER
 	dbw 55, LEAF_BLADE
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	dbw 65, SUBMISSION
 	dbw 70, DRAGON_DANCE
 	db 0 ; no more level-up moves
@@ -532,7 +532,7 @@ AgrimerEvosAttacks:
 	dbw 45, PURSUIT
 	dbw 50, REST
 	dbw 55, EARTHQUAKE
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	dbw 65, CRUSH_CLAW
 	dbw 70, CONVERSION
 	db 0 ; no more level-up moves
@@ -554,7 +554,7 @@ AmukEvosAttacks:
 	dbw 45, PURSUIT
 	dbw 50, REST
 	dbw 55, EARTHQUAKE
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	dbw 65, CRUSH_CLAW
 	dbw 70, CONVERSION
 	db 0 ; no more level-up moves
@@ -1308,7 +1308,7 @@ HanamoleEvosAttacks:
 	dbw 55, HEAL_BELL
 	dbw 60, CALM_MIND
 	dbw 65, REFLECT
-	dbw 70, SUBSTITUTE
+	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
 HonobeaEvosAttacks:

@@ -718,7 +718,7 @@ RaltsEvosAttacks:
 	dbw 45, DREAM_EATER
 	dbw 50, MOONBLAST
 	dbw 55, RECOVER	
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	dbw 65, LUSTER_PURGE
 	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -740,7 +740,7 @@ KirliaEvosAttacks:
 	dbw 45, DREAM_EATER
 	dbw 50, MOONBLAST
 	dbw 55, RECOVER	
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	dbw 65, LUSTER_PURGE
 	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -761,7 +761,7 @@ GardevoirEvosAttacks:
 	dbw 45, DREAM_EATER
 	dbw 50, MOONBLAST
 	dbw 55, RECOVER	
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	dbw 65, LUSTER_PURGE
 	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -1200,7 +1200,7 @@ SableyeEvosAttacks:
 	dbw 45, COSMIC_POWER
 	dbw 50, BATON_PASS
 	dbw 55, PERISH_SONG
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	db 0 ; no more level-up moves
 
 MawileEvosAttacks:
@@ -1220,7 +1220,7 @@ MawileEvosAttacks:
 	dbw 45, COSMIC_POWER
 	dbw 50, BATON_PASS
 	dbw 55, PERISH_SONG
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	db 0 ; no more level-up moves
 
 AronEvosAttacks:
@@ -1486,7 +1486,7 @@ GulpinEvosAttacks:
 	dbw 55, EARTHQUAKE
 	dbw 60, SNORE
 	dbw 65, SLEEP_TALK
-	dbw 70, SUBSTITUTE
+	dbw 70, HEAL_BELL
 	db 0 ; no more level-up moves
 
 SwalotEvosAttacks:
@@ -1507,7 +1507,7 @@ SwalotEvosAttacks:
 	dbw 55, EARTHQUAKE
 	dbw 60, SNORE
 	dbw 65, SLEEP_TALK
-	dbw 70, SUBSTITUTE
+	dbw 70, HEAL_BELL
 	db 0 ; no more level-up moves
 
 CarvanhaEvosAttacks:
@@ -2207,7 +2207,7 @@ KecleonEvosAttacks:
 	dbw 36, BULK_UP
 	dbw 40, SLASH
 	dbw 45, PURSUIT
-	dbw 50, SUBSTITUTE	
+	dbw 50, HEAL_BELL	
 	dbw 55, RECOVER
 	dbw 60, DOUBLE_TEAM
 	dbw 65, SKETCH

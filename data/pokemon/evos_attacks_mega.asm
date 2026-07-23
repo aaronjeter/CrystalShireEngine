@@ -691,7 +691,7 @@ SwalotxEvosAttacks:
 	dbw 55, EARTHQUAKE
 	dbw 60, SNORE
 	dbw 65, SLEEP_TALK
-	dbw 70, SUBSTITUTE
+	dbw 70, HEAL_BELL
 	db 0 ; no more level-up moves
 
 FlygonxEvosAttacks:
@@ -916,7 +916,7 @@ GardevoirxEvosAttacks:
 	dbw 45, DREAM_EATER
 	dbw 50, MOONBLAST
 	dbw 55, RECOVER	
-	dbw 60, SUBSTITUTE
+	dbw 60, HEAL_BELL
 	dbw 65, LUSTER_PURGE
 	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
