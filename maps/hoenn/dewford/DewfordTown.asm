@@ -1,5 +1,7 @@
 	object_const_def
 	const DEWFORDTOWN_GYM_GUARD
+	const DEWFORDTOWN_FISHING_GURU
+	const DEWFORDTOWN_WALLY
 
 DewfordTown_MapScripts:
 	def_scene_scripts
@@ -10,6 +12,104 @@ DewfordTown_MapScripts:
 DewfordTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_DEWFORD
 	endcallback
+
+Dewford_Wally:
+	faceplayer
+	checkevent EVENT_START_HOENN
+	iffalse .notHoenn	
+	opentext
+	writetext DewfordWallyIntroText
+	waitbutton
+	closetext
+
+	winlosstext DewfordWallyLossText, DewfordWallyWinText
+	loadtrainer WALLY, WALLY2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext DewfordWallyAfterBattleText
+	sjump .WallyExit
+	end
+
+.notHoenn
+	opentext
+	writetext DewfordWallyNotHoennText
+	waitbutton 
+
+.WallyExit
+	closetext
+	setevent EVENT_FOUND_DEWFORD_WALLY
+	special FadeOutToBlack
+	disappear DEWFORDTOWN_WALLY
+	special FadeInFromBlack
+	end
+
+DewfordWallyAfterBattleText:
+	text "That was exciting!"
+	line "Well, I think I'm"
+	cont "going to go"
+	cont "fishing."
+
+	para "One of the fishers"
+	line "here was giving"
+	cont "away Rods."
+
+	para "I wonder what"
+	line "#mon I could"
+	cont "catch..."
+	done
+
+DewfordWallyLossText:
+	text "Oh, wow..."
+	line "You're getting"
+	cont "pretty good."
+	done
+
+DewfordWallyWinText:
+	text "Oh, um..."
+	line "I didn't think"
+	cont "I could win."
+	done
+
+DewfordWallyIntroText:
+	text "Wally:Oh, hi"
+	line "<PLAY_G>!"
+
+	para "I'm really glad"
+	line "to see you!"
+
+	para "I was hoping to"
+	line "challenge Dewford"
+	cont "Gym, but the"
+	cont "leader is missing."
+
+	para "I've heard he"
+	line "likes to train"
+	cont "in this cave."
+
+	para "It's kinda spooky"
+	line "in there though..."
+
+	para "How about a"
+	line "#mon battle"
+	cont "instead?"
+	done
+
+DewfordWallyNotHoennText:
+	text "Oh, um...hi?"
+
+	para "I think the Gym"
+	line "leader is down"
+	cont "here somewhere."
+
+	para "I'm not sure I'm"
+	line "brave enough to"
+	cont "go in..."
+
+	para "I guess I'll just"
+	line "leave for now..."
+	done
 
 DewfordGymGuardScript:
 	faceplayer
@@ -144,6 +244,6 @@ DewfordTown_MapEvents:
 	bg_event 15, 33, BGEVENT_READ, DewfordGymSign
 
 	def_object_events
-	object_event  14,  34, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DewfordGymGuardScript, EVENT_GOT_PICKAXE
-	object_event  10,  09, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DewfordTownFishingGuruScript, -1
-	
+	object_event  14, 34, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DewfordGymGuardScript, EVENT_GOT_PICKAXE
+	object_event  10, 09, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DewfordTownFishingGuruScript, -1
+	object_event  05, 14, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Dewford_Wally, EVENT_FOUND_DEWFORD_WALLY
