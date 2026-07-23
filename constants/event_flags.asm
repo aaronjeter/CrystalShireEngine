@@ -2185,7 +2185,7 @@
 	const EVENT_WORLD_CUP_BEAT_ROUND_FOUR
 	const EVENT_WORLD_CUP_CHAMPION
 
-	const_skip ; unused
+	const EVENT_FOUND_ROUTE103_WALLY ; unused
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

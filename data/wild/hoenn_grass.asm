@@ -11,7 +11,7 @@ def_grass_wildmons ROUTE_101
 	dbw 1, ZIGZAGOON
 	dbw 2, ZIGZAGOON
 	dbw 3, POOCHYENA
-	dbw 7, POOCHYENA
+	dbw 4, POOCHYENA
 	; day
 	dbw 1, ZIGZAGOON
 	dbw 1, WURMPLE
@@ -19,7 +19,7 @@ def_grass_wildmons ROUTE_101
 	dbw 1, ZIGZAGOON
 	dbw 2, ZIGZAGOON
 	dbw 3, POOCHYENA
-	dbw 7, POOCHYENA
+	dbw 4, POOCHYENA
 	; nite
 	dbw 1, ZIGZAGOON
 	dbw 1, WURMPLE
@@ -27,7 +27,7 @@ def_grass_wildmons ROUTE_101
 	dbw 1, ZIGZAGOON
 	dbw 2, ZIGZAGOON
 	dbw 3, POOCHYENA
-	dbw 7, POOCHYENA
+	dbw 4, POOCHYENA
 	end_grass_wildmons
 
 def_grass_wildmons ROUTE_102

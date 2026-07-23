@@ -9,11 +9,75 @@ BirchsLab_MapScripts:
 
 	def_callbacks	
 
+BirchsLab_WelcomeScript:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue .done
+	showemote EMOTE_SHOCK, BIRCHSLAB_BIRCH, 15
+	applymovement PLAYER, BirchsLab_StepUpMovement
+	opentext
+	writetext BirchText_PickAPokemon
+	waitbutton
+	closetext
+.done
+	end
+
+BirchText_PickAPokemon:
+	text "Hey <PLAY_G>!"
+
+	para "I could really"
+	line "use your help"
+	cont "with something."
+
+	para "I can't find my"
+	line "assistant, Wally."
+
+	para "Can you take a"
+	line "#mon from the"
+	cont "table and go"
+	cont "find him?"
+	done
+
+BirchsLab_StepUpMovement:
+	step UP
+	step_end
+
 ProfBirchScript:
 	faceplayer
+
+	checkevent EVENT_START_HOENN
+	iffalse .BirchNotHoenn
+
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iffalse .BirchPickStarter
+
+	checkevent EVENT_FOUND_ROUTE103_WALLY
+	iffalse .BirchFindWally
+
+	checkevent ENGINE_POKEDEX
+	iffalse .BirchGivePokedex
+
+.BirchNotHoenn
 	opentext 
 	writetext BirchNormalText
 	waitbutton
+	sjump .done
+
+.BirchPickStarter
+	opentext
+	writetext BirchText_PickAPokemon
+	sjump .done
+
+.BirchFindWally
+	opentext
+	writetext BirchDirectionsText
+	sjump .done
+
+.BirchGivePokedex
+	opentext
+	writetext BirchGivePokedexText
+	setflag ENGINE_POKEDEX
+
+.done
 	closetext
 	end
 
@@ -527,7 +591,6 @@ BirchDirectionsScript:
 	closetext
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
-	setflag ENGINE_POKEDEX
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
 	setmapscene NEW_BARK_TOWN, SCENE_NEWBARKTOWN_NOOP
 	end
@@ -666,28 +729,48 @@ BirchTakeKurusuText:
 
 
 BirchDirectionsText:
-	text "Alright, now"
-	line "it's time for"
+	text "Alright, now head"
+	line "North and find"
+	cont "Wally for me."
 
-	para "your #mon"
-	line "adventure."
+	para "I'm pretty sure"
+	line "he's up by"
+	cont "Oldale Town."
 
-	para "You should"
-	line "explore and"
+	para "It's straight"
+	line "North from here."
+	done
 
-	para "challenge gyms,"
-	line "catch #mon."
+BirchGivePokedexText:
+	text "Birch: Welcome"
+	line "back <PLAY_G>!"
 
-	para "and try to have"
-	line "fun!"
+	para "Thanks for finding"
+	line "Wally for me."
 
-	para "Oh! And go"
-	line "see Mr."
-	cont "#mon sometime."
+	para "I've got something"
+	line "for you."
 
-	para "He lives around"
-	line "Cherrywood Town"
-	cont "in Johto."
+	para "This is a #dex."
+	line "It'a a type of"
+	cont "encyclopedia."
+
+	para "It records data"
+	line "on #mon you"
+	cont "encounter."
+
+	para "You should take"
+	line "it with you when"
+	cont "you leave town."
+
+	para "There's a whole"
+	line "world out there,"
+	cont "<PLAY_G>..."
+
+	para "If I were you,"
+	line "I would try to"
+	cont "collect the Gym"
+	cont "badges of Hoenn."
 	done
 
 BirchsLab_MapEvents:
@@ -699,6 +782,8 @@ BirchsLab_MapEvents:
 	warp_event 05, 07, LITTLEROOT_TOWN, 3
 
 	def_coord_events
+	coord_event  04,  04, -1, BirchsLab_WelcomeScript
+	coord_event  05,  04, -1, BirchsLab_WelcomeScript
 
 	def_bg_events	
 
