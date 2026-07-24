@@ -1127,7 +1127,7 @@ ScientistGroupHard:
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (4) Goldenrod City - Radio Tower
-	db "Marc", TRAINERTYPE_NORMAL
+	db "Marc@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGNETON
 	db 7
