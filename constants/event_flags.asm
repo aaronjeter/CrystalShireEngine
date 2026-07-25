@@ -662,31 +662,31 @@
 	const EVENT_GAVE_KURT_WHT_APRICORN
 	const EVENT_GAVE_KURT_BLK_APRICORN
 	const EVENT_GAVE_KURT_PNK_APRICORN
-; Phone events
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+; Djinn events (formerly phone events)
+	const EVENT_GOT_FLINT	;Dark Cave Violet Entrance
+	const EVENT_GOT_ECHO	;Route 45
+	const EVENT_GOT_IVY		;Petalburg Woods
+	const EVENT_GOT_PETRA
+	const EVENT_GOT_QUARTZ	;Mt Moon B2F
+	const EVENT_GOT_HEMLOCK	
+	const EVENT_GOT_FIZZ	;Union Cave BF1
+	const EVENT_GOT_SPRITZ	;Route 41 Whirl Island SE
+	const EVENT_GOT_RIME	;Granite Cave B2F
+	const EVENT_GOT_MIST
+	const EVENT_GOT_SLEET	;Viridian City
+	const EVENT_GOT_DEW	
+	const EVENT_GOT_FORGE	;Ilex East
+	const EVENT_GOT_FEVER	;Mt Mortar 2f inside
+	const EVENT_GOT_CORONA	;Petalburg City
+	const EVENT_GOT_AURORA
+	const EVENT_GOT_CINDER	;Route 12
+	const EVENT_GOT_KINDLE
+	const EVENT_GOT_BREEZE	;Violet City
+	const EVENT_GOT_ZEPHYR	;Tin Tower 5f
+	const EVENT_GOT_KITE	;Route 115
+	const EVENT_GOT_SQUALL
+	const EVENT_GOT_WISP	;Celadon Mansion Roof
+	const EVENT_GOT_LULL
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

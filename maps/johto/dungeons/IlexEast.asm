@@ -1,6 +1,7 @@
 	object_const_def	
 	const ILEXEAST_MR_MIME
 	const ILEXEAST_VENOMOTH
+	const ILEXEAST_FORGE
 
 IlexEast_MapScripts:
 	def_scene_scripts
@@ -136,6 +137,40 @@ IlexEast_Venomoth:
 	closetext
 	end
 
+
+Djinn_ForgeScript:
+	cry MARS
+	opentext
+	writetext Djinn_ForgeText
+	yesorno
+	iffalse .Done
+	givepoke MARS, 12, FIRE_STONE, Djinn_ForgeName, Djinn_ForgeOTName
+	setevent EVENT_GOT_FORGE
+	disappear ILEXEAST_FORGE
+	.Done
+	closetext	
+	end
+
+Djinn_ForgeName:
+	db "Forge@"
+
+Djinn_ForgeOTName:
+	db "Jenna@" 
+
+Djinn_ForgeText:
+	text "I'm so freaking"
+	line "lost! I'm gonna"
+	cont "burn this stupid"
+	cont "forest down!"
+
+	para "Or...maybe you"
+	line "could show me the"
+	cont "way out?"
+
+	para "Invite Forge to"
+	line "join your party?"
+	done
+
 IlexEast_MapEvents:
 	db 0, 0 ; filler
 
@@ -151,4 +186,4 @@ IlexEast_MapEvents:
 	def_object_events
 	object_event 21,  4, SPRITE_MR__MIME, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, IlexEast_MrMime, EVENT_DEFEATED_CELEBI_GUARDIAN_MR_MIME
 	object_event 38, 10, SPRITE_VENOMOTH, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, IlexEast_Venomoth, EVENT_DEFEATED_CELEBI_GUARDIAN_VENOMOTH
-	
+	object_event 30, 30, SPRITE_MARS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Djinn_ForgeScript, EVENT_GOT_FORGE

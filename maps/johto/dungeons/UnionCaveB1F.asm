@@ -6,6 +6,7 @@
 	const UNIONCAVEB1F_POKE_BALL1
 	const UNIONCAVEB1F_BOULDER
 	const UNIONCAVEB1F_POKE_BALL2
+	const UNIONCAVEB1F_FIZZ
 
 UnionCaveB1F_MapScripts:
 	def_scene_scripts
@@ -150,6 +151,34 @@ PokemaniacCalvinAfterBattleText:
 	cont "Prof.Elm."
 	done
 
+Djinn_FizzScript:
+	cry MERCURY
+	opentext
+	writetext Djinn_FizzText
+	yesorno
+	iffalse .Done
+	givepoke MERCURY, 12, MYSTIC_WATER, Djinn_FizzName, Djinn_FizzOTName
+	setevent EVENT_GOT_FIZZ
+	disappear UNIONCAVEB1F_FIZZ
+	.Done
+	closetext	
+	end
+
+Djinn_FizzName:
+	db "Fizz@"
+
+Djinn_FizzOTName:
+	db "Mia@" 
+
+Djinn_FizzText:
+	text "Oh, hi, I'm Fizz."
+	line "I think I'm a long"
+	cont "way from home."
+
+	para "Invite Fizz to"
+	line "join your party?"
+	done
+
 UnionCaveB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -172,3 +201,4 @@ UnionCaveB1F_MapEvents:
 	object_event  2, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCaveB1FTMSwift, EVENT_UNION_CAVE_B1F_TM_SWIFT
 	object_event  7, 10, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, UnionCaveB1FBoulder, -1
 	object_event 17, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCaveB1FXDefend, EVENT_UNION_CAVE_B1F_X_DEFEND
+	object_event 11, 20, SPRITE_MERCURY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Djinn_FizzScript, EVENT_GOT_FIZZ

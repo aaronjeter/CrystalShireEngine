@@ -1,4 +1,12 @@
 	object_const_def
+	const ROUTE115_FRUIT_TREE1
+	const ROUTE115_FRUIT_TREE2
+	const ROUTE115_FRUIT_TREE3
+	const ROUTE115_FRUIT_TREE4
+	const ROUTE115_FLOOR_BLACKBELT
+	const ROUTE115_SHADES_GUY
+	const ROUTE115_TM_POISON_FANG
+	const ROUTE115_KITE
 
 Route115_MapScripts:
 	def_scene_scripts
@@ -62,6 +70,37 @@ Route115AlreadyGivenShadesText:
 	line "in the shade?" 
 	done
 
+Djinn_KiteScript:
+	cry JUPITER
+	opentext
+	writetext Djinn_KiteText
+	yesorno
+	iffalse .Done
+	givepoke JUPITER, 24, MAGNET, Djinn_KiteName, Djinn_KiteOTName
+	setevent EVENT_GOT_KITE
+	disappear ROUTE115_KITE
+	.Done
+	closetext	
+	end
+
+Djinn_KiteName:
+	db "Kite@"
+
+Djinn_KiteOTName:
+	db "Ivan@" 
+
+Djinn_KiteText:
+	text "Aloha! Those falls"
+	line "were gorgeous!"
+
+	para "I'm really excited"
+	line "to see more of"
+	cont "this world."
+
+	para "Invite Kite to"
+	line "join your party?"
+	done
+
 Route115_MapEvents:
 	db 0, 0 ; filler
 
@@ -80,3 +119,4 @@ Route115_MapEvents:
 	object_event 07, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route115BlackBeltItem, EVENT_GOT_HOENN_BLACKBELT_I
 	object_event 14, 04, SPRITE_PHARMACIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Route115ShadesScript, -1
 	object_event 20, 58, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route115PoisonFangItem, EVENT_ROUTE_115_TM_POISON_FANG
+	object_event 13, 30, SPRITE_JUPITER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Djinn_KiteScript, EVENT_GOT_KITE

@@ -9,6 +9,7 @@
 	const ROUTE41_SWIMMER_GIRL3
 	const ROUTE41_SWIMMER_GIRL4
 	const ROUTE41_SWIMMER_GIRL5
+	const ROUTE41_SPRITZ
 
 Route41_MapScripts:
 	def_scene_scripts
@@ -335,6 +336,37 @@ SwimmerfWendyAfterBattleText:
 	line "it's scary."
 	done
 
+Djinn_SpritzScript:
+	cry MERCURY
+	opentext
+	writetext Djinn_SpritzText
+	yesorno
+	iffalse .Done
+	givepoke MERCURY, 30, NEVERMELTICE, Djinn_SpritzName, Djinn_SpritzOTName
+	setevent EVENT_GOT_SPRITZ
+	disappear ROUTE41_SPRITZ
+	.Done
+	closetext	
+	end
+
+Djinn_SpritzName:
+	db "Spritz@"
+
+Djinn_SpritzOTName:
+	db "Piers@" 
+
+Djinn_SpritzText:
+	text "Ah! You startled"
+	line "me!"
+
+	para "I guess I got a"
+	line "little too relaxed"
+	cont "for my own good..."
+
+	para "Invite Spritz to"
+	line "join your party?"
+	done
+
 Route41_MapEvents:
 	db 0, 0 ; filler
 
@@ -360,3 +392,4 @@ Route41_MapEvents:
 	object_event 27, 34, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfDenise, -1
 	object_event 44, 28, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerSwimmerfKara, -1
 	object_event  9, 50, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerSwimmerfWendy, -1
+	object_event 36, 38, SPRITE_MERCURY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Djinn_SpritzScript, EVENT_GOT_SPRITZ

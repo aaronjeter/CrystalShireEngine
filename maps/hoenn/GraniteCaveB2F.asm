@@ -4,6 +4,8 @@
 	const GRANITECAVEB2F_SHELLDER
 	const GRANITECAVEB2F_SANDSHREW
 	const GRANITECAVEB2F_ROCK
+	const GRANITECAVEB2F_NEVERMELTICE
+	const GRANITECAVEB2F_RIME
 
 GraniteCaveB2F_MapScripts:
 	def_scene_scripts
@@ -54,6 +56,37 @@ GraniteCaveB2FHiddenNugget2:
 GraniteCaveB2FNeverMeltIce:
 	itemball NEVERMELTICE
 
+Djinn_RimeScript:
+	cry MERCURY
+	opentext
+	writetext Djinn_RimeText
+	yesorno
+	iffalse .Done
+	givepoke MERCURY, 15, MYSTIC_WATER, Djinn_RimeName, Djinn_RimeOTName
+	setevent EVENT_GOT_RIME
+	disappear GRANITECAVEB2F_RIME
+	.Done
+	closetext	
+	end
+
+Djinn_RimeName:
+	db "Rime@"
+
+Djinn_RimeOTName:
+	db "Mia@" 
+
+Djinn_RimeText:
+	text "Oh my gosh, the"
+	line "seafood here is"
+	cont "AMAZING!"
+
+	para "I hope I didn't"
+	line "eat all the clams."
+
+	para "Invite Rime to"
+	line "join your party?"
+	done
+
 GraniteCaveB2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -78,4 +111,5 @@ GraniteCaveB2F_MapEvents:
 	object_event  17, 13, SPRITE_SANDSHREW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Sandshrew, -1
 	object_event  07, 46, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FRock, -1
 	object_event  13, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB2FNeverMeltIce, EVENT_GOT_HOENN_NEVERMELTICE
+	object_event  14, 33, SPRITE_MERCURY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Djinn_RimeScript, EVENT_GOT_RIME
 	

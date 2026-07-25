@@ -6,6 +6,7 @@
 	const MTMOON_GRUNT4
 	const MTMOON_LUNATONE
 	const MTMOON_CLEFAIRY
+	const MTMOON_QUARTZ
 
 MtMoonB2F_MapScripts:
 	def_scene_scripts
@@ -171,6 +172,37 @@ MoonClefairy:
 	disappear MTMOON_CLEFAIRY
 	end
 
+Djinn_QuartzScript:
+	cry VENUS
+	opentext
+	writetext Djinn_QuartzText
+	yesorno
+	iffalse .Done
+	givepoke VENUS, 12, SOFT_SAND, Djinn_QuartzName, Djinn_QuartzOTName
+	setevent EVENT_GOT_QUARTZ
+	disappear MTMOON_QUARTZ
+	.Done
+	closetext	
+	end
+
+Djinn_QuartzName:
+	db "Quartz@"
+
+Djinn_QuartzOTName:
+	db "Isaac@" 
+
+Djinn_QuartzText:
+	text "Ugh, I just want a"
+	line "Moon Stone..."
+
+	para "How many of these"
+	line "things do I need"
+	cont "to smash for one?"
+
+	para "Invite Quartz to"
+	line "join your party?"
+	done
+
 
 MtMoonB2F_MapEvents:
 	db 0, 0 ; filler
@@ -192,3 +224,4 @@ MtMoonB2F_MapEvents:
 	object_event  16, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonGrunt4, -1
 	object_event  29, 08, SPRITE_LUNATONE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoonLunatone, -1
 	object_event  19, 30, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MoonClefairy, -1
+	object_event  28, 08, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Djinn_QuartzScript, EVENT_GOT_QUARTZ

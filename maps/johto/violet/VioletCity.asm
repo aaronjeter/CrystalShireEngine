@@ -7,6 +7,7 @@
 	const VIOLETCITY_FRUIT_TREE
 	const VIOLETCITY_POKE_BALL1
 	const VIOLETCITY_POKE_BALL2
+	const VIOLETCITY_BREEZE
 
 VioletCity_MapScripts:
 	def_scene_scripts
@@ -275,6 +276,38 @@ EarlsPokemonAcademySignText:
 	line "Academy"
 	done
 
+Djinn_BreezeScript:
+	cry JUPITER
+	opentext
+	writetext Djinn_BreezeText
+	yesorno
+	iffalse .Done
+	givepoke JUPITER, 20, MAGNET, Djinn_BreezeName, Djinn_BreezeOTName
+	setevent EVENT_GOT_BREEZE
+	disappear VIOLETCITY_BREEZE
+	.Done
+	closetext	
+	end
+
+Djinn_BreezeName:
+	db "Breeze@"
+
+Djinn_BreezeOTName:
+	db "Ivan@" 
+
+Djinn_BreezeText:
+	text "Aloha! Lovely"
+	line "weather, no?"
+
+	para "You look like a"
+	line "fun explorer."
+
+	para "Need some backup?"
+
+	para "Invite Breeze to"
+	line "join your party?"
+	done
+
 VioletCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -309,3 +342,4 @@ VioletCity_MapEvents:
 	object_event 14, 29, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletCityFruitTree, -1
 	object_event  4,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityPPUp, EVENT_VIOLET_CITY_PP_UP
 	object_event 35,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityRareCandy, EVENT_VIOLET_CITY_RARE_CANDY
+	object_event 07, 00, SPRITE_JUPITER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Djinn_BreezeScript, EVENT_GOT_BREEZE

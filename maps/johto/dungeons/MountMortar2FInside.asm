@@ -6,6 +6,7 @@
 	const MOUNTMORTAR2FINSIDE_POKE_BALL5
 	const MOUNTMORTAR2FINSIDE_POKE_BALL6
 	const MOUNTMORTAR2FINSIDE_SUPER_NERD
+	const MOUNTMORTAR2FINSIDE_FEVER
 
 MountMortar2FInside_MapScripts:
 	def_scene_scripts
@@ -64,6 +65,39 @@ SupernerdHughAfterBattleText:
 	line "use Strength?"
 	done
 
+Djinn_FeverScript:
+	cry MARS
+	opentext
+	writetext Djinn_FeverText
+	yesorno
+	iffalse .Done
+	givepoke MARS, 40, QUICK_CLAW, Djinn_FeverName, Djinn_FeverOTName
+	setevent EVENT_GOT_FEVER
+	disappear MOUNTMORTAR2FINSIDE_FEVER
+	.Done
+	closetext	
+	end
+
+Djinn_FeverName:
+	db "Fever@"
+
+Djinn_FeverOTName:
+	db "Garet@" 
+
+Djinn_FeverText:
+	text "I'll be honest,"
+	line "this place is a"
+	cont "dissapointment."
+
+	para "A place named"
+	line "Mt Mortar ought"
+	cont "to be on fire,"
+	cont "you know?"
+
+	para "Invite Fever to"
+	line "join your party?"
+	done
+
 MountMortar2FInside_MapEvents:
 	db 0, 0 ; filler
 
@@ -85,3 +119,4 @@ MountMortar2FInside_MapEvents:
 	object_event  9, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar2FInsideElixer, EVENT_MOUNT_MORTAR_2F_INSIDE_ELIXER
 	object_event 28,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar2FInsideEscapeRope, EVENT_MOUNT_MORTAR_2F_INSIDE_ESCAPE_ROPE
 	object_event 13, 26, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerSupernerdHugh, -1
+	object_event 35, 23, SPRITE_MARS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Djinn_FeverScript, EVENT_GOT_FEVER

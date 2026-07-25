@@ -1,4 +1,10 @@
 	object_const_def
+	const PETALBURGCITY_FISHER
+	const PETALBURGCITY_GRANNY
+	const PETALBURGCITY_COOLTRAINER_F
+	const PETALBURGCITY_RARE_CANDY
+	const PETALBURGCITY_POKEBALL
+	const PETALBURGCITY_CORONA
 
 PetalburgCity_MapScripts:
 	def_scene_scripts
@@ -78,6 +84,47 @@ PetalburgRareCandy:
 PetalburgPokeball:
 	itemball POKE_BALL
 
+Djinn_CoronaScript:
+	cry MARS
+	opentext
+	writetext Djinn_CoronaText
+	yesorno
+	iffalse .Done
+	givepoke MARS, 24, CHARCOAL, Djinn_CoronaName, Djinn_CoronaOTName
+	setevent EVENT_GOT_CORONA
+	disappear PETALBURGCITY_CORONA
+	.Done
+	closetext	
+	end
+
+Djinn_CoronaName:
+	db "Corona@"
+
+Djinn_CoronaOTName:
+	db "Jenna@" 
+
+Djinn_CoronaText:
+	text "You know, I think"
+	line "I could boil this"
+	cont "whole lake."
+
+	para "Like, all the way"
+	line "to dry dirt..."
+
+	para "Probably not so"
+	line "good for the"
+	cont "folks in town"
+	cont "though, eh?"
+
+	para "We should group"
+	line "up, and go find"
+	cont "something safer"
+	cont "to set on fire!"
+
+	para "Invite Corona to"
+	line "join your party?"
+	done
+
 
 PetalburgCity_MapEvents:
 	db 0, 0 ; filler
@@ -101,3 +148,4 @@ PetalburgCity_MapEvents:
 	object_event 14, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgCooltrainerFScript, -1
 	object_event 06, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgRareCandy, EVENT_PETALBURG_CITY_RARE_CANDY
 	object_event 25, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgPokeball, EVENT_PETALBURG_CITY_POKE_BALL
+	object_event 05, 28, SPRITE_MARS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Djinn_CoronaScript, EVENT_GOT_CORONA

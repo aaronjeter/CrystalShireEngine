@@ -5,6 +5,7 @@
 	const ROUTE12_FISHER4
 	const ROUTE12_POKE_BALL1
 	const ROUTE12_POKE_BALL2
+	const ROUTE12_CINDER
 
 Route12_MapScripts:
 	def_scene_scripts
@@ -164,6 +165,40 @@ FishingSpotSignText:
 	text "Fishing Spot"
 	done
 
+Djinn_CinderScript:
+	cry MARS
+	opentext
+	writetext Djinn_CinderScriptText
+	yesorno
+	iffalse .Done
+	givepoke MARS, 24, LUCKY_EGG, Djinn_CinderScriptName, Djinn_CinderScriptOTName
+	setevent EVENT_GOT_CINDER
+	disappear ROUTE12_CINDER
+	.Done
+	closetext	
+	end
+
+Djinn_CinderScriptName:
+	db "Cinder@"
+
+Djinn_CinderScriptOTName:
+	db "Jenna@" 
+
+Djinn_CinderScriptText:
+	text "You know what this"
+	line "place needs?"
+
+	para "The same thing"
+	line "every place needs."
+
+	para "To be more on"
+	line "fire! Let's burn"
+	cont "the world down!"
+
+	para "Invite Cinder to"
+	line "join your party?"
+	done
+
 Route12_MapEvents:
 	db 0, 0 ; filler
 
@@ -184,3 +219,4 @@ Route12_MapEvents:
 	object_event  6,  7, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherKyle, -1
 	object_event  5, 43, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Calcium, EVENT_ROUTE_12_CALCIUM
 	object_event  5, 51, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Nugget, EVENT_ROUTE_12_NUGGET
+	object_event 04, 53, SPRITE_MARS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Djinn_CinderScript, EVENT_GOT_CINDER

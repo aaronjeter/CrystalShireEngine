@@ -3,6 +3,7 @@
 	const VIRIDIANCITY_GRAMPS2
 	const VIRIDIANCITY_FISHER
 	const VIRIDIANCITY_YOUNGSTER
+	const VIRIDIANCITY_SLEET
 
 ViridianCity_MapScripts:
 	def_scene_scripts
@@ -213,6 +214,34 @@ TrainerHouseSignText:
 	line "Trainer Battles"
 	done
 
+Djinn_SleetScript:
+	cry MERCURY
+	opentext
+	writetext Djinn_SleetText
+	yesorno
+	iffalse .Done
+	givepoke MERCURY, 15, MYSTIC_WATER, Djinn_SleetName, Djinn_SleetOTName
+	setevent EVENT_GOT_SLEET
+	disappear VIRIDIANCITY_SLEET
+	.Done
+	closetext	
+	end
+
+Djinn_SleetName:
+	db "Sleet@"
+
+Djinn_SleetOTName:
+	db "Mia@" 
+
+Djinn_SleetText:
+	text "Ha, these fish are"
+	line "tasty! I can't get"
+	cont "enough!"
+
+	para "Invite Sleet to"
+	line "join your party?"
+	done
+
 ViridianCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -238,3 +267,4 @@ ViridianCity_MapEvents:
 	object_event 33,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianCityGrampsNearGym, -1
 	object_event  6, 23, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ViridianCityDreamEaterFisher, -1
 	object_event 17, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 3, 3, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ViridianCityYoungsterScript, -1
+	object_event 07, 26, SPRITE_MERCURY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Djinn_SleetScript, EVENT_GOT_SLEET

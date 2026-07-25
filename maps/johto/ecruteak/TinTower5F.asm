@@ -1,5 +1,6 @@
 	object_const_def
 	const TINTOWER5F_POKE_BALL
+	const TINTOWER5F_ZEPHYR
 
 TinTower5F_MapScripts:
 	def_scene_scripts
@@ -14,6 +15,36 @@ TinTower5FHiddenFullRestore:
 
 TinTower5FHiddenCarbos:
 	hiddenitem CARBOS, EVENT_TIN_TOWER_5F_HIDDEN_CARBOS
+
+Djinn_ZephyrScript:
+	cry JUPITER
+	opentext
+	writetext Djinn_ZephyrText
+	yesorno
+	iffalse .Done
+	givepoke JUPITER, 40, SCOPE_LENS, Djinn_ZephyrName, Djinn_ZephyrOTName
+	setevent EVENT_GOT_BREEZE
+	disappear TINTOWER5F_ZEPHYR
+	.Done
+	closetext	
+	end
+
+Djinn_ZephyrName:
+	db "Zephyr@"
+
+Djinn_ZephyrOTName:
+	db "Sheba@" 
+
+Djinn_ZephyrText:
+	text "Aloha! I love"
+	line "these old towers!"
+
+	para "Want to go to"
+	line "the top?"
+
+	para "Invite Zephyr to"
+	line "join your party?"
+	done
 
 TinTower5F_MapEvents:
 	db 0, 0 ; filler
@@ -32,3 +63,4 @@ TinTower5F_MapEvents:
 
 	def_object_events
 	object_event  9,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower5FRareCandy, EVENT_TIN_TOWER_5F_RARE_CANDY
+	object_event 17, 00, SPRITE_JUPITER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Djinn_ZephyrScript, EVENT_GOT_ZEPHYR

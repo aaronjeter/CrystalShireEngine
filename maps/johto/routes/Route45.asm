@@ -12,6 +12,7 @@
 	const ROUTE45_POKE_BALL3
 	const ROUTE45_POKE_BALL4
 	const ROUTE45_YOUNGSTER
+	const ROUTE45_ECHO
 
 Route45_MapScripts:
 	def_scene_scripts
@@ -346,6 +347,38 @@ Route45SignText:
 	line "Montain Rd. Ahead"
 	done
 
+
+Djinn_EchoScript:
+	cry VENUS
+	opentext
+	writetext Djinn_EchoText
+	yesorno
+	iffalse .Done
+	givepoke VENUS, 40, LEFTOVERS, Djinn_EchoName, Djinn_EchoOTName
+	setevent EVENT_GOT_ECHO
+	disappear ROUTE45_ECHO
+	.Done
+	closetext	
+	end
+
+Djinn_EchoName:
+	db "Echo@"
+
+Djinn_EchoOTName:
+	db "Felix@" 
+
+Djinn_EchoText:
+	text "What a lovely"
+	line "little spot!"
+
+	para "These fish were"
+	line "delicious, but"
+	cont "it's time to move!"
+
+	para "Invite Echo to"
+	line "join your party?"
+	done
+
 Route45_MapEvents:
 	db 0, 0 ; filler
 
@@ -372,3 +405,4 @@ Route45_MapEvents:
 	object_event  6, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Elixer, EVENT_ROUTE_45_ELIXER
 	object_event  7, 33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45MaxPotion, EVENT_ROUTE_45_MAX_POTION
 	object_event  4, 70, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TrainerCamperQuentin, -1
+	object_event 13, 82, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Djinn_EchoScript, EVENT_GOT_ECHO
