@@ -9185,7 +9185,7 @@ ExplorerGroup:
 	db 7
 	dw ALTARIA
 	db 7
-	dw TROPIUS
+	dw DELCATTY
 	db 10
 	dw GARDEVOIR
 	db -1 ; end
@@ -9200,13 +9200,11 @@ ExplorerGroup:
 	dw ALTARIA
 	db 9
 	dw TROPIUS
-	db 9
-	dw ABSOL
 	db 12
 	dw GARDEVOIR
 	db -1 ; end
 
-	next_list_item ; WALLY (5)
+	next_list_item ; WALLY (6)
 	db "Wally@", TRAINERTYPE_NORMAL
 	db 8
 	dw CHIMECHO
@@ -9222,7 +9220,7 @@ ExplorerGroup:
 	dw GARDEVOIR
 	db -1 ; end
 
-	next_list_item ; WC_WALLY (6) World Cup Wally
+	next_list_item ; WC_WALLY (7) World Cup Wally
 	db "Wally@", TRAINERTYPE_MOVES
 	db 12
 	dw CHIMECHO
