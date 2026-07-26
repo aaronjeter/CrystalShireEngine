@@ -7,7 +7,7 @@
 	db ELECTRIC, ELECTRIC ; type
 	db 235 ; catch rate
 	db 59 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, THUNDERSTONE ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/mareep/front.dimensions"

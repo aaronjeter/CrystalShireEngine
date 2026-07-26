@@ -7,7 +7,7 @@
 	db PSYCHIC_TYPE, FLYING ; type
 	db 190 ; catch rate
 	db 73 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, TWISTEDSPOON ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/natu/front.dimensions"

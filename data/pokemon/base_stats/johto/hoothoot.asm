@@ -7,7 +7,7 @@
 	db GHOST, FLYING ; type
 	db 255 ; catch rate
 	db 58 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw BERRY, SPELL_TAG ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/hoothoot/front.dimensions"
