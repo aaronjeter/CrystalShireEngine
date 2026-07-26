@@ -4,6 +4,11 @@
 	const LILYCOVECITY_WINGULL1
 	const LILYCOVECITY_WINGULL2
 	const LILYCOVECITY_WINGULL3
+	const LILYCOVECITY_TWIN1
+	const LILYCOVECITY_TWIN2
+	const LILYCOVECITY_SAILOR
+	const LILYCOVECITY_BEAUTY
+	const LILYCOVECITY_WALLY
 
 LilycoveCity_MapScripts:
 	def_scene_scripts
@@ -15,10 +20,89 @@ LilycoveCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_LILYCOVE	
 	endcallback
 
-LilycoveMossdeepGuyScript:
+Lilycove_Wally:
 	faceplayer
 	opentext
+	writetext LilycoveWallyIntroText
+	waitbutton
+	closetext
+	winlosstext LilycoveWallyLossText, LilycoveWallyWinText
+	loadtrainer WALLY, WALLY5
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext LilycoveWallyAfterBattleText
+	waitbutton
+	closetext
+	special HealParty
+	setevent EVENT_FOUND_LILYCOVE_WALLY
 	setflag ENGINE_FLYPOINT_MOSSDEEP
+	special FadeOutToBlack
+	disappear LILYCOVECITY_WALLY
+	special FadeInFromBlack
+	end
+
+LilycoveWallyAfterBattleText:
+	text "Wow, every time."
+	line "I think you have"
+	cont "my number,"
+	cont "<PLAY_G>."
+
+	para "Here, I'll mark"
+	line "Mossdeep on your"
+	cont "flymap."
+
+	para "You should be able"
+	line "to fly right over."
+
+	para "...You're really"
+	line "good at this"
+	cont "<PLAY_G>."
+
+	para "Good enough to"
+	line "take on the Elite"
+	cont "Four even, maybe."
+
+	para "Once you have all"
+	line "eight badges from"
+	cont "Hoenn, you should"
+	cont "face them!"
+
+	para "Well, it's a dream"
+	line "at least. Good"
+	cont "luck!"
+	done
+
+LilycoveWallyLossText:
+	text "Woah, you're"
+	line "amazing!"
+	done
+
+LilycoveWallyWinText:
+	text "Ha, Gotcha!"
+	done
+
+LilycoveWallyIntroText:
+	text "Oh, hi <PLAY_G>!"
+	line "I'm glad to see"
+	cont "you!"
+
+	para "I got the route"
+	line "to Mossdeep City!"
+
+	para "You can't really"
+	line "swim there"
+	cont "anymore, but..."
+
+	para "Maybe...we could"
+	line "have a rematch"
+	cont "first?"
+	done
+
+LilycoveMossdeepGuyScript:
+	faceplayer
+	opentext	
 	writetext LilycoveMossdeepGuyText
 	promptbutton
 	closetext
@@ -37,9 +121,6 @@ LilycoveMossdeepGuyText:
 
 	para "just Fly you"
 	line "right over!"
-
-	para "Here, I'll mark"
-	line "it on your map."
 	done
 
 
@@ -141,3 +222,4 @@ LilycoveCity_MapEvents:
 	object_event  42,  23, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, LilycoveTwinScript, -1
 	object_event  31,  29, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveSailorScript, -1
 	object_event  07,  18, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveBeautyScript, -1
+	object_event  34,  34, SPRITE_BUGSY, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Lilycove_Wally, EVENT_FOUND_LILYCOVE_WALLY

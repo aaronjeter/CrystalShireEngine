@@ -625,8 +625,6 @@ INCLUDE "maps/hoenn/fortree/FortreeCity.asm"
 INCLUDE "maps/hoenn/fortree/FortreePokecenter.asm"
 INCLUDE "maps/hoenn/fortree/FortreeMart.asm"
 INCLUDE "maps/hoenn/fortree/FortreeGym.asm"
-INCLUDE "maps/hoenn/lilycove/LilycoveCity.asm"
-INCLUDE "maps/hoenn/lilycove/LilycovePokecenter.asm"
 
 ENDSECTION
 
@@ -649,6 +647,14 @@ INCLUDE "maps/hoenn/Route108.asm"
 INCLUDE "maps/hoenn/Route109.asm"
 INCLUDE "maps/hoenn/Route110.asm"
 INCLUDE "maps/hoenn/Route111.asm"
+
+ENDSECTION
+
+
+SECTION "Map Scripts 27.3", ROMX
+
+INCLUDE "maps/hoenn/lilycove/LilycoveCity.asm"
+INCLUDE "maps/hoenn/lilycove/LilycovePokecenter.asm"
 
 ENDSECTION
 

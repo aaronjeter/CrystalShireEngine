@@ -2189,8 +2189,8 @@
 	const EVENT_FOUND_DEWFORD_WALLY
 	const EVENT_FOUND_MAUVILLE_WALLY
 	const EVENT_FOUND_NEW_MAUVILLE_WALLY
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_FOUND_LILYCOVE_WALLY
+	const EVENT_FOUND_VICTORY_ROAD_WALLY
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
