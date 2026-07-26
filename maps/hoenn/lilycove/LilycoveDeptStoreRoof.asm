@@ -1,4 +1,6 @@
 	object_const_def
+	const LILYCOVEDEPTROOF_SAILOR
+	const LILYCOVEDEPTROOF_TEACHER
 
 LilycoveDeptStoreRoof_MapScripts:
 	def_scene_scripts
@@ -51,6 +53,34 @@ LilycovePokeDollVendingMachineText:
 	para "But it's empty…"
 	done
 
+LilycoveDeptRoofSailorScript:
+	jumptextfaceplayer LilycoveDeptRoofSailorText
+
+LilycoveDeptRoofSailorText:
+	text "I missed my boat."
+	line "I'll catch them"
+	cont "in Sootopolis."
+
+	para "My trusty Pidgeot"
+	line "will Fly me over."
+
+	para "I just need to"
+	line "chart a course"
+	cont "first..."
+	done
+
+LilycoveDeptRoofTeacherScript:
+	jumptextfaceplayer LilycoveDeptRoofTeacherText
+
+LilycoveDeptRoofTeacherText:
+	text "I love coming up"
+	line "here before going"
+	cont "shopping."
+
+	para "This view is so"
+	line "lovely..."
+	done
+
 LilycoveDeptStoreRoof_MapEvents:
 	db 0, 0 ; filler
 
@@ -66,4 +96,5 @@ LilycoveDeptStoreRoof_MapEvents:
 	bg_event 03, 00, BGEVENT_UP, LilycovePokeDollVendingMachine
 
 	def_object_events
-	
+	object_event  13,  04, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveDeptRoofSailorScript, -1
+	object_event  08,  00, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, LilycoveDeptRoofTeacherScript, -1
