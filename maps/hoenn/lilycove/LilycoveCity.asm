@@ -203,6 +203,8 @@ LilycoveCity_MapEvents:
 	warp_event 53, 17, LILYCOVE_TRADE_HOUSE, 2
 	warp_event 55, 05, LILYCOVE_PAINT_HOUSE, 2
 	warp_event 13, 33, LILYCOVE_HARBOR, 2
+	warp_event 39, 05, LILYCOVE_DEPT_STORE_1F, 1
+	warp_event 40, 05, LILYCOVE_DEPT_STORE_1F, 2
 
 	def_coord_events
 

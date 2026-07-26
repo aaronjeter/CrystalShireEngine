@@ -656,6 +656,15 @@ SECTION "Map Scripts 27.3", ROMX
 INCLUDE "maps/hoenn/lilycove/LilycoveCity.asm"
 INCLUDE "maps/hoenn/lilycove/LilycovePokecenter.asm"
 
+INCLUDE "maps/hoenn/lilycove/LilycoveDeptStore1F.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveDeptStore2F.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveDeptStore3F.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveDeptStore4F.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveDeptStore5F.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveDeptStore6F.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveDeptStoreElevator.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveDeptStoreRoof.asm"
+
 ENDSECTION
 
 

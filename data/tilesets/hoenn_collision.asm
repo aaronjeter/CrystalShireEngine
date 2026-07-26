@@ -143,7 +143,7 @@
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 8e
 	tilecoll WALL, WALL, WALL, WALL ; 8f
 	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; 90
-	tilecoll 01, 01, 01, 01 ; 91
+	tilecoll WALL, WALL, WALL, DOOR ; 91
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 92
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 93
 	tilecoll 01, 01, 01, 01 ; 94

@@ -290,30 +290,37 @@ EarlsPokemonAcademy_Blocks:
 
 GoldenrodDeptStore1F_Blocks:
 CeladonDeptStore1F_Blocks:
+LilycoveDeptStore1F_Blocks:
 	INCBIN "maps/DeptStore1F.ablk"
 
 GoldenrodDeptStore2F_Blocks:
 CeladonDeptStore2F_Blocks:
+LilycoveDeptStore2F_Blocks:
 	INCBIN "maps/DeptStore2F.ablk"
 
 GoldenrodDeptStore3F_Blocks:
 CeladonDeptStore3F_Blocks:
+LilycoveDeptStore3F_Blocks:
 	INCBIN "maps/DeptStore3F.ablk"
 
 GoldenrodDeptStore4F_Blocks:
 CeladonDeptStore4F_Blocks:
+LilycoveDeptStore4F_Blocks:
 	INCBIN "maps/DeptStore4F.ablk"
 
 GoldenrodDeptStore5F_Blocks:
 CeladonDeptStore5F_Blocks:
+LilycoveDeptStore5F_Blocks:
 	INCBIN "maps/DeptStore5F.ablk"
 
 GoldenrodDeptStore6F_Blocks:
 CeladonDeptStore6F_Blocks:
+LilycoveDeptStore6F_Blocks:
 	INCBIN "maps/DeptStore6F.ablk"
 
 GoldenrodDeptStoreElevator_Blocks:
 CeladonDeptStoreElevator_Blocks:
+LilycoveDeptStoreElevator_Blocks:
 	INCBIN "maps/DeptStoreElevator.ablk"
 
 CeladonMansion1F_Blocks:
@@ -897,6 +904,7 @@ BattleTowerOutside_Blocks:
 	INCBIN "maps/johto/battletower/BattleTowerOutside.ablk"
 
 GoldenrodDeptStoreRoof_Blocks:
+LilycoveDeptStoreRoof_Blocks:
 	INCBIN "maps/johto/goldenrod/GoldenrodDeptStoreRoof.ablk"
 
 ENDSECTION

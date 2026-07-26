@@ -762,6 +762,16 @@ ENDM
 	map_attributes LilycoveTradeHouse, LILYCOVE_TRADE_HOUSE, $00, 0
 	map_attributes LilycovePaintHouse, LILYCOVE_PAINT_HOUSE, $00, 0
 	map_attributes LilycoveHarbor, LILYCOVE_HARBOR, $00, 0
+
+	map_attributes LilycoveDeptStore1F, LILYCOVE_DEPT_STORE_1F, $00, 0
+	map_attributes LilycoveDeptStore2F, LILYCOVE_DEPT_STORE_2F, $00, 0
+	map_attributes LilycoveDeptStore3F, LILYCOVE_DEPT_STORE_3F, $00, 0
+	map_attributes LilycoveDeptStore4F, LILYCOVE_DEPT_STORE_4F, $00, 0
+	map_attributes LilycoveDeptStore5F, LILYCOVE_DEPT_STORE_5F, $00, 0
+	map_attributes LilycoveDeptStore6F, LILYCOVE_DEPT_STORE_6F, $00, 0
+	map_attributes LilycoveDeptStoreElevator, LILYCOVE_DEPT_STORE_ELEVATOR, $00, 0
+	map_attributes LilycoveDeptStoreRoof, LILYCOVE_DEPT_STORE_ROOF, $24, 0
+
 	map_attributes FallarborReminderHouse, FALLARBOR_REMINDER_HOUSE, $00, 0
 
 	map_attributes MauvilleBikeShop, MAUVILLE_BIKE_SHOP, $00, 0

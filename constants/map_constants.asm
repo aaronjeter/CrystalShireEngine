@@ -608,6 +608,14 @@ ENDM
 	map_const LILYCOVE_TRADE_HOUSE,                        04, 04 ;
 	map_const LILYCOVE_PAINT_HOUSE,                        04, 04 ;
 	map_const LILYCOVE_HARBOR,                             12, 08 ;
+	map_const LILYCOVE_DEPT_STORE_1F,                      08, 04 ;
+	map_const LILYCOVE_DEPT_STORE_2F,                      08, 04 ;  
+	map_const LILYCOVE_DEPT_STORE_3F,                      08, 04 ;  
+	map_const LILYCOVE_DEPT_STORE_4F,                      08, 04 ;  
+	map_const LILYCOVE_DEPT_STORE_5F,                      08, 04 ;  
+	map_const LILYCOVE_DEPT_STORE_6F,                      08, 04 ; 
+	map_const LILYCOVE_DEPT_STORE_ELEVATOR,                02, 02 ; 
+	map_const LILYCOVE_DEPT_STORE_ROOF,                    08, 04 ; 
 	map_const MT_PYRE,                                     20, 30 ;
 	map_const MOSSDEEP_CITY,                               40, 20 ;
 	map_const MOSSDEEP_POKECENTER,						   07, 04 ;
