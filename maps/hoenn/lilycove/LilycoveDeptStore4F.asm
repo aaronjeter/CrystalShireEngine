@@ -9,7 +9,7 @@ LilycoveDeptStore4F_MapScripts:
 LilycoveDeptStore4FClerkScript:
 	faceplayer
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CELADON_4F
+	pokemart MARTTYPE_STANDARD, MART_LILYCOVE_4F_STONES
 	closetext
 	end
 
@@ -21,9 +21,9 @@ LilycoveDeptStore4FElevatorButton:
 
 LilycoveDeptStore4FDirectoryText:
 	text "Express Yourself"
-	line "With Gifts!"
+	line "With Shiny Rocks!"
 
-	para "4F: Wiseman Gifts"
+	para "4F: Wiseman Stones"
 	done
 
 LilycoveDeptStore4F_MapEvents:

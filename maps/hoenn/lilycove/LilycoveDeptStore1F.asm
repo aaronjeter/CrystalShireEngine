@@ -33,7 +33,7 @@ LilycoveDeptStore1FDirectoryText:
 
 	para "3F: TM Shop"
 
-	para "4F: Wiseman Gifts"
+	para "4F: Wiseman Stones"
 
 	para "5F: Drug Store"
 

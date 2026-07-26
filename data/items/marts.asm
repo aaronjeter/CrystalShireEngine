@@ -36,6 +36,12 @@ Marts:
 	dw MartIndigoPlateau
 	dw MartUnderground
 	dw MartMegaMart
+	dw Lilycove2FPokeballs
+	dw Lilycove2FGear
+	dw Lilycove3FTms
+	dw Lilycove4FStones
+	dw Lilycove5FMedicine
+	dw Lilycove5FDrugs
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -367,6 +373,66 @@ MartMegaMart:
 	dw KANTOITE_Y
 	dw JOHTOITE_X
 	dw HOENNITE_X
+
+Lilycove2FPokeballs:
+	db 8 ; # items
+	dw POKE_BALL
+	dw GREAT_BALL
+	dw ULTRA_BALL
+	dw LURE_BALL
+	dw HEAVY_BALL
+	dw FAST_BALL
+	dw FRIEND_BALL
+	dw MOON_BALL
+
+Lilycove2FGear:
+	db 7 ; # items
+	dw ESCAPE_ROPE
+	dw REPEL
+	dw SUPER_REPEL
+	dw MAX_REPEL	
+	dw POKE_DOLL
+	dw LITEBLUEMAIL
+	dw BLUESKY_MAIL
+
+Lilycove3FTms:
+	db 7 ; # items
+	dw TM_ROCK_SMASH
+	dw TM_HIDDEN_POWER
+	dw TM_STEEL_WING
+	dw TM_BRICK_BREAK
+	dw TM_DIG
+	dw TM_SANDSTORM
+	dw TM_HAIL
+
+Lilycove4FStones:
+	db 8 ; # items
+	dw FIRE_STONE
+	dw THUNDERSTONE
+	dw WATER_STONE
+	dw LEAF_STONE
+	dw MOON_STONE
+	dw SUN_STONE
+	dw DAWN_STONE
+	dw ICE_STONE
+
+Lilycove5FMedicine:
+	db 7 ; # items
+	dw HYPER_POTION
+	dw MAX_POTION
+	dw FULL_HEAL
+	dw REVIVE
+	dw ETHER
+	dw MAX_ETHER
+	dw FULL_RESTORE
+
+Lilycove5FDrugs:
+	db 5 ; # items
+	dw PROTEIN
+	dw IRON
+	dw CARBOS
+	dw CALCIUM
+	dw HP_UP
 
 DefaultMart:
 	db 2 ; # items

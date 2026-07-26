@@ -10,14 +10,14 @@ LilycoveDeptStore2F_MapScripts:
 LilycoveDeptStore2FClerk1Script:
 	faceplayer
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CELADON_2F_1
+	pokemart MARTTYPE_STANDARD, MART_LILYCOVE_2F_POKEBALLS
 	closetext
 	end
 
 LilycoveDeptStore2FClerk2Script:
 	faceplayer
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CELADON_2F_2
+	pokemart MARTTYPE_STANDARD, MART_LILYCOVE_2F_GEAR
 	closetext
 	end
 

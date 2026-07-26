@@ -9,7 +9,7 @@ LilycoveDeptStore3F_MapScripts:
 LilycoveDeptStore3FClerkScript:
 	faceplayer
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CELADON_3F
+	pokemart MARTTYPE_STANDARD, MART_LILYCOVE_3F_TMS
 	closetext
 	end
 

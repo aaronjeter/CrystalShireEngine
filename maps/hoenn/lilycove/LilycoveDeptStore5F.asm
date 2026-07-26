@@ -10,14 +10,14 @@ LilycoveDeptStore5F_MapScripts:
 LilycoveDeptStore5FClerk1Script:
 	faceplayer
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CELADON_5F_1
+	pokemart MARTTYPE_STANDARD, MART_LILYCOVE_5F_MEDICINE
 	closetext
 	end
 
 LilycoveDeptStore5FClerk2Script:
 	faceplayer
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CELADON_5F_2
+	pokemart MARTTYPE_STANDARD, MART_LILYCOVE_5F_DRUGS
 	closetext
 	end
 
