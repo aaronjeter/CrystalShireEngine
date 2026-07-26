@@ -7,7 +7,7 @@
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
 	db 45 ; catch rate
 	db 147 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, AMULET_COIN ; items
 	db GENDER_F50 ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/chimecho/front.dimensions"

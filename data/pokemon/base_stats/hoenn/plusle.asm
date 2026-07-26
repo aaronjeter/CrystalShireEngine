@@ -7,7 +7,7 @@
 	db ELECTRIC, ELECTRIC ; type
 	db 200 ; catch rate
 	db 120 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, MAGNET ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/plusle/front.dimensions"

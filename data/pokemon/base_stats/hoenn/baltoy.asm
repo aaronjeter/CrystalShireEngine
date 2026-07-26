@@ -7,7 +7,7 @@
 	db GROUND, PSYCHIC_TYPE ; type
 	db 255 ; catch rate
 	db 58 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, SOFT_SAND ; items
 	db GENDER_UNKNOWN ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/baltoy/front.dimensions"

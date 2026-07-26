@@ -7,7 +7,7 @@
 	db GRASS, POISON ; type
 	db 150 ; catch rate
 	db 152 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw MIRACLEBERRY, POISON_BARB ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/roselia/front.dimensions"

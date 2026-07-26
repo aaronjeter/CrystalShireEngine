@@ -7,7 +7,7 @@
 	db FIRE, GROUND ; type
 	db 255 ; catch rate
 	db 88 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, CHARCOAL ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/numel/front.dimensions"

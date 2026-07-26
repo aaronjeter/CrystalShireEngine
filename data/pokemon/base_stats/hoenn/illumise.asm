@@ -7,7 +7,7 @@
 	db BUG, BUG ; type
 	db 150 ; catch rate
 	db 146 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, SILVERPOWDER ; items
 	db GENDER_F100 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/illumise/front.dimensions"

@@ -7,7 +7,7 @@
 	db FIGHTING, PSYCHIC_TYPE ; type
 	db 90 ; catch rate
 	db 153 ; base exp
-	dw NO_ITEM, BLACKBELT_I ; items
+	dw FOCUS_BAND, BLACKBELT_I ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/medicham/front.dimensions"

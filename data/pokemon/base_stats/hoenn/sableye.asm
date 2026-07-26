@@ -7,7 +7,7 @@
 	db DARK, GHOST ; type
 	db 45 ; catch rate
 	db 98 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NUGGET, NUGGET ; items
 	db GENDER_F50 ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/sableye/front.dimensions"

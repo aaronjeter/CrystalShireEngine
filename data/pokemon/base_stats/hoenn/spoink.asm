@@ -7,7 +7,7 @@
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
 	db 255 ; catch rate
 	db 89 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw BERRY, MINT_BERRY ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/spoink/front.dimensions"

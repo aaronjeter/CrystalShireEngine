@@ -7,7 +7,7 @@
 	db FIGHTING, PSYCHIC_TYPE ; type
 	db 180 ; catch rate
 	db 91 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, FOCUS_BAND ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/meditite/front.dimensions"

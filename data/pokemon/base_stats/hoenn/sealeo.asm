@@ -7,7 +7,7 @@
 	db ICE, WATER ; type
 	db 120 ; catch rate
 	db 128 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw WATER_STONE, ICE_STONE ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/sealeo/front.dimensions"

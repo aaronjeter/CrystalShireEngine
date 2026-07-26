@@ -7,7 +7,7 @@
 	db NORMAL, FLYING ; type
 	db 200 ; catch rate
 	db 59 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw BERRY, SHARP_BEAK ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/taillow/front.dimensions"

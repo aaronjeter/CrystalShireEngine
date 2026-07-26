@@ -7,7 +7,7 @@
 	db NORMAL, NORMAL ; type
 	db 255 ; catch rate
 	db 65 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, MOON_STONE ; items
 	db GENDER_F75 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/skitty/front.dimensions"

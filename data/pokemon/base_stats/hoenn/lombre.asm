@@ -7,7 +7,7 @@
 	db WATER, GRASS ; type
 	db 120 ; catch rate
 	db 141 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, WATER_STONE ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/lombre/front.dimensions"
