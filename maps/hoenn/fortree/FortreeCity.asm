@@ -60,7 +60,7 @@ FortreeCity_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  05, 11, BGEVENT_READ, FortreeCitySign
+	bg_event  3,  9, BGEVENT_READ, FortreeCitySign
 	bg_event 21, 11, BGEVENT_READ, FortreeGymSign
 
 	def_object_events

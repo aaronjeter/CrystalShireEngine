@@ -81,5 +81,5 @@ SlateportCity_MapEvents:
 
 	def_object_events
 	object_event  25,  12, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SlateportSailorScript, -1
-	object_event  20,  34, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SlateportBugCatcherScript, -1
+	object_event 19, 36, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SlateportBugCatcherScript, -1
 	
