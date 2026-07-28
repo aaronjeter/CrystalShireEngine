@@ -153,6 +153,7 @@ PewterMuseum_MapEvents:
 	warp_event  11, 07, PEWTER_CITY, 6
 	warp_event  16, 07, PEWTER_CITY, 7
 	warp_event  17, 07, PEWTER_CITY, 7
+	warp_event  07, 07, PEWTER_MUSEUM_UPSTAIRS, 1
 
 	def_coord_events
 

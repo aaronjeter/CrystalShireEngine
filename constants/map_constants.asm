@@ -335,6 +335,7 @@ ENDM
 	map_const PEWTER_POKECENTER_1F,                        05, 04 ;  6
 	map_const PEWTER_SNOOZE_SPEECH_HOUSE,                  04, 04 ;  8
 	map_const PEWTER_MUSEUM,                               10, 04 ;	 9
+	map_const PEWTER_MUSEUM_UPSTAIRS,                      10, 04 ;	10
 	endgroup
 
 	newgroup FAST_SHIP                                            ; 15

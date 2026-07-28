@@ -575,6 +575,7 @@ ENDM
 	map_attributes PewterPokecenter1F, PEWTER_POKECENTER_1F, $00, 0
 	map_attributes PewterSnoozeSpeechHouse, PEWTER_SNOOZE_SPEECH_HOUSE, $00, 0
 	map_attributes PewterMuseum, PEWTER_MUSEUM, $00, 0
+	map_attributes PewterMuseumUpstairs, PEWTER_MUSEUM_UPSTAIRS, $00, 0
 	map_attributes OlivinePort, OLIVINE_PORT, $0a, 0
 	map_attributes VermilionPort, VERMILION_PORT, $0a, 0
 	map_attributes FastShip1F, FAST_SHIP_1F, $00, 0
