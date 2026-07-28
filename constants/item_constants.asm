@@ -45,12 +45,12 @@
 	const SUPER_REPEL  ; 0025
 	const MAX_REPEL    ; 0026
 	const DIRE_HIT     ; 0027
-	const ITEM_2D      ; 0028
+	const HELIX_FOSSIL ; 0028
 	const FRESH_WATER  ; 0029
 	const SODA_POP     ; 002A
 	const LEMONADE     ; 002B
 	const X_ATTACK     ; 002C
-	const ITEM_32      ; 002D
+	const DOME_FOSSIL  ; 002D
 	const X_DEFEND     ; 002E
 	const X_SPEED      ; 002F
 	const X_SPECIAL    ; 0030
@@ -79,7 +79,7 @@
 	const BIG_MUSHROOM ; 0047
 	const SILVERPOWDER ; 0048
 	const BLU_APRICORN ; 0049
-	const ITEM_5A      ; 004A
+	const OLD_AMBER    ; 004A
 	const AMULET_COIN  ; 004B
 	const YLW_APRICORN ; 004C
 	const GRN_APRICORN ; 004D
@@ -89,7 +89,7 @@
 	const WHT_APRICORN ; 0051
 	const BLACKBELT_I  ; 0052
 	const BLK_APRICORN ; 0053
-	const ITEM_64      ; 0054
+	const ROOT_FOSSIL  ; 0054
 	const PNK_APRICORN ; 0055
 	const BLACKGLASSES ; 0056
 	const SLOWPOKETAIL ; 0057
@@ -107,7 +107,7 @@
 	const MIRACLE_SEED ; 0063
 	const THICK_CLUB   ; 0064
 	const FOCUS_BAND   ; 0065
-	const ITEM_78      ; 0066
+	const CLAW_FOSSIL  ; 0066
 	const ENERGYPOWDER ; 0067
 	const ENERGY_ROOT  ; 0068
 	const HEAL_POWDER  ; 0069
@@ -116,8 +116,8 @@
 	const LUCKY_EGG    ; 006C
 	const STARDUST     ; 006D
 	const STAR_PIECE   ; 006E
-	const ITEM_87      ; 006F
-	const ITEM_88      ; 0070
+	const JAW_FOSSIL   ; 006F
+	const FIN_FOSSIL   ; 0070
 	const ZINC         ; 0071
 	const CHARCOAL     ; 0072
 	const BERRY_JUICE  ; 0073
@@ -126,7 +126,7 @@
 	const ICE_STONE    ; 0076
 	const METAL_COAT   ; 0077
 	const DRAGON_FANG  ; 0078
-	const ITEM_91      ; 0079
+	const FANG_FOSSIL  ; 0079
 	const LEFTOVERS    ; 007A
 	const KANTOITE_X   ; 007B
 	const KANTOITE_Y   ; 007C

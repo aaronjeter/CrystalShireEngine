@@ -39,12 +39,12 @@ ItemNames::
 	li "Super Repel"  ; 0025
 	li "Max Repel"    ; 0026
 	li "Dire Hit"     ; 0027
-	li "Teru-Sama"    ; 0028
+	li "Helix Fossil" ; 0028
 	li "Fresh Water"  ; 0029
 	li "Soda Pop"     ; 002A
 	li "Lemonade"     ; 002B
 	li "X Attack"     ; 002C
-	li "Teru-Sama"    ; 002D
+	li "Dome Fossil"  ; 002D
 	li "X Defend"     ; 002E
 	li "X Speed"      ; 002F
 	li "X Special"    ; 0030
@@ -73,7 +73,7 @@ ItemNames::
 	li "Big Mushroom" ; 0047
 	li "Silverpowder" ; 0048
 	li "Blu Apricorn" ; 0049
-	li "Teru-Sama"    ; 004A
+	li "Old Amber"    ; 004A
 	li "Amulet Coin"  ; 004B
 	li "Ylw Apricorn" ; 004C
 	li "Grn Apricorn" ; 004D
@@ -83,7 +83,7 @@ ItemNames::
 	li "Wht Apricorn" ; 0051
 	li "Blackbelt"    ; 0052
 	li "Blk Apricorn" ; 0053
-	li "Teru-Sama"    ; 0054
+	li "Root Fossil"  ; 0054
 	li "Pnk Apricorn" ; 0055
 	li "Blackglasses" ; 0056
 	li "Slowpoketail" ; 0057
@@ -101,7 +101,7 @@ ItemNames::
 	li "Miracle Seed" ; 0063
 	li "Thick Club"   ; 0064
 	li "Focus Band"   ; 0065
-	li "Teru-Sama"    ; 0066
+	li "Claw Fossil"  ; 0066
 	li "Energypowder" ; 0067
 	li "Energy Root"  ; 0068
 	li "Heal Powder"  ; 0069
@@ -110,8 +110,8 @@ ItemNames::
 	li "Lucky Egg"    ; 006C
 	li "Stardust"     ; 006D
 	li "Star Piece"   ; 006E
-	li "Teru-Sama"    ; 006F
-	li "Teru-Sama"    ; 0070
+	li "Jaw Fossil"   ; 006F
+	li "Fin Fossil"   ; 0070
 	li "Zinc"         ; 0071
 	li "Charcoal"     ; 0072
 	li "Berry Juice"  ; 0073
@@ -120,7 +120,7 @@ ItemNames::
 	li "Ice Stone"    ; 0075
 	li "Metal Coat"   ; 0077
 	li "Dragon Fang"  ; 0078
-	li "Teru-Sama"    ; 0079
+	li "Fang Fossil"  ; 0079
 	li "Leftovers"    ; 007A
 	li "Kantoite X"   ; 007B
 	li "Kantoite Y"   ; 007C
