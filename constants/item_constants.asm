@@ -116,7 +116,7 @@
 	const LUCKY_EGG    ; 006C
 	const STARDUST     ; 006D
 	const STAR_PIECE   ; 006E
-	const JAW_FOSSIL   ; 006F
+	const URSA_FOSSIL  ; 006F
 	const FIN_FOSSIL   ; 0070
 	const ZINC         ; 0071
 	const CHARCOAL     ; 0072

@@ -110,7 +110,7 @@ ItemNames::
 	li "Lucky Egg"    ; 006C
 	li "Stardust"     ; 006D
 	li "Star Piece"   ; 006E
-	li "Jaw Fossil"   ; 006F
+	li "Ursa Fossil"  ; 006F
 	li "Fin Fossil"   ; 0070
 	li "Zinc"         ; 0071
 	li "Charcoal"     ; 0072
