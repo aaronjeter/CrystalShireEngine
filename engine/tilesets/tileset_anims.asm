@@ -206,7 +206,7 @@ TilesetBattleTowerInsideAnim::
 TilesetRuinsOfAlphAnim::
 TilesetRadioTowerAnim::
 TilesetUndergroundAnim::
-TilesetBetaWordRoomAnim::
+TilesetMuseumAnim::
 TilesetHoOhWordRoomAnim::
 TilesetKabutoWordRoomAnim::
 TilesetOmanyteWordRoomAnim::
