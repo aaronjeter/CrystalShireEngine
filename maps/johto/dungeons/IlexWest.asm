@@ -3,6 +3,7 @@
 	const ILEXWEST_HYPNO
 	const ILEXWEST_COOLTRAINERF
 	const ILEXWEST_YOUNGSTER
+	const ILEXWEST_FANG_FOSSIL
 
 IlexWest_MapScripts:
 	def_scene_scripts
@@ -110,6 +111,9 @@ IlexWest_Hypno:
 	closetext
 	end
 
+IlexWestFangFossil:
+	itemball FANG_FOSSIL
+
 IlexWest_MapEvents:
 	db 0, 0 ; filler
 
@@ -126,4 +130,4 @@ IlexWest_MapEvents:
 	object_event 17, 36, SPRITE_HYPNO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexWest_Hypno, EVENT_DEFEATED_CELEBI_GUARDIAN_HYPNO
 	object_event 22, 33, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerFMarina, -1
 	object_event 39, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerYoungsterRonald, -1
-	
+	object_event 05, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexWestFangFossil, EVENT_GOT_FOSSIL_FANG_ILEX_WEST

@@ -8,6 +8,7 @@
 	const SLOWPOKEWELLB1F_KURT
 	const SLOWPOKEWELLB1F_BOULDER
 	const SLOWPOKEWELLB1F_POKE_BALL
+	const SLOWPOKEWELLB1F_DOME_FOSSIL
 
 SlowpokeWellB1F_MapScripts:
 	def_scene_scripts
@@ -318,6 +319,9 @@ SlowpokeWellB1FTaillessSlowpokeText:
 	line "its Tail cut off…"
 	done
 
+SlowpokeWellB1FDomeFossil:
+	itemball DOME_FOSSIL
+
 SlowpokeWellB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -339,3 +343,4 @@ SlowpokeWellB1F_MapEvents:
 	object_event 16, 14, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FKurtScript, EVENT_SLOWPOKE_WELL_KURT
 	object_event  3,  2, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FBoulder, -1
 	object_event 10,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB1FSuperPotion, EVENT_SLOWPOKE_WELL_B1F_SUPER_POTION
+	object_event 12, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB1FDomeFossil, EVENT_GOT_FOSSIL_DOME_SLOWPOKE_WELL

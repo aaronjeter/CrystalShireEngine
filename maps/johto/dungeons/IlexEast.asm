@@ -2,6 +2,7 @@
 	const ILEXEAST_MR_MIME
 	const ILEXEAST_VENOMOTH
 	const ILEXEAST_FORGE
+	const ILEXEAST_URSA_FOSSIL
 
 IlexEast_MapScripts:
 	def_scene_scripts
@@ -171,6 +172,9 @@ Djinn_ForgeText:
 	line "join your party?"
 	done
 
+IlexEastUrsaFossil:
+	itemball URSA_FOSSIL
+
 IlexEast_MapEvents:
 	db 0, 0 ; filler
 
@@ -187,3 +191,4 @@ IlexEast_MapEvents:
 	object_event 21,  4, SPRITE_MR__MIME, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, IlexEast_MrMime, EVENT_DEFEATED_CELEBI_GUARDIAN_MR_MIME
 	object_event 38, 10, SPRITE_VENOMOTH, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, IlexEast_Venomoth, EVENT_DEFEATED_CELEBI_GUARDIAN_VENOMOTH
 	object_event 30, 30, SPRITE_MARS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Djinn_ForgeScript, EVENT_GOT_FORGE
+	object_event 26, 21, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexEastUrsaFossil, EVENT_GOT_FOSSIL_URSA_ILEX_EAST

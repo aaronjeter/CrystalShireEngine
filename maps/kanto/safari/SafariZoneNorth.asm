@@ -7,6 +7,8 @@
 	const SAFARINORTH_TAUROS
 	const SAFARINORTH_RHYDON
 	const SAFARINORTH_MEW
+	const SAFARINORTH_OLD_AMBER
+	const SAFARINORTH_FANG_FOSSIL
 
 SafariZoneNorth_MapScripts:
 	def_scene_scripts
@@ -233,6 +235,12 @@ SafariZoneNorthMewMewText:
 	cont "party?"
 	done
 
+SafariZoneNorthOldAmber:
+	itemball OLD_AMBER
+
+SafariZoneNorthFangFossil:
+	itemball FANG_FOSSIL
+
 SafariZoneNorth_MapEvents:
 	db 0, 0 ; filler
 
@@ -264,3 +272,5 @@ SafariZoneNorth_MapEvents:
 	object_event  14, 09, SPRITE_TAUROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Tauros, -1
 	object_event  16, 44, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Rhydon, -1
 	object_event  35, 30, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariZoneNorthMew, EVENT_CAUGHT_SAFARI_MEW
+	object_event  46, 39, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneNorthOldAmber, EVENT_GOT_OLD_AMBER_SAFARI
+	object_event  06, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneNorthFangFossil, EVENT_GOT_FOSSIL_FANG_SAFARI

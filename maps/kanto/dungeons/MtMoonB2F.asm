@@ -7,6 +7,8 @@
 	const MTMOON_LUNATONE
 	const MTMOON_CLEFAIRY
 	const MTMOON_QUARTZ
+	const MTMOON_FOSSIL_HELIX
+	const MTMOON_FOSSIL_DOME
 
 MtMoonB2F_MapScripts:
 	def_scene_scripts
@@ -203,6 +205,12 @@ Djinn_QuartzText:
 	line "join your party?"
 	done
 
+MtMoonHelixFossil:
+	itemball HELIX_FOSSIL
+
+MtMoonDomeFossil:
+	itemball DOME_FOSSIL
+
 
 MtMoonB2F_MapEvents:
 	db 0, 0 ; filler
@@ -225,3 +233,6 @@ MtMoonB2F_MapEvents:
 	object_event  29, 08, SPRITE_LUNATONE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoonLunatone, -1
 	object_event  19, 30, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MoonClefairy, -1
 	object_event  28, 08, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Djinn_QuartzScript, EVENT_GOT_QUARTZ
+	object_event  33, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonDomeFossil, EVENT_GOT_FOSSIL_DOME_MTMOON
+	object_event  20, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonHelixFossil, EVENT_GOT_FOSSIL_HELIX_MTMOON
+	
