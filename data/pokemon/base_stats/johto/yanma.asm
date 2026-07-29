@@ -7,7 +7,7 @@
 	db BUG, DRAGON ; type
 	db 75 ; catch rate
 	db 147 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, OLD_AMBER ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/yanma/front.dimensions"

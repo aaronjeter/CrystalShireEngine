@@ -7,7 +7,7 @@
 	db NORMAL, NORMAL ; type
 	db 120 ; catch rate
 	db 124 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw BERRY, URSA_FOSSIL ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/teddiursa/front.dimensions"
