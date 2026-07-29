@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
-
-	db  60, 115, 105,  80,  65,  70
+	;bst 535
+	db  80, 115, 115,  80,  65,  80
 	evs  0,   2,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db ROCK, ICE ; type
+	db ROCK, WATER ; type
 	db 45 ; catch rate
 	db 201 ; base exp
 	dw NO_ITEM, NO_ITEM ; items
