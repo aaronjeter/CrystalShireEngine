@@ -668,29 +668,29 @@ def_grass_wildmons LAVARIDGE_DESERT
 def_grass_wildmons DESERT_RUIN_B1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, LILEEP
+	dbw 1, SANDSHREW
 	dbw 1, TRAPINCH
-	dbw 1, ANORITH
-	dbw 1, BALTOY
-	dbw 1, AERODACTYL
-	dbw 2, AERODACTYL
-	dbw 7, AERODACTYL
+	dbw 1, NATU
+	dbw 2, BALTOY
+	dbw 3, SANDSLASH
+	dbw 5, SANDSLASH
+	dbw 7, CLAYDOL
 	; day
-	dbw 1, LILEEP
+	dbw 1, SANDSHREW
 	dbw 1, TRAPINCH
-	dbw 1, ANORITH
-	dbw 1, BALTOY
-	dbw 1, AERODACTYL
-	dbw 2, AERODACTYL
-	dbw 7, AERODACTYL
+	dbw 1, NATU
+	dbw 2, BALTOY
+	dbw 3, SANDSLASH
+	dbw 5, SANDSLASH
+	dbw 7, CLAYDOL
 	; nite
-	dbw 1, LILEEP
+	dbw 1, SANDSHREW
 	dbw 1, TRAPINCH
-	dbw 1, ANORITH
-	dbw 1, BALTOY
-	dbw 1, AERODACTYL
-	dbw 2, AERODACTYL
-	dbw 7, AERODACTYL
+	dbw 1, NATU
+	dbw 2, BALTOY
+	dbw 3, SANDSLASH
+	dbw 5, SANDSLASH
+	dbw 7, CLAYDOL
 	end_grass_wildmons
 
 def_grass_wildmons FIERY_PATH

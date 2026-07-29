@@ -453,24 +453,24 @@ JohtoGrassWildMons:
 	def_grass_wildmons UNION_CAVE_B1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, CUBONE
+	dbw 1, NATU
 	dbw 1, SEEL
 	dbw 1, ONIX
 	dbw 1, SMOOCHUM
 	dbw 2, SMOOCHUM
 	dbw 3, SMOOCHUM
 	; day
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, CUBONE
+	dbw 1, NATU
 	dbw 1, SEEL
 	dbw 1, ONIX
 	dbw 1, SMOOCHUM
 	dbw 2, SMOOCHUM
 	dbw 3, SMOOCHUM
 	; nite
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, CUBONE
+	dbw 1, NATU
 	dbw 1, SEEL
 	dbw 1, ONIX
 	dbw 1, SMOOCHUM
@@ -481,29 +481,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons UNION_CAVE_B2F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, CUBONE
+	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, ONIX
 	dbw 1, SMOOCHUM
-	dbw 2, AERODACTYL
-	dbw 3, AERODACTYL
+	dbw 2, MAROWAK
+	dbw 5, MAROWAK
 	; day
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, CUBONE
+	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, ONIX
 	dbw 1, SMOOCHUM
-	dbw 2, AERODACTYL
-	dbw 3, AERODACTYL
+	dbw 2, MAROWAK
+	dbw 5, MAROWAK
 	; nite
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, CUBONE
+	dbw 1, ZUBAT
 	dbw 1, SEEL
 	dbw 1, ONIX
 	dbw 1, SMOOCHUM
-	dbw 2, AERODACTYL
-	dbw 3, AERODACTYL
+	dbw 2, AMAROWAK
+	dbw 5, AMAROWAK
 	end_grass_wildmons
 
 	def_grass_wildmons SLOWPOKE_WELL_B1F
@@ -538,24 +538,24 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, SLOWPOKE
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, MURKROW
+	dbw 1, MURKROW
 	dbw 1, ZUBAT
 	dbw 1, PSYDUCK
 	dbw 5, SLOWBRO
 	dbw 5, SLOWKING
 	; day
 	dbw 1, SLOWPOKE
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, MURKROW
+	dbw 1, MURKROW
 	dbw 1, ZUBAT
 	dbw 1, PSYDUCK
 	dbw 5, SLOWBRO
 	dbw 5, SLOWKING
 	; nite
 	dbw 1, SLOWPOKE
-	dbw 1, OMANYTE
-	dbw 1, KABUTO
+	dbw 1, MURKROW
+	dbw 1, MURKROW
 	dbw 1, ZUBAT
 	dbw 1, PSYDUCK
 	dbw 5, SLOWBRO
@@ -566,7 +566,7 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, CHIKORITA
-	dbw 1, KOTORA
+	dbw 1, BELLSPROUT
 	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, ROWLET
@@ -574,7 +574,7 @@ JohtoGrassWildMons:
 	dbw 7, HANAMOLE
 	; day
 	dbw 1, CHIKORITA
-	dbw 1, KOTORA
+	dbw 1, BELLSPROUT
 	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, ROWLET
@@ -582,7 +582,7 @@ JohtoGrassWildMons:
 	dbw 7, HANAMOLE
 	; nite
 	dbw 1, CHIKORITA
-	dbw 1, KOTORA
+	dbw 1, BELLSPROUT
 	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, ROWLET
@@ -622,7 +622,7 @@ JohtoGrassWildMons:
 	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, CHIKORITA
-	dbw 1, KOTORA
+	dbw 1, BELLSPROUT
 	dbw 1, ODDISH
 	dbw 1, DUSKULL
 	dbw 1, ROWLET
@@ -630,7 +630,7 @@ JohtoGrassWildMons:
 	dbw 7, HANAMOLE
 	; day
 	dbw 1, CHIKORITA
-	dbw 1, KOTORA
+	dbw 1, BELLSPROUT
 	dbw 1, ODDISH
 	dbw 1, DUSKULL
 	dbw 1, ROWLET
