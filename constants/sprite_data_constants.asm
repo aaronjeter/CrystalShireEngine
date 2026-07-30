@@ -41,6 +41,7 @@ ENDM
 	ow_npc_pal_const DECO_ITEM         ; 0e (blue)
 	ow_npc_pal_const KEY_ITEM          ; 0f (green)
 	ow_npc_pal_const TREE              ; 10
+	ow_npc_pal_const TEST				
 DEF NUM_OW_TIME_OF_DAY_PALS EQU const_value
 	ow_npc_pal_const EMOTE_GRAY        ; 11
 	ow_npc_pal_const EMOTE_BLACK       ; 12

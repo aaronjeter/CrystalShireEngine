@@ -35,9 +35,9 @@ SpawnPlayer:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .ok
-	assert PAL_NPC_RED + 1 == PAL_NPC_BLUE
-	inc d
-
+	;assert PAL_NPC_RED + 1 == PAL_NPC_BLUE
+	;inc d
+	ld d, PAL_NPC_TEST
 .ok
 	ld [hl], d
 	ld hl, MAPOBJECT_TYPE

@@ -724,10 +724,10 @@ SpriteAnimOAMData:
 
 .OAMData_BlueWalk:
 	db 4
-	dbsprite -1, -1,  0,  0, $00, PAL_OW_BLUE
-	dbsprite  0, -1,  0,  0, $01, PAL_OW_BLUE
-	dbsprite -1,  0,  0,  0, $02, PAL_OW_BLUE
-	dbsprite  0,  0,  0,  0, $03, PAL_OW_BLUE
+	dbsprite -1, -1,  0,  0, $00, PAL_OW_TEST
+	dbsprite  0, -1,  0,  0, $01, PAL_OW_TEST
+	dbsprite -1,  0,  0,  0, $02, PAL_OW_TEST
+	dbsprite  0,  0,  0,  0, $03, PAL_OW_TEST
 
 .OAMData_MobileTradeCableBulge:
 	db 1

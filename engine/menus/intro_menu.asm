@@ -1059,7 +1059,7 @@ Intro_PlacePlayerSprite:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .male
-	ld b, PAL_OW_BLUE
+	ld b, PAL_OW_TEST
 .male
 	ld a, b
 	ld [wNeededPalIndex], a
