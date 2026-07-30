@@ -614,7 +614,7 @@ def_grass_wildmons NEW_MAUVILLE
 	; morn
 	dbw 1, MAGNEMITE
 	dbw 1, VOLTORB
-	dbw 1, HVOLTORB
+	dbw 3, VOLTORB
 	dbw 1, VOLTORB2
 	dbw 1, PIKACHU
 	dbw 2, MAGNETON
@@ -622,7 +622,7 @@ def_grass_wildmons NEW_MAUVILLE
 	; day
 	dbw 1, MAGNEMITE
 	dbw 1, VOLTORB
-	dbw 1, HVOLTORB
+	dbw 3, VOLTORB
 	dbw 1, VOLTORB2
 	dbw 1, PIKACHU
 	dbw 2, MAGNETON
@@ -630,7 +630,7 @@ def_grass_wildmons NEW_MAUVILLE
 	; nite
 	dbw 1, MAGNEMITE
 	dbw 1, VOLTORB
-	dbw 1, HVOLTORB
+	dbw 3, VOLTORB
 	dbw 1, VOLTORB2
 	dbw 1, PIKACHU
 	dbw 2, MAGNETON

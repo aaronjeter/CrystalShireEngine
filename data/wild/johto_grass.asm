@@ -566,7 +566,7 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, CHIKORITA
-	dbw 1, BELLSPROUT
+	dbw 1, HVOLTORB
 	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, ROWLET
@@ -574,7 +574,7 @@ JohtoGrassWildMons:
 	dbw 7, HANAMOLE
 	; day
 	dbw 1, CHIKORITA
-	dbw 1, BELLSPROUT
+	dbw 1, HVOLTORB
 	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, ROWLET
@@ -582,7 +582,7 @@ JohtoGrassWildMons:
 	dbw 7, HANAMOLE
 	; nite
 	dbw 1, CHIKORITA
-	dbw 1, BELLSPROUT
+	dbw 1, HVOLTORB
 	dbw 1, ODDISH
 	dbw 1, VENONAT
 	dbw 1, ROWLET
@@ -596,7 +596,7 @@ JohtoGrassWildMons:
 	dbw 1, CHIKORITA
 	dbw 1, SHUPPET
 	dbw 1, ODDISH
-	dbw 1, WURMPLE
+	dbw 1, HVOLTORB
 	dbw 1, ROWLET
 	dbw 2, ZANGOOSE
 	dbw 7, HANAMOLE
@@ -604,7 +604,7 @@ JohtoGrassWildMons:
 	dbw 1, CHIKORITA
 	dbw 1, SHUPPET
 	dbw 1, ODDISH
-	dbw 1, WURMPLE
+	dbw 1, HVOLTORB
 	dbw 1, ROWLET
 	dbw 2, ZANGOOSE
 	dbw 7, HANAMOLE
@@ -622,7 +622,7 @@ JohtoGrassWildMons:
 	db 1 percent, 1 percent, 1 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, CHIKORITA
-	dbw 1, BELLSPROUT
+	dbw 1, HVOLTORB
 	dbw 1, ODDISH
 	dbw 1, DUSKULL
 	dbw 1, ROWLET
@@ -630,7 +630,7 @@ JohtoGrassWildMons:
 	dbw 7, HANAMOLE
 	; day
 	dbw 1, CHIKORITA
-	dbw 1, BELLSPROUT
+	dbw 1, HVOLTORB
 	dbw 1, ODDISH
 	dbw 1, DUSKULL
 	dbw 1, ROWLET
