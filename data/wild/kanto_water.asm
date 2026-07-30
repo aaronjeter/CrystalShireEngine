@@ -4,9 +4,9 @@ KantoWaterWildMons:
 
 	def_water_wildmons TOHJO_FALLS
 	db 2 percent ; encounter rate
-	dbw 1, KURUSU
-	dbw 4, AKUA
-	dbw 7, AKUERIA
+	dbw 1, SQUIRTLE
+	dbw 4, WARTORTLE
+	dbw 7, BLASTOISE
 	end_water_wildmons
 
 	def_water_wildmons VERMILION_PORT

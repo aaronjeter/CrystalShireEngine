@@ -1298,3 +1298,13 @@ SECTION "Map Blocks Battle Resort", ROMX
 	INCBIN "maps/hoenn/battle/WCFinals.ablk"
 
 ENDSECTION
+
+SECTION "Map Museums", ROMX
+
+	PewterMuseum_Blocks:
+	INCBIN "maps/kanto/pewter/PewterMuseum.ablk"
+
+	PewterMuseumUpstairs_Blocks:
+	INCBIN "maps/kanto/pewter/PewterMuseumUpstairs.ablk"
+
+ENDSECTION

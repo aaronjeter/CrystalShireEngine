@@ -48,12 +48,12 @@ ItemDescriptions1:
 	dw SuperRepelDesc   ; 0025
 	dw MaxRepelDesc     ; 0026
 	dw DireHitDesc      ; 0027
-	dw QuestionMarkDesc ; 0028
+	dw HelixFossilDesc  ; 0028
 	dw FreshWaterDesc   ; 0029
 	dw SodaPopDesc      ; 002A
 	dw LemonadeDesc     ; 002B
 	dw XAttackDesc      ; 002C
-	dw QuestionMarkDesc ; 002D
+	dw DomeFossilDesc   ; 002D
 	dw XDefendDesc      ; 002E
 	dw XSpeedDesc       ; 002F
 	dw XSpecialDesc     ; 0030
@@ -82,7 +82,7 @@ ItemDescriptions1:
 	dw BigMushroomDesc  ; 0047
 	dw SilverPowderDesc ; 0048
 	dw BluApricornDesc  ; 0049
-	dw QuestionMarkDesc ; 004A
+	dw OldAmberDesc     ; 004A
 	dw AmuletCoinDesc   ; 004B
 	dw YlwApricornDesc  ; 004C
 	dw GrnApricornDesc  ; 004D
@@ -92,7 +92,7 @@ ItemDescriptions1:
 	dw WhtApricornDesc  ; 0051
 	dw BlackbeltDesc    ; 0052
 	dw BlkApricornDesc  ; 0053
-	dw QuestionMarkDesc ; 0054
+	dw RootFossilDesc   ; 0054
 	dw PnkApricornDesc  ; 0055
 	dw BlackGlassesDesc ; 0056
 	dw SlowpokeTailDesc ; 0057
@@ -110,7 +110,7 @@ ItemDescriptions1:
 	dw MiracleSeedDesc  ; 0063
 	dw ThickClubDesc    ; 0064
 	dw FocusBandDesc    ; 0065
-	dw QuestionMarkDesc ; 0066
+	dw ClawFossilDesc   ; 0066
 	dw EnergyPowderDesc ; 0067
 	dw EnergyRootDesc   ; 0068
 	dw HealPowderDesc   ; 0069
@@ -119,8 +119,8 @@ ItemDescriptions1:
 	dw LuckyEggDesc     ; 006C
 	dw StardustDesc     ; 006D
 	dw StarPieceDesc    ; 006E
-	dw QuestionMarkDesc ; 006F
-	dw QuestionMarkDesc ; 0070
+	dw UrsaFossilDesc   ; 006F
+	dw FinFossilDesc    ; 0070
 	dw ZincDesc         ; 0071
 	dw CharcoalDesc     ; 0072
 	dw BerryJuiceDesc   ; 0073
@@ -129,7 +129,7 @@ ItemDescriptions1:
 	dw IceStoneDesc     ; 0076
 	dw MetalCoatDesc    ; 0077
 	dw DragonFangDesc   ; 0078
-	dw QuestionMarkDesc ; 0079
+	dw FangFossilDesc   ; 0079
 	dw LeftoversDesc    ; 007A
 	dw KantoiteXDesc    ; 007B
 	dw KantoiteYDesc    ; 007C
@@ -943,3 +943,35 @@ WardberryDesc:
 MarvelScaleDesc:
 	db   "A very shiny"
 	next "scale (Rare).@"
+
+HelixFossilDesc:
+	db   "A fossilized"
+	next "Helix (Rare).@"
+
+DomeFossilDesc:
+	db   "A fossilized"
+	next "Dome (Rare).@"
+
+OldAmberDesc:
+	db   "A fossilized"
+	next "Resin (Rare).@"
+
+RootFossilDesc:
+	db   "A fossilized"
+	next "Root (Rare).@"
+
+ClawFossilDesc:
+	db   "A fossilized"
+	next "Claw (Rare).@"
+
+UrsaFossilDesc:
+	db   "A fossilized"
+	next "Jawbone (Rare).@"
+
+FinFossilDesc:
+	db   "A fossilized"
+	next "Fin (Rare).@"
+
+FangFossilDesc:
+	db   "A fossilized"
+	next "Fang (Rare).@"

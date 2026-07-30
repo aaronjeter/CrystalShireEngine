@@ -4,30 +4,30 @@ JohtoWaterWildMons:
 
 	def_water_wildmons RUINS_OF_ALPH_OUTSIDE
 	db 2 percent ; encounter rate
-	dbw 2, KABUTO
+	dbw 2, WOOPER
 	dbw 2, TOTODILE
-	dbw 2, OMANYTE
+	dbw 7, QUAGSIRE
 	end_water_wildmons
 
 	def_water_wildmons UNION_CAVE_1F
 	db 2 percent ; encounter rate
-	dbw 2, KABUTO
+	dbw 2, WOOPER
 	dbw 2, TOTODILE2
-	dbw 2, OMANYTE
+	dbw 7, QUAGSIRE
 	end_water_wildmons
 
 	def_water_wildmons UNION_CAVE_B1F
 	db 2 percent ; encounter rate
-	dbw 2, KABUTO
+	dbw 2, WOOPER
 	dbw 2, TOTODILE2
-	dbw 2, OMANYTE
+	dbw 7, QUAGSIRE
 	end_water_wildmons
 
 	def_water_wildmons UNION_CAVE_B2F
 	db 2 percent ; encounter rate
-	dbw 2, KABUTO
+	dbw 2, WOOPER
 	dbw 2, TOTODILE2
-	dbw 2, OMANYTE
+	dbw 7, QUAGSIRE
 	end_water_wildmons
 
 	def_water_wildmons SLOWPOKE_WELL_B1F

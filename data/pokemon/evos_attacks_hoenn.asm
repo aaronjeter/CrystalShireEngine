@@ -2082,11 +2082,11 @@ LileepEvosAttacks:
 	dbw 1, WRAP
 	dbw 5, ROCK_THROW
 	dbw 10, LEECH_SEED
-	dbw 12, CONFUSE_RAY
+	dbw 12, POISONPOWDER
 	dbw 16, ACID
 	dbw 20, MAGICAL_LEAF
 	dbw 24, ANCIENTPOWER
-	dbw 28, SLUDGE
+	dbw 28, VENOSHOCK
 	dbw 32, CURSE
 	dbw 36, GIGA_DRAIN
 	dbw 40, POWER_GEM
@@ -2103,11 +2103,11 @@ CradilyEvosAttacks:
 	dbw 1, WRAP
 	dbw 5, ROCK_THROW
 	dbw 10, LEECH_SEED
-	dbw 12, CONFUSE_RAY
+	dbw 12, POISONPOWDER
 	dbw 16, ACID
 	dbw 20, MAGICAL_LEAF
 	dbw 24, ANCIENTPOWER
-	dbw 28, SLUDGE
+	dbw 28, VENOSHOCK
 	dbw 32, CURSE
 	dbw 36, GIGA_DRAIN
 	dbw 40, POWER_GEM

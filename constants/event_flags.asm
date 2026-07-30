@@ -687,30 +687,30 @@
 	const EVENT_GOT_SQUALL
 	const EVENT_GOT_WISP	;Celadon Mansion Roof
 	const EVENT_GOT_LULL
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const_skip ; unused		;unused Djinn #1
+	const_skip ; unused		;unused Djinn #2
+	const_skip ; unused		;unused Djinn #3
+	const_skip ; unused		;unused Djinn #4
+	const_skip ; unused		;unused Djinn #5
+	const_skip ; unused		;unused Djinn #6
+	const_skip ; unused		;unused Djinn #7
+	const_skip ; unused		;unused Djinn #8
+	const EVENT_GOT_FOSSIL_HELIX_MTMOON
+	const EVENT_GOT_FOSSIL_HELIX_WHIRL_ISLAND
+	const EVENT_GOT_FOSSIL_DOME_MTMOON
+	const EVENT_GOT_FOSSIL_DOME_SLOWPOKE_WELL
+	const EVENT_GOT_OLD_AMBER_ROCK_TUNNEL
+	const EVENT_GOT_OLD_AMBER_SAFARI
+	const EVENT_GOT_FOSSIL_ROOT1
+	const EVENT_GOT_FOSSIL_ROOT2
+	const EVENT_GOT_FOSSIL_CLAW1
+	const EVENT_GOT_FOSSIL_CLAW2
+	const EVENT_GOT_FOSSIL_URSA_ILEX_EAST
+	const EVENT_GOT_FOSSIL_URSA_RUSTBORO ;not yet used
+	const EVENT_GOT_FOSSIL_FIN_PEWTER_MUSEUM
+	const EVENT_GOT_FOSSIL_FIN_UNION_CAVE
+	const EVENT_GOT_FOSSIL_FANG_SAFARI
+	const EVENT_GOT_FOSSIL_FANG_ILEX_WEST
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

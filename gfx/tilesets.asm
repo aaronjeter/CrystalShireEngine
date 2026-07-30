@@ -466,21 +466,10 @@ INCBIN "data/tilesets/battle_tower_outside_metatiles.bin.lz"
 TilesetBattleTowerOutsideColl::
 INCLUDE "data/tilesets/battle_tower_outside_collision.asm"
 
-TilesetBetaWordRoomMeta::
-INCBIN "data/tilesets/beta_word_room_metatiles.bin.lz"
-
-TilesetBetaWordRoomColl::
-TilesetHoOhWordRoomColl::
-TilesetKabutoWordRoomColl::
-TilesetOmanyteWordRoomColl::
-TilesetAerodactylWordRoomColl::
-INCLUDE "data/tilesets/beta_word_room_collision.asm"
-
 
 SECTION "Tileset Data 7", ROMX
 
 TilesetRuinsOfAlphvTiles2GFX::
-TilesetBetaWordRoomvTiles2GFX::
 TilesetHoOhWordRoomvTiles2GFX::
 TilesetKabutoWordRoomvTiles2GFX::
 TilesetOmanyteWordRoomvTiles2GFX::
@@ -488,7 +477,6 @@ TilesetAerodactylWordRoomvTiles2GFX::
 INCBIN "gfx/tilesets/ruins_of_alph.2bpp.vtiles2.lz"
 
 TilesetRuinsOfAlphvTiles5GFX::
-TilesetBetaWordRoomvTiles5GFX::
 TilesetHoOhWordRoomvTiles5GFX::
 TilesetKabutoWordRoomvTiles5GFX::
 TilesetOmanyteWordRoomvTiles5GFX::
@@ -496,7 +484,6 @@ TilesetAerodactylWordRoomvTiles5GFX::
 INCBIN "gfx/tilesets/ruins_of_alph.2bpp.vtiles5.lz"
 
 TilesetRuinsOfAlphvTiles4GFX::
-TilesetBetaWordRoomvTiles4GFX::
 TilesetHoOhWordRoomvTiles4GFX::
 TilesetKabutoWordRoomvTiles4GFX::
 TilesetOmanyteWordRoomvTiles4GFX::
@@ -627,9 +614,6 @@ INCBIN "data/tilesets/forest_attributes.bin.lz"
 
 SECTION "Tileset Data 11.1", ROMX
 
-TilesetBetaWordRoomAttr::
-INCBIN "data/tilesets/beta_word_room_attributes.bin.lz"
-
 TilesetHoOhWordRoomAttr::
 INCBIN "data/tilesets/ho_oh_word_room_attributes.bin.lz"
 
@@ -641,7 +625,6 @@ INCBIN "data/tilesets/omanyte_word_room_attributes.bin.lz"
 
 TilesetAerodactylWordRoomAttr::
 INCBIN "data/tilesets/aerodactyl_word_room_attributes.bin.lz"
-
 
 
 SECTION "Tileset Data 12", ROMX
@@ -663,3 +646,28 @@ INCLUDE "data/tilesets/hoenn_collision.asm"
 
 TilesetHoennAttr::
 INCBIN "data/tilesets/hoenn_attributes.bin.lz"
+
+
+SECTION "Tileset Data Museum", ROMX
+
+TilesetMuseumvTiles2GFX::
+INCBIN "gfx/tilesets/museum.2bpp.vtiles2.lz"
+
+TilesetMuseumvTiles4GFX::
+INCBIN "gfx/tilesets/museum.2bpp.vtiles4.lz"
+
+TilesetMuseumvTiles5GFX::
+INCBIN "gfx/tilesets/museum.2bpp.vtiles5.lz"
+
+TilesetMuseumMeta::
+INCBIN "data/tilesets/museum_metatiles.bin.lz"
+
+TilesetMuseumColl::
+TilesetHoOhWordRoomColl::
+TilesetKabutoWordRoomColl::
+TilesetOmanyteWordRoomColl::
+TilesetAerodactylWordRoomColl::
+INCLUDE "data/tilesets/museum_collision.asm"
+
+TilesetMuseumAttr::
+INCBIN "data/tilesets/museum_attributes.bin.lz"

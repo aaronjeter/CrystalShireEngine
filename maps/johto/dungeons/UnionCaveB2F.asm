@@ -5,6 +5,7 @@
 	const UNIONCAVEB2F_POKE_BALL1
 	const UNIONCAVEB2F_POKE_BALL2
 	const UNIONCAVEB2F_LAPRAS
+	const UNIONCAVEB2F_FIN_FOSSIL
 
 UnionCaveB2F_MapScripts:
 	def_scene_scripts
@@ -15,8 +16,7 @@ UnionCaveB2F_MapScripts:
 UnionCaveB2FLaprasCallback:
 	checkflag ENGINE_UNION_CAVE_LAPRAS
 	iftrue .NoAppear
-	readvar VAR_WEEKDAY
-	ifequal FRIDAY, .Appear
+	sjump .Appear
 .NoAppear:
 	disappear UNIONCAVEB2F_LAPRAS
 	endcallback
@@ -139,6 +139,9 @@ CooltrainerfEmmaAfterBattleText:
 	line "that #mon…"
 	done
 
+UnionCaveB2FFinFossil:
+	itemball FIN_FOSSIL
+
 UnionCaveB2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -156,3 +159,4 @@ UnionCaveB2F_MapEvents:
 	object_event 16,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCaveB2FElixer, EVENT_UNION_CAVE_B2F_ELIXER
 	object_event 12, 19, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCaveB2FHyperPotion, EVENT_UNION_CAVE_B2F_HYPER_POTION
 	object_event 11, 31, SPRITE_SURF, SPRITEMOVEDATA_SWIM_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, UnionCaveLapras, EVENT_UNION_CAVE_B2F_LAPRAS
+	object_event 17, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCaveB2FFinFossil, EVENT_GOT_FOSSIL_FIN_UNION_CAVE

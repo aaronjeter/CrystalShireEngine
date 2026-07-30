@@ -3085,20 +3085,20 @@ OmastarEvosAttacks:
 KabutoEvosAttacks:
 	dbbw EVOLVE_LEVEL, 32, KABUTOPS
 	db 0 ; no more evolutions
-	dbw 1, POWDER_SNOW
+	dbw 1, BUBBLE
 	dbw 1, HARDEN
 	dbw 5, ROCK_THROW
 	dbw 10, ABSORB
 	dbw 12, LEER
 	dbw 16, SAND_ATTACK
 	dbw 20, ANCIENTPOWER
-	dbw 24, ICICLE_SPEAR
+	dbw 24, BUBBLEBEAM
 	dbw 28, ROCK_TOMB
 	dbw 32, AQUA_JET
 	dbw 36, SANDSTORM
 	dbw 40, SLASH
 	dbw 45, ROCK_SLIDE
-	dbw 50, ICICLE_CRASH
+	dbw 50, WATERFALL
 	dbw 55, SWORDS_DANCE
 	dbw 60, GIGA_DRAIN
 	dbw 65, BLIZZARD
@@ -3107,20 +3107,20 @@ KabutoEvosAttacks:
 
 KabutopsEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, POWDER_SNOW
+	dbw 1, BUBBLE
 	dbw 1, HARDEN
 	dbw 5, ROCK_THROW
 	dbw 10, ABSORB
 	dbw 12, LEER
 	dbw 16, SAND_ATTACK
 	dbw 20, ANCIENTPOWER
-	dbw 24, ICICLE_SPEAR
+	dbw 24, BUBBLEBEAM
 	dbw 28, ROCK_TOMB
 	dbw 32, AQUA_JET
 	dbw 36, SANDSTORM
 	dbw 40, SLASH
 	dbw 45, ROCK_SLIDE
-	dbw 50, ICICLE_CRASH
+	dbw 50, WATERFALL
 	dbw 55, SWORDS_DANCE
 	dbw 60, GIGA_DRAIN
 	dbw 65, BLIZZARD

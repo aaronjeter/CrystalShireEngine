@@ -420,6 +420,9 @@ INCLUDE "maps/kanto/pewter/PewterGym.asm"
 INCLUDE "maps/kanto/pewter/PewterMart.asm"
 INCLUDE "maps/kanto/pewter/PewterPokecenter1F.asm"
 INCLUDE "maps/kanto/pewter/PewterSnoozeSpeechHouse.asm"
+INCLUDE "maps/kanto/pewter/PewterMuseum.asm"
+INCLUDE "maps/kanto/pewter/PewterMuseumUpstairs.asm"
+
 
 
 SECTION "Map Scripts 22", ROMX

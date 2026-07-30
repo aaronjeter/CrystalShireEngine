@@ -7,7 +7,7 @@
 	db WATER, DARK ; type
 	db 60 ; catch rate
 	db 175 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw WATER_STONE, FANG_FOSSIL ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/sharpedo/front.dimensions"

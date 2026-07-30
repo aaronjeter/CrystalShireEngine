@@ -46,7 +46,7 @@ SpawnPoints:
 	spawn DEWFORD_TOWN,               07, 32
 	spawn SLATEPORT_CITY,             19, 22
 	spawn MAUVILLE_CITY,              23, 06
-	spawn VERDANTURF_TOWN,            17, 06
+	spawn VERDANTURF_TOWN,            13, 08
 	spawn LAVARIDGE_TOWN,             11, 08
 	spawn FALLARBOR_TOWN,             13, 10
 	spawn FORTREE_CITY,               05, 08

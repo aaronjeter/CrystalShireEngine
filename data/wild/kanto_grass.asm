@@ -931,7 +931,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, WEEDLE
 	dbw 1, CATERPIE
-	dbw 1, HONOBEA
+	dbw 1, PIDGEY
 	dbw 1, BULBASAUR
 	dbw 1, PIKACHU
 	dbw 3, SPEAROW
@@ -939,7 +939,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, WEEDLE
 	dbw 1, CATERPIE
-	dbw 1, HONOBEA
+	dbw 1, PIDGEY
 	dbw 1, BULBASAUR
 	dbw 1, PIKACHU
 	dbw 3, SPEAROW
@@ -947,7 +947,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, WEEDLE
 	dbw 1, CATERPIE
-	dbw 1, HONOBEA
+	dbw 1, PIDGEY
 	dbw 1, BULBASAUR
 	dbw 1, PIKACHU
 	dbw 3, MURKROW

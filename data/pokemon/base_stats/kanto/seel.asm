@@ -7,7 +7,7 @@
 	db WATER, WATER ; type
 	db 190 ; catch rate
 	db 100 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, FIN_FOSSIL ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/seel/front.dimensions"
