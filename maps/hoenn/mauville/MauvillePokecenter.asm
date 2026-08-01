@@ -18,19 +18,18 @@ MauvillePokecenterGrannyScript:
 	jumptextfaceplayer MauvillePokecenterGrannyText
 
 MauvillePokecenterGrannyText:
-	text "There used to"
-	line "be a huge"
+	text "There used to be a"
+	line "huge project south"
+	cont "of town called"
+	cont "New Mauville."
 
-	para "project south"
-	line "of town called"
-	cont "New Mauville"
-
-	para "I used to swim"
-	line "out there on"
-	cont "hot dates..."
+	para "I used to swim out"
+	line "there on hot"
+	cont "dates..."
 
 	para "Now it's just"
-	line "full of thugs."
+	line "full of Rocket"
+	cont "thugs."
 	done
 
 MauvillePokecenter_MapEvents:

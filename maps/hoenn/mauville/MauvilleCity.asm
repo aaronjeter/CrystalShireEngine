@@ -207,11 +207,9 @@ MauvilleRocketBlockerScript:
 
 
 MauvilleRocketBlockerText:
-	text "Sorry, no one"
-	line "gets through"
-
-	para "until the boss"
-	line "Rocket is ready."
+	text "Sorry, no one gets"
+	line "through till Boss"
+	cont "Rocket is ready."
 	done
 
 MauvilleRocketBikerScript:
