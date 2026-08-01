@@ -779,3 +779,11 @@ INCLUDE "maps/hoenn/battle/WCFinals.asm"
 
 
 ENDSECTION
+
+
+SECTION "Map Devon", ROMX
+
+INCLUDE "maps/hoenn/rustboro/RustboroDevonLab.asm"
+INCLUDE "maps/hoenn/rustboro/RustboroDevonLabUpstairs.asm"
+
+ENDSECTION

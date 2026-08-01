@@ -45,10 +45,11 @@ RustboroDevonSign:
 	jumptext RustboroDevonSignText
 
 RustboroDevonSignText:
-	text "Devon HQ"
+	text "Devon Institute of"
+	line "Genetic Science."
 
-	para "The heart of"
-	line "Progress"
+	para "Our business is"
+	line "life itself!"
 	done
 
 RustboroFisherScript:
@@ -138,6 +139,8 @@ RustboroCity_MapEvents:
 	warp_event  13, 43, RUSTBORO_MART, 2
 	warp_event  07, 35, RUSTBORO_CUTTER_HOUSE, 2
 	warp_event  29, 49, RUSTBORO_TRADE_HOUSE, 2
+	warp_event  08, 15, RUSTBORO_DEVON_LAB, 1
+	warp_event  09, 15, RUSTBORO_DEVON_LAB, 2
 
 	def_coord_events
 
@@ -145,7 +148,7 @@ RustboroCity_MapEvents:
 	bg_event  16, 46, BGEVENT_READ, RustboroCitySign
 	bg_event  10, 34, BGEVENT_READ, RustboroCutterHouseSign
 	bg_event  27, 15, BGEVENT_READ, RustboroGymSign
-	bg_event 12, 18, BGEVENT_READ, RustboroDevonSign
+	bg_event  12, 18, BGEVENT_READ, RustboroDevonSign
 
 	def_object_events
 	object_event  16,  09, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RustboroFisherScript, -1

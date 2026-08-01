@@ -146,7 +146,7 @@
 	tilecoll WALL, WALL, WALL, DOOR ; 91
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 92
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 93
-	tilecoll 01, 01, 01, 01 ; 94
+	tilecoll WALL, WALL, DOOR, DOOR ; 94
 	tilecoll 01, 01, 01, 01 ; 95
 	tilecoll 01, 01, 01, 01 ; 96
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 97

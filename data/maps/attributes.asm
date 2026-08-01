@@ -756,6 +756,9 @@ ENDM
 
 	map_attributes RustboroCutterHouse, RUSTBORO_CUTTER_HOUSE, $00, 0
 	map_attributes RustboroTradeHouse, RUSTBORO_TRADE_HOUSE, $00, 0
+	map_attributes RustboroDevonLab, RUSTBORO_DEVON_LAB, $00, 0
+	map_attributes RustboroDevonLabUpstairs, RUSTBORO_DEVON_LAB_UPSTAIRS, $00, 0
+
 	map_attributes VerdanturfRockSmashHouse, VERDANTURF_ROCKSMASH_HOUSE, $00, 0
 	map_attributes VerdanturfTradeHouse, VERDANTURF_TRADE_HOUSE, $00, 0
 	map_attributes MauvilleTradeHouse, MAUVILLE_TRADE_HOUSE, $00, 0

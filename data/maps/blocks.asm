@@ -1307,4 +1307,10 @@ SECTION "Map Museums", ROMX
 	PewterMuseumUpstairs_Blocks:
 	INCBIN "maps/kanto/pewter/PewterMuseumUpstairs.ablk"
 
+	RustboroDevonLab_Blocks:
+	INCBIN "maps/hoenn/rustboro/RustboroDevonLab.ablk"
+
+	RustboroDevonLabUpstairs_Blocks:
+	INCBIN "maps/hoenn/rustboro/RustboroDevonLabUpstairs.ablk"
+
 ENDSECTION
