@@ -194,3 +194,31 @@
 	tilecoll UP_WALL, FLOOR, DOWN_WALL, FLOOR ; c1
 	tilecoll WATER, WATER, WATER, WATER ; c2
 	tilecoll WALL, WALL, WALL, WALL ; c3
+	tilecoll WALL, WALL, WALL, WALL ; c4
+	tilecoll WALL, WALL, WALL, WALL ; c5
+	tilecoll WALL, WALL, WALL, WALL ; c6
+	tilecoll WALL, WALL, WALL, WALL ; c7
+	tilecoll WALL, UP_WALL, WALL, FLOOR ; c8
+	tilecoll UP_WALL, UP_WALL, FLOOR, FLOOR ; c9
+	tilecoll UP_WALL, WALL, FLOOR, WALL ; ca
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; cb
+	tilecoll WALL, FLOOR, WALL, FLOOR ; cc
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; cd
+	tilecoll FLOOR, WALL, FLOOR, WALL ; ce
+	tilecoll UP_WALL, UP_WALL, FLOOR, LADDER ; cf
+	tilecoll WALL, FLOOR, WALL, WALL ; d0
+	tilecoll FLOOR, FLOOR, WALL, WALL ; d1
+	tilecoll FLOOR, WALL, WALL, WALL ; d2
+	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; d3
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; d4
+	tilecoll WALL, WALL, WALL, WALL ; d5
+	tilecoll FLOOR, WALL, FLOOR, WALL ; d6
+	tilecoll UP_WALL, WALL, FLOOR, FLOOR ; d7
+	tilecoll WALL, WALL, WALL, WALL ; d8
+	tilecoll WALL, WALL, WALL, WALL ; d9
+	tilecoll WALL, WALL, WALL, WALL ; da
+	tilecoll FLOOR, FLOOR, WALL, WARP_CARPET_DOWN ; db
+	tilecoll WALL, WALL, WALL, WALL ; dc
+	tilecoll WALL, WALL, WALL, WALL ; dd
+	tilecoll WALL, WALL, WALL, WALL ; de
+	tilecoll WALL, WALL, WALL, CAVE ; df

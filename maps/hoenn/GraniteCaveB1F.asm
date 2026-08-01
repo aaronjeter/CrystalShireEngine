@@ -23,7 +23,7 @@ GraniteCaveB1F_MapEvents:
 	def_warp_events	
 
 	warp_event  35, 13, DEWFORD_TOWN, 3
-	warp_event  07, 15, GRANITE_CAVE_B2F, 1
+	warp_event  7, 11, GRANITE_CAVE_B2F, 1
 	warp_event  07, 01, GRANITE_CAVE_B2F, 2
 
 	def_coord_events
