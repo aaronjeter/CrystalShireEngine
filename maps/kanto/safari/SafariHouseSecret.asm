@@ -63,15 +63,10 @@ SafariRocketBossAfterBattleText:
 
 SafariWarden:
 	faceplayer
-	clearevent EVENT_SAFARI_WEST_FAKE_MEW
-	clearevent EVENT_SAFARI_EAST_FAKE_MEW
-	clearevent EVENT_SAFARI_SOUTH_FAKE_MEW
-	clearevent EVENT_CAUGHT_SAFARI_MEW
 	opentext
 
 	checkevent GOT_REWARDS_FROM_SAFARI_WARDEN
 	iffalse .giveRewards
-
 	
 	writetext SafariWardenRarePokemonText
 	waitbutton
@@ -93,18 +88,13 @@ SafariWarden:
 
 SafariWardenRarePokemonText:
 	text "I've heard rumors"
-	line "of a Mythic"
+	line "of a Mythical"
+	cont "#mon somewhere"
+	cont "in the park."
 
-	para "#mon"
-	line "somewhere in"
-	cont "the park."
-
-	para "Perhaps with"
-	line "the Rockets"
-
-	para "gone, it'll"
-	line "come back"
-	cont "out."
+	para "Perhaps with the"
+	line "Rockets gone, "
+	line "it'll come out."
 	done
 
 SafariWardenThanksText:
@@ -134,12 +124,9 @@ SafariWardenGivesRewardsText:
 	para "Secondly..."
 
 	para "That Rocket"
-	line "executive had"
-	
-	para "this in her"
-	line "pocket..."
-
-	para "..."
+	line "executive had"	
+	cont "this in her"
+	cont "pocket..."
 
 	para "Never should"
 	line "have turned her"

@@ -16,13 +16,16 @@ SafariZoneNorth_MapScripts:
 	def_callbacks	
 	callback MAPCALLBACK_OBJECTS, SafariZoneNorthCallback
 
-SafariZoneNorthCallback:
+SafariZoneNorthCallback:	
+	checkevent EVENT_GOT_MEW
+	iftrue .hideMew
 	checkevent EVENT_SAFARI_WEST_FAKE_MEW
 	iffalse .hideMew
 	checkevent EVENT_SAFARI_EAST_FAKE_MEW
 	iffalse .hideMew
 	checkevent EVENT_SAFARI_SOUTH_FAKE_MEW
 	iffalse .hideMew
+	appear SAFARINORTH_MEW
 	endcallback
 
 .hideMew
@@ -210,11 +213,11 @@ SafariZoneNorthMew:
 	iffalse .done
 
 	givepoke MEW, 10, AMULET_COIN	
-	setevent EVENT_CAUGHT_SAFARI_MEW
+	setevent EVENT_GOT_MEW
 	disappear SAFARINORTH_MEW
 
  .done
- closetext
+	closetext
 	end
 
 
@@ -271,6 +274,6 @@ SafariZoneNorth_MapEvents:
 	object_event  42, 07, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, SafariTinaScript, -1
 	object_event  14, 09, SPRITE_TAUROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Tauros, -1
 	object_event  16, 44, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Rhydon, -1
-	object_event  35, 30, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariZoneNorthMew, EVENT_CAUGHT_SAFARI_MEW
+	object_event  35, 30, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariZoneNorthMew, EVENT_HIDE_SAFARI_MEW
 	object_event  46, 39, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneNorthOldAmber, EVENT_GOT_OLD_AMBER_SAFARI
 	object_event  06, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneNorthFangFossil, EVENT_GOT_FOSSIL_FANG_SAFARI
