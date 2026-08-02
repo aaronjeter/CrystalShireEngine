@@ -224,5 +224,5 @@
 	tilecoll WALL, WALL, WALL, CAVE ; df
 	tilecoll WALL, FLOOR, WALL, CAVE ; e0
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; e1
-	tilecoll WALL, WALL, WALL, WALL ; e2
-	tilecoll WALL, WALL, WALL, WALL ; e3
+	tilecoll FLOOR, WALL, FLOOR, WALL ; e2
+	tilecoll UP_WALL, UP_WALL, FLOOR, LADDER ; e3
