@@ -23,10 +23,23 @@ LavaridgeDesert_MapScripts:
 
 DesertCallback:
 	checkevent EVENT_BEAT_DESERT_SHRINE_UNOWN
-	iffalse .HideJane
+	iffalse .NotBeatShrine
+	checkevent EVENT_TALKED_TO_DESERT_JANE
+	iftrue .latias
+	appear MAPROUTEDESERT_JANE
+.latias
+	checkevent EVENT_GOT_LATIAS
+	iftrue .latios
+	appear MAPROUTEDESERT_LATIAS
+.latios
+	checkevent EVENT_GOT_LATIOS
+	iftrue .done
+	appear MAPROUTEDESERT_LATIOS
+.done
 	endcallback
 
-.HideJane:
+.NotBeatShrine:
+	
 	disappear MAPROUTEDESERT_JANE
 	disappear MAPROUTEDESERT_LATIOS
 	disappear MAPROUTEDESERT_LATIAS
@@ -277,6 +290,7 @@ DesertRocketText:
 	done
 
 DesertJaneScript:
+	setevent EVENT_TALKED_TO_DESERT_JANE	
 	jumptextfaceplayer DesertJaneText
 
 DesertJaneText:
@@ -360,7 +374,7 @@ LavaridgeDesert_MapEvents:
 	warp_event  9, 37, ROUTE_111, 1
 	warp_event  15, 09, ROUTE_113, 1
 	warp_event  43, 43, DESERT_RUIN_1F, 1
-	warp_event  29, 27, DESERT_SHRINE, 2
+	warp_event 31, 27, DESERT_SHRINE, 2
 
 	def_coord_events
 
@@ -378,7 +392,7 @@ LavaridgeDesert_MapEvents:
 	object_event 43, 44, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DesertRocketBlocksRuinsScript, EVENT_BEAT_PYRE_ROCKETS
 	object_event 45, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DesertTMSandstorm, EVENT_DESERT_TM_SANDSTORM
 	object_event 48, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DesertSoftSand, EVENT_GOT_HOENN_SOFT_SAND
-	object_event 40, 10, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertJaneScript, EVENT_GOT_LATIAS
-	object_event 41, 10, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, DesertLatiasScript, EVENT_GOT_LATIAS
-	object_event 11, 50, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DesertLatiosScript, EVENT_GOT_LATIOS
+	object_event 40, 10, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertJaneScript, EVENT_HIDE_DESERT_JANE
+	object_event 41, 10, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, DesertLatiasScript, EVENT_HIDE_LATIAS
+	object_event 12, 50, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DesertLatiosScript, EVENT_HIDE_LATIOS
 

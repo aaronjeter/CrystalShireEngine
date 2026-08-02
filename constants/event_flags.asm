@@ -518,8 +518,8 @@
 	const EVENT_BEAT_PYRE_ROCKETF4
 
 	const EVENT_BEAT_SHRINE_JANE
-	const EVENT_GOT_LATIAS
-	const EVENT_GOT_LATIOS
+	const EVENT_HIDE_DESERT_JANE ; unused
+	const EVENT_TALKED_TO_DESERT_JANE ; unused
 
 	;Hoenn Victory Road Trainers
 	const EVENT_BEAT_EVERGRANDE_M1
@@ -570,23 +570,23 @@
 	const_skip ; unused
 	const_skip ; unused	
 
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_GOT_ARTICUNO
+	const EVENT_GOT_ZAPDOS
+	const EVENT_GOT_MOLTRES
+	const EVENT_GOT_MEWTWO
+	const EVENT_GOT_MEW
+	const EVENT_HIDE_MEW
+	const EVENT_GOT_REGICE ; unused
+	const EVENT_GOT_RIGIROCK ; unused
+	const EVENT_GOT_REGISTEEL ; unused	
+	const EVENT_GOT_LATIAS ; unused
+	const EVENT_GOT_LATIOS ; unused	
+	const EVENT_HIDE_LATIAS ; unused
+	const EVENT_HIDE_LATIOS ; unused
+	const EVENT_GOT_KYOGRE ; unused
+	const EVENT_GOT_GROUDON ; unused
+	const EVENT_GOT_RAYQUAZA ; unused
+	const EVENT_GOT_JIRACHI ; unused
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused	

@@ -218,7 +218,11 @@
 	tilecoll WALL, WALL, WALL, WALL ; d9
 	tilecoll WALL, WALL, WALL, WALL ; da
 	tilecoll FLOOR, FLOOR, WALL, WARP_CARPET_DOWN ; db
-	tilecoll WALL, WALL, WALL, WALL ; dc
-	tilecoll WALL, WALL, WALL, WALL ; dd
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; dc
+	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; dd
 	tilecoll WALL, FLOOR, WALL, FLOOR ; de
 	tilecoll WALL, WALL, WALL, CAVE ; df
+	tilecoll WALL, FLOOR, WALL, CAVE ; e0
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; e1
+	tilecoll WALL, WALL, WALL, WALL ; e2
+	tilecoll WALL, WALL, WALL, WALL ; e3
