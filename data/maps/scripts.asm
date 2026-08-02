@@ -673,8 +673,6 @@ ENDSECTION
 
 SECTION "Map Scripts 28", ROMX
 
-INCLUDE "maps/hoenn/MeteorFalls.asm"
-
 INCLUDE "maps/hoenn/TestRoom.asm"
 
 INCLUDE "maps/hoenn/fallarbor/FallarborTown.asm"
@@ -787,5 +785,13 @@ INCLUDE "maps/hoenn/rustboro/RustboroDevonLab.asm"
 INCLUDE "maps/hoenn/rustboro/RustboroDevonLabUpstairs.asm"
 
 INCLUDE "maps/hoenn/MirageTower.asm"
+
+ENDSECTION
+
+
+SECTION "Meteor Falls Scripts", ROMX
+
+INCLUDE "maps/hoenn/meteor/MeteorFalls.asm"
+INCLUDE "maps/hoenn/meteor/MeteorTunnelCenter.asm"
 
 ENDSECTION

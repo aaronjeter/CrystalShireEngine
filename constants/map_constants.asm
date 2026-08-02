@@ -597,6 +597,7 @@ ENDM
 	map_const LANETTE_HOUSE,                               05, 05 ;
 	map_const ROUTE_115,                                   20, 40 ;
 	map_const METEOR_FALLS,                                16, 22 ;
+	map_const METEOR_TUNNEL_CENTER,                        20, 20 ;
 	map_const ROUTE_118,                                   40, 10 ;
 	map_const NEW_MAUVILLE,		                           22, 22 ;
 	map_const NEW_MAUVILLE_BASEMENT,                       20, 20 ;

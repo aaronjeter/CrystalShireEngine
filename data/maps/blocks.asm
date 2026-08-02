@@ -1118,9 +1118,6 @@ SECTION "Map Blocks 6", ROMX
 	FallarborTown_Blocks:
 	INCBIN "maps/hoenn/fallarbor/FallarborTown.ablk"
 
-	MeteorFalls_Blocks:
-	INCBIN "maps/hoenn/MeteorFalls.ablk"
-
 	Route118_Blocks:
 	INCBIN "maps/hoenn/Route118.ablk" 
 
@@ -1315,5 +1312,15 @@ SECTION "Map Museums", ROMX
 
 	MirageTower_Blocks:
 	INCBIN "maps/hoenn/MirageTower.ablk"
+
+ENDSECTION
+
+SECTION "Meteor Falls Blocks", ROMX
+
+	MeteorFalls_Blocks:
+	INCBIN "maps/hoenn/meteor/MeteorFalls.ablk"
+
+	MeteorTunnelCenter_Blocks:
+	INCBIN "maps/hoenn/meteor/MeteorTunnelCenter.ablk"
 
 ENDSECTION
