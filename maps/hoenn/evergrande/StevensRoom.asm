@@ -56,6 +56,17 @@ StevenScript_Battle:
 	end
 
 StevensRoomLevelcap:
+	;clear Hoenn legendary mons events
+	clearevent EVENT_GOT_REGICE
+	clearevent EVENT_GOT_RIGIROCK
+	clearevent EVENT_GOT_REGISTEEL
+	clearevent EVENT_GOT_LATIAS
+	clearevent EVENT_GOT_LATIOS
+	clearevent EVENT_GOT_KYOGRE
+	clearevent EVENT_GOT_GROUDON
+	clearevent EVENT_GOT_RAYQUAZA
+	clearevent EVENT_GOT_JIRACHI
+
 	jumpstd UpdateWorldLevelsScript
 	end
 

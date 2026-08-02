@@ -49,6 +49,14 @@ HallOfFameEnterScript:
 	end
 
 HallOfFameLevelcap:
+	;clear kanto/johto legendary mons events
+	clearevent EVENT_GOT_ARTICUNO
+	clearevent EVENT_GOT_ZAPDOS
+	clearevent EVENT_GOT_MOLTRES
+	clearevent EVENT_GOT_MEWTWO
+	clearevent EVENT_GOT_MEW
+	clearevent EVENT_GOT_CELEBI_EGG
+
 	jumpstd UpdateWorldLevelsScript
 	end
 
