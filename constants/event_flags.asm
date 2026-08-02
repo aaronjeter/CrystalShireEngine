@@ -711,7 +711,7 @@
 	const EVENT_GOT_FOSSIL_FIN_UNION_CAVE
 	const EVENT_GOT_FOSSIL_FANG_SAFARI
 	const EVENT_GOT_FOSSIL_FANG_ILEX_WEST
-	const_skip ; unused
+	const EVENT_GOT_MIRAGE_TOWER_FOSSIL
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
@@ -931,7 +931,7 @@
 	const EVENT_GOT_HOENN_KINGS_ROCK	;desert ruin b1f
 	const EVENT_GOT_HOENN_AMULET_COIN
 	const EVENT_GOT_HOENN_LEFTOVERS	;Mauville Game Corner
-	const EVENT_GOT_HOENN_SCOPE_LENS
+	const EVENT_GOT_HOENN_SCOPE_LENS ;Mirage Tower
 
 
 	;Hoenn tm events. To be renamed once actual TMs are finalized

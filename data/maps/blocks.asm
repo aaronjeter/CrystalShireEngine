@@ -1313,4 +1313,7 @@ SECTION "Map Museums", ROMX
 	RustboroDevonLabUpstairs_Blocks:
 	INCBIN "maps/hoenn/rustboro/RustboroDevonLabUpstairs.ablk"
 
+	MirageTower_Blocks:
+	INCBIN "maps/hoenn/MirageTower.ablk"
+
 ENDSECTION

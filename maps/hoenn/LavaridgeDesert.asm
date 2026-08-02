@@ -370,11 +370,12 @@ LavaridgeDesert_MapEvents:
 
 	def_warp_events	
 
-	warp_event  8, 37, ROUTE_111, 1
-	warp_event  9, 37, ROUTE_111, 1
+	warp_event  08, 37, ROUTE_111, 1
+	warp_event  09, 37, ROUTE_111, 1
 	warp_event  15, 09, ROUTE_113, 1
 	warp_event  43, 43, DESERT_RUIN_1F, 1
-	warp_event 31, 27, DESERT_SHRINE, 2
+	warp_event  31, 27, DESERT_SHRINE, 2
+	warp_event  13, 19, MIRAGE_TOWER, 1
 
 	def_coord_events
 

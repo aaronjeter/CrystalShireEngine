@@ -786,4 +786,6 @@ SECTION "Map Devon", ROMX
 INCLUDE "maps/hoenn/rustboro/RustboroDevonLab.asm"
 INCLUDE "maps/hoenn/rustboro/RustboroDevonLabUpstairs.asm"
 
+INCLUDE "maps/hoenn/MirageTower.asm"
+
 ENDSECTION

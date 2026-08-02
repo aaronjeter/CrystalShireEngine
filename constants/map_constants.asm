@@ -167,6 +167,7 @@ ENDM
 	map_const DESERT_RUIN_1F,                              10, 10 ;
 	map_const DESERT_RUIN_B1F,                             30, 20 ;
 	map_const DESERT_SHRINE,							   12, 12 ;
+	map_const MIRAGE_TOWER,                                10, 10 ;
 	map_const MT_MOON_1F,                                  20, 20 ;
 	map_const MT_MOON_B1F,                                 20, 20 ;
 	map_const MT_MOON_B2F,                                 20, 20 ;

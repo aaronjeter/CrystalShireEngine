@@ -891,6 +891,7 @@ ENDM
 	map_attributes DesertRuin1F, DESERT_RUIN_1F, $09, 0
 	map_attributes DesertRuinB1F, DESERT_RUIN_B1F, $09, 0
 	map_attributes DesertShrine, DESERT_SHRINE, $00, 0
+	map_attributes MirageTower, MIRAGE_TOWER, $cd, 0
 
 	map_attributes Route112, ROUTE_112, $05, NORTH | WEST | EAST 
 	connection north, Route113, ROUTE_113, -28
