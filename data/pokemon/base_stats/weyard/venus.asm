@@ -1,10 +1,10 @@
 	db 0 ; species ID placeholder
 	;BST: 525
-	db  85, 120, 120,  80,  60,  60
+	db  85, 120, 120,  80,  40,  80
 	evs  0,   0,   0,   1,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db GROUND, GROUND ; type
+	db GROUND, GRASS ; type
 	db 24 ; catch rate
 	db 225 ; base exp
 	dw NO_ITEM, NO_ITEM ; items

@@ -1153,15 +1153,15 @@ VenonatEvosAttacks:
 	dbw 12, LEECH_SEED
 	dbw 16, POISONPOWDER
 	dbw 20, SLEEP_POWDER
-	dbw 24, PSYBEAM
-	dbw 28, STUN_SPORE
-	dbw 32, VENOSHOCK
-	dbw 36, SILVER_WIND
-	dbw 40, PSYCHIC_M
-	dbw 45, SIGNAL_BEAM	
-	dbw 50, MEDITATE	
+	dbw 24, SILVER_WIND
+	dbw 28, VENOSHOCK
+	dbw 32, STUN_SPORE
+	dbw 36, PSYBEAM
+	dbw 40, SIGNAL_BEAM
+	dbw 45, SLUDGE_WAVE	
+	dbw 50, MEDITATE
 	dbw 55, GIGA_DRAIN
-	dbw 60, AMNESIA
+	dbw 60, PSYCHIC_M
 	dbw 65, ENCORE
 	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -1174,15 +1174,15 @@ VenomothEvosAttacks:
 	dbw 12, LEECH_SEED
 	dbw 16, POISONPOWDER
 	dbw 20, SLEEP_POWDER
-	dbw 24, PSYBEAM
-	dbw 28, STUN_SPORE
-	dbw 32, VENOSHOCK
-	dbw 36, SILVER_WIND
-	dbw 40, PSYCHIC_M
-	dbw 45, SIGNAL_BEAM	
-	dbw 50, MEDITATE	
+	dbw 24, SILVER_WIND
+	dbw 28, VENOSHOCK
+	dbw 32, STUN_SPORE
+	dbw 36, PSYBEAM
+	dbw 40, SIGNAL_BEAM
+	dbw 45, SLUDGE_WAVE	
+	dbw 50, MEDITATE
 	dbw 55, GIGA_DRAIN
-	dbw 60, AMNESIA
+	dbw 60, PSYCHIC_M
 	dbw 65, ENCORE
 	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves

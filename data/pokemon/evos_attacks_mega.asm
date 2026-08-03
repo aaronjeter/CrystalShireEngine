@@ -955,13 +955,13 @@ MercuryEvosAttacks:
 	dbw 28, DRAININGKISS
 	dbw 32, RECOVER
 	dbw 36, CALM_MIND
-	dbw 40, SCALD
-	dbw 45, ICE_BEAM	
+	dbw 40, MIST_BALL
+	dbw 45, ICE_BEAM
 	dbw 50, FAERIEGLEAM
 	dbw 55, HEAL_BELL
 	dbw 60, HYDRO_PUMP
-	dbw 65, MOONBLAST
-	dbw 70, BLIZZARD
+	dbw 65, BLIZZARD
+	dbw 70, MOONBLAST
 	dbw 75, HYDRO_CANNON
 	db 0 ; no more level-up moves
 
@@ -971,11 +971,11 @@ VenusEvosAttacks:
 	dbw 1, LEECH_SEED
 	dbw 8, VINE_WHIP
 	dbw 12, ROCK_THROW
-	dbw 16, SPIKES
+	dbw 16, STUN_SPORE
 	dbw 20, SANDSTORM
 	dbw 24, MAGNITUDE
-	dbw 25, ROCK_TOMB
-	dbw 28, NEEDLE_ARM
+	dbw 25, NEEDLE_ARM
+	dbw 28, ROCK_TOMB
 	dbw 32, RECOVER
 	dbw 36, BULK_UP
 	dbw 40, EARTHQUAKE
@@ -997,8 +997,8 @@ MarsEvosAttacks:
 	dbw 16, WILLOWISP
 	dbw 20, SUNNY_DAY
 	dbw 24, FIRE_SPIN
-	dbw 25, SNARL
-	dbw 28, DRAGON_RAGE
+	dbw 25, DRAGON_RAGE
+	dbw 28, SNARL
 	dbw 32, REFLECT
 	dbw 36, CALM_MIND
 	dbw 40, FLAMETHROWER
