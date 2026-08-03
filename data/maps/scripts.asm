@@ -793,5 +793,7 @@ SECTION "Meteor Falls Scripts", ROMX
 
 INCLUDE "maps/hoenn/meteor/MeteorFalls.asm"
 INCLUDE "maps/hoenn/meteor/MeteorTunnelCenter.asm"
+INCLUDE "maps/hoenn/meteor/MeteorTunnelWest.asm"
+
 
 ENDSECTION

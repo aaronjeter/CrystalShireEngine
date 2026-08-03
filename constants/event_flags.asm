@@ -701,7 +701,7 @@
 	const EVENT_GOT_FOSSIL_DOME_SLOWPOKE_WELL
 	const EVENT_GOT_OLD_AMBER_ROCK_TUNNEL
 	const EVENT_GOT_OLD_AMBER_SAFARI
-	const EVENT_GOT_FOSSIL_ROOT1
+	const EVENT_GOT_FOSSIL_ROOT_METEOR_CENTER
 	const EVENT_GOT_FOSSIL_ROOT2
 	const EVENT_GOT_FOSSIL_CLAW1
 	const EVENT_GOT_FOSSIL_CLAW2
@@ -1016,16 +1016,16 @@
 	const EVENT_MAUVILLE_GAME_CORNER_SODA_POP
 	
 	const EVENT_ROUTE_115_TM_POISON_FANG
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_METEOR_TUNNEL_CENTER_MOON_STONE 
+	const EVENT_METEOR_TUNNEL_CENTER_ESCAPE_ROPE 
+	const EVENT_METEOR_TUNNEL_CENTER_STAR_PIECE
+	const EVENT_METEOR_TUNNEL_WEST_TM_SWIFT
+	const EVENT_METEOR_TUNNEL_WEST_STAR_PIECE
+	const EVENT_METEOR_TUNNEL_WEST_RARE_CANDY
+	const EVENT_METEOR_TUNNEL_WEST_PP_UP
+	const EVENT_METEOR_TUNNEL_EAST_STAR_PIECE
+	const EVENT_METEOR_TUNNEL_EAST_TM_THIEF
+	const EVENT_METEOR_TUNNEL_EAST_RARE_CANDY
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
