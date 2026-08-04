@@ -900,6 +900,7 @@
 	const EVENT_GOT_CELEBI_EGG
 	const EVENT_GOT_GS_BALL_FROM_ILEX
 
+	;starting regions
 	const EVENT_START_KANTO
 	const EVENT_START_JOHTO
 	const EVENT_START_HOENN

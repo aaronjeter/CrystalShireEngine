@@ -79,6 +79,8 @@ Route32CooltrainerMContinueScene:
 	end
 
 Route32CooltrainerMStopsYouScene:
+	checkevent EVENT_START_JOHTO
+	iffalse .done
 	turnobject ROUTE32_COOLTRAINER_M, LEFT
 	turnobject PLAYER, RIGHT
 	opentext
@@ -92,6 +94,7 @@ Route32CooltrainerMStopsYouScene:
 	scall Route32CooltrainerMContinueScene
 	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMReset1
 	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMReset2
+.done
 	end
 
 Route32RoarTMGuyScript:
