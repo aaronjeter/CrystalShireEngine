@@ -40,8 +40,8 @@ MeteorTunnelEastDisableBridgeScript:
 	changeblock 20, 24, $c4 ; CliffTopBridge
 	end
 
-MeteorTunnelEastTmSwift:
-	itemball TM_SWIFT
+MeteorTunnelEastTmThief:
+	itemball TM_THIEF
 
 MeteorTunnelEastStarPiece:
 	itemball STAR_PIECE
@@ -49,8 +49,8 @@ MeteorTunnelEastStarPiece:
 MeteorTunnelEastRareCandy:
 	itemball RARE_CANDY
 
-MeteorTunnelEastPpUp:
-	itemball PP_UP
+MeteorTunnelEastClawFossil:
+	itemball CLAW_FOSSIL
 
 
 MeteorTunnelEast_MapEvents:
@@ -69,7 +69,7 @@ MeteorTunnelEast_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	;object_event 08, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestTmSwift, EVENT_METEOR_TUNNEL_WEST_TM_SWIFT
-	;object_event 29, 09, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestStarPiece, EVENT_METEOR_TUNNEL_WEST_STAR_PIECE
-	;object_event 33, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestRareCandy, EVENT_METEOR_TUNNEL_WEST_RARE_CANDY
-	;object_event 36, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestPpUp, EVENT_METEOR_TUNNEL_WEST_PP_UP
+	object_event 22, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelEastTmThief, EVENT_METEOR_TUNNEL_EAST_TM_THIEF
+	object_event 14, 37, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelEastStarPiece, EVENT_METEOR_TUNNEL_EAST_STAR_PIECE
+	object_event 31, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelEastRareCandy, EVENT_METEOR_TUNNEL_EAST_RARE_CANDY
+	object_event 09, 34, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelEastClawFossil, EVENT_GOT_FOSSIL_CLAW_METEOR_EAST

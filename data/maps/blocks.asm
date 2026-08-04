@@ -954,7 +954,7 @@ SECTION "Map Blocks 4", ROMX
 	INCBIN "maps/hoenn/PetalburgWoods.ablk"
 
 	RusturfTunnel_Blocks:
-	INCBIN "maps/hoenn/RusturfTunnel.ablk"
+	INCBIN "maps/hoenn/dungeons/RusturfTunnel.ablk"
 
 	LavaridgeTown_Blocks:
 	INCBIN "maps/hoenn/lavaridge/LavaridgeTown.ablk"
@@ -1022,22 +1022,22 @@ SECTION "Map Blocks 4", ROMX
 	INCBIN "maps/hoenn/HoennFlowerHouse.ablk"
 
 	GraniteCaveB1F_Blocks:
-	INCBIN "maps/hoenn/GraniteCaveB1F.ablk"
+	INCBIN "maps/hoenn/dungeons/GraniteCaveB1F.ablk"
 
 	GraniteCaveB2F_Blocks:
-	INCBIN "maps/hoenn/GraniteCaveB2F.ablk"
+	INCBIN "maps/hoenn/dungeons/GraniteCaveB2F.ablk"
 
 	GraniteCaveB3F_Blocks:
-	INCBIN "maps/hoenn/GraniteCaveB3F.ablk"
+	INCBIN "maps/hoenn/dungeons/GraniteCaveB3F.ablk"
 
 	RegiceLair_Blocks:
-	INCBIN "maps/hoenn/RegiceLair.ablk"
+	INCBIN "maps/hoenn/dungeons/RegiceLair.ablk"
 
 	RegirockLair_Blocks:
-	INCBIN "maps/hoenn/RegirockLair.ablk"
+	INCBIN "maps/hoenn/desert/RegirockLair.ablk"
 
 	RegisteelLair_Blocks:
-	INCBIN "maps/hoenn/RegisteelLair.ablk"
+	INCBIN "maps/hoenn/dungeons/RegisteelLair.ablk"
 	
 
 ENDSECTION
@@ -1046,64 +1046,64 @@ ENDSECTION
 SECTION "Map Blocks 5", ROMX
 
 	Route101_Blocks:
-	INCBIN "maps/hoenn/Route101.ablk" 
+	INCBIN "maps/hoenn/routes/Route101.ablk" 
 
 	Route102_Blocks:
-	INCBIN "maps/hoenn/Route102.ablk" 
+	INCBIN "maps/hoenn/routes/Route102.ablk" 
 
 	Route103_Blocks:
-	INCBIN "maps/hoenn/Route103.ablk" 
+	INCBIN "maps/hoenn/routes/Route103.ablk" 
 
 	Route104_Blocks:
-	INCBIN "maps/hoenn/Route104.ablk" 
+	INCBIN "maps/hoenn/routes/Route104.ablk" 
 
 	Route105_Blocks:
-	INCBIN "maps/hoenn/Route105.ablk" 
+	INCBIN "maps/hoenn/routes/Route105.ablk" 
 
 	Route108_Blocks:
-	INCBIN "maps/hoenn/Route108.ablk" 
+	INCBIN "maps/hoenn/routes/Route108.ablk" 
 
 	Route109_Blocks:
-	INCBIN "maps/hoenn/Route109.ablk" 
+	INCBIN "maps/hoenn/routes/Route109.ablk" 
 
 	Route110_Blocks:
-	INCBIN "maps/hoenn/Route110.ablk" 
+	INCBIN "maps/hoenn/routes/Route110.ablk" 
 
 	Route111_Blocks:
-	INCBIN "maps/hoenn/Route111.ablk" 
+	INCBIN "maps/hoenn/routes/Route111.ablk" 
 
 	LavaridgeDesert_Blocks:
-	INCBIN "maps/hoenn/LavaridgeDesert.ablk"
+	INCBIN "maps/hoenn/desert/LavaridgeDesert.ablk"
 
 	DesertRuin1F_Blocks:
-	INCBIN "maps/hoenn/DesertRuin1F.ablk"
+	INCBIN "maps/hoenn/desert/DesertRuin1F.ablk"
 
 	DesertRuinB1F_Blocks:
-	INCBIN "maps/hoenn/DesertRuinB1F.ablk"
+	INCBIN "maps/hoenn/desert/DesertRuinB1F.ablk"
 
 	DesertShrine_Blocks:
-	INCBIN "maps/hoenn/DesertShrine.ablk"
+	INCBIN "maps/hoenn/desert/DesertShrine.ablk"
 
 	Route112_Blocks:
-	INCBIN "maps/hoenn/Route112.ablk" 
+	INCBIN "maps/hoenn/routes/Route112.ablk" 
 
 	FieryPath_Blocks:
-	INCBIN "maps/hoenn/FieryPath.ablk" 
+	INCBIN "maps/hoenn/dungeons/FieryPath.ablk" 
 
 	Route113_Blocks:
-	INCBIN "maps/hoenn/Route113.ablk" 
+	INCBIN "maps/hoenn/routes/Route113.ablk" 
 
 	Route114_Blocks:
-	INCBIN "maps/hoenn/Route114.ablk" 
+	INCBIN "maps/hoenn/routes/Route114.ablk" 
 
 	Route115_Blocks:
-	INCBIN "maps/hoenn/Route115.ablk" 
+	INCBIN "maps/hoenn/routes/Route115.ablk" 
 
 	Route116_Blocks:
-	INCBIN "maps/hoenn/Route116.ablk" 
+	INCBIN "maps/hoenn/routes/Route116.ablk" 
 
 	Route117_Blocks:
-	INCBIN "maps/hoenn/Route117.ablk" 
+	INCBIN "maps/hoenn/routes/Route117.ablk" 
 
 	
 
@@ -1119,7 +1119,7 @@ SECTION "Map Blocks 6", ROMX
 	INCBIN "maps/hoenn/fallarbor/FallarborTown.ablk"
 
 	Route118_Blocks:
-	INCBIN "maps/hoenn/Route118.ablk" 
+	INCBIN "maps/hoenn/routes/Route118.ablk" 
 
 	NewMauville_Blocks:
 	INCBIN "maps/hoenn/mauville/NewMauville.ablk"
@@ -1131,22 +1131,22 @@ SECTION "Map Blocks 6", ROMX
 	INCBIN "maps/hoenn/mauville/MauvilleGameCorner.ablk"
 
 	Route119South_Blocks:
-	INCBIN "maps/hoenn/Route119South.ablk" 
+	INCBIN "maps/hoenn/routes/Route119South.ablk" 
 
 	Route119North_Blocks:
-	INCBIN "maps/hoenn/Route119North.ablk" 
+	INCBIN "maps/hoenn/routes/Route119North.ablk" 
 
 	Route120_Blocks:
-	INCBIN "maps/hoenn/Route120.ablk" 
+	INCBIN "maps/hoenn/routes/Route120.ablk" 
 
 	Route121_Blocks:
-	INCBIN "maps/hoenn/Route121.ablk" 
+	INCBIN "maps/hoenn/routes/Route121.ablk" 
 
 	Route122_Blocks:
-	INCBIN "maps/hoenn/Route122.ablk" 
+	INCBIN "maps/hoenn/routes/Route122.ablk" 
 
 	Route123_Blocks:
-	INCBIN "maps/hoenn/Route123.ablk" 
+	INCBIN "maps/hoenn/routes/Route123.ablk" 
 
 	FortreeCity_Blocks:
 	INCBIN "maps/hoenn/fortree/FortreeCity.ablk"
@@ -1311,7 +1311,7 @@ SECTION "Map Museums", ROMX
 	INCBIN "maps/hoenn/rustboro/RustboroDevonLabUpstairs.ablk"
 
 	MirageTower_Blocks:
-	INCBIN "maps/hoenn/MirageTower.ablk"
+	INCBIN "maps/hoenn/desert/MirageTower.ablk"
 
 ENDSECTION
 

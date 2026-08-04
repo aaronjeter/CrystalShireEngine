@@ -589,13 +589,13 @@ ENDSECTION
 
 SECTION "Map Scripts 26.1", ROMX
 
-INCLUDE "maps/hoenn/GraniteCaveB1F.asm"
-INCLUDE "maps/hoenn/GraniteCaveB2F.asm"
-INCLUDE "maps/hoenn/GraniteCaveB3F.asm"
+INCLUDE "maps/hoenn/dungeons/GraniteCaveB1F.asm"
+INCLUDE "maps/hoenn/dungeons/GraniteCaveB2F.asm"
+INCLUDE "maps/hoenn/dungeons/GraniteCaveB3F.asm"
 
-INCLUDE "maps/hoenn/RegiceLair.asm"
-INCLUDE "maps/hoenn/RegirockLair.asm"
-INCLUDE "maps/hoenn/RegisteelLair.asm"
+INCLUDE "maps/hoenn/dungeons/RegiceLair.asm"
+INCLUDE "maps/hoenn/desert/RegirockLair.asm"
+INCLUDE "maps/hoenn/dungeons/RegisteelLair.asm"
 
 ENDSECTION
 
@@ -612,18 +612,18 @@ ENDSECTION
 
 SECTION "Map Scripts 27", ROMX
 
-INCLUDE "maps/hoenn/Route101.asm"
-INCLUDE "maps/hoenn/Route102.asm"
-INCLUDE "maps/hoenn/Route103.asm"
-INCLUDE "maps/hoenn/Route104.asm"
+INCLUDE "maps/hoenn/routes/Route101.asm"
+INCLUDE "maps/hoenn/routes/Route102.asm"
+INCLUDE "maps/hoenn/routes/Route103.asm"
+INCLUDE "maps/hoenn/routes/Route104.asm"
 INCLUDE "maps/hoenn/MrBrineyHouse.asm"
 INCLUDE "maps/hoenn/Route104FlowerHouse.asm"
-INCLUDE "maps/hoenn/Route105.asm"
-INCLUDE "maps/hoenn/LavaridgeDesert.asm"
-INCLUDE "maps/hoenn/DesertRuin1F.asm"
-INCLUDE "maps/hoenn/DesertRuinB1F.asm"
-INCLUDE "maps/hoenn/DesertShrine.asm"
-INCLUDE "maps/hoenn/FieryPath.asm"
+INCLUDE "maps/hoenn/routes/Route105.asm"
+INCLUDE "maps/hoenn/desert/LavaridgeDesert.asm"
+INCLUDE "maps/hoenn/desert/DesertRuin1F.asm"
+INCLUDE "maps/hoenn/desert/DesertRuinB1F.asm"
+INCLUDE "maps/hoenn/desert/DesertShrine.asm"
+INCLUDE "maps/hoenn/dungeons/FieryPath.asm"
 INCLUDE "maps/hoenn/fortree/FortreeCity.asm"
 INCLUDE "maps/hoenn/fortree/FortreePokecenter.asm"
 INCLUDE "maps/hoenn/fortree/FortreeMart.asm"
@@ -634,22 +634,22 @@ ENDSECTION
 
 SECTION "Map Scripts 27.1", ROMX
 
-INCLUDE "maps/hoenn/Route112.asm"
-INCLUDE "maps/hoenn/Route113.asm"
-INCLUDE "maps/hoenn/Route114.asm"
-INCLUDE "maps/hoenn/Route115.asm"
-INCLUDE "maps/hoenn/Route116.asm"
-INCLUDE "maps/hoenn/Route117.asm"
+INCLUDE "maps/hoenn/routes/Route112.asm"
+INCLUDE "maps/hoenn/routes/Route113.asm"
+INCLUDE "maps/hoenn/routes/Route114.asm"
+INCLUDE "maps/hoenn/routes/Route115.asm"
+INCLUDE "maps/hoenn/routes/Route116.asm"
+INCLUDE "maps/hoenn/routes/Route117.asm"
 
 ENDSECTION
 
 
 SECTION "Map Scripts 27.2", ROMX
 
-INCLUDE "maps/hoenn/Route108.asm"
-INCLUDE "maps/hoenn/Route109.asm"
-INCLUDE "maps/hoenn/Route110.asm"
-INCLUDE "maps/hoenn/Route111.asm"
+INCLUDE "maps/hoenn/routes/Route108.asm"
+INCLUDE "maps/hoenn/routes/Route109.asm"
+INCLUDE "maps/hoenn/routes/Route110.asm"
+INCLUDE "maps/hoenn/routes/Route111.asm"
 
 ENDSECTION
 
@@ -701,26 +701,26 @@ INCLUDE "maps/kanto/safari/SafariHouseWest.asm"
 INCLUDE "maps/kanto/safari/SafariHouseSecret.asm"
 
 INCLUDE "maps/hoenn/PetalburgWoods.asm"
-INCLUDE "maps/hoenn/RusturfTunnel.asm"
+INCLUDE "maps/hoenn/dungeons/RusturfTunnel.asm"
 
 ENDSECTION
 
 
 SECTION "Map Scripts 29", ROMX
 
-INCLUDE "maps/hoenn/Route118.asm"
-INCLUDE "maps/hoenn/Route119South.asm" 
-INCLUDE "maps/hoenn/Route119North.asm" 
+INCLUDE "maps/hoenn/routes/Route118.asm"
+INCLUDE "maps/hoenn/routes/Route119South.asm" 
+INCLUDE "maps/hoenn/routes/Route119North.asm" 
 
 ENDSECTION
 
 
 SECTION "Map Scripts 30", ROMX
 
-INCLUDE "maps/hoenn/Route120.asm"
-INCLUDE "maps/hoenn/Route121.asm"
-INCLUDE "maps/hoenn/Route122.asm"
-INCLUDE "maps/hoenn/Route123.asm"
+INCLUDE "maps/hoenn/routes/Route120.asm"
+INCLUDE "maps/hoenn/routes/Route121.asm"
+INCLUDE "maps/hoenn/routes/Route122.asm"
+INCLUDE "maps/hoenn/routes/Route123.asm"
 
 ENDSECTION
 
@@ -784,7 +784,7 @@ SECTION "Map Devon", ROMX
 INCLUDE "maps/hoenn/rustboro/RustboroDevonLab.asm"
 INCLUDE "maps/hoenn/rustboro/RustboroDevonLabUpstairs.asm"
 
-INCLUDE "maps/hoenn/MirageTower.asm"
+INCLUDE "maps/hoenn/desert/MirageTower.asm"
 
 ENDSECTION
 
