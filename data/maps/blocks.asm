@@ -1326,4 +1326,7 @@ SECTION "Meteor Falls Blocks", ROMX
 	MeteorTunnelWest_Blocks:
 	INCBIN "maps/hoenn/meteor/MeteorTunnelWest.ablk"
 
+	MeteorTunnelEast_Blocks:
+	INCBIN "maps/hoenn/meteor/MeteorTunnelEast.ablk"
+
 ENDSECTION

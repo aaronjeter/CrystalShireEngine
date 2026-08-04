@@ -57,6 +57,7 @@ MeteorTunnelCenter_MapEvents:
 	def_warp_events	
 	warp_event 19, 37, METEOR_FALLS, 3
 	warp_event 02, 17, METEOR_TUNNEL_WEST, 1
+	warp_event 37, 05, METEOR_TUNNEL_EAST, 1
 
 	def_coord_events
 	;enable bridge 1

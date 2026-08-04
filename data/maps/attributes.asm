@@ -924,6 +924,7 @@ ENDM
 	map_attributes MeteorFalls, METEOR_FALLS, $a9, 0
 	map_attributes MeteorTunnelCenter, METEOR_TUNNEL_CENTER, $a9, 0
 	map_attributes MeteorTunnelWest, METEOR_TUNNEL_WEST, $a9, 0
+	map_attributes MeteorTunnelEast, METEOR_TUNNEL_EAST, $a9, 0
 
 	map_attributes TestRoom, TESTROOM, $00, 0
 
