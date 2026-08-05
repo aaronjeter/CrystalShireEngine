@@ -65,13 +65,14 @@ AI_Basic:
 
 INCLUDE "data/battle/ai/status_only_effects.asm"
 
+INCLUDE "data/battle/ai/setup_effects.asm"
+
 
 AI_Setup:
 ; Use stat-modifying moves on turn 1.
 
-; 50% chance to greatly encourage stat-up moves during the first turn of enemy's Pokemon.
-; 50% chance to greatly encourage stat-down moves during the first turn of player's Pokemon.
-; Almost 90% chance to greatly discourage stat-modifying moves otherwise.
+; 80% chance to greatly encourage setup moves during the first turn of enemy's Pokemon.
+; Almost 80% chance to greatly discourage setup moves otherwise.
 
 	ld hl, wEnemyAIMoveScores - 1
 	ld de, wEnemyMonMoves
@@ -90,51 +91,30 @@ AI_Setup:
 
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 
-	cp EFFECT_ATTACK_UP
-	jr c, .checkmove
-	cp EFFECT_EVASION_UP + 1
-	jr c, .statup
+	push hl
+	push de
+	push bc
+	ld hl, SetupEffects
+	ld de, 1
+	call IsInArray
 
-;	cp EFFECT_ATTACK_DOWN - 1
-	jr z, .checkmove
-	cp EFFECT_EVASION_DOWN + 1
-	jr c, .statdown
+	pop bc
+	pop de
+	pop hl
+	jr nc, .checkmove
 
-	cp EFFECT_ATTACK_UP_2
-	jr c, .checkmove
-	cp EFFECT_EVASION_UP_2 + 1
-	jr c, .statup
-
-;	cp EFFECT_ATTACK_DOWN_2 - 1
-	jr z, .checkmove
-	cp EFFECT_EVASION_DOWN_2 + 1
-	jr c, .statdown
-
-	jr .checkmove
-
-.statup
 	ld a, [wEnemyTurnsTaken]
 	and a
 	jr nz, .discourage
 
-	jr .encourage
-
-.statdown
-	ld a, [wPlayerTurnsTaken]
-	and a
-	jr nz, .discourage
-
 .encourage
-	call AI_50_50
-	jr c, .checkmove
-
 	dec [hl]
 	dec [hl]
 	jr .checkmove
 
 .discourage
 	call Random
-	cp 12 percent
+	cp 24 percent
 	jr c, .checkmove
 	inc [hl]
 	inc [hl]
