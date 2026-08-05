@@ -295,7 +295,7 @@ if DEF(_DEBUG)
 	loadmem wPartyMon1DVs+2, $ff
 	; hm slaves
 	givepoke SCEPTILE, 80, SACRED_ASH 
-	givepoke BLAZIKEN, 80, ITEM_91
+	givepoke BLAZIKEN, 80, SACRED_ASH
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
 	givepokemove HAIL,		 wPartyMon2, 2
@@ -335,7 +335,7 @@ if DEF(_DEBUG)
 	;warp SAFARI_ZONE_WEST, 7, 9
 	;warp SOOTOPOLIS_GYM, 10, 05
 	;warp EVERGRANDE_DUNGEON_B2F, 52, 12
-	;warp GOLDENROD_CITY, 19, 29
+	;warp METEOR_FALLS, 27, 31
 	end
 else
 
