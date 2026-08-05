@@ -586,7 +586,7 @@
 	const EVENT_GOT_KYOGRE ; unused
 	const EVENT_GOT_GROUDON ; unused
 	const EVENT_GOT_RAYQUAZA ; unused
-	const EVENT_GOT_JIRACHI ; unused
+	const EVENT_GOT_JIRACHI 
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused	

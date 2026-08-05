@@ -35,6 +35,8 @@ MeteorFalls_MapEvents:
 	warp_event 29, 25, ROUTE_114, 1
 	warp_event 09, 41, ROUTE_115, 1
 	warp_event 27, 29, METEOR_TUNNEL_CENTER, 1
+	warp_event 13, 05, METEOR_PEAK, 1
+	warp_event 05, 03, METEOR_PEAK, 2
 
 	def_coord_events
 	;enable bridge 1

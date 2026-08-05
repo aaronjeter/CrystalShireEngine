@@ -795,5 +795,8 @@ INCLUDE "maps/hoenn/meteor/MeteorFalls.asm"
 INCLUDE "maps/hoenn/meteor/MeteorTunnelCenter.asm"
 INCLUDE "maps/hoenn/meteor/MeteorTunnelWest.asm"
 INCLUDE "maps/hoenn/meteor/MeteorTunnelEast.asm"
+INCLUDE "maps/hoenn/meteor/JirachiNest.asm"
+INCLUDE "maps/hoenn/meteor/MeteorPeak.asm"
+
 
 ENDSECTION

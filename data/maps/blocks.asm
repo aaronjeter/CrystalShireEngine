@@ -1329,4 +1329,10 @@ SECTION "Meteor Falls Blocks", ROMX
 	MeteorTunnelEast_Blocks:
 	INCBIN "maps/hoenn/meteor/MeteorTunnelEast.ablk"
 
+	JirachiNest_Blocks:
+	INCBIN "maps/hoenn/meteor/JirachiNest.ablk"
+
+	MeteorPeak_Blocks:
+	INCBIN "maps/hoenn/meteor/MeteorPeak.ablk"
+
 ENDSECTION

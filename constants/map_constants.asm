@@ -600,6 +600,8 @@ ENDM
 	map_const METEOR_TUNNEL_CENTER,                        20, 20 ;
 	map_const METEOR_TUNNEL_WEST,                          20, 20 ;
 	map_const METEOR_TUNNEL_EAST,                          20, 20 ;
+	map_const JIRACHI_NEST,								   08, 08 ;
+	map_const METEOR_PEAK,                                 30, 30 ;
 	map_const ROUTE_118,                                   40, 10 ;
 	map_const NEW_MAUVILLE,		                           22, 22 ;
 	map_const NEW_MAUVILLE_BASEMENT,                       20, 20 ;
