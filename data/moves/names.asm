@@ -333,4 +333,7 @@ MoveNames::
 	li "Snarl"
 	li "Hex"
 	li "Venoshock"
+	li "Volt Switch"
+	li "U-Turn"
+	li "Flip Turn"
 	assert_list_length NUM_ATTACKS

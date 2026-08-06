@@ -340,6 +340,9 @@ MoveDescriptionsGen2:
 	dw SnarlDescription
 	dw HexDescription
 	dw VenoshockDescription
+	dw SwitchHitDescription
+	dw SwitchHitDescription
+	dw SwitchHitDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1670,3 +1673,7 @@ HexDescription:
 VenoshockDescription:
 	db   "Double damage on"
 	next "poisoned targets.@"
+
+SwitchHitDescription:
+	db   "Strike then switch"
+	next "#mon.@"

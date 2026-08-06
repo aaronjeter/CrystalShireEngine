@@ -168,4 +168,5 @@ MoveEffectsPointers:
 	dw Growth
 	dw Charge
 	dw ConditionalBoostHit
+	dw SwitchHit
 	assert_table_length NUM_MOVE_EFFECTS

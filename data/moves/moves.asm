@@ -360,6 +360,9 @@ MovesGen2:
 	move EFFECT_SP_ATK_DOWN_HIT,    50, DARK,           SPECIAL,		100, 15, 100      ;SNARL
 	move EFFECT_CONDITIONAL_BOOST,  65, GHOST,          SPECIAL,		100, 15, 100      ;HEX
 	move EFFECT_CONDITIONAL_BOOST,  65, POISON,         SPECIAL,		100, 15, 100      ;VENOSHOCK
+	move EFFECT_SWITCH_HIT,         70, ELECTRIC,       PHYSICAL,		100, 15,   0      ;VOLT_SWITCH
+	move EFFECT_SWITCH_HIT,         70, BUG,            PHYSICAL,		100, 15,   0      ;U_TURN
+	move EFFECT_SWITCH_HIT,         70, WATER,          PHYSICAL,		100, 15,   0      ;FLIP_TURN
 .IndirectEnd::
 
 POPS

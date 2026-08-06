@@ -338,6 +338,9 @@ DEF GEN1_MOVES EQU const_value - 1
 	const SNARL
 	const HEX
 	const VENOSHOCK
+	const VOLT_SWITCH
+	const U_TURN
+	const FLIP_TURN
 
 DEF GEN2_MOVES EQU const_value - 1
 

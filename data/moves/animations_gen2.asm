@@ -165,6 +165,9 @@ BattleAnimationsGen2::
 	dw BattleAnim_Snarl			;
 	dw BattleAnim_Hex    		;Hex
 	dw BattleAnim_Venoshock		;Venoshock
+	dw BattleAnim_VoltSwitch
+	dw BattleAnim_UTurn
+	dw BattleAnim_FlipTurn
 
 .IndirectEnd::
 
@@ -2275,6 +2278,9 @@ BattleAnim_PoisonTail:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
+BattleAnim_FlipTurn:
+BattleAnim_UTurn:
+BattleAnim_VoltSwitch:
 BattleAnim_ShadowSneak:
 BattleAnim_BulletPunch:
 BattleAnim_AquaJet:
