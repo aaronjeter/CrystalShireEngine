@@ -128,4 +128,25 @@ def_water_wildmons DESERT_RUIN_B1F
 	dbw 5, RELICANTH
 	end_water_wildmons
 
+def_water_wildmons METEOR_TUNNEL_CENTER
+	db 2 percent ; encounter rate
+	dbw 1, STARYU
+	dbw 3, CHINCHOU
+	dbw 5, RELICANTH
+	end_water_wildmons
+
+def_water_wildmons METEOR_TUNNEL_WEST
+	db 2 percent ; encounter rate
+	dbw 1, STARYU
+	dbw 3, CHINCHOU
+	dbw 5, RELICANTH
+	end_water_wildmons
+
+def_water_wildmons METEOR_TUNNEL_EAST
+	db 2 percent ; encounter rate
+	dbw 1, STARYU
+	dbw 3, CHINCHOU
+	dbw 5, RELICANTH
+	end_water_wildmons
+
 db -1 ; end

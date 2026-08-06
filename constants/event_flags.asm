@@ -678,7 +678,7 @@
 	const EVENT_GOT_FORGE	;Ilex East
 	const EVENT_GOT_FEVER	;Mt Mortar 2f inside
 	const EVENT_GOT_CORONA	;Petalburg City
-	const EVENT_GOT_AURORA
+	const EVENT_GOT_AURORA  ;Meteor Falls
 	const EVENT_GOT_CINDER	;Route 12
 	const EVENT_GOT_KINDLE
 	const EVENT_GOT_BREEZE	;Violet City

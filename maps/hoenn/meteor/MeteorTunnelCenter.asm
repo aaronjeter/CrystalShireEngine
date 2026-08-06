@@ -3,6 +3,8 @@
 	const METEORCENTER_ESCAPE_ROPE
 	const METEORCENTER_STAR_PIECE
 	const METEORCENTER_ROOT_FOSSIL
+	const METEORCENTER_LUNATONE
+	const METEORCENTER_SOLROCK
 
 MeteorTunnelCenter_MapScripts:
 	def_scene_scripts
@@ -50,6 +52,22 @@ MeteorTunnelCenterStarPiece:
 MeteorTunnelCenterRootFossil:
 	itemball ROOT_FOSSIL
 
+MeteorTunnelCenterLunatone:
+	cry LUNATONE
+	loadwildmon LUNATONE, 8
+	startbattle
+	reloadmapafterbattle
+	disappear METEORCENTER_LUNATONE
+	end
+
+MeteorTunnelCenterSolrock:
+	cry SOLROCK
+	loadwildmon SOLROCK, 8
+	startbattle
+	reloadmapafterbattle
+	disappear METEORCENTER_SOLROCK
+	end
+
 
 MeteorTunnelCenter_MapEvents:
 	db 0, 0 ; filler
@@ -74,3 +92,6 @@ MeteorTunnelCenter_MapEvents:
 	object_event 20, 34, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelCenterEscapeRope, EVENT_METEOR_TUNNEL_CENTER_ESCAPE_ROPE
 	object_event 37, 21, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelCenterStarPiece, EVENT_METEOR_TUNNEL_CENTER_STAR_PIECE
 	object_event 37, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelCenterRootFossil, EVENT_GOT_FOSSIL_ROOT_METEOR_CENTER
+	object_event 02, 27, SPRITE_LUNATONE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MeteorTunnelCenterLunatone, -1
+	object_event 21, 12, SPRITE_SOLROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MeteorTunnelCenterSolrock, -1
+	

@@ -721,32 +721,32 @@ def_grass_wildmons FIERY_PATH
 	dbw 7, WEEZING
 	end_grass_wildmons
 
-def_grass_wildmons METEOR_FALLS
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+def_grass_wildmons JIRACHI_NEST
+	db 12 percent, 12 percent, 12 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, ZUBAT
-	dbw 1, LUNATONE
-	dbw 1, SOLROCK
-	dbw 1, CLEFAIRY
-	dbw 1, TENTACOOL2
-	dbw 7, LUNATONE
-	dbw 7, SOLROCK
+	dbw 1, DUSKULL
+	dbw 1, SHUPPET
+	dbw 1, HGROWLITHE
+	dbw 3, TENTACOOL2
+	dbw 3, HANEEI
+	dbw 5, HANEEI
+	dbw 7, HANEEI
 	; day
-	dbw 1, ZUBAT
-	dbw 1, LUNATONE
-	dbw 1, SOLROCK
-	dbw 1, CLEFAIRY
-	dbw 1, TENTACOOL2
-	dbw 7, LUNATONE
-	dbw 7, SOLROCK
+	dbw 1, DUSKULL
+	dbw 1, SHUPPET
+	dbw 1, HGROWLITHE
+	dbw 3, TENTACOOL2
+	dbw 3, HANEEI
+	dbw 5, HANEEI
+	dbw 7, HANEEI
 	; nite
-	dbw 1, ZUBAT
-	dbw 1, LUNATONE
-	dbw 1, SOLROCK
-	dbw 1, CLEFAIRY
-	dbw 1, TENTACOOL2
-	dbw 7, LUNATONE
-	dbw 7, SOLROCK
+	dbw 1, DUSKULL
+	dbw 1, SHUPPET
+	dbw 1, HGROWLITHE
+	dbw 3, TENTACOOL2
+	dbw 3, HANEEI
+	dbw 5, HANEEI
+	dbw 7, HANEEI
 	end_grass_wildmons
 
 def_grass_wildmons MT_PYRE

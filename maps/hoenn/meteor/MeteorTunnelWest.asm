@@ -4,6 +4,7 @@
 	const METEORWEST_RARE_CANDY
 	const METEORWEST_PP_UP
 	const METEORWEST_BAGON
+	const METEORWEST_DUSCLOPS
 
 MeteorTunnelWest_MapScripts:
 	def_scene_scripts
@@ -49,6 +50,14 @@ MeteorTunnelWestBagon:
 	disappear METEORWEST_BAGON
 	end
 
+MeteorTunnelDusclops:
+	cry DUSCLOPS
+	loadwildmon DUSCLOPS, 9
+	startbattle
+	reloadmapafterbattle
+	disappear METEORWEST_DUSCLOPS
+	end
+
 
 MeteorTunnelWest_MapEvents:
 	db 0, 0 ; filler
@@ -72,3 +81,4 @@ MeteorTunnelWest_MapEvents:
 	object_event 33, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestRareCandy, EVENT_METEOR_TUNNEL_WEST_RARE_CANDY
 	object_event 36, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestPpUp, EVENT_METEOR_TUNNEL_WEST_PP_UP
 	object_event 04, 03, SPRITE_BAGON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MeteorTunnelWestBagon, -1
+	object_event 18, 26, SPRITE_GENGAR, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, MeteorTunnelDusclops, -1
