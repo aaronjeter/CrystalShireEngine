@@ -58,7 +58,7 @@ MeteorTunnelEast_MapEvents:
 
 	def_warp_events	
 	warp_event 02, 05, METEOR_TUNNEL_CENTER, 3
-	warp_event 19, 05, JIRACHI_NEST, 1
+	warp_event 19,  3, JIRACHI_NEST, 1
 
 
 	def_coord_events

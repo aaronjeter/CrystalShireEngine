@@ -1,6 +1,5 @@
 	object_const_def
-	const TOHJOFALLS_POKE_BALL
-	const TOHJOFALLS_BAGON
+	const TOHJOFALLS_POKE_BALL	
 
 TohjoFalls_MapScripts:
 	def_scene_scripts
@@ -9,14 +8,6 @@ TohjoFalls_MapScripts:
 
 TohjoFallsMoonStone:
 	itemball MOON_STONE
-
-TohjoFallsBagon:
-	cry BAGON
-	loadwildmon BAGON, 1
-	startbattle
-	reloadmapafterbattle
-	disappear TOHJOFALLS_BAGON
-	end
 
 TohjoFalls_MapEvents:
 	db 0, 0 ; filler
@@ -31,4 +22,3 @@ TohjoFalls_MapEvents:
 
 	def_object_events
 	object_event  2,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TohjoFallsMoonStone, EVENT_TOHJO_FALLS_MOON_STONE
-	object_event  3,  6, SPRITE_BAGON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TohjoFallsBagon, -1

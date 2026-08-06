@@ -3,6 +3,7 @@
 	const METEORWEST_STAR_PIECE
 	const METEORWEST_RARE_CANDY
 	const METEORWEST_PP_UP
+	const METEORWEST_BAGON
 
 MeteorTunnelWest_MapScripts:
 	def_scene_scripts
@@ -40,6 +41,14 @@ MeteorTunnelWestRareCandy:
 MeteorTunnelWestPpUp:
 	itemball PP_UP
 
+MeteorTunnelWestBagon:
+	cry BAGON
+	loadwildmon BAGON, 1
+	startbattle
+	reloadmapafterbattle
+	disappear METEORWEST_BAGON
+	end
+
 
 MeteorTunnelWest_MapEvents:
 	db 0, 0 ; filler
@@ -62,3 +71,4 @@ MeteorTunnelWest_MapEvents:
 	object_event 29, 09, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestStarPiece, EVENT_METEOR_TUNNEL_WEST_STAR_PIECE
 	object_event 33, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestRareCandy, EVENT_METEOR_TUNNEL_WEST_RARE_CANDY
 	object_event 36, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestPpUp, EVENT_METEOR_TUNNEL_WEST_PP_UP
+	object_event 04, 03, SPRITE_BAGON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MeteorTunnelWestBagon, -1
