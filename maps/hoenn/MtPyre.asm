@@ -282,6 +282,10 @@ PyreRocketJaneScript:
 	disappear PYRE_JANE
 	setevent EVENT_BEAT_PYRE_ROCKETS
 
+	writetext MtPyreFoundWaterfallText
+	setevent EVENT_GOT_HM07_WATERFALL
+	verbosegiveitem HM_WATERFALL
+
 	closetext
 .done	
 	end
@@ -299,7 +303,6 @@ PyreJaneUsesMasterBallText:
 	line "but cannot escape."
 	done
 
-
 PyreJaneTauntsPlayerText:
 	text "Ah ha ha haaa!"
 	line "You're too late"
@@ -314,6 +317,14 @@ PyreJaneTauntsPlayerText:
 
 	para "for an even"
 	line "greater prize!"
+	done
+
+MtPyreFoundWaterfallText:
+	text "In her rush out,"
+	line "it looks like she"
+
+	para "left something"
+	line "valuable..."
 	done
 
 

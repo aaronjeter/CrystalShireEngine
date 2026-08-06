@@ -464,11 +464,7 @@ MauvilleGameCornerRightBossScript:
 
 	special FadeOutToBlack
 	disappear MAUVILLE_GC_ROCKET_BOSS
-	special FadeInFromBlack
-
-	writetext MauvilleFoundWaterfallText
-	setevent EVENT_GOT_HM07_WATERFALL
-	verbosegiveitem HM_WATERFALL
+	special FadeInFromBlack	
 	closetext
 
 .done
@@ -504,14 +500,6 @@ MauvilleRocketBossAfterBattleText:
 
 	para "We WILL meet"
 	line "again runt."
-	done
-
-MauvilleFoundWaterfallText:
-	text "In her rush out,"
-	line "it looks like she"
-
-	para "left something"
-	line "valuable..."
 	done
 
 MauvilleGameCorner_StepRightMovement:
