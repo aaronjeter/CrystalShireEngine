@@ -5,6 +5,7 @@
 	const EVERGRANDEDUNGEONB2F_ACEF7
 	const EVERGRANDEDUNGEONB2F_ACEF8
 	const EVERGRANDEDUNGEONB2F_ACEF9
+	const EVERGRANDEDUNGEONB2F_PETRA
 
 EvergrandeDungeonB2F_MapScripts:
 	def_scene_scripts
@@ -244,6 +245,39 @@ CooltrainerF9AfterBattleText:
 	cont "something cool."
 	done
 
+Djinn_PetraScript:
+	cry VENUS
+	opentext
+	writetext Djinn_PetraText
+	yesorno
+	iffalse .Done
+	givepoke VENUS, 40, LEFTOVERS, Djinn_PetraName, Djinn_PetraOTName
+	setevent EVENT_GOT_PETRA
+	disappear EVERGRANDEDUNGEONB2F_PETRA
+	.Done
+	closetext	
+	end
+
+Djinn_PetraName:
+	db "Petra@"
+
+Djinn_PetraOTName:
+	db "Felix@" 
+
+Djinn_PetraText:
+	text "I do love a nice"
+	line "labyrinth, but I"
+	cont "think I'm just"
+	cont "lost..."
+
+	para "Want to go look"
+	line "for a way out"
+	cont "together?"
+
+	para "Invite Petra to"
+	line "join your party?"
+	done
+
 
 EvergrandeDungeonB2F_MapEvents:
 	db 0, 0 ; filler
@@ -276,3 +310,4 @@ EvergrandeDungeonB2F_MapEvents:
 	object_event 43, 34, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF7, -1
 	object_event 21, 35, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF8, -1
 	object_event 10, 14, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF9, -1
+	object_event 52, 21, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Djinn_PetraScript, EVENT_GOT_PETRA
