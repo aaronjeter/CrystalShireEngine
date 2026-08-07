@@ -64,6 +64,12 @@ MACRO dbwbw
 	dw \4
 ENDM
 
+MACRO dbwb
+	db \1
+	dw \2
+	db \3
+ENDM
+
 MACRO dn ; nybbles
 	rept _NARG / 2
 		db ((\1) << 4) | (\2)
