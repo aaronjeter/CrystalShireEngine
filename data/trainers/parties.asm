@@ -4469,61 +4469,13 @@ SwimmerMGroup:
 	dw GYARADOS
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (8) Unreferenced
+	next_list_item ; SWIMMERM (8) Route 41
 	db "Mathew@", TRAINERTYPE_NORMAL
 	db 7
 	dw KRABBY
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (9) Unreferenced
-	db "Hal@", TRAINERTYPE_NORMAL
-	db 4
-	dw SEEL
-	db 6
-	dw DEWGONG
-	db 4
-	dw SEEL
-	db -1 ; end
-
-	next_list_item ; SWIMMERM (10) Unreferenced
-	db "Paton@", TRAINERTYPE_NORMAL
-	db 6
-	dw PILOSWINE
-	db 6
-	dw PILOSWINE
-	db -1 ; end
-
-	next_list_item ; SWIMMERM (11) Unreferenced
-	db "Daryl@", TRAINERTYPE_NORMAL
-	db 4
-	dw SHELLDER
-	db 5
-	dw CLOYSTER
-	db 4
-	dw SHELLDER
-	db -1 ; end
-
-	next_list_item ; SWIMMERM (12) Unreferenced
-	db "Walter@", TRAINERTYPE_NORMAL
-	db 5
-	dw HORSEA
-	db 5
-	dw HORSEA
-	db 9
-	dw SEADRA
-	db -1 ; end
-
-	next_list_item ; SWIMMERM (13) Unreferenced
-	db "Tony@", TRAINERTYPE_NORMAL
-	db 3
-	dw STARYU
-	db 8
-	dw STARMIE
-	db 6
-	dw HORSEA
-	db -1 ; end
-
-	next_list_item ; SWIMMERM (14) Route 19
+	next_list_item ; SWIMMERM (9) Route 19
 	db "Jerome@", TRAINERTYPE_NORMAL
 	db 6
 	dw SEADRA
@@ -4535,7 +4487,7 @@ SwimmerMGroup:
 	dw GOLDEEN
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (15) Route 19
+	next_list_item ; SWIMMERM (10) Route 19
 	db "Tucker@", TRAINERTYPE_NORMAL
 	db 3
 	dw SHELLDER
@@ -4543,23 +4495,13 @@ SwimmerMGroup:
 	dw CLOYSTER
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (16) Unreferenced
-	db "Rick@", TRAINERTYPE_NORMAL
-	db 3
-	dw STARYU
-	db 8
-	dw STARMIE
-	db 6
-	dw HORSEA
-	db -1 ; end
-
-	next_list_item ; SWIMMERM (17) Route 20
+	next_list_item ; SWIMMERM (11) Route 20
 	db "Cameron@", TRAINERTYPE_NORMAL
 	db 7
 	dw MARILL
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (18) Route 21
+	next_list_item ; SWIMMERM (12) Route 21
 	db "Seth@", TRAINERTYPE_NORMAL
 	db 4
 	dw QUAGSIRE
@@ -4569,27 +4511,7 @@ SwimmerMGroup:
 	dw QUAGSIRE
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (19) Unreferenced
-	db "James@", TRAINERTYPE_NORMAL
-	db 3
-	dw STARYU
-	db 8
-	dw STARMIE
-	db 6
-	dw HORSEA
-	db -1 ; end
-
-	next_list_item ; SWIMMERM (20) Unreferenced
-	db "Lewis@", TRAINERTYPE_NORMAL
-	db 3
-	dw STARYU
-	db 8
-	dw STARMIE
-	db 6
-	dw HORSEA
-	db -1 ; end
-
-	next_list_item ; SWIMMERM (21) Cerulean City Gym
+	next_list_item ; SWIMMERM (13) Cerulean City Gym
 	db "Parker@", TRAINERTYPE_NORMAL
 	db 7
 	dw HORSEA
@@ -4599,7 +4521,7 @@ SwimmerMGroup:
 	dw SEADRA
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (22) Route105
+	next_list_item ; SWIMMERM (14) Route105
 	db "Luis@", TRAINERTYPE_NORMAL
 	db 7
 	dw LUVDISC
@@ -4609,7 +4531,7 @@ SwimmerMGroup:
 	dw HUNTAIL
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (23) Route108
+	next_list_item ; SWIMMERM (15) Route108
 	db "Tony@", TRAINERTYPE_NORMAL
 	db 6
 	dw LUVDISC
@@ -4619,7 +4541,7 @@ SwimmerMGroup:
 	dw SLOWPOKE
 	db -1 ; end
 
-	next_list_item ; SWIMMERM (24) Route108
+	next_list_item ; SWIMMERM (16) Route108
 	db "Darrin@", TRAINERTYPE_NORMAL
 	db 6
 	dw BARBOACH

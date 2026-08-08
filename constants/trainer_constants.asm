@@ -498,18 +498,10 @@ DEF KRIS EQU __trainer_class__
 	const BERKE
 	const KIRK
 	const MATHEW
-	const HAL_UNUSED ; unused
-	const PATON_UNUSED ; unused
-	const DARYL_UNUSED ; unused
-	const WALTER_UNUSED ; unused
-	const TONY_UNUSED ; unused
 	const JEROME
 	const TUCKER
-	const RICK ; unused
 	const CAMERON
 	const SETH
-	const JAMES_UNUSED ; unused
-	const LEWIS_UNUSED ; unused
 	const PARKER
 	const ROUTE105_LUIS
 	const ROUTE108_TONY
