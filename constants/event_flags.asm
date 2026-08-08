@@ -1142,15 +1142,15 @@
 	const EVENT_BEAT_CAMPER_LLOYD
 	const EVENT_BEAT_CAMPER_DEAN
 	const EVENT_BEAT_CAMPER_SID
-	const EVENT_BEAT_CAMPER_HERVEY_UNUSED
-	const EVENT_BEAT_CAMPER_DALE_UNUSED
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_CAMPER_TED
-	const EVENT_BEAT_CAMPER_TODD2_UNUSED
-	const EVENT_BEAT_CAMPER_TODD3_UNUSED
-	const EVENT_BEAT_CAMPER_THOMAS_UNUSED
-	const EVENT_BEAT_CAMPER_LEROY_UNUSED
-	const EVENT_BEAT_CAMPER_DAVID_UNUSED
-	const EVENT_BEAT_CAMPER_JOHN_UNUSED
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_CAMPER_JERRY
 	const EVENT_BEAT_CAMPER_SPENCER
 ; Burglar

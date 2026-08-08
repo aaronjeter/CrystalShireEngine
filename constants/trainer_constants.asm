@@ -734,13 +734,7 @@ DEF KRIS EQU __trainer_class__
 	const LLOYD
 	const DEAN
 	const SID
-	const HARVEY_UNUSED ; unused
-	const DALE_UNUSED ; unused
 	const TED
-	const THOMAS_UNUSED ; unused
-	const LEROY_UNUSED ; unused
-	const DAVID_UNUSED ; unused
-	const JOHN_UNUSED ; unused
 	const JERRY
 	const SPENCER
 	const QUENTIN

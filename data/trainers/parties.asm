@@ -6330,73 +6330,13 @@ CamperGroup:
 	dw POLIWRATH
 	db -1 ; end
 
-	next_list_item ; CAMPER (9) Unreferenced
-	db "Harvey@", TRAINERTYPE_NORMAL
-	db 5
-	dw NIDORINO
-	db -1 ; end
-
-	next_list_item ; CAMPER (10) Unreferenced
-	db "Dale@", TRAINERTYPE_NORMAL
-	db 5
-	dw NIDORINO
-	db -1 ; end
-
-	next_list_item ; CAMPER (11) Route 46
+	next_list_item ; CAMPER (9) Route 46
 	db "Ted@", TRAINERTYPE_NORMAL
 	db 7
 	dw MANKEY
 	db -1 ; end
 
-	next_list_item ; CAMPER (14) Unreferenced
-	db "Thomas@", TRAINERTYPE_NORMAL
-	db 3
-	dw GRAVELER
-	db 6
-	dw GRAVELER
-	db 8
-	dw GOLBAT
-	db 8
-	dw GOLDUCK
-	db -1 ; end
-
-	next_list_item ; CAMPER (15) Unreferenced
-	db "Leroy@", TRAINERTYPE_NORMAL
-	db 3
-	dw GRAVELER
-	db 6
-	dw GRAVELER
-	db 8
-	dw GOLBAT
-	db 8
-	dw GOLDUCK
-	db -1 ; end
-
-	next_list_item ; CAMPER (16) Unreferenced
-	db "David@", TRAINERTYPE_NORMAL
-	db 3
-	dw GRAVELER
-	db 6
-	dw GRAVELER
-	db 8
-	dw GOLBAT
-	db 8
-	dw GOLDUCK
-	db -1 ; end
-
-	next_list_item ; CAMPER (17) Unreferenced
-	db "John@", TRAINERTYPE_NORMAL
-	db 3
-	dw GRAVELER
-	db 6
-	dw GRAVELER
-	db 8
-	dw GOLBAT
-	db 8
-	dw GOLDUCK
-	db -1 ; end
-
-	next_list_item ; CAMPER (18) Pewter City Gym
+	next_list_item ; CAMPER (10) Pewter City Gym
 	db "Jerry@", TRAINERTYPE_NORMAL
 	db 7
 	dw SANDSHREW
@@ -6404,7 +6344,7 @@ CamperGroup:
 	dw KABUTO
 	db -1 ; end
 
-	next_list_item ; CAMPER (19) Route 43
+	next_list_item ; CAMPER (11) Route 43
 	db "Spencer@", TRAINERTYPE_NORMAL
 	db 3
 	dw SANDSHREW
@@ -6414,7 +6354,7 @@ CamperGroup:
 	dw ZUBAT
 	db -1 ; end
 
-	next_list_item ; CAMPER (22) Unreferenced
+	next_list_item ; CAMPER (12) Route 45
 	db "Quentin@", TRAINERTYPE_NORMAL
 	db 2
 	dw FEAROW
@@ -6424,13 +6364,13 @@ CamperGroup:
 	dw TAUROS
 	db -1 ; end
 
-	next_list_item ; CAMPER (23) Route 104
+	next_list_item ; CAMPER (13) Route 104
 	db "Winston@", TRAINERTYPE_NORMAL
 	db 2
 	dw LINOONE
 	db -1 ; end
 
-	next_list_item ; CAMPER (24) Route 117
+	next_list_item ; CAMPER (14) Route 117
 	db "Dylan@", TRAINERTYPE_NORMAL
 	db 5
 	dw DODUO
@@ -6438,7 +6378,7 @@ CamperGroup:
 	dw CORPHISH
 	db -1 ; end
 
-	next_list_item ; CAMPER (25) Route 108
+	next_list_item ; CAMPER (15) Route 108
 	db "Dylan@", TRAINERTYPE_NORMAL
 	db 5
 	dw DONPHAN
@@ -6446,7 +6386,7 @@ CamperGroup:
 	dw GIRAFARIG
 	db -1 ; end
 
-	next_list_item ; CAMPER (26) Route 111
+	next_list_item ; CAMPER (16) Route 111
 	db "Tyron@", TRAINERTYPE_NORMAL
 	db 5
 	dw TOGETIC
@@ -6454,7 +6394,7 @@ CamperGroup:
 	dw MURKROW
 	db -1 ; end
 
-	next_list_item ; CAMPER (27) Route 111
+	next_list_item ; CAMPER (17) Route 111
 	db "Travis@", TRAINERTYPE_NORMAL
 	db 5
 	dw GLIGAR
@@ -6462,7 +6402,7 @@ CamperGroup:
 	dw CACTURNE
 	db -1 ; end
 
-	next_list_item ; CAMPER (28) Fortree Gym
+	next_list_item ; CAMPER (18) Fortree Gym
 	db "Flint@", TRAINERTYPE_NORMAL
 	db 7
 	dw GOLBAT
@@ -6470,7 +6410,7 @@ CamperGroup:
 	dw XATU
 	db -1 ; end
 
-	next_list_item ; CAMPER (29) Route 112
+	next_list_item ; CAMPER (19) Route 112
 	db "Larry@", TRAINERTYPE_NORMAL
 	db 5
 	dw NUZLEAF
@@ -6478,7 +6418,7 @@ CamperGroup:
 	dw SWELLOW
 	db -1 ; end
 
-	next_list_item ; CAMPER (30) Route 113
+	next_list_item ; CAMPER (20) Route 113
 	db "Jaylen@", TRAINERTYPE_NORMAL
 	db 5
 	dw TRAPINCH
@@ -6486,7 +6426,7 @@ CamperGroup:
 	dw RATICATE
 	db -1 ; end
 
-	next_list_item ; CAMPER (31) Route 113
+	next_list_item ; CAMPER (21) Route 113
 	db "Lung@", TRAINERTYPE_NORMAL
 	db 5
 	dw KOFFING
@@ -6494,7 +6434,7 @@ CamperGroup:
 	dw MAGMAR
 	db -1 ; end
 
-	next_list_item ; CAMPER (32) Route 113
+	next_list_item ; CAMPER (22) Route 113
 	db "Lawry@", TRAINERTYPE_NORMAL
 	db 5
 	dw BALTOY
@@ -6502,7 +6442,7 @@ CamperGroup:
 	dw SANDSLASH
 	db -1 ; end
 
-	next_list_item ; CAMPER (33) Route 114
+	next_list_item ; CAMPER (23) Route 114
 	db "Shane@", TRAINERTYPE_NORMAL
 	db 5
 	dw URSARING
@@ -6510,7 +6450,7 @@ CamperGroup:
 	dw ASANDSLASH
 	db -1 ; end
 
-	next_list_item ; CAMPER (34) Lavaridge Desert
+	next_list_item ; CAMPER (24) Lavaridge Desert
 	db "Beau@", TRAINERTYPE_NORMAL	
 	db 4
 	dw TRAPINCH
@@ -6518,7 +6458,7 @@ CamperGroup:
 	dw DUGTRIO
 	db -1 ; end
 
-	next_list_item ; CAMPER (35) Lavaridge Desert
+	next_list_item ; CAMPER (25) Lavaridge Desert
 	db "Drew@", TRAINERTYPE_NORMAL	
 	db 4
 	dw SUDOWOODO
@@ -6526,7 +6466,7 @@ CamperGroup:
 	dw NIDORINO	
 	db -1 ; end
 
-	next_list_item ; CAMPER (36) Lavaridge Desert
+	next_list_item ; CAMPER (26) Lavaridge Desert
 	db "Branden@", TRAINERTYPE_NORMAL	
 	db 4
 	dw SKARMORY
