@@ -506,66 +506,44 @@ ClairGroupHard:
 Rival1GroupHard:
 	next_list_item ; RIVAL1 (1)
 	db "?@", TRAINERTYPE_NORMAL
-	db 2
-	dw TEDDIURSA
+	dbw 2, TEDDIURSA
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (2)
 	db "?@", TRAINERTYPE_NORMAL
-	db 8
-	dw MAREEP
-	db 8
-	dw NATU
-	db 8
-	dw REMORAID
-	db 11
-	dw BAYLEEF
+	dbw 8, MAREEP
+	dbw 8, NATU
+	dbw 8, REMORAID
+	dbw 11, TEDDIURSA
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (3)
 	db "?@", TRAINERTYPE_NORMAL
-	db 6
-	dw PINECO
-	db 8
-	dw FLAAFFY
-	db 8
-	dw XATU
-	db 9
-	dw REMORAID
-	db 11
-	dw URSARING
+	dbw 6, PINECO
+	dbw 8, FLAAFFY
+	dbw 8, XATU
+	dbw 9, REMORAID
+	dbw 11, URSARING
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (4)
 	db "?@", TRAINERTYPE_NORMAL
-	db 7
-	dw FORRETRESS
-	db 8
-	dw SNEASEL
-	db 8
-	dw AMPHAROS
-	db 9
-	dw XATU
-	db 10
-	dw OCTILLERY
-	db 13
-	dw URSARING
+	dbw 7, FORRETRESS
+	dbw 8, SNEASEL
+	dbw 8, AMPHAROS
+	dbw 9, XATU
+	dbw 10, OCTILLERY
+	dbw 13, URSARING
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (5)
 	db "?@", TRAINERTYPE_NORMAL
-	db 12
-	dw FORRETRESS
-	db 12
-	dw WEAVILE
-	db 12
-	dw AMPHAROS
-	db 12
-	dw XATU
-	db 12
-	dw OCTILLERY
-	db 15
-	dw URSALUNA
+	dbw 12, FORRETRESS
+	dbw 12, WEAVILE
+	dbw 12, AMPHAROS
+	dbw 12, XATU
+	dbw 12, OCTILLERY
+	dbw 15, URSALUNA
 	db -1 ; end
 
 	end_list_items
@@ -5024,29 +5002,17 @@ SECTION "Hard Trainer Parties 3", ROMX
 Rival2GroupHard:
 	next_list_item ; RIVAL2 (7) World Cup Rival
 	db "?@", TRAINERTYPE_ITEM_MOVES
-	db 12
-	dw FORRETRESS
-	dw QUICK_CLAW
+	dbww 12, FORRETRESS, QUICK_CLAW
 	dw LEECH_SEED, TOXIC, RECOVER, EXPLOSION
-	db 12
-	dw WEAVILE
-	dw NEVERMELTICE
+	dbww 12, WEAVILE, NEVERMELTICE
 	dw ICICLE_CRASH, PURSUIT, MACH_PUNCH, PSYCHO_CUT	
-	db 12
-	dw AMPHAROS
-	dw MAGNET
+	dbww 12, AMPHAROS, MAGNET
 	dw THUNDERBOLT, FLASHCANNON, THUNDER_WAVE, DRAGONBREATH
-	db 13
-	dw XATU
-	dw TWISTEDSPOON
+	dbww 13, XATU, TWISTEDSPOON
 	dw SKY_ATTACK, PSYCHIC_M, HYPNOSIS, DREAM_EATER
-	db 13
-	dw OCTILLERY
-	dw CHARCOAL
+	dbww 13, OCTILLERY, CHARCOAL
 	dw BLAST_BURN, HYDRO_PUMP, WILLOWISP, FIRE_BLAST
-	db 13
-	dw URSALUNA
-	dw LEFTOVERS
+	dbww 13, URSALUNA, LEFTOVERS
 	dw BULK_UP, EARTHQUAKE, CRUNCH, THUNDER_FANG
 	db -1 ; end
 

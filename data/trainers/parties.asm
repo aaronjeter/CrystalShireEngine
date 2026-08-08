@@ -507,66 +507,44 @@ ClairGroup: ;Gym Leader
 Rival1Group:
 	next_list_item ; RIVAL1 (1)
 	db "?@", TRAINERTYPE_NORMAL
-	db 1
-	dw TEDDIURSA
+	dbw 1, TEDDIURSA
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (2)
 	db "?@", TRAINERTYPE_NORMAL
-	db 6
-	dw MAREEP
-	db 6
-	dw NATU
-	db 7
-	dw REMORAID
-	db 10
-	dw TEDDIURSA
+	dbw 6, MAREEP
+	dbw 6, NATU
+	dbw 7, REMORAID
+	dbw 10, TEDDIURSA
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (3)
 	db "?@", TRAINERTYPE_NORMAL
-	db 5
-	dw PINECO
-	db 7
-	dw FLAAFFY
-	db 7
-	dw XATU
-	db 7
-	dw REMORAID
-	db 10
-	dw URSARING
+	dbw 5, PINECO
+	dbw 7, FLAAFFY
+	dbw 7, XATU
+	dbw 7, REMORAID
+	dbw 10, URSARING
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (4)
 	db "?@", TRAINERTYPE_NORMAL
-	db 6
-	dw FORRETRESS
-	db 7
-	dw SNEASEL
-	db 7
-	dw AMPHAROS
-	db 8
-	dw XATU
-	db 9
-	dw OCTILLERY
-	db 11
-	dw URSARING
+	dbw 6, FORRETRESS
+	dbw 7, SNEASEL
+	dbw 7, AMPHAROS
+	dbw 8, XATU
+	dbw 9, OCTILLERY
+	dbw 11, URSARING
 	db -1 ; end
 
 	next_list_item ; RIVAL1 (5)
 	db "?@", TRAINERTYPE_NORMAL
-	db 10
-	dw FORRETRESS
-	db 11
-	dw WEAVILE
-	db 11
-	dw AMPHAROS
-	db 11
-	dw XATU
-	db 11
-	dw OCTILLERY
-	db 12
-	dw URSALUNA
+	dbw 10, FORRETRESS
+	dbw 11, WEAVILE
+	dbw 11, AMPHAROS
+	dbw 11, XATU
+	dbw 11, OCTILLERY
+	dbw 12, URSALUNA
 	db -1 ; end
 
 	end_list_items
@@ -4911,23 +4889,17 @@ SECTION "Enemy Trainer Parties 3", ROMX
 Rival2Group:
 	next_list_item ; RIVAL2 (7) World Cup Rival
 	db "?@", TRAINERTYPE_MOVES
-	db 12
-	dw FORRETRESS
+	dbw 12, FORRETRESS
 	dw LEECH_SEED, TOXIC, RECOVER, EXPLOSION
-	db 12
-	dw WEAVILE
+	dbw 12, WEAVILE
 	dw ICICLE_CRASH, PURSUIT, MACH_PUNCH, PSYCHO_CUT	
-	db 12
-	dw AMPHAROS
+	dbw 12, AMPHAROS
 	dw THUNDERBOLT, FLASHCANNON, THUNDER_WAVE, DRAGONBREATH
-	db 13
-	dw XATU
+	dbw 13, XATU
 	dw SKY_ATTACK, PSYCHIC_M, HYPNOSIS, DREAM_EATER
-	db 13
-	dw OCTILLERY
+	dbw 13, OCTILLERY
 	dw BLAST_BURN, HYDRO_PUMP, WILLOWISP, FIRE_BLAST
-	db 15
-	dw URSALUNA
+	dbw 15, URSALUNA
 	dw BULK_UP, EARTHQUAKE, CRUNCH, THUNDER_FANG
 	db -1 ; end
 
