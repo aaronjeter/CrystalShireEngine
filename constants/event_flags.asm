@@ -1159,8 +1159,8 @@
 	const EVENT_BEAT_BURGLAR_COREY
 	const_skip ; unused
 ; Biker
-	const EVENT_BEAT_BIKER_BENNY_UNUSED
-	const EVENT_BEAT_BIKER_KAZU_UNUSED
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_BIKER_DWAYNE
 	const EVENT_BEAT_BIKER_HARRIS
 	const EVENT_BEAT_BIKER_ZEKE

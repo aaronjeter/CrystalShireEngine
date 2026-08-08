@@ -5480,27 +5480,7 @@ HikerGroupHard:
 	end_list_items
 
 BikerGroupHard:
-	next_list_item ; BIKER (1)  Unreferenced
-	db "Benny@", TRAINERTYPE_NORMAL
-	db 7
-	dw KOFFING
-	db 7
-	dw KOFFING
-	db 7
-	dw KOFFING
-	db -1 ; end
-
-	next_list_item ; BIKER (2) Unreferenced
-	db "Kazu@", TRAINERTYPE_NORMAL
-	db 7
-	dw KOFFING
-	db 7
-	dw KOFFING
-	db 7
-	dw KOFFING
-	db -1 ; end
-
-	next_list_item ; BIKER (3) Route 8
+	next_list_item ; BIKER (1) Route 8
 	db "Dwayne@", TRAINERTYPE_NORMAL
 	db 5
 	dw KOFFING
@@ -5512,13 +5492,13 @@ BikerGroupHard:
 	dw KOFFING
 	db -1 ; end
 
-	next_list_item ; BIKER (4) Route 8
+	next_list_item ; BIKER (2) Route 8
 	db "Harris@", TRAINERTYPE_NORMAL
 	db 7
 	dw FLAREON
 	db -1 ; end
 
-	next_list_item ; BIKER (5) Route 8
+	next_list_item ; BIKER (3) Route 8
 	db "Zeke@", TRAINERTYPE_NORMAL
 	db 6
 	dw KOFFING
@@ -5526,7 +5506,7 @@ BikerGroupHard:
 	dw KOFFING
 	db -1 ; end
 
-	next_list_item ; BIKER (6) Route 17
+	next_list_item ; BIKER (4) Route 17
 	db "Charles@", TRAINERTYPE_NORMAL
 	db 5
 	dw KOFFING
@@ -5536,13 +5516,13 @@ BikerGroupHard:
 	dw WEEZING
 	db -1 ; end
 
-	next_list_item ; BIKER (7) Route 17
+	next_list_item ; BIKER (5) Route 17
 	db "Riley@", TRAINERTYPE_NORMAL
 	db 7
 	dw WEEZING
 	db -1 ; end
 
-	next_list_item ; BIKER (8) Route 17
+	next_list_item ; BIKER (6) Route 17
 	db "Joel@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGMAR
@@ -5550,7 +5530,7 @@ BikerGroupHard:
 	dw MAGMAR
 	db -1 ; end
 
-	next_list_item ; BIKER (9) Route 17
+	next_list_item ; BIKER (7) Route 17
 	db "Glenn@", TRAINERTYPE_NORMAL
 	db 3
 	dw KOFFING

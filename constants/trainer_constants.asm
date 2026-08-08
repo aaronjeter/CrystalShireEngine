@@ -609,8 +609,6 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE114_LENNY
 
 	trainerclass BIKER ; 2d
-	const BIKER_BENNY_UNUSED ; unused
-	const KAZU_UNUSED ; unused
 	const DWAYNE
 	const HARRIS
 	const ZEKE
