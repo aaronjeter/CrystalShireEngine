@@ -247,12 +247,8 @@ DEF KRIS EQU __trainer_class__
 	const JAKE
 	const BLAKE
 	const BRIAN
-	const ERICK_UNUSED ; unused
-	const ANDY_UNUSED ; unused
-	const TYLER_UNUSED ; unused
 	const SEAN
 	const KEVIN
-	const STEVE_UNUSED ; unused
 	const ALLEN
 	const DARIN
 	const PETALBURG_RANDALL

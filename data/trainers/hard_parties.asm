@@ -2148,7 +2148,7 @@ CooltrainerMGroupHard:
 	dw OCTILLERY
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (2) Unreferenced
+	next_list_item ; COOLTRAINERM (2) Lake of Rage
 	db "Aaron@", TRAINERTYPE_NORMAL
 	db 6
 	dw IVYSAUR
@@ -2202,7 +2202,7 @@ CooltrainerMGroupHard:
 	dw SEVIPER
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (8) Route 45
+	next_list_item ; COOLTRAINERM (7) Route 45
 	db "Ryan@", TRAINERTYPE_NORMAL
 	db 7
 	dw PIDGEOT
@@ -2214,7 +2214,7 @@ CooltrainerMGroupHard:
 	dw JYNX
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (9) Route 26
+	next_list_item ; COOLTRAINERM (8) Route 26
 	db "Jake@", TRAINERTYPE_NORMAL
 	db 9
 	dw PARASECT
@@ -2226,7 +2226,7 @@ CooltrainerMGroupHard:
 	dw CAMERUPT
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (11) Route 27
+	next_list_item ; COOLTRAINERM (9) Route 27
 	db "Blake@", TRAINERTYPE_NORMAL
 	db 10
 	dw MAGNEZONE
@@ -2236,7 +2236,7 @@ CooltrainerMGroupHard:
 	dw EXEGGUTOR2
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (12) Route 27
+	next_list_item ; COOLTRAINERM (10) Route 27
 	db "Brian@", TRAINERTYPE_NORMAL
 	db 10
 	dw ASANDSLASH
@@ -2244,39 +2244,9 @@ CooltrainerMGroupHard:
 	dw SWALOT
 	db 10
 	dw GRUMPIG
-	db -1 ; end
+	db -1 ; end	
 
-	next_list_item ; COOLTRAINERM (13) Unreferenced
-	db "Erick@", TRAINERTYPE_NORMAL
-	db 10
-	dw BULBASAUR
-	db 10
-	dw CHARMANDER
-	db 10
-	dw SQUIRTLE
-	db -1 ; end
-
-	next_list_item ; COOLTRAINERM (14) Unreferenced
-	db "Andy@", TRAINERTYPE_NORMAL
-	db 10
-	dw BULBASAUR
-	db 10
-	dw CHARMANDER
-	db 10
-	dw SQUIRTLE
-	db -1 ; end
-
-	next_list_item ; COOLTRAINERM (15) Unreferenced
-	db "Tyler@", TRAINERTYPE_NORMAL
-	db 10
-	dw BULBASAUR
-	db 10
-	dw CHARMANDER
-	db 10
-	dw SQUIRTLE
-	db -1 ; end
-
-	next_list_item ; COOLTRAINERM (16) Unreferenced
+	next_list_item ; COOLTRAINERM (11) Fast Ship
 	db "Sean@", TRAINERTYPE_NORMAL
 	db 10
 	dw FLAREON
@@ -2286,7 +2256,7 @@ CooltrainerMGroupHard:
 	dw TAUROS
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (17) Route 25
+	next_list_item ; COOLTRAINERM (12) Route 25
 	db "Kevin@", TRAINERTYPE_NORMAL
 	db 8
 	dw RHYHORN
@@ -2296,31 +2266,21 @@ CooltrainerMGroupHard:
 	dw WARTORTLE
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (18) Unreferenced
-	db "Steve@", TRAINERTYPE_NORMAL
-	db 7
-	dw BULBASAUR
-	db 7
-	dw CHARMANDER
-	db 7
-	dw SQUIRTLE
-	db -1 ; end
-
-	next_list_item ; COOLTRAINERM (19) Unreferenced
+	next_list_item ; COOLTRAINERM (13) Route 44
 	db "Allen@", TRAINERTYPE_MOVES
 	db 7
 	dw CHARMELEON
 	dw EMBER, SMOKESCREEN, RAGE, SCARY_FACE
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (20) Dragon's Den
+	next_list_item ; COOLTRAINERM (14) Dragon's Den
 	db "Darin@", TRAINERTYPE_MOVES
 	db 15
 	dw DRAGONAIR
 	dw WRAP, SURF, DRAGON_RAGE, SLAM
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (21) Petalburg Gym
+	next_list_item ; COOLTRAINERM (15) Petalburg Gym
 	db "Randal@", TRAINERTYPE_NORMAL
 	db 11
 	dw DELCATTY
@@ -2328,7 +2288,7 @@ CooltrainerMGroupHard:
 	dw PERSIAN
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (22) Petalburg Gym
+	next_list_item ; COOLTRAINERM (16) Petalburg Gym
 	db "Parker@", TRAINERTYPE_NORMAL
 	db 11
 	dw WIGGLYTUFF
@@ -2336,7 +2296,7 @@ CooltrainerMGroupHard:
 	dw TAUROS
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (23) Petalburg Gym
+	next_list_item ; COOLTRAINERM (17) Petalburg Gym
 	db "George@", TRAINERTYPE_NORMAL
 	db 11
 	dw RATICATE
@@ -2344,7 +2304,7 @@ CooltrainerMGroupHard:
 	dw KANGASKHAN
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (24) Lavaridge Gym
+	next_list_item ; COOLTRAINERM (18) Lavaridge Gym
 	db "Gerald@", TRAINERTYPE_NORMAL
 	db 11
 	dw AMAROWAK
@@ -2352,7 +2312,7 @@ CooltrainerMGroupHard:
 	dw DYNABEA
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (25) Daloric contest team #1
+	next_list_item ; COOLTRAINERM (19) Daloric contest team #1
 	db "Daloric@", TRAINERTYPE_NORMAL
 	db 11
 	dw CHARIZARD
@@ -2368,7 +2328,7 @@ CooltrainerMGroupHard:
 	dw AMPHAROS
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (26) Daloric contest team #2
+	next_list_item ; COOLTRAINERM (20) Daloric contest team #2
 	db "Daloric@", TRAINERTYPE_NORMAL
 	db 11
 	dw CHARIZARDX
@@ -2384,7 +2344,7 @@ CooltrainerMGroupHard:
 	dw AMPHAROSX
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (27) DominantDragon26 contest team #1
+	next_list_item ; COOLTRAINERM (21) DominantDragon26 contest team #1
 	db "Crystal@", TRAINERTYPE_NORMAL
 	db 11
 	dw NOCTOWL
@@ -2400,7 +2360,7 @@ CooltrainerMGroupHard:
 	dw SANDSLASH
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (28) DominantDragon26 contest team #2
+	next_list_item ; COOLTRAINERM (22) DominantDragon26 contest team #2
 	db "Crystal@", TRAINERTYPE_NORMAL
 	db 11
 	dw NOCTOWL2
@@ -2416,7 +2376,7 @@ CooltrainerMGroupHard:
 	dw SANDSLASH
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (29) Route 120
+	next_list_item ; COOLTRAINERM (23) Route 120
 	db "Leonel@", TRAINERTYPE_NORMAL
 	db 9
 	dw MANECTRIC
@@ -2428,11 +2388,11 @@ CooltrainerMGroupHard:
 	dw AKUERIA
 	db -1 ; end
 
-	next_list_item; COOLTRAINERM (30) Ashen Gauntlet
+	next_list_item; COOLTRAINERM (24) Ashen Gauntlet
 	db "@", TRAINERTYPE_RANDOM, 6, TRIAL_EASY
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (31) World Cup
+	next_list_item ; COOLTRAINERM (25) World Cup
 	db "Wesley@", TRAINERTYPE_ITEM_MOVES
 	db 9
 	dw FLAREON
@@ -2460,7 +2420,7 @@ CooltrainerMGroupHard:
 	dw PSYCHO_CUT, LEAF_BLADE, DRAGON_DANCE, RAZORSHELL
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (32) World Cup
+	next_list_item ; COOLTRAINERM (26) World Cup
 	db "Arthur@", TRAINERTYPE_ITEM_MOVES
 	db 9
 	dw KLEAVOR
@@ -2488,7 +2448,7 @@ CooltrainerMGroupHard:
 	dw SACRED_FIRE, STONE_EDGE, AGILITY, PURSUIT
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (33) World Cup
+	next_list_item ; COOLTRAINERM (27) World Cup
 	db "Santos@", TRAINERTYPE_ITEM_MOVES
 	db 9
 	dw SABLEYE
@@ -2516,7 +2476,7 @@ CooltrainerMGroupHard:
 	dw DRAGON_DANCE, WILLOWISP, SHADOW_FORCE, PURSUIT
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (34) Evergrande Dungeon Generic #1
+	next_list_item ; COOLTRAINERM (28) Evergrande Dungeon Generic #1
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw CHARIZARD
@@ -2528,7 +2488,7 @@ CooltrainerMGroupHard:
 	dw ELECTRODE
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (35) Evergrande Dungeon Generic #2
+	next_list_item ; COOLTRAINERM (29) Evergrande Dungeon Generic #2
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw MEGANIUM
@@ -2540,7 +2500,7 @@ CooltrainerMGroupHard:
 	dw HYPNO
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (36) Evergrande Dungeon Generic #3
+	next_list_item ; COOLTRAINERM (30) Evergrande Dungeon Generic #3
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw SCEPTILE
@@ -2552,7 +2512,7 @@ CooltrainerMGroupHard:
 	dw WIGGLYTUFF
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (37) Evergrande Dungeon Generic #4
+	next_list_item ; COOLTRAINERM (31) Evergrande Dungeon Generic #4
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw RAPIDASH
@@ -2564,7 +2524,7 @@ CooltrainerMGroupHard:
 	dw SCYTHER
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (38) Evergrande Dungeon Generic #5
+	next_list_item ; COOLTRAINERM (32) Evergrande Dungeon Generic #5
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw TAUROS
@@ -2576,7 +2536,7 @@ CooltrainerMGroupHard:
 	dw AGGRON
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (39) Evergrande Dungeon Generic #6
+	next_list_item ; COOLTRAINERM (33) Evergrande Dungeon Generic #6
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw MAGMAR
@@ -2588,7 +2548,7 @@ CooltrainerMGroupHard:
 	dw URSARING
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (40) Evergrande Dungeon Generic #7
+	next_list_item ; COOLTRAINERM (34) Evergrande Dungeon Generic #7
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw AMUK
@@ -2600,7 +2560,7 @@ CooltrainerMGroupHard:
 	dw MAGNETON
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (41) Evergrande Dungeon Generic #8
+	next_list_item ; COOLTRAINERM (35) Evergrande Dungeon Generic #8
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw PIDGEOT
@@ -2612,7 +2572,7 @@ CooltrainerMGroupHard:
 	dw MAGCARGO
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERM (42) Evergrande Dungeon Generic #9
+	next_list_item ; COOLTRAINERM (36) Evergrande Dungeon Generic #9
 	db "@", TRAINERTYPE_NORMAL
 	db 7
 	dw AMPHAROS
