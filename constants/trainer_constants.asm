@@ -363,7 +363,7 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_9
 	const GRUNTM_10
 	const GRUNTM_11
-	const GRUNTM_12_UNUSED; unused
+	const GRUNTM_12_UNUSED
 	const GRUNTM_13
 	const GRUNTM_14
 	const GRUNTM_15
@@ -373,15 +373,15 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_19
 	const GRUNTM_20
 	const GRUNTM_21
-	const GRUNTM_22_UNUSED ; unused
-	const GRUNTM_23_UNUSED ; unused
+	const GRUNTM_22_UNUSED 
+	const GRUNTM_23_UNUSED 
 	const GRUNTM_24
 	const GRUNTM_25
-	const GRUNTM_26_UNUSED ; unused
-	const GRUNTM_27_UNUSED ; unused
+	const GRUNTM_26_UNUSED 
+	const GRUNTM_27_UNUSED 
 	const GRUNTM_28
 	const GRUNTM_29
-	const GRUNTM_30_UNUSED ; unused
+	const GRUNTM_30_UNUSED 
 	const GRUNTM_31
 	const MOON_GRUNT1
 	const MOON_GRUNT2
@@ -788,7 +788,6 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE110_EDWIN
 
 	trainerclass KIMONO_GIRL ; 3c
-	const NAOKO_UNUSED ; unused
 	const NAOKO
 	const SAYO
 	const ZUKI

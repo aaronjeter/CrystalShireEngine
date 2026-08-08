@@ -6858,17 +6858,7 @@ PokefanMGroupHard:
 	end_list_items
 
 KimonoGirlGroupHard:
-	next_list_item ; KIMONO_GIRL (1) Unreferenced
-	db "Naoko@", TRAINERTYPE_NORMAL
-	db 7
-	dw SKIPLOOM
-	db 7
-	dw VULPIX
-	db 5
-	dw SKIPLOOM
-	db -1 ; end
-
-	next_list_item ; KIMONO_GIRL (2) Ecruteak City
+	next_list_item ; KIMONO_GIRL (1) Ecruteak City
 	db "Naoko@", TRAINERTYPE_NORMAL
 	db 5
 	dw QUILAVA
@@ -6878,7 +6868,7 @@ KimonoGirlGroupHard:
 	dw FLAREON
 	db -1 ; end
 
-	next_list_item ; KIMONO_GIRL (3) Ecruteak City
+	next_list_item ; KIMONO_GIRL (2) Ecruteak City
 	db "Sayo@", TRAINERTYPE_NORMAL
 	db 5
 	dw NATU
@@ -6888,7 +6878,7 @@ KimonoGirlGroupHard:
 	dw ESPEON
 	db -1 ; end
 
-	next_list_item ; KIMONO_GIRL (4) Ecruteak City
+	next_list_item ; KIMONO_GIRL (3) Ecruteak City
 	db "Zuki@", TRAINERTYPE_NORMAL
 	db 5
 	dw UNOWN
@@ -6898,7 +6888,7 @@ KimonoGirlGroupHard:
 	dw UMBREON
 	db -1 ; end
 
-	next_list_item ; KIMONO_GIRL (5) Ecruteak City
+	next_list_item ; KIMONO_GIRL (4) Ecruteak City
 	db "Kuni@", TRAINERTYPE_NORMAL
 	db 5
 	dw WINGULL
@@ -6908,7 +6898,7 @@ KimonoGirlGroupHard:
 	dw VAPOREON
 	db -1 ; end
 
-	next_list_item ; KIMONO_GIRL (6) Ecruteak City
+	next_list_item ; KIMONO_GIRL (5) Ecruteak City
 	db "Miki@", TRAINERTYPE_NORMAL
 	db 5
 	dw PLUSLE
