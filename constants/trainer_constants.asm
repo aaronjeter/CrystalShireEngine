@@ -543,18 +543,12 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE109_CHANDLER
 
 	trainerclass SUPER_NERD ; 29
-	const STAN
 	const ERIC
-	const GREGG_UNUSED ; unused
-	const JAY_UNUSED ; unused
-	const DAVE_UNUSED ; unused
 	const SAM
 	const TOM
 	const PAT
 	const SHAWN
 	const TERU
-	const RUSS_UNUSED ; unused
-	const NORTON_UNUSED ; unused
 	const HUGH
 	const MARKUS
 	const MOON_JOVAN

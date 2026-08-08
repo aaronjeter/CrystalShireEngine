@@ -4931,13 +4931,7 @@ SailorGroupHard:
 	end_list_items
 
 SuperNerdGroupHard:
-	next_list_item ; SUPER_NERD (1) Unreferenced
-	db "Stan@", TRAINERTYPE_NORMAL
-	db 7
-	dw GRIMER
-	db -1 ; end
-
-	next_list_item ; SUPER_NERD (2) Goldenrod Underground
+	next_list_item ; SUPER_NERD (1) Goldenrod Underground
 	db "Eric@", TRAINERTYPE_NORMAL
 	db 4
 	dw GRIMER
@@ -4945,31 +4939,7 @@ SuperNerdGroupHard:
 	dw GULPIN
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (3) Unreferenced
-	db "Gregg@", TRAINERTYPE_NORMAL
-	db 5
-	dw MAGNEMITE
-	db 5
-	dw MAGNEMITE
-	db 5
-	dw MAGNEMITE
-	db -1 ; end
-
-	next_list_item ; SUPER_NERD (4) Unreferenced
-	db "Jay@", TRAINERTYPE_NORMAL
-	db 7
-	dw KOFFING
-	db 7
-	dw KOFFING
-	db -1 ; end
-
-	next_list_item ; SUPER_NERD (5) Unreferenced
-	db "Dave@", TRAINERTYPE_NORMAL
-	db 10
-	dw DITTO
-	db -1 ; end
-
-	next_list_item ; SUPER_NERD (6) Route 8
+	next_list_item ; SUPER_NERD (2) Route 8
 	db "Sam@", TRAINERTYPE_NORMAL
 	db 4
 	dw GRIMER
@@ -4977,7 +4947,7 @@ SuperNerdGroupHard:
 	dw MUK
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (7) Route 8
+	next_list_item ; SUPER_NERD (3) Route 8
 	db "Tom@", TRAINERTYPE_NORMAL
 	db 4
 	dw MAGNEMITE
@@ -4987,13 +4957,13 @@ SuperNerdGroupHard:
 	dw MAGNEMITE
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (8) Route 25
+	next_list_item ; SUPER_NERD (4) Route 25
 	db "Pat@", TRAINERTYPE_NORMAL
 	db 7
 	dw PORYGON
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (9) Unreferenced
+	next_list_item ; SUPER_NERD (5) Fast Ship
 	db "Shawn@", TRAINERTYPE_NORMAL
 	db 2
 	dw MAGNEMITE
@@ -5003,7 +4973,7 @@ SuperNerdGroupHard:
 	dw MAGNEMITE
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (10) Goldenrod Underground
+	next_list_item ; SUPER_NERD (6) Goldenrod Underground
 	db "Teru@", TRAINERTYPE_NORMAL
 	db 4
 	dw ELECTRIKE
@@ -5015,38 +4985,21 @@ SuperNerdGroupHard:
 	dw MAGNEMITE
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (11) Unreferenced
-	db "Russ@", TRAINERTYPE_NORMAL
-	db 7
-	dw MAGNEMITE
-	db 7
-	dw MAGNEMITE
-	db 7
-	dw MAGNEMITE
-	db -1 ; end
-
-	next_list_item ; SUPER_NERD (12) Unreferenced
-	db "Norton@", TRAINERTYPE_MOVES
-	db 7
-	dw PORYGON
-	dw CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
-	db -1 ; end
-
-	next_list_item ; SUPER_NERD (13) Mt. Mortar
+	next_list_item ; SUPER_NERD (7) Mt. Mortar
 	db "Hugh@", TRAINERTYPE_MOVES
 	db 15
 	dw KINGDRA
 	dw SMOKESCREEN, TWISTER, SURF, WATERFALL
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (14) Mt. Mortar
+	next_list_item ; SUPER_NERD (8) Mt. Mortar
 	db "Markus@", TRAINERTYPE_MOVES
 	db 15
 	dw SLOWPOKE
 	dw CURSE, WATER_GUN, GROWL, STRENGTH
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (15) Mount Moon
+	next_list_item ; SUPER_NERD (9) Mount Moon
 	db "Jovan@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGNEMITE
@@ -5054,7 +5007,7 @@ SuperNerdGroupHard:
 	dw HVOLTORB
 	db -1 ; end
 
-	next_list_item ; SUPER_NERD (16) Mount Moon
+	next_list_item ; SUPER_NERD (10) Mount Moon
 	db "Miguel@", TRAINERTYPE_NORMAL
 	db 5
 	dw GRIMER
