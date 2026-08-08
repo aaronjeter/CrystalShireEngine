@@ -411,7 +411,6 @@ DEF KRIS EQU __trainer_class__
 	const PRESTON
 	const EDWARD
 	const GREGORY
-	const VIRGIL_UNUSED ; unused
 	const ALFRED
 	const MOSSDEEP_CLIFF
 	const MOSSDEEP_NATE

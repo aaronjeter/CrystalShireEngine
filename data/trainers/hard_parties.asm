@@ -3794,7 +3794,7 @@ GentlemanGroupHard:
 	dw RAPIDASH
 	db -1 ; end
 
-	next_list_item ; GENTLEMAN (2) Unreferenced
+	next_list_item ; GENTLEMAN (2) Fast Ship
 	db "Edward@", TRAINERTYPE_NORMAL
 	db 7
 	dw PERSIAN
@@ -3808,13 +3808,7 @@ GentlemanGroupHard:
 	dw FLAAFFY
 	db -1 ; end
 
-	next_list_item ; GENTLEMAN (4) Unreferenced
-	db "Virgil@", TRAINERTYPE_NORMAL
-	db 20
-	dw PONYTA
-	db -1 ; end
-
-	next_list_item ; GENTLEMAN (5) Glitter Lighthouse - 2F
+	next_list_item ; GENTLEMAN (4) Glitter Lighthouse - 2F
 	db "Alfred@", TRAINERTYPE_NORMAL
 	db 7
 	dw NOCTOWL
@@ -3822,7 +3816,7 @@ GentlemanGroupHard:
 	dw NOCTOWL
 	db -1 ; end
 
-	next_list_item ; GENTLEMAN (6) Mossdeep Gym
+	next_list_item ; GENTLEMAN (5) Mossdeep Gym
 	db "Cliff@", TRAINERTYPE_NORMAL
 	db 8
 	dw GIRAFARIG
@@ -3832,7 +3826,7 @@ GentlemanGroupHard:
 	dw NOCTOWL
 	db -1 ; end
 
-	next_list_item ; GENTLEMAN (7) Mossdeep Gym
+	next_list_item ; GENTLEMAN (6) Mossdeep Gym
 	db "Nate@", TRAINERTYPE_NORMAL
 	db 8
 	dw MR__MIME
