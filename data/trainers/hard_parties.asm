@@ -1851,7 +1851,7 @@ LassGroupHard:
 	dw SWALOT
 	db -1 ; end
 
-	next_list_item ; LASS (4) Unreferenced
+	next_list_item ; LASS (4) National Park
 	db "Krise@", TRAINERTYPE_NORMAL
 	db 7
 	dw ODDISH
