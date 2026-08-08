@@ -4883,43 +4883,13 @@ SwimmerFGroupHard:
 	dw DRAGON_RAGE, SMOKESCREEN, LEER, WATER_GUN
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (8) Unreferenced
-	db "Lisa@", TRAINERTYPE_NORMAL
-	db 8
-	dw JYNX
-	db -1 ; end
-
-	next_list_item ; SWIMMERF (9) Unreferenced
-	db "Jill@", TRAINERTYPE_NORMAL
-	db 8
-	dw DEWGONG
-	db -1 ; end
-
-	next_list_item ; SWIMMERF (10) Unreferenced
-	db "Mary@", TRAINERTYPE_NORMAL
-	db 7
-	dw SEAKING
-	db -1 ; end
-
-	next_list_item ; SWIMMERF (11) Unreferenced
-	db "Katie@", TRAINERTYPE_NORMAL
-	db 7
-	dw DEWGONG
-	db -1 ; end
-
-	next_list_item ; SWIMMERF (12) Route 19
+	next_list_item ; SWIMMERF (8) Route 19
 	db "Dawn@", TRAINERTYPE_NORMAL
 	db 8
 	dw SEAKING
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (13) Unreferenced
-	db "Tara@", TRAINERTYPE_NORMAL
-	db 7
-	dw SEAKING
-	db -1 ; end
-
-	next_list_item ; SWIMMERF (14) Route 20
+	next_list_item ; SWIMMERF (9) Route 20
 	db "Nicole@", TRAINERTYPE_NORMAL
 	db 4
 	dw MARILL
@@ -4929,7 +4899,7 @@ SwimmerFGroupHard:
 	dw LAPRAS
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (15) Route 20
+	next_list_item ; SWIMMERF (10) Route 20
 	db "Lori@", TRAINERTYPE_NORMAL
 	db 2
 	dw STARMIE
@@ -4937,13 +4907,7 @@ SwimmerFGroupHard:
 	dw STARMIE
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (16) Unreferenced
-	db "Jody@", TRAINERTYPE_NORMAL
-	db 7
-	dw SEAKING
-	db -1 ; end
-
-	next_list_item ; SWIMMERF (17) Route 21
+	next_list_item ; SWIMMERF (11) Route 21
 	db "Nikki@", TRAINERTYPE_NORMAL
 	db 2
 	dw SEEL
@@ -4955,7 +4919,7 @@ SwimmerFGroupHard:
 	dw DEWGONG
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (18) Cerulean City Gym
+	next_list_item ; SWIMMERF (12) Cerulean City Gym
 	db "Diana@", TRAINERTYPE_NORMAL
 	db 7
 	dw GOLDUCK
@@ -4963,7 +4927,7 @@ SwimmerFGroupHard:
 	dw CRAWDAUNT
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (19) Cerulean City Gym
+	next_list_item ; SWIMMERF (13) Cerulean City Gym
 	db "Briana@", TRAINERTYPE_NORMAL
 	db 5
 	dw SEAKING
@@ -4971,7 +4935,7 @@ SwimmerFGroupHard:
 	dw WHISCASH
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (20) Route 105
+	next_list_item ; SWIMMERF (14) Route 105
 	db "Imani@", TRAINERTYPE_NORMAL
 	db 7
 	dw MANTINE
@@ -4979,7 +4943,7 @@ SwimmerFGroupHard:
 	dw GOREBYSS
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (21) Route 108
+	next_list_item ; SWIMMERF (15) Route 108
 	db "Denise@", TRAINERTYPE_NORMAL
 	db 7
 	dw PELIPPER
@@ -4987,7 +4951,7 @@ SwimmerFGroupHard:
 	dw SEAKING
 	db -1 ; end
 
-	next_list_item ; SWIMMERF (22) Route 108
+	next_list_item ; SWIMMERF (16) Route 108
 	db "Beth@", TRAINERTYPE_NORMAL
 	db 9
 	dw WAILORD

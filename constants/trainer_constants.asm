@@ -533,16 +533,10 @@ DEF KRIS EQU __trainer_class__
 	const SUSIE
 	const DENISE
 	const KARA
-	const WENDY
-	const LISA_UNUSED ; unused
-	const JILL_UNUSED ; unused
-	const MARY_UNUSED ; unused
-	const KATIE_UNUSED ; unused
+	const WENDY	
 	const DAWN
-	const TARA_UNUSED ; unused
 	const NICOLE
 	const LORI
-	const JODY_UNUSED ; unused
 	const NIKKI
 	const DIANA
 	const BRIANA
