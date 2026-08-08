@@ -362,9 +362,9 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE120_JEFFREY
 
 	trainerclass GRUNTM ; 1f
-	const GRUNTM_1
-	const GRUNTM_2
-	const GRUNTM_3
+	const GRUNTM_EASY
+	const GRUNTM_MEDIUM
+	const GRUNTM_HARD
 	const GRUNTM_4
 	const GRUNTM_5
 	const GRUNTM_6
@@ -1061,3 +1061,6 @@ const PSYCHIC_EASY
 const PSYCHIC_MEDIUM
 const PSYCHIC_HARD
 const TRIAL_EASY
+const ROCKET_EASY
+const ROCKET_MEDIUM
+const ROCKET_HARD

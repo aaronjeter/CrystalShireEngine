@@ -3419,30 +3419,16 @@ PokemaniacGroupHard:
 	end_list_items
 
 GruntMGroupHard:
-	next_list_item ; GRUNTM (1) Slowpoke Well BF1
-	db "Grunt@", TRAINERTYPE_NORMAL
-	db 7
-	dw KOFFING
-	db 7
-	dw MIGHTYENA
+	next_list_item ; GRUNTM (1) GRUNTM_EASY 
+	db "Grunt@", TRAINERTYPE_RANDOM, 3, ROCKET_EASY
 	db -1 ; end
 
-	next_list_item ; GRUNTM (2) Slowpoke Well BF1
-	db "Grunt@", TRAINERTYPE_NORMAL
-	db 7
-	dw RATICATE
-	db 6
-	dw ZUBAT
-	db 6
-	dw CARVANHA
+	next_list_item ; GRUNTM (2) GRUNTM_MEDIUM
+	db "Enforcer@", TRAINERTYPE_RANDOM, 3, ROCKET_MEDIUM
 	db -1 ; end
 
-	next_list_item ; GRUNTM (3) Radio Tower 1F
-	db "Grunt@", TRAINERTYPE_NORMAL
-	db 7
-	dw RATICATE
-	db 7
-	dw DUSTOX
+	next_list_item ; GRUNTM (3) GRUNTM_HARD 
+	db "Soldier@", TRAINERTYPE_RANDOM, 3, ROCKET_HARD
 	db -1 ; end
 
 	next_list_item ; GRUNTM (4) Radio Tower 2F
