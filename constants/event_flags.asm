@@ -1538,9 +1538,9 @@
 ; Medium
 	const EVENT_BEAT_MEDIUM_MARTHA
 	const EVENT_BEAT_MEDIUM_GRACE
-	const EVENT_BEAT_MEDIUM_BETHANY_UNUSED
-	const EVENT_BEAT_MEDIUM_MARGRET_UNUSED
-	const EVENT_BEAT_MEDIUM_ETHEL_UNUSED
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_MEDIUM_REBECCA
 	const EVENT_BEAT_MEDIUM_DORIS
 ; Skier

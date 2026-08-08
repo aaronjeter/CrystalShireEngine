@@ -6629,33 +6629,15 @@ MediumGroupHard:
 	dw HAUNTER
 	db -1 ; end
 
-	next_list_item ; MEDIUM (3) Unreferenced
-	db "Bethany@", TRAINERTYPE_NORMAL
-	db 5
-	dw HAUNTER
-	db -1 ; end
-
-	next_list_item ; MEDIUM (4) Unreferenced
-	db "Margret@", TRAINERTYPE_NORMAL
-	db 5
-	dw HAUNTER
-	db -1 ; end
-
-	next_list_item ; MEDIUM (5) Unreferenced
-	db "Ethel@", TRAINERTYPE_NORMAL
-	db 5
-	dw HAUNTER
-	db -1 ; end
-
-	next_list_item; MEDIUM (6) Saffron City Gym
+	next_list_item; MEDIUM (3) Saffron City Gym
 	db "Rebecca@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
-	next_list_item; MEDIUM (7) Saffron City Gym
+	next_list_item; MEDIUM (4) Saffron City Gym
 	db "Doris@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
-	next_list_item ; MEDIUM (8) Route 117
+	next_list_item ; MEDIUM (5) Route 117
 	db "Brandi@", TRAINERTYPE_NORMAL
 	db 7
 	dw KIRLIA
@@ -6665,11 +6647,11 @@ MediumGroupHard:
 	dw XATU
 	db -1 ; end
 
-	next_list_item; MEDIUM (9) Saffron City Gym
+	next_list_item; MEDIUM (6) Saffron City Gym
 	db "Rebecca@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
 	db -1 ; end
 
-	next_list_item; MEDIUM (10) Saffron City Gym
+	next_list_item; MEDIUM (7) Saffron City Gym
 	db "Doris@", TRAINERTYPE_RANDOM, 3, PSYCHIC_MEDIUM
 	db -1 ; end
 
