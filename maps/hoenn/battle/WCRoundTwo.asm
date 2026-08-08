@@ -64,14 +64,11 @@ FalknerScript_BeforeText:
 
 	para "I don't suppose"
 	line "you thought you'd"
-
-	para "see me again,"
-	line "huh?"
+	cont "see me again, huh?"
 
 	para "I haven't always"
-	line "been Falker of"
-	cont "the little"
-	cont "leages though."
+	line "been Falker of the"
+	cont "little leagues..."
 
 	para "Before I settled"
 	line "down as a Gym"

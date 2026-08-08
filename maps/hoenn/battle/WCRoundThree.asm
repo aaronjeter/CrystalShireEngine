@@ -93,14 +93,11 @@ SilverScript_BeatenText:
 
 SilverScript_DefeatText:
 	text "Huh, I guess"
-	line "that's that"
-	cont "then."
+	line "that's that then."
 
 	para "I can't say I'm"
-	line "happy for you,"
-
-	para "but you earned"
-	line "this."
+	line "happy for you, but"
+	cont "you earned this."
 
 	para "Good luck in"
 	line "the final."

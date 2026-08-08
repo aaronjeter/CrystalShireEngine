@@ -69,9 +69,8 @@ LoreleiScript_AfterBattle:
 	end
 
 LoreleiScript_LoreleiBeforeText:
-	text "Well then, I"
-	line "ought introduce"
-	cont "myself."
+	text "Well then, I ought"
+	line "introduce myself."
 
 	para "My name is"
 	line "Lorelei."
@@ -126,8 +125,7 @@ LoreleiScript_LoreleiDefeatText:
 	line "yourself against"
 	cont "my every effort."
 
-	para "Go on to"
-	line "victory!"
+	para "Go on to victory!"
 	done
 
 
