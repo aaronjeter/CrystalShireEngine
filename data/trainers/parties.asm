@@ -1010,75 +1010,57 @@ LtSurgeGroup: ;Gym Leader
 ScientistGroup:
 	next_list_item ; SCIENTIST (1) Team Rocket Hideout - B3F
 	db "Ross@", TRAINERTYPE_NORMAL
-	db 8
-	dw WEEZING
-	db 8
-	dw ARBOK
+	dbw 8, WEEZING
+	dbw 8, ARBOK
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (2) Team Rocket Hideout - B3F
 	db "Mitch@", TRAINERTYPE_NORMAL
-	db 15
-	dw DITTO
+	dbw 15, DITTO
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (3) Team Rocket Hideout - B1F
 	db "Jed@", TRAINERTYPE_NORMAL
-	db 7
-	dw MAGNETON
-	db 7
-	dw ELECTRODE
-	db 7
-	dw ELECTRODE2
+	dbw 7, MAGNETON
+	dbw 7, ELECTRODE
+	dbw 7, ELECTRODE2
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (4) Goldenrod City - Radio Tower
 	db "Marc@", TRAINERTYPE_NORMAL
-	db 7
-	dw MAGNETON
-	db 7
-	dw PORYGON2
-	db 7
-	dw MINUN
+	dbw 7, MAGNETON
+	dbw 7, PORYGON2
+	dbw 7, MINUN
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (5) Goldenrod City - Radio Tower
 	db "Rich@", TRAINERTYPE_MOVES
-	db 11
-	dw PORYGON2
+	dbw 11, PORYGON2
 	dw CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (6) New Mauville Basement Scientist 1
 	db "Adam@", TRAINERTYPE_NORMAL
-	db 6
-	dw PORYGON2
-	db 7
-	dw AMUK
+	dbw 6, PORYGON2
+	dbw 7, AMUK
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (7) New Mauville Basement Scientist 2
 	db "James@", TRAINERTYPE_NORMAL
-	db 6
-	dw MUK
-	db 7
-	dw JOLTEON
+	dbw 6, MUK
+	dbw 7, JOLTEON
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (8) New Mauville Basement Scientist 3
 	db "Jeffrey@", TRAINERTYPE_NORMAL
-	db 6
-	dw KIRLIA
-	db 7
-	dw HYPNO
+	dbw 6, KIRLIA
+	dbw 7, HYPNO
 	db -1 ; end
 
 	next_list_item ; SCIENTIST (9) New Mauville Basement Scientist 4
 	db "Bruce@", TRAINERTYPE_NORMAL
-	db 6
-	dw KADABRA
-	db 7
-	dw MAGNETON
+	dbw 6, KADABRA
+	dbw 7, MAGNETON
 	db -1 ; end
 
 	end_list_items
@@ -1151,222 +1133,160 @@ SECTION "Enemy Trainer Parties 1.5", ROMX
 YoungsterGroup:
 	next_list_item ; YOUNGSTER (1) Route 30 
 	db "Joey@", TRAINERTYPE_NORMAL
-	db 1
-	dw RATTATA
+	dbw 1, RATTATA
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (2) Route 30
 	db "Mikey@", TRAINERTYPE_NORMAL
-	db 1
-	dw PIDGEY
-	db 1
-	dw RATTATA
+	dbw 1, PIDGEY
+	dbw 1, RATTATA
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (3) Route 32
 	db "Albert@", TRAINERTYPE_NORMAL
-	db 2
-	dw RATTATA
-	db 3
-	dw ZUBAT
+	dbw 2, RATTATA
+	dbw 3, ZUBAT
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (4) Route 32
 	db "Gordon@", TRAINERTYPE_NORMAL
-	db 4
-	dw WOOPER
-	db 4
-	dw MUDKIP
+	dbw 4, WOOPER
+	dbw 4, MUDKIP
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (5) Route 34
 	db "Samuel@", TRAINERTYPE_NORMAL
-	db 3
-	dw RATTATA
-	db 3
-	dw SANDSHREW
-	db 5
-	dw TAILLOW
-	db 6
-	dw SHROOMISH
+	dbw 3, RATTATA
+	dbw 3, SANDSHREW
+	dbw 5, TAILLOW
+	dbw 6, SHROOMISH
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (6) Route 34
 	db "Ian@", TRAINERTYPE_NORMAL
-	db 3
-	dw MANKEY
-	db 4
-	dw SWINUB
-	db 5
-	dw DIGLETT
+	dbw 3, MANKEY
+	dbw 4, SWINUB
+	dbw 5, DIGLETT
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (9) Route 03
 	db "Warren@", TRAINERTYPE_NORMAL
-	db 3
-	dw SPEAROW
-	db 3
-	dw GULPIN
+	dbw 3, SPEAROW
+	dbw 3, GULPIN
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (10) Route 03
 	db "Jimmy@", TRAINERTYPE_NORMAL
-	db 3
-	dw RATTATA
-	db 4
-	dw EKANS
+	dbw 3, RATTATA
+	dbw 4, EKANS
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (11) Route 11
 	db "Owen@", TRAINERTYPE_NORMAL
-	db 5
-	dw GROWLITHE
-	db 5
-	dw PONYTA
+	dbw 5, GROWLITHE
+	dbw 5, PONYTA
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (12) Route 11
 	db "Jason@", TRAINERTYPE_NORMAL
-	db 3
-	dw SANDSLASH
-	db 4
-	dw CROBAT
+	dbw 3, SANDSLASH
+	dbw 4, CROBAT
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (15) Ilex West (Contest placeholder team)
 	db "Ronald@", TRAINERTYPE_NORMAL
-	db 9
-	dw GIRAFARIG
-	db 7
-	dw BALTOY
-	db 7
-	dw POLIWHIRL
-	db 3
-	dw FEEBAS
-	db 7
-	dw SKIPLOOM
-	db 10
-	dw ANINETALES
+	dbw 9, GIRAFARIG
+	dbw 7, BALTOY
+	dbw 7, POLIWHIRL
+	dbw 3, FEEBAS
+	dbw 7, SKIPLOOM
+	dbw 10, ANINETALES
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (16) Johto Games (Contest placeholder team)
 	db "Ronald@", TRAINERTYPE_NORMAL
-	db 10
-	dw GIRAFARIG
-	db 10
-	dw CLAYDOL
-	db 10
-	dw POLIWRATH
-	db 10
-	dw MILOTIC
-	db 10
-	dw JUMPLUFF
-	db 12
-	dw ANINETALES
+	dbw 10, GIRAFARIG
+	dbw 10, CLAYDOL
+	dbw 10, POLIWRATH
+	dbw 10, MILOTIC
+	dbw 10, JUMPLUFF
+	dbw 12, ANINETALES
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (17) Unreferenced (Contest placeholder team)
 	db "Ronald@", TRAINERTYPE_NORMAL
-	db 10
-	dw GIRAFARIG
-	db 10
-	dw CLAYDOL
-	db 10
-	dw POLIWRATH
-	db 10
-	dw MILOTIC
-	db 10
-	dw JUMPLUFF
-	db 12
-	dw ANINETALES
+	dbw 10, GIRAFARIG
+	dbw 10, CLAYDOL
+	dbw 10, POLIWRATH
+	dbw 10, MILOTIC
+	dbw 10, JUMPLUFF
+	dbw 12, ANINETALES
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (18) Rustboro Gym
 	db "Josh@", TRAINERTYPE_NORMAL
-	db 5
-	dw GEODUDE
+	dbw 5, GEODUDE
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (19) Rustboro Gym
 	db "Tommy@", TRAINERTYPE_NORMAL
-	db 5
-	dw SANDSHREW
+	dbw 5, SANDSHREW
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (20) Route 102
 	db "Calvin@", TRAINERTYPE_NORMAL
-	db 0
-	dw POOCHYENA
-	db 0
-	dw TAILLOW
+	dbw 0, POOCHYENA
+	dbw 0, TAILLOW
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (21) Route 102
 	db "Allen@", TRAINERTYPE_NORMAL
-	db 0
-	dw ZIGZAGOON
-	db 0
-	dw TAILLOW
+	dbw 0, ZIGZAGOON
+	dbw 0, TAILLOW
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (22) Route 104
 	db "Billy@", TRAINERTYPE_NORMAL
-	db 3
-	dw ZIGZAGOON
-	db 3
-	dw SEEDOT
+	dbw 3, ZIGZAGOON
+	dbw 3, SEEDOT
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (23) Route 116
 	db "Joey@", TRAINERTYPE_NORMAL
-	db 5
-	dw MACHOP
+	dbw 5, MACHOP
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (24) Route 116
 	db "Johnson@", TRAINERTYPE_NORMAL
-	db 5
-	dw SHROOMISH
-	db 5
-	dw LOTAD
+	dbw 5, SHROOMISH
+	dbw 5, LOTAD
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (25) Route 110
 	db "Timmy@", TRAINERTYPE_NORMAL
-	db 5
-	dw ARON
-	db 5
-	dw ELECTRIKE
+	dbw 5, ARON
+	dbw 5, ELECTRIKE
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (26) Mount Moon
 	db "Josh@", TRAINERTYPE_NORMAL
-	db 3
-	dw ARON
-	db 4
-	dw ELECTRIKE
-	db 5
-	dw RATTATA
+	dbw 3, ARON
+	dbw 4, ELECTRIKE
+	dbw 5, RATTATA
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (27) Route 113
 	db "Lao@", TRAINERTYPE_NORMAL
-	db 3
-	dw KOFFING
-	db 4
-	dw GRIMER
-	db 5
-	dw DUSTOX
+	dbw 3, KOFFING
+	dbw 4, GRIMER
+	dbw 5, DUSTOX
 	db -1 ; end
 
 	next_list_item ; YOUNGSTER (28) Route 113
 	db "Dillon@", TRAINERTYPE_NORMAL
-	db 3
-	dw AGRIMER
-	db 4
-	dw GULPIN
-	db 5
-	dw PARASECT
+	dbw 3, AGRIMER
+	dbw 4, GULPIN
+	dbw 5, PARASECT
 	db -1 ; end
 
 	end_list_items
