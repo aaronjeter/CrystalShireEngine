@@ -8521,24 +8521,18 @@ ExplorerGroup:
 
 	next_list_item ; GIOVANNI (1)
 	db "Giovanni@", TRAINERTYPE_MOVES
-	db 10
-	dw PERSIAN
-	dw SLASH, CRUNCH, PLAY_ROUGH, SWORDS_DANCE
-	db 10
-	dw DUGTRIO
-	dw FISSURE, ROCK_SLIDE, MUDDY_WATER, REFLECT
-	db 10
-	dw NIDOQUEEN
-	dw EARTHQUAKE, SLUDGE_BOMB, TOXIC, ICE_FANG
-	db 12
-	dw ARCANINE
-	dw CRUNCH, SACRED_FIRE, BODY_SLAM, FIRE_BLAST
-	db 12
-	dw MAROWAK
-	dw BONE_CLUB, SHADOW_FORCE, SUBMISSION, COSMIC_POWER	
-	db 16
-	dw MEWTWO
-	dw PSYCHIC_M, AURA_SPHERE, CALM_MIND, RECOVER
+	dbw 10, PERSIAN
+		dw SLASH, CRUNCH, PLAY_ROUGH, SWORDS_DANCE
+	dbw 10, DUGTRIO
+		dw FISSURE, ROCK_SLIDE, MUDDY_WATER, REFLECT
+	dbw 10, NIDOQUEEN
+		dw EARTHQUAKE, SLUDGE_BOMB, TOXIC, ICE_FANG
+	dbw 12, ARCANINE
+		dw CRUNCH, SACRED_FIRE, BODY_SLAM, FIRE_BLAST
+	dbw 12, MAROWAK
+		dw BONE_CLUB, SHADOW_FORCE, SUBMISSION, COSMIC_POWER	
+	dbw 16, MEWTWO
+		dw PSYCHIC_M, AURA_SPHERE, CALM_MIND, RECOVER
 	db -1 ; end
 
 	end_list_items
@@ -8548,98 +8542,67 @@ ExplorerGroup:
 
 	next_list_item ; WALLY (1)
 	db "Wally@", TRAINERTYPE_NORMAL
-	db 0
-	dw RALTS
+	dbw 0, RALTS
 	db -1 ; end
 
 	next_list_item ; WALLY (2)
 	db "Wally@", TRAINERTYPE_NORMAL
-	db 5
-	dw SWABLU
-	db 5
-	dw SKITTY
-	db 8
-	dw RALTS
+	dbw 5, SWABLU
+	dbw 5, SKITTY
+	dbw 8, RALTS
 	db -1 ; end
 
 	next_list_item ; WALLY (3)
 	db "Wally@", TRAINERTYPE_NORMAL
-	db 7
-	dw MINUN
-	db 8
-	dw BARBOACH
-	db 7
-	dw SWABLU
-	db 7
-	dw DELCATTY
-	db 10
-	dw KIRLIA
+	dbw 7, MINUN
+	dbw 8, BARBOACH
+	dbw 7, SWABLU
+	dbw 7, DELCATTY
+	dbw 10, KIRLIA
 	db -1 ; end
 
 	next_list_item ; WALLY (4)
 	db "Wally@", TRAINERTYPE_NORMAL
-	db 7
-	dw CHIMECHO
-	db 8
-	dw WHISCASH
-	db 7
-	dw ALTARIA
-	db 7
-	dw DELCATTY
-	db 10
-	dw GARDEVOIR
+	dbw 7, CHIMECHO
+	dbw 8, WHISCASH
+	dbw 7, ALTARIA
+	dbw 7, DELCATTY
+	dbw 10, GARDEVOIR
 	db -1 ; end
 
 	next_list_item ; WALLY (5)
 	db "Wally@", TRAINERTYPE_NORMAL
-	db 8
-	dw CHIMECHO
-	db 8
-	dw WHISCASH
-	db 8
-	dw ALTARIA
-	db 9
-	dw TROPIUS
-	db 12
-	dw GARDEVOIR
+	dbw 8, CHIMECHO
+	dbw 8, WHISCASH
+	dbw 8, ALTARIA
+	dbw 9, TROPIUS
+	dbw 12, GARDEVOIR
 	db -1 ; end
 
 	next_list_item ; WALLY (6)
 	db "Wally@", TRAINERTYPE_NORMAL
-	db 8
-	dw CHIMECHO
-	db 8
-	dw WHISCASH
-	db 8
-	dw ALTARIA
-	db 9
-	dw TROPIUS
-	db 9
-	dw ABSOL
-	db 12
-	dw GARDEVOIR
+	dbw 8, CHIMECHO
+	dbw 8, WHISCASH
+	dbw 8, ALTARIA
+	dbw 9, TROPIUS
+	dbw 9, ABSOL
+	dbw 12, GARDEVOIR
 	db -1 ; end
 
 	next_list_item ; WC_WALLY (7) World Cup Wally
 	db "Wally@", TRAINERTYPE_MOVES
-	db 12
-	dw CHIMECHO
-	dw CALM_MIND, WILLOWISP, RECOVER, PSYCHIC_M
-	db 12
-	dw WHISCASH
-	dw MUDDY_WATER, EARTHQUAKE, TOXIC, REST	
-	db 12
-	dw ALTARIA
-	dw DRAGON_DANCE, DRAGON_CLAW, PLAY_ROUGH, SKY_ATTACK
-	db 13
-	dw TROPIUS
-	dw SKY_ATTACK, LEECH_SEED, FRENZY_PLANT, RECOVER
-	db 13
-	dw ABSOL
-	dw SLASH, BEAT_UP, DRAGON_CLAW, SKY_ATTACK
-	db 15
-	dw GARDEVOIRX
-	dw CALM_MIND, PSYCHIC_M, MOONBLAST, RECOVER
+	dbw 12, CHIMECHO
+		dw CALM_MIND, WILLOWISP, RECOVER, PSYCHIC_M
+	dbw 12, WHISCASH
+		dw MUDDY_WATER, EARTHQUAKE, TOXIC, REST	
+	dbw 12, ALTARIA
+		dw DRAGON_DANCE, DRAGON_CLAW, PLAY_ROUGH, SKY_ATTACK
+	dbw 13, TROPIUS
+		dw SKY_ATTACK, LEECH_SEED, FRENZY_PLANT, RECOVER
+	dbw 13, ABSOL
+		dw SLASH, BEAT_UP, DRAGON_CLAW, SKY_ATTACK
+	dbw 15, GARDEVOIRX
+		dw CALM_MIND, PSYCHIC_M, MOONBLAST, RECOVER
 	db -1 ; end
 
 	end_list_items
