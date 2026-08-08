@@ -3068,7 +3068,7 @@ BeautyGroupHard:
 	dw BEAUTIFLY
 	db -1 ; end
 
-	next_list_item ; BEAUTY (6) Fastship Cabins
+	next_list_item ; BEAUTY (3) Fastship Cabins
 	db "Cassie@", TRAINERTYPE_NORMAL
 	db 7
 	dw VILEPLUME
@@ -3076,37 +3076,7 @@ BeautyGroupHard:
 	dw BUTTERFREE
 	db -1 ; end
 
-	next_list_item ; BEAUTY (9) Unreferenced
-	db "Jessica@", TRAINERTYPE_NORMAL
-	db 5
-	dw SENTRET
-	db -1 ; end
-
-	next_list_item ; BEAUTY (10) Unreferenced
-	db "Rachael@", TRAINERTYPE_NORMAL
-	db 5
-	dw SENTRET
-	db -1 ; end
-
-	next_list_item ; BEAUTY (11) Unreferenced
-	db "Angelica@", TRAINERTYPE_NORMAL
-	db 15
-	dw SENTRET
-	db -1 ; end
-
-	next_list_item ; BEAUTY (12) Unreferenced
-	db "Kendra@", TRAINERTYPE_NORMAL
-	db 5
-	dw SENTRET
-	db -1 ; end
-
-	next_list_item ; BEAUTY (13) Unreferenced
-	db "Veronica@", TRAINERTYPE_NORMAL
-	db 5
-	dw SENTRET
-	db -1 ; end
-
-	next_list_item ; BEAUTY (14) Celadon City Gym
+	next_list_item ; BEAUTY (4) Celadon City Gym
 	db "Julia@", TRAINERTYPE_NORMAL
 	db 7
 	dw EXEGGCUTE2
@@ -3116,13 +3086,7 @@ BeautyGroupHard:
 	dw PARASECT
 	db -1 ; end
 
-	next_list_item ; BEAUTY (15) Unreferenced
-	db "Theresa@", TRAINERTYPE_NORMAL
-	db 5
-	dw SENTRET
-	db -1 ; end
-
-	next_list_item ; BEAUTY (16) Route 38
+	next_list_item ; BEAUTY (5) Route 38
 	db "Valerie@", TRAINERTYPE_NORMAL
 	db 5
 	dw SKIPLOOM
@@ -3130,25 +3094,25 @@ BeautyGroupHard:
 	dw SUNFLORA
 	db -1 ; end
 
-	next_list_item ; BEAUTY (17) Route 38
+	next_list_item ; BEAUTY (6) Route 38
 	db "Olivia@", TRAINERTYPE_NORMAL
 	db 12
 	dw CORSOLA
 	db -1 ; end
 
-	next_list_item ; BEAUTY (18) Route 103
+	next_list_item ; BEAUTY (7) Route 103
 	db "Daisy@", TRAINERTYPE_NORMAL
 	db 5
 	dw FURRET
 	db -1 ; end
 
-	next_list_item ; BEAUTY (19) Route 104
+	next_list_item ; BEAUTY (8) Route 104
 	db "Cindy@", TRAINERTYPE_NORMAL
 	db 5
 	dw HOOTHOOT
 	db -1 ; end
 
-	next_list_item ; BEAUTY (20) Route 109
+	next_list_item ; BEAUTY (9) Route 109
 	db "Hailey@", TRAINERTYPE_NORMAL
 	db 6
 	dw NOCTOWL
@@ -3156,7 +3120,7 @@ BeautyGroupHard:
 	dw AZUMARILL
 	db -1 ; end
 
-	next_list_item ; BEAUTY (21) Route 109
+	next_list_item ; BEAUTY (10) Route 109
 	db "Lola@", TRAINERTYPE_NORMAL
 	db 7
 	dw ANINETALES
@@ -3164,7 +3128,7 @@ BeautyGroupHard:
 	dw ROSERADE
 	db -1 ; end
 
-	next_list_item ; BEAUTY (22) Route 112
+	next_list_item ; BEAUTY (11) Route 112
 	db "Shayla@", TRAINERTYPE_NORMAL
 	db 7
 	dw BRELOOM
@@ -3172,7 +3136,7 @@ BeautyGroupHard:
 	dw ROSELIA
 	db -1 ; end
 
-	next_list_item ; BEAUTY (23) Route 120
+	next_list_item ; BEAUTY (12) Route 120
 	db "Clarissa@", TRAINERTYPE_NORMAL
 	db 7
 	dw ROSERADE
@@ -3180,7 +3144,7 @@ BeautyGroupHard:
 	dw WAILORD
 	db -1 ; end
 
-	next_list_item ; BEAUTY (23) Route 120
+	next_list_item ; BEAUTY (13) Route 120
 	db "Clarissa@", TRAINERTYPE_NORMAL
 	db 7
 	dw LEAFEON
@@ -3188,7 +3152,7 @@ BeautyGroupHard:
 	dw SYLVEON
 	db -1 ; end
 
-	next_list_item ; BEAUTY (24) Sootopolis Gym
+	next_list_item ; BEAUTY (14) Sootopolis Gym
 	db "Connie@", TRAINERTYPE_NORMAL
 	db 8
 	dw SEAKING
@@ -3196,7 +3160,7 @@ BeautyGroupHard:
 	dw VAPOREON
 	db -1 ; end
 
-	next_list_item ; BEAUTY (25) Sootopolis Gym
+	next_list_item ; BEAUTY (15) Sootopolis Gym
 	db "Tiffany@", TRAINERTYPE_NORMAL
 	db 8
 	dw SHARPEDO
@@ -3204,7 +3168,7 @@ BeautyGroupHard:
 	dw MASQUERAIN
 	db -1 ; end
 
-	next_list_item ; BEAUTY (26) Sootopolis Gym
+	next_list_item ; BEAUTY (16) Sootopolis Gym
 	db "Olivia@", TRAINERTYPE_NORMAL
 	db 8
 	dw HUNTAIL
@@ -3212,7 +3176,7 @@ BeautyGroupHard:
 	dw GOREBYSS
 	db -1 ; end
 
-	next_list_item ; BEAUTY (27) Sootopolis Gym
+	next_list_item ; BEAUTY (17) Sootopolis Gym
 	db "Bridget@", TRAINERTYPE_NORMAL
 	db 9
 	dw AZUMARILL

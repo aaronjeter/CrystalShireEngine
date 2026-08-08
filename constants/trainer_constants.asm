@@ -316,13 +316,7 @@ DEF KRIS EQU __trainer_class__
 	const VICTORIA
 	const SAMANTHA
 	const CASSIE
-	const JESSICA_UNUSED ; unused
-	const RACHAEL_UNUSED ; unused
-	const ANGELICA_UNUSED ; unused
-	const KENDRA_UNUSED ; unused
-	const VERONICA_UNUSED ; unused
 	const JULIA
-	const THERESA_UNUSED ; unused
 	const VALERIE
 	const OLIVIA
 	const ROUTE103_DAISY

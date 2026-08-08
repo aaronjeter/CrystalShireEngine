@@ -1303,13 +1303,13 @@
 	const EVENT_BEAT_BEAUTY_CASSIE
 	const_skip ; unused
 	const_skip ; unused
-	const EVENT_BEAT_BEAUTY_JESSICA_UNUSED
-	const EVENT_BEAT_BEAUTY_RACHAEL_UNUSED
-	const EVENT_BEAT_BEAUTY_ANGELICA_UNUSED
-	const EVENT_BEAT_BEAUTY_KENDRA_UNUSED
-	const EVENT_BEAT_BEAUTY_VERONICA_UNUSED
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_BEAUTY_JULIA
-	const EVENT_BEAT_BEAUTY_THERESA_UNUSED
+	const_skip ; unused
 	const EVENT_BEAT_BEAUTY_VALERIE
 ; Johto Gym Leaders
 	const EVENT_BEAT_FALKNER
