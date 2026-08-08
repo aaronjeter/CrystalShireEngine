@@ -614,8 +614,6 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass FIREBREATHER ; 30
 	const OTIS
-	const DICK_UNUSED ; unused
-	const NED_UNUSED ; unused
 	const BURT
 	const BILL
 	const WALT

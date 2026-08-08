@@ -5393,23 +5393,7 @@ FirebreatherGroup:
 	dw KOFFING
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (2) Unreferenced
-	db "Dick@", TRAINERTYPE_NORMAL
-	db 7
-	dw CHARMELEON
-	db -1 ; end
-
-	next_list_item ; FIREBREATHER (3) Unreferenced
-	db "Ned@", TRAINERTYPE_NORMAL
-	db 5
-	dw KOFFING
-	db 6
-	dw GROWLITHE
-	db 5
-	dw KOFFING
-	db -1 ; end
-
-	next_list_item ; FIREBREATHER (4) Route 03
+	next_list_item ; FIREBREATHER (2) Route 03
 	db "Burt@", TRAINERTYPE_NORMAL
 	db 3
 	dw KOFFING
@@ -5417,7 +5401,7 @@ FirebreatherGroup:
 	dw SLUGMA
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (5) Union Cave - 1F
+	next_list_item ; FIREBREATHER (3) Union Cave - 1F
 	db "Bill@", TRAINERTYPE_NORMAL
 	db 6
 	dw KOFFING
@@ -5425,7 +5409,7 @@ FirebreatherGroup:
 	dw KOFFING
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (6) Route 35
+	next_list_item ; FIREBREATHER (4) Route 35
 	db "Walt@", TRAINERTYPE_NORMAL
 	db 4
 	dw MAGMAR
@@ -5433,7 +5417,7 @@ FirebreatherGroup:
 	dw MAGMAR
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (7) Union Cave - 1F
+	next_list_item ; FIREBREATHER (5) Union Cave - 1F
 	db "Ray@", TRAINERTYPE_NORMAL
 	db 7
 	dw VULPIX
@@ -5441,7 +5425,7 @@ FirebreatherGroup:
 	dw PONYTA
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (8) S.S. Aqua
+	next_list_item ; FIREBREATHER (6) S.S. Aqua
 	db "Lyle@", TRAINERTYPE_NORMAL
 	db 6
 	dw KOFFING
@@ -5451,7 +5435,7 @@ FirebreatherGroup:
 	dw KOFFING
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (9) Lavaridge Gym
+	next_list_item ; FIREBREATHER (7) Lavaridge Gym
 	db "Jeff@", TRAINERTYPE_NORMAL
 	db 6
 	dw SLUGMA
@@ -5461,7 +5445,7 @@ FirebreatherGroup:
 	dw KOFFING
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (10) Lavaridge Gym
+	next_list_item ; FIREBREATHER (8) Lavaridge Gym
 	db "Jace@", TRAINERTYPE_NORMAL
 	db 6
 	dw CHARMANDER
@@ -5471,7 +5455,7 @@ FirebreatherGroup:
 	dw MAGMAR
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (11) Lavaridge Gym
+	next_list_item ; FIREBREATHER (9) Lavaridge Gym
 	db "Cole@", TRAINERTYPE_NORMAL
 	db 6
 	dw MAGBY
@@ -5481,7 +5465,7 @@ FirebreatherGroup:
 	dw NUMEL
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (12) Lavaridge Gym
+	next_list_item ; FIREBREATHER (10) Lavaridge Gym
 	db "Axle@", TRAINERTYPE_NORMAL
 	db 6
 	dw MAGBY
@@ -5491,7 +5475,7 @@ FirebreatherGroup:
 	dw COMBUSKEN
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (13) Lavaridge Gym
+	next_list_item ; FIREBREATHER (11) Lavaridge Gym
 	db "Keegan@", TRAINERTYPE_NORMAL
 	db 6
 	dw SUNKERN
@@ -5501,7 +5485,7 @@ FirebreatherGroup:
 	dw BORUBEA
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (14) Route 111
+	next_list_item ; FIREBREATHER (12) Route 111
 	db "Hayden@", TRAINERTYPE_NORMAL
 	db 5
 	dw KANGASKHAN
@@ -5511,7 +5495,7 @@ FirebreatherGroup:
 	dw VOLBEAT
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (15) Route 112
+	next_list_item ; FIREBREATHER (13) Route 112
 	db "Bryan@", TRAINERTYPE_NORMAL
 	db 5
 	dw SLUGMA
@@ -5521,7 +5505,7 @@ FirebreatherGroup:
 	dw QUILAVA
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (16) Route 114
+	next_list_item ; FIREBREATHER (14) Route 114
 	db "Berny@", TRAINERTYPE_NORMAL
 	db 5
 	dw MAGMAR
@@ -5531,7 +5515,7 @@ FirebreatherGroup:
 	dw PELIPPER
 	db -1 ; end
 
-	next_list_item ; FIREBREATHER (17) Route 119
+	next_list_item ; FIREBREATHER (15) Route 119
 	db "Dayton@", TRAINERTYPE_NORMAL
 	db 5
 	dw SLUGMA
