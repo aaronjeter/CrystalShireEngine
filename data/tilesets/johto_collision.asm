@@ -207,8 +207,8 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ce
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; cf
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d0
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d1
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d2
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; d1
+	tilecoll WALL, WALL, FLOOR, FLOOR ; d2
 	tilecoll 01, 01, 01, 01 ; d3
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d4
 	tilecoll 01, 01, 01, 01 ; d5
