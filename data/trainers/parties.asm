@@ -7177,25 +7177,7 @@ TwinsGroup:
 	dw SING, DEFENSE_CURL, POUND, DISABLE
 	db -1 ; end
 
-	next_list_item ; TWINS (3) Route 37
-	db "Ann & Anne@", TRAINERTYPE_MOVES
-	db 7
-	dw JIGGLYPUFF
-	dw SING, DEFENSE_CURL, POUND, DISABLE
-	db 7
-	dw CLEFAIRY
-	dw GROWL, ENCORE, DOUBLESLAP, METRONOME
-	db -1 ; end
-
-	next_list_item ; TWINS (4) Azalea Town Gym
-	db "Amy & May@", TRAINERTYPE_NORMAL
-	db 7
-	dw LEDYBA
-	db 7
-	dw SPINARAK
-	db -1 ; end
-
-	next_list_item ; TWINS (5) Celadon City Gym
+	next_list_item ; TWINS (3) Celadon City Gym
 	db "Jo & Zoe@", TRAINERTYPE_NORMAL
 	db 7
 	dw WEEPINBELL
@@ -7203,15 +7185,7 @@ TwinsGroup:
 	dw GLOOM
 	db -1 ; end
 
-	next_list_item ; TWINS (6) Celadon City Gym
-	db "Jo & Zoe@", TRAINERTYPE_NORMAL
-	db 7
-	dw GLOOM
-	db 7
-	dw WEEPINBELL
-	db -1 ; end
-
-	next_list_item ; TWINS (7) S.S. Aqua
+	next_list_item ; TWINS (4) S.S. Aqua
 	db "Meg & Peg@", TRAINERTYPE_NORMAL
 	db 7
 	dw TEDDIURSA
@@ -7219,15 +7193,7 @@ TwinsGroup:
 	dw PHANPY
 	db -1 ; end
 
-	next_list_item ; TWINS (8) S.S. Aqua
-	db "Meg & Peg@", TRAINERTYPE_NORMAL
-	db 7
-	dw PHANPY
-	db 7
-	dw TEDDIURSA
-	db -1 ; end
-
-	next_list_item ; TWINS (9) Dragon's Den
+	next_list_item ; TWINS (5) Dragon's Den
 	db "Lea & Pia@", TRAINERTYPE_MOVES
 	db 7
 	dw DRATINI
@@ -7237,17 +7203,7 @@ TwinsGroup:
 	dw THUNDER_WAVE, TWISTER, ICE_BEAM, HEADBUTT
 	db -1 ; end
 
-	next_list_item ; TWINS (10) Dragon's Den
-	db "Lea & Pia@", TRAINERTYPE_MOVES
-	db 7
-	dw DRATINI
-	dw THUNDER_WAVE, TWISTER, ICE_BEAM, HEADBUTT
-	db 7
-	dw DRATINI
-	dw THUNDER_WAVE, TWISTER, FLAMETHROWER, HEADBUTT
-	db -1 ; end
-
-	next_list_item ; TWINS (11) Route 103
+	next_list_item ; TWINS (6) Route 103
 	db "Amy & Liv@", TRAINERTYPE_NORMAL
 	db 7
 	dw ZANGOOSE
@@ -7255,7 +7211,7 @@ TwinsGroup:
 	dw SEVIPER
 	db -1 ; end
 
-	next_list_item ; TWINS (12) Route 104
+	next_list_item ; TWINS (7) Route 104
 	db "Gina & Mia@", TRAINERTYPE_NORMAL
 	db 3
 	dw SEEDOT
@@ -7263,7 +7219,7 @@ TwinsGroup:
 	dw LOTAD
 	db -1 ; end
 
-	next_list_item ; TWINS (13) Route 117
+	next_list_item ; TWINS (8) Route 117
 	db "Anna & Meg@", TRAINERTYPE_NORMAL
 	db 7
 	dw ZIGZAGOON
@@ -7271,7 +7227,7 @@ TwinsGroup:
 	dw MAKUHITA
 	db -1 ; end
 
-	next_list_item ; TWINS (14) Route 108
+	next_list_item ; TWINS (9) Route 108
 	db "Lisa & Ria@", TRAINERTYPE_NORMAL
 	db 6
 	dw TENTACOOL
@@ -7283,7 +7239,7 @@ TwinsGroup:
 	dw CORSOLA
 	db -1 ; end
 
-	next_list_item ; TWINS (15) Route 113
+	next_list_item ; TWINS (10) Route 113
 	db "Tori & Tia@", TRAINERTYPE_NORMAL
 	db 7
 	dw SPINDA

@@ -1216,12 +1216,12 @@
 ; Twins
 	const EVENT_BEAT_TWINS_AMY_AND_MAY
 	const EVENT_BEAT_TWINS_ANN_AND_ANNE
-	const EVENT_BEAT_TWINS_ANN_AND_ANNE2
-	const EVENT_BEAT_TWINS_AMY_AND_MAY2
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_BEAT_TWINS_JO_AND_ZOE
-	const EVENT_BEAT_TWINS_JO_AND_ZOE2
+	const_skip ; unused
 	const EVENT_BEAT_TWINS_MEG_AND_PEG
-	const EVENT_BEAT_TWINS_MEG_AND_PEG2
+	const_skip ; unused
 ; Schoolboy
 	const EVENT_BEAT_SCHOOLBOY_JACK
 	const EVENT_BEAT_SCHOOLBOY_KIP
