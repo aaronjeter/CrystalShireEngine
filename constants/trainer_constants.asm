@@ -247,12 +247,12 @@ DEF KRIS EQU __trainer_class__
 	const JAKE
 	const BLAKE
 	const BRIAN
-	const ERICK ; unused
-	const ANDY ; unused
-	const TYLER ; unused
+	const ERICK_UNUSED ; unused
+	const ANDY_UNUSED ; unused
+	const TYLER_UNUSED ; unused
 	const SEAN
 	const KEVIN
-	const STEVE ; unused
+	const STEVE_UNUSED ; unused
 	const ALLEN
 	const DARIN
 	const PETALBURG_RANDALL
@@ -320,13 +320,13 @@ DEF KRIS EQU __trainer_class__
 	const VICTORIA
 	const SAMANTHA
 	const CASSIE
-	const JESSICA ; unused
-	const RACHAEL ; unused
-	const ANGELICA ; unused
-	const KENDRA ; unused
-	const VERONICA ; unused
+	const JESSICA_UNUSED ; unused
+	const RACHAEL_UNUSED ; unused
+	const ANGELICA_UNUSED ; unused
+	const KENDRA_UNUSED ; unused
+	const VERONICA_UNUSED ; unused
 	const JULIA
-	const THERESA ; unused
+	const THERESA_UNUSED ; unused
 	const VALERIE
 	const OLIVIA
 	const ROUTE103_DAISY
@@ -373,7 +373,7 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_9
 	const GRUNTM_10
 	const GRUNTM_11
-	const GRUNTM_12 ; unused
+	const GRUNTM_12_UNUSED; unused
 	const GRUNTM_13
 	const GRUNTM_14
 	const GRUNTM_15
@@ -383,15 +383,15 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_19
 	const GRUNTM_20
 	const GRUNTM_21
-	const GRUNTM_22 ; unused
-	const GRUNTM_23 ; unused
+	const GRUNTM_22_UNUSED ; unused
+	const GRUNTM_23_UNUSED ; unused
 	const GRUNTM_24
 	const GRUNTM_25
-	const GRUNTM_26 ; unused
-	const GRUNTM_27 ; unused
+	const GRUNTM_26_UNUSED ; unused
+	const GRUNTM_27_UNUSED ; unused
 	const GRUNTM_28
 	const GRUNTM_29
-	const GRUNTM_30 ; unused
+	const GRUNTM_30_UNUSED ; unused
 	const GRUNTM_31
 	const MOON_GRUNT1
 	const MOON_GRUNT2
@@ -421,7 +421,7 @@ DEF KRIS EQU __trainer_class__
 	const PRESTON
 	const EDWARD
 	const GREGORY
-	const VIRGIL ; unused
+	const VIRGIL_UNUSED ; unused
 	const ALFRED
 	const MOSSDEEP_CLIFF
 	const MOSSDEEP_NATE
@@ -509,18 +509,18 @@ DEF KRIS EQU __trainer_class__
 	const BERKE
 	const KIRK
 	const MATHEW
-	const HAL ; unused
-	const PATON ; unused
-	const DARYL ; unused
-	const WALTER ; unused
-	const TONY ; unused
+	const HAL_UNUSED ; unused
+	const PATON_UNUSED ; unused
+	const DARYL_UNUSED ; unused
+	const WALTER_UNUSED ; unused
+	const TONY_UNUSED ; unused
 	const JEROME
 	const TUCKER
 	const RICK ; unused
 	const CAMERON
 	const SETH
-	const JAMES ; unused
-	const LEWIS ; unused
+	const JAMES_UNUSED ; unused
+	const LEWIS_UNUSED ; unused
 	const PARKER
 	const ROUTE105_LUIS
 	const ROUTE108_TONY
@@ -534,15 +534,15 @@ DEF KRIS EQU __trainer_class__
 	const DENISE
 	const KARA
 	const WENDY
-	const LISA ; unused
-	const JILL ; unused
-	const MARY ; unused
-	const KATIE ; unused
+	const LISA_UNUSED ; unused
+	const JILL_UNUSED ; unused
+	const MARY_UNUSED ; unused
+	const KATIE_UNUSED ; unused
 	const DAWN
-	const TARA ; unused
+	const TARA_UNUSED ; unused
 	const NICOLE
 	const LORI
-	const JODY ; unused
+	const JODY_UNUSED ; unused
 	const NIKKI
 	const DIANA
 	const BRIANA
@@ -570,16 +570,16 @@ DEF KRIS EQU __trainer_class__
 	trainerclass SUPER_NERD ; 29
 	const STAN
 	const ERIC
-	const GREGG ; unused
-	const JAY ; unused
-	const DAVE ; unused
+	const GREGG_UNUSED ; unused
+	const JAY_UNUSED ; unused
+	const DAVE_UNUSED ; unused
 	const SAM
 	const TOM
 	const PAT
 	const SHAWN
 	const TERU
-	const RUSS ; unused
-	const NORTON ; unused
+	const RUSS_UNUSED ; unused
+	const NORTON_UNUSED ; unused
 	const HUGH
 	const MARKUS
 	const MOON_JOVAN
@@ -625,8 +625,8 @@ DEF KRIS EQU __trainer_class__
 	const ROUTE114_LENNY
 
 	trainerclass BIKER ; 2d
-	const BIKER_BENNY ; unused
-	const KAZU ; unused
+	const BIKER_BENNY_UNUSED ; unused
+	const KAZU_UNUSED ; unused
 	const DWAYNE
 	const HARRIS
 	const ZEKE
@@ -647,8 +647,8 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass FIREBREATHER ; 30
 	const OTIS
-	const DICK ; unused
-	const NED ; unused
+	const DICK_UNUSED ; unused
+	const NED_UNUSED ; unused
 	const BURT
 	const BILL
 	const WALT
@@ -750,13 +750,13 @@ DEF KRIS EQU __trainer_class__
 	const LLOYD
 	const DEAN
 	const SID
-	const HARVEY ; unused
-	const DALE ; unused
+	const HARVEY_UNUSED ; unused
+	const DALE_UNUSED ; unused
 	const TED
-	const THOMAS ; unused
-	const LEROY ; unused
-	const DAVID ; unused
-	const JOHN ; unused
+	const THOMAS_UNUSED ; unused
+	const LEROY_UNUSED ; unused
+	const DAVID_UNUSED ; unused
+	const JOHN_UNUSED ; unused
 	const JERRY
 	const SPENCER
 	const QUENTIN
@@ -799,9 +799,9 @@ DEF KRIS EQU __trainer_class__
 	trainerclass MEDIUM ; 39
 	const MARTHA
 	const GRACE
-	const BETHANY ; unused
-	const MARGRET ; unused
-	const ETHEL ; unused
+	const BETHANY_UNUSED ; unused
+	const MARGRET_UNUSED ; unused
+	const ETHEL_UNUSED ; unused
 	const REBECCA
 	const DORIS
 	const ROUTE117_BRANDI
