@@ -147,17 +147,6 @@ TrainerTwinsJoAndZoe1:
 	closetext
 	end
 
-TrainerTwinsJoAndZoe2:
-	trainer TWINS, JOANDZOE2, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe2SeenText, TwinsJoAndZoe2BeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext TwinsJoAndZoe2AfterBattleText
-	waitbutton
-	closetext
-	end
-
 CeladonGymStatue:
 	checkflag ENGINE_RAINBOWBADGE
 	iftrue .Beaten
@@ -306,20 +295,6 @@ TwinsJoAndZoe1AfterBattleText:
 	line "back for us!"
 	done
 
-TwinsJoAndZoe2SeenText:
-	text "We're going to"
-	line "protect Erika!"
-	done
-
-TwinsJoAndZoe2BeatenText:
-	text "We couldn't win…"
-	done
-
-TwinsJoAndZoe2AfterBattleText:
-	text "Erika is much,"
-	line "much stronger!"
-	done
-
 CeladonGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -339,4 +314,4 @@ CeladonGym_MapEvents:
 	object_event  2,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerTanya, -1
 	object_event  3,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBeautyJulia, -1
 	object_event  4, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe1, -1
-	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe2, -1
+	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe1, -1

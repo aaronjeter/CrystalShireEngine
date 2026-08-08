@@ -119,17 +119,6 @@ TrainerTwinsAmyandmay1:
 	closetext
 	end
 
-TrainerTwinsAmyandmay2:
-	trainer TWINS, AMYANDMAY2, EVENT_BEAT_TWINS_AMY_AND_MAY, TwinsAmyandmay2SeenText, TwinsAmyandmay2BeatenText, 0, .AfterScript
-
-.AfterScript:
-	endifjustbattled
-	opentext
-	writetext TwinsAmyandmay2AfterBattleText
-	waitbutton
-	closetext
-	end
-
 TrainerBugCatcherBenny:
 	trainer BUG_CATCHER, BUG_CATCHER_BENNY, EVENT_BEAT_BUG_CATCHER_BENNY, BugCatcherBennySeenText, BugCatcherBennyBeatenText, 0, .AfterScript
 
@@ -318,7 +307,7 @@ BugCatcherJoshAfterBattleText:
 	done
 
 TwinsAmyandmay1SeenText:
-	text "Amy: Hi! Are you"
+	text "Hi! Are you"
 	line "challenging the"
 	cont "Leader? No way!"
 	done
@@ -331,23 +320,6 @@ TwinsAmyandmay1BeatenText:
 TwinsAmyandmay1AfterBattleText:
 	text "Amy: You're"
 	line "really strong!"
-	done
-
-TwinsAmyandmay2SeenText:
-	text "May: You want to"
-	line "see the Leader?"
-	cont "We come first!"
-	done
-
-TwinsAmyandmay2BeatenText:
-	text "Amy & May: Oh,"
-	line "double goodness!"
-	done
-
-TwinsAmyandmay2AfterBattleText:
-	text "May: Our bug #-"
-	line "MON lost! Oh, what"
-	cont "a shame."
 	done
 
 AzaleaGymGuideText:
@@ -403,5 +375,5 @@ AzaleaGym_MapEvents:
 	object_event  8,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherAl, -1
 	object_event  0,  2, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherJosh, -1
 	object_event  4, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAmyandmay1, -1
-	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAmyandmay2, -1
+	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAmyandmay1, -1
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, AzaleaGymGuideScript, -1

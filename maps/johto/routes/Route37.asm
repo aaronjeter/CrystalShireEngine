@@ -34,17 +34,6 @@ TrainerTwinsAnnandanne1:
 	closetext
 	end
 
-TrainerTwinsAnnandanne2:
-	trainer TWINS, ANNANDANNE2, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne2SeenText, TwinsAnnandanne2BeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext TwinsAnnandanne2AfterBattleText
-	waitbutton
-	closetext
-	end
-
 TrainerPsychicGreg:
 	trainer PSYCHIC_T, GREG, EVENT_BEAT_PSYCHIC_GREG, PsychicGregSeenText, PsychicGregBeatenText, 0, .Script
 
@@ -131,23 +120,6 @@ TwinsAnnandanne1AfterBattleText:
 
 	para "my #mon are"
 	line "thinking."
-	done
-
-TwinsAnnandanne2SeenText:
-	text "Anne: Ann and I"
-	line "are in this to-"
-	cont "gether!"
-	done
-
-TwinsAnnandanne2BeatenText:
-	text "Ann & Anne: Nnn… A"
-	line "little too strong."
-	done
-
-TwinsAnnandanne2AfterBattleText:
-	text "Anne: We share the"
-	line "same feelings as"
-	cont "our #mon."
 	done
 
 PsychicGregSeenText:
@@ -248,7 +220,7 @@ Route37_MapEvents:
 
 	def_object_events
 	object_event  6, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne1, -1
-	object_event  7, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne2, -1
+	object_event  7, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne1, -1
 	object_event  6,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicGreg, -1
 	object_event 13,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree1, -1
 	object_event 16,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SunnyScript, EVENT_ROUTE_37_SUNNY_OF_SUNDAY
