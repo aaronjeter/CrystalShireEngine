@@ -689,6 +689,10 @@ _CGB_GetPlayerColor:
 	jr z, .Purple
 	cp 7
 	jr z, .Teal
+	cp 5
+	jr z, .Gray
+	cp 9
+	jr z, .Orange
 	;fallthrough to red
 .Red
 	ld a, CAL
@@ -712,6 +716,14 @@ _CGB_GetPlayerColor:
 
 .Teal
 	ld a, KRIS
+	ret
+
+.Gray
+	ld a, DRAKE
+	ret
+
+.Orange
+	ld a, MISTY
 	ret
 
 _CGB_TrainerCard:

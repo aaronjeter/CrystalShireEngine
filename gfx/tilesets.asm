@@ -565,6 +565,9 @@ INCBIN "data/tilesets/elite_four_room_attributes.bin.lz"
 TilesetTraditionalHouseAttr::
 INCBIN "data/tilesets/traditional_house_attributes.bin.lz"
 
+
+SECTION "Tileset Data 10.1", ROMX
+
 TilesetTrainStationAttr::
 INCBIN "data/tilesets/train_station_attributes.bin.lz"
 

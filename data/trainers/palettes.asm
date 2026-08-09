@@ -27,6 +27,7 @@ INCBIN "gfx/trainers/karen.gbcpal", middle_colors
 INCBIN "gfx/trainers/koga.gbcpal", middle_colors
 INCBIN "gfx/trainers/champion.gbcpal", middle_colors
 INCBIN "gfx/trainers/brock.gbcpal", middle_colors
+OrangePlayerPalette:
 INCBIN "gfx/trainers/misty.gbcpal", middle_colors
 INCBIN "gfx/trainers/lt_surge.gbcpal", middle_colors
 INCBIN "gfx/trainers/scientist.gbcpal", middle_colors
@@ -92,6 +93,7 @@ INCBIN "gfx/trainers/sidney.gbcpal", middle_colors
 INCBIN "gfx/trainers/phoebe.gbcpal", middle_colors
 PurplePlayerPalette:
 INCBIN "gfx/trainers/glacia.gbcpal", middle_colors
+GrayPlayerPalette:
 INCBIN "gfx/trainers/drake.gbcpal", middle_colors
 INCBIN "gfx/trainers/steven.gbcpal", middle_colors
 INCBIN "gfx/trainers/battlegirl.gbcpal", middle_colors

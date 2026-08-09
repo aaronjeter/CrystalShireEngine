@@ -29,6 +29,10 @@ LoadPlayerColor:
 	jr z, .Purple
 	cp 7
 	jr z, .Teal
+	cp 5
+	jr z, .Gray
+	cp 9
+	jr z, .Orange
 	;fallthrough to red
 .Red
 	lb de, PAL_NPC_RED, OBJECTTYPE_SCRIPT
@@ -52,6 +56,14 @@ LoadPlayerColor:
 
 .Teal
 	lb de, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT
+	ret
+
+.Gray
+	lb de, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT
+	ret
+
+.Orange
+	lb de, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT
 	ret
 
 

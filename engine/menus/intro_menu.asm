@@ -764,6 +764,64 @@ SetRegion:
 	ret
 
 
+AltSetColor:
+	ld hl, OakTextColor
+	call PrintText
+	ld hl, .ColorMenuHeader
+	call LoadMenuHeader
+	call VerticalMenu
+	call CloseWindow	
+	ld a, [wMenuCursorY]
+	cp $1
+	jr z, .ColorPurple
+	cp $2
+	jr z, .ColorTeal
+	cp $3
+	jr z, .ColorGray
+	cp $4
+	jr z, .ColorOrange
+	cp $5
+	jr z, .Back
+
+.ColorMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 15, TEXTBOX_Y - 1
+	dw .ColorMenuData
+	db 1 ; default option
+
+.ColorMenuData:
+	db STATICMENU_CURSOR ; flags
+	db 5 ; items
+	db "Purple@"
+	db "Teal@"
+	db "Gray@"
+	db "Orange@"
+	db "--Back--@"
+
+.ColorPurple:
+	ld a, 4
+	ld [wPlayerColor], a
+	ret
+
+.ColorTeal:
+	ld a, 7
+	ld [wPlayerColor], a
+	ret
+
+.ColorGray:
+	ld a, 5
+	ld [wPlayerColor], a
+	ret
+
+.ColorOrange:
+	ld a, 9
+	ld [wPlayerColor], a
+	ret
+
+.Back:
+	call SetColor
+	ret
+
 SetColor:
 	ld hl, OakTextColor
 	call PrintText
@@ -781,9 +839,7 @@ SetColor:
 	cp $4
 	jr z, .ColorBrown
 	cp $5
-	jr z, .ColorPurple
-	cp $6
-	jr z, .ColorTeal
+	jr z, .More
 
 .ColorMenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -793,13 +849,12 @@ SetColor:
 
 .ColorMenuData:
 	db STATICMENU_CURSOR ; flags
-	db 6 ; items
+	db 5 ; items
 	db "Red@"
 	db "Blue@"
 	db "Green@"
 	db "Brown@"
-	db "Purple@"
-	db "Teal@"
+	db "--More--@"
 
 .ColorRed:
 	ld a, 0
@@ -821,14 +876,8 @@ SetColor:
 	ld [wPlayerColor], a
 	ret
 
-.ColorPurple:
-	ld a, 4
-	ld [wPlayerColor], a
-	ret
-
-.ColorTeal:
-	ld a, 7
-	ld [wPlayerColor], a
+.More:
+	call AltSetColor
 	ret
 
 
