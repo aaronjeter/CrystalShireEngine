@@ -6,9 +6,9 @@ TrainerPalettes:
 
 	table_width PAL_COLOR_SIZE * 2
 
-PlayerPalette: ; Chris uses the same colors as Cal
-INCBIN "gfx/trainers/cal.gbcpal", middle_colors
-KrisPalette: ; Kris shares Falkner's palette
+PlayerPalette: 
+INCLUDE "gfx/player/chris.pal"
+BluePlayerPalette:
 INCBIN "gfx/trainers/falkner.gbcpal", middle_colors
 INCBIN "gfx/trainers/whitney.gbcpal", middle_colors
 INCBIN "gfx/trainers/bugsy.gbcpal", middle_colors
@@ -20,6 +20,7 @@ INCBIN "gfx/trainers/clair.gbcpal", middle_colors
 INCBIN "gfx/trainers/rival1.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/will.gbcpal", middle_colors
+RedPlayerPalette:
 INCBIN "gfx/trainers/cal.gbcpal", middle_colors
 INCBIN "gfx/trainers/bruno.gbcpal", middle_colors
 INCBIN "gfx/trainers/karen.gbcpal", middle_colors
@@ -29,6 +30,7 @@ INCBIN "gfx/trainers/brock.gbcpal", middle_colors
 INCBIN "gfx/trainers/misty.gbcpal", middle_colors
 INCBIN "gfx/trainers/lt_surge.gbcpal", middle_colors
 INCBIN "gfx/trainers/scientist.gbcpal", middle_colors
+GreenPlayerPalette:
 INCBIN "gfx/trainers/erika.gbcpal", middle_colors
 INCBIN "gfx/trainers/youngster.gbcpal", middle_colors
 INCBIN "gfx/trainers/schoolboy.gbcpal", middle_colors
@@ -88,6 +90,7 @@ INCBIN "gfx/trainers/tateliza.gbcpal", middle_colors
 INCBIN "gfx/trainers/wallace.gbcpal", middle_colors
 INCBIN "gfx/trainers/sidney.gbcpal", middle_colors
 INCBIN "gfx/trainers/phoebe.gbcpal", middle_colors
+PurplePlayerPalette:
 INCBIN "gfx/trainers/glacia.gbcpal", middle_colors
 INCBIN "gfx/trainers/drake.gbcpal", middle_colors
 INCBIN "gfx/trainers/steven.gbcpal", middle_colors
@@ -104,4 +107,6 @@ INCBIN "gfx/trainers/kimono_girl.gbcpal", middle_colors ;Lily placeholder
 INCBIN "gfx/trainers/gentleman.gbcpal", middle_colors ;guy placeholder
 INCBIN "gfx/trainers/giovanni.gbcpal", middle_colors 
 INCBIN "gfx/trainers/wally.gbcpal", middle_colors 
-	assert_table_length NUM_TRAINER_CLASSES + 1
+KrisPalette: 
+INCLUDE "gfx/player/kris.pal"
+	assert_table_length NUM_TRAINER_CLASSES + 2

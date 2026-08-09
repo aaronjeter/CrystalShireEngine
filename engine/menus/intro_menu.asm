@@ -624,6 +624,7 @@ endc
 	call PrintText
 	call NamePlayer
 	call SetRegion
+	call SetColor
 	call SetStart
 	call SetLevelCap
 	call SetHardMode
@@ -667,6 +668,10 @@ OakText7:
 
 OakTextRegion:
 	text_far _OakRegionText
+	text_end
+
+OakTextColor:
+	text_far _OakColorText
 	text_end
 
 OakTextStart:
@@ -756,6 +761,74 @@ SetRegion:
 	ld de, EVENT_ORIGIN_BETA
     ld b, SET_FLAG
 	call EventFlagAction
+	ret
+
+
+SetColor:
+	ld hl, OakTextColor
+	call PrintText
+	ld hl, .ColorMenuHeader
+	call LoadMenuHeader
+	call VerticalMenu
+	call CloseWindow	
+	ld a, [wMenuCursorY]
+	cp $1
+	jr z, .ColorRed
+	cp $2
+	jr z, .ColorBlue
+	cp $3
+	jr z, .ColorGreen
+	cp $4
+	jr z, .ColorBrown
+	cp $5
+	jr z, .ColorPurple
+	cp $6
+	jr z, .ColorTeal
+
+.ColorMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 15, TEXTBOX_Y - 1
+	dw .ColorMenuData
+	db 1 ; default option
+
+.ColorMenuData:
+	db STATICMENU_CURSOR ; flags
+	db 6 ; items
+	db "Red@"
+	db "Blue@"
+	db "Green@"
+	db "Brown@"
+	db "Purple@"
+	db "Teal@"
+
+.ColorRed:
+	ld a, 0
+	ld [wPlayerColor], a
+	ret
+
+.ColorBlue:
+	ld a, 1
+	ld [wPlayerColor], a
+	ret
+
+.ColorGreen:
+	ld a, 2
+	ld [wPlayerColor], a
+	ret
+
+.ColorBrown:
+	ld a, 3
+	ld [wPlayerColor], a
+	ret
+
+.ColorPurple:
+	ld a, 4
+	ld [wPlayerColor], a
+	ret
+
+.ColorTeal:
+	ld a, 7
+	ld [wPlayerColor], a
 	ret
 
 
@@ -1032,6 +1105,8 @@ ShrinkFrame:
 	lb bc, 7, 7
 	predef_jump PlaceGraphic
 
+
+
 Intro_PlacePlayerSprite:
 	farcall GetPlayerIcon
 	ld c, 12
@@ -1055,13 +1130,7 @@ Intro_PlacePlayerSprite:
 	inc de
 	ld [hli], a ; tile id
 
-	ld b, PAL_OW_RED
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .male
-	ld b, PAL_OW_BLUE
-.male
-	ld a, b
+	ld a, [wPlayerColor]
 	ld [wNeededPalIndex], a
 	xor a
 	ld [hli], a ; attributes

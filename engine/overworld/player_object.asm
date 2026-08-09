@@ -15,6 +15,46 @@ BlankScreen:
 	call WaitBGMap2
 	jmp SetDefaultBGPAndOBP
 
+LoadPlayerColor:
+	ld a, [wPlayerColor]
+	cp 0
+	jr z, .Red
+	cp 1
+	jr z, .Blue
+	cp 2
+	jr z, .Green
+	cp 3
+	jr z, .Brown
+	cp 4
+	jr z, .Purple
+	cp 7
+	jr z, .Teal
+	;fallthrough to red
+.Red
+	lb de, PAL_NPC_RED, OBJECTTYPE_SCRIPT
+	ret
+
+.Blue
+	lb de, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT
+	ret
+
+.Green
+	lb de, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT
+	ret
+
+.Brown
+	lb de, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT
+	ret
+
+.Purple
+	lb de, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT
+	ret
+
+.Teal
+	lb de, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT
+	ret
+
+
 SpawnPlayer:
 	ld a, -1
 	ld [wObjectFollow_Leader], a
@@ -28,17 +68,8 @@ SpawnPlayer:
 	call GetMapObject
 	ld hl, MAPOBJECT_PALETTE
 	add hl, bc
-	lb de, PAL_NPC_RED, OBJECTTYPE_SCRIPT
-	ld a, [wPlayerSpriteSetupFlags]
-	bit PLAYERSPRITESETUP_FEMALE_TO_MALE_F, a
-	jr nz, .ok
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .ok
-	assert PAL_NPC_RED + 1 == PAL_NPC_BLUE
-	inc d
+	call LoadPlayerColor
 
-.ok
 	ld [hl], d
 	ld hl, MAPOBJECT_TYPE
 	add hl, bc

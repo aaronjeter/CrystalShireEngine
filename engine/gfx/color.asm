@@ -495,20 +495,50 @@ GetEnemyFrontpicPalettePointer:
 	pop de
 	ret
 
+GetPlayerColor:
+	ld a, [wPlayerColor]
+	cp 0
+	jr z, .Red
+	cp 1
+	jr z, .Blue
+	cp 2
+	jr z, .Green
+	cp 3
+	jr z, .Brown
+	cp 4
+	jr z, .Purple
+	cp 7
+	jr z, .Teal
+	;fallthrough to red
+.Red
+	ld hl, RedPlayerPalette
+	ret
+
+.Blue
+	ld hl, BluePlayerPalette
+	ret
+
+.Green
+	ld hl, GreenPlayerPalette
+	ret
+
+.Brown
+	ld hl, PlayerPalette ;Chris Default
+	ret
+
+.Purple
+	ld hl, PurplePlayerPalette
+	ret
+
+.Teal
+	ld hl, KrisPalette ;Kris Default
+	ret
+
 GetPlayerOrMonPalettePointer:
 	and a
 	jr nz, GetMonNormalOrShinyPalettePointer
 	ld a, [wPlayerSpriteSetupFlags]
-	bit PLAYERSPRITESETUP_FEMALE_TO_MALE_F, a
-	jr nz, .male
-	ld a, [wPlayerGender]
-	and a
-	jr z, .male
-	ld hl, KrisPalette
-	ret
-
-.male
-	ld hl, PlayerPalette
+	call GetPlayerColor
 	ret
 
 GetFrontpicPalettePointer:

@@ -2959,7 +2959,7 @@ wPlayerMonSelection:: ds 3
 
 wTempAbilityMon::  db
 
-	ds 1
+wPlayerColor:: db
 
 wStepCount:: db
 wPoisonStepCount:: db

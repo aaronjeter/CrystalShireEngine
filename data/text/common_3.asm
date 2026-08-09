@@ -1147,6 +1147,11 @@ _OakRegionText::
 	line "you from?"
 	prompt
 
+_OakColorText::
+	text "Next, pick your"
+	line "color."
+	prompt
+
 _OakHardModeText::
 	text "Do you want to"
 	line "play hardmode?"

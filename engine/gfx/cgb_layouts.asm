@@ -675,9 +675,49 @@ _CGB_UnownPuzzle:
 	call WipeAttrmap
 	jmp ApplyAttrmap
 
+_CGB_GetPlayerColor:
+	ld a, [wPlayerColor]
+	cp 0
+	jr z, .Red
+	cp 1
+	jr z, .Blue
+	cp 2
+	jr z, .Green
+	cp 3
+	jr z, .Brown
+	cp 4
+	jr z, .Purple
+	cp 7
+	jr z, .Teal
+	;fallthrough to red
+.Red
+	ld a, CAL
+	ret
+
+.Blue
+	ld a, FALKNER
+	ret
+
+.Green
+	ld a, ERIKA
+	ret
+
+.Brown
+	ld a, CHRIS
+	ret
+
+.Purple
+	ld a, GLACIA
+	ret
+
+.Teal
+	ld a, KRIS
+	ret
+
 _CGB_TrainerCard:
 	ld de, wBGPals1
 	xor a ; CHRIS
+	call _CGB_GetPlayerColor
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, FALKNER ; KRIS
@@ -709,22 +749,12 @@ _CGB_TrainerCard:
 	; fill screen with opposite-gender palette for the card border
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	ld a, [wPlayerGender]
-	and a
-	ld a, $1 ; kris
-	jr z, .got_gender
-	xor a ; chris
-.got_gender
+	ld a, $0 ; player
 	rst ByteFill
 	; fill trainer sprite area with same-gender palette
 	hlcoord 14, 1, wAttrmap
 	lb bc, 7, 5
-	ld a, [wPlayerGender]
-	and a
-	ld a, $0 ; no-optimize a = 0 chris
-	jr z, .got_gender2
-	ld a, $1 ; kris
-.got_gender2
+	ld a, $0 ; player
 	call FillBoxCGB
 	; top-right corner still uses the border's palette
 	hlcoord 18, 1, wAttrmap
@@ -758,7 +788,7 @@ _CGB_TrainerCard:
 	ld a, $7 ; pryce
 	call FillBoxCGB
 	; clair uses kris's palette
-	ld a, [wPlayerGender]
+	ld a, 1;[wPlayerGender]
 	and a
 	push af
 	jr z, .got_gender3
