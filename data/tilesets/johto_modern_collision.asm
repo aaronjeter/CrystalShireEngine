@@ -200,18 +200,18 @@
 	tilecoll WALL, WALL, WALL, WALL ; c7
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; c8
 	tilecoll WARP_CARPET_LEFT, FLOOR, WARP_CARPET_LEFT, FLOOR ; c9
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ca
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; cb
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; cc
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; cd
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ce
+	tilecoll WALL, WALL, WALL, WALL ; ca
+	tilecoll WALL, WALL, WALL, WALL ; cb
+	tilecoll FLOOR, FLOOR, WALL, WALL ; cc
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; cd
+	tilecoll UP_WALL, UP_WALL, FLOOR, FLOOR ; ce
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; cf
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d0
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d1
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d2
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d3
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d4
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d5
+	tilecoll WALL, FLOOR, WALL, FLOOR ; d0
+	tilecoll FLOOR, WALL, FLOOR, WALL ; d1
+	tilecoll WALL, UP_WALL, WALL, FLOOR ; d2
+	tilecoll UP_WALL, WALL, FLOOR, WALL ; d3
+	tilecoll WALL, FLOOR, WALL, WALL ; d4
+	tilecoll FLOOR, WALL, WALL, WALL ; d5
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d6
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d7
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d8
