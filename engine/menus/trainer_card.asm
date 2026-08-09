@@ -262,9 +262,9 @@ TrainerCard_PrintTopHalfOfCard:
 	predef_jump PlaceGraphic
 
 .Name_Money:
-	db   "NAME/"
+	db   "Name/"
 	next ""
-	next "MONEY@"
+	next "Money@"
 
 .ID_No:
 	db $27, $28, -1 ; ID NO
