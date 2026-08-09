@@ -74,6 +74,8 @@ MeteorTunnelEast_MapEvents:
 	def_coord_events
 	;enable bridge 1
 	coord_event 34, 09, -1, MeteorTunnelEastEnableBridgeScript
+	coord_event 18, 07, -1, MeteorTunnelEastEnableBridgeScript
+	coord_event 19, 07, -1, MeteorTunnelEastEnableBridgeScript
 
 	;disable bridge 1
 	coord_event 34, 13, -1, MeteorTunnelEastDisableBridgeScript
