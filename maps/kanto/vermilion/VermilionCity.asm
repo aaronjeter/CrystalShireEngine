@@ -328,7 +328,7 @@ VermilionCity_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 25,  3, BGEVENT_READ, VermilionCitySign
+	bg_event 19,  7, BGEVENT_READ, VermilionCitySign
 	bg_event  8, 20, BGEVENT_READ, VermilionGymSign
 	bg_event  5, 13, BGEVENT_READ, PokemonFanClubSign
 	bg_event 33,  9, BGEVENT_READ, VermilionCityDiglettsCaveSign
