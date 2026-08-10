@@ -1,7 +1,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; 00
 	tilecoll WALL, WALL, WALL, WALL ; 01
 	tilecoll WALL, STAIRCASE, FLOOR, FLOOR ; 02
-	tilecoll WALL, WALL, TV, BOOKSHELF ; 03
+	tilecoll WALL, WALL, TV, WALL ; 03
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 04
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 05
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 06
@@ -60,5 +60,5 @@
 	tilecoll FF, FF, FF, FF ; 3b
 	tilecoll FF, FF, FF, FF ; 3c
 	tilecoll FF, FF, FF, FF ; 3d
-	tilecoll FF, FF, FF, FF ; 3e
+	tilecoll FLOOR, WALL, FLOOR, WALL ; 3e
 	tilecoll FLOOR, FLOOR, FLOOR, STAIRCASE ; 3f

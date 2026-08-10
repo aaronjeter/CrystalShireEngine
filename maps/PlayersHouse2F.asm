@@ -288,7 +288,7 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke MEW, 200
+	givepoke MACHAMP, 200
 
 	loadmem wPartyMon1DVs+0, $ff
 	loadmem wPartyMon1DVs+1, $ff
@@ -373,6 +373,126 @@ endc
 PlayersHouseBookshelfScript:
 	jumpstd PictureBookshelfScript
 
+PlayersHouseWardrobeScript:
+	opentext
+	writetext WardrobeText
+	waitbutton
+	yesorno
+	iffalse .done
+
+.menu1
+	loadmenu .Menu1Header
+	verticalmenu
+	closewindow
+	ifequal 1, .Red
+	ifequal 2, .Blue
+	ifequal 3, .Green
+	ifequal 4, .Brown
+	ifequal 5, .Next
+	sjump .done
+
+.Menu1Header:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 17, TEXTBOX_Y - 1
+	dw .Menu1Data
+	db 1 ; default option
+
+.Menu1Data:
+	db STATICMENU_CURSOR ; flags
+	db 5 ; items
+	db "Red@"
+	db "Blue@"
+	db "Green@"
+	db "Brown@"
+	db "--Next--@"
+
+.menu2
+	loadmenu .Menu2Header
+	verticalmenu
+	closewindow
+	ifequal 1, .Purple
+	ifequal 2, .Teal
+	ifequal 3, .Gray
+	ifequal 4, .Orange
+	ifequal 5, .Back
+	sjump .done
+
+.Menu2Header:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 17, TEXTBOX_Y - 1
+	dw .Menu2Data
+	db 1 ; default option
+
+.Menu2Data:
+	db STATICMENU_CURSOR ; flags
+	db 5 ; items
+	db "Purple@"
+	db "Teal@"
+	db "Gray@"
+	db "Orange@"
+	db "--Back--@"
+
+.Next	
+	sjump .menu2
+
+.Back	
+	sjump .menu1
+
+.Red
+	setval 0
+	writemem wPlayerColor
+	sjump .reload
+
+.Blue
+	setval 1
+	writemem wPlayerColor
+	sjump .reload
+
+.Green
+	setval 2
+	writemem wPlayerColor
+	sjump .reload
+
+.Brown
+	setval 3
+	writemem wPlayerColor
+	sjump .reload
+
+.Purple
+	setval 4
+	writemem wPlayerColor
+	sjump .reload
+
+.Teal
+	setval 7
+	writemem wPlayerColor
+	sjump .reload
+
+.Gray
+	setval 5
+	writemem wPlayerColor
+	sjump .reload
+
+.Orange
+	setval 9
+	writemem wPlayerColor
+	sjump .reload
+
+.reload
+	closetext
+	warp PLAYERS_HOUSE_2F, 05, 02
+	end
+
+.done	
+	closetext
+	end
+
+
+WardrobeText:
+	text "Would you like to"
+	line "change outfits?"
+	done
+
 PlayersHousePCScript:
 	opentext
 	special PlayersHousePC
@@ -428,7 +548,7 @@ PlayersHouse2F_MapEvents:
 	def_bg_events
 	bg_event  2,  1, BGEVENT_UP, PlayersHousePCScript
 	bg_event  3,  1, BGEVENT_READ, PlayersHouseRadioScript
-	bg_event  5,  1, BGEVENT_READ, PlayersHouseBookshelfScript
+	bg_event  5,  1, BGEVENT_READ, PlayersHouseWardrobeScript
 	bg_event  6,  0, BGEVENT_IFSET, PlayersHousePosterScript
 
 	def_object_events
