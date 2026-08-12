@@ -758,7 +758,7 @@ _CGB_TrainerCard:
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 
-	; fill screen with opposite-gender palette for the card border
+	; fill screen with Player palette for the card border
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, $0 ; player
@@ -829,6 +829,7 @@ INCLUDE "gfx/trainer_card/johto_badges.pal"
 _CGB_TrainerCardKanto:
 	ld de, wBGPals1
 	xor a ; CHRIS & MISTY
+	call _CGB_GetPlayerColor
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, FALKNER ; KRIS
@@ -857,25 +858,15 @@ _CGB_TrainerCardKanto:
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 
-	; fill screen with opposite-gender palette for the card border
+	; fill screen with Player palette for the card border
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	ld a, [wPlayerGender]
-	and a
-	ld a, $1 ; kris
-	jr z, .got_gender
-	xor a ; chris
-.got_gender
+	ld a, $0 ; player
 	rst ByteFill
-	; fill trainer sprite area with same-gender palette
+	; fill trainer sprite area
 	hlcoord 14, 1, wAttrmap
 	lb bc, 7, 5
-	ld a, [wPlayerGender]
-	and a
-	ld a, $0 ; no-optimize a = 0 chris
-	jr z, .got_gender2
-	ld a, $1 ; kris
-.got_gender2
+	ld a, $0 ; player
 	call FillBoxCGB
 	hlcoord 3, 10, wAttrmap
 	lb bc, 3, 3
