@@ -50,6 +50,7 @@ CGBLayoutJumptable:
 	dw _CGB_PackPals
 	dw _CGB_TrainerCard
 	dw _CGB_TrainerCardKanto
+	dw _CGB_TrainerCardHoenn
 	dw _CGB_PokedexUnownMode
 	dw _CGB_BillsPC
 	dw _CGB_UnownPuzzle
@@ -917,6 +918,100 @@ _CGB_TrainerCardKanto:
 
 .BadgePalettes:
 INCLUDE "gfx/trainer_card/kanto_badges.pal"
+
+
+_CGB_TrainerCardHoenn:
+	ld de, wBGPals1
+	xor a ; ;Player
+	call _CGB_GetPlayerColor
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld a, FALKNER ; KRIS
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld a, BROCK
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld a, LT_SURGE ; ERIKA
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld a, JANINE
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld a, SABRINA
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld a, BLAINE
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld a, BLUE
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld hl, .HoennBadgePalettes
+	ld bc, 8 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+
+	; fill screen with Player palette for the card border
+	hlcoord 0, 0, wAttrmap
+	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
+	ld a, $0 ; player
+	rst ByteFill
+	; fill trainer sprite area
+	hlcoord 14, 1, wAttrmap
+	lb bc, 7, 5
+	ld a, $0 ; player
+	call FillBoxCGB
+	hlcoord 3, 10, wAttrmap
+	lb bc, 3, 3
+	ld a, $2 ; brock
+	call FillBoxCGB
+	hlcoord 7, 10, wAttrmap
+	lb bc, 3, 3
+	xor a ; misty / chris
+	call FillBoxCGB
+	hlcoord 11, 10, wAttrmap
+	lb bc, 3, 3
+	ld a, $3 ; lt.surge / erika
+	call FillBoxCGB
+	hlcoord 15, 10, wAttrmap
+	lb bc, 3, 3
+	ld a, $3 ; erika / lt.surge
+	call FillBoxCGB
+	hlcoord 3, 13, wAttrmap
+	lb bc, 3, 3
+	ld a, $4 ; janine
+	call FillBoxCGB
+	hlcoord 7, 13, wAttrmap
+	lb bc, 3, 3
+	ld a, $5 ; sabrina
+	call FillBoxCGB
+	hlcoord 11, 13, wAttrmap
+	lb bc, 3, 3
+	ld a, $6 ; blaine
+	call FillBoxCGB
+	hlcoord 15, 13, wAttrmap
+	lb bc, 3, 3
+	ld a, $7 ; blue
+	call FillBoxCGB
+	; top-right corner still uses the border's palette
+	ld a, [wPlayerGender]
+	and a
+	ld a, $1 ; kris
+	jr z, .got_gender3
+	xor a ; chris
+.got_gender3
+	hlcoord 18, 1, wAttrmap
+	ld [hl], a
+	call ApplyAttrmap
+	call ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
+.HoennBadgePalettes:
+INCLUDE "gfx/trainer_card/hoenn_badges.pal"
+
 
 _CGB_MoveList:
 	ld de, wBGPals1

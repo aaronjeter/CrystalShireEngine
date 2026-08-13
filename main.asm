@@ -116,7 +116,6 @@ INCLUDE "engine/menus/menu_2.asm"
 INCLUDE "engine/pokemon/mon_submenu.asm"
 INCLUDE "engine/battle/menu.asm"
 INCLUDE "engine/items/buy_sell_toss.asm"
-INCLUDE "engine/menus/trainer_card.asm"
 INCLUDE "engine/events/prof_oaks_pc.asm"
 INCLUDE "engine/overworld/decorations.asm"
 INCLUDE "engine/pokemon/level_up_happiness.asm"
@@ -126,6 +125,8 @@ INCLUDE "engine/battle/consume_held_item.asm"
 INCLUDE "data/moves/effects.asm"
 INCLUDE "engine/events/kurt_selectquantity_interpretjoypad.asm"
 
+SECTION "bank9.1", ROMX
+INCLUDE "engine/menus/trainer_card.asm"
 
 SECTION "bankA", ROMX
 

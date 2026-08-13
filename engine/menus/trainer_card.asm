@@ -6,7 +6,9 @@
 	const TRAINERCARDSTATE_PAGE2_JOYPAD  ; 3
 	const TRAINERCARDSTATE_PAGE3_LOADGFX ; 4
 	const TRAINERCARDSTATE_PAGE3_JOYPAD  ; 5
-	const TRAINERCARDSTATE_QUIT          ; 6
+	const TRAINERCARDSTATE_PAGE4_LOADGFX ; 6
+	const TRAINERCARDSTATE_PAGE4_JOYPAD  ; 7
+	const TRAINERCARDSTATE_QUIT          ; 8
 
 TrainerCard:
 	ld a, [wStateFlags]
@@ -89,6 +91,8 @@ TrainerCard:
 	dw TrainerCard_Page2_Joypad
 	dw TrainerCard_Page3_LoadGFX
 	dw TrainerCard_Page3_Joypad
+	dw TrainerCard_Page4_LoadGFX
+	dw TrainerCard_Page4_Joypad
 	dw TrainerCard_Quit
 
 TrainerCard_IncrementJumptable:
@@ -124,8 +128,19 @@ TrainerCard_Page1_Joypad:
 	call TrainerCard_Page1_PrintHardMode
 	ld hl, hJoyLast
 	ld a, [hl]
+	and D_LEFT
+	jr nz, .pressed_left
+	ld a, [hl]
 	and D_RIGHT | A_BUTTON
-	ret z
+	jr nz, .pressed_right_a
+	ret
+
+.pressed_left
+	ld a, TRAINERCARDSTATE_PAGE4_LOADGFX
+	ld [wJumptableIndex], a
+	ret
+
+.pressed_right_a
 	ld a, TRAINERCARDSTATE_PAGE2_LOADGFX
 	ld [wJumptableIndex], a
 	ret
@@ -159,14 +174,6 @@ TrainerCard_Page2_Joypad:
 	ld a, [hl]
 	and D_LEFT
 	jr nz, .pressed_left
-	ld a, [wKantoBadges]
-	and a
-	jr nz, .has_kanto_badges
-	ld a, [hl]
-	and A_BUTTON
-	jr nz, .Quit
-	ret
-.has_kanto_badges
 	ld a, [hl]
 	and D_RIGHT | A_BUTTON
 	jr nz, .pressed_right_a
@@ -217,8 +224,8 @@ TrainerCard_Page3_Joypad:
 	and D_LEFT
 	jr nz, .pressed_left
 	ld a, [hl]
-	and A_BUTTON
-	jr nz, .pressed_a
+	and D_RIGHT | A_BUTTON
+	jr nz, .pressed_right_a
 	ret
 
 .pressed_left
@@ -226,8 +233,53 @@ TrainerCard_Page3_Joypad:
 	ld [wJumptableIndex], a
 	ret
 
-.pressed_a
-	ld a, TRAINERCARDSTATE_QUIT
+.pressed_right_a
+	ld a, TRAINERCARDSTATE_PAGE4_LOADGFX
+	ld [wJumptableIndex], a
+	ret
+
+
+TrainerCard_Page4_LoadGFX:
+	call ClearSprites
+	hlcoord 0, 8
+	ld d, 6
+	call TrainerCard_InitBorder
+	call WaitBGMap
+	ld b, SCGB_TRAINER_CARD
+	call GetSGBLayout
+	call SetDefaultBGPAndOBP
+	call WaitBGMap
+	ld de, LeaderGFX3
+	ld hl, vTiles2 tile $29
+	lb bc, BANK(LeaderGFX3), 86
+	call Request2bpp
+	ld de, BadgeGFX3
+	ld hl, vTiles0 tile $00
+	lb bc, BANK(BadgeGFX3), 44
+	call Request2bpp
+	ld hl, TrainerCard_HoennBadgesOAM
+	call TrainerCard_Page2_3_InitObjectsAndStrings
+	jp TrainerCard_IncrementJumptable
+
+TrainerCard_Page4_Joypad:
+	ld hl, TrainerCard_HoennBadgesOAM
+	call TrainerCard_Page2_3_AnimateBadges
+	ld hl, hJoyLast
+	ld a, [hl]
+	and D_LEFT
+	jr nz, .pressed_left
+	ld a, [hl]
+	and D_RIGHT | A_BUTTON
+	jr nz, .pressed_right_a
+	ret
+
+.pressed_left
+	ld a, TRAINERCARDSTATE_PAGE3_LOADGFX
+	ld [wJumptableIndex], a
+	ret
+
+.pressed_right_a
+	ld a, TRAINERCARDSTATE_PAGE1_LOADGFX
 	ld [wJumptableIndex], a
 	ret
 
@@ -341,7 +393,7 @@ endr
 	jmp TrainerCard_Page2_3_OAMUpdate
 
 .BadgesTilemap:
-	db $79, $7a, $7b, $7c, $7d, -1 ; "BADGES"
+	db $79, $7a, $7b, $7c, $7d, -1 ; "Badges"
 
 TrainerCardSetup_PlaceTilemapString:
 .loop
@@ -698,11 +750,64 @@ TrainerCard_KantoBadgesOAM:
 	db $1c,            $20 | (1 << 7), $24, $20
 	db $1c | (1 << 7), $20 | (1 << 7), $24, $20
 
+
+TrainerCard_HoennBadgesOAM:
+; Template OAM data for Hoenn badges on the trainer card.
+; Format:
+	; y, x, palette
+	; cycle 1: face tile, in1 tile, in2 tile, in3 tile
+	; cycle 2: face tile, in1 tile, in2 tile, in3 tile
+
+	dw wHoennBadges
+
+	; Stonebadge
+	db $68, $18, 0
+	db $00, $20, $24, $20 | (1 << 7)
+	db $00, $20, $24, $20 | (1 << 7)
+
+	; Knucklebadge
+	db $68, $38, 1
+	db $04, $20, $24, $20 | (1 << 7)
+	db $04, $20, $24, $20 | (1 << 7)
+
+	; Dynamobadge
+	db $68, $58, 2
+	db $08, $20, $24, $20 | (1 << 7)
+	db $08, $20, $24, $20 | (1 << 7)
+
+	; Heatbadge
+	db $68, $78, 3
+	db $0c, $20, $24, $20 | (1 << 7)
+	db $0c, $20, $24, $20 | (1 << 7)
+
+	; Balancebadge
+	db $80, $38, 4
+	db $10, $20, $24, $20 | (1 << 7)
+	db $10, $20, $24, $20 | (1 << 7)
+
+	; Featherbadge
+	db $80, $18, 5
+	db $14, $20, $24, $20 | (1 << 7)
+	db $14, $20, $24, $20 | (1 << 7)
+
+	; Mindbadge
+	db $80, $58, 6
+	db $18, $20, $24, $20 | (1 << 7)
+	db $18, $20, $24, $20 | (1 << 7)
+
+	; Rainbadge
+	; X-flips on alternate cycles.
+	db $80, $78, 7
+	db $1c,            $20, $24, $20 | (1 << 7)
+	db $1c | (1 << 7), $20, $24, $20 | (1 << 7)
+
 CardStatusGFX: INCBIN "gfx/trainer_card/card_status.2bpp"
 
 LeaderGFX:  INCBIN "gfx/trainer_card/johto_leaders.2bpp"
 LeaderGFX2: INCBIN "gfx/trainer_card/kanto_leaders.2bpp"
+LeaderGFX3: INCBIN "gfx/trainer_card/hoenn_leaders.2bpp"
 BadgeGFX:   INCBIN "gfx/trainer_card/johto_badges.2bpp"
 BadgeGFX2:  INCBIN "gfx/trainer_card/kanto_badges.2bpp"
+BadgeGFX3:  INCBIN "gfx/trainer_card/hoenn_badges.2bpp"
 
 CardRightCornerGFX: INCBIN "gfx/trainer_card/card_right_corner.2bpp"
