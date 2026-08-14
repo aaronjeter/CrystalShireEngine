@@ -7381,56 +7381,38 @@ FlanneryGroup:
 	end_list_items
 
 NormanGroup:
-	next_list_item; NORMAN (1) Unreferenced
+	next_list_item; NORMAN (1)
 	db "Norman@", TRAINERTYPE_NORMAL
-	db 7
-	dw LINOONE
-	db 7
-	dw SPINDA
-	db 15
-	dw DITTO
+	dbw 8, LINOONE
+	dbw 8, SPINDA
+	dbw 15, DITTO
+	dbw 8, URSARING
+	dbw 11, SNORLAX
 	db -1 ; end
 
-	next_list_item; NORMAN (2) Unreferenced
+	next_list_item; NORMAN (2)
 	db "Norman@", TRAINERTYPE_NORMAL
-	db 8
-	dw LINOONE
-	db 8
-	dw SPINDA
-	db 15
-	dw DITTO
-	db 8
-	dw URSARING
-	db 11
-	dw SNORLAX
+	dbw 8, LINOONE
+	dbw 8, SPINDA
+	dbw 15, DITTO	
+	dbw 11, SNORLAX
+	dbw 11, URSALUNA
 	db -1 ; end
 
 	next_list_item ; NORMAN (3)
 	db "Norman@", TRAINERTYPE_ITEM_MOVES
-	db 15
-	dw DITTO
-	dw QUICK_CLAW
-	dw TRANSFORM, NO_MOVE, NO_MOVE, NO_MOVE	
-	db 9
-	dw SPINDA
-	dw PINK_BOW
-	dw BELLY_DRUM, EXTREMESPEED, NO_MOVE, NO_MOVE
-	db 9
-	dw ARCANINE
-	dw CHARCOAL
-	dw BODY_SLAM, SACRED_FIRE, PURSUIT, SWORDS_DANCE
-	db 9
-	dw SNORLAX
-	dw LEFTOVERS
-	dw SLEEP_TALK, SNORE, REST, COSMIC_POWER
-	db 10
-	dw SNORLAX
-	dw LEFTOVERS
-	dw BODY_SLAM, EARTHQUAKE, REST, SLEEP_TALK
-	db 11
-	dw FURRET2
-	dw PINK_BOW
-	dw BODY_SLAM, DRAGON_CLAW, RECOVER, DRAGON_DANCE	
+	dbww 15, DITTO, QUICK_CLAW
+		dw TRANSFORM, NO_MOVE, NO_MOVE, NO_MOVE	
+	dbww 9, SPINDA, PINK_BOW
+		dw BELLY_DRUM, EXTREMESPEED, NO_MOVE, NO_MOVE
+	dbww 9, ARCANINE, CHARCOAL
+		dw BODY_SLAM, SACRED_FIRE, PURSUIT, SWORDS_DANCE
+	dbww 9, SNORLAX, LEFTOVERS
+		dw SLEEP_TALK, SNORE, REST, COSMIC_POWER
+	dbww 10, URSALUNA, LEFTOVERS
+		dw BODY_SLAM, EARTHQUAKE, REST, SLEEP_TALK
+	dbww 11, FURRET2, PINK_BOW
+		dw BODY_SLAM, DRAGON_CLAW, RECOVER, DRAGON_DANCE	
 	db -1 ; end
 
 	end_list_items
