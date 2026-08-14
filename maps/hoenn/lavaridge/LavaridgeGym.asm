@@ -74,7 +74,7 @@ FlanneryGiveBadge:
 FlanneryFight:
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
-	ifgreater 3, .Medium
+	ifgreater 5, .Medium
 	sjump .Easy
 
 .Hard

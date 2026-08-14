@@ -2135,8 +2135,6 @@ CooltrainerMGroupHard:
 	db "Gerald@", TRAINERTYPE_NORMAL
 	db 11
 	dw AMAROWAK
-	db 11
-	dw DYNABEA
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERM (19) Daloric contest team #1
@@ -5107,7 +5105,7 @@ HikerGroupHard:
 	db "Eli@", TRAINERTYPE_NORMAL
 	db 8
 	dw FLAREON
-	db 10
+	db 8
 	dw SOLROCK
 	db -1 ; end
 
@@ -5381,27 +5379,27 @@ FirebreatherGroupHard:
 	dw SLUGMA
 	db 8
 	dw QUILAVA
-	db 9
-	dw WEEZING
+	db 8
+	dw KOFFING
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (8) Lavaridge Gym
 	db "Jace@", TRAINERTYPE_NORMAL
-	db 8
-	dw CHARMELEON
 	db 7
 	dw PONYTA
-	db 9
-	dw MAGMAR
+	db 7
+	dw MAGBY
+	db 8
+	dw CHARMELEON
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (9) Lavaridge Gym
 	db "Cole@", TRAINERTYPE_NORMAL
 	db 6
 	dw MAGBY
-	db 9
+	db 8
 	dw VULPIX
-	db 9
+	db 8
 	dw NUMEL
 	db -1 ; end
 
@@ -7341,7 +7339,7 @@ RoxanneGroupHard:
 	end_list_items
 
 BrawlyGroupHard:
-	next_list_item; BRAWLY (1) Unreferenced
+	next_list_item; BRAWLY (1) 
 	db "Brawly@", TRAINERTYPE_NORMAL
 	db 7
 	dw MACHOP
@@ -7351,7 +7349,7 @@ BrawlyGroupHard:
 	dw MAKUHITA
 	db -1 ; end
 
-	next_list_item; BRAWLY (2) Unreferenced
+	next_list_item; BRAWLY (2) 
 	db "Brawly@", TRAINERTYPE_NORMAL
 	db 9
 	dw MACHOKE
@@ -7455,32 +7453,23 @@ WattsonGroupHard:
 	end_list_items
 
 FlanneryGroupHard:
-	next_list_item; FLANNERY (1) Unreferenced
+	next_list_item; FLANNERY (1) 
 	db "Flannery@", TRAINERTYPE_NORMAL
-	db 9
-	dw SUNFLORA
-	db 10
-	dw NINETALES
-	db 10
-	dw CAMERUPT
-	db 12
-	dw TORKOAL	
+	dbw 8, MAGCARGO
+	dbw 9, HGROWLITHE
+	dbw 9, GROWLITHE
+	dbw 10, MAGMAR
+	dbw 11, TORKOAL
 	db -1 ; end
 
-	next_list_item; FLANNERY (2) Unreferenced
+	next_list_item; FLANNERY (2) 
 	db "Flannery@", TRAINERTYPE_NORMAL
-	db 10
-	dw SUNFLORA
-	db 10
-	dw NINETALES
-	db 10
-	dw FLAREON
-	db 10
-	dw CAMERUPT	
-	db 12
-	dw TORKOAL
-	db 12
-	dw BLAZIKEN
+	dbw 10, MAGCARGO
+	dbw 10, HARCANINE
+	dbw 10, ARCANINE
+	dbw 10, MAGMAR
+	dbw 11, CAMERUPT	
+	dbw 13, TORKOAL	
 	db -1 ; end
 
 	next_list_item ; FLANNERY (3)
@@ -8010,7 +7999,7 @@ BattleGirlGroupHard:
 	next_list_item; BATTLE_GIRL (1) Dewford City Gym
 	db "Laura@", TRAINERTYPE_NORMAL
 	db 7
-	dw MEDICHAM
+	dw MEDITITE
 	db 7
 	dw TAUROS
 	db -1 ; end
@@ -8036,7 +8025,7 @@ BattleGirlGroupHard:
 	db 9
 	dw MEDICHAM
 	db 9
-	dw NINETALES
+	dw TORRACAT
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (4) Route 117

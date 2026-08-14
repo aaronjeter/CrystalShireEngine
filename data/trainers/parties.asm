@@ -2090,8 +2090,6 @@ CooltrainerMGroup:
 	db "Gerald@", TRAINERTYPE_NORMAL
 	db 9
 	dw AMAROWAK
-	db 9
-	dw DYNABEA
 	db -1 ; end	
 
 	next_list_item ; COOLTRAINERM (19) Daloric contest team #1
@@ -5277,7 +5275,7 @@ FirebreatherGroup:
 	db 7
 	dw PONYTA
 	db 8
-	dw MAGMAR
+	dw MAGBY
 	db -1 ; end
 
 	next_list_item ; FIREBREATHER (9) Lavaridge Gym
@@ -7345,58 +7343,39 @@ WattsonGroup:
 	end_list_items
 
 FlanneryGroup:
-	next_list_item; FLANNERY (1) Unreferenced
+	next_list_item; FLANNERY (1) 
 	db "Flannery@", TRAINERTYPE_NORMAL
-	db 7
-	dw SUNFLORA
-	db 8
-	dw NINETALES
-	db 7
-	dw TORKOAL
-	db 7
-	dw CAMERUPT
+	dbw 6, SLUGMA
+	dbw 7, HGROWLITHE
+	dbw 7, GROWLITHE
+	dbw 8, MAGMAR
+	dbw 9, TORKOAL
 	db -1 ; end
 
-	next_list_item; FLANNERY (2) Unreferenced
+	next_list_item; FLANNERY (2) 
 	db "Flannery@", TRAINERTYPE_NORMAL
-	db 8
-	dw SUNFLORA
-	db 8
-	dw NINETALES
-	db 8
-	dw FLAREON
-	db 9
-	dw TORKOAL
-	db 10
-	dw CAMERUPT	
+	dbw 8, MAGCARGO
+	dbw 8, HARCANINE
+	dbw 8, ARCANINE
+	dbw 8, MAGMAR
+	dbw 9, CAMERUPT	
+	dbw 10, TORKOAL	
 	db -1 ; end
 
 	next_list_item ; FLANNERY (3)
 	db "Flannery@", TRAINERTYPE_ITEM_MOVES
-	db 9
-	dw SUNFLORA
-	dw QUICK_CLAW
-	dw FIRE_BLAST, SOLARBEAM, GIGA_DRAIN, STUN_SPORE	
-	db 9
-	dw NINETALES
-	dw NO_ITEM
-	dw FIRE_BLAST, SHADOW_BALL, WILLOWISP, SOLARBEAM
-	db 9
-	dw FLAREON
-	dw NO_ITEM
-	dw BODY_SLAM, SACRED_FIRE, PURSUIT, SWORDS_DANCE
-	db 9
-	dw TORKOAL
-	dw LEFTOVERS
-	dw FIRE_BLAST, FISSURE, REST, COSMIC_POWER
-	db 10
-	dw CHARIZARD
-	dw NO_ITEM
-	dw FLAMETHROWER, SKY_ATTACK, DRAGONBREATH, SWIFT
-	db 11
-	dw CAMERUPTX
-	dw LEFTOVERS
-	dw FISSURE, ERUPTION, RECOVER, AMNESIA	
+	dbww 9, SUNFLORA, QUICK_CLAW
+		dw FIRE_BLAST, SOLARBEAM, GIGA_DRAIN, STUN_SPORE	
+	dbww 9, HARCANINE, NO_ITEM
+		dw FIRE_BLAST, PURSUIT, WILLOWISP, STONE_EDGE
+	dbww 9, ARCANINE, NO_ITEM
+		dw BODY_SLAM, SACRED_FIRE, PURSUIT, SWORDS_DANCE
+	dbww 9, TORKOAL, LEFTOVERS
+		dw FIRE_BLAST, FISSURE, REST, COSMIC_POWER
+	dbww 10, CHARIZARD, NO_ITEM
+		dw FLAMETHROWER, SKY_ATTACK, DRAGONBREATH, SWIFT
+	dbww 11, CAMERUPTX, LEFTOVERS
+		dw FISSURE, ERUPTION, RECOVER, AMNESIA	
 	db -1 ; end
 
 	end_list_items
@@ -7897,7 +7876,7 @@ BattleGirlGroup:
 	db 7
 	dw MEDITITE
 	db 7
-	dw NINETALES
+	dw TORRACAT
 	db -1 ; end
 
 	next_list_item; BATTLE_GIRL (4) Route 117
