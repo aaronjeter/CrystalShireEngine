@@ -208,3 +208,19 @@ RandomPartyLists::
 	dbwb 7, HARIYAMA, $fe
 	dbwb 7, MAGMAR, $fe
 	db -1 ; end
+
+	;BIRDS_EASY
+	db 12 ;count
+	dbwb 3, PIDGEY, $fe
+	dbwb 4, SPEAROW,$fe
+	dbwb 2, ZUBAT, $fe
+	dbwb 4, DODUO, $fe
+	dbwb 3, HOOTHOOT, $fe
+	dbwb 4, NATU, $fe
+	dbwb 2, HOPPIP, $fe
+	dbwb 4, TAILLOW, $fe
+	dbwb 2, WINGULL, $fe
+	dbwb 5, ROWLET, $fe
+	dbwb 3, SWABLU, $fe
+	dbwb 5, PIDGEOTTO, $fe
+	db -1 ; end
