@@ -893,73 +893,73 @@ UpdateWorldLevelsScript:
 	setval 0	
 	sjump .checkEvents
 .1Badge
-	setval 4
+	setval 5
 	sjump .checkEvents
 .2Badge
-	setval 8
+	setval 10
 	sjump .checkEvents
 .3Badge
-	setval 12
+	setval 15
 	sjump .checkEvents
 .4Badge
-	setval 16
-	sjump .checkEvents
-.5Badge
 	setval 20
 	sjump .checkEvents
+.5Badge
+	setval 25
+	sjump .checkEvents
 .6Badge
-	setval 24
+	setval 30
 	sjump .checkEvents
 .7Badge
-	setval 28
+	setval 35
 	sjump .checkEvents
 .8Badge
-	setval 32
-	sjump .checkEvents
-.9Badge
-	setval 34
-	sjump .checkEvents
-.10Badge
-	setval 36
-	sjump .checkEvents
-.11Badge
-	setval 38
-	sjump .checkEvents
-.12Badge
 	setval 40
 	sjump .checkEvents
-.13Badge
+.9Badge
 	setval 42
 	sjump .checkEvents
-.14Badge
+.10Badge
 	setval 44
 	sjump .checkEvents
-.15Badge
+.11Badge
 	setval 46
 	sjump .checkEvents
-.16Badge
+.12Badge
 	setval 48
 	sjump .checkEvents
-.17Badge
+.13Badge
 	setval 50
 	sjump .checkEvents
-.18Badge
+.14Badge
 	setval 52
 	sjump .checkEvents
-.19Badge
+.15Badge
 	setval 54
 	sjump .checkEvents
-.20Badge
+.16Badge
 	setval 56
 	sjump .checkEvents
-.21Badge
+.17Badge
+	setval 57
+	sjump .checkEvents
+.18Badge
 	setval 58
 	sjump .checkEvents
-.22Badge
+.19Badge
+	setval 59
+	sjump .checkEvents
+.20Badge
 	setval 60
 	sjump .checkEvents
-.23Badge
+.21Badge
+	setval 61
+	sjump .checkEvents
+.22Badge
 	setval 62
+	sjump .checkEvents
+.23Badge
+	setval 63
 	sjump .checkEvents
 .24Badge
 	setval 64
