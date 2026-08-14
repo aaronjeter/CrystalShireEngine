@@ -2202,7 +2202,7 @@ CooltrainerFGroup:
 	dw GLACEON
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERF (2) Unreferenced
+	next_list_item ; COOLTRAINERF (2) Lake of Rage
 	db "Lois@", TRAINERTYPE_NORMAL
 	db 5
 	dw SKIPLOOM
@@ -2222,7 +2222,7 @@ CooltrainerFGroup:
 	dw SNEASEL
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERF (4) Unreferenced
+	next_list_item ; COOLTRAINERF (4) Blackthorn City Gym
 	db "Lola@", TRAINERTYPE_NORMAL
 	db 4
 	dw DRATINI
@@ -2316,7 +2316,7 @@ CooltrainerFGroup:
 	dw TORKOAL
 	db -1 ; end
 
-	next_list_item ; COOLTRAINERF (13) Unreferenced
+	next_list_item ; COOLTRAINERF (13) Fast Ship
 	db "Carol@", TRAINERTYPE_NORMAL
 	db 5
 	dw ELECTRODE
@@ -2830,7 +2830,7 @@ PokemaniacGroup:
 	dw NIDOKING
 	db -1 ; end
 
-	next_list_item ; POKEMANIAC (8) Unreferenced
+	next_list_item ; POKEMANIAC (8) Fast Ship
 	db "Ethan@", TRAINERTYPE_NORMAL
 	db 3
 	dw RHYHORN
@@ -3451,7 +3451,7 @@ TeacherGroup:
 	dw CUBONE
 	db -1 ; end
 
-	next_list_item ; TEACHER (3) Unreferenced
+	next_list_item ; TEACHER (3) Fast Ship
 	db "Shirley@", TRAINERTYPE_NORMAL
 	db 5
 	dw JIGGLYPUFF
@@ -3701,7 +3701,7 @@ BugCatcherGroup:
 	dw VENONAT
 	db -1 ; end
 
-	next_list_item ; BUG_CATCHER (9) Unreferenced
+	next_list_item ; BUG_CATCHER (9) Fast Ship
 	db "Ken@", TRAINERTYPE_NORMAL
 	db 2
 	dw ARIADOS
@@ -3882,13 +3882,13 @@ FisherGroup:
 	dw QWILFISH
 	db -1 ; end
 
-	next_list_item ; FISHER (8) Unreferenced
+	next_list_item ; FISHER (8) Fast Ship
 	db "Andre@", TRAINERTYPE_NORMAL
 	db 7
 	dw GYARADOS
 	db -1 ; end
 
-	next_list_item ; FISHER (9) Unreferenced
+	next_list_item ; FISHER (9) Lake of Rage
 	db "Raymond@", TRAINERTYPE_NORMAL
 	db 2
 	dw MAGIKARP
@@ -3918,7 +3918,7 @@ FisherGroup:
 	dw REMORAID
 	db -1 ; end
 
-	next_list_item ; FISHER (12) Unreferenced
+	next_list_item ; FISHER (12) Fast Ship
 	db "Jonah@", TRAINERTYPE_NORMAL
 	db 5
 	dw SHELLDER
@@ -4415,13 +4415,13 @@ SailorGroup:
 	dw RATICATE
 	db -1 ; end
 
-	next_list_item ; SAILOR (7) Unreferenced
+	next_list_item ; SAILOR (7) Fast Ship
 	db "Garrett@", TRAINERTYPE_NORMAL
 	db 7
 	dw KINGLER
 	db -1 ; end
 
-	next_list_item ; SAILOR (8) Unreferenced
+	next_list_item ; SAILOR (8) Fast Ship
 	db "Kenneth@", TRAINERTYPE_NORMAL
 	db 3
 	dw MACHOP
@@ -4598,7 +4598,7 @@ Rival2Group:
 	end_list_items
 
 GuitaristGroup:
-	next_list_item ; GUITARIST (1) Unreferenced
+	next_list_item ; GUITARIST (1) Fast Ship
 	db "Clyde@", TRAINERTYPE_NORMAL
 	db 7
 	dw ELECTABUZZ
@@ -5034,7 +5034,7 @@ BurglarGroup:
 	dw TACKLE, SMOG, SLUDGE, SMOKESCREEN
 	db -1 ; end
 
-	next_list_item ; BURGLAR (3) Unreferenced
+	next_list_item ; BURGLAR (3) Fast Ship
 	db "Corey@", TRAINERTYPE_NORMAL
 	db 5
 	dw KOFFING
