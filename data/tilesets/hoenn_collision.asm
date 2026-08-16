@@ -166,11 +166,11 @@
 	tilecoll 01, 01, WALL, 01 ; a5
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a6
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a7
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a8
+	tilecoll 01, 01, 01, 01 ; a8
 	tilecoll WALL, WALL, WALL, WALL ; a9
 	tilecoll WALL, WALL, WALL, WALL ; aa
 	tilecoll WALL, WALL, WALL, DOOR ; ab
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ac
+	tilecoll 01, 01, 01, 01 ; ac
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; ad
 	tilecoll 01, 01, 01, 01 ; ae
 	tilecoll WALL, WALL, WALL, WALL ; af
