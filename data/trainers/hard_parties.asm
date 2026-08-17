@@ -5847,212 +5847,159 @@ PicnickerGroupHard:
 CamperGroupHard:
 	next_list_item ; CAMPER (1) Route 32
 	db "Roland@", TRAINERTYPE_NORMAL
-	db 3
-	dw NIDORAN_M
-	db 3
-	dw SENTRET
+	dbw 3, NIDORAN_M
+	dbw 3, SENTRET
 	db -1 ; end
 
 	next_list_item ; CAMPER (2) Route 34
 	db "Todd@", TRAINERTYPE_NORMAL
-	db 4
-	dw GOLDUCK
-	db 4
-	dw RALTS
+	dbw 4, GOLDUCK
+	dbw 4, RALTS
 	db -1 ; end
 
 	next_list_item ; CAMPER (3) Route 35
 	db "Ivam@", TRAINERTYPE_NORMAL
-	db 4
-	dw DIGLETT
-	db 4
-	dw ZUBAT
-	db 7
-	dw DIGLETT
+	dbw 4, DIGLETT
+	dbw 4, ZUBAT
+	dbw 7, DIGLETT
 	db -1 ; end
 
 	next_list_item ; CAMPER (4) Route 35
 	db "Elliot@", TRAINERTYPE_NORMAL
-	db 3
-	dw SANDSHREW
-	db 5
-	dw MARILL
+	dbw 3, SANDSHREW
+	dbw 5, MARILL
 	db -1 ; end
 
 	next_list_item ; CAMPER (5) Fuschia City Gym
 	db "Barry@", TRAINERTYPE_NORMAL
-	db 11
-	dw NIDOKING
+	dbw 11, NIDOKING
 	db -1 ; end
 
 	next_list_item ; CAMPER (6) Route 25
 	db "Lloyd@", TRAINERTYPE_NORMAL
-	db 6
-	dw NIDORINO
+	dbw 6, NIDORINO
 	db -1 ; end
 
 	next_list_item ; CAMPER (7) Route 9
 	db "Dean@", TRAINERTYPE_NORMAL
-	db 6
-	dw GOLDUCK
-	db 4
-	dw SANDSLASH
+	dbw 6, GOLDUCK
+	dbw 4, SANDSLASH
 	db -1 ; end
 
 	next_list_item ; CAMPER (8) Route 9
 	db "Sid@", TRAINERTYPE_NORMAL
-	db 2
-	dw DUGTRIO
-	db 7
-	dw PRIMEAPE
-	db 7
-	dw POLIWRATH
+	dbw 2, DUGTRIO
+	dbw 7, PRIMEAPE
+	dbw 7, POLIWRATH
 	db -1 ; end
 
 	next_list_item ; CAMPER (9) Route 46
 	db "Ted@", TRAINERTYPE_NORMAL
-	db 7
-	dw MANKEY
+	dbw 7, MANKEY
 	db -1 ; end
 
 	next_list_item ; CAMPER (10) Pewter City Gym
 	db "Jerry@", TRAINERTYPE_NORMAL
-	db 7
-	dw SANDSHREW
-	db 7
-	dw KABUTO
+	dbw 7, SANDSHREW
+	dbw 7, KABUTO
 	db -1 ; end
 
 	next_list_item ; CAMPER (11) Route 43
 	db "Spencer@", TRAINERTYPE_NORMAL
-	db 3
-	dw SANDSHREW
-	db 5
-	dw SANDSLASH
-	db 4
-	dw ZUBAT
+	dbw 3, SANDSHREW
+	dbw 5, SANDSLASH
+	dbw 4, ZUBAT
 	db -1 ; end
 
 	next_list_item ; CAMPER (12) Route 45
 	db "Quentin@", TRAINERTYPE_NORMAL
-	db 2
-	dw FEAROW
-	db 3
-	dw PRIMEAPE
-	db 5
-	dw TAUROS
+	dbw 2, FEAROW
+	dbw 3, PRIMEAPE
+	dbw 5, TAUROS
 	db -1 ; end
 
 	next_list_item ; CAMPER (13) Route 104
 	db "Winston@", TRAINERTYPE_NORMAL
-	db 3
-	dw LINOONE
+	dbw 3, LINOONE
 	db -1 ; end
 
 	next_list_item ; CAMPER (14) Route 117
 	db "Dylan@", TRAINERTYPE_NORMAL
-	db 7
-	dw DODRIO
-	db 7
-	dw CRAWDAUNT
+	dbw 7, DODRIO
+	dbw 7, CRAWDAUNT
 	db -1 ; end
 
 	next_list_item ; CAMPER (15) Route 108
 	db "Dylan@", TRAINERTYPE_NORMAL
-	db 7
-	dw DONPHAN
-	db 7
-	dw GIRAFARIG
-	db 8
-	dw OCTILLERY
+	dbw 7, DONPHAN
+	dbw 7, GIRAFARIG
+	dbw 8, OCTILLERY
 	db -1 ; end
 
 	next_list_item ; CAMPER (16) Route 111
 	db "Tyron@", TRAINERTYPE_NORMAL
-	db 7
-	dw TOGETIC
-	db 8
-	dw MURKROW
+	dbw 7, TOGETIC
+	dbw 8, MURKROW
 	db -1 ; end
 
 	next_list_item ; CAMPER (17) Route 111
 	db "Travis@", TRAINERTYPE_NORMAL
-	db 7
-	dw GLIGAR
-	db 9
-	dw CACTURNE
+	dbw 7, GLIGAR
+	dbw 9, CACTURNE
 	db -1 ; end
 
 	next_list_item ; CAMPER (18) Fortree Gym
 	db "Flint@", TRAINERTYPE_NORMAL
-	db 9
-	dw CROBAT
-	db 9
-	dw XATU
+	dbw 9, CROBAT
+	dbw 9, XATU
 	db -1 ; end
 
 	next_list_item ; CAMPER (19) Route 112
 	db "Larry@", TRAINERTYPE_NORMAL
-	db 7
-	dw SHIFTRY
-	db 6
-	dw SWELLOW
+	dbw 7, SHIFTRY
+	dbw 6, SWELLOW
 	db -1 ; end
 
 	next_list_item ; CAMPER (20) Route 113
 	db "Jaylen@", TRAINERTYPE_NORMAL
-	db 5
-	dw VIBRAVA
-	db 6
-	dw RATICATE
+	dbw 5, VIBRAVA
+	dbw 6, RATICATE
 	db -1 ; end
 
 	next_list_item ; CAMPER (21) Route 113
 	db "Lung@", TRAINERTYPE_NORMAL
-	db 5
-	dw WEEZING
-	db 6
-	dw MAGMAR
+	dbw 5, WEEZING
+	dbw 6, MAGMAR
 	db -1 ; end
 
 	next_list_item ; CAMPER (22) Route 113
 	db "Lawry@", TRAINERTYPE_NORMAL
-	db 5
-	dw CLAYDOL
-	db 6
-	dw SANDSLASH
+	dbw 5, CLAYDOL
+	dbw 6, SANDSLASH
 	db -1 ; end
 
 	next_list_item ; CAMPER (23) Route 114
 	db "Shane@", TRAINERTYPE_NORMAL
-	db 7
-	dw URSARING
-	db 7
-	dw ASANDSLASH
+	dbw 7, URSARING
+	dbw 7, ASANDSLASH
 	db -1 ; end
 
 	next_list_item ; CAMPER (24) Lavaridge Desert
 	db "Beau@", TRAINERTYPE_NORMAL	
-	db 7
-	dw VIBRAVA
-	db 6
-	dw DUGTRIO
+	dbw 7, VIBRAVA
+	dbw 6, DUGTRIO
 	db -1 ; end
 
 	next_list_item ; CAMPER (25) Lavaridge Desert
 	db "Drew@", TRAINERTYPE_NORMAL	
-	db 6
-	dw SUDOWOODO
-	db 7
-	dw NIDOKING	
+	dbw 6, SUDOWOODO
+	dbw 7, NIDOKING	
 	db -1 ; end
 
 	next_list_item ; CAMPER (26) Lavaridge Desert
 	db "Branden@", TRAINERTYPE_NORMAL	
-	db 7
-	dw SKARMORY
-	db 7
-	dw STEELIX	
+	dbw 7, SKARMORY
+	dbw 7, STEELIX	
 	db -1 ; end
 
 	end_list_items
@@ -6060,58 +6007,51 @@ CamperGroupHard:
 ExecutiveFGroupHard:
 	next_list_item ; EXECUTIVEF (1) Goldenrod City - Radio Tower
 	db "Executive@", TRAINERTYPE_MOVES
-	db 8
-	dw ARBOK
-	dw WRAP, POISON_STING, BITE, GLARE
-	db 9
-	dw VILEPLUME
-	dw ABSORB, SWEET_SCENT, SLEEP_POWDER, ACID
-	db 10
-	dw HONCHKROW
-	dw DRILL_PECK, PURSUIT, HAZE, NIGHT_SHADE
+	dbw 8, ARBOK
+		dw WRAP, POISON_STING, BITE, GLARE
+	dbw 9, VILEPLUME
+		dw ABSORB, SWEET_SCENT, SLEEP_POWDER, ACID
+	dbw 10, HONCHKROW
+		dw DRILL_PECK, PURSUIT, HAZE, NIGHT_SHADE
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEF (2) Unreferenced
 	db "Executive@", TRAINERTYPE_MOVES
-	db 9
-	dw ARBOK
-	dw WRAP, LEER, POISON_STING, BITE
-	db 9
-	dw GLOOM
-	dw ABSORB, SWEET_SCENT, SLEEP_POWDER, ACID
-	db 10
-	dw MURKROW
-	dw PECK, PURSUIT, HAZE, NO_MOVE
+	dbw 9, ARBOK
+		dw WRAP, LEER, POISON_STING, BITE
+	dbw 9, GLOOM
+		dw ABSORB, SWEET_SCENT, SLEEP_POWDER, ACID
+	dbw 10, MURKROW
+		dw PECK, PURSUIT, HAZE, NO_MOVE
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEF (3) Safari Zone Executive
 	db "Executive@", TRAINERTYPE_NORMAL
-	db 9
-	dw RHYDON
-	db 9
-	dw VILEPLUME
-	db 9
-	dw EXEGGUTOR
-	db 9
-	dw DYNABEA
-	db 9
-	dw FERALIGATR2
-	db 12
-	dw ABSOLX
+	dbw 9, RHYDON
+	dbw 9, VILEPLUME
+	dbw 9, EXEGGUTOR
+	dbw 9, DYNABEA
+	dbw 9, FERALIGATR2
+	dbw 12, ABSOLX
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEF (4) Mauville Game Corner Executive
 	db "Jane@", TRAINERTYPE_NORMAL
-	db 7
-	dw MURKROW
-	db 8
-	dw IVYSAUR
-	db 9
-	dw YANMA
-	db 9
-	dw GOREBYSS
-	db 12
-	dw OCTILLERY
+	dbw 7, MURKROW
+	dbw 8, IVYSAUR
+	dbw 9, YANMA
+	dbw 9, GOREBYSS
+	dbw 12, OCTILLERY
+	db -1 ; end
+
+	next_list_item ; EXECUTIVEF (5) Desert Shrine Jane
+	db "Jane@", TRAINERTYPE_NORMAL
+	dbw 8, HONCHKROW
+	dbw 9, VENUSAUR
+	dbw 9, YANMEGA
+	dbw 9, GOREBYSS
+	dbw 11, OCTILLERY
+	dbw 12, LATIAS
 	db -1 ; end
 
 	end_list_items
