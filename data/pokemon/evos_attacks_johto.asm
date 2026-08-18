@@ -1267,17 +1267,18 @@ ForretressEvosAttacks:
 DunsparceEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, RAGE
+	dbw 1, SAND_ATTACK
 	dbw 5, DEFENSE_CURL
 	dbw 13, GLARE
 	dbw 18, SPITE
 	dbw 20, ROLLOUT
-	dbw 24, FAINT_ATTACK
+	dbw 24, FAE_VOICE
 	dbw 28, DIG
 	dbw 32, BULK_UP
 	dbw 36, TAKE_DOWN
 	dbw 40, EARTHQUAKE	
 	dbw 45, COSMIC_POWER
-	dbw 50, OUTRAGE
+	dbw 50, PLAY_ROUGH
 	dbw 55, POISON_JAB
 	dbw 60, FISSURE
 	db 0 ; no more level-up moves
