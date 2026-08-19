@@ -166,6 +166,8 @@ AimMons::
 	dw MAGMORTAR
 	dw BEAUTIFLY
 	dw DUSTOX
+	dw NOSEPASS
+	dw PROBOPASS
 	dw AGEODUDE
 	dw AGRAVELER
 	dw AGOLEM
@@ -250,6 +252,10 @@ DauntMons::
 	dw POOCHYENA
 	dw MIGHTYENA
 	dw HUNTAIL	
+	dw SHUPPET
+	dw BANETTE
+	dw CORPHISH
+	dw CRAWDAUNT
 	dw -1
 
 
@@ -398,6 +404,11 @@ StabilityMons::
 	dw PORYGONZ
 	dw SKITTY
 	dw DELCATTY
+	dw PLUSLE
+	dw MINUN
+	dw ILLUMISE
+	dw VOLBEAT
+	dw SPINDA
 	dw KURUSU
 	dw AKUA
 	dw AKUERIA
@@ -434,6 +445,10 @@ RegenerationMons::
 	dw HO_OH
 	dw SHROOMISH
 	dw BRELOOM
+	dw ARON
+	dw LAIRON
+	dw AGGRON
+	dw AGGRONX
 	dw GULPIN
 	dw SWALOT
 	dw SWALOTX
@@ -478,6 +493,7 @@ SunbaskMons::
 	dw CHARIZARD
 	dw CHARIZARDX
 	dw CHARIZARDY
+	dw VULPIX
 	dw TREECKO
 	dw GROVYLE
 	dw SCEPTILE
@@ -556,6 +572,8 @@ ChlorophyllMons::
 	dw SEEDOT
 	dw NUZLEAF
 	dw SHIFTRY
+	dw ROSELIA
+	dw ROSERADE
 	dw -1
 
 SandRushMons::
