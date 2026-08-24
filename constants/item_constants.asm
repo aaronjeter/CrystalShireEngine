@@ -296,7 +296,7 @@ DEF TM01 EQU const_value
 	add_tm ROCK_TOMB
 	add_tm BULK_UP
 	add_tm SHOCK_WAVE
-	add_tm ERUPTION
+	add_tm WILLOWISP
 	add_tm AERIAL_ACE	
 	add_tm CALM_MIND
 	add_tm SCALD
