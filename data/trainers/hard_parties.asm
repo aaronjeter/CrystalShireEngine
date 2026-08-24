@@ -950,7 +950,7 @@ ChampionGroupHard:
 	next_list_item ; CHAMPION (2)
 	db "LANCE@", TRAINERTYPE_ITEM_MOVES
 	db 15
-	dw SLAKING
+	dw SNORLAX
 	dw MINT_BERRY
 	dw REST, CURSE, EARTHQUAKE, BODY_SLAM
 	db 15
@@ -8349,7 +8349,7 @@ RangerMGroupHard:
 	db -1 ; end
 
 	next_list_item; RANGERM (15) Treetop Trial
-	db "@", TRAINERTYPE_RANDOM, 3, TRIAL_EASY
+	db "@", TRAINERTYPE_RANDOM, 3, BATTLETOWER_EASY
 	db -1 ; end
 	
 	end_list_items

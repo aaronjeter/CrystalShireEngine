@@ -649,7 +649,7 @@ JohtoGrassWildMons:
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, SLAKOTH
+	dbw 1, MARILL
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
@@ -657,7 +657,7 @@ JohtoGrassWildMons:
 	dbw 3, MACHOKE
 	dbw 5, MACHOKE
 	; day
-	dbw 1, SLAKOTH
+	dbw 1, MARILL
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
@@ -665,7 +665,7 @@ JohtoGrassWildMons:
 	dbw 3, MACHOKE
 	dbw 5, MACHOKE
 	; nite
-	dbw 1, SLAKOTH
+	dbw 1, MARILL
 	dbw 1, MARILL
 	dbw 1, GEODUDE
 	dbw 1, MACHOP

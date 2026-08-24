@@ -612,8 +612,8 @@ PlayersHouseGetHoennMon:
 	ifequal 6, .Wingull
 	ifequal 7, .Surskit
 	ifequal 8, .Shroomish
-	ifequal 9, .Nincada
-	ifequal 10, .Whismur
+	ifequal 9, .Gulpin
+	ifequal 10, .Teddiursa
 	ifequal 11, .Makuhita
 	ifequal 12, .Skitty
 	ifequal 13, .Aron
@@ -647,11 +647,11 @@ PlayersHouseGetHoennMon:
 .Shroomish
 	givepoke SHROOMISH, 0
 	end
-.Nincada
-	givepoke NINCADA, 0
+.Gulpin
+	givepoke GULPIN, 0
 	end
-.Whismur
-	givepoke WHISMUR, 0
+.Teddiursa
+	givepoke TEDDIURSA, 0
 	end
 .Makuhita
 	givepoke MAKUHITA, 0
