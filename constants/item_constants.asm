@@ -312,7 +312,7 @@ DEF TM01 EQU const_value
 	add_tm FLAME_WHEEL  ; 0331
 	add_tm HAIL         ; 0331
 	add_tm ROCK_SLIDE   ; 0331
-	add_tm POWER_GEM    ; 0331
+	add_tm ANCIENTPOWER ; 0331
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm
