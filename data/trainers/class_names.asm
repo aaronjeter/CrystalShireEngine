@@ -94,5 +94,6 @@ TrainerClassNames::
 	li "Elite"
 	li "Elite"
 	li "Leader"
-	li "Trainer"
+	li "Trainer" ;Wally
+	li "Trainer" ;Green
 	assert_list_length NUM_TRAINER_CLASSES

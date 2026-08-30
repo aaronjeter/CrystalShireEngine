@@ -8452,5 +8452,14 @@ ExplorerGroupHard:
 
 	end_list_items
 
+	GreenGroupHard:
+
+	next_list_item ; GREEN (1)
+	db "Green@", TRAINERTYPE_NORMAL
+	dbw 0, CLEFAIRY
+	db -1 ; end
+
+	end_list_items
+
 
 ENDSECTION

@@ -98,4 +98,5 @@ TrainerPicPointers::
 	dba GuyPic
 	dba GiovanniPic
 	dba WallyPic
+	dba GreenPic
 	assert_table_length NUM_TRAINER_CLASSES

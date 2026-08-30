@@ -1498,3 +1498,4 @@ GiovanniPic:   INCBIN "gfx/trainers/giovanni.2bpp.lz"
 
 SECTION "New Rival Trainers", ROMX
 WallyPic:     INCBIN "gfx/trainers/wally.2bpp.lz"
+GreenPic:     INCBIN "gfx/trainers/green.2bpp.lz"
