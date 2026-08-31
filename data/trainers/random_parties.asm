@@ -13,6 +13,15 @@
 
 ;possibly others
 
+;Macro for randomlist mon moves. Four 16-bit move Ids followed by a $fe termination character
+MACRO rmoves
+	dw \1
+	dw \2
+	dw \3
+	dw \4
+	db \5
+ENDM
+
 RandomPartyLists::   
 
 	;PSYCHIC_EASY
@@ -227,161 +236,80 @@ RandomPartyLists::
 
 	;Battle Tower
 
-	;LITTLE_CUP_EASY
-	db 144 ;count
-	dbwb 7, BULBASAUR, $fe
-	dbwb 7, CHARMANDER,$fe
-	dbwb 7, SQUIRTLE, $fe
-	dbwb 7, RATTATA, $fe
-	dbwb 7, SPEAROW, $fe
-	dbwb 7, EKANS, $fe
-	dbwb 7, CLEFAIRY, $fe
-	dbwb 7, JIGGLYPUFF, $fe
-	dbwb 7, ZUBAT, $fe
-	dbwb 7, ODDISH, $fe
-	dbwb 7, PARAS, $fe
-	dbwb 7, VENONAT, $fe
+	;LITTLE_CUP_EASY_KANTO
+	db 36 ;count
+	dbww 5, BULBASAUR, BERRY
+		rmoves VINE_WHIP, LEECH_SEED, STUN_SPORE, GROWL, $fe
+	dbww 5, CHARMANDER, BERRY
+		rmoves EMBER, METAL_CLAW, WILLOWISP, TAIL_WHIP,	$fe
+	dbww 5, SQUIRTLE, BERRY
+		rmoves BUBBLE, WITHDRAW, ICY_WIND, GROWL, $fe
+	dbww 5, RATTATA, BERRY
+		rmoves TAIL_WHIP, GROWL, DIG, POISON_FANG, $fe
+	dbww 5, SPEAROW, BERRY
+		rmoves FLY, SAND_ATTACK, GROWL, PECK, $fe
+	dbww 5, EKANS, BERRY
+		rmoves POISON_FANG, DIG, BITE, TAIL_WHIP, $fe
+	dbww 5, CLEFAIRY, BERRY
+		rmoves SING, SWIFT, GROWL, DEFENSE_CURL, $fe
+	dbww 5, JIGGLYPUFF, BERRY
+		rmoves SING, SWIFT, ROLLOUT, DEFENSE_CURL, $fe
+	dbww 5, ZUBAT, BERRY
+		rmoves BITE, LEECH_LIFE, SUPERSONIC, FLY, $fe
+	dbww 5, ODDISH, BERRY
+		rmoves STUN_SPORE, MEGA_DRAIN, LEECH_SEED, ACID, $fe
+	dbww 5, PARAS, BERRY
+		rmoves STUN_SPORE, CUT, LEECH_SEED, STRING_SHOT, $fe
+	dbww 5, VENONAT, BERRY
+		rmoves STUN_SPORE, CONFUSION, LEECH_SEED, STRING_SHOT, $fe
 
-	dbwb 7, DIGLETT, $fe
-	dbwb 7, MEOWTH,$fe
-	dbwb 7, PSYDUCK, $fe
-	dbwb 7, MANKEY, $fe
-	dbwb 7, GROWLITHE, $fe
-	dbwb 7, POLIWAG, $fe
-	dbwb 7, ABRA, $fe
-	dbwb 7, MACHOP, $fe
-	dbwb 7, BELLSPROUT, $fe
-	dbwb 7, TENTACOOL, $fe
-	dbwb 7, GEODUDE, $fe
-	dbwb 7, PONYTA, $fe
+	dbww 5, DIGLETT, BERRY
+		rmoves DIG, CUT, GROWL, METAL_CLAW, $fe
+	dbww 5, MEOWTH, BERRY
+		rmoves BITE, METAL_CLAW, TAIL_WHIP, PAY_DAY, $fe
+	dbww 5, PSYDUCK, BERRY
+		rmoves BUBBLE, CONFUSION, ICY_WIND, GROWL, $fe
+	dbww 5, MANKEY, BERRY
+		rmoves STRENGTH, GROWL, DIG, KARATE_CHOP, $fe
+	dbww 5, GROWLITHE, BERRY
+		rmoves EMBER, SAND_ATTACK, GROWL, BITE,	$fe
+	dbww 5, POLIWAG, BERRY
+		rmoves BUBBLE, HYPNOSIS, TACKLE, BELLY_DRUM, $fe
+	dbww 5, ABRA, BERRY
+		rmoves CONFUSION, FLASH, PSYCH_UP, CALM_MIND, $fe
+	dbww 5, MACHOP, BERRY
+		rmoves STRENGTH, BULK_UP, MACH_PUNCH, ROCK_THROW, $fe
+	dbww 5, BELLSPROUT, BERRY
+		rmoves VINE_WHIP, CUT, STUN_SPORE, ACID, $fe
+	dbww 5, TENTACOOL, BERRY
+		rmoves BUBBLE, ICY_WIND, ACID, REST, $fe
+	dbww 5, GEODUDE, BERRY
+		rmoves ROCK_THROW, DEFENSE_CURL, ROLLOUT, SAND_ATTACK, $fe
+	dbww 5, PONYTA, BERRY
+		rmoves EMBER, TACKLE, WILLOWISP, SUNNY_DAY, $fe
 
-	dbwb 7, SLOWPOKE, $fe
-	dbwb 7, MAGNEMITE,$fe
-	dbwb 7, DODUO, $fe
-	dbwb 7, SEEL, $fe
-	dbwb 7, GRIMER, $fe
-	dbwb 7, SHELLDER, $fe
-	dbwb 7, GASTLY, $fe
-	dbwb 7, ONIX, $fe
-	dbwb 7, DROWZEE, $fe
-	dbwb 7, KRABBY, $fe
-	dbwb 7, VOLTORB, $fe
-	dbwb 7, EXEGGCUTE, $fe
-
-	dbwb 7, CUBONE, $fe
-	dbwb 7, KOFFING,$fe
-	dbwb 7, RHYHORN, $fe
-	dbwb 7, HORSEA, $fe
-	dbwb 7, GOLDEEN, $fe
-	dbwb 7, STARYU, $fe
-	dbwb 7, EEVEE, $fe
-	dbwb 7, PORYGON, $fe
-	dbwb 7, OMANYTE, $fe
-	dbwb 7, KABUTO, $fe
-	dbwb 7, DRATINI, $fe
-	dbwb 7, MUNCHLAX, $fe
-
-	dbwb 7, CHIKORITA, $fe
-	dbwb 7, CYNDAQUIL,$fe
-	dbwb 7, TOTODILE, $fe
-	dbwb 7, SENTRET, $fe
-	dbwb 7, HOOTHOOT, $fe
-	dbwb 7, LEDYBA, $fe
-	dbwb 7, SPINARAK, $fe
-	dbwb 7, CHINCHOU, $fe
-	dbwb 7, TOGEPI, $fe
-	dbwb 7, NATU, $fe
-	dbwb 7, MAREEP, $fe
-	dbwb 7, MARILL, $fe
-
-	dbwb 7, HOPPIP, $fe
-	dbwb 7, SUNKERN,$fe
-	dbwb 7, WOOPER, $fe
-	dbwb 7, PINECO, $fe
-	dbwb 7, SNUBBULL, $fe
-	dbwb 7, TEDDIURSA, $fe
-	dbwb 7, SLUGMA, $fe
-	dbwb 7, SWINUB, $fe
-	dbwb 7, REMORAID, $fe
-	dbwb 7, HOUNDOUR, $fe
-	dbwb 7, PHANPY, $fe
-	dbwb 7, TYROGUE, $fe
-
-	dbwb 7, SMOOCHUM, $fe
-	dbwb 7, ELEKID,$fe
-	dbwb 7, MAGBY, $fe
-	dbwb 7, LARVITAR, $fe
-	dbwb 7, TREECKO, $fe
-	dbwb 7, MUDKIP, $fe
-	dbwb 7, POOCHYENA, $fe
-	dbwb 7, ZIGZAGOON, $fe
-	dbwb 7, LOTAD, $fe
-	dbwb 7, SEEDOT, $fe
-	dbwb 7, TAILLOW, $fe
-	dbwb 7, WINGULL, $fe
-
-	dbwb 7, RALTS, $fe
-	dbwb 7, SURSKIT,$fe
-	dbwb 7, SHROOMISH, $fe
-	dbwb 7, ROWLET, $fe
-	dbwb 7, LITTEN, $fe
-	dbwb 7, POPPLIO, $fe
-	dbwb 7, MAKUHITA, $fe
-	dbwb 7, SKITTY, $fe
-	dbwb 7, ARON, $fe
-	dbwb 7, MEDITITE, $fe
-	dbwb 7, ELECTRIKE, $fe
-	dbwb 7, GULPIN, $fe
-
-	dbwb 7, CARVANHA, $fe
-	dbwb 7, WAILMER,$fe
-	dbwb 7, NUMEL, $fe
-	dbwb 7, SPOINK, $fe
-	dbwb 7, TRAPINCH, $fe
-	dbwb 7, CACNEA, $fe
-	dbwb 7, SWABLU, $fe
-	dbwb 7, BARBOACH, $fe
-	dbwb 7, CORPHISH, $fe
-	dbwb 7, BALTOY, $fe
-	dbwb 7, LILEEP, $fe
-	dbwb 7, ANORITH, $fe
-
-	dbwb 7, SHUPPET, $fe
-	dbwb 7, DUSKULL,$fe
-	dbwb 7, WYNAUT, $fe
-	dbwb 7, SNORUNT, $fe
-	dbwb 7, SPHEAL, $fe
-	dbwb 7, CLAMPERL, $fe
-	dbwb 7, BAGON, $fe
-	dbwb 7, BELDUM, $fe
-	dbwb 7, AGRIMER, $fe
-	dbwb 7, ASANDSHREW, $fe
-	dbwb 7, AVULPIX, $fe
-	dbwb 7, AGEODUDE, $fe
-
-	dbwb 7, HVOLTORB, $fe
-	dbwb 7, HGROWLITHE,$fe
-	dbwb 7, GPONYTA, $fe
-	dbwb 7, ADIGLETT, $fe
-	dbwb 7, VOLTORB2, $fe
-	dbwb 7, EXEGGCUTE2, $fe
-	dbwb 7, TENTACOOL2, $fe
-	dbwb 7, PONYTA2, $fe
-	dbwb 7, VULPIX2, $fe
-	dbwb 7, ABRA2, $fe
-	dbwb 7, TOTODILE2, $fe
-	dbwb 7, CYNDAQUIL2, $fe
-
-	dbwb 7, HONOBEA, $fe
-	dbwb 7, KURUSU,$fe
-	dbwb 7, CHIKORITA2, $fe
-	dbwb 7, KOTORA, $fe
-	dbwb 7, SUNBOU, $fe
-	dbwb 7, CLAMPERL, $fe
-	dbwb 7, BAGON, $fe
-	dbwb 7, BELDUM, $fe
-	dbwb 7, AGRIMER, $fe
-	dbwb 7, ASANDSHREW, $fe
-	dbwb 7, AVULPIX, $fe
-	dbwb 7, AGEODUDE, $fe
+	dbww 5, SLOWPOKE, BERRY
+		rmoves WATER_GUN, RAIN_DANCE, CONFUSION, REST, $fe
+	dbww 5, MAGNEMITE, BERRY
+		rmoves THUNDERSHOCK, THUNDER_WAVE, METAL_CLAW, SUPERSONIC, $fe
+	dbww 5, DODUO, BERRY
+		rmoves FLY, SAND_ATTACK, WHIRLWIND, GROWL, $fe
+	dbww 5, SEEL, BERRY
+		rmoves BUBBLE, ICY_WIND, AURORA_BEAM, TACKLE, $fe
+	dbww 5, GRIMER, BERRY
+		rmoves ACID, DISABLE, CURSE, MUD_SLAP, $fe
+	dbww 5, SHELLDER, BERRY
+		rmoves WATER_GUN, AURORA_BEAM, ICY_WIND, WITHDRAW, $fe
+	dbww 5, GASTLY, BERRY
+		rmoves HYPNOSIS, NIGHT_SHADE, DREAM_EATER, ACID, $fe
+	dbww 5, ONIX, BERRY
+		rmoves DIG, TACKLE, BIDE, ROCK_TOMB, $fe
+	dbww 5, DROWZEE, BERRY
+		rmoves CONFUSION, DREAM_EATER, HYPNOSIS, POUND, $fe
+	dbww 5, KRABBY, BERRY
+		rmoves STRENGTH, BUBBLE, METAL_CLAW, ROLLOUT, $fe
+	dbww 5, VOLTORB, BERRY
+		rmoves THUNDER_WAVE, THUNDERSHOCK, TACKLE, EXPLOSION, $fe
+	dbww 5, EXEGGCUTE, BERRY
+		rmoves STUN_SPORE, CONFUSION, LEECH_SEED, MEGA_DRAIN, $fe
 	db -1 ; end
