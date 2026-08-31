@@ -224,3 +224,164 @@ RandomPartyLists::
 	dbwb 3, SWABLU, $fe
 	dbwb 5, PIDGEOTTO, $fe
 	db -1 ; end
+
+	;Battle Tower
+
+	;LITTLE_CUP_EASY
+	db 144 ;count
+	dbwb 7, BULBASAUR, $fe
+	dbwb 7, CHARMANDER,$fe
+	dbwb 7, SQUIRTLE, $fe
+	dbwb 7, RATTATA, $fe
+	dbwb 7, SPEAROW, $fe
+	dbwb 7, EKANS, $fe
+	dbwb 7, CLEFAIRY, $fe
+	dbwb 7, JIGGLYPUFF, $fe
+	dbwb 7, ZUBAT, $fe
+	dbwb 7, ODDISH, $fe
+	dbwb 7, PARAS, $fe
+	dbwb 7, VENONAT, $fe
+
+	dbwb 7, DIGLETT, $fe
+	dbwb 7, MEOWTH,$fe
+	dbwb 7, PSYDUCK, $fe
+	dbwb 7, MANKEY, $fe
+	dbwb 7, GROWLITHE, $fe
+	dbwb 7, POLIWAG, $fe
+	dbwb 7, ABRA, $fe
+	dbwb 7, MACHOP, $fe
+	dbwb 7, BELLSPROUT, $fe
+	dbwb 7, TENTACOOL, $fe
+	dbwb 7, GEODUDE, $fe
+	dbwb 7, PONYTA, $fe
+
+	dbwb 7, SLOWPOKE, $fe
+	dbwb 7, MAGNEMITE,$fe
+	dbwb 7, DODUO, $fe
+	dbwb 7, SEEL, $fe
+	dbwb 7, GRIMER, $fe
+	dbwb 7, SHELLDER, $fe
+	dbwb 7, GASTLY, $fe
+	dbwb 7, ONIX, $fe
+	dbwb 7, DROWZEE, $fe
+	dbwb 7, KRABBY, $fe
+	dbwb 7, VOLTORB, $fe
+	dbwb 7, EXEGGCUTE, $fe
+
+	dbwb 7, CUBONE, $fe
+	dbwb 7, KOFFING,$fe
+	dbwb 7, RHYHORN, $fe
+	dbwb 7, HORSEA, $fe
+	dbwb 7, GOLDEEN, $fe
+	dbwb 7, STARYU, $fe
+	dbwb 7, EEVEE, $fe
+	dbwb 7, PORYGON, $fe
+	dbwb 7, OMANYTE, $fe
+	dbwb 7, KABUTO, $fe
+	dbwb 7, DRATINI, $fe
+	dbwb 7, MUNCHLAX, $fe
+
+	dbwb 7, CHIKORITA, $fe
+	dbwb 7, CYNDAQUIL,$fe
+	dbwb 7, TOTODILE, $fe
+	dbwb 7, SENTRET, $fe
+	dbwb 7, HOOTHOOT, $fe
+	dbwb 7, LEDYBA, $fe
+	dbwb 7, SPINARAK, $fe
+	dbwb 7, CHINCHOU, $fe
+	dbwb 7, TOGEPI, $fe
+	dbwb 7, NATU, $fe
+	dbwb 7, MAREEP, $fe
+	dbwb 7, MARILL, $fe
+
+	dbwb 7, HOPPIP, $fe
+	dbwb 7, SUNKERN,$fe
+	dbwb 7, WOOPER, $fe
+	dbwb 7, PINECO, $fe
+	dbwb 7, SNUBBULL, $fe
+	dbwb 7, TEDDIURSA, $fe
+	dbwb 7, SLUGMA, $fe
+	dbwb 7, SWINUB, $fe
+	dbwb 7, REMORAID, $fe
+	dbwb 7, HOUNDOUR, $fe
+	dbwb 7, PHANPY, $fe
+	dbwb 7, TYROGUE, $fe
+
+	dbwb 7, SMOOCHUM, $fe
+	dbwb 7, ELEKID,$fe
+	dbwb 7, MAGBY, $fe
+	dbwb 7, LARVITAR, $fe
+	dbwb 7, TREECKO, $fe
+	dbwb 7, MUDKIP, $fe
+	dbwb 7, POOCHYENA, $fe
+	dbwb 7, ZIGZAGOON, $fe
+	dbwb 7, LOTAD, $fe
+	dbwb 7, SEEDOT, $fe
+	dbwb 7, TAILLOW, $fe
+	dbwb 7, WINGULL, $fe
+
+	dbwb 7, RALTS, $fe
+	dbwb 7, SURSKIT,$fe
+	dbwb 7, SHROOMISH, $fe
+	dbwb 7, ROWLET, $fe
+	dbwb 7, LITTEN, $fe
+	dbwb 7, POPPLIO, $fe
+	dbwb 7, MAKUHITA, $fe
+	dbwb 7, SKITTY, $fe
+	dbwb 7, ARON, $fe
+	dbwb 7, MEDITITE, $fe
+	dbwb 7, ELECTRIKE, $fe
+	dbwb 7, GULPIN, $fe
+
+	dbwb 7, CARVANHA, $fe
+	dbwb 7, WAILMER,$fe
+	dbwb 7, NUMEL, $fe
+	dbwb 7, SPOINK, $fe
+	dbwb 7, TRAPINCH, $fe
+	dbwb 7, CACNEA, $fe
+	dbwb 7, SWABLU, $fe
+	dbwb 7, BARBOACH, $fe
+	dbwb 7, CORPHISH, $fe
+	dbwb 7, BALTOY, $fe
+	dbwb 7, LILEEP, $fe
+	dbwb 7, ANORITH, $fe
+
+	dbwb 7, SHUPPET, $fe
+	dbwb 7, DUSKULL,$fe
+	dbwb 7, WYNAUT, $fe
+	dbwb 7, SNORUNT, $fe
+	dbwb 7, SPHEAL, $fe
+	dbwb 7, CLAMPERL, $fe
+	dbwb 7, BAGON, $fe
+	dbwb 7, BELDUM, $fe
+	dbwb 7, AGRIMER, $fe
+	dbwb 7, ASANDSHREW, $fe
+	dbwb 7, AVULPIX, $fe
+	dbwb 7, AGEODUDE, $fe
+
+	dbwb 7, HVOLTORB, $fe
+	dbwb 7, HGROWLITHE,$fe
+	dbwb 7, GPONYTA, $fe
+	dbwb 7, ADIGLETT, $fe
+	dbwb 7, VOLTORB2, $fe
+	dbwb 7, EXEGGCUTE2, $fe
+	dbwb 7, TENTACOOL2, $fe
+	dbwb 7, PONYTA2, $fe
+	dbwb 7, VULPIX2, $fe
+	dbwb 7, ABRA2, $fe
+	dbwb 7, TOTODILE2, $fe
+	dbwb 7, CYNDAQUIL2, $fe
+
+	dbwb 7, HONOBEA, $fe
+	dbwb 7, KURUSU,$fe
+	dbwb 7, CHIKORITA2, $fe
+	dbwb 7, KOTORA, $fe
+	dbwb 7, SUNBOU, $fe
+	dbwb 7, CLAMPERL, $fe
+	dbwb 7, BAGON, $fe
+	dbwb 7, BELDUM, $fe
+	dbwb 7, AGRIMER, $fe
+	dbwb 7, ASANDSHREW, $fe
+	dbwb 7, AVULPIX, $fe
+	dbwb 7, AGEODUDE, $fe
+	db -1 ; end

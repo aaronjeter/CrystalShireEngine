@@ -1005,6 +1005,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass GREEN
 	const GREEN1
+	const WC_GREEN
 
 DEF KRIS EQU __trainer_class__
 
@@ -1019,3 +1020,4 @@ const ROCKET_EASY
 const ROCKET_MEDIUM
 const ROCKET_HARD
 const BIRDS_EASY
+const LITTLE_CUP_EASY
