@@ -1,0 +1,323 @@
+;Lists for Battle Tower league species
+
+;Little Cups is a whitelist
+;Little cup allows first stage mons that can't evolve
+;There are some exceptions to allow mons that got baby forms later
+;There are also exceptions excluding mons that got evolutions in later gens
+
+;StandardBannedMons is a blacklist
+;General rules are:
+;Legendary Pokemon are banned
+;Mythical Pokemon are banned
+;Mega forms are banned
+
+
+LittleCupMons::
+	;kanto
+	dw BULBASAUR
+	dw CHARMANDER
+	dw SQUIRTLE
+	dw CATERPIE
+	dw WEEDLE
+	dw PIDGEY
+	dw RATTATA
+	dw SPEAROW
+	dw EKANS
+	dw PIKACHU
+	dw SANDSHREW
+	dw NIDORAN_F
+	dw NIDORAN_M
+	dw CLEFAIRY
+	dw VULPIX
+	dw JIGGLYPUFF
+	dw ZUBAT
+	dw ODDISH
+	dw PARAS
+	dw VENONAT
+	dw DIGLETT
+	dw MEOWTH
+	dw PSYDUCK
+	dw MANKEY
+	dw GROWLITHE
+	dw POLIWAG
+	dw ABRA
+	dw MACHOP
+	dw BELLSPROUT
+	dw TENTACOOL
+	dw GEODUDE
+	dw PONYTA
+	dw SLOWPOKE
+	dw MAGNEMITE
+	dw DODUO
+	dw SEEL
+	dw GRIMER
+	dw SHELLDER
+	dw GASTLY
+	dw ONIX
+	dw DROWZEE
+	dw KRABBY
+	dw VOLTORB
+	dw EXEGGCUTE
+	dw CUBONE
+	dw KOFFING
+	dw RHYHORN
+	dw HORSEA
+	dw GOLDEEN
+	dw STARYU
+	dw MAGIKARP
+	dw EEVEE
+	dw OMANYTE
+	dw KABUTO
+	dw DRATINI
+	dw MUNCHLAX
+
+	;johto
+	dw CHIKORITA
+	dw CYNDAQUIL
+	dw TOTODILE
+	dw SENTRET
+	dw HOOTHOOT
+	dw LEDYBA
+	dw SPINARAK
+	dw CHINCHOU
+	dw PICHU
+	dw CLEFFA
+	dw IGGLYBUFF
+	dw TOGEPI
+	dw NATU
+	dw MAREEP
+	dw MARILL
+	dw HOPPIP
+	dw SUNKERN
+	dw WOOPER
+	dw PINECO
+	dw SNUBBULL
+	dw TEDDIURSA
+	dw SLUGMA
+	dw SWINUB
+	dw REMORAID
+	dw HOUNDOUR
+	dw PHANPY
+	dw TYROGUE
+	dw SMOOCHUM
+	dw ELEKID
+	dw MAGBY
+	dw LARVITAR
+
+	;hoenn
+	dw TREECKO
+	dw TORCHIC
+	dw MUDKIP
+	dw POOCHYENA
+	dw ZIGZAGOON
+	dw WURMPLE
+	dw LOTAD
+	dw SEEDOT
+	dw TAILLOW
+	dw WINGULL
+	dw RALTS
+	dw SURSKIT
+	dw SHROOMISH
+	dw ROWLET
+	dw LITTEN
+	dw POPPLIO
+	dw MAKUHITA
+	dw AZURILL
+	dw SKITTY
+	dw ARON
+	dw MEDITITE
+	dw ELECTRIKE
+	dw GULPIN
+	dw CARVANHA
+	dw WAILMER
+	dw NUMEL
+	dw SPOINK
+	dw TRAPINCH
+	dw CACNEA
+	dw SWABLU
+	dw BARBOACH
+	dw CORPHISH
+	dw BALTOY
+	dw LILEEP
+	dw ANORITH
+	dw FEEBAS
+	dw SHUPPET
+	dw DUSKULL
+	dw WYNAUT
+	dw SNORUNT
+	dw SPHEAL
+	dw CLAMPERL
+	dw BAGON
+	dw BELDUM
+
+	;alt forms
+	dw AGRIMER
+	dw ASANDSHREW
+	dw AVULPIX
+	dw AGEODUDE
+	dw HVOLTORB
+	dw HGROWLITHE
+	dw GPONYTA
+	dw ADIGLETT
+	dw VOLTORB2
+	dw EXEGGCUTE2
+	dw TENTACOOL2
+	dw PONYTA2
+	dw VULPIX2
+	dw ABRA2
+	dw TOTODILE2
+	dw CYNDAQUIL2
+	dw HONOBEA
+	dw KURUSU
+	dw CHIKORITA2
+	dw KOTORA
+	dw SUNBOU
+	dw -1
+
+
+StandardBannedMons::
+	;kanto
+	dw ARTICUNO
+	dw ZAPDOS
+	dw MOLTRES
+	dw MEWTWO
+	dw MEW
+
+	;johto
+	dw RAIKOU
+	dw ENTEI
+	dw SUICUNE
+	dw LUGIA
+	dw HO_OH
+	dw CELEBI
+
+	;hoenn
+	dw REGIROCK
+	dw REGICE
+	dw REGISTEEL
+	dw LATIAS
+	dw LATIOS
+	dw KYOGRE
+	dw GROUDON
+	dw RAYQUAZA
+	dw JIRACHI
+
+	;Megas
+	dw IRONBUNDLE
+	dw FURRET2
+	dw NOCTOWL2
+	dw OCTILLERY2
+	dw SCYTHER2
+	dw SCIZOR2
+	dw SKARMORY2
+	dw TOTARTLE
+	dw GOROCHU
+	dw DRAGONITEX
+	dw DRAGONITEY
+	dw VENUSAURX
+	dw CHARIZARDX
+	dw CHARIZARDY
+	dw BLASTOISEX
+	dw BEEDRILLX
+	dw ALAKAZAMX
+	dw SLOWBROX
+	dw GENGARX
+	dw PINSIRX
+	dw GYARADOSX
+	dw AERODACTYLX
+	dw AMPHAROSX
+	dw STEELIXX
+	dw SCIZORX
+	dw HERACROSSX
+	dw HOUNDOOMX
+	dw TYRANITARX
+	dw AGGRONX
+	dw CAMERUPTX
+	dw ALTARIAX
+	dw ABSOLX
+	dw GLALIEX
+	dw SALAMENCEX
+	dw METAGROSSX
+	dw KINGLERX
+	dw TROPIUSX
+	dw SWALOTX
+	dw FLYGONX
+	dw CHIMECHOX
+	dw VICTREEBELX
+	dw UNOWNX
+	dw BUTTERFREEX
+	dw LEDIANX
+	dw MAGCARGOX
+	dw SCEPTILEX
+	dw BLAZIKENX
+	dw SWAMPERTX
+	dw GARDEVOIRX
+	dw PIDGEOTX
+	dw -1
+
+SingletonMons::
+	dw FARFETCH_D
+	dw HITMONLEE
+	dw HITMONCHAN
+	dw LICKITUNG
+	dw CHANSEY
+	dw TANGELA
+	dw KANGASKHAN
+	dw MR__MIME
+	dw SCYTHER
+	dw JYNX
+	dw ELECTABUZZ
+	dw MAGMAR
+	dw PINSIR
+	dw TAUROS
+	dw LAPRAS
+	dw DITTO
+	dw PORYGON
+	dw AERODACTYL
+	dw SUDOWOODO
+	dw AIPOM
+	dw YANMA
+	dw MURKROW
+	dw MISDREAVUS
+	dw UNOWN
+	dw WOBBUFFET
+	dw GIRAFARIG
+	dw DUNSPARCE
+	dw GLIGAR
+	dw QWILFISH
+	dw SHUCKLE
+	dw HERACROSS
+	dw SNEASEL
+	dw CORSOLA
+	dw DELIBIRD
+	dw MANTINE
+	dw SKARMORY
+	dw STANTLER
+	dw SMEARGLE
+	dw HITMONTOP
+	dw MILTANK
+	dw NOSEPASS
+	dw SABLEYE
+	dw MAWILE
+	dw PLUSLE
+	dw MINUN
+	dw VOLBEAT
+	dw ILLUMISE
+	dw ROSELIA
+	dw TORKOAL
+	dw SPINDA
+	dw ZANGOOSE
+	dw SEVIPER
+	dw LUNATONE
+	dw SOLROCK
+	dw KECLEON
+	dw TROPIUS
+	dw CHIMECHO
+	dw ABSOL
+	dw RELICANTH
+	dw LUVDISC
+	dw ARAICHU
+	dw AMAROWAK
+	dw HANAMOLE
+	dw HANEEI
+	dw -1
