@@ -2475,9 +2475,14 @@ WinTrainerBattle:
 
 	ld a, [wBattleType]
 	cp BATTLETYPE_CANLOSE
-	jr nz, .skip_heal
+	jr z, .heal
+	cp  BATTLETYPE_CUP
+	jr z, .heal
+	jr .skip_heal
+.heal
 	predef HealParty
 .skip_heal
+
 
 	ld a, [wDebugFlags]
 	bit DEBUG_BATTLE_F, a
@@ -4929,6 +4934,8 @@ BattleMenu_Pack:
 	call LoadStandardMenuHeader
 
 	ld a, [wBattleType]
+	cp BATTLETYPE_CUP
+	jr z, .ItemsCantBeUsed
 	cp BATTLETYPE_TUTORIAL
 	jr z, .tutorial
 	cp BATTLETYPE_CONTEST
@@ -6936,6 +6943,10 @@ GiveExperiencePoints:
 	ld a, [wInBattleTowerBattle]
 	bit IN_BATTLE_TOWER_BATTLE_F, a
 	ret nz
+
+	ld a, [wBattleType]
+	cp BATTLETYPE_CUP
+	ret z
 	
 	xor a
 	ld [wCurPartyMon], a
