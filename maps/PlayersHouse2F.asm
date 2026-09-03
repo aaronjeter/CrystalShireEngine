@@ -530,11 +530,40 @@ PlayersRadioText4:
 
 Playerhouse_RandomTestTrainer:
 	faceplayer
-	winlosstext PlayersRadioText1, 0
-	loadtrainer EXPLORER, RANDOM_TEST
+	winlosstext PlayersRadioText1, PlayersRadioText3
+	loadtrainer COOLTRAINERM, ASHEN_GAUNTLET1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CUP
 	startbattle
-	reloadmapafterbattle
+	dontrestartmapmusic
+	reloadmap
+	iftrue .AfterLoss
+	sjump .AfterWin
+
+.AfterWin
+	opentext
+	writetext DebugWinText
+	waitbutton
+	closetext
+	special HealParty
+	playmapmusic
 	end
+
+.AfterLoss
+	opentext
+	writetext DebugLossText
+	waitbutton
+	closetext
+	special HealParty
+	playmapmusic
+	end
+
+DebugWinText:
+	text "You Won!!!"
+	done
+
+DebugLossText:
+	text "You Lost!!!"
+	done
 
 PlayersHouse2F_MapEvents:
 	db 0, 0 ; filler
