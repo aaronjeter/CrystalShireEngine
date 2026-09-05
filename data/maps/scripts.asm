@@ -231,12 +231,7 @@ INCLUDE "maps/johto/cianwood/CianwoodPharmacy.asm"
 INCLUDE "maps/johto/cianwood/CianwoodPhotoStudio.asm"
 INCLUDE "maps/johto/cianwood/CianwoodLugiaSpeechHouse.asm"
 INCLUDE "maps/johto/cianwood/PokeSeersHouse.asm"
-INCLUDE "maps/johto/battletower/BattleTower1F.asm"
-INCLUDE "maps/johto/battletower/BattleTowerBattleRoom.asm"
-INCLUDE "maps/johto/battletower/BattleTowerElevator.asm"
-INCLUDE "maps/johto/battletower/BattleTowerHallway.asm"
 INCLUDE "maps/Route40BattleTowerGate.asm"
-INCLUDE "maps/johto/battletower/BattleTowerOutside.asm"
 
 
 SECTION "Map Scripts 13", ROMX
@@ -686,8 +681,6 @@ INCLUDE "maps/kanto/dungeons/MtMoon1F.asm"
 INCLUDE "maps/kanto/dungeons/MtMoonB1F.asm"
 INCLUDE "maps/kanto/dungeons/MtMoonB2F.asm" 
 INCLUDE "maps/kanto/dungeons/MtMoonPokecenter.asm"
-
-INCLUDE "maps/johto/JohtoGames.asm"
 
 INCLUDE "maps/kanto/safari/SafariZoneSouth.asm"
 INCLUDE "maps/kanto/safari/SafariZoneEast.asm"

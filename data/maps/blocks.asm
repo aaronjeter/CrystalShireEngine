@@ -885,23 +885,8 @@ RuinsOfAlphAerodactylWordRoom_Blocks:
 DragonShrine_Blocks:
 	INCBIN "maps/johto/dungeons/DragonShrine.ablk"
 
-BattleTower1F_Blocks:
-	INCBIN "maps/johto/battletower/BattleTower1F.ablk"
-
-BattleTowerBattleRoom_Blocks:
-	INCBIN "maps/johto/battletower/BattleTowerBattleRoom.ablk"
-
 PokecomCenterAdminOfficeMobile_Blocks:
 	INCBIN "maps/PokecomCenterAdminOfficeMobile.ablk"
-
-BattleTowerHallway_Blocks:
-	INCBIN "maps/johto/battletower/BattleTowerHallway.ablk"
-
-BattleTowerElevator_Blocks:
-	INCBIN "maps/johto/battletower/BattleTowerElevator.ablk"
-
-BattleTowerOutside_Blocks:
-	INCBIN "maps/johto/battletower/BattleTowerOutside.ablk"
 
 GoldenrodDeptStoreRoof_Blocks:
 LilycoveDeptStoreRoof_Blocks:

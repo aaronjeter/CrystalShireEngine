@@ -2465,10 +2465,6 @@ WinTrainerBattle:
 	and a
 	ret nz
 
-	ld a, [wInBattleTowerBattle]
-	bit IN_BATTLE_TOWER_BATTLE_F, a
-	jr nz, .battle_tower
-
 	call BattleWinSlideInEnemyTrainerFrontpic
 	ld c, 40
 	call DelayFrames
@@ -2483,28 +2479,10 @@ WinTrainerBattle:
 	predef HealParty
 .skip_heal
 
-
 	ld a, [wDebugFlags]
 	bit DEBUG_BATTLE_F, a
 	call z, PrintWinLossText
 	jr .give_money
-
-.battle_tower
-	call BattleWinSlideInEnemyTrainerFrontpic
-	ld c, 40
-	call DelayFrames
-	call EmptyBattleTextbox
-	ld c, BATTLETOWERTEXT_LOSS_TEXT
-	farcall BattleTowerText
-	call WaitPressAorB_BlinkCursor
-	ld hl, wPayDayMoney
-	ld a, [hli]
-	or [hl]
-	inc hl
-	or [hl]
-	ret nz
-	call ClearTilemap
-	jmp ClearBGPalettes
 
 .give_money
 	ld a, [wAmuletCoin]
@@ -2960,10 +2938,6 @@ LostBattle:
 	ld a, 1
 	ld [wBattleEnded], a
 
-	ld a, [wInBattleTowerBattle]
-	bit IN_BATTLE_TOWER_BATTLE_F, a
-	jr nz, .battle_tower
-
 	ld a, [wBattleType]
 	cp BATTLETYPE_CANLOSE
 	jr nz, .not_canlose
@@ -2981,23 +2955,6 @@ LostBattle:
 	bit DEBUG_BATTLE_F, a
 	ret nz
 	jmp PrintWinLossText
-
-.battle_tower
-; Remove the enemy from the screen.
-	hlcoord 0, 0
-	lb bc, 8, 21
-	call ClearBox
-	call BattleWinSlideInEnemyTrainerFrontpic
-
-	ld c, 40
-	call DelayFrames
-
-	call EmptyBattleTextbox
-	ld c, BATTLETOWERTEXT_WIN_TEXT
-	farcall BattleTowerText
-	call WaitPressAorB_BlinkCursor
-	call ClearTilemap
-	jmp ClearBGPalettes
 
 .not_canlose
 	ld a, [wLinkMode]
@@ -4927,10 +4884,6 @@ BattleMenu_Pack:
 	and a
 	jr nz, .ItemsCantBeUsed
 
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .ItemsCantBeUsed
-
 	call LoadStandardMenuHeader
 
 	ld a, [wBattleType]
@@ -5990,11 +5943,6 @@ LoadEnemyMon:
 	and a
 	jmp nz, InitEnemyMon
 
-; and also not in a Battle Tower battle
-	ld a, [wInBattleTowerBattle]
-	bit IN_BATTLE_TOWER_BATTLE_F, a
-	jmp nz, InitEnemyMon
-
 ; Make sure everything knows what species we're working with
 	ld a, [wTempEnemyMonSpecies]
 	ld [wEnemyMonSpecies], a
@@ -6938,10 +6886,6 @@ GiveExperiencePoints:
 ; Don't give experience if linked or in the Battle Tower.
 	ld a, [wLinkMode]
 	and a
-	ret nz
-
-	ld a, [wInBattleTowerBattle]
-	bit IN_BATTLE_TOWER_BATTLE_F, a
 	ret nz
 
 	ld a, [wBattleType]
@@ -8249,9 +8193,9 @@ CheckPayDay:
 	call AddBattleMoneyToAccount
 	ld hl, BattleText_PlayerPickedUpPayDayMoney
 	call StdBattleTextbox
-	ld a, [wInBattleTowerBattle]
-	bit IN_BATTLE_TOWER_BATTLE_F, a
-	ret z
+		;ld a, [wInBattleTowerBattle]
+		;bit IN_BATTLE_TOWER_BATTLE_F, a
+		;ret z
 	call ClearTilemap
 	jmp ClearBGPalettes
 

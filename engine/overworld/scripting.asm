@@ -428,10 +428,7 @@ Script__2dmenu:
 	ret
 
 Script_battletowertext:
-	call SetUpTextbox
-	rst GetScriptByte
-	ld c, a
-	farjp BattleTowerText
+	ret ;soft deleted with the battle tower
 
 Script_verbosegiveitem:
 	call Script_giveitem

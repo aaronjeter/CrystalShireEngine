@@ -59,7 +59,7 @@ SpecialsPointers::
 	add_special UnusedMemoryGame ; unused
 	add_special ClearBGPalettesBufferScreen ; unused
 	add_special FadeOutToWhite
-	add_special BattleTowerFade
+	;add_special BattleTowerFade
 	add_special FadeOutToBlack
 	add_special FadeInPalettes
 	add_special FadeInFromBlack
@@ -123,15 +123,15 @@ SpecialsPointers::
 	add_special PrintDiploma
 
 ; Crystal only
-	add_special BattleTowerRoomMenu
-	add_special BattleTowerBattle
-	add_special LoadOpponentTrainerAndPokemonWithOTSprite
-	add_special CheckForBattleTowerRules
+	;add_special BattleTowerRoomMenu
+	;add_special BattleTowerBattle
+	;add_special LoadOpponentTrainerAndPokemonWithOTSprite
+	;add_special CheckForBattleTowerRules
 	add_special GiveOddEgg
 	add_special Reset ; bank 0
 	add_special MoveTutor
 	add_special OmanyteChamber
-	add_special BattleTowerAction
+	;add_special BattleTowerAction
 	add_special DisplayUnownWords
 	add_special Menu_ChallengeExplanationCancel
 	add_special HoOhChamber

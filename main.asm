@@ -280,7 +280,6 @@ INCLUDE "engine/gfx/player_gfx.asm"
 INCLUDE "engine/events/unown_walls.asm"
 INCLUDE "engine/events/buena.asm"
 INCLUDE "engine/events/dratini.asm"
-INCLUDE "engine/events/battle_tower/rules.asm"
 
 
 SECTION "bank23", ROMX
@@ -481,11 +480,6 @@ SECTION "mobile46", ROMX
 INCLUDE "mobile/mobile_46.asm"
 
 
-SECTION "Battle Tower", ROMX
-
-INCLUDE "engine/events/battle_tower/trainer_text.asm"
-
-
 SECTION "bank5B", ROMX
 
 INCLUDE "engine/link/link_trade.asm"
@@ -553,20 +547,8 @@ SECTION "European Mail", ROMX
 
 INCLUDE "engine/pokemon/european_mail.asm"
 
-
-SECTION "Battle Tower Text", ROMX
-
-INCLUDE "data/battle_tower/trainer_text.asm"
-
-
-SECTION "Battle Tower Trainer Data", ROMX
-
-INCLUDE "data/battle_tower/unknown.asm"
-
-
 SECTION "Crystal Events", ROMX
 
-INCLUDE "engine/events/battle_tower/load_trainer.asm"
 INCLUDE "engine/events/odd_egg.asm"
 
 

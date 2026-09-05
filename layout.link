@@ -205,7 +205,6 @@ ROMX $45
 ROMX $46
 	"mobile46"
 ROMX $47
-	"Battle Tower"
 ROMX $48
 	"Pic Pointers"
 ROMX $49
@@ -316,9 +315,7 @@ ROMX $77
 ROMX $78
 	"Tileset Data 8"
 ROMX $7b
-	"Battle Tower Text"
 ROMX $7c
-	"Battle Tower Trainer Data"
 ROMX $7d	
 	"Hard Trainer Parties 2"
 ROMX $7e

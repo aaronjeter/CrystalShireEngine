@@ -1,4 +1,4 @@
-INCLUDE "engine/events/battle_tower/battle_tower.asm"
+;INCLUDE "engine/events/battle_tower/battle_tower.asm"
 
 Clears5_a89a:
 	ld a, BANK(s5_a89a)
