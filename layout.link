@@ -39,7 +39,6 @@ ROMX $02
 ROMX $03
 	"bank3"
 	"VWF"
-	"mobile5C"
 ROMX $04
 	"bank4"
 	"Tileset Data 11"
@@ -256,7 +255,6 @@ ROMX $5e
 	"Songs 5"
 	"Crystal Sound Effects"
 ROMX $5f
-	"mobile5F"
 ROMX $60
 	"Map Scripts 13"
 	"Pokedex Entries 001-064"

@@ -471,7 +471,6 @@ INCLUDE "engine/movie/title.asm"
 
 SECTION "mobile45", ROMX
 
-INCLUDE "mobile/mobile_45_sprite_engine.asm"
 INCLUDE "mobile/mobile_45_stadium.asm"
 
 
@@ -487,11 +486,6 @@ INCLUDE "engine/link/link.asm"
 INCLUDE "engine/battle/link_result.asm"
 
 
-SECTION "mobile5C", ROMX
-
-INCLUDE "mobile/mobile_5c.asm"
-
-
 SECTION "Crystal Phone Text 2", ROMX
 
 INCLUDE "data/phone/text/bike_shop.asm"
@@ -500,11 +494,6 @@ INCLUDE "data/phone/text/bike_shop.asm"
 SECTION "UpdateBattleHUDs", ROMX
 
 INCLUDE "engine/battle/update_battle_huds.asm"
-
-
-SECTION "mobile5F", ROMX
-
-INCLUDE "mobile/mobile_5f.asm"
 
 
 SECTION "Phone Text 2", ROMX

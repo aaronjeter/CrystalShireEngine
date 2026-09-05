@@ -87,7 +87,7 @@ endc
 	jmp nc, .PrintTextAndExit
 	call .CheckAlreadyGotAGiftFromThatPerson
 	ld hl, .MysteryGiftOneADayText ; Only one gift a day per person
-	jmp c, .PrintTextAndExit
+	jr c, .PrintTextAndExit
 .skip_checks
 	ld a, [wMysteryGiftPlayerBackupItem]
 	and a
