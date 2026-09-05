@@ -215,8 +215,6 @@ endc
 
 	farcall DeletePartyMonMail
 
-	farcall ClearGSBallFlag
-
 	jmp ResetGameTime
 
 .InitList:

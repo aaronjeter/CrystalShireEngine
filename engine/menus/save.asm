@@ -180,7 +180,6 @@ WriteBackupSave:
 ; on game load if we have a valid main save but not a backup save.
 	; Save storage, mail, mobile event and mystery gift to backup
 	farcall BackupPartyMonMail
-	farcall BackupGSBallFlag
 	farcall BackupMysteryGift
 	call SaveStorageSystem
 
@@ -533,7 +532,6 @@ TryLoadSaveFile:
 	call WasMidSaveAborted
 	call z, WriteBackupSave
 	farcall RestorePartyMonMail
-	farcall RestoreGSBallFlag
 	farcall RestoreMysteryGift
 	call LoadStorageSystem
 
@@ -549,7 +547,6 @@ TryLoadSaveFile:
 	call LoadBackupPokemonData
 	call LoadBackupIndexTables
 	farcall RestorePartyMonMail
-	farcall RestoreGSBallFlag
 	farcall RestoreMysteryGift
 	call LoadStorageSystem
 	call SaveGameData
