@@ -233,7 +233,7 @@ if DEF(_DEBUG)
 	setevent EVENT_DECIDED_TO_HELP_LANCE
 	setevent EVENT_STARTED_RADIO_ROCKETS
 
-	;setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	;setevent EVENT_GOT_A_POKEMON
 
 	;clearevent EVENT_OLIVINE_GYM_JASMINE
 	;setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_GYM
@@ -339,7 +339,7 @@ if DEF(_DEBUG)
 	end
 else
 
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue .NormalRadio
 	checkevent EVENT_LISTENED_TO_INITIAL_RADIO
 	iftrue .AbbreviatedRadio

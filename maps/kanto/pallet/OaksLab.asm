@@ -91,20 +91,6 @@ OakWelcomeKantoText:
 	line "Pretty tough, huh?"
 	done
 
-OakGiveKantoiteText:
-	text "oh, <PLAY_G>."
-
-	para "Prof. Elm said"
-	line "you might have a"
-	cont "use for this."
-	done
-
-OakExplainsKantoiteText:
-	text "Certain #mon"
-	line "from Kanto could"
-	cont "use this."
-	done
-
 OakLabDexCheckText:
 	text "How is your #-"
 	line "dex coming?"
@@ -249,22 +235,13 @@ OaksLabPCText:
 	para "I'm still plugging"
 	line "away."
 
-	para "I heard rumors"
-	line "that <PLAY_G> is"
-
-	para "getting quite a"
-	line "reputation."
-
-	para "I'm delighted to"
-	line "hear that."
-
 	para "Elm in New Bark"
 	line "TOWN 8-)"
 	done
 
 
 OakLeftPokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue LookAtOakPokeBallScript
 
 	turnobject OAKSLAB_OAK, DOWN
@@ -289,7 +266,7 @@ OakLeftPokeBallScript:
 	iftrue OakHonobeaPokeBallScript
 
 OakMiddlePokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue LookAtOakPokeBallScript
 
 	turnobject OAKSLAB_OAK, DOWN
@@ -314,7 +291,7 @@ OakMiddlePokeBallScript:
 	iftrue OakKurusuPokeBallScript
 
 OakRightPokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue LookAtOakPokeBallScript
 
 	turnobject OAKSLAB_OAK, DOWN
@@ -762,7 +739,7 @@ OakDirectionsScript:
 	waitbutton
 	verbosegiveitem POKE_BALL, 5
 	closetext
-	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setevent EVENT_GOT_A_POKEMON
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setflag ENGINE_POKEDEX
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP

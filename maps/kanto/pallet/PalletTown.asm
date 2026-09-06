@@ -28,7 +28,7 @@ PalletTownConditionalWarpScript:
 	end
 
 PalletTown_TeacherStopsYouScene1:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue .done
 	playmusic MUSIC_MOM
 	turnobject PALLETTOWN_TEACHER, UP

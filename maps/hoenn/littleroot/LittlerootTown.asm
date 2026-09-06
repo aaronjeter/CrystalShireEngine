@@ -30,7 +30,7 @@ LittlerootTownConditionalWarpScript:
 	end
 
 LittlerootTown_TeacherStopsYouScene1:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue .done
 	playmusic MUSIC_MOM
 	turnobject LITTLEROOTTOWN_TEACHER, UP
@@ -65,7 +65,7 @@ LittlerootTownTeacherScript:
 	iftrue .CallMom
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .TellMomYoureLeaving
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue .MonIsAdorable
 	writetext Littleroot_GearIsImpressive
 	waitbutton

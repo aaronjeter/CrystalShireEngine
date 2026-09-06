@@ -10,7 +10,7 @@ BirchsLab_MapScripts:
 	def_callbacks	
 
 BirchsLab_WelcomeScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue .done
 	showemote EMOTE_SHOCK, BIRCHSLAB_BIRCH, 15
 	applymovement PLAYER, BirchsLab_StepUpMovement
@@ -47,7 +47,7 @@ ProfBirchScript:
 	checkevent EVENT_START_HOENN
 	iffalse .BirchNotHoenn
 
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iffalse .BirchPickStarter
 
 	checkevent EVENT_FOUND_ROUTE103_WALLY
@@ -90,7 +90,7 @@ BirchNormalText:
 
 
 BirchLeftPokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue LookAtBirchPokeBallScript
 
 	turnobject BIRCHSLAB_BIRCH, DOWN
@@ -115,7 +115,7 @@ BirchLeftPokeBallScript:
 	iftrue BirchHonobeaPokeBallScript
 
 BirchMiddlePokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue LookAtBirchPokeBallScript
 
 	turnobject BIRCHSLAB_BIRCH, DOWN
@@ -140,7 +140,7 @@ BirchMiddlePokeBallScript:
 	iftrue BirchKurusuPokeBallScript
 
 BirchRightPokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON
 	iftrue LookAtBirchPokeBallScript
 
 	turnobject BIRCHSLAB_BIRCH, DOWN
@@ -589,7 +589,7 @@ BirchDirectionsScript:
 	waitbutton
 	verbosegiveitem POKE_BALL, 5
 	closetext
-	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setevent EVENT_GOT_A_POKEMON
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
 	setmapscene NEW_BARK_TOWN, SCENE_NEWBARKTOWN_NOOP
