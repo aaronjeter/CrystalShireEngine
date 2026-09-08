@@ -6306,7 +6306,7 @@ PokefanMGroupHard:
 	dw BERRY
 	db -1 ; end
 
-	next_list_item ; POKEFANM (6) Unreferenced
+	next_list_item ; POKEFANM (6) Route 14
 	db "Trevor@", TRAINERTYPE_ITEM
 	db 5
 	dw PSYDUCK
@@ -6320,7 +6320,7 @@ PokefanMGroupHard:
 	dw BERRY
 	db -1 ; end
 
-	next_list_item ; POKEFANM (8) Unreferenced
+	next_list_item ; POKEFANM (8) S.S. Aqua
 	db "Jeremy@", TRAINERTYPE_ITEM
 	db 8
 	dw MEOWTH
@@ -7033,7 +7033,7 @@ KrisGroupHard:
 
 
 RoxanneGroupHard:
-	next_list_item; ROXXANE (1) Unreferenced
+	next_list_item; ROXXANE (1) Rustboro City Gym
 	db "Roxxane@", TRAINERTYPE_NORMAL
 	db 7
 	dw AGEODUDE
@@ -7043,7 +7043,7 @@ RoxanneGroupHard:
 	dw NOSEPASS
 	db -1 ; end
 
-	next_list_item; ROXXANE (2) Unreferenced
+	next_list_item; ROXXANE (2) Rustboro City Gym
 	db "Roxxane@", TRAINERTYPE_NORMAL
 	db 10
 	dw NOSEPASS
@@ -7057,7 +7057,7 @@ RoxanneGroupHard:
 	dw AERODACTYL
 	db -1 ; end
 
-	next_list_item ; ROXXANE (3)
+	next_list_item ; ROXXANE (3) Rustboro City Gym
 	db "Roxxane@", TRAINERTYPE_ITEM_MOVES
 	db 12
 	dw TENTACRUEL2
