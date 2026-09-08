@@ -160,23 +160,22 @@ ReadTrainerPartyPieces:
 	cp $ff
 	ret z
 
-	;If we're in a Cup Battle, opponent levels are scaled differently
-	ld a, [wBattleType]
-	cp BATTLETYPE_CUP
-	jr nz, .doLevelScaling
-	
-	ld a, [wLevelCap]
-	jr .skipLevelScaling
-
-
-.doLevelScaling
 	; apply level scaling
 	ld b, a
 	ld a, [wBaseLevel]
 	add a, b
 
-.skipLevelScaling
 	ld [wCurPartyLevel], a
+
+	;If we're in a Cup Battle, just replace with the current level cap
+	ld a, [wBattleType]
+	cp BATTLETYPE_CUP
+	jr nz, .skipCupScaling
+
+	ld a, [wLevelCap]
+	ld [wCurPartyLevel], a
+
+.skipCupScaling
 	call GetNextTrainerDataByte
 	push hl
 	push af
