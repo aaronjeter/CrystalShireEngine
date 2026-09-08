@@ -5363,7 +5363,7 @@ BlackbeltGroupHard:
 	dw PRIMEAPE
 	db -1 ; end
 
-	next_list_item ; BLACKBELT_T (9) Unreferenced
+	next_list_item ; BLACKBELT_T (9) Fast Ship
 	db "Wai@", TRAINERTYPE_NORMAL
 	db 2
 	dw MACHOKE
@@ -5563,7 +5563,7 @@ PsychicGroupHard:
 	db "Jared@", TRAINERTYPE_RANDOM, 3, PSYCHIC_EASY
 	db -1 ; end
 
-	next_list_item ; PSYCHIC_T (12) Unreferenced
+	next_list_item ; PSYCHIC_T (12) Fast Ship
 	db "Rodney@", TRAINERTYPE_NORMAL
 	db 5
 	dw DROWZEE
@@ -6006,23 +6006,31 @@ CamperGroupHard:
 
 ExecutiveFGroupHard:
 	next_list_item ; EXECUTIVEF (1) Goldenrod City - Radio Tower
-	db "Executive@", TRAINERTYPE_MOVES
-	dbw 8, ARBOK
-		dw WRAP, POISON_STING, BITE, GLARE
+	db "Ariana@", TRAINERTYPE_MOVES
+	dbw 9, ARBOK
+		dw CRUNCH, ICE_FANG, FIRE_FANG, GLARE
+	dbw 8, HYPNO
+		dw POISON_FANG, PSYCHIC_M, HEX, HYPNOSIS
+	dbw 8, AMUK
+		dw SLUDGE_BOMB, PURSUIT, STUN_SPORE, RECOVER
 	dbw 9, VILEPLUME
-		dw ABSORB, SWEET_SCENT, SLEEP_POWDER, ACID
+		dw GIGA_DRAIN, TOXIC, VENOSHOCK, MOONLIGHT
 	dbw 10, HONCHKROW
 		dw DRILL_PECK, PURSUIT, HAZE, NIGHT_SHADE
 	db -1 ; end
 
-	next_list_item ; EXECUTIVEF (2) Unreferenced
-	db "Executive@", TRAINERTYPE_MOVES
-	dbw 9, ARBOK
-		dw WRAP, LEER, POISON_STING, BITE
-	dbw 9, GLOOM
-		dw ABSORB, SWEET_SCENT, SLEEP_POWDER, ACID
+	next_list_item ; EXECUTIVEF (2) Team Rocket Mahogany
+	db "Ariana@", TRAINERTYPE_MOVES
+	dbw 8, ARBOK
+		dw POISON_FANG, ICE_FANG, FIRE_FANG, FAINT_ATTACK
+	dbw 7, DROWZEE
+		dw POISON_FANG, PSYBEAM, SHADOW_PUNCH, FAINT_ATTACK
+	dbw 7, GRIMER
+		dw POISON_FANG, MUD_SLAP, FIRE_FANG, MAGNITUDE
+	dbw 8, GLOOM
+		dw MEGA_DRAIN, POISONPOWDER, SLEEP_POWDER, SLUDGE
 	dbw 10, MURKROW
-		dw PECK, PURSUIT, HAZE, NO_MOVE
+		dw WING_ATTACK, PURSUIT, HAZE, MUD_SLAP
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEF (3) Safari Zone Executive
@@ -6077,7 +6085,7 @@ SageGroupHard:
 	dw BELLSPROUT
 	db -1 ; end
 
-	next_list_item ; SAGE (3) Unreferenced
+	next_list_item ; SAGE (3) Sprout Tower - 3F
 	db "Jin@", TRAINERTYPE_NORMAL
 	db 6
 	dw BELLSPROUT
@@ -6091,7 +6099,7 @@ SageGroupHard:
 	dw HOOTHOOT
 	db -1 ; end
 
-	next_list_item ; SAGE (5) Unreferenced
+	next_list_item ; SAGE (5) Ecruteak City Gym
 	db "Jeffrey@", TRAINERTYPE_NORMAL
 	db 7
 	dw HAUNTER
@@ -6569,7 +6577,7 @@ PokefanFGroupHard:
 	dw BERRY
 	db -1 ; end
 	
-	next_list_item ; POKEFANF (5) Unreferenced
+	next_list_item ; POKEFANF (3) Fast Ship
 	db "Georgia@", TRAINERTYPE_ITEM
 	db 3
 	dw SENTRET
@@ -8457,6 +8465,11 @@ ExplorerGroupHard:
 	next_list_item ; GREEN (1)
 	db "Green@", TRAINERTYPE_NORMAL
 	dbw 0, CLEFAIRY
+	db -1 ; end
+
+	db "Green@", TRAINERTYPE_NORMAL
+	dbw 3, CLEFAIRY
+	dbw 5, SQUIRTLE
 	db -1 ; end
 
 	next_list_item ; WC_GREEN (?) World Cup Green
