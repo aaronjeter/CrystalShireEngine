@@ -579,17 +579,27 @@ GetMonPalettePointer:
 	add hl, bc
 	ret
 
-GetMonNormalOrShinyPalettePointer:
+GetMonNormalOrShinyPalettePointer:	
+	;dvs are at bc	
+
 	push bc
 	call GetMonPalettePointer
 	pop bc
 	push hl
 	call CheckShininess
 	pop hl
-	ret nc
+	jr nc, .HiddenPowerCheck
 rept 4
 	inc hl
 endr
+.HiddenPowerCheck
+	push hl
+	call CheckHiddenPowerColor
+	pop hl
+	ret nc
+	
+	ld a, [wHiddenPowerPaletteMon]	
+	call LoadSpecificPokemonPalette
 	ret
 
 PushSGBPals:
@@ -1155,3 +1165,195 @@ LoadPokemonPalette:
 	ld bc, PAL_COLOR_SIZE * 2
 	ld a, BANK(wBGPals1)
 	jp FarCopyWRAM
+
+;helper function for setting Hidden Power colors
+LoadSpecificPokemonPalette:
+	; a = species
+	; hl = palette
+	call GetMonPalettePointer
+	ret
+
+
+CheckHiddenPowerColor:
+;we use hidden power colors only if the second dv byte is $fe
+;and the first dv matches the highest value for that type
+;assume dvs are at bc (not *in* bc)
+;load HP palette if we find a match, otherwise do nothing
+;ends with palette in hl register	
+	
+	;ld dv into hl
+	ld h, b
+	ld l, c
+
+	ld a, [hli] ; skip to the second iv byte
+	ld a, [hl]
+	cp HP_SPDSPC_DV
+	jp nz, .not_using
+
+	;load the first dv into hl
+	ld h, b 
+	ld l, c
+
+;check types one at a time
+
+	ld a, [hl]
+	cp HP_MAX_DARK
+	jr nz, .notDark
+
+	ld hl, HARCANINE
+	jp .usingAltColor
+
+.notDark
+
+	ld a, [hl]
+	cp HP_MAX_DRAGON
+	jr nz, .notDragon
+
+	ld hl, SALAMENCE
+	jp .usingAltColor
+
+.notDragon
+
+	ld a, [hl]
+	cp HP_MAX_ICE
+	jr nz, .notIce
+
+	ld hl, AVULPIX
+	jp .usingAltColor
+
+.notIce
+
+ld a, [hl]
+	cp HP_MAX_PSYCHIC
+	jr nz, .notPsychic
+
+	ld hl, ESPEON
+	jp .usingAltColor
+
+.notPsychic
+
+ld a, [hl]
+	cp HP_MAX_ELECTRIC
+	jr nz, .notElectric
+
+	ld hl, ELECTIVIRE
+	jp .usingAltColor
+
+.notElectric
+
+ld a, [hl]
+	cp HP_MAX_GRASS
+	jr nz, .notGrass
+
+	ld hl, CACTURNE
+	jp .usingAltColor
+
+.notGrass
+
+ld a, [hl]
+	cp HP_MAX_WATER
+	jr nz, .notWater
+
+	ld hl, MEGANIUM2
+	
+	jp .usingAltColor
+
+.notWater
+
+ld a, [hl]
+	cp HP_MAX_FIRE
+	jr nz, .notFire
+
+	ld hl, INCINEROAR
+	jp .usingAltColor
+
+.notFire
+
+ld a, [hl]
+	cp HP_MAX_STEEL
+	jr nz, .notSteel
+
+	ld hl, STEELIX
+	jr .usingAltColor
+
+.notSteel
+
+ld a, [hl]
+	cp HP_MAX_GHOST
+	jr nz, .notGhost
+
+	ld hl, UNOWNX
+	jr .usingAltColor
+
+.notGhost
+
+ld a, [hl]
+	cp HP_MAX_BUG
+	jr nz, .notBug
+
+	ld hl, CATERPIE
+	jr .usingAltColor
+
+.notBug
+
+ld a, [hl]
+	cp HP_MAX_ROCK
+	jr nz, .notRock
+
+	ld hl, GEODUDE
+	jr .usingAltColor
+
+.notRock
+
+ld a, [hl]
+	cp HP_MAX_GROUND
+	jr nz, .notGround
+
+	ld hl, TROPIUS
+	jr .usingAltColor
+
+.notGround
+
+ld a, [hl]
+	cp HP_MAX_POISON
+	jr nz, .notPoison
+
+	ld hl, NINETALES2
+	jr .usingAltColor
+
+.notPoison
+
+ld a, [hl]
+	cp HP_MAX_FLYING
+	jr nz, .notFlying
+
+	ld hl, JUPITER
+	jr .usingAltColor
+
+.notFlying
+
+ld a, [hl]
+	cp HP_MAX_FIGHTING
+	jr nz, .notFighting
+
+	ld hl, HITMONLEE
+	jr .usingAltColor
+
+.notFighting
+
+.not_using
+	scf
+	ccf
+	ret
+
+; using HP colors
+.usingAltColor
+	call GetPokemonIDFromIndex
+	ld [wHiddenPowerPaletteMon], a
+	scf
+	ret
+
+
+
+
+
