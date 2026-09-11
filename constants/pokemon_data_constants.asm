@@ -290,10 +290,10 @@ DEF PP_MASK    EQU %00111111
 DEF MAX_EV EQU 252
 DEF MAX_TOTAL_EV EQU 510
 
-; Hidden Power ATKDEF DVs (SPDSPC is always $fe for hidden power palettes)
-
+DEF SHINY_SPDSPC_DV EQU $ff
 DEF HP_SPDSPC_DV EQU $fe ;Speed/special DV byte to use HP color palattes
 
+; Hidden Power ATKDEF DVs 
 DEF HP_MAX_DARK EQU $ff
 DEF HP_MAX_DRAGON EQU $fe
 DEF HP_MAX_ICE EQU $fd

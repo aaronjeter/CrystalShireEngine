@@ -15,8 +15,7 @@ CheckShininess:
 ; Special
 	ld a, [hli] ; skip to the second iv byte
 	ld a, [hl]
-	and %1111
-	cp SHINY_SPC_DV
+	cp SHINY_SPDSPC_DV
 	jr nz, .not_shiny
 
 ; shiny
