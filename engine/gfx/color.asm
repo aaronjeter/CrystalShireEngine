@@ -1185,6 +1185,12 @@ CheckHiddenPowerColor:
 	ld l, c
 
 	ld a, [hli] ; skip to the second iv byte
+
+	ld a, [hl]
+	cp SHINY_SPDSPC_DV
+	jp z, .checkLegendaryPalettes
+
+
 	ld a, [hl]
 	cp HP_SPDSPC_DV
 	jp nz, .not_using
@@ -1353,6 +1359,100 @@ ld a, [hl]
 	ret
 
 
+.checkLegendaryPalettes
 
+	;load the first dv into hl
+	ld h, b 
+	ld l, c
+	
+	ld a, [hl]
+	cp HP_MAX_DRAGON
+	jr nz, .notRayquaza
 
+	ld hl, RAYQUAZA
+	jp .usingLegendaryColor
 
+.notRayquaza
+
+	ld a, [hl]
+	cp HP_MAX_WATER
+	jr nz, .notKyogre
+
+	ld hl, KYOGRE
+	jp .usingLegendaryColor
+
+.notKyogre
+
+	ld a, [hl]
+	cp HP_MAX_GROUND
+	jr nz, .notGroudon
+
+	ld hl, GROUDON
+	jp .usingLegendaryColor
+
+.notGroudon
+
+	ld a, [hl]
+	cp HP_MAX_STEEL
+	jr nz, .notJirachi
+
+	ld hl, JIRACHI
+	jp .usingLegendaryColor
+
+.notJirachi
+
+	ld a, [hl]
+	cp HP_MAX_FIRE
+	jr nz, .notHooh
+
+	ld hl, HO_OH
+	jp .usingLegendaryColor
+
+.notHooh
+
+	ld a, [hl]
+	cp HP_MAX_FLYING
+	jr nz, .notLugia
+
+	ld hl, LUGIA
+	jp .usingLegendaryColor
+
+.notLugia
+
+	ld a, [hl]
+	cp HP_MAX_GRASS
+	jr nz, .notCelebi
+
+	ld hl, CELEBI
+	jp .usingLegendaryColor
+
+.notCelebi
+
+	ld a, [hl]
+	cp HP_MAX_PSYCHIC
+	jr nz, .notMewtwo
+
+	ld hl, MEWTWO
+	jp .usingLegendaryColor
+
+.notMewtwo
+
+	ld a, [hl]
+	cp HP_MAX_GHOST
+	jr nz, .notMew
+
+	ld hl, MEW
+	jp .usingLegendaryColor
+
+.notMew
+
+.notLegendary
+	scf
+	ccf
+	ret
+
+.usingLegendaryColor
+	call GetPokemonIDFromIndex
+	ld [wHiddenPowerPaletteMon], a
+	scf
+	ret
