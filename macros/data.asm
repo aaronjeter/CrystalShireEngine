@@ -70,6 +70,17 @@ MACRO dbwb
 	db \3
 ENDM
 
+MACRO dbwbbbw
+	db \1
+	dw \2
+	db \3
+	db \4
+	db \5
+	dw \6
+ENDM
+
+
+
 MACRO dn ; nybbles
 	rept _NARG / 2
 		db ((\1) << 4) | (\2)
