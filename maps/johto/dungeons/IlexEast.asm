@@ -23,6 +23,74 @@ IlexEastWaterShrineScript:
 .GotEgg
 	writetext IlexEastWaterShrineEmptyText
 	waitbutton
+
+	loadmenu .ShrineMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .SilverLeaf
+	ifequal 2, .GoldLeaf
+	ifequal 3, .MarvelScale
+
+	sjump .No
+
+.SilverLeaf
+	checkitem SILVER_LEAF
+	iffalse .No
+
+	writetext IlexShrineFirstMonText
+	waitbutton
+	yesorno
+	iffalse .No
+
+	takeitem SILVER_LEAF
+	loadmem wPartyMon1DVs+0, HP_MAX_GRASS
+	loadmem wPartyMon1DVs+1, $aa
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	writetext IlexShrineAlignedWithGrassText
+	waitbutton
+	sjump .Done
+
+.GoldLeaf
+	checkitem GOLD_LEAF
+	iffalse .No
+
+	writetext IlexShrineFirstMonText
+	waitbutton
+	yesorno
+	iffalse .No
+
+	takeitem GOLD_LEAF
+	loadmem wPartyMon1DVs+0, HP_MAX_GRASS
+	loadmem wPartyMon1DVs+1, $fe
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	writetext IlexShrineForestBlessingText
+	waitbutton
+	sjump .Done
+
+.MarvelScale
+	checkitem MARVEL_SCALE
+	iffalse .No
+
+	writetext IlexShrineFirstMonText
+	waitbutton
+	yesorno
+	iffalse .No
+
+	takeitem MARVEL_SCALE
+	loadmem wPartyMon1DVs+0, HP_MAX_GRASS
+	loadmem wPartyMon1DVs+1, $ff
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	writetext IlexShrineCelebiBlessingText
+	waitbutton
+	sjump .Done	
+
+.No
+	writetext IlexShrineNoOfferingText
+	waitbutton
+.Done
 	closetext
 	end
 
@@ -69,6 +137,49 @@ IlexEastWaterShrineScript:
 	closetext
 	end
 
+.ShrineMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 3 ; items	
+	db "Silver Leaf@"
+	db "Gold Leaf@"	
+	db "Marvel Scale@"
+
+IlexShrineFirstMonText:
+	text "Offer this item"
+	line "for your first"
+	cont "#mon?"
+	done
+
+IlexShrineNoOfferingText:
+	text "You choose not"
+	line "to make an"
+	cont "offering."
+	done
+
+IlexShrineAlignedWithGrassText:
+	text "Your first #mon"
+	line "has aligned"
+	cont "with Grass!"
+	done
+
+IlexShrineForestBlessingText:
+	text "Your first #mon"
+	line "has recieved the"
+	cont "Forest's Blessing!"
+	done
+
+IlexShrineCelebiBlessingText:
+	text "Your first #mon"
+	line "has recieved"
+	cont "Celebi's Blessing!"
+	done
+
 IlexEastPartyFullText:
 	text "Your party is"
 	line "full. You leave"
@@ -78,6 +189,10 @@ IlexEastPartyFullText:
 IlexEastWaterShrineEmptyText:
 	text "The shrine is"
 	line "empty..."
+
+	para "You sense that it"
+	line "awaits an"
+	cont "offering..."
 	done
 
 IlexEastMrMimeNotDefeatedText:

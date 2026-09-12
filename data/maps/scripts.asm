@@ -93,13 +93,16 @@ INCLUDE "maps/johto/mahogany/MahoganyMart1F.asm"
 INCLUDE "maps/johto/mahogany/TeamRocketBaseB1F.asm"
 INCLUDE "maps/johto/mahogany/TeamRocketBaseB2F.asm"
 INCLUDE "maps/johto/mahogany/TeamRocketBaseB3F.asm"
-INCLUDE "maps/johto/dungeons/IlexForest.asm"
-INCLUDE "maps/johto/dungeons/IlexWest.asm"
-INCLUDE "maps/johto/dungeons/IlexEast.asm"
 INCLUDE "maps/johto/dungeons/ArticunoLair.asm"
 INCLUDE "maps/johto/dungeons/MoltresLair.asm"
 INCLUDE "maps/hoenn/ViridianForest.asm"
 
+
+SECTION "Map Scripts Ilex Forest", ROMX
+
+INCLUDE "maps/johto/dungeons/IlexForest.asm"
+INCLUDE "maps/johto/dungeons/IlexWest.asm"
+INCLUDE "maps/johto/dungeons/IlexEast.asm"
 
 
 SECTION "Map Scripts 7", ROMX
