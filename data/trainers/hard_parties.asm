@@ -6420,53 +6420,63 @@ PokefanMGroupHard:
 
 KimonoGirlGroupHard:
 	next_list_item ; KIMONO_GIRL (1) Ecruteak City
-	db "Naoko@", TRAINERTYPE_NORMAL
-	db 5
-	dw QUILAVA
-	db 6
-	dw QUILAVA2
-	db 8
-	dw FLAREON
+	db "Naoko@", TRAINERTYPE_DVS | TRAINERTYPE_MOVES
+	dbwbb 4, QUILAVA, $aa, $aa
+		dw FIRE_SPIN, MUD_SLAP, MUD_SHOT, FAINT_ATTACK
+	dbwbb 5, QUILAVA2, $aa, $aa
+		dw FIRE_SPIN, MUD_SLAP, MUD_SHOT, FAINT_ATTACK
+	dbwbb 7, EEVEE, HP_MAX_FIRE, $fe
+		dw HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
+	dbwbb 8, FLAREON, HP_MAX_FIRE, $fc
+		dw FIRE_FANG, WILLOWISP, STOMP, POISON_FANG
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (2) Ecruteak City
-	db "Sayo@", TRAINERTYPE_NORMAL
-	db 5
-	dw NATU
-	db 6
-	dw SPOINK
-	db 8
-	dw ESPEON
+	db "Sayo@", TRAINERTYPE_DVS | TRAINERTYPE_MOVES
+	dbwbb 4, NATU, $aa, $aa
+		dw WING_ATTACK, PSYBEAM, CONFUSE_RAY, HEX
+	dbwbb 5, SPOINK, $aa, $aa
+		dw PSYWAVE, RAPID_SPIN, CONFUSE_RAY, SLAM
+	dbwbb 7, EEVEE, HP_MAX_PSYCHIC, $fe
+		dw HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
+	dbwbb 8, ESPEON, HP_MAX_PSYCHIC, $fc
+		dw PSYBEAM, FAE_VOICE, CONFUSE_RAY, RECOVER
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (3) Ecruteak City
-	db "Zuki@", TRAINERTYPE_NORMAL
-	db 5
-	dw UNOWN
-	db 6
-	dw NUZLEAF
-	db 8
-	dw UMBREON
+	db "Zuki@", TRAINERTYPE_DVS | TRAINERTYPE_MOVES
+	dbwbb 4, UNOWN, HP_MAX_FLYING, $aa
+		dw FAINT_ATTACK, HIDDEN_POWER, WILLOWISP, HEX
+	dbwbb 5, NUZLEAF, $aa, $aa
+		dw FAINT_ATTACK, LEECH_SEED, RAZOR_LEAF, RECOVER
+	dbwbb 7, EEVEE, HP_MAX_DARK, $fe
+		dw HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
+	dbwbb 8, UMBREON, HP_MAX_DARK, $fc
+		dw SNARL, CONFUSE_RAY, STOMP, NIGHT_SHADE
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (4) Ecruteak City
-	db "Kuni@", TRAINERTYPE_NORMAL
-	db 5
-	dw WINGULL
-	db 6
-	dw CHINCHOU
-	db 8
-	dw VAPOREON
+	db "Kuni@", TRAINERTYPE_DVS | TRAINERTYPE_MOVES
+	dbwbb 4, WINGULL, $aa, $aa
+		dw WATER_PULSE, AERIAL_ACE, PROTECT, SUPERSONIC
+	dbwbb 5, CHINCHOU, $aa, $aa
+		dw WATER_PULSE, SHOCK_WAVE, THUNDER_WAVE, SUPERSONIC
+	dbwbb 7, EEVEE, HP_MAX_WATER, $fe
+		dw HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
+	dbwbb 8, VAPOREON, HP_MAX_WATER, $fc
+		dw BUBBLEBEAM, AURORA_BEAM, STOMP, ACID_ARMOR
 	db -1 ; end
 
 	next_list_item ; KIMONO_GIRL (5) Ecruteak City
-	db "Miki@", TRAINERTYPE_NORMAL
-	db 5
-	dw PLUSLE
-	db 6
-	dw MINUN
-	db 8
-	dw JOLTEON
+	db "Miki@", TRAINERTYPE_DVS | TRAINERTYPE_MOVES
+	dbwbb 4, PLUSLE, HP_MAX_WATER, $aa
+		dw HIDDEN_POWER, THUNDER_WAVE, SHOCK_WAVE, CHARM
+	dbwbb 5, MINUN, HP_MAX_FIRE, $aa
+		dw HIDDEN_POWER, THUNDER_WAVE, SHOCK_WAVE, GROWL
+	dbwbb 7, EEVEE, HP_MAX_ELECTRIC, $fe
+		dw HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
+	dbwbb 8, JOLTEON, HP_MAX_ELECTRIC, $fc
+		dw SPARK, TWINEEDLE, STOMP, SPIKES
 	db -1 ; end
 
 	end_list_items
@@ -8464,7 +8474,7 @@ ExplorerGroupHard:
 
 	next_list_item ; GREEN (1)
 	db "Green@", TRAINERTYPE_NORMAL
-	dbw 0, CLEFAIRY
+	dbw 0, SQUIRTLE
 	db -1 ; end
 
 	db "Green@", TRAINERTYPE_NORMAL
