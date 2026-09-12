@@ -8,6 +8,7 @@
 	const DANCETHEATER_RHYDON
 	const DANCETHEATER_COOLTRAINER_M
 	const DANCETHEATER_GRANNY
+	const DANCETHEATER_KIMONO_GIRL_LILY
 
 DanceTheater_MapScripts:
 	def_scene_scripts
@@ -125,6 +126,178 @@ DanceTheaterRhydon:
 	waitbutton
 	closetext
 	end
+
+
+KimonoGirlLilyScript:
+	faceplayer
+	opentext
+
+	checkevent EVENT_HEARD_KIMONO_LILY_HIDDEN_POWER_INTRO
+	iftrue LilyOfferDvService
+
+	checkevent EVENT_GOT_HM03_SURF
+	iftrue LilyTellAboutDvService
+
+	writetext KimonoGirlLilyNoSurfText
+	promptbutton
+	closetext
+	end
+
+
+LilyTellAboutDvService:
+	writetext KimonoGirlLilyDvChangeIntroText
+	waitbutton
+	setevent EVENT_HEARD_KIMONO_LILY_HIDDEN_POWER_INTRO
+
+LilyOfferDvService:
+	writetext LilyBroughtAStoneText
+	waitbutton
+
+	loadmenu .LilyMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .FireStone
+	ifequal 2, .WaterStone
+	ifequal 3, .ThunderStone
+
+	sjump .No
+
+.FireStone
+	checkitem FIRE_STONE
+	iffalse .No
+
+	writetext LilyFirstMonText
+	waitbutton
+	yesorno
+	iffalse .No
+
+	takeitem FIRE_STONE
+	loadmem wPartyMon1DVs+0, HP_MAX_FIRE
+	loadmem wPartyMon1DVs+1, $fe
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	writetext KimonoGirlLilyDoneText
+	waitbutton
+	sjump .Done
+
+.WaterStone
+	checkitem WATER_STONE
+	iffalse .No
+
+	writetext LilyFirstMonText
+	waitbutton
+	yesorno
+	iffalse .No
+
+	takeitem WATER_STONE
+	loadmem wPartyMon1DVs+0, HP_MAX_WATER
+	loadmem wPartyMon1DVs+1, $fe
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	writetext KimonoGirlLilyDoneText
+	waitbutton
+	sjump .Done
+
+.ThunderStone
+	checkitem THUNDERSTONE
+	iffalse .No
+
+	writetext LilyFirstMonText
+	waitbutton
+	yesorno
+	iffalse .No
+
+	takeitem THUNDERSTONE
+	loadmem wPartyMon1DVs+0, HP_MAX_ELECTRIC
+	loadmem wPartyMon1DVs+1, $fe
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	writetext KimonoGirlLilyDoneText
+	waitbutton
+	sjump .Done	
+
+.No
+	writetext KimonoGirlLilyNoText
+.Done
+	closetext
+	end
+
+
+.LilyMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 3 ; items	
+	db "Fire Stone@"
+	db "Water Stone@"	
+	db "Thunder Stone@"
+
+LilyBroughtAStoneText:
+	text "So, <PLAY_G>..."
+	line "Have you brought"
+	cont "me a stone?"
+	done
+
+LilyFirstMonText:
+	text "Shall I use this"
+	line "stone for your"
+	cont "first #mon's"
+	cont "Hidden Power?"
+	done
+
+KimonoGirlLilyDvChangeIntroText:
+	text "Well done young"
+	line "trainer! That"
+	cont "was a wonderful"
+	cont "showing."
+
+	para "Did you see their"
+	line "odd colored Eevee?"
+
+	para "I taught them a"
+	line "way to align their"
+	cont "#mon with"
+	cont "elemental power."
+
+	para "I would happily"
+	line "help you do the"
+	cont "same..."
+
+	para "Bring me a stone"
+	line "of elemental power"
+	cont "and I can align"
+	cont "the first #mon"
+	cont "in your party!"
+	done
+
+KimonoGirlLilyNoSurfText:
+	text "Oh, hello trainer."
+	line "You seem to have"
+	cont "great potential."
+
+	para "Prove yourself"
+	line "against the other"
+	cont "dancers, and I"
+
+	para "may have something"
+	line "to help you."
+	done
+
+KimonoGirlLilyNoText:
+	text "Oh, ok then..."
+	done
+
+KimonoGirlLilyDoneText:
+	text "And... It is"
+	line "complete! See how"
+	cont "they shine!"
+	done
+
+
 
 DanceTheaterCooltrainerMScript:
 	jumptextfaceplayer DanceTheaterCooltrainerMText
@@ -358,3 +531,4 @@ DanceTheater_MapEvents:
 	object_event  6,  8, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DanceTheaterRhydon, -1
 	object_event 10, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DanceTheaterCooltrainerMScript, -1
 	object_event  3,  6, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DanceTheaterGrannyScript, -1
+	object_event 03, 10, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_AZURE, OBJECTTYPE_SCRIPT, 0, KimonoGirlLilyScript, -1

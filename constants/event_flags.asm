@@ -65,7 +65,7 @@
 	const EVENT_LAKE_OF_RAGE_EXPLAINED_WEIRD_MAGIKARP
 	const EVENT_LAKE_OF_RAGE_ASKED_FOR_MAGIKARP
 	const EVENT_LAKE_OF_RAGE_ELIXIR_ON_STANDBY
-	const_skip ; unused
+	const EVENT_HEARD_KIMONO_LILY_HIDDEN_POWER_INTRO
 	const_skip ; unused
 	const EVENT_HEALED_MOOMOO
 	const EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
@@ -2197,7 +2197,7 @@
 	const_skip ; unused
 	const_skip ; unused	
 
-	const_skip ; unused
+	const EVENT_FOUND_ROUTE22_GREEN
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
