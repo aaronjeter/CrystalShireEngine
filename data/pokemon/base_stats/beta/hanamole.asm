@@ -7,7 +7,7 @@
 	db GRASS, DRAGON ; type
 	db 45 ; catch rate
 	db 180 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw GOLD_LEAF, MARVEL_SCALE ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/hanamole/front.dimensions"

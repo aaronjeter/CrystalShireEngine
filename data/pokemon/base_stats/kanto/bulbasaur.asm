@@ -7,7 +7,7 @@
 	db GRASS, POISON ; type
 	db 45 ; catch rate
 	db 64 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw SILVER_LEAF, GOLD_LEAF ; items
 	db GENDER_F12_5 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/bulbasaur/front.dimensions"

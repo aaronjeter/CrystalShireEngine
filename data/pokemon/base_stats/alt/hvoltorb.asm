@@ -7,7 +7,7 @@
 	db ELECTRIC, GRASS ; type
 	db 190 ; catch rate
 	db 103 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw SILVER_LEAF, MAGNET ; items
 	db GENDER_UNKNOWN ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/hvoltorb/front.dimensions"

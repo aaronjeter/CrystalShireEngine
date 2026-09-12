@@ -7,7 +7,7 @@
 	db NORMAL, NORMAL ; type
 	db 45 ; catch rate
 	db 106 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw SILVER_LEAF, GOLD_LEAF ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/smeargle/front.dimensions"

@@ -7,7 +7,7 @@
 	db WATER, GHOST ; type
 	db 35 ; catch rate
 	db 200 ; base exp
-	dw NO_ITEM, EVERSTONE ; items
+	dw GOLD_LEAF, MARVEL_SCALE ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/haneei/front.dimensions"

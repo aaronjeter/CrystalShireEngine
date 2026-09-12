@@ -7,7 +7,7 @@
 	db GRASS, FLYING ; type
 	db 255 ; catch rate
 	db 74 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw NO_ITEM, SILVER_LEAF ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/hoppip/front.dimensions"

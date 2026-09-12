@@ -7,7 +7,7 @@
 	db FIGHTING, FLYING ; type
 	db 45 ; catch rate
 	db 94 ; base exp
-	dw NO_ITEM, STICK ; items
+	dw SILVER_LEAF, STICK ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/farfetch_d/front.dimensions"

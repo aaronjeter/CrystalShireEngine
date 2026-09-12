@@ -7,7 +7,7 @@
 	db FIRE, ROCK ; type
 	db 190 ; catch rate
 	db 91 ; base exp
-	dw BURNT_BERRY, BURNT_BERRY ; items
+	dw BURNT_BERRY, CHARCOAL ; items
 	db GENDER_F25 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/hgrowlithe/front.dimensions"
