@@ -6037,10 +6037,25 @@ LoadEnemyMon:
 ; See GetTrainerDVs for more on that
 	farcall GetTrainerDVs
 ; These are the DVs we'll use if we're actually in a trainer battle
+; Unless they're overridden by TRAINERTYPE_DVS in the party structure 
 	ld a, [wBattleMode]
 	dec a
+	jr z, .WildDVs
+
+	ld a, [wOtherTrainerType]
+	bit TRAINERTYPE_DVS_F, a
 	jr nz, .UpdateDVs
 
+; Custom DVs
+	ld a, [wCurPartyMon]
+	ld hl, wOTPartyMon1DVs
+	call GetPartyLocation
+	ld b, [hl]
+	inc hl
+	ld c, [hl]
+	jr .UpdateDVs
+
+.WildDVs
 ; Wild DVs
 ; Here's where the fun starts
 
