@@ -98,6 +98,8 @@ if DEF(_DEBUG)
 	giveitem HASTE_BERRY, 10
 	giveitem FOCUS_BERRY, 10
 	giveitem WARD_BERRY, 10
+	giveitem SILVER_LEAF, 10
+	giveitem GOLD_LEAF, 10
 	giveitem MARVEL_SCALE, 10
 
 	; Give all HMs/TMs
