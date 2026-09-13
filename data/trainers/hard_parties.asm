@@ -6574,92 +6574,54 @@ TwinsGroupHard:
 
 PokefanFGroupHard:
 	next_list_item ; POKEFANF (1) National Park
-	db "Beverly@", TRAINERTYPE_ITEM
-	db 4
-	dw SNUBBULL
-	dw BERRY
+	db "Beverly@", TRAINERTYPE_NORMAL
+	dbw 4, SNUBBULL
 	db -1 ; end
 
 	next_list_item ; POKEFANF (2) Route 39
-	db "Ruth@", TRAINERTYPE_ITEM
-	db 7
-	dw PIKACHU
-	dw BERRY
+	db "Ruth@", TRAINERTYPE_NORMAL
+	dbw 7, PIKACHU
 	db -1 ; end
 	
 	next_list_item ; POKEFANF (3) Fast Ship
-	db "Georgia@", TRAINERTYPE_ITEM
-	db 3
-	dw SENTRET
-	dw BERRY
-	db 3
-	dw SENTRET
-	dw BERRY
-	db 3
-	dw SENTRET
-	dw BERRY
-	db 8
-	dw FURRET
-	dw BERRY
-	db 3
-	dw SENTRET
-	dw BERRY
+	db "Georgia@", TRAINERTYPE_NORMAL
+	dbw 3, SENTRET
+	dbw 3, SENTRET
+	dbw 3, SENTRET
+	dbw 8, FURRET
+	dbw 3, SENTRET
 	db -1 ; end
 
 	next_list_item ; POKEFANF (6) Route 39
-	db "Jaime@", TRAINERTYPE_ITEM
-	db 6
-	dw MEOWTH
-	dw BERRY
+	db "Jaime@", TRAINERTYPE_NORMAL
+	dbw 6, MEOWTH
 	db -1 ; end
 
 	next_list_item ; POKEFANF (7) Route 117
-	db "Lydia@", TRAINERTYPE_ITEM
-	db 5
-	dw PELIPPER
-	dw BERRY
-	db 5
-	dw BRELOOM
-	dw BERRY
-	db 5
-	dw AZUMARILL
-	dw BERRY
-	db 7
-	dw SEAKING
-	dw BERRY
-	db 7
-	dw DELCATTY
-	dw BERRY
+	db "Lydia@", TRAINERTYPE_NORMAL
+	dbw 5, PELIPPER
+	dbw 5, BRELOOM
+	dbw 5, AZUMARILL
+	dbw 7, SEAKING
+	dbw 7, DELCATTY
 	db -1 ; end
 
 	next_list_item ; POKEFANF (8) Route 110
-	db "Isabel@", TRAINERTYPE_ITEM
-	db 8
-	dw PLUSLE
-	dw BERRY
-	db 8
-	dw MINUN
-	dw BERRY
+	db "Isabel@", TRAINERTYPE_NORMAL
+	dbw 8, PLUSLE
+	dbw 8, MINUN
 	db -1 ; end
 
 	next_list_item ; POKEFANF (9) Sootopolos Gym
-	db "Annika@", TRAINERTYPE_ITEM
-	db 7
-	dw SEADRA
-	dw BERRY
-	db 8
-	dw LUVDISC
-	dw BERRY
+	db "Annika@", TRAINERTYPE_NORMAL
+	dbw 7, SEADRA
+	dbw 8, LUVDISC
 	db -1 ; end
 
 	next_list_item ; POKEFANF (10) Sootopolos Gym
-	db "Bethany@", TRAINERTYPE_ITEM
-	db 7
-	dw PELIPPER
-	dw BERRY
-	db 8
-	dw AZUMARILL
-	dw BERRY
+	db "Bethany@", TRAINERTYPE_NORMAL
+	dbw 7, PELIPPER
+	dbw 8, AZUMARILL
 	db -1 ; end
 
 	end_list_items
