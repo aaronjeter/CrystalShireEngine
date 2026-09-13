@@ -242,6 +242,31 @@ Djinn_SleetText:
 	line "join your party?"
 	done
 
+ViridianCity_PokedexCheckScript:
+	checkflag ENGINE_POKEDEX
+	iftrue .done
+	opentext
+	writetext ViridianCity_PokedexCheckText
+	waitbutton
+	closetext
+	applymovement PLAYER, ViridianCity_StepDownMovement
+
+.done
+	end
+
+ViridianCity_PokedexCheckText:
+	text "I shouldn't go"
+	line "this way yet."
+
+	para "I'm still doing"
+	line "a job for Prof."
+	cont "Oak."
+	done
+
+ViridianCity_StepDownMovement:
+	step DOWN
+	step_end
+
 ViridianCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -253,6 +278,8 @@ ViridianCity_MapEvents:
 	warp_event 23, 23, VIRIDIAN_POKECENTER_1F, 1
 
 	def_coord_events
+	coord_event  17,  01, -1, ViridianCity_PokedexCheckScript
+	coord_event  18,  01, -1, ViridianCity_PokedexCheckScript
 
 	def_bg_events
 	bg_event 17, 17, BGEVENT_READ, ViridianCitySign
