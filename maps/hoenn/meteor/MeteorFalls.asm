@@ -5,6 +5,8 @@
 	const METEORFALLS_SOLROCK
 	const METEORFALLS_CLEFAIRY
 	const METEORFALLS_AURORA
+	const METEORFALLS_SILVER_LEAF
+	const METEORFALLS_GOLD_LEAF
 
 MeteorFalls_MapScripts:
 	def_scene_scripts
@@ -33,6 +35,12 @@ MeteorFallsMoonStone:
 
 MeteorFallsSunStone:
 	itemball SUN_STONE
+
+MeteorFallsSilverLeaf:
+	itemball SILVER_LEAF
+
+MeteorFallsGoldLeaf:
+	itemball GOLD_LEAF
 
 MeteorFallsLunatone:
 	cry LUNATONE
@@ -116,3 +124,5 @@ MeteorFalls_MapEvents:
 	object_event 29, 33, SPRITE_SOLROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MeteorFallsSolrock, -1
 	object_event 06, 34, SPRITE_CLEFAIRY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MeteorFallsClefairy, -1
 	object_event 06, 05, SPRITE_MARS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Djinn_AuroraScript, EVENT_GOT_AURORA
+	object_event 06, 36, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsSilverLeaf, EVENT_METEOR_FALLS_SILVER_LEAF
+	object_event 21, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsGoldLeaf, EVENT_METEOR_FALLS_GOLD_LEAF

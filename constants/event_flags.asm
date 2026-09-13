@@ -1027,9 +1027,9 @@
 	const EVENT_METEOR_TUNNEL_EAST_STAR_PIECE
 	const EVENT_METEOR_TUNNEL_EAST_TM_THIEF
 	const EVENT_METEOR_TUNNEL_EAST_RARE_CANDY
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_METEOR_FALLS_MARVEL_SCALE
+	const EVENT_METEOR_FALLS_GOLD_LEAF
+	const EVENT_METEOR_FALLS_SILVER_LEAF
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
