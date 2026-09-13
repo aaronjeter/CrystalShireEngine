@@ -6031,20 +6031,9 @@ LoadEnemyMon:
 	jmp .Happiness
 
 .InitDVs:
-; Trainer DVs
-
-; All trainers have preset DVs, determined by class
-; See GetTrainerDVs for more on that
-	farcall GetTrainerDVs
-; These are the DVs we'll use if we're actually in a trainer battle
-; Unless they're overridden by TRAINERTYPE_DVS in the party structure 
 	ld a, [wBattleMode]
 	dec a
 	jr z, .WildDVs
-
-	ld a, [wOtherTrainerType]
-	bit TRAINERTYPE_DVS_F, a
-	jr nz, .UpdateDVs
 
 ; Custom DVs
 	ld a, [wCurPartyMon]
