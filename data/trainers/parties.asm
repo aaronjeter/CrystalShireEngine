@@ -6168,169 +6168,101 @@ BoarderGroup:
 
 PokefanMGroup:
 	next_list_item ; POKEFANM (1) National Park
-	db "William@", TRAINERTYPE_ITEM
-	db 4
-	dw RAICHU
-	dw BERRY
+	db "William@", TRAINERTYPE_NORMAL
+	dbw 4, RAICHU
 	db -1 ; end
 
 	next_list_item ; POKEFANM (2) Route 39
-	db "Derek@", TRAINERTYPE_ITEM
-	db 7
-	dw PIKACHU
-	dw BERRY
+	db "Derek@", TRAINERTYPE_NORMAL
+	dbw 7, PIKACHU
 	db -1 ; end
 
 	next_list_item ; POKEFANM (3) Route 10
-	db "Robert@", TRAINERTYPE_ITEM
-	db 6
-	dw QUAGSIRE
-	dw BERRY
+	db "Robert@", TRAINERTYPE_NORMAL
+	dbw 6, QUAGSIRE
 	db -1 ; end
 
 	next_list_item ; POKEFANM (4) Route 13
-	db "Joshua@", TRAINERTYPE_ITEM
-	db 3
-	dw PIKACHU
-	dw BERRY
-	db 3
-	dw PIKACHU
-	dw BERRY
-	db 4
-	dw PIKACHU
-	dw BERRY
-	db 5
-	dw PIKACHU
-	dw BERRY
-	db 5
-	dw PIKACHU
-	dw BERRY
-	db 5
-	dw PIKACHU
-	dw BERRY
+	db "Joshua@", TRAINERTYPE_NORMAL
+	dbw 3, PIKACHU
+	dbw 3, PIKACHU
+	dbw 4, PIKACHU
+	dbw 5, PIKACHU
+	dbw 5, PIKACHU
+	dbw 5, PIKACHU
 	db -1 ; end
 
 	next_list_item ; POKEFANM (5) Route 14
-	db "Carter@", TRAINERTYPE_ITEM
-	db 3
-	dw BULBASAUR
-	dw BERRY
-	db 3
-	dw CHARMANDER
-	dw BERRY
-	db 3
-	dw SQUIRTLE
-	dw BERRY
+	db "Carter@", TRAINERTYPE_NORMAL
+	dbw 3, BULBASAUR
+	dbw 3, CHARMANDER
+	dbw 3, SQUIRTLE
 	db -1 ; end
 
 	next_list_item ; POKEFANM (6) Route 14
-	db "Trevor@", TRAINERTYPE_ITEM
-	db 5
-	dw PSYDUCK
-	dw BERRY
+	db "Trevor@", TRAINERTYPE_NORMAL
+	dbw 5, PSYDUCK
 	db -1 ; end
 
 	next_list_item ; POKEFANM (7) Route 34
-	db "Brandon@", TRAINERTYPE_ITEM
-	db 4
-	dw SNUBBULL
-	dw BERRY
+	db "Brandon@", TRAINERTYPE_NORMAL
+	dbw 4, SNUBBULL
 	db -1 ; end
 
 	next_list_item ; POKEFANM (8) S.S. Aqua
-	db "Jeremy@", TRAINERTYPE_ITEM
-	db 8
-	dw MEOWTH
-	dw BERRY
-	db 8
-	dw MEOWTH
-	dw BERRY
-	db 8
-	dw MEOWTH
-	dw BERRY
+	db "Jeremy@", TRAINERTYPE_NORMAL
+	dbw 8, MEOWTH
+	dbw 8, MEOWTH
+	dbw 8, MEOWTH
 	db -1 ; end
 
 	next_list_item ; POKEFANM (9) S.S. Aqua
-	db "Colin@", TRAINERTYPE_ITEM
-	db 7
-	dw DELIBIRD
-	dw BERRY
+	db "Colin@", TRAINERTYPE_NORMAL
+	dbw 7, DELIBIRD
 	db -1 ; end
 
-	next_list_item ; POKEFANM (12) Route 13
-	db "Alex@", TRAINERTYPE_ITEM
-	db 7
-	dw NIDOKING
-	dw BERRY
-	db 7
-	dw SLOWKING
-	dw BERRY
-	db 7
-	dw SEAKING
-	dw BERRY
+	next_list_item ; POKEFANM (10) Route 13
+	db "Alex@", TRAINERTYPE_NORMAL
+	dbw 7, NIDOKING
+	dbw 7, SLOWKING
+	dbw 7, SEAKING
 	db -1 ; end
 
-	next_list_item ; POKEFANM (13) Route 6
-	db "Rex@", TRAINERTYPE_ITEM
-	db 5
-	dw PHANPY
-	dw BERRY
+	next_list_item ; POKEFANM (11) Route 6
+	db "Rex@", TRAINERTYPE_NORMAL
+	dbw 5, PHANPY
 	db -1 ; end
 
-	next_list_item ; POKEFANM (14) Route 6
-	db "Allan@", TRAINERTYPE_ITEM
-	db 5
-	dw TEDDIURSA
-	dw BERRY
+	next_list_item ; POKEFANM (12) Route 6
+	db "Allan@", TRAINERTYPE_NORMAL
+	dbw 5, TEDDIURSA
 	db -1 ; end
 
-	next_list_item ; POKEFANM (15) Route 103
-	db "Miguel@", TRAINERTYPE_ITEM
-	db 5
-	dw TRAPINCH
-	dw BERRY
-	db 5
-	dw SPOINK
-	dw BERRY
+	next_list_item ; POKEFANM (13) Route 103
+	db "Miguel@", TRAINERTYPE_NORMAL
+	dbw 5, TRAPINCH
+	dbw 5, SPOINK
 	db -1 ; end
 
-	next_list_item ; POKEFANM (16) Route 117
-	db "Isaac@", TRAINERTYPE_ITEM
-	db 5
-	dw TEDDIURSA
-	dw BERRY
-	db 5
-	dw ARON
-	dw BERRY
-	db 5
-	dw TAILLOW
-	dw BERRY
-	db 5
-	dw MAGBY
-	dw BERRY
-	db 5
-	dw CLEFFA
-	dw BERRY
+	next_list_item ; POKEFANM (14) Route 117
+	db "Isaac@", TRAINERTYPE_NORMAL
+	dbw 5, TEDDIURSA
+	dbw 5, ARON
+	dbw 5, TAILLOW
+	dbw 5, MAGBY
+	dbw 5, CLEFFA
 	db -1 ; end
 
-	next_list_item ; POKEFANM (17) Route 110
-	db "Kaleb@", TRAINERTYPE_ITEM
-	db 5
-	dw PIKACHU
-	dw BERRY
-	db 5
-	dw JIGGLYPUFF
-	dw BERRY
+	next_list_item ; POKEFANM (15) Route 110
+	db "Kaleb@", TRAINERTYPE_NORMAL
+	dbw 5, PIKACHU
+	dbw 5, JIGGLYPUFF
 	db -1 ; end
 
-	next_list_item ; POKEFANM (18) Route 110
-	db "Edwin@", TRAINERTYPE_ITEM
-	db 5
-	dw CLEFAIRY
-	dw BERRY
-	db 5
-	dw SCYTHER
-	dw BERRY
+	next_list_item ; POKEFANM (16) Route 110
+	db "Edwin@", TRAINERTYPE_NORMAL
+	dbw 5, CLEFAIRY
+	dbw 5, SCYTHER
 	db -1 ; end
 
 	end_list_items
@@ -6391,90 +6323,66 @@ KimonoGirlGroup:
 TwinsGroup:
 	next_list_item ; TWINS (1) Azalea Town Gym
 	db "Amy & May@", TRAINERTYPE_NORMAL
-	db 7
-	dw SPINARAK
-	db 7
-	dw LEDYBA
+	dbw 7, SPINARAK
+	dbw 7, LEDYBA
 	db -1 ; end
 
 	next_list_item ; TWINS (2) Route 37
-	db "Ann & Anne@", TRAINERTYPE_MOVES
-	db 7
-	dw CLEFAIRY
-	dw GROWL, ENCORE, DOUBLESLAP, METRONOME
-	db 7
-	dw JIGGLYPUFF
-	dw SING, DEFENSE_CURL, POUND, DISABLE
+	db "Ann & Anne@", TRAINERTYPE_NORMAL
+	dbw 7, CLEFAIRY
+	dbw 7, JIGGLYPUFF
 	db -1 ; end
 
 	next_list_item ; TWINS (3) Celadon City Gym
 	db "Jo & Zoe@", TRAINERTYPE_NORMAL
-	db 7
-	dw WEEPINBELL
-	db 7
-	dw GLOOM
+	dbw 7, WEEPINBELL
+	dbw 7, GLOOM
 	db -1 ; end
 
 	next_list_item ; TWINS (4) S.S. Aqua
 	db "Meg & Peg@", TRAINERTYPE_NORMAL
-	db 7
-	dw TEDDIURSA
-	db 7
-	dw PHANPY
+	dbw 7, TEDDIURSA
+	dbw 7, PHANPY
 	db -1 ; end
 
 	next_list_item ; TWINS (5) Dragon's Den
 	db "Lea & Pia@", TRAINERTYPE_MOVES
-	db 7
-	dw DRATINI
-	dw THUNDER_WAVE, TWISTER, FLAMETHROWER, HEADBUTT
-	db 7
-	dw DRATINI
-	dw THUNDER_WAVE, TWISTER, ICE_BEAM, HEADBUTT
+	dbw 7, DRATINI
+		dw THUNDER_WAVE, TWISTER, FLAMETHROWER, HEADBUTT
+	dbw 7, DRATINI
+		dw THUNDER_WAVE, TWISTER, ICE_BEAM, HEADBUTT
 	db -1 ; end
 
 	next_list_item ; TWINS (6) Route 103
 	db "Amy & Liv@", TRAINERTYPE_NORMAL
-	db 7
-	dw ZANGOOSE
-	db 7
-	dw SEVIPER
+	dbw 7, ZANGOOSE
+	dbw 7, SEVIPER
 	db -1 ; end
 
 	next_list_item ; TWINS (7) Route 104
 	db "Gina & Mia@", TRAINERTYPE_NORMAL
-	db 3
-	dw SEEDOT
-	db 3
-	dw LOTAD
+	dbw 3, SEEDOT
+	dbw 3, LOTAD
 	db -1 ; end
 
 	next_list_item ; TWINS (8) Route 117
 	db "Anna & Meg@", TRAINERTYPE_NORMAL
-	db 7
-	dw ZIGZAGOON
-	db 7
-	dw MAKUHITA
+	dbw 7, ZIGZAGOON
+	dbw 7, MAKUHITA
 	db -1 ; end
 
 	next_list_item ; TWINS (9) Route 108
 	db "Lisa & Ria@", TRAINERTYPE_NORMAL
-	db 6
-	dw TENTACOOL
-	db 7
-	dw TOTODILE
-	db 6
-	dw QWILFISH
-	db 7
-	dw CORSOLA
+	dbw 6, TENTACOOL
+	dbw 7, TOTODILE
+	dbw 6, QWILFISH
+	dbw 7, CORSOLA
 	db -1 ; end
 
 	next_list_item ; TWINS (10) Route 113
 	db "Tori & Tia@", TRAINERTYPE_NORMAL
-	db 7
-	dw SPINDA
-	db 7
-	dw SPINDA
+	dbw 7, SPINDA
+	dbw 7, SPINDA
 	db -1 ; end
 
 	end_list_items
