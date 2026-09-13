@@ -53,7 +53,7 @@ ProfBirchScript:
 	checkevent EVENT_FOUND_ROUTE103_WALLY
 	iffalse .BirchFindWally
 
-	checkevent ENGINE_POKEDEX
+	checkflag ENGINE_POKEDEX
 	iffalse .BirchGivePokedex
 
 .BirchNotHoenn

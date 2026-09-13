@@ -257,29 +257,29 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_1
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, PIDGEY
-	dbw 1, RATTATA
-	dbw 1, RATTATA
-	dbw 1, PIDGEY
-	dbw 3, PIKACHU
+	dbw 0, PIDGEY
+	dbw 0, RATTATA
+	dbw 0, RATTATA
+	dbw 0, PIDGEY
+	dbw 1, PIKACHU
+	dbw 0, PICHU
 	dbw 1, PICHU
-	dbw 2, PICHU
 	; day
-	dbw 1, PIDGEY
-	dbw 1, RATTATA
-	dbw 1, RATTATA
-	dbw 1, PIDGEY
-	dbw 3, PIKACHU
+	dbw 0, PIDGEY
+	dbw 0, RATTATA
+	dbw 0, RATTATA
+	dbw 0, PIDGEY
+	dbw 2, PIKACHU
+	dbw 0, PICHU
 	dbw 1, PICHU
-	dbw 2, PICHU
 	; nite
-	dbw 1, HOOTHOOT
-	dbw 1, RATTATA
-	dbw 1, RATTATA
-	dbw 1, PIDGEY
-	dbw 3, PIKACHU
+	dbw 0, HOOTHOOT
+	dbw 0, RATTATA
+	dbw 0, RATTATA
+	dbw 0, PIDGEY
+	dbw 2, PIKACHU
+	dbw 0, PICHU
 	dbw 1, PICHU
-	dbw 2, PICHU
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_2

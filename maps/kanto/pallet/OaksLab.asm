@@ -15,6 +15,10 @@ OaksLab_MapScripts:
 Oak:
 	faceplayer
 	opentext
+
+	checkevent EVENT_START_KANTO
+	iftrue .OakKantoScript
+
 	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .CheckPokedex
 	checkevent EVENT_TALKED_TO_OAK_IN_KANTO
@@ -52,6 +56,149 @@ Oak:
 	writetext OakYesKantoBadgesText
 	promptbutton
 	sjump .CheckPokedex
+
+.OakKantoScript:
+	checkevent EVENT_GOT_A_POKEMON
+	iffalse .OakPickStarter
+
+	checkevent EVENT_FOUND_ROUTE22_GREEN
+	iffalse .OakFindGreen
+
+	checkflag ENGINE_POKEDEX
+	iffalse .OakGivePokedex
+
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .CheckPokedexKanto
+	
+	readvar VAR_BADGES
+	ifgreater 15, .OpenMtSilverKanto
+	ifequal 0, .ComplainKanto
+	sjump .AhGoodKanto
+
+	;failsafe
+	writetext OakLabGoodbyeText
+	waitbutton
+	sjump .done
+
+
+.OakPickStarter
+	opentext
+	writetext OakText_PickAPokemon
+	waitbutton
+	sjump .done
+
+.OakFindGreen
+	opentext
+	writetext OakDirectionsText
+	waitbutton
+	sjump .done
+
+.OakGivePokedex
+	opentext
+	writetext OakGivePokedexText
+	waitbutton
+	setflag ENGINE_POKEDEX
+	sjump .done
+
+.ComplainKanto:
+	writetext OakNoKantoBadgesText
+	promptbutton
+	sjump .CheckPokedexKanto
+
+.AhGoodKanto:
+	writetext OakYesKantoBadgesText
+	promptbutton
+	sjump .CheckPokedexKanto
+
+.OpenMtSilverKanto:
+	writetext OakOpenMtSilverText
+	promptbutton
+	setevent EVENT_OPENED_MT_SILVER
+
+.CheckPokedexKanto:
+	writetext OakLabDexCheckText
+	waitbutton
+	special ProfOaksPCBoot
+	writetext OakLabGoodbyeText
+	waitbutton
+	sjump .done
+
+.done
+	closetext
+	end
+
+
+OakText_PickAPokemon:
+	text "Ah, <PLAY_G>!"
+
+	para "I could really"
+	line "use your help"
+	cont "with something."
+
+	para "I can't find my"
+	line "assistant, Green."
+
+	para "Can you take a"
+	line "#mon from the"
+	cont "table and go"
+	cont "find her?"
+
+	para "I expect she's"
+	line "over on Route 22"
+	cont "West of Viridian"
+	cont "City."
+	done
+
+
+OakDirectionsText:
+	text "Alright, now head"
+	line "North and find"
+	cont "Green for me."
+
+	para "I'm pretty sure"
+	line "she's up by"
+	cont "Viridian City."
+
+	para "It's straight"
+	line "North from here."
+	done
+
+OakGivePokedexText:
+	text "Oak: Welcome"
+	line "back <PLAY_G>!"
+
+	para "Thanks for finding"
+	line "Green for me."
+
+	para "I've got something"
+	line "for you."
+
+	para "This is a #dex."
+	line "It'a a type of"
+	cont "encyclopedia."
+
+	para "It records data"
+	line "on #mon you"
+	cont "encounter."
+
+	para "You should take"
+	line "it with you when"
+	cont "you leave town."
+
+	para "There's a whole"
+	line "world out there,"
+	cont "<PLAY_G>..."
+
+	para "If I were you,"
+	line "I would try to"
+	cont "collect the Gym"
+	cont "badges of Kanto."
+
+	para "Catch as many"
+	line "#mon as you"
+	cont "can and fill that"
+	cont "#dex!"
+	done
 
 OaksAssistant1Script:
 	jumptextfaceplayer OaksAssistant1Text
@@ -741,7 +888,6 @@ OakDirectionsScript:
 	closetext
 	setevent EVENT_GOT_A_POKEMON
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
-	setflag ENGINE_POKEDEX
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
 	setmapscene NEW_BARK_TOWN, SCENE_NEWBARKTOWN_NOOP
 	end
@@ -878,30 +1024,22 @@ OakTakeKurusuText:
 	cont "water #mon?"
 	done
 
-OakDirectionsText:
-	text "Alright, now"
-	line "it's time for"
+OaksLab_WelcomeScript:
+	checkevent EVENT_GOT_A_POKEMON
+	iftrue .done
+	showemote EMOTE_SHOCK, OAKSLAB_OAK, 15
+	applymovement PLAYER, OaksLab_StepUpMovement
+	opentext
+	writetext OakText_PickAPokemon
+	waitbutton
+	closetext
+.done
+	end
 
-	para "your #mon"
-	line "adventure."
-
-	para "You should"
-	line "explore and"
-
-	para "challenge gyms,"
-	line "catch #mon."
-
-	para "and try to have"
-	line "fun!"
-
-	para "Oh! And go"
-	line "see Mr."
-	cont "#mon sometime."
-
-	para "He lives around"
-	line "Cherrywood Town"
-	cont "in Johto."
-	done
+OaksLab_StepUpMovement:
+	step UP
+	step UP
+	step_end
 
 OaksLab_MapEvents:
 	db 0, 0 ; filler
@@ -911,6 +1049,8 @@ OaksLab_MapEvents:
 	warp_event  5, 11, PALLET_TOWN, 3
 
 	def_coord_events
+	coord_event  04,  06, -1, OaksLab_WelcomeScript
+	coord_event  05,  06, -1, OaksLab_WelcomeScript
 
 	def_bg_events
 	bg_event  6,  1, BGEVENT_READ, OaksLabBookshelf
