@@ -58,6 +58,7 @@ IntimidateMons::
 	dw MAWILE
 	dw ELECTRIKE
 	dw MANECTRIC
+	dw REGISTEEL
 	dw BAGON
 	dw SHELGON
 	dw SALAMENCE

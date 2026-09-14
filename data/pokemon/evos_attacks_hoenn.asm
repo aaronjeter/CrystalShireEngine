@@ -2721,36 +2721,36 @@ RegirockEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, EXPLOSION
 	dbw 1, ROCK_THROW
-	dbw 7, CURSE
-	dbw 16, RECOVER
+	dbw 10, RAPID_SPIN
+	dbw 16, CURSE
 	dbw 20, STOMP
-	dbw 24, ROCK_TOMB		
-	dbw 28, SANDSTORM
-	dbw 32, ANCIENTPOWER
-	dbw 36, COSMIC_POWER
+	dbw 24, ROCK_TOMB
+	dbw 28, MAGNITUDE
+	dbw 32, SANDSTORM
+	dbw 36, RECOVER
 	dbw 40, ROCK_SLIDE
-	dbw 45, METEOR_MASH
-	dbw 50, LOCK_ON
-	dbw 55, SUPERPOWER
+	dbw 45, EARTHQUAKE
+	dbw 50, COSMIC_POWER
+	dbw 55, TRIPLE_KICK
 	dbw 60, STONE_EDGE
-	dbw 65, ZAP_CANNON
-	dbw 70, EARTHQUAKE	
+	dbw 65, CROSS_CHOP
+	dbw 70, FISSURE
 	db 0 ; no more level-up moves
 
 RegiceEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, EXPLOSION
 	dbw 1, POWDER_SNOW
-	dbw 7, CURSE
+	dbw 10, RAPID_SPIN
 	dbw 16, ICY_WIND
 	dbw 20, STOMP
-	dbw 24, ANCIENTPOWER
-	dbw 28, HAIL
-	dbw 32, RECOVER
-	dbw 36, COSMIC_POWER
+	dbw 24, AURORA_BEAM
+	dbw 28, ANCIENTPOWER
+	dbw 32, HAIL
+	dbw 36, RECOVER
 	dbw 40, ICE_BEAM
-	dbw 45, METEOR_MASH
-	dbw 50, LOCK_ON
+	dbw 45, POWER_GEM
+	dbw 50, COSMIC_POWER
 	dbw 55, SUPERPOWER
 	dbw 60, BLIZZARD
 	dbw 65, MIST
@@ -2761,20 +2761,20 @@ RegisteelEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, EXPLOSION
 	dbw 1, METAL_CLAW
-	dbw 7, CURSE
-	dbw 16, RECOVER	
+	dbw 10, RAPID_SPIN
+	dbw 16, BULLET_PUNCH
 	dbw 20, STOMP
-	dbw 24, ROCK_TOMB	
-	dbw 28, SANDSTORM
-	dbw 32, ANCIENTPOWER
-	dbw 36, COSMIC_POWER
+	dbw 24, ROCK_TOMB
+	dbw 28, SAFEGUARD
+	dbw 32, SANDSTORM
+	dbw 36, RECOVER
 	dbw 40, METEOR_MASH
 	dbw 45, ROCK_SLIDE	
-	dbw 50, LOCK_ON
-	dbw 55, SUPERPOWER
-	dbw 60, FLASHCANNON
-	dbw 65, ZAP_CANNON
-	dbw 70, EARTHQUAKE	
+	dbw 50, COSMIC_POWER
+	dbw 55, CRUSH_CLAW
+	dbw 60, GUILLOTINE
+	dbw 65, DRAGON_CLAW
+	dbw 70, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 LatiasEvosAttacks:

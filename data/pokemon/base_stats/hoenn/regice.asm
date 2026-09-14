@@ -1,7 +1,7 @@
 	db 0 ; species ID placeholder
 
-	db  80,  50, 100,  50, 100, 200
-	evs  0,   0,   0,   0,   0,   3
+	db  105, 50, 100,  50, 125, 150
+	evs   0,  0,   0,   0,   0,   3
 	;   hp  atk  def  spd  sat  sdf
 
 	db ICE, ICE ; type
