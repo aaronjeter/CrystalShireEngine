@@ -386,6 +386,83 @@ PowerPlantManagerMyBelovedGeneratorText:
 	line "electricity out!"
 	done
 
+
+ChargerGuyScript:
+	faceplayer
+	opentext
+
+	writetext ChargerGuyOfferServiceText
+	yesorno
+	iffalse .Refused
+	checkitem GOLD_LEAF
+	iffalse .NotEnoughMoney
+
+	loadmem wPartyMon1DVs+0, HP_MAX_ELECTRIC
+	loadmem wPartyMon1DVs+1, $fe
+
+	waitsfx
+	playsound SFX_TRANSACTION
+	takeitem GOLD_LEAF
+	writetext ChargerGuyAfterServiceText
+	waitbutton
+	closetext
+	end
+
+.NotEnoughMoney:
+	writetext ChargerGuyNoMoneyText
+	waitbutton
+	closetext
+	end
+
+.Refused:
+	writetext ChargerGuyRefusedText
+	waitbutton
+	closetext
+	end
+
+ChargerGuyOfferServiceText:
+	text "Hi There! I can"
+	line "Charge up your"
+	cont "#mon!"
+
+	para "I can fill your"
+	line "first #mon"
+	cont "with the power of"
+	cont "Electricity!"
+
+	para "They'll even look"
+	line "Stuning!"
+
+	para "I just need a"
+	line "Gold Leaf. Got"
+	cont "one for me?"
+	done
+
+
+ChargerGuyAfterServiceText:
+	text "And...it is"
+	line "complete!"
+
+	para "Your #mon is"
+	line "filled with Hidden"
+	cont "Electric Power."
+
+	para "And has taken on"
+	line "a lovely shade as"
+	cont "well..."
+	done
+	
+ChargerGuyNoMoneyText:
+	text "Yeah, that isn't"
+	line "a Gold Leaf..."
+	done
+
+ChargerGuyRefusedText:
+	text "Oh, alright."
+	line "It isn't for"
+	cont "just anyone."
+	done
+
 PowerPlant_MapEvents:
 	db 0, 0 ; filler
 
@@ -408,3 +485,4 @@ PowerPlant_MapEvents:
 	object_event  7,  2, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PowerPlantGymGuide4Script, -1
 	object_event 14, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PowerPlantManager, -1
 	object_event  5,  5, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Forest, -1
+	object_event  3,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, ChargerGuyScript, -1
