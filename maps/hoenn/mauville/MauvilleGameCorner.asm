@@ -598,6 +598,82 @@ MauvilleGameCornerHiddenLeftovers:
 MauvilleGameCornerHiddenSodaPop:
 	hiddenitem SODA_POP, EVENT_MAUVILLE_GAME_CORNER_SODA_POP
 
+
+CardSharkScript:
+	faceplayer
+	opentext
+
+	writetext CardSharkOfferServiceText
+	special PlaceMoneyTopRight
+	yesorno
+	iffalse .Refused
+	checkmoney YOUR_MONEY, 10000
+	ifequal HAVE_LESS, .NotEnoughMoney
+
+	loadmem wPartyMon1DVs+0, HP_MAX_DARK
+	loadmem wPartyMon1DVs+1, $fe
+
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney YOUR_MONEY, 1000
+	special PlaceMoneyTopRight
+	writetext CardSharkAfterServiceText
+	waitbutton
+	closetext
+	end
+
+.NotEnoughMoney:
+	writetext CardSharkNoMoneyText
+	waitbutton
+	closetext
+	end
+
+.Refused:
+	writetext CardSharkRefusedText
+	waitbutton
+	closetext
+	end
+
+CardSharkOfferServiceText:
+	text "Hey kid, I'm the"
+	line "Card Shark."
+
+	para "I can teach your"
+	line "#mon some cool"
+	cont "sneaky tricks!"
+
+	para "This isn't free"
+	line "though, I'm in"
+	cont "it for the cash!"
+	done
+
+
+CardSharkAfterServiceText:
+	text "And...it is"
+	line "complete!"
+
+	para "Your #mon is"
+	line "filled with Hidden"
+	cont "Dark Power."
+
+	para "And has taken on"
+	line "a lovely shade as"
+	cont "well..."
+	done
+	
+CardSharkNoMoneyText:
+	text "I'm sorry, but"
+	line "that isn't"
+	cont "ten grand. Shoo!"
+	done
+
+CardSharkRefusedText:
+	text "Oh, alright."
+	line "It isn't for"
+	cont "just anyone."
+	done
+
+
 MauvilleGameCorner_MapEvents:
 	db 0, 0 ; filler
 
@@ -647,3 +723,4 @@ MauvilleGameCorner_MapEvents:
 	object_event  12, 01, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerRocketScript, -1
 	object_event  15, 01, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerRocketScript, -1
 	object_event  05, 17, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerBeautyScript, -1
+	object_event  11, 07, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CardSharkScript, -1
