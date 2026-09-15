@@ -1323,7 +1323,7 @@ ld a, [hl]
 	cp HP_MAX_POISON
 	jr nz, .notPoison
 
-	ld hl, NINETALES2
+	ld hl, MUK
 	jr .usingAltColor
 
 .notPoison
