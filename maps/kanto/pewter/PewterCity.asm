@@ -4,6 +4,7 @@
 	const PEWTERCITY_GRAMPS
 	const PEWTERCITY_FRUIT_TREE1
 	const PEWTERCITY_FRUIT_TREE2
+	const PEWTERCITY_GREEN
 
 PewterCity_MapScripts:
 	def_scene_scripts
@@ -146,6 +147,151 @@ PewterCityWelcomeSignText:
 	line "Pewter City!"
 	done
 
+
+PewterCity_Green:
+	showemote EMOTE_SHOCK, PEWTERCITY_GREEN, 10
+	faceplayer
+	checkevent EVENT_START_KANTO
+	iffalse .notKanto
+
+	checkflag ENGINE_BOULDERBADGE
+	iffalse .notReady
+
+	opentext
+	writetext PewterCityGreenIntroText
+	waitbutton
+	closetext
+
+	winlosstext PewterCityGreenLossText, PewterCityGreenWinText
+	loadtrainer GREEN, GREEN2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext PewterCityGreenAfterBattleText
+	waitbutton
+	sjump .GreenExit
+	end
+
+.notReady
+	writetext PewterCityNoBadgeText
+	waitbutton
+
+	turnobject PLAYER, LEFT
+	applymovement PLAYER, PewterCityGreen_StepBackMovement
+
+.notKanto
+	opentext
+	writetext PewterCityGreenNotKantoText
+	waitbutton 
+
+.GreenExit
+	closetext
+	setevent EVENT_FOUND_PEWTER_CITY_GREEN
+	special FadeOutToBlack
+	disappear PEWTERCITY_GREEN
+	special FadeInFromBlack
+	end
+
+PewterCityGreenAfterBattleText:
+	text "Ah well, I'm gonna"
+	line "head on through"
+	cont "Mt Moon. Later"
+	cont "scrub!"
+	done
+
+PewterCityGreenLossText:
+	text "Ugh, lucky!"
+	done
+
+PewterCityGreenWinText:
+	text "Ha! Suck it,"
+	line "loser!"
+	done
+
+PewterCityNoBadgeText:
+	text "Oh, hey newbie."
+	line "You are NOT"
+	cont "ready to go"
+	cont "past here..."
+
+	para "Maybe try your"
+	line "luck with the"
+	cont "Pewter City Gym"
+	cont "first?"
+	done
+
+PewterCityGreenIntroText:
+	text "Oh, good. You got"
+	line "Brock's badge."
+
+	para "Maybe you've got"
+	line "a chance after"
+	cont "all."	
+
+	para "Since we're here"
+	line "though..."
+
+	para "How about a"
+	line "#mon battle"
+	cont "before heading on?"
+	done
+
+PewterCityGreenNotKantoText:
+	text "Huh? Do I know"
+	line "you?"
+
+	para "Sorry, I don't"
+	line "have time for"
+	cont "scrubs."
+	done
+
+PewterCityApproachGreen0Script:
+	checkevent EVENT_FOUND_PEWTER_CITY_GREEN
+	iftrue .done
+
+	turnobject PLAYER, UP
+	sjump PewterCity_Green
+
+	.done
+	end
+
+PewterCityApproachGreen1Script:
+	checkevent EVENT_FOUND_PEWTER_CITY_GREEN
+	iftrue .done
+
+	turnobject PLAYER, UP
+	applymovement PLAYER, PewterCityGreen_StepUpMovement
+	sjump PewterCity_Green
+
+	.done
+	end
+
+PewterCityApproachGreen2Script:
+	checkevent EVENT_FOUND_PEWTER_CITY_GREEN
+	iftrue .done
+
+	turnobject PLAYER, UP
+	applymovement PLAYER, PewterCityGreen_StepUp2Movement
+	sjump PewterCity_Green
+
+	.done
+	end
+
+PewterCityGreen_StepUpMovement:
+	step UP
+	step_end
+
+PewterCityGreen_StepUp2Movement:
+	step UP
+	step UP
+	step_end
+
+PewterCityGreen_StepBackMovement:
+	step LEFT
+	step LEFT
+	step_end
+
 PewterCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -159,6 +305,9 @@ PewterCity_MapEvents:
 	warp_event 20, 05, PEWTER_MUSEUM, 4
 
 	def_coord_events
+	coord_event  34, 17, -1, PewterCityApproachGreen0Script
+	coord_event  34, 18, -1, PewterCityApproachGreen1Script
+	coord_event  34, 19, -1, PewterCityApproachGreen2Script
 
 	def_bg_events
 	bg_event 24, 24, BGEVENT_READ, PewterCitySign
@@ -175,3 +324,4 @@ PewterCity_MapEvents:
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
 	object_event 32,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree1, -1
 	object_event 30,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
+	object_event 34, 16, SPRITE_DAISY, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCity_Green, EVENT_FOUND_PEWTER_CITY_GREEN

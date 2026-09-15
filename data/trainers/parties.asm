@@ -8220,9 +8220,11 @@ ExplorerGroup:
 	dbw 0, SQUIRTLE
 	db -1 ; end
 
+	next_list_item ; GREEN (2)
 	db "Green@", TRAINERTYPE_NORMAL
-	dbw 2, CLEFAIRY
-	dbw 3, SQUIRTLE
+	dbw 5, SPEAROW
+	dbw 6, CLEFAIRY
+	dbw 7, SQUIRTLE
 	db -1 ; end
 
 	next_list_item ; WC_GREEN (?) World Cup Green

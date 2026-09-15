@@ -2198,7 +2198,7 @@
 	const_skip ; unused	
 
 	const EVENT_FOUND_ROUTE22_GREEN
-	const_skip ; unused
+	const EVENT_FOUND_PEWTER_CITY_GREEN
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

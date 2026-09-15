@@ -8348,8 +8348,9 @@ ExplorerGroupHard:
 	db -1 ; end
 
 	db "Green@", TRAINERTYPE_NORMAL
-	dbw 3, CLEFAIRY
-	dbw 5, SQUIRTLE
+	dbw 6, SPEAROW
+	dbw 7, CLEFAIRY
+	dbw 8, SQUIRTLE
 	db -1 ; end
 
 	next_list_item ; WC_GREEN (?) World Cup Green
