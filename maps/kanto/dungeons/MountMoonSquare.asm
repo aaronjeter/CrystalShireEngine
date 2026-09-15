@@ -130,6 +130,83 @@ DontLitterSignText:
 	line "Don't Litter"
 	done
 
+StoneGuyScript:
+	faceplayer
+	opentext
+
+	writetext StoneGuyOfferServiceText
+	yesorno
+	iffalse .Refused
+	checkitem GOLD_LEAF
+	iffalse .NotEnoughMoney
+
+	loadmem wPartyMon1DVs+0, HP_MAX_ROCK
+	loadmem wPartyMon1DVs+1, $fe
+
+	waitsfx
+	playsound SFX_TRANSACTION
+	takeitem GOLD_LEAF
+	writetext StoneGuyAfterServiceText
+	waitbutton
+	closetext
+	end
+
+.NotEnoughMoney:
+	writetext StoneGuyNoMoneyText
+	waitbutton
+	closetext
+	end
+
+.Refused:
+	writetext StoneGuyRefusedText
+	waitbutton
+	closetext
+	end
+
+StoneGuyOfferServiceText:
+	text "Rock and Stone,"
+	line "kid. Rock and"
+	cont "Stone!"
+
+	para "I can fill your"
+	line "first #mon"
+	cont "with the power of"
+	cont "the very stones!"
+
+	para "Don't worry, it"
+	line "won't hurt them..."
+	cont "much!"
+
+	para "I just need a"
+	line "Gold Leaf. Got"
+	cont "one for me?"
+	done
+
+
+StoneGuyAfterServiceText:
+	text "And...it is"
+	line "complete!"
+
+	para "Your #mon is"
+	line "filled with Hidden"
+	cont "Rock Power."
+
+	para "And has taken on"
+	line "a lovely shade as"
+	cont "well..."
+	done
+	
+StoneGuyNoMoneyText:
+	text "Yeah, that isn't"
+	line "a Gold Leaf..."
+	done
+
+StoneGuyRefusedText:
+	text "Oh, alright."
+	line "It isn't for"
+	cont "just anyone."
+	done
+
 MountMoonSquare_MapEvents:
 	db 0, 0 ; filler
 
@@ -149,3 +226,4 @@ MountMoonSquare_MapEvents:
 	object_event  6,  6, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MT_MOON_SQUARE_CLEFAIRY
 	object_event  7,  6, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MT_MOON_SQUARE_CLEFAIRY
 	object_event  7,  7, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoonSquareRock, EVENT_MT_MOON_SQUARE_ROCK
+	object_event 20, 12, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, StoneGuyScript, -1
