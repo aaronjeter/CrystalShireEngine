@@ -70,6 +70,107 @@ SoulHouseGrannyText:
 	line "my grandchildren…"
 	done
 
+SoulGuyScript:
+	opentext
+	writetext SoulGuyOfferingText
+	waitbutton
+
+	loadmenu .ShrineMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .SilverLeaf
+	ifequal 2, .GoldLeaf
+
+	sjump .No
+
+.SilverLeaf
+	checkitem SILVER_LEAF
+	iffalse .No
+
+	writetext SoulGuyFirstMonText
+	waitbutton
+	yesorno
+	iffalse .No
+
+	takeitem SILVER_LEAF
+	loadmem wPartyMon1DVs+0, HP_MAX_GHOST
+	loadmem wPartyMon1DVs+1, $aa
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	writetext SoulGuyAlignedWithGhostsText
+	waitbutton
+	sjump .Done
+
+.GoldLeaf
+	checkitem GOLD_LEAF
+	iffalse .No
+
+	writetext SoulGuyFirstMonText
+	waitbutton
+	yesorno
+	iffalse .No
+
+	takeitem GOLD_LEAF
+	loadmem wPartyMon1DVs+0, HP_MAX_GHOST
+	loadmem wPartyMon1DVs+1, $fe
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	writetext SoulGuyEtherialBlessingText
+	waitbutton
+	sjump .Done
+
+.No
+	writetext SoulGuyNoOfferingText
+	waitbutton
+.Done
+	closetext
+	end
+
+.ShrineMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 2 ; items	
+	db "Silver Leaf@"
+	db "Gold Leaf@"	
+
+SoulGuyOfferingText:
+	text "Many graves lie"
+	line "unadorned..."
+
+	para "Would you help"
+	line "me honor them?"
+	done
+
+SoulGuyFirstMonText:
+	text "Offer this item"
+	line "for your first"
+	cont "#mon?"
+	done
+
+SoulGuyAlignedWithGhostsText:
+	text "Your first #mon"
+	line "has aligned"
+	cont "with Ghosts!"
+	done
+
+SoulGuyEtherialBlessingText:
+	text "Your first #mon"
+	line "has recieved the"
+	cont "Etherial Blessing!"
+	done
+
+SoulGuyNoOfferingText:
+	text "There is no shame"
+	line "in honoring the"
+	cont "past with empty-"
+	cont "hands."
+	done
+
 SoulHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -86,3 +187,4 @@ SoulHouse_MapEvents:
 	object_event  7,  3, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SoulHouseTeacherScript, -1
 	object_event  2,  5, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SoulHouseLassScript, -1
 	object_event  1,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SoulHouseGrannyScript, -1
+	object_event  7,  5, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, SoulGuyScript, -1
