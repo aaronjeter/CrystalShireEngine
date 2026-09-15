@@ -1314,7 +1314,7 @@ ld a, [hl]
 	cp HP_MAX_GROUND
 	jr nz, .notGround
 
-	ld hl, TROPIUS
+	ld hl, ADIGLETT
 	jr .usingAltColor
 
 .notGround
