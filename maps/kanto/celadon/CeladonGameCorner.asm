@@ -273,6 +273,81 @@ CeladonGameCornerSodaCanText:
 	para "Huh? It's empty!"
 	done
 
+ToxicRocketScript:
+	faceplayer
+	opentext
+
+	writetext ToxicRocketOfferServiceText
+	special PlaceMoneyTopRight
+	yesorno
+	iffalse .Refused
+	checkmoney YOUR_MONEY, 10000
+	ifequal HAVE_LESS, .NotEnoughMoney
+
+	loadmem wPartyMon1DVs+0, HP_MAX_POISON
+	loadmem wPartyMon1DVs+1, $fe
+
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney YOUR_MONEY, 1000
+	special PlaceMoneyTopRight
+	writetext ToxicRocketAfterServiceText
+	waitbutton
+	closetext
+	end
+
+.NotEnoughMoney:
+	writetext ToxicRocketNoMoneyText
+	waitbutton
+	closetext
+	end
+
+.Refused:
+	writetext ToxicRocketRefusedText
+	waitbutton
+	closetext
+	end
+
+ToxicRocketOfferServiceText:
+	text "Psst! C'mere kid!"
+	line "Have I got a deal"
+	cont "for you."
+
+	para "I can fill your"
+	line "first #mon"
+	cont "with toxic power!"
+
+	para "Don't worry, it"
+	line "won't hurt them..."
+	cont "much!"
+	done
+
+
+ToxicRocketAfterServiceText:
+	text "And...it is"
+	line "complete!"
+
+	para "Your #mon is"
+	line "filled with Hidden"
+	cont "Poison Power."
+
+	para "And has taken on"
+	line "a lovely shade as"
+	cont "well..."
+	done
+	
+ToxicRocketNoMoneyText:
+	text "Hey! That's not"
+	line "ten grand!!!"
+	cont "Get Lost!"
+	done
+
+ToxicRocketRefusedText:
+	text "Oh, alright."
+	line "It isn't for"
+	cont "just anyone."
+	done
+
 CeladonGameCorner_MapEvents:
 	db 0, 0 ; filler
 
@@ -332,3 +407,4 @@ CeladonGameCorner_MapEvents:
 	object_event  8, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, NITE, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerFisherScript, -1
 	object_event 11,  3, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideScript, -1
 	object_event  2,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerGrampsScript, -1
+	object_event 19, 01, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ToxicRocketScript, -1
