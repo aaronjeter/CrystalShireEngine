@@ -1205,7 +1205,7 @@ CheckHiddenPowerColor:
 	cp HP_MAX_DARK
 	jr nz, .notDark
 
-	ld hl, HARCANINE
+	ld hl, GENGAR
 	jp .usingAltColor
 
 .notDark
