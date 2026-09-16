@@ -491,7 +491,7 @@ MonMenuIconPals:
 	icon_pals RED,    PURPLE ; ASHIBOMB
 	icon_pals BLUE,   RED	 ; SUNBOU
 	icon_pals BLUE,   RED	 ; IKARI
-	icon_pals BLUE,   TEAL   ; TOTARTLE
+	icon_pals RED,    PURPLE ; FROSLASSX
 	icon_pals RED,    BROWN	 ; GOROCHU
 	;mega
 	icon_pals BLUE,   TEAL	 ; BAYLEEF2

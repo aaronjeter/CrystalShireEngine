@@ -480,7 +480,7 @@ AnimationIdlePointers:
 	dw AshibombAnimationIdle
 	dw SunbouAnimationIdle
 	dw IkariAnimationIdle
-	dw TotartleAnimationIdle
+	dw FroslassxAnimationIdle
 	dw GorochuAnimationIdle
 	;mega
 	dw Bayleef2AnimationIdle

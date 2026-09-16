@@ -81,6 +81,7 @@ AlphabeticalPokedexOrder:
 	dw FLAREON
 	dw FORRETRESS
 	dw FROSLASS
+	dw FROSLASSX
 	dw FURRET
 	dw FURRET2
 	dw GALLADE
@@ -482,7 +483,6 @@ AlphabeticalPokedexOrder:
 	dw ASHIBOMB
 	dw SUNBOU
 	dw IKARI
-	dw TOTARTLE
 	dw GOROCHU
 	;mega
 	dw DRAGONITEX

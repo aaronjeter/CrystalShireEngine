@@ -487,7 +487,7 @@ PokemonCries::
 	mon_cry CRY_SEEL,         35,  383 ; ASHIBOMB
 	mon_cry CRY_SEEL,        136,  320 ; SUNBOU
 	mon_cry CRY_SEEL,         35,  383 ; IKARI
-	mon_cry CRY_BLASTOISE,     0,  256 ; TOTARTLE
+	mon_cry CRY_DROWZEE,     255,  383 ; FROSLASSX
 	mon_cry CRY_RAICHU,      238,  136 ; GOROCHU
 	;mega
 	mon_cry CRY_RAICHU,      238,  136 ; RAICHUX

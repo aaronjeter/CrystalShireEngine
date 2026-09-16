@@ -97,7 +97,7 @@ EvosAttacksPointers4::
 	dw AshibombEvosAttacks
 	dw SunbouEvosAttacks
 	dw IkariEvosAttacks
-	dw TotartleEvosAttacks
+	dw FroslassxEvosAttacks
 	dw GorochuEvosAttacks	
 .IndirectEnd::
 
@@ -247,6 +247,7 @@ GalladeEvosAttacks:
 	db 0 ; no more level-up moves
 
 FroslassEvosAttacks:
+	dbww EVOLVE_ITEM, HOENNITE_X, FROSLASSX
 	db 0 ; no more evolutions
 	dbw 1, ASTONISH
 	dbw 1, POWDER_SNOW
@@ -1834,27 +1835,25 @@ SirfetchdEvosAttacks:
 	dbw 70, DRAGON_DANCE
 	db 0 ; no more level-up moves
 
-TotartleEvosAttacks:
+FroslassxEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, TACKLE
-	dbw 4, TAIL_WHIP
-	dbw 7, BUBBLE
-	dbw 10, WITHDRAW
-	dbw 14, WATER_GUN
-	dbw 18, BITE
-	dbw 20, PROTECT
-	dbw 24, BUBBLEBEAM
-	dbw 28, RAPID_SPIN	
-	dbw 32, RAIN_DANCE
-	dbw 36, ICE_FANG
-	dbw 40, MIST_BALL
-	dbw 45, FLASHCANNON
-	dbw 50, SKULL_BASH
-	dbw 60, HYDRO_PUMP
-	dbw 65, BODY_SLAM
-	dbw 70, HYDRO_CANNON
-	dbw 75, SCALD
-	dbw 80, THUNDER
+	dbw 1, ASTONISH
+	dbw 1, POWDER_SNOW
+	dbw 7, LEER
+	dbw 12, ICY_WIND
+	dbw 16, BITE
+	dbw 20, ICE_FANG
+	dbw 24, DRAININGKISS
+	dbw 28, HAIL
+	dbw 32, HEX
+	dbw 36, CALM_MIND
+	dbw 40, ICE_BEAM
+	dbw 45, SHADOW_BALL
+	dbw 50, DESTINY_BOND
+	dbw 55, PROTECT
+	dbw 60, BLIZZARD	
+	dbw 65, MIST
+	dbw 70, PERISH_SONG
 	db 0 ; no more level-up moves
 
 GorochuEvosAttacks:

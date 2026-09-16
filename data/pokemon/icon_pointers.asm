@@ -486,7 +486,7 @@ IconPointers:
 	dw AshibombIcon
 	dw SunbouIcon
 	dw IkariIcon
-	dw TotartleIcon
+	dw FroslassxIcon
 	dw GorochuIcon
 	;mega
 	dw RaichuxIcon

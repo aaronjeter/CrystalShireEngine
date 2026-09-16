@@ -480,7 +480,7 @@ FramesPointers:
 	dba AshibombFrames
 	dba SunbouFrames
 	dba IkariFrames
-	dba TotartleFrames
+	dba FroslassxFrames
 	dba GorochuFrames
 	;mega
 	dba Bayleef2Frames

@@ -501,7 +501,7 @@ DEF JOHTO_POKEMON EQU const_value
 	const ASHIBOMB
 	const SUNBOU
 	const IKARI
-	const TOTARTLE
+	const FROSLASSX
 	const GOROCHU
 	;Megas
 	const BAYLEEF2

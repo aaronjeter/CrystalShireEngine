@@ -1300,8 +1300,8 @@ AshibombBackpic:		INCBIN "gfx/pokemon/ashibomb/back.2bpp.lz"
 
 SECTION "Hex The Spriter", ROMX
 
-TotartleFrontpic:			INCBIN "gfx/pokemon/totartle/front.animated.2bpp.lz"
-TotartleBackpic:			INCBIN "gfx/pokemon/totartle/back.2bpp.lz"
+FroslassxFrontpic:		    INCBIN "gfx/pokemon/froslassx/front.animated.2bpp.lz"
+FroslassxBackpic:		    INCBIN "gfx/pokemon/froslassx/back.2bpp.lz"
 GorochuFrontpic:			INCBIN "gfx/pokemon/gorochu/front.animated.2bpp.lz"
 GorochuBackpic:				INCBIN "gfx/pokemon/gorochu/back.2bpp.lz"
 Bayleef2Frontpic:           INCBIN "gfx/pokemon/bayleef2/front.animated.2bpp.lz"

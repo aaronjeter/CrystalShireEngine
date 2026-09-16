@@ -493,7 +493,7 @@ RaitoraPokedexEntry::	  INCLUDE "data/pokemon/dex_entries/beta/raitora.asm"
 AshibombPokedexEntry::    INCLUDE "data/pokemon/dex_entries/beta/ashibomb.asm"
 SunbouPokedexEntry::      INCLUDE "data/pokemon/dex_entries/beta/sunbou.asm"
 IkariPokedexEntry::       INCLUDE "data/pokemon/dex_entries/beta/ikari.asm"
-TotartlePokedexEntry::    INCLUDE "data/pokemon/dex_entries/beta/totartle.asm"
+FroslassxPokedexEntry::   INCLUDE "data/pokemon/dex_entries/mega/froslassx.asm"
 GorochuPokedexEntry::     INCLUDE "data/pokemon/dex_entries/beta/gorochu.asm"
 
 

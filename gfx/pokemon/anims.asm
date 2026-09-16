@@ -479,7 +479,7 @@ RaitoraAnimation:		INCLUDE "gfx/pokemon/raitora/anim.asm"
 AshibombAnimation:		INCLUDE "gfx/pokemon/ashibomb/anim.asm"
 SunbouAnimation:		INCLUDE "gfx/pokemon/sunbou/anim.asm"
 IkariAnimation:			INCLUDE "gfx/pokemon/ikari/anim.asm"
-TotartleAnimation:		INCLUDE "gfx/pokemon/totartle/anim.asm"
+FroslassxAnimation:		INCLUDE "gfx/pokemon/froslassx/anim.asm"
 GorochuAnimation:		INCLUDE "gfx/pokemon/gorochu/anim.asm"
 ;mega
 Bayleef2Animation:      INCLUDE "gfx/pokemon/bayleef2/anim.asm"

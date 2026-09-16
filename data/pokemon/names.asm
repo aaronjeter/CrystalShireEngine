@@ -485,7 +485,7 @@ PokemonNames::
 	db "Ashibomb@@"
 	db "Sunbou@@@@"
 	db "Ikari@@@@@"
-	db "Totartle@@"
+	db "Froslass@@"
 	db "Gorochu@@@"
 	;mega
 	db "Bayleef@@@" ;bayleef2

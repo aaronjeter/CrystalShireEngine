@@ -480,7 +480,7 @@ AnimationPointers:
 	dw AshibombAnimation
 	dw SunbouAnimation
 	dw IkariAnimation
-	dw TotartleAnimation
+	dw FroslassxAnimation
 	dw GorochuAnimation
 	;mega
 	dw Bayleef2Animation

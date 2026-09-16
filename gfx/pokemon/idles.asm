@@ -479,7 +479,7 @@ RaitoraAnimationIdle:		INCLUDE "gfx/pokemon/raitora/anim_idle.asm"
 AshibombAnimationIdle:		INCLUDE "gfx/pokemon/ashibomb/anim_idle.asm"
 SunbouAnimationIdle:		INCLUDE "gfx/pokemon/sunbou/anim_idle.asm"
 IkariAnimationIdle:			INCLUDE "gfx/pokemon/ikari/anim_idle.asm"
-TotartleAnimationIdle:		INCLUDE "gfx/pokemon/totartle/anim_idle.asm"
+FroslassxAnimationIdle:		INCLUDE "gfx/pokemon/froslassx/anim_idle.asm"
 GorochuAnimationIdle:		INCLUDE "gfx/pokemon/gorochu/anim_idle.asm"
 ;mega
 Bayleef2AnimationIdle:      INCLUDE "gfx/pokemon/bayleef2/anim_idle.asm"

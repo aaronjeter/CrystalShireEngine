@@ -480,7 +480,7 @@ BitmasksPointers:
 	dw AshibombBitmasks
 	dw SunbouBitmasks
 	dw IkariBitmasks
-	dw TotartleBitmasks
+	dw FroslassxBitmasks
 	dw GorochuBitmasks
 	;mega
 	dw Bayleef2Bitmasks

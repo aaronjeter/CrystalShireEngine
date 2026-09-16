@@ -482,7 +482,7 @@ PokedexDataPointerTable:
 	dba AshibombPokedexEntry
 	dba SunbouPokedexEntry
 	dba IkariPokedexEntry
-	dba TotartlePokedexEntry
+	dba FroslassxPokedexEntry
 	dba GorochuPokedexEntry
 	;mega
 	dba RaichuxPokedexEntry

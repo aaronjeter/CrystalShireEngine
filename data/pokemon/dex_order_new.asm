@@ -481,7 +481,7 @@ NewPokedexOrder:
 	dw ASHIBOMB
 	dw SUNBOU
 	dw IKARI
-	dw TOTARTLE
+	dw FROSLASSX
 	dw GOROCHU
 	;mega
 	dw BAYLEEF2

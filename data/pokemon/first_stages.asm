@@ -481,7 +481,7 @@ FirstEvoStages::
 	dw ASHIBOMB
 	dw SUNBOU
 	dw SUNBOU
-	dw SQUIRTLE
+	dw SNORUNT
 	dw PICHU
 	;mega
 	dw PICHU

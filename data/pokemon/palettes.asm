@@ -991,8 +991,8 @@ INCBIN "gfx/pokemon/sunbou/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/sunbou/shiny.pal"
 INCBIN "gfx/pokemon/ikari/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/ikari/shiny.pal"
-INCBIN "gfx/pokemon/totartle/normal.gbcpal", middle_colors
-INCLUDE "gfx/pokemon/totartle/shiny.pal"
+INCBIN "gfx/pokemon/froslassx/normal.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/froslassx/shiny.pal"
 INCBIN "gfx/pokemon/gorochu/normal.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/gorochu/shiny.pal"
 ;Megas

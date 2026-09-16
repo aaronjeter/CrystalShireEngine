@@ -96,7 +96,7 @@ INCLUDE "data/pokemon/base_stats/beta/raitora.asm"
 INCLUDE "data/pokemon/base_stats/beta/ashibomb.asm"
 INCLUDE "data/pokemon/base_stats/beta/sunbou.asm"
 INCLUDE "data/pokemon/base_stats/beta/ikari.asm"
-INCLUDE "data/pokemon/base_stats/beta/totartle.asm"
+INCLUDE "data/pokemon/base_stats/mega/froslassx.asm"
 INCLUDE "data/pokemon/base_stats/beta/gorochu.asm"
 
 

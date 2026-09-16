@@ -892,9 +892,9 @@ MistyGroup: ;Gym Leader
 	dw KINGS_ROCK
 	dw SURF, PSYCHIC_M, RECOVER, CALM_MIND
 	db 11
-	dw TOTARTLE
+	dw KYOGRE
 	dw NO_ITEM
-	dw SCALD, HYDRO_PUMP, THUNDER, CRUNCH
+	dw SCALD, HYDRO_PUMP, THUNDER, CALM_MIND
 	db -1 ; end
 
 	end_list_items

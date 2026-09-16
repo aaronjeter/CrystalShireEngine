@@ -226,6 +226,6 @@ RaitoraFrames:		INCLUDE "gfx/pokemon/raitora/frames.asm"
 AshibombFrames:		INCLUDE "gfx/pokemon/ashibomb/frames.asm"
 SunbouFrames:		INCLUDE "gfx/pokemon/sunbou/frames.asm"
 IkariFrames:		INCLUDE "gfx/pokemon/ikari/frames.asm"
-TotartleFrames:		INCLUDE "gfx/pokemon/totartle/frames.asm"
+FroslassxFrames:	INCLUDE "gfx/pokemon/froslassx/frames.asm"
 GorochuFrames:		INCLUDE "gfx/pokemon/gorochu/frames.asm"
 

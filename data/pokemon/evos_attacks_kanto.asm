@@ -336,7 +336,6 @@ WartortleEvosAttacks:
 
 BlastoiseEvosAttacks:
 	dbww EVOLVE_ITEM, KANTOITE_X, BLASTOISEX
-	dbww EVOLVE_ITEM, KANTOITE_Y, TOTARTLE
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 4, TAIL_WHIP

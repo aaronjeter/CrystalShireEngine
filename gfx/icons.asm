@@ -497,7 +497,7 @@ RaitoraIcon::	INCBIN "gfx/icons/raichu.2bpp"
 AshibombIcon::	INCBIN "gfx/icons/dewgong.2bpp"
 SunbouIcon::	INCBIN "gfx/icons/carvanha.2bpp"
 IkariIcon::		INCBIN "gfx/icons/sharpedo.2bpp"
-TotartleIcon::	INCBIN "gfx/icons/blastoise.2bpp"
+FroslassxIcon::	INCBIN "gfx/icons/froslass.2bpp"
 GorochuIcon::	INCBIN "gfx/icons/raichu.2bpp"
 ;mega
 

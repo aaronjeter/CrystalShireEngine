@@ -973,8 +973,8 @@ PokemonPicPointers::
 	dba SunbouBackpic
 	dba IkariFrontpic
 	dba IkariBackpic
-	dba TotartleFrontpic
-	dba TotartleBackpic
+	dba FroslassxFrontpic
+	dba FroslassxBackpic
 	dba GorochuFrontpic
 	dba GorochuBackpic
 	;mega

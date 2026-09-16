@@ -479,7 +479,7 @@ RaitoraBitmasks:		INCLUDE "gfx/pokemon/raitora/bitmask.asm"
 AshibombBitmasks:		INCLUDE "gfx/pokemon/ashibomb/bitmask.asm"
 SunbouBitmasks:			INCLUDE "gfx/pokemon/sunbou/bitmask.asm"
 IkariBitmasks:			INCLUDE "gfx/pokemon/ikari/bitmask.asm"
-TotartleBitmasks:		INCLUDE "gfx/pokemon/totartle/bitmask.asm"
+FroslassxBitmasks:		INCLUDE "gfx/pokemon/froslassx/bitmask.asm"
 GorochuBitmasks:		INCLUDE "gfx/pokemon/gorochu/bitmask.asm"
 ;mega
 Bayleef2Bitmasks:       INCLUDE "gfx/pokemon/bayleef2/bitmask.asm"
