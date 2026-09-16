@@ -176,7 +176,16 @@ PowerPlantManager:
 	setevent EVENT_GOT_TM07_ZAP_CANNON
 	writetext PowerPlantManagerTM07IsZapCannonText
 	waitbutton
+
+	checkitem LANTERN
+	iftrue .done
+
+	writetext PowerPlantManagerGiveLanternText
+	waitbutton
+	verbosegiveitem LANTERN
+	
 .NoRoom:
+.done:
 	closetext
 	end
 
@@ -376,6 +385,16 @@ PowerPlantManagerTM07IsZapCannonText:
 
 	para "accurate, but it"
 	line "packs a wallop!"
+	done
+
+PowerPlantManagerGiveLanternText:
+	text "Ah, and you may"
+	line "find use for this"
+	cont "Lantern as well!"
+
+	para "If you choose to"
+	line "brave the Rock"
+	cont "Tunnel, that is..."
 	done
 
 PowerPlantManagerMyBelovedGeneratorText:
