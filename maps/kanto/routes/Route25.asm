@@ -25,6 +25,9 @@ Route25Noop2Scene:
 	end
 
 Route25MistyDate1Script:
+	checkevent EVENT_TRAINERS_IN_CERULEAN_GYM
+	iffalse .done
+
 	showemote EMOTE_HEART, ROUTE25_MISTY, 15
 	pause 30
 	showemote EMOTE_SHOCK, ROUTE25_COOLTRAINER_M1, 10
@@ -48,9 +51,13 @@ Route25MistyDate1Script:
 	clearevent EVENT_TRAINERS_IN_CERULEAN_GYM
 	setscene SCENE_ROUTE25_NOOP
 	special RestartMapMusic
+.done
 	end
 
 Route25MistyDate2Script:
+	checkevent EVENT_TRAINERS_IN_CERULEAN_GYM
+	iffalse .done
+
 	showemote EMOTE_HEART, ROUTE25_MISTY, 15
 	pause 30
 	showemote EMOTE_SHOCK, ROUTE25_COOLTRAINER_M1, 10
@@ -74,6 +81,7 @@ Route25MistyDate2Script:
 	clearevent EVENT_TRAINERS_IN_CERULEAN_GYM
 	setscene SCENE_ROUTE25_NOOP
 	special RestartMapMusic
+.done
 	end
 
 TrainerSchoolboyDudley:
@@ -250,11 +258,10 @@ Route25MistyDateText:
 	line "me right, pest!"
 
 	para "…"
+	line "…Oh? The Badge?"
 
-	para "…Oh? Those Badges"
-	line "you have…"
-
-	para "You must be good."
+	para "A Gym challenger"
+	line "is different."
 
 	para "OK, then. Come to"
 	line "Cerulean Gym."
@@ -428,8 +435,8 @@ Route25_MapEvents:
 	warp_event 47,  5, BILLS_HOUSE, 1
 
 	def_coord_events
-	coord_event 42,  6, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate1Script
-	coord_event 42,  7, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate2Script
+	coord_event 42,  6, -1, Route25MistyDate1Script
+	coord_event 42,  7, -1, Route25MistyDate2Script
 
 	def_bg_events
 	bg_event 45,  5, BGEVENT_READ, BillsHouseSign
