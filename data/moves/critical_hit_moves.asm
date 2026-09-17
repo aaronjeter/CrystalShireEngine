@@ -8,4 +8,5 @@ CriticalHitMoves:
 	dw CROSS_CHOP
 	dw SHADOW_CLAW
 	dw PSYCHO_CUT
+	dw NIGHT_SLASH
 	dw -1

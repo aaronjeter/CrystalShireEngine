@@ -343,6 +343,7 @@ MoveDescriptionsGen2:
 	dw SwitchHitDescription
 	dw SwitchHitDescription
 	dw SwitchHitDescription
+	dw NightSlashDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -997,6 +998,7 @@ SuperFangDescription:
 	next "by 1/2.@"
 
 SlashDescription:
+NightSlashDescription:
 	db   "Has a high criti-"
 	next "cal hit ratio.@"
 

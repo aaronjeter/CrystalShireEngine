@@ -34,4 +34,5 @@ SharpMoves::
 	dw RAZORSHELL
 	dw AIR_CUTTER
 	dw AERIAL_ACE
+	dw NIGHT_SLASH
 	dw -1

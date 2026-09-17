@@ -341,6 +341,7 @@ DEF GEN1_MOVES EQU const_value - 1
 	const VOLT_SWITCH
 	const U_TURN
 	const FLIP_TURN
+	const NIGHT_SLASH
 
 DEF GEN2_MOVES EQU const_value - 1
 

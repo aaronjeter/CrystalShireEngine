@@ -336,4 +336,5 @@ MoveNames::
 	li "Volt Switch"
 	li "U-Turn"
 	li "Flip Turn"
+	li "Night Slash"
 	assert_list_length NUM_ATTACKS
