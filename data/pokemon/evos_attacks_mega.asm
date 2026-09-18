@@ -231,14 +231,15 @@ BeedrillxEvosAttacks:
 	dbw 16, RAGE
 	dbw 20, LEER
 	dbw 24, TWINEEDLE
-	dbw 28, FAINT_ATTACK
+	dbw 28, PURSUIT
 	dbw 32, MEAN_LOOK
 	dbw 36, DRAGON_DANCE
-	dbw 40, PURSUIT
+	dbw 40, NIGHT_SLASH
 	dbw 45, PIN_MISSILE	
 	dbw 50, SLUDGE_BOMB
 	dbw 55, TOXIC
 	dbw 60, MEGAHORN
+	dbw 65, EXTREMESPEED
 	dbw 70, SWORDS_DANCE
 	dbw 75, BEAT_UP
 	db 0 ; no more level-up moves
@@ -314,8 +315,8 @@ PinsirxEvosAttacks:
 	dbw 24, TWINEEDLE
 	dbw 28, HARDEN
 	dbw 36, SLASH
-	dbw 40, PURSUIT
-	dbw 45, MEGAHORN
+	dbw 40, MEGAHORN 
+	dbw 45, PURSUIT
 	dbw 50, DRAGON_DANCE
 	dbw 55, SUBMISSION
 	dbw 60, GUILLOTINE	
@@ -411,13 +412,14 @@ ScizorxEvosAttacks:
 	dbw 6, FOCUS_ENERGY
 	dbw 12, BITE
 	dbw 18, FALSE_SWIPE
-	dbw 24, WING_ATTACK
+	dbw 24, AERIAL_ACE
 	dbw 28, AGILITY
 	dbw 32, FURY_CUTTER
-	dbw 36, RAZOR_WIND
+	dbw 36, PURSUIT
 	dbw 40, VICEGRIP	
-	dbw 45, SWORDS_DANCE
-	dbw 50, LEAF_BLADE
+	dbw 45, LEAF_BLADE
+	dbw 42, NIGHT_SLASH	
+	dbw 50, SWORDS_DANCE	
 	dbw 55, DOUBLE_TEAM	
 	dbw 60, SKY_ATTACK
 	dbw 65, PSYCHO_CUT
@@ -558,7 +560,8 @@ AbsolxEvosAttacks:
 	dbw 28, SWORDS_DANCE
 	dbw 32, DOUBLE_TEAM
 	dbw 36, SLASH
-	dbw 40, PURSUIT	
+	dbw 40, PURSUIT
+	dbw 42, NIGHT_SLASH
 	dbw 45, PLAY_ROUGH
 	dbw 50, DRAGON_DANCE
 	dbw 55, PERISH_SONG	

@@ -569,8 +569,8 @@ SeedotEvosAttacks:
 	dbw 32, SUNNY_DAY
 	dbw 36, RAZOR_WIND
 	dbw 40, NATURE_POWER
-	dbw 45, EXTRASENSORY
-	dbw 50, SWAGGER
+	dbw 45, NIGHT_SLASH
+	dbw 50, EXTRASENSORY
 	dbw 55, LEAF_BLADE
 	dbw 60, SOLARBEAM
 	dbw 65, PURSUIT
@@ -590,8 +590,8 @@ NuzleafEvosAttacks:
 	dbw 32, SUNNY_DAY
 	dbw 36, RAZOR_WIND
 	dbw 40, NATURE_POWER
-	dbw 45, EXTRASENSORY
-	dbw 50, SWAGGER
+	dbw 45, NIGHT_SLASH
+	dbw 50, EXTRASENSORY
 	dbw 55, LEAF_BLADE
 	dbw 60, SOLARBEAM
 	dbw 65, PURSUIT
@@ -610,8 +610,8 @@ ShiftryEvosAttacks:
 	dbw 32, SUNNY_DAY
 	dbw 36, RAZOR_WIND
 	dbw 40, NATURE_POWER
-	dbw 45, EXTRASENSORY
-	dbw 50, SWAGGER
+	dbw 45, NIGHT_SLASH
+	dbw 50, EXTRASENSORY
 	dbw 55, LEAF_BLADE
 	dbw 60, SOLARBEAM
 	dbw 65, PURSUIT
@@ -1193,8 +1193,8 @@ SableyeEvosAttacks:
 	dbw 24, CONFUSE_RAY
 	dbw 28, RECOVER
 	dbw 30, SHADOWSNEAK
-	dbw 32, SHADOW_BALL
-	dbw 36, PURSUIT
+	dbw 32, PURSUIT
+	dbw 36, SHADOW_BALL	
 	dbw 40, MEAN_LOOK
 	dbw 42, DESTINY_BOND
 	dbw 45, COSMIC_POWER
@@ -1791,6 +1791,7 @@ CacneaEvosAttacks:
 	dbw 28, ROCK_TOMB
 	dbw 32, SANDSTORM
 	dbw 40, PURSUIT
+	dbw 42, NIGHT_SLASH
 	dbw 45, LEAF_BLADE
 	dbw 50, GIGA_DRAIN	
 	dbw 55, SOLARBEAM	
@@ -1812,6 +1813,7 @@ CacturneEvosAttacks:
 	dbw 28, ROCK_TOMB
 	dbw 32, SANDSTORM
 	dbw 40, PURSUIT
+	dbw 42, NIGHT_SLASH
 	dbw 45, LEAF_BLADE
 	dbw 50, GIGA_DRAIN	
 	dbw 55, SOLARBEAM	
@@ -1876,6 +1878,7 @@ ZangooseEvosAttacks:
 	dbw 28, DETECT
 	dbw 36, CRUSH_CLAW	
 	dbw 40, PURSUIT
+	dbw 42, NIGHT_SLASH
 	dbw 45, SLASH
 	dbw 50, BEAT_UP
 	dbw 55, AGILITY
@@ -2004,6 +2007,7 @@ CorphishEvosAttacks:
 	dbw 32, PROTECT
 	dbw 36, CURSE
 	dbw 40, RAZORSHELL
+	dbw 42, NIGHT_SLASH
 	dbw 45, PURSUIT	
 	dbw 50, CRABHAMMER
 	dbw 55, AMNESIA
@@ -2025,6 +2029,7 @@ CrawdauntEvosAttacks:
 	dbw 32, PROTECT
 	dbw 36, CURSE
 	dbw 40, RAZORSHELL
+	dbw 42, NIGHT_SLASH
 	dbw 45, PURSUIT	
 	dbw 50, CRABHAMMER
 	dbw 55, AMNESIA
@@ -2230,6 +2235,7 @@ ShuppetEvosAttacks:
 	dbw 32, DESTINY_BOND
 	dbw 36, PURSUIT
 	dbw 40, PSYCHO_CUT
+	dbw 42, NIGHT_SLASH
 	dbw 45, DRAGON_DANCE
 	dbw 50, MEAN_LOOK
 	dbw 55, RECOVER
@@ -2253,6 +2259,7 @@ BanetteEvosAttacks:
 	dbw 32, DESTINY_BOND
 	dbw 36, PURSUIT
 	dbw 40, PSYCHO_CUT
+	dbw 42, NIGHT_SLASH
 	dbw 45, DRAGON_DANCE
 	dbw 50, MEAN_LOOK
 	dbw 55, RECOVER
@@ -2277,6 +2284,7 @@ DuskullEvosAttacks:
 	dbw 32, COSMIC_POWER
 	dbw 36, PURSUIT
 	dbw 40, SHADOW_BALL
+	dbw 42, NIGHT_SLASH
 	dbw 45, PSYCHO_CUT
 	dbw 50, DRAGON_DANCE
 	dbw 55, MEAN_LOOK
@@ -2301,6 +2309,7 @@ DusclopsEvosAttacks:
 	dbw 32, COSMIC_POWER
 	dbw 36, PURSUIT
 	dbw 40, SHADOW_BALL
+	dbw 42, NIGHT_SLASH
 	dbw 45, PSYCHO_CUT
 	dbw 50, DRAGON_DANCE
 	dbw 55, MEAN_LOOK
@@ -2366,6 +2375,7 @@ AbsolEvosAttacks:
 	dbw 32, DOUBLE_TEAM
 	dbw 36, SLASH
 	dbw 40, PURSUIT	
+	dbw 42, NIGHT_SLASH
 	dbw 45, PLAY_ROUGH
 	dbw 50, DRAGON_DANCE
 	dbw 55, PERISH_SONG	

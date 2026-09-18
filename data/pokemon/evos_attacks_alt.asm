@@ -238,6 +238,7 @@ GalladeEvosAttacks:
 	dbw 32, PSYCHO_CUT
 	dbw 36, SWORDS_DANCE
 	dbw 40, SLASH
+	dbw 42, NIGHT_SLASH
 	dbw 45, CROSS_CHOP
 	dbw 50, RECOVER
 	dbw 55, LEAF_BLADE
@@ -296,16 +297,16 @@ WeavileEvosAttacks:
 	dbw 16, ICE_PUNCH	
 	dbw 20, FAINT_ATTACK
 	dbw 24, MACH_PUNCH
-	dbw 28, FURY_SWIPES
+	dbw 28, PURSUIT
 	dbw 32, PSYCHO_CUT
 	dbw 36, SWORDS_DANCE
 	dbw 40, ICICLE_CRASH
-	dbw 45, PURSUIT
+	dbw 45, NIGHT_SLASH
 	dbw 50, SLASH
 	dbw 55, ICICLE_SPEAR
 	dbw 60, BEAT_UP
 	dbw 65, AGILITY
-	dbw 70, SCREECH	
+	dbw 70, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 MagnezoneEvosAttacks:
@@ -401,8 +402,8 @@ WyrdeerEvosAttacks:
 	dbw 40, PSYCHIC_M
 	dbw 45, DREAM_EATER
 	dbw 50, SWORDS_DANCE
-	dbw 50, MEDITATE	
-	dbw 60, PURSUIT
+	dbw 55, MEDITATE	
+	dbw 60, HEX
 	dbw 65, MEGAHORN
 	dbw 70, EARTHPOWER
 	db 0 ; no more level-up moves
@@ -459,10 +460,11 @@ KleavorEvosAttacks:
 	dbw 24, ROCK_TOMB
 	dbw 28, AGILITY
 	dbw 32, FURY_CUTTER	
-	dbw 36, RAZOR_WIND
+	dbw 36, AERIAL_ACE
 	dbw 40, ROCK_SLIDE
-	dbw 45, SWORDS_DANCE
-	dbw 50, LEAF_BLADE
+	dbw 42, NIGHT_SLASH	
+	dbw 45, LEAF_BLADE
+	dbw 50, SWORDS_DANCE	
 	dbw 55, DOUBLE_TEAM
 	dbw 60, STONE_EDGE
 	dbw 65, SHADOW_CLAW
@@ -850,13 +852,13 @@ AdiglettEvosAttacks:
 	dbw 16, SHARPEN
 	dbw 20, DIG
 	dbw 24, ROCK_TOMB
-	dbw 28, SLAM	
+	dbw 28, PURSUIT	
 	dbw 32, TRI_ATTACK	
 	dbw 36, SPIKE_CANNON
 	dbw 40, EARTHQUAKE
 	dbw 45, VICEGRIP	
 	dbw 50, SWORDS_DANCE
-	dbw 55, PURSUIT
+	dbw 55, NIGHT_SLASH
 	dbw 60, FISSURE
 	dbw 65, STONE_EDGE
 	dbw 70, MUDDY_WATER
@@ -871,13 +873,13 @@ AdugtrioEvosAttacks:
 	dbw 16, SHARPEN
 	dbw 20, DIG
 	dbw 24, ROCK_TOMB
-	dbw 28, SLAM	
+	dbw 28, PURSUIT	
 	dbw 32, TRI_ATTACK	
 	dbw 36, SPIKE_CANNON
 	dbw 40, EARTHQUAKE
 	dbw 45, VICEGRIP	
 	dbw 50, SWORDS_DANCE
-	dbw 55, PURSUIT
+	dbw 55, NIGHT_SLASH
 	dbw 60, FISSURE
 	dbw 65, STONE_EDGE
 	dbw 70, MUDDY_WATER
@@ -1099,17 +1101,18 @@ Scyther2EvosAttacks:
 	dbw 6, FOCUS_ENERGY
 	dbw 12, BITE
 	dbw 18, FALSE_SWIPE
-	dbw 24, WING_ATTACK
+	dbw 24, AERIAL_ACE
 	dbw 28, AGILITY
 	dbw 32, FURY_CUTTER
-	dbw 36, RAZOR_WIND
-	dbw 40, SLASH	
-	dbw 45, SWORDS_DANCE
-	dbw 50, LEAF_BLADE
+	dbw 36, PURSUIT
+	dbw 40, SLASH
+	dbw 42, NIGHT_SLASH	
+	dbw 45, LEAF_BLADE
+	dbw 50, SWORDS_DANCE
 	dbw 55, DOUBLE_TEAM	
 	dbw 60, SKY_ATTACK
 	dbw 65, PSYCHO_CUT
-	dbw 70, AERIAL_ACE
+	dbw 70, EXTREMESPEED
 	db 0 ; no more level-up moves
 
 Scizor2EvosAttacks:
@@ -1120,13 +1123,14 @@ Scizor2EvosAttacks:
 	dbw 6, FOCUS_ENERGY
 	dbw 12, BITE
 	dbw 18, FALSE_SWIPE
-	dbw 24, WING_ATTACK
+	dbw 24, AERIAL_ACE
 	dbw 28, AGILITY
 	dbw 32, FURY_CUTTER
-	dbw 36, RAZOR_WIND
+	dbw 36, PURSUIT
 	dbw 40, VICEGRIP	
-	dbw 45, SWORDS_DANCE
-	dbw 50, LEAF_BLADE
+	dbw 45, LEAF_BLADE
+	dbw 42, NIGHT_SLASH	
+	dbw 50, SWORDS_DANCE	
 	dbw 55, DOUBLE_TEAM	
 	dbw 60, SKY_ATTACK
 	dbw 65, PSYCHO_CUT
@@ -1747,6 +1751,7 @@ DusknoirEvosAttacks:
 	dbw 32, COSMIC_POWER
 	dbw 36, PURSUIT
 	dbw 40, SHADOW_BALL
+	dbw 42, NIGHT_SLASH
 	dbw 45, PSYCHO_CUT
 	dbw 50, DRAGON_DANCE
 	dbw 55, MEAN_LOOK
@@ -1827,6 +1832,7 @@ SirfetchdEvosAttacks:
 	dbw 32, BRICK_BREAK
 	dbw 36, SWORDS_DANCE
 	dbw 40, CROSS_CHOP
+	dbw 42, NIGHT_SLASH
 	dbw 45, LEAF_BLADE		
 	dbw 50, SLASH
 	dbw 55, SKY_ATTACK
@@ -1961,7 +1967,7 @@ Cyndaquil2EvosAttacks:
 	dbw 32, SLAM
 	dbw 36, DRAGON_DANCE
 	dbw 40, FLAME_WHEEL
-	dbw 45, PURSUIT
+	dbw 45, NIGHT_SLASH
 	dbw 50, FLAMETHROWER
 	dbw 55, OUTRAGE
 	dbw 60, FIRE_BLAST
@@ -1983,7 +1989,7 @@ Quilava2EvosAttacks:
 	dbw 32, SLAM
 	dbw 36, DRAGON_DANCE
 	dbw 40, FLAME_WHEEL
-	dbw 45, PURSUIT
+	dbw 45, NIGHT_SLASH
 	dbw 50, FLAMETHROWER
 	dbw 55, OUTRAGE
 	dbw 60, FIRE_BLAST
@@ -2004,7 +2010,7 @@ Typhlosion2EvosAttacks:
 	dbw 32, SLAM
 	dbw 36, DRAGON_DANCE
 	dbw 40, FLAME_WHEEL
-	dbw 45, PURSUIT
+	dbw 45, NIGHT_SLASH
 	dbw 50, FLAMETHROWER
 	dbw 55, OUTRAGE
 	dbw 60, FIRE_BLAST

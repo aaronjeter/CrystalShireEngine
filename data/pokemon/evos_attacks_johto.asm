@@ -683,9 +683,9 @@ NatuEvosAttacks:
 	dbw 40, PSYCHIC_M	
 	dbw 45, DARK_PULSE	
 	dbw 50, DRILL_PECK
-	dbw 55, WILLOWISP
-	dbw 60, PURSUIT
+	dbw 55, WILLOWISP	
 	dbw 60, HURRICANE
+	dbw 65, PURSUIT
 	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
@@ -703,9 +703,9 @@ XatuEvosAttacks:
 	dbw 40, PSYCHIC_M	
 	dbw 45, DARK_PULSE	
 	dbw 50, DRILL_PECK
-	dbw 55, WILLOWISP
-	dbw 60, PURSUIT
+	dbw 55, WILLOWISP	
 	dbw 60, HURRICANE
+	dbw 65, PURSUIT
 	dbw 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
@@ -1397,13 +1397,14 @@ ScizorEvosAttacks:
 	dbw 6, FOCUS_ENERGY
 	dbw 12, BITE
 	dbw 18, FALSE_SWIPE
-	dbw 24, WING_ATTACK
+	dbw 24, AERIAL_ACE
 	dbw 28, AGILITY
 	dbw 32, FURY_CUTTER
-	dbw 36, RAZOR_WIND
+	dbw 36, PURSUIT
 	dbw 40, VICEGRIP	
-	dbw 45, SWORDS_DANCE
-	dbw 50, LEAF_BLADE
+	dbw 45, LEAF_BLADE
+	dbw 42, NIGHT_SLASH	
+	dbw 50, SWORDS_DANCE	
 	dbw 55, DOUBLE_TEAM	
 	dbw 60, SKY_ATTACK
 	dbw 65, PSYCHO_CUT
@@ -1458,16 +1459,16 @@ SneaselEvosAttacks:
 	dbw 16, ICE_PUNCH	
 	dbw 20, FAINT_ATTACK
 	dbw 24, MACH_PUNCH
-	dbw 28, FURY_SWIPES
+	dbw 28, PURSUIT
 	dbw 32, PSYCHO_CUT
 	dbw 36, SWORDS_DANCE
 	dbw 40, ICICLE_CRASH
-	dbw 45, PURSUIT
+	dbw 45, NIGHT_SLASH
 	dbw 50, SLASH
 	dbw 55, ICICLE_SPEAR
 	dbw 60, BEAT_UP
 	dbw 65, AGILITY
-	dbw 70, SCREECH	
+	dbw 70, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 TeddiursaEvosAttacks:
@@ -1856,8 +1857,8 @@ StantlerEvosAttacks:
 	dbw 40, PSYCHIC_M
 	dbw 45, DREAM_EATER
 	dbw 50, SWORDS_DANCE
-	dbw 50, MEDITATE	
-	dbw 60, PURSUIT
+	dbw 55, MEDITATE	
+	dbw 60, HEX
 	dbw 65, MEGAHORN
 	dbw 70, EARTHPOWER
 	db 0 ; no more level-up moves
@@ -1897,8 +1898,9 @@ HitmontopEvosAttacks:
 	dbw 24, ROLLING_KICK
 	dbw 28, FAINT_ATTACK
 	dbw 32, DIG
-	dbw 36, PURSUIT
-	dbw 40, TRIPLE_KICK
+	dbw 36, TRIPLE_KICK
+	dbw 40, BLAZE_KICK
+	dbw 42, PURSUIT
 	dbw 45, BULK_UP
 	dbw 50, COUNTER
 	dbw 55, BATON_PASS

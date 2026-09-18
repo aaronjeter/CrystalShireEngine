@@ -415,14 +415,15 @@ BeedrillEvosAttacks:
 	dbw 16, RAGE
 	dbw 20, LEER
 	dbw 24, TWINEEDLE
-	dbw 28, FAINT_ATTACK
+	dbw 28, PURSUIT
 	dbw 32, MEAN_LOOK
 	dbw 36, DRAGON_DANCE
-	dbw 40, PURSUIT
+	dbw 40, NIGHT_SLASH
 	dbw 45, PIN_MISSILE	
 	dbw 50, SLUDGE_BOMB
 	dbw 55, TOXIC
 	dbw 60, MEGAHORN
+	dbw 65, EXTREMESPEED
 	dbw 70, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
@@ -1050,7 +1051,7 @@ OddishEvosAttacks:
 	dbw 45, PURSUIT
 	dbw 50, PETAL_DANCE
 	dbw 55, TOXIC
-	dbw 60, PURSUIT
+	dbw 60, BEAT_UP
 	dbw 65, SAFEGUARD
 	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
@@ -1074,7 +1075,7 @@ GloomEvosAttacks:
 	dbw 45, PURSUIT
 	dbw 50, PETAL_DANCE
 	dbw 55, TOXIC
-	dbw 60, PURSUIT
+	dbw 60, BEAT_UP
 	dbw 65, SAFEGUARD
 	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
@@ -1095,7 +1096,7 @@ VileplumeEvosAttacks:
 	dbw 45, PURSUIT
 	dbw 50, PETAL_DANCE
 	dbw 55, TOXIC
-	dbw 60, PURSUIT
+	dbw 60, BEAT_UP
 	dbw 65, SAFEGUARD
 	dbw 70, FRENZY_PLANT
 	db 0 ; no more level-up moves
@@ -1196,13 +1197,13 @@ DiglettEvosAttacks:
 	dbw 16, SHARPEN
 	dbw 20, DIG
 	dbw 24, ROCK_TOMB
-	dbw 28, SLAM	
+	dbw 28, PURSUIT	
 	dbw 32, MEAN_LOOK	
 	dbw 36, TRI_ATTACK
 	dbw 40, EARTHQUAKE
 	dbw 45, ROCK_SLIDE	
 	dbw 50, SWORDS_DANCE
-	dbw 55, PURSUIT
+	dbw 55, NIGHT_SLASH
 	dbw 60, FISSURE
 	dbw 65, STONE_EDGE
 	dbw 70, MUDDY_WATER
@@ -1217,13 +1218,13 @@ DugtrioEvosAttacks:
 	dbw 16, SHARPEN
 	dbw 20, DIG
 	dbw 24, ROCK_TOMB
-	dbw 28, SLAM	
+	dbw 28, PURSUIT	
 	dbw 32, MEAN_LOOK	
 	dbw 36, TRI_ATTACK
 	dbw 40, EARTHQUAKE
 	dbw 45, ROCK_SLIDE	
 	dbw 50, SWORDS_DANCE
-	dbw 55, PURSUIT
+	dbw 55, NIGHT_SLASH
 	dbw 60, FISSURE
 	dbw 65, STONE_EDGE
 	dbw 70, MUDDY_WATER
@@ -1912,6 +1913,7 @@ FarfetchDEvosAttacks:
 	dbw 32, BRICK_BREAK
 	dbw 36, SWORDS_DANCE
 	dbw 40, CROSS_CHOP
+	dbw 42, NIGHT_SLASH
 	dbw 45, LEAF_BLADE		
 	dbw 50, SLASH
 	dbw 55, SKY_ATTACK
@@ -2761,17 +2763,18 @@ ScytherEvosAttacks:
 	dbw 6, FOCUS_ENERGY
 	dbw 12, BITE
 	dbw 18, FALSE_SWIPE
-	dbw 24, WING_ATTACK
+	dbw 24, AERIAL_ACE
 	dbw 28, AGILITY
 	dbw 32, FURY_CUTTER
-	dbw 36, RAZOR_WIND
-	dbw 40, SLASH	
-	dbw 45, SWORDS_DANCE
-	dbw 50, LEAF_BLADE
+	dbw 36, PURSUIT
+	dbw 40, SLASH
+	dbw 42, NIGHT_SLASH	
+	dbw 45, LEAF_BLADE
+	dbw 50, SWORDS_DANCE
 	dbw 55, DOUBLE_TEAM	
 	dbw 60, SKY_ATTACK
 	dbw 65, PSYCHO_CUT
-	dbw 70, AERIAL_ACE
+	dbw 70, EXTREMESPEED
 	db 0 ; no more level-up moves
 
 JynxEvosAttacks:
@@ -2847,8 +2850,8 @@ PinsirEvosAttacks:
 	dbw 24, TWINEEDLE
 	dbw 28, HARDEN
 	dbw 36, SLASH
-	dbw 40, PURSUIT
-	dbw 45, MEGAHORN
+	dbw 40, MEGAHORN 
+	dbw 45, PURSUIT
 	dbw 50, DRAGON_DANCE
 	dbw 55, SUBMISSION
 	dbw 60, GUILLOTINE	
@@ -3218,11 +3221,11 @@ MoltresEvosAttacks:
 	dbw 24, WING_ATTACK
 	dbw 28, AGILITY
 	dbw 32, FIRE_SPIN
-	dbw 36, FAINT_ATTACK
+	dbw 36, PURSUIT
 	dbw 40, ENDURE
 	dbw 45, DRILL_PECK
 	dbw 50, FLAMETHROWER
-	dbw 55, PURSUIT
+	dbw 55, NIGHT_SLASH
 	dbw 60, FIRE_BLAST
 	dbw 65, SOLARBEAM
 	dbw 70, SKY_ATTACK

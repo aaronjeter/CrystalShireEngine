@@ -256,7 +256,7 @@ MovesGen2:
 	move EFFECT_PARALYZE_HIT,       80, DRAGON,         SPECIAL,		100, 15,  25      ;DRAGONBREATH
 	move EFFECT_BATON_PASS,          0, NORMAL,         STATUS,			100, 40,   0      ;BATON_PASS
 	move EFFECT_ENCORE,              0, NORMAL,         STATUS,			100,  5,   0      ;ENCORE
-	move EFFECT_PURSUIT,            80, DARK,           PHYSICAL,		100, 15,   0      ;PURSUIT
+	move EFFECT_PURSUIT,            60, DARK,           PHYSICAL,		100, 15,   0      ;PURSUIT
 	move EFFECT_RAPID_SPIN,         60, NORMAL,         PHYSICAL,		100, 20,   0      ;RAPID_SPIN
 	move EFFECT_EVASION_DOWN,        0, NORMAL,         STATUS,			100, 20,   0      ;SWEET_SCENT
 	move EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,          PHYSICAL,		 90, 15,  30      ;IRON_TAIL
