@@ -1,7 +1,7 @@
 	object_const_def
-	const ROUTE6SAFFRONGATE_OFFICER
+	const SAFFRONSOUTHGATE_OFFICER
 
-Route6SaffronGate_MapScripts:
+SaffronSouthGate_MapScripts:
 	def_scene_scripts
 	scene_script Route6SaffronGateNoopScene ; unusable
 
@@ -10,23 +10,23 @@ Route6SaffronGate_MapScripts:
 Route6SaffronGateNoopScene:
 	end
 
-Route6SaffronGuardScript:
+SaffronSouthGateGuardScript:
 	faceplayer
 	opentext
 	checkevent EVENT_RETURNED_MACHINE_PART
 	iftrue .ReturnedPart
-	writetext Route6SaffronGuardWelcomeText
+	writetext SaffronSouthGateGuardWelcomeText
 	waitbutton
 	closetext
 	end
 
 .ReturnedPart:
-	writetext Route6SaffronGuardMagnetTrainText
+	writetext SaffronSouthGateGuardMagnetTrainText
 	waitbutton
 	closetext
 	end
 
-Route6SaffronGuardWelcomeText:
+SaffronSouthGateGuardWelcomeText:
 	text "Welcome to Saffron"
 	line "City, home of the"
 	cont "Magnet Train!"
@@ -47,7 +47,7 @@ Route6SaffronGuardWelcomeText:
 	line "Plant."
 	done
 
-Route6SaffronGuardMagnetTrainText:
+SaffronSouthGateGuardMagnetTrainText:
 	text "The Magnet Train"
 	line "is the most famous"
 
@@ -55,7 +55,7 @@ Route6SaffronGuardMagnetTrainText:
 	line "fron."
 	done
 
-Route6SaffronGate_MapEvents:
+SaffronSouthGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
@@ -69,4 +69,4 @@ Route6SaffronGate_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  0,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route6SaffronGuardScript, -1
+	object_event  0,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronSouthGateGuardScript, -1

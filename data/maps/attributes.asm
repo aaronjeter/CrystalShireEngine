@@ -557,7 +557,7 @@ ENDM
 	map_attributes VermilionMart, VERMILION_MART, $00, 0
 	map_attributes VermilionDiglettsCaveSpeechHouse, VERMILION_DIGLETTS_CAVE_SPEECH_HOUSE, $00, 0
 	map_attributes VermilionGym, VERMILION_GYM, $00, 0
-	map_attributes Route6SaffronGate, ROUTE_6_SAFFRON_GATE, $00, 0
+	map_attributes SaffronSouthGate, SAFFRON_SOUTH_GATE, $00, 0
 	map_attributes Route6UndergroundPathEntrance, ROUTE_6_UNDERGROUND_PATH_ENTRANCE, $00, 0
 	map_attributes RedsHouse1F, REDS_HOUSE_1F, $00, 0
 	map_attributes RedsHouse2F, REDS_HOUSE_2F, $00, 0
@@ -603,7 +603,7 @@ ENDM
 	map_attributes LavenderMart, LAVENDER_MART, $00, 0
 	map_attributes SoulHouse, SOUL_HOUSE, $00, 0
 	map_attributes LavRadioTower1F, LAV_RADIO_TOWER_1F, $00, 0
-	map_attributes Route8SaffronGate, ROUTE_8_SAFFRON_GATE, $00, 0
+	map_attributes SaffronEastGate, SAFFRON_EAST_GATE, $00, 0
 	map_attributes Route12SuperRodHouse, ROUTE_12_SUPER_ROD_HOUSE, $00, 0
 	map_attributes SilverCavePokecenter1F, SILVER_CAVE_POKECENTER_1F, $00, 0
 	map_attributes Route28SteelWingHouse, ROUTE_28_STEEL_WING_HOUSE, $00, 0
@@ -630,7 +630,7 @@ ENDM
 	map_attributes CeladonCafe, CELADON_CAFE, $00, 0
 	map_attributes Route16FuchsiaSpeechHouse, ROUTE_16_FUCHSIA_SPEECH_HOUSE, $00, 0
 	map_attributes Route16Gate, ROUTE_16_GATE, $00, 0
-	map_attributes Route7SaffronGate, ROUTE_7_SAFFRON_GATE, $00, 0
+	map_attributes SaffronWestGate, SAFFRON_WEST_GATE, $00, 0
 	map_attributes Route17Route18Gate, ROUTE_17_ROUTE_18_GATE, $00, 0
 	map_attributes ManiasHouse, MANIAS_HOUSE, $00, 0
 	map_attributes CianwoodGym, CIANWOOD_GYM, $00, 0
@@ -668,7 +668,7 @@ ENDM
 	map_attributes CopycatsHouse1F, COPYCATS_HOUSE_1F, $00, 0
 	map_attributes CopycatsHouse2F, COPYCATS_HOUSE_2F, $00, 0
 	map_attributes Route5UndergroundPathEntrance, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, $00, 0
-	map_attributes Route5SaffronGate, ROUTE_5_SAFFRON_GATE, $00, 0
+	map_attributes SaffronNorthGate, SAFFRON_NORTH_GATE, $00, 0
 	map_attributes Route5CleanseTagHouse, ROUTE_5_CLEANSE_TAG_HOUSE, $00, 0
 	map_attributes CherrygroveMart, CHERRYGROVE_MART, $00, 0
 	map_attributes CherrygrovePokecenter1F, CHERRYGROVE_POKECENTER_1F, $00, 0

@@ -36,8 +36,8 @@ Route7_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 15,  6, ROUTE_7_SAFFRON_GATE, 1
-	warp_event 15,  7, ROUTE_7_SAFFRON_GATE, 2
+	warp_event 15,  6, SAFFRON_WEST_GATE, 1
+	warp_event 15,  7, SAFFRON_WEST_GATE, 2
 
 	def_coord_events
 

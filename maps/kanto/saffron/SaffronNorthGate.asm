@@ -1,21 +1,21 @@
 	object_const_def
-	const ROUTE5SAFFRONGATE_OFFICER
+	const SAFFRONNORTHGATE_OFFICER
 
-Route5SaffronGate_MapScripts:
+SaffronNorthGate_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-Route5SaffronGateOfficerScript:
-	jumptextfaceplayer Route5SaffronGateOfficerText
+SaffronNorthGateOfficerScript:
+	jumptextfaceplayer SaffronNorthGateGateOfficerText
 
-Route5SaffronGateOfficerText:
+SaffronNorthGateGateOfficerText:
 	text "How do you like"
 	line "Kanto? It's nice,"
 	cont "don't you agree?"
 	done
 
-Route5SaffronGate_MapEvents:
+SaffronNorthGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
@@ -29,4 +29,4 @@ Route5SaffronGate_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  0,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route5SaffronGateOfficerScript, -1
+	object_event  0,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronNorthGateOfficerScript, -1

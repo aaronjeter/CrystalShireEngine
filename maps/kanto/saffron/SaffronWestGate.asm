@@ -1,28 +1,28 @@
 	object_const_def
-	const ROUTE7SAFFRONGATE_OFFICER
+	const SAFFRONWESTGATE_OFFICER
 
-Route7SaffronGate_MapScripts:
+SaffronWestGate_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-Route7SaffronGuardScript:
+SaffronWestGateGuardScript:
 	faceplayer
 	opentext
 	checkevent EVENT_RETURNED_MACHINE_PART
 	iftrue .ReturnedPart
-	writetext Route7SaffronGuardPowerPlantText
+	writetext SaffronWestGateGuardPowerPlantText
 	waitbutton
 	closetext
 	end
 
 .ReturnedPart:
-	writetext Route7SaffronGuardSeriousText
+	writetext SaffronWestGateGuardSeriousText
 	waitbutton
 	closetext
 	end
 
-Route7SaffronGuardPowerPlantText:
+SaffronWestGateGuardPowerPlantText:
 	text "Did you hear about"
 	line "the accident at"
 	cont "the Power Plant?"
@@ -32,7 +32,7 @@ Route7SaffronGuardPowerPlantText:
 	cont "Lavender Town."
 	done
 
-Route7SaffronGuardSeriousText:
+SaffronWestGateGuardSeriousText:
 	text "I take my Guard"
 	line "job seriously."
 
@@ -43,7 +43,7 @@ Route7SaffronGuardSeriousText:
 	line "through."
 	done
 
-Route7SaffronGate_MapEvents:
+SaffronWestGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
@@ -57,4 +57,4 @@ Route7SaffronGate_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route7SaffronGuardScript, -1
+	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronWestGateGuardScript, -1

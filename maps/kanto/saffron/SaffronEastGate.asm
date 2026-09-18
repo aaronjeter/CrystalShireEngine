@@ -1,15 +1,15 @@
 	object_const_def
-	const ROUTE8SAFFRONGATE_OFFICER
+	const SAFFRONEASTGATE_OFFICER
 
-Route8SaffronGate_MapScripts:
+SaffronEastGate_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-Route8SaffronGateOfficerScript:
-	jumptextfaceplayer Route8SaffronGateOfficerText
+SaffronEastGateOfficerScript:
+	jumptextfaceplayer SaffronEastGateOfficerText
 
-Route8SaffronGateOfficerText:
+SaffronEastGateOfficerText:
 	text "Have you been to"
 	line "Lavender Town?"
 
@@ -17,7 +17,7 @@ Route8SaffronGateOfficerText:
 	line "Radio Tower there."
 	done
 
-Route8SaffronGate_MapEvents:
+SaffronEastGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
@@ -31,4 +31,4 @@ Route8SaffronGate_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route8SaffronGateOfficerScript, -1
+	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronEastGateOfficerScript, -1
