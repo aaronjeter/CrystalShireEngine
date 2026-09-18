@@ -204,8 +204,8 @@
 	const EVENT_ANSWERED_DRAGON_MASTER_QUIZ_WRONG
 
 ; Unused: next 6 events
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_SAFFRON_CITY_OPEN
+	const EVENT_SAFFRON_CITY_SAFE
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

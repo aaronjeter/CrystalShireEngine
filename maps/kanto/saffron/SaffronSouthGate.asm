@@ -55,6 +55,45 @@ SaffronSouthGateGuardMagnetTrainText:
 	line "fron."
 	done
 
+
+SaffronSouthGateOfficerBlocksText:
+	text "I'm sorry, but"
+	line "Saffron City is"
+	cont "currently on"
+	cont "lockdown."
+
+	para "It sounds like"
+	line "something from"
+	cont "Silph Co broke"
+	cont "containment."
+
+	para "Sounds kind of"
+	line "scary, actually..."
+	done
+
+SaffronSouthGateBlockScript:
+	checkevent EVENT_SAFFRON_CITY_OPEN
+	iftrue .done
+
+	showemote EMOTE_SHOCK, SAFFRONSOUTHGATE_OFFICER, 10
+
+	opentext
+	writetext SaffronSouthGateOfficerBlocksText
+	waitbutton
+	closetext
+
+	turnobject PLAYER, DOWN
+	applymovement PLAYER, SaffronSouthGate_StepDownMovement
+	
+	.done 
+	end
+
+SaffronSouthGate_StepDownMovement:
+	step DOWN
+	step DOWN
+	step_end
+
+
 SaffronSouthGate_MapEvents:
 	db 0, 0 ; filler
 
@@ -65,6 +104,12 @@ SaffronSouthGate_MapEvents:
 	warp_event  5,  7, ROUTE_6, 2
 
 	def_coord_events
+	coord_event  02, 04, -1, SaffronSouthGateBlockScript
+	coord_event  03, 04, -1, SaffronSouthGateBlockScript
+	coord_event  04, 04, -1, SaffronSouthGateBlockScript
+	coord_event  05, 04, -1, SaffronSouthGateBlockScript
+	coord_event  06, 04, -1, SaffronSouthGateBlockScript
+	coord_event  07, 04, -1, SaffronSouthGateBlockScript
 
 	def_bg_events
 
