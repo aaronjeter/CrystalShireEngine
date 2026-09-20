@@ -722,8 +722,8 @@ SetRegion:
 	db "Johto (Gen 2)@"
 	db "Hoenn (Gen 3)@"
 	db "Alola (Gen 7)@"
-	db "Internet@"
-	db "Spaceworld@"
+	db "Johto (alt)@"
+	db "Beta@"
 
 .RegionKanto:
     ld de, EVENT_ORIGIN_KANTO
