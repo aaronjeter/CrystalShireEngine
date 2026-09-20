@@ -1030,10 +1030,10 @@
 	const EVENT_METEOR_FALLS_MARVEL_SCALE
 	const EVENT_METEOR_FALLS_GOLD_LEAF
 	const EVENT_METEOR_FALLS_SILVER_LEAF
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_MOUNT_MOON_MOONSTONE1
+	const EVENT_MOUNT_MOON_MOONSTONE2
+	const EVENT_MOUNT_MOON_MOONSTONE3
+	const EVENT_MOUNT_MOON_MOONSTONE4
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

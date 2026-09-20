@@ -205,6 +205,9 @@ TrainerMoonMarcosAfterBattleText:
 	cont "City."
 	done
 
+MtMoonMoonstone4:
+	hiddenitem MOON_STONE, EVENT_MOUNT_MOON_MOONSTONE4
+
 
 MtMoon1F_MapEvents:
 	db 0, 0 ; filler
@@ -218,6 +221,8 @@ MtMoon1F_MapEvents:
 	def_coord_events
 
 	def_bg_events	
+	bg_event 4, 4, BGEVENT_ITEM, MtMoonMoonstone4
+
 
 	def_object_events
 	object_event  05, 24, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerMoonKent, -1

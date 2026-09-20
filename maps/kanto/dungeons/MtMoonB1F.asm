@@ -1,11 +1,14 @@
 	object_const_def
+	const MTMOON_MOONSTONE3
+
 
 MtMoonB1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
 
-
+MtMoonMoonstone3:
+	itemball MOON_STONE
 
 MtMoonB1F_MapEvents:
 	db 0, 0 ; filler
@@ -25,3 +28,4 @@ MtMoonB1F_MapEvents:
 	def_bg_events	
 
 	def_object_events
+	object_event  28, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonMoonstone1, EVENT_MOUNT_MOON_MOONSTONE3
