@@ -22,6 +22,7 @@ TrainerMoonMiguel:
 
 .Script:
 	endifjustbattled
+	scall MtMoonLevelcap
 	opentext
 	writetext TrainerMoonMiguelAfterBattleText
 	waitbutton
@@ -29,19 +30,30 @@ TrainerMoonMiguel:
 	end
 
 TrainerMoonMiguelSeenText:
-	text "Hey, do you"
-	line "see any Fossils?"
+	text "Hey, all these"
+	line "Fossils are MINE!"
 	done
 
 TrainerMoonMiguelBeatenText:
-	text "Whew!"
+	text "Ugh, what a waste!"
 	done
 
 TrainerMoonMiguelAfterBattleText:
 	text "I found some"
 	line "Fossils here"
 	cont "a while back."
+
+	para "So I hired some"
+	line "Rockets to secure"
+	cont "the site..."
+
+	para "What a waste of"
+	line "cash..."
 	done
+
+MtMoonLevelcap:
+	jumpstd UpdateWorldLevelsScript
+	end
 
 
 TrainerMoonGrunt1:

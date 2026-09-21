@@ -991,6 +991,14 @@ checkevent EVENT_BEAT_MAUVILLE_ROCKETS
 
 .skipMauvilleRockets
 
+checkevent EVENT_BEAT_MOON_MIGUEL
+	iffalse .skipMtMoonRockets
+	readmem wLevelMod
+	addval 2
+	writemem wLevelMod
+
+.skipMtMoonRockets
+
 .setLevels
 
 	readmem wLevelMod
