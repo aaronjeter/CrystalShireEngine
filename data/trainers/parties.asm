@@ -8227,6 +8227,15 @@ ExplorerGroup:
 	dbw 7, SQUIRTLE
 	db -1 ; end
 
+	next_list_item ; GREEN (3)
+	db "Green@", TRAINERTYPE_NORMAL
+	dbw 7, CLEFAIRY
+	dbw 7, HAUNTER
+	dbw 7, WEEPINBELL
+	dbw 8, FEAROW	
+	dbw 10, WARTORTLE
+	db -1 ; end
+
 	next_list_item ; WC_GREEN (?) World Cup Green
 	db "Green@", TRAINERTYPE_MOVES
 	dbw 12, KANGASKHAN

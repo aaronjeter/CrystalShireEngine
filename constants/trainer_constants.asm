@@ -1006,6 +1006,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass GREEN
 	const GREEN1
 	const GREEN2
+	const GREEN3
 	const WC_GREEN
 
 DEF KRIS EQU __trainer_class__
