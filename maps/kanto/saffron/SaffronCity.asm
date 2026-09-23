@@ -81,6 +81,15 @@ SaffronCityYoungster2Script:
 SaffronCityLass2Script:
 	jumptextfaceplayer SaffronCityLass2Text
 
+SaffronCityTrainGuardScript:
+	jumptextfaceplayer SaffronCityTrainGuardText
+
+SaffronCityGymGuardScript:
+	jumptextfaceplayer SaffronCityGymGuardText
+
+SaffronCitySilphGuardScript:
+	jumptextfaceplayer SaffronCitySilphGuardText
+
 SaffronCitySign:
 	jumptext SaffronCitySignText
 
@@ -226,6 +235,45 @@ SaffronCityLass2Text:
 	cont "too."
 	done
 
+SaffronCityTrainGuardText:
+	text "I'm sorry, but"
+	line "I can't let you"
+	cont "past."
+
+	para "The Magnet Train"
+	line "will be closed"
+	cont "until the city is"
+	cont "safe again."
+	done
+
+SaffronCityGymGuardText:
+	text "I'm sorry, but"
+	line "I can't let you"
+	cont "past."
+
+	para "The Gym Leader,"
+	line "Sabrina, is over"
+	cont "at Silph Co."
+
+	para "Hopefully she can"
+	line "contain the"
+	cont "situation."
+	done
+
+SaffronCitySilphGuardText:
+	text "I'm sorry, but"
+	line "I can't let you"
+	cont "past."
+
+	para "There's been a"
+	line "containment breach"
+	cont "within Silph Co."
+
+	para "It wouldn't be"
+	line "safe for you to"
+	cont "enter."
+	done
+
 SaffronCitySignText:
 	text "Saffron City"
 
@@ -296,11 +344,14 @@ SaffronCity_MapEvents:
 	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSign
 
 	def_object_events
-	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, -1
-	object_event 19, 30, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SaffronCityPokefanMScript, -1
-	object_event 32,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityCooltrainerMScript, -1
-	object_event 20, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityCooltrainerFScript, -1
-	object_event 27, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityFisherScript, -1
-	object_event 15, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster1Script, -1
-	object_event 35, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster2Script, -1
-	object_event 19,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityLass2Script, -1
+	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, EVENT_SAFFRON_CITY_UNSAFE
+	object_event 19, 30, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SaffronCityPokefanMScript, EVENT_SAFFRON_CITY_UNSAFE
+	object_event 32,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityCooltrainerMScript, EVENT_SAFFRON_CITY_UNSAFE
+	object_event 20, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityCooltrainerFScript, EVENT_SAFFRON_CITY_UNSAFE
+	object_event 27, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityFisherScript, EVENT_SAFFRON_CITY_UNSAFE
+	object_event 15, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster1Script, EVENT_SAFFRON_CITY_UNSAFE
+	object_event 35, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster2Script, EVENT_SAFFRON_CITY_UNSAFE
+	object_event 19,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityLass2Script, EVENT_SAFFRON_CITY_UNSAFE
+	object_event 08, 04, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCityTrainGuardScript, EVENT_SAFFRON_CITY_SAFE
+	object_event 34, 04, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCityGymGuardScript, EVENT_SAFFRON_CITY_SAFE
+	object_event 18, 22, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCitySilphGuardScript, EVENT_BEAT_SAFARI_ROCKETS

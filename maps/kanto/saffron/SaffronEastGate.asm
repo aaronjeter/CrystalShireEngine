@@ -53,6 +53,7 @@ SaffronEastGateGreenScript:
 	playsound SFX_ENTER_DOOR
 	disappear SAFFRONEASTGATE_GREEN
 	setevent EVENT_SAFFRON_CITY_OPEN
+	setevent EVENT_SAFFRON_CITY_UNSAFE
 	
 .done	
 	end
@@ -135,23 +136,23 @@ SaffronEastGateGreenText:
 	line "up!"
 
 	para "I'm supposed to be"
-	line "dealing with the"
-	cont "sleeping Snorlax"
-	cont "blocking the route"
-	cont "to Lavender Town."
+	line "investigating"
+	cont "rumors of Team"
+	cont "Rocket activity in"
+	cont "the Safari Zone."
 
-	para "Can you deal with"
-	line "it for me?"
+	para "Can you check in"
+	line "on it for me?"
 
-	para "Just play it a"
-	line "Pokeflute, and"
-	cont "it should wake"
-	cont "right up!"
+	para "It's probably"
+	line "nothing..."
 
-	para "There's a Radio"
-	line "channel for it,"
-	cont "if you don't"
-	cont "have a Flute."
+	para "The Safari Zone"
+	line "is in Fuscia City."
+
+	para "It's down by the"
+	line "Southern coast of"
+	cont "Kanto."
 
 	para "..."
 	line "..."
