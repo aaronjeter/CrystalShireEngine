@@ -28,7 +28,7 @@ BlackthornGym1FBouldersCallback:
 
 BlackthornGymClairScript:
 	faceplayer
-	opentext
+	opendialog CLAIR
 
 	readvar VAR_BADGES
 	ifless 7, .NotWorthy
@@ -39,7 +39,7 @@ BlackthornGymClairScript:
 	iftrue .FightDone
 	writetext ClairIntroText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 3, .Hard
@@ -59,10 +59,10 @@ BlackthornGymClairScript:
 	startbattle
 	reloadmapafterbattle
 
-	opentext
+	opendialog CLAIR
 	writetext ClairText_ThisProvesNothing
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext ClairText_SecondDefeat, 0
 	loadtrainer CLAIR, CLAIR3
@@ -71,10 +71,10 @@ BlackthornGymClairScript:
 
 
 	setevent EVENT_BEAT_CLAIR
-	opentext
+	opendialog CLAIR
 	writetext ClairText_GoToDragonsDen
 	waitbutton
-	closetext
+	closedialog
 	setevent EVENT_BEAT_COOLTRAINERM_PAUL
 	setevent EVENT_BEAT_COOLTRAINERM_CODY
 	setevent EVENT_BEAT_COOLTRAINERM_MIKE
@@ -88,7 +88,7 @@ BlackthornGymClairScript:
 .FightDone:
 	writetext ClairText_TooMuchToExpect
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .AlreadyGotBadge:
@@ -97,7 +97,6 @@ BlackthornGymClairScript:
 	writetext BlackthornGymClairText_YouKeptMeWaiting
 	promptbutton
 	giveitem TM_DRAGONBREATH
-	iffalse .BagFull
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
 	writetext BlackthornGymText_ReceivedTM24
 	playsound SFX_ITEM
@@ -106,13 +105,6 @@ BlackthornGymClairScript:
 	setevent EVENT_GOT_TM24_DRAGONBREATH
 	writetext BlackthornGymClairText_DescribeTM24
 	promptbutton
-	sjump .GotTM24
-
-.BagFull:
-	writetext BlackthornGymClairText_BagFull
-	waitbutton
-	closetext
-	end
 
 .GotTM24:
 	writetext ClairRematchText
@@ -136,18 +128,18 @@ BlackthornGymClairScript:
 .Rematch	
 	startbattle
 	reloadmapafterbattle
-	sjump .EndRematch
+	sjump .done
 
 .FightDoneText:
 	writetext BlackthornGymClairText_League
 	waitbutton
-.EndRematch:
-	closetext
+	closedialog
+.done
 	end
 .NotWorthy:
 	writetext ClairUnworthyText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 TrainerCooltrainermPaul:
@@ -319,11 +311,6 @@ BlackthornGymClairText_DescribeTM24:
 	cont "to take it."
 	done
 
-BlackthornGymClairText_BagFull:
-	text "What is this? You"
-	line "don't have room?"
-	done
-
 ClairRematchText:
 	text "Rematch?"
 	done
@@ -371,7 +358,7 @@ BlackthornGymClairText_League:
 
 	para "Don't you dare"
 	line "lose at the #-"
-	cont "MON League!"
+	cont "mon League!"
 
 	para "If you do, I'll"
 	line "feel even worse"
