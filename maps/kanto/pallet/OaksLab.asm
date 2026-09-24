@@ -464,11 +464,9 @@ OakRightPokeBallScript:
 
 
 OakCharmanderPokeBallScript:
-	pokepic CHARMANDER
-	cry CHARMANDER
-	waitbutton
-	closepokepic
 	opentext
+	pokepic CHARMANDER
+	cry CHARMANDER	
 	writetext OakTakeCharmanderText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -483,15 +481,14 @@ OakCharmanderPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHARMANDER, 5, BERRY
+	closepokepic
 	closetext	
 	sjump OakDirectionsScript
 
 OakCyndaquilPokeBallScript:	
-	pokepic CYNDAQUIL
-	cry CYNDAQUIL
-	waitbutton
-	closepokepic
 	opentext
+	pokepic CYNDAQUIL
+	cry CYNDAQUIL	
 	writetext OakTakeCyndaquilText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -506,15 +503,14 @@ OakCyndaquilPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CYNDAQUIL, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakTorchicPokeBallScript:
+	opentext
 	pokepic TORCHIC
 	cry TORCHIC
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeTorchicText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -529,15 +525,14 @@ OakTorchicPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TORCHIC, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakLittenPokeBallScript:
+	opentext
 	pokepic LITTEN
 	cry LITTEN
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeLittenText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -552,15 +547,14 @@ OakLittenPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke LITTEN, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakCyndaquil2PokeBallScript:	
+	opentext
 	pokepic CYNDAQUIL2
 	cry CYNDAQUIL2
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeCyndaquilText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -575,15 +569,14 @@ OakCyndaquil2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CYNDAQUIL2, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakHonobeaPokeBallScript:	
+	opentext
 	pokepic HONOBEA
 	cry HONOBEA
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeHonobeaText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -598,15 +591,14 @@ OakHonobeaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke HONOBEA, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakSquirtlePokeBallScript:	
+	opentext
 	pokepic SQUIRTLE
 	cry SQUIRTLE
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeSquirtleText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -621,15 +613,14 @@ OakSquirtlePokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke SQUIRTLE, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakTotodilePokeBallScript:	
+	opentext
 	pokepic TOTODILE
 	cry TOTODILE
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeTotodileText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -644,15 +635,14 @@ OakTotodilePokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TOTODILE, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakMudkipPokeBallScript:	
+	opentext
 	pokepic MUDKIP
 	cry MUDKIP
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeMudkipText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -667,15 +657,14 @@ OakMudkipPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke MUDKIP, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakPopplioPokeBallScript:	
+	opentext
 	pokepic POPPLIO
 	cry POPPLIO
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakePopplioText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -690,15 +679,14 @@ OakPopplioPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke POPPLIO, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakTotodile2PokeBallScript:	
+	opentext
 	pokepic TOTODILE2
 	cry TOTODILE2
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeTotodileText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -713,15 +701,14 @@ OakTotodile2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TOTODILE2, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakKotoraPokeBallScript:
+	opentext
 	pokepic KOTORA
 	cry KOTORA
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeKotoraText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -736,15 +723,14 @@ OakKotoraPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke KOTORA, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakBulbasaurPokeBallScript:	
+	opentext
 	pokepic BULBASAUR
 	cry BULBASAUR
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeBulbasaurText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -759,15 +745,14 @@ OakBulbasaurPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke BULBASAUR, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakChikoritaPokeBallScript:	
+	opentext
 	pokepic CHIKORITA
 	cry CHIKORITA
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeChikoritaText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -782,15 +767,14 @@ OakChikoritaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHIKORITA, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakTreeckoPokeBallScript:	
+	opentext
 	pokepic TREECKO
 	cry TREECKO
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeTreeckoText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -805,15 +789,14 @@ OakTreeckoPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TREECKO, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakRowletPokeBallScript:	
+	opentext
 	pokepic ROWLET
 	cry ROWLET
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeRowletText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -828,15 +811,14 @@ OakRowletPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke ROWLET, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakChikorita2PokeBallScript:	
+	opentext
 	pokepic CHIKORITA2
 	cry CHIKORITA2
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeChikoritaText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -851,15 +833,14 @@ OakChikorita2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHIKORITA2, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
 OakKurusuPokeBallScript:	
+	opentext
 	pokepic KURUSU
 	cry KURUSU
-	waitbutton
-	closepokepic
-	opentext
 	writetext OakTakeKurusuText
 	yesorno
 	iffalse OakDidntChooseStarterScript
@@ -874,6 +855,7 @@ OakKurusuPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke KURUSU, 5, BERRY
+	closepokepic
 	closetext
 	sjump OakDirectionsScript
 
