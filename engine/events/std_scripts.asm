@@ -61,7 +61,7 @@ StdScripts::
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
 
-	opentext
+	opendialog NURSE
 	checktime MORN
 	iftrue .morn
 	checktime DAY
@@ -155,7 +155,7 @@ PokecenterNurseScript:
 	pause 10
 
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .pokerus
@@ -164,13 +164,13 @@ PokecenterNurseScript:
 	iftrue .pokerus_comcenter
 	farwritetext NursePokerusText
 	waitbutton
-	closetext
+	closedialog
 	sjump .pokerus_done
 
 .pokerus_comcenter
 	farwritetext PokeComNursePokerusText
 	waitbutton
-	closetext
+	closedialog
 
 .pokerus_done
 	setflag ENGINE_CAUGHT_POKERUS
