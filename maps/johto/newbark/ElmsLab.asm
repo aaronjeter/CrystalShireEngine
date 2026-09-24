@@ -49,7 +49,7 @@ ElmsLabWalkUpToElmScript:
 	applymovement PLAYER, ElmsLab_WalkUpToElmMovement
 	showemote EMOTE_SHOCK, ELMSLAB_ELM, 15
 	turnobject ELMSLAB_ELM, RIGHT
-	opentext
+	opendialog ELM
 	writetext ElmText_Intro
 .MustSayYes:
 	yesorno
@@ -63,35 +63,35 @@ if !DEF(_DEBUG)
 	promptbutton
 	writetext ElmText_ResearchAmbitions
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_GLASS_TING
 	pause 30
 	showemote EMOTE_SHOCK, ELMSLAB_ELM, 10
 	turnobject ELMSLAB_ELM, DOWN
-	opentext
+	opendialog ELM
 	writetext ElmText_GotAnEmail
 	waitbutton
-	closetext
-	opentext
+	closedialog
+	opendialog ELM
 	turnobject ELMSLAB_ELM, RIGHT
 	writetext ElmText_MissionFromMrPokemon
 	waitbutton
 endc
-	closetext
+	closedialog
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement1
 	turnobject PLAYER, UP
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement2
 	turnobject PLAYER, RIGHT
-	opentext
+	opendialog ELM
 	writetext ElmText_ChooseAPokemon
 	waitbutton
 	setscene SCENE_ELMSLAB_CANT_LEAVE
-	closetext
+	closedialog
 	end
 
 ProfElmScript:
 	faceplayer
-	opentext
+	opendialog ELM
 	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
 	iftrue ElmCheckMasterBall
 	checkevent EVENT_BEAT_ELITE_FOUR
@@ -116,7 +116,7 @@ ElmCheckEverstone:
 	iftrue ShowElmTogepiScript
 	writetext ElmThoughtEggHatchedText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 ElmEggHatchedScript:
@@ -146,15 +146,15 @@ ElmCheckGotEggAgain:
 	iftrue ElmDescribesMrPokemonScript
 	writetext ElmText_LetYourMonBattleIt
 	waitbutton
-	closetext
+	closedialog
 	end
 
 LabTryToLeaveScript:
 	turnobject ELMSLAB_ELM, DOWN
-	opentext
+	opendialog ELM
 	writetext LabWhereGoingText
 	waitbutton
-	closetext
+	closedialog
 	applymovement PLAYER, ElmsLab_CantLeaveMovement
 	end
 
@@ -231,11 +231,8 @@ RightPokeBallScript:
 	iftrue KotoraPokeBallScript
 
 CharmanderPokeBallScript:
-	pokepic CHARMANDER
+	openpokedialog CHARMANDER
 	cry CHARMANDER
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeCharmanderText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -250,18 +247,15 @@ CharmanderPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHARMANDER, 5, BERRY
-	closetext
+	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
 CyndaquilPokeBallScript:	
-	pokepic CYNDAQUIL
+	openpokedialog CYNDAQUIL
 	cry CYNDAQUIL
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeCyndaquilText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -276,18 +270,15 @@ CyndaquilPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CYNDAQUIL, 5, BERRY
-	closetext
+	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
 TorchicPokeBallScript:
-	pokepic TORCHIC
+	openpokedialog TORCHIC
 	cry TORCHIC
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeTorchicText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -302,18 +293,15 @@ TorchicPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TORCHIC, 5, BERRY
-	closetext
+	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
 LittenPokeBallScript:
-	pokepic LITTEN
+	openpokedialog LITTEN
 	cry LITTEN
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeLittenText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -328,18 +316,15 @@ LittenPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke LITTEN, 5, BERRY
-	closetext
+	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
 Cyndaquil2PokeBallScript:	
-	pokepic CYNDAQUIL2
+	openpokedialog CYNDAQUIL2
 	cry CYNDAQUIL2
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeCyndaquilText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -354,18 +339,15 @@ Cyndaquil2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CYNDAQUIL2, 5, BERRY
-	closetext
+	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
 HonobeaPokeBallScript:	
-	pokepic HONOBEA
+	openpokedialog HONOBEA
 	cry HONOBEA
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeHonobeaText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -380,18 +362,15 @@ HonobeaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke HONOBEA, 5, BERRY
-	closetext
+	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
 	applymovement PLAYER, AfterCyndaquilMovement
 	sjump ElmDirectionsScript
 
 SquirtlePokeBallScript:	
-	pokepic SQUIRTLE
+	openpokedialog SQUIRTLE
 	cry SQUIRTLE
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeSquirtleText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -406,16 +385,13 @@ SquirtlePokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke SQUIRTLE, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
 TotodilePokeBallScript:	
-	pokepic TOTODILE
+	openpokedialog TOTODILE
 	cry TOTODILE
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeTotodileText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -430,16 +406,13 @@ TotodilePokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TOTODILE, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
 MudkipPokeBallScript:	
-	pokepic MUDKIP
+	openpokedialog MUDKIP
 	cry MUDKIP
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeMudkipText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -454,16 +427,13 @@ MudkipPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke MUDKIP, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
 PopplioPokeBallScript:	
-	pokepic POPPLIO
+	openpokedialog POPPLIO
 	cry POPPLIO
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakePopplioText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -478,16 +448,13 @@ PopplioPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke POPPLIO, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
 Totodile2PokeBallScript:	
-	pokepic TOTODILE2
+	openpokedialog TOTODILE2
 	cry TOTODILE2
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeTotodileText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -502,16 +469,13 @@ Totodile2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TOTODILE2, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
 KotoraPokeBallScript:
-	pokepic KOTORA
+	openpokedialog KOTORA
 	cry KOTORA
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeKotoraText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -526,16 +490,13 @@ KotoraPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke KOTORA, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
 BulbasaurPokeBallScript:	
-	pokepic BULBASAUR
+	openpokedialog BULBASAUR
 	cry BULBASAUR
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeBulbasaurText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -550,16 +511,13 @@ BulbasaurPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke BULBASAUR, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
 ChikoritaPokeBallScript:	
-	pokepic CHIKORITA
+	openpokedialog CHIKORITA
 	cry CHIKORITA
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeChikoritaText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -574,16 +532,13 @@ ChikoritaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHIKORITA, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
 TreeckoPokeBallScript:	
-	pokepic TREECKO
+	openpokedialog TREECKO
 	cry TREECKO
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeTreeckoText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -598,16 +553,13 @@ TreeckoPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TREECKO, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
 RowletPokeBallScript:	
-	pokepic ROWLET
+	openpokedialog ROWLET
 	cry ROWLET
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeRowletText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -622,16 +574,13 @@ RowletPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke ROWLET, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
 Chikorita2PokeBallScript:	
-	pokepic CHIKORITA2
+	openpokedialog CHIKORITA2
 	cry CHIKORITA2
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeChikoritaText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -646,16 +595,13 @@ Chikorita2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHIKORITA2, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
 KurusuPokeBallScript:	
-	pokepic KURUSU
+	openpokedialog KURUSU
 	cry KURUSU
-	waitbutton
-	closepokepic
-	opentext
 	writetext TakeKurusuText
 	yesorno
 	iffalse DidntChooseStarterScript
@@ -670,23 +616,23 @@ KurusuPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke KURUSU, 5, BERRY
-	closetext
+	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
 
 DidntChooseStarterScript:
 	writetext DidntChooseStarterText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 ElmDirectionsScript:
 	turnobject PLAYER, UP
 if !DEF(_DEBUG)
-	opentext
+	opendialog ELM
 	writetext ElmDirectionsText1
 	waitbutton
-	closetext
+	closedialog
 endc
 	addcellnum PHONE_ELM
 	opentext
@@ -696,15 +642,15 @@ endc
 	waitbutton
 	closetext
 	turnobject ELMSLAB_ELM, LEFT
-	opentext
+	opendialog ELM
 	writetext ElmDirectionsText2
 	waitbutton
-	closetext
+	closedialog
 	turnobject ELMSLAB_ELM, DOWN
-	opentext
+	opendialog ELM
 	writetext ElmDirectionsText3
 	waitbutton
-	closetext
+	closedialog
 	setevent EVENT_GOT_A_POKEMON
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POTION
@@ -714,7 +660,7 @@ endc
 ElmDescribesMrPokemonScript:
 	writetext ElmDescribesMrPokemonText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 LookAtElmPokeBallScript:
@@ -752,7 +698,7 @@ ElmsLabHealingMachine_HealParty:
 
 ElmAfterTheftDoneScript:
 	waitbutton
-	closetext
+	closedialog
 	end
 
 ElmAfterTheftScript:
@@ -778,35 +724,35 @@ ElmAfterTheftScript:
 	setevent EVENT_ROUTE_30_BATTLE
 	writetext ElmAfterTheftText6
 	waitbutton
-	closetext
+	closedialog
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
 	end
 
 ElmStudyingEggScript:
 	writetext ElmStudyingEggText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 ElmAideHasEggScript:
 	writetext ElmAideHasEggText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 ElmWaitingEggHatchScript:
 	writetext ElmWaitingEggHatchText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 ShowElmTogepiScript:
 	writetext ShowElmTogepiText1
 	waitbutton
-	closetext
+	closedialog
 	showemote EMOTE_SHOCK, ELMSLAB_ELM, 15
 	setevent EVENT_SHOWED_TOGEPI_TO_ELM
-	opentext
+	opendialog ELM
 	writetext ShowElmTogepiText2
 	promptbutton
 	writetext ShowElmTogepiText3
@@ -818,7 +764,7 @@ ElmGiveEverstoneScript:
 	iffalse ElmScript_NoRoomForEverstone
 	writetext ElmGiveEverstoneText2
 	waitbutton
-	closetext
+	closedialog
 	setevent EVENT_GOT_EVERSTONE_FROM_ELM
 	end
 
@@ -826,7 +772,7 @@ ElmScript_CallYou:
 	writetext ElmText_CallYou
 	waitbutton
 ElmScript_NoRoomForEverstone:
-	closetext
+	closedialog
 	end
 
 ElmGiveMasterBallScript:
@@ -838,7 +784,7 @@ ElmGiveMasterBallScript:
 	writetext ElmGiveMasterBallText2
 	waitbutton
 .notdone
-	closetext
+	closedialog
 	end
 
 ElmGiveTicketScript:
@@ -848,11 +794,11 @@ ElmGiveTicketScript:
 	setevent EVENT_GOT_SS_TICKET_FROM_ELM
 	writetext ElmGiveTicketText2
 	waitbutton
-	closetext
+	closedialog
 	end
 
 ElmJumpBackScript1:
-	closetext
+	closedialog
 	readvar VAR_FACING
 	ifequal DOWN, ElmJumpDownScript
 	ifequal UP, ElmJumpUpScript
@@ -861,7 +807,7 @@ ElmJumpBackScript1:
 	end
 
 ElmJumpBackScript2:
-	closetext
+	closedialog
 	readvar VAR_FACING
 	ifequal DOWN, ElmJumpUpScript
 	ifequal UP, ElmJumpDownScript
@@ -871,22 +817,22 @@ ElmJumpBackScript2:
 
 ElmJumpUpScript:
 	applymovement ELMSLAB_ELM, ElmJumpUpMovement
-	opentext
+	opendialog ELM
 	end
 
 ElmJumpDownScript:
 	applymovement ELMSLAB_ELM, ElmJumpDownMovement
-	opentext
+	opendialog ELM
 	end
 
 ElmJumpLeftScript:
 	applymovement ELMSLAB_ELM, ElmJumpLeftMovement
-	opentext
+	opendialog ELM
 	end
 
 ElmJumpRightScript:
 	applymovement ELMSLAB_ELM, ElmJumpRightMovement
-	opentext
+	opendialog ELM
 	end
 
 AideScript_WalkPotion1:
@@ -985,13 +931,13 @@ MeetCopScript:
 	applymovement PLAYER, MeetCopScript_WalkUp
 CopScript:
 	turnobject ELMSLAB_OFFICER, LEFT
-	opentext
+	opendialog OFFICER
 	writetext ElmsLabOfficerText1
 	promptbutton
 	special NameRival
 	writetext ElmsLabOfficerText2
 	waitbutton
-	closetext
+	closedialog
 	applymovement ELMSLAB_OFFICER, OfficerLeavesMovement
 	disappear ELMSLAB_OFFICER
 	setscene SCENE_ELMSLAB_NOOP
