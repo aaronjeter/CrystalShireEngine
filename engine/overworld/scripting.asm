@@ -235,6 +235,7 @@ ScriptCommandTable:
 	dw Script_loaditemindex              ; ac
 	dw Script_checkmaplockeditems        ; ad
 	dw Script_givepokemove               ; ae
+	dw Script_trainerpic                 ; af
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2419,3 +2420,8 @@ Script_givepokemove:
 	ld a, d
 	ld [hl], a
 	ret
+
+Script_trainerpic:
+  	call GetScriptByte
+  	ld [wTrainerClass], a
+  	farjp Trainerpic

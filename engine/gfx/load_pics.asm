@@ -339,6 +339,47 @@ GetTrainerPic:
 	ldh [hBGMapMode], a
 	ret
 
+GetTrainerPicNoWait:
+	ld a, [wTrainerClass]
+	and a
+	ret z
+	cp NUM_TRAINER_CLASSES + 1
+	ret nc
+	;call WaitBGMap
+	xor a
+	ldh [hBGMapMode], a
+	ld hl, TrainerPicPointers
+	ld a, [wTrainerClass]
+	dec a
+	ld bc, 3
+	rst AddNTimes
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wDecompressScratch)
+	ldh [rSVBK], a
+	push de
+	ld a, BANK(TrainerPicPointers)
+	call GetFarByte
+	push af
+	inc hl
+	ld a, BANK(TrainerPicPointers)
+	call GetFarWord
+	pop af
+	ld de, wDecompressScratch
+	call FarDecompress
+	pop hl
+	ld de, wDecompressScratch
+	ld c, 7 * 7
+	ldh a, [hROMBank]
+	ld b, a
+	call Get2bpp
+	pop af
+	ldh [rSVBK], a
+	;call WaitBGMap
+	ld a, 1
+	ldh [hBGMapMode], a
+	ret
+
 DecompressGet2bpp:
 ; Decompress lz data from b:hl to wDecompressScratch, then copy it to address de.
 
