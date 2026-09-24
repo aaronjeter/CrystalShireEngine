@@ -50,20 +50,12 @@ Pokepic::
 	add hl, de
 	dec b
 	jr nz, .row
-	;jmp WaitBGMap2
-
-	ld a, 2
-	ldh [hBGMapMode], a        ; push attrmap
-	ld c, 2
-	call DelayFrames
-	ld a, 1
-	ldh [hBGMapMode], a        ; queue tilemap push, don't wait
-	ret
+	jmp CopyTilemapAtOnce
 
 ClosePokepic::
 	call ExitMenu
 	call GetMemSGBLayout
-	call WaitBGMap2
+	call CopyTilemapAtOnce     ; attrs + tiles in one go
 	call UpdateSprites
 	farjp EnableDynPalUpdates
 
@@ -130,12 +122,4 @@ Trainerpic::
 	add hl, de
 	dec b
 	jr nz, .row
-	;jmp WaitBGMap2
-	
-	ld a, 2
-	ldh [hBGMapMode], a        ; push attrmap
-	ld c, 2
-	call DelayFrames
-	ld a, 1
-	ldh [hBGMapMode], a        ; queue tilemap push, don't wait
-	ret
+	jmp CopyTilemapAtOnce
