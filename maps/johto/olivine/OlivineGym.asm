@@ -9,12 +9,12 @@ OlivineGym_MapScripts:
 
 OlivineGymJasmineScript:
 	faceplayer
-	opentext
+	opendialog JASMINE
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
 	writetext Jasmine_SteelTypeIntro
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
@@ -40,7 +40,7 @@ OlivineGymJasmineScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_JASMINE
-	opentext
+	opendialog JASMINE
 	writetext Text_ReceivedMineralBadge
 	playsound SFX_GET_BADGE
 	waitsfx
@@ -52,11 +52,10 @@ OlivineGymJasmineScript:
 	writetext Jasmine_BadgeSpeech
 	promptbutton
 	verbosegiveitem TM_IRON_TAIL
-	iffalse .NoRoomForIronTail
 	setevent EVENT_GOT_TM23_IRON_TAIL
 	writetext Jasmine_IronTailSpeech
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .GotIronTail:
@@ -87,13 +86,13 @@ OlivineGymJasmineScript:
 .Rematch	
 	startbattle
 	reloadmapafterbattle
-	sjump .NoRoomForIronTail
+	sjump .done
 
 .FightDoneText:
 	writetext Jasmine_GoodLuck
 	waitbutton
-.NoRoomForIronTail:
-	closetext
+	closedialog
+.done	
 	end
 
 OlivineGymLevelcap:

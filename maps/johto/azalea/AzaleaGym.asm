@@ -14,12 +14,12 @@ AzaleaGym_MapScripts:
 
 AzaleaGymBugsyScript:
 	faceplayer
-	opentext
+	opendialog BUGSY
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .FightDone
 	writetext BugsyText_INeverLose
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
@@ -45,7 +45,7 @@ AzaleaGymBugsyScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BUGSY
-	opentext
+	opendialog BUGSY
 	writetext Text_ReceivedHiveBadge
 	playsound SFX_GET_BADGE
 	waitsfx
@@ -61,11 +61,10 @@ AzaleaGymBugsyScript:
 	writetext BugsyText_HiveBadgeSpeech
 	promptbutton
 	verbosegiveitem TM_FURY_CUTTER
-	iffalse .NoRoomForFuryCutter
 	setevent EVENT_GOT_TM49_FURY_CUTTER
 	writetext BugsyText_FuryCutterSpeech
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .GotFuryCutter:
@@ -96,12 +95,12 @@ AzaleaGymBugsyScript:
 .Rematch	
 	startbattle
 	reloadmapafterbattle
-	sjump .NoRoomForFuryCutter
+	sjump .done
 .FightDoneText
 	writetext BugsyText_BugMonsAreDeep
 	waitbutton
-.NoRoomForFuryCutter:
-	closetext
+	closedialog
+.done
 	end
 
 AzaleaGymLevelcap:

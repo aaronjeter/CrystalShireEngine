@@ -23,10 +23,10 @@ GoldenrodGymWhitneyScript:
 	faceplayer
 	checkevent EVENT_BEAT_WHITNEY
 	iftrue .FightDone
-	opentext
+	opendialog WHITNEY
 	writetext WhitneyBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
@@ -59,12 +59,12 @@ GoldenrodGymWhitneyScript:
 	setevent EVENT_BEAT_LASS_CARRIE
 	setevent EVENT_BEAT_LASS_BRIDGET
 .FightDone:
-	opentext
+	opendialog WHITNEY
 	checkevent EVENT_MADE_WHITNEY_CRY
 	iffalse .StoppedCrying
 	writetext WhitneyYouMeanieText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .StoppedCrying:
@@ -84,11 +84,10 @@ GoldenrodGymWhitneyScript:
 	writetext WhitneyPlainBadgeText
 	promptbutton
 	verbosegiveitem TM_ATTRACT
-	iffalse .NoRoomForAttract
 	setevent EVENT_GOT_TM45_ATTRACT
 	writetext WhitneyAttractText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .GotAttract:
@@ -119,13 +118,13 @@ GoldenrodGymWhitneyScript:
 .Rematch	
 	startbattle
 	reloadmapafterbattle
-	sjump .NoRoomForAttract
+	sjump .done
 	
 .FightDoneText
 	writetext WhitneyGoodCryText
 	waitbutton
-.NoRoomForAttract:
-	closetext
+	closedialog
+.done
 	end
 
 GoldenrodGymLevelcap:

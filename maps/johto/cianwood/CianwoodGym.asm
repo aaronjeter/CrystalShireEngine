@@ -16,27 +16,27 @@ CianwoodGym_MapScripts:
 
 CianwoodGymChuckScript:
 	faceplayer
-	opentext
+	opendialog CHUCK
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
 	writetext ChuckIntroText1
 	waitbutton
-	closetext
+	closedialog
 	turnobject CIANWOODGYM_CHUCK, RIGHT
-	opentext
+	opendialog CHUCK
 	writetext ChuckIntroText2
 	waitbutton
-	closetext
+	closedialog
 	applymovement CIANWOODGYM_BOULDER1, CianwoodGymMovement_ChuckChucksBoulder
 	playsound SFX_STRENGTH
 	earthquake 80
 	disappear CIANWOODGYM_BOULDER1
 	pause 30
 	faceplayer
-	opentext
+	opendialog CHUCK
 	writetext ChuckIntroText3
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
@@ -62,7 +62,7 @@ CianwoodGymChuckScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHUCK
-	opentext
+	opendialog CHUCK
 	writetext GetStormBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
@@ -76,11 +76,10 @@ CianwoodGymChuckScript:
 	setevent EVENT_BEAT_BLACKBELT_NOB
 	setevent EVENT_BEAT_BLACKBELT_LUNG
 	verbosegiveitem TM_DYNAMICPUNCH
-	iffalse .BagFull
 	setevent EVENT_GOT_TM01_DYNAMICPUNCH
 	writetext ChuckExplainTMText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .AlreadyGotTM:
@@ -111,14 +110,13 @@ CianwoodGymChuckScript:
 .Rematch	
 	startbattle
 	reloadmapafterbattle
-	sjump .BagFull
+	sjump .done
 
 .FightDoneText:
-
 	writetext ChuckAfterText
 	waitbutton
-.BagFull:
-	closetext
+	closedialog
+.done
 	end
 
 CianwoodGymLevelcap:

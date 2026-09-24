@@ -23,12 +23,12 @@ EcruteakGymNoopScene:
 
 EcruteakGymMortyScript:
 	faceplayer
-	opentext
+	opendialog MORTY
 	checkevent EVENT_BEAT_MORTY
 	iftrue .FightDone
 	writetext MortyIntroText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
@@ -54,7 +54,7 @@ EcruteakGymMortyScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_MORTY
-	opentext
+	opendialog MORTY
 	writetext Text_ReceivedFogBadge
 	playsound SFX_GET_BADGE
 	waitsfx
@@ -73,11 +73,10 @@ EcruteakGymMortyScript:
 	writetext MortyText_FogBadgeSpeech
 	promptbutton
 	verbosegiveitem TM_SHADOW_BALL
-	iffalse .NoRoomForShadowBall
 	setevent EVENT_GOT_TM30_SHADOW_BALL
 	writetext MortyText_ShadowBallSpeech
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .GotShadowBall:
@@ -108,13 +107,13 @@ EcruteakGymMortyScript:
 .Rematch	
 	startbattle
 	reloadmapafterbattle
-	sjump .NoRoomForShadowBall
+	sjump .done
 
 .FightDoneText:
 	writetext MortyFightDoneText
 	waitbutton
-.NoRoomForShadowBall:
-	closetext
+	closedialog
+.done	
 	end
 
 EcruteakGymLevelcap:

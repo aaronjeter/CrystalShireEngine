@@ -11,12 +11,12 @@ VioletGym_MapScripts:
 
 VioletGymFalknerScript:
 	faceplayer
-	opentext
+	opendialog FALKNER
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
 	writetext FalknerIntroText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
@@ -41,7 +41,7 @@ VioletGymFalknerScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_FALKNER
-	opentext
+	opendialog FALKNER
 	writetext ReceivedZephyrBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
@@ -59,11 +59,10 @@ VioletGymFalknerScript:
 	writetext FalknerZephyrBadgeText
 	promptbutton
 	verbosegiveitem TM_MUD_SLAP
-	iffalse .NoRoomForMudSlap
 	setevent EVENT_GOT_TM31_MUD_SLAP
 	writetext FalknerTMMudSlapText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .SpeechAfterTM:
@@ -94,13 +93,13 @@ VioletGymFalknerScript:
 .Rematch	
 	startbattle
 	reloadmapafterbattle
-	sjump .NoRoomForMudSlap
+	sjump .done
 
 .FightDoneText:
 	writetext FalknerFightDoneText
 	waitbutton
-.NoRoomForMudSlap:
-	closetext
+	closedialog
+.done
 	end
 
 VioletGymLevelcap:

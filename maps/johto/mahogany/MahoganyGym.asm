@@ -14,12 +14,12 @@ MahoganyGym_MapScripts:
 
 MahoganyGymPryceScript:
 	faceplayer
-	opentext
+	opendialog PRYCE
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
 	writetext PryceText_Intro
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 13, .Hard
@@ -45,7 +45,7 @@ MahoganyGymPryceScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_PRYCE
-	opentext
+	opendialog PRYCE
 	writetext Text_ReceivedGlacierBadge
 	playsound SFX_GET_BADGE
 	waitsfx
@@ -60,12 +60,11 @@ MahoganyGymPryceScript:
 	setevent EVENT_BEAT_BOARDER_BRAD
 	setevent EVENT_BEAT_BOARDER_DOUGLAS
 	verbosegiveitem TM_ICY_WIND
-	iffalse MahoganyGym_NoRoomForIcyWind
 	setevent EVENT_GOT_TM16_ICY_WIND	
 	scall MahoganyGymLevelcap
 	writetext PryceText_IcyWindSpeech
 	waitbutton
-	closetext
+	closedialog
 	end
 
 PryceScript_Defeat:
@@ -101,9 +100,8 @@ PryceScript_Defeat:
 .FightDoneText:
 	writetext PryceText_CherishYourPokemon
 	waitbutton
-.EndRematch:
-MahoganyGym_NoRoomForIcyWind:
-	closetext
+	closedialog
+.EndRematch:	
 	end
 
 MahoganyGymActivateRockets:
@@ -269,7 +267,7 @@ PryceText_CherishYourPokemon:
 	cont "arrives."
 
 	para "You and your #-"
-	line "MON will be to-"
+	line "mon will be to-"
 
 	para "gether for many"
 	line "years to come."
@@ -321,7 +319,7 @@ BoarderBradAfterBattleText:
 	done
 
 BoarderDouglasSeenText:
-	text "I know PRYCE's"
+	text "I know Pryce's"
 	line "secret."
 	done
 
