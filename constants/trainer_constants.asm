@@ -75,7 +75,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const RIVAL1_4
 	const RIVAL1_5
 
-	trainerclass POKEMON_PROF ; a
+	trainerclass OAK ; a
 	const WC_OAK
 
 	trainerclass WILL ; b

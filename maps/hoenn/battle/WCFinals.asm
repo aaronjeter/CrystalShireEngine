@@ -24,7 +24,7 @@ WCFinalsEventScript:
 	closetext
 
 	winlosstext WCFinalsOakBeatenText, 0
-	loadtrainer POKEMON_PROF, WC_OAK
+	loadtrainer OAK, WC_OAK
 
 	startbattle
 	reloadmapafterbattle

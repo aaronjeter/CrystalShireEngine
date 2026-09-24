@@ -554,7 +554,7 @@ OakSpeech:
 
 	xor a
 	ld [wCurPartySpecies], a
-	ld a, POKEMON_PROF
+	ld a, OAK
 	ld [wTrainerClass], a
 	call Intro_PrepTrainerPic
 
@@ -597,7 +597,7 @@ if !DEF(_DEBUG)
 
 	xor a
 	ld [wCurPartySpecies], a
-	ld a, POKEMON_PROF
+	ld a, OAK
 	ld [wTrainerClass], a
 	call Intro_PrepTrainerPic
 

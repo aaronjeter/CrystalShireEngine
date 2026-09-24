@@ -14,7 +14,7 @@ OaksLab_MapScripts:
 
 Oak:
 	faceplayer
-	opendialog POKEMON_PROF
+	opendialog OAK
 
 	checkevent EVENT_START_KANTO
 	iftrue .OakKantoScript
@@ -825,7 +825,7 @@ OakKurusuPokeBallScript:
 
 
 OakDirectionsScript:
-	opendialog POKEMON_PROF
+	opendialog OAK
 	writetext OakDirectionsText
 	waitbutton
 	verbosegiveitem BIRD_WHISTLE
