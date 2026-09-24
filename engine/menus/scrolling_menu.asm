@@ -394,7 +394,7 @@ ScrollingMenu_UpdateDisplay:
 	jmp PlaceString
 
 .CancelString
-	db "CANCEL@"
+	db "Cancel@"
 
 .call_function
 	ld d, h

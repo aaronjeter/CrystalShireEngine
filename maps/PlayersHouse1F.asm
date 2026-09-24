@@ -127,7 +127,7 @@ MeetMomTalkedScript:
 	sjump MeetMomScript
 
 PokegearName:
-	db "#GEAR@"
+	db "#gear@"
 
 PlayersHouse1FReceiveItemStd:
 	jumpstd ReceiveItemScript
