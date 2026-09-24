@@ -14,7 +14,7 @@ OaksLab_MapScripts:
 
 Oak:
 	faceplayer
-	opentext
+	opendialog POKEMON_PROF
 
 	checkevent EVENT_START_KANTO
 	iftrue .OakKantoScript
@@ -38,7 +38,7 @@ Oak:
 	special ProfOaksPCBoot
 	writetext OakLabGoodbyeText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .OpenMtSilver:
@@ -124,7 +124,7 @@ Oak:
 	sjump .done
 
 .done
-	closetext
+	closedialog
 	end
 
 
@@ -464,8 +464,7 @@ OakRightPokeBallScript:
 
 
 OakCharmanderPokeBallScript:
-	opentext
-	pokepic CHARMANDER
+	openpokedialog CHARMANDER
 	cry CHARMANDER	
 	writetext OakTakeCharmanderText
 	yesorno
@@ -481,13 +480,11 @@ OakCharmanderPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHARMANDER, 5, BERRY
-	closepokepic
-	closetext	
+	closedialog
 	sjump OakDirectionsScript
 
 OakCyndaquilPokeBallScript:	
-	opentext
-	pokepic CYNDAQUIL
+	openpokedialog CYNDAQUIL
 	cry CYNDAQUIL	
 	writetext OakTakeCyndaquilText
 	yesorno
@@ -503,13 +500,11 @@ OakCyndaquilPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CYNDAQUIL, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakTorchicPokeBallScript:
-	opentext
-	pokepic TORCHIC
+	openpokedialog TORCHIC
 	cry TORCHIC
 	writetext OakTakeTorchicText
 	yesorno
@@ -525,13 +520,11 @@ OakTorchicPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TORCHIC, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakLittenPokeBallScript:
-	opentext
-	pokepic LITTEN
+	openpokedialog LITTEN
 	cry LITTEN
 	writetext OakTakeLittenText
 	yesorno
@@ -547,13 +540,11 @@ OakLittenPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke LITTEN, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakCyndaquil2PokeBallScript:	
-	opentext
-	pokepic CYNDAQUIL2
+	openpokedialog CYNDAQUIL2
 	cry CYNDAQUIL2
 	writetext OakTakeCyndaquilText
 	yesorno
@@ -569,13 +560,11 @@ OakCyndaquil2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CYNDAQUIL2, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakHonobeaPokeBallScript:	
-	opentext
-	pokepic HONOBEA
+	openpokedialog HONOBEA
 	cry HONOBEA
 	writetext OakTakeHonobeaText
 	yesorno
@@ -591,13 +580,11 @@ OakHonobeaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke HONOBEA, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
-OakSquirtlePokeBallScript:	
-	opentext
-	pokepic SQUIRTLE
+OakSquirtlePokeBallScript:		
+	openpokedialog SQUIRTLE
 	cry SQUIRTLE
 	writetext OakTakeSquirtleText
 	yesorno
@@ -612,14 +599,12 @@ OakSquirtlePokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke SQUIRTLE, 5, BERRY
-	closepokepic
-	closetext
+	givepoke SQUIRTLE, 5, BERRY	
+	closedialog
 	sjump OakDirectionsScript
 
 OakTotodilePokeBallScript:	
-	opentext
-	pokepic TOTODILE
+	openpokedialog TOTODILE
 	cry TOTODILE
 	writetext OakTakeTotodileText
 	yesorno
@@ -635,13 +620,11 @@ OakTotodilePokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TOTODILE, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakMudkipPokeBallScript:	
-	opentext
-	pokepic MUDKIP
+	openpokedialog MUDKIP
 	cry MUDKIP
 	writetext OakTakeMudkipText
 	yesorno
@@ -657,13 +640,11 @@ OakMudkipPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke MUDKIP, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakPopplioPokeBallScript:	
-	opentext
-	pokepic POPPLIO
+	openpokedialog POPPLIO
 	cry POPPLIO
 	writetext OakTakePopplioText
 	yesorno
@@ -679,13 +660,11 @@ OakPopplioPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke POPPLIO, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakTotodile2PokeBallScript:	
-	opentext
-	pokepic TOTODILE2
+	openpokedialog TOTODILE2
 	cry TOTODILE2
 	writetext OakTakeTotodileText
 	yesorno
@@ -701,13 +680,11 @@ OakTotodile2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TOTODILE2, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakKotoraPokeBallScript:
-	opentext
-	pokepic KOTORA
+	openpokedialog KOTORA
 	cry KOTORA
 	writetext OakTakeKotoraText
 	yesorno
@@ -723,13 +700,11 @@ OakKotoraPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke KOTORA, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakBulbasaurPokeBallScript:	
-	opentext
-	pokepic BULBASAUR
+	openpokedialog BULBASAUR
 	cry BULBASAUR
 	writetext OakTakeBulbasaurText
 	yesorno
@@ -745,13 +720,11 @@ OakBulbasaurPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke BULBASAUR, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakChikoritaPokeBallScript:	
-	opentext
-	pokepic CHIKORITA
+	openpokedialog CHIKORITA
 	cry CHIKORITA
 	writetext OakTakeChikoritaText
 	yesorno
@@ -767,13 +740,11 @@ OakChikoritaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHIKORITA, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakTreeckoPokeBallScript:	
-	opentext
-	pokepic TREECKO
+	openpokedialog TREECKO
 	cry TREECKO
 	writetext OakTakeTreeckoText
 	yesorno
@@ -789,13 +760,11 @@ OakTreeckoPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TREECKO, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakRowletPokeBallScript:	
-	opentext
-	pokepic ROWLET
+	openpokedialog ROWLET
 	cry ROWLET
 	writetext OakTakeRowletText
 	yesorno
@@ -811,13 +780,11 @@ OakRowletPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke ROWLET, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakChikorita2PokeBallScript:	
-	opentext
-	pokepic CHIKORITA2
+	openpokedialog CHIKORITA2
 	cry CHIKORITA2
 	writetext OakTakeChikoritaText
 	yesorno
@@ -833,13 +800,11 @@ OakChikorita2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHIKORITA2, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 OakKurusuPokeBallScript:	
-	opentext
-	pokepic KURUSU
+	openpokedialog KURUSU
 	cry KURUSU
 	writetext OakTakeKurusuText
 	yesorno
@@ -855,19 +820,18 @@ OakKurusuPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke KURUSU, 5, BERRY
-	closepokepic
-	closetext
+	closedialog
 	sjump OakDirectionsScript
 
 
 OakDirectionsScript:
-	opentext
+	opendialog POKEMON_PROF
 	writetext OakDirectionsText
 	waitbutton
 	verbosegiveitem BIRD_WHISTLE
 	waitbutton
 	verbosegiveitem POKE_BALL, 5
-	closetext
+	closedialog
 	setevent EVENT_GOT_A_POKEMON
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
@@ -878,7 +842,7 @@ OakDirectionsScript:
 OakDidntChooseStarterScript:
 	writetext OakDidntChooseStarterText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 
