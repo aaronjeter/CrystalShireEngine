@@ -1105,3 +1105,18 @@ MACRO trainerpic
 ENDM
 
 DEF NUM_EVENT_COMMANDS EQU const_value
+
+MACRO opendialog
+	opentext
+	trainerpic \1
+ENDM
+
+MACRO openpokedialog
+	opentext
+	pokepic \1
+ENDM
+
+MACRO closedialog
+	closepokepic
+	closetext
+ENDM
