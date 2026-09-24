@@ -14,10 +14,10 @@ BirchsLab_WelcomeScript:
 	iftrue .done
 	showemote EMOTE_SHOCK, BIRCHSLAB_BIRCH, 15
 	applymovement PLAYER, BirchsLab_StepUpMovement
-	opentext
+	opendialog BIRCH
 	writetext BirchText_PickAPokemon
 	waitbutton
-	closetext
+	closedialog
 .done
 	end
 
@@ -43,6 +43,7 @@ BirchsLab_StepUpMovement:
 
 ProfBirchScript:
 	faceplayer
+	opendialog BIRCH
 
 	checkevent EVENT_START_HOENN
 	iffalse .BirchNotHoenn
@@ -56,29 +57,25 @@ ProfBirchScript:
 	checkflag ENGINE_POKEDEX
 	iffalse .BirchGivePokedex
 
-.BirchNotHoenn
-	opentext 
+.BirchNotHoenn	
 	writetext BirchNormalText
 	waitbutton
 	sjump .done
 
 .BirchPickStarter
-	opentext
 	writetext BirchText_PickAPokemon
 	sjump .done
 
 .BirchFindWally
-	opentext
 	writetext BirchDirectionsText
 	sjump .done
 
 .BirchGivePokedex
-	opentext
 	writetext BirchGivePokedexText
 	setflag ENGINE_POKEDEX
 
 .done
-	closetext
+	closedialog
 	end
 
 BirchNormalText:
@@ -166,11 +163,8 @@ BirchRightPokeBallScript:
 
 
 BirchCharmanderPokeBallScript:
-	pokepic CHARMANDER
+	openpokedialog CHARMANDER
 	cry CHARMANDER
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeCharmanderText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -185,15 +179,12 @@ BirchCharmanderPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHARMANDER, 5, BERRY
-	closetext	
+	closedialog	
 	sjump BirchDirectionsScript
 
 BirchCyndaquilPokeBallScript:	
-	pokepic CYNDAQUIL
+	openpokedialog CYNDAQUIL
 	cry CYNDAQUIL
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeCyndaquilText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -208,15 +199,12 @@ BirchCyndaquilPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CYNDAQUIL, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchTorchicPokeBallScript:
-	pokepic TORCHIC
+	openpokedialog TORCHIC
 	cry TORCHIC
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeTorchicText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -231,15 +219,12 @@ BirchTorchicPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TORCHIC, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchLittenPokeBallScript:
-	pokepic LITTEN
+	openpokedialog LITTEN
 	cry LITTEN
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeLittenText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -254,15 +239,12 @@ BirchLittenPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke LITTEN, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchCyndaquil2PokeBallScript:	
-	pokepic CYNDAQUIL2
+	openpokedialog CYNDAQUIL2
 	cry CYNDAQUIL2
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeCyndaquilText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -277,15 +259,12 @@ BirchCyndaquil2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CYNDAQUIL2, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchHonobeaPokeBallScript:	
-	pokepic HONOBEA
+	openpokedialog HONOBEA
 	cry HONOBEA
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeHonobeaText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -300,15 +279,12 @@ BirchHonobeaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke HONOBEA, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchSquirtlePokeBallScript:	
-	pokepic SQUIRTLE
+	openpokedialog SQUIRTLE
 	cry SQUIRTLE
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeSquirtleText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -323,15 +299,12 @@ BirchSquirtlePokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke SQUIRTLE, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchTotodilePokeBallScript:	
-	pokepic TOTODILE
+	openpokedialog TOTODILE
 	cry TOTODILE
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeTotodileText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -346,15 +319,12 @@ BirchTotodilePokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TOTODILE, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchMudkipPokeBallScript:	
-	pokepic MUDKIP
+	openpokedialog MUDKIP
 	cry MUDKIP
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeMudkipText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -369,15 +339,12 @@ BirchMudkipPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke MUDKIP, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchPopplioPokeBallScript:	
-	pokepic POPPLIO
+	openpokedialog POPPLIO
 	cry POPPLIO
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakePopplioText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -392,15 +359,12 @@ BirchPopplioPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke POPPLIO, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchTotodile2PokeBallScript:	
-	pokepic TOTODILE2
+	openpokedialog TOTODILE2
 	cry TOTODILE2
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeTotodileText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -415,15 +379,12 @@ BirchTotodile2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TOTODILE2, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchKotoraPokeBallScript:
-	pokepic KOTORA
+	openpokedialog KOTORA
 	cry KOTORA
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeKotoraText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -438,15 +399,12 @@ BirchKotoraPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke KOTORA, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchBulbasaurPokeBallScript:	
-	pokepic BULBASAUR
+	openpokedialog BULBASAUR
 	cry BULBASAUR
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeBulbasaurText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -461,15 +419,12 @@ BirchBulbasaurPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke BULBASAUR, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchChikoritaPokeBallScript:	
-	pokepic CHIKORITA
+	openpokedialog CHIKORITA
 	cry CHIKORITA
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeChikoritaText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -484,15 +439,12 @@ BirchChikoritaPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHIKORITA, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchTreeckoPokeBallScript:	
-	pokepic TREECKO
+	openpokedialog TREECKO
 	cry TREECKO
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeTreeckoText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -507,15 +459,12 @@ BirchTreeckoPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke TREECKO, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchRowletPokeBallScript:	
-	pokepic ROWLET
+	openpokedialog ROWLET
 	cry ROWLET
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeRowletText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -530,15 +479,12 @@ BirchRowletPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke ROWLET, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchChikorita2PokeBallScript:	
-	pokepic CHIKORITA2
+	openpokedialog CHIKORITA2
 	cry CHIKORITA2
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeChikoritaText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -553,15 +499,12 @@ BirchChikorita2PokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke CHIKORITA2, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 BirchKurusuPokeBallScript:	
-	pokepic KURUSU
+	openpokedialog KURUSU
 	cry KURUSU
-	waitbutton
-	closepokepic
-	opentext
 	writetext BirchTakeKurusuText
 	yesorno
 	iffalse BirchDidntChooseStarterScript
@@ -576,19 +519,19 @@ BirchKurusuPokeBallScript:
 	waitsfx
 	promptbutton
 	givepoke KURUSU, 5, BERRY
-	closetext
+	closedialog
 	sjump BirchDirectionsScript
 
 
 
 BirchDirectionsScript:
-	opentext
+	opendialog BIRCH
 	writetext BirchDirectionsText
 	waitbutton
 	verbosegiveitem BIRD_WHISTLE
 	waitbutton
 	verbosegiveitem POKE_BALL, 5
-	closetext
+	closedialog
 	setevent EVENT_GOT_A_POKEMON
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
@@ -599,7 +542,7 @@ BirchDirectionsScript:
 BirchDidntChooseStarterScript:
 	writetext BirchDidntChooseStarterText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 
