@@ -101,4 +101,5 @@ TrainerPicPointers::
 	dba GreenPic
 	dba ElmPic
 	dba BirchPic
+	dba NursePic
 	assert_table_length NUM_TRAINER_CLASSES

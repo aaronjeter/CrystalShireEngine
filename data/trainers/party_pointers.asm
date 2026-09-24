@@ -100,6 +100,7 @@ TrainerGroups:
 	dba GreenGroup
 	dba ElmGroup
 	dba BirchGroup
+	dba NurseGroup
 	assert_table_length NUM_TRAINER_CLASSES
 
 	TrainerGroupsHard:
@@ -202,4 +203,5 @@ TrainerGroups:
 	dba GreenGroupHard
 	dba ElmGroupHard
 	dba BirchGroupHard
+	dba NurseGroup
 	assert_table_length NUM_TRAINER_CLASSES

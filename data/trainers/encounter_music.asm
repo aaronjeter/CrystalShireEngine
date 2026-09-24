@@ -101,6 +101,7 @@ TrainerEncounterMusic::
 	db MUSIC_RIVAL_ENCOUNTER       ; green
 	db MUSIC_HIKER_ENCOUNTER       ; elm
 	db MUSIC_HIKER_ENCOUNTER       ; birch
+	db MUSIC_POKEMON_CENTER		   ; nurse
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

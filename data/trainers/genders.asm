@@ -100,4 +100,5 @@ BTTrainerClassGenders:
 	db FEMALE ; Green
 	db MALE   ; Elm
 	db MALE   ; Birch
+	db FEMALE ; Nurse
 	assert_table_length NUM_TRAINER_CLASSES ; 

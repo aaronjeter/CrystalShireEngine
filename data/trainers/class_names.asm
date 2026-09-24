@@ -98,4 +98,5 @@ TrainerClassNames::
 	li "Trainer" ;Green
 	li "#mon Prof."
 	li "#mon Prof."
+	li "Nurse"
 	assert_list_length NUM_TRAINER_CLASSES

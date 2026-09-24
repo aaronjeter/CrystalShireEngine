@@ -98,4 +98,5 @@ BTTrainerClassSprites:
 	db SPRITE_DAISY     ; Green Placeholder
 	db SPRITE_ELM
 	db SPRITE_ELM
+	db SPRITE_NURSE
 	assert_table_length NUM_TRAINER_CLASSES ; 

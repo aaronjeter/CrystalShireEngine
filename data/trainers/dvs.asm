@@ -99,4 +99,5 @@ TrainerClassDVs:
 	dn 13, 13, 13, 13 ; GREEN
 	dn 15, 15, 15, 13 ; ELM
 	dn 15, 15, 15, 13 ; BIRCH
+	dn  6,  9, 12,  8 ; NURSE
 	assert_table_length NUM_TRAINER_CLASSES

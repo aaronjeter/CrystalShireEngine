@@ -1015,6 +1015,9 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass BIRCH
 	const BIRCH1
 
+	trainerclass NURSE
+	const NURSE1
+
 DEF KRIS EQU __trainer_class__
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

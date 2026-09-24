@@ -1504,3 +1504,4 @@ GreenPic:     INCBIN "gfx/trainers/green.2bpp.lz"
 SECTION "New Prof Trainers", ROMX
 ElmPic:     INCBIN "gfx/trainers/elm.2bpp.lz"
 BirchPic:   INCBIN "gfx/trainers/birch.2bpp.lz"
+NursePic:   INCBIN "gfx/trainers/nurse.2bpp.lz"

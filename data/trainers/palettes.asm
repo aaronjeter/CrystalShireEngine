@@ -112,6 +112,7 @@ INCBIN "gfx/trainers/wally.gbcpal", middle_colors
 INCBIN "gfx/trainers/green.gbcpal", middle_colors 
 INCBIN "gfx/trainers/elm.gbcpal", middle_colors
 INCBIN "gfx/trainers/birch.gbcpal", middle_colors
+INCBIN "gfx/trainers/nurse.gbcpal", middle_colors
 KrisPalette: 
 INCLUDE "gfx/player/kris.pal"
 	assert_table_length NUM_TRAINER_CLASSES + 2
