@@ -473,7 +473,7 @@ SwinubBackpic:       INCBIN "gfx/pokemon/swinub/back.2bpp.lz"
 SECTION "Pics 15", ROMX
 
 MewtwoBackpic:       INCBIN "gfx/pokemon/mewtwo/back.2bpp.lz"
-PokemonProfPic:      INCBIN "gfx/trainers/oak.2bpp.lz"
+OakPic:				 INCBIN "gfx/trainers/oak.2bpp.lz"
 CalPic:              INCBIN "gfx/trainers/cal.2bpp.lz"
 SwimmerfPic:         INCBIN "gfx/trainers/swimmer_f.2bpp.lz"
 DiglettFrontpic:     INCBIN "gfx/pokemon/diglett/front.animated.2bpp.lz"
@@ -1499,3 +1499,8 @@ GiovanniPic:   INCBIN "gfx/trainers/giovanni.2bpp.lz"
 SECTION "New Rival Trainers", ROMX
 WallyPic:     INCBIN "gfx/trainers/wally.2bpp.lz"
 GreenPic:     INCBIN "gfx/trainers/green.2bpp.lz"
+
+
+SECTION "New Prof Trainers", ROMX
+ElmPic:     INCBIN "gfx/trainers/elm.2bpp.lz"
+BirchPic:   INCBIN "gfx/trainers/birch.2bpp.lz"

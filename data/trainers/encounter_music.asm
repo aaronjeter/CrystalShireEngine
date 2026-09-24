@@ -13,7 +13,7 @@ TrainerEncounterMusic::
 	db MUSIC_OFFICER_ENCOUNTER     ; chuck
 	db MUSIC_BEAUTY_ENCOUNTER      ; clair
 	db MUSIC_RIVAL_ENCOUNTER       ; rival1
-	db MUSIC_HIKER_ENCOUNTER       ; pokemon_prof
+	db MUSIC_HIKER_ENCOUNTER       ; oak
 	db MUSIC_HIKER_ENCOUNTER       ; will
 	db MUSIC_HIKER_ENCOUNTER       ; cal
 	db MUSIC_OFFICER_ENCOUNTER     ; bruno
@@ -99,6 +99,8 @@ TrainerEncounterMusic::
 	db MUSIC_ROCKET_ENCOUNTER      ; giovanni
 	db MUSIC_YOUNGSTER_ENCOUNTER   ; wally
 	db MUSIC_RIVAL_ENCOUNTER       ; green
+	db MUSIC_HIKER_ENCOUNTER       ; elm
+	db MUSIC_HIKER_ENCOUNTER       ; birch
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

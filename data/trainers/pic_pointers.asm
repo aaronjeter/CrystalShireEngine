@@ -12,7 +12,7 @@ TrainerPicPointers::
 	dba ChuckPic
 	dba ClairPic
 	dba Rival1Pic
-	dba PokemonProfPic
+	dba OakPic
 	dba WillPic
 	dba CalPic
 	dba BrunoPic
@@ -99,4 +99,6 @@ TrainerPicPointers::
 	dba GiovanniPic
 	dba WallyPic
 	dba GreenPic
+	dba ElmPic
+	dba BirchPic
 	assert_table_length NUM_TRAINER_CLASSES

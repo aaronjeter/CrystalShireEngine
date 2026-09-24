@@ -12,7 +12,7 @@ TrainerGroups:
 	dba ChuckGroup
 	dba ClairGroup
 	dba Rival1Group
-	dba PokemonProfGroup
+	dba OakGroup
 	dba WillGroup
 	dba PKMNTrainerGroup
 	dba BrunoGroup
@@ -98,6 +98,8 @@ TrainerGroups:
 	dba GiovanniGroup
 	dba WallyGroup
 	dba GreenGroup
+	dba ElmGroup
+	dba BirchGroup
 	assert_table_length NUM_TRAINER_CLASSES
 
 	TrainerGroupsHard:
@@ -112,7 +114,7 @@ TrainerGroups:
 	dba ChuckGroupHard
 	dba ClairGroupHard
 	dba Rival1GroupHard
-	dba PokemonProfGroupHard
+	dba OakGroupHard
 	dba WillGroupHard
 	dba PKMNTrainerGroupHard
 	dba BrunoGroupHard
@@ -198,4 +200,6 @@ TrainerGroups:
 	dba GiovanniGroupHard
 	dba WallyGroupHard
 	dba GreenGroupHard
+	dba ElmGroupHard
+	dba BirchGroupHard
 	assert_table_length NUM_TRAINER_CLASSES

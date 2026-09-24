@@ -11,7 +11,7 @@ TrainerClassDVs:
 	dn  9,  8,  8,  8 ; CHUCK
 	dn  7, 12, 13, 13 ; CLAIR
 	dn 13, 13, 13, 13 ; RIVAL1
-	dn  9,  8,  8,  8 ; POKEMON_PROF
+	dn 15, 15, 15, 13 ; OAK
 	dn 13, 12, 13, 13 ; WILL
 	dn 13, 12, 13, 13 ; CAL
 	dn 13, 12, 13, 13 ; BRUNO
@@ -97,4 +97,6 @@ TrainerClassDVs:
 	dn 13, 12, 13, 13 ; GIOVANNI
 	dn 13, 13, 13, 13 ; WALLY
 	dn 13, 13, 13, 13 ; GREEN
+	dn 15, 15, 15, 13 ; ELM
+	dn 15, 15, 15, 13 ; BIRCH
 	assert_table_length NUM_TRAINER_CLASSES

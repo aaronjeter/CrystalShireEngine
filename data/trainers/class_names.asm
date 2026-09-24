@@ -96,4 +96,6 @@ TrainerClassNames::
 	li "Leader"
 	li "Trainer" ;Wally
 	li "Trainer" ;Green
+	li "#mon Prof."
+	li "#mon Prof."
 	assert_list_length NUM_TRAINER_CLASSES

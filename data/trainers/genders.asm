@@ -12,7 +12,7 @@ BTTrainerClassGenders:
 	db MALE   ; CHUCK
 	db FEMALE ; CLAIR
 	db MALE   ; RIVAL1
-	db MALE   ; POKEMON_PROF
+	db MALE   ; OAK
 	db FEMALE ; WILL
 	db MALE   ; CAL
 	db MALE   ; BRUNO
@@ -98,4 +98,6 @@ BTTrainerClassGenders:
 	db MALE   ; Giovanni
 	db MALE   ; Wally
 	db FEMALE ; Green
+	db MALE   ; Elm
+	db MALE   ; Birch
 	assert_table_length NUM_TRAINER_CLASSES ; 

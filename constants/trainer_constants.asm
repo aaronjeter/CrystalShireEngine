@@ -1009,6 +1009,12 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const GREEN3
 	const WC_GREEN
 
+	trainerclass ELM
+	const ELM1
+
+	trainerclass BIRCH
+	const BIRCH1
+
 DEF KRIS EQU __trainer_class__
 
 DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

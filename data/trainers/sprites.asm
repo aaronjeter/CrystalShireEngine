@@ -96,4 +96,6 @@ BTTrainerClassSprites:
 	db SPRITE_GENTLEMAN ; Giovanni placeholder
 	db SPRITE_YOUNGSTER ; Wally Placeholder
 	db SPRITE_DAISY     ; Green Placeholder
+	db SPRITE_ELM
+	db SPRITE_ELM
 	assert_table_length NUM_TRAINER_CLASSES ; 
