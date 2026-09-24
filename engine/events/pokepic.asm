@@ -1,6 +1,6 @@
 Pokepic::
 	ld hl, PokepicMenuHeader
-	call CopyMenuHeader
+	call LoadMenuHeader
 	call MenuBox
 	call UpdateSprites
 	call ApplyTilemap
@@ -12,36 +12,63 @@ Pokepic::
 	ld a, [wCurPartySpecies]
 	ld [wCurSpecies], a
 	call GetBaseData
-	ld de, vTiles1
+
+	ld a, 1
+	ldh [rVBK], a                  ; select VRAM bank 1
+	ld de, vTiles4                 ; was vTiles1
 	predef GetMonFrontpic
+	xor a
+	ldh [rVBK], a
+
 	ld a, [wMenuBorderTopCoord]
 	inc a
 	ld b, a
 	ld a, [wMenuBorderLeftCoord]
 	inc a
 	ld c, a
+	push bc                ; Coord2Tile clobbers bc, so save the coords
 	call Coord2Tile
 	ld a, $80
 	ldh [hGraphicStartTile], a
 	lb bc, 7, 7
 	predef PlaceGraphic
-	jmp WaitBGMap
+
+	pop bc
+	call Coord2Attr
+	ld b, 7
+.row
+	push hl
+	ld c, 7
+.col
+	ld a, [hl]
+	or 1 << OAM_TILE_BANK
+	ld [hli], a
+	dec c
+	jr nz, .col
+	pop hl
+	ld de, SCREEN_WIDTH
+	add hl, de
+	dec b
+	jr nz, .row
+	;jmp WaitBGMap2
+
+	ld a, 2
+	ldh [hBGMapMode], a        ; push attrmap
+	ld c, 2
+	call DelayFrames
+	ld a, 1
+	ldh [hBGMapMode], a        ; queue tilemap push, don't wait
+	ret
 
 ClosePokepic::
-	ld hl, PokepicMenuHeader
-	call CopyMenuHeader
-	call ClearMenuBoxInterior
-	call WaitBGMap
+	call ExitMenu
 	call GetMemSGBLayout
-	xor a
-	ldh [hBGMapMode], a
-	call LoadOverworldTilemapAndAttrmapPals
-	call CopyTilemapAtOnce
+	call WaitBGMap2
 	call UpdateSprites
 	farjp EnableDynPalUpdates
 
 PokepicMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 6, 4, 14, 13
+	menu_coords 6, 3, 14, 11
 	dw NULL
 	db 1 ; default option
