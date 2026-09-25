@@ -105,42 +105,38 @@ RustboroMarcAfterBattleText:
 
 RustboroGymRoxanneScript:
 	faceplayer	
+	opendialog LEADERROXANNE
 	checkflag ENGINE_STONEBADGE
-	iftrue .FightDone
-	opentext
+	iftrue .FightDone	
 	writetext RoxanneText_PreFight
 	promptbutton
-	closetext
+	closedialog
 	scall RoxanneFight
-	opentext
+	opendialog LEADERROXANNE
 	scall RoxanneGiveBadge
 	scall RoxanneGiveTm
 	writetext RoxannePostBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
-	scall RoxanneGiveTm
-	closetext
+	scall RoxanneGiveTm	
 	scall RoxanneRematch
 	end
 
-
-RoxanneRematch:
-	opentext
+RoxanneRematch:	
 	writetext RoxanneRematchText
 	yesorno
 	iffalse .FightDoneText
-	closetext
+	closedialog
 	scall RoxanneFight
-	opentext
+	opendialog LEADERROXANNE
 .FightDoneText:	
 	writetext RoxannePostBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 RoxanneGiveTm:

@@ -15,42 +15,38 @@ LavaridgeGym_MapScripts:
 	def_callbacks
 
 LavaridgeGymFlanneryScript:
-	faceplayer	
+	faceplayer
+	opendialog FLANNERY
 	checkflag ENGINE_HEATBADGE
-	iftrue .FightDone
-	opentext
+	iftrue .FightDone	
 	writetext FlanneryText_PreFight
 	promptbutton
-	closetext
+	closedialog
 	scall FlanneryFight
-	opentext
+	opendialog FLANNERY
 	scall FlanneryGiveBadge
 	scall FlanneryGiveTm
 	writetext FlanneryPostBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall FlanneryGiveTm
-	closetext
 	scall FlanneryRematch
 	end
 
 FlanneryRematch:
-	opentext
 	writetext FlanneryRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
 	scall FlanneryFight
-	opentext
+	opendialog FLANNERY
 .FightDone:	
 	writetext FlanneryPostBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 FlanneryGiveTm:
@@ -123,17 +119,13 @@ FlanneryWinLossText:
 	done
 
 FlanneryText_ExplainBadge:
-	text "Okay, you"
-	line "win."
+	text "Okay, you win."
+	line "Take the Heat"
+	cont "Badge!"
 
-	para "Take the"
-	line "Heat Badge!"
-
-	para "It's proof"
-	line "that you"
-
-	para "can handle"
-	line "some heat!"
+	para "It's proof that"
+	line "you can handle"
+	cont "some heat!"
 	done
 
 FlanneryRematchText:

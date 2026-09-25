@@ -4,46 +4,42 @@
 FortreeGym_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
-
+	def_callbacks
 
 FortreeGymWinonaScript:
-	faceplayer	
+	faceplayer
+	opendialog WINONA
 	checkflag ENGINE_FEATHERBADGE
-	iftrue .FightDone
-	opentext
+	iftrue .FightDone	
 	writetext WinonaText_PreFight
 	promptbutton
-	closetext
+	closedialog
 	scall WinonaFight
-	opentext
+	opendialog WINONA
 	scall WinonaGiveBadge
 	scall WinonaGiveTm
 	writetext WinonaPostBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall WinonaGiveTm
-	closetext
 	scall WinonaRematch
 	end
 
 WinonaRematch:
-	opentext
 	writetext WinonaRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall WinonaFight
-	opentext
+	opendialog WINONA
 .FightDone:	
 	writetext WinonaPostBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 WinonaGiveTm:
@@ -57,7 +53,6 @@ WinonaGiveTm:
 
 WinonaGiveBadge:
 	setevent EVENT_BEAT_WINONA
-	opentext
 	writetext WinonaText_ExplainBadge
 	playsound SFX_GET_BADGE
 	waitsfx

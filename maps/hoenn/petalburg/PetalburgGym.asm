@@ -13,42 +13,39 @@ PetalburgGym_MapScripts:
 	def_callbacks	
 
 PetalburgGymNormanScript:
-	faceplayer	
+	faceplayer
+	opendialog LEADERNORMAN
 	checkflag ENGINE_BALANCEBADGE
 	iftrue .FightDone
-	opentext
 	writetext NormanText_PreFight
 	promptbutton
-	closetext
+	closedialog
 	scall NormanFight
-	opentext
+	opendialog LEADERNORMAN
 	scall NormanGiveBadge
 	scall NormanGiveTm
 	writetext NormanPostBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall NormanGiveTm
-	closetext
 	scall NormanRematch
 	end
 
 NormanRematch:
-	opentext
 	writetext NormanRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall NormanFight
-	opentext
+	opendialog LEADERNORMAN
 .FightDone:	
 	writetext NormanPostBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 NormanGiveTm:
@@ -231,8 +228,8 @@ PetalburgGeorge:
 	end
 
 PetalburgGeorgeSeenText:
-	text "Norman is"
-	line "counting on me!"
+	text "Norman is counting"
+	line "on me!"
 	done
 
 PetalburgGeorgeBeatenText:

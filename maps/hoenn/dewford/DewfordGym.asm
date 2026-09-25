@@ -211,41 +211,37 @@ DewfordJocelynAfterBattleText:
 
 DewfordGymBrawlyScript:
 	faceplayer	
+	opendialog BRAWLY
 	checkflag ENGINE_KNUCKLEBADGE
-	iftrue .FightDone
-	opentext
+	iftrue .FightDone	
 	writetext BrawlyText_PreFight
 	promptbutton
-	closetext
+	closedialog
 	scall BrawlyFight
-	opentext
+	opendialog BRAWLY
 	scall BrawlyGiveBadge
 	scall BrawlyGiveTm
 	writetext BrawlyPostBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall BrawlyGiveTm
-	closetext
 	scall BrawlyRematch
 	end
 
 BrawlyRematch:
-	opentext
 	writetext BrawlyRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
 	scall BrawlyFight
-	opentext
+	opendialog BRAWLY
 .FightDone:	
 	writetext BrawlyPostBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 BrawlyGiveBadge:

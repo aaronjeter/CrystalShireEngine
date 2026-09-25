@@ -17,46 +17,42 @@
 MossdeepGym_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
-
+	def_callbacks
 
 MossdeepGymTateLizaScript:
-	faceplayer	
+	faceplayer
+	opendialog TATELIZA
 	checkflag ENGINE_MINDBADGE
 	iftrue .FightDone
-	opentext
 	writetext TateLizaText_PreFight
 	promptbutton
-	closetext
+	closedialog
 	scall TateLizaFight
-	opentext
+	opendialog TATELIZA
 	scall TateLizaGiveBadge
 	scall TateLizaGiveTm
 	writetext TateLizaPostBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall TateLizaGiveTm
-	closetext
 	scall TateLizaRematch
 	end
 
 TateLizaRematch:
-	opentext
 	writetext TateLizaRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall TateLizaFight
-	opentext
+	opendialog TATELIZA
 .FightDone:	
 	writetext TateLizaPostBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 TateLizaGiveTm:
@@ -71,14 +67,12 @@ TateLizaGiveTm:
 
 TateLizaGiveBadge:
 	setevent EVENT_BEAT_TATELIZA
-	opentext
 	writetext TateLizaText_ExplainBadge
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MINDBADGE
 	setflag ENGINE_FLYPOINT_SOOTOPOLIS
 	scall MossdeepGymLevelcap
-
 	;disable gym trainers
 	end
 
@@ -141,20 +135,17 @@ TateLizaText_ExplainBadge:
 
 	para "Liza: Take the"
 	line "Mind Badge!"
-
-	para "It's our"
-	line "emblem!"
+	cont "It's our emblem!"
 
 	para "Tate: It's shiny!"
-
-	para "And you'll need"
-	line "it if you ever"
+	line "And you'll need"
+	cont "it if you ever"
 
 	para "Liza: Want to"
-	line "face the"
-	cont "Elite Four."
+	line "face the Elite"
+	cont "Four."
 
-	para "Now. Go on to"
+	para "Now...Go on to"
 	line "Sootopolis!"
 
 	para "You'll find the"
@@ -163,7 +154,6 @@ TateLizaText_ExplainBadge:
 	para "Tate: Here, I"
 	line "marked it on"
 	cont "your flymap."
-
 	done
 
 TateLizaRematchText:

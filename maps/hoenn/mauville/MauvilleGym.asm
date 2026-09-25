@@ -173,42 +173,39 @@ MauvilleAngeloAfterBattleText:
 	done
 
 MauvilleGymWattsonScript:
-	faceplayer	
+	faceplayer
+	opendialog WATTSON
 	checkflag ENGINE_DYNAMOBADGE
-	iftrue .FightDone
-	opentext
+	iftrue .FightDone	
 	writetext WattsonText_PreFight
 	promptbutton
-	closetext
+	closedialog
 	scall WattsonFight
-	opentext
+	opendialog WATTSON
 	scall WattsonGiveBadge
 	scall WattsonGiveTm
 	writetext WattsonPostBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall WattsonGiveTm
-	closetext
 	scall WattsonRematch
 	end
 
 WattsonRematch:
-	opentext
 	writetext WattsonRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall WattsonFight
-	opentext
+	opendialog WATTSON
 .FightDone:	
 	writetext WattsonPostBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 WattsonGiveTm:

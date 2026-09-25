@@ -17,42 +17,39 @@ SootopolisGym_MapScripts:
 	def_callbacks
 
 SootopolisGymWallaceScript:
-	faceplayer	
+	faceplayer
+	opendialog WALLACE
 	checkflag ENGINE_RAINBADGE
-	iftrue .FightDone
-	opentext
+	iftrue .FightDone	
 	writetext WallaceText_PreFight
 	promptbutton
-	closetext
+	closedialog
 	scall WallaceFight
-	opentext
+	opendialog WALLACE
 	scall WallaceGiveBadge
 	scall WallaceGiveTm
 	writetext WallacePostBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall WallaceGiveTm
-	closetext
 	scall WallaceRematch
 	end
 
 WallaceRematch:
-	opentext
 	writetext WallaceRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall WallaceFight
-	opentext
+	opendialog WALLACE
 .FightDone:	
 	writetext WallacePostBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 WallaceGiveTm:
