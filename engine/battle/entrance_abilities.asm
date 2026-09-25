@@ -97,12 +97,12 @@ Check_Entrance_Ability:
 	ret z	
 
 	ld a, WEATHER_SANDSTORM
+	ld [wBattleWeather], a 
 	ld a, 5
-    ld [wBattleWeather], a 
+    ld [wWeatherCount], a
 	call AbilityAnimationCleanup
 	ld de, SANDSTORM
-    farcall Call_PlayBattleAnim
-    ld [wWeatherCount], a
+    farcall Call_PlayBattleAnim    
     ld hl, SandStreamText
     call StdBattleTextbox
 	;call HandleWeather
