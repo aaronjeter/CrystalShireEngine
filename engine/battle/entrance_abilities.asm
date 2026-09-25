@@ -50,8 +50,9 @@ Check_Entrance_Ability:
 
 	ld a, WEATHER_RAIN
     ld [wBattleWeather], a
-    ld a, 10 
+    ld a, 5 
     ld [wWeatherCount], a
+	call AbilityAnimationCleanup
 	ld de, RAIN_DANCE
     farcall Call_PlayBattleAnim
     ld hl, DrizzleText
@@ -73,8 +74,9 @@ Check_Entrance_Ability:
 	
 	ld a, WEATHER_SUN
     ld [wBattleWeather], a
-    ld a, 10 
+    ld a, 5 
     ld [wWeatherCount], a
+	call AbilityAnimationCleanup
 	ld de, SUNNY_DAY
     farcall Call_PlayBattleAnim
     ld hl, DroughtText
@@ -95,8 +97,9 @@ Check_Entrance_Ability:
 	ret z	
 
 	ld a, WEATHER_SANDSTORM
-    ld [wBattleWeather], a
-    ld a, 10 
+	ld a, 5
+    ld [wBattleWeather], a 
+	call AbilityAnimationCleanup
 	ld de, SANDSTORM
     farcall Call_PlayBattleAnim
     ld [wWeatherCount], a
@@ -119,8 +122,9 @@ Check_Entrance_Ability:
 
 	ld a, WEATHER_HAIL
     ld [wBattleWeather], a
-    ld a, 10 
+    ld a, 5 
     ld [wWeatherCount], a
+	call AbilityAnimationCleanup
 	ld de, HAIL
     farcall Call_PlayBattleAnim
     ld hl, SnowWarningText
@@ -134,7 +138,8 @@ Check_Entrance_Ability:
 	jr c, .HasIntimidate
 	ret
 		
-.HasIntimidate:	
+.HasIntimidate:
+	call AbilityAnimationCleanup
 	ld de, LEER
     farcall Call_PlayBattleAnim
     farcall BattleCommand_AttackDown
@@ -149,7 +154,8 @@ Check_Entrance_Ability:
 	jr c, .HasMystify
 	ret
 		
-.HasMystify:	
+.HasMystify:
+	call AbilityAnimationCleanup
 	ld de, DETECT
     farcall Call_PlayBattleAnim
     farcall BattleCommand_SpecialAttackDown
@@ -164,7 +170,8 @@ Check_Entrance_Ability:
 	jr c, .HasSnare
 	ret
 		
-.HasSnare:	
+.HasSnare:
+	call AbilityAnimationCleanup
 	ld de, WRAP
     farcall Call_PlayBattleAnim
     farcall BattleCommand_SpeedDown
@@ -179,7 +186,8 @@ Check_Entrance_Ability:
 	jr c, .HasHaste
 	ret
 		
-.HasHaste:	
+.HasHaste:
+	call AbilityAnimationCleanup
 	ld de, AGILITY
     farcall Call_PlayBattleAnim
     farcall BattleCommand_SpeedUp
@@ -194,7 +202,8 @@ Check_Entrance_Ability:
 	jr c, .HasAim
 	ret
 		
-.HasAim:	
+.HasAim:
+	call AbilityAnimationCleanup
 	ld de, LOCK_ON
     farcall Call_PlayBattleAnim
     farcall BattleCommand_AccuracyUp
@@ -209,10 +218,9 @@ Check_Entrance_Ability:
 	jr c, .HasFocus
 	ret
 		
-.HasFocus:	
-	ld de, FOCUS_ENERGY
-    farcall Call_PlayBattleAnim
-    farcall BattleCommand_FocusEnergy
+.HasFocus:
+	call AbilityAnimationCleanup
+    call FocusEnergyAbility
     ret
 
 .Veiled:
@@ -221,11 +229,10 @@ Check_Entrance_Ability:
 	jr c, .HasVeiled
 	ret
 		
-.HasVeiled:	
-	ld de, SAFEGUARD
-    farcall Call_PlayBattleAnim
-    farcall BattleCommand_Safeguard
-    ret
+.HasVeiled:
+	call AbilityAnimationCleanup
+	call SafeguardAbility
+	ret
 
 .InvisibleWall:
 	call GetAbilitySpecies	
@@ -233,10 +240,9 @@ Check_Entrance_Ability:
 	jr c, .HasInvisibleWall
 	ret
 		
-.HasInvisibleWall:	
-	ld de, REFLECT
-    farcall Call_PlayBattleAnim
-    farcall BattleCommand_Screen
+.HasInvisibleWall:
+	call AbilityAnimationCleanup
+	call ReflectAbility
     ret
 
 .Impostor:
@@ -245,7 +251,8 @@ Check_Entrance_Ability:
 	jr c, .HasImpostor
 	ret
 		
-.HasImpostor:	
+.HasImpostor:
+	call AbilityAnimationCleanup
 	ld de, TRANSFORM
     farcall Call_PlayBattleAnim
     farcall BattleCommand_Transform
@@ -257,10 +264,9 @@ Check_Entrance_Ability:
 	jr c, .HasDebris
 	ret
 		
-.HasDebris:	
-	ld de, SPIKES
-    farcall Call_PlayBattleAnim
-    farcall BattleCommand_Spikes
+.HasDebris:
+	call AbilityAnimationCleanup
+	call DebrisAbility
     ret
 
 .Leech:
@@ -269,10 +275,9 @@ Check_Entrance_Ability:
 	jr c, .HasLeech
 	ret
 		
-.HasLeech:	
-	ld de, LEECH_SEED
-    farcall Call_PlayBattleAnim
-    farcall BattleCommand_LeechSeed
+.HasLeech:
+	call AbilityAnimationCleanup
+	call LeechAbility
     ret
 
 .Enervate:
@@ -281,7 +286,8 @@ Check_Entrance_Ability:
 	jr c, .HasEnervate
 	ret
 		
-.HasEnervate:	
+.HasEnervate:
+	call AbilityAnimationCleanup
 	ld de, GIGA_DRAIN
     farcall Call_PlayBattleAnim
     farcall BattleCommand_SpecialDefenseDown
@@ -296,7 +302,8 @@ Check_Entrance_Ability:
 	jr c, .HasDaunt
 	ret
 		
-.HasDaunt:	
+.HasDaunt:
+	call AbilityAnimationCleanup
 	ld de, LEER
     farcall Call_PlayBattleAnim
     farcall BattleCommand_DefenseDown
@@ -310,3 +317,109 @@ GetAbilitySpecies:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
 	ret
+
+AbilityAnimationCleanup:
+	;set numhits to 0 to prevent animation weirdness
+	;set up as a function, we might need to do other cleanups
+	xor a
+	ld [wNumHits], a
+	ret
+
+SafeguardAbility:
+	ld de, SAFEGUARD
+	farcall Call_PlayBattleAnim
+
+	ld hl, wPlayerScreens
+	ld de, wPlayerSafeguardCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld hl, wEnemyScreens
+	ld de, wEnemySafeguardCount
+.ok
+	set SCREENS_SAFEGUARD, [hl]
+	ld a, 3
+	ld [de], a
+	ld hl, CoveredByVeilText
+	jmp StdBattleTextbox
+
+FocusEnergyAbility:
+	ld a, BATTLE_VARS_SUBSTATUS4
+	call GetBattleVarAddr
+	bit SUBSTATUS_FOCUS_ENERGY, [hl]
+	ret nz  ; already active — do nothing
+	set SUBSTATUS_FOCUS_ENERGY, [hl]
+	
+	ld de, FOCUS_ENERGY
+	farcall Call_PlayBattleAnim
+
+	ld hl, GettingPumpedText
+	jmp StdBattleTextbox
+
+ReflectAbility:
+	ld hl, wPlayerScreens
+	ld bc, wPlayerReflectCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld hl, wEnemyScreens
+	ld bc, wEnemyReflectCount
+.ok
+	set SCREENS_REFLECT, [hl]
+	ld a, 3
+	ld [bc], a
+	
+	ld de, REFLECT
+	farcall Call_PlayBattleAnim
+
+	ld hl, ReflectEffectText
+	jmp StdBattleTextbox
+
+DebrisAbility:
+	ld hl, wEnemyScreens
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld hl, wPlayerScreens
+.ok
+	bit SCREENS_SPIKES, [hl]
+	ret nz ; spikes already down, do nothing
+
+	set SCREENS_SPIKES, [hl]
+	
+	ld de, SPIKES
+	farcall Call_PlayBattleAnim
+
+	ld hl, SpikesText
+	jmp StdBattleTextbox
+
+
+LeechAbility:
+	farcall CheckSubstituteOpp
+	ret nz ; blocked by Substitute
+
+	ld de, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld de, wBattleMonType1
+.ok
+	ld a, [de]
+	cp GRASS
+	ret z 
+	inc de
+	ld a, [de]
+	cp GRASS
+	ret z
+
+	ld a, BATTLE_VARS_SUBSTATUS4_OPP
+	call GetBattleVarAddr
+	bit SUBSTATUS_LEECH_SEED, [hl]
+	ret nz ; already seeded, do nothing
+	set SUBSTATUS_LEECH_SEED, [hl]
+	
+	ld de, LEECH_SEED
+	farcall Call_PlayBattleAnim
+
+	ld hl, WasSeededText
+	jmp StdBattleTextbox
