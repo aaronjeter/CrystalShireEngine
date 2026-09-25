@@ -200,7 +200,8 @@ VeiledMons::
 	dw -1
 
 InvisibleWallMons::
-	dw MR__MIME	
+	dw MR__MIME
+	dw MR__RIME
 	dw -1
 
 ImpostorMons::
@@ -530,8 +531,7 @@ IceBodyMons::
 	dw FROSLASS
 	dw FROSLASSX
 	dw ASANDSHREW
-	dw ASANDSLASH
-	dw MR__RIME
+	dw ASANDSLASH	
 	dw JYNX
 	dw -1
 
