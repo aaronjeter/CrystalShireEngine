@@ -8235,6 +8235,15 @@ ExplorerGroup:
 	dbw 10, WARTORTLE
 	db -1 ; end
 
+	next_list_item ; GREEN (4)
+	db "Green@", TRAINERTYPE_NORMAL
+	dbw 7, CLEFABLE
+	dbw 7, GENGAR
+	dbw 7, VICTREEBEL
+	dbw 8, ANINETALES	
+	dbw 11, BLASTOISE
+	db -1 ; end
+
 	next_list_item ; WC_GREEN (?) World Cup Green
 	db "Green@", TRAINERTYPE_MOVES
 	dbw 12, KANGASKHAN

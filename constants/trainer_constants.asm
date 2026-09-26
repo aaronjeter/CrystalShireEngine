@@ -1007,6 +1007,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const GREEN1
 	const GREEN2
 	const GREEN3
+	const GREEN4
 	const WC_GREEN
 
 	trainerclass ELM
