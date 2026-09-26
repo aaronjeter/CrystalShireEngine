@@ -215,9 +215,9 @@ GetMagnetTrainBGTiles:
 	ld hl, MagnetTrainBGTiles
 	add hl, de
 	add hl, de
-	ld a, [hli]
+	ld e, [hl]
+	inc hl
 	ld d, [hl]
-	ld e, a
 	pop hl
 	ret
 
