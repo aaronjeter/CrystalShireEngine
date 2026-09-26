@@ -290,11 +290,11 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke MACHAMP, 200
+	givepoke MILOTIC, 200
 
 	loadmem wPartyMon1DVs+0, $ff
 	loadmem wPartyMon1DVs+1, $ff
-	loadmem wPartyMon1DVs+2, $ff
+
 	; hm slaves
 	givepoke SCEPTILE, 80, SACRED_ASH 
 	givepoke BLAZIKEN, 80, SACRED_ASH
@@ -314,7 +314,18 @@ if DEF(_DEBUG)
 
 	loadmem wPartyMon2DVs+0, $ff
 	loadmem wPartyMon2DVs+1, $ff
-	loadmem wPartyMon2DVs+2, $ff
+
+	loadmem wPartyMon3DVs+0, HP_MAX_WATER
+	loadmem wPartyMon3DVs+1, $fe
+
+	loadmem wPartyMon4DVs+0, HP_MAX_WATER
+	loadmem wPartyMon4DVs+1, $ff
+
+	loadmem wPartyMon5DVs+0, HP_MAX_GROUND
+	loadmem wPartyMon5DVs+1, $ff
+
+	loadmem wPartyMon6DVs+0, HP_MAX_GROUND
+	loadmem wPartyMon6DVs+1, $fe
 
 	; intro events
 	addcellnum PHONE_MOM
@@ -337,7 +348,10 @@ if DEF(_DEBUG)
 	;warp SAFARI_ZONE_WEST, 7, 9
 	;warp SOOTOPOLIS_GYM, 10, 05
 	;warp EVERGRANDE_DUNGEON_B2F, 52, 12
-	;warp METEOR_FALLS, 27, 31
+	;warp SAFFRON_CITY, 9, 7
+	;warp OAKS_LAB, 7, 4
+	;warp ELMS_LAB, 5, 11
+	;warp BIRCHS_LAB, 9, 2
 	end
 else
 
