@@ -82,19 +82,16 @@ Oak:
 
 
 .OakPickStarter
-	opentext
 	writetext OakText_PickAPokemon
 	waitbutton
 	sjump .done
 
 .OakFindGreen
-	opentext
 	writetext OakDirectionsText
 	waitbutton
 	sjump .done
 
 .OakGivePokedex
-	opentext
 	writetext OakGivePokedexText
 	waitbutton
 	setflag ENGINE_POKEDEX
@@ -975,10 +972,10 @@ OaksLab_WelcomeScript:
 	iftrue .done
 	showemote EMOTE_SHOCK, OAKSLAB_OAK, 15
 	applymovement PLAYER, OaksLab_StepUpMovement
-	opentext
+	opendialog OAK
 	writetext OakText_PickAPokemon
 	waitbutton
-	closetext
+	closedialog
 .done
 	end
 
