@@ -57,42 +57,39 @@ CeruleanGymGruntRunsOutScript:
 	end
 
 CeruleanGymMistyScript:
-	faceplayer	
+	faceplayer
+	opendialog MISTY
 	checkflag ENGINE_CASCADEBADGE
 	iftrue .FightDone
-	opentext
 	writetext MistyIntroText
 	promptbutton
-	closetext
+	closedialog
 	scall MistyFight
-	opentext
+	opendialog MISTY
 	scall MistyGiveBadge
 	scall MistyGiveTm
 	writetext MistyFightDoneText
 	promptbutton
-	closetext
+	closedialog
 	end
 
-.FightDone:	
-	opentext
+.FightDone:		
 	scall MistyGiveTm
-	closetext
 	scall MistyRematch
 	end
 
 MistyRematch:
-	opentext
 	writetext MistyRematchText
 	yesorno
 	iffalse .FightDoneText
-	closetext
+	closedialog
 	scall MistyFight
-	opentext
+	opendialog MISTY
 .FightDoneText:	
 	writetext MistyFightDoneText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 MistyFight:

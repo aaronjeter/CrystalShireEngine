@@ -13,42 +13,39 @@ FuchsiaGym_MapScripts:
 
 FuchsiaGymJanineScript:
 	checkflag ENGINE_SOULBADGE
-	iftrue .FightDone
 	applymovement FUCHSIAGYM_JANINE, Movement_NinjaSpin
 	faceplayer
-	opentext
+	opendialog JANINE
+	iftrue .FightDone
 	writetext JanineText_DisappointYou
 	promptbutton
-	closetext
+	closedialog
 	scall JanineFight
-	opentext
+	opendialog JANINE
 	scall JanineGiveBadge
 	scall JanineGiveTm
 	writetext JanineText_ApplyMyself
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall JanineGiveTm
-	closetext
 	scall JanineRematch
 	end
 
 JanineRematch:
-	opentext
 	writetext JanineRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall JanineFight
-	opentext
+	opendialog JANINE
 .FightDone:	
 	writetext JanineText_ApplyMyself
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 JanineGiveTm:
@@ -76,7 +73,7 @@ JanineGiveBadge:
 	variablesprite SPRITE_FUCHSIA_GYM_3, SPRITE_LASS
 	variablesprite SPRITE_FUCHSIA_GYM_4, SPRITE_YOUNGSTER
 	special LoadUsedSpritesGFX
-	opentext
+	opendialog JANINE
 	end
 
 JanineFight:

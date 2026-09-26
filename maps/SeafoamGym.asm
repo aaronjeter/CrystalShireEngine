@@ -12,42 +12,39 @@ SeafoamGymNoopScene:
 	end
 
 SeafoamGymBlaineScript:
-	faceplayer	
+	faceplayer
+	opendialog BLAINE
 	checkflag ENGINE_VOLCANOBADGE
-	iftrue .FightDone
-	opentext
+	iftrue .FightDone	
 	writetext BlaineIntroText
 	promptbutton
-	closetext
+	closedialog
 	scall BlaineFight
-	opentext
+	opendialog BLAINE
 	scall BlaineGiveBadge
 	scall BlaineGiveTm
 	writetext BlaineFightDoneText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall BlaineGiveTm
-	closetext
 	scall BlaineRematch
 	end
 
 BlaineRematch:
-	opentext
 	writetext BlaineRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall BlaineFight
-	opentext
+	opendialog BLAINE
 .FightDone:	
 	writetext BlaineFightDoneText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 BlaineGiveTm:
@@ -60,8 +57,7 @@ BlaineGiveTm:
 	end
 
 BlaineGiveBadge:
-	setevent EVENT_BEAT_BLAINE
-	opentext
+	setevent EVENT_BEAT_BLAINE	
 	writetext ReceivedVolcanoBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx

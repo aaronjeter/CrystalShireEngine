@@ -12,42 +12,39 @@ CeladonGym_MapScripts:
 	def_callbacks
 
 CeladonGymErikaScript:
-	faceplayer	
+	faceplayer
+	opendialog ERIKA
 	checkflag ENGINE_RAINBOWBADGE
 	iftrue .FightDone
-	opentext
 	writetext ErikaBeforeBattleText
 	promptbutton
-	closetext
+	closedialog
 	scall ErikaFight
-	opentext
+	opendialog ERIKA
 	scall ErikaGiveBadge
 	scall ErikaGiveTm
 	writetext ErikaAfterBattleText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall ErikaGiveTm
-	closetext
 	scall ErikaRematch
 	end
 
 ErikaRematch:
-	opentext
 	writetext ErikaRematchText
 	yesorno
 	iffalse .FightDoneText
-	closetext
+	closedialog
 	scall ErikaFight
-	opentext
+	opendialog ERIKA
 .FightDoneText:	
 	writetext ErikaAfterBattleText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 ErikaGiveTm:
@@ -65,7 +62,6 @@ ErikaGiveBadge:
 	setevent EVENT_BEAT_PICNICKER_TANYA
 	setevent EVENT_BEAT_BEAUTY_JULIA
 	setevent EVENT_BEAT_TWINS_JO_AND_ZOE
-	opentext
 	writetext PlayerReceivedRainbowBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx

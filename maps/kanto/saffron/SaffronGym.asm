@@ -16,42 +16,39 @@ SaffronGym_MapScripts:
 	def_callbacks
 
 SaffronGymSabrinaScript:
-	faceplayer	
+	faceplayer
+	opendialog SABRINA
 	checkflag ENGINE_MARSHBADGE
 	iftrue .FightDone
-	opentext
 	writetext SabrinaIntroText
 	promptbutton
-	closetext
+	closedialog
 	scall SabrinaFight
-	opentext
+	opendialog SABRINA
 	scall SabrinaGiveBadge
 	scall SabrinaGiveTm
 	writetext SabrinaFightDoneText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall SabrinaGiveTm
-	closetext
 	scall SabrinaRematch
 	end
 
 SabrinaRematch:
-	opentext
 	writetext SabrinaRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall SabrinaFight
-	opentext
+	opendialog SABRINA
 .FightDone:	
 	writetext SabrinaFightDoneText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 SabrinaGiveTm:

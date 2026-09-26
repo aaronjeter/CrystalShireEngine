@@ -9,26 +9,24 @@ PewterGym_MapScripts:
 	def_callbacks
 
 PewterGymBrockScript:
-	faceplayer	
+	faceplayer
+	opendialog BROCK
 	checkflag ENGINE_BOULDERBADGE
 	iftrue .FightDone
-	opentext
 	writetext BrockIntroText
 	promptbutton
-	closetext
+	closedialog
 	scall BrockFight
-	opentext
+	opendialog BROCK
 	scall BrockGiveBadge
 	scall BrockGiveTm
 	writetext BrockFightDoneText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall BrockGiveTm
-	closetext
 	scall BrockRematch
 	end
 
@@ -55,18 +53,17 @@ BrockGiveBadge:
 	end
 
 BrockRematch:
-	opentext
 	writetext BrockRematchText
 	yesorno
 	iffalse .FightDoneText
-	closetext
+	closedialog
 	scall BrockFight
-	opentext
+	opendialog BROCK
 .FightDoneText:	
 	writetext BrockFightDoneText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 BrockFight:

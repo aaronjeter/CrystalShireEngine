@@ -12,42 +12,39 @@ VermilionGym_MapScripts:
 
 
 VermilionGymSurgeScript:
-	faceplayer	
+	faceplayer
+	opendialog LT_SURGE
 	checkflag ENGINE_THUNDERBADGE
 	iftrue .FightDone
-	opentext
 	writetext LtSurgeIntroText
 	promptbutton
-	closetext
+	closedialog
 	scall SurgeFight
-	opentext
+	opendialog LT_SURGE
 	scall SurgeGiveBadge
 	scall SurgeGiveTm
 	writetext LtSurgeFightDoneText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall SurgeGiveTm
-	closetext
 	scall SurgeRematch
 	end
 
 SurgeRematch:
-	opentext
 	writetext LtSurgeRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall SurgeFight
-	opentext
+	opendialog LT_SURGE
 .FightDone:	
 	writetext LtSurgeFightDoneText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 SurgeGiveTm:
@@ -64,7 +61,6 @@ SurgeGiveBadge:
 	setevent EVENT_BEAT_GENTLEMAN_GREGORY
 	setevent EVENT_BEAT_GUITARIST_VINCENT
 	setevent EVENT_BEAT_JUGGLER_HORTON
-	opentext
 	writetext ReceivedThunderBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
@@ -202,8 +198,8 @@ ReceivedThunderBadgeText:
 
 LtSurgeThunderBadgeText:
 	text "Surge: Thunder-"
-	line "badge increases"
-	cont "#mon's speed."
+	line "badge is my"
+	cont "Gym's emblem."
 
 	para "Consider it proof"
 	line "that you defeated"

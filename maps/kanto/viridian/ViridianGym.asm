@@ -8,42 +8,39 @@ ViridianGym_MapScripts:
 	def_callbacks
 
 ViridianGymBlueScript:
-	faceplayer	
+	faceplayer
+	opendialog BLUE
 	checkflag ENGINE_EARTHBADGE
-	iftrue .FightDone
-	opentext
+	iftrue .FightDone	
 	writetext LeaderBlueBeforeText
 	promptbutton
-	closetext
+	closedialog
 	scall BlueFight
-	opentext
+	opendialog BLUE
 	scall BlueGiveBadge
 	scall BlueGiveTm
 	writetext LeaderBlueEpilogueText
 	promptbutton
-	closetext
+	closedialog
 	end
 
 .FightDone:	
-	opentext
 	scall BlueGiveTm
-	closetext
 	scall BlueRematch
 	end
 
 BlueRematch:
-	opentext
 	writetext LeaderBlueRematchText
 	yesorno
 	iffalse .FightDone
-	closetext
+	closedialog
 	scall BlueFight
-	opentext
+	opendialog BLUE
 .FightDone:	
 	writetext LeaderBlueEpilogueText
 	promptbutton
 .EndRematch:
-	closetext
+	closedialog
 	end
 
 BlueGiveTm:
@@ -233,5 +230,5 @@ ViridianGym_MapEvents:
 	bg_event  6, 13, BGEVENT_READ, ViridianGymStatue
 
 	def_object_events
-	object_event  5,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianGymBlueScript, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  5,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymBlueScript, EVENT_VIRIDIAN_GYM_BLUE
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymGuideScript, EVENT_VIRIDIAN_GYM_BLUE
