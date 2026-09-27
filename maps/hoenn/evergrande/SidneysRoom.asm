@@ -32,12 +32,12 @@ SidneysRoom_EnterMovement:
 
 SidneyScript_Battle:
 	faceplayer
-	opentext
+	opendialog ELITESIDNEY
 	checkevent EVENT_BEAT_ELITE_4_SIDNEY
 	iftrue SidneyScript_AfterBattle
 	writetext SidneyScript_SidneyBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -57,10 +57,10 @@ SidneyScript_Battle:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_SIDNEY
-	opentext
+	opendialog ELITESIDNEY
 	writetext SidneyScript_SidneyDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 6, 2, $4f ; open door
 	changeblock 6, 14, $14 ; wall
@@ -73,7 +73,7 @@ SidneyScript_Battle:
 SidneyScript_AfterBattle:
 	writetext SidneyScript_SidneyDefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 

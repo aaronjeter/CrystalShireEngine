@@ -27,12 +27,12 @@ GlaciasRoom_EnterMovement:
 
 GlaciaScript_Battle:
 	faceplayer
-	opentext
+	opendialog GLACIA
 	checkevent EVENT_BEAT_ELITE_4_GLACIA
 	iftrue GlaciaScript_AfterBattle
 	writetext GlaciaScript_GlaciaBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -52,10 +52,10 @@ GlaciaScript_Battle:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_GLACIA
-	opentext
+	opendialog GLACIA
 	writetext GlaciaScript_GlaciaDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 6, 2, $4f ; open door
 	refreshmap
@@ -67,7 +67,7 @@ GlaciaScript_Battle:
 GlaciaScript_AfterBattle:
 	writetext GlaciaScript_GlaciaDefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 GlaciaScript_GlaciaBeforeText:

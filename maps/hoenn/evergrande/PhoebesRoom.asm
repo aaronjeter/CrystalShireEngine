@@ -27,12 +27,12 @@ PhoebesRoom_EnterMovement:
 
 PhoebeScript_Battle:
 	faceplayer
-	opentext
+	opendialog PHOEBE
 	checkevent EVENT_BEAT_ELITE_4_PHOEBE
 	iftrue PhoebeScript_AfterBattle
 	writetext PhoebeScript_PhoebeBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -52,10 +52,10 @@ PhoebeScript_Battle:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_PHOEBE
-	opentext
+	opendialog PHOEBE
 	writetext PhoebeScript_PhoebeDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 6, 2, $4f ; open door
 	refreshmap
@@ -67,7 +67,7 @@ PhoebeScript_Battle:
 PhoebeScript_AfterBattle:
 	writetext PhoebeScript_PhoebeDefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 PhoebeScript_PhoebeBeforeText:

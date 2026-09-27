@@ -7,10 +7,10 @@ StevensRoom_MapScripts:
 
 StevenScript_Battle:
 	faceplayer
-	opentext	
+	opendialog STEVEN
 	writetext StevenScript_StevenBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -30,10 +30,10 @@ StevenScript_Battle:
 	startbattle
 	reloadmapafterbattle
 
-	opentext 
+	opendialog STEVEN 
 	writetext StevenScript_RoundTwoText
 	waitbutton
-	closetext
+	closedialog
 	special HealParty
 
 	winlosstext StevenScript_RoundTwoBeatenText, 0
@@ -41,10 +41,10 @@ StevenScript_Battle:
 	startbattle
 	reloadmapafterbattle
 
-	opentext
+	opendialog STEVEN
 	writetext StevenScript_StevenDefeatText
 	waitbutton
-	closetext
+	closedialog
 	waitsfx
 	special HealParty
 	;Give beat elite 4 goodies

@@ -26,12 +26,12 @@ DrakesRoom_EnterMovement:
 
 DrakeScript_Battle:
 	faceplayer
-	opentext
+	opendialog DRAKE
 	checkevent EVENT_BEAT_ELITE_4_DRAKE
 	iftrue DrakeScript_AfterBattle
 	writetext DrakeScript_DrakeBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -51,10 +51,10 @@ DrakeScript_Battle:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_DRAKE
-	opentext
+	opendialog DRAKE
 	writetext DrakeScript_DrakeDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 6, 2, $4f ; open door
 	refreshmap
@@ -67,7 +67,7 @@ DrakeScript_Battle:
 DrakeScript_AfterBattle:
 	writetext DrakeScript_DrakeDefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 DrakeScript_DrakeBeforeText:
