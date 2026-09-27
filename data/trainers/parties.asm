@@ -5759,6 +5759,12 @@ PicnickerGroup:
 	dw MAROWAK
 	db -1 ; end
 
+	next_list_item ; PICNICKER (30) Pewter City Gym
+	db "Amara@", TRAINERTYPE_NORMAL	
+	dbw 2, NIDORAN_F
+	dbw 2, GEODUDE	
+	db -1 ; end
+
 	end_list_items
 
 CamperGroup:
@@ -5817,8 +5823,8 @@ CamperGroup:
 
 	next_list_item ; CAMPER (10) Pewter City Gym
 	db "Jerry@", TRAINERTYPE_NORMAL
-	dbw 7, SANDSHREW
-	dbw 7, KABUTO
+	dbw 1, SANDSHREW
+	dbw 2, KABUTO
 	db -1 ; end
 
 	next_list_item ; CAMPER (11) Route 43
@@ -5915,7 +5921,13 @@ CamperGroup:
 	next_list_item ; CAMPER (26) Lavaridge Desert
 	db "Branden@", TRAINERTYPE_NORMAL	
 	dbw 4, SKARMORY
-	dbw 6, ONIX	
+	dbw 6, ONIX
+	db -1 ; end
+
+	next_list_item ; CAMPER (27) Pewter City Gym
+	db "Liam@", TRAINERTYPE_NORMAL	
+	dbw 2, NIDORAN_M
+	dbw 2, AGEODUDE
 	db -1 ; end
 
 	end_list_items

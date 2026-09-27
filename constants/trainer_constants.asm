@@ -703,6 +703,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DESERT_HEIDI	
 	const DESERT_BECKY
 	const DESERT_CELIA
+	const PEWTER_AMARA
 	
 
 	trainerclass CAMPER ; 36
@@ -732,6 +733,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DESERT_BEAU
 	const DESERT_DREW	
 	const DESERT_BRANDEN
+	const PEWTER_LIAM
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1

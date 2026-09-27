@@ -1150,7 +1150,7 @@
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
-	const_skip ; unused
+	const EVENT_BEAT_CAMPER_LIAM
 	const EVENT_BEAT_CAMPER_JERRY
 	const EVENT_BEAT_CAMPER_SPENCER
 ; Burglar
@@ -1250,7 +1250,7 @@
 	const EVENT_BEAT_PICNICKER_HOPE
 	const EVENT_BEAT_PICNICKER_SHARON
 	const EVENT_BEAT_PICNICKER_DEBRA
-	const_skip ; unused
+	const EVENT_BEAT_PICNICKER_AMARA
 	const EVENT_BEAT_PICNICKER_ERIN
 	const_skip ; unused
 	const_skip ; unused

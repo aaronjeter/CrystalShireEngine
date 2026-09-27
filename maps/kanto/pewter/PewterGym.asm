@@ -42,6 +42,8 @@ BrockGiveTm:
 BrockGiveBadge:	
 	setevent EVENT_BEAT_BROCK
 	setevent EVENT_BEAT_CAMPER_JERRY
+	setevent EVENT_BEAT_CAMPER_LIAM
+	setevent EVENT_BEAT_PICNICKER_AMARA
 	writetext ReceivedBoulderBadgeText
 	promptbutton
 	playsound SFX_GET_BADGE
@@ -106,6 +108,29 @@ TrainerCamperJerry:
 	waitbutton
 	closetext
 	end
+
+TrainerCamperLiam:
+	trainer CAMPER, PEWTER_LIAM, EVENT_BEAT_CAMPER_LIAM, CamperLiamSeenText, CamperLiamBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CamperLiamAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerPicnickerAmara:
+	trainer PICNICKER, PEWTER_AMARA, EVENT_BEAT_PICNICKER_AMARA, PicnickerAmaraSeenText, PicnickerAmaraBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PicnickerAmaraAfterBattleText
+	waitbutton
+	closetext
+	end
+
 
 PewterGymGuideScript:
 	faceplayer
@@ -242,15 +267,55 @@ CamperJerryBeatenText:
 	done
 
 CamperJerryAfterBattleText:
-	text "Hey, you! Trainer"
-	line "from Johto! Brock"
+	text "Hey, you! Brock"
+	line "is tough. "
 
-	para "is tough. He'll"
-	line "punish you if you"
-
-	para "don't take him"
-	line "seriously."
+	para "He'll punish you"
+	line "if you don't take"
+	cont "him seriously."
 	done
+
+CamperLiamSeenText:
+	text "Oh, a challenger!"
+	line "You won't make it"
+	cont "to Brock!"
+	done
+
+CamperLiamBeatenText:
+	text "Woah! you got"
+	line "me good!"
+	done
+
+CamperLiamAfterBattleText:
+	text "Brock is way"
+	line "better than me."
+
+	para "Don't let beating"
+	line "me go to your"
+	cont "head."
+	done
+
+PicnickerAmaraSeenText:
+	text "Oh, hi. Did you"
+	line "come here to"
+	cont "train?"
+
+	para "For the badge?"
+	line "Don't make me"
+	cont "laugh!"
+	done
+
+PicnickerAmaraBeatenText:
+	text "Wow. I thought"
+	line "I had it."
+	done
+
+PicnickerAmaraAfterBattleText:
+	text "Maybe you have a"
+	line "chance at the"
+	cont "badge. Good luck!"
+	done
+
 
 PewterGymGuideText:
 	text "Yo! Champ in"
@@ -299,4 +364,6 @@ PewterGym_MapEvents:
 	def_object_events
 	object_event  5,  1, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PewterGymBrockScript, -1
 	object_event  2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperJerry, -1
+	object_event  7,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCamperLiam, -1
+	object_event  2,  9, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_TRAINER, 3, TrainerPicnickerAmara, -1	
 	object_event  6, 11, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, PewterGymGuideScript, -1
