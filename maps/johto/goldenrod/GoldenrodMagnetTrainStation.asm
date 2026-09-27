@@ -14,6 +14,10 @@ GoldenrodMagnetTrainStationNoopScene:
 GoldenrodMagnetTrainStationOfficerScript:
 	faceplayer
 	opentext	
+
+	checkevent EVENT_SAFFRON_CITY_SAFE
+	iffalse .lockdown
+
 	writetext GoldenrodMagnetTrainStationOfficerAreYouComingAboardText
 	yesorno
 	iffalse .DecidedNotToRide
@@ -28,6 +32,12 @@ GoldenrodMagnetTrainStationOfficerScript:
 	newloadmap MAPSETUP_TRAIN
 	applymovement PLAYER, .MovementBoardTheTrain
 	wait 20
+	end
+
+.lockdown
+	writetext GoldenrodMagnetTrainStationSaffronLockdownText
+	waitbutton
+	closetext
 	end
 
 .MovementBoardTheTrain:
@@ -147,6 +157,17 @@ GoldenrodMagnetTrainStationGentlemanText:
 	para "It really brings"
 	line "Johto much closer"
 	cont "to Kanto."
+	done
+
+GoldenrodMagnetTrainStationSaffronLockdownText:
+	text "I'm sorry, but"
+	line "Saffron City is"
+	cont "currently in"
+	cont "quarantine."
+
+	para "We hope to reopen"
+	line "the train service"
+	cont "once it's open!"
 	done
 
 GoldenrodMagnetTrainStation_MapEvents:
