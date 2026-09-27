@@ -151,23 +151,21 @@ PewterCityWelcomeSignText:
 PewterCity_Green:
 	showemote EMOTE_SHOCK, PEWTERCITY_GREEN, 10
 	faceplayer
+	opendialog GREEN
 	checkevent EVENT_START_KANTO
 	iffalse .notKanto
-
 	checkflag ENGINE_BOULDERBADGE
-	iffalse .notReady
-
-	opentext
+	iffalse .notReady	
 	writetext PewterCityGreenIntroText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext PewterCityGreenLossText, PewterCityGreenWinText
 	loadtrainer GREEN, GREEN2
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	reloadmapafterbattle
-	opentext
+	opendialog GREEN
 	writetext PewterCityGreenAfterBattleText
 	waitbutton
 	sjump .GreenExit
@@ -176,17 +174,17 @@ PewterCity_Green:
 .notReady
 	writetext PewterCityNoBadgeText
 	waitbutton
-
+	closedialog
 	turnobject PLAYER, LEFT
 	applymovement PLAYER, PewterCityGreen_StepBackMovement
+	end
 
-.notKanto
-	opentext
+.notKanto	
 	writetext PewterCityGreenNotKantoText
 	waitbutton 
 
 .GreenExit
-	closetext
+	closedialog
 	setevent EVENT_FOUND_PEWTER_CITY_GREEN
 	special FadeOutToBlack
 	disappear PEWTERCITY_GREEN
