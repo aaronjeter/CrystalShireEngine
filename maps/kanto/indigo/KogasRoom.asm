@@ -42,12 +42,12 @@ KogasRoomDoorLocksBehindYouScript:
 
 KogaScript_Battle:
 	faceplayer
-	opentext
+	opendialog KOGA
 	checkevent EVENT_BEAT_ELITE_4_KOGA
 	iftrue KogaScript_AfterBattle
 	writetext KogaScript_KogaBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -67,14 +67,13 @@ KogaScript_Battle:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KOGA
-	opentext
+	opendialog KOGA
 	writetext KogaScript_KogaDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 4, 2, $16 ; open door
 	refreshmap
-	closetext
 	setevent EVENT_KOGAS_ROOM_EXIT_OPEN
 	waitsfx
 	special HealParty

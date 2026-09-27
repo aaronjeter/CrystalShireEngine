@@ -42,12 +42,12 @@ WillsRoomDoorLocksBehindYouScript:
 
 WillScript_Battle:
 	faceplayer
-	opentext
+	opendialog WILL
 	checkevent EVENT_BEAT_ELITE_4_WILL
 	iftrue WillScript_AfterBattle
 	writetext WillScript_WillBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -67,14 +67,13 @@ WillScript_Battle:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_WILL
-	opentext
+	opendialog WILL
 	writetext WillScript_WillDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 4, 2, $16 ; open door
 	refreshmap
-	closetext
 	setevent EVENT_WILLS_ROOM_EXIT_OPEN
 	waitsfx
 	special HealParty
@@ -83,7 +82,7 @@ WillScript_Battle:
 WillScript_AfterBattle:
 	writetext WillScript_WillDefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 WillsRoom_EnterMovement:

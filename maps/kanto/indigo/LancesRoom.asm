@@ -51,10 +51,10 @@ Script_ApproachLanceFromRight:
 	applymovement PLAYER, MovementData_ApproachLanceFromRight
 LancesRoomLanceScript:
 	turnobject LANCESROOM_LANCE, LEFT
-	opentext
+	opendialog CHAMPION
 	writetext LanceBattleIntroText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -77,10 +77,10 @@ LancesRoomLanceScript:
 	dontrestartmapmusic
 	reloadmapafterbattle
 
-	opentext	
+	opendialog CHAMPION	
 	writetext LanceTruePowerText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext LanceBattleWinText, 0
 	setlasttalked LANCESROOM_LANCE
@@ -90,10 +90,10 @@ LancesRoomLanceScript:
 	reloadmapafterbattle
 
 	setevent EVENT_BEAT_CHAMPION_LANCE
-	opentext
+	opendialog CHAMPION
 	writetext LanceBattleAfterText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 4, 0, $0b ; open door
 	refreshmap

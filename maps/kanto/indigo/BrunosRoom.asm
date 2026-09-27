@@ -42,12 +42,12 @@ BrunosRoomDoorLocksBehindYouScript:
 
 BrunoScript_Battle:
 	faceplayer
-	opentext
+	opendialog BRUNO
 	checkevent EVENT_BEAT_ELITE_4_BRUNO
 	iftrue BrunoScript_AfterBattle
 	writetext BrunoScript_BrunoBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -67,14 +67,13 @@ BrunoScript_Battle:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_BRUNO
-	opentext
+	opendialog BRUNO
 	writetext BrunoScript_BrunoDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 4, 2, $16 ; open door
 	refreshmap
-	closetext
 	setevent EVENT_BRUNOS_ROOM_EXIT_OPEN
 	waitsfx
 	special HealParty
@@ -83,7 +82,7 @@ BrunoScript_Battle:
 BrunoScript_AfterBattle:
 	writetext BrunoScript_BrunoDefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 BrunosRoom_EnterMovement:

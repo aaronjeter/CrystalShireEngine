@@ -42,12 +42,12 @@ KarensRoomDoorLocksBehindYouScript:
 
 KarenScript_Battle:
 	faceplayer
-	opentext
+	opendialog KAREN
 	checkevent EVENT_BEAT_ELITE_4_KAREN
 	iftrue KarenScript_AfterBattle
 	writetext KarenScript_KarenBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	readvar VAR_BADGES
 	ifgreater 15, .Hard
@@ -67,14 +67,13 @@ KarenScript_Battle:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KAREN
-	opentext
+	opendialog KAREN
 	writetext KarenScript_KarenDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 4, 2, $16 ; open door
 	refreshmap
-	closetext
 	setevent EVENT_KARENS_ROOM_EXIT_OPEN
 	waitsfx
 	special HealParty
@@ -83,7 +82,7 @@ KarenScript_Battle:
 KarenScript_AfterBattle:
 	writetext KarenScript_KarenDefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 KarensRoom_EnterMovement:
