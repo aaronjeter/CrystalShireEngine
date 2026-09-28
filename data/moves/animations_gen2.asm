@@ -109,14 +109,14 @@ BattleAnimationsGen2::
 	dw BattleAnim_BlastBurn		;Sacred Fire
 	dw BattleAnim_HydroCannon	;Hydro Cannon (copy of hydro pump)
 	dw BattleAnim_MeteorMash	;Copy of swift
-	dw BattleAnim_Astonish		;astonish (copy of quick attack)
+	dw BattleAnim_Astonish		;Shadow Sneak
 	dw BattleAnim_AirCutter		;Fury cutter
 	dw BattleAnim_RockTomb		;Rock Tomb (copy of rock throw)
 	dw BattleAnim_SilverWind	;fae voice
 	dw BattleAnim_CosmicPower	;Calm Mind (copy of focus energy)
 	dw BattleAnim_WaterSpout	;Hydro Cannon (copy of hydro pump)
 	dw BattleAnim_SignalBeam	;signal beam (copy of aurora beam)
-	dw BattleAnim_ShadowPunch	;Mach Punch
+	dw BattleAnim_ShadowPunch	;Shadow Punch
 	dw BattleAnim_Extrasensory	;signal beam (copy of aurora beam)
 	dw BattleAnim_MuddyWater	;Muddy water (copy of surf)
 	dw BattleAnim_BulletSeed	;Bullet Seed (copy of barrage)
@@ -142,7 +142,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_MoonBlast		;moonlight
 	dw BattleAnim_PlayRough		;beat up
 	dw BattleAnim_AuraSphere	;shadow ball
-	dw BattleAnim_ShadowClaw	;metal claw
+	dw BattleAnim_ShadowClaw	;Shadow Claw
 	dw BattleAnim_IcicleCrash	;rollout
 	dw BattleAnim_PoisonJab		;pursuit
 	dw BattleAnim_PowerGem		;Flash Cannon (copy of Flash)
@@ -155,7 +155,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_SludgeWave	;
 	dw BattleAnim_BulletPunch	;
 	dw BattleAnim_Hurricane		;
-	dw BattleAnim_ShadowSneak	;
+	dw BattleAnim_ShadowSneak	;Shadow Sneak
 	dw BattleAnim_ShadowForce	;
 	dw BattleAnim_StoneEdge		;
 	dw BattleAnim_Scald			;
@@ -470,6 +470,28 @@ BattleAnim_Protect:
 	anim_ret
 
 BattleAnim_ShadowPunch:
+	; Mach Punch-style dash and punch, with the dark palette used by Night Slash
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	anim_bgp $1b ; darken the background
+	anim_obp0 $c0 ; draw the speed lines, fist and hit light, with dark outlines
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_sound 0, 0, SFX_MENU
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_PUNCH, 136, 56, $0
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 16
+	anim_ret
+
 BattleAnim_FocusPunch:
 BattleAnim_MachPunch:
 	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
@@ -1300,6 +1322,17 @@ BattleAnim_IronTail:
 	anim_ret
 
 BattleAnim_ShadowClaw:
+	; Three claw slashes, with the dark palette used by Night Slash
+	anim_1gfx BATTLE_ANIM_GFX_CUT
+	anim_bgp $1b ; darken the background
+	anim_obp0 $c0 ; draw the claw marks light, with dark outlines
+	anim_sound 0, 1, SFX_SCRATCH
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 136, 40, $0
+	anim_wait 32
+	anim_ret
+
 BattleAnim_DragonClaw:
 BattleAnim_CrushClaw:
 BattleAnim_MetalClaw:
@@ -2340,13 +2373,33 @@ BattleAnim_PoisonTail:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
+BattleAnim_ShadowSneak:
+BattleAnim_Astonish:
+	; Quick Attack-style dash, with the dark palette used by Night Slash
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	anim_bgp $1b ; darken the background
+	anim_obp0 $c0 ; draw the speed lines and hit light, with dark outlines
+	anim_sound 0, 0, SFX_MENU
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 16
+	anim_ret
+
 BattleAnim_FlipTurn:
 BattleAnim_UTurn:
 BattleAnim_VoltSwitch:
-BattleAnim_ShadowSneak:
 BattleAnim_BulletPunch:
 BattleAnim_AquaJet:
-BattleAnim_Astonish:
 	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_MENU
 	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
@@ -2417,7 +2470,10 @@ BattleAnim_Snarl:
 	anim_ret
 
 BattleAnim_NightSlash:
+	; Slash, with the dark palette used by Crunch and Dark Pulse
 	anim_1gfx BATTLE_ANIM_GFX_CUT
+	anim_bgp $1b ; darken the background
+	anim_obp0 $c0 ; draw the slashes light, with dark outlines, so they stand out
 	anim_sound 0, 1, SFX_CUT
 	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
 	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 148, 36, $0
