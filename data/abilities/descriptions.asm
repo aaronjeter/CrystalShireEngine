@@ -137,3 +137,7 @@ ThickFatDesc:
 DurableDesc:
 	db    "Weakens super-"
 	next  "effective hits.@"
+
+PranksterDesc:
+	db    "Gives priority to"
+	next  "Status moves.@"

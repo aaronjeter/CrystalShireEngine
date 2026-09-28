@@ -216,6 +216,12 @@ CheckDurableAbility:
 	call IsInWordArray
 	ret
 
+CheckPranksterAbility:
+	call SetupAbilityCheck
+	ld hl, PranksterMons
+	call IsInWordArray
+	ret
+
 
 SetupAbilityCheck:
 	ld b, h

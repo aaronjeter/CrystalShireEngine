@@ -104,6 +104,9 @@ PrintAbility:
 	jp .Durable
 	.NotDurable
 
+	jp .Prankster
+	.NotPrankster
+
 	jp .NoAbility
 
 	.Done
@@ -664,6 +667,22 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Prankster:
+	call GetAbilityMon	
+	call CheckPranksterAbility
+	jr c, .HasPrankster
+	jp .NotPrankster
+		
+.HasPrankster:
+	ld de, PranksterNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, PranksterDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -773,3 +792,6 @@ ThickFatNameString:
 
 DurableNameString:
 	db "Durable@"
+
+PranksterNameString:
+	db "Prankster@"

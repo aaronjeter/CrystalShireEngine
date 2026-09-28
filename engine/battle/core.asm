@@ -825,11 +825,54 @@ CompareMovePriority:
 	ld a, [wCurPlayerMove]
 	call GetMovePriority
 	ld b, a
+	ld a, [wCurPlayerMove]
+	ld hl, wBattleMonSpecies
+	call ApplyPrankster
 	push bc
 	ld a, [wCurEnemyMove]
 	call GetMovePriority
+	ld b, a
+	ld a, [wCurEnemyMove]
+	ld hl, wEnemyMonSpecies
+	call ApplyPrankster
+	ld a, b
 	pop bc
 	cp b
+	ret
+
+ApplyPrankster:
+; Give a Status move +1 priority if its user has Prankster.
+; in:  a = move ID, b = move priority, hl = pointer to the user's species
+; out: b = priority (raised by 1 if Prankster applies)
+; Preserves de.
+
+	; Moves with priority 0 (Roar, Whirlwind, etc.) are meant to always
+	; go last, so Prankster leaves them alone. inc b / dec b leaves b
+	; unchanged but sets the zero flag if b is 0, without touching a
+	; (which still holds the move ID).
+	inc b
+	dec b
+	ret z
+
+	push de
+	push hl
+	ld l, a
+	ld a, MOVE_TYPE
+	call GetMoveAttribute
+	pop hl
+	and ~TYPE_MASK ; keep only the category bits
+	cp STATUS
+	jr nz, .done
+
+	ld a, [hl]
+	push bc
+	call GetPokemonIndexFromID
+	farcall CheckPranksterAbility
+	pop bc
+	jr nc, .done
+	inc b
+.done
+	pop de
 	ret
 
 GetMovePriority:
