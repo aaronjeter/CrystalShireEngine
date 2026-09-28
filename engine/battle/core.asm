@@ -6615,8 +6615,7 @@ ApplyPrzEffectOnSpeed:
 	ld a, [hld]
 	ld b, a
 	ld a, [hl]
-	srl a
-	rr b
+	; Halve Speed (one 16-bit shift right)
 	srl a
 	rr b
 	ld [hli], a
@@ -6636,8 +6635,7 @@ ApplyPrzEffectOnSpeed:
 	ld a, [hld]
 	ld b, a
 	ld a, [hl]
-	srl a
-	rr b
+	; Halve Speed (one 16-bit shift right)
 	srl a
 	rr b
 	ld [hli], a
