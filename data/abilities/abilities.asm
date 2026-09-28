@@ -176,18 +176,13 @@ FocusMons::
 	dw -1
 
 VeiledMons::
-	dw LUGIA
-	dw TOGEPI
-	dw TOGETIC
-	dw TOGEKISS
+	dw LUGIA	
 	dw RALTS
 	dw KIRLIA
 	dw GARDEVOIR
 	dw GARDEVOIRX
 	dw HANAMOLE
 	dw HANEEI
-	dw GPONYTA
-	dw GRAPIDASH
 	dw -1
 
 InvisibleWallMons::
@@ -428,17 +423,13 @@ RegenerationMons::
 	dw AMUK
 	dw KANGASKHAN
 	dw STARYU
-	dw STARMIE
-	dw CHANSEY
-	dw BLISSEY
+	dw STARMIE	
 	dw MUNCHLAX
 	dw SNORLAX
-	dw MEWTWO
-	dw MEW
+	dw MEWTWO	
 	dw CORSOLA
 	dw RAIKOU
-	dw HO_OH
-	dw CELEBI
+	dw HO_OH	
 	dw SHROOMISH	
 	dw KECLEON
 	dw GULPIN
@@ -447,8 +438,7 @@ RegenerationMons::
 	dw SWABLU
 	dw ALTARIA
 	dw ALTARIAX
-	dw RAYQUAZA
-	dw JIRACHI
+	dw RAYQUAZA	
 	dw -1
 
 RainDishMons::
@@ -627,6 +617,7 @@ DurableMons::
 PranksterMons::
 	dw BUTTERFREE
 	dw BUTTERFREEX
+	dw MEW
 	dw MURKROW
 	dw HONCHKROW
 	dw MISDREAVUS
@@ -634,4 +625,18 @@ PranksterMons::
 	dw SMEARGLE
 	dw SABLEYE
 	dw AMAROWAK
+	dw -1
+
+;Secondary Effect Abilities--------------------
+
+SereneGraceMons::
+	dw CHANSEY
+	dw BLISSEY
+	dw TOGEPI
+	dw TOGETIC
+	dw TOGEKISS
+	dw CELEBI
+	dw JIRACHI
+	dw GPONYTA
+	dw GRAPIDASH
 	dw -1
