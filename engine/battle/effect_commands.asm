@@ -1786,10 +1786,11 @@ BattleCommand_CheckHit:
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	ret z
 
+	; Flying bit clear means the opponent is underground, so use the Dig list
 	bit SUBSTATUS_FLYING, a
-	ld hl, .FlyMoves
-	jr z, .check_move_in_list
 	ld hl, .DigMoves
+	jr z, .check_move_in_list
+	ld hl, .FlyMoves
 .check_move_in_list
 	; returns z (and a = 0) if the current move is in a given list, or nz (and a = 1) if not
 	ld a, BATTLE_VARS_MOVE_ANIM
