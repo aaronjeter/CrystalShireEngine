@@ -116,14 +116,13 @@ CheckHail:
 	ret
 
 GetActiveMon:
-    ldh a, [hBattleTurn]
+	ldh a, [hBattleTurn]
 	and a
 	ld a, [wBattleMonSpecies]
-	call GetPokemonIndexFromID
-	ret z
+	jr z, .got_species
 	ld a, [wEnemyMonSpecies]
-	call GetPokemonIndexFromID
-    ret
+.got_species
+	jmp GetPokemonIndexFromID
 
 
 CheckWeatherSpeedAbility:
