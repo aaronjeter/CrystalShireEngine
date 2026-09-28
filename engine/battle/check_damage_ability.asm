@@ -128,3 +128,29 @@ ApplyDurable:
 	farcall CheckDurableAbility
 	ret nc
 	jmp ReduceDamageByQuarter
+
+ApplySereneGrace:
+; Double a move's secondary effect chance if the attacker has Serene Grace.
+; Chances of 50% or more become 100%.
+; in:  a = effect chance
+; out: a = effect chance (doubled if Serene Grace applies)
+; Clobbers bc and hl. Preserves de.
+	push de
+	ld b, a
+	push bc
+	call GetCurrentMon ; the attacker
+	farcall CheckSereneGraceAbility
+	pop bc
+	ld a, b ; ld and pop leave the carry flag from the ability check alone
+	jr nc, .done
+
+	cp 50 percent
+	jr c, .double
+	ld a, 100 percent
+	jr .done
+
+.double
+	add a
+.done
+	pop de
+	ret

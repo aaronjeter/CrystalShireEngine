@@ -141,3 +141,7 @@ DurableDesc:
 PranksterDesc:
 	db    "Gives priority to"
 	next  "Status moves.@"
+
+SereneGraceDesc:
+	db    "Doubles the odds"
+	next  "of added effects.@"

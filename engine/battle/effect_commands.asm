@@ -1942,6 +1942,7 @@ BattleCommand_EffectChance:
 	jr nz, .failed
 
 	push hl
+	push bc
 	ld hl, wPlayerMoveStruct + MOVE_CHANCE
 	ldh a, [hBattleTurn]
 	and a
@@ -1949,11 +1950,14 @@ BattleCommand_EffectChance:
 	ld hl, wEnemyMoveStruct + MOVE_CHANCE
 .got_move_chance
 	ld a, [hl]
+	call ApplySereneGrace
+	ld b, a ; b = effect chance, after abilities
 	sub 100 percent
 	; If chance was 100%, RNG won't be called (carry not set)
 	; Thus chance will be subtracted from 0, guaranteeing a carry
 	call c, BattleRandom
-	cp [hl]
+	cp b
+	pop bc
 	pop hl
 	ret c
 

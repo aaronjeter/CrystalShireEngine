@@ -222,6 +222,12 @@ CheckPranksterAbility:
 	call IsInWordArray
 	ret
 
+CheckSereneGraceAbility:
+	call SetupAbilityCheck
+	ld hl, SereneGraceMons
+	call IsInWordArray
+	ret
+
 
 SetupAbilityCheck:
 	ld b, h

@@ -107,6 +107,9 @@ PrintAbility:
 	jp .Prankster
 	.NotPrankster
 
+	jp .SereneGrace
+	.NotSereneGrace
+
 	jp .NoAbility
 
 	.Done
@@ -683,6 +686,22 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.SereneGrace:
+	call GetAbilityMon	
+	call CheckSereneGraceAbility
+	jr c, .HasSereneGrace
+	jp .NotSereneGrace
+		
+.HasSereneGrace:
+	ld de, SereneGraceNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, SereneGraceDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -795,3 +814,6 @@ DurableNameString:
 
 PranksterNameString:
 	db "Prankster@"
+
+SereneGraceNameString:
+	db "Serene Grace@"
