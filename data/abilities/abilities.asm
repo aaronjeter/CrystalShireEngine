@@ -394,9 +394,7 @@ StabilityMons::
 	dw SKITTY
 	dw DELCATTY
 	dw PLUSLE
-	dw MINUN
-	dw ILLUMISE
-	dw VOLBEAT
+	dw MINUN	
 	dw SPINDA
 	dw KURUSU
 	dw AKUA
@@ -624,6 +622,8 @@ PranksterMons::
 	dw MISMAGIUS
 	dw SMEARGLE
 	dw SABLEYE
+	dw ILLUMISE
+	dw VOLBEAT
 	dw AMAROWAK
 	dw -1
 
