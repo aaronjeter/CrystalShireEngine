@@ -161,10 +161,7 @@ AimMons::
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
-	dw PIDGEOTX
-	dw MAGNEMITE
-	dw MAGNETON
-	dw MAGNEZONE
+	dw PIDGEOTX	
 	dw ELEKID
 	dw ELECTABUZZ
 	dw ELECTIVIRE
@@ -322,9 +319,7 @@ ElementalFistMons::
 	dw LEDIANX
 	dw HERACROSS
 	dw HERACROSSX
-	dw BRELOOM
-	dw MAKUHITA
-	dw HARIYAMA
+	dw BRELOOM	
 	dw MEDITITE
 	dw MEDICHAM
 	dw ANNIHILAPE	
@@ -456,11 +451,7 @@ RegenerationMons::
 	dw RAIKOU
 	dw HO_OH
 	dw CELEBI
-	dw SHROOMISH
-	dw ARON
-	dw LAIRON
-	dw AGGRON
-	dw AGGRONX
+	dw SHROOMISH	
 	dw KECLEON
 	dw GULPIN
 	dw SWALOT
@@ -496,11 +487,7 @@ RainDishMons::
 	dw MEGANIUM2
 	dw -1
 
-SunbaskMons::
-	dw BULBASAUR
-	dw IVYSAUR
-	dw VENUSAUR
-	dw VENUSAURX
+SunbaskMons::	
 	dw CHARMANDER
 	dw CHARMELEON 
 	dw CHARIZARD
@@ -510,9 +497,7 @@ SunbaskMons::
 	dw TREECKO
 	dw GROVYLE
 	dw SCEPTILE
-	dw SCEPTILEX
-	dw TROPIUS
-	dw TROPIUSX
+	dw SCEPTILEX	
 	dw AMAROWAK
 	dw -1
 
@@ -595,29 +580,52 @@ ChlorophyllMons::
 
 SandRushMons::
 	dw CUBONE
-	dw MAROWAK
-	dw RHYHORN
-	dw RHYDON
-	dw RHYPERIOR
+	dw MAROWAK	
 	dw PHANPY
 	dw DONPHAN
 	dw CACNEA
-	dw CACTURNE
-	dw ANORITH
-	dw ARMALDO
+	dw CACTURNE	
 	dw -1
 
 SlushRushMons::
 	dw KABUTO
-	dw KABUTOPS
-	dw SWINUB
-	dw PILOSWINE
-	dw MAMOSWINE
+	dw KABUTOPS	
 	dw AVULPIX
 	dw -1
 
 ;Damage Reducing Abilities--------------------
 
 ThickFatMons::
+	dw BULBASAUR
+	dw IVYSAUR
+	dw VENUSAUR
+	dw VENUSAURX
+	dw SWINUB
+	dw PILOSWINE
+	dw MAMOSWINE
 	dw MILTANK
+	dw MAKUHITA
+	dw HARIYAMA
+	dw TROPIUS
+	dw TROPIUSX
+	dw -1
+
+DurableMons::
+	dw MAGNEMITE
+	dw MAGNETON
+	dw MAGNEZONE
+	dw RHYHORN
+	dw RHYDON
+	dw RHYPERIOR
+	dw SHUCKLE
+	dw ARON
+	dw LAIRON
+	dw AGGRON
+	dw AGGRONX
+	dw ANORITH
+	dw ARMALDO
+	dw BELDUM
+	dw METANG
+	dw METAGROSS
+	dw METAGROSSX
 	dw -1
