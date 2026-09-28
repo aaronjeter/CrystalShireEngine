@@ -104,7 +104,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_IceBall		;Rollout
 	dw BattleAnim_NeedleArm		;Arm Thrust (copy of comet punch)
 	dw BattleAnim_HyperVoice	;Hyper Voice (copy of screech)
-	dw BattleAnim_PoisonFang	;Poison Fang (copy of bite)
+	dw BattleAnim_PoisonFang	;Poison Fang
 	dw BattleAnim_CrushClaw		;Metal Claw
 	dw BattleAnim_BlastBurn		;Sacred Fire
 	dw BattleAnim_HydroCannon	;Hydro Cannon (copy of hydro pump)
@@ -135,9 +135,9 @@ BattleAnimationsGen2::
 	dw BattleAnim_RockBlast		;Rock Tomb (copy of rock throw)
 	dw BattleAnim_ShockWave		;shockwave (copy of thunder wave)
 	dw BattleAnim_WaterPulse	;WaterPulse (copy of bubblebeam)
-	dw BattleAnim_ThunderFang	;Poison Fang (copy of bite)
-	dw BattleAnim_IceFang		;Poison Fang (copy of bite)
-	dw BattleAnim_FireFang		;Poison Fang (copy of bite)
+	dw BattleAnim_ThunderFang	;Thunder Fang
+	dw BattleAnim_IceFang		;Ice Fang
+	dw BattleAnim_FireFang		;Fire Fang
 	dw BattleAnim_DrainingKiss	;sweet kiss
 	dw BattleAnim_MoonBlast		;moonlight
 	dw BattleAnim_PlayRough		;beat up
@@ -1974,11 +1974,9 @@ BattleAnim_BlazeKick:
 	anim_ret
 
 
-BattleAnim_ThunderFang:
-BattleAnim_IceFang:
 BattleAnim_FireFang:
-BattleAnim_PoisonFang:
-	anim_2gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT
+	; Bite, then the target is engulfed in flames (like Fire Punch)
+	anim_3gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_FIRE
 	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $98
 	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $18
 	anim_wait 8
@@ -1987,7 +1985,70 @@ BattleAnim_PoisonFang:
 	anim_wait 16
 	anim_sound 0, 1, SFX_BITE
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 64, $18
+	anim_wait 8 ; let the bite finish, freeing object slots for the flames
+	anim_call BattleAnimSub_Fire
+	anim_wait 16
+	anim_ret
+
+BattleAnim_ThunderFang:
+	; Bite, then the target is struck by lightning (like ThunderPunch)
+	anim_3gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_LIGHTNING
+	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $98
+	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $18
 	anim_wait 8
+	anim_sound 0, 1, SFX_BITE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 48, $18
+	anim_wait 16
+	anim_sound 0, 1, SFX_BITE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 64, $18
+	anim_wait 8 ; let the bite finish before the lightning
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $8, $2
+	anim_sound 0, 1, SFX_THUNDER
+	anim_obj BATTLE_ANIM_OBJ_THUNDER_RIGHT, 152, 68, $0
+	anim_wait 64
+	anim_ret
+
+BattleAnim_IceFang:
+	; Bite, then ice crystals form around the target (like Ice Punch)
+	anim_3gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_ICE
+	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $98
+	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $18
+	anim_wait 8
+	anim_sound 0, 1, SFX_BITE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 48, $18
+	anim_wait 16
+	anim_sound 0, 1, SFX_BITE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 64, $18
+	anim_wait 8 ; let the bite finish before the ice
+	anim_call BattleAnimSub_Ice
+	anim_wait 32
+	anim_ret
+
+BattleAnim_PoisonFang:
+	; Bite, then poison bubbles rise from the target (like Sludge, but shorter)
+	anim_3gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_POISON
+	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $98
+	anim_obj BATTLE_ANIM_OBJ_BITE, 136, 56, $18
+	anim_wait 8
+	anim_sound 0, 1, SFX_BITE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 48, $18
+	anim_wait 16
+	anim_sound 0, 1, SFX_BITE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 64, $18
+	anim_wait 8 ; let the bite finish before the bubbles
+	; Two rounds of Sludge's three bubbles (Sludge itself does five)
+.loop
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 132, 72, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 116, 72, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 148, 72, $0
+	anim_wait 8
+	anim_loop 2, .loop
+	anim_wait 40 ; let the last bubbles rise and burst
 	anim_ret
 
 BattleAnim_RockBlast:
