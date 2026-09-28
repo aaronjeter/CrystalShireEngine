@@ -129,3 +129,7 @@ EnervateDesc:
 DauntDesc:
 	db    "Cuts the foe's"
 	next  "Def.@"
+
+ThickFatDesc:
+	db    "Halves Fire and"
+	next  "Ice damage taken.@"

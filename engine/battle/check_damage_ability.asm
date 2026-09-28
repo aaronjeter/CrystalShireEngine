@@ -96,3 +96,21 @@ GetAbilityMove:
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ret
+
+ApplyThickFat:
+; Halve the damage if the target has Thick Fat
+; and the move is Fire or Ice type.
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	and TYPE_MASK
+	cp FIRE
+	jr z, .CheckTarget
+	cp ICE
+	ret nz
+
+.CheckTarget
+	call GetTargetSpecies
+	call GetPokemonIndexFromID
+	farcall CheckThickFatAbility
+	ret nc
+	jmp HalveDamage

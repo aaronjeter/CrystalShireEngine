@@ -204,6 +204,12 @@ CheckSlushRushAbility:
 	call IsInWordArray
 	ret
 
+CheckThickFatAbility:
+	call SetupAbilityCheck
+	ld hl, ThickFatMons
+	call IsInWordArray
+	ret
+
 
 SetupAbilityCheck:
 	ld b, h

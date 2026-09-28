@@ -1418,6 +1418,7 @@ BattleCommand_Stab:
 	jr .TypesLoop
 
 .end
+	call ApplyThickFat
 	call BattleCheckTypeMatchup
 	ld a, [wTypeMatchup]
 	ld b, a
@@ -6051,6 +6052,26 @@ DoubleDamage:
 	ld a, $ff
 	ld [hli], a
 	ld [hl], a
+	ret
+
+HalveDamageIfNZ:
+	ret z
+	; fallthrough
+HalveDamage:
+; Halve wCurDamage, rounding down.
+; Damage of 1 is left alone so a hit never drops to 0.
+	ld hl, wCurDamage
+	ld a, [hli]
+	and a
+	jr nz, .halve
+	ld a, [hl]
+	cp 2
+	ret c
+.halve
+	dec hl
+	srl [hl]
+	inc hl
+	rr [hl]
 	ret
 
 INCLUDE "engine/battle/move_effects/mimic.asm"

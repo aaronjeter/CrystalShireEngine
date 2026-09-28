@@ -98,6 +98,9 @@ PrintAbility:
 	jp .SlushRush
 	.NotSlushRush
 
+	jp .ThickFat
+	.NotThickFat
+
 	jp .NoAbility
 
 	.Done
@@ -626,6 +629,22 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.ThickFat:
+	call GetAbilityMon	
+	call CheckThickFatAbility
+	jr c, .HasThickFat
+	jp .NotThickFat
+		
+.HasThickFat:
+	ld de, ThickFatNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, ThickFatDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -729,3 +748,6 @@ EnervateNameString:
 
 DauntNameString:
 	db "Daunt@"
+
+ThickFatNameString:
+	db "Thick Fat@"
