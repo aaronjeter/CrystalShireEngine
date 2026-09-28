@@ -133,3 +133,7 @@ DauntDesc:
 ThickFatDesc:
 	db    "Halves Fire and"
 	next  "Ice damage taken.@"
+
+DurableDesc:
+	db    "Weakens super-"
+	next  "effective hits.@"

@@ -101,6 +101,9 @@ PrintAbility:
 	jp .ThickFat
 	.NotThickFat
 
+	jp .Durable
+	.NotDurable
+
 	jp .NoAbility
 
 	.Done
@@ -645,6 +648,22 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Durable:
+	call GetAbilityMon	
+	call CheckDurableAbility
+	jr c, .HasDurable
+	jp .NotDurable
+		
+.HasDurable:
+	ld de, DurableNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, DurableDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -751,3 +770,6 @@ DauntNameString:
 
 ThickFatNameString:
 	db "Thick Fat@"
+
+DurableNameString:
+	db "Durable@"

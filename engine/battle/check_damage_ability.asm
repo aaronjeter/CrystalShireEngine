@@ -114,3 +114,17 @@ ApplyThickFat:
 	farcall CheckThickFatAbility
 	ret nc
 	jmp HalveDamage
+
+ApplyDurable:
+; Cut the damage by 25% if the move is super effective
+; and the target has Durable.
+; Must run after BattleCheckTypeMatchup has set wTypeMatchup.
+	ld a, [wTypeMatchup]
+	cp EFFECTIVE + 1
+	ret c
+
+	call GetTargetSpecies
+	call GetPokemonIndexFromID
+	farcall CheckDurableAbility
+	ret nc
+	jmp ReduceDamageByQuarter

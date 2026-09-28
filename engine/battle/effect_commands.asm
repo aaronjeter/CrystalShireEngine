@@ -1420,6 +1420,7 @@ BattleCommand_Stab:
 .end
 	call ApplyThickFat
 	call BattleCheckTypeMatchup
+	call ApplyDurable
 	ld a, [wTypeMatchup]
 	ld b, a
 	ld a, [wTypeModifier]
@@ -6072,6 +6073,32 @@ HalveDamage:
 	srl [hl]
 	inc hl
 	rr [hl]
+	ret
+
+ReduceDamageByQuarter:
+; Subtract 1/4 of wCurDamage from itself (x0.75), rounding the cut down.
+; Damage of 1-3 is left alone, since 1/4 of it rounds to 0.
+; Preserves bc and de.
+	push bc
+	push de
+	ld hl, wCurDamage
+	ld a, [hli]
+	ld b, a
+	ld c, [hl] ; bc = damage
+	ld d, b
+	ld e, c
+	srl d
+	rr e
+	srl d
+	rr e ; de = damage / 4
+	ld a, c
+	sub e
+	ld [hld], a
+	ld a, b
+	sbc d
+	ld [hl], a
+	pop de
+	pop bc
 	ret
 
 INCLUDE "engine/battle/move_effects/mimic.asm"

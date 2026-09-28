@@ -210,6 +210,12 @@ CheckThickFatAbility:
 	call IsInWordArray
 	ret
 
+CheckDurableAbility:
+	call SetupAbilityCheck
+	ld hl, DurableMons
+	call IsInWordArray
+	ret
+
 
 SetupAbilityCheck:
 	ld b, h
