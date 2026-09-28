@@ -3,6 +3,7 @@ include "data/abilities/ability_lookup.asm"
 ;Mons with enter the battlefield effect abilities
 
 DrizzleMons::
+	dw ZAPDOS
 	dw POLITOED
 	dw MANTINE
 	dw SUICUNE
@@ -37,6 +38,7 @@ SnowWarningMons::
 	dw DELIBIRD
 	dw REGICE
 	dw ANINETALES
+	dw IRONBUNDLE
 	dw -1
 
 IntimidateMons::
@@ -73,8 +75,10 @@ IntimidateMons::
 	dw -1
 
 MystifyMons::
+	dw CLEFFA
 	dw CLEFAIRY
 	dw CLEFABLE
+	dw IGGLYBUFF
 	dw JIGGLYPUFF
 	dw WIGGLYTUFF
 	dw DRATINI
@@ -161,8 +165,10 @@ AimMons::
 	dw MAGNEMITE
 	dw MAGNETON
 	dw MAGNEZONE
+	dw ELEKID
 	dw ELECTABUZZ
 	dw ELECTIVIRE
+	dw MAGBY
 	dw MAGMAR
 	dw MAGMORTAR
 	dw BEAUTIFLY
@@ -258,6 +264,7 @@ DauntMons::
 	dw BANETTE
 	dw CORPHISH
 	dw CRAWDAUNT
+	dw TRAPINCH
 	dw -1
 
 
@@ -280,6 +287,7 @@ LevitateMons::
 	dw CLAYDOL
 	dw DUSKULL
 	dw DUSCLOPS
+	dw DUSKNOIR
 	dw LATIAS
 	dw LATIOS
 	dw ARAICHU
@@ -304,6 +312,7 @@ WaterproofMons::
 ElementalFistMons::
 	dw MANKEY
 	dw PRIMEAPE
+	dw ABRA
 	dw KADABRA
 	dw ALAKAZAM
 	dw ALAKAZAMX
@@ -338,7 +347,6 @@ ElementalFangMons::
 	dw SHARPEDO
 	dw SEVIPER
 	dw ZANGOOSE
-	dw EXEGGUTOR2
 	dw FURRET2	
 	dw KOTORA
 	dw RAITORA
@@ -375,6 +383,7 @@ StabilityMons::
 	dw HELECTRODE
 	dw VOLTORB2
 	dw ELECTRODE2
+	dw TYROGUE
 	dw HITMONLEE
 	dw LICKITUNG
 	dw LICKILICKY
@@ -439,24 +448,27 @@ RegenerationMons::
 	dw STARMIE
 	dw CHANSEY
 	dw BLISSEY
+	dw MUNCHLAX
 	dw SNORLAX
 	dw MEWTWO
 	dw MEW
 	dw CORSOLA
 	dw RAIKOU
 	dw HO_OH
+	dw CELEBI
 	dw SHROOMISH
-	dw BRELOOM
 	dw ARON
 	dw LAIRON
 	dw AGGRON
 	dw AGGRONX
+	dw KECLEON
 	dw GULPIN
 	dw SWALOT
 	dw SWALOTX
 	dw SWABLU
 	dw ALTARIA
 	dw ALTARIAX
+	dw RAYQUAZA
 	dw JIRACHI
 	dw -1
 
@@ -500,7 +512,8 @@ SunbaskMons::
 	dw SCEPTILE
 	dw SCEPTILEX
 	dw TROPIUS
-	dw TROPIUSX	
+	dw TROPIUSX
+	dw AMAROWAK
 	dw -1
 
 SandBodyMons::
@@ -531,7 +544,8 @@ IceBodyMons::
 	dw FROSLASS
 	dw FROSLASSX
 	dw ASANDSHREW
-	dw ASANDSLASH	
+	dw ASANDSLASH
+	dw SMOOCHUM
 	dw JYNX
 	dw -1
 
@@ -561,6 +575,8 @@ SwiftSwimMons::
 	dw SURSKIT	
 	dw RELICANTH
 	dw VULPIX2
+	dw MAGIKARP
+	dw FEEBAS
 	dw -1
 
 ChlorophyllMons::
@@ -598,4 +614,10 @@ SlushRushMons::
 	dw PILOSWINE
 	dw MAMOSWINE
 	dw AVULPIX
+	dw -1
+
+;Damage Reducing Abilities--------------------
+
+ThickFatMons::
+	dw MILTANK
 	dw -1
