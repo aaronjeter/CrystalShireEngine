@@ -88,10 +88,7 @@ MystifyMons::
 	dw DRAGONITEY
 	dw HOOTHOOT
 	dw NOCTOWL	
-	dw MISDREAVUS
-	dw MISMAGIUS
-	dw UNOWN
-	dw SABLEYE
+	dw UNOWN	
 	dw CHIMECHO
 	dw CHIMECHOX
 	dw MILOTIC
@@ -156,8 +153,6 @@ HasteMons::
 	dw -1
 
 AimMons::
-	dw BUTTERFREE
-	dw BUTTERFREEX
 	dw PIDGEY
 	dw PIDGEOTTO
 	dw PIDGEOT
@@ -170,19 +165,12 @@ AimMons::
 	dw MAGMORTAR
 	dw BEAUTIFLY
 	dw DUSTOX
-	dw NOSEPASS
-	dw PROBOPASS
-	dw AGEODUDE
-	dw AGRAVELER
-	dw AGOLEM
 	dw -1
 
 FocusMons::	
 	dw MACHOP
 	dw MACHOKE
-	dw MACHAMP	
-	dw MURKROW
-	dw HONCHKROW
+	dw MACHAMP
 	dw TAILLOW
 	dw SWELLOW
 	dw -1
@@ -498,13 +486,9 @@ SunbaskMons::
 	dw GROVYLE
 	dw SCEPTILE
 	dw SCEPTILEX	
-	dw AMAROWAK
 	dw -1
 
 SandBodyMons::
-	dw GEODUDE
-	dw GRAVELER
-	dw GOLEM
 	dw SANDSHREW
 	dw SANDSLASH
 	dw GLIGAR
@@ -611,6 +595,9 @@ ThickFatMons::
 	dw -1
 
 DurableMons::
+	dw GEODUDE
+	dw GRAVELER
+	dw GOLEM
 	dw MAGNEMITE
 	dw MAGNETON
 	dw MAGNEZONE
@@ -628,4 +615,23 @@ DurableMons::
 	dw METANG
 	dw METAGROSS
 	dw METAGROSSX
+	dw NOSEPASS
+	dw PROBOPASS
+	dw AGEODUDE
+	dw AGRAVELER
+	dw AGOLEM
+	dw -1
+
+;Priority Abilities--------------------
+
+PranksterMons::
+	dw BUTTERFREE
+	dw BUTTERFREEX
+	dw MURKROW
+	dw HONCHKROW
+	dw MISDREAVUS
+	dw MISMAGIUS
+	dw SMEARGLE
+	dw SABLEYE
+	dw AMAROWAK
 	dw -1
