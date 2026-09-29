@@ -125,8 +125,8 @@ BattleAnimationsGen2::
 	dw BattleAnim_DragonClaw	;Dragon Claw
 	dw BattleAnim_FrenzyPlant	;Freny Plant (copy of petal dance)
 	dw BattleAnim_BulkUp		;Calm Mind (copy of focus energy)
-	dw BattleAnim_MudShot		;mud shot
-	dw BattleAnim_PoisonTail	;poison tail (copy of headbutt)
+	dw BattleAnim_MudShot		;Mud shot
+	dw BattleAnim_PoisonTail	;Poison Tail
 	dw BattleAnim_VoltTackle	;Volt Tackle (same as ShockSlam)
 	dw BattleAnim_MagicalLeaf	;Magic leaf (copy of razor leaf)
 	dw BattleAnim_CalmMind		;Calm Mind (copy of focus energy)
@@ -147,7 +147,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_PoisonJab		;pursuit
 	dw BattleAnim_PowerGem		;Power Gem
 	dw BattleAnim_PsychoCut		;Fury cutter
-	dw BattleAnim_ZenHeadbutt	;poison tail (copy of headbutt)
+	dw BattleAnim_ZenHeadbutt	;Zen Headbutt (copy of headbutt)
 	dw BattleAnim_FlashCannon	;Flash Cannon
 	dw BattleAnim_AquaJet		;Aqua Jet
 	dw BattleAnim_DarkPulse		;destiny bond
@@ -2996,8 +2996,47 @@ BattleAnim_Scald:
 	anim_wait 48 ; let the steam drift up
 	anim_ret
 
-BattleAnim_ZenHeadbutt:
 BattleAnim_PoisonTail:
+	; The user swings its tail (Iron Tail's wobble), a purple lash (Vine
+	; Whip's whip) strikes the target, and poison sludge bubbles up.
+	anim_3gfx BATTLE_ANIM_GFX_WHIP, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_POISON
+	; The whip, hit star and sludge bubbles all use the gray slot; recolor it
+	; purple (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	; Tail swing: as in Iron Tail, the target's picture is copied into sprites
+	; (object 1) so the user's wobble doesn't bend it. The copy is removed
+	; before the lash, to keep the sprites on the target's lines under the
+	; 10-per-line limit.
+	anim_call BattleAnim_TargetObj_1Row
+	anim_sound 0, 0, SFX_TAIL_WHIP
+	anim_bgeffect BATTLE_BG_EFFECT_WOBBLE_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 16
+	anim_incbgeffect BATTLE_BG_EFFECT_WOBBLE_MON
+	anim_call BattleAnim_ShowMon_0
+	; The lash (Vine Whip's two whip strokes) and a hit star
+	anim_sound 0, 1, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_VINE_WHIP2, 116, 52, $80
+	anim_wait 4
+	anim_sound 0, 1, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_VINE_WHIP1, 128, 60, $0
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 6
+	; Poison: Sludge's bubbles rise around the target
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 132, 72, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 116, 72, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 148, 72, $0
+	anim_wait 32
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_ZenHeadbutt:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $14, $2, $0
 	anim_wait 32
