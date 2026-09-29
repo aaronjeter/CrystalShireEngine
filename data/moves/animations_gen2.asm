@@ -128,7 +128,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_MudShot		;Mud shot
 	dw BattleAnim_PoisonTail	;Poison Tail
 	dw BattleAnim_VoltTackle	;Volt Tackle (same as ShockSlam)
-	dw BattleAnim_MagicalLeaf	;Magic leaf (copy of razor leaf)
+	dw BattleAnim_MagicalLeaf	;Magical Leaf
 	dw BattleAnim_CalmMind		;Calm Mind (copy of focus energy)
 	dw BattleAnim_LeafBlade		;Leaf Blade
 	dw BattleAnim_DragonDance	;Calm Mind (copy of focus energy)
@@ -2693,50 +2693,66 @@ BattleAnim_RockTomb:
 	anim_ret
 
 BattleAnim_MagicalLeaf:
-	anim_1gfx BATTLE_ANIM_GFX_PLANT
-	anim_sound 0, 0, SFX_VINE_WHIP
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $28
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $5c
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $10
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $e8
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $9c
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $d0
-	anim_wait 6
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $1c
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $50
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $dc
-	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $90
-	anim_wait 80
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 3
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 5
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 7
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 9
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 1
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 2
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 4
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 6
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 8
-	anim_wait 2
-	anim_sound 16, 2, SFX_VINE_WHIP
-	anim_incobj 10
-	anim_wait 64
+	; Homing leaves that shimmer through colors: seven fluttering leaves fly at
+	; the target and circle it once like Swift's stars,
+	; changing color as they go, and a burst of sparkles hits the target.
+	anim_2gfx BATTLE_ANIM_GFX_PLANT, BATTLE_ANIM_GFX_SPEED
+	; Leaves (objects 1-7): speed 4, 4 frames apart, from different heights
+	; (like Swift). Each reaches the target in about 16 frames, circles it
+	; (another 16), then flies off, about 44 frames in all. With the three
+	; sparkles below, at most 10 objects are out at once.
+	anim_sound 6, 2, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_MAGICAL_LEAF, 64, 88, $4
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_MAGICAL_LEAF, 64, 72, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_MAGICAL_LEAF, 64, 96, $4
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_MAGICAL_LEAF, 64, 80, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_MAGICAL_LEAF, 64, 76, $4
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_MAGICAL_LEAF, 64, 92, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_MAGICAL_LEAF, 64, 84, $4
+	; Shimmer: the leaves use the green slot; cycle it through pink, purple,
+	; glowing yellow-green and green every 5 frames while they fly (restored
+	; to green at the end, since custom palettes persist). Partway through,
+	; as the first leaves circle the target, three of Flash's yellow sparkles
+	; burst from it.
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_PINK
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_PURPLE
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $0
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_FIREFLY
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $15
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_GREEN
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $2a
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_PINK
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_PURPLE
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_FIREFLY
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_GREEN
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_PINK
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_PURPLE
+	anim_wait 5
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_FIREFLY
+	anim_wait 5
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_GREEN
 	anim_ret
 
 BattleAnim_CosmicPower:

@@ -419,4 +419,8 @@ BattleAnimObjects:
 ; BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER
 ; Petal Dance's flower moving like Ancient Power's rocks (see FRENZY_PLANT_LEAF)
 	battleanimobj RELATIVE_X, $b8, BATTLE_ANIM_FRAMESET_FLOWER, BATTLE_ANIM_FUNC_ANCIENT_POWER, PAL_BATTLE_OB_RED, BATTLE_ANIM_GFX_FLOWER
+; BATTLE_ANIM_OBJ_MAGICAL_LEAF
+; Razor Leaf's fluttering leaf moving like Swift's star: it flies to the
+; target, circles it once, then flies off (same Y fix as the star).
+	battleanimobj RELATIVE_X, $80, BATTLE_ANIM_FRAMESET_RAZOR_LEAF_2, BATTLE_ANIM_FUNC_USER_TO_TARGET_SPIN, PAL_BATTLE_OB_GREEN, BATTLE_ANIM_GFX_PLANT
 	assert_table_length NUM_BATTLE_ANIM_OBJS
