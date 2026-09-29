@@ -144,7 +144,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_AuraSphere	;shadow ball
 	dw BattleAnim_ShadowClaw	;Shadow Claw
 	dw BattleAnim_IcicleCrash	;Icicle Crash
-	dw BattleAnim_PoisonJab		;pursuit
+	dw BattleAnim_PoisonJab		;Poison Jab
 	dw BattleAnim_PowerGem		;Power Gem
 	dw BattleAnim_PsychoCut		;Fury cutter
 	dw BattleAnim_ZenHeadbutt	;Zen Headbutt (copy of headbutt)
@@ -1439,6 +1439,32 @@ BattleAnim_Encore:
 	anim_ret
 
 BattleAnim_PoisonJab:
+	; A purple jab: Horn Attack's horn thrusts into the target, a big hit lands
+	; with a screen shake, then poison sludge bubbles up around the target.
+	anim_3gfx BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_POISON
+	; The horn, hit star and sludge bubbles all use the gray slot; recolor it
+	; purple (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_obj BATTLE_ANIM_OBJ_HORN, 72, 80, $1
+	anim_wait 16
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 8
+	; Poison: Sludge's bubbles rise around the target
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 132, 72, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 116, 72, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 148, 72, $0
+	anim_wait 32
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_Pursuit:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
 	anim_if_param_equal $1, .pursued
