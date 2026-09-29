@@ -40,6 +40,12 @@ if !DEF(MONOCHROME)
 	RGB 31, 18, 06 ; shading: orange
 	RGB 31, 12, 03 ; unused by the small bubble: deep orange
 	RGB 20, 07, 02 ; outline: burnt orange
+; gem (for Ice Beam's crystal in Power Gem: color 1 is the highlight facet,
+; color 2 the shaded facet and color 3 the outline, giving an amethyst)
+	RGB 31, 31, 31 ; unused (transparent for sprites)
+	RGB 27, 21, 31 ; highlight facet: light lavender
+	RGB 19, 08, 27 ; shaded facet: amethyst purple
+	RGB 08, 02, 13 ; outline: dark violet
 else
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 	MONOCHROME_RGB_FOUR

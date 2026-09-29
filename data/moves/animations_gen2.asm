@@ -145,7 +145,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_ShadowClaw	;Shadow Claw
 	dw BattleAnim_IcicleCrash	;Icicle Crash (icy Body Slam)
 	dw BattleAnim_PoisonJab		;pursuit
-	dw BattleAnim_PowerGem		;Power Gem (copy of Flash)
+	dw BattleAnim_PowerGem		;Power Gem (amethyst gems)
 	dw BattleAnim_PsychoCut		;Fury cutter
 	dw BattleAnim_ZenHeadbutt	;poison tail (copy of headbutt)
 	dw BattleAnim_FlashCannon	;Flash Cannon
@@ -3034,10 +3034,23 @@ BattleAnim_FaerieGleam:
 	anim_ret
 
 BattleAnim_PowerGem:
-	anim_1gfx BATTLE_ANIM_GFX_SPEED
-	anim_sound 0, 1, SFX_FLASH
-	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $6, $20
+	; Three large amethyst gems (Ice Beam's crystal, recolored) fly at the target
+	; from slightly different heights, so they land spread across it. 
+	; Then a quick flash and a ring of sparkles make the gems glint on the target.
+	anim_2gfx BATTLE_ANIM_GFX_ICE, BATTLE_ANIM_GFX_SPEED
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_GEM
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE_BEAM, 64, 84, $4
 	anim_wait 4
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE_BEAM, 64, 100, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE_BEAM, 64, 92, $4
+	anim_wait 14
+	; Glint: a short inverted flash, then Flash's sparkle ring on the target
+	anim_sound 0, 1, SFX_FLASH
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $4
 	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $0
 	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $8
@@ -3053,7 +3066,10 @@ BattleAnim_PowerGem:
 	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $30
 	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $38
-	anim_wait 32
+	anim_wait 24
+	anim_clearobjs
+	; custom palettes persist after the animation, so restore the blue slot
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
 	anim_ret
 
 BattleAnim_Hail:
