@@ -779,30 +779,49 @@ BattleAnim_PerishSong:
 	anim_ret
 
 BattleAnim_IcyWind:
-	anim_1gfx BATTLE_ANIM_GFX_SPEED
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
-	anim_battlergfx_1row
-	anim_sound 0, 0, SFX_PSYCHIC
+	; Like Powder Snow: a stream of snowflakes blows from the user and swirls
+	; once around the target. Then a small whirlwind of gusts spins on the
+	; target while the screen goes icy, and the gusts blow away as ice
+	; crystals form on the target.
+	anim_2gfx BATTLE_ANIM_GFX_ICE, BATTLE_ANIM_GFX_WIND
+	; Snowflakes: objects 1-6. Param $x3/$x4 is the speed; a high nibble of
+	; 0 means they circle the target once, then fly off, so they are gone
+	; before the crystals appear.
 .loop
-	anim_wait 8
-	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 88, $4
-	anim_wait 8
-	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 80, $4
-	anim_wait 8
-	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 96, $4
-	anim_wait 8
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SNOW, 64, 88, $03
+	anim_wait 2
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SNOW, 64, 80, $04
+	anim_wait 2
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SNOW, 64, 96, $03
+	anim_wait 2
 	anim_loop 2, .loop
-	anim_wait 16
-	anim_bgeffect BATTLE_BG_EFFECT_BATTLEROBJ_2ROW, $0, BG_EFFECT_USER, $0
+	anim_wait 8
+	; Wind: three gusts (objects 7-9) whirl on the target, screen goes icy
+	anim_bgeffect BATTLE_BG_EFFECT_WHITE_HUES, $0, $8, $0
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
 	anim_wait 6
-	anim_bgeffect BATTLE_BG_EFFECT_NIGHT_SHADE, $0, BG_EFFECT_TARGET, $8
-	anim_wait 64
-	anim_incbgeffect BATTLE_BG_EFFECT_NIGHT_SHADE
-	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
-	anim_wait 4
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
+	anim_wait 36
+	; Blow the gusts away (each one needs two steps: whirl, then leave)
 	anim_incobj 7
+	anim_incobj 8
+	anim_incobj 9
 	anim_wait 1
+	anim_incobj 7
+	anim_incobj 8
+	anim_incobj 9
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	; Frostbite: ice crystals form on the target
+	anim_call BattleAnimSub_Ice
+	anim_wait 32
 	anim_ret
 
 BattleAnim_Detect:
