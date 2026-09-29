@@ -118,7 +118,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_SignalBeam	;signal beam (copy of aurora beam)
 	dw BattleAnim_ShadowPunch	;Shadow Punch
 	dw BattleAnim_Extrasensory	;signal beam (copy of aurora beam)
-	dw BattleAnim_MuddyWater	;Muddy water (copy of surf)
+	dw BattleAnim_MuddyWater	;Muddy water (Surf's wave, in brown)
 	dw BattleAnim_BulletSeed	;Bullet Seed (copy of barrage)
 	dw BattleAnim_AerialAce		;fury cutter
 	dw BattleAnim_IcicleSpear	;powder snow
@@ -2555,7 +2555,10 @@ BattleAnim_FrenzyPlant:
 	anim_ret
 
 BattleAnim_MuddyWater:
+	; Surf's wave, in muddy brown
 	anim_1gfx BATTLE_ANIM_GFX_BUBBLE
+	; The wave uses the blue palette, so recolor it with the standard BROWN palette
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BROWN
 	anim_bgeffect BATTLE_BG_EFFECT_SURF, $0, $0, $0
 	anim_obj BATTLE_ANIM_OBJ_SURF, 88, 104, $8
 .loop
@@ -2564,6 +2567,11 @@ BattleAnim_MuddyWater:
 	anim_loop 4, .loop
 	anim_incobj 1
 	anim_wait 56
+	; Clear any leftover wave first so it doesn't flash blue, then restore the
+	; normal blue palette (otherwise it stays brown until the battle reloads
+	; palettes)
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
 	anim_ret
 
 BattleAnim_MeteorMash:
