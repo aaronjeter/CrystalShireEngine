@@ -161,7 +161,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_Scald			;
 	dw BattleAnim_RazorShell	;
 	dw BattleAnim_EarthPower	;
-	dw BattleAnim_ShockSlam		;
+	dw BattleAnim_ShockSlam		;ShockSlam (electric Body Slam)
 	dw BattleAnim_Snarl			;
 	dw BattleAnim_Hex    		;Hex
 	dw BattleAnim_Venoshock		;Venoshock
@@ -678,6 +678,43 @@ BattleAnim_Spikes:
 	anim_ret
 
 BattleAnim_ShockSlam:
+	; An electric Body Slam: the user crackles with electricity (from Spark),
+	; then bounces and slams into the target (Body Slam), and the screen goes
+	; dark on impact.	
+	anim_2gfx BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_LIGHTNING
+	; Charge up: electricity crackles around the user (object 1), then is
+	; removed with anim_setobj, exactly as in Spark
+	anim_sound 0, 0, SFX_ZAP_CANNON
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $3
+	anim_obj BATTLE_ANIM_OBJ_THUNDER_WAVE, 48, 92, $0
+	anim_wait 24
+	anim_setobj $1, $3
+	anim_wait 1
+	; Body Slam. TargetObj_2Row copies the target's picture into object 2.
+	anim_call BattleAnim_TargetObj_2Row
+	anim_bgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN
+	anim_wait 4
+	anim_bgeffect BATTLE_BG_EFFECT_BODY_SLAM, $0, BG_EFFECT_USER, $0
+	anim_wait 3
+	anim_bgp $1b ; darken the screen on impact (restored when the animation ends)
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 48, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 48, $0
+	anim_wait 3
+	; Show the target's real picture again. Same as BattleAnim_ShowMon_0, but
+	; removing object 2 instead of 1, since object 1 was the charge (Spark
+	; does the same)
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_TARGET, $0
+	anim_wait 5
+	anim_incobj 2
+	anim_wait 1
+	anim_ret
+
 BattleAnim_ZapCannon:
 	anim_2gfx BATTLE_ANIM_GFX_LIGHTNING, BATTLE_ANIM_GFX_EXPLOSION
 	anim_bgp $1b
