@@ -51,6 +51,11 @@ if !DEF(MONOCHROME)
 	RGB 31, 22, 28 ; light pink
 	RGB 31, 12, 22 ; pink
 	RGB 20, 04, 14 ; dark pink
+; firefly (for Hyper Beam's beam in Signal Beam: a glowing yellow-green)
+	RGB 31, 31, 31 ; unused (transparent for sprites)
+	RGB 28, 31, 12 ; glow: pale yellow-green
+	RGB 16, 29, 04 ; bright lime
+	RGB 04, 12, 02 ; dark green
 else
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 	MONOCHROME_RGB_FOUR

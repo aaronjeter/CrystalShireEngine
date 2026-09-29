@@ -115,7 +115,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_SilverWind	;Silver Wind
 	dw BattleAnim_CosmicPower	;Calm Mind (copy of focus energy)
 	dw BattleAnim_WaterSpout	;Hydro Cannon (copy of hydro pump)
-	dw BattleAnim_SignalBeam	;signal beam (copy of aurora beam)
+	dw BattleAnim_SignalBeam	;Signal Beam
 	dw BattleAnim_ShadowPunch	;Shadow Punch
 	dw BattleAnim_Extrasensory	;Extrasensory
 	dw BattleAnim_MuddyWater	;Muddy water
@@ -2974,14 +2974,38 @@ BattleAnim_Extrasensory:
 	anim_ret
 
 BattleAnim_SignalBeam:
-	anim_1gfx BATTLE_ANIM_GFX_BEAM
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
-	anim_wait 64
+	; A firefly's signal: the screen darkens like dusk, Hyper Beam's beam fires
+	; in a glowing yellow-green and blinks on and off like a firefly, then a
+	; ring of glowing sparkles (Flash's) twinkles around the target.
+	anim_2gfx BATTLE_ANIM_GFX_BEAM, BATTLE_ANIM_GFX_SPEED
+	; The beam and sparkles use the yellow slot; recolor it (restored at the
+	; end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_FIREFLY
+	anim_bgp $1b ; darken the background
+	anim_wait 16
 	anim_call BattleAnimSub_Beam
-	anim_wait 48
-	anim_incobj 5
-	anim_wait 64
+	; Blink: alternate between the glow and plain green every 4 frames
+.blink
+	anim_wait 4
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
+	anim_wait 4
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_FIREFLY
+	anim_loop 6, .blink
+	anim_wait 4
+	; The beam ends (clearing it frees object slots for the sparkles)
+	anim_clearobjs
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $0
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $10
+	anim_wait 4
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $20
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $30
+	anim_wait 24
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
 	anim_ret
 
 BattleAnim_ShockWave:
