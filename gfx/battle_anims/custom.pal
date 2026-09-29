@@ -28,6 +28,12 @@ if !DEF(MONOCHROME)
 	RGB 24, 29, 31 ; outline highlights: very light blue
 	RGB 14, 22, 31 ; outline: light blue
 	RGB 02, 05, 22 ; inside: dark blue
+; steel (for Swift's star in Meteor Mash: the star is filled with color 1
+; and outlined with color 3, so those two carry the metal look)
+	RGB 31, 31, 31 ; unused (transparent for sprites)
+	RGB 17, 18, 20 ; fill: metallic gray
+	RGB 15, 17, 22 ; unused by the star: mid steel
+	RGB 06, 08, 14 ; outline: dark steel blue
 else
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 	MONOCHROME_RGB_FOUR

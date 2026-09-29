@@ -108,7 +108,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_CrushClaw		;Metal Claw
 	dw BattleAnim_BlastBurn		;Sacred Fire
 	dw BattleAnim_HydroCannon	;Hydro Cannon (copy of hydro pump)
-	dw BattleAnim_MeteorMash	;Copy of swift
+	dw BattleAnim_MeteorMash	;Meteor Mash
 	dw BattleAnim_Astonish		;Shadow Sneak
 	dw BattleAnim_AirCutter		;Fury cutter
 	dw BattleAnim_RockTomb		;Rock Tomb (copy of rock throw)
@@ -2575,14 +2575,59 @@ BattleAnim_MuddyWater:
 	anim_ret
 
 BattleAnim_MeteorMash:
-	anim_1gfx BATTLE_ANIM_GFX_OBJECTS
+	; The user flashes metallic, a shower of stars
+	; streaks at the target like Swift, and a heavy punch lands
+	; with a flash and screen shake as the first arrives, while the rest arrive
+	; and swirl around the target.
+	;
+	; Metallic shine, exactly as in Metal Claw. TargetObj_1Row copies the
+	; target's picture into sprite tiles 53+, so the star and punch graphics
+	; are only loaded after ShowMon_0 removes that copy.
+	anim_1gfx BATTLE_ANIM_GFX_REFLECT
+	anim_obp0 $0
+	anim_sound 0, 0, SFX_RAGE
+	anim_call BattleAnim_TargetObj_1Row
+	anim_call BattleAnimSub_Metallic
+	anim_call BattleAnim_ShowMon_0
+	; Comet: load the star and punch graphics, and undo the shine's white
+	; object shading. Not with anim_resetobp0: it sets %11100000 (meant for the
+	; original Game Boy), which maps color 1 to white and would turn the star's
+	; fill white. %11100100 is the normal Game Boy Color shading, where every
+	; color maps to itself (the engine sets the same value at the start of
+	; every animation).
+	anim_2gfx BATTLE_ANIM_GFX_OBJECTS, BATTLE_ANIM_GFX_HIT
+	anim_obp0 %11100100
+	; The star uses the yellow palette, so recolor it with the custom STEEL
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_STEEL
+	; Four of Swift's stars at speed $4, launched 4 frames apart from different
+	; heights (like Swift, which uses three). Each reaches the target in 16
+	; frames (rising 2 pixels per frame), circles it once (another 16 frames),
+	; then flies off. They arrive one after another rather than together: each
+	; star is 2 sprites per line and the punch's hit star 4 and fist 2, so too
+	; many at the target at once would go over the 10-sprites-per-line limit.
 	anim_sound 6, 2, SFX_METRONOME
 	anim_obj BATTLE_ANIM_OBJ_SWIFT, 64, 88, $4
 	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_SWIFT, 64, 72, $4
 	anim_wait 4
-	anim_obj BATTLE_ANIM_OBJ_SWIFT, 64, 76, $4
-	anim_wait 64
+	anim_obj BATTLE_ANIM_OBJ_SWIFT, 64, 96, $4
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SWIFT, 64, 80, $4
+	anim_wait 4 ; 16 frames in total: the first star reaches the target
+	; Impact as the first star arrives: Mega Punch's fist and hit star, with a
+	; flash and the same screen shake as Aura Sphere
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $2
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0
+	anim_obj BATTLE_ANIM_OBJ_PUNCH, 136, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	; The shake lasts $20 (32) frames; the last star (launched at frame 12)
+	; finishes circling at frame 44 and has flown off by frame 56
+	anim_wait 40
+	; Clear the stars first so they don't flash yellow, then restore the normal
+	; yellow palette
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
 	anim_ret
 
 BattleAnim_LeafBlade:
