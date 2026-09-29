@@ -1455,6 +1455,36 @@ BattleAnim_Crunch:
 	anim_ret
 
 BattleAnim_MoonBlast:
+	; Moonlight, but shining down on the target instead of the user.
+	; Every position is Moonlight's shifted by (+92, -32), the offset from the
+	; user (44, 88) to the target (136, 56). The objects use RELATIVE_X, so the
+	; engine mirrors them automatically on the enemy's turn.
+	anim_2gfx BATTLE_ANIM_GFX_SHINE, BATTLE_ANIM_GFX_HIT
+	anim_bgp $1b
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_MOONLIGHT, 92, 8, $0
+	anim_obj BATTLE_ANIM_OBJ_MOONLIGHT, 108, 24, $0
+	anim_obj BATTLE_ANIM_OBJ_MOONLIGHT, 124, 40, $0
+	anim_obj BATTLE_ANIM_OBJ_MOONLIGHT, 140, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_MOONLIGHT, 156, 72, $0
+	anim_wait 1
+	anim_sound 0, 0, SFX_MOONLIGHT
+	anim_wait 63
+	; Sparkles on the target (BattleAnimSub_Glimmer, shifted the same way)
+	anim_sound 0, 0, SFX_METRONOME
+	anim_obj BATTLE_ANIM_OBJ_GLIMMER, 136, 32, $0
+	anim_wait 5
+	anim_obj BATTLE_ANIM_OBJ_GLIMMER, 116, 64, $0
+	anim_wait 5
+	anim_obj BATTLE_ANIM_OBJ_GLIMMER, 148, 72, $0
+	anim_wait 21
+	; Impact: the moonlight strikes the target with a flash
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $2
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 16
+	anim_ret
+
 BattleAnim_Moonlight:
 	anim_1gfx BATTLE_ANIM_GFX_SHINE
 	anim_bgp $1b
