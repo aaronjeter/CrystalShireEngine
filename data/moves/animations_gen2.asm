@@ -100,7 +100,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_ArmThrust		;Arm Thrust (copy of comet punch)
 	dw BattleAnim_LusterPurge	;Aeroblast
 	dw BattleAnim_MistBall		;shadow ball
-	dw BattleAnim_BlazeKick		;Blaze kick (copy of mega kick)
+	dw BattleAnim_BlazeKick		;Blaze kick
 	dw BattleAnim_IceBall		;Rollout
 	dw BattleAnim_NeedleArm		;Arm Thrust (copy of comet punch)
 	dw BattleAnim_HyperVoice	;Hyper Voice (copy of screech)
@@ -2266,7 +2266,8 @@ BattleAnimSub_Glimmer2:
 	anim_ret
 
 BattleAnim_BlazeKick:
-	anim_1gfx BATTLE_ANIM_GFX_HIT
+	; Mega Kick-style triple kick, then the target is engulfed in flames
+	anim_2gfx BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_FIRE
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $40, $2, $0
 	anim_wait 67
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $8, $3
@@ -2278,6 +2279,10 @@ BattleAnim_BlazeKick:
 	anim_obj BATTLE_ANIM_OBJ_KICK, 136, 56, $0
 	anim_wait 6
 	anim_loop 3, .loop
+	; Flames on impact. The kicks and hits only last about 7 frames each, so
+	; at most a few are still on screen when the flames start
+	anim_call BattleAnimSub_Fire
+	anim_wait 16
 	anim_ret
 
 
