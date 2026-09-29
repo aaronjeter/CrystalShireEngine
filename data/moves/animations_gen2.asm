@@ -92,7 +92,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_HeatWave		;Heat Wave
 	dw BattleAnim_Hail			;Hail
 	dw BattleAnim_FocusPunch	;MachPunch
-	dw BattleAnim_NaturePower	;Hidden Power
+	dw BattleAnim_NaturePower	;Nature Power
 	dw BattleAnim_Charge		;Calm Mind (copy of focus energy)
 	dw BattleAnim_Superpower	;Outrage
 	dw BattleAnim_BrickBreak	;Rock Smash
@@ -123,7 +123,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_AerialAce		;fury cutter
 	dw BattleAnim_IcicleSpear	;powder snow
 	dw BattleAnim_DragonClaw	;Dragon Claw
-	dw BattleAnim_FrenzyPlant	;Freny Plant (copy of petal dance)
+	dw BattleAnim_FrenzyPlant	;Frenzy Plant
 	dw BattleAnim_BulkUp		;Calm Mind (copy of focus energy)
 	dw BattleAnim_MudShot		;Mud shot
 	dw BattleAnim_PoisonTail	;Poison Tail
@@ -1715,6 +1715,59 @@ BattleAnim_Moonlight:
 	anim_ret
 
 BattleAnim_NaturePower:
+	; A charged strike: green energy gathers into the user (Solar Beam's
+	; charge-up, cut short), then the user dashes in behind green speed lines
+	; and lands a big hit with a screen shake, and leaves burst from the target.
+	anim_4gfx BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_PLANT
+	; The speed lines and hit star use the gray slot; recolor it green
+	; (restored at the end, since custom palettes persist). The charge orbs
+	; and leaves already use the green slot.
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GREEN
+	; Charge: the orbs spiral in toward the user. Solar Beam lets them go for
+	; about 80 frames; here they're cleared after 48, while still closing in.
+	; 9 objects, so they're cleared before the dash.
+	anim_sound 0, 0, SFX_CHARGE
+	anim_obj BATTLE_ANIM_OBJ_ABSORB_CENTER, 48, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $8
+	anim_obj BATTLE_ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $10
+	anim_obj BATTLE_ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $18
+	anim_obj BATTLE_ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $20
+	anim_obj BATTLE_ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $28
+	anim_obj BATTLE_ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $30
+	anim_obj BATTLE_ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $38
+	anim_wait 48
+	anim_clearobjs
+	; A quick white flash as the charge completes (as in Solar Beam)
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_WHITE, $0, $4, $2
+	anim_wait 8
+	; Dash, as in Mach Punch
+	anim_sound 0, 0, SFX_MENU
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	; Impact: big hit, screen shake, and three leaves burst out (Leaf Blade's
+	; leaves; 6 speed lines + hit + 3 leaves = the 10-object limit)
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_LEAF_BLADE_LEAF, 136, 64, $28
+	anim_obj BATTLE_ANIM_OBJ_LEAF_BLADE_LEAF, 136, 64, $5c
+	anim_obj BATTLE_ANIM_OBJ_LEAF_BLADE_LEAF, 136, 64, $9c
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 24
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_HiddenPower:
 	anim_1gfx BATTLE_ANIM_GFX_CHARGE
 	anim_call BattleAnim_TargetObj_1Row
@@ -2796,17 +2849,71 @@ BattleAnim_HyperVoice:
 	anim_ret
 
 BattleAnim_FrenzyPlant:
-	anim_sound 0, 0, SFX_MENU
-	anim_2gfx BATTLE_ANIM_GFX_FLOWER, BATTLE_ANIM_GFX_HIT
-.loop
-	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE, 48, 56, $0
+	; The screen darkens and the ground rumbles as bursts of
+	; leaves and flowers spring up one after another along the ground from the
+	; user to the target (at Ancient Power's rock positions). Then three heavy
+	; hits land with white flashes and a screen shake.
+	anim_3gfx BATTLE_ANIM_GFX_PLANT, BATTLE_ANIM_GFX_FLOWER, BATTLE_ANIM_GFX_HIT
+	anim_bgp $1b ; darken the background
+	; Rumble: a light shake that lasts exactly as long as the eruption (7
+	; bursts, 11 frames apart), so it ends as the big shake starts
+	anim_sound 0, 0, SFX_STRENGTH
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $4d, $1, $0
+	; The bursts are silent so they don't cut off the rumble (a new sound
+	; effect replaces the one playing).
+	; Each burst is a flower (Petal Dance's, arcing highest) between two
+	; leaves. Each piece lasts 32 frames; with bursts 11 frames apart, three
+	; bursts (9 objects) are on screen at once, within the 10-object limit.
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 60, 108, $20
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER, 66, 108, $28
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 72, 108, $14
 	anim_wait 11
-	anim_loop 8, .loop
-	anim_wait 128
-	anim_wait 64
-	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 71, 102, $20
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER, 77, 102, $28
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 83, 102, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 81, 97, $20
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER, 87, 97, $28
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 93, 97, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 92, 92, $20
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER, 98, 92, $28
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 104, 92, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 102, 87, $20
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER, 108, 87, $28
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 114, 87, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 112, 82, $20
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER, 118, 82, $28
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 124, 82, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 122, 77, $20
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER, 128, 77, $28
+	anim_obj BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF, 134, 77, $14
+	anim_wait 11
+	; Impact: three big hits with white flashes, done by hand
+	; (BATTLE_BG_EFFECT_FLASH_INVERTED would undo the darkening), and a
+	; violent shake
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $40, $4, $0
 	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_bgp %00000000 ; all white
+	anim_wait 4
+	anim_bgp $1b ; back to dark
+	anim_wait 8
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 124, 44, $0
+	anim_bgp %00000000
+	anim_wait 4
+	anim_bgp $1b
+	anim_wait 8
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 148, 64, $0
+	anim_bgp %00000000
+	anim_wait 4
+	anim_bgp $1b
+	anim_wait 36 ; the shake lasts $40 (64) frames in total
 	anim_ret
 
 BattleAnim_MuddyWater:

@@ -411,4 +411,12 @@ BattleAnimObjects:
 ; uses Y = fix - Y, so Y 64 (8 below the enemy's center, Y 56) becomes
 ; 160 - 64 = 96 (8 below the player's center, Y 88).
 	battleanimobj RELATIVE_X | X_FLIP, $a0, BATTLE_ANIM_FRAMESET_RAZOR_LEAF_1, BATTLE_ANIM_FUNC_RAZOR_LEAF, PAL_BATTLE_OB_GREEN, BATTLE_ANIM_GFX_PLANT
+; BATTLE_ANIM_OBJ_FRENZY_PLANT_LEAF
+; Razor Leaf's leaf (its first frame) moving like Ancient Power's rocks: it
+; springs up in an arc for 32 frames, then disappears. Same Y fix ($b8) as the
+; rocks, so the same positions work on both sides.
+	battleanimobj RELATIVE_X, $b8, BATTLE_ANIM_FRAMESET_RAZOR_LEAF_1, BATTLE_ANIM_FUNC_ANCIENT_POWER, PAL_BATTLE_OB_GREEN, BATTLE_ANIM_GFX_PLANT
+; BATTLE_ANIM_OBJ_FRENZY_PLANT_FLOWER
+; Petal Dance's flower moving like Ancient Power's rocks (see FRENZY_PLANT_LEAF)
+	battleanimobj RELATIVE_X, $b8, BATTLE_ANIM_FRAMESET_FLOWER, BATTLE_ANIM_FUNC_ANCIENT_POWER, PAL_BATTLE_OB_RED, BATTLE_ANIM_GFX_FLOWER
 	assert_table_length NUM_BATTLE_ANIM_OBJS
