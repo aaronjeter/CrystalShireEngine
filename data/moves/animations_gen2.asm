@@ -140,7 +140,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_FireFang		;Fire Fang
 	dw BattleAnim_DrainingKiss	;sweet kiss
 	dw BattleAnim_MoonBlast		;moonlight
-	dw BattleAnim_PlayRough		;beat up
+	dw BattleAnim_PlayRough		;Play Rough
 	dw BattleAnim_AuraSphere	;shadow ball
 	dw BattleAnim_ShadowClaw	;Shadow Claw
 	dw BattleAnim_IcicleCrash	;Icicle Crash
@@ -2225,7 +2225,6 @@ BattleAnim_Whirlpool:
 	anim_ret
 
 BattleAnim_ShadowForce:
-BattleAnim_PlayRough:
 BattleAnim_BeatUp:
 	anim_if_param_equal $0, .current_mon
 	anim_sound 0, 0, SFX_BALL_POOF
@@ -2244,6 +2243,48 @@ BattleAnim_BeatUp:
 	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
 	anim_wait 8
 	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_PlayRough:
+	; a pink dust cloud (Poke Ball poofs) kicks up around the target
+	; while pink hits land all over it and hearts fly out of the scuffle,
+	; with the screen rumbling; then a big finishing hit and a stronger shake.
+	anim_3gfx BATTLE_ANIM_GFX_SMOKE, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_OBJECTS
+	; The poofs and hit stars use the gray slot; recolor it pink (restored at
+	; the end, since custom palettes persist). The hearts use the red slot.
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PINK
+	; Rumble through the brawl (54 frames), ending as the big shake starts
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $36, $1, $0
+	; Brawl: each poof lasts 12 frames, so only a few objects are out at once
+	anim_sound 0, 1, SFX_BALL_POOF
+	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 128, 48, $0
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 146, 62, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 132, 44, $0
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 120, 62, $0
+	anim_obj BATTLE_ANIM_OBJ_HEART, 124, 48, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 146, 60, $0
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 140, 44, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 124, 58, $0
+	anim_obj BATTLE_ANIM_OBJ_HEART, 144, 44, $0
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 132, 58, $0
+	anim_wait 10
+	; Finishing blow
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 52, $0
+	anim_wait 32 ; the shake lasts $20 (32) frames
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_Willowisp:
