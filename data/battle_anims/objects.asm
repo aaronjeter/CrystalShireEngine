@@ -397,4 +397,10 @@ BattleAnimObjects:
 	battleanimobj ABSOLUTE_X, $00, BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW, BATTLE_ANIM_FUNC_NULL, PAL_BATTLE_OB_PLAYER, BATTLE_ANIM_GFX_ENEMYFEET
 ; BATTLE_ANIM_OBJ_HAIL
 	battleanimobj RELATIVE_X | X_FLIP, $00, BATTLE_ANIM_FRAMESET_HAIL, BATTLE_ANIM_FUNC_RAIN_SANDSTORM, PAL_BATTLE_OB_BLUE, BATTLE_ANIM_GFX_ICE
+; BATTLE_ANIM_OBJ_MIST_BALL_MIST
+; Same as BATTLE_ANIM_OBJ_MIST, but with an enemy Y fix of $7c instead of $48.
+; On the enemy's turn the engine uses Y = fix - Y, so $7c places the mist the
+; same distance from the player's center (Y 88) as from the enemy's (Y 56):
+; e.g. Y 46 (10 above the enemy's center) becomes 124 - 46 = 78.
+	battleanimobj RELATIVE_X | X_FLIP, $7c, BATTLE_ANIM_FRAMESET_MIST, BATTLE_ANIM_FUNC_SPIRAL_DESCENT, PAL_BATTLE_OB_GRAY, BATTLE_ANIM_GFX_HAZE
 	assert_table_length NUM_BATTLE_ANIM_OBJS

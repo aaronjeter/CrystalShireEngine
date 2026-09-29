@@ -1703,8 +1703,52 @@ BattleAnim_Ancientpower:
 	anim_wait 6
 	anim_ret
 
-BattleAnim_AuraSphere:
 BattleAnim_MistBall:
+	; A blue ball flies at the target, then the target ripples as if splashed
+	; while blue mist (from the Mist move) swirls around it.
+	; Follows Water Gun's order: START_WATER first, then the user is copied
+	; into object 1 (so the ripple doesn't bend the user's picture), and
+	; ShowMon_1 removes that copy at the end.
+	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_HAZE
+	; Blue mist: the mist object uses the gray palette, so recolor that palette
+	; with the light-blue ICE palette. (Mist itself lightens it with anim_obp0 $54
+	; instead, but that would also wash out the ball and the user's picture.)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_call BattleAnim_UserObj_2Row
+	; No anim_bgp here, so the ball shows its blue palette (Shadow Ball darkens it)
+	anim_sound 16, 2, SFX_WATER_GUN
+	anim_obj BATTLE_ANIM_OBJ_SHADOW_BALL, 64, 92, $2
+	anim_wait 32 ; the ball reaches the target and disappears
+	; Splash: the target ripples (same ripple sequence as Water Gun), while
+	; mist puffs appear every 8 frames around the middle of the target
+	; (the target's picture spans roughly Y 28-84, centered at (136, 56)).
+	; Each puff sinks about 1 pixel every 8 frames while it circles.
+	; Uses MIST_BALL_MIST rather than MIST so the height mirrors correctly
+	; on the enemy's turn (see its entry in data/battle_anims/objects.asm).
+	anim_sound 0, 1, SFX_WATER_GUN
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $1c, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_MIST_BALL_MIST, 140, 46, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $8, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_MIST_BALL_MIST, 140, 46, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $30, $0, $0
+.loop
+	anim_obj BATTLE_ANIM_OBJ_MIST_BALL_MIST, 140, 46, $0
+	anim_wait 8
+	anim_loop 4, .loop
+	anim_wait 16 ; let the mist linger
+	anim_call BattleAnim_ShowMon_1
+	anim_bgeffect BATTLE_BG_EFFECT_END_WATER, $0, $0, $0
+	anim_wait 16
+	; Clear the mist first so it doesn't flash gray, then restore the normal
+	; gray palette (otherwise it stays blue until the battle reloads palettes)
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_AuraSphere:
 BattleAnim_ShadowBall:
 	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_SMOKE
 	anim_bgp $1b
