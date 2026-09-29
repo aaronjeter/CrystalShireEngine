@@ -153,7 +153,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_DarkPulse		;destiny bond
 	dw BattleAnim_FaerieGleam	;Faerie Gleam
 	dw BattleAnim_SludgeWave	;
-	dw BattleAnim_BulletPunch	;
+	dw BattleAnim_BulletPunch	;Bullet Punch (steel Mach Punch)
 	dw BattleAnim_Hurricane		;
 	dw BattleAnim_ShadowSneak	;Shadow Sneak
 	dw BattleAnim_ShadowForce	;
@@ -3001,7 +3001,6 @@ BattleAnim_Astonish:
 BattleAnim_FlipTurn:
 BattleAnim_UTurn:
 BattleAnim_VoltSwitch:
-BattleAnim_BulletPunch:
 BattleAnim_AquaJet:
 	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_MENU
@@ -3018,6 +3017,37 @@ BattleAnim_AquaJet:
 	anim_wait 8
 	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 16
+	anim_ret
+
+BattleAnim_BulletPunch:
+	; Mach Punch in steel colors: the user dashes in behind speed lines, a
+	; steel fist lands, and the punch glints with two sparkles.
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	; The speed lines, fist and hit star all use the gray slot; recolor it
+	; steel (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_STEEL
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_sound 0, 0, SFX_MENU
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_PUNCH, 136, 56, $0
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	; Glint: two of Flash's yellow sparkles burst from the target (only two,
+	; since the 6 speed lines, fist and hit star already use 8 of 10 objects)
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $8
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $28
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 16
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_FlashCannon:
