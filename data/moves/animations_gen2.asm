@@ -134,7 +134,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_DragonDance	;Calm Mind (copy of focus energy)
 	dw BattleAnim_RockBlast		;Rock Tomb (copy of rock throw)
 	dw BattleAnim_ShockWave		;shockwave (copy of thunder wave)
-	dw BattleAnim_WaterPulse	;WaterPulse (copy of bubblebeam)
+	dw BattleAnim_WaterPulse	;WaterPulse
 	dw BattleAnim_ThunderFang	;Thunder Fang
 	dw BattleAnim_IceFang		;Ice Fang
 	dw BattleAnim_FireFang		;Fire Fang
@@ -1704,9 +1704,9 @@ BattleAnim_Ancientpower:
 	anim_ret
 
 BattleAnim_MistBall:
-	; A blue orb (Zap Cannon's, like Aura Sphere) trailed by sparkles flies at
-	; the target, then the target ripples as if splashed while blue mist (from
-	; the Mist move) swirls around it.
+	; A blue orb trailed by sparkles flies at
+	; the target while the scene ripples as if underwater, 
+	; then the target ripples while blue mist swirls around it.
 	;
 	; Sprite limits: the Game Boy shows at most 40 sprites, and 10 per line.
 	; The orb is 9 sprites (3 per line), each grown sparkle 4 (2 per line), and
@@ -1729,6 +1729,10 @@ BattleAnim_MistBall:
 	; Load the graphics for the user's copy now (first half of
 	; BattleAnim_UserObj_2Row); the copy itself is made at the impact
 	anim_battlergfx_1row
+	; Underwater waves during the flight: Whirlpool's effect shifts the rows of
+	; the whole battle scene up and down in a wave (background only; the orb
+	; and sparkles aren't affected)
+	anim_bgeffect BATTLE_BG_EFFECT_WHIRLPOOL, $0, $0, $0
 	anim_sound 16, 2, SFX_WATER_GUN
 	; Straight line from the user at Zap Cannon's own speed, $2 = 2 pixels per
 	; frame (rising 1 pixel per frame), so from Y 92 it arrives at the target's
@@ -1750,6 +1754,10 @@ BattleAnim_MistBall:
 	anim_wait 9
 	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 110, 69, $2 ; 8 frames behind
 	anim_wait 3 ; 34 frames in total: the orb has reached the target
+	; Stop the waves before the ripple: both work by shifting screen rows, so
+	; they can't run at once (Whirlpool ends it the same way)
+	anim_incbgeffect BATTLE_BG_EFFECT_WHIRLPOOL
+	anim_wait 4
 	; Impact. Set up the ripple like Bubblebeam: START_WATER on the target, then
 	; copy the user's picture into sprites so the ripple doesn't bend it (second
 	; half of BattleAnim_UserObj_2Row; its graphics were loaded at the start)
@@ -2570,8 +2578,73 @@ BattleAnim_ShockWave:
 	anim_wait 96
 	anim_ret
 
-BattleAnim_Scald:
 BattleAnim_WaterPulse:
+	; Blue rings (Psywave's) pulse out toward the target while the scene
+	; undulates as if underwater (Whirlpool's effect), then the target ripples
+	; as if splashed (Water Gun's ripple).
+	;
+	; Built like Mist Ball: the ripple needs a copy of the user's picture in
+	; sprites (12 sprites, 6 per line), so the copy is only made after the rings
+	; are gone, to stay within the 40-sprite / 10-per-line limits. Its graphics
+	; are loaded at the start, since loading them pauses the animation for
+	; about 13 frames.
+	anim_1gfx BATTLE_ANIM_GFX_PSYCHIC
+	; The rings use the gray palette, so recolor it with the standard BLUE palette
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BLUE
+	; Load the graphics for the user's copy now (first half of
+	; BattleAnim_UserObj_2Row); the copy itself is made after the rings
+	anim_battlergfx_1row
+	; Underwater waves: Whirlpool's effect shifts the rows of the whole battle
+	; scene up and down in a wave (background only; the rings aren't affected).
+	; (Surf's effect can't be used here: it only works together with Surf's big
+	; wave sprite, which is what switches on its row shifting.)
+	anim_bgeffect BATTLE_BG_EFFECT_WHIRLPOOL, $0, $0, $0
+	; Rings: nine in a row along the same path, one every 8 frames, so they read
+	; as a targeted pulse. Each ring grows as it travels and fades after about
+	; 25 frames, so they all use speed $4 (4 pixels across and 2 up per frame):
+	; from (64, 92) a ring reaches the target's center (Y 58) in about 17 frames,
+	; before it fades, and disappears on arrival. (Psywave instead sends them
+	; from three heights at speeds 2, 3 and 4.)
+.loop
+	anim_sound 16, 2, SFX_BUBBLEBEAM
+	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 92, $4
+	anim_wait 8
+	anim_loop 9, .loop
+	anim_wait 16 ; the last ring reaches the target
+	; Stop the waves before the ripple: both work by shifting screen rows, so
+	; they can't run at once (Whirlpool ends it the same way)
+	anim_incbgeffect BATTLE_BG_EFFECT_WHIRLPOOL
+	anim_wait 4
+	; Splash: set up the ripple like Bubblebeam (START_WATER on the target), then
+	; copy the user's picture into sprites so the ripple doesn't bend it (second
+	; half of BattleAnim_UserObj_2Row)
+	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_BATTLEROBJ_2ROW, $0, BG_EFFECT_USER, $0
+	anim_wait 4
+	; The target ripples (same ripple sequence as Water Gun)
+	anim_sound 0, 1, SFX_WATER_GUN
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $1c, $0, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $8, $0, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $30, $0, $0
+	anim_wait 32
+	; Show the user's real picture again (like BattleAnim_ShowMon_1, minus its
+	; anim_incobj 1: the copy isn't object 1 here, so anim_clearobjs below
+	; removes it instead)
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 4
+	anim_bgeffect BATTLE_BG_EFFECT_END_WATER, $0, $0, $0
+	anim_wait 16
+	; Remove the user's copy, then restore the normal gray palette (otherwise
+	; it stays blue until the battle reloads palettes)
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_Scald:
 	anim_1gfx BATTLE_ANIM_GFX_BUBBLE
 .loop
 	anim_sound 16, 2, SFX_BUBBLEBEAM
