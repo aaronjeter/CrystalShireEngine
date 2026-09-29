@@ -112,7 +112,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_Astonish		;Shadow Sneak
 	dw BattleAnim_AirCutter		;Fury cutter
 	dw BattleAnim_RockTomb		;Rock Tomb (copy of rock throw)
-	dw BattleAnim_SilverWind	;Silver Wind (copy of Twister)
+	dw BattleAnim_SilverWind	;Silver Wind
 	dw BattleAnim_CosmicPower	;Calm Mind (copy of focus energy)
 	dw BattleAnim_WaterSpout	;Hydro Cannon (copy of hydro pump)
 	dw BattleAnim_SignalBeam	;signal beam (copy of aurora beam)
@@ -780,8 +780,8 @@ BattleAnim_PerishSong:
 
 BattleAnim_IcyWind:
 	; Like Powder Snow: a stream of snowflakes blows from the user and swirls
-	; once around the target. Then a small whirlwind of gusts spins on the
-	; target while the screen goes icy, and the gusts blow away as ice
+	; once around the target. Then a whirlwind of gusts spins on the
+	; target while the screen goes icy, then vanishes as ice
 	; crystals form on the target.
 	anim_2gfx BATTLE_ANIM_GFX_ICE, BATTLE_ANIM_GFX_WIND
 	; Snowflakes: objects 1-6. Param $x3/$x4 is the speed; a high nibble of
@@ -798,27 +798,23 @@ BattleAnim_IcyWind:
 	anim_obj BATTLE_ANIM_OBJ_POWDER_SNOW, 64, 96, $03
 	anim_wait 2
 	anim_loop 2, .loop
-	anim_wait 8
-	; Wind: three gusts (objects 7-9) whirl on the target, screen goes icy
+	; Wait until most flakes have circled the target and flown off (the last
+	; is gone about 68 frames in), so the nine gusts fit within the 10-object
+	; limit alongside the ones still leaving
+	anim_wait 32
+	; Wind: nine gusts on the target, 6 frames apart, as in Gust and Twister
+	; (each rises and widens over about a second, so the full funnel shape
+	; needs all nine), while the screen goes icy
 	anim_bgeffect BATTLE_BG_EFFECT_WHITE_HUES, $0, $8, $0
+.whirlwind
 	anim_sound 0, 1, SFX_RAZOR_WIND
 	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
 	anim_wait 6
-	anim_sound 0, 1, SFX_RAZOR_WIND
-	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_RAZOR_WIND
-	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
-	anim_wait 36
-	; Blow the gusts away (each one needs two steps: whirl, then leave)
-	anim_incobj 7
-	anim_incobj 8
-	anim_incobj 9
-	anim_wait 1
-	anim_incobj 7
-	anim_incobj 8
-	anim_incobj 9
-	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_loop 9, .whirlwind
+	anim_wait 24 ; let the full funnel spin
+	; The whirlwind vanishes (clearing it also frees the object slots for the
+	; six crystals)
+	anim_clearobjs
 	; Frostbite: ice crystals form on the target
 	anim_call BattleAnimSub_Ice
 	anim_wait 32
@@ -2290,46 +2286,49 @@ BattleAnim_Hurricane:
 	anim_ret
 
 BattleAnim_SilverWind:
-	anim_2gfx BATTLE_ANIM_GFX_WIND, BATTLE_ANIM_GFX_HIT
-.loop1
-	anim_sound 0, 0, SFX_RAZOR_WIND
-	anim_obj BATTLE_ANIM_OBJ_GUST, 64, 112, $0
+	; A glittering gale: a stream of silver sparkles (the growing sparkles
+	; Flash Cannon uses) blows from the user to the target, then a small
+	; silver whirlwind (Gust's) spins on the target and vanishes.
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_WIND
+	; The sparkles use the yellow slot and the whirlwind the gray slot; recolor
+	; both silver (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_METALLIC
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_METALLIC
+	; Sparkles (objects 1-8): one every 4 frames from three heights. Each
+	; reaches the target in about 17 frames and fades there, so about five are
+	; on screen at once.
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 88, $4
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 80, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 96, $4
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 88, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 80, $4
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 96, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 88, $4
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 80, $4
+	anim_wait 4
+	; Whirlwind: nine gusts on the target, 6 frames apart, as in Gust and
+	; Twister. Each gust rises and widens over about a second, so the full
+	; funnel shape only appears once all nine are going at different stages.
+.whirlwind
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
 	anim_wait 6
-	anim_loop 9, .loop1
-.loop2
-	anim_sound 0, 0, SFX_RAZOR_WIND
-	anim_wait 8
-	anim_loop 8, .loop2
-	anim_incobj 1
-	anim_incobj 2
-	anim_incobj 3
-	anim_incobj 4
-	anim_incobj 5
-	anim_incobj 6
-	anim_incobj 7
-	anim_incobj 8
-	anim_incobj 9
-	anim_wait 64
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 64, $18
-.loop3
-	anim_sound 0, 1, SFX_RAZOR_WIND
-	anim_wait 8
-	anim_loop 4, .loop3
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 32, $18
-.loop4
-	anim_sound 0, 1, SFX_RAZOR_WIND
-	anim_wait 8
-	anim_loop 4, .loop4
-	anim_incobj 1
-	anim_incobj 2
-	anim_incobj 3
-	anim_incobj 4
-	anim_incobj 5
-	anim_incobj 6
-	anim_incobj 7
-	anim_incobj 8
-	anim_incobj 9
-	anim_wait 32
+	anim_loop 9, .whirlwind
+	anim_wait 24 ; let the full funnel spin, then it vanishes
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnimSub_Drain:
