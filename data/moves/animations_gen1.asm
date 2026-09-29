@@ -1072,14 +1072,36 @@ BattleAnim_Bubblebeam:
 	anim_ret
 
 BattleAnim_AuroraBeam:
-	anim_1gfx BATTLE_ANIM_GFX_BEAM
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	; The background shimmers, then Hyper Beam's beam fires in icy blue and
+	; shifts through aurora colors (blue, green, purple, pink) while it hits,
+	; and ice crystals form on the target.
+	anim_2gfx BATTLE_ANIM_GFX_BEAM, BATTLE_ANIM_GFX_ICE
+	; The beam uses the yellow slot; it is recolored below and restored at
+	; the end, since custom palettes persist
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
+	; Shimmering background (as in the original Aurora Beam, but a shorter
+	; wind-up); it keeps pulsing until the animation ends
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
-	anim_wait 64
+	anim_wait 32
 	anim_call BattleAnimSub_Beam
-	anim_wait 48
-	anim_incobj 5
-	anim_wait 64
+	; Aurora: cycle the beam's colors every 6 frames, twice around
+.aurora
+	anim_wait 6
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
+	anim_wait 6
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PURPLE
+	anim_wait 6
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PINK
+	anim_wait 6
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
+	anim_loop 2, .aurora
+	anim_wait 6
+	; The beam ends, and ice crystals form on the target (clearing the beam
+	; also frees object slots for the six crystals)
+	anim_clearobjs
+	anim_call BattleAnimSub_Ice
+	anim_wait 24
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
 	anim_ret
 
 BattleAnim_HyperBeam:
