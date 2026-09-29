@@ -127,7 +127,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_BulkUp		;Calm Mind (copy of focus energy)
 	dw BattleAnim_MudShot		;mud shot
 	dw BattleAnim_PoisonTail	;poison tail (copy of headbutt)
-	dw BattleAnim_VoltTackle	;Spark
+	dw BattleAnim_VoltTackle	;Volt Tackle (same as ShockSlam)
 	dw BattleAnim_MagicalLeaf	;Magic leaf (copy of razor leaf)
 	dw BattleAnim_CalmMind		;Calm Mind (copy of focus energy)
 	dw BattleAnim_LeafBlade		;leaf blade (copy of vine whip)
@@ -143,7 +143,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_PlayRough		;beat up
 	dw BattleAnim_AuraSphere	;shadow ball
 	dw BattleAnim_ShadowClaw	;Shadow Claw
-	dw BattleAnim_IcicleCrash	;rollout
+	dw BattleAnim_IcicleCrash	;Icicle Crash (icy Body Slam)
 	dw BattleAnim_PoisonJab		;pursuit
 	dw BattleAnim_PowerGem		;Flash Cannon (copy of Flash)
 	dw BattleAnim_PsychoCut		;Fury cutter
@@ -677,6 +677,7 @@ BattleAnim_Spikes:
 	anim_wait 64
 	anim_ret
 
+BattleAnim_VoltTackle:
 BattleAnim_ShockSlam:
 	; An electric Body Slam: the user crackles with electricity (from Spark),
 	; then bounces and slams into the target (Body Slam), and the screen goes
@@ -943,6 +944,58 @@ BattleAnim_Charm:
 	anim_ret
 
 BattleAnim_IcicleCrash:
+	; An icy Body Slam, like ShockSlam: ice crystals form around the user
+	; (Ice Punch's crystals), then the user bounces and slams into the target
+	; (Body Slam), and the screen goes dark on impact.	
+	anim_2gfx BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_ICE
+	; Charge up: six ice crystals appear around the user, 6 frames apart, with
+	; a shine sound each. These are BattleAnimSub_Ice's positions around the
+	; target, shifted by (-92, +32) onto the user; the engine mirrors them on
+	; the enemy's turn. Each crystal plays for about 24 frames and deletes
+	; itself. They're objects 1-6.
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE, 36, 74, $0
+	anim_wait 6
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE, 52, 102, $0
+	anim_wait 6
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE, 28, 88, $0
+	anim_wait 6
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE, 60, 88, $0
+	anim_wait 6
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE, 52, 74, $0
+	anim_wait 6
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE, 36, 102, $0
+	anim_wait 24 ; let the last crystal finish
+	; Body Slam. TargetObj_2Row copies the target's picture into object 7.
+	anim_call BattleAnim_TargetObj_2Row
+	anim_bgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN
+	anim_wait 4
+	anim_bgeffect BATTLE_BG_EFFECT_BODY_SLAM, $0, BG_EFFECT_USER, $0
+	anim_wait 3
+	anim_bgp $1b ; darken the screen on impact (restored when the animation ends)
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 48, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 48, $0
+	anim_wait 3
+	; Show the target's real picture again. Same as BattleAnim_ShowMon_0, but
+	; removing object 7 (the target's copy) instead of 1, since objects 1-6
+	; were the ice crystals
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_TARGET, $0
+	anim_wait 5
+	anim_incobj 7
+	anim_wait 1
+	anim_ret
+
 BattleAnim_IceBall:
 BattleAnim_Rollout:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
@@ -996,7 +1049,6 @@ BattleAnim_MilkDrink:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
-BattleAnim_VoltTackle:
 BattleAnim_Spark:
 	anim_2gfx BATTLE_ANIM_GFX_LIGHTNING, BATTLE_ANIM_GFX_EXPLOSION
 	anim_sound 0, 0, SFX_ZAP_CANNON
