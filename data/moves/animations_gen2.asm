@@ -118,7 +118,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_SignalBeam	;signal beam (copy of aurora beam)
 	dw BattleAnim_ShadowPunch	;Shadow Punch
 	dw BattleAnim_Extrasensory	;signal beam (copy of aurora beam)
-	dw BattleAnim_MuddyWater	;Muddy water (Surf's wave, in brown)
+	dw BattleAnim_MuddyWater	;Muddy water
 	dw BattleAnim_BulletSeed	;Bullet Seed (copy of barrage)
 	dw BattleAnim_AerialAce		;fury cutter
 	dw BattleAnim_IcicleSpear	;powder snow
@@ -143,17 +143,17 @@ BattleAnimationsGen2::
 	dw BattleAnim_PlayRough		;beat up
 	dw BattleAnim_AuraSphere	;shadow ball
 	dw BattleAnim_ShadowClaw	;Shadow Claw
-	dw BattleAnim_IcicleCrash	;Icicle Crash (icy Body Slam)
+	dw BattleAnim_IcicleCrash	;Icicle Crash
 	dw BattleAnim_PoisonJab		;pursuit
-	dw BattleAnim_PowerGem		;Power Gem (amethyst gems)
+	dw BattleAnim_PowerGem		;Power Gem
 	dw BattleAnim_PsychoCut		;Fury cutter
 	dw BattleAnim_ZenHeadbutt	;poison tail (copy of headbutt)
 	dw BattleAnim_FlashCannon	;Flash Cannon
 	dw BattleAnim_AquaJet		;Aqua Jet
 	dw BattleAnim_DarkPulse		;destiny bond
 	dw BattleAnim_FaerieGleam	;Faerie Gleam
-	dw BattleAnim_SludgeWave	;
-	dw BattleAnim_BulletPunch	;Bullet Punch (steel Mach Punch)
+	dw BattleAnim_SludgeWave	;Sludge Wave
+	dw BattleAnim_BulletPunch	;Bullet Punch
 	dw BattleAnim_Hurricane		;
 	dw BattleAnim_ShadowSneak	;Shadow Sneak
 	dw BattleAnim_ShadowForce	;
@@ -161,7 +161,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_Scald			;
 	dw BattleAnim_RazorShell	;
 	dw BattleAnim_EarthPower	;
-	dw BattleAnim_ShockSlam		;ShockSlam (electric Body Slam)
+	dw BattleAnim_ShockSlam		;ShockSlam
 	dw BattleAnim_Snarl			;
 	dw BattleAnim_Hex    		;Hex
 	dw BattleAnim_Venoshock		;Venoshock
@@ -2379,7 +2379,6 @@ BattleAnimSub_Ice:
 	anim_obj BATTLE_ANIM_OBJ_ICE, 128, 70, $0
 	anim_ret
 
-BattleAnim_SludgeWave:
 BattleAnimSub_Sludge:
 .loop
 	anim_sound 0, 1, SFX_TOXIC
@@ -2756,6 +2755,41 @@ BattleAnim_MuddyWater:
 	; palettes)
 	anim_clearobjs
 	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
+	anim_ret
+
+BattleAnim_SludgeWave:
+	; Surf's wave in poison purple (like Muddy Water), then toxic sludge
+	; bubbles up around the target once the wave has passed.
+	anim_2gfx BATTLE_ANIM_GFX_BUBBLE, BATTLE_ANIM_GFX_POISON
+	; The wave uses the blue slot and the sludge bubbles the gray slot;
+	; recolor both purple (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_PURPLE
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_bgeffect BATTLE_BG_EFFECT_SURF, $0, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_SURF, 88, 104, $8
+.loop
+	anim_sound 0, 1, SFX_SURF
+	anim_wait 32
+	anim_loop 4, .loop
+	anim_incobj 1
+	anim_wait 24 ; let the wave move off before the bubbles, to stay within
+	             ; the 10-sprites-per-line limit
+	; Poison: Sludge's bubbles rise around the target (two rounds of three)
+.bubbles
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 132, 72, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 116, 72, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE, 148, 72, $0
+	anim_wait 8
+	anim_loop 2, .bubbles
+	anim_wait 32
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_MeteorMash:
