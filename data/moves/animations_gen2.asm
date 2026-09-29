@@ -145,13 +145,13 @@ BattleAnimationsGen2::
 	dw BattleAnim_ShadowClaw	;Shadow Claw
 	dw BattleAnim_IcicleCrash	;Icicle Crash (icy Body Slam)
 	dw BattleAnim_PoisonJab		;pursuit
-	dw BattleAnim_PowerGem		;Flash Cannon (copy of Flash)
+	dw BattleAnim_PowerGem		;Power Gem (copy of Flash)
 	dw BattleAnim_PsychoCut		;Fury cutter
 	dw BattleAnim_ZenHeadbutt	;poison tail (copy of headbutt)
 	dw BattleAnim_FlashCannon	;Flash Cannon
 	dw BattleAnim_AquaJet		;astonish (copy of quick attack)
 	dw BattleAnim_DarkPulse		;destiny bond
-	dw BattleAnim_FaerieGleam	;Flash Cannon (copy of Flash)
+	dw BattleAnim_FaerieGleam	;Faerie Gleam
 	dw BattleAnim_SludgeWave	;
 	dw BattleAnim_BulletPunch	;
 	dw BattleAnim_Hurricane		;
@@ -2985,6 +2985,54 @@ BattleAnim_FlashCannon:
 	anim_ret
 
 BattleAnim_FaerieGleam:
+	; Like Flash, but in three steps: a ring of sparkles forms around the user,
+	; the screen flashes, then impact frames hit the target.
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	; Sparkles on the user: the shiny-Pokemon sparkle ring. Flash's own sparkle
+	; object is placed relative to the target and can't be put on the user for
+	; both sides; the shiny sparkle is placed at the user at (48, 96) and the
+	; engine mirrors it on the enemy's turn. Eight sparkles, 4 frames apart,
+	; each at a different point on the ring.
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $8
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $10
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $18
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $20
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $28
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $30
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $38
+	anim_wait 16
+	; Flash: a quick inverted flash of the screen (a short version of Flash's)
+	anim_sound 0, 1, SFX_FLASH
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $4
+	anim_wait 8
+	; Impact frames on the target: two quick hits, then a big one
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 56, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 48, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 16
+	anim_ret
+
 BattleAnim_PowerGem:
 	anim_1gfx BATTLE_ANIM_GFX_SPEED
 	anim_sound 0, 1, SFX_FLASH
