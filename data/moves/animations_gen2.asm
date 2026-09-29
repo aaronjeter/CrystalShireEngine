@@ -122,7 +122,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_BulletSeed	;Bullet Seed (copy of barrage)
 	dw BattleAnim_AerialAce		;fury cutter
 	dw BattleAnim_IcicleSpear	;powder snow
-	dw BattleAnim_DragonClaw	;Metal Claw
+	dw BattleAnim_DragonClaw	;Dragon Claw
 	dw BattleAnim_FrenzyPlant	;Freny Plant (copy of petal dance)
 	dw BattleAnim_BulkUp		;Calm Mind (copy of focus energy)
 	dw BattleAnim_MudShot		;mud shot
@@ -1539,6 +1539,25 @@ BattleAnim_ShadowClaw:
 	anim_ret
 
 BattleAnim_DragonClaw:
+	; A fiery claw: the screen darkens as the user roars, then three claw
+	; slashes in flame colors rake the target and the screen shakes.
+	anim_1gfx BATTLE_ANIM_GFX_CUT
+	anim_bgp $1b ; darken the background
+	; The claw marks use the gray slot; recolor it yellow and red (restored
+	; at the end, since custom palettes persist after the animation)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_FIRE
+	anim_sound 0, 0, SFX_RAGE
+	anim_wait 12
+	anim_sound 0, 1, SFX_SCRATCH
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0 ; same shake as Crunch
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 136, 40, $0
+	anim_wait 32 ; the shake lasts $20 (32) frames
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_CrushClaw:
 BattleAnim_MetalClaw:
 	anim_1gfx BATTLE_ANIM_GFX_REFLECT
