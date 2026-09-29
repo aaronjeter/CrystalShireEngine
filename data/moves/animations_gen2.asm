@@ -87,7 +87,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_BeatUp
 	dw BattleAnim_Willowisp
 	dw BattleAnim_PixieDust		;Pixie Dust
-	dw BattleAnim_FaeVoice
+	dw BattleAnim_FaeVoice		;Fae Voice
 	dw BattleAnim_Uproar		;Outrage
 	dw BattleAnim_HeatWave		;Heat Wave
 	dw BattleAnim_Hail			;Hail
@@ -112,7 +112,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_Astonish		;Shadow Sneak
 	dw BattleAnim_AirCutter		;Fury cutter
 	dw BattleAnim_RockTomb		;Rock Tomb (copy of rock throw)
-	dw BattleAnim_SilverWind	;fae voice
+	dw BattleAnim_SilverWind	;Silver Wind (copy of Twister)
 	dw BattleAnim_CosmicPower	;Calm Mind (copy of focus energy)
 	dw BattleAnim_WaterSpout	;Hydro Cannon (copy of hydro pump)
 	dw BattleAnim_SignalBeam	;signal beam (copy of aurora beam)
@@ -162,7 +162,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_RazorShell	;
 	dw BattleAnim_EarthPower	;
 	dw BattleAnim_ShockSlam		;ShockSlam
-	dw BattleAnim_Snarl			;
+	dw BattleAnim_Snarl			;Snarl
 	dw BattleAnim_Hex    		;Hex
 	dw BattleAnim_Venoshock		;Venoshock
 	dw BattleAnim_VoltSwitch
@@ -2290,7 +2290,6 @@ BattleAnim_Hurricane:
 	anim_ret
 
 BattleAnim_SilverWind:
-BattleAnim_FaeVoice:
 	anim_2gfx BATTLE_ANIM_GFX_WIND, BATTLE_ANIM_GFX_HIT
 .loop1
 	anim_sound 0, 0, SFX_RAZOR_WIND
@@ -3374,15 +3373,47 @@ BattleAnim_Hail:
 	anim_ret
 
 BattleAnim_Snarl:
-	anim_2gfx BATTLE_ANIM_GFX_STATUS, BATTLE_ANIM_GFX_NOISE
-	anim_wait 32
-	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $60, $2, $0
-	anim_sound 0, 0, SFX_SNORE
+	; The screen goes dark and the user snarls while shaking the screen
+	; light sound waves with dark outlines
+	anim_1gfx BATTLE_ANIM_GFX_NOISE
+	anim_bgp $1b ; darken the background
+	anim_obp0 $c0 ; draw the waves light, with dark outlines
+	anim_cry $1
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $40, $1, $0 ; a gentle shake
+.loop
+	anim_call BattleAnimSub_Sound
+	anim_wait 16
+	anim_loop 2, .loop
+	anim_wait 16
+	anim_ret
+
+BattleAnim_FaeVoice:
+	; A fairy version of Snarl: 
+	; Pink sound waves roll out, then fairy sparkles (Flash's) burst from the
+	; target. No darkening or shaking, so it stays light.
+	anim_2gfx BATTLE_ANIM_GFX_NOISE, BATTLE_ANIM_GFX_SPEED
+	; The waves use the gray slot; recolor it pink (restored at the end,
+	; since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PINK
+	anim_cry $0
 .loop
 	anim_call BattleAnimSub_Sound
 	anim_wait 16
 	anim_loop 2, .loop
 	anim_wait 8
+	; Sparkles: four of Flash's yellow sparkles, 4 frames apart
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $0
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $10
+	anim_wait 4
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $20
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $30
+	anim_wait 24
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_NightSlash:
