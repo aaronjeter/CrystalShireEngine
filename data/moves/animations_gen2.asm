@@ -1142,7 +1142,7 @@ BattleAnim_PainSplit:
 BattleAnim_BlastBurn:
 BattleAnim_Eruption:
 BattleAnim_HeatWave:
-BattleAnim_SacredFire:
+	; Sacred Fire's animation with the normal red flames
 	anim_1gfx BATTLE_ANIM_GFX_FIRE
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
@@ -1164,6 +1164,37 @@ BattleAnim_SacredFire:
 	anim_wait 4
 	anim_incobj 9
 	anim_wait 8
+	anim_ret
+
+BattleAnim_SacredFire:
+	anim_1gfx BATTLE_ANIM_GFX_FIRE
+	; Blue fire: every fire object uses PAL_BATTLE_OB_RED, so recolor that
+	; palette with the light-blue ICE palette for this animation
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_ICE
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
+.loop
+	anim_sound 0, 0, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_SACRED_FIRE, 48, 104, $0
+	anim_wait 8
+	anim_loop 8, .loop
+	anim_wait 96
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_TACKLE, $0, BG_EFFECT_USER, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $1
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $4
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $5
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_TARGET, $0
+	anim_wait 4
+	anim_incobj 9
+	anim_wait 8
+	; Clear the flames first so none flash red, then restore the normal red.
+	; The palette change otherwise lasts until the battle reloads palettes.
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_RED
 	anim_ret
 
 BattleAnim_Magnitude:
@@ -1734,21 +1765,42 @@ BattleAnim_BeatUp:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
-	BattleAnim_Willowisp:
-	anim_3gfx BATTLE_ANIM_GFX_HAZE, BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_SMOKE
-	anim_sound 6, 2, SFX_THROW_BALL
-	anim_obj BATTLE_ANIM_OBJ_SMOKESCREEN, 64, 92, $6c
-	anim_wait 24
+BattleAnim_Willowisp:
+	; Five blue wisps of fire drift slowly from the user to the target,
+	; then the target is engulfed in blue flames
+	anim_1gfx BATTLE_ANIM_GFX_FIRE
+	anim_bgp $1b ; darken the background, like the Shadow moves
+	; Blue fire (like Sacred Fire): recolor the fire palette with the ICE palette
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_ICE
+	; Param $12: fly toward the target at 2 pixels per frame (Ember uses 2-4).
+	; Each wisp rises 36 pixels on the way, so these start heights spread
+	; them out to finish around the target (Y 48-64).
+	anim_sound 6, 2, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_EMBER, 64, 100, $12
+	anim_wait 8
+	anim_sound 6, 2, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_EMBER, 64, 88, $12
+	anim_wait 8
+	anim_sound 6, 2, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_EMBER, 64, 96, $12
+	anim_wait 8
+	anim_sound 6, 2, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_EMBER, 64, 84, $12
+	anim_wait 8
+	anim_sound 6, 2, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_EMBER, 64, 92, $12
+	anim_wait 40 ; the last wisp takes about 36 frames to arrive
+	; Remove the wisps, then burst into flames
 	anim_incobj 1
-	anim_sound 0, 1, SFX_BALL_POOF
-	anim_obj BATTLE_ANIM_OBJ_BALL_POOF, 108, 70, $10
-	anim_wait 8
-.loop
-	anim_sound 0, 1, SFX_MENU
-	anim_obj BATTLE_ANIM_OBJ_SMOKE, 132, 60, $20
-	anim_wait 8
-	anim_loop 5, .loop
-	anim_wait 128
+	anim_incobj 2
+	anim_incobj 3
+	anim_incobj 4
+	anim_incobj 5
+	anim_call BattleAnimSub_Fire
+	anim_wait 16
+	; Clear the flames first so none flash red, then restore the normal red
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_RED
 	anim_ret
 
 	BattleAnim_PixieDust:
