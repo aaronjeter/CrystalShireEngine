@@ -1749,6 +1749,72 @@ BattleAnim_MistBall:
 	anim_ret
 
 BattleAnim_AuraSphere:
+	; The user charges up (Focus Energy's rising yellow streaks), then fires a
+	; dark-blue orb of crackling energy (Zap Cannon's orb) straight at the
+	; target, which bursts with a flash and a screen shake.
+	;
+	; Graphics are loaded in two stages: Focus Energy copies the target's picture
+	; into sprite tiles 53+ (TargetObj_1Row), so the orb and hit graphics are only
+	; loaded after that copy is removed, to avoid overlapping it.
+	anim_1gfx BATTLE_ANIM_GFX_SPEED
+	; (Focus Energy's CYCLE_OBPALS_GRAY_AND_YELLOW flicker is left out, since it
+	; keeps running until the animation ends and would flicker the orb too.)
+	; Charge up (from Focus Energy). TargetObj_1Row must create object 1,
+	; since ShowMon_0 removes object 1 afterwards.
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT, $0, BG_EFFECT_USER, $40
+.loop
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 44, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 36, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 52, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 28, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 60, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 20, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 68, 108, $8
+	anim_wait 2
+	anim_loop 3, .loop
+	anim_wait 8
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT
+	anim_call BattleAnim_ShowMon_0
+	; Release: clear any leftover streaks, then load the orb and hit graphics
+	anim_clearobjs
+	anim_2gfx BATTLE_ANIM_GFX_LIGHTNING, BATTLE_ANIM_GFX_HIT
+	; The streaks (normal yellow) are gone now, so recolor for the release: the
+	; orb uses the yellow palette and the hit uses the gray palette, so recolor
+	; both with the standard BLUE palette
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_BLUE
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BLUE
+	anim_bgp $1b ; darken the screen for the release (restored when the animation ends)
+	anim_sound 6, 2, SFX_AEROBLAST
+	; Straight line from the user; $3 = 3 pixels per frame, cleared on arrival
+	; (Zap Cannon itself uses $2). The orb rises half its speed per frame,
+	; rounded down, so at speed 3 it only rises 1 pixel per frame: it starts at
+	; Y 80 instead of 92 so it still arrives at the target's center (Y 56).
+	anim_obj BATTLE_ANIM_OBJ_ZAP_CANNON, 64, 80, $3
+	anim_wait 24 ; about 23 frames to reach the target
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0 ; same shake as Crunch
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	; A white flash, done by hand: BATTLE_BG_EFFECT_FLASH_INVERTED always ends
+	; on the normal palette, which would undo the darkening
+	anim_bgp %00000000 ; all white
+	anim_wait 4
+	anim_bgp $1b ; back to dark
+	anim_wait 28 ; the shake lasts $20 (32) frames in total
+	; Clear the burst first so it doesn't flash back to its normal color, then
+	; restore both palettes 
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_ShadowBall:
 	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_SMOKE
 	anim_bgp $1b
