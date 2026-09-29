@@ -423,4 +423,18 @@ BattleAnimObjects:
 ; Razor Leaf's fluttering leaf moving like Swift's star: it flies to the
 ; target, circles it once, then flies off (same Y fix as the star).
 	battleanimobj RELATIVE_X, $80, BATTLE_ANIM_FRAMESET_RAZOR_LEAF_2, BATTLE_ANIM_FUNC_USER_TO_TARGET_SPIN, PAL_BATTLE_OB_GREEN, BATTLE_ANIM_GFX_PLANT
+; BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE
+; Bubblebeam's small bubble moving like Ancient Power's rocks (see
+; FRENZY_PLANT_LEAF)
+	battleanimobj RELATIVE_X, $b8, BATTLE_ANIM_FRAMESET_SMALL_BUBBLE, BATTLE_ANIM_FUNC_ANCIENT_POWER, PAL_BATTLE_OB_BLUE, BATTLE_ANIM_GFX_BUBBLE
+; BATTLE_ANIM_OBJ_HYDRO_CANNON_BIG_BUBBLE
+; The same, with the pulsing (growing) bubble
+	battleanimobj RELATIVE_X, $b8, BATTLE_ANIM_FRAMESET_PULSING_BUBBLE, BATTLE_ANIM_FUNC_ANCIENT_POWER, PAL_BATTLE_OB_BLUE, BATTLE_ANIM_GFX_BUBBLE
+; BATTLE_ANIM_OBJ_BLAST_BURN_EMBER
+; Ember's flickering ember moving like Ancient Power's rocks (see
+; FRENZY_PLANT_LEAF)
+	battleanimobj RELATIVE_X, $b8, BATTLE_ANIM_FRAMESET_EMBER, BATTLE_ANIM_FUNC_ANCIENT_POWER, PAL_BATTLE_OB_RED, BATTLE_ANIM_GFX_FIRE
+; BATTLE_ANIM_OBJ_BLAST_BURN_FLAME
+; The same, with Flamethrower's big flickering flame
+	battleanimobj RELATIVE_X, $b8, BATTLE_ANIM_FRAMESET_FLAMETHROWER, BATTLE_ANIM_FUNC_ANCIENT_POWER, PAL_BATTLE_OB_RED, BATTLE_ANIM_GFX_FIRE
 	assert_table_length NUM_BATTLE_ANIM_OBJS

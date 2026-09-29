@@ -96,7 +96,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_Charge		;Calm Mind (copy of focus energy)
 	dw BattleAnim_Superpower	;Outrage
 	dw BattleAnim_BrickBreak	;Rock Smash
-	dw BattleAnim_Eruption		;Sacred Fire
+	dw BattleAnim_Eruption		;Eruption (red Sacred Fire)
 	dw BattleAnim_ArmThrust		;Arm Thrust (copy of comet punch)
 	dw BattleAnim_LusterPurge	;Aeroblast
 	dw BattleAnim_MistBall		;shadow ball
@@ -106,15 +106,15 @@ BattleAnimationsGen2::
 	dw BattleAnim_HyperVoice	;Hyper Voice (copy of screech)
 	dw BattleAnim_PoisonFang	;Poison Fang
 	dw BattleAnim_CrushClaw		;Crush Claw
-	dw BattleAnim_BlastBurn		;Sacred Fire
-	dw BattleAnim_HydroCannon	;Hydro Cannon (copy of hydro pump)
+	dw BattleAnim_BlastBurn		;Blast Burn
+	dw BattleAnim_HydroCannon	;Hydro Cannon
 	dw BattleAnim_MeteorMash	;Meteor Mash
 	dw BattleAnim_Astonish		;Shadow Sneak
 	dw BattleAnim_AirCutter		;Fury cutter
 	dw BattleAnim_RockTomb		;Rock Tomb (copy of rock throw)
 	dw BattleAnim_SilverWind	;Silver Wind
 	dw BattleAnim_CosmicPower	;Calm Mind (copy of focus energy)
-	dw BattleAnim_WaterSpout	;Hydro Cannon (copy of hydro pump)
+	dw BattleAnim_WaterSpout	;Water Spout (copy of Hydro Pump)
 	dw BattleAnim_SignalBeam	;Signal Beam
 	dw BattleAnim_ShadowPunch	;Shadow Punch
 	dw BattleAnim_Extrasensory	;Extrasensory
@@ -1311,6 +1311,80 @@ BattleAnim_HeatWave:
 	anim_ret
 
 BattleAnim_BlastBurn:
+	; Frenzy Plant but fire: the screen darkens and the ground rumbles as bursts
+	; of flame erupt one after another along the ground from the user to the
+	; target (at Ancient Power's rock positions). Then three heavy fiery hits
+	; land with white flashes and a violent screen shake.
+	anim_2gfx BATTLE_ANIM_GFX_FIRE, BATTLE_ANIM_GFX_HIT
+	; The hit stars use the gray slot; recolor it yellow and red (restored at
+	; the end, since custom palettes persist). The flames use the red slot.
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_FIRE
+	anim_bgp $1b ; darken the background
+	; Rumble: a light shake that lasts exactly as long as the eruption (7
+	; bursts, 11 frames apart), so it ends as the big shake starts. Ember's
+	; crackling sound is long, but the impact sounds replace it, so it
+	; doesn't delay the end of the move.
+	anim_sound 0, 0, SFX_EMBER
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $4d, $1, $0
+	; The bursts are silent so they don't cut off the rumble (a new sound
+	; effect replaces the one playing).
+	; Each burst is a big flame (Flamethrower's, arcing highest) between two
+	; embers. Each piece lasts 32 frames; with bursts 11 frames apart, three
+	; bursts (9 objects) are on screen at once, within the 10-object limit.
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 60, 108, $20
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_FLAME, 66, 108, $28
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 72, 108, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 71, 102, $20
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_FLAME, 77, 102, $28
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 83, 102, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 81, 97, $20
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_FLAME, 87, 97, $28
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 93, 97, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 92, 92, $20
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_FLAME, 98, 92, $28
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 104, 92, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 102, 87, $20
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_FLAME, 108, 87, $28
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 114, 87, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 112, 82, $20
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_FLAME, 118, 82, $28
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 124, 82, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 122, 77, $20
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_FLAME, 128, 77, $28
+	anim_obj BATTLE_ANIM_OBJ_BLAST_BURN_EMBER, 134, 77, $14
+	anim_wait 11
+	; Impact: three big hits with white flashes, done by hand
+	; (BATTLE_BG_EFFECT_FLASH_INVERTED would undo the darkening), and a
+	; violent shake
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $40, $4, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_bgp %00000000 ; all white
+	anim_wait 4
+	anim_bgp $1b ; back to dark
+	anim_wait 8
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 124, 44, $0
+	anim_bgp %00000000
+	anim_wait 4
+	anim_bgp $1b
+	anim_wait 8
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 148, 64, $0
+	anim_bgp %00000000
+	anim_wait 4
+	anim_bgp $1b
+	anim_wait 36 ; the shake lasts $40 (64) frames in total
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_Eruption:
 	; Sacred Fire's animation with the normal red flames
 	anim_1gfx BATTLE_ANIM_GFX_FIRE
@@ -2921,8 +2995,81 @@ BattleAnim_ArmThrust:
 	anim_wait 8
 	anim_ret
 
-BattleAnim_WaterSpout:
 BattleAnim_HydroCannon:
+	; This is basically Frenzy Plant with bubbles:
+	; the screen darkens and the ground rumbles as bursts
+	; of bubbles spring up one after another along the ground from the user to
+	; the target (at Ancient Power's rock positions). Then three heavy blue
+	; hits land with white flashes and a violent screen shake.
+	anim_2gfx BATTLE_ANIM_GFX_BUBBLE, BATTLE_ANIM_GFX_HIT
+	; The hit stars use the gray slot; recolor it blue (restored at the end,
+	; since custom palettes persist). The bubbles already use the blue slot.
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BLUE
+	anim_bgp $1b ; darken the background
+	; Rumble: a light shake that lasts exactly as long as the eruption (7
+	; bursts, 11 frames apart), so it ends as the big shake starts
+	anim_sound 0, 0, SFX_SURF
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $4d, $1, $0
+	; The bursts are silent so they don't cut off the rumble (a new sound
+	; effect replaces the one playing).
+	; Each burst is a pulsing bubble (arcing highest) between two small ones.
+	; Each piece lasts 32 frames; with bursts 11 frames apart, three bursts
+	; (9 objects) are on screen at once, within the 10-object limit.
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 60, 108, $20
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BIG_BUBBLE, 66, 108, $28
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 72, 108, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 71, 102, $20
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BIG_BUBBLE, 77, 102, $28
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 83, 102, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 81, 97, $20
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BIG_BUBBLE, 87, 97, $28
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 93, 97, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 92, 92, $20
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BIG_BUBBLE, 98, 92, $28
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 104, 92, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 102, 87, $20
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BIG_BUBBLE, 108, 87, $28
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 114, 87, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 112, 82, $20
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BIG_BUBBLE, 118, 82, $28
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 124, 82, $14
+	anim_wait 11
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 122, 77, $20
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BIG_BUBBLE, 128, 77, $28
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_CANNON_BUBBLE, 134, 77, $14
+	anim_wait 11
+	; Impact: three big hits with white flashes, done by hand
+	; (BATTLE_BG_EFFECT_FLASH_INVERTED would undo the darkening), and a
+	; violent shake
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $40, $4, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_bgp %00000000 ; all white
+	anim_wait 4
+	anim_bgp $1b ; back to dark
+	anim_wait 8
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 124, 44, $0
+	anim_bgp %00000000
+	anim_wait 4
+	anim_bgp $1b
+	anim_wait 8
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 148, 64, $0
+	anim_bgp %00000000
+	anim_wait 4
+	anim_bgp $1b
+	anim_wait 36 ; the shake lasts $40 (64) frames in total
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_WaterSpout:
 	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
 	anim_1gfx BATTLE_ANIM_GFX_WATER
 	anim_call BattleAnim_UserObj_2Row
