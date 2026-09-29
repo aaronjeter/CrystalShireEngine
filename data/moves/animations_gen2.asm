@@ -117,7 +117,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_WaterSpout	;Hydro Cannon (copy of hydro pump)
 	dw BattleAnim_SignalBeam	;signal beam (copy of aurora beam)
 	dw BattleAnim_ShadowPunch	;Shadow Punch
-	dw BattleAnim_Extrasensory	;signal beam (copy of aurora beam)
+	dw BattleAnim_Extrasensory	;Extrasensory
 	dw BattleAnim_MuddyWater	;Muddy water
 	dw BattleAnim_BulletSeed	;Bullet Seed (copy of barrage)
 	dw BattleAnim_AerialAce		;fury cutter
@@ -2947,6 +2947,32 @@ BattleAnim_LeafBlade:
 	anim_ret
 
 BattleAnim_Extrasensory:
+	; Like Psychic, in pink: the background shimmers and pink psychic waves
+	; roll into the target as it warps, then a quick jolt (a short screen
+	; shake) makes the target flinch.
+	anim_1gfx BATTLE_ANIM_GFX_PSYCHIC
+	; The waves use the gray slot; recolor it pink (restored at the end,
+	; since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PINK
+	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
+	; Psychic: the target warps while waves roll in (half as many as Psychic)
+	anim_bgeffect BATTLE_BG_EFFECT_PSYCHIC, $0, $0, $0
+.loop
+	anim_sound 6, 2, SFX_PSYCHIC
+	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 88, $2
+	anim_wait 8
+	anim_loop 4, .loop
+	anim_wait 40
+	anim_incbgeffect BATTLE_BG_EFFECT_PSYCHIC
+	anim_wait 4
+	; Flinch: a quick jolt
+	anim_sound 0, 1, SFX_TACKLE
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $2, $0
+	anim_wait 16
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_SignalBeam:
 	anim_1gfx BATTLE_ANIM_GFX_BEAM
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
