@@ -149,7 +149,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_PsychoCut		;Fury cutter
 	dw BattleAnim_ZenHeadbutt	;poison tail (copy of headbutt)
 	dw BattleAnim_FlashCannon	;Flash Cannon
-	dw BattleAnim_AquaJet		;astonish (copy of quick attack)
+	dw BattleAnim_AquaJet		;Aqua Jet
 	dw BattleAnim_DarkPulse		;destiny bond
 	dw BattleAnim_FaerieGleam	;Faerie Gleam
 	dw BattleAnim_SludgeWave	;
@@ -3001,7 +3001,6 @@ BattleAnim_Astonish:
 BattleAnim_FlipTurn:
 BattleAnim_UTurn:
 BattleAnim_VoltSwitch:
-BattleAnim_AquaJet:
 	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_MENU
 	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
@@ -3017,6 +3016,44 @@ BattleAnim_AquaJet:
 	anim_wait 8
 	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 16
+	anim_ret
+
+BattleAnim_AquaJet:
+	; Quick Attack in water colors: the user dashes in behind blue speed lines,
+	; a blue hit star splashes on the target, and the target ripples as if
+	; splashed (Water Gun's ripple).
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	; The speed lines and hit star use the gray slot; recolor it blue
+	; (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BLUE
+	anim_sound 0, 0, SFX_MENU
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	; Impact: splash sound, blue hit star, and the target ripples. The user is
+	; still hidden here, so (unlike Water Pulse) its picture doesn't need to be
+	; copied into sprites to keep the ripple from bending it.
+	anim_sound 0, 1, SFX_WATER_GUN
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $1c, $0, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $8, $0, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $30, $0, $0
+	anim_wait 16
+	anim_bgeffect BATTLE_BG_EFFECT_END_WATER, $0, $0, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 8
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_BulletPunch:
