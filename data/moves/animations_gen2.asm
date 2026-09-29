@@ -156,7 +156,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_BulletPunch	;Bullet Punch
 	dw BattleAnim_Hurricane		;Hurricane
 	dw BattleAnim_ShadowSneak	;Shadow Sneak
-	dw BattleAnim_ShadowForce	;
+	dw BattleAnim_ShadowForce	;Shadow Force
 	dw BattleAnim_StoneEdge		;
 	dw BattleAnim_Scald			;
 	dw BattleAnim_RazorShell	;
@@ -2225,6 +2225,45 @@ BattleAnim_Whirlpool:
 	anim_ret
 
 BattleAnim_ShadowForce:
+	; The user fades and the screen goes dark.
+	; After a pause strike with a white flash, two heavy
+	; hits (light with dark outlines, like Night Slash) and a strong screen
+	; shake, then the user reappears.
+	anim_1gfx BATTLE_ANIM_GFX_HIT
+	anim_obp0 $c0 ; draw the hits light, with dark outlines
+	anim_sound 0, 0, SFX_CURSE
+	; Fade out: the user's colors step darker, to a black silhouette. The
+	; repeating version is used because the one-shot version snaps back to
+	; normal colors when it ends. With param $80 each step lasts about 9
+	; frames (normal, dark, black, dark, ...), so the user is a silhouette
+	; from about frame 19 to 27; it's hidden at frame 20, then the effect is
+	; stopped (which restores the colors, but the user is already hidden).
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_BLACK_REPEATING, $0, BG_EFFECT_USER, $80
+	anim_wait 20
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 4
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_BLACK_REPEATING
+	; Darken the screen only now: the fade sets the user's colors directly,
+	; starting from normal brightness, so on an already darkened screen the
+	; user would first flash bright
+	anim_bgp $1b
+	anim_wait 32
+	; The strike: white flash done by hand (BATTLE_BG_EFFECT_FLASH_INVERTED
+	; would undo the darkening)
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $30, $3, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 52, $0
+	anim_bgp %00000000 ; all white
+	anim_wait 4
+	anim_bgp $1b ; back to dark
+	anim_wait 10
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 124, 40, $0
+	anim_wait 34 ; the shake lasts $30 (48) frames in total
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 8
+	anim_ret
+
 BattleAnim_BeatUp:
 	anim_if_param_equal $0, .current_mon
 	anim_sound 0, 0, SFX_BALL_POOF
