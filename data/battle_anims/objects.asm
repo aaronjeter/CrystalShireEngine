@@ -402,5 +402,7 @@ BattleAnimObjects:
 ; On the enemy's turn the engine uses Y = fix - Y, so $7c places the mist the
 ; same distance from the player's center (Y 88) as from the enemy's (Y 56):
 ; e.g. Y 46 (10 above the enemy's center) becomes 124 - 46 = 78.
-	battleanimobj RELATIVE_X | X_FLIP, $7c, BATTLE_ANIM_FRAMESET_MIST, BATTLE_ANIM_FUNC_SPIRAL_DESCENT, PAL_BATTLE_OB_GRAY, BATTLE_ANIM_GFX_HAZE
+; It also uses the blue palette slot instead of gray, so Mist Ball can color the
+; mist separately from its gray trail puffs.
+	battleanimobj RELATIVE_X | X_FLIP, $7c, BATTLE_ANIM_FRAMESET_MIST, BATTLE_ANIM_FUNC_SPIRAL_DESCENT, PAL_BATTLE_OB_BLUE, BATTLE_ANIM_GFX_HAZE
 	assert_table_length NUM_BATTLE_ANIM_OBJS

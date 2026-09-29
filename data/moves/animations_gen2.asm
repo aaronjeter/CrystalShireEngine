@@ -1704,22 +1704,59 @@ BattleAnim_Ancientpower:
 	anim_ret
 
 BattleAnim_MistBall:
-	; A blue ball flies at the target, then the target ripples as if splashed
-	; while blue mist (from the Mist move) swirls around it.
-	; Follows Water Gun's order: START_WATER first, then the user is copied
-	; into object 1 (so the ripple doesn't bend the user's picture), and
-	; ShowMon_1 removes that copy at the end.
-	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
-	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_HAZE
-	; Blue mist: the mist object uses the gray palette, so recolor that palette
-	; with the light-blue ICE palette. (Mist itself lightens it with anim_obp0 $54
-	; instead, but that would also wash out the ball and the user's picture.)
-	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
-	anim_call BattleAnim_UserObj_2Row
-	; No anim_bgp here, so the ball shows its blue palette (Shadow Ball darkens it)
+	; A blue orb (Zap Cannon's, like Aura Sphere) trailed by sparkles flies at
+	; the target, then the target ripples as if splashed while blue mist (from
+	; the Mist move) swirls around it.
+	;
+	; Sprite limits: the Game Boy shows at most 40 sprites, and 10 per line.
+	; The orb is 9 sprites (3 per line), each grown sparkle 4 (2 per line), and
+	; the copy of the user's picture that the ripple needs is 12 (6 per line).
+	; So the copy is only made at the impact (like Bubblebeam, rather than at
+	; the start like Water Gun), and at most 3 sparkles trail the orb.
+	; The copy's graphics are still loaded at the start, though: loading them
+	; (anim_battlergfx_1row) pauses the animation for about 13 frames, which is
+	; unnoticeable before anything moves but a visible stutter mid-flight.
+	anim_3gfx BATTLE_ANIM_GFX_LIGHTNING, BATTLE_ANIM_GFX_HAZE, BATTLE_ANIM_GFX_SPEED
+	; Blue mist: MIST_BALL_MIST uses the blue palette slot, so recolor that
+	; with the light-blue ICE palette. (Mist itself lightens its mist with
+	; anim_obp0 $54 instead, but that would also wash out the orb and the
+	; user's picture.)
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_ICE
+	; The orb and its trail of sparkles use the yellow palette, so recolor it
+	; with the custom ORB palette: light blue outline, dark blue inside
+	; (see gfx/battle_anims/custom.pal)
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ORB
+	; Load the graphics for the user's copy now (first half of
+	; BattleAnim_UserObj_2Row); the copy itself is made at the impact
+	anim_battlergfx_1row
 	anim_sound 16, 2, SFX_WATER_GUN
-	anim_obj BATTLE_ANIM_OBJ_SHADOW_BALL, 64, 92, $2
-	anim_wait 32 ; the ball reaches the target and disappears
+	; Straight line from the user at Zap Cannon's own speed, $2 = 2 pixels per
+	; frame (rising 1 pixel per frame), so from Y 92 it arrives at the target's
+	; center (Y 58) after about 34 frames and disappears
+	anim_obj BATTLE_ANIM_OBJ_ZAP_CANNON, 64, 92, $2
+	; Trail: shooting sparkles (from Icy Wind) that follow the orb. Each one
+	; moves along the orb's path at the same speed ($2) but only lives about
+	; 17 frames, so they're launched every 9 frames, each starting at the point
+	; the orb passed a set number of frames earlier. The launches alternate
+	; between 4 frames behind, 8, then 4 and 12, then 8, so 3 sparkles trail the
+	; orb at once. (Orb position at frame t: (64 + 2t, 92 - t).)
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 92, $2 ; 4 frames behind
+	anim_wait 9
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 74, 87, $2 ; 8 frames behind
+	anim_wait 9
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 100, 74, $2 ; 4 frames behind
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 84, 82, $2 ; 12 frames behind
+	anim_wait 9
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 110, 69, $2 ; 8 frames behind
+	anim_wait 3 ; 34 frames in total: the orb has reached the target
+	; Impact. Set up the ripple like Bubblebeam: START_WATER on the target, then
+	; copy the user's picture into sprites so the ripple doesn't bend it (second
+	; half of BattleAnim_UserObj_2Row; its graphics were loaded at the start)
+	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_BATTLEROBJ_2ROW, $0, BG_EFFECT_USER, $0
+	anim_wait 4
 	; Splash: the target ripples (same ripple sequence as Water Gun), while
 	; mist puffs appear every 8 frames around the middle of the target
 	; (the target's picture spans roughly Y 28-84, centered at (136, 56)).
@@ -1739,13 +1776,21 @@ BattleAnim_MistBall:
 	anim_wait 8
 	anim_loop 4, .loop
 	anim_wait 16 ; let the mist linger
-	anim_call BattleAnim_ShowMon_1
+	; Show the user's real picture again (like BattleAnim_ShowMon_1, minus its
+	; anim_incobj 1: the copy isn't object 1 here, so anim_clearobjs below
+	; removes it instead)
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 4
 	anim_bgeffect BATTLE_BG_EFFECT_END_WATER, $0, $0, $0
 	anim_wait 16
-	; Clear the mist first so it doesn't flash gray, then restore the normal
-	; gray palette (otherwise it stays blue until the battle reloads palettes)
+	; Clear the mist (and the user's copy) first so the mist doesn't flash back
+	; to normal colors, then restore the normal blue and yellow palettes
+	; (otherwise they keep the mist and orb colors until the battle reloads
+	; palettes)
 	anim_clearobjs
-	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
 	anim_ret
 
 BattleAnim_AuraSphere:

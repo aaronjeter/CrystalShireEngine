@@ -22,6 +22,12 @@ if !DEF(MONOCHROME)
 	RGB 31, 24, 02
 	RGB 29, 03, 04
 	RGB 00, 00, 00
+; orb (for Zap Cannon's orb: its outline uses colors 1-2 and its
+; inside uses color 3, so color 3 is dark blue here instead of black)
+	RGB 31, 31, 31 ; unused (transparent for sprites)
+	RGB 24, 29, 31 ; outline highlights: very light blue
+	RGB 14, 22, 31 ; outline: light blue
+	RGB 02, 05, 22 ; inside: dark blue
 else
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 	MONOCHROME_RGB_FOUR
