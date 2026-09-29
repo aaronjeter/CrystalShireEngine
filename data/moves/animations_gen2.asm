@@ -86,7 +86,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_Whirlpool
 	dw BattleAnim_BeatUp
 	dw BattleAnim_Willowisp
-	dw BattleAnim_PixieDust
+	dw BattleAnim_PixieDust		;Pixie Dust
 	dw BattleAnim_FaeVoice
 	dw BattleAnim_Uproar		;Outrage
 	dw BattleAnim_HeatWave		;Heat Wave
@@ -154,7 +154,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_FaerieGleam	;Faerie Gleam
 	dw BattleAnim_SludgeWave	;Sludge Wave
 	dw BattleAnim_BulletPunch	;Bullet Punch
-	dw BattleAnim_Hurricane		;
+	dw BattleAnim_Hurricane		;Hurricane
 	dw BattleAnim_ShadowSneak	;Shadow Sneak
 	dw BattleAnim_ShadowForce	;
 	dw BattleAnim_StoneEdge		;
@@ -2209,12 +2209,86 @@ BattleAnim_Willowisp:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_RED
 	anim_ret
 
-	BattleAnim_PixieDust:
-	anim_1gfx BATTLE_ANIM_GFX_SAND
-	anim_call BattleAnimSub_SandOrMud
+BattleAnim_PixieDust:
+	; Sand Attack's dust in pink, then fairy sparkles (Flash's) burst from the
+	; target as the dust lands.
+	anim_2gfx BATTLE_ANIM_GFX_SAND, BATTLE_ANIM_GFX_SPEED
+	; The dust uses the gray slot; recolor it pink (restored at the end,
+	; since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PINK
+	; Dust: same as BattleAnimSub_SandOrMud (8 puffs, 4 frames apart)
+.loop
+	anim_sound 6, 2, SFX_MENU
+	anim_obj BATTLE_ANIM_OBJ_SAND, 64, 92, $4
+	anim_wait 4
+	anim_loop 8, .loop
+	anim_wait 12 ; the last puffs reach the target
+	; Sparkles: four of Flash's yellow sparkles, 4 frames apart
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $0
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $10
+	anim_wait 4
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $20
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_FLASH, 136, 56, $30
+	anim_wait 24
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_Hurricane:
+	; A storm: the sky darkens, a tornado of gusts builds up around the target,
+	; the screen shakes hard while two big hits land with white flashes, and
+	; the tornado blows away.
+	anim_2gfx BATTLE_ANIM_GFX_WIND, BATTLE_ANIM_GFX_HIT
+	anim_bgp $1b ; darken the background
+	; Tornado: seven gusts (objects 1-7) stacked on the target, 4 frames apart
+	; (Gust uses nine, 6 apart; seven leaves room for the two hits within the
+	; 10-object limit)
+.tornado
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
+	anim_wait 4
+	anim_loop 7, .tornado
+	anim_wait 4
+	; Heavy impact: a long, strong shake, with two big hits and white flashes
+	; done by hand (BATTLE_BG_EFFECT_FLASH_INVERTED would undo the darkening)
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $30, $3, $0
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 144, 64, $0
+	anim_bgp %00000000 ; all white
+	anim_wait 4
+	anim_bgp $1b ; back to dark
+	anim_wait 12
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 128, 40, $0
+	anim_bgp %00000000 ; all white
+	anim_wait 4
+	anim_bgp $1b ; back to dark
+	anim_wait 28 ; the shake lasts $30 (48) frames in total
+	; The tornado blows away (each gust needs two steps: whirl, then leave)
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_incobj 1
+	anim_incobj 2
+	anim_incobj 3
+	anim_incobj 4
+	anim_incobj 5
+	anim_incobj 6
+	anim_incobj 7
+	anim_wait 1
+	anim_incobj 1
+	anim_incobj 2
+	anim_incobj 3
+	anim_incobj 4
+	anim_incobj 5
+	anim_incobj 6
+	anim_incobj 7
+	anim_wait 32
+	anim_clearobjs
+	anim_ret
+
 BattleAnim_SilverWind:
 BattleAnim_FaeVoice:
 	anim_2gfx BATTLE_ANIM_GFX_WIND, BATTLE_ANIM_GFX_HIT

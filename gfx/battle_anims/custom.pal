@@ -46,6 +46,11 @@ if !DEF(MONOCHROME)
 	RGB 27, 21, 31 ; highlight facet: light lavender
 	RGB 19, 08, 27 ; shaded facet: amethyst purple
 	RGB 08, 02, 13 ; outline: dark violet
+; pink (for Sand Attack's dust in Pixie Dust)
+	RGB 31, 31, 31 ; unused (transparent for sprites)
+	RGB 31, 22, 28 ; light pink
+	RGB 31, 12, 22 ; pink
+	RGB 20, 04, 14 ; dark pink
 else
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 	MONOCHROME_RGB_FOUR
