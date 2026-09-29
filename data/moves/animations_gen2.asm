@@ -148,7 +148,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_PowerGem		;Flash Cannon (copy of Flash)
 	dw BattleAnim_PsychoCut		;Fury cutter
 	dw BattleAnim_ZenHeadbutt	;poison tail (copy of headbutt)
-	dw BattleAnim_FlashCannon	;Flash Cannon (copy of Flash)
+	dw BattleAnim_FlashCannon	;Flash Cannon
 	dw BattleAnim_AquaJet		;astonish (copy of quick attack)
 	dw BattleAnim_DarkPulse		;destiny bond
 	dw BattleAnim_FaerieGleam	;Flash Cannon (copy of Flash)
@@ -2962,9 +2962,30 @@ BattleAnim_AquaJet:
 	anim_wait 16
 	anim_ret
 
+BattleAnim_FlashCannon:
+	; A beam of yellow sparkles (Icy Wind's shooting sparkles) streams from the
+	; user to the target while the background pulses (Sacred Fire's wind-up).
+	anim_1gfx BATTLE_ANIM_GFX_SPEED
+	; Pulsing background, from Sacred Fire's wind-up: cycles the background
+	; through normal, darker, darkest, normal and lighter shades, looping until
+	; the animation ends (the engine then restores the normal palette). The
+	; sparkles use their own palette, so they stay yellow. (Sacred Fire also
+	; runs CYCLE_OBPALS_GRAY_AND_YELLOW, the sparkle shimmer, which is left out.)
+	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
+	anim_sound 0, 1, SFX_FLASH
+	; The beam: one sparkle every 3 frames, all on the same path. At speed $4
+	; each flies from (64, 92) to the target's center (Y 58) in about 17
+	; frames, just before it fades, so about six are on screen at once (24
+	; sprites, at most 8 on a line), within the 40-sprite / 10-per-line limits.
+.beam
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 92, $4
+	anim_wait 3
+	anim_loop 12, .beam
+	anim_wait 16 ; the last sparkles reach the target and fade
+	anim_ret
+
 BattleAnim_FaerieGleam:
 BattleAnim_PowerGem:
-BattleAnim_FlashCannon:
 	anim_1gfx BATTLE_ANIM_GFX_SPEED
 	anim_sound 0, 1, SFX_FLASH
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $6, $20
