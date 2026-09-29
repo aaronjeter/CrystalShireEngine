@@ -105,7 +105,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_NeedleArm		;Arm Thrust (copy of comet punch)
 	dw BattleAnim_HyperVoice	;Hyper Voice (copy of screech)
 	dw BattleAnim_PoisonFang	;Poison Fang
-	dw BattleAnim_CrushClaw		;Metal Claw
+	dw BattleAnim_CrushClaw		;Crush Claw
 	dw BattleAnim_BlastBurn		;Sacred Fire
 	dw BattleAnim_HydroCannon	;Hydro Cannon (copy of hydro pump)
 	dw BattleAnim_MeteorMash	;Meteor Mash
@@ -1559,6 +1559,26 @@ BattleAnim_DragonClaw:
 	anim_ret
 
 BattleAnim_CrushClaw:
+	; Two claw rakes cross in an X over the target (Scratch's marks, then
+	; Fury Swipes' mirrored ones), then a big crushing hit shakes the screen.
+	anim_2gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT
+	anim_sound 0, 1, SFX_SCRATCH
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 136, 40, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_SCRATCH
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_RIGHT, 120, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_RIGHT, 124, 44, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_RIGHT, 128, 40, $0
+	anim_wait 8
+	; The crush: a big hit in the middle of the X, with a screen shake
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0 ; same shake as Crunch
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 132, 52, $0
+	anim_wait 32 ; the shake lasts $20 (32) frames
+	anim_ret
+
 BattleAnim_MetalClaw:
 	anim_1gfx BATTLE_ANIM_GFX_REFLECT
 	anim_obp0 $0
