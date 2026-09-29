@@ -109,6 +109,8 @@ _CGB_BattleGrayscale:
 	ld hl, BattleObjectPals - 1 palettes
 	ld bc, 1 palettes
 	rst AddNTimes
+	; AddNTimes leaves a = 0, so set the palette buffer's WRAM bank before copying
+	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 	pop af
 	ldh [rSVBK], a
