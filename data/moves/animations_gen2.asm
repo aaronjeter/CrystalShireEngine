@@ -125,7 +125,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_DragonClaw	;Metal Claw
 	dw BattleAnim_FrenzyPlant	;Freny Plant (copy of petal dance)
 	dw BattleAnim_BulkUp		;Calm Mind (copy of focus energy)
-	dw BattleAnim_MudShot		;mud slap
+	dw BattleAnim_MudShot		;mud shot
 	dw BattleAnim_PoisonTail	;poison tail (copy of headbutt)
 	dw BattleAnim_VoltTackle	;Spark
 	dw BattleAnim_MagicalLeaf	;Magic leaf (copy of razor leaf)
@@ -605,6 +605,43 @@ BattleAnim_Venoshock:
 	anim_ret
 
 BattleAnim_MudShot:
+	; Three lumps of mud (Sludge Bomb's ball, in brown) are lobbed at the target
+	; in quick succession, each splattering (a smoke puff, in brown) on impact
+	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_SMOKE
+	; The balls and puffs use the gray palette, so recolor it Brown
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BROWN
+	; Each ball is thrown in an arc from (64, 92): 2 pixels across and 1 up per
+	; frame, plus a 16-pixel arc ($10, as in Sludge Bomb). It lands on the
+	; target's center about 36 frames later and disappears. They're launched 8
+	; frames apart, so they land at frames 36, 44 and 52.
+	; The splat is BETA_BALL_POOF rather than BALL_POOF because its enemy-turn Y
+	; fix ($90) matches the ball's, so it lands on the ball on the enemy's turn
+	; too.
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10
+	anim_wait 8
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10
+	anim_wait 8
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10
+	anim_wait 20
+	anim_sound 0, 1, SFX_BALL_POOF
+	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 136, 56, $0 ; first ball lands
+	anim_wait 8
+	anim_sound 0, 1, SFX_BALL_POOF
+	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 136, 56, $0 ; second ball lands
+	anim_wait 8
+	anim_sound 0, 1, SFX_BALL_POOF
+	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 136, 56, $0 ; third ball lands
+	anim_wait 16
+	; Clear anything left first so it doesn't flash gray, then restore the
+	; normal gray palette (otherwise it stays brown until the battle reloads
+	; palettes)
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_MudSlap:
 	anim_1gfx BATTLE_ANIM_GFX_SAND
 	anim_obp0 $fc
