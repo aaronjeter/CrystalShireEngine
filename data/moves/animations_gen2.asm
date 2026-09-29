@@ -2732,7 +2732,12 @@ BattleAnim_WaterPulse:
 	anim_ret
 
 BattleAnim_Scald:
-	anim_1gfx BATTLE_ANIM_GFX_BUBBLE
+	; Bubblebeam with orange-tinted bubbles, then steam rises from the target
+	; to show the water is hot (Smokescreen's rising smoke puffs)
+	anim_2gfx BATTLE_ANIM_GFX_BUBBLE, BATTLE_ANIM_GFX_HAZE
+	; The bubbles use the blue palette, so recolor it with the custom SCALD
+	; palette (orange, see gfx/battle_anims/custom.pal)
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_SCALD
 .loop
 	anim_sound 16, 2, SFX_BUBBLEBEAM
 	anim_obj BATTLE_ANIM_OBJ_BUBBLE, 64, 92, $92
@@ -2746,6 +2751,10 @@ BattleAnim_Scald:
 	anim_loop 3, .loop
 	anim_wait 64
 	anim_clearobjs
+	; The bubbles are gone, and nothing after this uses the blue palette, so
+	; restore it now (otherwise it stays orange until the battle reloads
+	; palettes)
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
 	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
 	anim_wait 1
 	anim_call BattleAnim_UserObj_2Row
@@ -2754,6 +2763,19 @@ BattleAnim_Scald:
 	anim_call BattleAnim_ShowMon_1
 	anim_bgeffect BATTLE_BG_EFFECT_END_WATER, $0, $0, $0
 	anim_wait 8
+	; Steam. First remove the copy of the user's picture that the ripple
+	; used (12 sprites, 6 per line, on lines that overlap the target), so the
+	; steam doesn't push those lines over the 10-sprites-per-line limit.
+	anim_clearobjs
+	; Four puffs, 8 frames apart. Each circles the target while slowly rising
+	; (about 24 pixels over its roughly 96-frame life). Same position and
+	; values as Smokescreen, which the engine mirrors on the enemy's turn.
+.steam
+	anim_sound 0, 1, SFX_MENU
+	anim_obj BATTLE_ANIM_OBJ_SMOKE, 132, 60, $20
+	anim_wait 8
+	anim_loop 4, .steam
+	anim_wait 48 ; let the steam drift up
 	anim_ret
 
 BattleAnim_ZenHeadbutt:

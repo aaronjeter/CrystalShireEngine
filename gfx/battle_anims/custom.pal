@@ -34,6 +34,12 @@ if !DEF(MONOCHROME)
 	RGB 17, 18, 20 ; fill: metallic gray
 	RGB 15, 17, 22 ; unused by the star: mid steel
 	RGB 06, 08, 14 ; outline: dark steel blue
+; scald (for Bubblebeam's bubbles in Scald: the small bubble is shaded
+; with color 1 and outlined with color 3, so those two carry the orange)
+	RGB 31, 31, 31 ; unused (transparent for sprites)
+	RGB 31, 18, 06 ; shading: orange
+	RGB 31, 12, 03 ; unused by the small bubble: deep orange
+	RGB 20, 07, 02 ; outline: burnt orange
 else
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 	MONOCHROME_RGB_FOUR
