@@ -130,7 +130,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_VoltTackle	;Volt Tackle (same as ShockSlam)
 	dw BattleAnim_MagicalLeaf	;Magic leaf (copy of razor leaf)
 	dw BattleAnim_CalmMind		;Calm Mind (copy of focus energy)
-	dw BattleAnim_LeafBlade		;leaf blade (copy of vine whip)
+	dw BattleAnim_LeafBlade		;Leaf Blade
 	dw BattleAnim_DragonDance	;Calm Mind (copy of focus energy)
 	dw BattleAnim_RockBlast		;Rock Tomb (copy of rock throw)
 	dw BattleAnim_ShockWave		;shockwave (copy of thunder wave)
@@ -2849,15 +2849,29 @@ BattleAnim_MeteorMash:
 	anim_ret
 
 BattleAnim_LeafBlade:
-	anim_1gfx BATTLE_ANIM_GFX_WHIP
+	; A green version of Night Slash's two long slashes, with a light screen
+	; shake, then a burst of leaves (Razor Leaf's) scatters from the target
+	; and flutters down.
+	anim_2gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_PLANT
+	; The slashes use the gray slot; recolor it green (restored at the end,
+	; since custom palettes persist). The leaves already use the green slot.
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GREEN
+	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $2, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 148, 36, $0
+	anim_wait 8 ; let the slashes fade a bit first, to stay within the
+	            ; 10-sprites-per-line limit
+	; Leaves: LEAF_BLADE_LEAF is Razor Leaf's leaf with its own enemy-turn
+	; height, so the leaves land at the right height on both sides.
 	anim_sound 0, 1, SFX_VINE_WHIP
-	anim_obj BATTLE_ANIM_OBJ_VINE_WHIP2, 116, 52, $80
-	anim_wait 4
-	anim_sound 0, 1, SFX_VINE_WHIP
-	anim_obj BATTLE_ANIM_OBJ_VINE_WHIP1, 128, 60, $0
-	anim_wait 4
-	anim_incobj 1
-	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_LEAF_BLADE_LEAF, 136, 64, $28
+	anim_obj BATTLE_ANIM_OBJ_LEAF_BLADE_LEAF, 136, 64, $5c
+	anim_obj BATTLE_ANIM_OBJ_LEAF_BLADE_LEAF, 136, 64, $e8
+	anim_obj BATTLE_ANIM_OBJ_LEAF_BLADE_LEAF, 136, 64, $9c
+	anim_wait 40
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_Extrasensory:

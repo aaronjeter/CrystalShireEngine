@@ -405,4 +405,10 @@ BattleAnimObjects:
 ; It also uses the blue palette slot instead of gray, so Mist Ball can color the
 ; mist separately from its gray trail puffs.
 	battleanimobj RELATIVE_X | X_FLIP, $7c, BATTLE_ANIM_FRAMESET_MIST, BATTLE_ANIM_FUNC_SPIRAL_DESCENT, PAL_BATTLE_OB_BLUE, BATTLE_ANIM_GFX_HAZE
+; BATTLE_ANIM_OBJ_LEAF_BLADE_LEAF
+; Same as BATTLE_ANIM_OBJ_RAZOR_LEAF, but with an enemy Y fix of $a0 instead of
+; $78, for Leaf Blade's leaves on the target. On the enemy's turn the engine
+; uses Y = fix - Y, so Y 64 (8 below the enemy's center, Y 56) becomes
+; 160 - 64 = 96 (8 below the player's center, Y 88).
+	battleanimobj RELATIVE_X | X_FLIP, $a0, BATTLE_ANIM_FRAMESET_RAZOR_LEAF_1, BATTLE_ANIM_FUNC_RAZOR_LEAF, PAL_BATTLE_OB_GREEN, BATTLE_ANIM_GFX_PLANT
 	assert_table_length NUM_BATTLE_ANIM_OBJS
