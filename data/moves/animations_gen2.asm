@@ -89,7 +89,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_PixieDust
 	dw BattleAnim_FaeVoice
 	dw BattleAnim_Uproar		;Outrage
-	dw BattleAnim_HeatWave		;Sacred Fire
+	dw BattleAnim_HeatWave		;Heat Wave
 	dw BattleAnim_Hail			;Hail
 	dw BattleAnim_FocusPunch	;MachPunch
 	dw BattleAnim_NaturePower	;Hidden Power
@@ -1139,9 +1139,38 @@ BattleAnim_PainSplit:
 	anim_wait 1
 	anim_ret
 
+BattleAnim_HeatWave:
+	; Red rings (Psywave's) pulse out toward the target while the scene
+	; shimmers in the heat (Whirlpool's effect), then the
+	; target is engulfed in flames.
+	anim_2gfx BATTLE_ANIM_GFX_PSYCHIC, BATTLE_ANIM_GFX_FIRE
+	; The rings use the gray palette, so recolor it with the standard RED
+	; palette (the flames already use the red palette)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_RED
+	; Heat shimmer: Whirlpool's effect shifts the rows of the whole battle scene
+	; up and down in a wave (background only; the rings and flames aren't
+	; affected). It keeps running through the flames and is stopped at the end.
+	anim_bgeffect BATTLE_BG_EFFECT_WHIRLPOOL, $0, $0, $0
+	; Rings: nine in a row along the same path, one every 8 frames
+.loop
+	anim_sound 6, 2, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 92, $4
+	anim_wait 8
+	anim_loop 9, .loop
+	anim_wait 16 ; the last ring reaches the target
+	; Impact: swirling flames around the target
+	anim_call BattleAnimSub_Fire
+	anim_wait 16
+	; Remove the flames, restore the normal gray palette (otherwise it stays
+	; red until the battle reloads palettes), and stop the heat shimmer
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_incbgeffect BATTLE_BG_EFFECT_WHIRLPOOL
+	anim_wait 1
+	anim_ret
+
 BattleAnim_BlastBurn:
 BattleAnim_Eruption:
-BattleAnim_HeatWave:
 	; Sacred Fire's animation with the normal red flames
 	anim_1gfx BATTLE_ANIM_GFX_FIRE
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
