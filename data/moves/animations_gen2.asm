@@ -147,7 +147,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_PoisonJab		;Poison Jab
 	dw BattleAnim_PowerGem		;Power Gem
 	dw BattleAnim_PsychoCut		;Psycho Cut
-	dw BattleAnim_ZenHeadbutt	;Zen Headbutt (copy of headbutt)
+	dw BattleAnim_ZenHeadbutt	;Zen Headbutt
 	dw BattleAnim_FlashCannon	;Flash Cannon
 	dw BattleAnim_AquaJet		;Aqua Jet
 	dw BattleAnim_DarkPulse		;destiny bond
@@ -3743,16 +3743,27 @@ BattleAnim_PoisonTail:
 	anim_ret
 
 BattleAnim_ZenHeadbutt:
+	; Headbutt with psychic power: the background shimmers (as in Psychic)
+	; while the user winds up, and the headbutt lands with a big purple hit.
 	anim_1gfx BATTLE_ANIM_GFX_HIT
+	; The hit star uses the gray slot; recolor it purple (restored at the end,
+	; since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
+	anim_sound 0, 0, SFX_PSYCHIC
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $14, $2, $0
 	anim_wait 32
+	; The headbutt, as in Headbutt (the target's picture is copied into
+	; sprites as object 1, so the user's lunge doesn't bend it)
 	anim_call BattleAnim_TargetObj_1Row
 	anim_bgeffect BATTLE_BG_EFFECT_TACKLE, $0, BG_EFFECT_USER, $0
 	anim_wait 4
 	anim_sound 0, 1, SFX_HEADBUTT
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
 	anim_wait 8
 	anim_call BattleAnim_ShowMon_0
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_ShadowSneak:
