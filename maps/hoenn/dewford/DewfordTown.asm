@@ -115,7 +115,7 @@ DewfordWallyWinText:
 	done
 
 DewfordWallyIntroText:
-	text "Wally:Oh, hi"
+	text "Wally: Oh, hi"
 	line "<PLAY_G>!"
 
 	para "I'm really glad"
