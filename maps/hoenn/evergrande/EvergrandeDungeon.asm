@@ -145,140 +145,135 @@ GenericCooltrainerF3:
 
 
 CooltrainerM1SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "I raised all three"
+	line "Kanto starters."
+
+	para "Let's see if you"
+	line "can handle them!"
 	done
 
 CooltrainerM1BeatenText:
-	text "Yow!"
+	text "All three... down!"
 	done
 
 CooltrainerM1AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "Maybe I spread"
+	line "myself too thin."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "The Elite Four"
+	line "won't go easy on"
+	cont "a divided team."
 	done
 
 
 CooltrainerM2SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "I came all the way"
+	line "from Johto for"
+	cont "this!"
+
+	para "Don't think I'll"
+	line "go down easy!"
 	done
 
 CooltrainerM2BeatenText:
-	text "Yow!"
+	text "Johto pride..."
+	line "shattered..."
 	done
 
 CooltrainerM2AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "Hoenn's League is"
+	line "no joke."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "Guess I'll need"
+	line "more training"
+	cont "back home."
 	done
 
 
 CooltrainerM3SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "Only the strongest"
+	line "make it through"
+	cont "Victory Road."
+
+	para "Prove you belong!"
 	done
 
 CooltrainerM3BeatenText:
-	text "Yow!"
+	text "You belong here,"
+	line "no doubt."
 	done
 
 CooltrainerM3AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "Every trainer"
+	line "here dreams of"
+	cont "facing the Elite"
+	cont "Four."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "Few actually"
+	line "make it."
 	done
 
 
 CooltrainerF1SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "I've beaten eight"
+	line "Gym Leaders."
+
+	para "You're just one"
+	line "more obstacle!"
 	done
 
 CooltrainerF1BeatenText:
-	text "Yow!"
+	text "An obstacle I"
+	line "couldn't clear..."
 	done
 
 CooltrainerF1AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "Badges get you"
+	line "in the door."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "Only skill gets"
+	line "you through it."
 	done
 
 
 CooltrainerF2SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "Ah, a challenger!"
+
+	para "Let's warm up"
+	line "for the Elite"
+	cont "Four together!"
 	done
 
 CooltrainerF2BeatenText:
-	text "Yow!"
+	text "Some warm-up!"
 	done
 
 CooltrainerF2AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "I heard Drake's"
+	line "dragons are"
+	cont "unstoppable."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "Better be ready!"
 	done
 
 
 CooltrainerF3SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "Sidney loves dirty"
+	line "tricks."
+
+	para "So I learned a"
+	line "few of my own!"
 	done
 
 CooltrainerF3BeatenText:
-	text "Yow!"
+	text "Tricked by you"
+	line "instead..."
 	done
 
 CooltrainerF3AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
-
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	text "Watch out for"
+	line "Dark types in"
+	cont "the League."
 	done
 
 EvergrandeDungeon_MapEvents:

@@ -109,140 +109,131 @@ GenericCooltrainerF9:
 
 
 CooltrainerM7SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "I've been camping"
+	line "in this cave for"
+	cont "a week!"
+
+	para "I'm more than"
+	line "ready!"
 	done
 
 CooltrainerM7BeatenText:
-	text "Yow!"
+	text "Maybe one more"
+	line "week..."
 	done
 
 CooltrainerM7AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
-
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	text "The deeper you"
+	line "go, the tougher"
+	cont "the trainers get."
 	done
 
 
 CooltrainerM8SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "Turn back now,"
+	line "while you can!"
+
+	para "The Elite Four"
+	line "are on another"
+	cont "level!"
 	done
 
 CooltrainerM8BeatenText:
-	text "Yow!"
+	text "Maybe you're on"
+	line "their level..."
 	done
 
 CooltrainerM8AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
-
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	text "If you can beat"
+	line "me, you might"
+	cont "stand a chance."
 	done
 
 
 CooltrainerM9SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "You're deep in the"
+	line "cave now."
+
+	para "Think you can"
+	line "find your way out?"
 	done
 
 CooltrainerM9BeatenText:
-	text "Yow!"
+	text "Guess you can."
 	done
 
 CooltrainerM9AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "Rest up before"
+	line "the League."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "Once you enter,"
+	line "there's no"
+	cont "turning back."
 	done
 
 
 CooltrainerF7SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "I've trained for"
+	line "years to get here."
+
+	para "I won't lose now!"
 	done
 
 CooltrainerF7BeatenText:
-	text "Yow!"
+	text "All those years..."
 	done
 
 CooltrainerF7AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
-
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	text "Win or lose, I'm"
+	line "proud of how far"
+	cont "I've come."
 	done
 
 
 CooltrainerF8SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "Phoebe trained on"
+	line "Mt. Pyre."
+
+	para "I'm training here"
+	line "to beat her!"
 	done
 
 CooltrainerF8BeatenText:
-	text "Yow!"
+	text "Her ghosts would"
+	line "have beaten me"
+	cont "too..."
 	done
 
 CooltrainerF8AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "Ghosts can't be"
+	line "hit by Normal"
+	cont "moves."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "Plan ahead for"
+	line "Phoebe!"
 	done
 
 
 CooltrainerF9SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "You made it all"
+	line "the way down here?"
+
+	para "Impressive. But"
+	line "this is the end"
+	cont "of the line!"
 	done
 
 CooltrainerF9BeatenText:
-	text "Yow!"
+	text "The end of MY"
+	line "line, I guess."
 	done
 
 CooltrainerF9AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "The Champion is"
+	line "waiting beyond"
+	cont "the Elite Four."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "Good luck!"
 	done
 
 Djinn_PetraScript:

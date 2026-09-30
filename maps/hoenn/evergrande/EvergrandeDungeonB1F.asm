@@ -108,140 +108,127 @@ GenericCooltrainerF6:
 
 
 CooltrainerM4SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "This cave is the"
+	line "League's final"
+	cont "test."
+
+	para "Fail here, and"
+	line "you go home!"
 	done
 
 CooltrainerM4BeatenText:
-	text "Yow!"
+	text "I'm the one going"
+	line "home..."
 	done
 
 CooltrainerM4AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
-
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	text "I'll be back next"
+	line "year. Stronger."
 	done
 
 
 CooltrainerM5SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "My team's defense"
+	line "is ironclad!"
+
+	para "Let's see you"
+	line "break through!"
 	done
 
 CooltrainerM5BeatenText:
-	text "Yow!"
+	text "Cracked wide"
+	line "open..."
 	done
 
 CooltrainerM5AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "Defense alone"
+	line "won't win the"
+	cont "League."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "I need a better"
+	line "offense."
 	done
 
 
 CooltrainerM6SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "Fire, ice and"
+	line "lightning!"
+
+	para "My team covers"
+	line "every angle!"
 	done
 
 CooltrainerM6BeatenText:
-	text "Yow!"
+	text "You found an"
+	line "angle I missed."
 	done
 
 CooltrainerM6AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
+	text "Type coverage"
+	line "only gets you so"
+	cont "far."
 
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	para "Sidney, Phoebe,"
+	line "Glacia and Drake"
+	cont "are waiting."
 	done
 
 
 CooltrainerF4SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "Cold, dark, and"
+	line "full of trainers."
+
+	para "I love this"
+	line "place!"
 	done
 
 CooltrainerF4BeatenText:
-	text "Yow!"
+	text "I love it a bit"
+	line "less now."
 	done
 
 CooltrainerF4AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
-
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	text "Glacia's ice"
+	line "freezes even the"
+	cont "toughest teams."
 	done
 
 
 CooltrainerF5SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "Halfway through"
+	line "and still going"
+	cont "strong?"
+
+	para "Not for long!"
 	done
 
 CooltrainerF5BeatenText:
-	text "Yow!"
+	text "Still going"
+	line "strong, huh?"
 	done
 
 CooltrainerF5AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
-
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	text "Pace yourself."
+	line "There's a long"
+	cont "way to go."
 	done
 
 
 CooltrainerF6SeenText:
-	text "You look pretty"
-	line "strong."
-	cont "Let me battle you!"
+	text "My team may look"
+	line "odd, but don't"
+	cont "underestimate us!"
 	done
 
 CooltrainerF6BeatenText:
-	text "Yow!"
+	text "Guess we were"
+	line "outmatched."
 	done
 
 CooltrainerF6AfterBattleText:
-	text "If you prevail on"
-	line "this harsh trek,"
-
-	para "the truth will be"
-	line "revealed!"
-
-	para "Heh, sorry, I just"
-	line "wanted to say"
-	cont "something cool."
+	text "Every #mon can"
+	line "be strong with"
+	cont "enough love."
 	done
 
 
