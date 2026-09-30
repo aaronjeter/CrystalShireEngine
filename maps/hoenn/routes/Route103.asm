@@ -15,29 +15,37 @@ Route103_MapScripts:
 Route103_Wally:
 	faceplayer
 	checkevent EVENT_START_HOENN
-	iffalse .notHoenn	
-	opentext
+	iffalse .notHoenn
+	opendialog WALLY
 	writetext Route103WallyIntroText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext Route103WallyLossText, Route103WallyWinText
 	loadtrainer WALLY, WALLY1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
-	opentext
+	reloadmap
+	iftrue .WallyWon
+	opendialog WALLY
 	writetext Route103WallyAfterBattleText
+	waitbutton
 	sjump .WallyExit
-	end
+
+.WallyWon
+	special HealParty
+	opendialog WALLY
+	writetext Route103WallyAfterBattleText
+	waitbutton
+	sjump .WallyExit
 
 .notHoenn
-	opentext
+	opendialog WALLY
 	writetext Route103WallyNotHoennText
-	waitbutton 
+	waitbutton
 
 .WallyExit
-	closetext
+	closedialog
 	setevent EVENT_FOUND_ROUTE103_WALLY
 	special FadeOutToBlack
 	disappear ROUTE103_WALLY
