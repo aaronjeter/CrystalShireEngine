@@ -14,35 +14,61 @@ NewMauville_Wally:
 	iftrue .done
 
 	faceplayer
-	opentext
+	opendialog WALLY
 	checkevent EVENT_START_HOENN
-	iffalse .notHoenn	
-	writetext NewMauvilleWallyIntroText		
+	iffalse .notHoenn
+	writetext NewMauvilleWallyIntroText
 	sjump .fight
 
-.notHoenn	
-	writetext NewMauvilleWallyNotHoennText	 
+.notHoenn
+	writetext NewMauvilleWallyNotHoennText
 	sjump .fight
 
 .fight
 	waitbutton
-	closetext
+	closedialog
 	winlosstext NewMauvilleWallyLossText, NewMauvilleWallyWinText
 	loadtrainer WALLY, WALLY4
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
-	opentext
+	reloadmap
+	iftrue .WallyWon
+	opendialog WALLY
 	writetext NewMauvilleWallyAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	special HealParty
+	sjump .WallyLeaves
+
+.WallyWon
+	special HealParty
+	opendialog WALLY
+	writetext NewMauvilleWallyWonText
+	waitbutton
+	closedialog
+
+.WallyLeaves
 	setevent EVENT_FOUND_NEW_MAUVILLE_WALLY
-	special FadeOutToBlack
+	applymovement PLAYER, NewMauville_PlayerStepAsideMovement
+	turnobject PLAYER, DOWN
+	applymovement NEWMAUVILLE_WALLY, NewMauville_WallyWalkAwayMovement
+	playsound SFX_EXIT_BUILDING
 	disappear NEWMAUVILLE_WALLY
-	special FadeInFromBlack
+	waitsfx
 .done
 	end
+
+NewMauville_PlayerStepAsideMovement:
+	step UP
+	step_end
+
+; Wally heads back out the entrance to Route 110
+NewMauville_WallyWalkAwayMovement:
+	step RIGHT
+	step RIGHT
+	step UP
+	step UP
+	step_end
 
 NewMauvilleWallyAfterBattleText:
 	text "I don't think I'm"
@@ -58,6 +84,23 @@ NewMauvilleWallyAfterBattleText:
 	para "I think you can"
 	line "put a stop to"
 	cont "their scheme!"
+
+	para "Here, let me give"
+	line "your #mon"
+	cont "some medicine."
+	done
+
+NewMauvilleWallyWonText:
+	text "I don't think"
+	line "we're ready..."
+
+	para "Someone has to"
+	line "stop Team Rocket"
+	cont "though."
+
+	para "Please be careful"
+	line "<PLAY_G>, if you"
+	cont "face them..."
 
 	para "Here, let me give"
 	line "your #mon"
@@ -133,4 +176,4 @@ NewMauville_MapEvents:
 	object_event  20, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NewMauvilleMagnet, EVENT_GOT_HOENN_MAGNET
 	object_event  19, 33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NewMauvilleThunderstone, EVENT_NEW_MAUVILLE_THUNDERSTONE
 	object_event  33, 33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NewMauvilleElixer, EVENT_NEW_MAUVILLE_ELIXER
-	object_event  22, 42, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewMauville_Wally, EVENT_FOUND_NEW_MAUVILLE_WALLY
+	object_event  23, 42, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewMauville_Wally, EVENT_FOUND_NEW_MAUVILLE_WALLY
