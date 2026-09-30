@@ -4,7 +4,7 @@
 	evs  0,   0,   0,   0,   3,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db PSYCHIC_TYPE, FIGHTING ; type
+	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
 	db 3 ; catch rate
 	db 220 ; base exp
 	dw NO_ITEM, BERSERK_GENE ; items
