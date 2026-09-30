@@ -18,38 +18,66 @@ MauvilleCityFlypointCallback:
 
 MauvilleCity_Wally:
 	checkevent EVENT_FOUND_MAUVILLE_WALLY
-	iftrue .done
+	iftrue MauvilleCity_WallyDone
 
 	applymovement MAUVILLECITY_WALLY, MauvilleCityWally_StepDownMovement
+	turnobject PLAYER, UP
+	sjump MauvilleCity_WallyTalk
+
+MauvilleCity_WallyFromRight:
+	checkevent EVENT_FOUND_MAUVILLE_WALLY
+	iftrue MauvilleCity_WallyDone
+
+	applymovement MAUVILLECITY_WALLY, MauvilleCityWally_StepDownBesideMovement
+	turnobject PLAYER, LEFT
+	; fallthrough
+
+MauvilleCity_WallyTalk:
 	faceplayer
 	checkevent EVENT_START_HOENN
-	iffalse .notHoenn		
-	opentext
+	iffalse .notHoenn
+	opendialog WALLY
 	writetext MauvilleCityWallyIntroText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext MauvilleCityWallyLossText, MauvilleCityWallyWinText
 	loadtrainer WALLY, WALLY3
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
-	opentext
+	reloadmap
+	iftrue .WallyWon
+	opendialog WALLY
 	writetext MauvilleCityWallyAfterBattleText
+	waitbutton
 	sjump .WallyExit
-	end
+
+.WallyWon
+	special HealParty
+	opendialog WALLY
+	writetext MauvilleCityWallyAfterBattleText
+	waitbutton
+	sjump .WallyExit
 
 .notHoenn
-	opentext
+	opendialog WALLY
 	writetext MauvilleCityWallyNotHoennText
-	waitbutton 
+	waitbutton
 
 .WallyExit
-	closetext
+	closedialog
 	setevent EVENT_FOUND_MAUVILLE_WALLY
-	applymovement MAUVILLECITY_WALLY, MauvilleCityWally_StepUpMovement	
+	; Wally is beside the player if they're facing left
+	readvar VAR_FACING
+	ifequal LEFT, .ExitFromBeside
+	applymovement MAUVILLECITY_WALLY, MauvilleCityWally_StepUpMovement
+	sjump .Exited
+
+.ExitFromBeside
+	applymovement MAUVILLECITY_WALLY, MauvilleCityWally_StepUpFromBesideMovement
+.Exited
 	disappear MAUVILLECITY_WALLY
-.done
+MauvilleCity_WallyDone:
 	end
 
 MauvilleCityWallyAfterBattleText:
@@ -112,6 +140,22 @@ MauvilleCityWally_StepDownMovement:
 	step_end
 
 MauvilleCityWally_StepUpMovement:
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+
+MauvilleCityWally_StepDownBesideMovement:
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
+
+MauvilleCityWally_StepUpFromBesideMovement:
+	step UP
 	step UP
 	step UP
 	step UP
@@ -248,7 +292,7 @@ MauvilleCity_MapEvents:
 
 	def_coord_events
 	coord_event  16,  05, -1, MauvilleCity_Wally
-	coord_event  17,  05, -1, MauvilleCity_Wally
+	coord_event  17,  05, -1, MauvilleCity_WallyFromRight
 
 	def_bg_events	
 	bg_event  21, 07, BGEVENT_READ, MauvilleCitySign
