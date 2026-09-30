@@ -95,7 +95,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_NaturePower	;Nature Power
 	dw BattleAnim_Charge		;Calm Mind (copy of focus energy)
 	dw BattleAnim_Superpower	;Outrage
-	dw BattleAnim_BrickBreak	;Rock Smash
+	dw BattleAnim_BrickBreak	;Brick Break
 	dw BattleAnim_Eruption		;Eruption
 	dw BattleAnim_ArmThrust		;Arm Thrust (copy of comet punch)
 	dw BattleAnim_LusterPurge	;Aeroblast
@@ -2455,6 +2455,27 @@ BattleAnim_FutureSight:
 	anim_ret
 
 BattleAnim_BrickBreak:
+	; A heavy karate chop: Karate Chop's hand comes down on the target, then a
+	; big hit lands with a flash and a strong screen shake, and debris (Rock
+	; Smash's rock pieces) bursts out as if something shattered.
+	anim_2gfx BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_ROCKS
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj BATTLE_ANIM_OBJ_PALM, 136, 40, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $2
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $3, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_ROCK_SMASH, 128, 64, $28
+	anim_obj BATTLE_ANIM_OBJ_ROCK_SMASH, 128, 64, $5c
+	anim_obj BATTLE_ANIM_OBJ_ROCK_SMASH, 128, 64, $e8
+	anim_obj BATTLE_ANIM_OBJ_ROCK_SMASH, 128, 64, $9c
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_ROCK_SMASH, 128, 64, $10
+	anim_obj BATTLE_ANIM_OBJ_ROCK_SMASH, 128, 64, $d0
+	anim_wait 28 ; the shake lasts $20 (32) frames
+	anim_ret
+
 BattleAnim_RockSmash:
 	anim_2gfx BATTLE_ANIM_GFX_ROCKS, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_SPARK
