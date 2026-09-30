@@ -2208,9 +2208,9 @@
 	const_skip ; unused
 	const_skip ; unused	
 
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_WC_ROUND_THREE_SILVER ; hidden unless the player started in Johto
+	const EVENT_WC_ROUND_THREE_WALLY  ; hidden unless the player started in Hoenn
+	const EVENT_WC_ROUND_THREE_GREEN  ; hidden unless the player started in Kanto
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
