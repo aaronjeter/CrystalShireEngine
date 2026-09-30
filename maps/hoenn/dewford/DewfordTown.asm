@@ -16,34 +16,76 @@ DewfordTownFlypointCallback:
 Dewford_Wally:
 	faceplayer
 	checkevent EVENT_START_HOENN
-	iffalse .notHoenn	
-	opentext
+	iffalse .notHoenn
+	opendialog WALLY
 	writetext DewfordWallyIntroText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext DewfordWallyLossText, DewfordWallyWinText
 	loadtrainer WALLY, WALLY2
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
-	opentext
+	reloadmap
+	iftrue .WallyWon
+	opendialog WALLY
 	writetext DewfordWallyAfterBattleText
+	waitbutton
 	sjump .WallyExit
-	end
+
+.WallyWon
+	special HealParty
+	opendialog WALLY
+	writetext DewfordWallyAfterBattleText
+	waitbutton
+	sjump .WallyExit
 
 .notHoenn
-	opentext
+	opendialog WALLY
 	writetext DewfordWallyNotHoennText
-	waitbutton 
+	waitbutton
 
 .WallyExit
-	closetext
+	closedialog
 	setevent EVENT_FOUND_DEWFORD_WALLY
-	special FadeOutToBlack
+	; if the player is on Wally's right, go around them
+	readvar VAR_FACING
+	ifequal LEFT, .WalkAroundPlayer
+	applymovement DEWFORDTOWN_WALLY, DewfordWally_WalkAwayMovement
+	sjump .WalkedAway
+
+.WalkAroundPlayer
+	applymovement DEWFORDTOWN_WALLY, DewfordWally_WalkAroundMovement
+.WalkedAway
 	disappear DEWFORDTOWN_WALLY
-	special FadeInFromBlack
 	end
+
+; Wally heads to the pier north of town to go fishing
+DewfordWally_WalkAwayMovement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+
+DewfordWally_WalkAroundMovement:
+	step DOWN
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
 
 DewfordWallyAfterBattleText:
 	text "That was exciting!"
