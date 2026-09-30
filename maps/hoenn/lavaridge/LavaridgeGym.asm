@@ -179,15 +179,26 @@ LavaridgeGymJeffScript:
 	end
 
 LavaridgeGymJeffSeenText:
-	text "Hi"
+	text "Feel the heat of"
+	line "Lavaridge!"
+
+	para "My #mon are"
+	line "burning up to"
+	cont "battle!"
 	done
 
 LavaridgeGymJeffBeatenText:
-	text "Aiyiyi!"
+	text "Ow, ow! I got"
+	line "burned!"
 	done
 
 LavaridgeGymJeffAfterBattleText:
-	text "Bye"
+	text "Flannery's new,"
+	line "but she's got"
+	cont "fire in her soul."
+
+	para "We'd follow her"
+	line "into a volcano!"
 	done
 
 
@@ -203,15 +214,26 @@ LavaridgeGymJaceScript:
 	end
 
 LavaridgeGymJaceSeenText:
-	text "Hi"
+	text "Lost in the maze?"
+
+	para "Let me light the"
+	line "way... with a"
+	cont "Flamethrower!"
 	done
 
 LavaridgeGymJaceBeatenText:
-	text "Aiyiyi!"
+	text "My flame went"
+	line "out..."
 	done
 
 LavaridgeGymJaceAfterBattleText:
-	text "Bye"
+	text "The maze throws"
+	line "off a lot of"
+	cont "challengers."
+
+	para "Keep your eyes"
+	line "peeled for the"
+	cont "right path!"
 	done
 
 
@@ -227,15 +249,28 @@ LavaridgeGymEliScript:
 	end
 
 LavaridgeGymEliSeenText:
-	text "Hi"
+	text "I hiked all the"
+	line "way down from Mt."
+	cont "Chimney!"
+
+	para "My legs are"
+	line "tired, but my"
+	cont "#mon aren't!"
 	done
 
 LavaridgeGymEliBeatenText:
-	text "Aiyiyi!"
+	text "Whew! Time for"
+	line "a hot spring."
 	done
 
 LavaridgeGymEliAfterBattleText:
-	text "Bye"
+	text "Nothing beats a"
+	line "soak in the hot"
+	cont "springs after a"
+	cont "long climb."
+
+	para "Heh, maybe after"
+	line "your badge!"
 	done
 
 
@@ -251,15 +286,26 @@ LavaridgeGymColeScript:
 	end
 
 LavaridgeGymColeSeenText:
-	text "Hi"
+	text "Hot enough for"
+	line "you?"
+
+	para "It's about to get"
+	line "a whole lot"
+	cont "hotter!"
 	done
 
 LavaridgeGymColeBeatenText:
-	text "Aiyiyi!"
+	text "Too hot to"
+	line "handle..."
 	done
 
 LavaridgeGymColeAfterBattleText:
-	text "Bye"
+	text "The ground here"
+	line "stays warm all"
+	cont "year long."
+
+	para "That's why our"
+	line "#mon love it!"
 	done
 
 
@@ -275,15 +321,27 @@ LavaridgeGymGeraldScript:
 	end
 
 LavaridgeGymGeraldSeenText:
-	text "Hi"
+	text "Fire isn't the"
+	line "only thing burning"
+	cont "here."
+
+	para "My Marowak's"
+	line "flames burn with"
+	cont "a ghostly glow!"
 	done
 
 LavaridgeGymGeraldBeatenText:
-	text "Aiyiyi!"
+	text "Snuffed out..."
 	done
 
 LavaridgeGymGeraldAfterBattleText:
-	text "Bye"
+	text "Flannery took"
+	line "over from her"
+	cont "grandfather."
+
+	para "Some folks doubt"
+	line "her, but I think"
+	cont "she'll be great."
 	done
 
 
@@ -299,15 +357,21 @@ LavaridgeGymAxleScript:
 	end
 
 LavaridgeGymAxleSeenText:
-	text "Hi"
+	text "I'm all fired up!"
+
+	para "Let's see if you"
+	line "can take the heat!"
 	done
 
 LavaridgeGymAxleBeatenText:
-	text "Aiyiyi!"
+	text "I'm burned out..."
 	done
 
 LavaridgeGymAxleAfterBattleText:
-	text "Bye"
+	text "Flannery's just"
+	line "ahead. She's"
+	cont "tougher than she"
+	cont "looks!"
 	done
 
 
@@ -323,15 +387,22 @@ LavaridgeGymKeeganScript:
 	end
 
 LavaridgeGymKeeganSeenText:
-	text "Hi"
+	text "You made it this"
+	line "far through the"
+	cont "maze?"
+
+	para "Then you'll have"
+	line "to get past me!"
 	done
 
 LavaridgeGymKeeganBeatenText:
-	text "Aiyiyi!"
+	text "You're hot stuff!"
 	done
 
 LavaridgeGymKeeganAfterBattleText:
-	text "Bye"
+	text "My Sunkern loves"
+	line "the sunshine and"
+	cont "the heat here."
 	done
 
 
@@ -347,15 +418,25 @@ LavaridgeGymDanielleScript:
 	end
 
 LavaridgeGymDanielleSeenText:
-	text "Hi"
+	text "I train my body"
+	line "in the heat of"
+	cont "the volcano!"
+
+	para "Hi-yah! Get"
+	line "ready!"
 	done
 
 LavaridgeGymDanielleBeatenText:
-	text "Aiyiyi!"
+	text "I need to cool"
+	line "down..."
 	done
 
 LavaridgeGymDanielleAfterBattleText:
-	text "Bye"
+	text "Training in the"
+	line "heat builds real"
+	cont "endurance."
+
+	para "Try it sometime!"
 	done
 
 LavaridgeGym_MapEvents:
