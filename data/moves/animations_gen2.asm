@@ -110,7 +110,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_HydroCannon	;Hydro Cannon
 	dw BattleAnim_MeteorMash	;Meteor Mash
 	dw BattleAnim_Astonish		;Shadow Sneak
-	dw BattleAnim_AirCutter		;Fury cutter
+	dw BattleAnim_AirCutter		;Air Cutter
 	dw BattleAnim_RockTomb		;Rock Tomb (copy of rock throw)
 	dw BattleAnim_SilverWind	;Silver Wind
 	dw BattleAnim_CosmicPower	;Calm Mind (copy of focus energy)
@@ -120,7 +120,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_Extrasensory	;Extrasensory
 	dw BattleAnim_MuddyWater	;Muddy water
 	dw BattleAnim_BulletSeed	;Bullet Seed (copy of barrage)
-	dw BattleAnim_AerialAce		;fury cutter
+	dw BattleAnim_AerialAce		;Aerial Ace
 	dw BattleAnim_IcicleSpear	;powder snow
 	dw BattleAnim_DragonClaw	;Dragon Claw
 	dw BattleAnim_FrenzyPlant	;Frenzy Plant
@@ -146,7 +146,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_IcicleCrash	;Icicle Crash
 	dw BattleAnim_PoisonJab		;Poison Jab
 	dw BattleAnim_PowerGem		;Power Gem
-	dw BattleAnim_PsychoCut		;Fury cutter
+	dw BattleAnim_PsychoCut		;Psycho Cut
 	dw BattleAnim_ZenHeadbutt	;Zen Headbutt (copy of headbutt)
 	dw BattleAnim_FlashCannon	;Flash Cannon
 	dw BattleAnim_AquaJet		;Aqua Jet
@@ -1086,9 +1086,108 @@ BattleAnim_Spark:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_PsychoCut:
 BattleAnim_AerialAce:
+	; A lightning-fast aerial slash in sky blue: the user dashes in behind
+	; speed lines (as in Quick Attack), two long slashes (Night Slash's) cut
+	; across the target with a quick flash, then the user reappears.
+	anim_3gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT
+	; The speed lines, slashes and hit star use the gray slot; recolor it
+	; sky blue (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $2
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 148, 36, $0
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 52, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 16
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_AirCutter:
+	; Sharp blades of wind: five spinning sky-blue crescents fly from the user
+	; into the target in quick succession, each cutting it with a small hit.
+	anim_2gfx BATTLE_ANIM_GFX_WHIP, BATTLE_ANIM_GFX_HIT
+	; The blades and hits use the gray slot; recolor it sky blue (restored at
+	; the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	; Blades: SONICBOOM_JP_UNUSED, an unused spinning crescent (Razor Wind's
+	; graphics) that flies from the user to the target and disappears on
+	; arrival. At speed $4, launched 4 frames apart from different heights,
+	; each arrives about 16 frames later, where a small hit lands.
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_SONICBOOM_JP_UNUSED, 64, 88, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_SONICBOOM_JP_UNUSED, 64, 76, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_SONICBOOM_JP_UNUSED, 64, 96, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_SONICBOOM_JP_UNUSED, 64, 82, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_SONICBOOM_JP_UNUSED, 64, 92, $4
+	anim_sound 0, 1, SFX_CUT
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 132, 48, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_CUT
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 144, 60, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_CUT
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 128, 62, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_CUT
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 146, 46, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_CUT
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 136, 56, $0
+	anim_wait 16
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_PsychoCut:
+	; Psychic blades: the background shimmers as two purple spinning crescents
+	; (Air Cutter's blades) fly from the user into the target, where they
+	; slash across it in an X with a jolt.
+	anim_3gfx BATTLE_ANIM_GFX_WHIP, BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT
+	; The blades, slashes and hit star use the gray slot; recolor it purple
+	; (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
+	; Blades: at speed $4 each reaches the target about 16 frames after launch
+	anim_sound 6, 2, SFX_PSYCHIC
+	anim_obj BATTLE_ANIM_OBJ_SONICBOOM_JP_UNUSED, 64, 84, $4
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_SONICBOOM_JP_UNUSED, 64, 94, $4
+	anim_wait 10
+	; The blades land: an X of long slashes, a hit and a jolt
+	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $2, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_CUT
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 120, 40, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 52, $0
+	anim_wait 24
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_FuryCutter:
 	anim_1gfx BATTLE_ANIM_GFX_CUT
 .loop
