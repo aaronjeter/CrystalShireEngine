@@ -437,4 +437,10 @@ BattleAnimObjects:
 ; BATTLE_ANIM_OBJ_BLAST_BURN_FLAME
 ; The same, with Flamethrower's big flickering flame
 	battleanimobj RELATIVE_X, $b8, BATTLE_ANIM_FRAMESET_FLAMETHROWER, BATTLE_ANIM_FUNC_ANCIENT_POWER, PAL_BATTLE_OB_RED, BATTLE_ANIM_GFX_FIRE
+; BATTLE_ANIM_OBJ_ERUPTION_FIREBALL
+; Flamethrower's big flame dropping like Rock Slide's rocks: it falls from 72
+; pixels above the given point and lands there after 16 frames. Param $48
+; makes it disappear on landing instead of bouncing. Same Y fix ($ff) as the
+; rocks and EXPLOSION2, so the explosions line up with it on both sides.
+	battleanimobj RELATIVE_X, $ff, BATTLE_ANIM_FRAMESET_FLAMETHROWER, BATTLE_ANIM_FUNC_DROP, PAL_BATTLE_OB_RED, BATTLE_ANIM_GFX_FIRE
 	assert_table_length NUM_BATTLE_ANIM_OBJS

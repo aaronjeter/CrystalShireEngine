@@ -96,7 +96,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_Charge		;Calm Mind (copy of focus energy)
 	dw BattleAnim_Superpower	;Outrage
 	dw BattleAnim_BrickBreak	;Rock Smash
-	dw BattleAnim_Eruption		;Eruption (red Sacred Fire)
+	dw BattleAnim_Eruption		;Eruption
 	dw BattleAnim_ArmThrust		;Arm Thrust (copy of comet punch)
 	dw BattleAnim_LusterPurge	;Aeroblast
 	dw BattleAnim_MistBall		;shadow ball
@@ -1386,28 +1386,73 @@ BattleAnim_BlastBurn:
 	anim_ret
 
 BattleAnim_Eruption:
-	; Sacred Fire's animation with the normal red flames
-	anim_1gfx BATTLE_ANIM_GFX_FIRE
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
-.loop
+	; Volcanic rain: the screen darkens and rumbles as flames shoot up from
+	; the user like a volcano (Sacred Fire's rising flames), then fireballs
+	; rain down onto the target, each bursting into an explosion as it lands,
+	; while the screen shakes hard.
+	anim_2gfx BATTLE_ANIM_GFX_FIRE, BATTLE_ANIM_GFX_EXPLOSION
+	anim_bgp $1b ; darken the background
+	; Eruption: five flames rise from the user (each rises for 24 frames,
+	; then disappears), with a rumble until the rain starts
 	anim_sound 0, 0, SFX_EMBER
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $24, $1, $0 ; 36 frames, until the rain
+.eruption
 	anim_obj BATTLE_ANIM_OBJ_SACRED_FIRE, 48, 104, $0
-	anim_wait 8
-	anim_loop 8, .loop
-	anim_wait 96
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect BATTLE_BG_EFFECT_TACKLE, $0, BG_EFFECT_USER, $0
 	anim_wait 4
-	anim_sound 0, 1, SFX_EMBER
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $1
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $4
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $5
-	anim_wait 8
-	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_TARGET, $0
+	anim_loop 5, .eruption
+	anim_wait 16
+	; Rain: six fireballs fall onto the target, 6 frames apart. Each lands 16
+	; frames after it appears, and an explosion (12 frames long) goes off
+	; where it lands, so only a few objects are out at a time. Each explosion
+	; flashes the screen white for 2 frames, done by hand
+	; (BATTLE_BG_EFFECT_FLASH_INVERTED would undo the darkening).
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $40, $3, $0
+	anim_obj BATTLE_ANIM_OBJ_ERUPTION_FIREBALL, 128, 64, $48
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_ERUPTION_FIREBALL, 148, 60, $48
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_ERUPTION_FIREBALL, 120, 56, $48
 	anim_wait 4
-	anim_incobj 9
-	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 128, 64, $0
+	anim_bgp %00000000 ; white flash
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_ERUPTION_FIREBALL, 140, 50, $48
+	anim_bgp $1b ; back to dark
+	anim_wait 4
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 148, 60, $0
+	anim_bgp %00000000 ; white flash
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_ERUPTION_FIREBALL, 132, 68, $48
+	anim_bgp $1b ; back to dark
+	anim_wait 4
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 120, 56, $0
+	anim_bgp %00000000 ; white flash
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_ERUPTION_FIREBALL, 152, 54, $48
+	anim_bgp $1b ; back to dark
+	anim_wait 4
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 140, 50, $0
+	anim_bgp %00000000 ; white flash
+	anim_wait 2
+	anim_bgp $1b ; back to dark
+	anim_wait 4
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 132, 68, $0
+	anim_bgp %00000000 ; white flash
+	anim_wait 2
+	anim_bgp $1b ; back to dark
+	anim_wait 4
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 152, 54, $0
+	anim_bgp %00000000 ; white flash
+	anim_wait 2
+	anim_bgp $1b ; back to dark
+	anim_wait 24
+	anim_clearobjs
 	anim_ret
 
 BattleAnim_SacredFire:
