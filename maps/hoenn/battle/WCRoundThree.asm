@@ -26,12 +26,12 @@ WCRoundThree_EnterMovement:
 
 WCSilverScript:
 	faceplayer
-	opentext
+	opendialog RIVAL2
 	checkevent EVENT_WORLD_CUP_BEAT_ROUND_THREE
 	iftrue SilverScript_AfterBattle
 	writetext SilverScript_BeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext SilverScript_BeatenText, 0
 	loadtrainer RIVAL2, RIVAL2_WC
@@ -39,10 +39,10 @@ WCSilverScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_WORLD_CUP_BEAT_ROUND_THREE
-	opentext
+	opendialog RIVAL2
 	writetext SilverScript_DefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 6, 2, $4f ; open door
 	refreshmap
@@ -54,7 +54,7 @@ WCSilverScript:
 SilverScript_AfterBattle:
 	writetext SilverScript_DefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 SilverScript_BeforeText:

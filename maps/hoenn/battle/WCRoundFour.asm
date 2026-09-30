@@ -24,12 +24,12 @@ WCRoundFour_EnterMovement:
 
 WCGiovanniScript:
 	faceplayer
-	opentext
+	opendialog GIOVANNI
 	checkevent EVENT_WORLD_CUP_BEAT_ROUND_FOUR
 	iftrue GiovanniScript_AfterBattle
 	writetext GiovanniScript_BeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext GiovanniScript_BeatenText, 0
 	loadtrainer GIOVANNI, WC_GIOVANNI
@@ -37,10 +37,10 @@ WCGiovanniScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_WORLD_CUP_BEAT_ROUND_FOUR
-	opentext
+	opendialog GIOVANNI
 	writetext GiovanniScript_DefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 6, 0, $0b ; open gate
 	refreshmap
@@ -52,7 +52,7 @@ WCGiovanniScript:
 GiovanniScript_AfterBattle:
 	writetext GiovanniScript_DefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 GiovanniScript_BeforeText:

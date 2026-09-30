@@ -26,12 +26,12 @@ WCRoundTwo_EnterMovement:
 
 WCFalknerScript:
 	faceplayer
-	opentext
+	opendialog FALKNER
 	checkevent EVENT_WORLD_CUP_BEAT_ROUND_TWO
 	iftrue FalknerScript_AfterBattle
 	writetext FalknerScript_BeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext FalknerScript_BeatenText, 0
 	loadtrainer FALKNER, WCFALKNER
@@ -39,10 +39,10 @@ WCFalknerScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_WORLD_CUP_BEAT_ROUND_TWO
-	opentext
+	opendialog FALKNER
 	writetext FalknerScript_DefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 6, 2, $4f ; open door
 	refreshmap
@@ -54,7 +54,7 @@ WCFalknerScript:
 FalknerScript_AfterBattle:
 	writetext FalknerScript_DefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 FalknerScript_BeforeText:

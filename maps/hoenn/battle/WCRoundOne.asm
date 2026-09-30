@@ -37,12 +37,12 @@ WCRoundOne_EnterMovement:
 
 LoreleiScript:
 	faceplayer
-	opentext
+	opendialog LORELEI
 	checkevent EVENT_WORLD_CUP_BEAT_ROUND_ONE
 	iftrue LoreleiScript_AfterBattle
 	writetext LoreleiScript_LoreleiBeforeText
 	waitbutton
-	closetext
+	closedialog
 
 	winlosstext LoreleiScript_LoreleiBeatenText, 0
 	loadtrainer LORELEI, LORELEI1
@@ -50,10 +50,10 @@ LoreleiScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_WORLD_CUP_BEAT_ROUND_ONE
-	opentext
+	opendialog LORELEI
 	writetext LoreleiScript_LoreleiDefeatText
 	waitbutton
-	closetext
+	closedialog
 	playsound SFX_ENTER_DOOR
 	changeblock 6, 2, $4f ; open door
 	refreshmap
@@ -65,7 +65,7 @@ LoreleiScript:
 LoreleiScript_AfterBattle:
 	writetext LoreleiScript_LoreleiDefeatText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 LoreleiScript_LoreleiBeforeText:
