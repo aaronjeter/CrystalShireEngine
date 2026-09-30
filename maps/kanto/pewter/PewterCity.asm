@@ -164,12 +164,19 @@ PewterCity_Green:
 	loadtrainer GREEN, GREEN2
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
+	reloadmap
+	iftrue .GreenWon
 	opendialog GREEN
 	writetext PewterCityGreenAfterBattleText
 	waitbutton
 	sjump .GreenExit
-	end
+
+.GreenWon
+	special HealParty
+	opendialog GREEN
+	writetext PewterCityGreenWonText
+	waitbutton
+	sjump .GreenExit
 
 .notReady
 	writetext PewterCityNoBadgeText
@@ -186,9 +193,8 @@ PewterCity_Green:
 .GreenExit
 	closedialog
 	setevent EVENT_FOUND_PEWTER_CITY_GREEN
-	special FadeOutToBlack
+	applymovement PEWTERCITY_GREEN, PewterCityGreen_WalkAwayMovement
 	disappear PEWTERCITY_GREEN
-	special FadeInFromBlack
 	end
 
 PewterCityGreenAfterBattleText:
@@ -196,6 +202,19 @@ PewterCityGreenAfterBattleText:
 	line "head on through"
 	cont "Mt Moon. Later"
 	cont "scrub!"
+	done
+
+PewterCityGreenWonText:
+	text "Oh, I got a bit"
+	line "carried away,"
+	cont "didn't I?"
+
+	para "Here, let me heal"
+	line "your #mon..."
+
+	para "Alright, I'm gonna"
+	line "head on through Mt"
+	cont "Moon. Later scrub!"
 	done
 
 PewterCityGreenLossText:
@@ -288,6 +307,14 @@ PewterCityGreen_StepUp2Movement:
 PewterCityGreen_StepBackMovement:
 	step LEFT
 	step LEFT
+	step_end
+
+PewterCityGreen_WalkAwayMovement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
 	step_end
 
 PewterCity_MapEvents:

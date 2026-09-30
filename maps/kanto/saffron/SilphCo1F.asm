@@ -66,13 +66,23 @@ Silph_Green:
 	loadtrainer GREEN, GREEN4
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
+	reloadmap
+	iftrue .GreenWon
 
 	opendialog GREEN
 	writetext SilphGreenAfterBattleText
 	waitbutton
 	closedialog
+	sjump .GreenLeaves
 
+.GreenWon
+	special HealParty
+	opendialog GREEN
+	writetext SilphGreenWonText
+	waitbutton
+	closedialog
+
+.GreenLeaves
 	setevent EVENT_FOUND_SILPH_GREEN
 	setevent EVENT_SAFFRON_CITY_SAFE
 	clearevent EVENT_SAFFRON_CITY_UNSAFE
@@ -96,7 +106,38 @@ SilphGreenAfterBattleText:
 	cont "League."
 
 	para "Up on Indigo"
-	line "Plateu, the Elite"
+	line "Plateau, the Elite"
+	cont "Four will happily"
+	cont "put your skills to"
+	cont "the test."
+
+	para "Alright, I'm out!"
+	line "I've got plenty"
+	cont "more to do."
+
+	para "Later, scrub!"
+	done
+
+SilphGreenWonText: 
+	text "Well, you still"
+	line "have some room for"
+	cont "improvement!"
+
+	para "Don't worry, I'll"
+	line "heal your #mon."
+
+	para "..."
+
+	para "Maybe Oak was"
+	line "right...You do"
+	cont "have some skill."
+
+	para "You should take"
+	line "on the #mon"
+	cont "League."
+
+	para "Up on Indigo"
+	line "Plateau, the Elite"
 	cont "Four will happily"
 	cont "put your skills to"
 	cont "the test."

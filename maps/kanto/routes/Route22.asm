@@ -20,12 +20,19 @@ Route22_Green:
 	loadtrainer GREEN, GREEN1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
+	reloadmap
+	iftrue .GreenWon
 	opentext
 	writetext Route22GreenAfterBattleText
 	waitbutton
 	sjump .GreenExit
-	end
+
+.GreenWon
+	special HealParty
+	opentext
+	writetext Route22GreenWonText
+	waitbutton
+	sjump .GreenExit
 
 .notKanto
 	opentext
@@ -42,6 +49,19 @@ Route22_Green:
 
 Route22GreenAfterBattleText:
 	text "Ah well, I'm gonna"
+	line "head back and see"
+	cont "Oak. Later scrub!"
+	done
+
+Route22GreenWonText:
+	text "Oh, whoops!"
+	line "I guess your"
+	cont "#mon are weak!"
+
+	para "I guess I'll heal"
+	line "them up..."
+
+	para "Alright, I'm gonna"
 	line "head back and see"
 	cont "Oak. Later scrub!"
 	done

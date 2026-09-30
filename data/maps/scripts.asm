@@ -284,12 +284,15 @@ INCLUDE "maps/kanto/saffron/SaffronMart.asm"
 INCLUDE "maps/kanto/saffron/SaffronPokecenter1F.asm"
 INCLUDE "maps/kanto/saffron/MrPsychicsHouse.asm"
 INCLUDE "maps/kanto/saffron/SaffronMagnetTrainStation.asm"
-INCLUDE "maps/kanto/saffron/SilphCo1F.asm"
 INCLUDE "maps/kanto/saffron/CopycatsHouse1F.asm"
 INCLUDE "maps/kanto/saffron/CopycatsHouse2F.asm"
 INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 INCLUDE "maps/kanto/saffron/SaffronNorthGate.asm"
 INCLUDE "maps/kanto/routes/Route5CleanseTagHouse.asm"
+
+SECTION "Map Scripts 15.1", ROMX
+
+INCLUDE "maps/kanto/saffron/SilphCo1F.asm"
 
 
 SECTION "Map Scripts 16", ROMX

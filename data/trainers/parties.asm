@@ -8228,7 +8228,7 @@ ExplorerGroup:
 
 	next_list_item ; GREEN (1)
 	db "Green@", TRAINERTYPE_NORMAL
-	dbw 0, SQUIRTLE
+	dbw 3, SQUIRTLE
 	db -1 ; end
 
 	next_list_item ; GREEN (2)
@@ -8240,20 +8240,21 @@ ExplorerGroup:
 
 	next_list_item ; GREEN (3)
 	db "Green@", TRAINERTYPE_NORMAL
-	dbw 7, CLEFAIRY
-	dbw 7, HAUNTER
-	dbw 7, WEEPINBELL
+	dbw 9, CLEFAIRY
+	dbw 9, HAUNTER
+	dbw 9, WEEPINBELL
 	dbw 8, FEAROW	
-	dbw 10, WARTORTLE
+	dbw 12, BLASTOISE
 	db -1 ; end
 
 	next_list_item ; GREEN (4)
 	db "Green@", TRAINERTYPE_NORMAL
-	dbw 7, CLEFABLE
-	dbw 7, GENGAR
-	dbw 7, VICTREEBEL
-	dbw 8, ANINETALES	
-	dbw 11, BLASTOISE
+	dbw 11, KANGASKHAN
+	dbw 9, CLEFABLE
+	dbw 9, GENGAR
+	dbw 9, VICTREEBEL
+	dbw 9, ANINETALES	
+	dbw 12, BLASTOISE
 	db -1 ; end
 
 	next_list_item ; WC_GREEN (?) World Cup Green

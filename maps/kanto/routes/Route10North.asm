@@ -29,12 +29,19 @@ Route10_Green:
 	loadtrainer GREEN, GREEN3
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
+	reloadmap
+	iftrue .GreenWon
 	opentext
 	writetext Route10GreenAfterBattleText
 	waitbutton
 	sjump .GreenExit
-	end
+
+.GreenWon
+	special HealParty
+	opentext
+	writetext Route10GreenWonText
+	waitbutton
+	sjump .GreenExit
 
 .notKanto
 	opentext
@@ -53,6 +60,33 @@ Route10_Green:
 Route10GreenAfterBattleText:
 	text "Ah well, I'm gonna"
 	line "head on."
+
+	para "I need to stop by"
+	line "Lavender Town,"
+	cont "through Rock"
+	cont "Tunnel..."
+
+	para "If you're planning"
+	line "to follow, you'll"
+	cont "probably want a"
+	cont "light source."
+
+	para "I borrowed a"
+	line "Lantern from the"
+	cont "Power Plant."
+
+	para "It's just South of"
+	line "here. Sounded like"
+	cont "they need some"
+	cont "help, actually..."
+	done
+
+Route10GreenWonText:
+	text "Ah, I got a bit"
+	line "carried away..."
+
+	para "Here, let me heal"
+	line "your #mon..."
 
 	para "I need to stop by"
 	line "Lavender Town,"
@@ -118,6 +152,7 @@ Route10NorthGreenEventScript1:
 	checkevent EVENT_FOUND_ROUTE10_GREEN
 	iftrue .done
 	applymovement PLAYER, Route10North_PlayerWalkOverMovement1
+	turnobject PLAYER, UP
 	sjump Route10_Green
 .done
 	end
@@ -132,6 +167,8 @@ Route10NorthGreenEventScript2:
 	end
 
 Route10North_PlayerWalkOverMovement1:
+	step DOWN
+	step LEFT
 	step LEFT
 	step LEFT
 	step_end
