@@ -2912,20 +2912,21 @@ LaprasEvosAttacks:
 	dbw 1, POWDER_SNOW
 	dbw 1, SING
 	dbw 8, MIST
-	dbw 16, TWISTER
-	dbw 20, CONFUSE_RAY
+	dbw 12, BUBBLE
+	dbw 16, CONFUSE_RAY
+	dbw 20, BUBBLEBEAM
 	dbw 24, AURORA_BEAM
 	dbw 28, PERISH_SONG
 	dbw 32, SAFEGUARD
-	dbw 36, DRAGONBREATH
-	dbw 40, ICE_BEAM
+	dbw 36, HEAL_BELL
+	dbw 40, MIST_BALL	
 	dbw 42, HAIL
-	dbw 45, COSMIC_POWER
-	dbw 50, SURF
-	dbw 55, WATERFALL
+	dbw 45, ICE_BEAM
+	dbw 50, COSMIC_POWER
+	dbw 55, DRAGONBREATH
 	dbw 60, HYDRO_PUMP
 	dbw 65, BLIZZARD
-	dbw 70, ICICLE_CRASH
+	dbw 70, HYDRO_CANNON
 	db 0 ; no more level-up moves
 
 DittoEvosAttacks:
