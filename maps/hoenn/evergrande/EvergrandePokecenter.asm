@@ -6,6 +6,17 @@ EvergrandePokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, EvergrandePokecenterBlackoutCallback
+
+EvergrandePokecenterBlackoutCallback:
+; Evergrande City's spawn point is in front of the Pokemon League, so healing
+; here would make a white-out in Victory Road skip ahead to the League.
+; Until the player reaches the League, white out to Lilycove instead.
+	checkflag ENGINE_FLYPOINT_EVERGRANDE
+	iftrue .done
+	blackoutmod LILYCOVE_CITY
+.done
+	endcallback
 
 EvergrandePokecenterNurseScript:
 	jumpstd PokecenterNurseScript
