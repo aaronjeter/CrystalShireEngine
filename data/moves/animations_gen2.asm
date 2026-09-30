@@ -159,7 +159,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_ShadowForce	;Shadow Force
 	dw BattleAnim_StoneEdge		;
 	dw BattleAnim_Scald			;
-	dw BattleAnim_RazorShell	;
+	dw BattleAnim_RazorShell	;Razor Shell
 	dw BattleAnim_EarthPower	;
 	dw BattleAnim_ShockSlam		;ShockSlam
 	dw BattleAnim_Snarl			;Snarl
@@ -1948,6 +1948,56 @@ BattleAnim_HiddenPower:
 	anim_ret
 
 BattleAnim_RazorShell:
+	; Shell blades in water blue: Clamp's two shell halves snap shut on the
+	; target, two long slashes (Night Slash's) cross over it in an X, and the
+	; target ripples as if splashed (Water Gun's ripple).
+	;
+	; Like Water Pulse: the ripple needs a copy of the user's picture in
+	; sprites so it doesn't bend the user. Its graphics are loaded at the start
+	; (loading them pauses the animation for about 13 frames), and the copy is
+	; made just before the ripple.
+	anim_2gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT
+	; The shells, slashes and hit star use the gray slot; recolor it blue
+	; (restored at the end, since custom palettes persist)
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BLUE
+	anim_battlergfx_1row
+	; Shells snap shut once: Clamp's shells close in 16 frames, hold for 4,
+	; then open and clap again, over and over, so they're removed while
+	; still closed (they're the only objects out at this point)
+	anim_sound 0, 1, SFX_VICEGRIP
+	anim_obj BATTLE_ANIM_OBJ_CLAMP, 136, 56, $a0
+	anim_obj BATTLE_ANIM_OBJ_CLAMP, 136, 56, $20
+	anim_wait 18
+	anim_clearobjs
+	; X slash
+	anim_sound 0, 1, SFX_CUT
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 120, 40, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 8
+	; Splash: set up the ripple on the target, then copy the user's picture
+	; into sprites (second half of BattleAnim_UserObj_2Row)
+	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_BATTLEROBJ_2ROW, $0, BG_EFFECT_USER, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_WATER_GUN
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $1c, $0, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $8, $0, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_WATER, $30, $0, $0
+	anim_wait 24
+	; Show the user's real picture again, end the ripple, then remove the copy
+	anim_wait 1
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 4
+	anim_bgeffect BATTLE_BG_EFFECT_END_WATER, $0, $0, $0
+	anim_wait 16
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
 BattleAnim_CrossChop:
 	anim_1gfx BATTLE_ANIM_GFX_CUT
 	anim_sound 0, 1, SFX_CUT
