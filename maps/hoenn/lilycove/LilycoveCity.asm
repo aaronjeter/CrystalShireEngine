@@ -22,34 +22,64 @@ LilycoveCityFlypointCallback:
 
 Lilycove_Wally:
 	faceplayer
-	opentext
+	opendialog WALLY
 	writetext LilycoveWallyIntroText
 	waitbutton
-	closetext
+	closedialog
 	winlosstext LilycoveWallyLossText, LilycoveWallyWinText
 	loadtrainer WALLY, WALLY5
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
-	opentext
-	writetext LilycoveWallyAfterBattleText
-	waitbutton
-	closetext
+	reloadmap
+	iftrue .WallyWon
 	special HealParty
+	opendialog WALLY
+	writetext LilycoveWallyAfterBattleText
+	sjump .WallyExit
+
+.WallyWon
+	special HealParty
+	opendialog WALLY
+	writetext LilycoveWallyWonText
+
+.WallyExit
+	promptbutton
+	writetext LilycoveWallyMossdeepText
+	waitbutton
+	closedialog
 	setevent EVENT_FOUND_LILYCOVE_WALLY
 	setflag ENGINE_FLYPOINT_MOSSDEEP
-	special FadeOutToBlack
+	; Wally calls out Altaria and flies off to Mossdeep
+	cry ALTARIA
+	waitsfx
+	playsound SFX_FLY
+	applymovement LILYCOVECITY_WALLY, LilycoveWally_FlyAwayMovement
 	disappear LILYCOVECITY_WALLY
-	special FadeInFromBlack
+	waitsfx
 	end
+
+LilycoveWally_FlyAwayMovement:
+	teleport_from
+	step_end
 
 LilycoveWallyAfterBattleText:
 	text "Wow, every time."
 	line "I think you have"
 	cont "my number,"
 	cont "<PLAY_G>."
+	done
 
-	para "Here, I'll mark"
+LilycoveWallyWonText:
+	text "Whew, I thought"
+	line "you had me there."
+
+	para "I've been learning"
+	line "a lot lately, and"
+	cont "my #mon too!"
+	done
+
+LilycoveWallyMossdeepText:
+	text "Here, I'll mark"
 	line "Mossdeep on your"
 	cont "flymap."
 
