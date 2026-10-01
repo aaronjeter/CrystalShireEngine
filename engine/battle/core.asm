@@ -1874,7 +1874,27 @@ HandleWeather:
 	ret
 
 .continues
-
+	; Rain and Sun replay their move animations each turn, like Sandstorm and Hail
+	ld a, [wBattleWeather]
+	ld de, RAIN_DANCE
+	cp WEATHER_RAIN
+	jr z, .weather_anim
+	ld de, SUNNY_DAY
+	cp WEATHER_SUN
+	jr nz, .weather_message
+.weather_anim
+	farcall CheckBattleScene ; skip if battle animations are turned off
+	jr c, .weather_message
+	; always play it from the player's side, so it looks the same every turn
+	ldh a, [hBattleTurn]
+	push af
+	call SetPlayerTurn
+	xor a
+	ld [wNumHits], a
+	call Call_PlayBattleAnim
+	pop af
+	ldh [hBattleTurn], a
+.weather_message
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
 
@@ -1925,12 +1945,15 @@ HandleWeather:
 	cp STEEL
 	ret z
 
+	farcall CheckBattleScene ; skip if battle animations are turned off
+	jr c, .skip_sandstorm_anim
 	call SwitchTurnCore
 	xor a
 	ld [wNumHits], a
 	ld de, ANIM_IN_SANDSTORM
 	call Call_PlayBattleAnim
 	call SwitchTurnCore
+.skip_sandstorm_anim
 	call GetEighthMaxHP
 	call SubtractHPFromUser
 
@@ -1977,12 +2000,15 @@ HandleWeather:
 	cp ICE
 	ret z
 
+	farcall CheckBattleScene ; skip if battle animations are turned off
+	jr c, .skip_hail_anim
 	call SwitchTurnCore
 	xor a
 	ld [wNumHits], a
 	ld de, ANIM_IN_HAIL
 	call Call_PlayBattleAnim
 	call SwitchTurnCore
+.skip_hail_anim
 
 	call GetSixteenthMaxHP
 	call SubtractHPFromUser
