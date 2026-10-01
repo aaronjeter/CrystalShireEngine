@@ -36,10 +36,24 @@ CheckRegisteredItem:
 	inc hl
 	ld e, a
 	ld d, 0
+	; Items pocket entries are 3 bytes: item index (high, low), quantity
 	add hl, de
 	add hl, de
-	call .IsSameItem
-	jr c, .NoRegisteredItem
+	add hl, de
+	push hl
+	ld a, [wRegisteredItem]
+	call GetItemIndexFromID
+	ld b, h
+	ld c, l
+	pop hl
+	ld a, [hli]
+	cp b
+	jr nz, .NoRegisteredItem
+	ld a, [hl]
+	cp c
+	jr nz, .NoRegisteredItem
+	ld a, [wRegisteredItem]
+	ld [wCurItem], a
 	and a
 	ret
 
