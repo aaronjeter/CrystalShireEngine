@@ -678,6 +678,18 @@ _CGB_UnownPuzzle:
 	call WipeAttrmap
 	jmp ApplyAttrmap
 
+PreviewIntroPlayerColor:
+; Recolor the intro player pic (BG palette 0) to match wPlayerColor,
+; using the same trainer palette as the trainer card.
+	ld de, wBGPals1
+	call _CGB_GetPlayerColor
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	call ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
 _CGB_GetPlayerColor:
 	ld a, [wPlayerColor]
 	cp 0

@@ -617,6 +617,16 @@ if !DEF(_DEBUG)
 	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
 	call Intro_RotatePalettesLeftFrontpic
+else
+	; The debug build skips the speech above, so Oak's pic would still be
+	; on screen. Swap in the player pic so naming/color menus show the player.
+	call ClearTilemap
+	xor a
+	ld [wCurPartySpecies], a
+	farcall DrawIntroPlayerPic
+	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
+	call GetSGBLayout
+	call Intro_RotatePalettesLeftFrontpic
 endc
 	ld hl, OakText6
 	call PrintText
@@ -691,192 +701,205 @@ OakTextOrigin:
 SetRegion:
 	ld hl, OakTextRegion
 	call PrintText
+.menu
+	xor a
+	ld [wItemFlags], a ; make sure the list is read as plain bytes
+	ld [wMenuScrollPosition], a
+	call LoadStandardMenuHeader ; back up the whole screen (the box border sits outside menu_coords)
 	ld hl, .RegionMenuHeader
-	call LoadMenuHeader
-	call VerticalMenu
-	call CloseWindow	
-	ld a, [wMenuCursorY]
-	cp $1
-	jr z, .RegionKanto
-	cp $2
-	jr z, .RegionJohto
-	cp $3
-	jr z, .RegionHoenn
-	cp $4
-	jr z, .RegionAlola
-	cp $5
-	jp z, .RegionReddit
-	cp $6
-	jp z, .RegionBeta
+	call CopyMenuHeader
+	call InitScrollingMenu
+	call UpdateSprites
+	call ScrollingMenu
+	call CloseWindow
+	ld a, [wMenuJoypad]
+	cp B_BUTTON
+	jr z, .menu ; B or "Cancel" doesn't skip the question; just ask again
+	ld a, [wMenuSelection]
+	ld e, a
+	ld d, 0
+	ld hl, .RegionFlags
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	ld b, SET_FLAG
+	jmp EventFlagAction
 
 .RegionMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 0, 15, TEXTBOX_Y - 1
+	; Scrolling menus draw their border one tile outside these coords,
+	; so this box covers (0,0)-(17,10). 4 visible rows: bottom = top + 2 * rows.
+	menu_coords 1, 1, 16, 9
 	dw .RegionMenuData
 	db 1 ; default option
 
 .RegionMenuData:
-	db STATICMENU_CURSOR ; flags
-	db 6 ; items
-	db "Kanto (Gen 1)@"
-	db "Johto (Gen 2)@"
-	db "Hoenn (Gen 3)@"
-	db "Alola (Gen 7)@"
-	db "Johto (alt)@"
-	db "Beta@"
+	db SCROLLINGMENU_DISPLAY_ARROWS ; flags
+	db 4, 0 ; rows, columns
+	db SCROLLINGMENU_ITEMS_NORMAL ; item format
+	dba .RegionList
+	dba .PlaceRegionName
+	dba NULL
+	dba NULL
 
-.RegionKanto:
-    ld de, EVENT_ORIGIN_KANTO
-    ld b, SET_FLAG
-	call EventFlagAction
-	ret
+; Scrolling menu list: count, region IDs, -1.
+; Each ID indexes .RegionNames and .RegionFlags.
+.RegionList:
+	db 6
+	db 0, 1, 2, 3, 4, 5
+	db -1
 
-.RegionJohto:
-	ld de, EVENT_ORIGIN_JOHTO
-    ld b, SET_FLAG
-	call EventFlagAction
-	ret
+.PlaceRegionName:
+; de = where to print; [wMenuSelection] = region ID
+	ld a, [wMenuSelection]
+	push de
+	ld e, a
+	ld d, 0
+	ld hl, .RegionNames
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	pop hl
+	jmp PlaceString
 
-.RegionHoenn:
-	ld de, EVENT_ORIGIN_HOENN
-    ld b, SET_FLAG
-	call EventFlagAction
-	ret
+.RegionNames:
+	dw .Kanto
+	dw .Johto
+	dw .Hoenn
+	dw .Alola
+	dw .Reddit
+	dw .Beta
 
-.RegionAlola:
-	ld de, EVENT_ORIGIN_ALOLA
-    ld b, SET_FLAG
-	call EventFlagAction
-	ret
+.Kanto:  db "Kanto (Gen 1)@"
+.Johto:  db "Johto (Gen 2)@"
+.Hoenn:  db "Hoenn (Gen 3)@"
+.Alola:  db "Alola (Gen 7)@"
+.Reddit: db "Johto (alt)@"
+.Beta:   db "Beta@"
 
-.RegionReddit:
-	ld de, EVENT_ORIGIN_REDDIT
-    ld b, SET_FLAG
-	call EventFlagAction
-	ret
+.RegionFlags:
+	dw EVENT_ORIGIN_KANTO
+	dw EVENT_ORIGIN_JOHTO
+	dw EVENT_ORIGIN_HOENN
+	dw EVENT_ORIGIN_ALOLA
+	dw EVENT_ORIGIN_REDDIT
+	dw EVENT_ORIGIN_BETA
 
-.RegionBeta:
-	ld de, EVENT_ORIGIN_BETA
-    ld b, SET_FLAG
-	call EventFlagAction
-	ret
-
-
-AltSetColor:
-	ld hl, OakTextColor
-	call PrintText
-	ld hl, .ColorMenuHeader
-	call LoadMenuHeader
-	call VerticalMenu
-	call CloseWindow	
-	ld a, [wMenuCursorY]
-	cp $1
-	jr z, .ColorPurple
-	cp $2
-	jr z, .ColorTeal
-	cp $3
-	jr z, .ColorGray
-	cp $4
-	jr z, .ColorOrange
-	cp $5
-	jr z, .Back
-
-.ColorMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 0, 15, TEXTBOX_Y - 1
-	dw .ColorMenuData
-	db 1 ; default option
-
-.ColorMenuData:
-	db STATICMENU_CURSOR ; flags
-	db 5 ; items
-	db "Purple@"
-	db "Teal@"
-	db "Gray@"
-	db "Orange@"
-	db "--Back--@"
-
-.ColorPurple:
-	ld a, 4
-	ld [wPlayerColor], a
-	ret
-
-.ColorTeal:
-	ld a, 7
-	ld [wPlayerColor], a
-	ret
-
-.ColorGray:
-	ld a, 5
-	ld [wPlayerColor], a
-	ret
-
-.ColorOrange:
-	ld a, 9
-	ld [wPlayerColor], a
-	ret
-
-.Back:
-	call SetColor
-	ret
 
 SetColor:
 	ld hl, OakTextColor
 	call PrintText
+	; slide the player pic out from under the menu so the color preview is visible
+	farcall MovePlayerPicRight
+.menu
+	xor a
+	ld [wItemFlags], a ; make sure the list is read as plain bytes
+	ld [wMenuScrollPosition], a
+	call LoadStandardMenuHeader ; back up the whole screen (the box border sits outside menu_coords)
 	ld hl, .ColorMenuHeader
-	call LoadMenuHeader
-	call VerticalMenu
-	call CloseWindow	
-	ld a, [wMenuCursorY]
-	cp $1
-	jr z, .ColorRed
-	cp $2
-	jr z, .ColorBlue
-	cp $3
-	jr z, .ColorGreen
-	cp $4
-	jr z, .ColorBrown
-	cp $5
-	jr z, .More
+	call CopyMenuHeader
+	call InitScrollingMenu
+	call UpdateSprites
+	call ScrollingMenu
+	call CloseWindow
+	ld a, [wMenuJoypad]
+	cp B_BUTTON
+	jr z, .menu ; B or "Cancel" doesn't skip the question; just ask again
+	ld a, [wMenuSelection]
+	ld e, a
+	ld d, 0
+	ld hl, .ColorValues
+	add hl, de
+	ld a, [hl]
+	ld [wPlayerColor], a
+	farjp MovePlayerPicLeft
 
 .ColorMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 0, 15, TEXTBOX_Y - 1
+	; Scrolling menus draw their border one tile outside these coords,
+	; so this box covers (0,0)-(11,10). 4 visible rows: bottom = top + 2 * rows.
+	menu_coords 1, 1, 10, 9
 	dw .ColorMenuData
 	db 1 ; default option
 
 .ColorMenuData:
-	db STATICMENU_CURSOR ; flags
-	db 5 ; items
-	db "Red@"
-	db "Blue@"
-	db "Green@"
-	db "Brown@"
-	db "--More--@"
+	db SCROLLINGMENU_DISPLAY_ARROWS | SCROLLINGMENU_ENABLE_FUNCTION3 ; flags
+	db 4, 0 ; rows, columns
+	db SCROLLINGMENU_ITEMS_NORMAL ; item format
+	dba .ColorList
+	dba .PlaceColorName
+	dba NULL
+	dba .PreviewColor ; Function 3: runs whenever the cursor moves
 
-.ColorRed:
-	ld a, 0
+; Scrolling menu list: count, color IDs, -1.
+; Each ID indexes .ColorNames and .ColorValues.
+.ColorList:
+	db 8
+	db 0, 1, 2, 3, 4, 5, 6, 7
+	db -1
+
+.PlaceColorName:
+; de = where to print; [wMenuSelection] = color ID
+	ld a, [wMenuSelection]
+	push de
+	ld e, a
+	ld d, 0
+	ld hl, .ColorNames
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	pop hl
+	jmp PlaceString
+
+.PreviewColor:
+; Recolor the player pic to the highlighted color.
+; [wMenuSelection] = color ID, or -1 on "Cancel" (keep the last preview)
+	ld a, [wMenuSelection]
+	cp -1
+	ret z
+	ld e, a
+	ld d, 0
+	ld hl, .ColorValues
+	add hl, de
+	ld a, [hl]
 	ld [wPlayerColor], a
-	ret
+	farjp PreviewIntroPlayerColor
 
-.ColorBlue:
-	ld a, 1
-	ld [wPlayerColor], a
-	ret
+.ColorNames:
+	dw .Red
+	dw .Blue
+	dw .Green
+	dw .Brown
+	dw .Purple
+	dw .Teal
+	dw .Gray
+	dw .Orange
 
-.ColorGreen:
-	ld a, 2
-	ld [wPlayerColor], a
-	ret
+.Red:    db "Red@"
+.Blue:   db "Blue@"
+.Green:  db "Green@"
+.Brown:  db "Brown@"
+.Purple: db "Purple@"
+.Teal:   db "Teal@"
+.Gray:   db "Gray@"
+.Orange: db "Orange@"
 
-.ColorBrown:
-	ld a, 3
-	ld [wPlayerColor], a
-	ret
-
-.More:
-	call AltSetColor
-	ret
+; wPlayerColor value for each color ID
+.ColorValues:
+	db 0 ; Red
+	db 1 ; Blue
+	db 2 ; Green
+	db 3 ; Brown
+	db 4 ; Purple
+	db 7 ; Teal
+	db 5 ; Gray
+	db 9 ; Orange
 
 
 SetStart:
