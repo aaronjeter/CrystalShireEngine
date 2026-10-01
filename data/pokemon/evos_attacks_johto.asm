@@ -518,8 +518,8 @@ ChinchouEvosAttacks:
 	dbw 10, THUNDERSHOCK
 	dbw 16, WATER_GUN
 	dbw 20, THUNDER_WAVE
-	dbw 28, SHOCK_WAVE
 	dbw 24, WATER_PULSE
+	dbw 28, SHOCK_WAVE	
 	dbw 32, CONFUSE_RAY
 	dbw 36, CHARGE
 	dbw 40, THUNDERBOLT
@@ -538,8 +538,8 @@ LanturnEvosAttacks:
 	dbw 10, THUNDERSHOCK
 	dbw 16, WATER_GUN
 	dbw 20, THUNDER_WAVE
-	dbw 28, SHOCK_WAVE
 	dbw 24, WATER_PULSE
+	dbw 28, SHOCK_WAVE	
 	dbw 32, CONFUSE_RAY
 	dbw 36, CHARGE
 	dbw 40, THUNDERBOLT
@@ -1402,8 +1402,8 @@ ScizorEvosAttacks:
 	dbw 32, FURY_CUTTER
 	dbw 36, PURSUIT
 	dbw 40, VICEGRIP	
-	dbw 45, LEAF_BLADE
-	dbw 42, NIGHT_SLASH	
+	dbw 42, LEAF_BLADE
+	dbw 45, NIGHT_SLASH	
 	dbw 50, SWORDS_DANCE	
 	dbw 55, DOUBLE_TEAM	
 	dbw 60, SKY_ATTACK

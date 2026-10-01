@@ -2432,7 +2432,7 @@ HitmonchanEvosAttacks:
 	dbw 32, ICE_PUNCH
 	dbw 36, FIRE_PUNCH
 	dbw 40, DYNAMICPUNCH
-	dbw 30, FOCUS_PUNCH
+	dbw 42, FOCUS_PUNCH
 	dbw 45, BULLET_PUNCH	
 	dbw 50, MEGA_PUNCH
 	dbw 55, DRAGON_DANCE

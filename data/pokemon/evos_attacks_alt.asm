@@ -162,7 +162,7 @@ SylveonEvosAttacks:
 	dbw 55, MIST_BALL
 	dbw 60, LUSTER_PURGE
 	dbw 65, MIST
-	dbw 60, PLAY_ROUGH
+	dbw 70, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
 LeafeonEvosAttacks:
@@ -1128,8 +1128,8 @@ Scizor2EvosAttacks:
 	dbw 32, FURY_CUTTER
 	dbw 36, PURSUIT
 	dbw 40, VICEGRIP	
-	dbw 45, LEAF_BLADE
-	dbw 42, NIGHT_SLASH	
+	dbw 42, LEAF_BLADE
+	dbw 45, NIGHT_SLASH	
 	dbw 50, SWORDS_DANCE	
 	dbw 55, DOUBLE_TEAM	
 	dbw 60, SKY_ATTACK

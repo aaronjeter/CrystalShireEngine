@@ -2193,7 +2193,7 @@ MiloticEvosAttacks:
 	dbw 55, DRAGONBREATH
 	dbw 60, WATER_SPOUT
 	dbw 65, SAFEGUARD
-	dbw 50, HYDRO_CANNON	
+	dbw 70, HYDRO_CANNON	
 	db 0 ; no more level-up moves
 
 KecleonEvosAttacks:
