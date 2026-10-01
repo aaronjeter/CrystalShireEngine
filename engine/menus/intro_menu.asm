@@ -907,7 +907,14 @@ SetStart:
 	call PrintText
 	ld hl, .StartMenuHeader
 	call LoadMenuHeader
+.menu
 	call VerticalMenu
+	jr nc, .chosen
+	; B doesn't pick anything; only A confirms. Keep the cursor where it was.
+	ld a, [wMenuCursorY]
+	ld [wMenuCursorPosition], a
+	jr .menu
+.chosen
 	call CloseWindow	
 	ld a, [wMenuCursorY]
 	cp $1
@@ -954,7 +961,14 @@ SetLevelCap:
 	call PrintText
 	ld hl, .LevelCapMenuHeader
 	call LoadMenuHeader
+.menu
 	call VerticalMenu
+	jr nc, .chosen
+	; B doesn't pick anything; only A confirms. Keep the cursor where it was.
+	ld a, [wMenuCursorY]
+	ld [wMenuCursorPosition], a
+	jr .menu
+.chosen
 	call CloseWindow	
 	ld a, [wMenuCursorY]
 	cp $1
@@ -992,7 +1006,14 @@ SetHardMode:
 	call PrintText
 	ld hl, .HardModeHeader
 	call LoadMenuHeader
+.menu
 	call VerticalMenu
+	jr nc, .chosen
+	; B doesn't pick anything; only A confirms. Keep the cursor where it was.
+	ld a, [wMenuCursorY]
+	ld [wMenuCursorPosition], a
+	jr .menu
+.chosen
 	call CloseWindow	
 	ld a, [wMenuCursorY]
 	cp $1
