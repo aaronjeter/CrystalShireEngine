@@ -2578,6 +2578,38 @@ EndMoveEffect:
 	ld [hl], a
 	ret
 
+SandstormSpDefBoost:
+; Gen 4+: in a sandstorm, Rock-type Pokemon have 1.5x Special Defense.
+; Applies to the defender of the current turn (also on critical hits).
+; bc = the defender's Special Defense; preserves hl
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
+	ret nz
+	push hl
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_types
+	ld hl, wBattleMonType1
+.got_types
+	ld a, [hli]
+	cp ROCK
+	jr z, .boost
+	ld a, [hl]
+	cp ROCK
+	jr nz, .done
+.boost
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+.done
+	pop hl
+	ret
+
 DittoMetalPowder:
 	ld a, MON_SPECIES
 	call BattlePartyAttr
@@ -2707,6 +2739,7 @@ PlayerAttackDamage:
 	ld hl, wPlayerSpAtk
 
 .lightball
+	call SandstormSpDefBoost
 ; Note: Returns player special attack at hl in hl.
 	call LightBallBoost
 	jr .done
@@ -2972,6 +3005,7 @@ EnemyAttackDamage:
 	ld hl, wEnemySpAtk
 
 .lightball
+	call SandstormSpDefBoost
 	call LightBallBoost
 	jr .done
 
