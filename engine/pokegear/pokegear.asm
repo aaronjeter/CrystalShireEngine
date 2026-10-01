@@ -1939,6 +1939,9 @@ _FlyMap:
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
+	; SCGB_POKEGEAR_PALS overwrites OBJ palettes 0-1 with fixed red/blue,
+	; so reload the icon colors now
+	call FlyMap_LoadIconPals
 .loop
 	call JoyTextDelay
 	ld hl, hJoyPressed
@@ -2618,6 +2621,17 @@ TownMapMon:
 	ld [hl], SPRITE_ANIM_FUNC_NULL
 	ret
 
+FlyMap_LoadIconPals:
+; OBJ palette 0: the Fly mon (or Delibird for the Bird Whistle)
+	farcall SetOWFlyMonColor
+; OBJ palette 1: the player, in their chosen overworld color
+	farcall LoadPlayerColor ; d = PAL_NPC_* for wPlayerColor
+	ld a, d
+	dec a ; PAL_NPC_* -> PAL_OW_*
+	ld [wNeededPalIndex], a
+	ld de, wOBPals1 palette 1
+	farjp CopySpritePal
+
 TownMapPlayerIcon:
 ; Draw the player icon at town map location in a
 	push af
@@ -2636,14 +2650,10 @@ TownMapPlayerIcon:
 	ld a, BANK(ChrisSpriteGFX) ; does nothing
 	call Request2bpp
 ; Animation/palette
+; Always use OBJ palette 1 (the "blue walk" frameset): palette 0 belongs to
+; the Fly mon icon. FlyMap_LoadIconPals loads the player's chosen color there.
 	depixel 0, 0
-	ld b, SPRITE_ANIM_OBJ_RED_WALK ; Male
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_gender
-	ld b, SPRITE_ANIM_OBJ_BLUE_WALK ; Female
-.got_gender
-	ld a, b
+	ld a, SPRITE_ANIM_OBJ_BLUE_WALK
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
