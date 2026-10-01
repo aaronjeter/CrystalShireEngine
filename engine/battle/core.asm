@@ -7131,6 +7131,16 @@ GiveExperiencePoints:
 	push bc
 	call LoadTilemapToTempTilemap
 	pop bc
+; Pokemon at or above the level cap don't gain EXP. Otherwise the cap clamp
+; below lowers their EXP to the cap level's amount, and once the cap rises
+; their next "level up" drops their level and loops through every level,
+; trying to learn their whole learnset.
+	ld hl, MON_LEVEL
+	add hl, bc
+	ld a, [wLevelCap]
+	cp [hl]
+	jmp z, .next_mon
+	jmp c, .next_mon
 	ld hl, MON_EXP + 2
 	add hl, bc
 	ld d, [hl]
@@ -7204,7 +7214,8 @@ GiveExperiencePoints:
 	pop bc
 	jmp nc, .next_mon
 	cp d
-	jmp z, .next_mon
+	; never "level up" to a lower level (that would loop through every level)
+	jmp nc, .next_mon
 ; <NICKNAME> grew to level ##!
 	ld [wTempLevel], a
 	ld a, [wCurPartyLevel]
