@@ -417,6 +417,10 @@ Jumptable_GiveTossQuit:
 	dw DoNothing ; QuitItemSubmenu
 
 UseItem:
+	; wUsingHMItem only applies to this use; field items like the Bird Whistle
+	; set it so .Oak skips the "isn't the time" text after their own message
+	xor a
+	ld [wUsingHMItem], a
 	farcall CheckItemMenu
 	ld a, [wItemAttributeValue]
 	ld hl, .dw

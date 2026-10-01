@@ -437,9 +437,28 @@ FlyFunction_GetMonIcon:
 ; fallthrough
 SetOWFlyMonColor:
 	; Edit the OBJ 0 palette so that the cursor Pokémon has the right colors.
+	ld a, [wFlyingWithHMItem]
+	and a
+	jr nz, .delibird
 	ld a, MON_DVS
 	call GetPartyParamLocation
 	call GetMenuMonIconPalette
+	jr .got_palette
+
+.delibird
+	; Bird Whistle: use Delibird's (non-shiny) colors, not the party mon's
+	ld a, [wCurPartySpecies]
+	push af
+	ld hl, DELIBIRD
+	call GetPokemonIDFromIndex
+	ld [wCurPartySpecies], a
+	and a ; not shiny
+	call GetMenuMonIconPalette_PredeterminedShininess
+	ld c, a
+	pop af
+	ld [wCurPartySpecies], a
+	ld a, c
+.got_palette
 	add a
 	add a
 	add a

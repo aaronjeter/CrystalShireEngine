@@ -52,7 +52,7 @@ wMusicID:: dw
 wMusicBank:: db
 wNoiseSampleAddress:: dw
 wNoiseSampleDelay:: db
-wFlyingWithHMItem:: db
+	ds 1 ; unused (wFlyingWithHMItem moved out of audio RAM)
 wMusicNoiseSampleSet:: db
 wSFXNoiseSampleSet:: db
 
@@ -111,7 +111,11 @@ wDontPlayMapMusicOnReload:: db
 
 SECTION "WRAM", WRAM0
 
-	ds 3
+	ds 2
+
+; not in the audio RAM block above: _InitSound clears wAudio, which
+; reset this flag mid-flight whenever the music changed
+wFlyingWithHMItem:: db
 
 wUsingHMItem:: db
 
