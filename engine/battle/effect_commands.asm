@@ -2580,12 +2580,27 @@ EndMoveEffect:
 
 SandstormSpDefBoost:
 ; Gen 4+: in a sandstorm, Rock-type Pokemon have 1.5x Special Defense.
-; Applies to the defender of the current turn (also on critical hits).
-; bc = the defender's Special Defense; preserves hl
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
 	ret nz
+	ld a, ROCK
+	jr WeatherDefenseBoost
+
+HailDefBoost:
+; In hail, Ice-type Pokemon have 1.5x Defense (like Gen 9's Snow).
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	ret nz
+	ld a, ICE
+	; fallthrough
+
+WeatherDefenseBoost:
+; Multiply bc by 1.5 if the defender of the current turn has type a.
+; Applies on critical hits too.
+; bc = the defender's (Special) Defense; preserves hl and de
 	push hl
+	push de
+	ld e, a
 	ld hl, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
@@ -2593,10 +2608,10 @@ SandstormSpDefBoost:
 	ld hl, wBattleMonType1
 .got_types
 	ld a, [hli]
-	cp ROCK
+	cp e
 	jr z, .boost
 	ld a, [hl]
-	cp ROCK
+	cp e
 	jr nz, .done
 .boost
 	ld h, b
@@ -2607,6 +2622,7 @@ SandstormSpDefBoost:
 	ld b, h
 	ld c, l
 .done
+	pop de
 	pop hl
 	ret
 
@@ -2745,6 +2761,7 @@ PlayerAttackDamage:
 	jr .done
 
 .thickclub
+	call HailDefBoost
 ; Note: Returns player attack at hl in hl.
 	call ThickClubBoost
 
@@ -3010,6 +3027,7 @@ EnemyAttackDamage:
 	jr .done
 
 .thickclub
+	call HailDefBoost
 	call ThickClubBoost
 
 .done
