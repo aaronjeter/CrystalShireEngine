@@ -148,3 +148,4 @@ SpecialsPointers::
 	add_special FadeInPalettes_EnableDynNoApply
 
 	add_special MoveReminder
+	add_special WardrobeColorMenu

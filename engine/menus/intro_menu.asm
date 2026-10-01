@@ -790,6 +790,8 @@ SetRegion:
 	dw EVENT_ORIGIN_BETA
 
 
+DEF NUM_COLOR_MENU_COLORS EQU 8
+
 SetColor:
 	ld hl, OakTextColor
 	call PrintText
@@ -810,11 +812,7 @@ SetColor:
 	cp B_BUTTON
 	jr z, .menu ; B or "Cancel" doesn't skip the question; just ask again
 	ld a, [wMenuSelection]
-	ld e, a
-	ld d, 0
-	ld hl, .ColorValues
-	add hl, de
-	ld a, [hl]
+	call ColorMenu_GetValue
 	ld [wPlayerColor], a
 	farjp MovePlayerPicLeft
 
@@ -830,25 +828,112 @@ SetColor:
 	db SCROLLINGMENU_DISPLAY_ARROWS | SCROLLINGMENU_ENABLE_FUNCTION3 ; flags
 	db 4, 0 ; rows, columns
 	db SCROLLINGMENU_ITEMS_NORMAL ; item format
-	dba .ColorList
-	dba .PlaceColorName
+	dba ColorMenu_List
+	dba ColorMenu_PlaceName
 	dba NULL
 	dba .PreviewColor ; Function 3: runs whenever the cursor moves
 
+.PreviewColor:
+; Recolor the player pic to the highlighted color.
+; [wMenuSelection] = color ID, or -1 on "Cancel" (keep the last preview)
+	ld a, [wMenuSelection]
+	cp -1
+	ret z
+	call ColorMenu_GetValue
+	ld [wPlayerColor], a
+	farjp PreviewIntroPlayerColor
+
+WardrobeColorMenu:
+; special: the bedroom wardrobe's outfit color menu.
+; Starts with the cursor on the current color.
+; Returns [wScriptVar] = new wPlayerColor value, or -1 if cancelled.
+	xor a
+	ld [wItemFlags], a ; make sure the list is read as plain bytes
+	call LoadStandardMenuHeader ; back up the whole screen (the box border sits outside menu_coords)
+	ld hl, .MenuHeader
+	call CopyMenuHeader
+	call .StartOnCurrentColor
+	call InitScrollingMenu
+	call UpdateSprites
+	call ScrollingMenu
+	call CloseWindow
+	ld a, [wMenuJoypad]
+	cp B_BUTTON
+	ld a, -1
+	jr z, .done
+	ld a, [wMenuSelection]
+	call ColorMenu_GetValue
+.done
+	ld [wScriptVar], a
+	ret
+
+.StartOnCurrentColor:
+; Find wPlayerColor's color ID and scroll so the cursor starts on it.
+	ld a, [wPlayerColor]
+	ld hl, ColorMenu_Values
+	ld c, 0
+.find
+	cp [hl]
+	jr z, .found
+	inc hl
+	inc c
+	ld b, a
+	ld a, c
+	cp NUM_COLOR_MENU_COLORS
+	ld a, b
+	jr c, .find
+	ld c, 0 ; unknown color: start at the top
+.found
+	ld a, c
+	cp 4 ; visible rows
+	jr nc, .scroll
+	inc a
+	ld [wMenuCursorPosition], a
+	xor a
+	ld [wMenuScrollPosition], a
+	ret
+
+.scroll
+	sub 4 - 1
+	ld [wMenuScrollPosition], a
+	ld a, 4
+	ld [wMenuCursorPosition], a
+	ret
+
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	; Scrolling menus draw their border one tile outside these coords,
+	; so this box covers (0,0)-(11,10). 4 visible rows: bottom = top + 2 * rows.
+	menu_coords 1, 1, 10, 9
+	dw .MenuData
+	db 1 ; default option (overwritten by .StartOnCurrentColor)
+
+.MenuData:
+	db SCROLLINGMENU_DISPLAY_ARROWS ; flags
+	db 4, 0 ; rows, columns
+	db SCROLLINGMENU_ITEMS_NORMAL ; item format
+	dba ColorMenu_List
+	dba ColorMenu_PlaceName
+	dba NULL
+	dba NULL
+
+; Shared by the intro color question and the bedroom wardrobe.
+; To add a color: add its ID to ColorMenu_List, its name to ColorMenu_Names,
+; its wPlayerColor value to ColorMenu_Values, and bump NUM_COLOR_MENU_COLORS.
+
 ; Scrolling menu list: count, color IDs, -1.
-; Each ID indexes .ColorNames and .ColorValues.
-.ColorList:
-	db 8
+ColorMenu_List:
+	db NUM_COLOR_MENU_COLORS
 	db 0, 1, 2, 3, 4, 5, 6, 7
 	db -1
 
-.PlaceColorName:
+ColorMenu_PlaceName:
 ; de = where to print; [wMenuSelection] = color ID
 	ld a, [wMenuSelection]
 	push de
 	ld e, a
 	ld d, 0
-	ld hl, .ColorNames
+	ld hl, ColorMenu_Names
 	add hl, de
 	add hl, de
 	ld a, [hli]
@@ -857,21 +942,16 @@ SetColor:
 	pop hl
 	jmp PlaceString
 
-.PreviewColor:
-; Recolor the player pic to the highlighted color.
-; [wMenuSelection] = color ID, or -1 on "Cancel" (keep the last preview)
-	ld a, [wMenuSelection]
-	cp -1
-	ret z
+ColorMenu_GetValue:
+; a = color ID -> a = its wPlayerColor value
 	ld e, a
 	ld d, 0
-	ld hl, .ColorValues
+	ld hl, ColorMenu_Values
 	add hl, de
 	ld a, [hl]
-	ld [wPlayerColor], a
-	farjp PreviewIntroPlayerColor
+	ret
 
-.ColorNames:
+ColorMenu_Names:
 	dw .Red
 	dw .Blue
 	dw .Green
@@ -891,7 +971,7 @@ SetColor:
 .Orange: db "Orange@"
 
 ; wPlayerColor value for each color ID
-.ColorValues:
+ColorMenu_Values:
 	db 0 ; Red
 	db 1 ; Blue
 	db 2 ; Green
@@ -900,6 +980,7 @@ SetColor:
 	db 7 ; Teal
 	db 5 ; Gray
 	db 9 ; Orange
+	assert @ - ColorMenu_Values == NUM_COLOR_MENU_COLORS
 
 
 SetStart:
