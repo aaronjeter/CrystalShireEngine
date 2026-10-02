@@ -10,84 +10,49 @@ AshenGauntletRound1:
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext AshenGauntletAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter AshenGauntletAfterBattleText
 
 AshenGauntletRound2:
 	trainer COOLTRAINERM, ASHEN_GAUNTLET1, EVENT_BEAT_ASH_ROUND2, AshenGauntletSeenText, AshenGauntletBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext AshenGauntletAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter AshenGauntletAfterBattleText
 
 AshenGauntletRound3:
 	trainer COOLTRAINERM, ASHEN_GAUNTLET1, EVENT_BEAT_ASH_ROUND3, AshenGauntletSeenText, AshenGauntletBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext AshenGauntletAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter AshenGauntletAfterBattleText
 
 AshenGauntletRound4:
 	trainer COOLTRAINERM, ASHEN_GAUNTLET1, EVENT_BEAT_ASH_ROUND4, AshenGauntletSeenText, AshenGauntletBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext AshenGauntletAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter AshenGauntletAfterBattleText
 
 AshenGauntletRound5:
 	trainer COOLTRAINERM, ASHEN_GAUNTLET1, EVENT_BEAT_ASH_ROUND5, AshenGauntletSeenText, AshenGauntletBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext AshenGauntletAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter AshenGauntletAfterBattleText
 
 AshenGauntletRound6:
 	trainer COOLTRAINERM, ASHEN_GAUNTLET1, EVENT_BEAT_ASH_ROUND6, AshenGauntletSeenText, AshenGauntletBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext AshenGauntletAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter AshenGauntletAfterBattleText
 
 AshenGauntletRound7:
 	trainer COOLTRAINERM, ASHEN_GAUNTLET1, EVENT_BEAT_ASH_ROUND7, AshenGauntletSeenText, AshenGauntletBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext AshenGauntletAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter AshenGauntletAfterBattleText
 
 AshenGauntletAdminScript:
 	opentext

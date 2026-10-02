@@ -10,84 +10,49 @@ TreetopTrialRound1:
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext TreetopTrialAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TreetopTrialAfterBattleText
 
 TreetopTrialRound2:
 	trainer RANGERM, TREETOP_TRIAL1, EVENT_BEAT_TREETOP_ROUND2, TreetopTrialSeenText, TreetopTrialBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext TreetopTrialAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TreetopTrialAfterBattleText
 
 TreetopTrialRound3:
 	trainer RANGERM, TREETOP_TRIAL1, EVENT_BEAT_TREETOP_ROUND3, TreetopTrialSeenText, TreetopTrialBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext TreetopTrialAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TreetopTrialAfterBattleText
 
 TreetopTrialRound4:
 	trainer RANGERM, TREETOP_TRIAL1, EVENT_BEAT_TREETOP_ROUND4, TreetopTrialSeenText, TreetopTrialBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext TreetopTrialAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TreetopTrialAfterBattleText
 
 TreetopTrialRound5:
 	trainer RANGERM, TREETOP_TRIAL1, EVENT_BEAT_TREETOP_ROUND5, TreetopTrialSeenText, TreetopTrialBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext TreetopTrialAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TreetopTrialAfterBattleText
 
 TreetopTrialRound6:
 	trainer RANGERM, TREETOP_TRIAL1, EVENT_BEAT_TREETOP_ROUND6, TreetopTrialSeenText, TreetopTrialBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext TreetopTrialAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TreetopTrialAfterBattleText
 
 TreetopTrialRound7:
 	trainer RANGERM, TREETOP_TRIAL1, EVENT_BEAT_TREETOP_ROUND7, TreetopTrialSeenText, TreetopTrialBeatenText, 0, .Script
 
 .Script:
 	special HealParty
-	endifjustbattled
-	opentext
-	writetext TreetopTrialAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TreetopTrialAfterBattleText
 
 TreetopTrialAdminScript:
 	opentext

@@ -21,13 +21,8 @@ TrainerMoonMiguel:
 	trainer SUPER_NERD, MOON_MIGUEL, EVENT_BEAT_MOON_MIGUEL, TrainerMoonMiguelSeenText, TrainerMoonMiguelBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	scall MtMoonLevelcap
-	opentext
-	writetext TrainerMoonMiguelAfterBattleText
-	waitbutton
-	closetext
-	end
+	scall MtMoonLevelcap ; runs right after the battle too
+	trainerafter TrainerMoonMiguelAfterBattleText
 
 TrainerMoonMiguelSeenText:
 	text "Hey, all these"
