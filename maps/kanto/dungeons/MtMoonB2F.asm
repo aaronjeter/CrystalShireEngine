@@ -60,12 +60,7 @@ TrainerMoonGrunt1:
 	trainer GRUNTM, MOON_GRUNT1, EVENT_BEAT_MOON_GRUNT1, TrainerMoonGrunt1SeenText, TrainerMoonGrunt1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonGrunt1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonGrunt1AfterBattleText
 
 TrainerMoonGrunt1SeenText:
 	text "What's a little"
@@ -89,12 +84,7 @@ TrainerMoonGrunt2:
 	trainer GRUNTM, MOON_GRUNT2, EVENT_BEAT_MOON_GRUNT2, TrainerMoonGrunt2SeenText, TrainerMoonGrunt2BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonGrunt2AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonGrunt2AfterBattleText
 
 TrainerMoonGrunt2SeenText:
 	text "Give me all"
@@ -118,12 +108,7 @@ TrainerMoonGrunt3:
 	trainer GRUNTM, MOON_GRUNT3, EVENT_BEAT_MOON_GRUNT3, TrainerMoonGrunt3SeenText, TrainerMoonGrunt3BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonGrunt3AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonGrunt3AfterBattleText
 
 TrainerMoonGrunt3SeenText:
 	text "Get out of"
@@ -147,12 +132,7 @@ TrainerMoonGrunt4:
 	trainer GRUNTM, MOON_GRUNT4, EVENT_BEAT_MOON_GRUNT4, TrainerMoonGrunt4SeenText, TrainerMoonGrunt4BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonGrunt4AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonGrunt4AfterBattleText
 
 TrainerMoonGrunt4SeenText:
 	text "Ooo, a trainer!"

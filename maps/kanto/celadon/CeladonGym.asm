@@ -103,45 +103,25 @@ TrainerLassMichelle:
 	trainer LASS, MICHELLE, EVENT_BEAT_LASS_MICHELLE, LassMichelleSeenText, LassMichelleBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext LassMichelleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LassMichelleAfterBattleText
 
 TrainerPicnickerTanya:
 	trainer PICNICKER, TANYA, EVENT_BEAT_PICNICKER_TANYA, PicnickerTanyaSeenText, PicnickerTanyaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PicnickerTanyaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PicnickerTanyaAfterBattleText
 
 TrainerBeautyJulia:
 	trainer BEAUTY, JULIA, EVENT_BEAT_BEAUTY_JULIA, BeautyJuliaSeenText, BeautyJuliaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BeautyJuliaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BeautyJuliaAfterBattleText
 
 TrainerTwinsJoAndZoe1:
 	trainer TWINS, JOANDZOE1, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe1SeenText, TwinsJoAndZoe1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TwinsJoAndZoe1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TwinsJoAndZoe1AfterBattleText
 
 CeladonGymStatue:
 	checkflag ENGINE_RAINBOWBADGE

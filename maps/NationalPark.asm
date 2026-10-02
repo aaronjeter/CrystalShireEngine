@@ -74,45 +74,25 @@ TrainerSchoolboyJack1:
 	trainer SCHOOLBOY, JACK, EVENT_BEAT_SCHOOLBOY_JACK, SchoolboyJack1SeenText, SchoolboyJack1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SchoolboyJackTradeMonText
-	waitbutton
-	closetext
-	end
+	trainerafter SchoolboyJackTradeMonText
 
 TrainerPokefanmWilliam:
 	trainer POKEFANM, WILLIAM, EVENT_BEAT_POKEFANM_WILLIAM, PokefanmWilliamSeenText, PokefanmWilliamBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmWilliamAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanmWilliamAfterBattleText
 
 TrainerPokefanfBeverly1:
 	trainer POKEFANF, BEVERLY, EVENT_BEAT_POKEFANF_BEVERLY, PokefanfBeverly1SeenText, PokefanfBeverly1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanBeverlyCuteMonText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanBeverlyCuteMonText
 
 TrainerLassKrise:
 	trainer LASS, KRISE, EVENT_BEAT_LASS_KRISE, LassKriseSeenText, LassKriseBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext LassKriseAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LassKriseAfterBattleText
 
 NationalParkRelaxationSquareSign:
 	jumptext NationalParkRelaxationSquareText

@@ -108,89 +108,49 @@ TrainerMediumRebecca:
 	trainer MEDIUM, REBECCA, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script
 	
 .Script:
-	endifjustbattled
-	opentext
-	writetext MediumRebeccaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MediumRebeccaAfterBattleText
 
 TrainerMediumRebecca2:	
 	trainer MEDIUM, REBECCA2, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script
 	
 .Script:
-	endifjustbattled
-	opentext
-	writetext MediumRebeccaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MediumRebeccaAfterBattleText
 
 TrainerPsychicFranklin:
 	trainer PSYCHIC_T, FRANKLIN, EVENT_BEAT_PSYCHIC_FRANKLIN, PsychicFranklinSeenText, PsychicFranklinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicFranklinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicFranklinAfterBattleText
 
 TrainerPsychicFranklin2:
 	trainer PSYCHIC_T, FRANKLIN2, EVENT_BEAT_PSYCHIC_FRANKLIN, PsychicFranklinSeenText, PsychicFranklinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicFranklinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicFranklinAfterBattleText
 
 TrainerMediumDoris:
 	trainer MEDIUM, DORIS, EVENT_BEAT_MEDIUM_DORIS, MediumDorisSeenText, MediumDorisBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MediumDorisAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MediumDorisAfterBattleText
 
 TrainerMediumDoris2:
 	trainer MEDIUM, DORIS2, EVENT_BEAT_MEDIUM_DORIS, MediumDorisSeenText, MediumDorisBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MediumDorisAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MediumDorisAfterBattleText
 
 TrainerPsychicJared:
 	trainer PSYCHIC_T, JARED, EVENT_BEAT_PSYCHIC_JARED, PsychicJaredSeenText, PsychicJaredBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicJaredAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicJaredAfterBattleText
 
 TrainerPsychicJared2:
 	trainer PSYCHIC_T, JARED2, EVENT_BEAT_PSYCHIC_JARED, PsychicJaredSeenText, PsychicJaredBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicJaredAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicJaredAfterBattleText
 
 SaffronGymGuideScript:
 	faceplayer

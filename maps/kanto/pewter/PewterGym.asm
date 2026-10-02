@@ -102,34 +102,19 @@ TrainerCamperJerry:
 	trainer CAMPER, JERRY, EVENT_BEAT_CAMPER_JERRY, CamperJerrySeenText, CamperJerryBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CamperJerryAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CamperJerryAfterBattleText
 
 TrainerCamperLiam:
 	trainer CAMPER, PEWTER_LIAM, EVENT_BEAT_CAMPER_LIAM, CamperLiamSeenText, CamperLiamBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CamperLiamAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CamperLiamAfterBattleText
 
 TrainerPicnickerAmara:
 	trainer PICNICKER, PEWTER_AMARA, EVENT_BEAT_PICNICKER_AMARA, PicnickerAmaraSeenText, PicnickerAmaraBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PicnickerAmaraAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PicnickerAmaraAfterBattleText
 
 
 PewterGymGuideScript:

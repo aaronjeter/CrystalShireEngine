@@ -17,12 +17,7 @@ TrainerMoonKent:
 	trainer BUG_CATCHER, MOON_KENT, EVENT_BEAT_MOON_KENT, TrainerMoonKentSeenText, TrainerMoonKentBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonKentAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonKentAfterBattleText
 
 TrainerMoonKentSeenText:
 	text "Dang it!"
@@ -47,12 +42,7 @@ TrainerMoonIris:
 	trainer LASS, MOON_IRIS, EVENT_BEAT_MOON_IRIS, TrainerMoonIrisSeenText, TrainerMoonIrisBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonIrisAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonIrisAfterBattleText
 
 TrainerMoonIrisSeenText:
 	text "Hey, have you"
@@ -75,12 +65,7 @@ TrainerMoonJovan:
 	trainer SUPER_NERD, MOON_JOVAN, EVENT_BEAT_MOON_JOVAN, TrainerMoonJovanSeenText, TrainerMoonJovanBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonJovanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonJovanAfterBattleText
 
 TrainerMoonJovanSeenText:
 	text "Hey, who goes"
@@ -102,12 +87,7 @@ TrainerMoonRobby:
 	trainer BUG_CATCHER, MOON_ROBBY, EVENT_BEAT_MOON_ROBBY, TrainerMoonRobbySeenText, TrainerMoonRobbyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonRobbyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonRobbyAfterBattleText
 
 TrainerMoonRobbySeenText:
 	text "I heard there"
@@ -131,12 +111,7 @@ TrainerMoonMiriam:
 	trainer LASS, MOON_MIRIAM, EVENT_BEAT_MOON_MIRIAM, TrainerMoonMiriamSeenText, TrainerMoonMiriamBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonMiriamAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonMiriamAfterBattleText
 
 TrainerMoonMiriamSeenText:
 	text "Clefairy is so"
@@ -157,12 +132,7 @@ TrainerMoonJosh:
 	trainer YOUNGSTER, MOON_JOSH, EVENT_BEAT_MOON_JOSH, TrainerMoonJoshSeenText, TrainerMoonJoshBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonJoshAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonJoshAfterBattleText
 
 TrainerMoonJoshSeenText:
 	text "These Geodude"
@@ -183,12 +153,7 @@ TrainerMoonMarcos:
 	trainer HIKER, MOON_MARCOS, EVENT_BEAT_MOON_MARCOS, TrainerMoonMarcosSeenText, TrainerMoonMarcosBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerMoonMarcosAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerMoonMarcosAfterBattleText
 
 TrainerMoonMarcosSeenText:
 	text "Yo, you like"

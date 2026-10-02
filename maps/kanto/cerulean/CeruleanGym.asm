@@ -148,34 +148,19 @@ TrainerSwimmerfDiana:
 	trainer SWIMMERF, DIANA, EVENT_BEAT_SWIMMERF_DIANA, SwimmerfDianaSeenText, SwimmerfDianaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfDianaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfDianaAfterBattleText
 
 TrainerSwimmerfBriana:
 	trainer SWIMMERF, BRIANA, EVENT_BEAT_SWIMMERF_BRIANA, SwimmerfBrianaSeenText, SwimmerfBrianaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfBrianaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfBrianaAfterBattleText
 
 TrainerSwimmermParker:
 	trainer SWIMMERM, PARKER, EVENT_BEAT_SWIMMERM_PARKER, SwimmermParkerSeenText, SwimmermParkerBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmermParkerAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmermParkerAfterBattleText
 
 CeruleanGymGuideScript:
 	faceplayer

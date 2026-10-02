@@ -111,12 +111,7 @@ SafariJoeyScript:
 	trainer EXPLORER, SAFARI_JOEY, EVENT_BEAT_SAFARI_JOEY, SafariJoeySeenText, SafariJoeyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SafariJoeyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SafariJoeyAfterBattleText
 
 SafariJoeySeenText:
 	text "Oh, hey!"
@@ -143,12 +138,7 @@ SafariChandlerScript:
 	trainer EXPLORER, SAFARI_CHANDLER, EVENT_BEAT_SAFARI_CHANDLER, SafariChandlerSeenText, SafariChandlerBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SafariChandlerAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SafariChandlerAfterBattleText
 
 SafariChandlerSeenText:
 	text "Well hey there!"
@@ -176,12 +166,7 @@ SafariRossScript:
 	trainer EXPLORER, SAFARI_ROSS, EVENT_BEAT_SAFARI_ROSS, SafariRossSeenText, SafariRossBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SafariRossAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SafariRossAfterBattleText
 
 SafariRossSeenText:
 	text "Ugh, kids."

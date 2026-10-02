@@ -104,34 +104,19 @@ TrainerGentlemanGregory:
 	trainer GENTLEMAN, GREGORY, EVENT_BEAT_GENTLEMAN_GREGORY, GentlemanGregorySeenText, GentlemanGregoryBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GentlemanGregoryAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GentlemanGregoryAfterBattleText
 
 TrainerGuitaristVincent:
 	trainer GUITARIST, VINCENT, EVENT_BEAT_GUITARIST_VINCENT, GuitaristVincentSeenText, GuitaristVincentBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GuitaristVincentAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GuitaristVincentAfterBattleText
 
 TrainerJugglerHorton:
 	trainer JUGGLER, HORTON, EVENT_BEAT_JUGGLER_HORTON, JugglerHortonSeenText, JugglerHortonBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext JugglerHortonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter JugglerHortonAfterBattleText
 
 VermilionGymGuideScript:
 	faceplayer

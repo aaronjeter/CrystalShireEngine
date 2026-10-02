@@ -143,67 +143,37 @@ TrainerPokefanmColin:
 	trainer POKEFANM, COLIN, EVENT_BEAT_POKEFANM_COLIN, PokefanmColinSeenText, PokefanmColinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmColinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanmColinAfterBattleText
 
 TrainerTwinsMegandpeg1:
 	trainer TWINS, MEGANDPEG1, EVENT_BEAT_TWINS_MEG_AND_PEG, TwinsMegandpeg1SeenText, TwinsMegandpeg1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TwinsMegandpeg1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TwinsMegandpeg1AfterBattleText
 
 TrainerPsychicRodney:
 	trainer PSYCHIC_T, RODNEY, EVENT_BEAT_PSYCHIC_RODNEY, PsychicRodneySeenText, PsychicRodneyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicRodneyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicRodneyAfterBattleText
 
 TrainerPokefanmJeremy:
 	trainer POKEFANM, JEREMY, EVENT_BEAT_POKEFANM_JEREMY, PokefanmJeremySeenText, PokefanmJeremyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmJeremyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanmJeremyAfterBattleText
 
 TrainerPokefanfGeorgia:
 	trainer POKEFANF, GEORGIA, EVENT_BEAT_POKEFANF_GEORGIA, PokefanfGeorgiaSeenText, PokefanfGeorgiaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanfGeorgiaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanfGeorgiaAfterBattleText
 
 TrainerSupernerdShawn:
 	trainer SUPER_NERD, SHAWN, EVENT_BEAT_SUPER_NERD_SHAWN, SupernerdShawnSeenText, SupernerdShawnBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SupernerdShawnAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SupernerdShawnAfterBattleText
 
 FastShipCaptainsCabinTrashcan:
 	jumpstd TrashCanScript

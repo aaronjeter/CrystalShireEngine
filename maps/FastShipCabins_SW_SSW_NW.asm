@@ -13,45 +13,25 @@ TrainerFirebreatherLyle:
 	trainer FIREBREATHER, LYLE, EVENT_BEAT_FIREBREATHER_LYLE, FirebreatherLyleSeenText, FirebreatherLyleBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FirebreatherLyleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FirebreatherLyleAfterBattleText
 
 TrainerBugCatcherKen:
 	trainer BUG_CATCHER, KEN, EVENT_BEAT_BUG_CATCHER_KEN, BugCatcherKenSeenText, BugCatcherKenBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BugCatcherKenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherKenAfterBattleText
 
 TrainerBeautyCassie:
 	trainer BEAUTY, CASSIE, EVENT_BEAT_BEAUTY_CASSIE, BeautyCassieSeenText, BeautyCassieBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BeautyCassieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BeautyCassieAfterBattleText
 
 TrainerGuitaristClyde:
 	trainer GUITARIST, CLYDE, EVENT_BEAT_GUITARIST_CLYDE, GuitaristClydeSeenText, GuitaristClydeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GuitaristClydeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GuitaristClydeAfterBattleText
 
 FastShipBed:
 	opentext
