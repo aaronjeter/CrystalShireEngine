@@ -17,8 +17,10 @@ SeenByTrainerScript::
 ; fallthrough
 StartBattleWithMapTrainerScript:
 	opentext
+	callasm ShowMapTrainerPortrait
 	trainertext TRAINERTEXT_SEEN
 	waitbutton
+	closepokepic
 	closetext
 	loadtemptrainer
 	startbattle
@@ -28,3 +30,9 @@ StartBattleWithMapTrainerScript:
 
 AlreadyBeatenTrainerScript:
 	scripttalkafter
+
+ShowMapTrainerPortrait:
+; Show the map trainer's portrait (like opendialog) for their "seen" text.
+	ld a, [wTempTrainerClass]
+	ld [wTrainerClass], a
+	farjp Trainerpic
