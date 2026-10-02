@@ -188,12 +188,7 @@ TrainerGruntM3:
 	trainer GRUNTM, GRUNTM_MEDIUM, EVENT_BEAT_ROCKET_GRUNTM_3, GruntM3SeenText, GruntM3BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntM3AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntM3AfterBattleText
 
 RadioTower1FDirectory:
 	jumptext RadioTower1FDirectoryText

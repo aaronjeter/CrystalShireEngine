@@ -17,12 +17,7 @@ TrainerSupernerdHugh:
 	trainer SUPER_NERD, HUGH, EVENT_BEAT_SUPER_NERD_HUGH, SupernerdHughSeenText, SupernerdHughBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SupernerdHughAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SupernerdHughAfterBattleText
 
 MountMortar2FInsideMaxPotion:
 	itemball MAX_POTION

@@ -16,23 +16,13 @@ TrainerCooltrainerFMarina:
 	trainer COOLTRAINERF, MARINA1, EVENT_BEAT_ILEX_MARINA, TrainerCooltrainerFMarinaSeenText, TrainerCooltrainerFMarinaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerCooltrainerFMarinaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerCooltrainerFMarinaAfterBattleText
 
 TrainerYoungsterRonald:
 	trainer YOUNGSTER, RONALD1, EVENT_BEAT_ILEX_RONALD, TrainerYoungsterRonaldSeenText, TrainerYoungsterRonaldBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TrainerYoungsterRonaldAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TrainerYoungsterRonaldAfterBattleText
 
 TrainerYoungsterRonaldSeenText:
 	text "I'm looking for"

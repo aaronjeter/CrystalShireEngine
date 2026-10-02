@@ -85,45 +85,25 @@ TrainerCooltrainermDarin:
 	trainer COOLTRAINERM, DARIN, EVENT_BEAT_COOLTRAINERM_DARIN, CooltrainermDarinSeenText, CooltrainermDarinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainermDarinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainermDarinAfterBattleText
 
 TrainerCooltrainerfCara:
 	trainer COOLTRAINERF, CARA, EVENT_BEAT_COOLTRAINERF_CARA, CooltrainerfCaraSeenText, CooltrainerfCaraBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfCaraAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfCaraAfterBattleText
 
 TrainerTwinsLeaandpia1:
 	trainer TWINS, LEAANDPIA1, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia1SeenText, TwinsLeaandpia1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TwinsLeaandpia1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TwinsLeaandpia1AfterBattleText
 
 TrainerTwinsLeaandpia2:
 	trainer TWINS, LEAANDPIA1, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia2SeenText, TwinsLeaandpia2BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TwinsLeaandpia2AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TwinsLeaandpia2AfterBattleText
 
 DragonsDenB1FDragonFangScript:
 ; This whole script is written out rather than as an itemball

@@ -37,34 +37,19 @@ TrainerGruntM24:
 	trainer GRUNTM, GRUNTM_24, EVENT_BEAT_ROCKET_GRUNTM_24, GruntM24SeenText, GruntM24BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntM24AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntM24AfterBattleText
 
 TrainerGruntM14:
 	trainer GRUNTM, GRUNTM_14, EVENT_BEAT_ROCKET_GRUNTM_14, GruntM14SeenText, GruntM14BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntM14AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntM14AfterBattleText
 
 TrainerGruntM15:
 	trainer GRUNTM, GRUNTM_15, EVENT_BEAT_ROCKET_GRUNTM_15, GruntM15SeenText, GruntM15BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntM15AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntM15AfterBattleText
 
 GoldenrodUndergroundWarehouseDirectorScript:
 	faceplayer

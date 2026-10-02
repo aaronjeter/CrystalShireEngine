@@ -19,56 +19,31 @@ TrainerKimonoGirlNaoko:
 	trainer KIMONO_GIRL, NAOKO, EVENT_BEAT_KIMONO_GIRL_NAOKO, KimonoGirlNaokoSeenText, KimonoGirlNaokoBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext KimonoGirlNaokoAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter KimonoGirlNaokoAfterBattleText
 
 TrainerKimonoGirlSayo:
 	trainer KIMONO_GIRL, SAYO, EVENT_BEAT_KIMONO_GIRL_SAYO, KimonoGirlSayoSeenText, KimonoGirlSayoBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext KimonoGirlSayoAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter KimonoGirlSayoAfterBattleText
 
 TrainerKimonoGirlZuki:
 	trainer KIMONO_GIRL, ZUKI, EVENT_BEAT_KIMONO_GIRL_ZUKI, KimonoGirlZukiSeenText, KimonoGirlZukiBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext KimonoGirlZukiAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter KimonoGirlZukiAfterBattleText
 
 TrainerKimonoGirlKuni:
 	trainer KIMONO_GIRL, KUNI, EVENT_BEAT_KIMONO_GIRL_KUNI, KimonoGirlKuniSeenText, KimonoGirlKuniBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext KimonoGirlKuniAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter KimonoGirlKuniAfterBattleText
 
 TrainerKimonoGirlMiki:
 	trainer KIMONO_GIRL, MIKI, EVENT_BEAT_KIMONO_GIRL_MIKI, KimonoGirlMikiSeenText, KimonoGirlMikiBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext KimonoGirlMikiAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter KimonoGirlMikiAfterBattleText
 
 DanceTheaterSurfGuy:
 	faceplayer

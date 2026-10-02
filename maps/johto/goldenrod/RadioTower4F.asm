@@ -57,45 +57,25 @@ TrainerGruntM10:
 	trainer GRUNTM, GRUNTM_10, EVENT_BEAT_ROCKET_GRUNTM_10, GruntM10SeenText, GruntM10BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntM10AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntM10AfterBattleText
 
 TrainerExecutivem2:
 	trainer EXECUTIVEM, EXECUTIVEM_2, EVENT_BEAT_ROCKET_EXECUTIVEM_2, Executivem2SeenText, Executivem2BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext Executivem2AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Executivem2AfterBattleText
 
 TrainerGruntF4:
 	trainer GRUNTF, GRUNTF_4, EVENT_BEAT_ROCKET_GRUNTF_4, GruntF4SeenText, GruntF4BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntF4AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntF4AfterBattleText
 
 TrainerScientistRich:
 	trainer SCIENTIST, RICH, EVENT_BEAT_SCIENTIST_RICH, ScientistRichSeenText, ScientistRichBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext ScientistRichAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter ScientistRichAfterBattleText
 
 RadioTower4FProductionSign:
 	jumptext RadioTower4FProductionSignText

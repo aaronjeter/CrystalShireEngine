@@ -55,45 +55,25 @@ TrainerGruntM4:
 	trainer GRUNTM, GRUNTM_HARD, EVENT_BEAT_ROCKET_GRUNTM_4, GruntM4SeenText, GruntM4BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntM4AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntM4AfterBattleText
 
 TrainerGruntM5:
 	trainer GRUNTM, GRUNTM_5, EVENT_BEAT_ROCKET_GRUNTM_5, GruntM5SeenText, GruntM5BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntM5AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntM5AfterBattleText
 
 TrainerGruntM6:
 	trainer GRUNTM, GRUNTM_6, EVENT_BEAT_ROCKET_GRUNTM_6, GruntM6SeenText, GruntM6BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntM6AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntM6AfterBattleText
 
 TrainerGruntF2:
 	trainer GRUNTF, GRUNTF_2, EVENT_BEAT_ROCKET_GRUNTF_2, GruntF2SeenText, GruntF2BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GruntF2AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GruntF2AfterBattleText
 
 Buena:
 	faceplayer

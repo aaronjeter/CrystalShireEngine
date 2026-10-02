@@ -389,12 +389,7 @@ TrainerBugCatcherWayne:
 	trainer BUG_CATCHER, WAYNE, EVENT_BEAT_BUG_CATCHER_WAYNE, BugCatcherWayneSeenText, BugCatcherWayneBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BugCatcherWayneAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherWayneAfterBattleText
 
 IlexForestLassScript:
 	jumptextfaceplayer Text_IlexForestLass

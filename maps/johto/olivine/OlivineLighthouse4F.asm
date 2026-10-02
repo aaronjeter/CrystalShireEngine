@@ -11,23 +11,13 @@ TrainerLassConnie:
 	trainer LASS, CONNIE, EVENT_BEAT_LASS_CONNIE, LassConnie1SeenText, LassConnie1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext LassConnie1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LassConnie1AfterBattleText
 
 TrainerSailorKent:
 	trainer SAILOR, KENT, EVENT_BEAT_SAILOR_KENT, SailorKentSeenText, SailorKentBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SailorKentAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SailorKentAfterBattleText
 
 SailorKentSeenText:
 	text "Jasmine must be"

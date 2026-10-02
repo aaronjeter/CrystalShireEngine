@@ -11,23 +11,13 @@ TrainerGentlemanAlfred:
 	trainer GENTLEMAN, ALFRED, EVENT_BEAT_GENTLEMAN_ALFRED, GentlemanAlfredSeenText, GentlemanAlfredBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext GentlemanAlfredAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter GentlemanAlfredAfterBattleText
 
 TrainerSailorHuey:
 	trainer SAILOR, HUEY, EVENT_BEAT_SAILOR_HUEY, SailorHueySeenText, SailorHueyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SailorHueyBeatenText
-	waitbutton
-	closetext
-	end
+	trainerafter SailorHueyBeatenText
 
 SailorHueySeenText:
 	text "Men of the sea are"
