@@ -17,12 +17,7 @@ Route112TrentScript:
 	trainer HIKER, ROUTE112_TRENT, EVENT_BEAT_ROUTE112_TRENT, Route112TrentSeenText, Route112TrentBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route112TrentAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route112TrentAfterBattleText
 
 Route112TrentSeenText:
 	text "Hey there!"
@@ -44,12 +39,7 @@ Route112BriceScript:
 	trainer HIKER, ROUTE112_BRICE, EVENT_BEAT_ROUTE112_BRICE, Route112BriceSeenText, Route112BriceBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route112BriceAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route112BriceAfterBattleText
 
 Route112BriceSeenText:
 	text "WHEW!"
@@ -76,12 +66,7 @@ Route112CarolScript:
 	trainer PICNICKER, ROUTE112_CAROL, EVENT_BEAT_ROUTE112_CAROL, Route112CarolSeenText, Route112CarolBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route112CarolAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route112CarolAfterBattleText
 
 Route112CarolSeenText:
 	text "You coming to"
@@ -103,12 +88,7 @@ Route112LarryScript:
 	trainer CAMPER, ROUTE112_LARRY, EVENT_BEAT_ROUTE112_LARRY, Route112LarrySeenText, Route112LarryBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route112LarryAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route112LarryAfterBattleText
 
 Route112LarrySeenText:
 	text "Yo!"
@@ -134,12 +114,7 @@ Route112BryantScript:
 	trainer FIREBREATHER, ROUTE112_BRYANT, EVENT_BEAT_ROUTE112_BRYANT, Route112BryantSeenText, Route112BryantBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route112BryantAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route112BryantAfterBattleText
 
 Route112BryantSeenText:
 	text "Ah hahaha!"
@@ -161,12 +136,7 @@ Route112ShaylaScript:
 	trainer BEAUTY, ROUTE112_SHAYLA, EVENT_BEAT_ROUTE112_SHAYLA, Route112ShaylaSeenText, Route112ShaylaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route112ShaylaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route112ShaylaAfterBattleText
 
 Route112ShaylaSeenText:
 	text "Do you have any"

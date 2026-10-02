@@ -18,12 +18,7 @@ Route110IsabelScript:
 	trainer POKEFANF, ROUTE110_ISABEL, EVENT_BEAT_ROUTE110_ISABEL, Route110IsabelSeenText, Route110IsabelBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route110IsabelAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route110IsabelAfterBattleText
 
 Route110IsabelSeenText:
 	text "Ahahaha!"
@@ -49,12 +44,7 @@ Route110KalebScript:
 	trainer POKEFANM, ROUTE110_KALEB, EVENT_BEAT_ROUTE110_KALEB, Route110KalebSeenText, Route110KalebBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route110KalebAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route110KalebAfterBattleText
 
 Route110KalebSeenText:
 	text "Cute, adorable"
@@ -75,12 +65,7 @@ Route110TimmyScript:
 	trainer YOUNGSTER, ROUTE110_TIMMY, EVENT_BEAT_ROUTE110_TIMMY, Route110TimmySeenText, Route110TimmyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route110TimmyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route110TimmyAfterBattleText
 
 Route110TimmySeenText:
 	text "I found some cool"
@@ -104,12 +89,7 @@ Route110EdwinScript:
 	trainer POKEFANM, ROUTE110_EDWIN, EVENT_BEAT_ROUTE110_EDWIN, Route110EdwinSeenText, Route110EdwinBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route110EdwinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route110EdwinAfterBattleText
 
 Route110EdwinSeenText:
 	text "Can I see your"
@@ -132,12 +112,7 @@ Route110JosephScript:
 	trainer GUITARIST, ROUTE110_JOSEPH, EVENT_BEAT_ROUTE110_JOSEPH, Route110JosephSeenText, Route110JosephBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route110JosephAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route110JosephAfterBattleText
 
 Route110JosephSeenText:
 	text "Okay!"
@@ -160,12 +135,7 @@ Route110EdwardScript:
 	trainer PSYCHIC_T, ROUTE110_EDWARD, EVENT_BEAT_ROUTE110_EDWARD, Route110EdwardSeenText, Route110EdwardBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route110EdwardAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route110EdwardAfterBattleText
 
 Route110EdwardSeenText:
 	text "I have foreseen"
@@ -192,12 +162,7 @@ Route110DaleScript:
 	trainer FISHER, ROUTE110_DALE, EVENT_BEAT_ROUTE110_DALE, Route110DaleSeenText, Route110DaleBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route110DaleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route110DaleAfterBattleText
 
 Route110DaleSeenText:
 	text "Hey!"

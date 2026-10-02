@@ -16,12 +16,7 @@ Route105ImaniScript:
 	trainer SWIMMERF, ROUTE105_IMANI, EVENT_BEAT_ROUTE105_IMANI, Route105ImaniSeenText, Route105ImaniBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route105ImaniAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route105ImaniAfterBattleText
 
 Route105ImaniSeenText:
 	text "Hi there!"
@@ -47,12 +42,7 @@ Route105LuisScript:
 	trainer SWIMMERM, ROUTE105_LUIS, EVENT_BEAT_ROUTE105_LUIS, Route105LuisSeenText, Route105LuisBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route105LuisAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route105LuisAfterBattleText
 
 Route105LuisSeenText:
 	text "Hey there."
@@ -80,12 +70,7 @@ Route105FosterScript:
 	trainer EXPLORER, ROUTE105_FOSTER, EVENT_BEAT_ROUTE105_FOSTER, Route105FosterSeenText, Route105FosterBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route105FosterAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route105FosterAfterBattleText
 
 Route105FosterSeenText:
 	text "Have you seen"
@@ -115,12 +100,7 @@ Route105AndresScript:
 	trainer EXPLORER, ROUTE105_ANDRES, EVENT_BEAT_ROUTE105_ANDRES, Route105AndresSeenText, Route105AndresBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route105AndresAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route105AndresAfterBattleText
 
 Route105AndresSeenText:
 	text "Whoa?"
@@ -148,12 +128,7 @@ Route105JosueScript:
 	trainer BIRD_KEEPER, ROUTE105_JOSUE, EVENT_BEAT_ROUTE105_JOSUE, Route105JosueSeenText, Route105JosueBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route105JosueAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route105JosueAfterBattleText
 
 Route105JosueSeenText:
 	text "Ahoy there!"
@@ -180,12 +155,7 @@ Route105NedScript:
 	trainer FISHER, ROUTE105_NED, EVENT_BEAT_ROUTE105_NED, Route105NedSeenText, Route105NedBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route105NedAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route105NedAfterBattleText
 
 Route105NedSeenText:
 	text "Hey, you like"
@@ -206,12 +176,7 @@ Route105ElliotScript:
 	trainer FISHER, ROUTE105_ELLIOT, EVENT_BEAT_ROUTE105_ELLIOT, Route105ElliotSeenText, Route105ElliotBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route105ElliotAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route105ElliotAfterBattleText
 
 Route105ElliotSeenText:
 	text "Hey!"

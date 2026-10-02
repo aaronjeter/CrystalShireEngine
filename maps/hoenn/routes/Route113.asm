@@ -22,12 +22,7 @@ Route113LaoScript:
 	trainer YOUNGSTER, ROUTE113_LAO, EVENT_BEAT_ROUTE113_LAO, Route113LaoSeenText, Route113LaoBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113LaoAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113LaoAfterBattleText
 
 Route113LaoSeenText:
 	text "Hyaa!"
@@ -48,12 +43,7 @@ Route113DillonScript:
 	trainer YOUNGSTER, ROUTE113_DILLON, EVENT_BEAT_ROUTE113_DILLON, Route113DillonSeenText, Route113DillonBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113DillonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113DillonAfterBattleText
 
 Route113DillonSeenText:
 	text "Hey there!"
@@ -77,12 +67,7 @@ Route113CobyScript:
 	trainer BIRD_KEEPER, ROUTE113_COBY, EVENT_BEAT_ROUTE113_COBY, Route113CobySeenText, Route113CobyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113CobyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113CobyAfterBattleText
 
 Route113CobySeenText:
 	text "Go, birdies!"
@@ -101,12 +86,7 @@ Route113MadelineScript:
 	trainer PICNICKER, ROUTE113_MADELINE, EVENT_BEAT_ROUTE113_MADELINE, Route113MadelineSeenText, Route113MadelineBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113MadelineAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113MadelineAfterBattleText
 
 Route113MadelineSeenText:
 	text "Hi, got time"
@@ -127,12 +107,7 @@ Route113SophieScript:
 	trainer PICNICKER, ROUTE113_SOPHIE, EVENT_BEAT_ROUTE113_SOPHIE, Route113SophieSeenText, Route113SophieBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113SophieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113SophieAfterBattleText
 
 Route113SophieSeenText:
 	text "Traveling makes"
@@ -153,12 +128,7 @@ Route113WyattScript:
 	trainer POKEMANIAC, ROUTE113_WYATT, EVENT_BEAT_ROUTE113_WYATT, Route113WyattSeenText, Route113WyattBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113WyattAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113WyattAfterBattleText
 
 Route113WyattSeenText:
 	text "Behold, my"
@@ -178,12 +148,7 @@ Route113JaylenScript:
 	trainer CAMPER, ROUTE113_JAYLEN, EVENT_BEAT_ROUTE113_JAYLEN, Route113JaylenSeenText, Route113JaylenBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113JaylenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113JaylenAfterBattleText
 
 Route113JaylenSeenText:
 	text "I'm bored!"
@@ -203,12 +168,7 @@ Route113LungScript:
 	trainer CAMPER, ROUTE113_LUNG, EVENT_BEAT_ROUTE113_LUNG, Route113LungSeenText, Route113LungBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113LungAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113LungAfterBattleText
 
 Route113LungSeenText:
 	text "Let's kill"
@@ -228,12 +188,7 @@ Route113LawrenceScript:
 	trainer CAMPER, ROUTE113_LAWRENCE, EVENT_BEAT_ROUTE113_LAWRENCE, Route113LawrenceSeenText, Route113LawrenceBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113LawrenceAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113LawrenceAfterBattleText
 
 Route113LawrenceSeenText:
 	text "Hey there!"
@@ -255,12 +210,7 @@ Route113ToriTiaScript:
 	trainer TWINS, ROUTE113_TORITIA, EVENT_BEAT_ROUTE113_TORITIA, Route113ToriTiaSeenText, Route113ToriTiaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route113ToriTiaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route113ToriTiaAfterBattleText
 
 Route113ToriTiaSeenText:
 	text "Hi!"

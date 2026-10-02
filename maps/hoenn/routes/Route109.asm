@@ -15,12 +15,7 @@ Route109HueyScript:
 	trainer SAILOR, ROUTE109_HUEY, EVENT_BEAT_ROUTE109_HUEY, Route109HueySeenText, Route109HueyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route109HueyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route109HueyAfterBattleText
 
 Route109HueySeenText:
 	text "I've been to"
@@ -44,12 +39,7 @@ Route109EdmondScript:
 	trainer SAILOR, ROUTE109_EDMOND, EVENT_BEAT_ROUTE109_EDMOND, Route109EdmondSeenText, Route109EdmondBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route109EdmondAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route109EdmondAfterBattleText
 
 Route109EdmondSeenText:
 	text "Urrrrppp!"
@@ -70,12 +60,7 @@ Route109HaileyScript:
 	trainer BEAUTY, ROUTE109_HAILEY, EVENT_BEAT_ROUTE109_HAILEY, Route109HaileySeenText, Route109HaileyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route109HaileyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route109HaileyAfterBattleText
 
 Route109HaileySeenText:
 	text "I can't swim,"
@@ -100,12 +85,7 @@ Route109RickyScript:
 	trainer SAILOR, ROUTE109_RICKY, EVENT_BEAT_ROUTE109_RICKY, Route109RickySeenText, Route109RickyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route109RickyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route109RickyAfterBattleText
 
 Route109RickySeenText:
 	text "I'm so thirsty!"
@@ -126,12 +106,7 @@ Route109LolaScript:
 	trainer BEAUTY, ROUTE109_LOLA, EVENT_BEAT_ROUTE109_LOLA, Route109LolaSeenText, Route109LolaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route109LolaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route109LolaAfterBattleText
 
 Route109LolaSeenText:
 	text "Doesn't a beach"
@@ -154,12 +129,7 @@ Route109ChandlerScript:
 	trainer SAILOR, ROUTE109_CHANDLER, EVENT_BEAT_ROUTE109_CHANDLER, Route109ChandlerSeenText, Route109ChandlerBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route109ChandlerAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route109ChandlerAfterBattleText
 
 Route109ChandlerSeenText:
 	text "Tada!"

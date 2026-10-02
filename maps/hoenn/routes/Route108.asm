@@ -16,12 +16,7 @@ Route108DeniseScript:
 	trainer SWIMMERF, ROUTE108_DENISE, EVENT_BEAT_ROUTE108_DENISE, Route108DeniseSeenText, Route108DeniseBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route108DeniseAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route108DeniseAfterBattleText
 
 Route108DeniseSeenText:
 	text "Ever been to"
@@ -42,12 +37,7 @@ Route108TonyScript:
 	trainer SWIMMERM, ROUTE108_TONY, EVENT_BEAT_ROUTE108_TONY, Route108TonySeenText, Route108TonyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route108TonyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route108TonyAfterBattleText
 
 Route108TonySeenText:
 	text "The sea is like"
@@ -72,12 +62,7 @@ Route108LisaRiaScript:
 	trainer TWINS, ROUTE108_LISARIA, EVENT_BEAT_ROUTE108_LISARIA, Route108LisaRiaSeenText, Route108LisaRiaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route108LisaRiaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route108LisaRiaAfterBattleText
 
 Route108LisaRiaSeenText:
 	text "We challenge you!"
@@ -99,12 +84,7 @@ Route108DarrinScript:
 	trainer SWIMMERM, ROUTE108_DARRIN, EVENT_BEAT_ROUTE108_DARRIN, Route108DarrinSeenText, Route108DarrinBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route108DarrinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route108DarrinAfterBattleText
 
 Route108DarrinSeenText:
 	text "Yawn!"
@@ -127,12 +107,7 @@ Route10BethScript:
 	trainer SWIMMERF, ROUTE108_BETH, EVENT_BEAT_ROUTE108_BETH, Route10BethSeenText, Route10BethBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route10BethAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route10BethAfterBattleText
 
 Route10BethSeenText:
 	text "Shall we fight?"
@@ -154,12 +129,7 @@ Route108CamronScript:
 	trainer CAMPER, ROUTE108_CAMRON, EVENT_BEAT_ROUTE108_CAMRON, Route108CamronSeenText, Route108CamronBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route108CamronAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route108CamronAfterBattleText
 
 Route108CamronSeenText:
 	text "I'm nowhere near"

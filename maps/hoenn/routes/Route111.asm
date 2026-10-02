@@ -16,12 +16,7 @@ Route111TyronScript:
 	trainer CAMPER, ROUTE111_TYRON, EVENT_BEAT_ROUTE111_TYRON, Route111TyronSeenText, Route111TyronBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route111TyronAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route111TyronAfterBattleText
 
 Route111TyronSeenText:
 	text "This is my"
@@ -44,12 +39,7 @@ Route111CelinaScript:
 	trainer PICNICKER, ROUTE111_CELINA, EVENT_BEAT_ROUTE111_CELINA, Route111CelinaSeenText, Route111CelinaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route111CelinaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route111CelinaAfterBattleText
 
 Route111CelinaSeenText:
 	text "Show me something"
@@ -70,12 +60,7 @@ Route111BiancaScript:
 	trainer PICNICKER, ROUTE111_BIANCA, EVENT_BEAT_ROUTE111_BIANCA, Route111BiancaSeenText, Route111BiancaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route111BiancaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route111BiancaAfterBattleText
 
 Route111BiancaSeenText:
 	text "Did you come"
@@ -96,12 +81,7 @@ Route111HaydenScript:
 	trainer FIREBREATHER, ROUTE111_HAYDEN, EVENT_BEAT_ROUTE111_HAYDEN, Route111HaydenSeenText, Route111HaydenBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route111HaydenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route111HaydenAfterBattleText
 
 Route111HaydenSeenText:
 	text "There's no room"
@@ -126,12 +106,7 @@ Route111GabbyScript:
 	trainer PICNICKER, ROUTE111_GABBY, EVENT_BEAT_ROUTE111_GABBY, Route111GabbySeenText, Route111GabbyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route111GabbyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route111GabbyAfterBattleText
 
 Route111GabbySeenText:
 	text "Hi there!"
@@ -151,12 +126,7 @@ Route111IreneScript:
 	trainer PICNICKER, ROUTE111_IRENE, EVENT_BEAT_ROUTE111_IRENE, Route111IreneSeenText, Route111IreneBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route111IreneAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route111IreneAfterBattleText
 
 Route111IreneSeenText:
 	text "I don't know where"
@@ -180,12 +150,7 @@ Route111TravisScript:
 	trainer CAMPER, ROUTE111_TRAVIS, EVENT_BEAT_ROUTE111_TRAVIS, Route111TravisSeenText, Route111TravisBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route111TravisAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route111TravisAfterBattleText
 
 Route111TravisSeenText:
 	text "I'm full of pep!"
