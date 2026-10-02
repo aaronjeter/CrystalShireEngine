@@ -11,23 +11,13 @@ TrainerPokefanmRex:
 	trainer POKEFANM, REX, EVENT_BEAT_POKEFANM_REX, PokefanmRexSeenText, PokefanmRexBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmRexAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanmRexAfterBattleText
 
 TrainerPokefanmAllan:
 	trainer POKEFANM, ALLAN, EVENT_BEAT_POKEFANM_ALLAN, PokefanmAllanSeenText, PokefanmAllanBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmAllanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanmAllanAfterBattleText
 
 Route6UndergroundPathSign:
 	jumptext Route6UndergroundPathSignText

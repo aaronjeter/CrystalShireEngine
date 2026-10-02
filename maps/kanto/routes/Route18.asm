@@ -11,23 +11,13 @@ TrainerBirdKeeperBoris:
 	trainer BIRD_KEEPER, BORIS, EVENT_BEAT_BIRD_KEEPER_BORIS, BirdKeeperBorisSeenText, BirdKeeperBorisBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BirdKeeperBorisAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BirdKeeperBorisAfterBattleText
 
 TrainerBirdKeeperBob:
 	trainer BIRD_KEEPER, BOB, EVENT_BEAT_BIRD_KEEPER_BOB, BirdKeeperBobSeenText, BirdKeeperBobBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BirdKeeperBobAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BirdKeeperBobAfterBattleText
 
 Route18Sign:
 	jumptext Route18SignText

@@ -50,67 +50,37 @@ TrainerPsychicGilbert:
 	trainer PSYCHIC_T, GILBERT, EVENT_BEAT_PSYCHIC_GILBERT, PsychicGilbertSeenText, PsychicGilbertBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicGilbertAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicGilbertAfterBattleText
 
 TrainerBirdKeeperJose2:
 	trainer BIRD_KEEPER, JOSE, EVENT_BEAT_BIRD_KEEPER_JOSE2, BirdKeeperJose2SeenText, BirdKeeperJose2BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BirdKeeperJose2AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BirdKeeperJose2AfterBattleText
 
 TrainerCooltrainermBlake:
 	trainer COOLTRAINERM, BLAKE, EVENT_BEAT_COOLTRAINERM_BLAKE, CooltrainermBlakeSeenText, CooltrainermBlakeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainermBlakeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainermBlakeAfterBattleText
 
 TrainerCooltrainermBrian:
 	trainer COOLTRAINERM, BRIAN, EVENT_BEAT_COOLTRAINERM_BRIAN, CooltrainermBrianSeenText, CooltrainermBrianBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainermBrianAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainermBrianAfterBattleText
 
 TrainerCooltrainerfReena:
 	trainer COOLTRAINERF, REENA, EVENT_BEAT_COOLTRAINERF_REENA, CooltrainerfReenaSeenText, CooltrainerfReenaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfReenaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfReenaAfterBattleText
 
 TrainerCooltrainerfMegan:
 	trainer COOLTRAINERF, MEGAN, EVENT_BEAT_COOLTRAINERF_MEGAN, CooltrainerfMeganSeenText, CooltrainerfMeganBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfMeganAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfMeganAfterBattleText
 
 TohjoFallsSign:
 	jumptext TohjoFallsSignText

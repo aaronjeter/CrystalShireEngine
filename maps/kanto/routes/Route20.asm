@@ -17,34 +17,19 @@ TrainerSwimmerfNicole:
 	trainer SWIMMERF, NICOLE, EVENT_BEAT_SWIMMERF_NICOLE, SwimmerfNicoleSeenText, SwimmerfNicoleBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfNicoleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfNicoleAfterBattleText
 
 TrainerSwimmerfLori:
 	trainer SWIMMERF, LORI, EVENT_BEAT_SWIMMERF_LORI, SwimmerfLoriSeenText, SwimmerfLoriBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfLoriAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfLoriAfterBattleText
 
 TrainerSwimmermCameron:
 	trainer SWIMMERM, CAMERON, EVENT_BEAT_SWIMMERM_CAMERON, SwimmermCameronSeenText, SwimmermCameronBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmermCameronAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmermCameronAfterBattleText
 
 CinnabarGymSign:
 	jumptext CinnabarGymSignText

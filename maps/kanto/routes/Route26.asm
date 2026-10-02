@@ -17,67 +17,37 @@ TrainerCooltrainermJake:
 	trainer COOLTRAINERM, JAKE, EVENT_BEAT_COOLTRAINERM_JAKE, CooltrainermJakeSeenText, CooltrainermJakeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainermJakeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainermJakeAfterBattleText
 
 TrainerCooltrainermGaven3:
 	trainer COOLTRAINERM, GAVEN, EVENT_BEAT_COOLTRAINERM_GAVEN, CooltrainermGaven3SeenText, CooltrainermGaven3BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainermGavenAfterText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainermGavenAfterText
 
 TrainerCooltrainerfJoyce:
 	trainer COOLTRAINERF, JOYCE, EVENT_BEAT_COOLTRAINERF_JOYCE, CooltrainerfJoyceSeenText, CooltrainerfJoyceBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfJoyceAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfJoyceAfterBattleText
 
 TrainerCooltrainerfBeth1:
 	trainer COOLTRAINERF, BETH, EVENT_BEAT_COOLTRAINERF_BETH, CooltrainerfBeth1SeenText, CooltrainerfBeth1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfBethAfterText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfBethAfterText
 
 TrainerPsychicRichard:
 	trainer PSYCHIC_T, RICHARD, EVENT_BEAT_PSYCHIC_RICHARD, PsychicRichardSeenText, PsychicRichardBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicRichardAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicRichardAfterBattleText
 
 TrainerFisherScott:
 	trainer FISHER, SCOTT, EVENT_BEAT_FISHER_SCOTT, FisherScottSeenText, FisherScottBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherScottAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherScottAfterBattleText
 
 Route26Sign:
 	jumptext Route26SignText

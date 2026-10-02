@@ -16,45 +16,25 @@ TrainerFisherKyle:
 	trainer FISHER, KYLE, EVENT_BEAT_FISHER_KYLE, FisherKyleSeenText, FisherKyleBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherKyleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherKyleAfterBattleText
 
 TrainerFisherMartin:
 	trainer FISHER, MARTIN, EVENT_BEAT_FISHER_MARTIN, FisherMartinSeenText, FisherMartinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherMartinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherMartinAfterBattleText
 
 TrainerFisherStephen:
 	trainer FISHER, STEPHEN, EVENT_BEAT_FISHER_STEPHEN, FisherStephenSeenText, FisherStephenBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherStephenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherStephenAfterBattleText
 
 TrainerFisherBarney:
 	trainer FISHER, BARNEY, EVENT_BEAT_FISHER_BARNEY, FisherBarneySeenText, FisherBarneyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherBarneyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherBarneyAfterBattleText
 
 Route12Sign:
 	jumptext Route12SignText

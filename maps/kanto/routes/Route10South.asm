@@ -11,23 +11,13 @@ TrainerHikerJim:
 	trainer HIKER, JIM, EVENT_BEAT_HIKER_JIM, HikerJimSeenText, HikerJimBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext HikerJimAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter HikerJimAfterBattleText
 
 TrainerPokefanmRobert:
 	trainer POKEFANM, ROBERT, EVENT_BEAT_POKEFANM_ROBERT, PokefanmRobertSeenText, PokefanmRobertBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmRobertAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanmRobertAfterBattleText
 
 Route10Sign:
 	jumptext Route10SignText
