@@ -49,12 +49,7 @@ DesertHeidiScript:
 	trainer PICNICKER, DESERT_HEIDI, EVENT_BEAT_DESERT_HEIDI, DesertHeidiSeenText, DesertHeidiBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DesertHeidiAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DesertHeidiAfterBattleText
 
 DesertHeidiSeenText:
 	text "Ahh, we're totally"
@@ -75,12 +70,7 @@ DesertBeckyScript:
 	trainer PICNICKER, DESERT_BECKY, EVENT_BEAT_DESERT_BECKY, DesertBeckySeenText, DesertBeckyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DesertBeckyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DesertBeckyAfterBattleText
 
 DesertBeckySeenText:
 	text "There's so much"
@@ -106,12 +96,7 @@ DesertCeliaScript:
 	trainer PICNICKER, DESERT_CELIA, EVENT_BEAT_DESERT_CELIA, DesertCeliaSeenText, DesertCeliaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DesertCeliaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DesertCeliaAfterBattleText
 
 DesertCeliaSeenText:
 	text "I'm looking for"
@@ -136,12 +121,7 @@ DesertBeauScript:
 	trainer CAMPER, DESERT_BEAU, EVENT_BEAT_DESERT_BEAU, DesertBeauSeenText, DesertBeauBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DesertBeauAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DesertBeauAfterBattleText
 
 DesertBeauSeenText:
 	text "We came from"
@@ -164,12 +144,7 @@ DesertDrewScript:
 	trainer CAMPER, DESERT_DREW, EVENT_BEAT_DESERT_DREW, DesertDrewSeenText, DesertDrewBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DesertDrewAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DesertDrewAfterBattleText
 
 DesertDrewSeenText:
 	text "We learned about"
@@ -193,12 +168,7 @@ DesertBrandenScript:
 	trainer CAMPER, DESERT_BRANDEN, EVENT_BEAT_DESERT_BRANDEN, DesertBrandenSeenText, DesertBrandenBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DesertBrandenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DesertBrandenAfterBattleText
 
 DesertBrandenSeenText:
 	text "I'm gonna catch"
@@ -224,12 +194,7 @@ DesertDustyScript:
 	trainer EXPLORER, DESERT_DUSTY, EVENT_BEAT_DESERT_DUSTY, DesertDustySeenText, DesertDustyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DesertDustyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DesertDustyAfterBattleText
 
 DesertDustySeenText:
 	text "Ever seen a"
@@ -256,12 +221,7 @@ DesertBryanScript:
 	trainer EXPLORER, DESERT_BRYAN, EVENT_BEAT_DESERT_BRYAN, DesertBryanSeenText, DesertBryanBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DesertBryanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DesertBryanAfterBattleText
 
 DesertBryanSeenText:
 	text "AH!"

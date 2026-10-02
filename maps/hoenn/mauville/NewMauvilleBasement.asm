@@ -21,12 +21,7 @@ MauvilleAdamScript:
 	trainer SCIENTIST, MAUVILLE_ADAM, EVENT_BEAT_MAUVILLE_SCIENTIST1, MauvilleAdamSeenText, MauvilleAdamBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleAdamAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleAdamAfterBattleText
 
 MauvilleAdamSeenText:
 	text "Huh? Intruder!"
@@ -49,12 +44,7 @@ MauvilleJamesScript:
 	trainer SCIENTIST, MAUVILLE_JAMES, EVENT_BEAT_MAUVILLE_SCIENTIST2, MauvilleJamesSeenText, MauvilleJamesBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleJamesAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleJamesAfterBattleText
 
 MauvilleJamesSeenText:
 	text "Well now..."
@@ -81,12 +71,7 @@ MauvilleJeffreyScript:
 	trainer SCIENTIST, MAUVILLE_JEFFREY, EVENT_BEAT_MAUVILLE_SCIENTIST3, MauvilleJeffreySeenText, MauvilleJeffreyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleJeffreyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleJeffreyAfterBattleText
 
 MauvilleJeffreySeenText:
 	text "Team Rocket"
@@ -115,12 +100,7 @@ MauvilleBruceScript:
 	trainer SCIENTIST, MAUVILLE_BRUCE, EVENT_BEAT_MAUVILLE_SCIENTIST4, MauvilleBruceSeenText, MauvilleBruceBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleBruceAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleBruceAfterBattleText
 
 MauvilleBruceSeenText:
 	text "Hey, watch it!"
@@ -143,12 +123,7 @@ MauvilleLisaScript:
 	trainer GRUNTF, MAUVILLE_GRUNTF1, EVENT_BEAT_MAUVILLE_ROCKETF1, MauvilleLisaSeenText, MauvilleLisaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleLisaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleLisaAfterBattleText
 
 MauvilleLisaSeenText:
 	text "Again with these"
@@ -169,12 +144,7 @@ MauvilleJamieScript:
 	trainer GRUNTF, MAUVILLE_GRUNTF2, EVENT_BEAT_MAUVILLE_ROCKETF2, MauvilleJamieSeenText, MauvilleJamieBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleJamieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleJamieAfterBattleText
 
 MauvilleJamieSeenText:
 	text "Intruder!"
@@ -197,12 +167,7 @@ MauvilleJennaScript:
 	trainer GRUNTF, MAUVILLE_GRUNTF3, EVENT_BEAT_MAUVILLE_ROCKETF3, MauvilleJennaSeenText, MauvilleJennaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleJennaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleJennaAfterBattleText
 
 MauvilleJennaSeenText:
 	text "Gotcha!"
@@ -223,12 +188,7 @@ MauvilleRyanScript:
 	trainer GRUNTM, MAUVILLE_GRUNT1, EVENT_BEAT_MAUVILLE_ROCKET1, MauvilleRyanSeenText, MauvilleRyanBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleRyanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleRyanAfterBattleText
 
 MauvilleRyanSeenText:
 	text "You!"
@@ -257,12 +217,7 @@ MauvilleAlexScript:
 	trainer GRUNTM, MAUVILLE_GRUNT2, EVENT_BEAT_MAUVILLE_ROCKET2, MauvilleAlexSeenText, MauvilleAlexBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleAlexAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleAlexAfterBattleText
 
 MauvilleAlexSeenText:
 	text "The Boss's plan"
@@ -287,12 +242,7 @@ MauvilleJordanScript:
 	trainer GRUNTM, MAUVILLE_GRUNT3, EVENT_BEAT_MAUVILLE_ROCKET3, MauvilleJordanSeenText, MauvilleJordanBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleJordanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleJordanAfterBattleText
 
 MauvilleJordanSeenText:
 	text "The casino rakes"
@@ -323,12 +273,7 @@ MauvilleFrankScript:
 	trainer GRUNTM, MAUVILLE_GRUNT4, EVENT_BEAT_MAUVILLE_ROCKET4, MauvilleFrankSeenText, MauvilleFrankBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleFrankAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleFrankAfterBattleText
 
 MauvilleFrankSeenText:
 	text "PC load letter?"

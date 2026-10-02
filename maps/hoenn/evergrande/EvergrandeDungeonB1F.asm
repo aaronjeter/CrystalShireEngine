@@ -43,68 +43,38 @@ GenericCooltrainerM4:
 	trainer COOLTRAINERM, EVERGRANDE_DUNGEON_M4, EVENT_BEAT_EVERGRANDE_M4, CooltrainerM4SeenText, CooltrainerM4BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerM4AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerM4AfterBattleText
 
 GenericCooltrainerM5:
 	trainer COOLTRAINERM, EVERGRANDE_DUNGEON_M5, EVENT_BEAT_EVERGRANDE_M5, CooltrainerM5SeenText, CooltrainerM5BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerM5AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerM5AfterBattleText
 
 GenericCooltrainerM6:
 	trainer COOLTRAINERM, EVERGRANDE_DUNGEON_M6, EVENT_BEAT_EVERGRANDE_M6, CooltrainerM6SeenText, CooltrainerM6BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerM6AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerM6AfterBattleText
 
 
 GenericCooltrainerF4:
 	trainer COOLTRAINERF, EVERGRANDE_DUNGEON_F4, EVENT_BEAT_EVERGRANDE_F4, CooltrainerF4SeenText, CooltrainerF4BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerF4AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerF4AfterBattleText
 
 GenericCooltrainerF5:
 	trainer COOLTRAINERF, EVERGRANDE_DUNGEON_F5, EVENT_BEAT_EVERGRANDE_F5, CooltrainerF5SeenText, CooltrainerF5BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerF5AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerF5AfterBattleText
 
 GenericCooltrainerF6:
 	trainer COOLTRAINERF, EVERGRANDE_DUNGEON_F6, EVENT_BEAT_EVERGRANDE_F6, CooltrainerF6SeenText, CooltrainerF6BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerF6AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerF6AfterBattleText
 
 
 CooltrainerM4SeenText:

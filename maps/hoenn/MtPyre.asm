@@ -20,12 +20,7 @@ PyreRocket1Script:
 	trainer GRUNTM, PYRE_GRUNT1, EVENT_BEAT_PYRE_ROCKET1, PyreRocket1SeenText, PyreRocket1BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PyreRocket1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PyreRocket1AfterBattleText
 
 PyreRocket1SeenText:
 	text "We're the Team"
@@ -51,12 +46,7 @@ PyreRocket2Script:
 	trainer GRUNTM, PYRE_GRUNT2, EVENT_BEAT_PYRE_ROCKET2, PyreRocket2SeenText, PyreRocket2BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PyreRocket2AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PyreRocket2AfterBattleText
 
 PyreRocket2SeenText:
 	text "We Elites are"
@@ -82,12 +72,7 @@ PyreRocket3Script:
 	trainer GRUNTM, PYRE_GRUNT3, EVENT_BEAT_PYRE_ROCKET3, PyreRocket3SeenText, PyreRocket3BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PyreRocket3AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PyreRocket3AfterBattleText
 
 PyreRocket3SeenText:
 	text "We're here to"
@@ -112,12 +97,7 @@ PyreRocket4Script:
 	trainer GRUNTM, PYRE_GRUNT4, EVENT_BEAT_PYRE_ROCKET4, PyreRocket4SeenText, PyreRocket4BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PyreRocket4AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PyreRocket4AfterBattleText
 
 PyreRocket4SeenText:
 	text "We're Team"
@@ -143,12 +123,7 @@ PyreRocketF1Script:
 	trainer GRUNTF, PYRE_GRUNTF1, EVENT_BEAT_PYRE_ROCKETF1, PyreRocketF1SeenText, PyreRocketF1BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PyreRocketF1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PyreRocketF1AfterBattleText
 
 PyreRocketF1SeenText:
 	text "I'm gonna squash"
@@ -173,12 +148,7 @@ PyreRocketF2Script:
 	trainer GRUNTF, PYRE_GRUNTF2, EVENT_BEAT_PYRE_ROCKETF2, PyreRocketF2SeenText, PyreRocketF2BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PyreRocketF2AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PyreRocketF2AfterBattleText
 
 PyreRocketF2SeenText:
 	text "We're here, and"
@@ -205,12 +175,7 @@ PyreRocketF3Script:
 	trainer GRUNTF, PYRE_GRUNTF3, EVENT_BEAT_PYRE_ROCKETF3, PyreRocketF3SeenText, PyreRocketF3BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PyreRocketF3AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PyreRocketF3AfterBattleText
 
 PyreRocketF3SeenText:
 	text "Latios...and"
@@ -237,12 +202,7 @@ PyreRocketF4Script:
 	trainer GRUNTF, PYRE_GRUNTF4, EVENT_BEAT_PYRE_ROCKETF4, PyreRocketF4SeenText, PyreRocketF4BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PyreRocketF4AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PyreRocketF4AfterBattleText
 
 PyreRocketF4SeenText:
 	text "We're the Team"

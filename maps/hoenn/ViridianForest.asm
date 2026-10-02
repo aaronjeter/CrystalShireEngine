@@ -17,34 +17,19 @@ TrainerBugCatcherRob:
 	trainer BUG_CATCHER, ROB, EVENT_BEAT_BUG_CATCHER_ROB, BugCatcherRobSeenText, BugCatcherRobBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BugCatcherRobAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherRobAfterBattleText
 
 TrainerBugCatcherEd:
 	trainer BUG_CATCHER, ED, EVENT_BEAT_BUG_CATCHER_ED, BugCatcherEdSeenText, BugCatcherEdBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BugCatcherEdAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherEdAfterBattleText
 
 TrainerBugCatcherDoug:
 	trainer BUG_CATCHER, DOUG, EVENT_BEAT_BUG_CATCHER_DOUG, BugCatcherDougSeenText, BugCatcherDougBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BugCatcherDougAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherDougAfterBattleText
 
 BugCatcherRobSeenText:
 	text "My bug #mon are"
@@ -119,12 +104,7 @@ TrainerSchoolboyDanny:
 	trainer SCHOOLBOY, DANNY, EVENT_BEAT_SCHOOLBOY_DANNY, SchoolboyDannySeenText, SchoolboyDannyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SchoolboyDannyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SchoolboyDannyAfterBattleText
 
 SchoolboyDannySeenText:
 	text "If trainers meet,"
@@ -149,12 +129,7 @@ TrainerCooltrainerfQuinn:
 	trainer COOLTRAINERF, QUINN, EVENT_BEAT_COOLTRAINERF_QUINN, CooltrainerfQuinnSeenText, CooltrainerfQuinnBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfQuinnAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfQuinnAfterBattleText
 
 CooltrainerfQuinnSeenText:
 	text "You there!"
