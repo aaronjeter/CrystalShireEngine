@@ -36,10 +36,10 @@ SafariGrunt3Script:
 	trainer GRUNTM, SAFARI_GRUNT3, EVENT_BEAT_SAFARI_GRUNT3, SafariGrunt3SeenText, SafariGrunt3BeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariGrunt3AfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	special FadeOutToBlack
 	disappear SAFARINORTH_GRUNT3
 	special FadeInFromBlack
@@ -70,10 +70,10 @@ SafariGruntf3Script:
 	trainer GRUNTF, SAFARI_GRUNTF3, EVENT_BEAT_SAFARI_GRUNTF3, SafariGruntf3SeenText, SafariGruntf3BeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariGruntf3AfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	special FadeOutToBlack
 	disappear SAFARINORTH_GRUNTF3
 	special FadeInFromBlack
@@ -99,10 +99,10 @@ SafariGrunt4Script:
 	trainer GRUNTM, SAFARI_GRUNT4, EVENT_BEAT_SAFARI_GRUNT4, SafariGrunt4SeenText, SafariGrunt4BeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariGrunt4AfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	special FadeOutToBlack
 	disappear SAFARINORTH_GRUNT4
 	special FadeInFromBlack
@@ -133,10 +133,10 @@ SafariStevenScript:
 	trainer RANGERM, SAFARI_STEVEN, EVENT_BEAT_SAFARI_STEVEN, SafariStevenSeenText, SafariStevenBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariStevenAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 SafariStevenSeenText:
@@ -161,10 +161,10 @@ SafariTinaScript:
 	trainer RANGERF, SAFARI_TINA, EVENT_BEAT_SAFARI_TINA, SafariTinaSeenText, SafariTinaBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariTinaAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 SafariTinaSeenText:

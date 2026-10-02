@@ -11,10 +11,10 @@ SafariRachaelScript:
 	trainer RANGERF, SAFARI_RACHAEL, EVENT_BEAT_SAFARI_RACHAEL, SafariRachaelSeenText, SafariRachaelBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariRachaelAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 SafariRachaelSeenText:

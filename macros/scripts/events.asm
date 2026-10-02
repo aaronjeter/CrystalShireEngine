@@ -1124,6 +1124,13 @@ MACRO openpokedialog
 	pokepic \1
 ENDM
 
+MACRO opentrainerdialog
+; for a map trainer's own scripts: opentext + the portrait of the trainer
+; whose header is loaded (wTempTrainerClass); close with closedialog
+	opentext
+	callasm ShowMapTrainerPortrait
+ENDM
+
 MACRO closedialog
 	closepokepic
 	closetext

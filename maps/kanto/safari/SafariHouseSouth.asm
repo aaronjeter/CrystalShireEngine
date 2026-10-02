@@ -13,10 +13,10 @@ SafariMonicaScript:
 	trainer RANGERF, SAFARI_MONICA, EVENT_BEAT_SAFARI_MONICA, SafariMonicaSeenText, SafariMonicaBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariMonicaAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 SafariMonicaSeenText:

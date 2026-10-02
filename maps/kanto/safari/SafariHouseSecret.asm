@@ -11,10 +11,10 @@ SafariRocketBoss:
 	trainer EXECUTIVEF, SAFARI_EXECUTIVEF, EVENT_BEAT_SAFARI_ROCKETS, SafariRocketBossSeenText,SafariRocketBossBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariRocketBossAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	special FadeOutToBlack
 	disappear SAFARISECRET_EXECUTIVE
 	special FadeInFromBlack

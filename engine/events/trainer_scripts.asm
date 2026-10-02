@@ -44,7 +44,7 @@ TrainerAfterScript::
 	closetext
 	end
 
-ShowMapTrainerPortrait:
+ShowMapTrainerPortrait::
 ; Show the map trainer's portrait (like opendialog) for their "seen" text.
 	ld a, [wTempTrainerClass]
 	ld [wTrainerClass], a

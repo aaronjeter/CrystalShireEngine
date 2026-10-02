@@ -13,10 +13,10 @@ SafariEliScript:
 	trainer RANGERM, SAFARI_ELI, EVENT_BEAT_SAFARI_ELI, SafariEliSeenText, SafariEliBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariEliAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 SafariEliSeenText:
@@ -44,10 +44,10 @@ SafariRandalScript:
 	trainer RANGERM, SAFARI_RANDAL, EVENT_BEAT_SAFARI_RANDAL, SafariRandalSeenText, SafariRandalBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SafariRandalAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 SafariRandalSeenText:
