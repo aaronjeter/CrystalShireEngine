@@ -194,12 +194,7 @@ MossdeepCliffScript:
 	trainer GENTLEMAN, MOSSDEEP_CLIFF, EVENT_BEAT_MOSSDEEP_CLIFF, MossdeepCliffSeenText, MossdeepCliffBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepCliffAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepCliffAfterBattleText
 
 MossdeepCliffSeenText:
 	text "Thinking with"
@@ -218,12 +213,7 @@ MossdeepNateScript:
 	trainer GENTLEMAN, MOSSDEEP_NATE, EVENT_BEAT_MOSSDEEP_NATE, MossdeepNateSeenText, MossdeepNateBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepNateAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepNateAfterBattleText
 
 MossdeepNateSeenText:
 	text "Surprise?"
@@ -243,12 +233,7 @@ MossdeepPrestonScript:
 	trainer PSYCHIC_T, MOSSDEEP_PRESTON, EVENT_BEAT_MOSSDEEP_PRESTON, MossdeepPrestonSeenText, MossdeepPrestonBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepPrestonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepPrestonAfterBattleText
 
 MossdeepPrestonSeenText:
 	text "I saw this coming."
@@ -268,12 +253,7 @@ MossdeepBlakeScript:
 	trainer PSYCHIC_T, MOSSDEEP_BLAKE, EVENT_BEAT_MOSSDEEP_BLAKE, MossdeepBlakeSeenText, MossdeepBlakeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepBlakeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepBlakeAfterBattleText
 
 MossdeepBlakeSeenText:
 	text "Portal Trap!"
@@ -298,12 +278,7 @@ MossdeepNicholasScript:
 	trainer PSYCHIC_T, MOSSDEEP_NICHOLAS, EVENT_BEAT_MOSSDEEP_NICHOLAS, MossdeepNicholasSeenText, MossdeepNicholasBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepNicholasAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepNicholasAfterBattleText
 
 MossdeepNicholasSeenText:
 	text "I'll bet you've"
@@ -328,12 +303,7 @@ MossdeepVirgilScript:
 	trainer PSYCHIC_T, MOSSDEEP_VIRGIL, EVENT_BEAT_MOSSDEEP_VIRGIL, MossdeepVirgilSeenText, MossdeepVirgilBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepVirgilAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepVirgilAfterBattleText
 
 MossdeepVirgilSeenText:
 	text "Are you lost?"
@@ -354,12 +324,7 @@ MossdeepMauraScript:
 	trainer PSYCHIC_F, MOSSDEEP_MAURA, EVENT_BEAT_MOSSDEEP_MAURA, MossdeepMauraSeenText, MossdeepMauraBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepMauraAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepMauraAfterBattleText
 
 MossdeepMauraSeenText:
 	text "Boo!"
@@ -380,12 +345,7 @@ MossdeepSamanthaScript:
 	trainer PSYCHIC_F, MOSSDEEP_SAMANTHA, EVENT_BEAT_MOSSDEEP_SAMANTHA, MossdeepSamanthaSeenText, MossdeepSamanthaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepSamanthaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepSamanthaAfterBattleText
 
 MossdeepSamanthaSeenText:
 	text "Having fun yet?"
@@ -409,12 +369,7 @@ MossdeepMaceyScript:
 	trainer PSYCHIC_F, MOSSDEEP_MACEY, EVENT_BEAT_MOSSDEEP_MACEY, MossdeepMaceySeenText, MossdeepMaceyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepMaceyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepMaceyAfterBattleText
 
 MossdeepMaceySeenText:
 	text "Need a hint?"
@@ -437,12 +392,7 @@ MossdeepKathleenScript:
 	trainer PSYCHIC_F, MOSSDEEP_KATHLEEN, EVENT_BEAT_MOSSDEEP_KATHLEEN, MossdeepKathleenSeenText, MossdeepKathleenBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepKathleenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepKathleenAfterBattleText
 
 MossdeepKathleenSeenText:
 	text "Fresh Meat!"
@@ -463,12 +413,7 @@ MossdeepSylviaScript:
 	trainer PSYCHIC_F, MOSSDEEP_SYLVIA, EVENT_BEAT_MOSSDEEP_SYLVIA, MossdeepSylviaSeenText, MossdeepSylviaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepSylviaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepSylviaAfterBattleText
 
 MossdeepSylviaSeenText:
 	text "Oh! You look"
@@ -493,12 +438,7 @@ MossdeepHannahScript:
 	trainer PSYCHIC_F, MOSSDEEP_HANNAH, EVENT_BEAT_MOSSDEEP_HANNAH, MossdeepHannahSeenText, MossdeepHannahBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext MossdeepHannahAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MossdeepHannahAfterBattleText
 
 MossdeepHannahSeenText:
 	text "Be not afraid!"

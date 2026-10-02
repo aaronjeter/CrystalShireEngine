@@ -15,12 +15,7 @@ MauvilleVivian:
 	trainer LASS, MAUVILLE_VIVIAN, EVENT_BEAT_MAUVILLE_VIVIAN, MauvilleVivianSeenText, MauvilleVivianBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleVivianAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleVivianAfterBattleText
 
 MauvilleVivianSeenText:
 	text "With my charm"
@@ -52,12 +47,7 @@ MauvilleKirk:
 	trainer GUITARIST, MAUVILLE_KIRK, EVENT_BEAT_MAUVILLE_KIRK, MauvilleKirkSeenText, MauvilleKirkBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleKirkAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleKirkAfterBattleText
 
 MauvilleKirkSeenText:
 	text "I'll shatter"
@@ -84,12 +74,7 @@ MauvilleShawn:
 	trainer GUITARIST, MAUVILLE_SHAWN, EVENT_BEAT_MAUVILLE_SHAWN, MauvilleShawnSeenText, MauvilleShawnBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleShawnAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleShawnAfterBattleText
 
 MauvilleShawnSeenText:
 	text "I trained"
@@ -119,12 +104,7 @@ MauvilleBen:
 	trainer SCHOOLBOY, MAUVILLE_BEN, EVENT_BEAT_MAUVILLE_BEN, MauvilleBenSeenText, MauvilleBenBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleBenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleBenAfterBattleText
 
 MauvilleBenSeenText:
 	text "This Gym"
@@ -151,12 +131,7 @@ MauvilleAngelo:
 	trainer BUG_CATCHER, MAUVILLE_ANGELO, EVENT_BEAT_MAUVILLE_ANGELO, MauvilleAngeloSeenText, MauvilleAngeloBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext MauvilleAngeloAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter MauvilleAngeloAfterBattleText
 
 MauvilleAngeloSeenText:
 	text "I love shiny "

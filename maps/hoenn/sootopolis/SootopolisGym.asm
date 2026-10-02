@@ -188,12 +188,7 @@ SootopolisConnieScript:
 	trainer BEAUTY, SOOTOPOLIS_CONNIE, EVENT_BEAT_SOOTOPOLIS_CONNIE, SootopolisConnieSeenText, SootopolisConnieBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisConnieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisConnieAfterBattleText
 
 SootopolisConnieSeenText:
 	text "I should teach you"
@@ -217,12 +212,7 @@ SootopolisTiffanyScript:
 	trainer BEAUTY, SOOTOPOLIS_TIFFANY, EVENT_BEAT_SOOTOPOLIS_TIFFANY, SootopolisTiffanySeenText, SootopolisTiffanyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisTiffanyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisTiffanyAfterBattleText
 
 SootopolisTiffanySeenText:
 	text "A graceful glide"
@@ -249,12 +239,7 @@ SootopolisOliviaScript:
 	trainer BEAUTY, SOOTOPOLIS_OLIVIA, EVENT_BEAT_SOOTOPOLIS_OLIVIA, SootopolisOliviaSeenText, SootopolisOliviaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisOliviaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisOliviaAfterBattleText
 
 SootopolisOliviaSeenText:
 	text "We all train"
@@ -278,12 +263,7 @@ SootopolisBridgetScript:
 	trainer BEAUTY, SOOTOPOLIS_BRIDGET, EVENT_BEAT_SOOTOPOLIS_BRIDGET, SootopolisBridgetSeenText, SootopolisBridgetBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisBridgetAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisBridgetAfterBattleText
 
 SootopolisBridgetSeenText:
 	text "This is the"
@@ -311,12 +291,7 @@ SootopolisAndreaScript:
 	trainer LASS, SOOTOPOLIS_ANDREA, EVENT_BEAT_SOOTOPOLIS_ANDREA, SootopolisAndreaSeenText, SootopolisAndreaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisAndreaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisAndreaAfterBattleText
 
 SootopolisAndreaSeenText:
 	text "I'll show you"
@@ -338,12 +313,7 @@ SootopolisCrissyScript:
 	trainer LASS, SOOTOPOLIS_CRISSY, EVENT_BEAT_SOOTOPOLIS_CRISSY, SootopolisCrissySeenText, SootopolisCrissyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisCrissyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisCrissyAfterBattleText
 
 SootopolisCrissySeenText:
 	text "You came a"
@@ -372,12 +342,7 @@ SootopolisDaphneScript:
 	trainer TEACHER, SOOTOPOLIS_DAPHNE, EVENT_BEAT_SOOTOPOLIS_DAPHNE, SootopolisDaphneSeenText, SootopolisDaphneBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisDaphneAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisDaphneAfterBattleText
 
 SootopolisDaphneSeenText:
 	text "It was Wallace"
@@ -402,12 +367,7 @@ SootopolisBriannaScript:
 	trainer TEACHER, SOOTOPOLIS_BRIANNA, EVENT_BEAT_SOOTOPOLIS_BRIANNA, SootopolisBriannaSeenText, SootopolisBriannaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisBriannaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisBriannaAfterBattleText
 
 SootopolisBriannaSeenText:
 	text "Charmed to"
@@ -429,12 +389,7 @@ SootopolisAnnikaScript:
 	trainer POKEFANF, SOOTOPOLIS_ANNIKA, EVENT_BEAT_SOOTOPOLIS_ANNIKA, SootopolisAnnikaSeenText, SootopolisAnnikaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisAnnikaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisAnnikaAfterBattleText
 
 SootopolisAnnikaSeenText:
 	text "I'm just here"
@@ -456,12 +411,7 @@ SootopolisBethanyScript:
 	trainer POKEFANF, SOOTOPOLIS_BETHANY, EVENT_BEAT_SOOTOPOLIS_BETHANY, SootopolisBethanySeenText, SootopolisBethanyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SootopolisBethanyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SootopolisBethanyAfterBattleText
 
 SootopolisBethanySeenText:
 	text "Time flies here"

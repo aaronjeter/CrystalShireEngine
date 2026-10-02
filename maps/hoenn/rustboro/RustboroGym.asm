@@ -13,12 +13,7 @@ RustboroJosh:
 	trainer YOUNGSTER, RUSTBORO_JOSH, EVENT_BEAT_RUSTBORO_JOSH, RustboroJoshSeenText, RustboroJoshBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext RustboroJoshAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter RustboroJoshAfterBattleText
 
 RustboroJoshSeenText:
 	text "Don't take us"
@@ -45,12 +40,7 @@ RustboroTommy:
 	trainer YOUNGSTER, RUSTBORO_TOMMY, EVENT_BEAT_RUSTBORO_TOMMY, RustboroTommySeenText, RustboroTommyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext RustboroTommyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter RustboroTommyAfterBattleText
 
 RustboroTommySeenText:
 	text "If you can't beat"
@@ -75,12 +65,7 @@ RustboroMarc:
 	trainer HIKER, RUSTBORO_MARC, EVENT_BEAT_RUSTBORO_MARC, RustboroMarcSeenText, RustboroMarcBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext RustboroMarcAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter RustboroMarcAfterBattleText
 
 RustboroMarcSeenText:
 	text "My Rock types"

@@ -109,12 +109,7 @@ PetalburgRandall:
 	trainer COOLTRAINERM, PETALBURG_RANDALL, EVENT_BEAT_PETALBURG_RANDALL, PetalburgRandallSeenText, PetalburgRandallBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PetalburgRandallAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PetalburgRandallAfterBattleText
 
 PetalburgRandallSeenText:
 	text "I'll show you"
@@ -138,12 +133,7 @@ PetalburgMary:
 	trainer COOLTRAINERF, PETALBURG_MARY, EVENT_BEAT_PETALBURG_MARY, PetalburgMarySeenText, PetalburgMaryBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PetalburgMaryAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PetalburgMaryAfterBattleText
 
 PetalburgMarySeenText:
 	text "I'm going to"
@@ -166,12 +156,7 @@ PetalburgParker:
 	trainer COOLTRAINERM, PETALBURG_PARKER, EVENT_BEAT_PETALBURG_PARKER, PetalburgParkerSeenText, PetalburgParkerBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PetalburgParkerAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PetalburgParkerAfterBattleText
 
 PetalburgParkerSeenText:
 	text "I'm just here"
@@ -195,12 +180,7 @@ PetalburgLori:
 	trainer COOLTRAINERF, PETALBURG_LORI, EVENT_BEAT_PETALBURG_LORI, PetalburgLoriSeenText, PetalburgLoriBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PetalburgLoriAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PetalburgLoriAfterBattleText
 
 PetalburgLoriSeenText:
 	text "Ok..."
@@ -220,12 +200,7 @@ PetalburgGeorge:
 	trainer COOLTRAINERM, PETALBURG_GEORGE, EVENT_BEAT_PETALBURG_GEORGE, PetalburgGeorgeSeenText, PetalburgGeorgeBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PetalburgGeorgeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PetalburgGeorgeAfterBattleText
 
 PetalburgGeorgeSeenText:
 	text "Norman is counting"
@@ -245,12 +220,7 @@ PetalburgJody:
 	trainer COOLTRAINERF, PETALBURG_JODY, EVENT_BEAT_PETALBURG_JODY, PetalburgJodySeenText, PetalburgJodyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PetalburgJodyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PetalburgJodyAfterBattleText
 
 PetalburgJodySeenText:
 	text "Beat you?"

@@ -171,12 +171,7 @@ LavaridgeGymJeffScript:
 	trainer FIREBREATHER, LAVARIDGE_JEFF, EVENT_BEAT_LAVARIDGE_JEFF, LavaridgeGymJeffSeenText, LavaridgeGymJeffBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext LavaridgeGymJeffAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LavaridgeGymJeffAfterBattleText
 
 LavaridgeGymJeffSeenText:
 	text "Feel the heat of"
@@ -206,12 +201,7 @@ LavaridgeGymJaceScript:
 	trainer FIREBREATHER, LAVARIDGE_JACE, EVENT_BEAT_LAVARIDGE_JACE, LavaridgeGymJaceSeenText, LavaridgeGymJaceBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext LavaridgeGymJaceAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LavaridgeGymJaceAfterBattleText
 
 LavaridgeGymJaceSeenText:
 	text "Lost in the maze?"
@@ -241,12 +231,7 @@ LavaridgeGymEliScript:
 	trainer HIKER, LAVARIDGE_ELI, EVENT_BEAT_LAVARIDGE_ELI, LavaridgeGymEliSeenText,LavaridgeGymEliBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext LavaridgeGymEliAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LavaridgeGymEliAfterBattleText
 
 LavaridgeGymEliSeenText:
 	text "I hiked all the"
@@ -278,12 +263,7 @@ LavaridgeGymColeScript:
 	trainer FIREBREATHER, LAVARIDGE_COLE, EVENT_BEAT_LAVARIDGE_COLE, LavaridgeGymColeSeenText, LavaridgeGymColeBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext LavaridgeGymColeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LavaridgeGymColeAfterBattleText
 
 LavaridgeGymColeSeenText:
 	text "Hot enough for"
@@ -313,12 +293,7 @@ LavaridgeGymGeraldScript:
 	trainer COOLTRAINERM, LAVARIDGE_GERALD, EVENT_BEAT_LAVARIDGE_GERALD, LavaridgeGymGeraldSeenText, LavaridgeGymGeraldBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext LavaridgeGymGeraldAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LavaridgeGymGeraldAfterBattleText
 
 LavaridgeGymGeraldSeenText:
 	text "Fire isn't the"
@@ -349,12 +324,7 @@ LavaridgeGymAxleScript:
 	trainer FIREBREATHER, LAVARIDGE_AXLE, EVENT_BEAT_LAVARIDGE_AXLE, LavaridgeGymAxleSeenText, LavaridgeGymAxleBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext LavaridgeGymAxleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LavaridgeGymAxleAfterBattleText
 
 LavaridgeGymAxleSeenText:
 	text "I'm all fired up!"
@@ -379,12 +349,7 @@ LavaridgeGymKeeganScript:
 	trainer FIREBREATHER, LAVARIDGE_KEEGAN, EVENT_BEAT_LAVARIDGE_KEEGAN, LavaridgeGymKeeganSeenText, LavaridgeGymKeeganBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext LavaridgeGymKeeganAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LavaridgeGymKeeganAfterBattleText
 
 LavaridgeGymKeeganSeenText:
 	text "You made it this"
@@ -410,12 +375,7 @@ LavaridgeGymDanielleScript:
 	trainer BATTLE_GIRL, LAVARIDGE_DANIELLE, EVENT_BEAT_LAVARIDGE_DANIELLE, LavaridgeGymDanielleSeenText, LavaridgeGymDanielleBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext LavaridgeGymDanielleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LavaridgeGymDanielleAfterBattleText
 
 LavaridgeGymDanielleSeenText:
 	text "I train my body"

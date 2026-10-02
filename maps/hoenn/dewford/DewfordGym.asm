@@ -16,12 +16,7 @@ DewfordLaura:
 	trainer BATTLE_GIRL, DEWFORD_LAURA, EVENT_BEAT_DEWFORD_LAURA, DewfordLauraSeenText, DewfordLauraBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DewfordLauraAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DewfordLauraAfterBattleText
 
 DewfordLauraSeenText:
 	text "Don't you dare"
@@ -47,12 +42,7 @@ DewfordLilith:
 	trainer BATTLE_GIRL, DEWFORD_LILITH, EVENT_BEAT_DEWFORD_LILITH, DewfordLilithSeenText, DewfordLilithBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DewfordLilithAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DewfordLilithAfterBattleText
 
 DewfordLilithSeenText:
 	text "Ufufu..."
@@ -76,12 +66,7 @@ DewfordBrenden:
 	trainer SAILOR, DEWFORD_BRENDEN, EVENT_BEAT_DEWFORD_BRENDEN, DewfordBrendenSeenText, DewfordBrendenBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DewfordBrendenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DewfordBrendenAfterBattleText
 
 DewfordBrendenSeenText:
 	text "I'll show you"
@@ -110,12 +95,7 @@ DewfordTakao:
 	trainer BLACKBELT_T, DEWFORD_TAKAO, EVENT_BEAT_DEWFORD_TAKAO, DewfordTakaoSeenText, DewfordTakaoBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DewfordTakaoAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DewfordTakaoAfterBattleText
 
 DewfordTakaoSeenText:
 	text "Might is right!"
@@ -141,12 +121,7 @@ DewfordCristian:
 	trainer BLACKBELT_T, DEWFORD_CRISTIAN, EVENT_BEAT_DEWFORD_CRISTIAN, DewfordCristianSeenText, DewfordCristianBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DewfordCristianAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DewfordCristianAfterBattleText
 
 DewfordCristianSeenText:
 	text "If you mean  "
@@ -172,12 +147,7 @@ DewfordJocelyn:
 	trainer BATTLE_GIRL, DEWFORD_JOCELYN, EVENT_BEAT_DEWFORD_JOCELYN, DewfordJocelynSeenText, DewfordJocelynBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext DewfordJocelynAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter DewfordJocelynAfterBattleText
 
 DewfordJocelynSeenText:
 	text "There's no need"

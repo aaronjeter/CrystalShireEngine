@@ -164,12 +164,7 @@ FortreeGymHumbertScript:
 	trainer BIRD_KEEPER, FORTREE_HUMBERT, EVENT_BEAT_FORTREE_HUMBERT, FortreeGymHumbertSeenText, FortreeGymHumbertBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext FortreeGymHumbertAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FortreeGymHumbertAfterBattleText
 
 FortreeGymHumbertSeenText:
 	text "Winona would"
@@ -193,12 +188,7 @@ FortreeGymJaredScript:
 	trainer BIRD_KEEPER, FORTREE_JARED, EVENT_BEAT_FORTREE_JARED, FortreeGymJaredSeenText, FortreeGymJaredBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext FortreeGymJaredAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FortreeGymJaredAfterBattleText
 
 FortreeGymJaredSeenText:
 	text "Behold the"
@@ -221,12 +211,7 @@ FortreeGymEdwardoScript:
 	trainer BIRD_KEEPER, FORTREE_EDWARDO, EVENT_BEAT_FORTREE_EDWARDO, FortreeGymEdwardoSeenText, FortreeGymEdwardoBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext FortreeGymEdwardoAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FortreeGymEdwardoAfterBattleText
 
 FortreeGymEdwardoSeenText:
 	text "Lovers of Bird"
@@ -252,12 +237,7 @@ FortreeGymDariusScript:
 	trainer BIRD_KEEPER, FORTREE_DARIUS, EVENT_BEAT_FORTREE_DARIUS, FortreeGymDariusSeenText, FortreeGymDariusBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext FortreeGymDariusAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FortreeGymDariusAfterBattleText
 
 FortreeGymDariusSeenText:
 	text "There are tons"
@@ -286,12 +266,7 @@ FortreeGymAshleyScript:
 	trainer PICNICKER, FORTREE_ASHLEY, EVENT_BEAT_FORTREE_ASHLEY, FortreeGymAshleySeenText, FortreeGymAshleyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext FortreeGymAshleyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FortreeGymAshleyAfterBattleText
 
 FortreeGymAshleySeenText:
 	text "Winona taught"
@@ -318,12 +293,7 @@ FortreeGymFlintScript:
 	trainer CAMPER, FORTREE_FLINT, EVENT_BEAT_FORTREE_FLINT, FortreeGymFlintSeenText, FortreeGymFlintBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext FortreeGymFlintAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FortreeGymFlintAfterBattleText
 
 FortreeGymFlintSeenText:
 	text "There's no need"
