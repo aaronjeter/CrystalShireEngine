@@ -104,12 +104,7 @@ TrainerPsychicNathan:
 	trainer PSYCHIC_T, NATHAN, EVENT_BEAT_PSYCHIC_NATHAN, PsychicNathanSeenText, PsychicNathanBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicNathanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicNathanAfterBattleText
 
 RuinsOfAlphOutsideMysteryChamberSign:
 	jumptext RuinsOfAlphOutsideMysteryChamberSignText

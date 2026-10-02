@@ -154,45 +154,25 @@ TrainerFisherAndre:
 	trainer FISHER, ANDRE, EVENT_BEAT_FISHER_ANDRE, FisherAndreSeenText, FisherAndreBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherAndreAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherAndreAfterBattleText
 
 TrainerFisherRaymond:
 	trainer FISHER, RAYMOND, EVENT_BEAT_FISHER_RAYMOND, FisherRaymondSeenText, FisherRaymondBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherRaymondAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherRaymondAfterBattleText
 
 TrainerCooltrainermAaron:
 	trainer COOLTRAINERM, AARON, EVENT_BEAT_COOLTRAINERM_AARON, CooltrainermAaronSeenText, CooltrainermAaronBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainermAaronAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainermAaronAfterBattleText
 
 TrainerCooltrainerfLois:
 	trainer COOLTRAINERF, LOIS, EVENT_BEAT_COOLTRAINERF_LOIS, CooltrainerfLoisSeenText, CooltrainerfLoisBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfLoisAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfLoisAfterBattleText
 
 WesleyScript:
 	faceplayer

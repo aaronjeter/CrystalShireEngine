@@ -111,45 +111,25 @@ TrainerTwinsAmyandmay1:
 	trainer TWINS, AMYANDMAY1, EVENT_BEAT_TWINS_AMY_AND_MAY, TwinsAmyandmay1SeenText, TwinsAmyandmay1BeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext TwinsAmyandmay1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TwinsAmyandmay1AfterBattleText
 
 TrainerBugCatcherBenny:
 	trainer BUG_CATCHER, BUG_CATCHER_BENNY, EVENT_BEAT_BUG_CATCHER_BENNY, BugCatcherBennySeenText, BugCatcherBennyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext BugCatcherBennyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherBennyAfterBattleText
 
 TrainerBugCatcherAl:
 	trainer BUG_CATCHER, AL, EVENT_BEAT_BUG_CATCHER_AL, BugCatcherAlSeenText, BugCatcherAlBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext BugCatcherAlAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherAlAfterBattleText
 
 TrainerBugCatcherJosh:
 	trainer BUG_CATCHER, JOSH, EVENT_BEAT_BUG_CATCHER_JOSH, BugCatcherJoshSeenText, BugCatcherJoshBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext BugCatcherJoshAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherJoshAfterBattleText
 
 AzaleaGymGuideScript:
 	faceplayer

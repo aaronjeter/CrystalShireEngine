@@ -101,34 +101,19 @@ TrainerSageJin:
 	trainer SAGE, JIN, EVENT_BEAT_SAGE_JIN, SageJinSeenText, SageJinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SageJinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SageJinAfterBattleText
 
 TrainerSageTroy:
 	trainer SAGE, TROY, EVENT_BEAT_SAGE_TROY, SageTroySeenText, SageTroyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SageTroyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SageTroyAfterBattleText
 
 TrainerSageNeal:
 	trainer SAGE, NEAL, EVENT_BEAT_SAGE_NEAL, SageNealSeenText, SageNealBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SageNealAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SageNealAfterBattleText
 
 SproutTower3FPainting:
 	jumptext SproutTower3FPaintingText
