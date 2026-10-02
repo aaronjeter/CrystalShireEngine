@@ -27,23 +27,13 @@ TrainerTwinsAnnandanne1:
 	trainer TWINS, ANNANDANNE1, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne1SeenText, TwinsAnnandanne1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext TwinsAnnandanne1AfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter TwinsAnnandanne1AfterBattleText
 
 TrainerPsychicGreg:
 	trainer PSYCHIC_T, GREG, EVENT_BEAT_PSYCHIC_GREG, PsychicGregSeenText, PsychicGregBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicGregAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicGregAfterBattleText
 
 SunnyScript:
 	faceplayer

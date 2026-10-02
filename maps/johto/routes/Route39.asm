@@ -27,45 +27,25 @@ TrainerPokefanmDerek:
 	trainer POKEFANM, DEREK, EVENT_BEAT_POKEFANM_DEREK, PokefanmDerekSeenText, PokefanmDerekBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanMDerekText_NotBragging
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanMDerekText_NotBragging
 
 TrainerPokefanfRuth:
 	trainer POKEFANF, RUTH, EVENT_BEAT_POKEFANF_RUTH, PokefanfRuthSeenText, PokefanfRuthBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanfRuthAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanfRuthAfterBattleText
 
 TrainerSailorEugene:
 	trainer SAILOR, EUGENE, EVENT_BEAT_SAILOR_EUGENE, SailorEugeneSeenText, SailorEugeneBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SailorEugeneAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SailorEugeneAfterBattleText
 
 TrainerPsychicNorman:
 	trainer PSYCHIC_T, NORMAN, EVENT_BEAT_PSYCHIC_NORMAN, PsychicNormanSeenText, PsychicNormanBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicNormanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicNormanAfterBattleText
 
 TrainerPokefanfJaime:
 	faceplayer

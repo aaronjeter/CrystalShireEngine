@@ -26,12 +26,7 @@ TrainerBugCatcherWade1:
 	trainer BUG_CATCHER, WADE, EVENT_BEAT_BUG_CATCHER_WADE, BugCatcherWade1SeenText, BugCatcherWade1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BugCatcherWade1AfterText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherWade1AfterText
 
 Route31MailRecipientScript:
 	faceplayer

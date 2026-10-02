@@ -87,23 +87,13 @@ TrainerCamperTodd1:
 	trainer CAMPER, TODD, EVENT_BEAT_CAMPER_TODD, CamperTodd1SeenText, CamperTodd1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CamperTodd1AfterText
-	waitbutton
-	closetext
-	end
+	trainerafter CamperTodd1AfterText
 
 TrainerPicnickerGina1:
 	trainer PICNICKER, GINA, EVENT_BEAT_PICNICKER_GINA, PicnickerGina1SeenText, PicnickerGina1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PicnickerGina1AfterText
-	waitbutton
-	closetext
-	end
+	trainerafter PicnickerGina1AfterText
 
 OfficerKeithScript:
 	faceplayer
@@ -140,34 +130,19 @@ TrainerYoungsterSamuel:
 	trainer YOUNGSTER, SAMUEL, EVENT_BEAT_YOUNGSTER_SAMUEL, YoungsterSamuelSeenText, YoungsterSamuelBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext YoungsterSamuelAfterText
-	waitbutton
-	closetext
-	end
+	trainerafter YoungsterSamuelAfterText
 
 TrainerYoungsterIan:
 	trainer YOUNGSTER, IAN, EVENT_BEAT_YOUNGSTER_IAN, YoungsterIanSeenText, YoungsterIanBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext YoungsterIanAfterText
-	waitbutton
-	closetext
-	end
+	trainerafter YoungsterIanAfterText
 
 TrainerPokefanmBrandon:
 	trainer POKEFANM, BRANDON, EVENT_BEAT_POKEFANM_BRANDON, PokefanmBrandonSeenText, PokefanmBrandonBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokefanmBrandonAfterText
-	waitbutton
-	closetext
-	end
+	trainerafter PokefanmBrandonAfterText
 
 TrainerCooltrainerfIrene:
 	trainer COOLTRAINERF, IRENE, EVENT_BEAT_COOLTRAINERF_IRENE, CooltrainerfIreneSeenText, CooltrainerfIreneBeatenText, 0, .Script

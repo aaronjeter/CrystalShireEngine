@@ -88,78 +88,43 @@ TrainerSchoolboyDudley:
 	trainer SCHOOLBOY, DUDLEY, EVENT_BEAT_SCHOOLBOY_DUDLEY, SchoolboyDudleySeenText, SchoolboyDudleyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SchoolboyDudleyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SchoolboyDudleyAfterBattleText
 
 TrainerLassEllen:
 	trainer LASS, ELLEN, EVENT_BEAT_LASS_ELLEN, LassEllenSeenText, LassEllenBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext LassEllenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LassEllenAfterBattleText
 
 TrainerSchoolboyJoe:
 	trainer SCHOOLBOY, JOE, EVENT_BEAT_SCHOOLBOY_JOE, SchoolboyJoeSeenText, SchoolboyJoeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SchoolboyJoeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SchoolboyJoeAfterBattleText
 
 TrainerLassLaura:
 	trainer LASS, LAURA, EVENT_BEAT_LASS_LAURA, LassLauraSeenText, LassLauraBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext LassLauraAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LassLauraAfterBattleText
 
 TrainerCamperLloyd:
 	trainer CAMPER, LLOYD, EVENT_BEAT_CAMPER_LLOYD, CamperLloydSeenText, CamperLloydBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CamperLloydAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CamperLloydAfterBattleText
 
 TrainerLassShannon:
 	trainer LASS, SHANNON, EVENT_BEAT_LASS_SHANNON, LassShannonSeenText, LassShannonBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext LassShannonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter LassShannonAfterBattleText
 
 TrainerSupernerdPat:
 	trainer SUPER_NERD, PAT, EVENT_BEAT_SUPER_NERD_PAT, SupernerdPatSeenText, SupernerdPatBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SupernerdPatAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SupernerdPatAfterBattleText
 
 TrainerCooltrainermKevin:
 	faceplayer

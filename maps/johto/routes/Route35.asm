@@ -20,89 +20,49 @@ TrainerBirdKeeperBryan:
 	trainer BIRD_KEEPER, BRYAN, EVENT_BEAT_BIRD_KEEPER_BRYAN, BirdKeeperBryanSeenText, BirdKeeperBryanBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BirdKeeperBryanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BirdKeeperBryanAfterBattleText
 
 TrainerJugglerIrwin:
 	trainer JUGGLER, IRWIN, EVENT_BEAT_JUGGLER_IRWIN, JugglerIrwin1SeenText, JugglerIrwin1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext JugglerIrwinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter JugglerIrwinAfterBattleText
 
 TrainerCamperIvan:
 	trainer CAMPER, IVAN, EVENT_BEAT_CAMPER_IVAN, CamperIvanSeenText, CamperIvanBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CamperIvanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CamperIvanAfterBattleText
 
 TrainerCamperElliot:
 	trainer CAMPER, ELLIOT, EVENT_BEAT_CAMPER_ELLIOT, CamperElliotSeenText, CamperElliotBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CamperElliotAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CamperElliotAfterBattleText
 
 TrainerPicnickerBrooke:
 	trainer PICNICKER, BROOKE, EVENT_BEAT_PICNICKER_BROOKE, PicnickerBrookeSeenText, PicnickerBrookeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PicnickerBrookeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PicnickerBrookeAfterBattleText
 
 TrainerPicnickerKim:
 	trainer PICNICKER, KIM, EVENT_BEAT_PICNICKER_KIM, PicnickerKimSeenText, PicnickerKimBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PicnickerKimAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PicnickerKimAfterBattleText
 
 TrainerBugCatcherArnie:
 	trainer BUG_CATCHER, ARNIE, EVENT_BEAT_BUG_CATCHER_ARNIE, BugCatcherArnieSeenText, BugCatcherArnieBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BugCatcherArnieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherArnieAfterBattleText
 
 TrainerFirebreatherWalt:
 	trainer FIREBREATHER, WALT, EVENT_BEAT_FIREBREATHER_WALT, FirebreatherWaltSeenText, FirebreatherWaltBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FirebreatherWaltAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FirebreatherWaltAfterBattleText
 
 TrainerOfficerDirk:
 	faceplayer

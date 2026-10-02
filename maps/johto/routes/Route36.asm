@@ -168,23 +168,13 @@ TrainerSchoolboyAlan1:
 	trainer SCHOOLBOY, ALAN1, EVENT_BEAT_SCHOOLBOY_ALAN, SchoolboyAlan1SeenText, SchoolboyAlan1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SchoolboyAlanBooksText
-	waitbutton
-	closetext
-	end
+	trainerafter SchoolboyAlanBooksText
 
 TrainerPsychicMark:
 	trainer PSYCHIC_T, MARK, EVENT_BEAT_PSYCHIC_MARK, PsychicMarkSeenText, PsychicMarkBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicMarkAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicMarkAfterBattleText
 
 ArthurScript:
 	faceplayer

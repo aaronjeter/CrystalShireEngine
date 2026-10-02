@@ -20,111 +20,61 @@ TrainerSwimmerfKaylee:
 	trainer SWIMMERF, KAYLEE, EVENT_BEAT_SWIMMERF_KAYLEE, SwimmerfKayleeSeenText, SwimmerfKayleeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfKayleeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfKayleeAfterBattleText
 
 TrainerSwimmerfSusie:
 	trainer SWIMMERF, SUSIE, EVENT_BEAT_SWIMMERF_SUSIE, SwimmerfSusieSeenText, SwimmerfSusieBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfSusieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfSusieAfterBattleText
 
 TrainerSwimmerfDenise:
 	trainer SWIMMERF, DENISE, EVENT_BEAT_SWIMMERF_DENISE, SwimmerfDeniseSeenText, SwimmerfDeniseBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfDeniseAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfDeniseAfterBattleText
 
 TrainerSwimmerfKara:
 	trainer SWIMMERF, KARA, EVENT_BEAT_SWIMMERF_KARA, SwimmerfKaraSeenText, SwimmerfKaraBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfKaraAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfKaraAfterBattleText
 
 TrainerSwimmerfWendy:
 	trainer SWIMMERF, WENDY, EVENT_BEAT_SWIMMERF_WENDY, SwimmerfWendySeenText, SwimmerfWendyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmerfWendyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmerfWendyAfterBattleText
 
 TrainerSwimmermCharlie:
 	trainer SWIMMERM, CHARLIE, EVENT_BEAT_SWIMMERM_CHARLIE, SwimmermCharlieSeenText, SwimmermCharlieBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmermCharlieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmermCharlieAfterBattleText
 
 TrainerSwimmermGeorge:
 	trainer SWIMMERM, GEORGE, EVENT_BEAT_SWIMMERM_GEORGE, SwimmermGeorgeSeenText, SwimmermGeorgeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmermGeorgeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmermGeorgeAfterBattleText
 
 TrainerSwimmermBerke:
 	trainer SWIMMERM, BERKE, EVENT_BEAT_SWIMMERM_BERKE, SwimmermBerkeSeenText, SwimmermBerkeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmermBerkeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmermBerkeAfterBattleText
 
 TrainerSwimmermKirk:
 	trainer SWIMMERM, KIRK, EVENT_BEAT_SWIMMERM_KIRK, SwimmermKirkSeenText, SwimmermKirkBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmermKirkAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmermKirkAfterBattleText
 
 TrainerSwimmermMathew:
 	trainer SWIMMERM, MATHEW, EVENT_BEAT_SWIMMERM_MATHEW, SwimmermMathewSeenText, SwimmermMathewBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext SwimmermMathewAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter SwimmermMathewAfterBattleText
 
 Route41HiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_41_HIDDEN_MAX_ETHER

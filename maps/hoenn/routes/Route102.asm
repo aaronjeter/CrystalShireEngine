@@ -19,12 +19,7 @@ Route102CalvinScript:
 	trainer YOUNGSTER, ROUTE102_CALVIN, EVENT_BEAT_ROUTE102_CALVIN, Route102CalvinSeenText, Route102CalvinBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route102CalvinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route102CalvinAfterBattleText
 
 Route102CalvinSeenText:
 	text "Hi! I'm Calvin!"
@@ -46,12 +41,7 @@ Route102AllenScript:
 	trainer YOUNGSTER, ROUTE102_ALLEN, EVENT_BEAT_ROUTE102_ALLEN, Route102AllenSeenText, Route102AllenBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route102AllenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route102AllenAfterBattleText
 
 Route102AllenSeenText:
 	text "Shh!"
@@ -77,12 +67,7 @@ Route102RickScript:
 	trainer BUG_CATCHER, ROUTE102_RICK, EVENT_BEAT_ROUTE102_RICK, Route102RickSeenText, Route102RickBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route102RickAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route102RickAfterBattleText
 
 Route102RickSeenText:
 	text "Bug #mon evolve"
@@ -108,12 +93,7 @@ Route102TianaScript:
 	trainer LASS, ROUTE102_TIANA, EVENT_BEAT_ROUTE102_TIANA, Route102TianaSeenText, Route102TianaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route102TianaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route102TianaAfterBattleText
 
 Route102TianaSeenText:
 	text "I'm tired of"

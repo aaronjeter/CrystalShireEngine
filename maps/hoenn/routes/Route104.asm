@@ -23,12 +23,7 @@ Route104BillyScript:
 	trainer YOUNGSTER, ROUTE104_BILLY, EVENT_BEAT_ROUTE104_BILLY, Route104BillySeenText, Route104BillyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104BillyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route104BillyAfterBattleText
 
 Route104BillySeenText:
 	text "I just love"
@@ -50,12 +45,7 @@ Route104DarianScript:
 	trainer FISHER, ROUTE104_DARIAN, EVENT_BEAT_ROUTE104_DARIAN, Route104DarianSeenText, Route104DarianBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104DarianAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route104DarianAfterBattleText
 
 Route104DarianSeenText:
 	text "It's a long"
@@ -83,12 +73,7 @@ Route104CindyScript:
 	trainer BEAUTY, ROUTE104_CINDY, EVENT_BEAT_ROUTE104_CINDY, Route104CindySeenText, Route104CindyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104CindyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route104CindyAfterBattleText
 
 Route104CindySeenText:
 	text "I love sand!"
@@ -112,12 +97,7 @@ Route104WinstonScript:
 	trainer CAMPER, ROUTE104_WINSTON, EVENT_BEAT_ROUTE104_WINSTON, Route104WinstonSeenText, Route104WinstonBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104WinstonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route104WinstonAfterBattleText
 
 Route104WinstonSeenText:
 	text "I love to walk"
@@ -144,12 +124,7 @@ Route104HaleyScript:
 	trainer LASS, ROUTE104_HALEY, EVENT_BEAT_ROUTE104_HALEY, Route104HaleySeenText, Route104HaleyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104HaleyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route104HaleyAfterBattleText
 
 Route104HaleySeenText:
 	text "Are you going"
@@ -177,23 +152,13 @@ Route104GinaScript:
 	trainer TWINS, ROUTE104_GINAMIA, EVENT_BEAT_ROUTE104_GINAMIA, Route104GinaMiaSeenText, Route104GinaMiaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104GinaMiaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route104GinaMiaAfterBattleText
 
 Route104MiaScript:
 	trainer TWINS, ROUTE104_GINAMIA, EVENT_BEAT_ROUTE104_GINAMIA, Route104GinaMiaSeenText, Route104GinaMiaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104GinaMiaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route104GinaMiaAfterBattleText
 
 Route104GinaMiaSeenText:
 	text "Me and my sister"
@@ -218,12 +183,7 @@ Route104IvanScript:
 	trainer FISHER, ROUTE104_IVAN, EVENT_BEAT_ROUTE104_IVAN, Route104IvanSeenText, Route104IvanBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route104IvanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route104IvanAfterBattleText
 
 Route104IvanSeenText:
 	text "Hey! Watch it!"

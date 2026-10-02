@@ -12,12 +12,7 @@ PetalburgWoodsLyleScript:
 	trainer BUG_CATCHER, PETALBURGWOODS_LYLE, EVENT_BEAT_PETALBURGWOODS_LYLE, PetalburgWoodsLyleSeenText, PetalburgWoodsLyleBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PetalburgWoodsLyleBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PetalburgWoodsLyleBattleText
 
 PetalburgWoodsLyleSeenText:
 	text "I caught a whole"
@@ -38,12 +33,7 @@ PetalburgWoodsJamesScript:
 	trainer BUG_CATCHER, PETALBURGWOODS_JAMES, EVENT_BEAT_PETALBURGWOODS_JAMES, PetalburgWoodsJamesSeenText, PetalburgWoodsJamesBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext PetalburgWoodsJamesBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PetalburgWoodsJamesBattleText
 
 PetalburgWoodsJamesSeenText:
 	text "I caught a bunch"

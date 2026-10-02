@@ -20,78 +20,43 @@ TrainerBirdKeeperVance1:
 	trainer BIRD_KEEPER, VANCE, EVENT_BEAT_BIRD_KEEPER_VANCE, BirdKeeperVance1SeenText, BirdKeeperVance1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BirdKeeperVanceLegendaryBirdsText
-	waitbutton
-	closetext
-	end
+	trainerafter BirdKeeperVanceLegendaryBirdsText
 
 TrainerPsychicPhil:
 	trainer PSYCHIC_T, PHIL, EVENT_BEAT_PSYCHIC_PHIL, PsychicPhilSeenText, PsychicPhilBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PsychicPhilAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PsychicPhilAfterBattleText
 
 TrainerFisherWilton1:
 	trainer FISHER, WILTON, EVENT_BEAT_FISHER_WILTON, FisherWilton1SeenText, FisherWilton1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherWiltonHugePoliwagText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherWiltonHugePoliwagText
 
 TrainerFisherEdgar:
 	trainer FISHER, EDGAR, EVENT_BEAT_FISHER_EDGAR, FisherEdgarSeenText, FisherEdgarBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherEdgarAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherEdgarAfterBattleText
 
 TrainerCooltrainerfCybil:
 	trainer COOLTRAINERF, CYBIL, EVENT_BEAT_COOLTRAINERF_CYBIL, CooltrainerfCybilSeenText, CooltrainerfCybilBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfCybilAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfCybilAfterBattleText
 
 TrainerPokemaniacZach:
 	trainer POKEMANIAC, ZACH, EVENT_BEAT_POKEMANIAC_ZACH, PokemaniacZachSeenText, PokemaniacZachBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokemaniacZachAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokemaniacZachAfterBattleText
 
 TrainerCooltrainermAllen:
 	trainer COOLTRAINERM, ALLEN, EVENT_BEAT_COOLTRAINERM_ALLEN, CooltrainermAllenSeenText, CooltrainermAllenBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainermAllenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainermAllenAfterBattleText
 
 Route44Sign1:
 	jumptext Route44Sign1Text

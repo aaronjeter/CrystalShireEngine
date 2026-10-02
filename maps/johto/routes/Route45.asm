@@ -23,78 +23,43 @@ TrainerBlackbeltKenji:
 	trainer BLACKBELT_T, KENJI, EVENT_BEAT_BLACKBELT_KENJI, BlackbeltKenji3SeenText, BlackbeltKenji3BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BlackbeltKenjiAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BlackbeltKenjiAfterBattleText
 
 TrainerHikerErik:
 	trainer HIKER, ERIK, EVENT_BEAT_HIKER_ERIK, HikerErikSeenText, HikerErikBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext HikerErikAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter HikerErikAfterBattleText
 
 TrainerHikerMichael:
 	trainer HIKER, MICHAEL, EVENT_BEAT_HIKER_MICHAEL, HikerMichaelSeenText, HikerMichaelBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext HikerMichaelAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter HikerMichaelAfterBattleText
 
 TrainerHikerParry:
 	trainer HIKER, PARRY, EVENT_BEAT_HIKER_PARRY, HikerParry3SeenText, HikerParry3BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext HikerParryAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter HikerParryAfterBattleText
 
 TrainerHikerTimothy:
 	trainer HIKER, TIMOTHY, EVENT_BEAT_HIKER_TIMOTHY, HikerTimothySeenText, HikerTimothyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext HikerTimothyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter HikerTimothyAfterBattleText
 
 TrainerCooltrainermRyan:
 	trainer COOLTRAINERM, RYAN, EVENT_BEAT_COOLTRAINERM_RYAN, CooltrainermRyanSeenText, CooltrainermRyanBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainermRyanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainermRyanAfterBattleText
 
 TrainerCooltrainerfKelly:
 	trainer COOLTRAINERF, KELLY, EVENT_BEAT_COOLTRAINERF_KELLY, CooltrainerfKellySeenText, CooltrainerfKellyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CooltrainerfKellyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CooltrainerfKellyAfterBattleText
 
 TrainerCamperQuentin:
 	faceplayer

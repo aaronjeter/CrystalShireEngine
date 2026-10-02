@@ -38,34 +38,19 @@ TrainerFisherTully:
 	trainer FISHER, TULLY, EVENT_BEAT_FISHER_TULLY, FisherTullySeenText, FisherTullyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherTullyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherTullyAfterBattleText
 
 TrainerPokemaniacShane:
 	trainer POKEMANIAC, SHANE, EVENT_BEAT_POKEMANIAC_SHANE, PokemaniacShaneSeenText, PokemaniacShaneBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokemaniacShaneAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokemaniacShaneAfterBattleText
 
 TrainerHikerBenjamin:
 	trainer HIKER, BENJAMIN, EVENT_BEAT_HIKER_BENJAMIN, HikerBenjaminSeenText, HikerBenjaminBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext HikerBenjaminAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter HikerBenjaminAfterBattleText
 
 Route42Sign1:
 	jumptext Route42Sign1Text

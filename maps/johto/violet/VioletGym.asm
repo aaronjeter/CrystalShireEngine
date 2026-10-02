@@ -110,23 +110,13 @@ TrainerBirdKeeperRod:
 	trainer BIRD_KEEPER, ROD, EVENT_BEAT_BIRD_KEEPER_ROD, BirdKeeperRodSeenText, BirdKeeperRodBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BirdKeeperRodAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BirdKeeperRodAfterBattleText
 
 TrainerBirdKeeperAbe:
 	trainer BIRD_KEEPER, ABE, EVENT_BEAT_BIRD_KEEPER_ABE, BirdKeeperAbeSeenText, BirdKeeperAbeBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BirdKeeperAbeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter BirdKeeperAbeAfterBattleText
 
 VioletGymGuideScript:
 	faceplayer

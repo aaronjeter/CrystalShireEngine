@@ -28,67 +28,37 @@ TrainerCamperSpencer:
 	trainer CAMPER, SPENCER, EVENT_BEAT_CAMPER_SPENCER, CamperSpencerSeenText, CamperSpencerBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext CamperSpencerAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter CamperSpencerAfterBattleText
 
 TrainerPokemaniacBen:
 	trainer POKEMANIAC, BEN, EVENT_BEAT_POKEMANIAC_BEN, PokemaniacBenSeenText, PokemaniacBenBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokemaniacBenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokemaniacBenAfterBattleText
 
 TrainerPokemaniacBrent:
 	trainer POKEMANIAC, BRENT1, EVENT_BEAT_POKEMANIAC_BRENT, PokemaniacBrentSeenText, PokemaniacBrentBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokemaniacBrentAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokemaniacBrentAfterBattleText
 
 TrainerPokemaniacRon:
 	trainer POKEMANIAC, RON, EVENT_BEAT_POKEMANIAC_RON, PokemaniacRonSeenText, PokemaniacRonBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PokemaniacRonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter PokemaniacRonAfterBattleText
 
 TrainerFisherMarvin:
 	trainer FISHER, MARVIN, EVENT_BEAT_FISHER_MARVIN, FisherMarvinSeenText, FisherMarvinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext FisherMarvinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter FisherMarvinAfterBattleText
 
 TrainerPicnickerTiffany:
 	trainer PICNICKER, TIFFANY, EVENT_BEAT_PICNICKER_TIFFANY, PicnickerTiffanySeenText, PicnickerTiffanyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext PicnickerTiffanyWantsPicnicText
-	waitbutton
-	closetext
-	end
+	trainerafter PicnickerTiffanyWantsPicnicText
 
 Route43Sign1:
 	jumptext Route43Sign1Text

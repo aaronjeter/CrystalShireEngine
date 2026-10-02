@@ -44,34 +44,19 @@ TrainerYoungsterJoey:
 	trainer YOUNGSTER, JOEY, EVENT_BEAT_YOUNGSTER_JOEY, YoungsterJoey1SeenText, YoungsterJoey1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext YoungsterJoey1AfterText
-	waitbutton
-	closetext
-	end
+	trainerafter YoungsterJoey1AfterText
 
 TrainerYoungsterMikey:
 	trainer YOUNGSTER, MIKEY, EVENT_BEAT_YOUNGSTER_MIKEY, YoungsterMikeySeenText, YoungsterMikeyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext YoungsterMikeyAfterText
-	waitbutton
-	closetext
-	end
+	trainerafter YoungsterMikeyAfterText
 
 TrainerBugCatcherDon:
 	trainer BUG_CATCHER, DON, EVENT_BEAT_BUG_CATCHER_DON, BugCatcherDonSeenText, BugCatcherDonBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext BugCatcherDonAfterText
-	waitbutton
-	closetext
-	end
+	trainerafter BugCatcherDonAfterText
 
 Route30YoungsterScript:
 	faceplayer

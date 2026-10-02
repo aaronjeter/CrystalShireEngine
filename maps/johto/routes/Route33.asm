@@ -15,12 +15,7 @@ TrainerHikerAnthony:
 	trainer HIKER, ANTHONY, EVENT_BEAT_HIKER_ANTHONY, HikerAnthony2SeenText, HikerAnthony2BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	opentext
-	writetext HikerAnthony2AfterText
-	waitbutton
-	closetext
-	end
+	trainerafter HikerAnthony2AfterText
 
 Route33Sign:
 	jumptext Route33SignText
