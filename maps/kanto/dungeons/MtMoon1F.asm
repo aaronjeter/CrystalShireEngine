@@ -32,7 +32,7 @@ TrainerMoonKentBeatenText:
 
 TrainerMoonKentAfterBattleText:
 	text "I just want to"
-	line "catch a stuid"
+	line "catch a stupid"
 
 	para "Jigglypuff..."
 	done
