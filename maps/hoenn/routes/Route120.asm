@@ -25,12 +25,7 @@ Route120RobertScript:
 	trainer BIRD_KEEPER, ROUTE120_ROBERT, EVENT_BEAT_ROUTE120_ROBERT, Route120RobertSeenText, Route120RobertBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120RobertAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120RobertAfterBattleText
 
 Route120RobertSeenText:
 	text "My #mon are"
@@ -56,12 +51,7 @@ Route120ColinScript:
 	trainer BIRD_KEEPER, ROUTE120_COLIN, ROUTE120_COLIN, Route120ColinSeenText, Route120ColinBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120ColinAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120ColinAfterBattleText
 
 Route120ColinSeenText:
 	text "Do you have any"
@@ -82,12 +72,7 @@ Route120LeonelScript:
 	trainer COOLTRAINERM, ROUTE120_LEONEL, EVENT_BEAT_ROUTE120_LEONEL, Route120LeonelSeenText, Route120LeonelBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120LeonelAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120LeonelAfterBattleText
 
 Route120LeonelSeenText:
 	text "Your party"
@@ -112,12 +97,7 @@ Route120JenniferScript:
 	trainer COOLTRAINERF, ROUTE120_JENNIFER, EVENT_BEAT_ROUTE120_JENNIFER, Route120JenniferSeenText, Route120JenniferBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120JenniferAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120JenniferAfterBattleText
 
 Route120JenniferSeenText:
 	text "#mon have many"
@@ -139,12 +119,7 @@ Route120ClarissaScript:
 	trainer BEAUTY, ROUTE120_CLARISSA, EVENT_BEAT_ROUTE120_CLARISSA, Route120ClarissaSeenText, Route120ClarissaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120ClarissaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120ClarissaAfterBattleText
 
 Route120ClarissaSeenText:
 	text "Show me what"
@@ -164,12 +139,7 @@ Route120AngelicaScript:
 	trainer BEAUTY, ROUTE120_ANGELICA, EVENT_BEAT_ROUTE120_ANGELICA, Route120AngelicaSeenText, Route120AngelicaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120AngelicaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120AngelicaAfterBattleText
 
 Route120AngelicaSeenText:
 	text "Me and my"
@@ -190,12 +160,7 @@ Route120JeffreyScript:
 	trainer POKEMANIAC, ROUTE120_JEFFREY, EVENT_BEAT_ROUTE120_JEFFREY, Route120JeffreySeenText, Route120JeffreyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120JeffreyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120JeffreyAfterBattleText
 
 Route120JeffreySeenText:
 	text "..."
@@ -227,12 +192,7 @@ Route120CallieScript:
 	trainer BATTLE_GIRL, ROUTE120_CALLIE, EVENT_BEAT_ROUTE120_CALLIE, Route120CallieSeenText, Route120CallieBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120CallieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120CallieAfterBattleText
 
 Route120CallieSeenText:
 	text "If you don't pay"
@@ -254,12 +214,7 @@ Route120RileyScript:
 	trainer RANGERM, ROUTE120_RILEY, EVENT_BEAT_ROUTE120_RILEY, Route120RileySeenText, Route120RileyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120RileyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120RileyAfterBattleText
 
 Route120RileySeenText:
 	text "We conceal"
@@ -281,12 +236,7 @@ Route120LorenzoScript:
 	trainer RANGERM, ROUTE120_LORENZO, EVENT_BEAT_ROUTE120_LORENZO, Route120LorenzoSeenText, Route120LorenzoBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120LorenzoAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120LorenzoAfterBattleText
 
 Route120LorenzoSeenText:
 	text "Let's see if your"
@@ -311,12 +261,7 @@ Route120KeigoScript:
 	trainer RANGERM, ROUTE120_KEIGO, EVENT_BEAT_ROUTE120_KEIGO, Route120KeigoSeenText, Route120KeigoBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120KeigoAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120KeigoAfterBattleText
 
 Route120KeigoSeenText:
 	text "I like to adopt"
@@ -339,12 +284,7 @@ Route120JennaScript:
 	trainer RANGERF, ROUTE120_JENNA, EVENT_BEAT_ROUTE120_JENNA, Route120JennaSeenText, Route120JennaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120JennaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120JennaAfterBattleText
 
 Route120JennaSeenText:
 	text "How's your"
@@ -372,12 +312,7 @@ Route120ChipScript:
 	trainer EXPLORER, ROUTE120_CHIP, EVENT_BEAT_ROUTE120_CHIP, Route120ChipSeenText, Route120ChipBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120ChipAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120ChipAfterBattleText
 
 Route120ChipSeenText:
 	text "Who might you be?"
@@ -415,12 +350,7 @@ Route120DaleScript:
 	trainer EXPLORER, ROUTE120_DALE, EVENT_BEAT_ROUTE120_DALE, Route120DaleSeenText, Route120DaleBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route120DaleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route120DaleAfterBattleText
 
 Route120DaleSeenText:
 	text "Hey!"

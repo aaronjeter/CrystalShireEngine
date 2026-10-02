@@ -16,12 +16,7 @@ Route116JoeyScript:
 	trainer YOUNGSTER, ROUTE116_JOEY, EVENT_BEAT_ROUTE116_JOEY, Route116JoeySeenText, Route116JoeyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route116JoeyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route116JoeyAfterBattleText
 
 Route116JoeySeenText:
 	text "My #mon rule!"
@@ -42,12 +37,7 @@ Route116JohnsonScript:
 	trainer YOUNGSTER, ROUTE116_JOHNSON, EVENT_BEAT_ROUTE116_JOHNSON, Route116JohnsonSeenText, Route116JohnsonBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route116JohnsonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route116JohnsonAfterBattleText
 
 Route116JohnsonSeenText:
 	text "It's a dead end"
@@ -73,12 +63,7 @@ Route116KarenScript:
 	trainer LASS, ROUTE116_KAREN, EVENT_BEAT_ROUTE116_KAREN, Route116KarenSeenText, Route116KarenBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route116KarenAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route116KarenAfterBattleText
 
 Route116KarenSeenText:
 	text "I'm looking to"
@@ -104,12 +89,7 @@ Route116JaniceScript:
 	trainer LASS, ROUTE116_JANICE, EVENT_BEAT_ROUTE116_JANICE, Route116JaniceSeenText, Route116JaniceBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route116JaniceAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route116JaniceAfterBattleText
 
 Route116JaniceSeenText:
 	text "Let me teach you "
@@ -139,12 +119,7 @@ Route116JoseScript:
 	trainer BUG_CATCHER, ROUTE116_JOSE, EVENT_BEAT_ROUTE116_JOSE, Route116JoseSeenText, Route116JoseBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route116JoseAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route116JoseAfterBattleText
 
 Route116JoseSeenText:
 	text "My Bug #mon"
@@ -174,12 +149,7 @@ Route116ClarkScript:
 	trainer HIKER, ROUTE116_CLARK, EVENT_BEAT_ROUTE116_CLARK, Route116ClarkSeenText, Route116ClarkBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route116ClarkAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route116ClarkAfterBattleText
 
 Route116ClarkSeenText:
 	text "If the tunnel"
@@ -212,12 +182,7 @@ Route116DevanScript:
 	trainer HIKER, ROUTE116_DEVAN, EVENT_BEAT_ROUTE116_DEVAN, Route116DevanSeenText, Route116DevanBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route116DevanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route116DevanAfterBattleText
 
 Route116DevanSeenText:
 	text "I'll rock you"

@@ -15,12 +15,7 @@ Route118DaleScript:
 	trainer SCHOOLBOY, ROUTE118_DALE, EVENT_BEAT_ROUTE118_DALE, Route118DaleSeenText, Route118DaleBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route118DaleAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route118DaleAfterBattleText
 
 Route118DaleSeenText:
 	text "Hey there!"
@@ -42,12 +37,7 @@ Route118ChesterScript:
 	trainer BIRD_KEEPER, ROUTE118_CHESTER, EVENT_BEAT_ROUTE118_CHESTER, Route118ChesterSeenText, Route118ChesterBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route118ChesterAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route118ChesterAfterBattleText
 
 Route118ChesterSeenText:
 	text "Sure is windy"
@@ -69,12 +59,7 @@ Route118PerryScript:
 	trainer BIRD_KEEPER, ROUTE118_PERRY, EVENT_BEAT_ROUTE118_PERRY, Route118PerrySeenText, Route118PerryBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route118PerryAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route118PerryAfterBattleText
 
 Route118PerrySeenText:
 	text "I'm going North"
@@ -101,12 +86,7 @@ Route118SallyScript:
 	trainer LASS, ROUTE118_SALLY, EVENT_BEAT_ROUTE118_SALLY, Route118SallySeenText, Route118SallyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route118SallyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route118SallyAfterBattleText
 
 Route118SallySeenText:
 	text "The water is"
@@ -130,12 +110,7 @@ Route118AnnieScript:
 	trainer LASS, ROUTE118_ANNIE, EVENT_BEAT_ROUTE118_ANNIE, Route118AnnieSeenText, Route118AnnieBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route118AnnieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route118AnnieAfterBattleText
 
 Route118AnnieSeenText:
 	text "I hate sand."
@@ -159,12 +134,7 @@ Route118BarnyScript:
 	trainer FISHER, ROUTE118_BARNY, EVENT_BEAT_ROUTE118_BARNY, Route118BarnySeenText, Route118BarnyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route118BarnyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route118BarnyAfterBattleText
 
 Route118BarnySeenText:
 	text "Hey there!"

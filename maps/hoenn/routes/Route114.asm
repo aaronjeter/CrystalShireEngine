@@ -22,12 +22,7 @@ Route114SteveScript:
 	trainer POKEMANIAC, ROUTE114_STEVE, EVENT_BEAT_ROUTE114_STEVE, Route114SteveSeenText, Route114SteveBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114SteveAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114SteveAfterBattleText
 
 Route114SteveSeenText:
 	text "Yo, check out"
@@ -48,12 +43,7 @@ Route114NolanScript:
 	trainer FISHER, ROUTE114_NOLAN, EVENT_BEAT_ROUTE114_NOLAN, Route114NolanSeenText, Route114NolanBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114NolanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114NolanAfterBattleText
 
 Route114NolanSeenText:
 	text "Nothing is biting."
@@ -74,12 +64,7 @@ Route114KaiScript:
 	trainer FISHER, ROUTE114_KAI, EVENT_BEAT_ROUTE114_KAI, Route114KaiSeenText, Route114KaiBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114KaiAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114KaiAfterBattleText
 
 Route114KaiSeenText:
 	text "Hey!"
@@ -104,12 +89,7 @@ Route114ClaudeScript:
 	trainer FISHER, ROUTE114_CLAUDE, EVENT_BEAT_ROUTE114_CLAUDE, Route114ClaudeSeenText, Route114ClaudeBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114ClaudeAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114ClaudeAfterBattleText
 
 Route114ClaudeSeenText:
 	text "So, what's your"
@@ -130,12 +110,7 @@ Route114LucasScript:
 	trainer HIKER, ROUTE114_LUCAS, EVENT_BEAT_ROUTE114_LUCAS, Route114LucasSeenText, Route114LucasBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114LucasAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114LucasAfterBattleText
 
 Route114LucasSeenText:
 	text "Meteor Falls is"
@@ -156,12 +131,7 @@ Route114LennyScript:
 	trainer HIKER, ROUTE114_LENNY, EVENT_BEAT_ROUTE114_LENNY, Route114LennySeenText, Route114LennyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114LennyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114LennyAfterBattleText
 
 Route114LennySeenText:
 	text "Ugh, I'm tired."
@@ -180,12 +150,7 @@ Route114BernieScript:
 	trainer FIREBREATHER, ROUTE114_BERNIE, EVENT_BEAT_ROUTE114_BERNIE, Route114BernieSeenText, Route114BernieBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114BernieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114BernieAfterBattleText
 
 Route114BernieSeenText:
 	text "Burn!"
@@ -204,12 +169,7 @@ Route114CharlotteScript:
 	trainer PICNICKER, ROUTE114_CHARLOTTE, EVENT_BEAT_ROUTE114_CHARLOTTE, Route114CharlotteSeenText, Route114CharlotteBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114CharlotteAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114CharlotteAfterBattleText
 
 Route114CharlotteSeenText:
 	text "I'm hungry!"
@@ -231,12 +191,7 @@ Route114NancyScript:
 	trainer PICNICKER, ROUTE114_NANCY, EVENT_BEAT_ROUTE114_NANCY, Route114NancySeenText, Route114NancyBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114NancyAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114NancyAfterBattleText
 
 Route114NancySeenText:
 	text "It's quite a"
@@ -259,12 +214,7 @@ Route114AngelinaScript:
 	trainer PICNICKER, ROUTE114_ANGELINA, EVENT_BEAT_ROUTE114_ANGELINA, Route114AngelinaSeenText, Route114AngelinaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114AngelinaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114AngelinaAfterBattleText
 
 Route114AngelinaSeenText:
 	text "Don't you just"
@@ -288,12 +238,7 @@ Route114ShaneScript:
 	trainer CAMPER, ROUTE114_SHANE, EVENT_BEAT_ROUTE114_SHANE, Route114ShaneSeenText, Route114ShaneBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route114ShaneAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route114ShaneAfterBattleText
 
 Route114ShaneSeenText:
 	text "Yawn."

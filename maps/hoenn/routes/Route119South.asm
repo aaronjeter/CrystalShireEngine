@@ -24,12 +24,7 @@ Route119DonaldScript:
 	trainer POKEMANIAC, ROUTE119_DONALD, EVENT_BEAT_ROUTE119_DONALD, Route119DonaldSeenText, Route119DonaldBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119DonaldAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119DonaldAfterBattleText
 
 Route119DonaldSeenText:
 	text "So, we finally"
@@ -54,12 +49,7 @@ Route119TaylorScript:
 	trainer POKEMANIAC, ROUTE119_TAYLOR, EVENT_BEAT_ROUTE119_TAYLOR, Route119TaylorSeenText, Route119TaylorBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119TaylorAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119TaylorAfterBattleText
 
 Route119TaylorSeenText:
 	text "Buzz Buzz!"
@@ -79,12 +69,7 @@ Route119BrentScript:
 	trainer POKEMANIAC, ROUTE119_BRENT, EVENT_BEAT_ROUTE119_BRENT, Route119BrentSeenText, Route119BrentBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119BrentAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119BrentAfterBattleText
 
 Route119BrentSeenText:
 	text "I'm a bug master!"
@@ -104,12 +89,7 @@ Route119KentScript:
 	trainer BUG_CATCHER, ROUTE119_KENT, EVENT_BEAT_ROUTE119_KENT, Route119KentSeenText, Route119KentBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119KentAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119KentAfterBattleText
 
 Route119KentSeenText:
 	text "A battle starts"
@@ -129,12 +109,7 @@ Route119GregScript:
 	trainer BUG_CATCHER, ROUTE119_GREG, EVENT_BEAT_ROUTE119_GREG, Route119GregSeenText, Route119GregBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119GregAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119GregAfterBattleText
 
 Route119GregSeenText:
 	text "You don't know who"
@@ -158,12 +133,7 @@ Route119DougScript:
 	trainer BUG_CATCHER, ROUTE119_DOUG, EVENT_BEAT_ROUTE119_DOUG, Route119DougSeenText, Route119DougBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119DougAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119DougAfterBattleText
 
 Route119DougSeenText:
 	text "Yep, you've"
@@ -183,12 +153,7 @@ Route119ChrisScript:
 	trainer FISHER, ROUTE119_CHRIS, EVENT_BEAT_ROUTE119_CHRIS, Route119ChrisSeenText, Route119ChrisBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119ChrisAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119ChrisAfterBattleText
 
 Route119ChrisSeenText:
 	text "Sure! I'll try out"
@@ -210,12 +175,7 @@ Route119JacksonScript:
 	trainer RANGERM, ROUTE119_JACKSON, EVENT_BEAT_ROUTE119_JACKSON, Route119JacksonSeenText, Route119JacksonBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119JacksonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119JacksonAfterBattleText
 
 Route119JacksonSeenText:
 	text "Who has the"
@@ -242,12 +202,7 @@ Route119TakashiScript:
 	trainer RANGERM, ROUTE119_TAKASHI, EVENT_BEAT_ROUTE119_TAKASHI, Route119TakashiSeenText, Route119TakashiBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119TakashiAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119TakashiAfterBattleText
 
 Route119TakashiSeenText:
 	text "If you're not on"
@@ -272,12 +227,7 @@ Route119CatherineScript:
 	trainer RANGERF, ROUTE119_CATHERINE, EVENT_BEAT_ROUTE119_CATHERINE, Route119CatherineSeenText, Route119CatherineBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119CatherineAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119CatherineAfterBattleText
 
 Route119CatherineSeenText:
 	text "Oh? Look at you."

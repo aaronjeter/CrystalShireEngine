@@ -24,12 +24,7 @@ Route121RyanScript:
 	trainer GRUNTM, ROUTE121_GRUNT1, EVENT_BEAT_ROUTE121_ROCKET1, Route121RyanSeenText, Route121RyanBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route121RyanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route121RyanAfterBattleText
 
 Route121RyanSeenText:
 	text "You!"
@@ -52,12 +47,7 @@ Route121AlexScript:
 	trainer GRUNTM, ROUTE121_GRUNT2, EVENT_BEAT_ROUTE121_ROCKET2, Route121AlexSeenText, Route121AlexBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route121AlexAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route121AlexAfterBattleText
 
 Route121AlexSeenText:
 	text "Boss said"
@@ -82,12 +72,7 @@ Route121LisaScript:
 	trainer GRUNTF, ROUTE121_GRUNTF1, EVENT_BEAT_ROUTE121_ROCKETF1, Route121LisaSeenText, Route121LisaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route121LisaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route121LisaAfterBattleText
 
 Route121LisaSeenText:
 	text "Oh, hey there."
@@ -114,12 +99,7 @@ Route121JamieScript:
 	trainer GRUNTF, ROUTE121_GRUNTF2, EVENT_BEAT_ROUTE121_ROCKETF2, Route121JamieSeenText, Route121JamieBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route121JamieAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route121JamieAfterBattleText
 
 Route121JamieSeenText:
 	text "Again? I'm glad"

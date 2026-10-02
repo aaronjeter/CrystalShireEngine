@@ -19,12 +19,7 @@ Route119PhilScript:
 	trainer BIRD_KEEPER, ROUTE119_PHIL, EVENT_BEAT_ROUTE119_PHIL, Route119PhilSeenText, Route119PhilBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119PhilAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119PhilAfterBattleText
 
 Route119PhilSeenText:
 	text "I'll show you the"
@@ -49,12 +44,7 @@ Route119HughScript:
 	trainer BIRD_KEEPER, ROUTE119_HUGH, EVENT_BEAT_ROUTE119_HUGH, Route119HughSeenText, Route119HughBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119HughAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119HughAfterBattleText
 
 Route119HughSeenText:
 	text "The vast sky holds"
@@ -77,12 +67,7 @@ Route119FabianScript:
 	trainer GUITARIST, ROUTE119_FABIAN, EVENT_BEAT_ROUTE119_FABIAN, Route119FabianSeenText, Route119FabianBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119FabianAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119FabianAfterBattleText
 
 Route119FabianSeenText:
 	text "Victory is mine!"
@@ -104,12 +89,7 @@ Route119DaytonScript:
 	trainer FIREBREATHER, ROUTE119_DAYTON, EVENT_BEAT_ROUTE119_DAYTON, Route119DaytonSeenText, Route119DaytonBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119DaytonAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119DaytonAfterBattleText
 
 Route119DaytonSeenText:
 	text "Hohoho!"
@@ -131,12 +111,7 @@ Route119YasuScript:
 	trainer RANGERM, ROUTE119_YASU, EVENT_BEAT_ROUTE119_YASU, Route119YasuSeenText, Route119YasuBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119YasuAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119YasuAfterBattleText
 
 Route119YasuSeenText:
 	text "I emerge to"
@@ -156,12 +131,7 @@ Route119HideoScript:
 	trainer RANGERM, ROUTE119_HIDEO, EVENT_BEAT_ROUTE119_HIDEO, Route119HideoSeenText, Route119HideoBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119HideoAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119HideoAfterBattleText
 
 Route119HideoSeenText:
 	text "To hide a tree,"
@@ -185,12 +155,7 @@ Route119RachelScript:
 	trainer RANGERF, ROUTE119_RACHEL, EVENT_BEAT_ROUTE119_RACHEL, Route119RachelSeenText, Route119RachelBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119RachelAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119RachelAfterBattleText
 
 Route119RachelSeenText:
 	text "Wherever and"
@@ -211,12 +176,7 @@ Route119DaniScript:
 	trainer RANGERF, ROUTE119_DANI, EVENT_BEAT_ROUTE119_DANI, Route119DaniSeenText, Route119DaniBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route119DaniAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route119DaniAfterBattleText
 
 Route119DaniSeenText:
 	text "Let's do this!"

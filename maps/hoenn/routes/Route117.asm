@@ -20,12 +20,7 @@ Route117DylanScript:
 	trainer CAMPER, ROUTE117_DYLAN, EVENT_BEAT_ROUTE117_DYLAN, Route117DylanSeenText, Route117DylanBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117DylanAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117DylanAfterBattleText
 
 Route117DylanSeenText:
 	text "Whatever, let's"
@@ -47,12 +42,7 @@ Route117AnnaMegScript:
 	trainer TWINS, ROUTE117_ANNAMEG, EVENT_BEAT_ROUTE117_ANNAMEG, Route117AnnaMegSeenText, Route117AnnaMegBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117AnnaMegAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117AnnaMegAfterBattleText
 
 Route117AnnaMegSeenText:
 	text "Let's do this!"
@@ -72,12 +62,7 @@ Route117IsaacScript:
 	trainer POKEFANM, ROUTE117_ISAAC, EVENT_BEAT_ROUTE117_ISAAC, Route117IsaacSeenText, Route117IsaacBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117IsaacAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117IsaacAfterBattleText
 
 Route117IsaacSeenText:
 	text "Listen, could I"
@@ -99,12 +84,7 @@ Route117MariaScript:
 	trainer PICNICKER, ROUTE117_MARIA, EVENT_BEAT_ROUTE117_MARIA, Route117MariaSeenText, Route117MariaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117MariaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117MariaAfterBattleText
 
 Route117MariaSeenText:
 	text "I'm pretty"
@@ -129,12 +109,7 @@ Route117DerekScript:
 	trainer BUG_CATCHER, ROUTE117_DEREK, EVENT_BEAT_ROUTE117_DEREK, Route117DerekSeenText, Route117DerekBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117DerekAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117DerekAfterBattleText
 
 Route117DerekSeenText:
 	text "Bug catching"
@@ -156,12 +131,7 @@ Route117BrandiScript:
 	trainer MEDIUM, ROUTE117_BRANDI, EVENT_BEAT_ROUTE117_BRANDI, Route117BrandiSeenText, Route117BrandiBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117BrandiAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117BrandiAfterBattleText
 
 Route117BrandiSeenText:
 	text "Let me demonstrate"
@@ -184,12 +154,7 @@ Route117MelinaScript:
 	trainer PICNICKER, ROUTE117_MELINA, EVENT_BEAT_ROUTE117_MELINA, Route117MelinaSeenText, Route117MelinaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117MelinaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117MelinaAfterBattleText
 
 Route117MelinaSeenText:
 	text "Isn't it nice?"
@@ -214,12 +179,7 @@ Route117AishaScript:
 	trainer BATTLE_GIRL, ROUTE117_AISHA, EVENT_BEAT_ROUTE117_AISHA, Route117AishaSeenText, Route117AishaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117AishaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117AishaAfterBattleText
 
 Route117AishaSeenText:
 	text "Concentrate on"
@@ -247,12 +207,7 @@ Route117LydiaScript:
 	trainer POKEFANF, ROUTE117_LYDIA, EVENT_BEAT_ROUTE117_LYDIA, Route117LydiaSeenText, Route117LydiaBeatenText, 0, .AfterScript
 
 .AfterScript:
-	endifjustbattled
-	opentext
-	writetext Route117LydiaAfterBattleText
-	waitbutton
-	closetext
-	end
+	trainerafter Route117LydiaAfterBattleText
 
 Route117LydiaSeenText:
 	text "Please, allow me"
