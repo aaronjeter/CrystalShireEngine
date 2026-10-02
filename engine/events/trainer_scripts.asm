@@ -31,6 +31,19 @@ StartBattleWithMapTrainerScript:
 AlreadyBeatenTrainerScript:
 	scripttalkafter
 
+TrainerAfterScript::
+; Shared after-battle talk for standard map trainers (see `trainerafter`).
+; Right after the battle it ends silently; when talked to later, it shows
+; the trainer's portrait and their after-battle text.
+	endifjustbattled
+	opentext
+	callasm ShowMapTrainerPortrait
+	trainertext TRAINERTEXT_LOSS ; the text stored by trainerafter
+	waitbutton
+	closepokepic
+	closetext
+	end
+
 ShowMapTrainerPortrait:
 ; Show the map trainer's portrait (like opendialog) for their "seen" text.
 	ld a, [wTempTrainerClass]

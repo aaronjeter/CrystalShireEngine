@@ -1104,6 +1104,14 @@ MACRO trainerpic
 	db \1 ; trainerGroup
 ENDM
 
+	const trainerafter_command ; $b0
+MACRO trainerafter
+; After-battle talk for a standard map trainer: the trainer's portrait and
+; the given text (see TrainerAfterScript in engine/events/trainer_scripts.asm).
+	db trainerafter_command
+	dw \1 ; after-battle text
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value
 
 MACRO opendialog

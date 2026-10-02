@@ -236,6 +236,7 @@ ScriptCommandTable:
 	dw Script_checkmaplockeditems        ; ad
 	dw Script_givepokemove               ; ae
 	dw Script_trainerpic                 ; af
+	dw Script_trainerafter               ; b0
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2425,3 +2426,15 @@ Script_trainerpic:
   	call GetScriptByte
   	ld [wTrainerClass], a
   	farjp Trainerpic
+
+Script_trainerafter:
+; Store the after-battle text where `trainertext TRAINERTEXT_LOSS` reads it
+; (a map trainer's loss text is always 0 and only used during battle),
+; then run the shared TrainerAfterScript.
+	rst GetScriptByte
+	ld [wLossTextPointer], a
+	rst GetScriptByte
+	ld [wLossTextPointer + 1], a
+	ld b, BANK(TrainerAfterScript)
+	ld hl, TrainerAfterScript
+	jmp ScriptJump
