@@ -70,20 +70,20 @@ TrainerSageGaku:
 	trainer SAGE, GAKU, EVENT_BEAT_SAGE_GAKU, SageGakuSeenText, SageGakuBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SageGakuAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 TrainerSageMasa:
 	trainer SAGE, MASA, EVENT_BEAT_SAGE_MASA, SageMasaSeenText, SageMasaBeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext SageMasaAfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 TrainerSageKoji:
@@ -94,12 +94,12 @@ TrainerSageKoji:
 	iftrue .KojiAllowsPassage
 	pause 10
 	showemote EMOTE_SHOCK, WISETRIOSROOM_SAGE6, 20
-	opentext
+	opentrainerdialog
 	writetext SageKojiAfterBattleQuestionText
 	promptbutton
 	writetext SageKojiAfterBattleSpeechText
 	waitbutton
-	closetext
+	closedialog
 	applymovement WISETRIOSROOM_SAGE6, WiseTriosRoomSageAllowsPassageMovement
 	turnobject WISETRIOSROOM_SAGE6, UP
 	setevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER
@@ -107,10 +107,10 @@ TrainerSageKoji:
 	end
 
 .KojiAllowsPassage:
-	opentext
+	opentrainerdialog
 	writetext SageKojiAfterBattleFinalText
 	waitbutton
-	closetext
+	closedialog
 	end
 
 WiseTriosRoomSageBlocksPlayerMovement:

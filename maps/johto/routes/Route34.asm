@@ -149,18 +149,18 @@ TrainerCooltrainerfIrene:
 
 .Script:
 	endifjustbattled
-	opentext
+	opentrainerdialog
 	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfIreneAfterText1
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .GotSoftSand:
 	writetext CooltrainerfIreneAfterText2
 	waitbutton
-	closetext
+	closedialog
 	end
 
 TrainerCooltrainerfJenn:
@@ -168,18 +168,18 @@ TrainerCooltrainerfJenn:
 
 .Script:
 	endifjustbattled
-	opentext
+	opentrainerdialog
 	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfJennAfterText1
 	waitbutton
-	closetext
+	closedialog
 	end
 
 .GotSoftSand:
 	writetext CooltrainerfJennAfterText2
 	waitbutton
-	closetext
+	closedialog
 	end
 
 TrainerCooltrainerfKate:
@@ -187,7 +187,7 @@ TrainerCooltrainerfKate:
 
 .Script:
 	endifjustbattled
-	opentext
+	opentrainerdialog
 	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfKateOfferSoftSandText
@@ -199,7 +199,7 @@ TrainerCooltrainerfKate:
 	writetext CooltrainerfKateAfterText
 	waitbutton
 .BagFull:
-	closetext
+	closedialog
 	end
 
 Route34Sign:

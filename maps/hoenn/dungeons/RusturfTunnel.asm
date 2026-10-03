@@ -16,10 +16,10 @@ RusturfGrunt1Script:
 	trainer GRUNTM, RUSTTURF_GRUNT1, EVENT_BEAT_RUSTTURF_ROCKET1, RusturfGrunt1SeenText, RusturfGrunt1BeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext RusturfGrunt1AfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	special FadeOutToBlack
 	disappear RUSTURF_GRUNT1
 	special FadeInFromBlack
@@ -50,10 +50,10 @@ RusturfGrunt2Script:
 	trainer GRUNTM, RUSTTURF_GRUNT2, EVENT_BEAT_RUSTTURF_ROCKET2, RusturfGrunt2SeenText, RusturfGrunt2BeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext RusturfGrunt2AfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	special FadeOutToBlack
 	disappear RUSTURF_GRUNT2
 	special FadeInFromBlack
@@ -88,10 +88,10 @@ RusturfGrunt3Script:
 	trainer GRUNTF, RUSTTURF_GRUNTF1, EVENT_BEAT_RUSTTURF_ROCKET3, RusturfGrunt3SeenText, RusturfGrunt3BeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext RusturfGrunt3AfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	special FadeOutToBlack
 	disappear RUSTURF_GRUNT3
 	special FadeInFromBlack

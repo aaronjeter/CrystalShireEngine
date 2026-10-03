@@ -130,10 +130,10 @@ SlowpokeTailGrunt:
 
 GruntF5Script:
 	endifjustbattled
-	opentext
+	opentrainerdialog
 	writetext GruntF5AfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	setevent EVENT_LEARNED_SLOWPOKETAIL
 	end
 
@@ -142,10 +142,10 @@ RaticateTailGrunt:
 
 GruntM28Script:
 	endifjustbattled
-	opentext
+	opentrainerdialog
 	writetext GruntM28AfterBattleText
 	waitbutton
-	closetext
+	closedialog
 	setevent EVENT_LEARNED_RATICATE_TAIL
 	end
 

@@ -28,10 +28,10 @@ TrainerGruntM1:
 	trainer GRUNTM, GRUNTM_MEDIUM, EVENT_BEAT_ROCKET_GRUNTM_1, GruntM1SeenText, GruntM1BeatenText, 0, .Script
 
 .Script:
-	opentext
+	opentrainerdialog
 	writetext TrainerGruntM1WhenTalkText
 	waitbutton
-	closetext
+	closedialog
 	special FadeOutToBlack
 	special ReloadSpritesNoPalettes
 	disappear SLOWPOKEWELLB1F_ROCKET1
