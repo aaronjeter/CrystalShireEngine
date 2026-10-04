@@ -204,12 +204,6 @@ DebrisMons::
 	dw -1
 
 LeechMons::
-	dw PARAS
-	dw PARASECT
-	dw VENONAT
-	dw HOPPIP
-	dw SKIPLOOM
-	dw JUMPLUFF
 	dw -1
 
 EnervateMons::
@@ -332,7 +326,9 @@ ElementalFangMons::
 	dw EXEGGUTOR2
 	dw -1
 
-ElementalBladeMons::	
+ElementalBladeMons::
+	dw PARAS
+	dw PARASECT
 	dw MEOWTH
 	dw PERSIAN
 	dw FARFETCH_D
@@ -616,6 +612,9 @@ PranksterMons::
 	dw BUTTERFREE
 	dw BUTTERFREEX
 	dw MEW
+	dw HOPPIP
+	dw SKIPLOOM
+	dw JUMPLUFF
 	dw MURKROW
 	dw HONCHKROW
 	dw MISDREAVUS
