@@ -149,7 +149,7 @@ KantoGrassWildMons:
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
 	dbw 1, ZUBAT
-	dbw 1, MEDITITE
+	dbw 4, MACHOKE
 	dbw 3, MAROWAK
 	dbw 5, MAROWAK
 	; day
@@ -157,7 +157,7 @@ KantoGrassWildMons:
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
 	dbw 1, ZUBAT
-	dbw 1, MEDITITE
+	dbw 4, MACHOKE
 	dbw 3, MAROWAK
 	dbw 5, MAROWAK
 	; nite
@@ -165,7 +165,7 @@ KantoGrassWildMons:
 	dbw 1, GEODUDE
 	dbw 1, MACHOP
 	dbw 1, ZUBAT
-	dbw 1, MEDITITE
+	dbw 4, MACHOKE
 	dbw 3, MAROWAK
 	dbw 5, MAROWAK
 	end_grass_wildmons
@@ -176,7 +176,7 @@ KantoGrassWildMons:
 	dbw 1, CUBONE
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MEDITITE
+	dbw 4, MACHOKE
 	dbw 3, MAROWAK
 	dbw 3, KANGASKHAN
 	dbw 5, KANGASKHAN
@@ -184,7 +184,7 @@ KantoGrassWildMons:
 	dbw 1, CUBONE
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MEDITITE
+	dbw 4, MACHOKE
 	dbw 3, MAROWAK
 	dbw 3, KANGASKHAN
 	dbw 5, KANGASKHAN
@@ -192,7 +192,7 @@ KantoGrassWildMons:
 	dbw 1, CUBONE
 	dbw 1, GEODUDE
 	dbw 1, ONIX
-	dbw 1, MEDITITE
+	dbw 4, MACHOKE
 	dbw 3, MAROWAK
 	dbw 3, KANGASKHAN
 	dbw 5, KANGASKHAN
@@ -370,7 +370,7 @@ KantoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, PIDGEY
-	dbw 1, SKITTY
+	dbw 1, MEOWTH
 	dbw 3, PIDGEOTTO
 	dbw 1, ABRA
 	dbw 1, JIGGLYPUFF
@@ -378,7 +378,7 @@ KantoGrassWildMons:
 	dbw 3, ABRA
 	; day
 	dbw 1, PIDGEY
-	dbw 1, SKITTY
+	dbw 1, MEOWTH
 	dbw 3, JIGGLYPUFF
 	dbw 1, JIGGLYPUFF
 	dbw 1, JIGGLYPUFF
@@ -386,7 +386,7 @@ KantoGrassWildMons:
 	dbw 3, ABRA
 	; nite
 	dbw 1, PIDGEY
-	dbw 1, SKITTY
+	dbw 1, RATTATA
 	dbw 3, PIDGEOTTO
 	dbw 1, MEOWTH
 	dbw 1, MEOWTH
@@ -761,7 +761,7 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_22
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 1, SPOINK
+	dbw 1, MANKEY
 	dbw 1, SPEAROW
 	dbw 1, NIDORAN_F
 	dbw 2, NIDORAN_M
@@ -769,7 +769,7 @@ KantoGrassWildMons:
 	dbw 3, DODUO
 	dbw 5, DODUO
 	; day
-	dbw 1, SPOINK
+	dbw 1, MANKEY
 	dbw 1, SPEAROW
 	dbw 1, NIDORAN_F
 	dbw 2, NIDORAN_M
@@ -777,7 +777,7 @@ KantoGrassWildMons:
 	dbw 3, DODUO
 	dbw 5, DODUO
 	; nite
-	dbw 1, SPOINK
+	dbw 1, MANKEY
 	dbw 1, SPEAROW
 	dbw 1, NIDORAN_F
 	dbw 2, NIDORAN_M
@@ -789,26 +789,26 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_24
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 2, VOLBEAT
-	dbw 2, ILLUMISE
-	dbw 3, CACNEA
-	dbw 1, ABRA
+	dbw 1, ODDISH
+	dbw 1, BELLSPROUT
+	dbw 2, RATTATA
+	dbw 1, VENONAT
 	dbw 1, BELLSPROUT
 	dbw 5, BUTTERFREE
 	dbw 5, BUTTERFREE
 	; day
-	dbw 2, VOLBEAT
-	dbw 2, ILLUMISE
-	dbw 3, CACNEA
-	dbw 1, ABRA
+	dbw 1, ODDISH
+	dbw 1, BELLSPROUT
+	dbw 2, RATTATA
+	dbw 1, VENONAT
 	dbw 1, BELLSPROUT
 	dbw 5, BUTTERFREE
 	dbw 5, BUTTERFREE
 	; nite
-	dbw 2, VOLBEAT
-	dbw 2, ILLUMISE
-	dbw 3, CACNEA
-	dbw 1, ABRA
+	dbw 1, ODDISH
+	dbw 1, BELLSPROUT
+	dbw 2, RATTATA
+	dbw 1, VENONAT
 	dbw 1, BELLSPROUT
 	dbw 3, GLOOM
 	dbw 5, GLOOM
@@ -819,7 +819,7 @@ KantoGrassWildMons:
 	; morn
 	dbw 1, CATERPIE
 	dbw 1, PIDGEY
-	dbw 3, CACNEA
+	dbw 3, VENONAT
 	dbw 2, METAPOD
 	dbw 1, BELLSPROUT
 	dbw 3, BUTTERFREE
@@ -827,7 +827,7 @@ KantoGrassWildMons:
 	; day
 	dbw 1, CATERPIE
 	dbw 1, PIDGEY
-	dbw 3, CACNEA
+	dbw 3, VENONAT
 	dbw 2, METAPOD
 	dbw 1, BELLSPROUT
 	dbw 3, BUTTERFREE
@@ -835,7 +835,7 @@ KantoGrassWildMons:
 	; nite
 	dbw 1, ODDISH
 	dbw 1, HOOTHOOT
-	dbw 3, CACNEA
+	dbw 3, VENONAT
 	dbw 2, NOCTOWL
 	dbw 2, BELLSPROUT
 	dbw 4, NOCTOWL
