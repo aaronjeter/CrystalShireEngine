@@ -145,3 +145,7 @@ PranksterDesc:
 SereneGraceDesc:
 	db    "Doubles the odds"
 	next  "of added effects.@"
+
+TechnicianDesc:
+	db    "Boosts moves with"
+	next  "60 power or less.@"

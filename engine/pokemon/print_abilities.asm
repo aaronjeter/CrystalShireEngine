@@ -110,6 +110,9 @@ PrintAbility:
 	jp .SereneGrace
 	.NotSereneGrace
 
+	jp .Technician
+	.NotTechnician
+
 	jp .NoAbility
 
 	.Done
@@ -702,6 +705,22 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Technician:
+	call GetAbilityMon	
+	call CheckTechnicianAbility
+	jr c, .HasTechnician
+	jp .NotTechnician
+		
+.HasTechnician:
+	ld de, TechnicianNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, TechnicianDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -817,3 +836,6 @@ PranksterNameString:
 
 SereneGraceNameString:
 	db "Serene Grace@"
+
+TechnicianNameString:
+	db "Technician@"

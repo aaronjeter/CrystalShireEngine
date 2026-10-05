@@ -137,9 +137,7 @@ HasteMons::
 	dw PONYTA2
 	dw RAPIDASH2
 	dw DODUO
-	dw DODRIO
-	dw AIPOM
-	dw AMBIPOM
+	dw DODRIO	
 	dw YANMA
 	dw YANMEGA
 	dw GIRAFARIG
@@ -295,8 +293,7 @@ ElementalFistMons::
 	dw LEDIAN
 	dw LEDIANX
 	dw HERACROSS
-	dw HERACROSSX
-	dw BRELOOM	
+	dw HERACROSSX	
 	dw MEDITITE
 	dw MEDICHAM
 	dw ANNIHILAPE	
@@ -328,22 +325,14 @@ ElementalFangMons::
 
 ElementalBladeMons::
 	dw PARAS
-	dw PARASECT
-	dw MEOWTH
-	dw PERSIAN
+	dw PARASECT	
 	dw FARFETCH_D
-	dw SIRFETCH_D
-	dw SCYTHER
-	dw SCIZOR
+	dw SIRFETCH_D	
 	dw SNEASEL	
 	dw ABSOL
 	dw ABSOLX
 	dw GALLADE
-	dw WEAVILE
-	dw KLEAVOR
-	dw SCYTHER2
-	dw SCIZOR2
-	dw SCIZORX
+	dw WEAVILE	
 	dw -1
 
 StabilityMons::
@@ -383,8 +372,7 @@ StabilityMons::
 	dw AMPHAROSX
 	dw REMORAID
 	dw OCTILLERY
-	dw OCTILLERY2
-	dw HITMONTOP
+	dw OCTILLERY2	
 	dw PORYGON2
 	dw PORYGONZ
 	dw SKITTY
@@ -638,4 +626,21 @@ SereneGraceMons::
 	dw JIRACHI
 	dw GPONYTA
 	dw GRAPIDASH
+	dw -1
+
+;Move Power Abilities--------------------
+
+TechnicianMons::
+	dw MEOWTH
+	dw PERSIAN
+	dw SCYTHER
+	dw SCIZOR
+	dw KLEAVOR
+	dw SCYTHER2
+	dw SCIZOR2
+	dw SCIZORX
+	dw AIPOM
+	dw AMBIPOM
+	dw HITMONTOP
+	dw BRELOOM
 	dw -1

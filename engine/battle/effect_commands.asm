@@ -1521,8 +1521,6 @@ BattleCommand_ResetTypeMatchup:
 	ld [wTypeMatchup], a
 	ret
 
-INCLUDE "engine/battle/ai/switch.asm"
-
 INCLUDE "data/types/type_matchups.asm"
 
 BattleCommand_DamageVariation:
@@ -3118,7 +3116,21 @@ BattleCommand_DamageCalc:
 .skip_zero_damage_check
 	xor a ; Not confusion damage
 	ld [wIsConfusionDamage], a
-	; fallthrough
+
+; Technician: +50% damage for moves with 60 power or less.
+; The power check has to happen here, while d still holds the move's power.
+	call CheckTechnician
+	push af
+	call ConfusionDamageCalc
+	pop af
+	jr nc, .technician_done
+	call BoostDamageByHalf
+.technician_done
+
+; Returns nz and nc.
+	ld a, 1
+	and a
+	ret
 
 ConfusionDamageCalc:
 ; Minimum defense value is 1.
@@ -3326,6 +3338,42 @@ DEF DAMAGE_CAP EQU MAX_DAMAGE - MIN_DAMAGE
 	ldh [hQuotient + 2], a
 	ldh [hQuotient + 3], a
 
+	ret
+
+BoostDamageByHalf:
+; Increase the damage in wCurDamage by 50% (rounded down),
+; capped at MAX_DAMAGE. Preserves bc and hl.
+	push hl
+	push bc
+
+	ld hl, wCurDamage
+	ld a, [hli]
+	ld b, a
+	ld c, [hl]
+	ld h, b
+	ld l, c ; hl = damage
+
+	srl b
+	rr c ; bc = damage / 2
+	add hl, bc
+
+	ld a, h
+	cp HIGH(MAX_DAMAGE + 1)
+	jr c, .store
+	jr nz, .cap
+	ld a, l
+	cp LOW(MAX_DAMAGE + 1)
+	jr c, .store
+.cap
+	ld hl, MAX_DAMAGE
+.store
+	ld a, h
+	ld [wCurDamage], a
+	ld a, l
+	ld [wCurDamage + 1], a
+
+	pop bc
+	pop hl
 	ret
 
 INCLUDE "data/types/type_boost_items.asm"
@@ -5087,7 +5135,7 @@ BattleCommand_ForceSwitch:
 	jmp .succeed
 
 .trainer
-	call FindAliveEnemyMons
+	farcall FindAliveEnemyMons
 	jr c, .switch_fail
 	ld a, [wEnemyGoesFirst]
 	and a

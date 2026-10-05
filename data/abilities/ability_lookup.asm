@@ -144,6 +144,12 @@ CheckStabilityAbility:
 	call IsInWordArray
 	ret
 
+CheckTechnicianAbility:
+	call SetupAbilityCheck
+	ld hl, TechnicianMons
+	call IsInWordArray
+	ret
+
 
 ;Between turn heal abilities-----
 

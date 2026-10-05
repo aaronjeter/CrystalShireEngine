@@ -153,6 +153,11 @@ SECTION "Effect Commands", ROMX
 INCLUDE "engine/battle/effect_commands.asm"
 
 
+SECTION "AI Switch", ROMX
+
+INCLUDE "engine/battle/ai/switch.asm"
+
+
 SECTION "Enemy Trainers", ROMX
 
 INCLUDE "engine/battle/ai/items.asm"

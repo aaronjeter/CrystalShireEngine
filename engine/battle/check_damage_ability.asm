@@ -115,6 +115,28 @@ ApplyThickFat:
 	ret nc
 	jmp HalveDamage
 
+CheckTechnician:
+; Return carry if the attacker has Technician and the move's
+; power is 60 or less. Moves with no power never qualify.
+; in:  d = move power
+; out: carry set if Technician applies
+; Preserves bc, de and hl.
+	ld a, d
+	and a
+	ret z
+	cp 60 + 1
+	ret nc
+
+	push bc
+	push hl
+	push de
+	call GetCurrentMon ; the attacker
+	farcall CheckTechnicianAbility
+	pop de
+	pop hl
+	pop bc
+	ret
+
 ApplyDurable:
 ; Cut the damage by 25% if the move is super effective
 ; and the target has Durable.
