@@ -137,6 +137,35 @@ CheckTechnician:
 	pop bc
 	ret
 
+ApplyGuts:
+; Boost the attacker's Attack by 50% if it has Guts and a status condition.
+; in:  hl = Attack stat
+; out: hl = Attack stat (x1.5 if Guts applies)
+; Preserves bc and de.
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVar ; preserves hl, de, and bc
+	and a
+	ret z
+
+	push bc
+	push de
+	push hl
+	call GetCurrentMon ; the attacker
+	farcall CheckGutsAbility
+	pop hl
+	pop de
+	pop bc
+	ret nc
+
+	push bc
+	ld b, h
+	ld c, l
+	srl b
+	rr c
+	add hl, bc
+	pop bc
+	ret
+
 ApplyDurable:
 ; Cut the damage by 25% if the move is super effective
 ; and the target has Durable.

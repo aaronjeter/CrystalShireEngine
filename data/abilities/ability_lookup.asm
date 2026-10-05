@@ -150,6 +150,12 @@ CheckTechnicianAbility:
 	call IsInWordArray
 	ret
 
+CheckGutsAbility:
+	call SetupAbilityCheck
+	ld hl, GutsMons
+	call IsInWordArray
+	ret
+
 
 ;Between turn heal abilities-----
 

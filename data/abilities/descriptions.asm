@@ -149,3 +149,7 @@ SereneGraceDesc:
 TechnicianDesc:
 	db    "Boosts moves with"
 	next  "60 power or less.@"
+
+GutsDesc:
+	db    "Status boosts Atk"
+	next  "and ignores burn.@"

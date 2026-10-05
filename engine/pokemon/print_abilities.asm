@@ -113,6 +113,9 @@ PrintAbility:
 	jp .Technician
 	.NotTechnician
 
+	jp .Guts
+	.NotGuts
+
 	jp .NoAbility
 
 	.Done
@@ -721,6 +724,22 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Guts:
+	call GetAbilityMon
+	call CheckGutsAbility
+	jr c, .HasGuts
+	jp .NotGuts
+
+.HasGuts:
+	ld de, GutsNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, GutsDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -839,3 +858,6 @@ SereneGraceNameString:
 
 TechnicianNameString:
 	db "Technician@"
+
+GutsNameString:
+	db "Guts@"

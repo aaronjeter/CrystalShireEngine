@@ -6710,6 +6710,9 @@ ApplyBrnEffectOnAttack:
 	ld a, [wBattleMonStatus]
 	and 1 << BRN
 	ret z
+	ld a, [wBattleMonSpecies]
+	call CheckGutsSpecies
+	ret c
 	ld hl, wBattleMonAttack + 1
 	ld a, [hld]
 	ld b, a
@@ -6729,6 +6732,9 @@ ApplyBrnEffectOnAttack:
 	ld a, [wEnemyMonStatus]
 	and 1 << BRN
 	ret z
+	ld a, [wEnemyMonSpecies]
+	call CheckGutsSpecies
+	ret c
 	ld hl, wEnemyMonAttack + 1
 	ld a, [hld]
 	ld b, a
@@ -6742,6 +6748,19 @@ ApplyBrnEffectOnAttack:
 
 .enemy_ok
 	ld [hl], b
+	ret
+
+CheckGutsSpecies:
+; Return carry if species a has Guts.
+; Preserves bc, de and hl.
+	push hl
+	push de
+	push bc
+	call GetPokemonIndexFromID
+	farcall CheckGutsAbility
+	pop bc
+	pop de
+	pop hl
 	ret
 
 ApplyStatLevelMultiplierOnAllStats:

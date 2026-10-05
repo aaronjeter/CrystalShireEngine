@@ -166,11 +166,6 @@ AimMons::
 	dw -1
 
 FocusMons::	
-	dw MACHOP
-	dw MACHOKE
-	dw MACHAMP
-	dw TAILLOW
-	dw SWELLOW
 	dw -1
 
 VeiledMons::
@@ -281,9 +276,7 @@ WaterproofMons::
 
 ;Damage Boosting Ability Mons ----------------------------------------------
 
-ElementalFistMons::
-	dw MANKEY
-	dw PRIMEAPE
+ElementalFistMons::	
 	dw ABRA
 	dw KADABRA
 	dw ALAKAZAM
@@ -295,8 +288,7 @@ ElementalFistMons::
 	dw HERACROSS
 	dw HERACROSSX	
 	dw MEDITITE
-	dw MEDICHAM
-	dw ANNIHILAPE	
+	dw MEDICHAM	
 	dw -1
 
 ElementalFangMons::
@@ -559,9 +551,7 @@ ThickFatMons::
 	dw SWINUB
 	dw PILOSWINE
 	dw MAMOSWINE
-	dw MILTANK
-	dw MAKUHITA
-	dw HARIYAMA
+	dw MILTANK	
 	dw TROPIUS
 	dw TROPIUSX
 	dw -1
@@ -643,4 +633,19 @@ TechnicianMons::
 	dw AMBIPOM
 	dw HITMONTOP
 	dw BRELOOM
+	dw -1
+
+;Attack Boosting Abilities--------------------
+
+GutsMons::
+	dw MANKEY
+	dw PRIMEAPE
+	dw ANNIHILAPE
+	dw MACHOP
+	dw MACHOKE
+	dw MACHAMP
+	dw TAILLOW
+	dw SWELLOW
+	dw MAKUHITA
+	dw HARIYAMA
 	dw -1

@@ -2762,6 +2762,7 @@ PlayerAttackDamage:
 	call HailDefBoost
 ; Note: Returns player attack at hl in hl.
 	call ThickClubBoost
+	call ApplyGuts
 
 .done
 	call TruncateHL_BC
@@ -3027,6 +3028,7 @@ EnemyAttackDamage:
 .thickclub
 	call HailDefBoost
 	call ThickClubBoost
+	call ApplyGuts
 
 .done
 	call TruncateHL_BC
