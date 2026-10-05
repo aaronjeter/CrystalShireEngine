@@ -143,3 +143,32 @@ MACRO sine_table
 		dw sin(x * 0.5 / (\1))
 	endr
 ENDM
+
+MACRO mon
+; level, species
+	db \1
+	dw \2
+ENDM
+
+MACRO itemmon
+; level, species, item
+	db \1
+	dw \2
+	dw \3
+ENDM
+
+MACRO moves
+; emits four move words; use NO_MOVE to pad
+	if _NARG != 4
+		fail "moves: expected 4 moves, got {d:_NARG}"
+	endc
+	dw \1
+	dw \2
+	dw \3
+	dw \4
+ENDM
+
+MACRO end_party
+; terminates a trainer party
+	db -1
+ENDM
