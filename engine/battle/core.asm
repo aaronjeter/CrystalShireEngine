@@ -248,7 +248,6 @@ HandleBetweenTurnEffects:
 	call HandleLeftovers
 	call HandleHealAbilities
 	call HandleWeatherHealAbilities
-	call HandleWeatherSpeedAbilities
 	call HandleShedSkin
 	call HandleMysteryberry
 	call HandleSafeguard
@@ -473,11 +472,11 @@ DetermineMoveOrder:
 .use_move
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
-	jr nz, .player_first
+	jp nz, .player_first
 	call CompareMovePriority
 	jr z, .equal_priority
-	jr c, .player_first ; player goes first
-	jr .enemy_first
+	jp c, .player_first ; player goes first
+	jp .enemy_first
 
 .equal_priority
 	call SetPlayerTurn
@@ -525,14 +524,24 @@ DetermineMoveOrder:
 	cp c
 	jr c, .enemy_first
 
-;Do Weather Speed Checks
-
 .speed_check
-	ld de, wBattleMonSpeed
+	; Swift Swim, Chlorophyll, Sand Rush and Slush Rush double Speed in their weather
+	call SetEnemyTurn
 	ld hl, wEnemyMonSpeed
-	ld c, 2
-	call CompareBytes
+	call GetTurnOrderSpeed
+	push bc
+	call SetPlayerTurn
+	ld hl, wBattleMonSpeed
+	call GetTurnOrderSpeed
+	pop de
+	; bc = player speed, de = enemy speed
+	ld a, b
+	cp d
+	jr nz, .speed_decided
+	ld a, c
+	cp e
 	jr z, .speed_tie
+.speed_decided
 	jr nc, .player_first
 	jr .enemy_first
 
@@ -555,6 +564,19 @@ DetermineMoveOrder:
 
 .enemy_first
 	and a
+	ret
+
+GetTurnOrderSpeed:
+; bc = Speed at hl (big-endian), doubled if a weather ability boosts the hBattleTurn mon
+	ld a, [hli]
+	ld b, a
+	ld c, [hl]
+	push bc
+	call CheckWeatherSpeedBoost
+	pop bc
+	ret nc
+	sla c
+	rl b
 	ret
 
 CheckContestBattleOver:
@@ -1526,35 +1548,6 @@ call CheckSandstorm
 .NotHail
 
 .finish_restore
-	ret
-
-HandleWeatherSpeedAbilities:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .DoEnemyFirst
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
-
-.DoEnemyFirst:
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
-.do_it	
-	push de
-	push bc
-	call CheckWeatherSpeedAbility
-	pop bc
-	pop de
-	ret
-
-.restore
-	call GetSixteenthMaxHP
-	call SwitchTurnCore
-	call RestoreHP
-	ld hl, HealAbilityText
-	jmp StdBattleTextbox
 	ret
 
 HandleShedSkin:

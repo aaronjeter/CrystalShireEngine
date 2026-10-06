@@ -107,19 +107,19 @@ LeechDesc:
 	next  "on entrance.@"
 
 SwiftSwimDesc:
-	db    "Increases Speed"
+	db    "Doubles Speed"
 	next  "in Rain.@"
 
 ChlorophyllDesc:
-	db    "Increases Speed"
+	db    "Doubles Speed"
 	next  "in Sun.@"
 
 SandRushDesc:
-	db    "Increases Speed"
+	db    "Doubles Speed"
 	next  "in Sandstorm.@"
 
 SlushRushDesc:
-	db    "Increases Speed"
+	db    "Doubles Speed"
 	next  "in Hail.@"
 
 EnervateDesc:

@@ -1216,26 +1216,6 @@ SandBodyHealsText:
 	line "<TARGET>!"
 	prompt
 
-RainBoostsSpeedText:
-	text "<USER>"
-	line "speeds up in Rain!"
-	prompt
-
-SunBoostsSpeedText:
-	text "<USER>"
-	line "speeds up in Sun!"
-	prompt
-
-SandBoostsSpeedText:
-	text "<USER>"
-	line "speeds up in Sand"
-	prompt
-
-HailBoostsSpeedText:
-	text "<USER>"
-	line "speeds up in Hail"
-	prompt
-
 AbilityBoostsDamageText:
 	text "<USER>'s"
 	line "Ability Triggered!"

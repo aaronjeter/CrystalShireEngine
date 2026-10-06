@@ -125,110 +125,36 @@ GetActiveMon:
 	jmp GetPokemonIndexFromID
 
 
-CheckWeatherSpeedAbility:
-
-	call SwiftSwim
-	jr z, .Done
-	jr c, .Done
-
-	call Chlorophyll
-	jr z, .Done
-	jr c, .Done
-
-	call SandRush
-	jr z, .Done
-	jr c, .Done
-
-	call SlushRush
-	jr z, .Done
-	jr c, .Done
-
-	.Done
+CheckWeatherSpeedBoost:
+; Returns carry if the hBattleTurn side's mon has the ability that doubles
+; its Speed in the current weather (Swift Swim, Chlorophyll, Sand Rush, Slush Rush).
+	ld a, [wBattleWeather]
+	cp WEATHER_RAIN
+	jr z, .rain
+	cp WEATHER_SUN
+	jr z, .sun
+	cp WEATHER_SANDSTORM
+	jr z, .sand
+	cp WEATHER_HAIL
+	jr z, .hail
+	and a
 	ret
 
-
-SwiftSwim:
-	call CheckRaining
-	jr nz, .NotRaining	
-
-	call CheckSwiftSwimMon
-	jr nc, .NotSwiftSwimMon
-	
-    farcall BattleCommand_SpeedUp
-    ld hl, RainBoostsSpeedText
-    call StdBattleTextbox
-
-	.NotRaining	
-	.NotSwiftSwimMon	
-	ret
-
-CheckSwiftSwimMon:	
+.rain
 	call GetActiveMon
-	farcall CheckSwiftSwimAbility
-	ret
+	farjp CheckSwiftSwimAbility
 
-
-Chlorophyll:
-	call CheckSun
-	jr nz, .NotSun
-
-	call CheckChlorophyllMon
-	jr nc, .NotChlorophyllMon
-
-	farcall BattleCommand_SpeedUp
-    ld hl, SunBoostsSpeedText
-    call StdBattleTextbox
-	
-	.NotSun	
-	.NotChlorophyllMon	
-	ret
-
-CheckChlorophyllMon:	
+.sun
 	call GetActiveMon
-	farcall CheckChlorophyllAbility
-	ret
+	farjp CheckChlorophyllAbility
 
-
-SandRush:
-	call CheckSandstorm
-	jr nz, .NotSandstorm
-
-	call CheckSandRushMon
-	jr nc, .NotSandRushMon
-
-	farcall BattleCommand_SpeedUp
-    ld hl, SandBoostsSpeedText
-    call StdBattleTextbox
-	
-	.NotSandstorm
-	.NotSandRushMon
-	ret
-
-CheckSandRushMon:	
+.sand
 	call GetActiveMon
-	farcall CheckSandRushAbility
-	ret
+	farjp CheckSandRushAbility
 
-
-SlushRush:
-	call CheckHail
-	jr nz, .NotHail
-
-	call CheckSlushRushMon
-	jr nc, .NotSlushRushMon
-
-    farcall BattleCommand_SpeedUp
-    ld hl, HailBoostsSpeedText
-    call StdBattleTextbox
-	
-	.NotHail
-	.NotSlushRushMon
-	ret
-
-CheckSlushRushMon:	
+.hail
 	call GetActiveMon
-	farcall CheckSlushRushAbility
-	ret	
+	farjp CheckSlushRushAbility
 
 CheckShedSkinMon:
 	call GetActiveMon
