@@ -162,6 +162,42 @@ CheckShedSkinAbility:
 	call IsInWordArray
 	ret
 
+CheckStaticAbility:
+	call SetupAbilityCheck
+	ld hl, StaticMons
+	call IsInWordArray
+	ret
+
+CheckFlameBodyAbility:
+	call SetupAbilityCheck
+	ld hl, FlameBodyMons
+	call IsInWordArray
+	ret
+
+CheckPoisonPointAbility:
+	call SetupAbilityCheck
+	ld hl, PoisonPointMons
+	call IsInWordArray
+	ret
+
+GetContactStatusAbility:
+; in:  hl = species index of the Pokemon that was hit
+; out: carry if it has a contact status ability, and
+;      a = its entry in ContactStatusAbilityEffects
+	push hl
+	call CheckStaticAbility
+	pop hl
+	ld a, CONTACT_STATIC
+	ret c
+	push hl
+	call CheckFlameBodyAbility
+	pop hl
+	ld a, CONTACT_FLAME_BODY
+	ret c
+	call CheckPoisonPointAbility
+	ld a, CONTACT_POISON_POINT
+	ret
+
 
 ;Between turn heal abilities-----
 

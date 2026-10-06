@@ -41,9 +41,7 @@ SnowWarningMons::
 	dw IRONBUNDLE
 	dw -1
 
-IntimidateMons::
-	dw NIDORAN_F
-	dw NIDORINA
+IntimidateMons::	
 	dw NIDOQUEEN
 	dw EKANS
 	dw ARBOK	
@@ -57,9 +55,7 @@ IntimidateMons::
 	dw STANTLER
 	dw WYRDEER	
 	dw MASQUERAIN
-	dw MAWILE
-	dw ELECTRIKE
-	dw MANECTRIC
+	dw MAWILE	
 	dw REGISTEEL
 	dw BAGON
 	dw SHELGON
@@ -155,12 +151,6 @@ AimMons::
 	dw PIDGEOTTO
 	dw PIDGEOT
 	dw PIDGEOTX	
-	dw ELEKID
-	dw ELECTABUZZ
-	dw ELECTIVIRE
-	dw MAGBY
-	dw MAGMAR
-	dw MAGMORTAR
 	dw BEAUTIFLY
 	dw DUSTOX
 	dw -1
@@ -190,8 +180,7 @@ ImpostorMons::
 DebrisMons::
 	dw SUDOWOODO
 	dw PINECO
-	dw FORRETRESS
-	dw QWILFISH
+	dw FORRETRESS	
 	dw SKARMORY
 	dw SKARMORY2
 	dw -1
@@ -213,8 +202,6 @@ EnervateMons::
 DauntMons::
 	dw SPEAROW
 	dw FEAROW
-	dw NIDORAN_M
-	dw NIDORINO
 	dw NIDOKING
 	dw ZUBAT
 	dw GOLBAT
@@ -263,10 +250,7 @@ LevitateMons::
 
 WaterproofMons::
 	dw WOOPER
-	dw QUAGSIRE
-	dw SLUGMA
-	dw MAGCARGO
-	dw MAGCARGOX
+	dw QUAGSIRE	
 	dw NUMEL
 	dw CAMERUPT
 	dw BARBOACH
@@ -357,11 +341,7 @@ StabilityMons::
 	dw MEGANIUM
 	dw CYNDAQUIL
 	dw QUILAVA
-	dw TYPHLOSION
-	dw MAREEP
-	dw FLAAFFY
-	dw AMPHAROS
-	dw AMPHAROSX
+	dw TYPHLOSION	
 	dw REMORAID
 	dw OCTILLERY
 	dw OCTILLERY2	
@@ -375,10 +355,6 @@ StabilityMons::
 	dw KURUSU
 	dw AKUA
 	dw AKUERIA
-	dw ASHIBOMB
-	dw HONOBEA
-	dw BORUBEA
-	dw DYNABEA
 	dw BEEDRILLX
 	dw SPOINK
 	dw GRUMPIG
@@ -518,12 +494,10 @@ ChlorophyllMons::
 	dw VILEPLUME
 	dw BELLOSSOM
 	dw EXEGGCUTE
-	dw EXEGGUTOR	
+	dw EXEGGUTOR
 	dw SEEDOT
 	dw NUZLEAF
 	dw SHIFTRY
-	dw ROSELIA
-	dw ROSERADE
 	dw -1
 
 SandRushMons::
@@ -661,4 +635,41 @@ ShedSkinMons::
 	dw WURMPLE
 	dw SILCOON
 	dw CASCOON
+	dw -1
+
+;Contact Status Abilities--------------------
+
+StaticMons::
+	dw ELEKID
+	dw ELECTABUZZ
+	dw ELECTIVIRE
+	dw MAREEP
+	dw FLAAFFY
+	dw AMPHAROS
+	dw AMPHAROSX
+	dw ELECTRIKE
+	dw MANECTRIC
+	dw -1
+
+FlameBodyMons::
+	dw MAGBY
+	dw MAGMAR
+	dw MAGMORTAR
+	dw SLUGMA
+	dw MAGCARGO
+	dw MAGCARGOX
+	dw HONOBEA
+	dw BORUBEA
+	dw DYNABEA
+	dw ASHIBOMB
+	dw -1
+
+PoisonPointMons::
+	dw NIDORAN_F
+	dw NIDORINA
+	dw NIDORAN_M
+	dw NIDORINO
+	dw QWILFISH
+	dw ROSELIA
+	dw ROSERADE
 	dw -1

@@ -2434,6 +2434,8 @@ BattleCommand_CheckFaint:
 ;  and faint the user along with it if it used Destiny Bond.
 ; Ends the move effect if the opponent faints.
 
+	call HandleContactStatusAbilities
+
 	ld hl, wEnemyMonHP
 	ldh a, [hBattleTurn]
 	and a

@@ -1269,3 +1269,22 @@ ShedSkinText:
 	line "Shed Skin cured"
 	cont "its status!"
 	prompt
+
+StaticParalyzedText:
+	text "<USER>'s"
+	line "Static paralyzed"
+	cont "<TARGET>!"
+	prompt
+
+FlameBodyBurnedText:
+	text "<USER>'s"
+	line "Flame Body burned"
+	cont "<TARGET>!"
+	prompt
+
+PoisonPointPoisonedText:
+	text "<USER>'s"
+	line "Poison Point"
+	cont "poisoned"
+	cont "<TARGET>!"
+	prompt

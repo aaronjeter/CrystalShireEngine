@@ -157,3 +157,15 @@ GutsDesc:
 ShedSkinDesc:
 	db    "May cure its own"
 	next  "status each turn.@"
+
+StaticDesc:
+	db    "Contact may"
+	next  "paralyze attacker.@"
+
+FlameBodyDesc:
+	db    "Contact may burn"
+	next  "the attacker.@"
+
+PoisonPointDesc:
+	db    "Contact may"
+	next  "poison attacker.@"

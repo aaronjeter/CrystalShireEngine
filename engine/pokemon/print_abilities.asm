@@ -119,6 +119,15 @@ PrintAbility:
 	jp .ShedSkin
 	.NotShedSkin
 
+	jp .Static
+	.NotStatic
+
+	jp .FlameBody
+	.NotFlameBody
+
+	jp .PoisonPoint
+	.NotPoisonPoint
+
 	jp .NoAbility
 
 	.Done
@@ -759,6 +768,54 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.Static:
+	call GetAbilityMon
+	call CheckStaticAbility
+	jr c, .HasStatic
+	jp .NotStatic
+
+.HasStatic:
+	ld de, StaticNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, StaticDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.FlameBody:
+	call GetAbilityMon
+	call CheckFlameBodyAbility
+	jr c, .HasFlameBody
+	jp .NotFlameBody
+
+.HasFlameBody:
+	ld de, FlameBodyNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, FlameBodyDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
+.PoisonPoint:
+	call GetAbilityMon
+	call CheckPoisonPointAbility
+	jr c, .HasPoisonPoint
+	jp .NotPoisonPoint
+
+.HasPoisonPoint:
+	ld de, PoisonPointNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, PoisonPointDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -883,3 +940,12 @@ GutsNameString:
 
 ShedSkinNameString:
 	db "Shed Skin@"
+
+StaticNameString:
+	db "Static@"
+
+FlameBodyNameString:
+	db "Flame Body@"
+
+PoisonPointNameString:
+	db "Poison Point@"

@@ -36,3 +36,52 @@ SharpMoves::
 	dw AERIAL_ACE
 	dw NIGHT_SLASH
 	dw -1
+
+; Contact moves -------------------------------------------------------------
+; Physical moves make contact unless listed in NonContactPhysicalMoves.
+; Special moves never make contact unless listed in ContactSpecialMoves.
+; Status moves never make contact.
+
+NonContactPhysicalMoves::
+	dw PAY_DAY
+	dw SAND_ATTACK
+	dw POISON_STING
+	dw TWINEEDLE
+	dw ACID
+	dw ROCK_THROW
+	dw EARTHQUAKE
+	dw FISSURE
+	dw SELFDESTRUCT
+	dw EXPLOSION
+	dw SLUDGE
+	dw SLUDGE_BOMB
+	dw BONE_CLUB
+	dw BONEMERANG
+	dw BONE_RUSH
+	dw SWIFT
+	dw SPIKE_CANNON
+	dw BARRAGE
+	dw ROCK_SLIDE
+	dw SNORE
+	dw PRESENT
+	dw SACRED_FIRE
+	dw MAGNITUDE
+	dw NATURE_POWER
+	dw ROCK_TOMB
+	dw BULLET_SEED
+	dw ICICLE_SPEAR
+	dw ROCK_BLAST
+	dw ICICLE_CRASH
+	dw VOLT_SWITCH
+	dw -1
+
+ContactSpecialMoves::
+	dw LEECH_LIFE
+	dw SUPER_FANG
+	dw BIDE
+	dw REVERSAL
+	dw SPARK
+	dw FOCUS_PUNCH
+	dw SUPERPOWER
+	dw DRAININGKISS
+	dw -1
