@@ -135,6 +135,19 @@ BattleText_RainContinuesToFall:
 	line "fall."
 	prompt
 
+BattleText_OverworldRain:
+	text "Rain is falling."
+	prompt
+
+BattleText_OverworldHail:
+	text "Hail is falling."
+	prompt
+
+BattleText_OverworldSandstorm:
+	text "A sandstorm is"
+	line "raging."
+	prompt
+
 BattleText_TheSunlightIsStrong:
 	text "The sunlight is"
 	line "strong."

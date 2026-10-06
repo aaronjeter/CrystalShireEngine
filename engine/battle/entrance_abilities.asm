@@ -354,6 +354,64 @@ EntranceStatDown:
 	or 1 ; return nz
 	ret
 
+StartOverworldBattleWeather::
+; Battles on a map with overworld weather start with that weather, permanently
+; (wWeatherCount = 255; HandleWeather never counts it down).
+; Runs after the player's entrance ability, so a weather ability (Drought etc.) wins.
+	ld a, [wLinkMode]
+	and a
+	ret nz
+	ld a, [wBattleWeather]
+	and a ; WEATHER_NONE
+	ret nz
+	ld a, [wCurWeather]
+	and a
+	ret z
+	ld b, a
+	ld hl, OverworldBattleWeathers
+.loop
+	ld a, [hli]
+	cp -1
+	ret z
+	cp b
+	jr z, .found
+	ld de, 5
+	add hl, de
+	jr .loop
+
+.found
+	ld a, [hli]
+	ld [wBattleWeather], a
+	ld a, 255
+	ld [wWeatherCount], a
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	push hl
+	xor a ; play the animation from the player's side, like HandleWeather
+	ldh [hBattleTurn], a
+	call AbilityAnimationCleanup
+	farcall Call_PlayBattleAnim
+	pop hl
+	jmp StdBattleTextbox
+
+OverworldBattleWeathers:
+; overworld weather, battle weather, animation, text
+	db OW_WEATHER_RAIN
+	db WEATHER_RAIN
+	dw RAIN_DANCE, BattleText_OverworldRain
+	db OW_WEATHER_SNOW
+	db WEATHER_HAIL
+	dw HAIL, BattleText_OverworldHail
+	db OW_WEATHER_SANDSTORM
+	db WEATHER_SANDSTORM
+	dw SANDSTORM, BattleText_OverworldSandstorm
+	db -1
+
 AbilityAnimationCleanup:
 	;set numhits to 0 to prevent animation weirdness
 	;set up as a function, we might need to do other cleanups

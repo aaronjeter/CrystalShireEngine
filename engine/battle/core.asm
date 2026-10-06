@@ -93,6 +93,8 @@ DoBattle:
 	call EmptyBattleTextbox
 	call LoadTilemapToTempTilemap	
 
+	farcall StartOverworldBattleWeather
+
 	call SetEnemyTurn
 	ld a, [wTempEnemyMonSpecies]
 	ld [wTempAbilityMon], a
@@ -1926,6 +1928,9 @@ HandleWeather:
 	ret z
 
 	ld hl, wWeatherCount
+	ld a, [hl]
+	inc a ; 255 = permanent weather (from the overworld), never counts down
+	jr z, .continues
 	dec [hl]
 	jr nz, .continues
 
