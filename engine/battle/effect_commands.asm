@@ -2323,6 +2323,10 @@ GetFailureResultText:
 	and EFFECTIVENESS_MASK
 	ret z
 
+; Magic Guard: no crash damage.
+	farcall CheckMagicGuardUser
+	ret c
+
 	ld hl, wCurDamage
 	ld a, [hli]
 	ld b, [hl]
@@ -5768,6 +5772,10 @@ INCLUDE "engine/battle/move_effects/mist.asm"
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
 BattleCommand_Recoil:
+; Magic Guard: no recoil damage.
+	farcall CheckMagicGuardUser
+	ret c
+
 	ld hl, wBattleMonMaxHP
 	ldh a, [hBattleTurn]
 	and a

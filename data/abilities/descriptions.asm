@@ -169,3 +169,7 @@ FlameBodyDesc:
 PoisonPointDesc:
 	db    "Contact may"
 	next  "poison attacker.@"
+
+MagicGuardDesc:
+	db    "Only takes damage"
+	next  "from attacks.@"

@@ -70,10 +70,7 @@ IntimidateMons::
 	dw INCINEROAR
 	dw -1
 
-MystifyMons::
-	dw CLEFFA
-	dw CLEFAIRY
-	dw CLEFABLE
+MystifyMons::	
 	dw IGGLYBUFF
 	dw JIGGLYPUFF
 	dw WIGGLYTUFF
@@ -89,10 +86,7 @@ MystifyMons::
 	dw CHIMECHOX
 	dw MILOTIC
 	dw HGROWLITHE
-	dw HARCANINE
-	dw ABRA2
-	dw KADABRA2
-	dw ALAKAZAM2
+	dw HARCANINE	
 	dw NOCTOWL2	
 	dw UNOWNX
 	dw POPPLIO
@@ -261,10 +255,6 @@ WaterproofMons::
 ;Damage Boosting Ability Mons ----------------------------------------------
 
 ElementalFistMons::	
-	dw ABRA
-	dw KADABRA
-	dw ALAKAZAM
-	dw ALAKAZAMX
 	dw HITMONCHAN
 	dw LEDYBA
 	dw LEDIAN
@@ -672,4 +662,19 @@ PoisonPointMons::
 	dw QWILFISH
 	dw ROSELIA
 	dw ROSERADE
+	dw -1
+
+;Indirect Damage Abilities--------------------
+
+MagicGuardMons::
+	dw CLEFFA
+	dw CLEFAIRY
+	dw CLEFABLE
+	dw ABRA
+	dw KADABRA
+	dw ALAKAZAM
+	dw ALAKAZAMX
+	dw ABRA2
+	dw KADABRA2
+	dw ALAKAZAM2
 	dw -1

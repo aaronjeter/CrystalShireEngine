@@ -128,6 +128,9 @@ PrintAbility:
 	jp .PoisonPoint
 	.NotPoisonPoint
 
+	jp .MagicGuard
+	.NotMagicGuard
+
 	jp .NoAbility
 
 	.Done
@@ -816,6 +819,22 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.MagicGuard:
+	call GetAbilityMon
+	call CheckMagicGuardAbility
+	jr c, .HasMagicGuard
+	jp .NotMagicGuard
+
+.HasMagicGuard:
+	ld de, MagicGuardNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, MagicGuardDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -949,3 +968,6 @@ FlameBodyNameString:
 
 PoisonPointNameString:
 	db "Poison Point@"
+
+MagicGuardNameString:
+	db "Magic Guard@"

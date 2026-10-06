@@ -1056,6 +1056,10 @@ ResidualDamage:
 	call HasUserFainted
 	ret z
 
+; Magic Guard: no status, Leech Seed, Nightmare or Curse damage.
+	call CheckMagicGuardUser
+	jp c, .not_cursed
+
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
 	and 1 << PSN | 1 << BRN | 1 << FRZ
@@ -1303,6 +1307,9 @@ HandleWrap:
 	call GetMoveName
 	dec [hl]
 	jr z, .release_from_bounds
+
+	call CheckMagicGuardUser
+	ret c
 
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
@@ -2001,6 +2008,9 @@ HandleWeather:
 	cp STEEL
 	ret z
 
+	call CheckMagicGuardUser
+	ret c
+
 	farcall CheckBattleScene ; skip if battle animations are turned off
 	jr c, .skip_sandstorm_anim
 	call SwitchTurnCore
@@ -2056,6 +2066,9 @@ HandleWeather:
 	cp ICE
 	ret z
 
+	call CheckMagicGuardUser
+	ret c
+
 	farcall CheckBattleScene ; skip if battle animations are turned off
 	jr c, .skip_hail_anim
 	call SwitchTurnCore
@@ -2097,6 +2110,22 @@ HandleWeather:
 	dw BattleText_TheSunlightFaded
 	dw BattleText_TheSandstormSubsided
 	dw BattleText_TheHailStopped
+
+CheckMagicGuardUser:
+; Return carry if the Pokemon whose turn it is has Magic Guard.
+; Preserves bc, de and hl.
+	push hl
+	push de
+	push bc
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wBattleMonSpecies]
+	jr z, .got_species
+	ld a, [wEnemyMonSpecies]
+.got_species
+	call GetPokemonIndexFromID
+	farcall CheckMagicGuardAbility
+	jmp PopBCDEHL
 
 SubtractHPFromTarget:
 	call SubtractHP
@@ -4228,6 +4257,9 @@ SpikesDamage:
 	ld a, [de]
 	cp FLYING
 	ret z
+
+	call CheckMagicGuardUser
+	ret c
 
 	push bc
 
