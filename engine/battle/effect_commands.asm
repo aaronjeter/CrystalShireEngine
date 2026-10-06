@@ -4490,6 +4490,10 @@ BattleCommand_StatDown:
 	call CheckMist
 	jr nz, .Mist
 
+; Clear Body: the opponent can't have its stats lowered by others.
+	call CheckClearBodyOpp
+	jr c, .ClearBody
+
 	ld hl, wEnemyStatLevels
 	ldh a, [hBattleTurn]
 	and a
@@ -4512,7 +4516,7 @@ BattleCommand_StatDown:
 	and $f0
 	jr z, .GotAmountToLower
 	dec b
-	jr z, .GotAmountToLower
+	jr nz, .GotAmountToLower
 	inc b
 
 .GotAmountToLower:
@@ -4574,6 +4578,25 @@ BattleCommand_StatDown:
 	ld [wFailedMessage], a
 	ld a, 1
 	ld [wAttackMissed], a
+	ret
+
+.ClearBody:
+	ld a, 4
+	ld [wFailedMessage], a
+	ld a, 1
+	ld [wAttackMissed], a
+	ret
+
+CheckClearBodyOpp:
+; Return carry if the opponent has Clear Body.
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wEnemyMonSpecies]
+	jr z, .got_species
+	ld a, [wBattleMonSpecies]
+.got_species
+	call GetPokemonIndexFromID
+	farcall CheckClearBodyAbility
 	ret
 
 CheckMist:
@@ -4733,6 +4756,9 @@ BattleCommand_StatDownFailText:
 	dec a
 	ld hl, ProtectedByMistText
 	jmp z, StdBattleTextbox
+	dec a
+	ld hl, ClearBodyText
+	jmp nz, StdBattleTextbox
 	ld a, [wLoweredStat]
 	and $f
 	ld b, a

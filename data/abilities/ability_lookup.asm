@@ -186,6 +186,12 @@ CheckMagicGuardAbility:
 	call IsInWordArray
 	ret
 
+CheckClearBodyAbility:
+	call SetupAbilityCheck
+	ld hl, ClearBodyMons
+	call IsInWordArray
+	ret
+
 GetContactStatusAbility:
 ; in:  hl = species index of the Pokemon that was hit
 ; out: carry if it has a contact status ability, and

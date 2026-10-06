@@ -537,10 +537,6 @@ DurableMons::
 	dw AGGRONX
 	dw ANORITH
 	dw ARMALDO
-	dw BELDUM
-	dw METANG
-	dw METAGROSS
-	dw METAGROSSX
 	dw NOSEPASS
 	dw PROBOPASS
 	dw AGEODUDE
@@ -677,4 +673,13 @@ MagicGuardMons::
 	dw ABRA2
 	dw KADABRA2
 	dw ALAKAZAM2
+	dw -1
+
+;Stat Protection Abilities--------------------
+
+ClearBodyMons::
+	dw BELDUM
+	dw METANG
+	dw METAGROSS
+	dw METAGROSSX
 	dw -1

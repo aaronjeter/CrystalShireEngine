@@ -173,3 +173,7 @@ PoisonPointDesc:
 MagicGuardDesc:
 	db    "Only takes damage"
 	next  "from attacks.@"
+
+ClearBodyDesc:
+	db    "Foes can't lower"
+	next  "its stats.@"

@@ -1288,3 +1288,9 @@ PoisonPointPoisonedText:
 	cont "poisoned"
 	cont "<TARGET>!"
 	prompt
+
+ClearBodyText:
+	text "<TARGET>'s"
+	line "Clear Body blocks"
+	cont "stat loss!"
+	prompt

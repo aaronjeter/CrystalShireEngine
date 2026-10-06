@@ -142,7 +142,9 @@ Check_Entrance_Ability:
 	call AbilityAnimationCleanup
 	ld de, LEER
     farcall Call_PlayBattleAnim
-    farcall BattleCommand_AttackDown
+	ld hl, BattleCommand_AttackDown
+	call EntranceStatDown
+	ret nz ; blocked; the reason was already printed
 
     ld hl, IntimidateCutsAttackText
     call StdBattleTextbox
@@ -158,7 +160,9 @@ Check_Entrance_Ability:
 	call AbilityAnimationCleanup
 	ld de, DETECT
     farcall Call_PlayBattleAnim
-    farcall BattleCommand_SpecialAttackDown
+	ld hl, BattleCommand_SpecialAttackDown
+	call EntranceStatDown
+	ret nz ; blocked; the reason was already printed
 
     ld hl, MystifyCutsSpecialAttackText
     call StdBattleTextbox
@@ -174,7 +178,9 @@ Check_Entrance_Ability:
 	call AbilityAnimationCleanup
 	ld de, WRAP
     farcall Call_PlayBattleAnim
-    farcall BattleCommand_SpeedDown
+	ld hl, BattleCommand_SpeedDown
+	call EntranceStatDown
+	ret nz ; blocked; the reason was already printed
 
     ld hl, SnareCutsSpeedText
     call StdBattleTextbox
@@ -290,7 +296,9 @@ Check_Entrance_Ability:
 	call AbilityAnimationCleanup
 	ld de, GIGA_DRAIN
     farcall Call_PlayBattleAnim
-    farcall BattleCommand_SpecialDefenseDown
+	ld hl, BattleCommand_SpecialDefenseDown
+	call EntranceStatDown
+	ret nz ; blocked; the reason was already printed
 
     ld hl, EnervateCutsSpDefText
     call StdBattleTextbox
@@ -306,7 +314,9 @@ Check_Entrance_Ability:
 	call AbilityAnimationCleanup
 	ld de, LEER
     farcall Call_PlayBattleAnim
-    farcall BattleCommand_DefenseDown
+	ld hl, BattleCommand_DefenseDown
+	call EntranceStatDown
+	ret nz ; blocked; the reason was already printed
 
     ld hl, DauntCutsDefText
     call StdBattleTextbox
@@ -316,6 +326,32 @@ Check_Entrance_Ability:
 GetAbilitySpecies:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
+	ret
+
+EntranceStatDown:
+; Lower the opponent's stat with the far stat-down command in hl.
+; Leftover miss/fail flags from earlier in the turn must not block it,
+; so clear them for the call and restore them afterwards.
+; Returns nz (after printing why) if the stat wasn't lowered,
+; e.g. Clear Body, Mist, or the stat can't go any lower.
+	ld a, [wAttackMissed]
+	push af
+	ld a, [wEffectFailed]
+	push af
+	xor a
+	ld [wAttackMissed], a
+	ld [wEffectFailed], a
+	ld a, BANK(BattleCommand_StatDown)
+	call FarCall_hl
+	pop af
+	ld [wEffectFailed], a
+	pop af
+	ld [wAttackMissed], a
+	ld a, [wFailedMessage]
+	and a
+	ret z
+	farcall BattleCommand_StatDownFailText
+	or 1 ; return nz
 	ret
 
 AbilityAnimationCleanup:
