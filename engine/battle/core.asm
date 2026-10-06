@@ -1564,6 +1564,7 @@ HandleShedSkin:
 .do_it
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
+	and a
 	ret z
 
 	push de
