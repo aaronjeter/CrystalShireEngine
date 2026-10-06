@@ -229,3 +229,8 @@ CheckSlushRushMon:
 	call GetActiveMon
 	farcall CheckSlushRushAbility
 	ret	
+
+CheckShedSkinMon:
+	call GetActiveMon
+	farcall CheckShedSkinAbility
+	ret

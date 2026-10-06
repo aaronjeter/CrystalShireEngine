@@ -1263,3 +1263,9 @@ DauntCutsDefText:
     para "<TARGET>'s"
     line "Def!"
 	prompt
+
+ShedSkinText:
+	text "<USER>'s"
+	line "Shed Skin cured"
+	cont "its status!"
+	prompt

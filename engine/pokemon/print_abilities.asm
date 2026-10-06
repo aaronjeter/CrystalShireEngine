@@ -116,6 +116,9 @@ PrintAbility:
 	jp .Guts
 	.NotGuts
 
+	jp .ShedSkin
+	.NotShedSkin
+
 	jp .NoAbility
 
 	.Done
@@ -740,6 +743,22 @@ PrintAbility:
 	call PlaceString
     jp .Done
 
+.ShedSkin:
+	call GetAbilityMon
+	call CheckShedSkinAbility
+	jr c, .HasShedSkin
+	jp .NotShedSkin
+
+.HasShedSkin:
+	ld de, ShedSkinNameString
+	hlcoord 3, 11
+	call PlaceString
+
+	ld de, ShedSkinDesc
+	hlcoord 1, 14
+	call PlaceString
+    jp .Done
+
 GetAbilityMon:
 	ld a, [wTempAbilityMon]
 	call GetPokemonIndexFromID
@@ -861,3 +880,6 @@ TechnicianNameString:
 
 GutsNameString:
 	db "Guts@"
+
+ShedSkinNameString:
+	db "Shed Skin@"

@@ -649,3 +649,16 @@ GutsMons::
 	dw MAKUHITA
 	dw HARIYAMA
 	dw -1
+
+;Status Cure Abilities--------------------
+
+ShedSkinMons::
+	dw CATERPIE
+	dw METAPOD
+	dw WEEDLE
+	dw KAKUNA
+	dw VENONAT
+	dw WURMPLE
+	dw SILCOON
+	dw CASCOON
+	dw -1

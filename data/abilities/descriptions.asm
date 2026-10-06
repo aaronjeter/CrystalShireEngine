@@ -153,3 +153,7 @@ TechnicianDesc:
 GutsDesc:
 	db    "Status boosts Atk"
 	next  "and ignores burn.@"
+
+ShedSkinDesc:
+	db    "May cure its own"
+	next  "status each turn.@"

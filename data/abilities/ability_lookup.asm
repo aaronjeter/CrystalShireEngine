@@ -156,6 +156,12 @@ CheckGutsAbility:
 	call IsInWordArray
 	ret
 
+CheckShedSkinAbility:
+	call SetupAbilityCheck
+	ld hl, ShedSkinMons
+	call IsInWordArray
+	ret
+
 
 ;Between turn heal abilities-----
 

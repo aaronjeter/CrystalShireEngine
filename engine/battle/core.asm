@@ -247,6 +247,7 @@ HandleBetweenTurnEffects:
 	call HandleHealAbilities
 	call HandleWeatherHealAbilities
 	call HandleWeatherSpeedAbilities
+	call HandleShedSkin
 	call HandleMysteryberry
 	call HandleSafeguard
 	call HandleScreens
@@ -1546,6 +1547,60 @@ HandleWeatherSpeedAbilities:
 	ld hl, HealAbilityText
 	jmp StdBattleTextbox
 	ret
+
+HandleShedSkin:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	call .do_it
+	call SetEnemyTurn
+	jr .do_it
+
+.DoEnemyFirst:
+	call SetEnemyTurn
+	call .do_it
+	call SetPlayerTurn
+.do_it
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVar
+	ret z
+
+	push de
+	push bc
+	call CheckShedSkinMon
+	pop bc
+	pop de
+	ret nc
+
+	call BattleRandom
+	cp 30 percent
+	ret nc
+
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVarAddr
+	xor a
+	ld [hl], a
+	call UpdateUserInParty
+
+	ld a, BATTLE_VARS_SUBSTATUS5
+	call GetBattleVarAddr
+	res SUBSTATUS_TOXIC, [hl]
+	ld a, BATTLE_VARS_SUBSTATUS1
+	call GetBattleVarAddr
+	res SUBSTATUS_NIGHTMARE, [hl]
+
+	ld hl, CalcPlayerStats
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_pointer
+	ld hl, CalcEnemyStats
+.got_pointer
+	ld a, BANK(CalcPlayerStats) ; aka BANK(CalcEnemyStats)
+	call FarCall_hl
+	call RefreshBattleHuds
+	ld hl, ShedSkinText
+	jmp StdBattleTextbox
 
 HandleMysteryberry:
 	ldh a, [hSerialConnectionStatus]
