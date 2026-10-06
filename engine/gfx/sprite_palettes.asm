@@ -70,12 +70,35 @@ CopySpritePal::
 	rst AddNTimes
 .got_pal
 	pop de
+	push de
 	ld bc, 1 palettes
 	call FarCopyColorWRAM
+	pop hl
+	push hl
+	; NPC time-of-day palettes get the overworld weather tint. Weather particle
+	; palettes and copied BG palettes (already tinted) come after PAL_OW_RAIN.
+	ld a, [wNeededPalIndex]
+	cp PAL_OW_RAIN
+	jr nc, .no_weather_tint
+	ld c, 1
+	farcall ApplyWeatherTint
+.no_weather_tint
+	pop de ; the palette just loaded
 	ld hl, wPalFlags
 	bit NO_DYN_PAL_APPLY_F, [hl]
 	jr nz, .skip_apply
+	ld a, [wWeatherFadeSteps]
+	and a
+	jr z, .apply_all
+	; A border fade is running: show this palette's final colors, but leave the
+	; other object palettes fading.
+	ld h, d
+	ld l, e
+	farcall SetWeatherFadePalette
+	jr .skip_apply
+.apply_all
 	call ApplyOBPals
+.applied
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 .skip_apply

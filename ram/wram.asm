@@ -3224,6 +3224,24 @@ wLYOverridesBackup:: ds SCREEN_HEIGHT_PX
 wLYOverridesBackupEnd::
 
 
+SECTION "Weather Fade Start Palettes", WRAMX, BANK[5]
+
+wWeatherFadeStartPals:: ds 16 palettes ; displayed BG + object palettes when a border fade starts
+
+
+SECTION "Overworld Weather RAM", WRAMX, BANK[1]
+
+wCurWeather:: db ; OW_WEATHER_* for the current map
+wPrevWeather:: db ; weather whose particles are still falling during the cooldown
+wWeatherFlags:: db
+wOverworldWeatherTimer:: db ; rolling frame counter
+wOverworldWeatherCooldown:: db
+wPalTintWeather:: db ; weather tint of the palettes LoadMapPals built last
+wPrevPalTintWeather:: db ; ...and the one before (to detect a tint change at a connection)
+wWeatherFadeSteps:: db ; steps left in the border fade (0 = not fading)
+wWeatherFadeFrame:: db ; alternates BG / object palettes each frame
+
+
 SECTION "Used Storage", WRAMX
 
 wPokeDBUsedEntries::

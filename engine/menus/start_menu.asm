@@ -11,6 +11,7 @@
 	const STARTMENUITEM_QUIT     ; 8
 
 StartMenu::
+	farcall ClearWeatherSprites ; don't draw frozen particles over the menu
 	call ClearWindowData
 
 	ld de, SFX_MENU

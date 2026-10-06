@@ -126,6 +126,8 @@ LoadMiscTiles:
 	bit SPRITES_SKIP_WALKING_GFX_F, a
 	ret nz
 
+	farcall LoadWeatherGraphics
+
 	ld c, EMOTE_SHADOW
 	call LoadEmote
 	call GetMapEnvironment

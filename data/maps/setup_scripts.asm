@@ -36,6 +36,8 @@ MapSetupScript_Warp:
 	mapsetup EnterMapSpawnPoint
 	mapsetup LoadMapAttributes
 	mapsetup HandleNewMap
+	mapsetup ClearWeather
+	mapsetup SetCurrentWeather
 	mapsetup SpawnPlayer
 	mapsetup RefreshPlayerCoords
 	mapsetup GetMapScreenCoords
@@ -61,6 +63,8 @@ MapSetupScript_BadWarp:
 	mapsetup EnterMapSpawnPoint
 	mapsetup LoadMapAttributes
 	mapsetup HandleNewMap
+	mapsetup ClearWeather
+	mapsetup SetCurrentWeather
 	mapsetup SpawnPlayer
 	mapsetup RefreshPlayerCoords
 	mapsetup GetMapScreenCoords
@@ -89,6 +93,7 @@ MapSetupScript_Connection:
 	mapsetup EnterMapConnection
 	mapsetup LoadMapAttributes
 	mapsetup HandleNewMap
+	mapsetup SetCurrentWeather
 	mapsetup RefreshPlayerCoords
 	mapsetup LoadBlockData
 	mapsetup LoadMapTileset
@@ -100,7 +105,7 @@ MapSetupScript_Connection:
 	mapsetup LoadMapPalettes
 	mapsetup EnableDynPalUpdates
 	mapsetup InitMapNameSign
-	mapsetup ApplyMapPalettes
+	mapsetup MapConnWeatherFade
 	mapsetup LoadWildMonData
 	mapsetup UpdateRoamMons
 	mapsetup ActivateMapAnims
@@ -115,6 +120,8 @@ MapSetupScript_Train:
 	mapsetup LoadMapAttributes
 	mapsetup GetWarpDestCoords
 	mapsetup HandleNewMap
+	mapsetup ClearWeather
+	mapsetup SetCurrentWeather
 	mapsetup RefreshPlayerCoords
 	mapsetup LoadBlockData
 	mapsetup BufferScreen
@@ -163,6 +170,8 @@ MapSetupScript_LinkReturn:
 	mapsetup DisableDynPalUpdates
 	mapsetup InitSound
 	mapsetup HandleNewMap
+	mapsetup ClearWeather
+	mapsetup SetCurrentWeather
 	mapsetup LoadBlockData
 	mapsetup BufferScreen
 	mapsetup LoadMapGraphics
@@ -184,6 +193,8 @@ MapSetupScript_Continue:
 	mapsetup DisableDynPalUpdates
 	mapsetup InitSound
 	mapsetup LoadMapAttributes_SkipObjects
+	mapsetup ClearWeather
+	mapsetup SetCurrentWeather
 	mapsetup GetMapScreenCoords
 	mapsetup HandleContinueMap
 	mapsetup LoadBlockData

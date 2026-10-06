@@ -194,6 +194,8 @@ hRequestOpaque1bpp::    db
 
 hTilesetGFXBank:: db
 
-	ds 4
+hWeatherFadeProgress:: db ; border fade progress (0-255) while the palette WRAM bank is selected
+
+	ds 3
 
 ENDSECTION

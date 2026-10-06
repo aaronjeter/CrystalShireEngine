@@ -52,8 +52,12 @@ CheckForUsedObjPals::
 	bit DISABLE_DYN_PAL_F, [hl]
 	jr nz, .done
 
-	; reset all wUsedObjectPals bits
-	xor a
+	; reset all wUsedObjectPals bits, except the overworld weather slot
+	call IsWeatherPalReserved
+	ld a, 0
+	jr z, .no_weather
+	ld a, 1 << PAL_OW_WEATHER
+.no_weather
 	ld [wUsedObjectPals], a
 
 	; Scan for active objects first and mark those pals still in use.
@@ -65,6 +69,8 @@ CheckForUsedObjPals::
 	ld hl, wPalFlags
 	res SCAN_OBJECTS_FIRST_F, [hl]
 	call ScanObjectStructPals
+
+	call LoadWeatherPal
 
 	; If this flag was set, it's time to reset it
 	ld hl, wPalFlags
@@ -126,7 +132,20 @@ MarkUsedPal:
 	ld hl, wLoadedObjPal0
 .loaded_loop
 	cp [hl]
-	jr z, .mark_in_use
+	jr nz, .next_loaded
+	; an object can't share the overworld weather slot
+	push af
+	ld a, c
+	cp PAL_OW_WEATHER
+	jr nz, .use_loaded
+	call IsWeatherPalReserved
+	jr z, .use_loaded
+	pop af
+	jr .next_loaded
+.use_loaded
+	pop af
+	jr .mark_in_use
+.next_loaded
 	inc hl
 	inc c
 	dec b
@@ -200,3 +219,37 @@ MarkUsedPal:
 	scf
 .done
 	jmp PopBCDEHL
+
+IsWeatherPalReserved:
+; Return nz while overworld weather particles may be on screen
+; (they always use object palette slot PAL_OW_WEATHER).
+	ld a, [wCurWeather]
+	and a
+	ret nz
+	ld a, [wOverworldWeatherCooldown]
+	and a
+	ret
+
+LoadWeatherPal:
+; Load the active weather's palette into slot PAL_OW_WEATHER.
+	ld a, [wOverworldWeatherCooldown]
+	and a
+	ld a, [wPrevWeather]
+	jr nz, .got_weather
+	ld a, [wCurWeather]
+.got_weather
+	and a
+	ret z
+	ld c, a
+	ld b, 0
+	ld hl, WeatherPalettes - 1
+	add hl, bc
+	ld a, BANK(WeatherPalettes)
+	call GetFarByte
+	ld hl, wLoadedObjPal0 + PAL_OW_WEATHER
+	cp [hl]
+	ret z
+	ld [hl], a
+	ld [wNeededPalIndex], a
+	ld de, wOBPals1 palette PAL_OW_WEATHER
+	jmp CopySpritePal

@@ -250,7 +250,13 @@ LoadMapNameSignGFX:
 	rst AddNTimes ; preserves bc
 	ld de, wBGPals1 palette PAL_BG_TEXT
 	call FarCopyColorWRAM
-	jmp SetDefaultBGPAndOBP
+	ld a, [wWeatherFadeSteps]
+	and a
+	jmp z, SetDefaultBGPAndOBP
+	; A weather border fade is running: show only the sign's palette now,
+	; and let the rest keep fading.
+	ld hl, wBGPals1 palette PAL_BG_TEXT
+	farjp SetWeatherFadePalette
 
 .continue
 	; save position in landmark name

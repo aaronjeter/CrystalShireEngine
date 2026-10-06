@@ -25,7 +25,7 @@ CloseText::
 	ldh [hOAMUpdate], a
 	ld hl, wStateFlags
 	res TEXT_STATE_F, [hl]
-	ret
+	farjp ResumeWeather
 
 .CloseText:
 	call ClearWindowData
@@ -45,6 +45,7 @@ CloseText::
 	farjp InitMapNameSign
 
 OpenText::
+	farcall PauseWeather
 	call ClearWindowData
 	ldh a, [hROMBank]
 	push af

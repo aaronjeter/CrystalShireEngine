@@ -1698,6 +1698,8 @@ StepFunction_ScreenShake:
 	dw .Run
 
 .Init:
+	ld hl, wWeatherFlags
+	set OW_WEATHER_IGNORE_PLAYER_Y_F, [hl]
 	xor a
 	ld hl, OBJECT_1D
 	add hl, bc
@@ -1726,6 +1728,8 @@ StepFunction_ScreenShake:
 	ret
 
 .ok
+	ld hl, wWeatherFlags
+	res OW_WEATHER_IGNORE_PLAYER_Y_F, [hl]
 	jmp DeleteMapObject
 
 .GetSign:
@@ -2670,13 +2674,31 @@ _UpdateSprites::
 	ret nc
 	ld l, a
 	ld h, HIGH(wShadowOAM)
-	ld de, SPRITEOAMSTRUCT_LENGTH
-	ld a, b
-	ld c, OAM_YCOORD_HIDDEN
 .loop
-	ld [hl], c ; y
-	add hl, de
-	cp l
+; Hide each unused slot, except overworld weather particles
+; (tile WEATHER_TILE_1/2 with attributes PAL_OW_WEATHER).
+	inc l
+	inc l
+	ld a, [hli] ; tile
+	cp WEATHER_TILE_1
+	jr z, .maybe_weather
+	cp WEATHER_TILE_2
+	jr nz, .hide
+.maybe_weather
+	ld a, [hl] ; attributes
+	cp PAL_OW_WEATHER
+	jr z, .next
+.hide
+	ld a, l
+	and -SPRITEOAMSTRUCT_LENGTH
+	ld l, a
+	ld [hl], OAM_YCOORD_HIDDEN ; y
+.next
+	ld a, l
+	and -SPRITEOAMSTRUCT_LENGTH
+	add SPRITEOAMSTRUCT_LENGTH
+	ld l, a
+	cp b
 	jr nz, .loop
 	ret
 

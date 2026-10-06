@@ -577,6 +577,10 @@ SECTION "Fade System", ROMX
 
 INCLUDE "engine/gfx/fade.asm"
 
+SECTION "Overworld Weather", ROMX
+
+INCLUDE "engine/overworld/weather.asm"
+
 SECTION "ETB Abilities", ROMX
 
 INCLUDE "engine/battle/entrance_abilities.asm"

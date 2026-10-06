@@ -996,6 +996,14 @@ INCLUDE "data/pokemon/palettes.asm"
 INCLUDE "data/trainers/palettes.asm"
 
 LoadMapPals:
+	farcall RecordMapPalsWeather
+	call .Load
+	; maps with overworld weather get tinted colors (not the text palette)
+	ld hl, wBGPals1
+	ld c, PAL_BG_TEXT
+	farjp ApplyWeatherTint
+
+.Load:
 	farcall LoadSpecialMapPalette
 	jr c, .got_pals
 
