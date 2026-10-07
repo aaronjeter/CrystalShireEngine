@@ -3242,6 +3242,11 @@ wWeatherFadeSteps:: db ; steps left in the border fade (0 = not fading)
 wWeatherFadeFrame:: db ; alternates BG / object palettes each frame
 
 
+SECTION "Tile Animation RAM", WRAMX, BANK[1]
+
+wWaveTileFrame:: db ; frame counter for AnimateWaveTile (Hoenn water)
+
+
 SECTION "Used Storage", WRAMX
 
 wPokeDBUsedEntries::

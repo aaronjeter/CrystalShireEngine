@@ -38,7 +38,6 @@ _AnimateTileset::
 Tileset0Anim::
 TilesetJohtoModernAnim::
 TilesetKantoAnim::
-TilesetHoennAnim::
 	dw vTiles2 tile $14, ReadTileToAnimBuffer
 	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw vTiles2 tile $14, WriteTileFromAnimBuffer
@@ -51,6 +50,26 @@ TilesetHoennAnim::
 	dw vTiles2 tile $60, ReadTileToAnimBuffer
 	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw vTiles2 tile $60, WriteTileFromAnimBuffer
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
+TilesetHoennAnim::
+; Same as TilesetKantoAnim, but the water tiles use the 8-frame wave animation
+; instead of scrolling: $14 (shallow) from gfx/tilesets/waves/waves.png,
+; $60 (deep) from gfx/tilesets/waves/waves_deep.png, one frame apart.
+; One pass through this list = 14 frames, so each wave frame shows for 14 frames.
+	dw vTiles2 tile $14, AnimateWaveTile
+	dw vTiles2 tile $60, AnimateDeepWaveTile
+	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $14 scroll did
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  AnimateFlowerTile
+	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $60 scroll did
+	dw NULL,  DoNothing
+	dw NULL,  DoNothing
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
@@ -366,6 +385,53 @@ AnimateFountainTile:
 .FountainTile3: INCBIN "gfx/tilesets/fountain/3.2bpp"
 .FountainTile4: INCBIN "gfx/tilesets/fountain/4.2bpp"
 .FountainTile5: INCBIN "gfx/tilesets/fountain/5.2bpp"
+
+AnimateWaveTile:
+; Shallow water ($14): write the next wave frame to de, then advance the counter.
+; Advances one frame per call (once per pass through the animation list).
+	ld hl, wWaveTileFrame
+	ld a, [hl]
+	inc [hl]
+	ld hl, WaveTileFrames
+	jr WriteWaveTileFrame
+
+AnimateDeepWaveTile:
+; Deep water ($60): same frame AnimateWaveTile just wrote (it runs earlier in the list).
+	ld a, [wWaveTileFrame]
+	dec a
+	ld hl, DeepWaveTileFrames
+; fallthrough
+
+WriteWaveTileFrame:
+; Write frame a (mod 8) of the 8 tiles at hl to de.
+	and %111
+	swap a ; * 16
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+
+; Save the stack pointer in bc for WriteTile to restore, and move the frame to sp
+	ld b, h
+	ld c, l
+	ld hl, sp+0
+	ld a, l
+	ld l, c
+	ld c, a
+	ld a, h
+	ld h, b
+	ld b, a
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jmp WriteTile
+
+WaveTileFrames:
+	INCBIN "gfx/tilesets/waves/waves.2bpp"
+
+DeepWaveTileFrames:
+	INCBIN "gfx/tilesets/waves/waves_deep.2bpp"
 
 AnimateWaterTile:
 ; Save the stack pointer in bc for WriteTile to restore
