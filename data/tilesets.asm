@@ -51,4 +51,5 @@ Tilesets::
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
 	tileset TilesetHoenn
+	tileset TilesetHoennOcean
 	assert_table_length NUM_TILESETS + 1

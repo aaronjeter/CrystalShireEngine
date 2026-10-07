@@ -54,6 +54,7 @@ TilesetKantoAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetHoennAnim::
+TilesetHoennOceanAnim::
 ; Same as TilesetKantoAnim, but the water tiles use the 8-frame wave animation
 ; instead of scrolling: $14 (shallow) from gfx/tilesets/waves/waves.png,
 ; $60 (deep) from gfx/tilesets/waves/waves_deep.png, one frame apart.

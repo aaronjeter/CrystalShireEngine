@@ -651,6 +651,37 @@ TilesetHoennAttr::
 INCBIN "data/tilesets/hoenn_attributes.bin.lz"
 
 
+SECTION "Tileset Data Hoenn Ocean", ROMX
+
+; Hoenn sea routes and island towns (Routes 105, 108, 109, 122, Dewford,
+; Mossdeep, Battle Resort). Started as a copy of TilesetHoenn.
+; Before you cross a connection, the next map's edge is drawn with the current
+; tileset, so these blocks (used within 3 blocks of the Route 104/105,
+; Slateport/109, 121/122 and 122/123 connections) must stay identical in both
+; tilesets, along with the tiles they use:
+;   2, 3, 5, 7, 12, 13, 38, 39, 42, 43, 48, 49, 50, 52, 53, 54, 56, 57, 58,
+;   61, 62, 67, 68, 70, 72, 73, 74, 78, 84, 85, 93, 118, 137, 176, 179, 183,
+;   189, 192, 195, 210, 211, 212, 213, 214, 215, 218, 219, 220, 224, 228,
+;   231, 234, 236, 242
+TilesetHoennOceanvTiles2GFX::
+INCBIN "gfx/tilesets/hoenn_ocean.2bpp.vtiles2.lz"
+
+TilesetHoennOceanvTiles5GFX::
+INCBIN "gfx/tilesets/hoenn_ocean.2bpp.vtiles5.lz"
+
+TilesetHoennOceanvTiles4GFX::
+INCBIN "gfx/tilesets/hoenn_ocean.2bpp.vtiles4.lz"
+
+TilesetHoennOceanMeta::
+INCBIN "data/tilesets/hoenn_ocean_metatiles.bin.lz"
+
+TilesetHoennOceanColl::
+INCLUDE "data/tilesets/hoenn_ocean_collision.asm"
+
+TilesetHoennOceanAttr::
+INCBIN "data/tilesets/hoenn_ocean_attributes.bin.lz"
+
+
 SECTION "Tileset Data Museum", ROMX
 
 TilesetMuseumvTiles2GFX::
