@@ -72,6 +72,7 @@ DoOverworldWeather::
 	dw DoOverworldRain
 	dw DoOverworldSnow
 	dw DoOverworldSandstorm
+	dw DoOverworldSnow ; ash falls like snow
 	assert_table_length NUM_OW_WEATHERS + 1
 
 .FallOnly:
@@ -80,6 +81,7 @@ DoOverworldWeather::
 	dw DoRainFall
 	dw DoSnowFall
 	dw DoSandFall
+	dw DoSnowFall ; ash
 	assert_table_length NUM_OW_WEATHERS + 1
 
 GetActiveWeather:
@@ -111,6 +113,7 @@ WeatherPalettes::
 	db PAL_OW_RAIN
 	db PAL_OW_SNOW
 	db PAL_OW_SAND
+	db PAL_OW_ASH
 	assert_table_length NUM_OW_WEATHERS
 
 ; Map setup ----------------------------------------------------------------
@@ -161,13 +164,64 @@ GetMapWeather:
 	jr nz, .next
 	inc hl
 	ld a, [hl]
-	ret
+	bit OW_WEATHER_ZONE_F, a
+	ret z ; fixed weather
+	and ~(1 << OW_WEATHER_ZONE_F)
+	jr GetZoneWeather
 .next
 	inc hl
 	inc hl
 	jr .loop
 .none
 	xor a ; OW_WEATHER_NONE
+	ret
+
+GetZoneWeather:
+; a = weather for zone a in the current in-game hour (OW_WEATHER_NONE if dry).
+; The roll is a hash of (day, hour, zone), so it stays the same for the whole
+; hour, is the same for every map in the zone, and different zones roll separately.
+; The pattern repeats every 256 in-game hours (about 10.7 days).
+	ld e, a
+; a = (day * 24 + hour) mod 256
+	ld a, [wCurDay]
+	ld b, a
+	add a
+	add b ; * 3
+	add a
+	add a
+	add a ; * 24
+	ld b, a
+	ldh a, [hHours]
+	add b
+; Pearson hash: a = T[T[slot] xor zone]
+	call .Hash
+	xor e
+	call .Hash
+	ld b, a
+; zone entry: weather, chance
+	ld a, e
+	add a
+	add LOW(OverworldWeatherZones)
+	ld l, a
+	adc HIGH(OverworldWeatherZones)
+	sub l
+	ld h, a
+	ld a, [hli]
+	ld c, a
+	ld a, b
+	cp [hl]
+	ld a, c
+	ret c ; hash < chance: this zone has weather this hour
+	xor a ; OW_WEATHER_NONE
+	ret
+
+.Hash:
+	add LOW(WeatherHashTable)
+	ld l, a
+	adc HIGH(WeatherHashTable)
+	sub l
+	ld h, a
+	ld a, [hl]
 	ret
 
 ClearWeather::
@@ -254,6 +308,7 @@ WeatherGraphics:
 	weather_gfx RainGFX, 2
 	weather_gfx SnowGFX, 1
 	weather_gfx SandGFX, 1
+	weather_gfx SnowGFX, 1 ; ash (snowflake shape for now; gray palette)
 	assert_table_length NUM_OW_WEATHERS
 
 RainGFX: INCBIN "gfx/overworld/rain_splash.2bpp"
@@ -855,6 +910,11 @@ WeatherTints:
 	weather_tint 11, 7, 10, 5,  8, 1 ; day
 	weather_tint 10, 3,  9, 2,  8, 0 ; nite
 	weather_tint 11, 6, 10, 4,  8, 1 ; eve
+; ash (muted gray haze)
+	weather_tint 11, 3, 11, 3, 10, 3 ; morn
+	weather_tint 11, 3, 11, 3, 10, 3 ; day
+	weather_tint 10, 1, 10, 1, 10, 1 ; nite
+	weather_tint 11, 3, 10, 3,  9, 2 ; eve
 	assert_table_length NUM_OW_WEATHERS * NUM_DAYTIMES
 
 
