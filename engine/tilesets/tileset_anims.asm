@@ -54,7 +54,6 @@ TilesetKantoAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetHoennAnim::
-TilesetHoennOceanAnim::
 ; Same as TilesetKantoAnim, but the water tiles use the 8-frame wave animation
 ; instead of scrolling: $14 (shallow) from gfx/tilesets/waves/waves.png,
 ; $60 (deep) from gfx/tilesets/waves/waves_deep.png, one frame apart.
@@ -64,6 +63,25 @@ TilesetHoennOceanAnim::
 	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $14 scroll did
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  AnimateFlowerTile
+	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $60 scroll did
+	dw NULL,  DoNothing
+	dw NULL,  DoNothing
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
+TilesetHoennOceanAnim::
+; Like TilesetHoennAnim, but shallow water ($14) is a static diagonal ripple
+; (drawn in gfx/tilesets/hoenn_ocean.png) and is not animated.
+; Deep water ($60) keeps the wave animation.
+	dw NULL,  DoNothing
+	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $14 scroll did
+	dw NULL,  DoNothing
+	dw NULL,  AdvanceWaveTileFrame
+	dw vTiles2 tile $60, AnimateDeepWaveTile
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
@@ -427,6 +445,13 @@ WriteWaveTileFrame:
 	ld l, e
 	ld h, d
 	jmp WriteTile
+
+AdvanceWaveTileFrame:
+; Advance the wave frame counter without writing a tile
+; (TilesetHoennOceanAnim: AnimateDeepWaveTile shows the frame before it).
+	ld hl, wWaveTileFrame
+	inc [hl]
+	ret
 
 WaveTileFrames:
 	INCBIN "gfx/tilesets/waves/waves.2bpp"
