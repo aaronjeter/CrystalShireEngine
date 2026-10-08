@@ -1,7 +1,7 @@
 	tilecoll 01, 01, 01, 01 ; 00
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 01
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 02
-	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 03
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 03
 	tilecoll 01, 01, 01, 01 ; 04
 	tilecoll WALL, WALL, WALL, WALL ; 05
 	tilecoll WARP_CARPET_UP, WARP_CARPET_UP, FLOOR, FLOOR ; 06
@@ -11,7 +11,7 @@
 	tilecoll 01, 01, 01, 01 ; 0a
 	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; 0b
 	tilecoll 01, 01, 01, 01 ; 0c
-	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 0d
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 0d
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 0e
 	tilecoll WALL, WALL, WALL, WALL ; 0f
 	tilecoll WALL, WALL, WALL, WALL ; 10
