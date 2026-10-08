@@ -3244,7 +3244,7 @@ wWeatherFadeFrame:: db ; alternates BG / object palettes each frame
 
 SECTION "Tile Animation RAM", WRAMX, BANK[1]
 
-wWaveTileFrame:: db ; frame counter for AnimateWaveTile (Hoenn water)
+wWaveTileFrame:: db ; frame counter for AnimateDeepWaveTile (Hoenn deep water)
 
 
 SECTION "Used Storage", WRAMX

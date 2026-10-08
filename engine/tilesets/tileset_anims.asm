@@ -54,29 +54,11 @@ TilesetKantoAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetHoennAnim::
-; Same as TilesetKantoAnim, but the water tiles use the 8-frame wave animation
-; instead of scrolling: $14 (shallow) from gfx/tilesets/waves/waves.png,
-; $60 (deep) from gfx/tilesets/waves/waves_deep.png, one frame apart.
-; One pass through this list = 14 frames, so each wave frame shows for 14 frames.
-	dw vTiles2 tile $14, AnimateWaveTile
-	dw vTiles2 tile $60, AnimateDeepWaveTile
-	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $14 scroll did
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  DoNothing ; WaitTileAnimation
-	dw NULL,  AnimateFlowerTile
-	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $60 scroll did
-	dw NULL,  DoNothing
-	dw NULL,  DoNothing
-	dw NULL,  StandingTileFrame8
-	dw NULL,  DoneTileAnimation
-
 TilesetHoennOceanAnim::
-; Like TilesetHoennAnim, but shallow water ($14) is a static diagonal ripple
-; (drawn in gfx/tilesets/hoenn_ocean.png) and is not animated.
-; Deep water ($60) keeps the wave animation.
+; Shallow water ($14) is a static diagonal ripple (drawn in gfx/tilesets/hoenn.png
+; and hoenn_ocean.png) and is not animated. Deep water ($60) uses the 8-frame
+; wave animation from gfx/tilesets/waves/waves_deep.png.
+; One pass through this list = 14 frames, so each wave frame shows for 14 frames.
 	dw NULL,  DoNothing
 	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $14 scroll did
 	dw NULL,  DoNothing
@@ -405,17 +387,9 @@ AnimateFountainTile:
 .FountainTile4: INCBIN "gfx/tilesets/fountain/4.2bpp"
 .FountainTile5: INCBIN "gfx/tilesets/fountain/5.2bpp"
 
-AnimateWaveTile:
-; Shallow water ($14): write the next wave frame to de, then advance the counter.
-; Advances one frame per call (once per pass through the animation list).
-	ld hl, wWaveTileFrame
-	ld a, [hl]
-	inc [hl]
-	ld hl, WaveTileFrames
-	jr WriteWaveTileFrame
-
 AnimateDeepWaveTile:
-; Deep water ($60): same frame AnimateWaveTile just wrote (it runs earlier in the list).
+; Deep water ($60): the frame before wWaveTileFrame (AdvanceWaveTileFrame runs
+; earlier in the list).
 	ld a, [wWaveTileFrame]
 	dec a
 	ld hl, DeepWaveTileFrames
@@ -447,14 +421,10 @@ WriteWaveTileFrame:
 	jmp WriteTile
 
 AdvanceWaveTileFrame:
-; Advance the wave frame counter without writing a tile
-; (TilesetHoennOceanAnim: AnimateDeepWaveTile shows the frame before it).
+; Advance the wave frame counter (once per pass through TilesetHoennAnim).
 	ld hl, wWaveTileFrame
 	inc [hl]
 	ret
-
-WaveTileFrames:
-	INCBIN "gfx/tilesets/waves/waves.2bpp"
 
 DeepWaveTileFrames:
 	INCBIN "gfx/tilesets/waves/waves_deep.2bpp"
