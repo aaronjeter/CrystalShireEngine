@@ -995,6 +995,32 @@ INCLUDE "data/pokemon/palettes.asm"
 
 INCLUDE "data/trainers/palettes.asm"
 
+LoadSootopolisStonePalette:
+; Sootopolis is built from cream-white stone: on TILESET_SOOTOPOLIS, replace the
+; gray palette (paving, rock, houses) with warm stone colors for the time of day.
+	ld a, [wMapTileset]
+	cp TILESET_SOOTOPOLIS
+	ret nz
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	add a
+	add a
+	add a ; * 1 palettes
+	ld e, a
+	ld d, 0
+	ld hl, SootopolisStonePalettes
+	add hl, de
+	ld de, wBGPals1 palette PAL_BG_GRAY
+	ld bc, 1 palettes
+	ld a, BANK(wBGPals1)
+	jmp FarCopyWRAM
+
+SootopolisStonePalettes:
+	RGB 31,30,22, 23,22,16, 15,14,10, 07,06,05 ; morn
+	RGB 31,30,26, 24,22,18, 15,14,11, 06,05,05 ; day
+	RGB 16,15,22, 12,11,17, 07,07,12, 00,00,03 ; nite
+	RGB 31,24,17, 22,18,14, 14,11,09, 06,05,05 ; eve
+
 LoadMapPals:
 	farcall RecordMapPalsWeather
 	call .Load
@@ -1062,6 +1088,7 @@ LoadMapPals:
 	jr nz, .outer_loop
 	pop af
 	ldh [rSVBK], a
+	call LoadSootopolisStonePalette
 
 .got_pals
 	ldh a, [rSVBK]
