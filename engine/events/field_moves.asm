@@ -58,8 +58,9 @@ ShakeHeadbuttTree:
 	jr .loop
 
 .done
+	; restore the tree's tiles and attributes together while the sprite still covers it
 	call LoadOverworldTilemapAndAttrmapPals
-	call WaitBGMap
+	call CopyTilemapAtOnce
 	xor a
 	ldh [hBGMapMode], a
 	call ClearSpriteAnims
@@ -77,8 +78,9 @@ HeadbuttTreeGFX:
 INCBIN "gfx/overworld/headbutt_tree.2bpp"
 
 HideHeadbuttTree:
-	; Replaces all four headbutted tree tiles with tile $05
-	; Assumes any tileset with headbutt trees has grass at tile $05
+	; Replaces the four headbutted tree tiles with the tileset's grass
+	; (HeadbuttGrassTiles), tiles and attributes together: the grass can be in
+	; the other VRAM bank than the tree.
 	xor a
 	ldh [hBGMapMode], a
 	ld a, [wPlayerDirection]
@@ -91,18 +93,75 @@ HideHeadbuttTree:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	push hl ; tilemap position
 
-	ld a, $05 ; grass tile
+	; find this tileset's grass (or the default entry)
+	ld a, [wMapTileset]
+	ld c, a
+	ld de, HeadbuttGrassTiles
+.find
+	ld a, [de]
+	cp -1
+	jr z, .found
+	cp c
+	jr z, .found
+	ld a, e
+	add HEADBUTT_GRASS_ENTRY_LENGTH
+	ld e, a
+	adc d
+	sub e
+	ld d, a
+	jr .find
+.found
+	inc de
+
+	; tiles
+	ld bc, SCREEN_WIDTH - 1
+	ld a, [de]
+	inc de
 	ld [hli], a
-	ld [hld], a
-	ld bc, SCREEN_WIDTH
+	ld a, [de]
+	inc de
+	ld [hl], a
+	add hl, bc
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	inc de
+	ld [hl], a
+
+	; attributes (-1: leave them as they are)
+	pop hl
+	ld a, [de]
+	cp -1
+	jr z, .copy
+	push de
+	ld de, wAttrmap - wTilemap
+	add hl, de
+	pop de
+	ld [hli], a
+	ld [hl], a
 	add hl, bc
 	ld [hli], a
-	ld [hld], a
-	call WaitBGMap
+	ld [hl], a
+
+.copy
+	; let the shaking tree sprite appear first, then update the BG map at once
+	call DelayFrame
+	call CopyTilemapAtOnce
+	ld c, 3
+	call DelayFrames
 	xor a
 	ldh [hBGMapMode], a
 	ret
+
+HeadbuttGrassTiles:
+; tileset, top-left, top-right, bottom-left, bottom-right tile, attribute (-1: unchanged)
+	db TILESET_JOHTO,        $4e, $4f, $5e, $5f, PAL_BG_GREEN | VRAM_BANK_1
+DEF HEADBUTT_GRASS_ENTRY_LENGTH EQU @ - HeadbuttGrassTiles
+	db TILESET_JOHTO_MODERN, $62, $63, $72, $73, PAL_BG_GREEN
+	db -1,                   $05, $05, $05, $05, -1 ; any other tileset
 
 TreeRelativeLocationTable:
 	dwcoord 8,     8 + 2 ; RIGHT
@@ -191,8 +250,6 @@ Cut_SpawnAnimateLeaves:
 	ret
 
 Cut_StartWaiting:
-	ld a, 1
-	ldh [hBGMapMode], a
 ; Cut_WaitAnimSFX
 	ld hl, wJumptableIndex
 	inc [hl]
@@ -203,6 +260,15 @@ Cut_WaitAnimSFX:
 	and a
 	jr z, .finished
 	dec [hl]
+	cp 30
+	ret nz
+; Two frames in, the tree/leaf sprites are on screen: now copy the new block's
+; attributes and tiles to the BG map at once. Its tiles can be in the other VRAM
+; bank than the tree's (e.g. Johto grass uses bank 1), so updating only the tile
+; IDs would draw the wrong graphics.
+	call CopyTilemapAtOnce
+	ld a, 1
+	ldh [hBGMapMode], a
 	ret
 
 .finished
