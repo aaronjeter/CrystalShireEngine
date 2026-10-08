@@ -52,4 +52,5 @@ Tilesets::
 	tileset TilesetAerodactylWordRoom
 	tileset TilesetHoenn
 	tileset TilesetHoennOcean
+	tileset TilesetSootopolis
 	assert_table_length NUM_TILESETS + 1

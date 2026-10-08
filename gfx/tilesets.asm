@@ -682,6 +682,30 @@ TilesetHoennOceanAttr::
 INCBIN "data/tilesets/hoenn_ocean_attributes.bin.lz"
 
 
+SECTION "Tileset Data Sootopolis", ROMX
+
+; Sootopolis City. Started as a copy of TilesetHoenn so it can be redrawn
+; separately. Sootopolis has no map connections, so no blocks need to stay in
+; sync with other tilesets.
+TilesetSootopolisvTiles2GFX::
+INCBIN "gfx/tilesets/sootopolis.2bpp.vtiles2.lz"
+
+TilesetSootopolisvTiles5GFX::
+INCBIN "gfx/tilesets/sootopolis.2bpp.vtiles5.lz"
+
+TilesetSootopolisvTiles4GFX::
+INCBIN "gfx/tilesets/sootopolis.2bpp.vtiles4.lz"
+
+TilesetSootopolisMeta::
+INCBIN "data/tilesets/sootopolis_metatiles.bin.lz"
+
+TilesetSootopolisColl::
+INCLUDE "data/tilesets/sootopolis_collision.asm"
+
+TilesetSootopolisAttr::
+INCBIN "data/tilesets/sootopolis_attributes.bin.lz"
+
+
 SECTION "Tileset Data Museum", ROMX
 
 TilesetMuseumvTiles2GFX::

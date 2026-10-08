@@ -38,6 +38,7 @@
 	const TILESET_AERODACTYL_WORD_ROOM ; 24
 	const TILESET_HOENN				   ; 25
 	const TILESET_HOENN_OCEAN          ; 26
+	const TILESET_SOOTOPOLIS           ; 27
 DEF NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size
