@@ -1,0 +1,88 @@
+; Roof colors for Hoenn maps (colors 1 and 2 of PAL_BG_ROOF), indexed by HOENN_ROOF_* constants.
+; The Hoenn map group shares one RoofPals entry, so LoadMapPals picks these per map instead
+; (see HoennRoofMaps in data/maps/hoenn_roofs.asm).
+
+; routes and other Hoenn maps (default)
+	RGB 27,13,09, 17,07,04 ; morn/day
+	RGB 12,05,07, 08,03,04 ; nite
+	RGB 23,09,06, 14,05,03 ; eve
+
+; Littleroot
+	RGB 31,13,08, 21,05,03 ; morn/day
+	RGB 14,05,06, 09,02,04 ; nite
+	RGB 26,09,06, 18,04,02 ; eve
+
+; Oldale
+	RGB 31,20,06, 24,11,02 ; morn/day
+	RGB 14,08,05, 11,05,03 ; nite
+	RGB 26,14,04, 20,08,01 ; eve
+
+; Petalburg
+	RGB 15,25,10, 06,15,04 ; morn/day
+	RGB 07,10,08, 03,06,04 ; nite
+	RGB 13,18,07, 05,11,03 ; eve
+
+; Rustboro
+	RGB 17,21,29, 08,11,20 ; morn/day
+	RGB 08,09,18, 04,05,13 ; nite
+	RGB 14,15,21, 07,08,14 ; eve
+
+; Dewford
+	RGB 28,22,12, 18,12,05 ; morn/day
+	RGB 13,09,09, 08,05,05 ; nite
+	RGB 24,16,09, 15,09,04 ; eve
+
+; Slateport
+	RGB 31,11,11, 20,04,05 ; morn/day
+	RGB 14,05,08, 09,02,05 ; nite
+	RGB 26,08,08, 17,03,04 ; eve
+
+; Mauville
+	RGB 30,27,06, 22,16,02 ; morn/day
+	RGB 14,11,05, 10,07,03 ; nite
+	RGB 26,19,04, 19,12,01 ; eve
+
+; Verdanturf
+	RGB 11,25,22, 03,15,14 ; morn/day
+	RGB 05,10,14, 01,06,10 ; nite
+	RGB 09,18,16, 03,11,10 ; eve
+
+; Fallarbor
+	RGB 22,19,15, 13,11,08 ; morn/day
+	RGB 10,08,10, 06,05,06 ; nite
+	RGB 19,14,11, 11,08,06 ; eve
+
+; Lavaridge
+	RGB 30,16,09, 20,08,04 ; morn/day
+	RGB 14,07,07, 09,03,04 ; nite
+	RGB 26,12,06, 17,06,03 ; eve
+
+; Fortree
+	RGB 23,16,09, 13,08,03 ; morn/day
+	RGB 10,07,07, 06,03,04 ; nite
+	RGB 20,12,06, 11,06,02 ; eve
+
+; Lilycove
+	RGB 14,22,31, 05,12,24 ; morn/day
+	RGB 06,09,19, 02,05,15 ; nite
+	RGB 12,16,22, 04,09,17 ; eve
+
+; Mossdeep
+	RGB 22,28,31, 10,17,27 ; morn/day
+	RGB 10,12,19, 04,07,17 ; nite
+	RGB 19,20,22, 08,12,19 ; eve
+
+; Sootopolis
+	RGB 12,20,31, 04,10,24 ; morn/day
+	RGB 05,08,19, 02,04,15 ; nite
+	RGB 10,14,22, 03,07,17 ; eve
+
+; Evergrande
+	RGB 23,15,31, 12,06,21 ; morn/day
+	RGB 10,06,19, 05,03,14 ; nite
+	RGB 20,11,22, 10,04,15 ; eve
+
+; Battle Resort
+	RGB 29,13,25, 18,05,15 ; morn/day
+	RGB 13,05,16, 08,02,10 ; nite
+	RGB 25,09,18, 15,04,11 ; eve

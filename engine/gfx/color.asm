@@ -1113,15 +1113,7 @@ LoadMapPals:
 	cp ROUTE
 	ret nz
 .outside
-	ld a, [wMapGroup]
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	ld hl, RoofPals
-	add hl, de
-	add hl, de
-	add hl, de
+	call GetRoofPalettes
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	cp NITE_F
@@ -1165,6 +1157,53 @@ RoofPals:
 	table_width PAL_COLOR_SIZE * 3 * 2
 INCLUDE "gfx/tilesets/roofs.pal"
 	assert_table_length NUM_MAP_GROUPS + 1
+
+GetRoofPalettes:
+; Return hl = the morn/day, nite and eve roof colors for the current map.
+; Most map groups share one RoofPals entry, but Hoenn is a single map group,
+; so its maps look up their own colors in HoennRoofMaps.
+	ld a, [wMapGroup]
+	cp GROUP_LITTLEROOT_TOWN ; Hoenn
+	jr nz, .by_group
+	ld a, [wMapNumber]
+	ld hl, HoennRoofMaps
+	ld de, 2
+	call IsInArray
+	ld a, HOENN_ROOF_ROUTE ; maps without an entry
+	jr nc, .got_hoenn_roof
+	inc hl
+	ld a, [hl]
+.got_hoenn_roof
+	; hl = HoennRoofPals + a * 12
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	ld d, h
+	ld e, l
+	add hl, hl
+	add hl, de
+	ld de, HoennRoofPals
+	add hl, de
+	ret
+
+.by_group
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, RoofPals
+	add hl, de
+	add hl, de
+	add hl, de
+	ret
+
+INCLUDE "data/maps/hoenn_roofs.asm"
+
+HoennRoofPals:
+	table_width PAL_COLOR_SIZE * 3 * 2
+INCLUDE "gfx/tilesets/hoenn_roofs.pal"
+	assert_table_length NUM_HOENN_ROOFS
 
 DiplomaPalettes:
 INCLUDE "gfx/diploma/diploma.pal"

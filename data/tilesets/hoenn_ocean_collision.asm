@@ -43,7 +43,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; 2a
 	tilecoll WALL, WALL, WALL, WALL ; 2b
 	tilecoll WALL, WALL, WALL, WALL ; 2c
-	tilecoll 01, 01, 01, 01 ; 2d
+	tilecoll WALL, WALL, WALL, DOOR ; 2d
 	tilecoll WALL, WALL, WALL, WALL ; 2e
 	tilecoll WALL, WALL, WALL, WALL ; 2f
 	tilecoll BUOY, BUOY, BUOY, WATER ; 30
@@ -154,12 +154,12 @@
 	tilecoll 01, 01, 01, 01 ; 99
 	tilecoll 01, 01, 01, 01 ; 9a
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 9b
-	tilecoll 01, 01, 01, 01 ; 9c (path edge EN)
-	tilecoll 01, 01, 01, 01 ; 9d (path edge ENS)
+	tilecoll 01, 01, 01, 01 ; 9c
+	tilecoll 01, 01, 01, 01 ; 9d
 	tilecoll 01, 01, 01, 01 ; 9e
 	tilecoll 01, 01, 01, 01 ; 9f
 	tilecoll 01, 01, 01, 01 ; a0
-	tilecoll 01, 01, 01, 01 ; a1 (path edge ESW)
+	tilecoll 01, 01, 01, 01 ; a1
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a2
 	tilecoll 01, 01, 01, 01 ; a3
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; a4
@@ -245,12 +245,12 @@
 	tilecoll 01, 01, 01, 01 ; f4
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f5
 	tilecoll 01, 01, 01, 01 ; f6
-	tilecoll 01, 01, 01, 01 ; f7 (path edge NS)
-	tilecoll 01, 01, 01, 01 ; f8 (path edge S)
-	tilecoll 01, 01, 01, 01 ; f9 (path edge ES)
+	tilecoll 01, 01, 01, 01 ; f7
+	tilecoll 01, 01, 01, 01 ; f8
+	tilecoll 01, 01, 01, 01 ; f9
 	tilecoll 01, 01, 01, 01 ; fa
 	tilecoll 01, 01, 01, 01 ; fb
-	tilecoll 01, 01, 01, 01 ; fc (path edge NSW)
-	tilecoll 01, 01, 01, 01 ; fd (path edge SW)
+	tilecoll 01, 01, 01, 01 ; fc
+	tilecoll 01, 01, 01, 01 ; fd
 	tilecoll 01, 01, 01, 01 ; fe
-	tilecoll 01, 01, 01, 01 ; ff (path edge NW)
+	tilecoll 01, 01, 01, 01 ; ff
