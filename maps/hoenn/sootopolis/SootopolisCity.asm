@@ -37,14 +37,14 @@ SootopolisCity_MapEvents:
 	def_warp_events	
 	warp_event 45, 21, SOOTOPOLIS_POKECENTER, 2
 	warp_event 13, 21, SOOTOPOLIS_MART, 2
-	warp_event 30, 33, SOOTOPOLIS_GYM, 2
+	warp_event 30, 29, SOOTOPOLIS_GYM, 2
 	warp_event 07, 19, SOOTOPOLIS_FISHER_HOUSE, 2
 
 	def_coord_events
 
 	def_bg_events	
 	bg_event  50, 20, BGEVENT_READ, SootopolisSign
-	bg_event 31, 33, BGEVENT_READ, SootopolisGymSign
+	bg_event 31, 29, BGEVENT_READ, SootopolisGymSign
 
 	def_object_events
 	
