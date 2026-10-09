@@ -706,6 +706,35 @@ TilesetSootopolisAttr::
 INCBIN "data/tilesets/sootopolis_attributes.bin.lz"
 
 
+SECTION "Tileset Data Hoenn Jungle", ROMX
+
+; Fortree City and the jungle routes around it (Routes 119 South/North, 120).
+; Started as a copy of TilesetHoenn so the area can be redrawn separately.
+; Until Route 118/119 and Route 120/121 are separated by gatehouses, the part
+; of the next map's edge that is visible before you cross those connections is
+; drawn with the current tileset, so these blocks must stay identical in
+; TilesetHoenn and TilesetHoennJungle, along with the tiles they use:
+;   49, 53, 61, 62, 63, 79, 82, 85, 89, 138, 160, 176, 200, 207,
+;   211, 244, 247
+TilesetHoennJunglevTiles2GFX::
+INCBIN "gfx/tilesets/hoenn_jungle.2bpp.vtiles2.lz"
+
+TilesetHoennJunglevTiles5GFX::
+INCBIN "gfx/tilesets/hoenn_jungle.2bpp.vtiles5.lz"
+
+TilesetHoennJunglevTiles4GFX::
+INCBIN "gfx/tilesets/hoenn_jungle.2bpp.vtiles4.lz"
+
+TilesetHoennJungleMeta::
+INCBIN "data/tilesets/hoenn_jungle_metatiles.bin.lz"
+
+TilesetHoennJungleColl::
+INCLUDE "data/tilesets/hoenn_jungle_collision.asm"
+
+TilesetHoennJungleAttr::
+INCBIN "data/tilesets/hoenn_jungle_attributes.bin.lz"
+
+
 SECTION "Tileset Data Museum", ROMX
 
 TilesetMuseumvTiles2GFX::

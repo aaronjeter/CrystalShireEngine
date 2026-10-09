@@ -56,6 +56,7 @@ TilesetKantoAnim::
 TilesetHoennAnim::
 TilesetHoennOceanAnim::
 TilesetSootopolisAnim::
+TilesetHoennJungleAnim::
 ; Shallow water ($14) is a static diagonal ripple (drawn in gfx/tilesets/hoenn.png
 ; and hoenn_ocean.png) and is not animated. Deep water ($60) uses the 8-frame
 ; wave animation from gfx/tilesets/waves/waves_deep.png.
