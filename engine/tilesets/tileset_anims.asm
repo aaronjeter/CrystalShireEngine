@@ -36,7 +36,6 @@ _AnimateTileset::
 	jp hl
 
 Tileset0Anim::
-TilesetKantoAnim::
 	dw vTiles2 tile $14, ReadTileToAnimBuffer
 	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw vTiles2 tile $14, WriteTileFromAnimBuffer
@@ -76,6 +75,7 @@ TilesetHoennJungleAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetJohtoModernAnim::
+TilesetKantoAnim::
 ; Water ($14) uses the same 8-frame wave animation as Hoenn's deep water
 ; (gfx/tilesets/waves/waves_deep.png), with the same timing as TilesetHoennAnim.
 	dw NULL,  DoNothing
