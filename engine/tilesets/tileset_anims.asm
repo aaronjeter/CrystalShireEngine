@@ -36,7 +36,6 @@ _AnimateTileset::
 	jp hl
 
 Tileset0Anim::
-TilesetJohtoModernAnim::
 TilesetKantoAnim::
 	dw vTiles2 tile $14, ReadTileToAnimBuffer
 	dw wTileAnimBuffer, ScrollTileRightLeft
@@ -76,6 +75,24 @@ TilesetHoennJungleAnim::
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
+TilesetJohtoModernAnim::
+; Water ($14) uses the same 8-frame wave animation as Hoenn's deep water
+; (gfx/tilesets/waves/waves_deep.png), with the same timing as TilesetHoennAnim.
+	dw NULL,  DoNothing
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoNothing
+	dw NULL,  AdvanceWaveTileFrame
+	dw vTiles2 tile $14, AnimateDeepWaveTile
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  DoNothing ; WaitTileAnimation
+	dw NULL,  AnimateFlowerTile
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoNothing
+	dw NULL,  DoNothing
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
 TilesetParkAnim::
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  DoNothing ; WaitTileAnimation
@@ -105,14 +122,15 @@ TilesetForestAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetJohtoAnim::
-	dw vTiles2 tile $14, ReadTileToAnimBuffer
-	dw wTileAnimBuffer, ScrollTileRightLeft
-	dw vTiles2 tile $14, WriteTileFromAnimBuffer
-	dw vTiles2 tile $60, ReadTileToAnimBuffer
-	dw wTileAnimBuffer, ScrollTileRightLeft
-	dw vTiles2 tile $60, WriteTileFromAnimBuffer
-	dw NULL,  DoNothing		;AnimateWaterPalette
-	dw NULL,  DoNothing ; WaitTileAnimation
+; Same water as Hoenn: shallow water ($14) is a static diagonal ripple drawn in
+; gfx/tilesets/johto.png, and deep water ($60) uses the 8-frame wave animation
+; from gfx/tilesets/waves/waves_deep.png. One pass = 14 frames per wave frame.
+	dw NULL,  DoNothing
+	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $14 scroll did
+	dw NULL,  DoNothing
+	dw NULL,  AdvanceWaveTileFrame
+	dw vTiles2 tile $60, AnimateDeepWaveTile
+	dw NULL,  StandingTileFrame8 ; tick wTileAnimationTimer like the old $60 scroll did
 	dw NULL,  AnimateFlowerTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
