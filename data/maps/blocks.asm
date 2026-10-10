@@ -999,6 +999,11 @@ SECTION "Map Blocks 4", ROMX
 	Route119FisherHouse_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
+	FortreeHiddenPowerHouse_Blocks:
+	FortreeHouse1_Blocks:
+	FortreeHouse2_Blocks:
+	INCBIN "maps/hoenn/TreeHouse.ablk"
+
 	MrBrineyHouse_Blocks:
 	DewfordBrineyHouse_Blocks:
 	INCBIN "maps/hoenn/HoennTraditionalHouse.ablk"

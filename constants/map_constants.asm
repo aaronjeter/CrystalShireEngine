@@ -565,6 +565,9 @@ ENDM
 	map_const FORTREE_MART,							       06, 04 ;
 	map_const FORTREE_GYM,                                 10, 13 ;
 	map_const FORTREE_TRADE_HOUSE,						   04, 04 ;
+	map_const FORTREE_HIDDEN_POWER_HOUSE,				   05, 04 ;
+	map_const FORTREE_HOUSE1,			                   05, 04 ;
+	map_const FORTREE_HOUSE2,				               05, 04 ;
 	map_const ROUTE_101,                                   10, 10 ;  4
 	map_const ROUTE_102,                                   20, 10 ;  5
 	map_const ROUTE_103,                                   20, 10 ;  6

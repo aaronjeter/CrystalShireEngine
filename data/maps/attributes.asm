@@ -776,6 +776,11 @@ ENDM
 	map_attributes PetalburgHouse1, PETALBURG_HOUSE1, $00, 0
 	map_attributes PetalburgHouse2, PETALBURG_HOUSE2, $00, 0
 
+	map_attributes FortreeHiddenPowerHouse, FORTREE_HIDDEN_POWER_HOUSE, $00, 0
+	map_attributes FortreeHouse1, FORTREE_HOUSE1, $00, 0
+	map_attributes FortreeHouse2, FORTREE_HOUSE2, $00, 0
+
+
 	map_attributes MrBrineyHouse, MR_BRINEY_HOUSE, $00, 0
 	map_attributes DewfordBrineyHouse, DEWFORD_BRINEY_HOUSE, $00, 0
 	map_attributes Route104FlowerHouse, ROUTE_104_FLOWER_HOUSE, $00, 0
