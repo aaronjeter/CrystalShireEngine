@@ -153,8 +153,14 @@
 	tilecoll WALL, WALL, WALL, WALL ; 98
 	tilecoll WALL, WALL, WALL, WALL ; 99
 	tilecoll WALL, WALL, WALL, WALL ; 9a
-	tilecoll CUT_TREE, CUT_TREE, CUT_TREE, CUT_TREE ; 9b
+	tilecoll WALL, WALL, WALL, WALL ; 9b
 	tilecoll WATER, WATER, WALL, WALL ; 9c
 	tilecoll WATER, WATER, WALL, WALL ; 9d
 	tilecoll WALL, WALL, WALL, WALL ; 9e
 	tilecoll WALL, WALL, WALL, WALL ; 9f
+	tilecoll WALL, WALL, WALL, DOOR ; a0
+	tilecoll WALL, WALL, WALL, WALL ; a1
+	tilecoll WALL, WALL, WALL, WALL ; a2
+	tilecoll WALL, WALL, WALL, WALL ; a3
+	tilecoll WALL, WALL, WALL, DOOR ; a4
+	tilecoll WALL, WALL, WALL, WALL ; a5
