@@ -18,8 +18,8 @@
 	tilecoll 01, 01, 01, 01 ; 11
 	tilecoll 01, 01, 01, 01 ; 12
 	tilecoll 01, 01, 01, 01 ; 13
-	tilecoll 01, 01, 01, 01 ; 14
-	tilecoll 01, 01, 01, 01 ; 15
+	tilecoll WALL, WALL, WALL, WALL ; 14
+	tilecoll WALL, WALL, WALL, WALL ; 15
 	tilecoll 01, 01, 01, 01 ; 16
 	tilecoll 01, 01, 01, 01 ; 17
 	tilecoll WALL, WALL, WALL, WALL ; 18
