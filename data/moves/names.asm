@@ -338,4 +338,5 @@ MoveNames::
 	li "Flip Turn"
 	li "Night Slash"
 	li "Weather Ball"
+	li "Freeze-Dry"
 	assert_list_length NUM_ATTACKS

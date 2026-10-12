@@ -343,6 +343,7 @@ DEF GEN1_MOVES EQU const_value - 1
 	const FLIP_TURN
 	const NIGHT_SLASH
 	const WEATHER_BALL
+	const FREEZE_DRY
 
 DEF GEN2_MOVES EQU const_value - 1
 

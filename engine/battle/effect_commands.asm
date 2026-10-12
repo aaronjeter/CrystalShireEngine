@@ -1359,7 +1359,7 @@ BattleCommand_Stab:
 	and STAB_DAMAGE
 	ld b, a
 ; If the target is immune to the move, treat it as a miss and calculate the damage as 0
-	ld a, [hl]
+	call GetMoveMatchupEffectiveness
 	and a
 	jr nz, .NotImmune
 	inc a
@@ -1480,11 +1480,14 @@ CheckTypeMatchup:
 	jr .TypesLoop
 
 .Yup:
+	call GetMoveMatchupEffectiveness
+	inc hl
+	push af
 	xor a
 	ldh [hDividend + 0], a
 	ldh [hMultiplicand + 0], a
 	ldh [hMultiplicand + 1], a
-	ld a, [hli]
+	pop af
 	ldh [hMultiplicand + 2], a
 	ld a, [wTypeMatchup]
 	ldh [hMultiplier], a
@@ -1501,6 +1504,34 @@ CheckTypeMatchup:
 
 .End:
 	jmp PopBCDEHL
+
+GetMoveMatchupEffectiveness:
+; In:  hl = the effectiveness byte of a TypeMatchups entry
+;      (hl - 1 = its defending type)
+; Out: a = the effectiveness to use for the current move.
+; Freeze-Dry is super-effective against Water instead of not very effective.
+; Preserves bc, de and hl.
+	push hl
+	push bc
+	dec hl
+	ld a, [hl]
+	cp WATER
+	jr nz, .normal
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld bc, FREEZE_DRY
+	call CompareMove
+	jr nz, .normal
+	pop bc
+	pop hl
+	ld a, SUPER_EFFECTIVE
+	ret
+
+.normal
+	pop bc
+	pop hl
+	ld a, [hl]
+	ret
 
 BattleCommand_ResetTypeMatchup:
 ; Reset the type matchup multiplier to 1.0, if the type matchup is not 0.

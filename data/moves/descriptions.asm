@@ -345,6 +345,7 @@ MoveDescriptionsGen2:
 	dw SwitchHitDescription
 	dw NightSlashDescription
 	dw WeatherBallDescription
+	dw FreezeDryDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1676,6 +1677,10 @@ HexDescription:
 VenoshockDescription:
 	db   "Double damage on"
 	next "poisoned targets.@"
+
+FreezeDryDescription:
+	db   "Strong vs. Water."
+	next "May frostbite.@"
 
 WeatherBallDescription:
 	db   "Type and power"

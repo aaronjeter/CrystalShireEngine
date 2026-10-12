@@ -170,6 +170,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_FlipTurn
 	dw BattleAnim_NightSlash
 	dw BattleAnim_WeatherBall
+	dw BattleAnim_FreezeDry
 
 .IndirectEnd::
 
@@ -4076,6 +4077,29 @@ BattleAnim_NightSlash:
 	anim_sound 0, 1, SFX_CUT
 	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
 	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 148, 36, $0
+	anim_wait 32
+	anim_ret
+
+BattleAnim_FreezeDry:
+	; A stream of freezing flakes (Powder Snow's) blows over the target and
+	; the screen turns icy white, then the target freezes over: Ice Beam's
+	; ice builds up around it and ice chunks (as in Ice Punch) form on it.
+	anim_1gfx BATTLE_ANIM_GFX_ICE
+.loop
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SNOW, 64, 88, $23
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SNOW, 64, 80, $24
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SNOW, 64, 96, $23
+	anim_wait 2
+	anim_loop 3, .loop
+	anim_bgeffect BATTLE_BG_EFFECT_WHITE_HUES, $0, $8, $0
+	anim_wait 24
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_ICE_BUILDUP, 136, 74, $10
+	anim_wait 16
+	anim_call BattleAnimSub_Ice
 	anim_wait 32
 	anim_ret
 
