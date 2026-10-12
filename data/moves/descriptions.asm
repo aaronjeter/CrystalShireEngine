@@ -344,6 +344,7 @@ MoveDescriptionsGen2:
 	dw SwitchHitDescription
 	dw SwitchHitDescription
 	dw NightSlashDescription
+	dw WeatherBallDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1675,6 +1676,10 @@ HexDescription:
 VenoshockDescription:
 	db   "Double damage on"
 	next "poisoned targets.@"
+
+WeatherBallDescription:
+	db   "Type and power"
+	next "change in weather.@"
 
 SwitchHitDescription:
 	db   "Strike then switch"

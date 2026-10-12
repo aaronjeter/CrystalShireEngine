@@ -337,4 +337,5 @@ MoveNames::
 	li "U-Turn"
 	li "Flip Turn"
 	li "Night Slash"
+	li "Weather Ball"
 	assert_list_length NUM_ATTACKS

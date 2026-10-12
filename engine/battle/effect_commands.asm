@@ -2063,6 +2063,8 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .alternate_anim
 	cp EFFECT_TRIPLE_KICK
 	jr z, .triplekick
+	cp EFFECT_WEATHER_BALL ; wBattleAnimParam holds the weather (see BattleCommand_WeatherBall)
+	jr z, .triplekick
 	xor a
 	ld [wBattleAnimParam], a
 
@@ -6659,6 +6661,8 @@ INCLUDE "engine/battle/move_effects/magnitude.asm"
 INCLUDE "engine/battle/move_effects/baton_pass.asm"
 
 INCLUDE "engine/battle/move_effects/switch_hit.asm"
+
+INCLUDE "engine/battle/move_effects/weather_ball.asm"
 
 INCLUDE "engine/battle/move_effects/pursuit.asm"
 

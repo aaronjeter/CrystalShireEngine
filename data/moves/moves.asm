@@ -364,6 +364,7 @@ MovesGen2:
 	move EFFECT_SWITCH_HIT,         70, BUG,            PHYSICAL,		100, 15,   0      ;U_TURN
 	move EFFECT_SWITCH_HIT,         70, WATER,          PHYSICAL,		100, 15,   0      ;FLIP_TURN
 	move EFFECT_NORMAL_HIT,         80, DARK,           PHYSICAL,		100, 20,   0      ;NIGHT_SLASH
+	move EFFECT_WEATHER_BALL,       50, NORMAL,         SPECIAL,		100, 10,   0      ;WEATHER_BALL
 
 .IndirectEnd::
 

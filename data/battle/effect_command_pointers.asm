@@ -183,4 +183,5 @@ BattleCommandPointers:
 	dw BattleCommand_StartHail
 	dw BattleCommand_ConditionalBoost
 	dw BattleCommand_SwitchHit
+	dw BattleCommand_WeatherBall
 	assert_table_length NUM_EFFECT_COMMANDS

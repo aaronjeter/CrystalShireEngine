@@ -169,6 +169,7 @@ BattleAnimationsGen2::
 	dw BattleAnim_UTurn
 	dw BattleAnim_FlipTurn
 	dw BattleAnim_NightSlash
+	dw BattleAnim_WeatherBall
 
 .IndirectEnd::
 
@@ -4076,4 +4077,129 @@ BattleAnim_NightSlash:
 	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
 	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 148, 36, $0
 	anim_wait 32
+	anim_ret
+
+BattleAnim_WeatherBall:
+	; The user gathers power (Solar Beam's charge orbs closing in, faster,
+	; while the user flickers), then lobs the ball at the target in an arc,
+	; like Sludge Bomb. In weather the ball and everything else take the
+	; weather's element and color: a big bubble in rain, a fireball in sun, a
+	; boulder in a sandstorm and a chunk of ice in hail. The move effect
+	; leaves the weather in the anim param (see BattleCommand_WeatherBall).
+	anim_if_param_equal WEATHER_RAIN, .rain
+	anim_if_param_equal WEATHER_SUN, .sun
+	anim_if_param_equal WEATHER_SANDSTORM, .sandstorm
+	anim_if_param_equal WEATHER_HAIL, .hail
+	anim_3gfx BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_CHARGE
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE, 48, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE, 48, 84, $8
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE, 48, 84, $10
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE, 48, 84, $18
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE, 48, 84, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE, 48, 84, $28
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE, 48, 84, $30
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE, 48, 84, $38
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL, 64, 92, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG, 136, 56, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $2, $0
+	anim_wait 16
+	anim_ret
+
+.rain
+	anim_3gfx BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_BUBBLE, BATTLE_ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_CHARGE
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $8
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $10
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $18
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $28
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $30
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $38
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_sound 6, 2, SFX_BUBBLEBEAM
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_WATER, 64, 92, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_WATER_GUN
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_HIT_BLUE, 136, 56, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $2, $0
+	anim_wait 16
+	anim_ret
+
+.sun
+	anim_3gfx BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_FIRE, BATTLE_ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_CHARGE
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_RED, 48, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_RED, 48, 84, $8
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_RED, 48, 84, $10
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_RED, 48, 84, $18
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_RED, 48, 84, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_RED, 48, 84, $28
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_RED, 48, 84, $30
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_RED, 48, 84, $38
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_sound 6, 2, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_FIRE, 64, 92, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_HIT_RED, 136, 56, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $3, $0
+	anim_wait 16
+	anim_ret
+
+.sandstorm
+	anim_3gfx BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_ROCKS, BATTLE_ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_CHARGE
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BROWN, 48, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BROWN, 48, 84, $8
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BROWN, 48, 84, $10
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BROWN, 48, 84, $18
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BROWN, 48, 84, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BROWN, 48, 84, $28
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BROWN, 48, 84, $30
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BROWN, 48, 84, $38
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_ROCK, 64, 92, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_HIT_BROWN, 136, 56, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $3, $0
+	anim_wait 16
+	anim_ret
+
+.hail
+	anim_3gfx BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_ICE, BATTLE_ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_CHARGE
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $8
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $10
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $18
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $20
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $28
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $30
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_CHARGE_BLUE, 48, 84, $38
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_ICE, 64, 92, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj BATTLE_ANIM_OBJ_WEATHER_BALL_HIT_BLUE, 136, 56, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $2, $0
+	anim_wait 16
 	anim_ret

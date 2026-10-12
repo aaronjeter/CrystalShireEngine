@@ -169,4 +169,5 @@ MoveEffectsPointers:
 	dw Charge
 	dw ConditionalBoostHit
 	dw SwitchHit
+	dw WeatherBall
 	assert_table_length NUM_MOVE_EFFECTS

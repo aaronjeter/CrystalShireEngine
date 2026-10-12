@@ -98,6 +98,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunc_AncientPower
 	dba BattleAnimFunc_RockSmash
 	dba BattleAnimFunc_Cotton
+	dba BattleAnimFunc_FastCharge
 	assert_table_length NUM_BATTLE_ANIM_FUNCS
 
 PUSHS ; push the current section onto the stack.
@@ -1699,6 +1700,48 @@ BattleAnimFunc_SolarBeam:
 
 .zero_radius
 	jmp DeinitBattleAnimation
+
+BattleAnimFunc_FastCharge:
+; A quicker Solar Beam charge: objects start in a smaller circle (radius $20)
+; and close in on the center at 1 pixel per frame, so they reach it after 32
+; frames and disappear. Used by Weather Ball.
+; Obj Param: the object's starting angle
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+
+.zero
+	call BattleAnim_IncAnonJumptableIndex
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], $20
+.one
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld d, [hl]
+	push af
+	push de
+	xcall Sine
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	pop af
+	xcall Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	and a
+	jmp z, DeinitBattleAnimation
+	dec [hl]
+	ret
 
 SECTION "BattleAnimFunc_Gust", ROMX
 
