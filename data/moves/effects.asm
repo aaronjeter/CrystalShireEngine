@@ -2244,5 +2244,5 @@ SwitchHit:
 	checkfaint
 	buildopponentrage
 	kingsrock
-	batonpass
+	switchhit
 	endmove

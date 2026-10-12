@@ -5349,6 +5349,69 @@ PassedBattleMonEntrance:
 	call SetPlayerTurn
 	jmp SpikesDamage
 
+SwitchHitPlayerEntrance:
+; Called after the player used a switch move (Volt Switch, U-turn, Flip Turn)
+; and picked the incoming Pokemon (in wCurPartyMon). Works like a normal
+; switch: the outgoing Pokemon is withdrawn, and the incoming one starts
+; with reset stat levels and substatus.
+	call WithdrawMonText
+
+	ld c, 30
+	call DelayFrames
+
+	call RecallPlayerMon
+
+	hlcoord 9, 7
+	lb bc, 5, 11
+	call ClearBox
+
+	ld a, [wCurBattleMon]
+	ld [wLastPlayerMon], a
+	ld a, [wCurPartyMon]
+	ld [wCurBattleMon], a
+	call AddBattleParticipant
+	call InitBattleMon
+	call ResetPlayerStatLevels
+	call SendOutMonText
+	call NewBattleMonStatus
+	call BreakAttraction
+	call SendOutPlayerMon
+	call EmptyBattleTextbox
+	call LoadTilemapToTempTilemap
+	call SetPlayerTurn
+	jmp SpikesDamage
+
+SwitchHitEnemyEntrance:
+; Called after an enemy trainer's Pokemon used a switch move.
+; The AI picks the incoming Pokemon, which starts fresh, and its entrance
+; ability is triggered like any other send-out.
+	ld hl, wEnemySubStatus4
+	res SUBSTATUS_RAGE, [hl]
+
+	ld hl, SwitchHitEnemyWithdrewText
+	call PrintText
+
+	xor a
+	ld [wEnemySwitchMonIndex], a
+	call NewEnemyMonStatus
+	call ResetEnemyStatLevels
+	call BreakAttraction
+	call EnemySwitch_SetMode
+	call ResetBattleParticipants
+
+	call SetEnemyTurn
+	call SpikesDamage
+
+	ld a, [wTempEnemyMonSpecies]
+	ld [wTempAbilityMon], a
+	farcall Check_Entrance_Ability
+
+	jmp SetEnemyTurn
+
+SwitchHitEnemyWithdrewText:
+	text_far _EnemyWithdrewText
+	text_end
+
 BattleMenu_Run:
 	call SafeLoadTempTilemapToTilemap
 	ld a, $3

@@ -182,6 +182,7 @@ ENDM
 	command freeze                  ; b1
 	command starthail				; b2
 	command conditionalboost		; b3
+	command switchhit               ; b4
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1
