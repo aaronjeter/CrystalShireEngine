@@ -1,7 +1,9 @@
 	object_const_def
-	const ROUTE10NORTH_GREEN
+	const ROUTE10_GREEN
+	const ROUTE10_POKEFAN_M1
+	const ROUTE10_POKEFAN_M2
 
-Route10North_MapScripts:
+Route10_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
@@ -51,9 +53,9 @@ Route10_Green:
 .GreenExit
 	closetext
 
-	applymovement ROUTE10NORTH_GREEN, Route10North_GreenWalkAwayMovement
+	applymovement ROUTE10_GREEN, Route10_GreenWalkAwayMovement
 	playsound SFX_ENTER_DOOR
-	disappear ROUTE10NORTH_GREEN
+	disappear ROUTE10_GREEN
 	setevent EVENT_FOUND_ROUTE10_GREEN
 	end
 
@@ -148,60 +150,121 @@ Route10GreenNotKantoText:
 	cont "scrubs."
 	done
 
-Route10NorthGreenEventScript1:
+Route10GreenEventScript1:
 	checkevent EVENT_FOUND_ROUTE10_GREEN
 	iftrue .done
-	applymovement PLAYER, Route10North_PlayerWalkOverMovement1
+	applymovement PLAYER, Route10_PlayerWalkOverMovement1
 	turnobject PLAYER, UP
 	sjump Route10_Green
 .done
 	end
 
-Route10NorthGreenEventScript2:
+Route10GreenEventScript2:
 	checkevent EVENT_FOUND_ROUTE10_GREEN
 	iftrue .done
-	applymovement PLAYER, Route10North_PlayerWalkOverMovement2
+	applymovement PLAYER, Route10_PlayerWalkOverMovement2
 	turnobject PLAYER, UP
 	sjump Route10_Green
 .done
 	end
 
-Route10North_PlayerWalkOverMovement1:
+Route10_PlayerWalkOverMovement1:
 	step DOWN
 	step LEFT
 	step LEFT
 	step LEFT
 	step_end
 
-Route10North_PlayerWalkOverMovement2:
+Route10_PlayerWalkOverMovement2:
 	step LEFT
 	step LEFT
 	step LEFT
 	step_end
 
-Route10North_GreenWalkAwayMovement:
+Route10_GreenWalkAwayMovement:
 	step LEFT
 	step LEFT
-	step UP
 	step UP
 	step UP
 	step UP
 	step_end
 
-Route10North_MapEvents:
+
+TrainerHikerJim:
+	trainer HIKER, JIM, EVENT_BEAT_HIKER_JIM, HikerJimSeenText, HikerJimBeatenText, 0, .Script
+
+.Script:
+	trainerafter HikerJimAfterBattleText
+
+TrainerPokefanmRobert:
+	trainer POKEFANM, ROBERT, EVENT_BEAT_POKEFANM_ROBERT, PokefanmRobertSeenText, PokefanmRobertBeatenText, 0, .Script
+
+.Script:
+	trainerafter PokefanmRobertAfterBattleText
+
+Route10Sign:
+	jumptext Route10SignText
+
+HikerJimSeenText:
+	text "Hahahah!"
+	done
+
+HikerJimBeatenText:
+	text "Hahaha-hachoo!"
+	done
+
+HikerJimAfterBattleText:
+	text "Hay fever is"
+	line "making me sneeze!"
+	cont "Ahahah-CHOO!"
+	done
+
+PokefanmRobertSeenText:
+	text "You like #mon,"
+	line "don't you?"
+
+	para "Me too!"
+	done
+
+PokefanmRobertBeatenText:
+	text "I'd have to say"
+	line "that's my loss."
+	done
+
+PokefanmRobertAfterBattleText:
+	text "Look what you did"
+	line "to my #mon."
+
+	para "I won't forget"
+	line "this."
+	done
+
+Route10SignText:
+	text "Route 10"
+
+	para "Cerulean City -"
+	line "Lavender Town"
+	done
+
+Route10_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 11,  1, ROUTE_10_POKECENTER_1F, 1
-	warp_event  3,  9, POWER_PLANT, 1
+	warp_event 11, 19, ROUTE_10_POKECENTER_1F, 1
+	warp_event 07, 39, POWER_PLANT, 1
+	warp_event 08, 17, ROCK_TUNNEL_1F, 1
+	warp_event 08, 53, ROCK_TUNNEL_1F, 2
 
 	def_coord_events
-	coord_event  13, 02, -1, Route10NorthGreenEventScript1
-	coord_event  13, 03, -1, Route10NorthGreenEventScript2
+	coord_event 13, 20, -1, Route10GreenEventScript1
+	coord_event 13, 21, -1, Route10GreenEventScript2
 
 	def_bg_events
-	bg_event  5, 11, BGEVENT_READ, PowerPlantSign
-	bg_event 12,  1, BGEVENT_READ, Route10PokecenterSign
+	bg_event 05, 41, BGEVENT_READ, PowerPlantSign
+	bg_event 12, 19, BGEVENT_READ, Route10PokecenterSign
+	bg_event 09, 55, BGEVENT_READ, Route10Sign
 
 	def_object_events
-	object_event 10, 02, SPRITE_DAISY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route10_Green, EVENT_FOUND_ROUTE10_GREEN
+	object_event 10, 20, SPRITE_DAISY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route10_Green, EVENT_FOUND_ROUTE10_GREEN
+	object_event 15, 65, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, -1
+	object_event 05, 55, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmRobert, -1

@@ -506,7 +506,7 @@ KantoGrassWildMons:
 	dbw 5, MAROWAK
 	end_grass_wildmons
 
-	def_grass_wildmons ROUTE_10_NORTH
+	def_grass_wildmons ROUTE_10
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 1, SPEAROW

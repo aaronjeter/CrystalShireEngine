@@ -477,7 +477,7 @@ INCLUDE "maps/kanto/routes/Route5.asm"
 INCLUDE "maps/kanto/routes/Route24.asm"
 INCLUDE "maps/kanto/routes/Route3.asm"
 INCLUDE "maps/kanto/routes/Route4.asm"
-INCLUDE "maps/kanto/routes/Route10South.asm"
+INCLUDE "maps/kanto/routes/Route10.asm"
 INCLUDE "maps/kanto/routes/Route23.asm"
 INCLUDE "maps/johto/silver/SilverCavePokecenter1F.asm"
 INCLUDE "maps/johto/routes/Route28SteelWingHouse.asm"
@@ -486,8 +486,6 @@ INCLUDE "maps/johto/routes/Route28SteelWingHouse.asm"
 SECTION "Map Scripts 25", ROMX
 
 INCLUDE "maps/johto/silver/SilverCaveOutside.asm"
-INCLUDE "maps/kanto/routes/Route10North.asm"
-
 INCLUDE "maps/hoenn/littleroot/LittlerootTown.asm"
 INCLUDE "maps/hoenn/oldale/OldaleTown.asm"
 INCLUDE "maps/hoenn/oldale/OldalePokecenter.asm"

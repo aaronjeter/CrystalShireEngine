@@ -316,7 +316,7 @@ ENDM
 	connection east, Route12, ROUTE_12, -9
 
 	map_attributes LavenderTown, LAVENDER_TOWN, $2c, NORTH | SOUTH | WEST
-	connection north, Route10South, ROUTE_10_SOUTH, 0
+	connection north, Route10, ROUTE_10, 0
 	connection south, Route12, ROUTE_12, 0
 	connection west, Route8, ROUTE_8, 0
 
@@ -344,9 +344,9 @@ ENDM
 	connection west, Route4, ROUTE_4, 5
 	connection east, Route9, ROUTE_9, 9
 
-	map_attributes Route9, ROUTE_9, $2c, SOUTH | WEST
-	connection south, Route10North, ROUTE_10_NORTH, 20
-	connection west, CeruleanCity, CERULEAN_CITY, -9
+	map_attributes Route9, ROUTE_9, $2c, WEST | EAST
+	connection west, CeruleanCity, CERULEAN_CITY, -9	
+	connection east, Route10, ROUTE_10, 0
 
 	map_attributes Route24, ROUTE_24, $2c, NORTH | SOUTH
 	connection north, Route25, ROUTE_25, 0
@@ -367,13 +367,9 @@ ENDM
 	connection west, SaffronCity, SAFFRON_CITY, -9
 	connection east, LavenderTown, LAVENDER_TOWN, 0
 
-	map_attributes Route10North, ROUTE_10_NORTH, $2c, NORTH | SOUTH
-	connection north, Route9, ROUTE_9, -20
-	connection south, Route10South, ROUTE_10_SOUTH, 0
-
-	map_attributes Route10South, ROUTE_10_SOUTH, $2c, NORTH | SOUTH
-	connection north, Route10North, ROUTE_10_NORTH, 0
+	map_attributes Route10, ROUTE_10, $2c, SOUTH | WEST
 	connection south, LavenderTown, LAVENDER_TOWN, 0
+	connection west, Route9, ROUTE_9, 0	
 
 	map_attributes Route23, ROUTE_23, $0f, 0
 	map_attributes SproutTower1F, SPROUT_TOWER_1F, $00, 0

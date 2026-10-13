@@ -108,8 +108,7 @@ OverworldWeatherMaps:
 	ow_weather_zone CERULEAN_CITY,             WEATHER_ZONE_KANTO_NORTH
 	ow_weather_zone ROUTE_4,                   WEATHER_ZONE_KANTO_NORTH
 	ow_weather_zone ROUTE_9,                   WEATHER_ZONE_KANTO_NORTH
-	ow_weather_zone ROUTE_10_NORTH,            WEATHER_ZONE_KANTO_NORTH
-	ow_weather_zone ROUTE_10_SOUTH,            WEATHER_ZONE_KANTO_NORTH
+	ow_weather_zone ROUTE_10,                  WEATHER_ZONE_KANTO_NORTH
 	ow_weather_zone ROUTE_24,                  WEATHER_ZONE_KANTO_NORTH
 	ow_weather_zone ROUTE_25,                  WEATHER_ZONE_KANTO_NORTH
 

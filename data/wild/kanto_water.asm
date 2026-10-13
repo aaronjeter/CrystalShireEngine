@@ -37,7 +37,7 @@ KantoWaterWildMons:
 	dbw 3, SEAKING
 	end_water_wildmons
 
-	def_water_wildmons ROUTE_10_NORTH
+	def_water_wildmons ROUTE_10
 	db 2 percent ; encounter rate
 	dbw 1, GOLDEEN
 	dbw 1, SQUIRTLE

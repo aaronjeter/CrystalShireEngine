@@ -36,8 +36,8 @@ Route15_Blocks:
 Route19_Blocks:
 	INCBIN "maps/kanto/routes/Route19.ablk"
 
-Route10South_Blocks:
-	INCBIN "maps/kanto/routes/Route10South.ablk"
+Route10_Blocks:
+	INCBIN "maps/kanto/routes/Route10.ablk"
 
 Pokecenter2F_Blocks:
 	INCBIN "maps/Pokecenter2F.ablk"
@@ -257,9 +257,6 @@ ViridianMart_Blocks:
 SaffronMart_Blocks:
 CherrygroveMart_Blocks:
 	INCBIN "maps/Mart.ablk"
-
-Route10North_Blocks:
-	INCBIN "maps/kanto/routes/Route10North.ablk"
 
 OlivinePokecenter1F_Blocks:
 MahoganyPokecenter1F_Blocks:
