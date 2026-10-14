@@ -45,7 +45,7 @@ HallOfFameEnterScript:
 	iftrue .SkipPhoneCall
 	specialphonecall SPECIALCALL_SSTICKET
 .SkipPhoneCall:
-	halloffame
+	halloffame LEAGUE_JOHTO
 	end
 
 HallOfFameLevelcap:

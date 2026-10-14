@@ -38,7 +38,7 @@ WCFinalsEventScript:
 
 	setevent EVENT_WORLD_CUP_CHAMPION
 	
-	halloffame
+	halloffame LEAGUE_WORLD_CUP
 	end
 
 WCFinals_WalkUpWithOak:

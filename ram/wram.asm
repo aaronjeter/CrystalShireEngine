@@ -130,7 +130,7 @@ wDebugFlags:: db
 wGameLogicPaused:: db
 wSpriteUpdatesEnabled:: db
 
-wUnusedScriptByte:: db
+wHallOfFameLeague:: db ; LEAGUE_* constant (was wUnusedScriptByte)
 
 wMapTimeOfDay:: db
 

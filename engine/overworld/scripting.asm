@@ -2141,7 +2141,7 @@ Script_reanchormap:
 
 Script_writeunusedbyte:
 	rst GetScriptByte
-	ld [wUnusedScriptByte], a
+	ld [wHallOfFameLeague], a ; (the byte is now used by halloffame)
 	ret
 
 Script_closetext:
@@ -2245,6 +2245,9 @@ Script_endall:
 	jmp StopScript
 
 Script_halloffame:
+; parameters: league (LEAGUE_* constant)
+	rst GetScriptByte
+	ld [wHallOfFameLeague], a
 	ld hl, wGameTimerPaused
 	res GAME_TIMER_COUNTING_F, [hl]
 	farcall HallOfFame

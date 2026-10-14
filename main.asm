@@ -152,6 +152,11 @@ SECTION "Player Characters", ROMX
 INCLUDE "engine/gfx/player_characters.asm"
 
 
+SECTION "Hall of Fame Team", ROMX
+
+INCLUDE "engine/events/halloffame_team.asm"
+
+
 SECTION "Move Reminder", ROMX
 
 INCLUDE "engine/events/move_reminder.asm"

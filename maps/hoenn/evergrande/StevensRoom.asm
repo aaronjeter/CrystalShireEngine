@@ -52,7 +52,7 @@ StevenScript_Battle:
 	setevent EVENT_BEAT_HOENN_LEAGUE
 	scall StevensRoomLevelcap
 
-	halloffame
+	halloffame LEAGUE_HOENN
 	end
 
 StevensRoomLevelcap:

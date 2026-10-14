@@ -421,6 +421,15 @@ DEF NUM_UNLOCKED_UNOWN_SETS EQU const_value
 	shift_const RTC_DAYS_EXCEED_255 ; 6
 	shift_const RTC_RESET           ; 7
 
+; wHallOfFameLeague::
+; which league title the Hall of Fame team screen shows (halloffame argument)
+	const_def
+	const LEAGUE_KANTO     ; 0
+	const LEAGUE_JOHTO     ; 1
+	const LEAGUE_HOENN     ; 2
+	const LEAGUE_WORLD_CUP ; 3
+DEF NUM_LEAGUES EQU const_value
+
 ; hVBlank::
 ; VBlankHandlers indexes (see home/vblank.asm)
 	const_def

@@ -1010,6 +1010,7 @@ ENDM
 	const halloffame_command ; $a1
 MACRO halloffame
 	db halloffame_command
+	db \1 ; league (LEAGUE_* constant)
 ENDM
 
 	const credits_command ; $a2

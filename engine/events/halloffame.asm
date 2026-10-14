@@ -85,14 +85,14 @@ AnimateHallOfFame:
 .loop
 	ld a, [wHallOfFameMonCounter]
 	cp PARTY_LENGTH
-	jr nc, .done
+	jr nc, .team
 	ld hl, wHallOfFameTempMon1 + 1
 	ld bc, wHallOfFameTempMon1End - wHallOfFameTempMon1
 	rst AddNTimes
 	ld a, [hld]
 	and [hl]
 	inc a
-	jr z, .done
+	jr z, .team
 	push hl
 	call AnimateHOFMonEntrance
 	pop hl
@@ -102,13 +102,12 @@ AnimateHallOfFame:
 	inc [hl]
 	jr .loop
 
+.team
+	; the whole team together (engine/events/halloffame_team.asm)
+	farcall HOF_ShowTeam
 .done
 	call HOF_AnimatePlayerPic
-	ld a, $4
-	ld [wMusicFade], a
-	farcall FadeOutToWhite
-	ld c, 8
-	jmp DelayFrames
+	farjp HOF_FadeOutMusicAndScreen
 
 .DisplayNewHallOfFamer:
 	call DisplayHOFMon

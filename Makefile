@@ -260,6 +260,10 @@ gfx/trainer_card/chris_card.2bpp: rgbgfx += --columns
 gfx/trainer_card/kris_card.2bpp: rgbgfx += --columns
 gfx/trainer_card/may_card.2bpp: rgbgfx += --columns
 gfx/trainer_card/brendan_card.2bpp: rgbgfx += --columns
+gfx/hall_of_fame/kanto.2bpp: rgbgfx += --columns
+gfx/hall_of_fame/johto.2bpp: rgbgfx += --columns
+gfx/hall_of_fame/hoenn.2bpp: rgbgfx += --columns
+gfx/hall_of_fame/world_cup.2bpp: rgbgfx += --columns
 gfx/trainer_card/leaders.2bpp: tools/gfx += --trim-whitespace
 
 gfx/overworld/chris_fish.2bpp: tools/gfx += --trim-whitespace

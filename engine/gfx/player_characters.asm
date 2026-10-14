@@ -214,18 +214,24 @@ PlayerBackpics:
 ; Trainer card pic
 
 GetCardPic:
-	ld hl, PlayerCardPics
-	call GetPlayerCharacterTableEntry
-	ld h, d
-	ld l, e
-	ld a, b
 	ld de, vTiles2 tile $00
-	ld bc, $23 tiles
-	call FarCopyBytes
+	call LoadPlayerCardPic
 	ld hl, TrainerCardGFX
 	ld de, vTiles2 tile $23
 	ld bc, 6 tiles
 	ld a, BANK(TrainerCardGFX)
+	jmp FarCopyBytes
+
+LoadPlayerCardPic:
+; Copy the player's 5x7 trainer card pic (stored by columns) to VRAM at de.
+	push de
+	ld hl, PlayerCardPics
+	call GetPlayerCharacterTableEntry
+	ld h, d
+	ld l, e
+	pop de
+	ld a, b
+	ld bc, 5 * 7 tiles
 	jmp FarCopyBytes
 
 PlayerCardPics:
