@@ -342,7 +342,10 @@ if DEF(_DEBUG)
 
 	scall PHLevelcap	
 
-	;halloffame
+	;halloffame LEAGUE_WORLD_CUP
+	;halloffame LEAGUE_KANTO
+	;halloffame LEAGUE_JOHTO
+	;halloffame LEAGUE_HOENN
 
 	;warp WORLD_CUP_LOBBY, 09, 16
 	;warp SAFARI_ZONE_WEST, 7, 9
