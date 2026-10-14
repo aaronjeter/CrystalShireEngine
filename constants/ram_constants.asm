@@ -179,6 +179,16 @@ DEF PLAYERSPRITESETUP_RESET_ACTION_F    EQU 7
 ; wPlayerGender::
 DEF PLAYERGENDER_FEMALE_F EQU 0
 
+; wPlayerCharacter:: holds CHARACTER_* + 1. 0 means it was never set (saves
+; from before characters existed): Chris or Kris, by wPlayerGender.
+; See engine/gfx/player_characters.asm for how to add a character.
+	const_def
+	const CHARACTER_CHRIS   ; 0
+	const CHARACTER_KRIS    ; 1
+	const CHARACTER_BRENDAN ; 2
+	const CHARACTER_MAY     ; 3
+DEF NUM_PLAYER_CHARACTERS EQU const_value
+
 ; wMapStatus::
 	const_def
 	const MAPSTATUS_START  ; 0

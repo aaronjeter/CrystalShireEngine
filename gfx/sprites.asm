@@ -106,3 +106,12 @@ SuicuneSpriteGFX::             INCBIN "gfx/sprites/suicune.2bpp"
 EnteiSpriteGFX::               INCBIN "gfx/sprites/entei.2bpp"
 RaikouSpriteGFX::              INCBIN "gfx/sprites/raikou.2bpp"
 StandingYoungsterSpriteGFX::   INCBIN "gfx/sprites/standing_youngster.2bpp"
+
+
+SECTION "Sprites 3", ROMX
+
+; player characters (see engine/gfx/player_characters.asm)
+BrendanSpriteGFX::             INCBIN "gfx/sprites/brendan.2bpp"
+BrendanBikeSpriteGFX::         INCBIN "gfx/sprites/brendan_bike.2bpp"
+MaySpriteGFX::                 INCBIN "gfx/sprites/may.2bpp"
+MayBikeSpriteGFX::             INCBIN "gfx/sprites/may_bike.2bpp"

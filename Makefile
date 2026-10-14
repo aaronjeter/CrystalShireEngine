@@ -251,13 +251,21 @@ gfx/player/chris.2bpp: rgbgfx += --columns
 gfx/player/chris_back.2bpp: rgbgfx += --columns
 gfx/player/kris.2bpp: rgbgfx += --columns
 gfx/player/kris_back.2bpp: rgbgfx += --columns
+gfx/player/may.2bpp: rgbgfx += --columns
+gfx/player/may_back.2bpp: rgbgfx += --columns
+gfx/player/brendan.2bpp: rgbgfx += --columns
+gfx/player/brendan_back.2bpp: rgbgfx += --columns
 
 gfx/trainer_card/chris_card.2bpp: rgbgfx += --columns
 gfx/trainer_card/kris_card.2bpp: rgbgfx += --columns
+gfx/trainer_card/may_card.2bpp: rgbgfx += --columns
+gfx/trainer_card/brendan_card.2bpp: rgbgfx += --columns
 gfx/trainer_card/leaders.2bpp: tools/gfx += --trim-whitespace
 
 gfx/overworld/chris_fish.2bpp: tools/gfx += --trim-whitespace
 gfx/overworld/kris_fish.2bpp: tools/gfx += --trim-whitespace
+gfx/overworld/may_fish.2bpp: tools/gfx += --trim-whitespace
+gfx/overworld/brendan_fish.2bpp: tools/gfx += --trim-whitespace
 
 gfx/sprites/big_onix.2bpp: tools/gfx += --remove-whitespace --remove-xflip
 

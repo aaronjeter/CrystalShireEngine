@@ -682,6 +682,8 @@ PreviewIntroPlayerColor:
 ; Recolor the intro player pic (BG palette 0) to match wPlayerColor,
 ; using the same trainer palette as the trainer card.
 	ld de, wBGPals1
+PreviewPlayerColorAt:
+; The same, for the BG palette at de.
 	call _CGB_GetPlayerColor
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black

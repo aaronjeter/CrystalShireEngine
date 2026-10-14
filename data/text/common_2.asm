@@ -583,8 +583,7 @@ _PackEmptyText::
 	done
 
 _AreYouABoyOrAreYouAGirlText::
-	text "Are you a boy?"
-	line "Or are you a girl?"
+	text "Which one are you?"
 	done
 
 Text_BattleEffectActivate::

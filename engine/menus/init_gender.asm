@@ -2,7 +2,7 @@ InitCrystalData:
 	ld a, $1
 	ld [wd474], a
 	xor a
-	ld [wd473], a
+	ld [wPlayerCharacter], a
 	ld [wPlayerGender], a
 	ld [wd475], a
 	ld [wd476], a
@@ -25,28 +25,10 @@ InitGender:
 	call SetDefaultBGPAndOBP
 	ld hl, AreYouABoyOrAreYouAGirlText
 	call PrintText
-	ld hl, .MenuHeader
-	call LoadMenuHeader
 	call WaitBGMap2
-	call VerticalMenu
-	call CloseWindow
-	ld a, [wMenuCursorY]
-	dec a
-	ld [wPlayerGender], a
+	farcall ChoosePlayerCharacter ; sets wPlayerCharacter and wPlayerGender
 	ld c, 10
 	jmp DelayFrames
-
-.MenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 6, 4, 12, 9
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR | STATICMENU_WRAP | STATICMENU_DISABLE_B ; flags
-	db 2 ; items
-	db "Boy@"
-	db "Girl@"
 
 AreYouABoyOrAreYouAGirlText:
 	text_far _AreYouABoyOrAreYouAGirlText

@@ -2614,7 +2614,7 @@ wPlayerGender::
 ;	0 male
 ;	1 female
 	db
-wd473:: ds 1
+wPlayerCharacter:: db ; CHARACTER_* + 1 (see constants/ram_constants.asm)
 wd474:: ds 1
 wd475:: ds 1
 wd476:: ds 1

@@ -31,43 +31,8 @@ LoadWalkingSpritesGFX: ; mobile
 	ret
 
 GetPlayerSprite:
-; Get Chris or Kris's sprite.
-	ld hl, ChrisStateSprites
-	ld a, [wPlayerSpriteSetupFlags]
-	bit PLAYERSPRITESETUP_FEMALE_TO_MALE_F, a
-	jr nz, .go
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .go
-	ld hl, KrisStateSprites
-
-.go
-	ld a, [wPlayerState]
-	ld c, a
-.loop
-	ld a, [hli]
-	cp c
-	jr z, .good
-	inc hl
-	cp -1
-	jr nz, .loop
-
-; Any player state not in the array defaults to Chris's sprite.
-	xor a ; ld a, PLAYER_NORMAL
-	ld [wPlayerState], a
-	ld a, SPRITE_CHRIS
-	jr .finish
-
-.good
-	ld a, [hl]
-
-.finish
-	ld [wUsedSprites + 0], a
-	ld [wPlayerSprite], a
-	ld [wPlayerObjectSprite], a
-	ret
-
-INCLUDE "data/sprites/player_sprites.asm"
+; Get the player character's sprite (see engine/gfx/player_characters.asm).
+	farjp _GetPlayerSprite
 
 RefreshSprites::
 	push hl

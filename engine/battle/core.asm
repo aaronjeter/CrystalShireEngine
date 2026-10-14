@@ -9019,21 +9019,8 @@ GetTrainerBackpic:
 	cp BATTLETYPE_TUTORIAL
 	jr z, .Decompress
 
-; What gender are we?
-	ld a, [wPlayerSpriteSetupFlags]
-	bit PLAYERSPRITESETUP_FEMALE_TO_MALE_F, a
-	jr nz, .Chris
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .Chris
-
-; It's a girl.
-	farjp GetKrisBackpic
-
-.Chris:
-; It's a boy.
-	ld b, BANK(ChrisBackpic)
-	ld hl, ChrisBackpic
+; The player character's backpic
+	farjp GetPlayerBackpic
 
 .Decompress:
 	ld de, vTiles2 tile $31

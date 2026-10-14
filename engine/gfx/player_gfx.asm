@@ -59,32 +59,8 @@ ShowPlayerNamingChoices:
 
 INCLUDE "data/player_names.asm"
 
-GetPlayerIcon:
-	ld de, ChrisSpriteGFX
-	ld b, BANK(ChrisSpriteGFX)
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	ret z
-	ld de, KrisSpriteGFX
-	ld b, BANK(KrisSpriteGFX)
-	ret
-
-GetCardPic:
-	ld hl, ChrisCardPic
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_pic
-	ld hl, KrisCardPic
-.got_pic
-	ld de, vTiles2 tile $00
-	ld bc, $23 tiles
-	ld a, BANK(ChrisCardPic) ; aka BANK(KrisCardPic)
-	call FarCopyBytes
-	ld hl, TrainerCardGFX
-	ld de, vTiles2 tile $23
-	ld bc, 6 tiles
-	ld a, BANK(TrainerCardGFX)
-	jmp FarCopyBytes
+; GetPlayerIcon, GetCardPic, GetPlayerBackpic, DrawIntroPlayerPic and
+; HOF_LoadTrainerFrontpic are in engine/gfx/player_characters.asm.
 
 ChrisCardPic:
 INCBIN "gfx/trainer_card/chris_card.2bpp"
@@ -95,91 +71,12 @@ INCBIN "gfx/trainer_card/kris_card.2bpp"
 TrainerCardGFX:
 INCBIN "gfx/trainer_card/trainer_card.2bpp"
 
-GetPlayerBackpic:
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jmp nz, GetKrisBackpic
-; GetChrisBackpic:
-	ld hl, ChrisBackpic
-	ld b, BANK(ChrisBackpic)
-	ld de, vTiles2 tile $31
-	ld c, 7 * 7
-	predef_jump DecompressGet2bpp
-
-HOF_LoadTrainerFrontpic:
-	call WaitBGMap
-	xor a
-	ldh [hBGMapMode], a
-
-; Get class
-	ld e, CHRIS
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_class
-	ld e, KRIS
-.got_class
-	ld a, e
-	ld [wTrainerClass], a
-
-; Load pic
-	ld de, ChrisPic
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_pic
-	ld de, KrisPic
-.got_pic
-	ld hl, vTiles2
-	lb bc, BANK(ChrisPic), 7 * 7  ; aka BANK(KrisPic) / dimensions
-	call Get2bpp
-
-	call WaitBGMap
-	ld a, $1
-	ldh [hBGMapMode], a
-	ret
-
-DrawIntroPlayerPic:
-; Draw the player pic at (6,4).
-
-; Get class
-	ld e, CHRIS
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_class
-	ld e, KRIS
-.got_class
-	ld a, e
-	ld [wTrainerClass], a
-
-; Load pic
-	ld de, ChrisPic
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_pic
-	ld de, KrisPic
-.got_pic
-	ld hl, vTiles2
-	lb bc, BANK(ChrisPic), 7 * 7  ; aka BANK(KrisPic) / dimensions
-	call Get2bpp
-
-; Draw
-	xor a
-	ldh [hGraphicStartTile], a
-	hlcoord 6, 4
-	lb bc, 7, 7
-	predef_jump PlaceGraphic
-
 ChrisPic:
 INCBIN "gfx/player/chris.2bpp"
 
 KrisPic:
 INCBIN "gfx/player/kris.2bpp"
 
-GetKrisBackpic:
-; Kris's backpic is uncompressed.
-	ld de, KrisBackpic
-	ld hl, vTiles2 tile $31
-	lb bc, BANK(KrisBackpic), 7 * 7 ; dimensions
-	jmp Get2bpp
-
 KrisBackpic:
+; Kris's backpic is uncompressed.
 INCBIN "gfx/player/kris_back.2bpp"
