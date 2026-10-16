@@ -8,55 +8,6 @@ ClearDailyTimers:
 	ld [wDailyResetTimer], a
 	ret
 
-InitCallReceiveDelay::
-	xor a
-	ld [wTimeCyclesSinceLastCall], a
-
-NextCallReceiveDelay:
-	ld a, [wTimeCyclesSinceLastCall]
-	cp 3
-	jr c, .okay
-	ld a, 3
-
-.okay
-	ld e, a
-	ld d, 0
-	ld hl, .ReceiveCallDelays
-	add hl, de
-	ld a, [hl]
-if DEF(_DEBUG)
-	ld h, a
-	ld a, BANK(sDebugTimeCyclesSinceLastCall)
-	call OpenSRAM
-	ld a, [sDebugTimeCyclesSinceLastCall]
-	call CloseSRAM
-	dec a
-	cp 2
-	jr nc, .debug_ok
-	xor 1
-	ld h, a
-.debug_ok
-	ld a, h
-endc
-	jr RestartReceiveCallDelay
-
-.ReceiveCallDelays:
-	db 20, 10, 5, 3
-
-CheckReceiveCallTimer:
-	call CheckReceiveCallDelay ; check timer
-	ret nc
-	ld hl, wTimeCyclesSinceLastCall
-	ld a, [hl]
-	cp 3
-	jr nc, .ok
-	inc [hl]
-
-.ok
-	call NextCallReceiveDelay ; restart timer
-	scf
-	ret
-
 InitOneDayCountdown:
 	ld a, 1
 
@@ -77,20 +28,6 @@ CheckDayDependentEventHL:
 	dec hl
 	jmp UpdateTimeRemaining
 
-RestartReceiveCallDelay:
-	ld hl, wReceiveCallDelay_MinsRemaining
-	ld [hl], a
-	call UpdateTime
-	ld hl, wReceiveCallDelay_StartTime
-	jmp CopyDayHourMinToHL
-
-CheckReceiveCallDelay:
-	ld hl, wReceiveCallDelay_StartTime
-	call CalcMinsHoursDaysSince
-	call GetMinutesSinceIfLessThan60
-	ld hl, wReceiveCallDelay_MinsRemaining
-	jmp UpdateTimeRemaining
-
 RestartDailyResetTimer:
 	ld hl, wDailyResetTimer
 	jr InitOneDayCountdown
@@ -104,38 +41,7 @@ CheckDailyResetTimer::
 	ld [hli], a ; wDailyFlags1
 	ld [hli], a ; wDailyFlags2
 	ld [hl], a ; wSwarmFlags
-	ld hl, wDailyRematchFlags
-rept 3
-	ld [hli], a
-endr
-	ld [hl], a
-	ld hl, wDailyPhoneItemFlags
-rept 3
-	ld [hli], a
-endr
-	ld [hl], a
-	ld hl, wDailyPhoneTimeOfDayFlags
-rept 3
-	ld [hli], a
-endr
-	ld [hl], a
-	ld hl, wKenjiBreakTimer
-	ld a, [hl]
-	and a
-	jr z, .RestartKenjiBreakCountdown
-	dec [hl]
-	jr nz, RestartDailyResetTimer
-.RestartKenjiBreakCountdown:
-	call SampleKenjiBreakCountdown
 	jr RestartDailyResetTimer
-
-SampleKenjiBreakCountdown:
-; Generate a random number between 3 and 6
-	call Random
-	and %11
-	add 3
-	ld [wKenjiBreakTimer], a
-	ret
 
 StartBugContestTimer:
 	ld a, BUG_CONTEST_MINUTES
@@ -275,33 +181,13 @@ UpdateTimeRemaining:
 	scf
 	ret
 
-GetMinutesSinceIfLessThan60:
-	ld a, [wDaysSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wHoursSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wMinutesSince]
-	ret
-
 GetDaysSince:
 	ld a, [wDaysSince]
-	ret
-
-GetTimeElapsed_ExceedsUnitLimit:
-	ld a, -1
 	ret
 
 CalcDaysSince:
 	xor a
 	jr _CalcDaysSince
-
-CalcMinsHoursDaysSince:
-	inc hl
-	inc hl
-	xor a
-	jr _CalcMinsHoursDaysSince
 
 CalcSecsMinsHoursDaysSince:
 	inc hl
@@ -364,13 +250,4 @@ CopyDayHourMinSecToHL:
 CopyDayToHL:
 	ld a, [wCurDay]
 	ld [hl], a
-	ret
-
-CopyDayHourMinToHL:
-	ld a, [wCurDay]
-	ld [hli], a
-	ldh a, [hHours]
-	ld [hli], a
-	ldh a, [hMinutes]
-	ld [hli], a
 	ret

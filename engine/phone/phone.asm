@@ -88,45 +88,6 @@ GetRemainingSpaceInPhoneList:
 
 INCLUDE "data/phone/permanent_numbers.asm"
 
-CheckPhoneCall::
-; Check if the phone is ringing in the overworld.
-
-	call CheckStandingOnEntrance
-	jr z, .no_call
-
-	call .timecheck
-	jr nc, .no_call
-
-	; 50% chance for a call
-	call Random
-	ld b, a
-	and %01111111
-	cp b
-	jr nz, .no_call
-
-	call GetMapPhoneService
-	and a
-	jr nz, .no_call
-
-	call GetAvailableCallers
-	call ChooseRandomCaller
-	jr nc, .no_call
-
-	ld e, a
-	call LoadCallerScript
-	ld a, BANK(Script_ReceivePhoneCall)
-	ld hl, Script_ReceivePhoneCall
-	call CallScript
-	scf
-	ret
-
-.no_call
-	xor a
-	ret
-
-.timecheck
-	farjp CheckReceiveCallTimer
-
 CheckPhoneContactTimeOfDay:
 	push hl
 	push bc
@@ -141,82 +102,6 @@ CheckPhoneContactTimeOfDay:
 	pop de
 	pop bc
 	pop hl
-	ret
-
-ChooseRandomCaller:
-; If no one is available to call, don't return anything.
-	ld a, [wNumAvailableCallers]
-	and a
-	jr z, .NothingToSample
-
-; Store the number of available callers in c.
-	ld c, a
-; Sample a random number between 0 and 31.
-	call Random
-	ldh a, [hRandomAdd]
-	swap a
-	and $1f
-; Compute that number modulo the number of available callers.
-	call SimpleDivide
-; Return the caller ID you just sampled.
-	ld c, a
-	ld b, 0
-	ld hl, wAvailableCallers
-	add hl, bc
-	ld a, [hl]
-	scf
-	ret
-
-.NothingToSample:
-	xor a
-	ret
-
-GetAvailableCallers:
-	farcall CheckTime
-	ld a, c
-	ld [wCheckedTime], a
-	ld hl, wNumAvailableCallers
-	ld bc, CONTACT_LIST_SIZE + 1
-	xor a
-	rst ByteFill
-	ld de, wPhoneList
-	ld a, CONTACT_LIST_SIZE
-
-.loop
-	ld [wPhoneListIndex], a
-	ld a, [de]
-	and a
-	jr z, .not_good_for_call
-	ld hl, PhoneContacts + PHONE_CONTACT_SCRIPT2_TIME
-	ld bc, PHONE_CONTACT_SIZE
-	rst AddNTimes
-	ld a, [wCheckedTime]
-	and [hl]
-	jr z, .not_good_for_call
-	ld bc, PHONE_CONTACT_MAP_GROUP - PHONE_CONTACT_SCRIPT2_TIME
-	add hl, bc
-	ld a, [wMapGroup]
-	cp [hl]
-	jr nz, .different_map
-	inc hl
-	ld a, [wMapNumber]
-	cp [hl]
-	jr z, .not_good_for_call
-.different_map
-	ld a, [wNumAvailableCallers]
-	ld c, a
-	ld b, 0
-	inc a
-	ld [wNumAvailableCallers], a
-	ld hl, wAvailableCallers
-	add hl, bc
-	ld a, [de]
-	ld [hl], a
-.not_good_for_call
-	inc de
-	ld a, [wPhoneListIndex]
-	dec a
-	jr nz, .loop
 	ret
 
 CheckSpecialPhoneCall::
@@ -402,7 +287,6 @@ Script_ReceivePhoneCall:
 	waitbutton
 	callasm HangUp
 	closetext
-	callasm InitCallReceiveDelay
 	end
 
 Script_SpecialBillCall::
@@ -617,27 +501,6 @@ Phone_GetTrainerClassName:
 	farcall GetTrainerClassName
 	pop bc
 	pop hl
-	ret
-
-GetCallerLocation:
-	ld a, [wCurCaller]
-	call GetCallerTrainerClass
-	ld d, c
-	ld e, b
-	push de
-	ld a, [wCurCaller]
-	ld hl, PhoneContacts + PHONE_CONTACT_MAP_GROUP
-	ld bc, PHONE_CONTACT_SIZE
-	rst AddNTimes
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
-	push bc
-	call GetWorldMapLocation
-	ld e, a
-	farcall GetLandmarkName
-	pop bc
-	pop de
 	ret
 
 INCLUDE "data/phone/phone_contacts.asm"

@@ -2954,10 +2954,14 @@ wEliteFourXpBoost:: db
 	ds 8
 wBuenasPassword:: db
 wBlueCardBalance:: db
-wDailyRematchFlags:: ds 4
-wDailyPhoneItemFlags:: ds 4
-wDailyPhoneTimeOfDayFlags:: ds 4
-wKenjiBreakTimer:: ds 2 ; Kenji
+; Free, saved, never cleared: 96 flag bits + 2 bytes, formerly the trainer
+; phone rematch/gift/call-time flags and Kenji's break timer.
+; To reuse a bit, add an ENGINE_* constant (constants/engine_flags.asm) and a
+; matching "engine_flag wUnusedFlags1, <bit 0-31>" (data/events/engine_flags.asm).
+wUnusedFlags1:: ds 4 ; was wDailyRematchFlags
+wUnusedFlags2:: ds 4 ; was wDailyPhoneItemFlags
+wUnusedFlags3:: ds 4 ; was wDailyPhoneTimeOfDayFlags
+wUnusedBytes::  ds 2 ; was wKenjiBreakTimer
 wYanmaMapGroup:: db
 wYanmaMapNumber:: db
 wPlayerMonSelection:: ds 3

@@ -102,9 +102,6 @@ SpecialsPointers::
 	add_special DisplayLinkRecord
 	add_special GetFirstPokemonHappiness
 	add_special CheckFirstMonIsEgg
-	add_special RandomUnseenWildMon
-	add_special RandomPhoneWildMon
-	add_special RandomPhoneMon
 	add_special LoadUsedSpritesGFX
 	add_special PlaySlowCry
 	add_special SnorlaxAwake
@@ -134,7 +131,6 @@ SpecialsPointers::
 	add_special BuenasPassword
 	add_special BuenaPrize
 	add_special GiveDratini
-	add_special SampleKenjiBreakCountdown
 	add_special BeastsCheck
 	add_special MonCheck
 	add_special StubbedTrainerRankings_Healings

@@ -101,7 +101,6 @@ StartMap:
 	ld hl, wMapStatus
 	ld bc, wMapStatusEnd - wMapStatus
 	rst ByteFill
-	farcall InitCallReceiveDelay
 	call ClearJoypad
 EnterMap:
 	xor a
@@ -458,8 +457,6 @@ CheckTimeEvents:
 .do_daily
 	farcall CheckDailyResetTimer
 	farcall CheckPokerusTick
-	farcall CheckPhoneCall
-	ret c
 
 .nothing
 	xor a

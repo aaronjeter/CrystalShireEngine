@@ -48,5 +48,5 @@ PhoneContacts:
 	phone BLACKBELT_T,  KENJI,                 ROUTE_45,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone HIKER,        PARRY,                 ROUTE_45,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone PICNICKER,    ERIN,                  ROUTE_46,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone TRAINER_NONE, PHONECONTACT_BUENA,    GOLDENROD_DEPT_STORE_ROOF, ANYTIME, BuenaPhoneCalleeScript,   ANYTIME, BuenaPhoneCallerScript
+	phone TRAINER_NONE, PHONECONTACT_BUENA,    RADIO_TOWER_2F,            ANYTIME, BuenaPhoneCalleeScript,   0,       UnusedPhoneScript
 	assert_table_length NUM_PHONE_CONTACTS + 1

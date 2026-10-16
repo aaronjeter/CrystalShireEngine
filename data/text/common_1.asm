@@ -990,20 +990,6 @@ _ButNoSpaceText::
 	line "no space left…"
 	done
 
-_JustSawSomeRareMonText::
-	text "I just saw some"
-	line "rare @"
-	text_ram wStringBuffer1
-	text " in"
-	cont "@"
-	text_ram wStringBuffer2
-	text "."
-
-	para "I'll call you if I"
-	line "see another rare"
-	cont "#mon, OK?"
-	prompt
-
 _SavingRecordText::
 	text "Saving Record…"
 	line "Don't Turn Off!"
