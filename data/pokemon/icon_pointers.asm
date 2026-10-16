@@ -1,539 +1,539 @@
-	dw EggIcon  ; EGG is -3
-	dw NullIcon ; unused
-	dw NullIcon ; unused
+	dba EggIcon  ; EGG is -3
+	dba NullIcon ; unused
+	dba NullIcon ; unused
 IconPointers:
 ; entries correspond to ICON_* constants (see constants/icon_constants.asm)
-	table_width 2
-	dw NullIcon
-	dw BulbasaurIcon
-	dw IvysaurIcon
-	dw VenusaurIcon
-	dw CharmanderIcon
-	dw CharmeleonIcon
-	dw CharizardIcon
-	dw SquirtleIcon
-	dw WartortleIcon
-	dw BlastoiseIcon
-	dw CaterpieIcon
-	dw MetapodIcon
-	dw ButterfreeIcon
-	dw WeedleIcon
-	dw KakunaIcon
-	dw BeedrillIcon
-	dw PidgeyIcon
-	dw PidgeottoIcon
-	dw PidgeotIcon
-	dw RattataIcon
-	dw RaticateIcon
-	dw SpearowIcon
-	dw FearowIcon
-	dw EkansIcon
-	dw ArbokIcon
-	dw PikachuIcon
-	dw RaichuIcon
-	dw SandshrewIcon
-	dw SandslashIcon
-	dw NidoranFIcon
-	dw NidorinaIcon
-	dw NidoqueenIcon
-	dw NidoranMIcon
-	dw NidorinoIcon
-	dw NidokingIcon
-	dw ClefairyIcon
-	dw ClefableIcon
-	dw VulpixIcon
-	dw NinetalesIcon
-	dw JigglypuffIcon
-	dw WigglytuffIcon
-	dw ZubatIcon
-	dw GolbatIcon
-	dw OddishIcon
-	dw GloomIcon
-	dw VileplumeIcon
-	dw ParasIcon
-	dw ParasectIcon
-	dw VenonatIcon
-	dw VenomothIcon
-	dw DiglettIcon
-	dw DugtrioIcon
-	dw MeowthIcon
-	dw PersianIcon
-	dw PsyduckIcon
-	dw GolduckIcon
-	dw MankeyIcon
-	dw PrimeapeIcon
-	dw GrowlitheIcon
-	dw ArcanineIcon
-	dw PoliwagIcon
-	dw PoliwhirlIcon
-	dw PoliwrathIcon
-	dw AbraIcon
-	dw KadabraIcon
-	dw AlakazamIcon
-	dw MachopIcon
-	dw MachokeIcon
-	dw MachampIcon
-	dw BellsproutIcon
-	dw WeepinbellIcon
-	dw VictreebelIcon
-	dw TentacoolIcon
-	dw TentacruelIcon
-	dw GeodudeIcon
-	dw GravelerIcon
-	dw GolemIcon
-	dw PonytaIcon
-	dw RapidashIcon
-	dw SlowpokeIcon
-	dw SlowbroIcon
-	dw MagnemiteIcon
-	dw MagnetonIcon
-	dw FarfetchdIcon
-	dw DoduoIcon
-	dw DodrioIcon
-	dw SeelIcon
-	dw DewgongIcon
-	dw GrimerIcon
-	dw MukIcon
-	dw ShellderIcon
-	dw CloysterIcon
-	dw GastlyIcon
-	dw HaunterIcon
-	dw GengarIcon
-	dw OnixIcon
-	dw DrowzeeIcon
-	dw HypnoIcon
-	dw KrabbyIcon
-	dw KinglerIcon
-	dw VoltorbIcon
-	dw ElectrodeIcon
-	dw ExeggcuteIcon
-	dw ExeggutorIcon
-	dw CuboneIcon
-	dw MarowakIcon
-	dw HitmonleeIcon
-	dw HitmonchanIcon
-	dw LickitungIcon
-	dw KoffingIcon
-	dw WeezingIcon
-	dw RhyhornIcon
-	dw RhydonIcon
-	dw ChanseyIcon
-	dw TangelaIcon
-	dw KangaskhanIcon
-	dw HorseaIcon
-	dw SeadraIcon
-	dw GoldeenIcon
-	dw SeakingIcon
-	dw StaryuIcon
-	dw StarmieIcon
-	dw MrMimeIcon
-	dw ScytherIcon
-	dw JynxIcon
-	dw ElectabuzzIcon
-	dw MagmarIcon
-	dw PinsirIcon
-	dw TaurosIcon
-	dw MagikarpIcon
-	dw GyaradosIcon
-	dw LaprasIcon
-	dw DittoIcon
-	dw EeveeIcon
-	dw VaporeonIcon
-	dw JolteonIcon
-	dw FlareonIcon
-	dw PorygonIcon
-	dw OmanyteIcon
-	dw OmastarIcon
-	dw KabutoIcon
-	dw KabutopsIcon
-	dw AerodactylIcon
-	dw SnorlaxIcon
-	dw ArticunoIcon
-	dw ZapdosIcon
-	dw MoltresIcon
-	dw DratiniIcon
-	dw DragonairIcon
-	dw DragoniteIcon
-	dw MewtwoIcon
-	dw MewIcon
-	dw ChikoritaIcon
-	dw BayleefIcon
-	dw MeganiumIcon
-	dw CyndaquilIcon
-	dw QuilavaIcon
-	dw TyphlosionIcon
-	dw TotodileIcon
-	dw CroconawIcon
-	dw FeraligatrIcon
-	dw SentretIcon
-	dw FurretIcon
-	dw HoothootIcon
-	dw NoctowlIcon
-	dw LedybaIcon
-	dw LedianIcon
-	dw SpinarakIcon
-	dw AriadosIcon
-	dw CrobatIcon
-	dw ChinchouIcon
-	dw LanturnIcon
-	dw PichuIcon
-	dw CleffaIcon
-	dw IgglybuffIcon
-	dw TogepiIcon
-	dw TogeticIcon
-	dw NatuIcon
-	dw XatuIcon
-	dw MareepIcon
-	dw FlaaffyIcon
-	dw AmpharosIcon
-	dw BellossomIcon
-	dw MarillIcon
-	dw AzumarillIcon
-	dw SudowoodoIcon
-	dw PolitoedIcon
-	dw HoppipIcon
-	dw SkiploomIcon
-	dw JumpluffIcon
-	dw AipomIcon
-	dw SunkernIcon
-	dw SunfloraIcon
-	dw YanmaIcon
-	dw WooperIcon
-	dw QuagsireIcon
-	dw EspeonIcon
-	dw UmbreonIcon
-	dw MurkrowIcon
-	dw SlowkingIcon
-	dw MisdreavusIcon
-	dw UnownIcon
-	dw WobbuffetIcon
-	dw GirafarigIcon
-	dw PinecoIcon
-	dw ForretressIcon
-	dw DunsparceIcon
-	dw GligarIcon
-	dw SteelixIcon
-	dw SnubbullIcon
-	dw GranbullIcon
-	dw QwilfishIcon
-	dw ScizorIcon
-	dw ShuckleIcon
-	dw HeracrossIcon
-	dw SneaselIcon
-	dw TeddiursaIcon
-	dw UrsaringIcon
-	dw SlugmaIcon
-	dw MagcargoIcon
-	dw SwinubIcon
-	dw Piloswine
-	dw CorsolaIcon
-	dw RemoraidIcon
-	dw OctilleryIcon
-	dw DelibirdIcon
-	dw MantineIcon
-	dw SkarmoryIcon
-	dw HoundourIcon
-	dw HoundoomIcon
-	dw KingdraIcon
-	dw PhanpyIcon
-	dw DonphanIcon
-	dw Porygon2Icon
-	dw StantlerIcon
-	dw SmeargleIcon
-	dw TyrogueIcon
-	dw HitmontopIcon
-	dw SmoochumIcon
-	dw ElekidIcon
-	dw MagbyIcon
-	dw MiltankIcon
-	dw BlisseyIcon
-	dw RaikouIcon
-	dw EnteiIcon
-	dw SuicuneIcon
-	dw LarvitarIcon
-	dw PupitarIcon
-	dw TyranitarIcon
-	dw LugiaIcon
-	dw HoOhIcon
-	dw CelebiIcon
-	dw MunchlaxIcon
+	table_width 3
+	dba NullIcon
+	dba BulbasaurIcon
+	dba IvysaurIcon
+	dba VenusaurIcon
+	dba CharmanderIcon
+	dba CharmeleonIcon
+	dba CharizardIcon
+	dba SquirtleIcon
+	dba WartortleIcon
+	dba BlastoiseIcon
+	dba CaterpieIcon
+	dba MetapodIcon
+	dba ButterfreeIcon
+	dba WeedleIcon
+	dba KakunaIcon
+	dba BeedrillIcon
+	dba PidgeyIcon
+	dba PidgeottoIcon
+	dba PidgeotIcon
+	dba RattataIcon
+	dba RaticateIcon
+	dba SpearowIcon
+	dba FearowIcon
+	dba EkansIcon
+	dba ArbokIcon
+	dba PikachuIcon
+	dba RaichuIcon
+	dba SandshrewIcon
+	dba SandslashIcon
+	dba NidoranFIcon
+	dba NidorinaIcon
+	dba NidoqueenIcon
+	dba NidoranMIcon
+	dba NidorinoIcon
+	dba NidokingIcon
+	dba ClefairyIcon
+	dba ClefableIcon
+	dba VulpixIcon
+	dba NinetalesIcon
+	dba JigglypuffIcon
+	dba WigglytuffIcon
+	dba ZubatIcon
+	dba GolbatIcon
+	dba OddishIcon
+	dba GloomIcon
+	dba VileplumeIcon
+	dba ParasIcon
+	dba ParasectIcon
+	dba VenonatIcon
+	dba VenomothIcon
+	dba DiglettIcon
+	dba DugtrioIcon
+	dba MeowthIcon
+	dba PersianIcon
+	dba PsyduckIcon
+	dba GolduckIcon
+	dba MankeyIcon
+	dba PrimeapeIcon
+	dba GrowlitheIcon
+	dba ArcanineIcon
+	dba PoliwagIcon
+	dba PoliwhirlIcon
+	dba PoliwrathIcon
+	dba AbraIcon
+	dba KadabraIcon
+	dba AlakazamIcon
+	dba MachopIcon
+	dba MachokeIcon
+	dba MachampIcon
+	dba BellsproutIcon
+	dba WeepinbellIcon
+	dba VictreebelIcon
+	dba TentacoolIcon
+	dba TentacruelIcon
+	dba GeodudeIcon
+	dba GravelerIcon
+	dba GolemIcon
+	dba PonytaIcon
+	dba RapidashIcon
+	dba SlowpokeIcon
+	dba SlowbroIcon
+	dba MagnemiteIcon
+	dba MagnetonIcon
+	dba FarfetchdIcon
+	dba DoduoIcon
+	dba DodrioIcon
+	dba SeelIcon
+	dba DewgongIcon
+	dba GrimerIcon
+	dba MukIcon
+	dba ShellderIcon
+	dba CloysterIcon
+	dba GastlyIcon
+	dba HaunterIcon
+	dba GengarIcon
+	dba OnixIcon
+	dba DrowzeeIcon
+	dba HypnoIcon
+	dba KrabbyIcon
+	dba KinglerIcon
+	dba VoltorbIcon
+	dba ElectrodeIcon
+	dba ExeggcuteIcon
+	dba ExeggutorIcon
+	dba CuboneIcon
+	dba MarowakIcon
+	dba HitmonleeIcon
+	dba HitmonchanIcon
+	dba LickitungIcon
+	dba KoffingIcon
+	dba WeezingIcon
+	dba RhyhornIcon
+	dba RhydonIcon
+	dba ChanseyIcon
+	dba TangelaIcon
+	dba KangaskhanIcon
+	dba HorseaIcon
+	dba SeadraIcon
+	dba GoldeenIcon
+	dba SeakingIcon
+	dba StaryuIcon
+	dba StarmieIcon
+	dba MrMimeIcon
+	dba ScytherIcon
+	dba JynxIcon
+	dba ElectabuzzIcon
+	dba MagmarIcon
+	dba PinsirIcon
+	dba TaurosIcon
+	dba MagikarpIcon
+	dba GyaradosIcon
+	dba LaprasIcon
+	dba DittoIcon
+	dba EeveeIcon
+	dba VaporeonIcon
+	dba JolteonIcon
+	dba FlareonIcon
+	dba PorygonIcon
+	dba OmanyteIcon
+	dba OmastarIcon
+	dba KabutoIcon
+	dba KabutopsIcon
+	dba AerodactylIcon
+	dba SnorlaxIcon
+	dba ArticunoIcon
+	dba ZapdosIcon
+	dba MoltresIcon
+	dba DratiniIcon
+	dba DragonairIcon
+	dba DragoniteIcon
+	dba MewtwoIcon
+	dba MewIcon
+	dba ChikoritaIcon
+	dba BayleefIcon
+	dba MeganiumIcon
+	dba CyndaquilIcon
+	dba QuilavaIcon
+	dba TyphlosionIcon
+	dba TotodileIcon
+	dba CroconawIcon
+	dba FeraligatrIcon
+	dba SentretIcon
+	dba FurretIcon
+	dba HoothootIcon
+	dba NoctowlIcon
+	dba LedybaIcon
+	dba LedianIcon
+	dba SpinarakIcon
+	dba AriadosIcon
+	dba CrobatIcon
+	dba ChinchouIcon
+	dba LanturnIcon
+	dba PichuIcon
+	dba CleffaIcon
+	dba IgglybuffIcon
+	dba TogepiIcon
+	dba TogeticIcon
+	dba NatuIcon
+	dba XatuIcon
+	dba MareepIcon
+	dba FlaaffyIcon
+	dba AmpharosIcon
+	dba BellossomIcon
+	dba MarillIcon
+	dba AzumarillIcon
+	dba SudowoodoIcon
+	dba PolitoedIcon
+	dba HoppipIcon
+	dba SkiploomIcon
+	dba JumpluffIcon
+	dba AipomIcon
+	dba SunkernIcon
+	dba SunfloraIcon
+	dba YanmaIcon
+	dba WooperIcon
+	dba QuagsireIcon
+	dba EspeonIcon
+	dba UmbreonIcon
+	dba MurkrowIcon
+	dba SlowkingIcon
+	dba MisdreavusIcon
+	dba UnownIcon
+	dba WobbuffetIcon
+	dba GirafarigIcon
+	dba PinecoIcon
+	dba ForretressIcon
+	dba DunsparceIcon
+	dba GligarIcon
+	dba SteelixIcon
+	dba SnubbullIcon
+	dba GranbullIcon
+	dba QwilfishIcon
+	dba ScizorIcon
+	dba ShuckleIcon
+	dba HeracrossIcon
+	dba SneaselIcon
+	dba TeddiursaIcon
+	dba UrsaringIcon
+	dba SlugmaIcon
+	dba MagcargoIcon
+	dba SwinubIcon
+	dba Piloswine
+	dba CorsolaIcon
+	dba RemoraidIcon
+	dba OctilleryIcon
+	dba DelibirdIcon
+	dba MantineIcon
+	dba SkarmoryIcon
+	dba HoundourIcon
+	dba HoundoomIcon
+	dba KingdraIcon
+	dba PhanpyIcon
+	dba DonphanIcon
+	dba Porygon2Icon
+	dba StantlerIcon
+	dba SmeargleIcon
+	dba TyrogueIcon
+	dba HitmontopIcon
+	dba SmoochumIcon
+	dba ElekidIcon
+	dba MagbyIcon
+	dba MiltankIcon
+	dba BlisseyIcon
+	dba RaikouIcon
+	dba EnteiIcon
+	dba SuicuneIcon
+	dba LarvitarIcon
+	dba PupitarIcon
+	dba TyranitarIcon
+	dba LugiaIcon
+	dba HoOhIcon
+	dba CelebiIcon
+	dba MunchlaxIcon
 ; Hoenn
-	dw TreeckoIcon
-	dw GrovyleIcon
-	dw SceptileIcon
-	dw TorchicIcon
-	dw CombuskenIcon
-	dw BlazikenIcon
-	dw MudkipIcon
-	dw MarshtompIcon
-	dw SwampertIcon
-	dw PoochyenaIcon
-	dw MightyenaIcon
-	dw ZigzagoonIcon
-	dw LinooneIcon
-	dw WurmpleIcon
-	dw SilcoonIcon
-	dw BeautiflyIcon
-	dw CascoonIcon
-	dw DustoxIcon
-	dw LotadIcon
-	dw LombreIcon
-	dw LudicoloIcon
-	dw SeedotIcon
-	dw NuzleafIcon
-	dw ShiftryIcon
-	dw TaillowIcon
-	dw SwellowIcon
-	dw WingullIcon
-	dw PelipperIcon
-	dw RaltsIcon
-	dw KirliaIcon
-	dw GardevoirIcon
-	dw SurskitIcon
-	dw MasquerainIcon
-	dw ShroomishIcon
-	dw BreloomIcon
-	dw RowletIcon
-	dw DartrixIcon
-	dw DecidueyeIcon
-	dw LittenIcon
-	dw TorracatIcon
-	dw IncineroarIcon
-	dw PopplioIcon
-	dw BrionneIcon
-	dw PrimarinaIcon
-	dw MakuhitaIcon
-	dw HariyamaIcon
-	dw AzurillIcon
-	dw NosepassIcon
-	dw SkittyIcon
-	dw DelcattyIcon
-	dw SableyeIcon
-	dw MawileIcon
-	dw AronIcon
-	dw LaironIcon
-	dw AggronIcon
-	dw MedititeIcon
-	dw MedichamIcon
-	dw ElectrikeIcon
-	dw ManectricIcon
-	dw PlusleIcon
-	dw MinunIcon
-	dw VolbeatIcon
-	dw IllumiseIcon
-	dw RoseliaIcon
-	dw GulpinIcon
-	dw SwalotIcon
-	dw CarvanhaIcon
-	dw SharpedoIcon
-	dw WailmerIcon
-	dw WailordIcon
-	dw NumelIcon
-	dw CameruptIcon
-	dw TorkoalIcon
-	dw SpoinkIcon
-	dw GrumpigIcon
-	dw SpindaIcon
-	dw TrapinchIcon
-	dw VibravaIcon
-	dw FlygonIcon
-	dw CacneaIcon
-	dw CacturneIcon
-	dw SwabluIcon
-	dw AltariaIcon
-	dw ZangooseIcon
-	dw SeviperIcon
-	dw LunatoneIcon
-	dw SolrockIcon
-	dw BarboachIcon
-	dw WhiscashIcon
-	dw CorphishIcon
-	dw CrawdauntIcon
-	dw BaltoyIcon
-	dw ClaydolIcon
-	dw LileepIcon
-	dw CradilyIcon
-	dw AnorithIcon
-	dw ArmaldoIcon
-	dw FeebasIcon
-	dw MiloticIcon
-	dw KecleonIcon
-	dw ShuppetIcon
-	dw BanetteIcon
-	dw DuskullIcon
-	dw DusclopsIcon
-	dw TropiusIcon
-	dw ChimechoIcon
-	dw AbsolIcon
-	dw WynautIcon
-	dw SnoruntIcon
-	dw GlalieIcon
-	dw SphealIcon
-	dw SealeoIcon
-	dw WalreinIcon
-	dw ClamperlIcon
-	dw HuntailIcon
-	dw GorebyssIcon
-	dw RelicanthIcon
-	dw LuvdiscIcon
-	dw BagonIcon
-	dw ShelgonIcon
-	dw SalamenceIcon
-	dw BeldumIcon
-	dw MetangIcon
-	dw MetagrossIcon
-	dw RegirockIcon
-	dw RegiceIcon
-	dw RegisteelIcon
-	dw LatiasIcon
-	dw LatiosIcon
-	dw KyogreIcon
-	dw GroudonIcon
-	dw RayquazaIcon
-	dw JirachiIcon
+	dba TreeckoIcon
+	dba GrovyleIcon
+	dba SceptileIcon
+	dba TorchicIcon
+	dba CombuskenIcon
+	dba BlazikenIcon
+	dba MudkipIcon
+	dba MarshtompIcon
+	dba SwampertIcon
+	dba PoochyenaIcon
+	dba MightyenaIcon
+	dba ZigzagoonIcon
+	dba LinooneIcon
+	dba WurmpleIcon
+	dba SilcoonIcon
+	dba BeautiflyIcon
+	dba CascoonIcon
+	dba DustoxIcon
+	dba LotadIcon
+	dba LombreIcon
+	dba LudicoloIcon
+	dba SeedotIcon
+	dba NuzleafIcon
+	dba ShiftryIcon
+	dba TaillowIcon
+	dba SwellowIcon
+	dba WingullIcon
+	dba PelipperIcon
+	dba RaltsIcon
+	dba KirliaIcon
+	dba GardevoirIcon
+	dba SurskitIcon
+	dba MasquerainIcon
+	dba ShroomishIcon
+	dba BreloomIcon
+	dba RowletIcon
+	dba DartrixIcon
+	dba DecidueyeIcon
+	dba LittenIcon
+	dba TorracatIcon
+	dba IncineroarIcon
+	dba PopplioIcon
+	dba BrionneIcon
+	dba PrimarinaIcon
+	dba MakuhitaIcon
+	dba HariyamaIcon
+	dba AzurillIcon
+	dba NosepassIcon
+	dba SkittyIcon
+	dba DelcattyIcon
+	dba SableyeIcon
+	dba MawileIcon
+	dba AronIcon
+	dba LaironIcon
+	dba AggronIcon
+	dba MedititeIcon
+	dba MedichamIcon
+	dba ElectrikeIcon
+	dba ManectricIcon
+	dba PlusleIcon
+	dba MinunIcon
+	dba VolbeatIcon
+	dba IllumiseIcon
+	dba RoseliaIcon
+	dba GulpinIcon
+	dba SwalotIcon
+	dba CarvanhaIcon
+	dba SharpedoIcon
+	dba WailmerIcon
+	dba WailordIcon
+	dba NumelIcon
+	dba CameruptIcon
+	dba TorkoalIcon
+	dba SpoinkIcon
+	dba GrumpigIcon
+	dba SpindaIcon
+	dba TrapinchIcon
+	dba VibravaIcon
+	dba FlygonIcon
+	dba CacneaIcon
+	dba CacturneIcon
+	dba SwabluIcon
+	dba AltariaIcon
+	dba ZangooseIcon
+	dba SeviperIcon
+	dba LunatoneIcon
+	dba SolrockIcon
+	dba BarboachIcon
+	dba WhiscashIcon
+	dba CorphishIcon
+	dba CrawdauntIcon
+	dba BaltoyIcon
+	dba ClaydolIcon
+	dba LileepIcon
+	dba CradilyIcon
+	dba AnorithIcon
+	dba ArmaldoIcon
+	dba FeebasIcon
+	dba MiloticIcon
+	dba KecleonIcon
+	dba ShuppetIcon
+	dba BanetteIcon
+	dba DuskullIcon
+	dba DusclopsIcon
+	dba TropiusIcon
+	dba ChimechoIcon
+	dba AbsolIcon
+	dba WynautIcon
+	dba SnoruntIcon
+	dba GlalieIcon
+	dba SphealIcon
+	dba SealeoIcon
+	dba WalreinIcon
+	dba ClamperlIcon
+	dba HuntailIcon
+	dba GorebyssIcon
+	dba RelicanthIcon
+	dba LuvdiscIcon
+	dba BagonIcon
+	dba ShelgonIcon
+	dba SalamenceIcon
+	dba BeldumIcon
+	dba MetangIcon
+	dba MetagrossIcon
+	dba RegirockIcon
+	dba RegiceIcon
+	dba RegisteelIcon
+	dba LatiasIcon
+	dba LatiosIcon
+	dba KyogreIcon
+	dba GroudonIcon
+	dba RayquazaIcon
+	dba JirachiIcon
 	;Gen 4 Mons
-	dw TogekissIcon
-	dw MamoswineIcon
-	dw SylveonIcon
-	dw LeafeonIcon
-	dw GlaceonIcon
-	dw GliscorIcon
-	dw GalladeIcon
-	dw FroslassIcon
-	dw HonchkrowIcon
-	dw WeavileIcon
-	dw MagnezoneIcon
-	dw TangrowthIcon
-	dw ElectivireIcon
-	dw MagmortarIcon
-	dw WyrdeerIcon
-	dw PorygonzIcon
-	dw AnnihilapeIcon
-	dw KleavorIcon
-	dw RoseradeIcon
-	dw AmbipomIcon
-	dw MismagiusIcon
-	dw LickilickyIcon
-	dw RhyperiorIcon
-	dw YanmegaIcon
-	dw ProbopassIcon
-	dw DusknoirIcon
-	dw MrRimeIcon
-	dw UrsalunaIcon
-	dw FarigirafIcon
-	dw SirfetchdIcon
+	dba TogekissIcon
+	dba MamoswineIcon
+	dba SylveonIcon
+	dba LeafeonIcon
+	dba GlaceonIcon
+	dba GliscorIcon
+	dba GalladeIcon
+	dba FroslassIcon
+	dba MurkrowIcon ; Honchkrow
+	dba SneaselIcon ; Weavile
+	dba MagnetonIcon ; Magnezone
+	dba TangelaIcon ; Tangrowth
+	dba ElectabuzzIcon ; Electivire
+	dba MagmarIcon ; Magmortar
+	dba StantlerIcon ; Wyrdeer
+	dba Porygon2Icon ; Porygonz
+	dba PrimeapeIcon ; Annihilape
+	dba ScizorIcon ; Kleavor
+	dba RoseliaIcon ; Roserade
+	dba AipomIcon ; Ambipom
+	dba MisdreavusIcon ; Mismagius
+	dba LickitungIcon ; Lickilicky
+	dba RhydonIcon ; Rhyperior
+	dba YanmaIcon ; Yanmega
+	dba NosepassIcon ; Probopass
+	dba DusclopsIcon ; Dusknoir
+	dba MrMimeIcon ; MrRime
+	dba UrsaringIcon ; Ursaluna
+	dba GirafarigIcon ; Farigiraf
+	dba FarfetchdIcon ; Sirfetchd
 	;alt forms
-	dw AraichuIcon
-	dw AmarowakIcon
-	dw AgrimerIcon
-	dw AmukIcon
-	dw AsandshrewIcon
-	dw AsandslashIcon
-	dw AvulpixIcon
-	dw AninetalesIcon
-	dw AgeodudeIcon
-	dw AgravelerIcon
-	dw AgolemIcon
-	dw HvoltorbIcon
-	dw HelectrodeIcon
-	dw HgrowlitheIcon
-	dw HarcanineIcon
-	dw GponytaIcon
-	dw GrapidashIcon
-	dw AdiglettIcon
-	dw AdugtrioIcon
-	dw GweezingIcon
-	dw IronbundleIcon
+	dba RaichuIcon ; Araichu
+	dba MarowakIcon ; Amarowak
+	dba GrimerIcon ; Agrimer
+	dba MukIcon ; Amuk
+	dba SandshrewIcon ; Asandshrew
+	dba SandslashIcon ; Asandslash
+	dba VulpixIcon ; Avulpix
+	dba NinetalesIcon ; Aninetales
+	dba GeodudeIcon ; Ageodude
+	dba GravelerIcon ; Agraveler
+	dba GolemIcon ; Agolem
+	dba VoltorbIcon ; Hvoltorb
+	dba ElectrodeIcon ; Helectrode
+	dba GrowlitheIcon ; Hgrowlithe
+	dba ArcanineIcon ; Harcanine
+	dba PonytaIcon ; Gponyta
+	dba RapidashIcon ; Grapidash
+	dba DiglettIcon ; Adiglett
+	dba DugtrioIcon ; Adugtrio
+	dba WeezingIcon ; Gweezing
+	dba DelibirdIcon ; Ironbundle
 	;reddit mons
-	dw Voltorb2Icon
-	dw Electrode2Icon
-	dw Exeggcute2Icon
-	dw Exeggutor2Icon
-	dw Furret2Icon
-	dw Noctowl2Icon
-	dw Octillery2Icon
-	dw Yanma2Icon
-	dw Scyther2Icon
-	dw Scizor2Icon
-	dw Tentacool2Icon
-	dw Tentacruel2Icon
-	dw Ponyta2Icon
-	dw Rapidash2Icon
-	dw Vulpix2Icon
-	dw Ninetales2Icon
-	dw Abra2Icon
-	dw Kadabra2Icon
-	dw Alakazam2Icon
-	dw Skarmory2Icon
-	dw Totodile2Icon
-	dw Croconaw2Icon
-	dw Feraligatr2Icon
-	dw Cyndaquil2Icon
-	dw Quilava2Icon
-	dw Typhlosion2Icon
+	dba VoltorbIcon ; Voltorb2
+	dba ElectrodeIcon ; Electrode2
+	dba ExeggcuteIcon ; Exeggcute2
+	dba ExeggutorIcon ; Exeggutor2
+	dba FurretIcon ; Furret2
+	dba NoctowlIcon ; Noctowl2
+	dba OctilleryIcon ; Octillery2
+	dba YanmaIcon ; Yanma2
+	dba ScytherIcon ; Scyther2
+	dba ScizorIcon ; Scizor2
+	dba TentacoolIcon ; Tentacool2
+	dba TentacruelIcon ; Tentacruel2
+	dba PonytaIcon ; Ponyta2
+	dba RapidashIcon ; Rapidash2
+	dba VulpixIcon ; Vulpix2
+	dba NinetalesIcon ; Ninetales2
+	dba AbraIcon ; Abra2
+	dba KadabraIcon ; Kadabra2
+	dba AlakazamIcon ; Alakazam2
+	dba SkarmoryIcon ; Skarmory2
+	dba TotodileIcon ; Totodile2
+	dba CroconawIcon ; Croconaw2
+	dba FeraligatrIcon ; Feraligatr2
+	dba CyndaquilIcon ; Cyndaquil2
+	dba QuilavaIcon ; Quilava2
+	dba TyphlosionIcon ; Typhlosion2
 	;reddit mons
-	dw HanamoleIcon
-	dw HonobeaIcon
-	dw BorubeaIcon
-	dw DynabeaIcon
-	dw KurusuIcon
-	dw AkuaIcon
-	dw AkueriaIcon
-	dw HaneeiIcon
-	dw HanamoleIcon ;chikorita2
-	dw KotoraIcon
-	dw RaitoraIcon
-	dw AshibombIcon
-	dw SunbouIcon
-	dw IkariIcon
-	dw FroslassxIcon
-	dw GorochuIcon
+	dba ChikoritaIcon ; Hanamole
+	dba TeddiursaIcon ; Honobea
+	dba TeddiursaIcon ; Borubea
+	dba UrsaringIcon ; Dynabea
+	dba SeelIcon ; Kurusu
+	dba SeelIcon ; Akua
+	dba DewgongIcon ; Akueria
+	dba MantineIcon ; Haneei
+	dba ChikoritaIcon ; Hanamole ;chikorita2
+	dba PikachuIcon ; Kotora
+	dba RaichuIcon ; Raitora
+	dba DewgongIcon ; Ashibomb
+	dba CarvanhaIcon ; Sunbou
+	dba SharpedoIcon ; Ikari
+	dba FroslassIcon ; Froslassx
+	dba RaichuIcon ; Gorochu
 	;mega
-	dw RaichuxIcon
-	dw RaichuyIcon
-	dw DragonitexIcon
-	dw DragoniteyIcon
-	dw VenusaurxIcon
-	dw CharizardxIcon
-	dw CharizardyIcon
-	dw BlastoisexIcon
-	dw BeedrillxIcon
-	dw AlakazamxIcon
-	dw SlowbroxIcon
-	dw GengarxIcon
-	dw PinsirxIcon
-	dw GyaradosxIcon
-	dw AerodactylxIcon
-	dw AmpharosxIcon
-	dw SteelixxIcon
-	dw ScizorxIcon
-	dw HeracrossxIcon
-	dw HoundoomxIcon
-	dw TyranitarxIcon
-	dw AggronxIcon
-	dw CameruptxIcon
-	dw AltariaxIcon
-	dw AbsolxIcon
-	dw GlaliexIcon
-	dw SalamencexIcon
-	dw MetagrossxIcon
-	dw KinglerxIcon
-	dw TropiusxIcon
-	dw SwalotxIcon
-	dw FlygonxIcon
-	dw ChimechoxIcon
-	dw VictreebelxIcon
-	dw UnownxIcon
-	dw ButterfreexIcon
-	dw LedianxIcon
-	dw MagcargoxIcon
-	dw SceptilexIcon
-	dw BlazikenxIcon
-	dw SwampertxIcon
-	dw GardevoirxIcon
-	dw PidgeotxIcon
-	dw MercuryIcon
-	dw VenusIcon
-	dw MarsIcon
-	dw JupiterIcon
+	dba BayleefIcon ; Raichux
+	dba MeganiumIcon ; Raichuy
+	dba DragoniteIcon ; Dragonitex
+	dba DragonairIcon ; Dragonitey
+	dba VenusaurIcon ; Venusaurx
+	dba CharizardIcon ; Charizardx
+	dba CharizardIcon ; Charizardy
+	dba BlastoiseIcon ; Blastoisex
+	dba BeedrillIcon ; Beedrillx
+	dba AlakazamIcon ; Alakazamx
+	dba SlowbroIcon ; Slowbrox
+	dba GengarIcon ; Gengarx
+	dba PinsirIcon ; Pinsirx
+	dba GyaradosIcon ; Gyaradosx
+	dba AerodactylIcon ; Aerodactylx
+	dba AmpharosIcon ; Ampharosx
+	dba SteelixIcon ; Steelixx
+	dba ScizorIcon ; Scizorx
+	dba HeracrossIcon ; Heracrossx
+	dba HoundoomIcon ; Houndoomx
+	dba TyranitarIcon ; Tyranitarx
+	dba AggronIcon ; Aggronx
+	dba CameruptIcon ; Cameruptx
+	dba AltariaIcon ; Altariax
+	dba AbsolIcon ; Absolx
+	dba GlalieIcon ; Glaliex
+	dba SalamenceIcon ; Salamencex
+	dba MetagrossIcon ; Metagrossx
+	dba KinglerIcon ; Kinglerx
+	dba TropiusIcon ; Tropiusx
+	dba SwalotIcon ; Swalotx
+	dba FlygonIcon ; Flygonx
+	dba ChimechoIcon ; Chimechox
+	dba VictreebelIcon ; Victreebelx
+	dba UnownIcon ; Unownx
+	dba ButterfreeIcon ; Butterfreex
+	dba LedianIcon ; Ledianx
+	dba MagcargoIcon ; Magcargox
+	dba SceptileIcon ; Sceptilex
+	dba BlazikenIcon ; Blazikenx
+	dba SwampertIcon ; Swampertx
+	dba GardevoirIcon ; Gardevoirx
+	dba PidgeotIcon ; Pidgeotx
+	dba MercuryIcon
+	dba VenusIcon
+	dba MarsIcon
+	dba JupiterIcon
 	assert_table_length NUM_POKEMON + 1

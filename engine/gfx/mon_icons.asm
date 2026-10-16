@@ -4,13 +4,26 @@ LoadOverworldMonIcon:
 	; fallthrough
 _LoadOverworldMonIcon:
 	call GetPokemonIndexFromID
+	; fallthrough
+GetIconPointer:
+; Input: hl = species index
+; Output: b = icon bank, c = 8 tiles, de = icon address
+	ld d, h
+	ld e, l
 	add hl, hl
+	add hl, de
 	ld de, IconPointers
 	add hl, de
+	; fallthrough
+ReadIconPointer:
+; Input: hl = IconPointers entry (dba)
+	ld a, [hli]
+	ld b, a
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	jmp GetIconBank
+	ld c, 8
+	ret
 
 SetMenuMonIconColor:
 	push hl
@@ -508,86 +521,19 @@ endr
 
 	ld a, [wCurIcon]
 	cp EGG
-	push hl
-	ld hl, IconPointers - (3 * 2)
 	jr z, .is_egg
 	call GetPokemonIndexFromID
-	add hl, hl
-	ld de, IconPointers
-	add hl, de
+	call GetIconPointer
+	jr .got_pointer
 .is_egg
-	ld a, [hli]
-	ld d, [hl]
-	ld e, a
+	ld hl, IconPointers - (3 * 3)
+	call ReadIconPointer
+.got_pointer
 	pop hl
+	push hl
 
-	call GetIconBank
 	call GetGFXUnlessMobile
 
-	pop hl
-	ret
-
-GetIconBank:
-	push hl
-	ld a, [wCurIcon]
-	call GetPokemonIndexFromID
-	lb bc, BANK("Mon Icons 1"), 8 ; Default Bank
-
-ld a, h
-	cp HIGH(VICTREEBELX) ; first species in "Mon Icons 5"
-	jr c, .check_6
-	ld a, l
-	cp LOW(VICTREEBELX)
-	jr c, .check_6
-	ld b, BANK("Mon Icons 5") 
-	jr .return
-.check_6
-
-
-    ld a, h
-	cp HIGH(BAYLEEF2) ; first species in "Mon Icons 5"
-	jr c, .check_5
-	ld a, l
-	cp LOW(BAYLEEF2)
-	jr c, .check_5
-	ld b, BANK("Mon Icons 5") 
-	jr .return
-.check_5
-	ld a, h
-	cp HIGH(WALREIN) ; first species in "Mon Icons 4"
-	jr c, .check_4
-	ld a, l
-	cp LOW(WALREIN)
-	jr c, .check_4
-	ld b, BANK("Mon Icons 4") 
-	jr .return
-.check_4
-	ld a, h
-	cp HIGH(TORCHIC) ; first species in "Mon Icons 3"
-	jr c, .check_3
-	ld a, l
-	cp LOW(TORCHIC)
-	jr c, .check_3
-	ld b, BANK("Mon Icons 3") 
-	jr .return
-.check_3
-	ld a, h
-	cp HIGH(TREECKO) ; first species in "Mon Icons 3"
-	jr c, .check_2
-	ld a, l 
-	cp LOW(TREECKO)
-	jr c, .check_2
-	ld b, BANK("Mon Icons 3")
-	jr .return
-.check_2
-	ld a, h
-	cp HIGH(MAGIKARP) ; first species in "Mon Icons 2"
-	jr c, .return
-	ld a, l
-	cp LOW(MAGIKARP)
-	jr c, .return
-	ld b, BANK("Mon Icons 2")
-.return
 	pop hl
 	ret
 
