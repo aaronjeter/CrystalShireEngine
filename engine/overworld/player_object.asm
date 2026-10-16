@@ -16,54 +16,16 @@ BlankScreen:
 	jmp SetDefaultBGPAndOBP
 
 LoadPlayerColor:
+; d = PAL_NPC_* for the outfit color wPlayerColor (its overworld palette),
+; e = OBJECTTYPE_SCRIPT
 	ld a, [wPlayerColor]
-	cp 0
-	jr z, .Red
-	cp 1
-	jr z, .Blue
-	cp 2
-	jr z, .Green
-	cp 3
-	jr z, .Brown
-	cp 4
-	jr z, .Purple
-	cp 7
-	jr z, .Teal
-	cp 5
-	jr z, .Gray
-	cp 9
-	jr z, .Orange
-	;fallthrough to red
-.Red
-	lb de, PAL_NPC_RED, OBJECTTYPE_SCRIPT
-	ret
-
-.Blue
-	lb de, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT
-	ret
-
-.Green
-	lb de, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT
-	ret
-
-.Brown
-	lb de, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT
-	ret
-
-.Purple
-	lb de, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT
-	ret
-
-.Teal
-	lb de, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT
-	ret
-
-.Gray
-	lb de, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT
-	ret
-
-.Orange
-	lb de, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT
+	cp NUM_PLAYER_COLORS
+	jr c, .ok
+	xor a ; PLAYER_COLOR_RED
+.ok
+	inc a ; PAL_OW_* -> PAL_NPC_*
+	ld d, a
+	ld e, OBJECTTYPE_SCRIPT
 	ret
 
 

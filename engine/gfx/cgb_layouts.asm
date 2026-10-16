@@ -680,74 +680,20 @@ _CGB_UnownPuzzle:
 
 PreviewIntroPlayerColor:
 ; Recolor the intro player pic (BG palette 0) to match wPlayerColor,
-; using the same trainer palette as the trainer card.
+; using the same palette as the trainer card (GetPlayerColor).
 	ld de, wBGPals1
 PreviewPlayerColorAt:
 ; The same, for the BG palette at de.
-	call _CGB_GetPlayerColor
-	call GetTrainerPalettePointer
+	call GetPlayerColor
 	call LoadPalette_White_Col1_Col2_Black
 	call ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret
 
-_CGB_GetPlayerColor:
-	ld a, [wPlayerColor]
-	cp 0
-	jr z, .Red
-	cp 1
-	jr z, .Blue
-	cp 2
-	jr z, .Green
-	cp 3
-	jr z, .Brown
-	cp 4
-	jr z, .Purple
-	cp 7
-	jr z, .Teal
-	cp 5
-	jr z, .Gray
-	cp 9
-	jr z, .Orange
-	;fallthrough to red
-.Red
-	ld a, CAL
-	ret
-
-.Blue
-	ld a, FALKNER
-	ret
-
-.Green
-	ld a, ERIKA
-	ret
-
-.Brown
-	ld a, CHRIS
-	ret
-
-.Purple
-	ld a, GLACIA
-	ret
-
-.Teal
-	ld a, KRIS
-	ret
-
-.Gray
-	ld a, DRAKE
-	ret
-
-.Orange
-	ld a, MISTY
-	ret
-
 _CGB_TrainerCard:
 	ld de, wBGPals1
-	xor a ; CHRIS
-	call _CGB_GetPlayerColor
-	call GetTrainerPalettePointer
+	call GetPlayerColor ; the player
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, FALKNER ; KRIS
 	call GetTrainerPalettePointer
@@ -845,9 +791,7 @@ INCLUDE "gfx/trainer_card/johto_badges.pal"
 
 _CGB_TrainerCardKanto:
 	ld de, wBGPals1
-	xor a ; CHRIS & MISTY
-	call _CGB_GetPlayerColor
-	call GetTrainerPalettePointer
+	call GetPlayerColor ; the player (MISTY shares this palette)
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, FALKNER ; KRIS
 	call GetTrainerPalettePointer
@@ -938,9 +882,7 @@ INCLUDE "gfx/trainer_card/kanto_badges.pal"
 
 _CGB_TrainerCardHoenn:
 	ld de, wBGPals1
-	xor a ; ;Player
-	call _CGB_GetPlayerColor
-	call GetTrainerPalettePointer
+	call GetPlayerColor ; the player
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, FALKNER ; KRIS
 	call GetTrainerPalettePointer

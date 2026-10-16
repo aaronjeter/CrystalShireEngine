@@ -790,7 +790,7 @@ SetRegion:
 	dw EVENT_ORIGIN_BETA
 
 
-DEF NUM_COLOR_MENU_COLORS EQU 8
+DEF NUM_COLOR_MENU_COLORS EQU 11
 
 SetColor:
 	ld hl, OakTextColor
@@ -920,11 +920,14 @@ WardrobeColorMenu:
 ; Shared by the intro color question and the bedroom wardrobe.
 ; To add a color: add its ID to ColorMenu_List, its name to ColorMenu_Names,
 ; its wPlayerColor value to ColorMenu_Values, and bump NUM_COLOR_MENU_COLORS.
+; A color's wPlayerColor value (PLAYER_COLOR_*) is also its overworld palette
+; (PAL_OW_*), and its front pic palette is its row in
+; data/player/color_palettes.asm.
 
 ; Scrolling menu list: count, color IDs, -1.
 ColorMenu_List:
 	db NUM_COLOR_MENU_COLORS
-	db 0, 1, 2, 3, 4, 5, 6, 7
+	db 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 	db -1
 
 ColorMenu_PlaceName:
@@ -960,6 +963,9 @@ ColorMenu_Names:
 	dw .Teal
 	dw .Gray
 	dw .Orange
+	dw .Pink
+	dw .Azure
+	dw .Black
 
 .Red:    db "Red@"
 .Blue:   db "Blue@"
@@ -969,17 +975,23 @@ ColorMenu_Names:
 .Teal:   db "Teal@"
 .Gray:   db "Gray@"
 .Orange: db "Orange@"
+.Pink:   db "Pink@"
+.Azure:  db "Azure@"
+.Black:  db "Black@"
 
 ; wPlayerColor value for each color ID
 ColorMenu_Values:
-	db 0 ; Red
-	db 1 ; Blue
-	db 2 ; Green
-	db 3 ; Brown
-	db 4 ; Purple
-	db 7 ; Teal
-	db 5 ; Gray
-	db 9 ; Orange
+	db PLAYER_COLOR_RED
+	db PLAYER_COLOR_BLUE
+	db PLAYER_COLOR_GREEN
+	db PLAYER_COLOR_BROWN
+	db PLAYER_COLOR_PURPLE
+	db PLAYER_COLOR_TEAL
+	db PLAYER_COLOR_GRAY
+	db PLAYER_COLOR_ORANGE
+	db PLAYER_COLOR_PINK
+	db PLAYER_COLOR_AZURE
+	db PLAYER_COLOR_BLACK
 	assert @ - ColorMenu_Values == NUM_COLOR_MENU_COLORS
 
 

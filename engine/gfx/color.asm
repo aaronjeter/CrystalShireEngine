@@ -495,54 +495,20 @@ GetEnemyFrontpicPalettePointer:
 	ret
 
 GetPlayerColor:
+; hl = the front pic palette (2 colors) for the outfit color wPlayerColor
 	ld a, [wPlayerColor]
-	cp 0
-	jr z, .Red
-	cp 1
-	jr z, .Blue
-	cp 2
-	jr z, .Green
-	cp 3
-	jr z, .Brown
-	cp 4
-	jr z, .Purple
-	cp 7
-	jr z, .Teal
-	cp 5
-	jr z, .Gray
-	cp 9
-	jr z, .Orange
-	;fallthrough to red
-.Red
-	ld hl, RedPlayerPalette
-	ret
-
-.Blue
-	ld hl, BluePlayerPalette
-	ret
-
-.Green
-	ld hl, GreenPlayerPalette
-	ret
-
-.Brown
-	ld hl, PlayerPalette ;Chris Default
-	ret
-
-.Purple
-	ld hl, PurplePlayerPalette
-	ret
-
-.Teal
-	ld hl, KrisPalette ;Kris Default
-	ret
-
-.Gray
-	ld hl, GrayPlayerPalette
-	ret
-
-.Orange
-	ld hl, OrangePlayerPalette 
+	cp NUM_PLAYER_COLORS
+	jr c, .ok
+	xor a ; PLAYER_COLOR_RED
+.ok
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl ; * PAL_COLOR_SIZE * 2
+	push bc
+	ld bc, PlayerColorPalettes
+	add hl, bc
+	pop bc
 	ret
 
 GetPlayerOrMonPalettePointer:
@@ -994,6 +960,8 @@ INCLUDE "gfx/battle/exp_bar.pal"
 INCLUDE "data/pokemon/palettes.asm"
 
 INCLUDE "data/trainers/palettes.asm"
+
+INCLUDE "data/player/color_palettes.asm"
 
 LoadSootopolisStonePalette:
 ; Sootopolis is built from cream-white stone: on TILESET_SOOTOPOLIS, replace the
