@@ -1621,7 +1621,7 @@ Copyright:
 	call Request2bpp
 	hlcoord 2, 7
 	ld de, CopyrightString
-	jmp PlaceString
+	jmp PlaceTileString ; raw tile indices, not text
 
 CopyrightString:
 	; ©1995-2001 Nintendo

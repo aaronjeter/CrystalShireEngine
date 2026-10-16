@@ -288,6 +288,36 @@ PlaceLiteralChar:
 	call PrintLetterDelay
 	jmp NextChar
 
+PlaceTileString::
+; Like PlaceString, but the string at de is made of raw tile indices (e.g. the
+; copyright screen's pre-drawn tiles), copied as-is: PlaceString would expand
+; any byte below TEXT_DICT_LIMIT through the text dictionary.
+; Handles "<NEXT>" (two rows below the start of the line) and "@" (end).
+; Preserves hl.
+	push hl
+.line
+	push hl
+.loop
+	ld a, [de]
+	inc de
+	cp "@"
+	jr z, .done
+	cp "<NEXT>"
+	jr z, .next
+	ld [hli], a
+	jr .loop
+
+.next
+	pop hl
+	ld bc, SCREEN_WIDTH * 2
+	add hl, bc
+	jr .line
+
+.done
+	pop hl
+	pop hl
+	ret
+
 PlaceDictWord:
 ; a < TEXT_DICT_LIMIT and not a control character: print its TextDictionary
 ; string (text compression, see constants/text_dict_charmap.asm), or the

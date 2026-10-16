@@ -114,3 +114,7 @@ DEF NUM_CREDITS_STRINGS EQU const_value
 	const CREDITS_MUSIC
 	const CREDITS_WAIT2
 	const CREDITS_THEEND
+
+; first tile of the copyright line graphics (gfx/splash/copyright.png),
+; loaded at vTiles2 tile $60 by Copyright and the credits
+DEF COPYRIGHT_TILE EQU $60
