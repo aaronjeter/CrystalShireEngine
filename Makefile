@@ -255,11 +255,14 @@ gfx/player/may.2bpp: rgbgfx += --columns
 gfx/player/may_back.2bpp: rgbgfx += --columns
 gfx/player/brendan.2bpp: rgbgfx += --columns
 gfx/player/brendan_back.2bpp: rgbgfx += --columns
+gfx/player/green.2bpp: rgbgfx += --columns
+gfx/player/green_back.2bpp: rgbgfx += --columns
 
 gfx/trainer_card/chris_card.2bpp: rgbgfx += --columns
 gfx/trainer_card/kris_card.2bpp: rgbgfx += --columns
 gfx/trainer_card/may_card.2bpp: rgbgfx += --columns
 gfx/trainer_card/brendan_card.2bpp: rgbgfx += --columns
+gfx/trainer_card/green_card.2bpp: rgbgfx += --columns
 gfx/hall_of_fame/kanto.2bpp: rgbgfx += --columns
 gfx/hall_of_fame/johto.2bpp: rgbgfx += --columns
 gfx/hall_of_fame/hoenn.2bpp: rgbgfx += --columns
@@ -270,6 +273,7 @@ gfx/overworld/chris_fish.2bpp: tools/gfx += --trim-whitespace
 gfx/overworld/kris_fish.2bpp: tools/gfx += --trim-whitespace
 gfx/overworld/may_fish.2bpp: tools/gfx += --trim-whitespace
 gfx/overworld/brendan_fish.2bpp: tools/gfx += --trim-whitespace
+gfx/overworld/green_fish.2bpp: tools/gfx += --trim-whitespace
 
 gfx/sprites/big_onix.2bpp: tools/gfx += --remove-whitespace --remove-xflip
 

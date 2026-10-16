@@ -113,4 +113,6 @@ OverworldSprites:
 	overworld_sprite BrendanBikeSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite MaySpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite MayBikeSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite GreenSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite GreenBikeSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	assert_table_length NUM_OVERWORLD_SPRITES

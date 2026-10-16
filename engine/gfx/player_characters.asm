@@ -21,6 +21,7 @@ PlayerCharacterNames:
 	li "Kris"
 	li "Brendan"
 	li "May"
+	li "Green"
 	assert_list_length NUM_PLAYER_CHARACTERS
 
 PlayerCharacterGenders:
@@ -30,6 +31,7 @@ PlayerCharacterGenders:
 	db 1 << PLAYERGENDER_FEMALE_F   ; CHARACTER_KRIS
 	db 0                            ; CHARACTER_BRENDAN
 	db 1 << PLAYERGENDER_FEMALE_F   ; CHARACTER_MAY
+	db 1 << PLAYERGENDER_FEMALE_F   ; CHARACTER_GREEN
 	assert_table_length NUM_PLAYER_CHARACTERS
 
 GetPlayerCharacterForGFX:
@@ -120,6 +122,7 @@ PlayerIconGFX:
 	dba KrisSpriteGFX
 	dba BrendanSpriteGFX
 	dba MaySpriteGFX
+	dba GreenSpriteGFX
 	assert_table_length NUM_PLAYER_CHARACTERS
 
 ; Fishing
@@ -174,6 +177,7 @@ PlayerFishingGFX:
 	dba KrisFishingGFX
 	dba BrendanFishingGFX
 	dba MayFishingGFX
+	dba GreenFishingGFX
 	assert_table_length NUM_PLAYER_CHARACTERS
 
 ; Battle back pic
@@ -209,6 +213,8 @@ PlayerBackpics:
 	db 6 * 6, FALSE
 	dba MayBackpic
 	db 6 * 6, FALSE
+	dba GreenBackpic
+	db 6 * 6, FALSE
 	assert_table_length NUM_PLAYER_CHARACTERS
 
 ; Trainer card pic
@@ -241,6 +247,7 @@ PlayerCardPics:
 	dba KrisCardPic
 	dba BrendanCardPic
 	dba MayCardPic
+	dba GreenCardPic
 	assert_table_length NUM_PLAYER_CHARACTERS
 
 ; Front pic
@@ -270,6 +277,7 @@ PlayerFrontpics:
 	dba KrisPic
 	dba BrendanPic
 	dba MayPic
+	dba GreenPic
 	assert_table_length NUM_PLAYER_CHARACTERS
 
 HOF_LoadTrainerFrontpic:
@@ -412,9 +420,13 @@ SECTION "Player Character Pics", ROMX
 
 BrendanPic:     INCBIN "gfx/player/brendan.2bpp"
 MayPic:         INCBIN "gfx/player/may.2bpp"
+GreenPic:       INCBIN "gfx/player/green.2bpp"
 BrendanBackpic: INCBIN "gfx/player/brendan_back.2bpp"
 MayBackpic:     INCBIN "gfx/player/may_back.2bpp"
+GreenBackpic:   INCBIN "gfx/player/green_back.2bpp"
 BrendanCardPic: INCBIN "gfx/trainer_card/brendan_card.2bpp"
 MayCardPic:     INCBIN "gfx/trainer_card/may_card.2bpp"
+GreenCardPic:   INCBIN "gfx/trainer_card/green_card.2bpp"
 BrendanFishingGFX: INCBIN "gfx/overworld/brendan_fish.2bpp"
 MayFishingGFX:     INCBIN "gfx/overworld/may_fish.2bpp"
+GreenFishingGFX:   INCBIN "gfx/overworld/green_fish.2bpp"

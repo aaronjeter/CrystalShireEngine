@@ -5,6 +5,7 @@ PlayerStateSprites:
 	dw KrisStateSprites
 	dw BrendanStateSprites
 	dw MayStateSprites
+	dw GreenStateSprites
 	assert_table_length NUM_PLAYER_CHARACTERS
 
 ChrisStateSprites:
@@ -31,6 +32,13 @@ BrendanStateSprites:
 MayStateSprites:
 	db PLAYER_NORMAL,    SPRITE_MAY
 	db PLAYER_BIKE,      SPRITE_MAY_BIKE
+	db PLAYER_SURF,      SPRITE_SURF
+	db PLAYER_SURF_PIKA, SPRITE_SURFING_PIKACHU
+	db -1 ; end
+
+GreenStateSprites:
+	db PLAYER_NORMAL,    SPRITE_GREEN
+	db PLAYER_BIKE,      SPRITE_GREEN_BIKE
 	db PLAYER_SURF,      SPRITE_SURF
 	db PLAYER_SURF_PIKA, SPRITE_SURFING_PIKACHU
 	db -1 ; end

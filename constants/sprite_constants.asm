@@ -108,6 +108,8 @@
 	const SPRITE_BRENDAN_BIKE ; 68
 	const SPRITE_MAY ; 69
 	const SPRITE_MAY_BIKE ; 6a
+	const SPRITE_GREEN ; 6b
+	const SPRITE_GREEN_BIKE ; 6c
 DEF NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
