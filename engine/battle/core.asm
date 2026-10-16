@@ -5439,6 +5439,19 @@ CheckAmuletCoin:
 	ret
 
 MoveSelectionScreen:
+; In battle (menu type 0), the move info box shows the move's category and
+; type as icons (engine/gfx/type_icons.asm); hide them when leaving the menu.
+	ld a, [wMoveSelectionMenuType]
+	and a
+	jr nz, _MoveSelectionScreen
+	farcall LoadTypeIconGFX
+	call _MoveSelectionScreen
+	push af ; (farcall doesn't keep the flags on the way in)
+	farcall HideTypeIcons
+	pop af
+	ret
+
+_MoveSelectionScreen:
 	ld hl, wEnemyMonMoves
 	ld a, [wMoveSelectionMenuType]
 	dec a
@@ -5635,7 +5648,7 @@ MoveSelectionScreen:
 	pop hl
 	call StdBattleTextbox
 	call SafeLoadTempTilemapToTilemap
-	jmp MoveSelectionScreen
+	jmp _MoveSelectionScreen
 
 .empty_string
 	db "@"
@@ -5716,7 +5729,7 @@ MoveSelectionScreen:
 .transformed
 	xor a
 	ld [wSwappingMove], a
-	jmp MoveSelectionScreen
+	jmp _MoveSelectionScreen
 
 .swap_bytes
 	push hl
@@ -5743,16 +5756,17 @@ MoveSelectionScreen:
 .start_swap
 	ld a, [wMenuCursorY]
 	ld [wSwappingMove], a
-	jmp MoveSelectionScreen
+	jmp _MoveSelectionScreen
 
 MoveInfoBox:
 	xor a
 	ldh [hBGMapMode], a
 
-	hlcoord 0, 8
-	lb bc, 3, 9
+	hlcoord 0, 9
+	lb bc, 2, 9
 	call Textbox
 	call MobileTextBorder
+	farcall HideTypeIcons
 
 	ld a, [wPlayerDisableCount]
 	and a
@@ -5800,21 +5814,14 @@ MoveInfoBox:
 	call .PrintPP
 
 	farcall UpdateMoveData
+	; category and type icons side by side on row 10 (x = 10 and 46, with a
+	; 4px gap), in icon slots 0-1 with OBJ palettes 0-1
+	; (PAL_BATTLE_OB_ENEMY/PLAYER, given back when hidden)
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
-	ld b, a
-	farcall GetMoveCategoryName
-	hlcoord 1, 9
-	ld de, wStringBuffer1
-	rst PlaceString
-
-	ld h, b
-	ld l, c
-	ld [hl], "/"
-		
-	ld a, [wPlayerMoveStruct + MOVE_ANIM]
-	ld b, a
-	hlcoord 2, 10
-	predef_jump PrintMoveType
+	lb bc, 10, 10
+	lb de, 10, 46
+	lb hl, 0, 0
+	farjp PlaceMoveIconsAtX
 
 .Disabled:
 	db "Disabled!@"

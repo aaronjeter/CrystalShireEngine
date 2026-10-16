@@ -1138,6 +1138,7 @@ MoveScreenLoop:
 	ld [wSwappingMove], a
 	ld hl, w2DMenuFlags1
 	res _2DMENU_ENABLE_SPRITE_ANIMS_F, [hl]
+	farcall HideTypeIcons
 	call ClearSprites
 	jmp ClearTilemap
 
@@ -1159,6 +1160,7 @@ SetUpMoveScreenBG:
 	xor a
 	ldh [hBGMapMode], a
 	farcall LoadStatsScreenPageTilesGFX
+	farcall LoadTypeIconGFX
 	farcall ClearSpriteAnims2
 	ld a, [wCurPartyMon]
 	ld e, a
@@ -1259,19 +1261,13 @@ PlaceMoveData:
 	ld de, String_MoveEff
 	rst PlaceString
 
-	;Place Move Type
+	; category and type icons in the notch (1, 11) and (5, 11), in icon slots
+	; 0-1 with OBJ palettes 6-7 (the mon's icon uses palette 1)
 	ld a, [wCurSpecies]
-	ld b, a
-	farcall GetMoveCategoryName
-	hlcoord 1, 11
-	ld de, wStringBuffer1
-	rst PlaceString	
-	ld a, [wCurSpecies]
-	ld b, a
-	hlcoord 1, 12
-	ld [hl], "/"
-	inc hl
-	predef PrintMoveType
+	lb bc, 11, 1
+	lb de, 11, 5
+	lb hl, 0, 6
+	farcall PlaceMoveIcons
 
 	;Print Move Power
 	ld a, [wCurSpecies]

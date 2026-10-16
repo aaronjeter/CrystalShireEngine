@@ -53,14 +53,32 @@ DoNextFrameForAllSprites:
 	ld a, [wCurSpriteOAMAddr]
 	ld l, a
 	ld h, HIGH(wShadowOAM)
+	call .GetClearEnd
 
-.loop2 ; Clear (wShadowOAM + [wCurSpriteOAMAddr] --> wShadowOAMEnd)
+.loop2 ; Clear (wShadowOAM + [wCurSpriteOAMAddr] --> c)
 	ld a, l
-	cp LOW(wShadowOAMEnd)
+	cp c
 	ret nc
 	xor a
 	ld [hli], a
 	jr .loop2
+
+.GetClearEnd:
+; c = LOW(wShadowOAMEnd), or LOW of the first type icon slot while type icons
+; are shown (engine/gfx/type_icons.asm), so they aren't cleared every frame.
+	ldh a, [rSVBK]
+	ld b, a
+	ld a, BANK(wTypeIconPalsSaved)
+	ldh [rSVBK], a
+	ld a, [wTypeIconPalsSaved]
+	ld c, LOW(wShadowOAMEnd)
+	and a
+	jr z, .got_end
+	ld c, LOW(wShadowOAMSprite00 + TYPE_ICON_FIRST_OAM * SPRITEOAMSTRUCT_LENGTH)
+.got_end
+	ld a, b
+	ldh [rSVBK], a
+	ret
 
 DoNextFrameForFirst16Sprites:
 	ld hl, wSpriteAnimationStructs

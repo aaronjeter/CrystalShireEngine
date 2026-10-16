@@ -406,7 +406,9 @@ ChooseMoveToLearn:
 	; Creates the menu, sets the "B_BUTTON"
 	; to cancel and sets up each entry
 	; to behave like a tm/hm.
+	farcall LoadTypeIconGFX
 	call ScrollingMenu
+	farcall HideTypeIcons
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
 	jr z, .carry
@@ -524,6 +526,9 @@ ChooseMoveToLearn:
 ; This begins the printing of all of the move's details,
 ; including the border around the description.
 .print_move_details
+	; (the type and category icons are redrawn below, or stay hidden for
+	; "Cancel")
+	farcall HideTypeIcons
 
 	; This creates a border around the description.
 	hlcoord 0, 11
@@ -553,10 +558,13 @@ ChooseMoveToLearn:
 
 ; This prints the move's type.
 .print_move_type
+	; type icon at (2, 12) and category icon at (7, 12), in icon slots 0-1
+	; with OBJ palettes 6-7
 	ld a, [wCurSpecies]
-	ld b, a
-	hlcoord 2, 12
-	predef PrintMoveType
+	lb bc, 12, 7
+	lb de, 12, 2
+	lb hl, 0, 6
+	farcall PlaceMoveIcons
 ; This code falls through into the ".print_move_stat_strings" local jump.
 
 ; This prints the notch in the description text box border

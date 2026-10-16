@@ -3217,7 +3217,11 @@ wMagnetTrainPlayerSpriteInitX:: db
 wPalFadeDelayFrames:: db
 wPalFadeDelay:: db
 
-	ds 104
+; Type icons (engine/gfx/type_icons.asm): the OBJ palettes they borrowed
+wTypeIconPalsSaved:: db ; TRUE while wTypeIconOBPalsBackup holds them
+wTypeIconOBPalsBackup:: ds 8 palettes
+
+	ds 104 - 1 - 8 * PAL_COLOR_SIZE * NUM_PAL_COLORS
 
 	align 8
 wLYOverridesBackup:: ds SCREEN_HEIGHT_PX

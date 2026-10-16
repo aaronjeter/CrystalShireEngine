@@ -9,6 +9,7 @@ DEF STAT_PAGE_MASK EQU %00000011
 	const STATS_SCREEN_PLACE_FRONTPIC ; 4
 	const STATS_SCREEN_ANIMATE_MON    ; 5
 	const STATS_SCREEN_ANIMATE_EGG    ; 6
+	const STATS_SCREEN_PLACE_TYPE_ICONS ; 7 (once the page's tilemap is shown)
 
 StatsScreenInit:
 	ld hl, StatsScreenMain
@@ -29,8 +30,10 @@ StatsScreenInit:
 	call ClearTilemap
 	call UpdateSprites
 	farcall StatsScreen_LoadFont
+	farcall LoadTypeIconGFX ; type and category icons (engine/gfx/type_icons.asm)
 	pop hl
 	call _hl_
+	farcall HideTypeIcons
 	call ClearBGPalettes
 	call ClearTilemap
 	pop bc
@@ -87,7 +90,13 @@ StatsScreen_WaitAnim:
 .finish
 	ld hl, wStatsScreenFlags
 	res STATS_SCREEN_ANIMATE_MON, [hl]
-	farjp HDMATransferTilemapToWRAMBank3
+	farcall HDMATransferTilemapToWRAMBank3
+	; the page is on screen now, so its type icons can appear with it
+	ld hl, wStatsScreenFlags
+	bit STATS_SCREEN_PLACE_TYPE_ICONS, [hl]
+	ret z
+	res STATS_SCREEN_PLACE_TYPE_ICONS, [hl]
+	jmp StatsScreen_PlaceTypeIcons
 
 StatsScreen_SetJumptableIndex:
 	ld a, [wJumptableIndex]
@@ -102,8 +111,10 @@ StatsScreen_Exit:
 	ret
 
 MonStatsInit:
+	farcall HideTypeIcons ; the previous mon's
 	ld hl, wStatsScreenFlags
 	res STATS_SCREEN_ANIMATE_EGG, [hl]
+	res STATS_SCREEN_PLACE_TYPE_ICONS, [hl]
 	call ClearBGPalettes
 	call ClearTilemap
 	farcall HDMATransferTilemapToWRAMBank3
@@ -478,6 +489,21 @@ StatsScreen_PlaceShinyIcon:
 	ld [hl], "⁂"
 	ret
 
+StatsScreen_PlaceTypeIcons:
+; Type and category icons for the pink and green pages. Called from
+; StatsScreen_WaitAnim once the page's tilemap is on screen (and after
+; StatsScreen_LoadGFX's .LoadPals, which resets the OBJ palettes they use).
+	ld a, [wStatsScreenFlags]
+	maskbits NUM_STAT_PAGES
+	cp GREEN_PAGE
+	jr z, .move_icons
+	cp PINK_PAGE
+	ret nz
+	lb bc, 15, 1 ; under "Type/"
+	farjp PlaceMonTypeIcons
+.move_icons
+	farjp PlaceStatsMoveIcons ; category and type icons on each PP row
+
 StatsScreen_LoadGFX:
 	ld a, [wBaseSpecies]
 	ld [wTempSpecies], a
@@ -487,12 +513,17 @@ StatsScreen_LoadGFX:
 	call .ClearBox
 	call .PageTilemap
 	call .LoadPals
+	; the type icons wait for the page's tilemap (StatsScreen_WaitAnim)
+	ld hl, wStatsScreenFlags
+	set STATS_SCREEN_PLACE_TYPE_ICONS, [hl]
 	ld hl, wStatsScreenFlags
 	bit STATS_SCREEN_PLACE_FRONTPIC, [hl]
 	jmp z, SetDefaultBGPAndOBP
 	jmp StatsScreen_PlaceFrontpic
 
 .ClearBox:
+	; the previous page's type icons (engine/gfx/type_icons.asm)
+	farcall HideTypeIcons
 	ld a, [wStatsScreenFlags]
 	maskbits NUM_STAT_PAGES
 	ld c, a
@@ -583,8 +614,6 @@ LoadPinkPage:
 	ld de, .OK_str
 	rst PlaceString
 .done_status
-	hlcoord 1, 15
-	predef PrintMonTypes
 	hlcoord 9, 8
 	ld de, SCREEN_WIDTH
 	ld b, 10
@@ -693,14 +722,11 @@ LoadGreenPage:
 	call .GetItemName
 	hlcoord 8, 8
 	rst PlaceString
-	ld de, .Move
-	hlcoord 0, 10
-	rst PlaceString
 	ld hl, wTempMonMoves
 	ld de, wListMoves_MoveIndicesBuffer
 	ld bc, NUM_MOVES
 	rst CopyBytes
-	hlcoord 8, 10
+	hlcoord 1, 10 ; one in from the left edge, no "Move" label
 	ld a, SCREEN_WIDTH * 2
 	ld [wListMovesLineSpacing], a
 	predef ListMoves
@@ -722,9 +748,6 @@ LoadGreenPage:
 
 .ThreeDashes:
 	db "---@"
-
-.Move:
-	db "Move@"
 
 LoadBluePage:
 	call .PlaceOTInfo

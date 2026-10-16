@@ -152,6 +152,11 @@ SECTION "Player Characters", ROMX
 INCLUDE "engine/gfx/player_characters.asm"
 
 
+SECTION "Type Icons", ROMX
+
+INCLUDE "engine/gfx/type_icons.asm"
+
+
 SECTION "Hall of Fame Team", ROMX
 
 INCLUDE "engine/events/halloffame_team.asm"
