@@ -1,9 +1,18 @@
-DEF text   EQUS "db TX_START,"    ; Start writing text.
-DEF next   EQUS "db \"<NEXT>\","  ; Move a line down.
-DEF line   EQUS "db \"<LINE>\","  ; Start writing at the bottom line.
-DEF page   EQUS "db \"@\","       ; Start a new Pokédex page.
-DEF para   EQUS "db \"<PARA>\","  ; Start a new paragraph.
-DEF cont   EQUS "db \"<CONT>\","  ; Scroll to the next line.
+; Dialogue strings use the "dialog" charmap (constants/text_dict_charmap.asm),
+; which packs common letter pairs into one byte; CheckDict expands them.
+MACRO dialog_db
+	pushc
+	setcharmap dialog
+	db \#
+	popc
+ENDM
+
+DEF text   EQUS "dialog_db TX_START,"    ; Start writing text.
+DEF next   EQUS "dialog_db \"<NEXT>\","  ; Move a line down.
+DEF line   EQUS "dialog_db \"<LINE>\","  ; Start writing at the bottom line.
+DEF page   EQUS "dialog_db \"@\","       ; Start a new Pokédex page.
+DEF para   EQUS "dialog_db \"<PARA>\","  ; Start a new paragraph.
+DEF cont   EQUS "dialog_db \"<CONT>\","  ; Scroll to the next line.
 DEF done   EQUS "db \"<DONE>\""   ; End a text box.
 DEF prompt EQUS "db \"<PROMPT>\"" ; Prompt the player to end a text box (initiating some other event).
 

@@ -281,9 +281,48 @@ ENDM
 	dict "<ENEMY>",   PlaceEnemysName
 	dict "<PLAY_G>",  PlaceGenderedPlayerName
 
+	cp TEXT_DICT_LIMIT
+	jr c, PlaceDictWord
+PlaceLiteralChar:
 	ld [hli], a
 	call PrintLetterDelay
 	jmp NextChar
+
+PlaceDictWord:
+; a < TEXT_DICT_LIMIT and not a control character: print its TextDictionary
+; string (text compression, see constants/text_dict_charmap.asm), or the
+; character itself if it has none.
+	push de
+	ld e, a
+	ld d, 0
+	ldh a, [hROMBank]
+	push af
+	ld a, BANK(TextDictionary)
+	rst Bankswitch
+	push hl
+	ld hl, TextDictionary
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	pop hl
+	or d
+	jr z, .literal
+	rst PlaceString
+	ld h, b
+	ld l, c
+	pop af
+	rst Bankswitch
+	pop de
+	jmp NextChar
+
+.literal
+	pop af
+	rst Bankswitch
+	pop de
+	ld a, [de]
+	jr PlaceLiteralChar
 
 MACRO print_name
 	push de

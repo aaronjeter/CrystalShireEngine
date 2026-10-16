@@ -412,3 +412,6 @@ pushc
 	charmap "\n", $0a
 	charmap "\r", $0d
 popc
+
+; Dialogue charmap for text compression (generated)
+INCLUDE "constants/text_dict_charmap.asm"

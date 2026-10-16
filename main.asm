@@ -510,6 +510,11 @@ INCLUDE "engine/link/link.asm"
 INCLUDE "engine/battle/link_result.asm"
 
 
+SECTION "Text Dictionary", ROMX
+
+INCLUDE "data/text/text_dictionary.asm"
+
+
 SECTION "Crystal Phone Text 2", ROMX
 
 INCLUDE "data/phone/text/bike_shop.asm"
