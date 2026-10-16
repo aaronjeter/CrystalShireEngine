@@ -9175,8 +9175,12 @@ GetWeatherImage:
 	ld de, SandstormWeatherImage
 	ld b, PAL_BATTLE_OB_BROWN
 	cp WEATHER_SANDSTORM
+	jr z, .done
+	ld de, HailWeatherImage
+	ld b, PAL_BATTLE_OB_BLUE
+	cp WEATHER_HAIL
 	ret nz
-	
+
 .done
 	push bc
 	ld b, BANK(WeatherImages) ; c = 4
