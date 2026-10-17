@@ -2961,7 +2961,8 @@ wBlueCardBalance:: db
 wUnusedFlags1:: ds 4 ; was wDailyRematchFlags
 wUnusedFlags2:: ds 4 ; was wDailyPhoneItemFlags
 wUnusedFlags3:: ds 4 ; was wDailyPhoneTimeOfDayFlags
-wUnusedBytes::  ds 2 ; was wKenjiBreakTimer
+wFollowerFlags:: db ; see FOLLOWER_HIDDEN_BY_SCRIPT_F (was half of wKenjiBreakTimer)
+wUnusedBytes::  ds 1 ; was wKenjiBreakTimer
 wYanmaMapGroup:: db
 wYanmaMapNumber:: db
 wPlayerMonSelection:: ds 3

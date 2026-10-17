@@ -95,6 +95,16 @@ MACRO callasm
 	dba \1
 ENDM
 
+; The following Pokémon (engine/overworld/follower.asm).
+; hidefollower puts it in its ball until showfollower or the next map load.
+MACRO hidefollower
+	callasm HideFollowerScript
+ENDM
+
+MACRO showfollower
+	callasm ShowFollowerScript
+ENDM
+
 	const special_command ; $0f
 MACRO special
 	db special_command

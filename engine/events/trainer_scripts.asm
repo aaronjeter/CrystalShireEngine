@@ -10,6 +10,7 @@ SeenByTrainerScript::
 	loadtemptrainer
 	encountermusic
 	showemote EMOTE_SHOCK, LAST_TALKED, 30
+	hidefollower ; so the trainer doesn't walk into it
 	callasm TrainerWalkToPlayer
 	applymovementlasttalked wMovementBuffer
 	writeobjectxy LAST_TALKED
@@ -25,6 +26,7 @@ StartBattleWithMapTrainerScript:
 	loadtemptrainer
 	startbattle
 	reloadmapafterbattle
+	showfollower
 	trainerflagaction SET_FLAG
 	loadmem wRunningTrainerBattleScript, -1
 

@@ -41,6 +41,8 @@ GetFollowerPartyMon::
 LoadMapObjects_Follower::
 ; The end of LoadMapObjects: add the follower, spawn the visible objects,
 ; then make the follower follow the player.
+	ld hl, wFollowerFlags
+	res FOLLOWER_HIDDEN_BY_SCRIPT_F, [hl]
 	call PlaceFollowerObject
 	farcall InitializeVisibleSprites
 	; fallthrough
@@ -256,12 +258,20 @@ UpdateFollowerVisibility:
 	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
 	cp SPRITE_FOLLOWER
 	ret nz
+	ld a, [wFollowerFlags]
+	bit FOLLOWER_HIDDEN_BY_SCRIPT_F, a
+	jr nz, .check_hide
 	ld a, [wPlayerState]
 	cp PLAYER_NORMAL
+.check_hide
 	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_OBJECT_STRUCT_ID]
 	jr nz, .hide
 	cp -1
 	ret nz ; already out
+	; not while a script has an NPC following or leading
+	ld a, [wObjectFollow_Leader]
+	cp -1
+	ret nz
 
 	; come back out
 	ld a, [wYCoord]
@@ -278,6 +288,32 @@ UpdateFollowerVisibility:
 .hide
 	cp -1
 	ret z ; already in its ball
+	ld a, FOLLOWER_OBJECT
+	jmp DeleteObjectStruct
+
+HideFollowerScript::
+; hidefollower: put the Pokémon in its ball until showfollower or the next
+; map load.
+	ld hl, wFollowerFlags
+	set FOLLOWER_HIDDEN_BY_SCRIPT_F, [hl]
+	jr UpdateFollowerVisibility
+
+ShowFollowerScript::
+; showfollower: bring it back out on the player's tile (if it can follow).
+	ld hl, wFollowerFlags
+	res FOLLOWER_HIDDEN_BY_SCRIPT_F, [hl]
+.update::
+	jr UpdateFollowerVisibility
+
+HideFollowerForScriptFollow::
+; Script_follow: there's only one follow pair, so the Pokémon goes back in
+; its ball while an NPC follows or leads the player. stopfollow brings it back.
+	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
+	cp SPRITE_FOLLOWER
+	ret nz
+	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_OBJECT_STRUCT_ID]
+	cp -1
+	ret z
 	ld a, FOLLOWER_OBJECT
 	jmp DeleteObjectStruct
 

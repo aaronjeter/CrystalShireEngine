@@ -954,6 +954,7 @@ ApplyEventActionAppearDisappear:
 	jmp EventFlagAction
 
 Script_follow:
+	farcall HideFollowerForScriptFollow
 	rst GetScriptByte
 	call GetScriptObject
 	ld b, a
@@ -963,7 +964,8 @@ Script_follow:
 	farjp StartFollow
 
 Script_stopfollow:
-	farjp StopFollow
+	farcall StopFollow
+	farjp ShowFollowerScript.update ; bring the Pokémon back out
 
 Script_moveobject:
 	rst GetScriptByte

@@ -79,6 +79,9 @@ DEF GBPRINTER_DARKEST  EQU $7f
 	const MENU_ACCOUNT ; 0
 	const FOLLOWER_OFF ; 1 (0 = the lead Pokémon follows the player)
 
+; wFollowerFlags::
+DEF FOLLOWER_HIDDEN_BY_SCRIPT_F EQU 0 ; hidefollower (cleared by showfollower or a map load)
+
 ; wDST::
 DEF DST_F EQU 7
 
