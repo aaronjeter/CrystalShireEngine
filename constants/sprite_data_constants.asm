@@ -66,6 +66,12 @@ DEF FIRST_COPY_BG_PAL EQU const_value
 DEF NUM_OW_BG_COPY_PALS EQU const_value - NUM_OW_INDIVIDUAL_PALS
 DEF NUM_OW_PALS EQU const_value
 
+; The following Pokémon's own colors (wFollowerColors, see engine/overworld/follower.asm).
+; Not a MapObjectPals index: CopySpritePal builds it from the species' colors.
+DEF PAL_OW_FOLLOWER EQU $fd
+DEF PAL_NPC_FOLLOWER EQU PAL_OW_FOLLOWER + 1
+assert NUM_OW_PALS <= PAL_OW_FOLLOWER
+
 ; wPlayerColor values (outfit colors): each one is its overworld palette index,
 ; so the player's sprite uses PAL_OW_<color>. Front-pic palettes are in
 ; data/player/color_palettes.asm. YELLOW and WHITE aren't in the color menu.

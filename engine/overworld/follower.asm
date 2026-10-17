@@ -45,6 +45,9 @@ LoadMapObjects_Follower::
 	res FOLLOWER_HIDDEN_BY_SCRIPT_F, [hl]
 	call PlaceFollowerObject
 	farcall InitializeVisibleSprites
+	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
+	cp SPRITE_FOLLOWER
+	call z, ReloadFollowerPal ; in case another lead's colors are still loaded
 	; fallthrough
 
 StartPokemonFollower:
@@ -60,9 +63,9 @@ PlaceFollowerObject:
 ; The slot's NPC (on maps with 15 object_events) is replaced.
 	call CheckFollowerAllowed
 	ret c
-	call GetFollowerPalette
+	call LoadFollowerColors
 	ret c
-	ld e, a
+	ld e, PAL_NPC_FOLLOWER
 
 	ld hl, wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH
 	ld [hl], -1 ; MAPOBJECT_OBJECT_STRUCT_ID
@@ -133,39 +136,206 @@ GetFollowerStartCoords:
 	dec b
 	ret
 
-GetFollowerPalette:
-; Output: a = PAL_NPC_* for the lead Pokémon (its menu icon color, shiny
-; aware); carry if there's no follower.
+LoadFollowerColors:
+; Copy the lead Pokémon's colors (normal or shiny) from FollowerPalettes
+; to wFollowerColors. Carry if there's no follower.
 	call GetFollowerPartyMon
 	ret c
-	ld b, a
-	ld a, [wCurPartySpecies]
-	push af
-	ld a, b
-	ld [wCurPartySpecies], a
-	ld bc, MON_DVS
-	add hl, bc
-	farcall GetMenuMonIconPalette
-	ld e, a
-	ld d, 0
-	ld hl, .IconPalToNPCPal
+	push hl
+	call GetPokemonIndexFromID
+	add hl, hl ; 8 bytes per species
+	add hl, hl
+	add hl, hl
+	ld de, FollowerPalettes
 	add hl, de
-	pop af
-	ld [wCurPartySpecies], a
-	ld a, [hl]
+	pop de
+	push hl
+	ld hl, MON_DVS
+	add hl, de
+	ld b, h
+	ld c, l
+	farcall CheckShininess
+	pop hl
+	jr nc, .got_colors
+	ld de, 2 * PAL_COLOR_SIZE
+	add hl, de
+.got_colors
+	ld de, wFollowerColors
+	ld bc, 2 * PAL_COLOR_SIZE
+	ld a, BANK(wFollowerColors)
+	call FarCopyWRAM
 	and a
 	ret
 
-.IconPalToNPCPal:
-; indexed by PAL_ICON_* (constants/icon_constants.asm)
-	db PAL_NPC_RED    ; PAL_ICON_RED
-	db PAL_NPC_BLUE   ; PAL_ICON_BLUE
-	db PAL_NPC_GREEN  ; PAL_ICON_GREEN
-	db PAL_NPC_BROWN  ; PAL_ICON_BROWN
-	db PAL_NPC_PINK   ; PAL_ICON_PINK
-	db PAL_NPC_GRAY   ; PAL_ICON_GRAY
-	db PAL_NPC_TEAL   ; PAL_ICON_TEAL
-	db PAL_NPC_PURPLE ; PAL_ICON_PURPLE
+ReloadFollowerPal:
+; Make the follower's object use PAL_OW_FOLLOWER, and reload that palette's
+; colors (they change with the lead Pokémon, the index doesn't).
+	ld a, PAL_NPC_FOLLOWER
+	ld [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_PALETTE], a
+	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_OBJECT_STRUCT_ID]
+	cp -1
+	ret z
+	call GetObjectStruct
+	ld hl, OBJECT_PAL_INDEX
+	add hl, bc
+	ld [hl], PAL_OW_FOLLOWER
+	; forget the loaded copy, so CheckForUsedObjPals loads it again
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wLoadedObjPal0)
+	ldh [rSVBK], a
+	ld hl, wLoadedObjPal0
+	ld b, 8
+.loop
+	ld a, [hl]
+	cp PAL_OW_FOLLOWER
+	jr nz, .next
+	ld [hl], -1
+.next
+	inc hl
+	dec b
+	jr nz, .loop
+	pop af
+	ldh [rSVBK], a
+	farjp CheckForUsedObjPals
+
+BuildFollowerOBPal::
+; For CopySpritePal: build the follower's palette in wFollowerOBPal from
+; wFollowerColors, darkened like the other NPCs at night and in dark caves.
+; Output: hl = wFollowerOBPal
+	assert BANK(wFollowerOBPal) == BANK("GBC Video"), \
+		"CopySpritePal copies with FarCopyColorWRAM"
+	; work out the lighting first: these variables are in WRAM bank 1
+	; e = 0: normal, 1: night, 2: dark cave without Flash
+	ld e, 0
+	ld a, [wPalFlags]
+	bit USE_DAYTIME_PAL_F, a
+	jr nz, .got_lighting
+	call GetMapTimeOfDay ; clobbers de
+	ld e, 0
+	or ~IN_DARKNESS
+	inc a
+	jr nz, .not_dark_map
+	ld a, [wStatusFlags]
+	bit STATUSFLAGS_FLASH_F, a
+	jr nz, .not_dark_map
+	ld e, 2
+	jr .got_lighting
+
+.not_dark_map
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	cp NITE_F
+	jr nz, .got_lighting
+	inc e
+.got_lighting
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wFollowerOBPal)
+	ldh [rSVBK], a
+
+	ld a, e
+	cp 2
+	jr nz, .not_dark
+	push de
+	ld hl, DarknessOBPalette
+	ld de, wFollowerOBPal
+	ld bc, 1 palettes
+	ld a, BANK(DarknessOBPalette)
+	call FarCopyBytes
+	pop de
+	jr .done
+
+.not_dark
+	ld hl, wFollowerOBPal
+	ld a, LOW(palred 31 + palgreen 31 + palblue 31)
+	ld [hli], a
+	ld a, HIGH(palred 31 + palgreen 31 + palblue 31)
+	ld [hli], a
+	ld bc, wFollowerColors
+	ld d, 2
+.color_loop
+	ld a, [bc]
+	inc bc
+	ld [hli], a
+	ld a, [bc]
+	inc bc
+	ld [hli], a
+	dec d
+	jr nz, .color_loop
+	xor a ; black
+	ld [hli], a
+	ld [hl], a
+
+	; at night, darken the two colors like the NPC night palettes
+	dec e
+	jr nz, .done
+	ld hl, wFollowerOBPal + 1 * PAL_COLOR_SIZE
+	call .Darken
+	ld hl, wFollowerOBPal + 2 * PAL_COLOR_SIZE
+	call .Darken
+
+.done
+	pop af
+	ldh [rSVBK], a
+	ld hl, wFollowerOBPal
+	ret
+
+.Darken:
+; red / 2 + 1, green / 2, blue * 7 / 8 (close to the NPC night palettes)
+	ld a, [hli]
+	ld e, a
+	ld a, [hld]
+	ld d, a ; de = color
+	; red: bits 0-4
+	ld a, e
+	and %11111
+	srl a
+	inc a
+	ld b, a
+	; green: bits 5-9
+	ld a, e
+	and %11100000
+	ld c, a
+	ld a, d
+	and %11
+	or c
+	rlca
+	rlca
+	rlca ; green in bits 0-4
+	srl a
+	ld c, a
+	; blue: bits 10-14
+	ld a, d
+	srl a
+	srl a
+	and %11111
+	ld d, a
+	srl a
+	srl a
+	srl a
+	cpl
+	inc a
+	add d ; blue - blue / 8
+	; repack: blue << 10 | green << 5 | red
+	ld d, a
+	ld a, c
+	rrca
+	rrca
+	rrca
+	ld e, a
+	and %11100000
+	or b
+	ld [hli], a
+	ld a, e
+	and %00000011
+	sla d
+	sla d
+	or d
+	ld [hl], a
+	ret
+
+INCLUDE "data/pokemon/follower_palettes.asm"
 
 RefreshFollower::
 ; After menus and battles (the lead may have changed: party order, fainting,
@@ -179,22 +349,9 @@ RefreshFollower::
 	call CheckFollowerAllowed
 	jr c, .remove
 	call UpdateFollowerVisibility
-	call GetFollowerPalette
+	call LoadFollowerColors
 	jr c, .remove
-	ld [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_PALETTE], a
-	dec a ; PAL_NPC_* -> PAL_OW_*
-	ld e, a
-	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_OBJECT_STRUCT_ID]
-	cp -1
-	ret z
-	call GetObjectStruct
-	ld hl, OBJECT_PAL_INDEX
-	add hl, bc
-	ld a, [hl]
-	cp e
-	ret z
-	ld [hl], e
-	farjp CheckForUsedObjPals ; load the new colors
+	jmp ReloadFollowerPal
 
 .remove
 	ld a, FOLLOWER_OBJECT

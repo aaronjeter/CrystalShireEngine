@@ -3238,6 +3238,12 @@ SECTION "Weather Fade Start Palettes", WRAMX, BANK[5]
 wWeatherFadeStartPals:: ds 16 palettes ; displayed BG + object palettes when a border fade starts
 
 
+SECTION "Follower Palette", WRAMX, BANK[5]
+
+wFollowerColors:: ds 2 * PAL_COLOR_SIZE ; light, dark (from FollowerPalettes)
+wFollowerOBPal:: ds 1 palettes ; built by BuildFollowerOBPal for CopySpritePal
+
+
 SECTION "Overworld Weather RAM", WRAMX, BANK[1]
 
 wCurWeather:: db ; OW_WEATHER_* for the current map

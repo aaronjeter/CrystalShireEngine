@@ -14,6 +14,12 @@ CopySpritePal::
 	push hl
 	push de
 	ld a, [wNeededPalIndex]
+	cp PAL_OW_FOLLOWER
+	jr nz, .not_follower
+	farcall BuildFollowerOBPal ; hl = wFollowerOBPal
+	jr .got_pal
+
+.not_follower
 	sub FIRST_COPY_BG_PAL
 	jr c, .not_copy_bg
 	ld hl, wBGPals1
@@ -78,8 +84,11 @@ CopySpritePal::
 	; NPC time-of-day palettes get the overworld weather tint. Weather particle
 	; palettes and copied BG palettes (already tinted) come after PAL_OW_RAIN.
 	ld a, [wNeededPalIndex]
+	cp PAL_OW_FOLLOWER
+	jr z, .weather_tint
 	cp PAL_OW_RAIN
 	jr nc, .no_weather_tint
+.weather_tint
 	ld c, 1
 	farcall ApplyWeatherTint
 .no_weather_tint

@@ -16,6 +16,12 @@ Writes:
 Species whose sprite comes from another species (variants, megas, species
 that borrowed another's menu icon) are listed in data/pokemon/icon_pointers.asm;
 run with --pointers to rewrite those entries from this script's mapping.
+
+--seed-palettes writes data/pokemon/follower_palettes.asm. Species with their
+own sprite get the sheet's colors (normal and shiny cells). Species that use
+another's sprite (variants, megas) get their battle palette
+(data/pokemon/palettes.asm), with the two colors in the order that best matches
+the sheet's. It overwrites hand edits, so only use it to start over.
 """
 
 import os
@@ -114,8 +120,8 @@ def sprite_sources(species, dex):
 # --- Sprite conversion ----------------------------------------------------
 BORDER = (139, 62, 93)
 
-def frames(sheet, entry):
-	x, y = slot_xy(2 * entry)
+def frames(sheet, entry, shiny=False):
+	x, y = slot_xy(2 * entry + shiny)
 	assert all(abs(a - b) <= 8 for a, b in zip(sheet.getpixel((x, y)), BORDER)), \
 		f"no cell at entry {entry}"
 	cells = [(x, y + 38), (x, y + 57),       # front (facing down) x2
@@ -173,6 +179,98 @@ def to_gray(frs):
 				out.putpixel((i, 16 * n + j), GRAYS[s])
 	return out, notes
 
+# --- Follower palettes ----------------------------------------------------
+def battle_palettes(species):
+	"""[(normal [c1, c2], shiny [c1, c2])] per species, colors as 5-bit RGB."""
+	text = open(os.path.join(ROOT, "data/pokemon/palettes.asm")).read()
+	body = text.split("PokemonPalettes:")[1]
+	body = body[body.index("INCBIN"):]
+	pals = []
+	for m in re.finditer(r'INCBIN "([^"]+)", middle_colors\s*\nINCLUDE "([^"]+)"', body):
+		b = open(os.path.join(ROOT, m.group(1)), "rb").read()
+		normal = [[w & 31, (w >> 5) & 31, (w >> 10) & 31]
+			for w in (int.from_bytes(b[k:k + 2], "little") for k in (2, 4))]
+		shiny = [list(map(int, v)) for v in re.findall(r"RGB\s+(\d+),\s*(\d+),\s*(\d+)",
+			open(os.path.join(ROOT, m.group(2))).read())[:2]]
+		pals.append((normal, shiny))
+	assert len(pals) == len(species), "palettes.asm doesn't match the species list"
+	return pals
+
+def sheet_colors(sheet, dex_number):
+	"""The sheet sprite's light and dark colors (8-bit RGB)."""
+	colors = set()
+	for f in frames(sheet, sheet_entry(dex_number)):
+		out = outside(f)
+		px = f.load()
+		for j in range(16):
+			for i in range(16):
+				c = px[i, j]
+				if (i, j) not in out and 40 < max(c) and min(c) < 230:
+					colors.add(c)
+	lum = lambda c: 299 * c[0] + 587 * c[1] + 114 * c[2]
+	mid = sorted(colors, key=lum, reverse=True)
+	return (mid + mid)[:2] if mid else None
+
+def shade_colors(sheet, dex_number, shiny=False):
+	"""The sheet colors behind shades 1 and 2 of the converted sprite (the most
+	common sheet color at the pixels that became each shade), as 5-bit RGB."""
+	gray, _ = to_gray(frames(sheet, sheet_entry(dex_number)))
+	gpx = gray.load()
+	counts = {1: {}, 2: {}}
+	for n, f in enumerate(frames(sheet, sheet_entry(dex_number), shiny)):
+		px = f.load()
+		for j in range(16):
+			for i in range(16):
+				s = GRAYS.index(gpx[i, 16 * n + j])
+				if s in counts:
+					c = px[i, j]
+					counts[s][c] = counts[s].get(c, 0) + 1
+	best = {s: max(cs, key=cs.get) for s, cs in counts.items() if cs}
+	if not best:
+		return None
+	light = best.get(1, best.get(2))
+	dark = best.get(2, light)
+	return [[round(v * 31 / 255) for v in c] for c in (light, dark)]
+
+def seed_palettes(sheet, species, dex):
+	src = sprite_sources(species, dex)
+	pals = battle_palettes(species)
+	to8 = lambda c: [v * 255 // 31 for v in c]
+	dist = lambda a, b: sum((x - y) ** 2 for x, y in zip(a, b))
+	rgb = lambda c: "%02d,%02d,%02d" % tuple(c)
+	lines = [
+		"; Overworld colors of each following Pokémon: light, dark, then the shiny",
+		"; light, dark. Seeded by tools/make_follower_sprites.py --seed-palettes",
+		"; from the sprite sheet's colors (battle colors for species that use another",
+		"; species' sprite), then edited by hand.",
+		"; The sprite's light parts use the first color and its dark parts the second;",
+		"; black stays black. Species without a follower sprite are listed too, so the",
+		"; table can be indexed by species.",
+		"",
+		"FollowerPalettes::",
+		"\ttable_width PAL_COLOR_SIZE * 4",
+		"\tRGB 31,31,31, 00,00,00, 31,31,31, 00,00,00 ; (no species)",
+	]
+	swapped = from_sheet = 0
+	for k, name in enumerate(species):
+		normal, shiny = pals[k]
+		base = src.get(name)
+		if base == name and shade_colors(sheet, dex[base]):
+			normal = shade_colors(sheet, dex[base])
+			shiny = shade_colors(sheet, dex[base], shiny=True)
+			from_sheet += 1
+		elif base:
+			light, dark = sheet_colors(sheet, dex[base])
+			n8 = [to8(c) for c in normal]
+			if dist(light, n8[1]) + dist(dark, n8[0]) < dist(light, n8[0]) + dist(dark, n8[1]):
+				normal, shiny = normal[::-1], shiny[::-1]
+				swapped += 1
+		note = "" if base == name else f" (uses {base.title()}'s sprite)" if base else " (menu icon only)"
+		lines.append(f"\tRGB {rgb(normal[0])}, {rgb(normal[1])}, {rgb(shiny[0])}, {rgb(shiny[1])} ; {name}{note}")
+	lines.append("\tassert_table_length NUM_POKEMON + 1")
+	open(os.path.join(ROOT, "data/pokemon/follower_palettes.asm"), "w").write("\n".join(lines) + "\n")
+	print(f"follower_palettes.asm: {len(species)} species, {from_sheet} from the sheet, {swapped} battle palettes swapped")
+
 def main():
 	args = [a for a in sys.argv[1:] if not a.startswith("--")]
 	if len(args) != 1:
@@ -220,6 +318,9 @@ def main():
 				lines[n] = f"{m.group(1)}dba_lz {target}{comment}"
 			idx += 1
 		open(path, "w").write("\n".join(lines))
+
+	if "--seed-palettes" in sys.argv:
+		seed_palettes(sheet, species, dex)
 
 	print(f"{len(base)} sprites written")
 	for name, note in notes.items():
