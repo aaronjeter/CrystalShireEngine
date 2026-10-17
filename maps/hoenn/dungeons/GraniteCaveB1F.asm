@@ -5,6 +5,11 @@ GraniteCaveB1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, GraniteCaveB1FMonSpritesCallback
+
+GraniteCaveB1FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, SABLEYE
+	endcallback
 
 GraniteCaveB1F_Sableye:
 	cry SABLEYE
@@ -31,5 +36,5 @@ GraniteCaveB1F_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  08, 04, SPRITE_SABLEYE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB1F_Sableye, -1
+	object_event  08, 04, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB1F_Sableye, -1
 	object_event  20, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB1FSuperPotion, EVENT_GRANITE_CAVE_B1F_SUPER_POTION

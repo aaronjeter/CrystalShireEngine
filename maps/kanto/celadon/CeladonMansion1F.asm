@@ -8,6 +8,13 @@ CeladonMansion1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, CeladonMansion1FMonSpritesCallback
+
+CeladonMansion1FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, MEOWTH
+	setmonsprite SPRITE_MON_2, CLEFAIRY
+	setmonsprite SPRITE_MON_3, NIDORAN_F
+	endcallback
 
 CeladonMansionManager:
 	jumptextfaceplayer CeladonMansionManagerText
@@ -91,6 +98,6 @@ CeladonMansion1F_MapEvents:
 
 	def_object_events
 	object_event  1,  5, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansionManager, -1
-	object_event  2,  6, SPRITE_GROWLITHE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonMansion1FMeowth, -1
-	object_event  3,  4, SPRITE_CLEFAIRY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansion1FClefairy, -1
-	object_event  4,  4, SPRITE_GROWLITHE, SPRITEMOVEDATA_POKEMON, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonMansion1FNidoranF, -1
+	object_event  2,  6, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansion1FMeowth, -1
+	object_event  3,  4, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansion1FClefairy, -1
+	object_event  4,  4, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonMansion1FNidoranF, -1

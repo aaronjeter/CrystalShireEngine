@@ -15,6 +15,12 @@ CherrygroveCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, CherrygroveCityFlypointCallback
+	callback MAPCALLBACK_OBJECTS, CherrygroveCityMonSpritesCallback
+
+CherrygroveCityMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, HOOTHOOT
+	setmonsprite SPRITE_MON_2, VAPOREON
+	endcallback
 
 CherrygroveCityNoop1Scene:
 	end
@@ -546,6 +552,6 @@ CherrygroveCity_MapEvents:
 	object_event 27, 12, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
 	object_event 23,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
 	object_event  7, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
-	object_event 17, 12, SPRITE_HOOTHOOT, SPRITEMOVEDATA_STILL, 0, 0, -1, NITE, 0, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Hoothoot, -1
-	object_event 19,  6, SPRITE_HOOTHOOT, SPRITEMOVEDATA_STILL, 0, 0, -1, NITE, 0, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Hoothoot, -1
-	object_event 6,  12, SPRITE_VAPOREON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Vaporeon, -1
+	object_event 17, 12, SPRITE_MON_1, SPRITEMOVEDATA_STILL, 0, 0, -1, NITE, 0, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Hoothoot, -1
+	object_event 19,  6, SPRITE_MON_1, SPRITEMOVEDATA_STILL, 0, 0, -1, NITE, 0, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Hoothoot, -1
+	object_event 6,  12, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Vaporeon, -1

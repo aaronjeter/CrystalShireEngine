@@ -12,6 +12,14 @@ MeteorFalls_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, MeteorFallsMonSpritesCallback
+
+MeteorFallsMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, LUNATONE
+	setmonsprite SPRITE_MON_2, SOLROCK
+	setmonsprite SPRITE_MON_3, CLEFAIRY
+	setmonsprite SPRITE_MON_4, MARS
+	endcallback
 
 MeteorFallsEnableBridgeScript:
 	;bridge 1
@@ -120,9 +128,9 @@ MeteorFalls_MapEvents:
 	def_object_events
 	object_event 03, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsMoonStone, EVENT_METEOR_FALLS_MOON_STONE
 	object_event 29, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsSunStone, EVENT_METEOR_FALLS_SUN_STONE
-	object_event 10, 11, SPRITE_LUNATONE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsLunatone, -1
-	object_event 29, 33, SPRITE_SOLROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsSolrock, -1
-	object_event 06, 34, SPRITE_CLEFAIRY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsClefairy, -1
-	object_event 06, 05, SPRITE_MARS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Djinn_AuroraScript, EVENT_GOT_AURORA
+	object_event 10, 11, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsLunatone, -1
+	object_event 29, 33, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsSolrock, -1
+	object_event 06, 34, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsClefairy, -1
+	object_event 06, 05, SPRITE_MON_4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_AuroraScript, EVENT_GOT_AURORA
 	object_event 06, 36, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsSilverLeaf, EVENT_METEOR_FALLS_SILVER_LEAF
 	object_event 21, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsGoldLeaf, EVENT_METEOR_FALLS_GOLD_LEAF

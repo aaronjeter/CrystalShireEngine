@@ -4,6 +4,11 @@ FortreeHouse2_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, FortreeHouse2MonSpritesCallback
+
+FortreeHouse2MonSpritesCallback:
+	setmonsprite SPRITE_MON_1, VULPIX
+	endcallback
 
 FortreeHouse2TeacherScript:
 	jumptextfaceplayer FortreeHouse2TeacherText
@@ -37,5 +42,5 @@ FortreeHouse2_MapEvents:
 
 	def_object_events
 	object_event  7,  4, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FortreeHouse2TeacherScript, -1
-	object_event  9,  5, SPRITE_VULPIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, FortreeVulpixScript, -1
-	object_event  4,  1, SPRITE_VULPIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeVulpixScript, -1
+	object_event  9,  5, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, FortreeVulpixScript, -1
+	object_event  4,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeVulpixScript, -1

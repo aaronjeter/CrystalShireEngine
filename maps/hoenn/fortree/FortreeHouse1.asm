@@ -4,6 +4,11 @@ FortreeHouse1_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, FortreeHouse1MonSpritesCallback
+
+FortreeHouse1MonSpritesCallback:
+	setmonsprite SPRITE_MON_1, TREECKO
+	endcallback
 
 FortreeHouse1GentlemanScript:
 	jumptextfaceplayer FortreeHouse1GentlemanText
@@ -34,4 +39,4 @@ FortreeHouse1_MapEvents:
 
 	def_object_events
 	object_event  7,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FortreeHouse1GentlemanScript, -1
-	object_event  8,  1, SPRITE_TREECKO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeTreeckoScript, -1
+	object_event  8,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeTreeckoScript, -1

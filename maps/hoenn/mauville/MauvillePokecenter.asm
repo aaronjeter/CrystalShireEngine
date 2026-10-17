@@ -6,6 +6,11 @@ MauvillePokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, MauvillePokecenterMonSpritesCallback
+
+MauvillePokecenterMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, CHANSEY
+	endcallback
 
 MauvillePokecenterNurseScript:
 	jumpstd PokecenterNurseScript
@@ -45,5 +50,5 @@ MauvillePokecenter_MapEvents:
 
 	def_object_events
 	object_event  05, 01, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterNurseScript, -1
-	object_event  07, 01, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterChanseyScript, -1
+	object_event  07, 01, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterChanseyScript, -1
 	object_event  10, 04, SPRITE_GRANNY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvillePokecenterGrannyScript, -1

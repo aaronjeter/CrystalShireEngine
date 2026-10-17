@@ -9,6 +9,13 @@ LittlerootTown_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, LittlerootTownFlypointCallback
+	callback MAPCALLBACK_OBJECTS, LittlerootTownMonSpritesCallback
+
+LittlerootTownMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, TREECKO
+	setmonsprite SPRITE_MON_2, TORCHIC
+	setmonsprite SPRITE_MON_3, MUDKIP
+	endcallback
 
 LittlerootTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_LITTLEROOT
@@ -190,8 +197,8 @@ LittlerootTown_MapEvents:
 	bg_event  08, 13, BGEVENT_READ, BirchLabSign
 
 	def_object_events
-	object_event  1,  6, SPRITE_TREECKO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Littleroot_Treecko, -1
-	object_event 14,  4, SPRITE_TORCHIC, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Littleroot_Torchic, -1
-	object_event  1, 15, SPRITE_MUDKIP, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Littleroot_Mudkip, -1
+	object_event  1,  6, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Littleroot_Treecko, -1
+	object_event 14,  4, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Littleroot_Torchic, -1
+	object_event  1, 15, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Littleroot_Mudkip, -1
 	object_event 10, 05, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LittlerootTownTeacherScript, -1
 	

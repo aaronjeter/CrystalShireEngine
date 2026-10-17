@@ -7,6 +7,11 @@ Route28SteelWingHouse_MapScripts:
 	scene_script Route28SteelWingHouseNoopScene ; unusable
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route28SteelWingHouseMonSpritesCallback
+
+Route28SteelWingHouseMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, FEAROW
+	endcallback
 
 Route28SteelWingHouseNoopScene:
 	end
@@ -83,4 +88,4 @@ Route28SteelWingHouse_MapEvents:
 
 	def_object_events
 	object_event  2,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Celebrity, -1
-	object_event  6,  5, SPRITE_SPEAROW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CelebritysFearow, -1
+	object_event  6,  5, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CelebritysFearow, -1

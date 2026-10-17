@@ -8,6 +8,11 @@ GraniteCaveB3F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, GraniteCaveB3FMonSpritesCallback
+
+GraniteCaveB3FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, TENTACOOL2
+	endcallback
 
 GraniteCaveBrawlyScript:
 	faceplayer
@@ -129,8 +134,8 @@ GraniteCaveB3F_MapEvents:
 
 	def_object_events
 	object_event  11, 08, SPRITE_KURT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GraniteCaveBrawlyScript, EVENT_GOT_PICKAXE
-	object_event  09, 13, SPRITE_TENTACOOL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool1, -1
-	object_event  11, 13, SPRITE_TENTACOOL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool2, -1
-	object_event  10, 12, SPRITE_TENTACOOL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLACK, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool3, -1
+	object_event  09, 13, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool1, -1
+	object_event  11, 13, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool2, -1
+	object_event  10, 12, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLACK, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool3, -1
 	object_event  04, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB3FEscapeRope, EVENT_GRANITE_CAVE_B3F_ESCAPE_ROPE
 

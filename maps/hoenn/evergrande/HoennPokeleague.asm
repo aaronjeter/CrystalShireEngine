@@ -7,6 +7,11 @@ HoennPokeleague_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, HoennPokeleagueFlypointCallback
+	callback MAPCALLBACK_OBJECTS, HoennPokeleagueMonSpritesCallback
+
+HoennPokeleagueMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, CHANSEY
+	endcallback
 
 HoennPokeleagueFlypointCallback:
 	setflag ENGINE_FLYPOINT_EVERGRANDE
@@ -34,5 +39,5 @@ HoennPokeleague_MapEvents:
 
 	def_object_events
 	object_event  03, 01, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, HoennPokeleagueNurseScript, -1
-	object_event  04, 01, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HoennPokeleagueChanseyScript, -1
+	object_event  04, 01, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HoennPokeleagueChanseyScript, -1
 	

@@ -7,6 +7,11 @@ OldalePokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, OldalePokecenterMonSpritesCallback
+
+OldalePokecenterMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, CHANSEY
+	endcallback
 
 OldalePokecenterNurseScript:
 	jumpstd PokecenterNurseScript
@@ -39,5 +44,5 @@ OldalePokecenter_MapEvents:
 
 	def_object_events
 	object_event  05,  01, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, OldalePokecenterNurseScript, -1
-	object_event  07,  01, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldalePokecenterChanseyScript, -1
+	object_event  07,  01, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldalePokecenterChanseyScript, -1
 	object_event  12,  03, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OldalePokecenterFisherScript, -1

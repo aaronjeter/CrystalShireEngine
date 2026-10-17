@@ -15,7 +15,10 @@ GetPokemonSpriteGFX::
 	and a
 	jr z, .none
 	cp SPRITE_POKEMON
-	ret c ; a normal sprite (no carry)
+	jr nc, .got_sprite
+	and a ; a normal sprite: no carry
+	ret
+
 .got_sprite
 	cp SPRITE_FOLLOWER
 	jr z, .follower

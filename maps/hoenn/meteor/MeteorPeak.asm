@@ -6,6 +6,11 @@ MeteorPeak_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, MeteorPeakMonSpritesCallback
+
+MeteorPeakMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, RAYQUAZA
+	endcallback
 
 RayquazaScript:
 	cry RAYQUAZA
@@ -160,6 +165,6 @@ MeteorPeak_MapEvents:
 	bg_event 41, 20, BGEVENT_UP, RayquazaShrineScript
 
 	def_object_events
-	object_event  42, 18, SPRITE_RAYQUAZA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RayquazaScript, EVENT_GOT_RAYQUAZA
+	object_event  42, 18, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RayquazaScript, EVENT_GOT_RAYQUAZA
 	object_event  13, 36, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorPeakMarvelScale, EVENT_METEOR_FALLS_MARVEL_SCALE
 	

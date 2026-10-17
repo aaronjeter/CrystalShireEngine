@@ -7,6 +7,12 @@ FieryPath_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, FieryPathMonSpritesCallback
+
+FieryPathMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, TORKOAL
+	setmonsprite SPRITE_MON_2, SLUGMA
+	endcallback
 
 FieryPath_Torkoal:
 	cry TORKOAL
@@ -50,8 +56,8 @@ FieryPath_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  08, 37, SPRITE_TORKOAL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPath_Torkoal, -1
-	object_event  09, 15, SPRITE_SLUGMA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPath_Slugma1, -1
-	object_event  21, 37, SPRITE_SLUGMA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPath_Slugma2, -1
+	object_event  08, 37, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPath_Torkoal, -1
+	object_event  09, 15, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPath_Slugma1, -1
+	object_event  21, 37, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPath_Slugma2, -1
 	object_event  15, 05, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FieryPathFireStone, EVENT_FIERY_PATH_FIRE_STONE
 	object_event  08, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FieryPathPpUp, EVENT_FIERY_PATH_PP_UP

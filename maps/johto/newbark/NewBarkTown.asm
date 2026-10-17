@@ -14,6 +14,14 @@ NewBarkTown_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, NewBarkTownFlypointCallback
+	callback MAPCALLBACK_OBJECTS, NewBarkTownMonSpritesCallback
+
+NewBarkTownMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, CHIKORITA
+	setmonsprite SPRITE_MON_2, CYNDAQUIL
+	setmonsprite SPRITE_MON_3, TOTODILE
+	setmonsprite SPRITE_MON_4, DELIBIRD
+	endcallback
 
 NewBarkTownNoop1Scene:
 	end
@@ -333,7 +341,7 @@ NewBarkTown_MapEvents:
 	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
 	object_event 12,  9, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, -1
 	object_event  3,  2, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownRivalScript, EVENT_RIVAL_NEW_BARK_TOWN
-	object_event  7, 15, SPRITE_CHIKORITA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTown_Chikorita, -1
-	object_event 11,  4, SPRITE_CYNDAQUIL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTown_Cyndaquil, -1
-	object_event 17,  6, SPRITE_TOTODILE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTown_Totodile, -1
-	object_event 7,  1,  SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, NewBarkTown_Totodile, -1
+	object_event  7, 15, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTown_Chikorita, -1
+	object_event 11,  4, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTown_Cyndaquil, -1
+	object_event 17,  6, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTown_Totodile, -1
+	object_event 7,  1,  SPRITE_MON_4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTown_Totodile, -1

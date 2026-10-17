@@ -8,6 +8,7 @@ TinTowerRoof_MapScripts:
 	callback MAPCALLBACK_OBJECTS, TinTowerRoofHoOhCallback
 
 TinTowerRoofHoOhCallback:
+	setmonsprite SPRITE_MON_1, HO_OH
 	checkevent EVENT_FOUGHT_HO_OH
 	iftrue .NoAppear
 	checkitem RAINBOW_WING
@@ -182,4 +183,4 @@ TinTowerRoof_MapEvents:
 	bg_event  8,  8, BGEVENT_UP, HoOhShrineScript
 
 	def_object_events
-	object_event  9,  5, SPRITE_HO_OH, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTowerHoOh, EVENT_TIN_TOWER_ROOF_HO_OH
+	object_event  9,  5, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTowerHoOh, EVENT_TIN_TOWER_ROOF_HO_OH

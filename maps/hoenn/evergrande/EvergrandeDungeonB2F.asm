@@ -11,6 +11,11 @@ EvergrandeDungeonB2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, EvergrandeDungeonB2FMonSpritesCallback
+
+EvergrandeDungeonB2FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, VENUS
+	endcallback
 
 EvergrandeDungeonB2FEnableBridgeScript:
 	;bridge 1
@@ -271,4 +276,4 @@ EvergrandeDungeonB2F_MapEvents:
 	object_event 43, 34, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF7, -1
 	object_event 21, 35, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF8, -1
 	object_event 10, 14, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF9, -1
-	object_event 52, 21, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Djinn_PetraScript, EVENT_GOT_PETRA
+	object_event 52, 21, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_PetraScript, EVENT_GOT_PETRA

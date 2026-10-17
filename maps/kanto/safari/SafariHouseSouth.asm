@@ -8,6 +8,11 @@ SafariHouseSouth_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, SafariHouseSouthMonSpritesCallback
+
+SafariHouseSouthMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, JIGGLYPUFF
+	endcallback
 
 SafariMonicaScript:
 	trainer RANGERF, SAFARI_MONICA, EVENT_BEAT_SAFARI_MONICA, SafariMonicaSeenText, SafariMonicaBeatenText, 0, .Script
@@ -88,4 +93,4 @@ SafariHouseSouth_MapEvents:
 	object_event  02, 07, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, SafariMonicaScript, -1
 	object_event  09, 04, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariSouthHouseNurseScript, -1
 	object_event  02, 01, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SafariSouthHouseTwin, -1
-	object_event  03, 01, SPRITE_JIGGLYPUFF, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariSouthHouseJigglypuff, -1
+	object_event  03, 01, SPRITE_MON_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariSouthHouseJigglypuff, -1

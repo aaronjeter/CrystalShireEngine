@@ -9,6 +9,11 @@ DesertShrine_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, DesertShrineMonSpritesCallback
+
+DesertShrineMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, UNOWNX
+	endcallback
 
 DesertShrineUnown:
 	opentext
@@ -173,7 +178,7 @@ DesertShrine_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 13, 02, SPRITE_UNOWN, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertShrineUnown, EVENT_BEAT_DESERT_SHRINE_UNOWN
+	object_event 13, 02, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertShrineUnown, EVENT_BEAT_DESERT_SHRINE_UNOWN
 	object_event 13, 07, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertShrineJaneTalkScript, EVENT_BEAT_DESERT_SHRINE_UNOWN
 	object_event 03, 13, SPRITE_ROCKET, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertShrineRocket1Script, EVENT_BEAT_DESERT_SHRINE_UNOWN
 	object_event 12, 16, SPRITE_ROCKET, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertShrineRocket2Script, EVENT_BEAT_DESERT_SHRINE_UNOWN

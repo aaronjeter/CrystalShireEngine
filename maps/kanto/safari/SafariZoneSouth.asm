@@ -10,6 +10,12 @@ SafariZoneSouth_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, SafariZoneSouthMonSpritesCallback
+
+SafariZoneSouthMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, CHANSEY
+	setmonsprite SPRITE_MON_2, MEW
+	endcallback
 
 SafariGrunt1Script:
 	trainer GRUNTM, SAFARI_GRUNT1, EVENT_BEAT_SAFARI_GRUNT1, SafariGrunt1SeenText, SafariGrunt1BeatenText, 0, .Script
@@ -193,5 +199,5 @@ SafariZoneSouth_MapEvents:
 	object_event  20, 29, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 2, SafariGruntf1Script, EVENT_BEAT_SAFARI_GRUNTF1
 	object_event  19, 05, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGrunt6Script, EVENT_BEAT_SAFARI_GRUNT6
 	object_event  05, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGrunt7Script, EVENT_BEAT_SAFARI_GRUNT7
-	object_event  31, 07, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneSouth_Chansey, -1
-	object_event  18, 15, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneSouth_FakeMew, EVENT_SAFARI_SOUTH_FAKE_MEW
+	object_event  31, 07, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneSouth_Chansey, -1
+	object_event  18, 15, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneSouth_FakeMew, EVENT_SAFARI_SOUTH_FAKE_MEW

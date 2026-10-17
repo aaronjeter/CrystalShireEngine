@@ -8,6 +8,12 @@ SafariHouseEast_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, SafariHouseEastMonSpritesCallback
+
+SafariHouseEastMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, ESPEON
+	setmonsprite SPRITE_MON_2, UMBREON
+	endcallback
 
 SafariEliScript:
 	trainer RANGERM, SAFARI_ELI, EVENT_BEAT_SAFARI_ELI, SafariEliSeenText, SafariEliBeatenText, 0, .Script
@@ -86,5 +92,5 @@ SafariHouseEast_MapEvents:
 	def_object_events
 	object_event  02, 06, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, SafariEliScript, -1
 	object_event  07, 04, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, SafariRandalScript, -1
-	object_event  00, 04, SPRITE_ESPEON, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariEastHouseEspeon, -1
-	object_event  07, 01, SPRITE_UMBREON, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariEastHouseUmbreon, -1
+	object_event  00, 04, SPRITE_MON_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariEastHouseEspeon, -1
+	object_event  07, 01, SPRITE_MON_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariEastHouseUmbreon, -1

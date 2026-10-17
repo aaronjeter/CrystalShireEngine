@@ -14,6 +14,11 @@ GoldenrodDeptStoreB1F_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_TILES, GoldenRodDeptStoreB1FClearBoxesCallback
 	callback MAPCALLBACK_NEWMAP, GoldenRodDeptStoreUnblockCallback
+	callback MAPCALLBACK_OBJECTS, GoldenrodDeptStoreB1FMonSpritesCallback
+
+GoldenrodDeptStoreB1FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, MACHOKE
+	endcallback
 
 GoldenRodDeptStoreB1FClearBoxesCallback:
 	checkevent EVENT_RECEIVED_CARD_KEY
@@ -126,4 +131,4 @@ GoldenrodDeptStoreB1F_MapEvents:
 	object_event  9, 10, SPRITE_BLACK_BELT, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreB1FBlackBelt1Script, -1
 	object_event  4,  8, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreB1FBlackBelt2Script, -1
 	object_event  6, 13, SPRITE_BLACK_BELT, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreB1FBlackBelt3Script, -1
-	object_event  7,  7, SPRITE_MACHOP, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreB1FMachopScript, -1
+	object_event  7,  7, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreB1FMachopScript, -1

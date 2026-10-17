@@ -10,6 +10,12 @@ MeteorTunnelWest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, MeteorTunnelWestMonSpritesCallback
+
+MeteorTunnelWestMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, BAGON
+	setmonsprite SPRITE_MON_2, DUSCLOPS
+	endcallback
 
 MeteorTunnelWestEnableBridgeScript:
 	;bridge 1
@@ -80,5 +86,5 @@ MeteorTunnelWest_MapEvents:
 	object_event 29, 09, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestStarPiece, EVENT_METEOR_TUNNEL_WEST_STAR_PIECE
 	object_event 33, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestRareCandy, EVENT_METEOR_TUNNEL_WEST_RARE_CANDY
 	object_event 36, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelWestPpUp, EVENT_METEOR_TUNNEL_WEST_PP_UP
-	object_event 04, 03, SPRITE_BAGON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorTunnelWestBagon, -1
-	object_event 18, 26, SPRITE_GENGAR, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, MeteorTunnelDusclops, -1
+	object_event 04, 03, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorTunnelWestBagon, -1
+	object_event 18, 26, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorTunnelDusclops, -1

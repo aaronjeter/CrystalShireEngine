@@ -5,6 +5,11 @@ RegisteelLair_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, RegisteelLairMonSpritesCallback
+
+RegisteelLairMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, REGISTEEL
+	endcallback
 
 RegisteelScript:
 	cry REGISTEEL
@@ -26,4 +31,4 @@ RegisteelLair_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 11, 05, SPRITE_REGISTEEL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RegisteelScript, -1
+	object_event 11, 05, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RegisteelScript, -1

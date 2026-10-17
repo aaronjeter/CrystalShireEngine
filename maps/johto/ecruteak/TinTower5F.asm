@@ -6,6 +6,11 @@ TinTower5F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, TinTower5FMonSpritesCallback
+
+TinTower5FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, JUPITER
+	endcallback
 
 TinTower5FRareCandy:
 	itemball RARE_CANDY
@@ -63,4 +68,4 @@ TinTower5F_MapEvents:
 
 	def_object_events
 	object_event  9,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower5FRareCandy, EVENT_TIN_TOWER_5F_RARE_CANDY
-	object_event 17, 00, SPRITE_JUPITER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Djinn_ZephyrScript, EVENT_GOT_ZEPHYR
+	object_event 17, 00, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_ZephyrScript, EVENT_GOT_ZEPHYR

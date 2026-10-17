@@ -11,6 +11,11 @@ PetalburgCity_MapScripts:
 
 	def_callbacks	
 	callback MAPCALLBACK_NEWMAP, PetalburgCityFlypointCallback
+	callback MAPCALLBACK_OBJECTS, PetalburgCityMonSpritesCallback
+
+PetalburgCityMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, MARS
+	endcallback
 
 PetalburgCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_PETALBURG
@@ -148,4 +153,4 @@ PetalburgCity_MapEvents:
 	object_event 14, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgCooltrainerFScript, -1
 	object_event 06, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgRareCandy, EVENT_PETALBURG_CITY_RARE_CANDY
 	object_event 27, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgPokeball, EVENT_PETALBURG_CITY_POKE_BALL
-	object_event 05, 28, SPRITE_MARS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Djinn_CoronaScript, EVENT_GOT_CORONA
+	object_event 05, 28, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_CoronaScript, EVENT_GOT_CORONA

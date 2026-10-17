@@ -9,6 +9,12 @@ RustboroPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, RustboroPokecenterMonSpritesCallback
+
+RustboroPokecenterMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, CHANSEY
+	setmonsprite SPRITE_MON_2, MACHOKE
+	endcallback
 
 RustboroPokecenterNurseScript:
 	jumpstd PokecenterNurseScript
@@ -61,8 +67,8 @@ RustboroPokecenter_MapEvents:
 
 	def_object_events
 	object_event 05, 01, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, RustboroPokecenterNurseScript, -1
-	object_event 07, 01, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RustboroPokecenterChanseyScript, -1
+	object_event 07, 01, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RustboroPokecenterChanseyScript, -1
 	object_event 12, 05, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RustboroPokecenterHikerScript, -1
-	object_event 12, 06, SPRITE_MACHOKE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RustboroPokecenterMachokeScript, -1
+	object_event 12, 06, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RustboroPokecenterMachokeScript, -1
 	object_event 07, 04, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RustboroPokecenterTeacherScript, -1
 	

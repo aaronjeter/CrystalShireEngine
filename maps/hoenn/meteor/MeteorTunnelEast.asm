@@ -10,6 +10,11 @@ MeteorTunnelEast_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, MeteorTunnelEastMonSpritesCallback
+
+MeteorTunnelEastMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, BANETTE
+	endcallback
 
 MeteorTunnelEastEnableBridgeScript:
 	;vertical bridges work a bit differently
@@ -87,4 +92,4 @@ MeteorTunnelEast_MapEvents:
 	object_event 08, 34, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelEastStarPiece, EVENT_METEOR_TUNNEL_EAST_STAR_PIECE
 	object_event 31, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelEastRareCandy, EVENT_METEOR_TUNNEL_EAST_RARE_CANDY
 	object_event 06, 03, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelEastClawFossil, EVENT_GOT_FOSSIL_CLAW_METEOR_EAST
-	object_event 15, 34, SPRITE_GENGAR, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, MeteorTunnelEastBanette, -1
+	object_event 15, 34, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorTunnelEastBanette, -1

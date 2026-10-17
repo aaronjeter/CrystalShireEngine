@@ -8,6 +8,14 @@ MoltresLair_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, MoltresLairMonSpritesCallback
+
+MoltresLairMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, MOLTRES
+	setmonsprite SPRITE_MON_2, SOLROCK
+	setmonsprite SPRITE_MON_3, CHARIZARD
+	setmonsprite SPRITE_MON_4, TYRANITAR
+	endcallback
 
 MoltresLairMoltresText:
 	text "Flames swirl"
@@ -64,8 +72,8 @@ MoltresLair_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 20,  0, SPRITE_MOLTRES, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Moltres, -1
-	object_event 34, 24, SPRITE_SOLROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Solrock, -1
-	object_event  3,  4, SPRITE_CHARIZARD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Charizard, -1
-	object_event 21, 15, SPRITE_TYRANITAR, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Tyranitar, -1
+	object_event 20,  0, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Moltres, -1
+	object_event 34, 24, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Solrock, -1
+	object_event  3,  4, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Charizard, -1
+	object_event 21, 15, SPRITE_MON_4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Tyranitar, -1
 	

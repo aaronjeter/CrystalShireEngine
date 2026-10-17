@@ -7,6 +7,11 @@ PetalburgWoods_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, PetalburgWoodsMonSpritesCallback
+
+PetalburgWoodsMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, VENUS
+	endcallback
 
 PetalburgWoodsLyleScript:
 	trainer BUG_CATCHER, PETALBURGWOODS_LYLE, EVENT_BEAT_PETALBURGWOODS_LYLE, PetalburgWoodsLyleSeenText, PetalburgWoodsLyleBeatenText, 0, .AfterScript
@@ -104,5 +109,5 @@ PetalburgWoods_MapEvents:
 	def_object_events
 	object_event  09, 24, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PetalburgWoodsLyleScript, -1
 	object_event  10, 15, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, PetalburgWoodsJamesScript, -1
-	object_event  39, 04, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Djinn_IvyScript, EVENT_GOT_IVY
+	object_event  39, 04, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_IvyScript, EVENT_GOT_IVY
 	

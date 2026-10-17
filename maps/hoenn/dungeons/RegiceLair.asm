@@ -5,6 +5,11 @@ RegiceLair_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, RegiceLairMonSpritesCallback
+
+RegiceLairMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, REGICE
+	endcallback
 
 RegiceScript:
 	cry REGICE
@@ -26,4 +31,4 @@ RegiceLair_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 10, 7, SPRITE_REGICE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RegiceScript, -1
+	object_event 10, 7, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RegiceScript, -1

@@ -6,6 +6,12 @@ Route101_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, Route101MonSpritesCallback
+
+Route101MonSpritesCallback:
+	setmonsprite SPRITE_MON_1, POOCHYENA
+	setmonsprite SPRITE_MON_2, ZIGZAGOON
+	endcallback
 
 Route101_Poochyena:
 	cry POOCHYENA
@@ -44,6 +50,6 @@ Route101_MapEvents:
 	bg_event  9,  8, BGEVENT_READ, Route101Sign
 
 	def_object_events
-	object_event  6, 10, SPRITE_POOCHYENA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route101_Poochyena, -1
-	object_event  4,  4, SPRITE_ZIGZAGOON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route101_Zigzagoon, -1
+	object_event  6, 10, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route101_Poochyena, -1
+	object_event  4,  4, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route101_Zigzagoon, -1
 	

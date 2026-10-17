@@ -14,6 +14,11 @@ VioletCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, VioletCityFlypointCallback
+	callback MAPCALLBACK_OBJECTS, VioletCityMonSpritesCallback
+
+VioletCityMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, JUPITER
+	endcallback
 
 VioletCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_VIOLET
@@ -342,4 +347,4 @@ VioletCity_MapEvents:
 	object_event 14, 29, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletCityFruitTree, -1
 	object_event  4,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityPPUp, EVENT_VIOLET_CITY_PP_UP
 	object_event 35,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityRareCandy, EVENT_VIOLET_CITY_RARE_CANDY
-	object_event 07, 00, SPRITE_JUPITER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Djinn_BreezeScript, EVENT_GOT_BREEZE
+	object_event 07, 00, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_BreezeScript, EVENT_GOT_BREEZE

@@ -15,6 +15,12 @@ LilycoveCity_MapScripts:
 
 	def_callbacks	
 	callback MAPCALLBACK_NEWMAP, LilycoveCityFlypointCallback
+	callback MAPCALLBACK_OBJECTS, LilycoveCityMonSpritesCallback
+
+LilycoveCityMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, ESPEON
+	setmonsprite SPRITE_MON_2, WINGULL
+	endcallback
 
 LilycoveCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_LILYCOVE	
@@ -246,10 +252,10 @@ LilycoveCity_MapEvents:
 
 	def_object_events
 	object_event  46,  33, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, LilycoveMossdeepGuyScript, -1
-	object_event  46,  34, SPRITE_ESPEON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Espeon, -1
-	object_event  66,  04, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
-	object_event  50,  31, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
-	object_event  22,  32, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
+	object_event  46,  34, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Espeon, -1
+	object_event  66,  04, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
+	object_event  50,  31, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
+	object_event  22,  32, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
 	object_event  39,  22, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, LilycoveTwinScript, -1
 	object_event  42,  23, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, LilycoveTwinScript, -1
 	object_event  31,  29, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveSailorScript, -1

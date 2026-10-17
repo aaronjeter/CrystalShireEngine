@@ -4,6 +4,11 @@ OldaleHouse2_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, OldaleHouse2MonSpritesCallback
+
+OldaleHouse2MonSpritesCallback:
+	setmonsprite SPRITE_MON_1, POOCHYENA
+	endcallback
 
 OldaleHouse2PoochScript:
 	cry POOCHYENA
@@ -22,4 +27,4 @@ OldaleHouse2_MapEvents:
 
 	def_object_events
 	
-	object_event  4,  1, SPRITE_POOCHYENA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, OldaleHouse2PoochScript, -1
+	object_event  4,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, OldaleHouse2PoochScript, -1

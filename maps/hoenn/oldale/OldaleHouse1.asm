@@ -4,6 +4,11 @@ OldaleHouse1_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, OldaleHouse1MonSpritesCallback
+
+OldaleHouse1MonSpritesCallback:
+	setmonsprite SPRITE_MON_1, VULPIX
+	endcallback
 
 OldaleHouse1VulpixScript:
 	cry VULPIX
@@ -21,4 +26,4 @@ OldaleHouse1_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  4,  1, SPRITE_VULPIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, OldaleHouse1VulpixScript, -1
+	object_event  4,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, OldaleHouse1VulpixScript, -1

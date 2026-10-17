@@ -6,6 +6,12 @@ LavaridgePokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, LavaridgePokecenterMonSpritesCallback
+
+LavaridgePokecenterMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, CHANSEY
+	setmonsprite SPRITE_MON_2, MAREEP
+	endcallback
 
 LavaridgePokecenterNurseScript:
 	jumpstd PokecenterNurseScript
@@ -43,6 +49,6 @@ LavaridgePokecenter_MapEvents:
 
 	def_object_events
 	object_event 05, 01, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, LavaridgePokecenterNurseScript, -1
-	object_event 07, 01, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavaridgePokecenterChanseyScript, -1
+	object_event 07, 01, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavaridgePokecenterChanseyScript, -1
 	object_event 08, 06, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, LavaridgePokecenterGrampsScript, -1
-	object_event 02, 06, SPRITE_MAREEP, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavaridgePokecenterMareepScript, -1
+	object_event 02, 06, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavaridgePokecenterMareepScript, -1

@@ -9,6 +9,12 @@ SproutTower2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, SproutTower2FMonSpritesCallback
+
+SproutTower2FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, BELLSPROUT
+	setmonsprite SPRITE_MON_2, SPEAROW
+	endcallback
 
 TrainerSageNico:
 	trainer SAGE, NICO, EVENT_BEAT_SAGE_NICO, SageNicoSeenText, SageNicoBeatenText, 0, .Script
@@ -108,5 +114,5 @@ SproutTower2F_MapEvents:
 	object_event 12,  3, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageNico, -1
 	object_event  9, 14, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSageEdmond, -1
 	object_event  3,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower2FXAccuracy, EVENT_SPROUT_TOWER_2F_X_ACCURACY
-	object_event  5,  7, SPRITE_BELLSPROUT, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower2F_Bellsprout, -1
-	object_event 16,  1, SPRITE_SPEAROW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, SproutTower2F_Spearow, -1
+	object_event  5,  7, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower2F_Bellsprout, -1
+	object_event 16,  1, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, SproutTower2F_Spearow, -1

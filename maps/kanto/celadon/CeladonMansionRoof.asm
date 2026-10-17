@@ -6,6 +6,11 @@ CeladonMansionRoof_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, CeladonMansionRoofMonSpritesCallback
+
+CeladonMansionRoofMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, JUPITER
+	endcallback
 
 CeladonMansionRoofFisherScript:
 	jumptextfaceplayer CeladonMansionRoofFisherText
@@ -83,4 +88,4 @@ CeladonMansionRoof_MapEvents:
 
 	def_object_events
 	object_event 07, 05, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofFisherScript, -1
-	object_event 04, 01, SPRITE_JUPITER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Djinn_WispScript, EVENT_GOT_WISP
+	object_event 04, 01, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_WispScript, EVENT_GOT_WISP

@@ -11,6 +11,12 @@ Route103_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, Route103MonSpritesCallback
+
+Route103MonSpritesCallback:
+	setmonsprite SPRITE_MON_1, ZIGZAGOON
+	setmonsprite SPRITE_MON_2, WINGULL
+	endcallback
 
 Route103_Wally:
 	faceplayer
@@ -177,8 +183,8 @@ Route103_MapEvents:
 	bg_event 11, 14, BGEVENT_READ, Route103Sign
 
 	def_object_events
-	object_event 17, 13, SPRITE_ZIGZAGOON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103_Zigzagoon, -1
-	object_event 15, 04, SPRITE_WINGULL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103_Wingull, -1
+	object_event 17, 13, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103_Zigzagoon, -1
+	object_event 15, 04, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103_Wingull, -1
 	object_event 32, 02, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103FruitTree1, -1
 	object_event 33, 02, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103FruitTree2, -1
 	object_event 08, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route103Potion, EVENT_ROUTE_103_POTION

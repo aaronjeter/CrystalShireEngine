@@ -12,6 +12,11 @@ Route115_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, Route115MonSpritesCallback
+
+Route115MonSpritesCallback:
+	setmonsprite SPRITE_MON_1, JUPITER
+	endcallback
 
 Route115FruitTree1:
 	fruittree FRUITTREE_ROUTE_115_1
@@ -119,4 +124,4 @@ Route115_MapEvents:
 	object_event 07, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route115BlackBeltItem, EVENT_GOT_HOENN_BLACKBELT_I
 	object_event 14, 04, SPRITE_PHARMACIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Route115ShadesScript, -1
 	object_event 20, 58, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route115PoisonFangItem, EVENT_ROUTE_115_TM_POISON_FANG
-	object_event 13, 30, SPRITE_JUPITER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Djinn_KiteScript, EVENT_GOT_KITE
+	object_event 13, 30, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_KiteScript, EVENT_GOT_KITE

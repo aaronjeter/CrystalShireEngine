@@ -11,6 +11,12 @@ IlexWest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
+	callback MAPCALLBACK_OBJECTS, IlexWestMonSpritesCallback
+
+IlexWestMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, SUNFLORA
+	setmonsprite SPRITE_MON_2, HYPNO
+	endcallback
 
 TrainerCooltrainerFMarina:
 	trainer COOLTRAINERF, MARINA1, EVENT_BEAT_ILEX_MARINA, TrainerCooltrainerFMarinaSeenText, TrainerCooltrainerFMarinaBeatenText, 0, .Script
@@ -124,8 +130,8 @@ IlexWest_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  3,  0, SPRITE_SUNFLORA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexWest_Sunflora, EVENT_DEFEATED_CELEBI_GUARDIAN_SUNFLORA
-	object_event 17, 36, SPRITE_HYPNO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexWest_Hypno, EVENT_DEFEATED_CELEBI_GUARDIAN_HYPNO
+	object_event  3,  0, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexWest_Sunflora, EVENT_DEFEATED_CELEBI_GUARDIAN_SUNFLORA
+	object_event 17, 36, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexWest_Hypno, EVENT_DEFEATED_CELEBI_GUARDIAN_HYPNO
 	object_event 22, 33, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerFMarina, -1
 	object_event 39, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerYoungsterRonald, -1
 	object_event 05, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexWestFangFossil, EVENT_GOT_FOSSIL_FANG_ILEX_WEST
