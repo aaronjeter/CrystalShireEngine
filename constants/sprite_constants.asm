@@ -236,6 +236,19 @@ DEF SPRITE_POKEMON EQU const_value
 	const SPRITE_JUPITER ; 385
 DEF NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
+; Pokémon sprite slots: each map picks their species with setmonsprite
+; (wMonSpriteSpecies), usually in a MAPCALLBACK_OBJECTS callback.
+	const SPRITE_MON_1 ; e3
+	const SPRITE_MON_2 ; e4
+	const SPRITE_MON_3 ; e5
+	const SPRITE_MON_4 ; e6
+	const SPRITE_MON_5 ; e7
+	const SPRITE_MON_6 ; e8
+	const SPRITE_MON_7 ; e9
+	const SPRITE_MON_8 ; ea
+DEF NUM_MON_SPRITE_SLOTS EQU const_value - SPRITE_MON_1
+assert const_value <= $ed
+
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
 	const_next $ed
 	const SPRITE_FOLLOWER ; ed (the lead party Pokémon; see engine/overworld/follower.asm)

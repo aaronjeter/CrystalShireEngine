@@ -1,31 +1,128 @@
-LoadOverworldMonIcon:
-; Output: b:de = icon graphics, c = 8 tiles.
-; A follower sprite is decompressed into wFollowerGFXBuffer and de points
-; there; copy it with rSVBK = BANK(wFollowerGFXBuffer).
-	ld a, e
-	ld [wCurIcon], a
-	call _LoadOverworldMonIcon
-	bit 7, d
-	ret z
-	jr DecompressFollowerGFX
+GetPokemonSpriteGFX::
+; For GetMonSprite: sprite a (SPRITE_POKEMON or above) as a 12-tile walking
+; sprite. Returns carry and b:de = graphics, c = 12 tiles; or no carry and
+; a = the sprite to load normally (a variable sprite set to a normal sprite).
+; The graphics are in wFollowerGFXBuffer; copy them with
+; rSVBK = BANK(wFollowerGFXBuffer).
+	cp SPRITE_VARS
+	jr c, .got_sprite
+	sub SPRITE_VARS
+	ld e, a
+	ld d, 0
+	ld hl, wVariableSprites
+	add hl, de
+	ld a, [hl]
+	and a
+	jr z, .none
+	cp SPRITE_POKEMON
+	ret c ; a normal sprite (no carry)
+.got_sprite
+	cp SPRITE_FOLLOWER
+	jr z, .follower
+	cp SPRITE_DAY_CARE_MON_1
+	ld hl, wBreedMon1Species
+	jr z, .species_id
+	cp SPRITE_DAY_CARE_MON_2
+	ld hl, wBreedMon2Species
+	jr z, .species_id
+	sub SPRITE_MON_1
+	jr c, .sprite_mon
+	cp NUM_MON_SPRITE_SLOTS
+	jr nc, .none
+	; a Pokémon sprite slot
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, wMonSpriteSpecies
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jr .species_index
 
-LoadFollowerSprite::
-; The lead Pokémon's overworld sprite, for SPRITE_FOLLOWER (see GetMonSprite).
-; Output: b:de = graphics, c = tiles per set (12 for a follower sprite,
-; 8 for a species that only has a menu icon), or c = 0 if there's no follower.
+.sprite_mon
+	add SPRITE_MON_1 - SPRITE_POKEMON
+	ld e, a
+	ld d, 0
+	ld hl, SpriteMons
+	add hl, de
+	add hl, de
+	ld a, BANK(SpriteMons)
+	call GetFarWord
+	jr .species_index
+
+.follower
 	farcall GetFollowerPartyMon
 	jr c, .none
-	ld [wCurIcon], a
-	call _LoadOverworldMonIcon
+	jr .got_species_id
+
+.species_id
+	ld a, [hl]
+.got_species_id
+	and a
+	jr z, .none
+	call GetPokemonIndexFromID
+.species_index
+	ld a, h
+	or l
+	jr z, .none
+	call LoadPokemonSpriteGFX
+	scf
+	ret
+
+.none
+	; no Pokémon: load sprite 1 (as before)
+	ld a, WALKING_SPRITE
+	and a
+	ret
+
+LoadPokemonSpriteGFX:
+; Species index hl's overworld sprite as a 12-tile walking sprite in
+; wFollowerGFXBuffer: down, up, side standing, then down, up, side stepping.
+; Output: b:de = wFollowerGFXBuffer, c = 12.
+	call GetIconPointer
 	bit 7, d
-	ret z ; a menu icon
+	jr z, .menu_icon
 	call DecompressFollowerGFX
 	call ReorderFollowerGFX
 	ld c, 12
 	ret
 
-.none
-	ld c, 0
+.menu_icon
+	; A species with only a menu icon: its first frame standing and its
+	; second frame stepping, the same from every side.
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wFollowerGFXBuffer)
+	ldh [rSVBK], a
+	ld h, d
+	ld l, e
+	ld de, wFollowerGFXBuffer
+	call .CopyFrame3
+	call .CopyFrame3
+	pop af
+	ldh [rSVBK], a
+	ld de, wFollowerGFXBuffer
+	ld c, 12
+	ret
+
+.CopyFrame3:
+; Copy the frame at b:hl to de three times, then advance hl to the next frame.
+	ld c, 3
+.loop
+	push hl
+	push bc
+	ld a, b
+	ld bc, 4 tiles
+	call FarCopyBytes
+	pop bc
+	pop hl
+	dec c
+	jr nz, .loop
+	push de ; (CopyBytes advanced de past this frame's copies)
+	ld de, 4 tiles
+	add hl, de
+	pop de
 	ret
 
 ReorderFollowerGFX:

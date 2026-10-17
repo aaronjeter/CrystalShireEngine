@@ -1,7 +1,8 @@
 ; Overworld colors of each following Pokémon: light, dark, then the shiny
 ; light, dark. Seeded by tools/make_follower_sprites.py --seed-palettes
 ; from the sprite sheet's colors (battle colors for species that use another
-; species' sprite), then edited by hand.
+; species' sprite, old menu icon colors for species with only an icon),
+; then edited by hand.
 ; The sprite's light parts use the first color and its dark parts the second;
 ; black stays black. Species without a follower sprite are listed too, so the
 ; table can be indexed by species.
@@ -296,15 +297,15 @@ FollowerPalettes::
 	RGB 30,18,10, 10,09,30, 30,18,10, 07,22,03 ; MASQUERAIN
 	RGB 30,18,10, 07,22,03, 30,18,10, 30,07,01 ; SHROOMISH
 	RGB 30,18,10, 07,22,03, 30,18,10, 30,07,01 ; BRELOOM
-	RGB 29,21,14, 07,18,09, 09,21,15, 04,16,20 ; ROWLET (menu icon only)
-	RGB 14,23,07, 14,10,06, 04,22,13, 01,13,14 ; DARTRIX (menu icon only)
-	RGB 28,19,12, 02,18,11, 06,07,08, 02,18,19 ; DECIDUEYE (menu icon only)
-	RGB 26,06,00, 05,05,06, 26,15,00, 06,06,12 ; LITTEN (menu icon only)
-	RGB 26,09,00, 06,06,07, 26,19,00, 08,06,12 ; TORRACAT (menu icon only)
-	RGB 26,08,00, 05,06,08, 26,16,00, 07,06,12 ; INCINEROAR (menu icon only)
-	RGB 31,16,24, 06,13,25, 31,17,17, 08,07,21 ; POPPLIO (menu icon only)
-	RGB 31,17,25, 07,21,26, 31,13,13, 15,16,28 ; BRIONNE (menu icon only)
-	RGB 31,17,23, 07,17,26, 28,24,09, 13,12,26 ; PRIMARINA (menu icon only)
+	RGB 31,19,10, 07,23,03, 31,19,10, 03,23,21 ; ROWLET (menu icon only)
+	RGB 31,19,10, 07,23,03, 31,19,10, 03,23,21 ; DARTRIX (menu icon only)
+	RGB 31,19,10, 07,23,03, 31,19,10, 03,23,21 ; DECIDUEYE (menu icon only)
+	RGB 31,19,10, 31,07,01, 31,19,10, 13,13,13 ; LITTEN (menu icon only)
+	RGB 31,19,10, 31,07,01, 31,19,10, 13,13,13 ; TORRACAT (menu icon only)
+	RGB 31,19,10, 31,07,01, 31,19,10, 13,13,13 ; INCINEROAR (menu icon only)
+	RGB 31,19,10, 10,09,31, 31,19,10, 18,04,18 ; POPPLIO (menu icon only)
+	RGB 31,19,10, 10,09,31, 31,19,10, 18,04,18 ; BRIONNE (menu icon only)
+	RGB 31,19,10, 10,09,31, 31,19,10, 18,04,18 ; PRIMARINA (menu icon only)
 	RGB 30,18,10, 06,09,09, 30,18,10, 30,07,01 ; MAKUHITA
 	RGB 30,18,10, 30,07,01, 30,18,10, 18,06,18 ; HARIYAMA
 	RGB 30,18,10, 10,09,30, 30,18,10, 07,22,03 ; AZURILL
@@ -396,7 +397,7 @@ FollowerPalettes::
 	RGB 30,18,10, 10,09,30, 30,18,10, 30,07,01 ; JIRACHI
 	RGB 30,18,10, 30,07,01, 30,18,10, 10,09,30 ; TOGEKISS
 	RGB 30,18,10, 15,10,03, 30,18,10, 07,22,03 ; MAMOSWINE
-	RGB 08,19,27, 30,06,10, 30,13,15, 04,17,28 ; SYLVEON (menu icon only)
+	RGB 31,19,10, 31,07,01, 31,19,10, 10,09,31 ; SYLVEON (menu icon only)
 	RGB 30,18,10, 07,22,03, 30,18,10, 15,10,03 ; LEAFEON
 	RGB 30,18,10, 10,09,30, 30,18,10, 18,06,18 ; GLACEON
 	RGB 30,18,10, 18,06,18, 30,18,10, 10,09,30 ; GLISCOR
@@ -530,8 +531,8 @@ FollowerPalettes::
 	RGB 31,16,03, 07,11,25, 31,16,10, 22,03,25 ; SWAMPERTX (uses Swampert's sprite)
 	RGB 26,02,02, 08,23,11, 27,13,02, 08,20,24 ; GARDEVOIRX (uses Gardevoir's sprite)
 	RGB 31,15,23, 19,08,02, 31,20,14, 15,17,02 ; PIDGEOTX (uses Pidgeot's sprite)
-	RGB 03,20,28, 21,09,14, 05,19,27, 11,21,13 ; MERCURY (menu icon only)
-	RGB 31,23,15, 19,14,11, 31,16,31, 19,11,19 ; VENUS (menu icon only)
-	RGB 28,23,05, 28,06,01, 08,24,22, 04,08,07 ; MARS (menu icon only)
-	RGB 19,20,31, 11,09,18, 30,24,00, 16,12,00 ; JUPITER (menu icon only)
+	RGB 31,19,10, 10,09,31, 31,19,10, 03,23,21 ; MERCURY (menu icon only)
+	RGB 31,19,10, 15,10,03, 31,19,10, 07,23,03 ; VENUS (menu icon only)
+	RGB 31,19,10, 31,07,01, 31,19,10, 18,04,18 ; MARS (menu icon only)
+	RGB 31,19,10, 18,04,18, 31,19,10, 15,10,03 ; JUPITER (menu icon only)
 	assert_table_length NUM_POKEMON + 1

@@ -229,8 +229,16 @@ GetPokemonSpritePalette::
 	ccf
 	ret nc
 	cp SPRITE_POKEMON + NUM_POKEMON_SPRITES
-	ret nc
+	jr nc, .not_sprite_mon
 	add PAL_OW_MON - SPRITE_POKEMON
+	ld b, a
+	jr .mon
+
+.not_sprite_mon
+	sub SPRITE_MON_1
+	cp NUM_MON_SPRITE_SLOTS
+	ret nc
+	add PAL_OW_MON_SLOT_1
 	ld b, a
 .mon
 	ld c, b
@@ -266,11 +274,26 @@ BuildSpriteMonOBPal::
 
 .day_care
 	sub NUM_POKEMON_SPRITES
+	cp 2
+	jr nc, .slot
+	and a
 	ld a, [wBreedMon1Species]
 	jr z, .got_species
 	ld a, [wBreedMon2Species]
 .got_species
 	call GetPokemonIndexFromID
+	jr .got_index
+
+.slot
+	sub 2 ; SPRITE_MON_1 to SPRITE_MON_8
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, wMonSpriteSpecies
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 .got_index
 	add hl, hl ; 8 bytes per species
 	add hl, hl

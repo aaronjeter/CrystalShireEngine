@@ -138,78 +138,14 @@ GetSprite::
 	ret
 
 GetMonSprite:
-; Return carry if a monster sprite was loaded.
-
+; Return carry if a monster sprite was loaded (b:de = graphics, c = 12 tiles).
+; Otherwise a = the sprite to load normally (variable sprites are resolved).
 	cp SPRITE_POKEMON
-	jr c, .Normal
-	cp SPRITE_FOLLOWER
-	jr z, .Follower
-	cp SPRITE_DAY_CARE_MON_1
-	jr z, .BreedMon1
-	cp SPRITE_DAY_CARE_MON_2
-	jr z, .BreedMon2
-	cp SPRITE_VARS
-	jr nc, .Variable
-	jr .Icon
-
-.Normal:
-	and a
-	ret
-
-.Follower:
-	farcall LoadFollowerSprite
-	ld a, c
-	and a
-	jr z, .NoBreedmon
+	ccf
+	ret nc
+	farcall GetPokemonSpriteGFX
+	ret nc
 	lb hl, 0, WALKING_SPRITE
-	scf
-	ret
-
-.Icon:
-	sub SPRITE_POKEMON
-	ld e, a
-	ld d, 0
-	ld hl, SpriteMons
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call GetPokemonIDFromIndex
-	jr .Mon
-
-.BreedMon1
-	ld a, [wBreedMon1Species]
-	jr .Mon
-
-.BreedMon2
-	ld a, [wBreedMon2Species]
-
-.Mon:
-	ld e, a
-	and a
-	jr z, .NoBreedmon
-
-	farcall LoadOverworldMonIcon
-
-	lb hl, 0, WALKING_SPRITE
-	scf
-	ret
-
-.Variable:
-	sub SPRITE_VARS
-	ld e, a
-	ld d, 0
-	ld hl, wVariableSprites
-	add hl, de
-	ld a, [hl]
-	and a
-	jr nz, GetMonSprite
-
-.NoBreedmon:
-	ld a, WALKING_SPRITE
-	lb hl, 0, WALKING_SPRITE
-	and a
 	ret
 
 _DoesSpriteHaveFacings::
@@ -406,7 +342,7 @@ endr
 	ret
 
 .Get2bpp:
-; Pokémon sprites can come from wFollowerGFXBuffer (see LoadOverworldMonIcon).
+; Pokémon sprites can come from wFollowerGFXBuffer (see LoadPokemonSpriteGFX).
 	ld a, d
 	cp HIGH(wFollowerGFXBuffer)
 	jmp c, Get2bpp

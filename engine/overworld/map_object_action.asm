@@ -212,9 +212,30 @@ SetFacingBounce:
 	ld [hl], a
 	and %00010000
 	jr z, SetFacingFreezeBounce
+	; Pokémon sprites are walking sprites: bounce by stepping in place.
+	; Older two-frame sprites have their second frame where "up" goes.
+	ld hl, OBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	cp SPRITE_VARS
+	jr c, .got_sprite
+	push de
+	sub SPRITE_VARS
+	ld e, a
+	ld d, 0
+	ld hl, wVariableSprites
+	add hl, de
+	ld a, [hl]
+	pop de
+.got_sprite
+	cp SPRITE_POKEMON
+	ld a, FACING_STEP_UP_0
+	jr c, .got_facing
+	ld a, FACING_STEP_DOWN_1
+.got_facing
 	ld hl, OBJECT_FACING
 	add hl, bc
-	ld [hl], FACING_STEP_UP_0
+	ld [hl], a
 	ret
 
 SetFacingFreezeBounce:

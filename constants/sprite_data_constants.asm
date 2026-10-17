@@ -71,13 +71,14 @@ DEF NUM_OW_PALS EQU const_value
 DEF PAL_OW_FOLLOWER EQU $fd
 DEF PAL_NPC_FOLLOWER EQU PAL_OW_FOLLOWER + 1
 
-; Pokémon sprites (SPRITE_POKEMON onward, and the Day-Care mons) with the
+; Pokémon sprites (SPRITE_POKEMON onward, the Day-Care mons and the slots) with the
 ; default palette use their species' own colors (FollowerPalettes): one
 ; palette index per sprite. Not MapObjectPals indexes either.
-DEF PAL_OW_MON EQU $80
+DEF PAL_OW_MON EQU NUM_OW_PALS
 DEF PAL_OW_DAY_CARE_MON_1 EQU PAL_OW_MON + NUM_POKEMON_SPRITES
 DEF PAL_OW_DAY_CARE_MON_2 EQU PAL_OW_DAY_CARE_MON_1 + 1
-DEF PAL_OW_MON_END EQU PAL_OW_DAY_CARE_MON_2 + 1
+DEF PAL_OW_MON_SLOT_1 EQU PAL_OW_DAY_CARE_MON_2 + 1 ; SPRITE_MON_1 to SPRITE_MON_8
+DEF PAL_OW_MON_END EQU PAL_OW_MON_SLOT_1 + NUM_MON_SPRITE_SLOTS
 assert NUM_OW_PALS <= PAL_OW_MON
 assert PAL_OW_MON_END <= PAL_OW_FOLLOWER
 

@@ -702,6 +702,15 @@ MACRO faceobject
 ENDM
 
 	const variablesprite_command ; $6d
+MACRO setmonsprite
+; Make SPRITE_MON_1-8 (\1) a Pokémon species (\2). Set it before the objects
+; load (a MAPCALLBACK_OBJECTS callback), or reload the map's sprites after.
+	assert (\1) >= SPRITE_MON_1 && (\1) < SPRITE_MON_1 + NUM_MON_SPRITE_SLOTS, \
+		"setmonsprite needs SPRITE_MON_1 to SPRITE_MON_{d:NUM_MON_SPRITE_SLOTS}"
+	loadmem wMonSpriteSpecies + 2 * ((\1) - SPRITE_MON_1), LOW(\2)
+	loadmem wMonSpriteSpecies + 2 * ((\1) - SPRITE_MON_1) + 1, HIGH(\2)
+ENDM
+
 MACRO variablesprite
 	db variablesprite_command
 	db \1 - SPRITE_VARS ; byte

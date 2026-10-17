@@ -3111,6 +3111,13 @@ wPokemonDataEnd::
 wGameDataEnd::
 
 
+SECTION "Pokemon Sprite Slots", WRAMX, BANK[1]
+
+; Species indexes of SPRITE_MON_1 to SPRITE_MON_8 (setmonsprite). Not saved:
+; maps set them in their callbacks.
+wMonSpriteSpecies:: ds 2 * NUM_MON_SPRITE_SLOTS
+
+
 SECTION "Pic Animations", WRAMX
 
 wTempTilemap::

@@ -18,7 +18,8 @@ that borrowed another's menu icon) are listed in data/pokemon/icon_pointers.asm;
 run with --pointers to rewrite those entries from this script's mapping.
 
 --seed-palettes writes data/pokemon/follower_palettes.asm. Species with their
-own sprite get the sheet's colors (normal and shiny cells). Species that use
+own sprite get the sheet's colors (normal and shiny cells), and species with
+only a menu icon keep their old menu icon colors. Species that use
 another's sprite (variants, megas) get their battle palette
 (data/pokemon/palettes.asm), with the two colors in the order that best matches
 the sheet's. It overwrites hand edits, so only use it to start over.
@@ -232,9 +233,24 @@ def shade_colors(sheet, dex_number, shiny=False):
 	dark = best.get(2, light)
 	return [[round(v * 31 / 255) for v in c] for c in (light, dark)]
 
+def icon_palettes(species):
+	"""[(normal [c1, c2], shiny [c1, c2])] per species from the old menu icon
+	colors (MonMenuIconPals and the party menu's OBJ palettes), 5-bit RGB."""
+	obpals = [[list(map(int, c)) for c in re.findall(r"(\d+),\s*(\d+),\s*(\d+)", line)][1:3]
+		for line in open(os.path.join(ROOT, "gfx/stats/party_menu_ob.pal"))
+		if line.strip().startswith("RGB")]
+	names = ["RED", "BLUE", "GREEN", "BROWN", "PINK", "GRAY", "TEAL", "PURPLE"]  # PAL_ICON_*
+	text = open(os.path.join(ROOT, "data/pokemon/menu_icon_pals.asm")).read()
+	body = text.split("MonMenuIconPals:")[1]
+	pals = [(obpals[names.index(n)], obpals[names.index(s)])
+		for n, s in re.findall(r"icon_pals\s+(\w+),\s*(\w+)", body)]
+	assert len(pals) == len(species), "menu_icon_pals.asm doesn't match the species list"
+	return pals
+
 def seed_palettes(sheet, species, dex):
 	src = sprite_sources(species, dex)
 	pals = battle_palettes(species)
+	icon_pals = icon_palettes(species)
 	to8 = lambda c: [v * 255 // 31 for v in c]
 	dist = lambda a, b: sum((x - y) ** 2 for x, y in zip(a, b))
 	rgb = lambda c: "%02d,%02d,%02d" % tuple(c)
@@ -242,7 +258,8 @@ def seed_palettes(sheet, species, dex):
 		"; Overworld colors of each following Pokémon: light, dark, then the shiny",
 		"; light, dark. Seeded by tools/make_follower_sprites.py --seed-palettes",
 		"; from the sprite sheet's colors (battle colors for species that use another",
-		"; species' sprite), then edited by hand.",
+		"; species' sprite, old menu icon colors for species with only an icon),",
+		"; then edited by hand.",
 		"; The sprite's light parts use the first color and its dark parts the second;",
 		"; black stays black. Species without a follower sprite are listed too, so the",
 		"; table can be indexed by species.",
@@ -259,7 +276,10 @@ def seed_palettes(sheet, species, dex):
 			normal = shade_colors(sheet, dex[base])
 			shiny = shade_colors(sheet, dex[base], shiny=True)
 			from_sheet += 1
-		elif base:
+		elif not base:
+			# only a menu icon: the colors it had in menus
+			normal, shiny = icon_pals[k]
+		else:
 			light, dark = sheet_colors(sheet, dex[base])
 			n8 = [to8(c) for c in normal]
 			if dist(light, n8[1]) + dist(dark, n8[0]) < dist(light, n8[0]) + dist(dark, n8[1]):
