@@ -18,3 +18,7 @@
 	const PAL_ICON_GRAY   ; 5
 	const PAL_ICON_TEAL   ; 6
 	const PAL_ICON_PURPLE ; 7
+
+; OBJ palette for a lone menu icon in its species' own colors
+; (SetMenuMonIconColor: naming screen, move list)
+DEF MENU_ICON_OBPAL EQU PAL_ICON_BLUE ; 6-7 are the move list's type icons

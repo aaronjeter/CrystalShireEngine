@@ -112,6 +112,8 @@ DecompressFollowerGFX:
 	ret
 
 SetMenuMonIconColor:
+; Color a lone menu icon (naming screen, move list) with its species' own
+; colors in OBJ palette MENU_ICON_OBPAL. hl = DVs.
 	push hl
 	push de
 	push bc
@@ -119,9 +121,8 @@ SetMenuMonIconColor:
 
 	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
-	call GetMenuMonIconPalette
-	ld hl, wShadowOAMSprite00Attributes
-	jr _ApplyMenuMonIconColor
+	call GetMenuMonIconColors
+	jr _SetMenuMonIconColor
 
 SetMenuMonIconColor_NoShiny:
 	push hl
@@ -131,8 +132,14 @@ SetMenuMonIconColor_NoShiny:
 
 	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
-	and a
-	call GetMenuMonIconPalette_PredeterminedShininess
+	ld c, a
+	ld b, 0 ; not shiny
+	call GetMonPalInBCDE
+_SetMenuMonIconColor:
+	ld a, MENU_ICON_OBPAL
+	call LoadMonIconOBPal
+	call UpdateOBPals
+	ld a, MENU_ICON_OBPAL
 	ld hl, wShadowOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
 
@@ -157,17 +164,22 @@ LoadPartyMenuMonIconColors:
 	add hl, de
 	ld a, [hl]
 	ld [wCurPartySpecies], a
+	; each party slot has its own OBJ palette (1-6) with the mon's colors
 	ld a, MON_DVS
 	call GetPartyParamLocation
-	call GetMenuMonIconPalette
+	call GetMenuMonIconColors
+	ld a, [wCurPartyMon]
+	inc a
+	call LoadMonIconOBPal
+	call UpdateOBPals
 	ld hl, wShadowOAMSprite00Attributes
-	push af
 	ld a, [wCurPartyMon]
 	swap a
 	ld d, 0
 	ld e, a
 	add hl, de
-	pop af
+	ld a, [wCurPartyMon]
+	inc a
 
 	ld de, 4
 	ld [hl], a ; top left
@@ -201,10 +213,41 @@ _FinishMenuMonIconColor:
 	jmp PopAFBCDEHL
 
 GetMonPalInBCDE:
-; Sets BCDE to mon icon palette.
+; Sets bc and de to the light and dark colors of a menu icon: the species'
+; own colors from FollowerPalettes (see data/pokemon/follower_palettes.asm).
 ; Input: c = species, b = shininess (1=true, 0=false)
 	ld a, c
+	push bc
 	call GetPokemonIndexFromID
+	pop bc
+	bit 7, h
+	jr nz, .icon_pal ; Egg (negative index)
+	add hl, hl ; 8 bytes per species
+	add hl, hl
+	add hl, hl
+	dec b
+	jr nz, .got_shininess
+	ld de, 2 * PAL_COLOR_SIZE ; shiny colors
+	add hl, de
+.got_shininess
+	ld de, FollowerPalettes
+	add hl, de
+	push hl
+	ld a, BANK(FollowerPalettes)
+	call GetFarWord
+	ld b, h
+	ld c, l
+	pop hl
+	inc hl
+	inc hl
+	ld a, BANK(FollowerPalettes)
+	call GetFarWord
+	ld d, h
+	ld e, l
+	ret
+
+.icon_pal
+	; Egg: its color from MonMenuIconPals (in PartyMenuOBPals)
 	dec hl
 	ld d, h
 	ld e, l
@@ -240,26 +283,107 @@ GetMonPalInBCDE:
 	ld e, l
 	ret
 
-GetMenuMonIconPalette:
-	ld c, l
+GetMenuMonIconColors:
+; bc, de = the icon colors of [wCurPartySpecies] with the DVs at hl.
 	ld b, h
+	ld c, l
 	farcall CheckShininess
-GetMenuMonIconPalette_PredeterminedShininess:
+	ld b, 0
+	jr nc, .not_shiny
+	inc b
+.not_shiny
+	ld a, [wCurPartySpecies]
+	ld c, a
+	jr GetMonPalInBCDE
+
+LoadMonIconOBPal:
+; OBJ palette a (in wOBPals1) = white, bc, de, black.
+	push hl
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	push de
+	ld de, wOBPals1
+	add hl, de
+	pop de
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wOBPals1)
+	ldh [rSVBK], a
+	ld a, LOW(palred 27 + palgreen 31 + palblue 27)
+	ld [hli], a
+	ld a, HIGH(palred 27 + palgreen 31 + palblue 27)
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld a, b
+	ld [hli], a
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
+	xor a
+	ld [hli], a
+	ld [hl], a
+	pop af
+	ldh [rSVBK], a
+	pop hl
+	ret
+
+UpdateOBPals:
+; Copy wOBPals1 to wOBPals2 and update the hardware palettes.
+	push hl
+	push de
+	push bc
+	ld hl, wOBPals1
+	ld de, wOBPals2
+	ld bc, 8 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	jmp PopBCDEHL
+
+LoadPartyMonIconOBPals::
+; For the party menu's CGB layout: OBJ palettes 1-6 = the party's icon colors.
+	ld a, [wCurPartyMon]
 	push af
 	ld a, [wCurPartySpecies]
-	call GetPokemonIndexFromID
-	dec hl
-	ld b, h
-	ld c, l
-	ld hl, MonMenuIconPals
-	add hl, bc
-	ld e, [hl]
+	push af
+	ld a, [wPartyCount]
+	and a
+	jr z, .done
+	ld c, a
+	xor a
+.loop
+	push bc
+	push af
+	ld [wCurPartyMon], a
+	ld e, a
+	ld d, 0
+	ld hl, wPartySpecies
+	add hl, de
+	ld a, [hl]
+	ld [wCurPartySpecies], a
+	ld a, MON_DVS
+	call GetPartyParamLocation
+	call GetMenuMonIconColors
 	pop af
-	ld a, e
-	jr c, .shiny
-	swap a
-.shiny
-	and $f
+	push af
+	inc a
+	call LoadMonIconOBPal
+	pop af
+	pop bc
+	inc a
+	dec c
+	jr nz, .loop
+.done
+	pop af
+	ld [wCurPartySpecies], a
+	pop af
+	ld [wCurPartyMon], a
 	ret
 
 LoadMenuMonIcon:
@@ -487,12 +611,10 @@ Trade_LoadMonIconGFX:
 	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
 	ld [wCurIcon], a
-	call GetMenuMonIconPalette
-	add a
-	add a
-	add a
-	ld e, a
-	farcall SetSecondOBJPalette
+	call GetMenuMonIconColors
+	ld a, 1
+	call LoadMonIconOBPal
+	call UpdateOBPals
 	ld a, $62
 	ld [wCurIconTile], a
 	jr GetMemIconGFX
@@ -535,34 +657,26 @@ FlyFunction_GetMonIcon:
 ; todo: made up this label location... fix this!
 ; fallthrough
 SetOWFlyMonColor:
-	; Edit the OBJ 0 palette so that the cursor Pokémon has the right colors.
+	; OBJ palette 0 = the Fly mon's (or Delibird's) own colors.
 	ld a, [wFlyingWithHMItem]
 	and a
 	jr nz, .delibird
 	ld a, MON_DVS
 	call GetPartyParamLocation
-	call GetMenuMonIconPalette
-	jr .got_palette
+	call GetMenuMonIconColors
+	jr .got_colors
 
 .delibird
 	; Bird Whistle: use Delibird's (non-shiny) colors, not the party mon's
-	ld a, [wCurPartySpecies]
-	push af
 	ld hl, DELIBIRD
 	call GetPokemonIDFromIndex
-	ld [wCurPartySpecies], a
-	and a ; not shiny
-	call GetMenuMonIconPalette_PredeterminedShininess
 	ld c, a
-	pop af
-	ld [wCurPartySpecies], a
-	ld a, c
-.got_palette
-	add a
-	add a
-	add a
-	ld e, a
-	farjp SetFirstOBJPalette
+	ld b, 0 ; not shiny
+	call GetMonPalInBCDE
+.got_colors
+	xor a
+	call LoadMonIconOBPal
+	jmp UpdateOBPals
 
 GetMemIconGFX:
 	ld a, [wCurIconTile]

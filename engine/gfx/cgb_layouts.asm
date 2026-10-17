@@ -598,6 +598,7 @@ _CGB_PartyMenu:
 	call InitPartyMenuBGPal0
 	call InitPartyMenuBGPal7
 	call InitPartyMenuOBPals
+	farcall LoadPartyMonIconOBPals
 	jmp ApplyAttrmap
 
 _CGB_Evolution:
