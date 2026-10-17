@@ -386,10 +386,21 @@ endr
 	swap a
 	rra
 	ldh [rVBK], a
-	call Get2bpp
+	call .Get2bpp
 	pop af
 	ldh [rVBK], a
 	ret
+
+.Get2bpp:
+; Pokémon sprites can come from wFollowerGFXBuffer (see LoadOverworldMonIcon).
+	ld a, d
+	cp HIGH(wFollowerGFXBuffer)
+	jmp c, Get2bpp
+	cp HIGH(wFollowerGFXBuffer + 24 tiles)
+	jmp nc, Get2bpp
+	ld a, BANK(wFollowerGFXBuffer)
+	call StackCallInWRAMBankA
+	jmp Get2bpp
 
 .GetTileAddr:
 ; Return the address of tile (a) in (hl).

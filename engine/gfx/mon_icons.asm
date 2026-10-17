@@ -1,7 +1,14 @@
 LoadOverworldMonIcon:
+; Output: b:de = icon graphics, c = 8 tiles.
+; A follower sprite is decompressed into wFollowerGFXBuffer and de points
+; there; copy it with rSVBK = BANK(wFollowerGFXBuffer).
 	ld a, e
 	ld [wCurIcon], a
-	; fallthrough
+	call _LoadOverworldMonIcon
+	bit 7, d
+	ret z
+	jr DecompressFollowerGFX
+
 _LoadOverworldMonIcon:
 	call GetPokemonIndexFromID
 	; fallthrough
@@ -16,13 +23,37 @@ GetIconPointer:
 	add hl, de
 	; fallthrough
 ReadIconPointer:
-; Input: hl = IconPointers entry (dba)
+; Input: hl = IconPointers entry (dba, or dba_lz for a follower sprite)
+; Output: b = bank, c = 8 tiles, de = address (bit 15 set = compressed)
 	ld a, [hli]
 	ld b, a
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
 	ld c, 8
+	ret
+
+DecompressFollowerGFX:
+; Decompress the follower sprite at b:de (bit 15 of de set) into
+; wFollowerGFXBuffer, and point de at the buffer. Preserves b, c and hl.
+; Its first 8 tiles are the menu icon.
+	res 7, d
+	push hl
+	push bc
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wFollowerGFXBuffer)
+	ldh [rSVBK], a
+	ld h, d
+	ld l, e
+	ld de, wFollowerGFXBuffer
+	ld a, b
+	call FarDecompress
+	pop af
+	ldh [rSVBK], a
+	pop bc
+	pop hl
+	ld de, wFollowerGFXBuffer
 	ret
 
 SetMenuMonIconColor:
@@ -532,10 +563,23 @@ endr
 	pop hl
 	push hl
 
+	bit 7, d
+	jr nz, .follower
 	call GetGFXUnlessMobile
-
 	pop hl
 	ret
+
+.follower
+	call DecompressFollowerGFX
+	call GetFollowerBufferGFX
+	pop hl
+	ret
+
+GetFollowerBufferGFX:
+; Copy c tiles from wFollowerGFXBuffer (de) to hl.
+	ld a, BANK(wFollowerGFXBuffer)
+	call StackCallInWRAMBankA
+	; fallthrough
 
 GetGFXUnlessMobile:
 	ld a, [wLinkMode]
@@ -560,6 +604,14 @@ GetStorageIcon:
 	call _LoadOverworldMonIcon
 	ld c, 4
 	pop hl
+	bit 7, d
+	jr nz, .follower
+	farjp BillsPC_SafeGet2bpp
+
+.follower
+	call DecompressFollowerGFX
+	ld a, BANK(wFollowerGFXBuffer)
+	call StackCallInWRAMBankA
 	farjp BillsPC_SafeGet2bpp
 
 FreezeMonIcons:

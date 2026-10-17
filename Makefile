@@ -16,6 +16,7 @@ rom_obj := \
 	engine/movie/credits.o \
 	engine/overworld/events.o \
 	gfx/icons.o \
+	gfx/followers.o \
 	gfx/misc.o \
 	gfx/pics.o \
 	gfx/sprites.o \

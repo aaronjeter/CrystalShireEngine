@@ -123,6 +123,14 @@ MACRO dba ; dbw bank, address
 	endr
 ENDM
 
+MACRO dba_lz ; dbw bank, address | $8000 (bit 15 marks LZ-compressed data)
+	rept _NARG
+		dbw BANK(\1), \1 | $8000
+		assert !(\1 & $8000), "dba_lz cannot point above ROMX"
+		shift
+	endr
+ENDM
+
 MACRO dab ; dwb address, bank
 	rept _NARG
 		dwb \1, BANK(\1)
