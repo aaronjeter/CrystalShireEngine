@@ -50,11 +50,14 @@ StartPokemonFollower:
 	cp SPRITE_FOLLOWER
 	ret nz
 	lb bc, PLAYER_OBJECT, FOLLOWER_OBJECT
-	farjp StartFollow
+	farcall StartFollow
+	jmp UpdateFollowerVisibility
 
 PlaceFollowerObject:
 ; Put the follower in the last map object slot.
 ; The slot's NPC (on maps with 15 object_events) is replaced.
+	call CheckFollowerAllowed
+	ret c
 	call GetFollowerPalette
 	ret c
 	ld e, a
@@ -164,11 +167,16 @@ GetFollowerPalette:
 
 RefreshFollower::
 ; After menus and battles (the lead may have changed: party order, fainting,
-; evolution, the PC...). Its sprite is reloaded with the other sprites; this
-; updates its colors, or removes it if no Pokémon can follow anymore.
+; evolution, the PC...; the option may have been turned off; the player may
+; have gotten on or off the Bike). Its sprite is reloaded with the other
+; sprites; this updates its colors and visibility, or removes it if no Pokémon
+; can follow anymore or the option is off.
 	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
 	cp SPRITE_FOLLOWER
 	ret nz
+	call CheckFollowerAllowed
+	jr c, .remove
+	call UpdateFollowerVisibility
 	call GetFollowerPalette
 	jr c, .remove
 	ld [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_PALETTE], a
@@ -192,6 +200,86 @@ RefreshFollower::
 	xor a
 	ld [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE], a
 	ret
+
+CheckFollowerAllowed:
+; Carry if the follower option is off, or on maps where the Pokémon stays in
+; its ball (see NoFollowerMaps).
+	ld a, [wOptions2]
+	bit FOLLOWER_OFF, a
+	scf
+	ret nz
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	ld hl, NoFollowerMaps
+.loop
+	ld a, [hli]
+	cp -1
+	ret z ; carry clear
+	cp b
+	ld a, [hli]
+	jr nz, .loop
+	cp c
+	jr nz, .loop
+	scf
+	ret
+
+NoFollowerMaps:
+; Maps where the following Pokémon stays in its ball:
+; cutscene-heavy rooms and link rooms.
+	map_id LANCES_ROOM
+	map_id HALL_OF_FAME
+	map_id TRADE_CENTER
+	map_id COLOSSEUM
+	map_id TIME_CAPSULE
+	map_id WC_QUALIFIER_1
+	map_id WC_QUALIFIER_2
+	map_id WC_QUALIFIER_3
+	map_id WC_CHALLENGER_LOBBY
+	map_id WC_ROUND_ONE
+	map_id WC_ROUND_TWO
+	map_id WC_ROUND_THREE
+	map_id WC_ROUND_FOUR
+	map_id WC_FINALS
+	db -1 ; end
+
+FollowerOnPlayerStep::
+; Called by CountStep after each of the player's steps.
+	; fallthrough
+
+UpdateFollowerVisibility:
+; The Pokémon goes back in its ball while the player isn't walking (Bike,
+; Surf...): its object is removed, and the map object stays in the slot.
+; On the first step back on foot, it comes back out on the player's tile and
+; steps out behind them on their next step.
+	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
+	cp SPRITE_FOLLOWER
+	ret nz
+	ld a, [wPlayerState]
+	cp PLAYER_NORMAL
+	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_OBJECT_STRUCT_ID]
+	jr nz, .hide
+	cp -1
+	ret nz ; already out
+
+	; come back out
+	ld a, [wYCoord]
+	add 4
+	ld [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_Y_COORD], a
+	ld a, [wXCoord]
+	add 4
+	ld [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_X_COORD], a
+	ld a, FOLLOWER_OBJECT
+	call UnmaskCopyMapObjectStruct
+	lb bc, PLAYER_OBJECT, FOLLOWER_OBJECT
+	farjp StartFollow
+
+.hide
+	cp -1
+	ret z ; already in its ball
+	ld a, FOLLOWER_OBJECT
+	jmp DeleteObjectStruct
 
 _FollowerScript::
 	faceplayer

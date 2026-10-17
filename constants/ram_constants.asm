@@ -77,6 +77,7 @@ DEF GBPRINTER_DARKEST  EQU $7f
 ; wOptions2::
 	const_def
 	const MENU_ACCOUNT ; 0
+	const FOLLOWER_OFF ; 1 (0 = the lead Pokémon follows the player)
 
 ; wDST::
 DEF DST_F EQU 7

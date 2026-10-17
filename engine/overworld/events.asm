@@ -879,6 +879,8 @@ SelectMenuCallback:
 	end
 
 CountStep:
+	farcall FollowerOnPlayerStep
+
 	; Don't count steps in link communication rooms.
 	ld a, [wLinkMode]
 	and a
