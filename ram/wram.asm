@@ -3252,7 +3252,7 @@ wWeatherFadeFrame:: db ; alternates BG / object palettes each frame
 
 SECTION "Follower GFX Buffer", WRAMX, BANK[2]
 
-wFollowerGFXBuffer:: ds 24 tiles ; a decompressed follower sprite (see DecompressFollowerGFX)
+wFollowerGFXBuffer:: ds 28 tiles ; a decompressed follower sprite (see DecompressFollowerGFX), + 4 tiles of scratch
 
 
 SECTION "Tile Animation RAM", WRAMX, BANK[1]

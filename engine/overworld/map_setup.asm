@@ -78,7 +78,7 @@ LoadMapObjects:
 	ld a, MAPCALLBACK_OBJECTS
 	call RunMapCallback
 	farcall LoadObjectMasks
-	farjp InitializeVisibleSprites
+	farjp LoadMapObjects_Follower ; InitializeVisibleSprites, plus the following Pokémon
 
 ResetPlayerObjectAction:
 	ld hl, wPlayerSpriteSetupFlags

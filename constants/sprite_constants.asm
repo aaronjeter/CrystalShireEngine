@@ -237,7 +237,8 @@ DEF SPRITE_POKEMON EQU const_value
 DEF NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
-	const_next $ee
+	const_next $ed
+	const SPRITE_FOLLOWER ; ed (the lead party Pokémon; see engine/overworld/follower.asm)
 	const SPRITE_DAY_CARE_MON_1 ; e0
 	const SPRITE_DAY_CARE_MON_2 ; e1
 

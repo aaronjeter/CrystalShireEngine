@@ -339,6 +339,7 @@ LoadMapPalettes:
 	jmp GetSGBLayout
 
 RefreshMapSprites:
+	farcall RefreshFollower
 	call ClearSprites
 	xor a
 	ldh [hBGMapMode], a

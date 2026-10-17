@@ -9,6 +9,61 @@ LoadOverworldMonIcon:
 	ret z
 	jr DecompressFollowerGFX
 
+LoadFollowerSprite::
+; The lead Pokémon's overworld sprite, for SPRITE_FOLLOWER (see GetMonSprite).
+; Output: b:de = graphics, c = tiles per set (12 for a follower sprite,
+; 8 for a species that only has a menu icon), or c = 0 if there's no follower.
+	farcall GetFollowerPartyMon
+	jr c, .none
+	ld [wCurIcon], a
+	call _LoadOverworldMonIcon
+	bit 7, d
+	ret z ; a menu icon
+	call DecompressFollowerGFX
+	call ReorderFollowerGFX
+	ld c, 12
+	ret
+
+.none
+	ld c, 0
+	ret
+
+ReorderFollowerGFX:
+; Follower sprites are stored down, down, up, up, side, side, so that the first
+; two frames are the menu icon. Walking sprites want the standing frames first:
+; down, up, side, then the stepping frames down, up, side.
+	push bc
+	push de
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wFollowerGFXBuffer)
+	ldh [rSVBK], a
+	ld hl, wFollowerGFXBuffer + 4 tiles ; down step -> scratch
+	ld de, wFollowerGFXBuffer + 24 tiles
+	call .CopyFrame
+	ld hl, wFollowerGFXBuffer + 8 tiles ; up stand -> frame 1
+	ld de, wFollowerGFXBuffer + 4 tiles
+	call .CopyFrame
+	ld hl, wFollowerGFXBuffer + 16 tiles ; side stand -> frame 2
+	ld de, wFollowerGFXBuffer + 8 tiles
+	call .CopyFrame
+	ld hl, wFollowerGFXBuffer + 12 tiles ; up step -> frame 4
+	ld de, wFollowerGFXBuffer + 16 tiles
+	call .CopyFrame
+	ld hl, wFollowerGFXBuffer + 24 tiles ; down step -> frame 3
+	ld de, wFollowerGFXBuffer + 12 tiles
+	call .CopyFrame
+	pop af
+	ldh [rSVBK], a
+	pop de
+	pop bc
+	ret
+
+.CopyFrame:
+	ld bc, 4 tiles
+	rst CopyBytes
+	ret
+
 _LoadOverworldMonIcon:
 	call GetPokemonIndexFromID
 	; fallthrough

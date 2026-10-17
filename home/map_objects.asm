@@ -521,3 +521,8 @@ GetSpriteDirection::
 	ld a, [hl]
 	maskbits NUM_DIRECTIONS, 2
 	ret
+
+FollowerScript::
+; The following Pokémon's map object script. It's in ROM0 so that it works
+; from any map's script bank.
+	farsjump _FollowerScript

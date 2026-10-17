@@ -38,6 +38,7 @@ RefreshSprites::
 	push hl
 	push de
 	push bc
+	farcall RefreshFollower
 	call GetPlayerSprite
 	xor a
 	ldh [hUsedSpriteIndex], a
@@ -141,6 +142,8 @@ GetMonSprite:
 
 	cp SPRITE_POKEMON
 	jr c, .Normal
+	cp SPRITE_FOLLOWER
+	jr z, .Follower
 	cp SPRITE_DAY_CARE_MON_1
 	jr z, .BreedMon1
 	cp SPRITE_DAY_CARE_MON_2
@@ -151,6 +154,15 @@ GetMonSprite:
 
 .Normal:
 	and a
+	ret
+
+.Follower:
+	farcall LoadFollowerSprite
+	ld a, c
+	and a
+	jr z, .NoBreedmon
+	lb hl, 0, WALKING_SPRITE
+	scf
 	ret
 
 .Icon:
@@ -396,7 +408,7 @@ endr
 	ld a, d
 	cp HIGH(wFollowerGFXBuffer)
 	jmp c, Get2bpp
-	cp HIGH(wFollowerGFXBuffer + 24 tiles)
+	cp HIGH(wFollowerGFXBuffer + 28 tiles)
 	jmp nc, Get2bpp
 	ld a, BANK(wFollowerGFXBuffer)
 	call StackCallInWRAMBankA

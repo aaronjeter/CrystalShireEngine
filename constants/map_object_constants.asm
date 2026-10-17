@@ -96,6 +96,7 @@ DEF MAPOBJECT_EVENT_FLAG       rw ; c
                                rb_skip 2
 DEF MAPOBJECT_LENGTH EQU _RS
 DEF NUM_OBJECTS EQU 16
+DEF FOLLOWER_OBJECT EQU NUM_OBJECTS - 1 ; the following Pokémon uses the last map object
 DEF PLAYER_OBJECT EQU 0
 
 ; SpriteMovementData struct members (see data/sprites/map_objects.asm)
