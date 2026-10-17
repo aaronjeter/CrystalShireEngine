@@ -68,10 +68,10 @@ ArticunoLair_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  7,  2, SPRITE_ARTICUNO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Articuno, -1
-	object_event 28, 26, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
-	object_event 30, 34, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
-	object_event 18, 14, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
+	object_event  7,  2, SPRITE_ARTICUNO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Articuno, -1
+	object_event 28, 26, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
+	object_event 30, 34, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
+	object_event 18, 14, SPRITE_DELIBIRD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
 	object_event 37, 12, SPRITE_SANDSLASH, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Sandslash, -1
-	object_event 21, 10, SPRITE_GLALIE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Glalie, -1
+	object_event 21, 10, SPRITE_GLALIE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Glalie, -1
 	

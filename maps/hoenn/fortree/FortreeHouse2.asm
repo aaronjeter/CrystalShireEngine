@@ -38,4 +38,4 @@ FortreeHouse2_MapEvents:
 	def_object_events
 	object_event  7,  4, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FortreeHouse2TeacherScript, -1
 	object_event  9,  5, SPRITE_VULPIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, FortreeVulpixScript, -1
-	object_event  4,  1, SPRITE_VULPIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FortreeVulpixScript, -1
+	object_event  4,  1, SPRITE_VULPIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeVulpixScript, -1

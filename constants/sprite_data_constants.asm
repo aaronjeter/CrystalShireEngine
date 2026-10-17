@@ -70,7 +70,16 @@ DEF NUM_OW_PALS EQU const_value
 ; Not a MapObjectPals index: CopySpritePal builds it from the species' colors.
 DEF PAL_OW_FOLLOWER EQU $fd
 DEF PAL_NPC_FOLLOWER EQU PAL_OW_FOLLOWER + 1
-assert NUM_OW_PALS <= PAL_OW_FOLLOWER
+
+; Pokémon sprites (SPRITE_POKEMON onward, and the Day-Care mons) with the
+; default palette use their species' own colors (FollowerPalettes): one
+; palette index per sprite. Not MapObjectPals indexes either.
+DEF PAL_OW_MON EQU $80
+DEF PAL_OW_DAY_CARE_MON_1 EQU PAL_OW_MON + NUM_POKEMON_SPRITES
+DEF PAL_OW_DAY_CARE_MON_2 EQU PAL_OW_DAY_CARE_MON_1 + 1
+DEF PAL_OW_MON_END EQU PAL_OW_DAY_CARE_MON_2 + 1
+assert NUM_OW_PALS <= PAL_OW_MON
+assert PAL_OW_MON_END <= PAL_OW_FOLLOWER
 
 ; wPlayerColor values (outfit colors): each one is its overworld palette index,
 ; so the player's sprite uses PAL_OW_<color>. Front-pic palettes are in

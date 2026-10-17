@@ -155,5 +155,5 @@ JirachiNest_MapEvents:
 	bg_event 05, 00, BGEVENT_UP, JirachiShrineScript
 
 	def_object_events
-	object_event  04,  00, SPRITE_JIRACHI, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, JirachiScript, EVENT_GOT_JIRACHI
+	object_event  04,  00, SPRITE_JIRACHI, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, JirachiScript, EVENT_GOT_JIRACHI
 	

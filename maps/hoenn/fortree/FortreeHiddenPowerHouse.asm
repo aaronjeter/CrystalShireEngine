@@ -103,4 +103,4 @@ FortreeHiddenPowerHouse_MapEvents:
 	def_object_events
 	object_event  8,  6, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_AZURE, OBJECTTYPE_SCRIPT, 0, HiddenPowerGirl, -1
 	object_event  1,  5, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, FortreeHiddenPowerHouseChildScript, -1
-	object_event  3,  4, SPRITE_JIGGLYPUFF, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, FortreeJigglypuffScript, -1
+	object_event  3,  4, SPRITE_JIGGLYPUFF, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeJigglypuffScript, -1

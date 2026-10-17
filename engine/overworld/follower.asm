@@ -199,10 +199,93 @@ ReloadFollowerPal:
 	ldh [rSVBK], a
 	farjp CheckForUsedObjPals
 
+GetPokemonSpritePalette::
+; For _GetSpritePalette: if sprite c is a Pokémon (or a variable sprite set to
+; one), return carry and c = the palette with its species' own colors.
+	ld a, c
+	cp SPRITE_VARS
+	jr c, .got_sprite
+	push hl
+	push de
+	sub SPRITE_VARS
+	ld e, a
+	ld d, 0
+	ld hl, wVariableSprites
+	add hl, de
+	ld a, [hl]
+	pop de
+	pop hl
+.got_sprite
+	ld b, PAL_OW_FOLLOWER
+	cp SPRITE_FOLLOWER
+	jr z, .mon
+	ld b, PAL_OW_DAY_CARE_MON_1
+	cp SPRITE_DAY_CARE_MON_1
+	jr z, .mon
+	inc b
+	cp SPRITE_DAY_CARE_MON_2
+	jr z, .mon
+	cp SPRITE_POKEMON
+	ccf
+	ret nc
+	cp SPRITE_POKEMON + NUM_POKEMON_SPRITES
+	ret nc
+	add PAL_OW_MON - SPRITE_POKEMON
+	ld b, a
+.mon
+	ld c, b
+	scf
+	ret
+
 BuildFollowerOBPal::
 ; For CopySpritePal: build the follower's palette in wFollowerOBPal from
-; wFollowerColors, darkened like the other NPCs at night and in dark caves.
+; wFollowerColors. Output: hl = wFollowerOBPal
+	ld hl, wFollowerColors
+	ld de, wMonOBPalColors
+	ld bc, 2 * PAL_COLOR_SIZE
+	ld a, BANK(wFollowerColors)
+	call FarCopyWRAM
+	jr BuildMonOBPal
+
+BuildSpriteMonOBPal::
+; For CopySpritePal: build the palette of a Pokémon sprite (PAL_OW_MON to
+; PAL_OW_MON_END - 1 in wNeededPalIndex) from its species' normal colors.
 ; Output: hl = wFollowerOBPal
+	ld a, [wNeededPalIndex]
+	sub PAL_OW_MON
+	cp NUM_POKEMON_SPRITES
+	jr nc, .day_care
+	ld e, a
+	ld d, 0
+	ld hl, SpriteMons
+	add hl, de
+	add hl, de
+	ld a, BANK(SpriteMons)
+	call GetFarWord ; hl = species index
+	jr .got_index
+
+.day_care
+	sub NUM_POKEMON_SPRITES
+	ld a, [wBreedMon1Species]
+	jr z, .got_species
+	ld a, [wBreedMon2Species]
+.got_species
+	call GetPokemonIndexFromID
+.got_index
+	add hl, hl ; 8 bytes per species
+	add hl, hl
+	add hl, hl
+	ld de, FollowerPalettes
+	add hl, de
+	ld de, wMonOBPalColors
+	ld bc, 2 * PAL_COLOR_SIZE
+	ld a, BANK(wMonOBPalColors)
+	call FarCopyWRAM
+	; fallthrough
+
+BuildMonOBPal:
+; Build wFollowerOBPal from wMonOBPalColors, darkened like the other NPCs at
+; night and in dark caves. Output: hl = wFollowerOBPal
 	assert BANK(wFollowerOBPal) == BANK("GBC Video"), \
 		"CopySpritePal copies with FarCopyColorWRAM"
 	; work out the lighting first: these variables are in WRAM bank 1
@@ -252,7 +335,7 @@ BuildFollowerOBPal::
 	ld [hli], a
 	ld a, HIGH(palred 31 + palgreen 31 + palblue 31)
 	ld [hli], a
-	ld bc, wFollowerColors
+	ld bc, wMonOBPalColors
 	ld d, 2
 .color_loop
 	ld a, [bc]

@@ -26,4 +26,4 @@ RegiceLair_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 10, 7, SPRITE_REGICE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RegiceScript, -1
+	object_event 10, 7, SPRITE_REGICE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RegiceScript, -1

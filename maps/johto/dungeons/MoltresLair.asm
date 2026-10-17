@@ -64,8 +64,8 @@ MoltresLair_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 20,  0, SPRITE_MOLTRES, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoltresLair_Moltres, -1
-	object_event 34, 24, SPRITE_SOLROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoltresLair_Solrock, -1
-	object_event  3,  4, SPRITE_CHARIZARD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoltresLair_Charizard, -1
-	object_event 21, 15, SPRITE_TYRANITAR, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MoltresLair_Tyranitar, -1
+	object_event 20,  0, SPRITE_MOLTRES, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Moltres, -1
+	object_event 34, 24, SPRITE_SOLROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Solrock, -1
+	object_event  3,  4, SPRITE_CHARIZARD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Charizard, -1
+	object_event 21, 15, SPRITE_TYRANITAR, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Tyranitar, -1
 	

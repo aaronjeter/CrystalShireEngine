@@ -239,6 +239,8 @@ _DoesSpriteHaveFacings::
 	ret
 
 _GetSpritePalette::
+	farcall GetPokemonSpritePalette
+	ret c
 	ld a, c
 	call GetMonSprite
 	jr c, .is_pokemon

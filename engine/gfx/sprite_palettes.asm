@@ -20,6 +20,13 @@ CopySpritePal::
 	jr .got_pal
 
 .not_follower
+	cp PAL_OW_MON
+	jr c, .not_mon
+	farcall BuildSpriteMonOBPal ; hl = wFollowerOBPal
+	jr .got_pal
+
+.not_mon
+	ld a, [wNeededPalIndex]
 	sub FIRST_COPY_BG_PAL
 	jr c, .not_copy_bg
 	ld hl, wBGPals1
@@ -84,8 +91,8 @@ CopySpritePal::
 	; NPC time-of-day palettes get the overworld weather tint. Weather particle
 	; palettes and copied BG palettes (already tinted) come after PAL_OW_RAIN.
 	ld a, [wNeededPalIndex]
-	cp PAL_OW_FOLLOWER
-	jr z, .weather_tint
+	cp PAL_OW_MON ; Pokémon sprites and the follower
+	jr nc, .weather_tint
 	cp PAL_OW_RAIN
 	jr nc, .no_weather_tint
 .weather_tint

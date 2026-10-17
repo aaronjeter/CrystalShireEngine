@@ -34,4 +34,4 @@ FortreeHouse1_MapEvents:
 
 	def_object_events
 	object_event  7,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FortreeHouse1GentlemanScript, -1
-	object_event  8,  1, SPRITE_TREECKO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FortreeTreeckoScript, -1
+	object_event  8,  1, SPRITE_TREECKO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeTreeckoScript, -1

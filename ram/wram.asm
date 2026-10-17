@@ -3242,6 +3242,7 @@ SECTION "Follower Palette", WRAMX, BANK[5]
 
 wFollowerColors:: ds 2 * PAL_COLOR_SIZE ; light, dark (from FollowerPalettes)
 wFollowerOBPal:: ds 1 palettes ; built by BuildFollowerOBPal for CopySpritePal
+wMonOBPalColors:: ds 2 * PAL_COLOR_SIZE ; light, dark for BuildMonOBPal
 
 
 SECTION "Overworld Weather RAM", WRAMX, BANK[1]

@@ -26,4 +26,4 @@ RegirockLair_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 12, 06, SPRITE_REGIROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, RegirockScript, -1
+	object_event 12, 06, SPRITE_REGIROCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RegirockScript, -1
