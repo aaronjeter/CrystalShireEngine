@@ -107,7 +107,7 @@ def sprite_sources(species, dex):
 			own_icon.setdefault(re.sub(r"(Icon|Follower)$", "", labels[i]), name)
 	src = {}
 	for i, name in enumerate(species, start=1):
-		if name in dex:
+		if name in dex or name in SHEET_EXTRAS:
 			src[name] = name
 		elif name[:-1] in dex and name[-1] in "2XY":
 			src[name] = name[:-1]  # "2" variants, megas
@@ -121,8 +121,17 @@ def sprite_sources(species, dex):
 # --- Sprite conversion ----------------------------------------------------
 BORDER = (139, 62, 93)
 
+# Sprites outside the dex-ordered rows: species -> (x, y) of its first cell.
+# They have no shiny cells; their shiny colors are their old menu icon ones.
+SHEET_EXTRAS = {"SYLVEON": (40, 4799)}  # first of the "EXTRA" row
+
 def frames(sheet, entry, shiny=False):
-	x, y = slot_xy(2 * entry + shiny)
+	"""entry: a sheet entry number, or the (x, y) of an extra sprite."""
+	if isinstance(entry, tuple):
+		assert not shiny, "extra sprites have no shiny cells"
+		x, y = entry
+	else:
+		x, y = slot_xy(2 * entry + shiny)
 	assert all(abs(a - b) <= 8 for a, b in zip(sheet.getpixel((x, y)), BORDER)), \
 		f"no cell at entry {entry}"
 	cells = [(x, y + 38), (x, y + 57),       # front (facing down) x2
@@ -213,12 +222,14 @@ def sheet_colors(sheet, dex_number):
 	return (mid + mid)[:2] if mid else None
 
 def shade_colors(sheet, dex_number, shiny=False):
+	"""dex_number may also be the (x, y) of an extra sprite."""
 	"""The sheet colors behind shades 1 and 2 of the converted sprite (the most
 	common sheet color at the pixels that became each shade), as 5-bit RGB."""
-	gray, _ = to_gray(frames(sheet, sheet_entry(dex_number)))
+	entry = dex_number if isinstance(dex_number, tuple) else sheet_entry(dex_number)
+	gray, _ = to_gray(frames(sheet, entry))
 	gpx = gray.load()
 	counts = {1: {}, 2: {}}
-	for n, f in enumerate(frames(sheet, sheet_entry(dex_number), shiny)):
+	for n, f in enumerate(frames(sheet, entry, shiny)):
 		px = f.load()
 		for j in range(16):
 			for i in range(16):
@@ -272,7 +283,11 @@ def seed_palettes(sheet, species, dex):
 	for k, name in enumerate(species):
 		normal, shiny = pals[k]
 		base = src.get(name)
-		if base == name and shade_colors(sheet, dex[base]):
+		if name in SHEET_EXTRAS:
+			normal = shade_colors(sheet, SHEET_EXTRAS[name])
+			shiny = icon_pals[k][1]
+			from_sheet += 1
+		elif base == name and shade_colors(sheet, dex[base]):
 			normal = shade_colors(sheet, dex[base])
 			shiny = shade_colors(sheet, dex[base], shiny=True)
 			from_sheet += 1
@@ -301,10 +316,10 @@ def main():
 	labels = icon_pointer_labels()[3:]
 
 	os.makedirs(os.path.join(ROOT, "gfx/followers"), exist_ok=True)
-	base = [name for name in species if name in dex]
+	base = [name for name in species if name in dex or name in SHEET_EXTRAS]
 	notes = {}
 	for name in base:
-		img, note = to_gray(frames(sheet, sheet_entry(dex[name])))
+		img, note = to_gray(frames(sheet, SHEET_EXTRAS.get(name) or sheet_entry(dex[name])))
 		img.save(os.path.join(ROOT, "gfx/followers", name.lower() + ".png"))
 		if note:
 			notes[name] = note

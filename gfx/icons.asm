@@ -16,9 +16,6 @@ PopplioIcon::    INCBIN "gfx/icons/alola/popplio.2bpp"
 BrionneIcon::    INCBIN "gfx/icons/alola/brionne.2bpp"
 PrimarinaIcon::  INCBIN "gfx/icons/alola/primarina.2bpp"
 
-; Gen 6
-SylveonIcon::    INCBIN "gfx/icons/sylveon.2bpp"
-
 ; Weyard
 MercuryIcon::    INCBIN "gfx/icons/weyard/mercury.2bpp"
 VenusIcon::      INCBIN "gfx/icons/weyard/venus.2bpp"

@@ -394,7 +394,7 @@ IconPointers:
 	;Gen 4 Mons
 	dba_lz TogekissFollower
 	dba_lz MamoswineFollower
-	dba SylveonIcon
+	dba_lz SylveonFollower
 	dba_lz LeafeonFollower
 	dba_lz GlaceonFollower
 	dba_lz GliscorFollower
