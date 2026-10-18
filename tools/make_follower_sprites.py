@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """Import follower Pokémon sprites from the Megaman-Omega overworld sheet.
 
-Usage:  python3 tools/make_follower_sprites.py path/to/sheet.png
+Usage:  python3 tools/make_follower_sprites.py path/to/sheet.png [--hoenn=path/to/rosie.png]
+
+--hoenn=... takes the Hoenn Pokémon (dex 252-386) from Rosie's Hoenn sheet
+instead of the main sheet.
 
 Sprites by Megaman-Omega (Pokémon Prism), with additions by FrenchOrange and
-LuigiTKO. See following-pokemon-plan.md in the project docs for the sheet layout.
+LuigiTKO; Hoenn sprites by Rosie (--hoenn). See following-pokemon-plan.md in
+the project docs for the sheet layout.
 
 Writes:
   gfx/followers/<species>.png  16x96, 4 grays, frames in this order:
@@ -125,8 +129,38 @@ BORDER = (139, 62, 93)
 # They have no shiny cells; their shiny colors are their old menu icon ones.
 SHEET_EXTRAS = {"SYLVEON": (40, 4799)}  # first of the "EXTRA" row
 
+# Rosie's Hoenn sheet (--hoenn=path): 40 columns of Pokémon in bands of six
+# 16x16 frames (front, back, left, then the stepping frames in that order),
+# dex 252-386 with a few extra forms in between. It has no shiny frames, so
+# Hoenn shiny colors still come from the main sheet's shiny cells.
+HOENN_SHEET = None
+HOENN_EXTRAS = {264: 13, 352: 105}  # Linoone, Kecleon (after Galarian Zigzagoon, Castform's forms)
+def hoenn_index(dex):
+	if dex in HOENN_EXTRAS:
+		return HOENN_EXTRAS[dex]
+	if 252 <= dex <= 263:
+		return dex - 252
+	if 265 <= dex <= 351:
+		return dex - 250  # after Galarian Zigzagoon, Linoone and Galarian Linoone
+	if 353 <= dex <= 386:
+		return dex - 246  # after Castform's forms and a second Kecleon
+	return None
+
+def entry_for(dex):
+	"""The sprite to use for dex number dex: ("hoenn", index) or a sheet entry."""
+	if HOENN_SHEET is not None and hoenn_index(dex) is not None:
+		return ("hoenn", hoenn_index(dex))
+	return sheet_entry(dex)
+
 def frames(sheet, entry, shiny=False):
-	"""entry: a sheet entry number, or the (x, y) of an extra sprite."""
+	"""entry: a sheet entry number, ("hoenn", index), or the (x, y) of an
+	extra sprite. Frames: front x2, back x2, left x2."""
+	if isinstance(entry, tuple) and entry[0] == "hoenn":
+		assert not shiny, "the Hoenn sheet has no shiny frames"
+		band, col = divmod(entry[1], 40)
+		x, y = 5 + 17 * col, 5 + 97 * band
+		order = [0, 3, 1, 4, 2, 5]  # front, back, left, then their stepping frames
+		return [HOENN_SHEET.crop((x, y + 16 * k, x + 16, y + 16 * k + 16)) for k in order]
 	if isinstance(entry, tuple):
 		assert not shiny, "extra sprites have no shiny cells"
 		x, y = entry
@@ -209,7 +243,7 @@ def battle_palettes(species):
 def sheet_colors(sheet, dex_number):
 	"""The sheet sprite's light and dark colors (8-bit RGB)."""
 	colors = set()
-	for f in frames(sheet, sheet_entry(dex_number)):
+	for f in frames(sheet, entry_for(dex_number)):
 		out = outside(f)
 		px = f.load()
 		for j in range(16):
@@ -222,10 +256,15 @@ def sheet_colors(sheet, dex_number):
 	return (mid + mid)[:2] if mid else None
 
 def shade_colors(sheet, dex_number, shiny=False):
-	"""dex_number may also be the (x, y) of an extra sprite."""
 	"""The sheet colors behind shades 1 and 2 of the converted sprite (the most
-	common sheet color at the pixels that became each shade), as 5-bit RGB."""
-	entry = dex_number if isinstance(dex_number, tuple) else sheet_entry(dex_number)
+	common sheet color at the pixels that became each shade), as 5-bit RGB.
+	dex_number may also be the (x, y) of an extra sprite."""
+	if isinstance(dex_number, tuple):
+		entry = dex_number
+	elif shiny:
+		entry = sheet_entry(dex_number)  # shiny cells are only on the main sheet
+	else:
+		entry = entry_for(dex_number)
 	gray, _ = to_gray(frames(sheet, entry))
 	gpx = gray.load()
 	counts = {1: {}, 2: {}}
@@ -290,6 +329,8 @@ def seed_palettes(sheet, species, dex):
 		elif base == name and shade_colors(sheet, dex[base]):
 			normal = shade_colors(sheet, dex[base])
 			shiny = shade_colors(sheet, dex[base], shiny=True)
+			# (Hoenn sheet sprites take their shiny colors from the main sheet;
+			# both put the lighter color on shade 1.)
 			from_sheet += 1
 		elif not base:
 			# only a menu icon: the colors it had in menus
@@ -311,6 +352,10 @@ def main():
 	if len(args) != 1:
 		sys.exit(__doc__)
 	sheet = Image.open(args[0]).convert("RGB")
+	global HOENN_SHEET
+	for a in sys.argv[1:]:
+		if a.startswith("--hoenn="):
+			HOENN_SHEET = Image.open(a[len("--hoenn="):]).convert("RGB")
 	species = species_list()
 	dex = dex_numbers(species)
 	labels = icon_pointer_labels()[3:]
@@ -319,7 +364,7 @@ def main():
 	base = [name for name in species if name in dex or name in SHEET_EXTRAS]
 	notes = {}
 	for name in base:
-		img, note = to_gray(frames(sheet, SHEET_EXTRAS.get(name) or sheet_entry(dex[name])))
+		img, note = to_gray(frames(sheet, SHEET_EXTRAS.get(name) or entry_for(dex[name])))
 		img.save(os.path.join(ROOT, "gfx/followers", name.lower() + ".png"))
 		if note:
 			notes[name] = note
@@ -329,6 +374,8 @@ def main():
 		f.write("; Generated by tools/make_follower_sprites.py.\n")
 		f.write("; Follower Pokémon sprites by Megaman-Omega (Pokémon Prism),\n")
 		f.write("; with additions by FrenchOrange and LuigiTKO.\n")
+		if HOENN_SHEET is not None:
+			f.write("; Hoenn Pokémon (Treecko to Jirachi) by Rosie.\n")
 		f.write("; The first two frames of each sprite are also its menu icon\n")
 		f.write("; (see data/pokemon/icon_pointers.asm).\n")
 		for k, name in enumerate(base):
