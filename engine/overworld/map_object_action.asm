@@ -212,8 +212,29 @@ SetFacingBounce:
 	ld [hl], a
 	and %00010000
 	jr z, SetFacingFreezeBounce
-	; Pokémon sprites are walking sprites: bounce by stepping in place.
+	; Pokémon sprites are walking sprites: they bounce by stepping in place,
+	; facing their direction (down, or the player after being talked to).
 	; Older two-frame sprites have their second frame where "up" goes.
+	call IsPokemonSpriteObject
+	ld a, FACING_STEP_UP_0
+	jr nc, SetFacingBounceA
+	call GetSpriteDirection
+	inc a ; FACING_STEP_<direction>_1
+	jr SetFacingBounceA
+
+SetFacingFreezeBounce:
+	call IsPokemonSpriteObject
+	ld a, FACING_STEP_DOWN_0
+	jr nc, SetFacingBounceA
+	call GetSpriteDirection ; FACING_STEP_<direction>_0
+SetFacingBounceA:
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld [hl], a
+	ret
+
+IsPokemonSpriteObject:
+; Return carry if object bc has a Pokémon sprite (variable sprites resolved).
 	ld hl, OBJECT_SPRITE
 	add hl, bc
 	ld a, [hl]
@@ -229,19 +250,7 @@ SetFacingBounce:
 	pop de
 .got_sprite
 	cp SPRITE_POKEMON
-	ld a, FACING_STEP_UP_0
-	jr c, .got_facing
-	ld a, FACING_STEP_DOWN_1
-.got_facing
-	ld hl, OBJECT_FACING
-	add hl, bc
-	ld [hl], a
-	ret
-
-SetFacingFreezeBounce:
-	ld hl, OBJECT_FACING
-	add hl, bc
-	ld [hl], FACING_STEP_DOWN_0
+	ccf
 	ret
 
 SetFacingWeirdTree:

@@ -805,6 +805,56 @@ Script_applymovementlasttalked:
 	ld c, a
 	jr ApplyMovement
 
+FacePlayerIfPokemon::
+; Talking to a Pokémon sprite turns it to face the player, as faceplayer does
+; but even with SPRITEMOVEDATA_POKEMON's fixed facing (its bounce then keeps
+; facing that way). The follower's own script does this already.
+	ldh a, [hLastTalked]
+	and a
+	ret z
+	call GetMapObject
+	ld hl, MAPOBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	cp SPRITE_VARS
+	jr c, .got_sprite
+	sub SPRITE_VARS
+	ld e, a
+	ld d, 0
+	ld hl, wVariableSprites
+	add hl, de
+	ld a, [hl]
+.got_sprite
+	cp SPRITE_POKEMON
+	ret c
+	cp SPRITE_FOLLOWER
+	ret z
+	ld d, 0 ; the player
+	ldh a, [hLastTalked]
+	ld e, a
+	farcall GetRelativeFacing
+	ret c
+	ld a, d
+	add a
+	add a
+	push af
+	ldh a, [hLastTalked]
+	call CheckObjectVisibility ; bc = its object struct
+	pop de ; d = direction
+	ret c
+	ld a, d
+	call SetSpriteDirection
+	; show it now: the script may not update the sprites for a while
+	; (a lone cry, for example)
+	ld a, d
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld [hl], a ; FACING_STEP_<direction>_0
+	ld hl, wStateFlags
+	bit TEXT_STATE_F, [hl]
+	call z, ApplyObjectFacing.DisableTextTiles
+	jmp UpdateSprites
+
 Script_faceplayer:
 	ldh a, [hLastTalked]
 	and a

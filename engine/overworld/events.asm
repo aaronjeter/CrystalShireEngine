@@ -566,6 +566,9 @@ ObjectEventTypeArray:
 	db -1 ; end
 
 .script
+	push bc
+	call FacePlayerIfPokemon
+	pop bc
 	ld hl, MAPOBJECT_SCRIPT_POINTER
 	add hl, bc
 	ld a, [hli]
