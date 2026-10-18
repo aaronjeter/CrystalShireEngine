@@ -1380,14 +1380,18 @@ SaveScreen_LoadConnection::
 GetMovementPermissions::
 	xor a
 	ld [wTilePermissions], a
-	call .LeftRight
-	call .UpDown
-; get coords of current tile
+; get the raw collision of the current tile first:
+; GetNeighborCollision uses it to handle bridges
 	ld a, [wPlayerMapX]
 	ld d, a
 	ld a, [wPlayerMapY]
 	ld e, a
-	call GetCoordTileCollision
+	call GetCoordTileCollisionRaw
+	ld [wPlayerTileCollision], a
+	call .LeftRight
+	call .UpDown
+	ld a, [wPlayerTileCollision]
+	call TranslateBridgeCollision
 	ld [wPlayerTileCollision], a
 	call .CheckHiNybble
 	ret nz
@@ -1423,13 +1427,13 @@ GetMovementPermissions::
 
 	push de
 	inc e
-	call GetCoordTileCollision
+	call GetNeighborCollision
 	ld [wTileDown], a
 	call .Down
 
 	pop de
 	dec e
-	call GetCoordTileCollision
+	call GetNeighborCollision
 	ld [wTileUp], a
 	jr .Up
 
@@ -1441,13 +1445,13 @@ GetMovementPermissions::
 
 	push de
 	dec d
-	call GetCoordTileCollision
+	call GetNeighborCollision
 	ld [wTileLeft], a
 	call .Left
 
 	pop de
 	inc d
-	call GetCoordTileCollision
+	call GetNeighborCollision
 	ld [wTileRight], a
 	jr .Right
 
@@ -1576,6 +1580,11 @@ GetFacingTileCoord::
 
 GetCoordTileCollision::
 ; Get the collision byte for tile d, e
+; (bridge tiles are translated for the player's bridge level)
+	call GetCoordTileCollisionRaw
+	jmp TranslateBridgeCollision
+
+GetCoordTileCollisionRaw::
 	call GetBlockLocation
 	ld a, [hl]
 	and a

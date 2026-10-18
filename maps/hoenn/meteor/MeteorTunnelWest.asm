@@ -17,25 +17,6 @@ MeteorTunnelWestMonSpritesCallback:
 	setmonsprite SPRITE_MON_2, DUSCLOPS
 	endcallback
 
-MeteorTunnelWestEnableBridgeScript:
-	;bridge 1
-	changeblock 10, 12, $c0 ; LeftBridge
-	changeblock 12, 12, $98 ; Bridge
-	changeblock 14, 12, $98 ; Bridge
-	changeblock 16, 12, $98 ; Bridge
-	changeblock 18, 12, $c1 ; RightBridge
-	end
-
-
-MeteorTunnelWestDisableBridgeScript:
-	;bridge 1
-	changeblock 10, 12, $bc ; LeftBridge
-	changeblock 12, 12, $c2 ; Bridge
-	changeblock 14, 12, $c2 ; Bridge
-	changeblock 16, 12, $c2 ; Bridge
-	changeblock 18, 12, $bd ; RightBridge	
-	end
-
 MeteorTunnelWestTmSwift:
 	itemball TM_SWIFT
 
@@ -72,12 +53,6 @@ MeteorTunnelWest_MapEvents:
 	warp_event 37, 17, METEOR_TUNNEL_CENTER, 2
 
 	def_coord_events
-	;enable bridge 1
-	coord_event 04, 18, -1, MeteorTunnelWestEnableBridgeScript
-	coord_event 24, 14, -1, MeteorTunnelWestEnableBridgeScript
-
-	;disable bridge 1
-	coord_event 24, 18, -1, MeteorTunnelWestDisableBridgeScript
 
 	def_bg_events	
 

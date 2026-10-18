@@ -185,7 +185,7 @@ ForceMapMusic:
 
 DecompressMetatiles:
 	call TilesetUnchanged
-	ret z
+	jr z, .done
 
 	ld hl, wTilesetBlocksBank
 	ld c, BANK(wDecompressedMetatiles)
@@ -193,6 +193,10 @@ DecompressMetatiles:
 
 	ld hl, wTilesetAttributesBank
 	ld c, BANK(wDecompressedAttributes)
+	call .Decompress
+
+.done
+	jmp ApplyBridgePriority
 
 .Decompress:
 	ld a, [hli]

@@ -114,6 +114,10 @@ DEF COLL_DOWN_RIGHT_BUOY   EQU $c4 ; unused
 DEF COLL_DOWN_LEFT_BUOY    EQU $c5 ; unused
 DEF COLL_UP_RIGHT_BUOY     EQU $c6 ; unused
 DEF COLL_UP_LEFT_BUOY      EQU $c7 ; unused
+; bridges (see home/bridges.asm): translated by the player's bridge level
+DEF COLL_BRIDGE_FLOOR      EQU $d0 ; bridge deck over floor
+DEF COLL_BRIDGE_WATER      EQU $d1 ; bridge deck over water
+DEF COLL_BRIDGE_EDGE       EQU $d2 ; bridge end: floor on top, wall underneath
 DEF COLL_FF                EQU $ff ; garbage
 
 ; collision data type nybbles

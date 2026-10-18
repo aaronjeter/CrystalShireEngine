@@ -464,6 +464,12 @@ endc
 	db COLL_WARP_CARPET_RIGHT
 
 .DoStep:
+	cp STEP_TURN
+	jr z, .no_bridge_check
+	push af
+	call CheckBridgeStep
+	pop af
+.no_bridge_check
 	ld e, a
 	ld d, 0
 	ld hl, .Steps
@@ -1012,4 +1018,130 @@ StopPlayerForEvent::
 	ld [hl], a
 	xor a
 	ld [wPlayerTurningDirection], a
+	ret
+
+CheckBridgeStep:
+; Update the player's bridge level (see home/bridges.asm) for the step
+; about to be taken, and redraw the screen if it changed.
+	ld a, [wWalkingDirection]
+	cp STANDING
+	ret z
+	ld a, [wPlayerMapX]
+	ld d, a
+	ld a, [wPlayerMapY]
+	ld e, a
+	push de
+	call GetCoordTileCollisionRaw
+	pop de
+	sub COLL_BRIDGE_FLOOR
+	ld b, a ; current tile: 0-1: deck, 2: edge, 3+: not a bridge
+	ld a, [wWalkingX]
+	add d
+	ld d, a
+	ld a, [wWalkingY]
+	add e
+	ld e, a
+	push bc
+	call GetCoordTileCollisionRaw
+	pop bc
+	sub COLL_BRIDGE_FLOOR
+	cp COLL_BRIDGE_EDGE - COLL_BRIDGE_FLOOR + 1
+	ret nc ; not stepping onto a bridge
+	cp COLL_BRIDGE_EDGE - COLL_BRIDGE_FLOOR
+	jr z, .upper ; onto an edge
+	ld a, b
+	cp COLL_BRIDGE_EDGE - COLL_BRIDGE_FLOOR
+	jr z, .upper ; from an edge onto a deck
+	ret c ; from deck to deck
+; onto a deck from off the bridge
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_BRIDGE_UPPER_F, [hl]
+	ret z
+	res STATUSFLAGS2_BRIDGE_UPPER_F, [hl]
+	jr .changed
+
+.upper
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_BRIDGE_UPPER_F, [hl]
+	ret nz
+	set STATUSFLAGS2_BRIDGE_UPPER_F, [hl]
+.changed
+	call ApplyBridgePriority
+	; fallthrough
+
+RefreshScreenAttrmap:
+; Redraw the attributes of the visible map in place (the tiles are unchanged),
+; wherever the BG map is anchored, in one vblank.
+	call LoadOverworldTilemap
+	ld a, [wBGMapAnchor]
+	ld c, a
+	ld a, [wBGMapAnchor + 1]
+	and HIGH(BG_MAP_WIDTH * BG_MAP_HEIGHT - 1)
+	ld b, a
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wScratchAttrmap)
+	ldh [rSVBK], a
+; lay wAttrmap out in a copy of the BG map, starting at the anchor and wrapping
+	ld hl, wScratchAttrmap
+	add hl, bc
+	ld de, wAttrmap
+	ld b, SCREEN_HEIGHT
+.row
+	push hl
+	ld c, SCREEN_WIDTH
+.col
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, l
+	and BG_MAP_WIDTH - 1
+	jr nz, .next_col
+	ld a, l
+	sub BG_MAP_WIDTH
+	ld l, a
+	jr nc, .next_col
+	dec h
+.next_col
+	dec c
+	jr nz, .col
+	pop hl
+	ld a, l
+	add BG_MAP_WIDTH
+	ld l, a
+	jr nc, .no_carry
+	inc h
+.no_carry
+	ld a, h
+	cp HIGH(wScratchAttrmap + BG_MAP_WIDTH * BG_MAP_HEIGHT)
+	jr c, .no_wrap
+	ld h, HIGH(wScratchAttrmap)
+.no_wrap
+	dec b
+	jr nz, .row
+; copy it all to the attribute map during vblank
+	ldh a, [rVBK]
+	push af
+	ld a, 1
+	ldh [rVBK], a
+	ld a, HIGH(wScratchAttrmap)
+	ldh [rHDMA1], a
+	ld a, LOW(wScratchAttrmap)
+	ldh [rHDMA2], a
+	ld a, HIGH(vBGMap0)
+	ldh [rHDMA3], a
+	ld a, LOW(vBGMap0)
+	ldh [rHDMA4], a
+	di
+.wait
+	ldh a, [rLY]
+	cp LY_VBLANK
+	jr nz, .wait
+	ld a, BG_MAP_WIDTH * BG_MAP_HEIGHT / 16 - 1 ; general-purpose DMA
+	ldh [rHDMA5], a
+	ei
+	pop af
+	ldh [rVBK], a
+	pop af
+	ldh [rSVBK], a
 	ret
