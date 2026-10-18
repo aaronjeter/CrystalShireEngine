@@ -21,17 +21,17 @@ LilycovePaintHouse_Clea:
 	writetext LilycoveCleaOfferScaleText
 	yesorno
 	iffalse .Done
-	takeitem MARVEL_SCALE
-	writetext LilycoveCleaPaintsText
-	loadmem wPartyMon1DVs+0, $ff
-	loadmem wPartyMon1DVs+1, $ff
-	loadmem wPartyMon1DVs+2, $ff
-	special HealParty
+	monpaletteservice .Service
+	ifequal MONPALSERVICE_CANCELLED, .Done
 	waitbutton
 
 .Done
 	closetext
 	end
+
+.Service:
+	monpal_item MARVEL_SCALE, HP_MAX_DARK, MONPAL_SHINY, LilycoveCleaPaintsText
+	monpal_end
 
 LilycoveCleaWelcomeText:
 	text "Hi, welcome to"
@@ -53,8 +53,8 @@ LilycoveCleaOfferScaleText:
 	para "Give it to me,"
 	line "and I'll make"
 
-	para "Your first"
-	line "Pokemon GLOW!"
+	para "one of your"
+	line "#mon GLOW!"
 	done
 
 LilycoveCleaPaintsText:
@@ -63,7 +63,9 @@ LilycoveCleaPaintsText:
 	cont "makes Ink..."
 
 	para "Then she artfully"
-	line "paints..."
+	line "paints @"
+	text_ram wStringBuffer1
+	text "!"
 	done
 
 LilycovePaintHouse_MapEvents:

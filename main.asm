@@ -165,6 +165,7 @@ INCLUDE "engine/events/halloffame_team.asm"
 SECTION "Move Reminder", ROMX
 
 INCLUDE "engine/events/move_reminder.asm"
+INCLUDE "engine/events/mon_palette_service.asm"
 
 
 SECTION "Effect Commands", ROMX

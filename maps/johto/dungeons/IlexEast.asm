@@ -31,75 +31,19 @@ IlexEastWaterShrineScript:
 	writetext IlexEastWaterShrineEmptyText
 	waitbutton
 
-	loadmenu .ShrineMenuHeader
-	verticalmenu
-	closewindow
-	ifequal 1, .SilverLeaf
-	ifequal 2, .GoldLeaf
-	ifequal 3, .MarvelScale
-
-	sjump .No
-
-.SilverLeaf
-	checkitem SILVER_LEAF
-	iffalse .No
-
-	writetext IlexShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem SILVER_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_GRASS
-	loadmem wPartyMon1DVs+1, $aa
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext IlexShrineAlignedWithGrassText
-	waitbutton
-	sjump .Done
-
-.GoldLeaf
-	checkitem GOLD_LEAF
-	iffalse .No
-
-	writetext IlexShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem GOLD_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_GRASS
-	loadmem wPartyMon1DVs+1, $fe
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext IlexShrineForestBlessingText
-	waitbutton
-	sjump .Done
-
-.MarvelScale
-	checkitem MARVEL_SCALE
-	iffalse .No
-
-	writetext IlexShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem MARVEL_SCALE
-	loadmem wPartyMon1DVs+0, HP_MAX_GRASS
-	loadmem wPartyMon1DVs+1, $ff
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext IlexShrineCelebiBlessingText
-	waitbutton
-	sjump .Done	
-
-.No
+	monpaletteservice .Offerings
+	ifequal MONPALSERVICE_DONE, .Done
 	writetext IlexShrineNoOfferingText
-	waitbutton
 .Done
+	waitbutton
 	closetext
 	end
+
+.Offerings:
+	monpal_item SILVER_LEAF, HP_MAX_GRASS, MONPAL_ALIGN, IlexShrineAlignedWithGrassText
+	monpal_item GOLD_LEAF, HP_MAX_GRASS, MONPAL_TYPE_COLORS, IlexShrineForestBlessingText
+	monpal_item MARVEL_SCALE, HP_MAX_GRASS, MONPAL_SHINY, IlexShrineCelebiBlessingText
+	monpal_end
 
 .DefeatedMrMime
 	checkevent EVENT_DEFEATED_CELEBI_GUARDIAN_SUNFLORA
@@ -144,24 +88,6 @@ IlexEastWaterShrineScript:
 	closetext
 	end
 
-.ShrineMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 3 ; items	
-	db "Silver Leaf@"
-	db "Gold Leaf@"	
-	db "Marvel Scale@"
-
-IlexShrineFirstMonText:
-	text "Offer this item"
-	line "for your first"
-	cont "#mon?"
-	done
 
 IlexShrineNoOfferingText:
 	text "You choose not"
@@ -170,20 +96,23 @@ IlexShrineNoOfferingText:
 	done
 
 IlexShrineAlignedWithGrassText:
-	text "Your first #mon"
-	line "has aligned"
+	text_ram wStringBuffer1
+	text " has"
+	line "aligned"
 	cont "with Grass!"
 	done
 
 IlexShrineForestBlessingText:
-	text "Your first #mon"
-	line "has recieved the"
+	text_ram wStringBuffer1
+	text " has"
+	line "received the"
 	cont "Forest's Blessing!"
 	done
 
 IlexShrineCelebiBlessingText:
-	text "Your first #mon"
-	line "has recieved"
+	text_ram wStringBuffer1
+	text " has"
+	line "received"
 	cont "Celebi's Blessing!"
 	done
 

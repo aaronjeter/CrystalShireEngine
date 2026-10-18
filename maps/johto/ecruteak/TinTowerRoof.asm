@@ -48,88 +48,20 @@ HoOhShrineScript:
 	writetext HoOhShrineEmptyText
 	waitbutton
 
-	loadmenu .ShrineMenuHeader
-	verticalmenu
-	closewindow
-	ifequal 1, .SilverLeaf
-	ifequal 2, .GoldLeaf
-	ifequal 3, .MarvelScale
-
-	sjump .No
-
-.SilverLeaf
-	checkitem SILVER_LEAF
-	iffalse .No
-
-	writetext HoOhShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem SILVER_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_FIRE
-	loadmem wPartyMon1DVs+1, $aa
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext HoOhShrineAlignedWithFireText
-	waitbutton
-	sjump .Done
-
-.GoldLeaf
-	checkitem GOLD_LEAF
-	iffalse .No
-
-	writetext HoOhShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem GOLD_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_FIRE
-	loadmem wPartyMon1DVs+1, $fe
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext HoOhShrineFlameBlessingText
-	waitbutton
-	sjump .Done
-
-.MarvelScale
-	checkitem MARVEL_SCALE
-	iffalse .No
-
-	writetext HoOhShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem MARVEL_SCALE
-	loadmem wPartyMon1DVs+0, HP_MAX_FIRE
-	loadmem wPartyMon1DVs+1, $ff
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext HoOhShrineHoOhBlessingText
-	waitbutton
-	sjump .Done	
-
-.No
+	monpaletteservice .Offerings
+	ifequal MONPALSERVICE_DONE, .Done
 	writetext HoOhShrineNoOfferingText
-	waitbutton
 .Done
+	waitbutton
 	closetext
 	end
 
-.ShrineMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
+.Offerings:
+	monpal_item SILVER_LEAF, HP_MAX_FIRE, MONPAL_ALIGN, HoOhShrineAlignedWithFireText
+	monpal_item GOLD_LEAF, HP_MAX_FIRE, MONPAL_TYPE_COLORS, HoOhShrineFlameBlessingText
+	monpal_item MARVEL_SCALE, HP_MAX_FIRE, MONPAL_SHINY, HoOhShrineHoOhBlessingText
+	monpal_end
 
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 3 ; items	
-	db "Silver Leaf@"
-	db "Gold Leaf@"	
-	db "Marvel Scale@"
 
 HoOhShrineEmptyText:
 	text "The shrine is"
@@ -140,27 +72,24 @@ HoOhShrineEmptyText:
 	cont "offering..."
 	done
 
-HoOhShrineFirstMonText:
-	text "Offer this item"
-	line "for your first"
-	cont "#mon?"
-	done
-
 HoOhShrineAlignedWithFireText:
-	text "Your first #mon"
-	line "has aligned"
+	text_ram wStringBuffer1
+	text " has"
+	line "aligned"
 	cont "with Fire!"
 	done
 
 HoOhShrineFlameBlessingText:
-	text "Your first #mon"
-	line "has recieved the"
+	text_ram wStringBuffer1
+	text " has"
+	line "received the"
 	cont "Blessing of Flame!"
 	done
 
 HoOhShrineHoOhBlessingText:
-	text "Your first #mon"
-	line "has recieved a"
+	text_ram wStringBuffer1
+	text " has"
+	line "received a"
 	cont "Blessing from"
 	cont "Ho Oh!"
 	done

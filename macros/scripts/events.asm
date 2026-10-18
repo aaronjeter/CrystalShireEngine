@@ -1155,3 +1155,30 @@ MACRO closedialog
 	closepokepic
 	closetext
 ENDM
+
+; Palette changes (see engine/events/mon_palette_service.asm)
+MACRO monpaletteservice
+; options -> wScriptVar = MONPALSERVICE_* result
+	special MonPaletteService
+	dw \1 ; options, in the same bank as the script
+ENDM
+
+MACRO monpal_item
+; item, atk/def DV (HP_MAX_*), spd/spc DV (MONPAL_*), result text
+	dw \1
+	dt 0
+	db \2, \3
+	dw \4
+ENDM
+
+MACRO monpal_money
+; amount, atk/def DV (HP_MAX_*), spd/spc DV (MONPAL_*), result text
+	dw NO_ITEM
+	dt \1
+	db \2, \3
+	dw \4
+ENDM
+
+MACRO monpal_end
+	dw -1
+ENDM

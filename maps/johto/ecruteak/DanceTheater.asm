@@ -133,100 +133,26 @@ LilyOfferDvService:
 	writetext LilyBroughtAStoneText
 	waitbutton
 
-	loadmenu .LilyMenuHeader
-	verticalmenu
-	closewindow
-	ifequal 1, .FireStone
-	ifequal 2, .WaterStone
-	ifequal 3, .ThunderStone
-
-	sjump .No
-
-.FireStone
-	checkitem FIRE_STONE
-	iffalse .No
-
-	writetext LilyFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem FIRE_STONE
-	loadmem wPartyMon1DVs+0, HP_MAX_FIRE
-	loadmem wPartyMon1DVs+1, $fe
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext KimonoGirlLilyDoneText
-	waitbutton
-	sjump .Done
-
-.WaterStone
-	checkitem WATER_STONE
-	iffalse .No
-
-	writetext LilyFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem WATER_STONE
-	loadmem wPartyMon1DVs+0, HP_MAX_WATER
-	loadmem wPartyMon1DVs+1, $fe
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext KimonoGirlLilyDoneText
-	waitbutton
-	sjump .Done
-
-.ThunderStone
-	checkitem THUNDERSTONE
-	iffalse .No
-
-	writetext LilyFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem THUNDERSTONE
-	loadmem wPartyMon1DVs+0, HP_MAX_ELECTRIC
-	loadmem wPartyMon1DVs+1, $fe
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext KimonoGirlLilyDoneText
-	waitbutton
-	sjump .Done	
-
-.No
+	monpaletteservice .Offerings
+	ifequal MONPALSERVICE_DONE, .Done
 	writetext KimonoGirlLilyNoText
 .Done
+	waitbutton
 	closetext
 	end
 
+.Offerings:
+	monpal_item FIRE_STONE, HP_MAX_FIRE, MONPAL_TYPE_COLORS, KimonoGirlLilyDoneText
+	monpal_item WATER_STONE, HP_MAX_WATER, MONPAL_TYPE_COLORS, KimonoGirlLilyDoneText
+	monpal_item THUNDERSTONE, HP_MAX_ELECTRIC, MONPAL_TYPE_COLORS, KimonoGirlLilyDoneText
+	monpal_end
 
-.LilyMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
 
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 3 ; items	
-	db "Fire Stone@"
-	db "Water Stone@"	
-	db "Thunder Stone@"
 
 LilyBroughtAStoneText:
 	text "So, <PLAY_G>..."
 	line "Have you brought"
 	cont "me a stone?"
-	done
-
-LilyFirstMonText:
-	text "Shall I use this"
-	line "stone for your"
-	cont "first #mon's"
-	cont "Hidden Power?"
 	done
 
 KimonoGirlLilyDvChangeIntroText:
@@ -250,8 +176,8 @@ KimonoGirlLilyDvChangeIntroText:
 	para "Bring me a stone"
 	line "of elemental power"
 	cont "and I can align"
-	cont "the first #mon"
-	cont "in your party!"
+	cont "any #mon in"
+	cont "your party!"
 	done
 
 KimonoGirlLilyNoSurfText:

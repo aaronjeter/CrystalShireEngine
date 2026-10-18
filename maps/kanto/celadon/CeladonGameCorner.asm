@@ -281,20 +281,16 @@ ToxicRocketScript:
 	special PlaceMoneyTopRight
 	yesorno
 	iffalse .Refused
-	checkmoney YOUR_MONEY, 10000
-	ifequal HAVE_LESS, .NotEnoughMoney
-
-	loadmem wPartyMon1DVs+0, HP_MAX_POISON
-	loadmem wPartyMon1DVs+1, $fe
-
-	waitsfx
-	playsound SFX_TRANSACTION
-	takemoney YOUR_MONEY, 1000
-	special PlaceMoneyTopRight
-	writetext ToxicRocketAfterServiceText
+	monpaletteservice .Service
+	ifequal MONPALSERVICE_CANT_PAY, .NotEnoughMoney
+	ifequal MONPALSERVICE_CANCELLED, .Refused
 	waitbutton
 	closetext
 	end
+
+.Service:
+	monpal_money 10000, HP_MAX_POISON, MONPAL_TYPE_COLORS, ToxicRocketAfterServiceText
+	monpal_end
 
 .NotEnoughMoney:
 	writetext ToxicRocketNoMoneyText
@@ -313,8 +309,8 @@ ToxicRocketOfferServiceText:
 	line "Have I got a deal"
 	cont "for you."
 
-	para "I can fill your"
-	line "first #mon"
+	para "I can fill one"
+	line "of your #mon"
 	cont "with toxic power!"
 
 	para "Don't worry, it"
@@ -327,7 +323,9 @@ ToxicRocketAfterServiceText:
 	text "And...it is"
 	line "complete!"
 
-	para "Your #mon is"
+	para "@"
+	text_ram wStringBuffer1
+	text " is"
 	line "filled with Hidden"
 	cont "Poison Power."
 

@@ -52,88 +52,20 @@ MewtwoShrineScript:
 	writetext MewtwoShrineEmptyText
 	waitbutton
 
-	loadmenu .ShrineMenuHeader
-	verticalmenu
-	closewindow
-	ifequal 1, .SilverLeaf
-	ifequal 2, .GoldLeaf
-	ifequal 3, .MarvelScale
-
-	sjump .No
-
-.SilverLeaf
-	checkitem SILVER_LEAF
-	iffalse .No
-
-	writetext MewtwoShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem SILVER_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_PSYCHIC
-	loadmem wPartyMon1DVs+1, $aa
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext MewtwoShrineAlignedWithPsychicText
-	waitbutton
-	sjump .Done
-
-.GoldLeaf
-	checkitem GOLD_LEAF
-	iffalse .No
-
-	writetext MewtwoShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem GOLD_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_PSYCHIC
-	loadmem wPartyMon1DVs+1, $fe
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext MewtwoShrinePsionicBlessingText
-	waitbutton
-	sjump .Done
-
-.MarvelScale
-	checkitem MARVEL_SCALE
-	iffalse .No
-
-	writetext MewtwoShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem MARVEL_SCALE
-	loadmem wPartyMon1DVs+0, HP_MAX_PSYCHIC
-	loadmem wPartyMon1DVs+1, $ff
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext MewtwoShrineMewtwoBlessingText
-	waitbutton
-	sjump .Done	
-
-.No
+	monpaletteservice .Offerings
+	ifequal MONPALSERVICE_DONE, .Done
 	writetext MewtwoShrineNoOfferingText
-	waitbutton
 .Done
+	waitbutton
 	closetext
 	end
 
-.ShrineMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
+.Offerings:
+	monpal_item SILVER_LEAF, HP_MAX_PSYCHIC, MONPAL_ALIGN, MewtwoShrineAlignedWithPsychicText
+	monpal_item GOLD_LEAF, HP_MAX_PSYCHIC, MONPAL_TYPE_COLORS, MewtwoShrinePsionicBlessingText
+	monpal_item MARVEL_SCALE, HP_MAX_PSYCHIC, MONPAL_SHINY, MewtwoShrineMewtwoBlessingText
+	monpal_end
 
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 3 ; items	
-	db "Silver Leaf@"
-	db "Gold Leaf@"	
-	db "Marvel Scale@"
 
 MewtwoShrineEmptyText:
 	text "The shrine is"
@@ -144,27 +76,24 @@ MewtwoShrineEmptyText:
 	cont "offering..."
 	done
 
-MewtwoShrineFirstMonText:
-	text "Offer this item"
-	line "for your first"
-	cont "#mon?"
-	done
-
 MewtwoShrineAlignedWithPsychicText:
-	text "Your first #mon"
-	line "has aligned"
+	text_ram wStringBuffer1
+	text " has"
+	line "aligned"
 	cont "with Psychic!"
 	done
 
 MewtwoShrinePsionicBlessingText:
-	text "Your first #mon"
-	line "has recieved the"
+	text_ram wStringBuffer1
+	text " has"
+	line "received the"
 	cont "Psionic Blessing!"
 	done
 
 MewtwoShrineMewtwoBlessingText:
-	text "Your first #mon"
-	line "has recieved a"
+	text_ram wStringBuffer1
+	text " has"
+	line "received a"
 	cont "Blessing from"
 	cont "Mewtwo!"
 	done

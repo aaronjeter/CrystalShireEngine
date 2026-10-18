@@ -75,68 +75,19 @@ SoulGuyScript:
 	writetext SoulGuyOfferingText
 	waitbutton
 
-	loadmenu .ShrineMenuHeader
-	verticalmenu
-	closewindow
-	ifequal 1, .SilverLeaf
-	ifequal 2, .GoldLeaf
-
-	sjump .No
-
-.SilverLeaf
-	checkitem SILVER_LEAF
-	iffalse .No
-
-	writetext SoulGuyFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem SILVER_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_GHOST
-	loadmem wPartyMon1DVs+1, $aa
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext SoulGuyAlignedWithGhostsText
-	waitbutton
-	sjump .Done
-
-.GoldLeaf
-	checkitem GOLD_LEAF
-	iffalse .No
-
-	writetext SoulGuyFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem GOLD_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_GHOST
-	loadmem wPartyMon1DVs+1, $fe
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext SoulGuyEtherialBlessingText
-	waitbutton
-	sjump .Done
-
-.No
+	monpaletteservice .Offerings
+	ifequal MONPALSERVICE_DONE, .Done
 	writetext SoulGuyNoOfferingText
-	waitbutton
 .Done
+	waitbutton
 	closetext
 	end
 
-.ShrineMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
+.Offerings:
+	monpal_item SILVER_LEAF, HP_MAX_GHOST, MONPAL_ALIGN, SoulGuyAlignedWithGhostsText
+	monpal_item GOLD_LEAF, HP_MAX_GHOST, MONPAL_TYPE_COLORS, SoulGuyEtherialBlessingText
+	monpal_end
 
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 2 ; items	
-	db "Silver Leaf@"
-	db "Gold Leaf@"	
 
 SoulGuyOfferingText:
 	text "Many graves lie"
@@ -146,21 +97,17 @@ SoulGuyOfferingText:
 	line "me honor them?"
 	done
 
-SoulGuyFirstMonText:
-	text "Offer this item"
-	line "for your first"
-	cont "#mon?"
-	done
-
 SoulGuyAlignedWithGhostsText:
-	text "Your first #mon"
-	line "has aligned"
+	text_ram wStringBuffer1
+	text " has"
+	line "aligned"
 	cont "with Ghosts!"
 	done
 
 SoulGuyEtherialBlessingText:
-	text "Your first #mon"
-	line "has recieved the"
+	text_ram wStringBuffer1
+	text " has"
+	line "received the"
 	cont "Etherial Blessing!"
 	done
 

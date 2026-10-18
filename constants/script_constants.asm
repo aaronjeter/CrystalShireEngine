@@ -383,3 +383,28 @@ DEF UNOWN_WALL_MENU_HEADER_SIZE EQU 5
 	const MOVETUTOR_FLAMETHROWER ; 1
 	const MOVETUTOR_THUNDERBOLT  ; 2
 	const MOVETUTOR_ICE_BEAM     ; 3
+
+; monpaletteservice results (see engine/events/mon_palette_service.asm)
+	const_def
+	const MONPALSERVICE_CANCELLED ; 0
+	const MONPALSERVICE_DONE      ; 1
+	const MONPALSERVICE_CANT_PAY  ; 2
+
+; monpal_item/monpal_money spd/spc DV byte (the atk/def byte is a HP_MAX_* type)
+DEF MONPAL_ALIGN       EQU $aa             ; Hidden Power type only
+DEF MONPAL_TYPE_COLORS EQU HP_SPDSPC_DV    ; Hidden Power type and its colors
+DEF MONPAL_SHINY       EQU SHINY_SPDSPC_DV ; shiny (legendary colors for some types)
+
+; monpal option structure
+	const_def
+	const MONPAL_OPTION_ITEM  ; dw item index (NO_ITEM: costs money)
+	const_skip
+	const MONPAL_OPTION_MONEY ; dt amount
+	const_skip
+	const_skip
+	const MONPAL_OPTION_ATKDEF_DV ; db
+	const MONPAL_OPTION_SPDSPC_DV ; db
+	const MONPAL_OPTION_TEXT      ; dw (same bank as the options)
+	const_skip
+DEF MONPAL_OPTION_LENGTH EQU const_value
+DEF MAX_MONPAL_OPTIONS EQU 4

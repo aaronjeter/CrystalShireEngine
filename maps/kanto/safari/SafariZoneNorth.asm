@@ -252,88 +252,20 @@ MewShrineScript:
 	writetext MewShrineEmptyText
 	waitbutton
 
-	loadmenu .ShrineMenuHeader
-	verticalmenu
-	closewindow
-	ifequal 1, .SilverLeaf
-	ifequal 2, .GoldLeaf
-	ifequal 3, .MarvelScale
-
-	sjump .No
-
-.SilverLeaf
-	checkitem SILVER_LEAF
-	iffalse .No
-
-	writetext MewShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem SILVER_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_GHOST
-	loadmem wPartyMon1DVs+1, $aa
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext MewShrineAlignedWithGhostsText
-	waitbutton
-	sjump .Done
-
-.GoldLeaf
-	checkitem GOLD_LEAF
-	iffalse .No
-
-	writetext MewShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem GOLD_LEAF
-	loadmem wPartyMon1DVs+0, HP_MAX_GHOST
-	loadmem wPartyMon1DVs+1, $fe
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext MewShrineEtherialBlessingText
-	waitbutton
-	sjump .Done
-
-.MarvelScale
-	checkitem MARVEL_SCALE
-	iffalse .No
-
-	writetext MewShrineFirstMonText
-	waitbutton
-	yesorno
-	iffalse .No
-
-	takeitem MARVEL_SCALE
-	loadmem wPartyMon1DVs+0, HP_MAX_GHOST
-	loadmem wPartyMon1DVs+1, $ff
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	writetext MewShrineMewBlessingText
-	waitbutton
-	sjump .Done	
-
-.No
+	monpaletteservice .Offerings
+	ifequal MONPALSERVICE_DONE, .Done
 	writetext MewShrineNoOfferingText
-	waitbutton
 .Done
+	waitbutton
 	closetext
 	end
 
-.ShrineMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
+.Offerings:
+	monpal_item SILVER_LEAF, HP_MAX_GHOST, MONPAL_ALIGN, MewShrineAlignedWithGhostsText
+	monpal_item GOLD_LEAF, HP_MAX_GHOST, MONPAL_TYPE_COLORS, MewShrineEtherialBlessingText
+	monpal_item MARVEL_SCALE, HP_MAX_GHOST, MONPAL_SHINY, MewShrineMewBlessingText
+	monpal_end
 
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 3 ; items	
-	db "Silver Leaf@"
-	db "Gold Leaf@"	
-	db "Marvel Scale@"
 
 MewShrineEmptyText:
 	text "The shrine is"
@@ -344,27 +276,24 @@ MewShrineEmptyText:
 	cont "offering..."
 	done
 
-MewShrineFirstMonText:
-	text "Offer this item"
-	line "for your first"
-	cont "#mon?"
-	done
-
 MewShrineAlignedWithGhostsText:
-	text "Your first #mon"
-	line "has aligned"
+	text_ram wStringBuffer1
+	text " has"
+	line "aligned"
 	cont "with Ghosts!"
 	done
 
 MewShrineEtherialBlessingText:
-	text "Your first #mon"
-	line "has recieved the"
+	text_ram wStringBuffer1
+	text " has"
+	line "received the"
 	cont "Etherial Blessing!"
 	done
 
 MewShrineMewBlessingText:
-	text "Your first #mon"
-	line "has recieved a"
+	text_ram wStringBuffer1
+	text " has"
+	line "received a"
 	cont "Blessing from"
 	cont "Mew!"
 	done

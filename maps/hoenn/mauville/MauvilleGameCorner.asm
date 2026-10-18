@@ -607,20 +607,16 @@ CardSharkScript:
 	special PlaceMoneyTopRight
 	yesorno
 	iffalse .Refused
-	checkmoney YOUR_MONEY, 10000
-	ifequal HAVE_LESS, .NotEnoughMoney
-
-	loadmem wPartyMon1DVs+0, HP_MAX_DARK
-	loadmem wPartyMon1DVs+1, $fe
-
-	waitsfx
-	playsound SFX_TRANSACTION
-	takemoney YOUR_MONEY, 1000
-	special PlaceMoneyTopRight
-	writetext CardSharkAfterServiceText
+	monpaletteservice .Service
+	ifequal MONPALSERVICE_CANT_PAY, .NotEnoughMoney
+	ifequal MONPALSERVICE_CANCELLED, .Refused
 	waitbutton
 	closetext
 	end
+
+.Service:
+	monpal_money 10000, HP_MAX_DARK, MONPAL_TYPE_COLORS, CardSharkAfterServiceText
+	monpal_end
 
 .NotEnoughMoney:
 	writetext CardSharkNoMoneyText
@@ -652,7 +648,9 @@ CardSharkAfterServiceText:
 	text "And...it is"
 	line "complete!"
 
-	para "Your #mon is"
+	para "@"
+	text_ram wStringBuffer1
+	text " is"
 	line "filled with Hidden"
 	cont "Dark Power."
 

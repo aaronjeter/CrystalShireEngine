@@ -137,19 +137,16 @@ StoneGuyScript:
 	writetext StoneGuyOfferServiceText
 	yesorno
 	iffalse .Refused
-	checkitem GOLD_LEAF
-	iffalse .NotEnoughMoney
-
-	loadmem wPartyMon1DVs+0, HP_MAX_ROCK
-	loadmem wPartyMon1DVs+1, $fe
-
-	waitsfx
-	playsound SFX_TRANSACTION
-	takeitem GOLD_LEAF
-	writetext StoneGuyAfterServiceText
+	monpaletteservice .Service
+	ifequal MONPALSERVICE_CANT_PAY, .NotEnoughMoney
+	ifequal MONPALSERVICE_CANCELLED, .Refused
 	waitbutton
 	closetext
 	end
+
+.Service:
+	monpal_item GOLD_LEAF, HP_MAX_ROCK, MONPAL_TYPE_COLORS, StoneGuyAfterServiceText
+	monpal_end
 
 .NotEnoughMoney:
 	writetext StoneGuyNoMoneyText
@@ -168,8 +165,8 @@ StoneGuyOfferServiceText:
 	line "kid. Rock and"
 	cont "Stone!"
 
-	para "I can fill your"
-	line "first #mon"
+	para "I can fill one"
+	line "of your #mon"
 	cont "with the power of"
 	cont "the very stones!"
 
@@ -187,7 +184,9 @@ StoneGuyAfterServiceText:
 	text "And...it is"
 	line "complete!"
 
-	para "Your #mon is"
+	para "@"
+	text_ram wStringBuffer1
+	text " is"
 	line "filled with Hidden"
 	cont "Rock Power."
 

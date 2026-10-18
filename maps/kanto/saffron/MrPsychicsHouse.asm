@@ -54,20 +54,16 @@ MrsPsychic:
 	special PlaceMoneyTopRight
 	yesorno
 	iffalse .Refused
-	checkmoney YOUR_MONEY, 10000
-	ifequal HAVE_LESS, .NotEnoughMoney
-
-	loadmem wPartyMon1DVs+0, HP_MAX_PSYCHIC
-	loadmem wPartyMon1DVs+1, $fe
-
-	waitsfx
-	playsound SFX_TRANSACTION
-	takemoney YOUR_MONEY, 1000
-	special PlaceMoneyTopRight
-	writetext MrsPsychicAfterServiceText
+	monpaletteservice .Service
+	ifequal MONPALSERVICE_CANT_PAY, .NotEnoughMoney
+	ifequal MONPALSERVICE_CANCELLED, .Refused
 	waitbutton
 	closetext
 	end
+
+.Service:
+	monpal_money 10000, HP_MAX_PSYCHIC, MONPAL_TYPE_COLORS, MrsPsychicAfterServiceText
+	monpal_end
 
 .NotEnoughMoney:
 	writetext MrsPsychicNoMoneyText
@@ -85,8 +81,8 @@ MrsPsychicOfferServiceText:
 	text "Welcome to our"
 	line "home, trainer."
 
-	para "I can imbue your"
-	line "first #mon with"
+	para "I can imbue one of"
+	line "your #mon with"
 	cont "Psychic Power."
 
 	para "This isn't free"
@@ -99,7 +95,9 @@ MrsPsychicAfterServiceText:
 	text "And...it is"
 	line "complete!"
 
-	para "Your #mon is"
+	para "@"
+	text_ram wStringBuffer1
+	text " is"
 	line "filled with Hidden"
 	cont "Psychic Power."
 
