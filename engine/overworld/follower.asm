@@ -62,9 +62,28 @@ PlaceFollowerObject:
 ; Put the follower in the last map object slot.
 ; The slot's NPC (on maps with 15 object_events) is replaced.
 	call CheckFollowerAllowed
-	ret c
+	jr c, .no_follower
 	call LoadFollowerColors
-	ret c
+	jr nc, .place
+.no_follower
+; Door warps keep the follow pair from the previous map, where the Pokémon
+; followed the player: reset it, or the player's movements are queued for an
+; object that doesn't exist anymore (see ApplyMovementToFollower).
+	ld a, -1
+	ld [wObjectFollow_Leader], a
+	ld [wObjectFollow_Follower], a
+	ld [wFollowerMovementQueueLength], a
+; and remove the previous map's follower from the slot, if it's still there
+	ld hl, wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE
+	ld a, [hl]
+	cp SPRITE_FOLLOWER
+	ret nz
+	xor a
+	ld [hld], a ; MAPOBJECT_SPRITE
+	ld [hl], -1 ; MAPOBJECT_OBJECT_STRUCT_ID
+	ret
+
+.place
 	ld e, PAL_NPC_FOLLOWER
 
 	ld hl, wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH

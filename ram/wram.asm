@@ -2662,7 +2662,7 @@ wObjectFollow_Leader:: db
 wObjectFollow_Follower:: db
 wCenteredObject:: db
 wFollowerMovementQueueLength:: db
-wFollowMovementQueue:: ds 5
+wFollowMovementQueue:: ds FOLLOW_QUEUE_SIZE
 
 wObjectStructs::
 wPlayerStruct:: object_struct wPlayer ; player is object struct 0

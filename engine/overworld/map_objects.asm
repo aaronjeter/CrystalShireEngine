@@ -1922,13 +1922,21 @@ ApplyMovementToFollower:
 	ret c
 	push af
 	ld hl, wFollowerMovementQueueLength
-	inc [hl]
-	ld e, [hl]
+	ld a, [hl]
+	inc a ; -1 (empty) -> 0
+	cp FOLLOW_QUEUE_SIZE
+	jr nc, .queue_full ; the follower isn't moving: don't write past the queue
+	ld [hl], a
+	ld e, a
 	ld d, 0
 	ld hl, wFollowMovementQueue
 	add hl, de
 	pop af
 	ld [hl], a
+	ret
+
+.queue_full
+	pop af
 	ret
 
 GetFollowerNextMovementIndex:
