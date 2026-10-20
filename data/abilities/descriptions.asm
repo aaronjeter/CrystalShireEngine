@@ -1,3 +1,53 @@
+AbilityDescriptions:
+; entries correspond to ABILITY_* constants
+	table_width 2
+	dw NoAbilityDesc
+	dw DrizzleDesc
+	dw DroughtDesc
+	dw SandStreamDesc
+	dw SnowWarningDesc
+	dw IntimidateDesc
+	dw MystifyDesc
+	dw SnareDesc
+	dw HasteDesc
+	dw AimDesc
+	dw FocusDesc
+	dw VeiledDesc
+	dw InvisibleWallDesc
+	dw ImpostorDesc
+	dw DebrisDesc
+	dw LeechDesc
+	dw EnervateDesc
+	dw DauntDesc
+	dw LevitateDesc
+	dw WaterproofDesc
+	dw ElementalFistDesc
+	dw ElementalFangDesc
+	dw ElementalBladeDesc
+	dw StabilityDesc
+	dw RegenerationDesc
+	dw RainDishDesc
+	dw SunbaskDesc
+	dw SandBodyDesc
+	dw IceBodyDesc
+	dw SwiftSwimDesc
+	dw ChlorophyllDesc
+	dw SandRushDesc
+	dw SlushRushDesc
+	dw ThickFatDesc
+	dw DurableDesc
+	dw PranksterDesc
+	dw SereneGraceDesc
+	dw TechnicianDesc
+	dw GutsDesc
+	dw ShedSkinDesc
+	dw StaticDesc
+	dw FlameBodyDesc
+	dw PoisonPointDesc
+	dw MagicGuardDesc
+	dw ClearBodyDesc
+	assert_table_length NUM_ABILITIES
+
 NoAbilityDesc:
 	db    "No special"
 	next  "ability.@"

@@ -3358,10 +3358,9 @@ AI_Ability:
 	cp GROUND
 	jr nz, .SkipLevitate
 
-	ld a, [wBattleMonSpecies]
-	call GetPokemonIndexFromID
-	farcall CheckLevitateAbility
-	jr c, .immune
+	ld a, [wBattleMonAbility]
+	cp ABILITY_LEVITATE
+	jr z, .immune
 
 .SkipLevitate
 
@@ -3371,10 +3370,9 @@ AI_Ability:
 	cp WATER
 	jr nz, .SkipWaterproof
 
-	ld a, [wBattleMonSpecies]
-	call GetPokemonIndexFromID
-	farcall CheckWaterproofAbility
-	jr c, .immune
+	ld a, [wBattleMonAbility]
+	cp ABILITY_WATERPROOF
+	jr z, .immune
 
 .SkipWaterproof
 	

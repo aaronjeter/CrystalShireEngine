@@ -25,6 +25,13 @@ BattleCommand_Transform:
 	call GetBattleVarAddr
 	set SUBSTATUS_TRANSFORMED, [hl]
 	call ResetActorDisable
+; The user takes on the target's ability too.
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	ld b, a
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVarAddr
+	ld [hl], b
 	ld hl, wBattleMonSpecies
 	ld de, wEnemyMonSpecies
 	ldh a, [hBattleTurn]

@@ -1,96 +1,41 @@
 INCLUDE "data/moves/move_categories.asm"
 
-CheckStabAbility:	
-
-	call ElementalFist
-	jr c, .Done
-
-	call ElementalFang
-	jr c, .Done
-
-	call ElementalBlade
-	jr c, .Done
-
-	.Done
-	ret
-
-ElementalFist:
-	call CheckFistMon
-	jr nc, .NotFistMon
-	
-	call CheckPunchMove	
-	jr nc, .NotPunchMove
-
-	.NotFistMon
-	.NotPunchMove	
-	ret
-
-CheckFistMon:	
-	call GetCurrentMon
-	farcall CheckElementalFistAbility
-	ret	
-
-CheckPunchMove:		
-	call GetAbilityMove	
+CheckStabAbility:
+; Return carry if the attacker's ability boosts the current move like STAB:
+; Elemental Fist (punching moves), Elemental Fang (biting moves) or
+; Elemental Blade (slicing moves).
+; Preserves hl.
 	push hl
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
 	ld hl, PunchMoves
-	call CheckMoveInList
-	pop hl
-	ret
-
-ElementalFang:
-	call CheckFangMon
-	jr nc, .NotFangMon
-	
-	call CheckFangMove	
-	jr nc, .NotFangMove	
-
-	.NotFangMon
-	.NotFangMove	
-	ret
-
-CheckFangMon:
-	call GetCurrentMon
-	farcall CheckElementalFangAbility
-	ret	
-
-CheckFangMove:		
-	call GetAbilityMove	
-	push hl
+	cp ABILITY_ELEMENTAL_FIST
+	jr z, .check_move
 	ld hl, FangMoves
-	call CheckMoveInList
-	pop hl
-	ret
-
-
-ElementalBlade:
-	call CheckBladeMon
-	jr nc, .NotBladeMon
-	
-	call CheckBladeMove	
-	jr nc, .NotBladeMove	
-
-	.NotBladeMon
-	.NotBladeMove	
-	ret
-
-CheckBladeMon:	
-	call GetCurrentMon
-	farcall CheckElementalBladeAbility
-	ret	
-
-CheckBladeMove:		
-	call GetAbilityMove	
-	push hl
+	cp ABILITY_ELEMENTAL_FANG
+	jr z, .check_move
 	ld hl, SharpMoves
+	cp ABILITY_ELEMENTAL_BLADE
+	jr z, .check_move
+	pop hl
+	and a
+	ret
+
+.check_move
+	call GetAbilityMove
 	call CheckMoveInList
 	pop hl
 	ret
 
-CheckStabilityMon:	
-	call GetCurrentMon
-	farcall CheckStabilityAbility
-	ret	
+CheckStabilityMon:
+; Return carry if the attacker has Stability.
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_STABILITY
+	scf
+	ret z
+	and a
+	ret
 
 GetAbilityMove:
 	ld a, BATTLE_VARS_MOVE_ANIM
@@ -109,10 +54,10 @@ ApplyThickFat:
 	ret nz
 
 .CheckTarget
-	call GetTargetSpecies
-	call GetPokemonIndexFromID
-	farcall CheckThickFatAbility
-	ret nc
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_THICK_FAT
+	ret nz
 	jmp HalveDamage
 
 CheckTechnician:
@@ -127,14 +72,12 @@ CheckTechnician:
 	cp 60 + 1
 	ret nc
 
-	push bc
-	push hl
-	push de
-	call GetCurrentMon ; the attacker
-	farcall CheckTechnicianAbility
-	pop de
-	pop hl
-	pop bc
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_TECHNICIAN
+	scf
+	ret z
+	and a
 	ret
 
 ApplyGuts:
@@ -147,15 +90,10 @@ ApplyGuts:
 	and a
 	ret z
 
-	push bc
-	push de
-	push hl
-	call GetCurrentMon ; the attacker
-	farcall CheckGutsAbility
-	pop hl
-	pop de
-	pop bc
-	ret nc
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_GUTS
+	ret nz
 
 	push bc
 	ld b, h
@@ -174,10 +112,10 @@ ApplyDurable:
 	cp EFFECTIVE + 1
 	ret c
 
-	call GetTargetSpecies
-	call GetPokemonIndexFromID
-	farcall CheckDurableAbility
-	ret nc
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_DURABLE
+	ret nz
 	jmp ReduceDamageByQuarter
 
 ApplySereneGrace:
@@ -188,12 +126,11 @@ ApplySereneGrace:
 ; Clobbers bc and hl. Preserves de.
 	push de
 	ld b, a
-	push bc
-	call GetCurrentMon ; the attacker
-	farcall CheckSereneGraceAbility
-	pop bc
-	ld a, b ; ld and pop leave the carry flag from the ability check alone
-	jr nc, .done
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_SERENE_GRACE
+	ld a, b ; ld leaves the zero flag from the ability check alone
+	jr nz, .done
 
 	cp 50 percent
 	jr c, .double
@@ -244,6 +181,9 @@ CheckContactMove:
 ; move, 30% chance to give the attacker a status condition.
 
 ContactStatusAbilityEffects:
+; entries correspond to ABILITY_STATIC, ABILITY_FLAME_BODY, ABILITY_POISON_POINT
+	assert ABILITY_FLAME_BODY == ABILITY_STATIC + 1
+	assert ABILITY_POISON_POINT == ABILITY_STATIC + 2
 ; status, immune type, immune type, animation, text
 	db 1 << PAR, ELECTRIC, ELECTRIC
 	dw ANIM_PAR, StaticParalyzedText
@@ -274,14 +214,10 @@ HandleContactStatusAbilities:
 	ret nz
 
 ; Does the Pokemon that was hit have a contact status ability?
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wEnemyMonSpecies]
-	jr z, .got_target
-	ld a, [wBattleMonSpecies]
-.got_target
-	call GetPokemonIndexFromID
-	farcall GetContactStatusAbility
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	sub ABILITY_STATIC
+	cp ABILITY_POISON_POINT - ABILITY_STATIC + 1
 	ret nc
 
 ; hl = ContactStatusAbilityEffects + a * CONTACT_ABILITY_ENTRY_SIZE

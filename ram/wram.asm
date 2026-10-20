@@ -348,10 +348,10 @@ wBattleMonNickname:: ds MON_NAME_LENGTH
 wBattleMon:: battle_struct wBattleMon
 
 wHiddenPowerPaletteMon:: db
-ds 1
+wBattleMonAbility:: db ; ABILITY_* constant
 
 wWildMon:: db
-	ds 1
+wEnemyMonAbility:: db ; ABILITY_* constant
 
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db
@@ -2967,7 +2967,7 @@ wYanmaMapGroup:: db
 wYanmaMapNumber:: db
 wPlayerMonSelection:: ds 3
 
-wTempAbilityMon::  db
+wTempAbility::     db
 
 wPlayerColor:: db
 

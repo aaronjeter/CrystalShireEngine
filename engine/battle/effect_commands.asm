@@ -1245,9 +1245,6 @@ BattleCommand_Stab:
 	pop de
 	pop hl
 
-	ld a, [wCurPartySpecies]
-	ld [wTempAbilityMon], a
-
 	push de
 	push bc
 	call CheckStabAbility
@@ -1696,12 +1693,12 @@ BattleCommand_CheckHit:
 	cp GROUND
 	ret nz	
 
-	;Then, we check if the target is in levitate_mons
+	;Then, we check if the target has Levitate
 
-	call GetTargetSpecies
-	call GetPokemonIndexFromID
-	farcall CheckLevitateAbility
-	jr c, .Levitating
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_LEVITATE
+	jr z, .Levitating
 	
 	or 1
 	ret 
@@ -1722,11 +1719,11 @@ BattleCommand_CheckHit:
 	cp WATER
 	ret nz	
 
-	;Then, we check if the target is in WaterproofMons
-	call GetTargetSpecies
-	call GetPokemonIndexFromID
-	farcall CheckWaterproofAbility
-	jr c, .IsWaterproof
+	;Then, we check if the target has Waterproof
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_WATERPROOF
+	jr z, .IsWaterproof
 	
 	or 1
 	ret 
@@ -4622,14 +4619,12 @@ BattleCommand_StatDown:
 
 CheckClearBodyOpp:
 ; Return carry if the opponent has Clear Body.
-	ldh a, [hBattleTurn]
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_CLEAR_BODY
+	scf
+	ret z
 	and a
-	ld a, [wEnemyMonSpecies]
-	jr z, .got_species
-	ld a, [wBattleMonSpecies]
-.got_species
-	call GetPokemonIndexFromID
-	farcall CheckClearBodyAbility
 	ret
 
 CheckMist:
@@ -7079,23 +7074,3 @@ CheckMoveInList:
 	pop de
 	pop bc
 	ret
-
-GetTargetSpecies:
-	;Loads the species of the Pokemon being attacked
-	ld a, MON_SPECIES
-	call BattlePartyAttr
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [hl]
-	ret nz 
-	ld a, [wTempEnemyMonSpecies]
-	ret
-
-GetCurrentMon:
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wBattleMonSpecies]
-	jr z, .got_species
-	ld a, [wEnemyMonSpecies]
-.got_species
-	jmp GetPokemonIndexFromID

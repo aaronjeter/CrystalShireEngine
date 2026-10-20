@@ -96,8 +96,8 @@ DoBattle:
 	farcall StartOverworldBattleWeather
 
 	call SetEnemyTurn
-	ld a, [wTempEnemyMonSpecies]
-	ld [wTempAbilityMon], a
+	ld a, [wEnemyMonAbility]
+	ld [wTempAbility], a
 	farcall Check_Entrance_Ability
 
 	call SetPlayerTurn
@@ -851,14 +851,14 @@ CompareMovePriority:
 	call GetMovePriority
 	ld b, a
 	ld a, [wCurPlayerMove]
-	ld hl, wBattleMonSpecies
+	ld hl, wBattleMonAbility
 	call ApplyPrankster
 	push bc
 	ld a, [wCurEnemyMove]
 	call GetMovePriority
 	ld b, a
 	ld a, [wCurEnemyMove]
-	ld hl, wEnemyMonSpecies
+	ld hl, wEnemyMonAbility
 	call ApplyPrankster
 	ld a, b
 	pop bc
@@ -867,7 +867,7 @@ CompareMovePriority:
 
 ApplyPrankster:
 ; Give a Status move +1 priority if its user has Prankster.
-; in:  a = move ID, b = move priority, hl = pointer to the user's species
+; in:  a = move ID, b = move priority, hl = pointer to the user's ability
 ; out: b = priority (raised by 1 if Prankster applies)
 ; Preserves de.
 
@@ -890,11 +890,8 @@ ApplyPrankster:
 	jr nz, .done
 
 	ld a, [hl]
-	push bc
-	call GetPokemonIndexFromID
-	farcall CheckPranksterAbility
-	pop bc
-	jr nc, .done
+	cp ABILITY_PRANKSTER
+	jr nz, .done
 	inc b
 .done
 	pop de
@@ -1484,9 +1481,7 @@ HandleWeatherHealAbilities:
 	call CheckWeatherHealAbility
 	pop bc
 	pop de
-
 	ret nc
-	ret nz
 
 	ld hl, wBattleMonHP
 	ldh a, [hBattleTurn]
@@ -2112,18 +2107,11 @@ HandleWeather:
 CheckMagicGuardUser:
 ; Return carry if the Pokemon whose turn it is has Magic Guard.
 ; Preserves bc, de and hl.
-	push hl
-	push de
 	push bc
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wBattleMonSpecies]
-	jr z, .got_species
-	ld a, [wEnemyMonSpecies]
-.got_species
-	call GetPokemonIndexFromID
-	farcall CheckMagicGuardAbility
-	jmp PopBCDEHL
+	ld b, ABILITY_MAGIC_GUARD
+	call CheckUserAbility
+	pop bc
+	ret
 
 SubtractHPFromTarget:
 	call SubtractHP
@@ -2589,8 +2577,8 @@ EnemyPartyMonEntrance:
 	call SetEnemyTurn
 	call SpikesDamage
 
-	ld a, [wTempEnemyMonSpecies]
-	ld [wTempAbilityMon], a
+	ld a, [wEnemyMonAbility]
+	ld [wTempAbility], a
 	farcall Check_Entrance_Ability
 
 	xor a
@@ -4021,8 +4009,8 @@ InitBattleMon:
 	ld de, wPlayerStats
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	rst CopyBytes
-	call ApplyStatusEffectOnPlayerStats
-	ret
+	farcall SetBattleMonAbility
+	jmp ApplyStatusEffectOnPlayerStats
 
 BattleCheckPlayerShininess:
 	call GetPartyMonDVs
@@ -4186,8 +4174,9 @@ SendOutPlayerMon:
 	jr c, .statused
 	ld a, $f0
 	ld [wCryTracks], a
+	ld a, [wBattleMonAbility]
+	ld [wTempAbility], a
 	ld a, [wCurPartySpecies]
-	ld [wTempAbilityMon], a
 	call PlayStereoCry	
 	farcall Check_Entrance_Ability
 
@@ -5402,8 +5391,8 @@ SwitchHitEnemyEntrance:
 	call SetEnemyTurn
 	call SpikesDamage
 
-	ld a, [wTempEnemyMonSpecies]
-	ld [wTempAbilityMon], a
+	ld a, [wEnemyMonAbility]
+	ld [wTempAbility], a
 	farcall Check_Entrance_Ability
 
 	jmp SetEnemyTurn
@@ -6150,6 +6139,10 @@ endc
 	ret
 
 LoadEnemyMon:
+	call _LoadEnemyMon
+	farjp SetEnemyMonAbility
+
+_LoadEnemyMon:
 ; Initialize enemy monster parameters
 ; To do this we pull the species from wTempEnemyMonSpecies
 
@@ -6866,8 +6859,8 @@ ApplyBrnEffectOnAttack:
 	ld a, [wBattleMonStatus]
 	and 1 << BRN
 	ret z
-	ld a, [wBattleMonSpecies]
-	call CheckGutsSpecies
+	ld a, [wBattleMonAbility]
+	call CheckGutsAbility
 	ret c
 	ld hl, wBattleMonAttack + 1
 	ld a, [hld]
@@ -6888,8 +6881,8 @@ ApplyBrnEffectOnAttack:
 	ld a, [wEnemyMonStatus]
 	and 1 << BRN
 	ret z
-	ld a, [wEnemyMonSpecies]
-	call CheckGutsSpecies
+	ld a, [wEnemyMonAbility]
+	call CheckGutsAbility
 	ret c
 	ld hl, wEnemyMonAttack + 1
 	ld a, [hld]
@@ -6906,17 +6899,12 @@ ApplyBrnEffectOnAttack:
 	ld [hl], b
 	ret
 
-CheckGutsSpecies:
-; Return carry if species a has Guts.
-; Preserves bc, de and hl.
-	push hl
-	push de
-	push bc
-	call GetPokemonIndexFromID
-	farcall CheckGutsAbility
-	pop bc
-	pop de
-	pop hl
+CheckGutsAbility:
+; Return carry if ability a is Guts.
+	cp ABILITY_GUTS
+	scf
+	ret z
+	and a
 	ret
 
 ApplyStatLevelMultiplierOnAllStats:

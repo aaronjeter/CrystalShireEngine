@@ -1,47 +1,45 @@
-Check_Entrance_Ability:	
+Check_Entrance_Ability:
+; Run the entrance effect of ability [wTempAbility], if it has one.
+; hBattleTurn is the side of the Pokemon that just entered.
+	ld a, [wTempAbility]
+	ld b, a
+	ld hl, .Abilities
+.loop
+	ld a, [hli]
+	cp -1
+	ret z
+	cp b
+	jr z, .found
+	inc hl
+	inc hl
+	jr .loop
 
-	call .Drizzle
+.found
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
 
-	call .Drought
+.Abilities:
+	dbw ABILITY_DRIZZLE,        .HasDrizzle
+	dbw ABILITY_DROUGHT,        .HasDrought
+	dbw ABILITY_SAND_STREAM,    .HasSandStream
+	dbw ABILITY_SNOW_WARNING,   .HasSnowWarning
+	dbw ABILITY_INTIMIDATE,     .HasIntimidate
+	dbw ABILITY_MYSTIFY,        .HasMystify
+	dbw ABILITY_SNARE,          .HasSnare
+	dbw ABILITY_HASTE,          .HasHaste
+	dbw ABILITY_AIM,            .HasAim
+	dbw ABILITY_FOCUS,          .HasFocus
+	dbw ABILITY_VEILED,         .HasVeiled
+	dbw ABILITY_INVISIBLE_WALL, .HasInvisibleWall
+	dbw ABILITY_IMPOSTOR,       .HasImpostor
+	dbw ABILITY_DEBRIS,         .HasDebris
+	dbw ABILITY_LEECH,          .HasLeech
+	dbw ABILITY_ENERVATE,       .HasEnervate
+	dbw ABILITY_DAUNT,          .HasDaunt
+	db -1
 
-	call .SandStream
-
-	call .SnowWarning
-
-	call .Intimidate
-
-	call .Mystify
-
-	call .Snare
-
-	call .Haste
-
-	call .Aim
-
-	call .Focus
-
-	call .Veiled
-
-	call .InvisibleWall
-
-	call .Impostor
-
-	call .Debris
-
-	call .Leech
-
-	call .Enervate
-
-	call .Daunt
-
-	ret
-
-.Drizzle:
-	call GetAbilitySpecies	
-	farcall CheckDrizzleAbility
-	jr c, .HasDrizzle
-	ret
-		
 .HasDrizzle:
 	;next, check if it's already raining
 	ld a, [wBattleWeather]
@@ -59,12 +57,6 @@ Check_Entrance_Ability:
     call StdBattleTextbox
 	;call HandleWeather
     ret
-
-.Drought:
-	call GetAbilitySpecies	
-	farcall CheckDroughtAbility
-	jr c, .HasDrought
-	ret
 
 .HasDrought:
 	;next, check if it's already sunny
@@ -84,12 +76,6 @@ Check_Entrance_Ability:
 	;call HandleWeather
     ret
 
-.SandStream:
-	call GetAbilitySpecies	
-	farcall CheckSandStreamAbility
-	jr c, .HasSandStream
-	ret
-
 .HasSandStream:
 	;next, check if it's already sandy
 	ld a, [wBattleWeather]
@@ -107,12 +93,6 @@ Check_Entrance_Ability:
     call StdBattleTextbox
 	;call HandleWeather
 	ret	
-
-.SnowWarning:
-	call GetAbilitySpecies	
-	farcall CheckSnowWarningAbility
-	jr c, .HasSnowWarning
-	ret
 
 .HasSnowWarning:
 	;next, check if it's already hailing
@@ -132,12 +112,6 @@ Check_Entrance_Ability:
 	;call HandleWeather
 	ret	
 
-.Intimidate:
-	call GetAbilitySpecies	
-	farcall CheckIntimidateAbility
-	jr c, .HasIntimidate
-	ret
-		
 .HasIntimidate:
 	call AbilityAnimationCleanup
 	ld de, LEER
@@ -150,12 +124,6 @@ Check_Entrance_Ability:
     call StdBattleTextbox
     ret
 
-.Mystify:
-	call GetAbilitySpecies	
-	farcall CheckMystifyAbility
-	jr c, .HasMystify
-	ret
-		
 .HasMystify:
 	call AbilityAnimationCleanup
 	ld de, DETECT
@@ -168,12 +136,6 @@ Check_Entrance_Ability:
     call StdBattleTextbox
     ret
 
-.Snare:
-	call GetAbilitySpecies	
-	farcall CheckSnareAbility
-	jr c, .HasSnare
-	ret
-		
 .HasSnare:
 	call AbilityAnimationCleanup
 	ld de, WRAP
@@ -186,12 +148,6 @@ Check_Entrance_Ability:
     call StdBattleTextbox
     ret
 
-.Haste:
-	call GetAbilitySpecies	
-	farcall CheckHasteAbility
-	jr c, .HasHaste
-	ret
-		
 .HasHaste:
 	call AbilityAnimationCleanup
 	ld de, AGILITY
@@ -202,12 +158,6 @@ Check_Entrance_Ability:
     call StdBattleTextbox
     ret
 
-.Aim:
-	call GetAbilitySpecies	
-	farcall CheckAimAbility
-	jr c, .HasAim
-	ret
-		
 .HasAim:
 	call AbilityAnimationCleanup
 	ld de, LOCK_ON
@@ -218,45 +168,21 @@ Check_Entrance_Ability:
     call StdBattleTextbox
     ret
 
-.Focus:
-	call GetAbilitySpecies
-	farcall CheckFocusAbility
-	jr c, .HasFocus
-	ret
-		
 .HasFocus:
 	call AbilityAnimationCleanup
     call FocusEnergyAbility
     ret
 
-.Veiled:
-	call GetAbilitySpecies	
-	farcall CheckVeiledAbility
-	jr c, .HasVeiled
-	ret
-		
 .HasVeiled:
 	call AbilityAnimationCleanup
 	call SafeguardAbility
 	ret
 
-.InvisibleWall:
-	call GetAbilitySpecies	
-	farcall CheckInvisibleWallAbility
-	jr c, .HasInvisibleWall
-	ret
-		
 .HasInvisibleWall:
 	call AbilityAnimationCleanup
 	call ReflectAbility
     ret
 
-.Impostor:
-	call GetAbilitySpecies	
-	farcall CheckImpostorAbility
-	jr c, .HasImpostor
-	ret
-		
 .HasImpostor:
 	call AbilityAnimationCleanup
 	ld de, TRANSFORM
@@ -264,34 +190,16 @@ Check_Entrance_Ability:
     farcall BattleCommand_Transform
     ret
 
-.Debris:
-	call GetAbilitySpecies	
-	farcall CheckDebrisAbility
-	jr c, .HasDebris
-	ret
-		
 .HasDebris:
 	call AbilityAnimationCleanup
 	call DebrisAbility
     ret
 
-.Leech:
-	call GetAbilitySpecies	
-	farcall CheckLeechAbility
-	jr c, .HasLeech
-	ret
-		
 .HasLeech:
 	call AbilityAnimationCleanup
 	call LeechAbility
     ret
 
-.Enervate:
-	call GetAbilitySpecies	
-	farcall CheckEnervateAbility
-	jr c, .HasEnervate
-	ret
-		
 .HasEnervate:
 	call AbilityAnimationCleanup
 	ld de, GIGA_DRAIN
@@ -304,12 +212,6 @@ Check_Entrance_Ability:
     call StdBattleTextbox
     ret
 
-.Daunt:
-	call GetAbilitySpecies	
-	farcall CheckDauntAbility
-	jr c, .HasDaunt
-	ret
-		
 .HasDaunt:
 	call AbilityAnimationCleanup
 	ld de, LEER
@@ -322,11 +224,6 @@ Check_Entrance_Ability:
     call StdBattleTextbox
     ret
 
-
-GetAbilitySpecies:
-	ld a, [wTempAbilityMon]
-	call GetPokemonIndexFromID
-	ret
 
 EntranceStatDown:
 ; Lower the opponent's stat with the far stat-down command in hl.

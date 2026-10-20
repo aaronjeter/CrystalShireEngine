@@ -561,7 +561,8 @@ INCLUDE "engine/pokemon/print_abilities.asm"
 
 LoadOrangePage:
 	ld a, [wCurSpecies]
-	ld [wTempAbilityMon], a
+	farcall GetSpeciesIDAbility
+	ld [wTempAbility], a
 
 	ld de, AbilityNameString
 	hlcoord 1, 9
