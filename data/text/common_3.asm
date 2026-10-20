@@ -900,6 +900,23 @@ _ItemStatRoseText::
 	text " rose."
 	prompt
 
+_AbilityChangeConfirmText::
+	text "Give @"
+	text_ram wStringBuffer1
+	text_start
+	line "@"
+	text_ram wStringBuffer2
+	text "?"
+	done
+
+_AbilityChangedText::
+	text_ram wStringBuffer1
+	text " now has"
+	line "@"
+	text_ram wStringBuffer2
+	text "!"
+	prompt
+
 _ItemCantUseOnMonText::
 	text "That can't be used"
 	line "on this #mon."

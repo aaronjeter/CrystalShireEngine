@@ -97,6 +97,72 @@ GetMonAbility::
 	pop bc
 	ret
 
+GetMonAbilitySlotInUse::
+; in:  hl = box_struct or party_struct
+; out: a = the slot of the ability the Pokemon actually has: its slot, or
+;      ABILITY_SLOT_1 if that slot is empty or invalid
+; Preserves bc, de and hl.
+	push bc
+	call GetMonAbility
+	ld a, ABILITY_SLOT_1
+	jr c, .done
+	call GetMonAbilitySlot
+.done
+	pop bc
+	ret
+
+; Changing a Pokemon's ability. Used by the Ability Capsule and Ability Patch
+; items (engine/items/item_effects.asm); an NPC offering the same service
+; should call these too, then SetMonAbilitySlot.
+; in:  hl = box_struct or party_struct (not an Egg: the caller checks that)
+; out: carry if it would have no effect;
+;      otherwise a = the new ABILITY_SLOT_* and b = the new ability
+; Preserves de and hl.
+
+GetAbilityCapsuleSlot::
+; Swap abilities 1 and 2. No effect with the hidden ability, or if the
+; species has no ability 2 or it's the same as ability 1.
+	call GetMonAbilitySlotInUse
+	cp ABILITY_SLOT_HIDDEN
+	jr z, AbilityChange_NoEffect
+	xor ABILITY_SLOT_1 ^ ABILITY_SLOT_2
+	jr AbilityChange_TrySlot
+
+GetAbilityPatchSlot::
+; Give the hidden ability, or turn a hidden ability back into ability 1.
+; No effect if the species has no hidden ability or it's the same as the
+; ability the Pokemon has now.
+	call GetMonAbilitySlotInUse
+	cp ABILITY_SLOT_HIDDEN
+	ld a, ABILITY_SLOT_1
+	jr z, AbilityChange_TrySlot
+	ld a, ABILITY_SLOT_HIDDEN
+	; fallthrough
+
+AbilityChange_TrySlot:
+; a = the proposed slot. No effect if it's empty or gives the current ability.
+	push de
+	ld e, a
+	ld b, a
+	ld a, [hl] ; species
+	call GetSpeciesIDAbility
+	jr c, .no_effect
+	ld d, a
+	call GetMonAbility
+	cp d
+	jr z, .no_effect
+	ld b, d
+	ld a, e
+	pop de
+	and a
+	ret
+
+.no_effect
+	pop de
+AbilityChange_NoEffect:
+	scf
+	ret
+
 RollAbilitySlot::
 ; Pick the ability slot for a newly created Pokemon of species a (8-bit ID):
 ; the setnextability slot if one is waiting (and clear it), otherwise

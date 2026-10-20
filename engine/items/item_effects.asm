@@ -188,6 +188,8 @@ ItemEffects1:
 	dw NoEffect            ; ITEM_DC
 	dw NoEffect            ; ITEM_C3
 	dw NoEffect            ; ITEM_FA
+	dw AbilityCapsuleEffect ; ABILITY_CAPSULE
+	dw AbilityPatchEffect   ; ABILITY_PATCH
 .IndirectEnd:
 
 ItemEffectsKeyItems:
@@ -1366,6 +1368,70 @@ RareCandy_StatBooster_GetParameters:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	jmp GetNickname
+
+AbilityCapsuleEffect:
+	xor a
+	jr AbilityChangeItemEffect
+
+AbilityPatchEffect:
+	ld a, 1
+	; fallthrough
+
+AbilityChangeItemEffect:
+; a = 0: Ability Capsule, 1: Ability Patch (the logic is in engine/pokemon/abilities.asm)
+	push af
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+	jr c, .cancel_pop
+
+	call RareCandy_StatBooster_GetParameters ; nickname in wStringBuffer1
+
+	ld a, MON_SPECIES
+	call GetPartyParamLocation
+	pop af
+	and a
+	jr nz, .patch
+	farcall GetAbilityCapsuleSlot
+	jr .got_slot
+
+.patch
+	farcall GetAbilityPatchSlot
+.got_slot
+	jmp c, NoEffectMessage
+
+	push hl
+	push af
+	ld a, b
+	farcall GetAbilityName ; into wStringBuffer2
+	ld hl, AbilityChangeConfirmText
+	call PrintText
+	call YesNoBox
+	jr c, .declined
+	pop af
+	pop hl
+	farcall SetMonAbilitySlot
+
+	call Play_SFX_FULL_HEAL
+	ld hl, AbilityChangedText
+	call PrintText
+	jmp UseDisposableItem
+
+.declined
+	pop af
+	pop hl
+	jmp RareCandy_StatBooster_ExitMenu
+
+.cancel_pop
+	pop af
+	jmp RareCandy_StatBooster_ExitMenu
+
+AbilityChangeConfirmText:
+	text_far _AbilityChangeConfirmText
+	text_end
+
+AbilityChangedText:
+	text_far _AbilityChangedText
+	text_end
 
 RareCandyEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM

@@ -159,6 +159,8 @@ ItemNames::
 	li "Teru-Sama"    ; 009C
 	li "Teru-Sama"    ; 009D
 	li "Teru-Sama"    ; 009E
+	li "Abil.Capsule" ; 00A0
+	li "Abil.Patch"   ; 00A1
 	assert_list_length NUM_ITEM_POCKET
 
 KeyItemNames::

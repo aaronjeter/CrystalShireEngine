@@ -168,6 +168,8 @@ ItemDescriptions1:
 	dw QuestionMarkDesc ; 009D
 	dw QuestionMarkDesc ; 009E
 	dw QuestionMarkDesc ; 009F
+	dw AbilityCapsuleDesc ; 00A0
+	dw AbilityPatchDesc   ; 00A1
 .IndirectEnd:
 
 ItemDescriptionsKeyItems:
@@ -843,6 +845,14 @@ RainbowWingDesc:
 
 QuestionMarkDesc:
 	db   "?@"
+
+AbilityCapsuleDesc:
+	db   "Swaps a #mon's"
+	next "two Abilities.@"
+
+AbilityPatchDesc:
+	db   "Gives a #mon its"
+	next "hidden Ability.@"
 
 BrickPieceDesc:
 	db   "A rare chunk of"

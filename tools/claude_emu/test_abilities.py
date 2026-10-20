@@ -12,6 +12,7 @@ Checks:
     patched into the ROM in memory: gift rolls, setnextability, a gift sent to
     the PC, the player's slot in battle, a wild override, catching, and the
     stats screen.
+ 6. NPC trades; 7. the Ability Capsule and Ability Patch from the Pack.
 Not covered: TRAINERTYPE_ABILITY and a fixed npctrade slot (no data uses them
 yet; both were tested with temporary data edits), and Day-Care eggs.
 Note: ROM patches and run_script code are not part of save states, so a state
@@ -224,6 +225,28 @@ for i in range(150):
     if g.rd('wPartySpecies') != abra and g.rd('wPartyCount') == 1: break
 check(g.rd('wPartySpecies') != abra and g.rd('wPartyMon1AbilitySlot') & 3 in (0, 1),
       f"NPC trade without a slot rolls ability 1 or 2: {g.rd('wPartyMon1AbilitySlot') & 3}")
+
+# 7. Ability Capsule and Ability Patch, used from the Pack on Machamp (patched abilities)
+def item_use(item, start_slot, answer='yes'):
+    """item 0 = Ability Capsule, 1 = Ability Patch. Returns (new slot, capsules left, patches left)."""
+    g = new_patched()
+    g.wr('wPartyCount', 0); g.wr('wPartySpecies', 0xFF)
+    g.wr('wNumItems', 0); g.wr('wItems', 0xFF)
+    g.run_script('\tgivepoke MACHAMP, 30\n\tgiveitem ABILITY_CAPSULE, 5\n\tgiveitem ABILITY_PATCH, 5\n\tend')
+    settle(g, 40); g.frames(30)
+    g.wr('wPartyMon1AbilitySlot', start_slot)
+    g.press('START', after=40); g.press('D', after=15); g.press('D', after=15); g.press('A', after=60)
+    for i in range(item): g.press('D', after=20)
+    g.press('A', after=40); g.press('A', after=60); g.press('A', after=200)
+    if 'Yes' in g.screen_text():
+        g.press('A' if answer == 'yes' else 'B', after=200)
+    for i in range(12): g.press('B', after=30)
+    items = g.rd('wItems', 6)
+    return g.rd('wPartyMon1AbilitySlot') & 3, items[2], items[5]
+r = item_use(0, 0); check(r == (1, 4, 5), f'Ability Capsule: slot 1 -> 2, one Capsule used {r}')
+r = item_use(0, 2); check(r == (2, 5, 5), f'Ability Capsule on a hidden ability: no effect, not used {r}')
+r = item_use(1, 1); check(r == (2, 5, 4), f'Ability Patch: slot 2 -> hidden, one Patch used {r}')
+r = item_use(1, 2, 'no'); check(r == (2, 5, 5), f'Ability Patch, answering No: unchanged, not used {r}')
 
 print(f'\n{len(fails)} failure(s)')
 sys.exit(1 if fails else 0)
