@@ -560,11 +560,18 @@ StatsScreen_LoadGFX:
 INCLUDE "engine/pokemon/print_abilities.asm"
 
 LoadOrangePage:
-	ld a, [wCurSpecies]
-	farcall GetSpeciesIDAbility
+	ld hl, wTempMon
+	farcall GetMonAbility
 	ld [wTempAbility], a
 
+; Label a hidden ability as one, unless the species has none (ability 1 is used then).
 	ld de, AbilityNameString
+	jr c, .got_label
+	farcall GetMonAbilitySlot
+	cp ABILITY_SLOT_HIDDEN
+	jr nz, .got_label
+	ld de, HiddenAbilityNameString
+.got_label
 	hlcoord 1, 9
 	call PlaceString
 
@@ -576,6 +583,9 @@ LoadOrangePage:
 
 AbilityNameString:
 	db "Ability:@"
+
+HiddenAbilityNameString:
+	db "Hidden Ability:@"
 
 LoadPinkPage:
 	hlcoord 0, 9

@@ -86,7 +86,8 @@ DEF MON_DEF_EV             rb
 DEF MON_SPD_EV             rb
 DEF MON_SAT_EV             rb
 DEF MON_SDF_EV             rb
-                           rb_skip 4
+DEF MON_ABILITY_SLOT       rb ; bits 0-1: ABILITY_SLOT_* (ABILITY_SLOT_MASK)
+                           rb_skip 3
 DEF MON_DVS                rw
 DEF MON_PP                 rb NUM_MOVES
 DEF MON_HAPPINESS          rb
@@ -132,7 +133,8 @@ DEF SAVEMON_DEF_EV             rb
 DEF SAVEMON_SPD_EV             rb
 DEF SAVEMON_SAT_EV             rb
 DEF SAVEMON_SDF_EV             rb
-                               rb_skip 4
+DEF SAVEMON_ABILITY_SLOT       rb ; same as MON_ABILITY_SLOT
+                               rb_skip 3
 DEF SAVEMON_DVS                rw
 ; savemon_struct is identical to party_struct before this point
 DEF SAVEMON_MOVES_HIGH         rb NUM_MOVES

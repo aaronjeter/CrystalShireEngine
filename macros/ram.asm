@@ -17,7 +17,8 @@ MACRO box_struct
 \1SpdEV::          db
 \1SpclAtkEV::      db
 \1SpclDefEV::      db
-\1Padding::        ds 4
+\1AbilitySlot::    db ; bits 0-1: ABILITY_SLOT_*; bits 2-7 unused
+\1Padding::        ds 3
 \1DVs::            dw
 \1PP::             ds NUM_MOVES
 \1Happiness::      db
@@ -45,7 +46,8 @@ MACRO savemon_struct
 \1SpdEV::          db
 \1SpclAtkEV::      db
 \1SpclDefEV::      db
-\1Padding::        ds 4
+\1AbilitySlot::    db ; bits 0-1: ABILITY_SLOT_*; bits 2-7 unused
+\1Padding::        ds 3
 \1DVs::            dw
 \1MovesHigh::
 \1PPUps::          ds NUM_MOVES

@@ -176,6 +176,13 @@ MACRO moves
 	dw \4
 ENDM
 
+MACRO ability_slot
+; TRAINERTYPE_ABILITY parties: after a Pokemon's other data, its ability slot
+; (ABILITY_SLOT_1, ABILITY_SLOT_2 or ABILITY_SLOT_HIDDEN)
+	assert (\1) < NUM_ABILITY_SLOTS, "ability_slot: invalid slot \1"
+	db \1
+ENDM
+
 MACRO end_party
 ; terminates a trainer party
 	db -1

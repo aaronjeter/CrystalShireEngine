@@ -1132,6 +1132,17 @@ MACRO trainerafter
 	dw \1 ; after-battle text
 ENDM
 
+	const setnextability_command ; $b1
+MACRO setnextability
+; The next Pokemon created gets ability slot \1 (ABILITY_SLOT_1, ABILITY_SLOT_2
+; or ABILITY_SLOT_HIDDEN) instead of a random one: a givepoke or giveegg gift,
+; or the next wild Pokemon, such as a loadwildmon + startbattle encounter.
+; Use it right before that command.
+	db setnextability_command
+	db \1 ; ability slot
+	assert (\1) < NUM_ABILITY_SLOTS, "setnextability: invalid slot \1"
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value
 
 MACRO opendialog

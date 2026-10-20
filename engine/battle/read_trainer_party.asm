@@ -352,6 +352,23 @@ ReadTrainerPartyPieces:
 	pop hl
 .no_stat_recalc
 
+; ability slot?
+	ld a, [wOtherTrainerType]
+	bit TRAINERTYPE_ABILITY_F, a
+	jr z, .no_ability_slot
+	push hl
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1AbilitySlot
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+	pop hl
+	call GetNextTrainerDataByte
+	and ABILITY_SLOT_MASK
+	ld [de], a
+.no_ability_slot
+
 	ld a, [wOtherTrainerType]
 	bit TRAINERTYPE_RANDOM_F, a
 	jr nz, .random_loop

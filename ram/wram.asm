@@ -351,7 +351,7 @@ wHiddenPowerPaletteMon:: db
 wBattleMonAbility:: db ; ABILITY_* constant
 
 wWildMon:: db
-wEnemyMonAbility:: db ; ABILITY_* constant
+	ds 1
 
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db
@@ -2394,6 +2394,10 @@ wEnemyMonCatchRate:: db
 wEnemyMonBaseExp::   db
 wEnemyMonEnd::
 ENDU
+
+wEnemyMonAbility::  db ; ABILITY_* constant
+wEnemyAbilitySlot:: db ; ABILITY_SLOT_* of the enemy (wild: rolled; trainer: from its party struct)
+wAbilitySlotOverride:: db ; 0, or ABILITY_SLOT_* + 1 for the next Pokemon created (setnextability)
 
 wBattleMode::
 ; 0: overworld

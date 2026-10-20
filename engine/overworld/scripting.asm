@@ -237,6 +237,7 @@ ScriptCommandTable:
 	dw Script_givepokemove               ; ae
 	dw Script_trainerpic                 ; af
 	dw Script_trainerafter               ; b0
+	dw Script_setnextability             ; b1
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2493,3 +2494,11 @@ Script_trainerafter:
 	ld b, BANK(TrainerAfterScript)
 	ld hl, TrainerAfterScript
 	jmp ScriptJump
+
+Script_setnextability:
+; script command 0xb1
+; parameters: ability slot
+	rst GetScriptByte
+	inc a
+	ld [wAbilitySlotOverride], a
+	ret

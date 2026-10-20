@@ -209,6 +209,11 @@ DoNPCTrade:
 	ld [wMonType], a ; PARTYMON
 	ld [wPokemonWithdrawDepositParameter], a ; REMOVE_PARTY
 	farcall RemoveMonFromParty
+	; A fixed ability slot for the offered mon, if the trade has one (else 0: roll)
+	ld e, NPCTRADE_ABILITY
+	call GetTradeAttr
+	ld a, [hl]
+	ld [wAbilitySlotOverride], a
 	predef TryAddMonToParty
 
 	ld e, NPCTRADE_DIALOG

@@ -618,6 +618,9 @@ DayCare_InitBreeding:
 	ld [hli], a
 	dec b
 	jr nz, .loop2
+	ld a, [wEggMonSpecies]
+	farcall RollAbilitySlot
+	ld [wEggMonAbilitySlot], a
 	ld hl, DITTO
 	call GetPokemonIDFromIndex
 	ld b, a

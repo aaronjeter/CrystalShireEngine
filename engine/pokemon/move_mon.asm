@@ -163,7 +163,7 @@ endr
 	ld [de], a
 	inc de
 
-	; Initialize stat experience.
+	; Initialize stat experience (and the padding, including the ability slot).
 	xor a
 	ld b, MON_DVS - MON_EVS
 .loop
@@ -171,6 +171,24 @@ endr
 	inc de
 	dec b
 	jr nz, .loop
+
+	; Initialize the ability slot. Trainer Pokemon keep ability 1 unless
+	; ReadTrainerParty sets one (TRAINERTYPE_ABILITY). A Pokemon caught in
+	; battle keeps the slot it had there; any other new Pokemon rolls one.
+	pop hl
+	push hl
+	ld a, [wMonType]
+	and $f
+	jr nz, .ability_slot_done
+	ld a, [wBattleMode]
+	and a
+	ld a, [wEnemyAbilitySlot]
+	jr nz, .got_ability_slot
+	ld a, [wCurPartySpecies]
+	farcall RollAbilitySlot
+.got_ability_slot
+	farcall SetMonAbilitySlot
+.ability_slot_done
 
 	pop hl
 	push hl
@@ -727,7 +745,7 @@ SendMonIntoBox:
 	ld [de], a
 	inc de
 
-	; Set all 5 Experience Values to 0
+	; Set all 5 Experience Values to 0 (and the padding)
 	xor a
 	ld b, 2 * NUM_EXP_STATS
 .loop2
@@ -735,6 +753,10 @@ SendMonIntoBox:
 	inc de
 	dec b
 	jr nz, .loop2
+	assert MON_ABILITY_SLOT < MON_DVS
+	; LoadEnemyMon set the slot: the one it had in battle, or a roll for a gift
+	ld a, [wEnemyAbilitySlot]
+	ld [wBufferMonAbilitySlot], a
 
 	ld hl, wEnemyMonDVs
 	ld b, 2 + NUM_MOVES ; DVs and PP ; wEnemyMonHappiness - wEnemyMonDVs

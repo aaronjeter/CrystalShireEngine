@@ -1,5 +1,6 @@
 MACRO npctrade
-; dialog set, requested mon, offered mon, nickname, dvs, item, OT ID, OT name, gender requested
+; dialog set, requested mon, offered mon, nickname, dvs, item, OT ID, OT name, gender requested,
+; [ability slot of the offered mon: ABILITY_SLOT_1/_2/_HIDDEN; leave it out to roll as for a gift]
 	db \1
 	dw \2, \3
 	db \4, \5, \6
@@ -7,7 +8,12 @@ MACRO npctrade
 	shift
 	dw \7
 	db \8, \9
-	db 0
+	if _NARG == 10
+		assert (\<10>) < NUM_ABILITY_SLOTS, "npctrade: invalid ability slot \<10>"
+		db (\<10>) + 1
+	else
+		db 0
+	endc
 ENDM
 
 NPCTrades:

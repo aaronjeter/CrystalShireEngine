@@ -57,3 +57,7 @@ DEF NUM_ABILITIES EQU const_value
 	const ABILITY_SLOT_2      ; 1
 	const ABILITY_SLOT_HIDDEN ; 2
 DEF NUM_ABILITY_SLOTS EQU const_value
+
+; A Pokemon's slot is stored in bits 0-1 of MON_ABILITY_SLOT (box_struct padding).
+; Slot value 3 is unused and counts as ABILITY_SLOT_1. Bits 2-7 are free.
+DEF ABILITY_SLOT_MASK EQU %11
