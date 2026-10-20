@@ -8,7 +8,7 @@ FortreeHiddenPowerHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, FortreeHiddenPowerHouseMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, FortreeHiddenPowerHouseMonSpritesCallback
 
 FortreeHiddenPowerHouseMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JIGGLYPUFF

@@ -11,7 +11,7 @@ PetalburgCity_MapScripts:
 
 	def_callbacks	
 	callback MAPCALLBACK_NEWMAP, PetalburgCityFlypointCallback
-	callback MAPCALLBACK_OBJECTS, PetalburgCityMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, PetalburgCityMonSpritesCallback
 
 PetalburgCityMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MARS

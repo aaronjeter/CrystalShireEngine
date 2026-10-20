@@ -12,7 +12,7 @@ Route115_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, Route115MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route115MonSpritesCallback
 
 Route115MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JUPITER

@@ -7,7 +7,7 @@ CeruleanPoliceStation_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, CeruleanPoliceStationMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, CeruleanPoliceStationMonSpritesCallback
 
 CeruleanPoliceStationMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, DIGLETT

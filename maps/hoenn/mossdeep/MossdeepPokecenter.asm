@@ -6,7 +6,7 @@ MossdeepPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, MossdeepPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MossdeepPokecenterMonSpritesCallback
 
 MossdeepPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

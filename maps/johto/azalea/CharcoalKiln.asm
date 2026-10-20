@@ -7,7 +7,7 @@ CharcoalKiln_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, CharcoalKilnMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, CharcoalKilnMonSpritesCallback
 
 CharcoalKilnMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, FARFETCH_D

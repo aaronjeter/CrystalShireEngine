@@ -15,11 +15,15 @@ SafariZoneNorth_MapScripts:
 
 	def_callbacks	
 	callback MAPCALLBACK_OBJECTS, SafariZoneNorthCallback
+	callback MAPCALLBACK_SPRITES, SafariZoneNorthMonSpritesCallback
 
-SafariZoneNorthCallback:	
+SafariZoneNorthMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, TAUROS
 	setmonsprite SPRITE_MON_2, RHYDON
 	setmonsprite SPRITE_MON_3, MEW
+	endcallback
+
+SafariZoneNorthCallback:	
 	checkevent EVENT_GOT_MEW
 	iftrue .hideMew
 	checkevent EVENT_SAFARI_WEST_FAKE_MEW

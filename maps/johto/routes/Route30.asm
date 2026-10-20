@@ -19,7 +19,7 @@ Route30_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, Route30MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route30MonSpritesCallback
 
 Route30MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, PIDGEY

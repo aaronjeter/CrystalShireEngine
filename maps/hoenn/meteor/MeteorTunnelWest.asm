@@ -10,7 +10,7 @@ MeteorTunnelWest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, MeteorTunnelWestMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MeteorTunnelWestMonSpritesCallback
 
 MeteorTunnelWestMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, BAGON

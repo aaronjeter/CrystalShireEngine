@@ -4,7 +4,7 @@ OldaleHouse1_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, OldaleHouse1MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, OldaleHouse1MonSpritesCallback
 
 OldaleHouse1MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, VULPIX

@@ -6,7 +6,7 @@ FortreePokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, FortreePokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, FortreePokecenterMonSpritesCallback
 
 FortreePokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

@@ -7,7 +7,7 @@ HoennPokeleague_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, HoennPokeleagueFlypointCallback
-	callback MAPCALLBACK_OBJECTS, HoennPokeleagueMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, HoennPokeleagueMonSpritesCallback
 
 HoennPokeleagueMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

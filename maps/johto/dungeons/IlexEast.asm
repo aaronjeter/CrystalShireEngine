@@ -8,7 +8,7 @@ IlexEast_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, IlexEastMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, IlexEastMonSpritesCallback
 
 IlexEastMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MR__MIME

@@ -18,6 +18,7 @@ Route29_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, Route29TuscanyCallback
+	callback MAPCALLBACK_SPRITES, Route29MonSpritesCallback
 
 Route29Noop1Scene:
 	end
@@ -25,10 +26,13 @@ Route29Noop1Scene:
 Route29Noop2Scene:
 	end
 
-Route29TuscanyCallback:
+Route29MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, EEVEE
 	setmonsprite SPRITE_MON_2, HOPPIP
 	setmonsprite SPRITE_MON_3, SENTRET
+	endcallback
+
+Route29TuscanyCallback:
 	checkflag ENGINE_ZEPHYRBADGE
 	iftrue .DoesTuscanyAppear
 

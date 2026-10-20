@@ -14,7 +14,7 @@ Route39_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, Route39MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route39MonSpritesCallback
 
 Route39MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MILTANK

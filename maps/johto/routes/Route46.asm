@@ -11,7 +11,7 @@ Route46_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, Route46MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route46MonSpritesCallback
 
 Route46MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, SANDSHREW

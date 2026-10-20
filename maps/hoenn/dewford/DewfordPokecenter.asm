@@ -8,7 +8,7 @@ DewfordPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, DewfordPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, DewfordPokecenterMonSpritesCallback
 
 DewfordPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

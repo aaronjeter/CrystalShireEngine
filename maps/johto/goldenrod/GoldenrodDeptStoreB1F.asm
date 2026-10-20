@@ -14,7 +14,7 @@ GoldenrodDeptStoreB1F_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_TILES, GoldenRodDeptStoreB1FClearBoxesCallback
 	callback MAPCALLBACK_NEWMAP, GoldenRodDeptStoreUnblockCallback
-	callback MAPCALLBACK_OBJECTS, GoldenrodDeptStoreB1FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, GoldenrodDeptStoreB1FMonSpritesCallback
 
 GoldenrodDeptStoreB1FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MACHOKE

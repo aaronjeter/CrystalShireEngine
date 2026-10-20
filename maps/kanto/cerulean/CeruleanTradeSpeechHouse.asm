@@ -8,7 +8,7 @@ CeruleanTradeSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, CeruleanTradeSpeechHouseMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, CeruleanTradeSpeechHouseMonSpritesCallback
 
 CeruleanTradeSpeechHouseMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, KANGASKHAN

@@ -7,7 +7,7 @@ EvergrandePokecenter_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, EvergrandePokecenterBlackoutCallback
-	callback MAPCALLBACK_OBJECTS, EvergrandePokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, EvergrandePokecenterMonSpritesCallback
 
 EvergrandePokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

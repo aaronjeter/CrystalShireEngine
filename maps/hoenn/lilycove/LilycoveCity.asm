@@ -15,7 +15,7 @@ LilycoveCity_MapScripts:
 
 	def_callbacks	
 	callback MAPCALLBACK_NEWMAP, LilycoveCityFlypointCallback
-	callback MAPCALLBACK_OBJECTS, LilycoveCityMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, LilycoveCityMonSpritesCallback
 
 LilycoveCityMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, ESPEON

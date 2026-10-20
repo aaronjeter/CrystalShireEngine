@@ -197,6 +197,7 @@ MapSetupScript_Continue:
 	mapsetup SetCurrentWeather
 	mapsetup GetMapScreenCoords
 	mapsetup HandleContinueMap
+	mapsetup LoadMonSpriteSlots ; not saved, unlike the objects
 	mapsetup LoadBlockData
 	mapsetup LoadConnectionBlockData
 	mapsetup BufferScreen

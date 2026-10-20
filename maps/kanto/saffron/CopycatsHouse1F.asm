@@ -7,7 +7,7 @@ CopycatsHouse1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, CopycatsHouse1FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, CopycatsHouse1FMonSpritesCallback
 
 CopycatsHouse1FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, BLISSEY

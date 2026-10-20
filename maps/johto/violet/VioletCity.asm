@@ -14,7 +14,7 @@ VioletCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, VioletCityFlypointCallback
-	callback MAPCALLBACK_OBJECTS, VioletCityMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, VioletCityMonSpritesCallback
 
 VioletCityMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JUPITER

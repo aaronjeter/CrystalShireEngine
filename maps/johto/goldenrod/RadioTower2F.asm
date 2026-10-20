@@ -17,7 +17,7 @@ RadioTower2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, RadioTower2FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, RadioTower2FMonSpritesCallback
 
 RadioTower2FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JIGGLYPUFF

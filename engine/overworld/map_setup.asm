@@ -75,10 +75,18 @@ SuspendMapAnims:
 	ret
 
 LoadMapObjects:
+	call LoadMonSpriteSlots
 	ld a, MAPCALLBACK_OBJECTS
 	call RunMapCallback
 	farcall LoadObjectMasks
 	farjp LoadMapObjects_Follower ; InitializeVisibleSprites, plus the following Pokémon
+
+LoadMonSpriteSlots:
+; Set the species of the SPRITE_MON_* slots (setmonsprite in the map's
+; MAPCALLBACK_SPRITES callback). wMonSpriteSpecies isn't saved, so Continue
+; runs this too.
+	ld a, MAPCALLBACK_SPRITES
+	jmp RunMapCallback
 
 ResetPlayerObjectAction:
 	ld hl, wPlayerSpriteSetupFlags

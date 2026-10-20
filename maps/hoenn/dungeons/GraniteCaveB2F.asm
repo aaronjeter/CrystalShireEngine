@@ -11,7 +11,7 @@ GraniteCaveB2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, GraniteCaveB2FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, GraniteCaveB2FMonSpritesCallback
 
 GraniteCaveB2FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, GASTLY

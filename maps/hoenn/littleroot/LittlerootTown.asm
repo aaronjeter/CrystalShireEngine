@@ -9,7 +9,7 @@ LittlerootTown_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, LittlerootTownFlypointCallback
-	callback MAPCALLBACK_OBJECTS, LittlerootTownMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, LittlerootTownMonSpritesCallback
 
 LittlerootTownMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, TREECKO

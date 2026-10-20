@@ -12,7 +12,7 @@ SafariZoneWest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, SafariZoneWestMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SafariZoneWestMonSpritesCallback
 
 SafariZoneWestMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, FARFETCH_D

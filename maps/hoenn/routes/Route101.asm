@@ -6,7 +6,7 @@ Route101_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, Route101MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route101MonSpritesCallback
 
 Route101MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, POOCHYENA

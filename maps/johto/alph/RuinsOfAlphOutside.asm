@@ -13,6 +13,7 @@ RuinsOfAlphOutside_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, RuinsOfAlphOutsideScientistCallback
+	callback MAPCALLBACK_SPRITES, RuinsOfAlphOutsideMonSpritesCallback
 
 RuinsOfAlphOutsideNoop1Scene:
 	end
@@ -20,8 +21,11 @@ RuinsOfAlphOutsideNoop1Scene:
 RuinsOfAlphOutsideNoop2Scene:
 	end
 
-RuinsOfAlphOutsideScientistCallback:
+RuinsOfAlphOutsideMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, NATU
+	endcallback
+
+RuinsOfAlphOutsideScientistCallback:
 	checkflag ENGINE_UNOWN_DEX
 	iftrue .NoScientist
 	checkevent EVENT_MADE_UNOWN_APPEAR_IN_RUINS

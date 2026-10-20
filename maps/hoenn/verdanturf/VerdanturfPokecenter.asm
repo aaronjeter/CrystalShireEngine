@@ -6,7 +6,7 @@ VerdanturfPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, VerdanturfPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, VerdanturfPokecenterMonSpritesCallback
 
 VerdanturfPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

@@ -11,9 +11,13 @@ CopycatsHouse2F_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, CopycatsHouse2FWhichGenderCallback
+	callback MAPCALLBACK_SPRITES, CopycatsHouse2FMonSpritesCallback
+
+CopycatsHouse2FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, DODRIO
+	endcallback
 
 CopycatsHouse2FWhichGenderCallback:
-	setmonsprite SPRITE_MON_1, DODRIO
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .Female
 	disappear COPYCATSHOUSE2F_COPYCAT2

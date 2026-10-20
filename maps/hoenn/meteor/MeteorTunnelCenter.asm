@@ -10,7 +10,7 @@ MeteorTunnelCenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, MeteorTunnelCenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MeteorTunnelCenterMonSpritesCallback
 
 MeteorTunnelCenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, LUNATONE

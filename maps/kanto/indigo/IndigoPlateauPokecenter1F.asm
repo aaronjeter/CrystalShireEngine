@@ -12,7 +12,7 @@ IndigoPlateauPokecenter1F_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, IndigoPlateauPokecenter1FPrepareElite4Callback
-	callback MAPCALLBACK_OBJECTS, IndigoPlateauPokecenter1FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, IndigoPlateauPokecenter1FMonSpritesCallback
 
 IndigoPlateauPokecenter1FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, ABRA

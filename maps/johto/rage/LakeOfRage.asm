@@ -20,6 +20,7 @@ LakeOfRage_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, LakeOfRageFlypointCallback
 	callback MAPCALLBACK_OBJECTS, LakeOfRageWesleyCallback
+	callback MAPCALLBACK_SPRITES, LakeOfRageMonSpritesCallback
 
 LakeOfRageNoop1Scene:
 	end
@@ -31,8 +32,11 @@ LakeOfRageFlypointCallback:
 	setflag ENGINE_FLYPOINT_LAKE_OF_RAGE
 	endcallback
 
-LakeOfRageWesleyCallback:
+LakeOfRageMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, GYARADOS
+	endcallback
+
+LakeOfRageWesleyCallback:
 	readvar VAR_WEEKDAY
 	ifequal WEDNESDAY, .WesleyAppears
 	disappear LAKEOFRAGE_WESLEY

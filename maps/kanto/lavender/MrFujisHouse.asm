@@ -9,7 +9,7 @@ MrFujisHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, MrFujisHouseMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MrFujisHouseMonSpritesCallback
 
 MrFujisHouseMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, PSYDUCK

@@ -14,7 +14,7 @@ Route102_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, Route102MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route102MonSpritesCallback
 
 Route102MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, SURSKIT

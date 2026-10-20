@@ -15,7 +15,7 @@ CherrygroveCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, CherrygroveCityFlypointCallback
-	callback MAPCALLBACK_OBJECTS, CherrygroveCityMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, CherrygroveCityMonSpritesCallback
 
 CherrygroveCityMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, HOOTHOOT

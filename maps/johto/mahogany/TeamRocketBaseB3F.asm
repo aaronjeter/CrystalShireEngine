@@ -23,7 +23,7 @@ TeamRocketBaseB3F_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, TeamRocketBaseB3FCheckGiovanniDoorCallback
-	callback MAPCALLBACK_OBJECTS, TeamRocketBaseB3FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, TeamRocketBaseB3FMonSpritesCallback
 
 TeamRocketBaseB3FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MURKROW

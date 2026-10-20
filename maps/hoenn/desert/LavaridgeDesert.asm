@@ -20,10 +20,14 @@ LavaridgeDesert_MapScripts:
 
 	def_callbacks	
 	callback MAPCALLBACK_OBJECTS, DesertCallback
+	callback MAPCALLBACK_SPRITES, LavaridgeDesertMonSpritesCallback
 
-DesertCallback:
+LavaridgeDesertMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, LATIAS
 	setmonsprite SPRITE_MON_2, LATIOS
+	endcallback
+
+DesertCallback:
 	checkevent EVENT_BEAT_DESERT_SHRINE_UNOWN
 	iffalse .NotBeatShrine
 	checkevent EVENT_TALKED_TO_DESERT_JANE

@@ -10,7 +10,7 @@ ViridianCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, ViridianCityFlypointCallback
-	callback MAPCALLBACK_OBJECTS, ViridianCityMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, ViridianCityMonSpritesCallback
 
 ViridianCityMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MERCURY

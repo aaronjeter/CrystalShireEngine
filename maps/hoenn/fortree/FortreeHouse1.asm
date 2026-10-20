@@ -4,7 +4,7 @@ FortreeHouse1_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, FortreeHouse1MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, FortreeHouse1MonSpritesCallback
 
 FortreeHouse1MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, TREECKO

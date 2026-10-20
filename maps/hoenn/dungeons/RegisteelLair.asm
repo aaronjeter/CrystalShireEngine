@@ -5,7 +5,7 @@ RegisteelLair_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, RegisteelLairMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, RegisteelLairMonSpritesCallback
 
 RegisteelLairMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, REGISTEEL

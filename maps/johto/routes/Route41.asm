@@ -15,7 +15,7 @@ Route41_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, Route41MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route41MonSpritesCallback
 
 Route41MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MERCURY

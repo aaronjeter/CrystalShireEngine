@@ -19,7 +19,7 @@ NationalPark_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, NationalParkMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, NationalParkMonSpritesCallback
 
 NationalParkMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, PERSIAN

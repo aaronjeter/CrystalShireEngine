@@ -6,7 +6,7 @@ SlateportPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, SlateportPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SlateportPokecenterMonSpritesCallback
 
 SlateportPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

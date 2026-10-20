@@ -6,7 +6,7 @@ PewterNidoranSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, PewterNidoranSpeechHouseMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, PewterNidoranSpeechHouseMonSpritesCallback
 
 PewterNidoranSpeechHouseMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, NIDORAN_M

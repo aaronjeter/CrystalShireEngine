@@ -14,7 +14,7 @@ SproutTower3F_MapScripts:
 	scene_script SproutTower3FNoop2Scene, SCENE_SPROUTTOWER3F_NOOP
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, SproutTower3FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SproutTower3FMonSpritesCallback
 
 SproutTower3FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MISDREAVUS

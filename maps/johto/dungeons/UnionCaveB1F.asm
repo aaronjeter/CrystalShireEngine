@@ -12,7 +12,7 @@ UnionCaveB1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, UnionCaveB1FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, UnionCaveB1FMonSpritesCallback
 
 UnionCaveB1FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MERCURY

@@ -14,7 +14,7 @@ NewBarkTown_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, NewBarkTownFlypointCallback
-	callback MAPCALLBACK_OBJECTS, NewBarkTownMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, NewBarkTownMonSpritesCallback
 
 NewBarkTownMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHIKORITA

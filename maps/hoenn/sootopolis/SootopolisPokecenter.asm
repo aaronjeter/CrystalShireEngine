@@ -6,7 +6,7 @@ SootopolisPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, SootopolisPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SootopolisPokecenterMonSpritesCallback
 
 SootopolisPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

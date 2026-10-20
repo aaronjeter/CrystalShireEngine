@@ -8,7 +8,7 @@ PetalburgPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, PetalburgPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, PetalburgPokecenterMonSpritesCallback
 
 PetalburgPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

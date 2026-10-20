@@ -9,7 +9,7 @@ SproutTower2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, SproutTower2FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SproutTower2FMonSpritesCallback
 
 SproutTower2FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, BELLSPROUT

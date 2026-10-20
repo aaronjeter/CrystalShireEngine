@@ -6,9 +6,13 @@ WhirlIslandLugiaChamber_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, WhirlIslandLugiaChamberLugiaCallback
+	callback MAPCALLBACK_SPRITES, WhirlIslandLugiaChamberMonSpritesCallback
+
+WhirlIslandLugiaChamberMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, LUGIA
+	endcallback
 
 WhirlIslandLugiaChamberLugiaCallback:
-	setmonsprite SPRITE_MON_1, LUGIA
 	checkevent EVENT_FOUGHT_LUGIA
 	iftrue .NoAppear
 	checkitem SILVER_WING

@@ -14,7 +14,7 @@ DanceTheater_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, DanceTheaterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, DanceTheaterMonSpritesCallback
 
 DanceTheaterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, RHYDON

@@ -8,7 +8,7 @@ MountMortar1FOutside_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, MountMortar1FOutsideMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MountMortar1FOutsideMonSpritesCallback
 
 MountMortar1FOutsideMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MAGMAR

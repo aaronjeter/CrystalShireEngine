@@ -8,7 +8,7 @@ SafariHouseSouth_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, SafariHouseSouthMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SafariHouseSouthMonSpritesCallback
 
 SafariHouseSouthMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JIGGLYPUFF

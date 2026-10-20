@@ -5,7 +5,7 @@ GraniteCaveB1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, GraniteCaveB1FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, GraniteCaveB1FMonSpritesCallback
 
 GraniteCaveB1FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, SABLEYE

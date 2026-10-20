@@ -7,7 +7,7 @@ PetalburgWoods_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, PetalburgWoodsMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, PetalburgWoodsMonSpritesCallback
 
 PetalburgWoodsMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, VENUS

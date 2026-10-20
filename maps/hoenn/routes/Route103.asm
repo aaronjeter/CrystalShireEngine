@@ -11,7 +11,7 @@ Route103_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, Route103MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route103MonSpritesCallback
 
 Route103MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, ZIGZAGOON

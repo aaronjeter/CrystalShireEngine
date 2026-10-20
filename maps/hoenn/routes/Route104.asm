@@ -17,7 +17,7 @@ Route104_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, Route104MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route104MonSpritesCallback
 
 Route104MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, RALTS

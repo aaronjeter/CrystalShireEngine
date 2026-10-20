@@ -8,7 +8,7 @@ MtMoonPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, MtMoonPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MtMoonPokecenterMonSpritesCallback
 
 MtMoonPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JIGGLYPUFF

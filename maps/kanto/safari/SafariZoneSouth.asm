@@ -10,7 +10,7 @@ SafariZoneSouth_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, SafariZoneSouthMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SafariZoneSouthMonSpritesCallback
 
 SafariZoneSouthMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

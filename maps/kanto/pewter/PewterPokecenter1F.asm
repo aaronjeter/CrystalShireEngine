@@ -9,7 +9,7 @@ PewterPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, PewterPokecenter1FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, PewterPokecenter1FMonSpritesCallback
 
 PewterPokecenter1FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JIGGLYPUFF

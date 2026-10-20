@@ -9,7 +9,7 @@ RustboroPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, RustboroPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, RustboroPokecenterMonSpritesCallback
 
 RustboroPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

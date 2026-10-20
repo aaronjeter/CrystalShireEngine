@@ -8,7 +8,7 @@ SafariHouseEast_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, SafariHouseEastMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SafariHouseEastMonSpritesCallback
 
 SafariHouseEastMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, ESPEON

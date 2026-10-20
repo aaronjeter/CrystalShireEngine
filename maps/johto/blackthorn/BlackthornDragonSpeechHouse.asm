@@ -6,7 +6,7 @@ BlackthornDragonSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, BlackthornDragonSpeechHouseMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, BlackthornDragonSpeechHouseMonSpritesCallback
 
 BlackthornDragonSpeechHouseMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, DRATINI

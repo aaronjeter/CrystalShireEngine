@@ -11,7 +11,7 @@ EvergrandeDungeonB2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, EvergrandeDungeonB2FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, EvergrandeDungeonB2FMonSpritesCallback
 
 EvergrandeDungeonB2FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, VENUS

@@ -8,7 +8,7 @@ ViridianNicknameSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, ViridianNicknameSpeechHouseMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, ViridianNicknameSpeechHouseMonSpritesCallback
 
 ViridianNicknameSpeechHouseMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, SPEAROW

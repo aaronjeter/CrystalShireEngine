@@ -10,7 +10,7 @@ VermilionCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, VermilionCityFlypointCallback
-	callback MAPCALLBACK_OBJECTS, VermilionCityMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, VermilionCityMonSpritesCallback
 
 VermilionCityMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MACHOP

@@ -6,7 +6,7 @@ TinTower5F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, TinTower5FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, TinTower5FMonSpritesCallback
 
 TinTower5FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JUPITER

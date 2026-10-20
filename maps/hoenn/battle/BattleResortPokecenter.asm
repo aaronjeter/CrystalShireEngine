@@ -6,7 +6,7 @@ BattleResortPokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, BattleResortPokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, BattleResortPokecenterMonSpritesCallback
 
 BattleResortPokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

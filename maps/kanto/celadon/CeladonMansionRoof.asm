@@ -6,7 +6,7 @@ CeladonMansionRoof_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, CeladonMansionRoofMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, CeladonMansionRoofMonSpritesCallback
 
 CeladonMansionRoofMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JUPITER

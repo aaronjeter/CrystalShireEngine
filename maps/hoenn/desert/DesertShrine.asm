@@ -9,7 +9,7 @@ DesertShrine_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, DesertShrineMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, DesertShrineMonSpritesCallback
 
 DesertShrineMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, UNOWNX

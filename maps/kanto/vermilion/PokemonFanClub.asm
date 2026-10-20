@@ -10,7 +10,7 @@ PokemonFanClub_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, PokemonFanClubMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, PokemonFanClubMonSpritesCallback
 
 PokemonFanClubMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, BAYLEEF

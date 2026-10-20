@@ -8,7 +8,7 @@ GraniteCaveB3F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, GraniteCaveB3FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, GraniteCaveB3FMonSpritesCallback
 
 GraniteCaveB3FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, TENTACOOL2

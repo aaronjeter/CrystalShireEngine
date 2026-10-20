@@ -6,7 +6,7 @@ MeteorPeak_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, MeteorPeakMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MeteorPeakMonSpritesCallback
 
 MeteorPeakMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, RAYQUAZA

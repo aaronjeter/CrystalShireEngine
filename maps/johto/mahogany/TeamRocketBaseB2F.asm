@@ -23,7 +23,7 @@ TeamRocketBaseB2F_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, TeamRocketBaseB2FTransmitterDoorCallback
-	callback MAPCALLBACK_OBJECTS, TeamRocketBaseB2FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, TeamRocketBaseB2FMonSpritesCallback
 
 TeamRocketBaseB2FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, ELECTRODE

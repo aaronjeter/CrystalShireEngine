@@ -12,7 +12,7 @@ MeteorFalls_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, MeteorFallsMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MeteorFallsMonSpritesCallback
 
 MeteorFallsMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, LUNATONE

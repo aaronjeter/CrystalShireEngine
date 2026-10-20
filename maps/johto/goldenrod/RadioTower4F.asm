@@ -11,7 +11,7 @@ RadioTower4F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, RadioTower4FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, RadioTower4FMonSpritesCallback
 
 RadioTower4FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MEOWTH

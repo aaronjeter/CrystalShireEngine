@@ -8,7 +8,7 @@ SilverCaveRoom2_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, SilverCaveRoom2MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SilverCaveRoom2MonSpritesCallback
 
 SilverCaveRoom2MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MEWTWO

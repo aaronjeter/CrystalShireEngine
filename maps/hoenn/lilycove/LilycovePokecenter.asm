@@ -6,7 +6,7 @@ LilycovePokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, LilycovePokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, LilycovePokecenterMonSpritesCallback
 
 LilycovePokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

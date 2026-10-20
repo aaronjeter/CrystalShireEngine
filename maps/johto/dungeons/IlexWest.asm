@@ -11,7 +11,7 @@ IlexWest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, IlexWestMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, IlexWestMonSpritesCallback
 
 IlexWestMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, SUNFLORA

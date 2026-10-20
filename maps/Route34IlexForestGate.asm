@@ -10,9 +10,13 @@ Route34IlexForestGate_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, Route34IsForestRestlessCallback
+	callback MAPCALLBACK_SPRITES, Route34IlexForestGateMonSpritesCallback
+
+Route34IlexForestGateMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, BUTTERFREE
+	endcallback
 
 Route34IsForestRestlessCallback:
-	setmonsprite SPRITE_MON_1, BUTTERFREE
 	checkevent EVENT_FOREST_IS_RESTLESS
 	iffalse .Normal
 	disappear ROUTE34ILEXFORESTGATE_TEACHER1

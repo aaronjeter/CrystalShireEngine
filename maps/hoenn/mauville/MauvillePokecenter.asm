@@ -6,7 +6,7 @@ MauvillePokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, MauvillePokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MauvillePokecenterMonSpritesCallback
 
 MauvillePokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

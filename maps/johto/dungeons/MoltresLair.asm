@@ -8,7 +8,7 @@ MoltresLair_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, MoltresLairMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MoltresLairMonSpritesCallback
 
 MoltresLairMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MOLTRES

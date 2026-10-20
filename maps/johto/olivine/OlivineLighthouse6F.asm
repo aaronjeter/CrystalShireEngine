@@ -10,7 +10,7 @@ OlivineLighthouse6F_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, OlivineLighthouse6FLoadReservedIDCallback
-	callback MAPCALLBACK_OBJECTS, OlivineLighthouse6FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, OlivineLighthouse6FMonSpritesCallback
 
 OlivineLighthouse6FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, AMPHAROS

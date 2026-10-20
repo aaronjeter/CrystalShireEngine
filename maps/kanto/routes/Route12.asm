@@ -11,7 +11,7 @@ Route12_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, Route12MonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route12MonSpritesCallback
 
 Route12MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MARS

@@ -10,7 +10,7 @@ ArticunoLair_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, ArticunoLairMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, ArticunoLairMonSpritesCallback
 
 ArticunoLairMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, ARTICUNO

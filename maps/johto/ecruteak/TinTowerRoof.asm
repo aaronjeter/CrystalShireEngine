@@ -6,9 +6,13 @@ TinTowerRoof_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, TinTowerRoofHoOhCallback
+	callback MAPCALLBACK_SPRITES, TinTowerRoofMonSpritesCallback
+
+TinTowerRoofMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, HO_OH
+	endcallback
 
 TinTowerRoofHoOhCallback:
-	setmonsprite SPRITE_MON_1, HO_OH
 	checkevent EVENT_FOUGHT_HO_OH
 	iftrue .NoAppear
 	checkitem RAINBOW_WING

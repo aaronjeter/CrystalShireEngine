@@ -7,7 +7,7 @@ SafariZoneEast_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, SafariZoneEastMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SafariZoneEastMonSpritesCallback
 
 SafariZoneEastMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MEW

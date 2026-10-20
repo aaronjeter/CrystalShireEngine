@@ -19,10 +19,14 @@ Route40_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, Route40MonicaCallback
+	callback MAPCALLBACK_SPRITES, Route40MonSpritesCallback
 
-Route40MonicaCallback:
+Route40MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, STARYU
 	setmonsprite SPRITE_MON_2, WINGULL
+	endcallback
+
+Route40MonicaCallback:
 	clearevent EVENT_BATTLE_TOWER_OPEN_CIVILIANS
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .MonicaAppears

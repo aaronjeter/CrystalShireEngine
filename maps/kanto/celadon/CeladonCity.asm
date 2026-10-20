@@ -14,7 +14,7 @@ CeladonCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, CeladonCityFlypointCallback
-	callback MAPCALLBACK_OBJECTS, CeladonCityMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, CeladonCityMonSpritesCallback
 
 CeladonCityMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, POLIWRATH

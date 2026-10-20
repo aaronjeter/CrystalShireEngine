@@ -7,7 +7,7 @@ Route28SteelWingHouse_MapScripts:
 	scene_script Route28SteelWingHouseNoopScene ; unusable
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, Route28SteelWingHouseMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, Route28SteelWingHouseMonSpritesCallback
 
 Route28SteelWingHouseMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, FEAROW

@@ -5,7 +5,7 @@ JirachiNest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, JirachiNestMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, JirachiNestMonSpritesCallback
 
 JirachiNestMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, JIRACHI

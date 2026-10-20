@@ -6,7 +6,7 @@ LavaridgePokecenter_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, LavaridgePokecenterMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, LavaridgePokecenterMonSpritesCallback
 
 LavaridgePokecenterMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHANSEY

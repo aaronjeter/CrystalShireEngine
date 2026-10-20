@@ -7,7 +7,7 @@ PlayersNeighborsHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, PlayersNeighborsHouseMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, PlayersNeighborsHouseMonSpritesCallback
 
 PlayersNeighborsHouseMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, PIKACHU

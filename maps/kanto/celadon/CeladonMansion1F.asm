@@ -8,7 +8,7 @@ CeladonMansion1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, CeladonMansion1FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, CeladonMansion1FMonSpritesCallback
 
 CeladonMansion1FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MEOWTH

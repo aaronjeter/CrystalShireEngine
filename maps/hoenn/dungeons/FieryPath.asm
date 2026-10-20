@@ -7,7 +7,7 @@ FieryPath_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, FieryPathMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, FieryPathMonSpritesCallback
 
 FieryPathMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, TORKOAL

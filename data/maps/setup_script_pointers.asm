@@ -66,3 +66,4 @@ MapSetupCommands:
 	add_mapsetup ClearWeather ; 33
 	add_mapsetup SetCurrentWeather ; 34
 	add_mapsetup MapConnWeatherFade ; 35
+	add_mapsetup LoadMonSpriteSlots ; 36

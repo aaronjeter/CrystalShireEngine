@@ -15,7 +15,7 @@ MtPyre_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, MtPyreMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MtPyreMonSpritesCallback
 
 MtPyreMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, LATIAS

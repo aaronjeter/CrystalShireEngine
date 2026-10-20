@@ -16,7 +16,7 @@ MtMoonB2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks	
-	callback MAPCALLBACK_OBJECTS, MtMoonB2FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MtMoonB2FMonSpritesCallback
 
 MtMoonB2FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, LUNATONE

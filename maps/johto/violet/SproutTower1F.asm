@@ -11,7 +11,7 @@ SproutTower1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, SproutTower1FMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, SproutTower1FMonSpritesCallback
 
 SproutTower1FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, VULPIX

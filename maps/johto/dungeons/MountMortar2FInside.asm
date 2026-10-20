@@ -12,7 +12,7 @@ MountMortar2FInside_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, MountMortar2FInsideMonSpritesCallback
+	callback MAPCALLBACK_SPRITES, MountMortar2FInsideMonSpritesCallback
 
 MountMortar2FInsideMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MARS
