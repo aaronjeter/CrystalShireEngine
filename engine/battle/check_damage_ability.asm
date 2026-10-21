@@ -1,4 +1,44 @@
-INCLUDE "data/moves/move_categories.asm"
+GetMoveTarget:
+; a = move ID -> a = its MOVE_TARGET_* (MoveAttributes; MOVE_TARGET_SELECTED if none).
+; Preserves bc, de and hl.
+	push de
+	ld d, 0
+	jr _GetMoveAttributesByte
+
+GetMoveFlags:
+; a = move ID -> a = its MOVEFLAG_* bits (MoveAttributes; 0 if none). Preserves bc, de and hl.
+	push de
+	ld d, 1
+_GetMoveAttributesByte:
+	push hl
+	push bc
+	push de
+	call GetMoveIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, MoveAttributes
+	ld a, BANK(MoveAttributes)
+	call LoadIndirectPointer
+	pop de
+	jr z, .none
+	ld b, a
+	ld a, l
+	add d
+	ld l, a
+	jr nc, .got_byte
+	inc h
+.got_byte
+	ld a, b
+	call GetFarByte
+	jr .done
+
+.none
+	xor a
+.done
+	pop bc
+	pop hl
+	pop de
+	ret
 
 CheckStabAbility:
 ; Return carry if the attacker's ability boosts the current move like STAB:
@@ -8,13 +48,13 @@ CheckStabAbility:
 	push hl
 	ld a, BATTLE_VARS_ABILITY
 	call GetBattleVar
-	ld hl, PunchMoves
+	ld h, MOVEFLAG_PUNCH
 	cp ABILITY_ELEMENTAL_FIST
 	jr z, .check_move
-	ld hl, FangMoves
+	ld h, MOVEFLAG_BITE
 	cp ABILITY_ELEMENTAL_FANG
 	jr z, .check_move
-	ld hl, SharpMoves
+	ld h, MOVEFLAG_SLICING
 	cp ABILITY_ELEMENTAL_BLADE
 	jr z, .check_move
 	pop hl
@@ -22,9 +62,13 @@ CheckStabAbility:
 	ret
 
 .check_move
+; h = the MOVEFLAG_* mask; carry if the current move has it
 	call GetAbilityMove
-	call CheckMoveInList
+	call GetMoveFlags
+	and h
 	pop hl
+	ret z
+	scf
 	ret
 
 CheckMoveGroupBoost:
@@ -37,13 +81,13 @@ CheckMoveGroupBoost:
 	cp ABILITY_TOUGH_CLAWS
 	jp z, CheckContactMove
 	push hl
-	ld hl, PunchMoves
+	ld h, MOVEFLAG_PUNCH
 	cp ABILITY_IRON_FIST
 	jr z, CheckStabAbility.check_move
-	ld hl, FangMoves
+	ld h, MOVEFLAG_BITE
 	cp ABILITY_STRONG_JAW
 	jr z, CheckStabAbility.check_move
-	ld hl, SharpMoves
+	ld h, MOVEFLAG_SLICING
 	cp ABILITY_SHARPNESS
 	jr z, CheckStabAbility.check_move
 	pop hl
@@ -194,36 +238,13 @@ ApplySereneGrace:
 	ret
 
 CheckContactMove:
-; Return carry if the current attacker's move makes contact.
-; Physical moves make contact unless listed in NonContactPhysicalMoves.
-; Special moves make contact only if listed in ContactSpecialMoves.
-; Status moves never make contact.
+; Return carry if the current attacker's move makes contact (MOVEFLAG_CONTACT).
 ; Preserves bc, de and hl.
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
-	and ~TYPE_MASK
-	cp PHYSICAL
-	jr z, .physical
-	cp SPECIAL
-	jr z, .special
-	and a ; status: no contact
-	ret
-
-.physical
-	push hl
 	call GetAbilityMove
-	ld hl, NonContactPhysicalMoves
-	call CheckMoveInList
-	pop hl
-	ccf ; listed = no contact
-	ret
-
-.special
-	push hl
-	call GetAbilityMove
-	ld hl, ContactSpecialMoves
-	call CheckMoveInList
-	pop hl
+	call GetMoveFlags
+	and MOVEFLAG_CONTACT
+	ret z
+	scf
 	ret
 
 ; Contact status abilities ---------------------------------------------------

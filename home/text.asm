@@ -389,18 +389,20 @@ PlaceMoveUsersName::
 	; fallthrough
 
 PlaceBattlersName:
+; a = area: its battler's nickname, after "Enemy " if it's on the enemy's real side
 	push de
-	and a
-	jr nz, .enemy
-
-	ld de, wBattleMonNickname
-	jr PlaceCommandCharacter
-
-.enemy
+	push af
+	call GetAreaSide
+	jr z, .name
 	ld de, EnemyText
 	rst PlaceString
 	ld h, b
 	ld l, c
+.name
+	pop af
+	ld de, wBattleMonNickname
+	and a
+	jr z, PlaceCommandCharacter
 	ld de, wEnemyMonNickname
 	jr PlaceCommandCharacter
 

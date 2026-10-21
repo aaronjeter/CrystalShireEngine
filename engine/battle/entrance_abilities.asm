@@ -363,14 +363,7 @@ SafeguardAbility:
 	ld de, SAFEGUARD
 	farcall Call_PlayBattleAnim
 
-	ld hl, wPlayerScreens
-	ld de, wPlayerSafeguardCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wEnemyScreens
-	ld de, wEnemySafeguardCount
-.ok
+	call GetUserScreens
 	set SCREENS_SAFEGUARD, [hl]
 	ld a, 3
 	ld [de], a
@@ -391,14 +384,11 @@ FocusEnergyAbility:
 	jmp StdBattleTextbox
 
 ReflectAbility:
-	ld hl, wPlayerScreens
-	ld bc, wPlayerReflectCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wEnemyScreens
-	ld bc, wEnemyReflectCount
-.ok
+	call GetUserScreens
+	ld b, d
+	ld c, e
+	inc bc
+	inc bc ; SafeguardCount -> ReflectCount
 	set SCREENS_REFLECT, [hl]
 	ld a, 3
 	ld [bc], a
@@ -410,12 +400,7 @@ ReflectAbility:
 	jmp StdBattleTextbox
 
 DebrisAbility:
-	ld hl, wEnemyScreens
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wPlayerScreens
-.ok
+	call GetTargetScreens
 	bit SCREENS_SPIKES, [hl]
 	ret nz ; spikes already down, do nothing
 

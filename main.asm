@@ -620,6 +620,21 @@ SECTION "Ability Battle Effects", ROMX
 INCLUDE "engine/battle/ability_effects.asm"
 
 
+SECTION "Battler Swap", ROMX
+
+INCLUDE "engine/battle/battler_swap.asm"
+
+
+SECTION "Move Attributes", ROMX
+
+INCLUDE "data/moves/move_attributes.asm"
+
+
+SECTION "Effect Commands 2", ROMX, BANK[$7e] ; not floating: it must not fill the room it frees in Effect Commands
+
+INCLUDE "engine/battle/effect_commands_far.asm"
+
+
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]
 
 ; The end of the ROM is taken up by checksums of the content, apparently used

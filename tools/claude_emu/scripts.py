@@ -1,7 +1,8 @@
 import subprocess, os, tempfile
 CSE = os.environ.get("CSE", "/root/cse")
 RGB = "/root/rgbds"
-BASE = 0x3F90  # free ROM0 space at the end of Home ($3f8f-$3fff as of Oct 20, 2026, after the ability refactor); check pokecrystal.map if Home grows
+BASE = 0x0063  # free ROM0 header gap ($0063-$00ff); scripts go up to BASE_END, battle_test's RNG after it
+BASE_END = 0x00E3
 
 
 def assemble(body, org):

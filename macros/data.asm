@@ -156,6 +156,7 @@ MACRO mon
 ; level, species
 	db \1
 	dw \2
+	DEF _party_mons += 1
 ENDM
 
 MACRO itemmon
@@ -163,6 +164,29 @@ MACRO itemmon
 	db \1
 	dw \2
 	dw \3
+	DEF _party_mons += 1
+ENDM
+
+DEF _party_mons = 0
+DEF _double_party = 0
+
+MACRO doubles_trainer
+; Header of a double-battle trainer party, instead of db "NAME@", TYPE:
+;   doubles_trainer "NAME", TRAINERTYPE_* constants (TRAINERTYPE_NORMAL for none)
+;   doubles_trainer "NAME", TRAINERTYPE_RANDOM | ..., number of Pokemon, list constant
+; Doubles trainers must have at least 2 Pokemon; end_party checks it.
+	db \1, "@", (\2) | (1 << TRAINERTYPE_DOUBLE_F)
+	REDEF _double_party_name EQUS \1
+	if (\2) & TRAINERTYPE_RANDOM
+		assert _NARG == 4, "doubles_trainer {_double_party_name}: a random party needs a count and a list"
+		assert (\3) >= 2, "doubles trainer {_double_party_name} has fewer than 2 Pokemon"
+		db \3, \4
+		DEF _double_party = 0
+	else
+		assert _NARG == 2, "doubles_trainer {_double_party_name}: expected a name and a type"
+		DEF _double_party = 1
+	endc
+	DEF _party_mons = 0
 ENDM
 
 MACRO moves
@@ -185,5 +209,10 @@ ENDM
 
 MACRO end_party
 ; terminates a trainer party
+	if _double_party
+		assert _party_mons >= 2, "doubles trainer {_double_party_name} has fewer than 2 Pokemon"
+	endc
+	DEF _double_party = 0
+	DEF _party_mons = 0
 	db -1
 ENDM

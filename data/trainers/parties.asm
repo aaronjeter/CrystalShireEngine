@@ -6,6 +6,10 @@
 ;    * for TRAINERTYPE_ITEM:       db level, species, item
 ;    * for TRAINERTYPE_ITEM_MOVES: db level, species, item, 4 moves
 ; - end_party
+; A double battle (two Pokemon out on each side; at least 2 Pokemon): start with
+;   doubles_trainer "NAME", TRAINERTYPE_* constant
+; instead of the db line. TRAINERTYPE_DOUBLE has no constant of its own, so the
+; check can't be skipped. Random trainers: doubles_trainer "NAME", TRAINERTYPE_RANDOM | ..., count, list
 
 ; Random Trainers:
 ; - db "NAME@", TRAINERTYPE_RANDOM | other TRAINERTYPE_* constants, number of party pokémon, list constant (defined in constants/trainer_constants.asm)

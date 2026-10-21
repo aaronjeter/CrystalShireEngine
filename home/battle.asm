@@ -78,6 +78,68 @@ ResetDamage::
 	ld [wCurDamage + 1], a
 	ret
 
+; Real side vs loaded area (double battles): the player's area (hBattleTurn 0) and the
+; enemy's (1) each hold one battler. Its real side is the area XOR wAreaSideFlip[area],
+; which is 0 in singles. Side state (screens, Safeguard, Spikes and their counters) and
+; the "Enemy" text prefix go by the real side.
+
+GetUserSide::
+; a = the user's real side (0: player, 1: enemy); z if the player's
+	ldh a, [hBattleTurn]
+	jr GetAreaSide
+
+GetTargetSide::
+	ldh a, [hBattleTurn]
+	xor 1
+	; fallthrough
+
+GetAreaSide::
+; a = area (0: the player's, 1: the enemy's) -> a = the real side of its battler; z if the player's
+	push hl
+	ld hl, wAreaSideFlip
+	and a
+	jr z, .got_area
+	inc hl
+.got_area
+	xor [hl]
+	pop hl
+	ret
+
+GetUserScreens::
+; hl = the screens byte (SCREENS_*) of the user's real side; de = that side's Safeguard
+; count (Light Screen +1, Reflect +2). a = the side; z if the player's.
+	ldh a, [hBattleTurn]
+	jr GetAreaScreens
+
+GetTargetScreens::
+	ldh a, [hBattleTurn]
+	xor 1
+	; fallthrough
+
+GetAreaScreens::
+; a = area; as GetUserScreens for the battler loaded there
+	call GetAreaSide
+	ld hl, wPlayerScreens
+	ld de, wPlayerSafeguardCount
+	ret z
+	inc hl ; wEnemyScreens
+	ld de, wEnemySafeguardCount
+	ret
+
+GetAreaScreensByte::
+; a = area -> a = the screens byte of its battler's real side. Preserves bc, de and hl.
+	push hl
+	push de
+	call GetAreaScreens
+	ld a, [hl]
+	pop de
+	pop hl
+	ret
+
+	assert wEnemyScreens == wPlayerScreens + 1
+	assert wPlayerLightScreenCount == wPlayerSafeguardCount + 1 && wPlayerReflectCount == wPlayerSafeguardCount + 2
+	assert wEnemyLightScreenCount == wEnemySafeguardCount + 1 && wEnemyReflectCount == wEnemySafeguardCount + 2
+
 SetPlayerTurn::
 	xor a
 	ldh [hBattleTurn], a

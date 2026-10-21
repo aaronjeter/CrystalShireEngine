@@ -280,3 +280,39 @@ DEF BATTLERESULT_BITMASK EQU (1 << BATTLERESULT_CAUGHT_CELEBI) | (1 << BATTLERES
 ; link_battle_record struct
 DEF LINK_BATTLE_RECORD_LENGTH EQU 2 + (NAME_LENGTH - 1) + 2 * 3
 DEF NUM_LINK_BATTLE_RECORDS EQU 5
+
+; battle_struct length (see macros/ram.asm)
+DEF BATTLE_STRUCT_LENGTH EQU 32
+
+; battler slots for double battles (see engine/battle/battler_swap.asm)
+	const_def
+	const BATTLER_SLOT_P1 ; 0
+	const BATTLER_SLOT_P2 ; 1
+	const BATTLER_SLOT_E1 ; 2
+	const BATTLER_SLOT_E2 ; 3
+DEF NUM_BATTLER_SLOTS EQU const_value
+DEF BATTLER_SLOT_ENEMY_F EQU 1 ; set for the enemy's slots
+; bytes per slot: the total of BattlerSwapList's sizes (checked by an assert there)
+DEF BATTLER_SLOT_SIZE EQU 134
+
+; MoveAttributes target types (data/moves/move_attributes.asm; double battles)
+	const_def
+	const MOVE_TARGET_SELECTED   ; 0
+	const MOVE_TARGET_BOTH_FOES  ; 1
+	const MOVE_TARGET_ALL_OTHERS ; 2
+	const MOVE_TARGET_USER       ; 3
+	const MOVE_TARGET_USER_SIDE  ; 4
+	const MOVE_TARGET_FOE_SIDE   ; 5
+	const MOVE_TARGET_RANDOM_FOE ; 6
+	const MOVE_TARGET_ALL        ; 7
+	const MOVE_TARGET_FIELD      ; 8
+	const MOVE_TARGET_COUNTER    ; 9
+DEF NUM_MOVE_TARGETS EQU const_value
+
+; MoveAttributes flags
+	const_def
+	shift_const MOVEFLAG_CONTACT ; 0
+	shift_const MOVEFLAG_PUNCH   ; 1
+	shift_const MOVEFLAG_BITE    ; 2
+	shift_const MOVEFLAG_SLICING ; 3
+	shift_const MOVEFLAG_SOUND   ; 4

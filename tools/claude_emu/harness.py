@@ -1,6 +1,6 @@
 import ctypes as C, re, os
 from gb import GB, LIB
-from scripts import assemble, party_script, battle_script, BASE
+from scripts import assemble, party_script, battle_script, BASE, BASE_END
 
 GB_DIRECT_ACCESS_ROM = 0
 PLAYEREVENT_MAPSCRIPT = None
@@ -33,6 +33,7 @@ class H(GB):
 
     def run_script(self, body, org=BASE):
         data = assemble(body, org)
+        assert org != BASE or len(data) <= BASE_END - BASE, f'script too long ({len(data)} bytes)'
         self.poke_rom(org, data)
         self.wr("wMapReentryScriptBank", 1)
         self.wr("wMapReentryScriptAddress", [org & 0xFF, org >> 8])

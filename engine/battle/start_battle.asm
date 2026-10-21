@@ -168,7 +168,7 @@ ClearBattleRAM:
 
 ; Clear the entire BattleMons area
 	ld hl, wBattle
-	ld bc, wBattleEnd - wBattle
+	ld bc, wBattleStateEnd - wBattle
 	xor a
 	rst ByteFill
 

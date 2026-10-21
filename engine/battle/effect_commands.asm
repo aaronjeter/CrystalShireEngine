@@ -1,5 +1,8 @@
 DoPlayerTurn:
 	call SetPlayerTurn
+if DEF(SWAP_TEST)
+	farcall SwapTest ; test builds only (battler_swap.asm)
+endc
 
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
@@ -9,6 +12,9 @@ DoPlayerTurn:
 
 DoEnemyTurn:
 	call SetEnemyTurn
+if DEF(SWAP_TEST)
+	farcall SwapTest ; test builds only (battler_swap.asm)
+endc
 
 	ld a, [wLinkMode]
 	and a
@@ -2753,7 +2759,8 @@ PlayerAttackDamage:
 	ld b, a
 	ld c, [hl]
 
-	ld a, [wEnemyScreens]
+	ld a, 1 ; the enemy's area
+	call GetAreaScreensByte
 	bit SCREENS_REFLECT, a
 	jr z, .physicalcrit
 	sla c
@@ -2777,7 +2784,8 @@ PlayerAttackDamage:
 	ld b, a
 	ld c, [hl]
 
-	ld a, [wEnemyScreens]
+	ld a, 1 ; the enemy's area
+	call GetAreaScreensByte
 	bit SCREENS_LIGHT_SCREEN, a
 	jr z, .specialcrit
 	sla c
@@ -3022,7 +3030,8 @@ EnemyAttackDamage:
 	ld b, a
 	ld c, [hl]
 
-	ld a, [wPlayerScreens]
+	xor a ; the player's area
+	call GetAreaScreensByte
 	bit SCREENS_REFLECT, a
 	jr z, .physicalcrit
 	sla c
@@ -3046,7 +3055,8 @@ EnemyAttackDamage:
 	ld b, a
 	ld c, [hl]
 
-	ld a, [wPlayerScreens]
+	xor a ; the player's area
+	call GetAreaScreensByte
 	bit SCREENS_LIGHT_SCREEN, a
 	jr z, .specialcrit
 	sla c
@@ -3092,15 +3102,16 @@ BattleCommand_ClearMissDamage:
 
 HitSelfInConfusion:
 	call ResetDamage
+	call GetUserScreens
+	ld d, h
+	ld e, l
 	ldh a, [hBattleTurn]
 	and a
 	ld hl, wBattleMonDefense
-	ld de, wPlayerScreens
 	ld a, [wBattleMonLevel]
 	jr z, .got_it
 
 	ld hl, wEnemyMonDefense
-	ld de, wEnemyScreens
 	ld a, [wEnemyMonLevel]
 .got_it
 	push af
@@ -3601,17 +3612,29 @@ INCLUDE "data/moves/flail_reversal_power.asm"
 
 INCLUDE "engine/battle/move_effects/counter.asm"
 
-INCLUDE "engine/battle/move_effects/encore.asm"
+BattleCommand_Encore:
+	farjp _BattleCommand_Encore ; effect_commands_far.asm
 
-INCLUDE "engine/battle/move_effects/pain_split.asm"
+EncoreInvalidMoves:
+; read by CheckMoveInList, which runs in this bank
+	dw NO_MOVE
+	dw STRUGGLE
+	dw ENCORE
+	dw MIRROR_MOVE
+	dw -1
+
+BattleCommand_PainSplit:
+	farjp _BattleCommand_PainSplit ; effect_commands_far.asm
 
 INCLUDE "engine/battle/move_effects/snore.asm"
 
-INCLUDE "engine/battle/move_effects/conversion2.asm"
+BattleCommand_Conversion2:
+	farjp _BattleCommand_Conversion2 ; effect_commands_far.asm
 
 INCLUDE "engine/battle/move_effects/lock_on.asm"
 
-INCLUDE "engine/battle/move_effects/sketch.asm"
+BattleCommand_Sketch:
+	farjp _BattleCommand_Sketch ; effect_commands_far.asm
 
 BattleCommand_DefrostOpponent:
 ; Thaw the opponent if frozen, and
@@ -3641,7 +3664,8 @@ INCLUDE "engine/battle/move_effects/sleep_talk.asm"
 
 INCLUDE "engine/battle/move_effects/destiny_bond.asm"
 
-INCLUDE "engine/battle/move_effects/spite.asm"
+BattleCommand_Spite:
+	farjp _BattleCommand_Spite ; effect_commands_far.asm
 
 INCLUDE "engine/battle/move_effects/false_swipe.asm"
 
@@ -5839,145 +5863,14 @@ BattleCommand_Charge:
 	text_end
 
 BattleCommand_TrapTarget:
-	ld a, [wAttackMissed]
-	and a
-	ret nz
-	ld hl, wEnemyWrapCount
-	ld de, wEnemyTrappingMove
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_trap
-	ld hl, wPlayerWrapCount
-	ld de, wPlayerTrappingMove
-
-.got_trap
-	ld a, [hl]
-	and a
-	ret nz
-	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVar
-	bit SUBSTATUS_SUBSTITUTE, a
-	ret nz
-	call BattleRandom
-	; trapped for 2-5 turns
-	and %11
-	inc a
-	inc a
-	inc a
-	ld [hl], a
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-	ld [de], a
-	call GetMoveIndexFromID
-	ld b, h
-	ld c, l
-	ld hl, .Traps
-
-.find_trap_text
-	ld a, [hli]
-	cp c
-	ld a, [hli]
-	jr nz, .next_trap_text
-	cp b
-	jr z, .found_trap_text
-.next_trap_text
-	inc hl
-	inc hl
-	jr .find_trap_text
-
-.found_trap_text
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jmp StdBattleTextbox
-
-.Traps:
-	dw BIND,      UsedBindText      ; 'used BIND on'
-	dw WRAP,      WrappedByText     ; 'was WRAPPED by'
-	dw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
-	dw CLAMP,     ClampedByText     ; 'was CLAMPED by'
-	dw WHIRLPOOL, WhirlpoolTrapText ; 'was trapped!'
+	farjp _BattleCommand_TrapTarget ; effect_commands_far.asm
 
 INCLUDE "engine/battle/move_effects/mist.asm"
 
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
 BattleCommand_Recoil:
-; Magic Guard: no recoil damage.
-	farcall CheckMagicGuardUser
-	ret c
-; Rock Head: no recoil damage, except from Struggle.
-	ld a, BATTLE_VARS_ABILITY
-	call GetBattleVar
-	cp ABILITY_ROCK_HEAD
-	jr nz, .no_rock_head
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-	ld bc, STRUGGLE
-	call CompareMove
-	ret nz
-.no_rock_head
-
-	ld hl, wBattleMonMaxHP
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_hp
-	ld hl, wEnemyMonMaxHP
-.got_hp
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-	ld d, a
-; get 1/4 damage or 1 HP, whichever is higher
-	ld a, [wCurDamage]
-	ld b, a
-	ld a, [wCurDamage + 1]
-	ld c, a
-	srl b
-	rr c
-	srl b
-	rr c
-	ld a, b
-	or c
-	jr nz, .min_damage
-	inc c
-.min_damage
-	ld a, [hli]
-	ld [wHPBuffer1 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer1], a
-	dec hl
-	dec hl
-	ld a, [hl]
-	ld [wHPBuffer2], a
-	sub c
-	ld [hld], a
-	ld [wHPBuffer3], a
-	ld a, [hl]
-	ld [wHPBuffer2 + 1], a
-	sbc b
-	ld [hl], a
-	ld [wHPBuffer3 + 1], a
-	jr nc, .dont_ko
-	xor a
-	ld [hli], a
-	ld [hl], a
-	ld hl, wHPBuffer3
-	ld [hli], a
-	ld [hl], a
-.dont_ko
-	hlcoord 10, 9
-	ldh a, [hBattleTurn]
-	and a
-	ld a, 1
-	jr z, .animate_hp_bar
-	hlcoord 2, 2
-	xor a
-.animate_hp_bar
-	ld [wWhichHPBar], a
-	predef AnimateHPBar
-	call RefreshBattleHuds
-	ld hl, RecoilText
-	jmp StdBattleTextbox
+	farjp _BattleCommand_Recoil ; effect_commands_far.asm
 
 BattleCommand_ConfuseTarget:
 	call GetOpponentItem
@@ -6376,17 +6269,20 @@ ReduceDamageByQuarter:
 	pop bc
 	ret
 
-INCLUDE "engine/battle/move_effects/mimic.asm"
+BattleCommand_Mimic:
+	farjp _BattleCommand_Mimic ; effect_commands_far.asm
 
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 
 INCLUDE "engine/battle/move_effects/splash.asm"
 
-INCLUDE "engine/battle/move_effects/disable.asm"
+BattleCommand_Disable:
+	farjp _BattleCommand_Disable ; effect_commands_far.asm
 
 INCLUDE "engine/battle/move_effects/pay_day.asm"
 
-INCLUDE "engine/battle/move_effects/conversion.asm"
+BattleCommand_Conversion:
+	farjp _BattleCommand_Conversion ; effect_commands_far.asm
 
 BattleCommand_ResetStats:
 	ld a, BASE_STAT_LEVEL
@@ -6547,15 +6443,10 @@ ResetActorDisable:
 	ret
 
 BattleCommand_Screen:
-	ld hl, wPlayerScreens
-	ld bc, wPlayerLightScreenCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_screens_pointer
-	ld hl, wEnemyScreens
-	ld bc, wEnemyLightScreenCount
-
-.got_screens_pointer
+	call GetUserScreens
+	ld b, d
+	ld c, e
+	inc bc ; SafeguardCount -> LightScreenCount
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_LIGHT_SCREEN
@@ -6684,7 +6575,8 @@ ResetTurn:
 	call DoMove
 	jmp EndMoveEffect
 
-INCLUDE "engine/battle/move_effects/thief.asm"
+BattleCommand_Thief:
+	farjp _BattleCommand_Thief ; effect_commands_far.asm
 
 BattleCommand_ArenaTrap:
 ; Doesn't work on an absent opponent.
@@ -6755,7 +6647,10 @@ INCLUDE "engine/battle/move_effects/perish_song.asm"
 
 INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
-INCLUDE "engine/battle/move_effects/rollout.asm"
+BattleCommand_CheckRollout:
+	farjp _BattleCommand_CheckRollout ; effect_commands_far.asm
+BattleCommand_RolloutPower:
+	farjp _BattleCommand_RolloutPower ; effect_commands_far.asm
 
 INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 
@@ -6770,15 +6665,12 @@ INCLUDE "engine/battle/move_effects/frustration.asm"
 INCLUDE "engine/battle/move_effects/safeguard.asm"
 
 SafeCheckSafeguard:
+; nz if the target's side has Safeguard. Preserves hl and de.
 	push hl
-	ld hl, wEnemyScreens
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_turn
-	ld hl, wPlayerScreens
-
-.got_turn
+	push de
+	call GetTargetScreens
 	bit SCREENS_SAFEGUARD, [hl]
+	pop de
 	pop hl
 	ret
 

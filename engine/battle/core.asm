@@ -152,6 +152,9 @@ WildFled_EnemyFled_LinkBattleCanceled:
 
 BattleTurn:
 .loop
+if DEF(SWAP_TEST)
+	farcall SwapTest ; test builds only (battler_swap.asm)
+endc
 	call CheckContestBattleOver
 	ret c
 
@@ -188,12 +191,7 @@ BattleTurn:
 	ret c
 
 	call DetermineMoveOrder
-	jr c, .false
-	call Battle_EnemyFirst
-	jr .proceed
-.false
-	call Battle_PlayerFirst
-.proceed
+	call RunBattleActions
 	ld a, [wForcedSwitch]
 	and a
 	ret nz
@@ -202,11 +200,60 @@ BattleTurn:
 	and a
 	ret nz
 
+if DEF(SWAP_TEST)
+	farcall SwapTest ; test builds only (battler_swap.asm)
+endc
 	call HandleBetweenTurnEffects
 	ld a, [wBattleEnded]
 	and a
 	ret nz
 	jr .loop
+
+ForEachBattler:
+; Call routine hl for each battler, with hBattleTurn set to that battler: the player
+; first, or the enemy first when linked with the external clock.
+; (Double battles: each slot in Speed order, swapped in.)
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .enemy_first
+	push hl
+	call SetPlayerTurn
+	pop hl
+	push hl
+	call _hl_
+	pop hl
+	call SetEnemyTurn
+	jp hl
+
+.enemy_first
+	push hl
+	call SetEnemyTurn
+	pop hl
+	push hl
+	call _hl_
+	pop hl
+	call SetPlayerTurn
+	jp hl
+
+ForEachSide:
+; Call hl for the player's side and de for the enemy's side, in the same order.
+; Singles: the same as ForEachBattlerPair. (Doubles: once per side.)
+ForEachBattlerPair:
+; Call hl for the player's battler and de for the enemy's (hBattleTurn is not set), the
+; player first, or the enemy first when linked with the external clock.
+; (Doubles: per slot, swapped in, with the routine for its side.)
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr nz, .got_order
+	push hl
+	ld h, d
+	ld l, e
+	pop de
+.got_order
+	push de
+	call _hl_
+	pop hl
+	jp hl
 
 HandleBetweenTurnEffects:
 	ldh a, [hSerialConnectionStatus]
@@ -328,16 +375,9 @@ CheckFaint_EnemyThenPlayer:
 	ret
 
 HandleBerserkGene:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .reverse
-
-	call .player
-	jr .enemy
-
-.reverse
-	call .enemy
-	; fallthrough
+	ld hl, .player
+	ld de, .enemy
+	jmp ForEachBattlerPair
 
 .player
 	call SetPlayerTurn
@@ -733,14 +773,10 @@ ParsePlayerAction:
 	ret
 
 HandleEncore:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .player_1
-	call .do_player
-	jr .do_enemy
+	ld hl, .do_player
+	ld de, .do_enemy
+	jmp ForEachBattlerPair
 
-.player_1
-	call .do_enemy
 .do_player
 	ld hl, wPlayerSubStatus5
 	bit SUBSTATUS_ENCORED, [hl]
@@ -955,88 +991,147 @@ GetMoveEffect:
 	ld b, a
 	ret
 
-Battle_EnemyFirst:
+RunBattleActions:
+; Build the turn's action list from DetermineMoveOrder (carry: the player goes first)
+; and run it. An entry is a battler slot and its action (BATTLEPLAYERACTION_*; for the
+; enemy, USEITEM means the AI already switched or used an item instead of a move).
+; Singles has two entries. When a faint is handled (HandleXMonFaint: faint, then replace),
+; a switch is forced or the enemy flees, the rest of the list is skipped.
+	ld hl, wBattleActions
+	lb bc, BATTLER_SLOT_P1, BATTLER_SLOT_E1
+	jr c, .got_order
+	lb bc, BATTLER_SLOT_E1, BATTLER_SLOT_P1
+.got_order
+	ld a, b
+	ld [hli], a
+	inc hl
+	ld a, c
+	ld [hli], a
+	ld a, 2
+	ld [wNumBattleActions], a
+	ld a, [wBattlePlayerAction]
+	ld hl, wBattleActions + 1
+	bit BATTLER_SLOT_ENEMY_F, b
+	jr z, .got_player_entry
+	ld hl, wBattleActions + 3
+.got_player_entry
+	ld [hl], a
+
+; Before the first action: if the enemy goes first, its flee check; then the AI's
+; switch or item decision (after the order is set, as before).
+	xor a
+	ld [wCurBattleAction], a
+	bit BATTLER_SLOT_ENEMY_F, b
+	jr z, .ai_decision
 	call LoadTilemapToTempTilemap
 	call TryEnemyFlee
 	jmp c, WildFled_EnemyFled_LinkBattleCanceled
-	call SetEnemyTurn
-	ld a, $1
+	ld a, 1
+.ai_decision
 	ld [wEnemyGoesFirst], a
-	farcall AI_SwitchOrTryItem
-	jr c, .switch_item
-	call EnemyTurn_EndOpponentProtectEndureDestinyBond
-	ld a, [wForcedSwitch]
-	and a
-	ret nz
-	call HasPlayerFainted
-	jmp z, HandlePlayerMonFaint
-	call HasEnemyFainted
-	jmp z, HandleEnemyMonFaint
-
-.switch_item
 	call SetEnemyTurn
-	call ResidualDamage
-	jmp z, HandleEnemyMonFaint
-	call RefreshBattleHuds
-	call PlayerTurn_EndOpponentProtectEndureDestinyBond
-	ld a, [wForcedSwitch]
-	and a
-	ret nz
-	call HasEnemyFainted
-	jmp z, HandleEnemyMonFaint
-	call HasPlayerFainted
-	jmp z, HandlePlayerMonFaint
-	call SetPlayerTurn
-	call ResidualDamage
-	jmp z, HandlePlayerMonFaint
-	call RefreshBattleHuds
+	farcall AI_SwitchOrTryItem
+	ld a, BATTLEPLAYERACTION_USEMOVE
+	jr nc, .got_enemy_action
+	ld a, BATTLEPLAYERACTION_USEITEM
+.got_enemy_action
+	push af
+	call GetEnemyBattleAction
+	pop af
+	ld [hl], a
+
+.loop
+	call RunBattleAction
+	ret c
+	ld hl, wCurBattleAction
+	inc [hl]
+	ld a, [wNumBattleActions]
+	cp [hl]
+	jr nz, .loop
 	xor a ; BATTLEPLAYERACTION_USEMOVE
 	ld [wBattlePlayerAction], a
 	ret
 
-Battle_PlayerFirst:
-	xor a
-	ld [wEnemyGoesFirst], a
-	call SetEnemyTurn
-	farcall AI_SwitchOrTryItem
-	push af
+GetEnemyBattleAction:
+; hl = the action byte of the enemy's entry
+	ld hl, wBattleActions + 1
+	ld a, [wBattleActions]
+	bit BATTLER_SLOT_ENEMY_F, a
+	ret nz
+	ld hl, wBattleActions + 3
+	ret
+
+RunBattleAction:
+; Run entry wCurBattleAction: the battler's move (if any), the faint checks (the
+; opponent first), then the battler's residual damage. Returns carry to stop the list.
+	ld a, [wCurBattleAction]
+	add a
+	ld hl, wBattleActions
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld a, [hli]
+	bit BATTLER_SLOT_ENEMY_F, a
+	jr nz, .enemy
+
 	call PlayerTurn_EndOpponentProtectEndureDestinyBond
-	pop bc
 	ld a, [wForcedSwitch]
 	and a
-	ret nz
+	jr nz, .stop
 	call HasEnemyFainted
-	jmp z, HandleEnemyMonFaint
+	jr z, .enemy_fainted
 	call HasPlayerFainted
-	jmp z, HandlePlayerMonFaint
-	push bc
+	jr z, .player_fainted
 	call SetPlayerTurn
 	call ResidualDamage
-	pop bc
-	jmp z, HandlePlayerMonFaint
-	push bc
+	jr z, .player_fainted
 	call RefreshBattleHuds
-	pop af
-	jr c, .switched_or_used_item
+	and a
+	ret
+
+.enemy
+	ld a, [hl]
+	and a ; BATTLEPLAYERACTION_USEMOVE?
+	jr nz, .enemy_residual
+	ld a, [wCurBattleAction]
+	and a
+	jr z, .enemy_move ; first: the flee check came before the AI's decision
 	call LoadTilemapToTempTilemap
 	call TryEnemyFlee
-	jmp c, WildFled_EnemyFled_LinkBattleCanceled
+	jr c, .fled
+.enemy_move
 	call EnemyTurn_EndOpponentProtectEndureDestinyBond
 	ld a, [wForcedSwitch]
 	and a
-	ret nz
+	jr nz, .stop
 	call HasPlayerFainted
-	jmp z, HandlePlayerMonFaint
+	jr z, .player_fainted
 	call HasEnemyFainted
-	jmp z, HandleEnemyMonFaint
-
-.switched_or_used_item
+	jr z, .enemy_fainted
+.enemy_residual
 	call SetEnemyTurn
 	call ResidualDamage
-	jmp z, HandleEnemyMonFaint
+	jr z, .enemy_fainted
 	call RefreshBattleHuds
-	xor a ; BATTLEPLAYERACTION_USEMOVE
-	ld [wBattlePlayerAction], a
+	and a
+	ret
+
+.player_fainted
+	call HandlePlayerMonFaint
+	scf
+	ret
+
+.enemy_fainted
+	call HandleEnemyMonFaint
+	scf
+	ret
+
+.fled
+	call WildFled_EnemyFled_LinkBattleCanceled
+.stop
+	scf
 	ret
 
 PlayerTurn_EndOpponentProtectEndureDestinyBond:
@@ -1229,18 +1324,8 @@ ResidualDamage:
 	ret
 
 HandlePerishSong:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .EnemyFirst
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
-
-.EnemyFirst:
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
+	ld hl, .do_it
+	jmp ForEachBattler
 
 .do_it
 	ld hl, wPlayerPerishCount
@@ -1297,18 +1382,8 @@ HandlePerishSong:
 	ret
 
 HandleWrap:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .EnemyFirst
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
-
-.EnemyFirst:
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
+	ld hl, .do_it
+	jmp ForEachBattler
 
 .do_it
 	ld hl, wPlayerWrapCount
@@ -1375,18 +1450,9 @@ SwitchTurnCore:
 	ret
 
 HandleLeftovers:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .DoEnemyFirst
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
+	ld hl, .do_it
+	jmp ForEachBattler
 
-.DoEnemyFirst:
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
 .do_it
 
 	farcall GetUserItem
@@ -1428,18 +1494,9 @@ HandleLeftovers:
 INCLUDE "engine/battle/end_turn_abilities.asm"
 
 HandleHealAbilities:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .DoEnemyFirst
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
+	ld hl, .do_it
+	jmp ForEachBattler
 
-.DoEnemyFirst:
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
 .do_it	
 	push de
 	push bc
@@ -1476,18 +1533,9 @@ HandleHealAbilities:
 	ret
 
 HandleWeatherHealAbilities:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .DoEnemyFirst
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
+	ld hl, .do_it
+	jmp ForEachBattler
 
-.DoEnemyFirst:
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
 .do_it	
 	push de
 	push bc
@@ -1559,18 +1607,9 @@ call CheckSandstorm
 	ret
 
 HandleShedSkin:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .DoEnemyFirst
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
+	ld hl, .do_it
+	jmp ForEachBattler
 
-.DoEnemyFirst:
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
 .do_it
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
@@ -1614,18 +1653,8 @@ HandleShedSkin:
 	jmp StdBattleTextbox
 
 HandleMysteryberry:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .DoEnemyFirst
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
-
-.DoEnemyFirst:
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
+	ld hl, .do_it
+	jmp ForEachBattler
 
 .do_it
 	farcall GetUserItem
@@ -1761,18 +1790,8 @@ HandleMysteryberry:
 	jmp StdBattleTextbox
 
 HandleFutureSight:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .enemy_first
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jr .do_it
-
-.enemy_first
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
+	ld hl, .do_it
+	jmp ForEachBattler
 
 .do_it
 	ld hl, wPlayerFutureSightCount
@@ -1822,14 +1841,10 @@ HandleFutureSight:
 	jmp UpdateEnemyMonInParty
 
 HandleSafeguard:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .player1
-	call .CheckPlayer
-	jr .CheckEnemy
+	ld hl, .CheckPlayer
+	ld de, .CheckEnemy
+	jmp ForEachSide
 
-.player1
-	call .CheckEnemy
 .CheckPlayer:
 	ld a, [wPlayerScreens]
 	bit SCREENS_SAFEGUARD, a
@@ -1859,14 +1874,9 @@ HandleSafeguard:
 	jmp StdBattleTextbox
 
 HandleScreens:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .Both
-	call .CheckPlayer
-	jr .CheckEnemy
-
-.Both:
-	call .CheckEnemy
+	ld hl, .CheckPlayer
+	ld de, .CheckEnemy
+	jmp ForEachSide
 
 .CheckPlayer:
 	call SetPlayerTurn
@@ -1971,20 +1981,8 @@ HandleWeather:
 	cp WEATHER_SANDSTORM
 	jr nz, .check_hail
 
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .enemy_first
-
-; player first
-	call SetPlayerTurn
-	call .SandstormDamage
-	call SetEnemyTurn
-	jr .SandstormDamage
-
-.enemy_first
-	call SetEnemyTurn
-	call .SandstormDamage
-	call SetPlayerTurn
+	ld hl, .SandstormDamage
+	jmp ForEachBattler
 
 .SandstormDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
@@ -2037,20 +2035,8 @@ HandleWeather:
 	cp WEATHER_HAIL
 	ret nz
 
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .enemy_first_hail
-
-; player first
-	call SetPlayerTurn
-	call .HailDamage
-	call SetEnemyTurn
-	jr .HailDamage
-
-.enemy_first_hail
-	call SetEnemyTurn
-	call .HailDamage
-	call SetPlayerTurn
+	ld hl, .HailDamage
+	jmp ForEachBattler
 
 .HailDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
@@ -2330,6 +2316,16 @@ UpdateHPBar:
 	ret
 
 HandleEnemyMonFaint:
+; The enemy's mon fainted (the player's may have too). Faint, then replace.
+	call EnemyMonFaint
+	ld a, [wBattleEnded]
+	and a
+	ret nz
+	jr ReplaceFaintedMons
+
+EnemyMonFaint:
+; The faint part: animations, EXP, and the win or loss if a side has no mon left
+; (then wBattleEnded is set). The replacements are left to ReplaceFaintedMons.
 	call FaintEnemyPokemon
 	ld hl, wBattleMonHP
 	ld a, [hli]
@@ -2364,29 +2360,34 @@ HandleEnemyMonFaint:
 .trainer
 	call CheckEnemyTrainerDefeated
 	jmp z, WinTrainerBattle
+	ret
 
+ReplaceFaintedMons:
+; The replace part: send in new mons for whichever battlers have fainted
+; (one or both), after EnemyMonFaint or PlayerMonFaint found that the battle goes on.
 	ld hl, wBattleMonHP
 	ld a, [hli]
 	or [hl]
-	jr nz, .player_mon_not_fainted
+	jr nz, .enemy_only
 
 	call AskUseNextPokemon
-	jr nc, .dont_flee
-
-	ld a, 1
+	jr nc, .player_choice
+	ld a, 1 ; fled (wild battles)
 	ld [wBattleEnded], a
 	ret
 
-.dont_flee
+.player_choice
 	call ForcePlayerMonChoice
-
+	ld a, c
+	and a
+	ret nz ; the enemy's mon is still out: the player's mon was sent in
 	ld a, BATTLEPLAYERACTION_USEITEM
 	ld [wBattlePlayerAction], a
 	call HandleEnemySwitch
 	jmp z, WildFled_EnemyFled_LinkBattleCanceled
 	jr DoubleSwitch
 
-.player_mon_not_fainted
+.enemy_only
 	ld a, BATTLEPLAYERACTION_USEITEM
 	ld [wBattlePlayerAction], a
 	call HandleEnemySwitch
@@ -2476,12 +2477,10 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	ld [wBattleResult], a ; WIN
 	; fallthrough
 	ApplyExperienceAfterEnemyCaught:
-	; Preserve bits of non-fainted participants
+	; full EXP to the mons that faced the enemy
 	ld a, [wBattleParticipantsNotFainted]
-	ld d, a
-	push de
+	push af
 	call GiveExperiencePoints
-	pop de
 	; give 50% EXP to non-participants	
 	ld hl, wEnemyMonBaseExp
 	;Right shift xp amount, roughly halving it
@@ -2493,15 +2492,9 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	srl [hl]
 .SkipHalfXp
 
-	ld a, [wBattleParticipantsNotFainted]
-	push af
-	ld a, d
-	xor %00111111
-	ld [wBattleParticipantsNotFainted], a	
-	call GiveExperiencePoints
 	pop af
-	ld [wBattleParticipantsNotFainted], a
-	ret
+	xor %00111111
+	jmp GiveExperiencePoints
 
 StopDangerSound:
 	xor a
@@ -2831,6 +2824,15 @@ IsGymLeaderCommon:
 INCLUDE "data/trainers/leaders.asm"
 
 HandlePlayerMonFaint:
+; The player's mon fainted (the enemy's may have too). Faint, then replace.
+	call PlayerMonFaint
+	ld a, [wBattleEnded]
+	and a
+	ret nz
+	jmp ReplaceFaintedMons
+
+PlayerMonFaint:
+; The faint part (see EnemyMonFaint).
 	call FaintYourPokemon
 	ld hl, wEnemyMonHP
 	ld a, [hli]
@@ -2846,7 +2848,7 @@ HandlePlayerMonFaint:
 	ld hl, wEnemyMonHP
 	ld a, [hli]
 	or [hl]
-	jr nz, .notfainted
+	ret nz
 	call UpdateBattleStateAndExperienceAfterEnemyFaint
 	ld a, [wBattleMode]
 	dec a
@@ -2858,24 +2860,7 @@ HandlePlayerMonFaint:
 .trainer
 	call CheckEnemyTrainerDefeated
 	jmp z, WinTrainerBattle
-
-.notfainted
-	call AskUseNextPokemon
-	jr nc, .switch
-	ld a, $1
-	ld [wBattleEnded], a
 	ret
-
-.switch
-	call ForcePlayerMonChoice
-	ld a, c
-	and a
-	ret nz
-	ld a, BATTLEPLAYERACTION_USEITEM
-	ld [wBattlePlayerAction], a
-	call HandleEnemySwitch
-	jmp z, WildFled_EnemyFled_LinkBattleCanceled
-	jmp DoubleSwitch
 
 UpdateFaintedPlayerMon:
 	ld a, [wCurBattleMon]
@@ -4245,16 +4230,17 @@ BreakAttraction:
 	ret
 
 SpikesDamage:
-	ld hl, wPlayerScreens
 	ld de, wBattleMonType
 	ld bc, UpdatePlayerHUD
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .ok
-	ld hl, wEnemyScreens
 	ld de, wEnemyMonType
 	ld bc, UpdateEnemyHUD
 .ok
+	push de
+	call GetUserScreens
+	pop de
 
 	bit SCREENS_SPIKES, [hl]
 	ret z
@@ -4380,24 +4366,10 @@ RecallPlayerMon:
 	ret
 
 HandleHealingItems:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .player_1
-	call SetPlayerTurn
-	call HandleHPHealingItem
-	call UseHeldStatusHealingItem
-	call UseConfusionHealingItem
-	call SetEnemyTurn
-	call HandleHPHealingItem
-	call UseHeldStatusHealingItem
-	jmp UseConfusionHealingItem
+	ld hl, .do_it
+	jmp ForEachBattler
 
-.player_1
-	call SetEnemyTurn
-	call HandleHPHealingItem
-	call UseHeldStatusHealingItem
-	call UseConfusionHealingItem
-	call SetPlayerTurn
+.do_it
 	call HandleHPHealingItem
 	call UseHeldStatusHealingItem
 	jmp UseConfusionHealingItem
@@ -4611,15 +4583,10 @@ UseConfusionHealingItem:
 
 HandleStatBoostingHeldItems:
 ; The effects handled here are not used in-game.
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .player_1
-	call .DoPlayer
-	jr .DoEnemy
+	ld hl, .DoPlayer
+	ld de, .DoEnemy
+	jmp ForEachBattlerPair
 
-.player_1
-	call .DoEnemy
-; fallthrough
 .DoPlayer:
 	call GetPartymonItem
 	xor a
@@ -7138,8 +7105,10 @@ FinishBattleAnim:
 	ret
 
 GiveExperiencePoints:
-; Give experience.
-; Don't give experience if linked or in the Battle Tower.
+; Give experience to the party mons in bitfield a (bit n: party mon n).
+; Then reset the participants (ResetBattleParticipants), as when the enemy faints.
+; Don't give experience if linked or in a cup battle.
+	ld [wExpRecipients], a
 	ld a, [wLinkMode]
 	and a
 	ret nz
@@ -7160,7 +7129,7 @@ GiveExperiencePoints:
 	jmp z, .next_mon ; fainted
 
 	push bc
-	ld hl, wBattleParticipantsNotFainted
+	ld hl, wExpRecipients
 	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, CHECK_FLAG

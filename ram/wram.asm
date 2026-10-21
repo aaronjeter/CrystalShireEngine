@@ -339,6 +339,10 @@ SECTION UNION "Miscellaneous", WRAM0
 
 ; battle data
 wBattle::
+; Per-battler variables (the player's and enemy's copies of each) must be listed in
+; BattlerSwapList (engine/battle/battler_swap.asm), or double battles mix them up between slots.
+; That includes per-battler variables added outside this block. Shared ones go in SHARED in
+; tools/claude_emu/battle_test.py, which checks that every byte here is one or the other.
 wEnemyMoveStruct::  move_struct wEnemyMoveStruct
 wPlayerMoveStruct:: move_struct wPlayerMoveStruct
 
@@ -607,6 +611,18 @@ wSomeoneIsRampaging:: db
 wPlayerJustGotFrozen:: db
 wEnemyJustGotFrozen:: db
 wBattleEnd::
+
+; Battle temporaries after wBattleEnd: not per-battler, not recorded by the battle test.
+wExpRecipients:: db ; argument of GiveExperiencePoints: party mons to give EXP to
+
+; The turn's action list (RunBattleActions): entries of battler slot, BATTLEPLAYERACTION_*
+wNumBattleActions:: db
+wCurBattleAction:: db
+wBattleActions:: ds NUM_BATTLER_SLOTS * 2
+
+; Real side of the battler in each area, as area XOR this (0 in singles; see GetAreaSide)
+wAreaSideFlip:: ds 2
+wBattleStateEnd:: ; start_battle.asm clears wBattle through here
 
 
 SECTION UNION "Miscellaneous", WRAM0
@@ -3247,6 +3263,13 @@ wLYOverridesBackupEnd::
 SECTION "Weather Fade Start Palettes", WRAMX, BANK[5]
 
 wWeatherFadeStartPals:: ds 16 palettes ; displayed BG + object palettes when a border fade starts
+
+
+SECTION "Battler Slots", WRAMX, BANK[5]
+
+; Saved per-battler variables of the four battler slots (P1, P2, E1, E2) for double battles.
+; See BattlerSwapList in engine/battle/battler_swap.asm.
+wBattlerSlots:: ds NUM_BATTLER_SLOTS * BATTLER_SLOT_SIZE
 
 
 SECTION "Follower Palette", WRAMX, BANK[5]

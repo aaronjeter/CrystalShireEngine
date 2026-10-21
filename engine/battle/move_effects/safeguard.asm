@@ -1,12 +1,5 @@
 BattleCommand_Safeguard:
-	ld hl, wPlayerScreens
-	ld de, wPlayerSafeguardCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wEnemyScreens
-	ld de, wEnemySafeguardCount
-.ok
+	call GetUserScreens
 	bit SCREENS_SAFEGUARD, [hl]
 	jr nz, .failed
 	set SCREENS_SAFEGUARD, [hl]

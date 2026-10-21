@@ -39,7 +39,7 @@ DEF NO_AI EQU 0
 	const TRAINERTYPE_ITEM_F
 	const TRAINERTYPE_DVS_F
 	const TRAINERTYPE_RANDOM_F
-	const_skip ; 4: reserved for TRAINERTYPE_DOUBLE (double battles plan)
+	const TRAINERTYPE_DOUBLE_F ; 4: a double battle (claude/double-battles-plan.md)
 	const TRAINERTYPE_ABILITY_F
 
 ; Trainer party types (see data/trainers/parties.asm)
@@ -50,5 +50,7 @@ DEF TRAINERTYPE_ITEM_MOVES EQU TRAINERTYPE_MOVES | TRAINERTYPE_ITEM ;backwards c
 DEF TRAINERTYPE_DVS        EQU 1 << TRAINERTYPE_DVS_F
 DEF TRAINERTYPE_RANDOM     EQU 1 << TRAINERTYPE_RANDOM_F
 DEF TRAINERTYPE_ABILITY    EQU 1 << TRAINERTYPE_ABILITY_F
+; There is no TRAINERTYPE_DOUBLE constant on purpose: start a doubles party with
+; the doubles_trainer macro (macros/data.asm), which checks it has at least 2 Pokemon.
 
 DEF PERFECT_DV EQU $11 ; treated as $FF in enemy party data
