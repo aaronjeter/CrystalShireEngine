@@ -44,8 +44,20 @@ AbilityNames:
 	dw StaticNameString
 	dw FlameBodyNameString
 	dw PoisonPointNameString
+	dw FrigidNameString
+	dw EffectSporeNameString
 	dw MagicGuardNameString
 	dw ClearBodyNameString
+	dw SharpnessNameString
+	dw IronFistNameString
+	dw StrongJawNameString
+	dw LimberNameString
+	dw InsomniaNameString
+	dw ImmunityNameString
+	dw WaterVeilNameString
+	dw MagmaArmorNameString
+	dw OwnTempoNameString
+	dw InnerFocusNameString
 	assert_table_length NUM_ABILITIES
 
 NoAbilityNameString:
@@ -182,3 +194,39 @@ MagicGuardNameString:
 
 ClearBodyNameString:
 	db "Clear Body@"
+
+FrigidNameString:
+	db "Frigid@"
+
+EffectSporeNameString:
+	db "Effect Spore@"
+
+SharpnessNameString:
+	db "Sharpness@"
+
+IronFistNameString:
+	db "Iron Fist@"
+
+StrongJawNameString:
+	db "Strong Jaw@"
+
+LimberNameString:
+	db "Limber@"
+
+InsomniaNameString:
+	db "Insomnia@"
+
+ImmunityNameString:
+	db "Immunity@"
+
+WaterVeilNameString:
+	db "Water Veil@"
+
+MagmaArmorNameString:
+	db "Magma Armor@"
+
+OwnTempoNameString:
+	db "Own Tempo@"
+
+InnerFocusNameString:
+	db "Inner Focus@"

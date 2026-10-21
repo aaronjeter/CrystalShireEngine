@@ -38,6 +38,11 @@ Check_Entrance_Ability:
 	dbw ABILITY_LEECH,          .HasLeech
 	dbw ABILITY_ENERVATE,       .HasEnervate
 	dbw ABILITY_DAUNT,          .HasDaunt
+	dbw ABILITY_LIMBER,         .CureStatus
+	dbw ABILITY_INSOMNIA,       .CureStatus
+	dbw ABILITY_IMMUNITY,       .CureStatus
+	dbw ABILITY_WATER_VEIL,     .CureStatus
+	dbw ABILITY_MAGMA_ARMOR,    .CureStatus
 	db -1
 
 .HasDrizzle:
@@ -223,6 +228,44 @@ Check_Entrance_Ability:
     ld hl, DauntCutsDefText
     call StdBattleTextbox
     ret
+
+.CureStatus:
+; Limber, Insomnia, Immunity, Water Veil and Magma Armor cure the status
+; they prevent, e.g. one gained before an Ability Capsule changed the ability.
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVar
+	ld b, a
+	ld a, [wTempAbility]
+	ld c, a
+	farcall AbilityBlocksStatus
+	ret nc
+
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVarAddr
+	xor a
+	ld [hl], a
+	ld a, BATTLE_VARS_SUBSTATUS5
+	call GetBattleVarAddr
+	res SUBSTATUS_TOXIC, [hl]
+	ld a, BATTLE_VARS_SUBSTATUS1
+	call GetBattleVarAddr
+	res SUBSTATUS_NIGHTMARE, [hl]
+	call UpdateUserInParty
+
+; Recalculate stats without the paralysis, burn or frostbite drop.
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .cure_enemy
+	farcall CalcPlayerStats
+	jr .cured
+.cure_enemy
+	farcall CalcEnemyStats
+.cured
+	call RefreshBattleHuds
+	ld a, [wTempAbility]
+	farcall GetAbilityName
+	ld hl, AbilityCuredStatusText
+	jmp StdBattleTextbox
 
 
 EntranceStatDown:

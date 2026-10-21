@@ -27,6 +27,27 @@ CheckStabAbility:
 	pop hl
 	ret
 
+CheckMoveGroupBoost:
+; Return carry if the attacker's ability boosts the current move by 25%:
+; Iron Fist (punching moves), Strong Jaw (biting moves) or
+; Sharpness (slicing moves).
+; Preserves hl.
+	push hl
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	ld hl, PunchMoves
+	cp ABILITY_IRON_FIST
+	jr z, CheckStabAbility.check_move
+	ld hl, FangMoves
+	cp ABILITY_STRONG_JAW
+	jr z, CheckStabAbility.check_move
+	ld hl, SharpMoves
+	cp ABILITY_SHARPNESS
+	jr z, CheckStabAbility.check_move
+	pop hl
+	and a
+	ret
+
 CheckStabilityMon:
 ; Return carry if the attacker has Stability.
 	ld a, BATTLE_VARS_ABILITY
@@ -177,21 +198,11 @@ CheckContactMove:
 	ret
 
 ; Contact status abilities ---------------------------------------------------
-; Static, Flame Body and Poison Point: when the holder is hit by a contact
-; move, 30% chance to give the attacker a status condition.
-
-ContactStatusAbilityEffects:
-; entries correspond to ABILITY_STATIC, ABILITY_FLAME_BODY, ABILITY_POISON_POINT
-	assert ABILITY_FLAME_BODY == ABILITY_STATIC + 1
-	assert ABILITY_POISON_POINT == ABILITY_STATIC + 2
-; status, immune type, immune type, animation, text
-	db 1 << PAR, ELECTRIC, ELECTRIC
-	dw ANIM_PAR, StaticParalyzedText
-	db 1 << BRN, FIRE, FIRE
-	dw ANIM_BRN, FlameBodyBurnedText
-	db 1 << PSN, POISON, STEEL
-	dw ANIM_PSN, PoisonPointPoisonedText
-DEF CONTACT_ABILITY_ENTRY_SIZE EQU 7
+; Static, Flame Body, Poison Point and Frigid: when the holder is hit by a
+; contact move, 30% chance to give the attacker a status condition.
+; Effect Spore: 30% chance of poison, paralysis or sleep (not Grass types).
+; The status itself is inflicted by _HandleContactStatusAbilities
+; (engine/battle/ability_effects.asm), outside this full bank.
 
 HandleContactStatusAbilities:
 ; Called after each hit, on the attacker's turn.
@@ -217,81 +228,63 @@ HandleContactStatusAbilities:
 	ld a, BATTLE_VARS_ABILITY_OPP
 	call GetBattleVar
 	sub ABILITY_STATIC
-	cp ABILITY_POISON_POINT - ABILITY_STATIC + 1
+	cp ABILITY_EFFECT_SPORE - ABILITY_STATIC + 1
 	ret nc
-
-; hl = ContactStatusAbilityEffects + a * CONTACT_ABILITY_ENTRY_SIZE
-	ld hl, ContactStatusAbilityEffects
-	ld bc, CONTACT_ABILITY_ENTRY_SIZE
-	rst AddNTimes
-
-; Type immunity: the attacker can't have either immune type.
-	push hl
-	inc hl
-	ld a, [hli]
 	ld c, a
-	ld b, [hl]
-	ld hl, wBattleMonType1
-	ldh a, [hBattleTurn]
+	farjp _HandleContactStatusAbilities
+
+; Status immunity abilities ---------------------------------------------------
+
+OppAbilityBlocksStatus:
+; Return carry if the target's ability prevents status bits b.
+; Preserves b, de and hl.
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	ld c, a
+	; fallthrough
+
+AbilityBlocksStatus::
+; Return carry if ability c prevents any of status bits b
+; (1 << PSN etc., or SLP_MASK for sleep).
+; Preserves bc, de and hl.
+	push hl
+	ld hl, StatusImmunityAbilities
+.loop
+	ld a, [hli]
 	and a
-	jr z, .got_types
-	ld hl, wEnemyMonType1
-.got_types
-	ld a, [hli]
+	jr z, .done ; end of list; and a cleared carry
 	cp c
-	jr z, .immune
-	cp b
-	jr z, .immune
-	ld a, [hl]
-	cp c
-	jr z, .immune
-	cp b
-	jr z, .immune
-
-	call BattleRandom
-	cp 30 percent
-	jr nc, .immune ; failed the roll
-	pop hl
-
-; Inflict the status. Switch turns so the attacker is the "opponent";
-; the existing status helpers all act on the opponent.
-	call BattleCommand_SwitchTurn
-	push hl
-	ld b, [hl]
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	ld [hl], b
-	call UpdateOpponentInParty
-	ld hl, ApplyPrzEffectOnSpeed
-	call CallBattleCore
-	ld hl, ApplyBrnEffectOnAttack
-	call CallBattleCore
-	pop hl
-
-	inc hl
-	inc hl
-	inc hl
 	ld a, [hli]
-	ld e, a
-	ld a, [hli]
-	ld d, a
-	push hl
-; PlayOpponentBattleAnim clears wNumHits, which multi-hit moves still need.
-	ld a, [wNumHits]
-	push af
-	call PlayOpponentBattleAnim
-	pop af
-	ld [wNumHits], a
-	call RefreshBattleHuds
-	pop hl
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call StdBattleTextbox
-	ld hl, UseHeldStatusHealingItem
-	call CallBattleCore
-	jmp BattleCommand_SwitchTurn
-
-.immune
+	jr nz, .loop
+	and b
+	jr z, .done ; and b cleared carry
+	scf
+.done
 	pop hl
 	ret
+
+StatusImmunityAbilities:
+	db ABILITY_LIMBER,      1 << PAR
+	db ABILITY_INSOMNIA,    SLP_MASK
+	db ABILITY_IMMUNITY,    1 << PSN
+	db ABILITY_WATER_VEIL,  1 << BRN
+	db ABILITY_MAGMA_ARMOR, 1 << FRZ
+	db NO_ABILITY ; end
+
+CheckOppAbility:
+; Return z if the target has ability b. Preserves bc, de and hl.
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp b
+	ret
+
+FailStatusMoveAbility:
+; A status move was blocked by the target's ability c:
+; "<TARGET>'s protected by <ABILITY>!"
+	push bc
+	call AnimateFailedMove
+	pop bc
+	ld a, c
+	farcall GetAbilityName
+	ld hl, ProtectedByAbilityText
+	jmp StdBattleTextbox

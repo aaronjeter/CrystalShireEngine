@@ -30,6 +30,7 @@ Re-run `boot.py` after every build. Save states only work with the ROM they were
 - **`boot.py`:** boots with `start_save.bin` (a save in map group 24) and Continues, then writes a state. `start_save.bin` is ignored by git (`*.bin`), so copy it over separately when rebuilding the environment (likewise the ignored `data/tilesets/*.bin` files the build needs).
 - **`rmap.py`:** renders a whole map from emulator memory with block IDs on top: `python3 rmap.py MAP blkfile width out.png [x y]`.
 - **`test_abilities.py`:** the ability regression test (lookup for every species and slot, entrance abilities, paired-turn checks on both sides, Transform): `python3 test_abilities.py ab.gbc ab.sym ow_ab.state`. Also per-Pokémon slots (A2), with abilities 2/hidden patched into the ROM in memory. About 5 minutes.
+- **`test_new_abilities.py`:** the abilities added on Oct 20, 2026 (Iron Fist, Strong Jaw, Sharpness, Frigid, Effect Spore and the status immunities): `python3 test_new_abilities.py ab.gbc ab.sym ow_ab.state`. About 15 minutes.
 - **`continue_test.py`:** saves in-game on a map, reboots, Continues and compares screenshots: `python3 continue_test.py MAP x y tag`.
 
 ## Typical test

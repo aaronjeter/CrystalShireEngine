@@ -3165,6 +3165,10 @@ BattleCommand_DamageCalc:
 	call BoostDamageByHalf
 .technician_done
 
+; Iron Fist, Strong Jaw and Sharpness: +25% damage for their move groups.
+	call CheckMoveGroupBoost
+	call c, BoostDamageByQuarter
+
 ; Returns nz and nc.
 	ld a, 1
 	and a
@@ -3378,21 +3382,34 @@ DEF DAMAGE_CAP EQU MAX_DAMAGE - MIN_DAMAGE
 
 	ret
 
-BoostDamageByHalf:
-; Increase the damage in wCurDamage by 50% (rounded down),
+BoostDamageByQuarter:
+; Increase the damage in wCurDamage by 25% (rounded down),
 ; capped at MAX_DAMAGE. Preserves bc and hl.
 	push hl
 	push bc
+	call .LoadHalfDamage
+	srl b
+	rr c ; bc = damage / 4
+	jr BoostDamageByHalf.add
 
+.LoadHalfDamage:
 	ld hl, wCurDamage
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld h, b
 	ld l, c ; hl = damage
-
 	srl b
 	rr c ; bc = damage / 2
+	ret
+
+BoostDamageByHalf:
+; Increase the damage in wCurDamage by 50% (rounded down),
+; capped at MAX_DAMAGE. Preserves bc and hl.
+	push hl
+	push bc
+	call BoostDamageByQuarter.LoadHalfDamage
+.add
 	add hl, bc
 
 	ld a, h
@@ -3856,6 +3873,10 @@ BattleCommand_SleepTarget:
 	and a
 	jmp nz, PrintDidntAffect2
 
+	ld b, SLP_MASK
+	call OppAbilityBlocksStatus
+	jmp c, FailStatusMoveAbility
+
 	ld hl, DidntAffect1Text
 
 	ld a, [de]
@@ -3911,6 +3932,9 @@ BattleCommand_PoisonTarget:
 	ld a, b
 	cp HELD_PREVENT_POISON
 	ret z
+	ld b, 1 << PSN
+	call OppAbilityBlocksStatus
+	ret c
 	ld a, [wEffectFailed]
 	and a
 	ret nz
@@ -3942,6 +3966,10 @@ BattleCommand_Poison:
 	ld hl, AlreadyPoisonedText
 	and 1 << PSN
 	jr nz, .failed
+
+	ld b, 1 << PSN
+	call OppAbilityBlocksStatus
+	jmp c, FailStatusMoveAbility
 
 	call GetOpponentItem
 	ld a, b
@@ -4152,6 +4180,9 @@ BattleCommand_BurnTarget:
 	ld a, b
 	cp HELD_PREVENT_BURN
 	ret z
+	ld b, 1 << BRN
+	call OppAbilityBlocksStatus
+	ret c
 	ld a, [wEffectFailed]
 	and a
 	ret nz
@@ -4218,6 +4249,9 @@ BattleCommand_FreezeTarget:
 	ld a, b
 	cp HELD_PREVENT_FREEZE
 	ret z
+	ld b, 1 << FRZ
+	call OppAbilityBlocksStatus
+	ret c
 	ld a, [wEffectFailed]
 	and a
 	ret nz
@@ -4255,6 +4289,9 @@ BattleCommand_ParalyzeTarget:
 	ld a, b
 	cp HELD_PREVENT_PARALYZE
 	ret z
+	ld b, 1 << PAR
+	call OppAbilityBlocksStatus
+	ret c
 	ld a, [wEffectFailed]
 	and a
 	ret nz
@@ -5103,6 +5140,11 @@ BattleCommand_CheckRampage:
 	pop af
 	jr nz, .continue_rampage
 
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_OWN_TEMPO
+	jr z, .continue_rampage
+
 	set SUBSTATUS_CONFUSED, [hl]
 	call BattleRandom
 	and %00000001
@@ -5525,6 +5567,9 @@ BattleCommand_FlinchTarget:
 	; fallthrough
 
 FlinchTarget:
+	ld b, ABILITY_INNER_FOCUS
+	call CheckOppAbility
+	ret z
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVarAddr
 	set SUBSTATUS_FLINCHED, [hl]
@@ -5555,6 +5600,9 @@ BattleCommand_HeldFlinch:
 
 	call CheckSubstituteOpp
 	ret nz
+	ld b, ABILITY_INNER_FOCUS
+	call CheckOppAbility
+	ret z
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVarAddr
 	ld d, h
@@ -5896,6 +5944,9 @@ BattleCommand_ConfuseTarget:
 	ld a, b
 	cp HELD_PREVENT_CONFUSE
 	ret z
+	ld b, ABILITY_OWN_TEMPO
+	call CheckOppAbility
+	ret z
 	ld a, [wEffectFailed]
 	and a
 	ret nz
@@ -5922,6 +5973,10 @@ BattleCommand_Confuse:
 	jmp StdBattleTextbox
 
 .no_item_protection
+	ld bc, ABILITY_OWN_TEMPO << 8 | ABILITY_OWN_TEMPO
+	call CheckOppAbility
+	jmp z, FailStatusMoveAbility
+
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVarAddr
 	bit SUBSTATUS_CONFUSED, [hl]
@@ -6011,7 +6066,10 @@ BattleCommand_Paralyze:
 	jmp StdBattleTextbox
 
 .no_item_protection
-	
+	ld b, 1 << PAR
+	call OppAbilityBlocksStatus
+	jmp c, FailStatusMoveAbility
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
@@ -6059,6 +6117,9 @@ BattleCommand_Burn:
 	jr z, .didnt_affect	
 	call CheckMoveTypeMatchesTarget ; Don't burn a Fire-type
 	jr z, .didnt_affect	
+	ld b, 1 << BRN
+	call OppAbilityBlocksStatus
+	jmp c, FailStatusMoveAbility
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
@@ -6107,6 +6168,9 @@ BattleCommand_Freeze:
 	jr z, .didnt_affect	
 	call CheckMoveTypeMatchesTarget ; Don't freeze an Ice-type
 	jr z, .didnt_affect	
+	ld b, 1 << FRZ
+	call OppAbilityBlocksStatus
+	jmp c, FailStatusMoveAbility
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
@@ -6341,6 +6405,14 @@ BattleCommand_Heal:
 	call CompareMove
 	jr nz, .not_rest
 
+; Insomnia prevents Rest. Keep the flags: they're pushed below.
+	push af
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_INSOMNIA
+	jr z, .insomnia
+	pop af
+
 	push hl
 	push de
 	push af
@@ -6390,6 +6462,10 @@ BattleCommand_Heal:
 	call RefreshBattleHuds
 	ld hl, RegainedHealthText
 	jmp StdBattleTextbox
+
+.insomnia
+	pop af
+	jmp FailMove
 
 .hp_full
 	call AnimateFailedMove

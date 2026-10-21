@@ -3375,6 +3375,36 @@ AI_Ability:
 	jr z, .immune
 
 .SkipWaterproof
+
+	;Status immunity check: Limber, Insomnia, Immunity, Water Veil,
+	;Magma Armor (status moves) and Own Tempo (confusing moves)
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
+	ld b, a
+	cp EFFECT_CONFUSE
+	jr z, .CheckOwnTempo
+	cp EFFECT_SWAGGER
+	jr z, .CheckOwnTempo
+	ld hl, .StatusMoveEffects
+.StatusLoop
+	ld a, [hli]
+	cp -1
+	jr z, .SkipStatus
+	cp b
+	ld a, [hli]
+	jr nz, .StatusLoop
+	ld b, a
+	ld a, [wBattleMonAbility]
+	ld c, a
+	farcall AbilityBlocksStatus
+	jr c, .immune
+	jr .SkipStatus
+
+.CheckOwnTempo
+	ld a, [wBattleMonAbility]
+	cp ABILITY_OWN_TEMPO
+	jr z, .immune
+
+.SkipStatus
 	
 	pop de
 	pop bc
@@ -3388,3 +3418,12 @@ AI_Ability:
 
 	call AIDiscourageMove
 	jr .checkmove
+
+.StatusMoveEffects:
+	db EFFECT_SLEEP,    SLP_MASK
+	db EFFECT_POISON,   1 << PSN
+	db EFFECT_TOXIC,    1 << PSN
+	db EFFECT_PARALYZE, 1 << PAR
+	db EFFECT_BURN,     1 << BRN
+	db EFFECT_FREEZE,   1 << FRZ
+	db -1

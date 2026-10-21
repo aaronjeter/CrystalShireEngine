@@ -1282,6 +1282,52 @@ PoisonPointPoisonedText:
 	cont "<TARGET>!"
 	prompt
 
+FrigidFrostbiteText:
+	text "<USER>'s"
+	line "Frigid gave"
+	cont "<TARGET>"
+	cont "frostbite!"
+	prompt
+
+EffectSporePoisonedText:
+	text "<USER>'s"
+	line "Effect Spore"
+	cont "poisoned"
+	cont "<TARGET>!"
+	prompt
+
+EffectSporeParalyzedText:
+	text "<USER>'s"
+	line "Effect Spore"
+	cont "paralyzed"
+	cont "<TARGET>!"
+	prompt
+
+EffectSporeSleepText:
+	text "<USER>'s"
+	line "Effect Spore put"
+	cont "<TARGET>"
+	cont "to sleep!"
+	prompt
+
+ProtectedByAbilityText:
+; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<TARGET>'s"
+	line "protected by"
+	cont "@"
+	text_ram wStringBuffer2
+	text "!"
+	prompt
+
+AbilityCuredStatusText:
+; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<USER>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text " cured"
+	cont "its status!"
+	prompt
+
 ClearBodyText:
 	text "<TARGET>'s"
 	line "Clear Body blocks"

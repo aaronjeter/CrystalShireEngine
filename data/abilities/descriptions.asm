@@ -44,8 +44,20 @@ AbilityDescriptions:
 	dw StaticDesc
 	dw FlameBodyDesc
 	dw PoisonPointDesc
+	dw FrigidDesc
+	dw EffectSporeDesc
 	dw MagicGuardDesc
 	dw ClearBodyDesc
+	dw SharpnessDesc
+	dw IronFistDesc
+	dw StrongJawDesc
+	dw LimberDesc
+	dw InsomniaDesc
+	dw ImmunityDesc
+	dw WaterVeilDesc
+	dw MagmaArmorDesc
+	dw OwnTempoDesc
+	dw InnerFocusDesc
 	assert_table_length NUM_ABILITIES
 
 NoAbilityDesc:
@@ -227,3 +239,51 @@ MagicGuardDesc:
 ClearBodyDesc:
 	db    "Foes can't lower"
 	next  "its stats.@"
+
+FrigidDesc:
+	db    "Contact may"
+	next  "frostbite foe.@"
+
+EffectSporeDesc:
+	db    "Contact may cause"
+	next  "PSN, PAR or SLP.@"
+
+SharpnessDesc:
+	db    "Boosts slicing"
+	next  "moves.@"
+
+IronFistDesc:
+	db    "Boosts punching"
+	next  "moves.@"
+
+StrongJawDesc:
+	db    "Boosts biting"
+	next  "moves.@"
+
+LimberDesc:
+	db    "Prevents"
+	next  "paralysis.@"
+
+InsomniaDesc:
+	db    "Prevents"
+	next  "sleep.@"
+
+ImmunityDesc:
+	db    "Prevents"
+	next  "poisoning.@"
+
+WaterVeilDesc:
+	db    "Prevents"
+	next  "burns.@"
+
+MagmaArmorDesc:
+	db    "Prevents"
+	next  "frostbite.@"
+
+OwnTempoDesc:
+	db    "Prevents"
+	next  "confusion.@"
+
+InnerFocusDesc:
+	db    "Prevents"
+	next  "flinching.@"
