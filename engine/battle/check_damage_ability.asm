@@ -29,12 +29,14 @@ CheckStabAbility:
 
 CheckMoveGroupBoost:
 ; Return carry if the attacker's ability boosts the current move by 25%:
-; Iron Fist (punching moves), Strong Jaw (biting moves) or
-; Sharpness (slicing moves).
+; Iron Fist (punching moves), Strong Jaw (biting moves),
+; Sharpness (slicing moves) or Tough Claws (contact moves).
 ; Preserves hl.
-	push hl
 	ld a, BATTLE_VARS_ABILITY
 	call GetBattleVar
+	cp ABILITY_TOUGH_CLAWS
+	jp z, CheckContactMove
+	push hl
 	ld hl, PunchMoves
 	cp ABILITY_IRON_FIST
 	jr z, CheckStabAbility.check_move
@@ -78,6 +80,33 @@ ApplyThickFat:
 	ld a, BATTLE_VARS_ABILITY_OPP
 	call GetBattleVar
 	cp ABILITY_THICK_FAT
+	ret nz
+	jmp HalveDamage
+
+ApplyMultiscale:
+; Halve the damage if the target has Multiscale and full HP.
+; Clobbers bc and hl.
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_MULTISCALE
+	ret nz
+
+	ld hl, wEnemyMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld hl, wBattleMonHP
+.got_hp
+; HP and max HP are consecutive big-endian words.
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	cp b
+	ret nz
+	ld a, [hl]
+	cp c
 	ret nz
 	jmp HalveDamage
 
@@ -218,6 +247,12 @@ HandleContactStatusAbilities:
 	call CheckContactMove
 	ret nc
 
+; Rough Skin hurts the attacker, whatever its status.
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_ROUGH_SKIN
+	jr z, .rough_skin
+
 ; The attacker must not already have a status condition.
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
@@ -232,6 +267,9 @@ HandleContactStatusAbilities:
 	ret nc
 	ld c, a
 	farjp _HandleContactStatusAbilities
+
+.rough_skin
+	farjp RoughSkinDamage
 
 ; Status immunity abilities ---------------------------------------------------
 

@@ -159,3 +159,98 @@ _HandleContactStatusAbilities:
 	ret z
 	cp b
 	ret
+
+CheckLowHPTypeBoost:
+; Return carry if the attacker's Blaze, Torrent, Overgrow or Swarm boosts the
+; current move: a move of its type, at 1/3 of max HP or less.
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	ld b, a
+	ld hl, LowHPTypeBoostAbilities
+.loop
+	ld a, [hli]
+	and a
+	ret z ; end of list; and a cleared carry
+	cp b
+	ld a, [hli]
+	jr nz, .loop
+	ld c, a
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	and TYPE_MASK
+	cp c
+	jr nz, .no
+
+; HP * 3 <= max HP
+	ld hl, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld hl, wEnemyMonHP
+.got_hp
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a ; bc = HP
+	push hl
+	ld h, b
+	ld l, c
+	add hl, hl
+	add hl, bc
+	ld d, h
+	ld e, l ; de = HP * 3
+	pop hl
+	ld a, [hli]
+	ld b, a
+	ld c, [hl] ; bc = max HP
+	ld a, c
+	sub e
+	ld a, b
+	sbc d ; carry if max HP < HP * 3
+	ccf
+	ret
+
+.no
+	and a
+	ret
+
+LowHPTypeBoostAbilities:
+	db ABILITY_BLAZE,    FIRE
+	db ABILITY_TORRENT,  WATER
+	db ABILITY_OVERGROW, GRASS
+	db ABILITY_SWARM,    BUG
+	db NO_ABILITY ; end
+
+CheckShieldDust:
+; Return carry if the target's Shield Dust blocks the current move's
+; secondary effect. Effects on the user (stat boosts) and Thief still work.
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_SHIELD_DUST
+	jr nz, .no
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	ld c, a
+	ld hl, .UserEffects
+.loop
+	ld a, [hli]
+	cp -1
+	jr z, .blocked
+	cp c
+	jr nz, .loop
+.no
+	and a
+	ret
+
+.blocked
+	scf
+	ret
+
+.UserEffects:
+	db EFFECT_ATTACK_UP_HIT
+	db EFFECT_DEFENSE_UP_HIT
+	db EFFECT_SP_ATK_UP_HIT
+	db EFFECT_SPEED_UP_HIT
+	db EFFECT_ALL_UP_HIT
+	db EFFECT_THIEF
+	db -1

@@ -866,7 +866,8 @@ CompareMovePriority:
 	ret
 
 ApplyPrankster:
-; Give a Status move +1 priority if its user has Prankster.
+; Give a Status move +1 priority if its user has Prankster,
+; or a Flying move if its user has Gale Wings.
 ; in:  a = move ID, b = move priority, hl = pointer to the user's ability
 ; out: b = priority (raised by 1 if Prankster applies)
 ; Preserves de.
@@ -885,17 +886,29 @@ ApplyPrankster:
 	ld a, MOVE_TYPE
 	call GetMoveAttribute
 	pop hl
+	ld d, a ; type and category
+	ld a, [hl]
+	cp ABILITY_GALE_WINGS
+	jr z, .gale_wings
+	cp ABILITY_PRANKSTER
+	jr nz, .done
+	ld a, d
 	and ~TYPE_MASK ; keep only the category bits
 	cp STATUS
 	jr nz, .done
-
-	ld a, [hl]
-	cp ABILITY_PRANKSTER
-	jr nz, .done
+.boost
 	inc b
 .done
 	pop de
 	ret
+
+.gale_wings
+; Gale Wings: Flying moves get +1 priority.
+	ld a, d
+	and TYPE_MASK
+	cp FLYING
+	jr z, .boost
+	jr .done
 
 GetMovePriority:
 ; Return the priority (0-3) of move a.
@@ -2103,6 +2116,16 @@ HandleWeather:
 	dw BattleText_TheSunlightFaded
 	dw BattleText_TheSandstormSubsided
 	dw BattleText_TheHailStopped
+
+RoughSkinDamage:
+; The attacker (whose turn it is) hit a Rough Skin holder with a contact move:
+; it loses 1/8 of its max HP, unless it has Magic Guard.
+	call CheckMagicGuardUser
+	ret c
+	call GetEighthMaxHP
+	call SubtractHPFromUser
+	ld hl, RoughSkinText
+	jmp StdBattleTextbox
 
 CheckMagicGuardUser:
 ; Return carry if the Pokemon whose turn it is has Magic Guard.

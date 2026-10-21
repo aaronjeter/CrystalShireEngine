@@ -58,6 +58,16 @@ AbilityDescriptions:
 	dw MagmaArmorDesc
 	dw OwnTempoDesc
 	dw InnerFocusDesc
+	dw MultiscaleDesc
+	dw BlazeDesc
+	dw TorrentDesc
+	dw OvergrowDesc
+	dw SwarmDesc
+	dw ToughClawsDesc
+	dw ShieldDustDesc
+	dw RoughSkinDesc
+	dw RockHeadDesc
+	dw GaleWingsDesc
 	assert_table_length NUM_ABILITIES
 
 NoAbilityDesc:
@@ -287,3 +297,43 @@ OwnTempoDesc:
 InnerFocusDesc:
 	db    "Prevents"
 	next  "flinching.@"
+
+MultiscaleDesc:
+	db    "Halves damage"
+	next  "while HP is full.@"
+
+BlazeDesc:
+	db    "Powers up Fire"
+	next  "moves in a pinch.@"
+
+TorrentDesc:
+	db    "Powers up Water"
+	next  "moves in a pinch.@"
+
+OvergrowDesc:
+	db    "Powers up Grass"
+	next  "moves in a pinch.@"
+
+SwarmDesc:
+	db    "Powers up Bug"
+	next  "moves in a pinch.@"
+
+ToughClawsDesc:
+	db    "Boosts contact"
+	next  "moves.@"
+
+ShieldDustDesc:
+	db    "Blocks added"
+	next  "effects of moves.@"
+
+RoughSkinDesc:
+	db    "Hurts foes that"
+	next  "make contact.@"
+
+RockHeadDesc:
+	db    "Protects from"
+	next  "recoil damage.@"
+
+GaleWingsDesc:
+	db    "Gives priority to"
+	next  "Flying moves.@"

@@ -163,5 +163,53 @@ log = ' / '.join(d.log)
 check(g.rd('wBattleMonStatus') == 0 and g.rd('wPartyMon1Status') == 0 and 'Limber cured' in log,
       f'Limber cures paralysis on entry: {g.rd("wBattleMonStatus")}, {g.rd("wPartyMon1Status")} | {log[-80:]}')
 
+# 6. Multiscale: half damage at full HP only, on both sides (exact damage)
+soft = lambda g: (g.wr('wEnemyMonDefense', [0, 20]), g.wr('wEnemyMonSpclDef', [0, 20]))
+def not_full(g):
+    soft(g); m = g.rd('wEnemyMonMaxHP', 2); v = m[0] * 256 + m[1] - 1
+    g.wr('wEnemyMonHP', [v >> 8, v & 0xFF])
+x = turn(S1, 0, 3, extra=soft, fixed=True)['dmg']
+y = turn(S1, 0, 3, enemy_ab='ABILITY_MULTISCALE', extra=soft, fixed=True)['dmg']
+z = turn(S1, 0, 3, enemy_ab='ABILITY_MULTISCALE', extra=not_full, fixed=True)['dmg']
+check(x > 0 and y == x // 2 and z == x, f'Multiscale (enemy): {x} -> full HP {y}, 1 HP below full {z}')
+def hits_me(ab):
+    t = turn(S4, 1, 0, player_ab=ab, fixed=True) # Machamp Growls, Tauros Headbutts the full-HP Machamp
+    return 999 - t['php']
+x, y = hits_me('NO_ABILITY'), hits_me('ABILITY_MULTISCALE')
+check(x > 0 and y == x // 2, f'Multiscale (player, enemy turn): {x} -> {y}')
+
+# 7. Oct 21 batch: Blaze/Torrent, Tough Claws, Rock Head, Gale Wings, Shield Dust, Rough Skin
+def at_hp(v):
+    return lambda g: (soft(g), g.wr('wBattleMonHP', [v >> 8, v & 0xFF]))
+x = turn(S1, 0, 3, extra=at_hp(333), fixed=True)['dmg']
+y = turn(S1, 0, 3, player_ab='ABILITY_BLAZE', extra=at_hp(333), fixed=True)['dmg']
+z = turn(S1, 0, 3, player_ab='ABILITY_BLAZE', extra=at_hp(334), fixed=True)['dmg']
+w = turn(S1, 0, 3, player_ab='ABILITY_TORRENT', extra=at_hp(333), fixed=True)['dmg']
+check(x > 0 and y == x * 3 // 2 and z == x and w == x, f'Blaze: Fire Punch {x} -> at 1/3 HP {y}, above 1/3 {z}; Torrent {w}')
+x, y = ratio(S1, 0, 'ABILITY_TOUGH_CLAWS')
+check(x > 0 and abs(y - x * 5 // 4) <= 1, f'Tough Claws boosts Fire Punch (contact): {x} -> {y}')
+S5 = 'nab_s5.state'
+setup(S5, ['EARTHQUAKE', 'DOUBLE_EDGE', 'DRILL_PECK', 'GROWL'])
+x, y = ratio(S5, 0, 'ABILITY_TOUGH_CLAWS')
+check(x > 0 and y == x, f'Tough Claws leaves Earthquake (no contact) alone: {x} -> {y}')
+x = turn(S5, 1, 3)['php']; y = turn(S5, 1, 3, player_ab='ABILITY_ROCK_HEAD')['php']
+check(x < 999 and y == 999, f'Rock Head: HP after Double-Edge {x} -> {y}')
+def first(t): return next((m.split(' used ')[0] for m in t['log'].split(' / ') if ' used ' in m), None)
+x = turn(S5, 2, 3); y = turn(S5, 2, 3, player_ab='ABILITY_GALE_WINGS'); z = turn(S5, 0, 3, player_ab='ABILITY_GALE_WINGS')
+check('Machamp' not in first(x) and 'Machamp' in first(y) and 'Machamp' not in first(z),
+      f'Gale Wings: first with Drill Peck {first(x)} -> {first(y)}; with Earthquake {first(z)}')
+S6 = 'nab_s6.state'
+setup(S6, ['ZAP_CANNON', 'DYNAMICPUNCH', 'GROWL'])
+x = turn(S6, 0, 2); y = turn(S6, 0, 2, enemy_ab='ABILITY_SHIELD_DUST')
+check(x['est'] == PAR and y['est'] == 0 and y['dmg'] > 0, f'Shield Dust blocks Zap Cannon paralysis: {x["est"]:#x} -> {y["est"]:#x}')
+x = turn(S6, 1, 2); y = turn(S6, 1, 2, enemy_ab='ABILITY_SHIELD_DUST')
+check(x['esub3'] & CONFUSED and not y['esub3'] & CONFUSED and y['dmg'] > 0, f'Shield Dust blocks DynamicPunch confusion: {x["esub3"]:#x} -> {y["esub3"]:#x}')
+eighth = (999 >> 2) >> 1
+x = turn(S1, 0, 3, enemy_ab='ABILITY_ROUGH_SKIN')
+y = turn(S1, 0, 3, enemy_ab='ABILITY_ROUGH_SKIN', player_ab='ABILITY_MAGIC_GUARD')
+z = turn(S5, 0, 3, enemy_ab='ABILITY_ROUGH_SKIN')
+check(x['php'] == 999 - eighth and 'Rough Skin hurt' in x['log'] and y['php'] == 999 and z['php'] == 999,
+      f'Rough Skin: contact {x["php"]}, with Magic Guard {y["php"]}, Earthquake {z["php"]}')
+
 print(f'\n{len(fails)} failure(s)')
 for f in fails: print('  ' + f)

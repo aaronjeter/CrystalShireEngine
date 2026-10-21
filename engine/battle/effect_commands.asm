@@ -1418,6 +1418,7 @@ BattleCommand_Stab:
 	call ApplyThickFat
 	call BattleCheckTypeMatchup
 	call ApplyDurable
+	call ApplyMultiscale
 	ld a, [wTypeMatchup]
 	ld b, a
 	ld a, [wTypeModifier]
@@ -1969,6 +1970,10 @@ BattleCommand_EffectChance:
 
 	push hl
 	push bc
+; Shield Dust: the target ignores secondary effects (carry -> fail).
+	farcall CheckShieldDust
+	ccf
+	jr nc, .pop_and_check
 	ld hl, wPlayerMoveStruct + MOVE_CHANCE
 	ldh a, [hBattleTurn]
 	and a
@@ -1983,6 +1988,7 @@ BattleCommand_EffectChance:
 	; Thus chance will be subtracted from 0, guaranteeing a carry
 	call c, BattleRandom
 	cp b
+.pop_and_check
 	pop bc
 	pop hl
 	ret c
@@ -3168,6 +3174,10 @@ BattleCommand_DamageCalc:
 ; Iron Fist, Strong Jaw and Sharpness: +25% damage for their move groups.
 	call CheckMoveGroupBoost
 	call c, BoostDamageByQuarter
+
+; Blaze, Torrent, Overgrow, Swarm: +50% to their type at 1/3 HP or less.
+	farcall CheckLowHPTypeBoost
+	call c, BoostDamageByHalf
 
 ; Returns nz and nc.
 	ld a, 1
@@ -5437,6 +5447,22 @@ CheckPlayerHasMonToSwitchTo:
 BattleCommand_EndLoop:
 ; Loop back to 'critical'.
 
+; Stop if the user fainted mid-move (e.g. to Rough Skin).
+	ld hl, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_user_hp
+	ld hl, wEnemyMonHP
+.got_user_hp
+	ld a, [hli]
+	or [hl]
+	jr nz, .user_ok
+	ld a, BATTLE_VARS_SUBSTATUS3
+	call GetBattleVarAddr
+	res SUBSTATUS_IN_LOOP, [hl]
+	ret
+.user_ok
+
 	ld de, wPlayerRolloutCount
 	ld bc, wPlayerDamageTaken
 	ldh a, [hBattleTurn]
@@ -5601,6 +5627,9 @@ BattleCommand_HeldFlinch:
 	call CheckSubstituteOpp
 	ret nz
 	ld b, ABILITY_INNER_FOCUS
+	call CheckOppAbility
+	ret z
+	ld b, ABILITY_SHIELD_DUST
 	call CheckOppAbility
 	ret z
 	ld a, BATTLE_VARS_MOVE_EFFECT
@@ -5877,6 +5906,17 @@ BattleCommand_Recoil:
 ; Magic Guard: no recoil damage.
 	farcall CheckMagicGuardUser
 	ret c
+; Rock Head: no recoil damage, except from Struggle.
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_ROCK_HEAD
+	jr nz, .no_rock_head
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld bc, STRUGGLE
+	call CompareMove
+	ret nz
+.no_rock_head
 
 	ld hl, wBattleMonMaxHP
 	ldh a, [hBattleTurn]

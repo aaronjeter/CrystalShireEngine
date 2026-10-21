@@ -61,6 +61,16 @@
 	const ABILITY_MAGMA_ARMOR
 	const ABILITY_OWN_TEMPO
 	const ABILITY_INNER_FOCUS
+	const ABILITY_MULTISCALE
+	const ABILITY_BLAZE
+	const ABILITY_TORRENT
+	const ABILITY_OVERGROW
+	const ABILITY_SWARM
+	const ABILITY_TOUGH_CLAWS
+	const ABILITY_SHIELD_DUST
+	const ABILITY_ROUGH_SKIN
+	const ABILITY_ROCK_HEAD
+	const ABILITY_GALE_WINGS
 DEF NUM_ABILITIES EQU const_value
 
 ; ability slots: which of its species' three abilities a Pokemon has

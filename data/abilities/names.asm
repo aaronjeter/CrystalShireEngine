@@ -58,6 +58,16 @@ AbilityNames:
 	dw MagmaArmorNameString
 	dw OwnTempoNameString
 	dw InnerFocusNameString
+	dw MultiscaleNameString
+	dw BlazeNameString
+	dw TorrentNameString
+	dw OvergrowNameString
+	dw SwarmNameString
+	dw ToughClawsNameString
+	dw ShieldDustNameString
+	dw RoughSkinNameString
+	dw RockHeadNameString
+	dw GaleWingsNameString
 	assert_table_length NUM_ABILITIES
 
 NoAbilityNameString:
@@ -230,3 +240,33 @@ OwnTempoNameString:
 
 InnerFocusNameString:
 	db "Inner Focus@"
+
+MultiscaleNameString:
+	db "Multiscale@"
+
+BlazeNameString:
+	db "Blaze@"
+
+TorrentNameString:
+	db "Torrent@"
+
+OvergrowNameString:
+	db "Overgrow@"
+
+SwarmNameString:
+	db "Swarm@"
+
+ToughClawsNameString:
+	db "Tough Claws@"
+
+ShieldDustNameString:
+	db "Shield Dust@"
+
+RoughSkinNameString:
+	db "Rough Skin@"
+
+RockHeadNameString:
+	db "Rock Head@"
+
+GaleWingsNameString:
+	db "Gale Wings@"

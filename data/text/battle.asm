@@ -1289,6 +1289,12 @@ FrigidFrostbiteText:
 	cont "frostbite!"
 	prompt
 
+RoughSkinText:
+	text "<TARGET>'s"
+	line "Rough Skin hurt"
+	cont "<USER>!"
+	prompt
+
 EffectSporePoisonedText:
 	text "<USER>'s"
 	line "Effect Spore"
