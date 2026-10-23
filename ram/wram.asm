@@ -633,6 +633,19 @@ wPartyMonSwap:: db ; bit 7 set: SwapInPlayerPartyMon swapped a stored battler in
 ; Per-battler links (BATTLER_LINK_*), in BattlerSwapList like the variables in wBattle
 wPlayerBattlerLinks:: ds NUM_BATTLER_LINKS
 wEnemyBattlerLinks:: ds NUM_BATTLER_LINKS
+
+; Double battle turn state (engine/battle/doubles.asm)
+wDoublesActions:: ds NUM_BATTLER_SLOTS ; each slot's action this turn (BATTLEPLAYERACTION_*)
+wDoublesOrderKeys:: ds NUM_BATTLER_SLOTS * 4 ; per slot: move class/priority, Quick Claw, Speed (big-endian)
+wDoublesSpeedOrder:: ds NUM_BATTLER_SLOTS ; the slots with a battler, fastest first ($ff after them)
+wDoublesActed:: db ; mask of the slots that have acted this turn
+wDoublesMenuBack:: db ; bit 0: B goes back from the battle menu (P2's); bit 7: it was pressed
+wDoublesP1Chose:: db ; P1 chose a move in the battle menu this turn
+wDoublesEnemyItemUsed:: db ; the AI used an item this turn (one per side per turn)
+wDoublesDeferEntrance:: db ; nonzero: SendOutPlayerMon leaves the entrance ability for later
+wDoublesNewMons:: db ; mask of the slots whose battler just entered (DoublesEntrances)
+wDoublesRoutines:: ds 4 ; the doubles iterators' routines: the player's, the enemy's
+wDoublesTemp:: db
 wBattleStateEnd:: ; start_battle.asm clears wBattle through here
 
 

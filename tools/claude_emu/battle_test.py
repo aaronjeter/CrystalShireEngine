@@ -132,12 +132,14 @@ class Game(H):
     def const(self, expr):
         return assemble_block(f'\tdb {expr}', 0, SCRIPT_ORG)[0]
 
-    def set_trainer(self, cls, name, mons, ttype=None):
-        """mons: list of (level, species, item or None, [moves] or None)."""
+    def set_trainer(self, cls, name, mons, ttype=None, doubles=False):
+        """mons: list of (level, species, item or None, [moves] or None). doubles: a
+        doubles_trainer party (a double battle)."""
         if ttype is None:
             ttype = ' | '.join(['TRAINERTYPE_NORMAL'] + (['TRAINERTYPE_ITEM'] if any(m[2] for m in mons) else [])
                                 + (['TRAINERTYPE_MOVES'] if any(m[3] for m in mons) else []))
-        lines = ['TestGroup:', '\tnext_list_item', f'\tdb "{name}@", {ttype}']
+        header = f'\tdoubles_trainer "{name}", {ttype}' if doubles else f'\tdb "{name}@", {ttype}'
+        lines = ['TestGroup:', '\tnext_list_item', header]
         for lv, sp, item, moves in mons:
             lines.append(f'\titemmon {lv}, {sp}, {item or "NO_ITEM"}' if 'TRAINERTYPE_ITEM' in ttype else f'\tmon {lv}, {sp}')
             if 'TRAINERTYPE_MOVES' in ttype:
@@ -382,6 +384,7 @@ class Battle:
         self.g, self.actions, self.replace, self.shift = g, list(actions), list(replace), list(shift)
         self.records, self.log, self.turn = [], [], 0
         self.trace = os.environ.get('BT_TRACE')
+        self.target = 0
 
     def text(self):
         t = bytes(self.g.wram_full()[0x4A0:0x4A0 + 360])  # wTilemap ($c4a0)
@@ -437,6 +440,9 @@ class Battle:
                 print('STEP', ' | '.join(x.strip() for x in t if x.strip())[:160], flush=True)
             if 'Fight' in t[14] and 'Run' in t[16]:
                 self.at_menu()
+            elif 'Target:' in t[14]:     # double battles: the placeholder target menu
+                g.wr('wMenuCursorY', self.target + 1)
+                g.press('A', after=4)
             elif is_party_menu(t):
                 bottom = ' '.join(t[15:18])
                 if 'Use on' in bottom:
@@ -465,6 +471,7 @@ class Battle:
         self.log = []
         act = self.valid(self.actions.pop(0) if self.actions else ('move', 0))
         rec['action'] = list(act)
+        self.target = act[2] if act[0] == 'move' and len(act) > 2 else 0  # doubles: 0 = E1, 1 = E2
         if self.turn > 80:
             raise RuntimeError('more than 80 turns')
         self.records.append(rec)
@@ -495,6 +502,8 @@ class Battle:
             g.wr('wLastPocket', 0)
         elif kind == 'run':
             self.menu_pick(2, 2)
+        elif kind == 'back':           # doubles: B on P2's battle menu (back to P1)
+            g.press('B', after=4)
         else:
             raise ValueError(act)
 
@@ -505,7 +514,9 @@ class Battle:
     def valid(self, act):
         """Replace an action the game would refuse (no PP, switching to the active or a fainted mon)."""
         g = self.g
-        if act[0] == 'switch' and (act[1] == g.rd('wCurBattleMon') or act[1] >= g.rd('wPartyCount') or not self.hp(act[1])):
+        field = g.rd('wFieldMons') if 'wDoubleBattle' in g.sym.d and g.rd('wDoubleBattle') else 0
+        if act[0] == 'switch' and (act[1] == g.rd('wCurBattleMon') or act[1] >= g.rd('wPartyCount') or not self.hp(act[1])
+                                   or field >> act[1] & 1):
             act = ('move', 0)
         if act[0] == 'move':
             pp = [x & 0x3F for x in g.rd('wBattleMonPP', 4)]
@@ -544,7 +555,8 @@ class Battle:
             i = self.replace.pop(0)
         else:
             cur = g.rd('wCurBattleMon')
-            i = next(i for i in range(g.rd('wPartyCount')) if i != cur and self.hp(i))
+            field = g.rd('wFieldMons') if 'wDoubleBattle' in g.sym.d and g.rd('wDoubleBattle') else 0
+            i = next(i for i in range(g.rd('wPartyCount')) if i != cur and self.hp(i) and not field >> i & 1)
         g.wr('wMenuCursorY', i + 1); g.press('A', after=4)
         t = self.settle()
         if t and 'Switch' in '\n'.join(t):
@@ -710,6 +722,9 @@ CASES = {
 }
 
 
+SINGLES_CASES = list(CASES)  # the baseline corpus; doubles cases (test_doubles.py) are run by name
+
+
 def set_abilities(g, abilities):
     names = [re.match(r'\tabilities (\w+),', l).group(1)
              for l in open(f'{CSE}/data/abilities/species_abilities.asm') if l.startswith('\tabilities ')]
@@ -730,7 +745,7 @@ def run_case(rom, sym, state, name):
     if c.get('wild'):
         g.start_wild(*c['wild'], c.get('options', 0x01 | SCENE_OFF))
     else:
-        g.set_trainer(c['cls'], name.replace('_', ' ')[:10].title(), c['trainer'])
+        g.set_trainer(c['cls'], name.replace('_', ' ')[:10].title(), c['trainer'], doubles=c.get('doubles', False))
         g.seed()
         g.start_battle(c['cls'], c.get('options', 0x01 | SCENE_OFF))
     b = Battle(g, c['actions'], c.get('replace', ()), c.get('shift', ()))
@@ -753,9 +768,24 @@ def norm_log(log):
     return [m for i, m in enumerate(out) if i == 0 or out[i - 1] != m]
 
 
+def mask_caught_time(recs, sym):
+    """Clear the time-of-day bits of each party mon's caught level: givepoke stores the boot
+    state's clock time there, so it differs between states booted at different times."""
+    size = sym['wPartyMon2'][1] - sym['wPartyMon1'][1]
+    off = sym['wPartyMon1CaughtLevel'][1] - sym['wPartyMon1'][1]
+    for r in recs.values():
+        for x in r:
+            for k in ('wPartyMons', 'wOTPartyMons'):
+                if k in x:
+                    for j in range(off, len(x[k]), size):
+                        x[k][j] &= 0x3F
+
+
 def compare(a, b, sym, limit=12):
     """Print the differences between two record files. Returns the number of differing cases."""
     bad = 0
+    mask_caught_time(a, sym)
+    mask_caught_time(b, sym)
     for name in sorted(set(a) | set(b)):
         ra, rb = a.get(name), b.get(name)
         out = []
@@ -795,7 +825,7 @@ def main():
     from gb import Sym
     if sys.argv[1] == 'record':
         rom, sym, state, out = sys.argv[2:6]
-        names = sys.argv[6:] or list(CASES)
+        names = sys.argv[6:] or SINGLES_CASES
         with Pool(min(len(names), os.cpu_count() or 4)) as p:
             res = dict(p.map(_worker, [(rom, sym, state, n) for n in names]))
         sy = Sym(sym)

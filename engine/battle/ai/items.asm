@@ -153,6 +153,11 @@ AI_TryItem:
 	and a
 	ret nz
 
+	; double battles: one item per side per turn
+	ld a, [wDoublesEnemyItemUsed]
+	and a
+	ret nz
+
 	ld a, [wEnemyTrainerItem1]
 	ld b, a
 	ld a, [wEnemyTrainerItem2]

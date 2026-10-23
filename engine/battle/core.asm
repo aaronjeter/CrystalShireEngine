@@ -34,10 +34,12 @@ DoBattle:
 	ld a, [wBattleMode]
 	dec a
 	jr z, .wild
+	call InitDoubleBattleSlots
 	xor a
 	ld [wEnemySwitchMonIndex], a
 	call PrepareEnemySendIn
 	call EnemySwitch
+	call SendOutSecondEnemyLead
 
 .wild
 	ld c, 40
@@ -87,8 +89,11 @@ DoBattle:
 	call SendOutMonText
 	call PreparePlayerSendIn
 	call PlayerMonEntersField
+	call SendOutSecondPlayerLead
 
 	farcall StartOverworldBattleWeather
+	call DoublesLeadAbilities
+	jr nz, BattleTurn ; double battles: the leads' entrance abilities ran
 
 	call SetEnemyTurn
 	ld a, [wEnemyMonAbility]
@@ -144,6 +149,9 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	ret
 
 BattleTurn:
+	ld a, [wDoubleBattle]
+	and a
+	jmp nz, DoublesBattleTurn
 .loop
 if DEF(SWAP_TEST)
 	farcall SwapTest ; test builds only (battler_swap.asm)
@@ -205,7 +213,10 @@ endc
 ForEachBattler:
 ; Call routine hl for each battler, with hBattleTurn set to that battler: the player
 ; first, or the enemy first when linked with the external clock.
-; (Double battles: each slot in Speed order, swapped in.)
+; Double battles: each slot in Speed order, swapped in (DoublesForEachBattler).
+	ld a, [wDoubleBattle]
+	and a
+	jmp nz, DoublesForEachBattler
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .enemy_first
@@ -230,11 +241,17 @@ ForEachBattler:
 
 ForEachSide:
 ; Call hl for the player's side and de for the enemy's side, in the same order.
-; Singles: the same as ForEachBattlerPair. (Doubles: once per side.)
+; Singles: the same as ForEachBattlerPair. Doubles: once per side (DoublesForEachSide).
+	ld a, [wDoubleBattle]
+	and a
+	jmp nz, DoublesForEachSide
 ForEachBattlerPair:
 ; Call hl for the player's battler and de for the enemy's (hBattleTurn is not set), the
 ; player first, or the enemy first when linked with the external clock.
-; (Doubles: per slot, swapped in, with the routine for its side.)
+; Doubles: per slot in Speed order, swapped in, with the routine for its side.
+	ld a, [wDoubleBattle]
+	and a
+	jmp nz, DoublesForEachBattlerPair
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr nz, .got_order
@@ -4177,6 +4194,9 @@ SendOutPlayerMon:
 	ld [wTempAbility], a
 	ld a, [wCurPartySpecies]
 	call PlayStereoCry	
+	ld a, [wDoublesDeferEntrance]
+	and a
+	jr nz, .statused ; double battles: DoublesEntrances runs it later
 	farcall Check_Entrance_Ability
 
 .statused
@@ -4996,6 +5016,7 @@ BattleMenu:
 	call EmptyBattleTextbox
 	call UpdateBattleHuds
 	call EmptyBattleTextbox
+	call DoublesBattleMenuLabel
 	call LoadTilemapToTempTilemap
 .ok
 
@@ -5039,7 +5060,8 @@ BattleMenu_Fight:
 
 LoadBattleMenu2:
 	farcall LoadBattleMenu
-	and a
+	ld a, [wDoublesMenuBack]
+	add a ; carry: B went back (double battles, P2's menu)
 	ret
 
 BattleMenu_Pack:
@@ -6895,6 +6917,15 @@ InitEnemyTrainer:
 	ld [wTempEnemyMonSpecies], a
 	farcall GetTrainerAttributes
 	farcall ReadTrainerParty
+
+	; a double battle if the party has TRAINERTYPE_DOUBLE_F (never in link battles)
+	ld a, [wLinkMode]
+	and a
+	jr nz, .not_double
+	ld a, [wOtherTrainerType]
+	and 1 << TRAINERTYPE_DOUBLE_F
+	ld [wDoubleBattle], a
+.not_double
 
 	; RIVAL1's first mon has no held item
 	ld a, [wTrainerClass]

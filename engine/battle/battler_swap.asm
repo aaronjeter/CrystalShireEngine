@@ -124,6 +124,40 @@ ReadBattlerSlotByte::
 	ld a, l
 	ret
 
+WriteBattlerSlotByte::
+; Field hl (BSLOT_*) of slot a = e. Preserves bc and de.
+	call GetBattlerSlotAddress
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBattlerSlots)
+	ldh [rSVBK], a
+	ld [hl], e
+	pop af
+	ldh [rSVBK], a
+	ret
+
+CopyFromBattlerSlot::
+; Copy c bytes of field hl (BSLOT_*) of slot a to de (any WRAM). Clobbers bc.
+	call GetBattlerSlotAddress
+	ldh a, [rSVBK]
+	push af
+.loop
+	ld a, BANK(wBattlerSlots)
+	ldh [rSVBK], a
+	ld a, [hli]
+	ld b, a
+	pop af
+	push af
+	ldh [rSVBK], a
+	ld a, b
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .loop
+	pop af
+	ldh [rSVBK], a
+	ret
+
 BattlerSlotMask::
 ; a = 1 << slot a. Preserves bc, de and hl.
 	push hl
