@@ -955,6 +955,8 @@ _BattleCommand_TrapTarget:
 	inc a
 	inc a
 	ld [hl], a
+	ld a, BATTLER_LINK_TRAPPED_BY
+	farcall SetTargetLink
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ld [de], a

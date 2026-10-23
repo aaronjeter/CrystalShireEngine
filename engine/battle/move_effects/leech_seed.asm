@@ -25,6 +25,8 @@ BattleCommand_LeechSeed:
 	bit SUBSTATUS_LEECH_SEED, [hl]
 	jr nz, .evaded
 	set SUBSTATUS_LEECH_SEED, [hl]
+	ld a, BATTLER_LINK_SEEDED_BY
+	farcall SetTargetLink
 	call AnimateCurrentMove
 	ld hl, WasSeededText
 	jmp StdBattleTextbox

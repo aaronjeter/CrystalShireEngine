@@ -131,11 +131,24 @@ ResetBatonPassStatus:
 	call ResetActorDisable
 
 	; Attraction isn't passed.
+	ld a, [wDoubleBattle]
+	and a
+	jr nz, .doubles
 	ld hl, wPlayerSubStatus1
 	res SUBSTATUS_IN_LOVE, [hl]
 	ld hl, wEnemySubStatus1
 	res SUBSTATUS_IN_LOVE, [hl]
-	ld hl, wPlayerSubStatus5
+	jr .attraction_done
+
+.doubles
+	; its own attraction ends, and the links it doesn't pass on (attracted to, trapped by,
+	; last attacker; the other battlers' links to its slot)
+	ld a, BATTLE_VARS_SUBSTATUS1
+	call GetBattleVarAddr
+	res SUBSTATUS_IN_LOVE, [hl]
+	ldh a, [hBattleTurn]
+	farcall BatonPassLeavesField
+.attraction_done
 
 	ld a, BATTLE_VARS_SUBSTATUS5
 	call GetBattleVarAddr
@@ -147,9 +160,23 @@ ResetBatonPassStatus:
 	call GetBattleVarAddr
 	ld [hl], 0
 
-	xor a
+	; Wrap isn't passed (double battles: only its own; BatonPassLeavesField ended the ones it started)
+	ld a, [wDoubleBattle]
+	and a
+	ld a, 0 ; no-optimize a = 0 (keep the flags)
+	jr nz, .own_wrap
 	ld [wPlayerWrapCount], a
 	ld [wEnemyWrapCount], a
+	ret
+
+.own_wrap
+	ld hl, wPlayerWrapCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_wrap
+	ld hl, wEnemyWrapCount
+.got_wrap
+	ld [hl], 0
 	ret
 
 CheckAnyOtherAlivePartyMons:

@@ -1,4 +1,6 @@
 BattleCommand_PerishSong:
+	farcall DoublesPerishStored ; double battles: the two battlers not loaded
+	ld b, a ; 1 if it started on one of them
 	ld hl, wPlayerSubStatus1
 	ld de, wEnemySubStatus1
 	bit SUBSTATUS_PERISH, [hl]
@@ -6,7 +8,7 @@ BattleCommand_PerishSong:
 
 	ld a, [de]
 	bit SUBSTATUS_PERISH, a
-	jr nz, .failed
+	jr nz, .all_perishing
 
 .ok
 	bit SUBSTATUS_PERISH, [hl]
@@ -31,6 +33,10 @@ BattleCommand_PerishSong:
 	ld hl, StartPerishText
 	jmp StdBattleTextbox
 
+.all_perishing
+	ld a, b
+	and a
+	jr nz, .done
 .failed
 	call AnimateFailedMove
 	jmp PrintButItFailed

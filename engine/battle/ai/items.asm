@@ -20,6 +20,10 @@ AI_SwitchOrTryItem:
 	and a
 	jr nz, DontSwitch
 
+	ld a, [wEnemyBattlerLinks + BATTLER_LINK_MEAN_LOOK_BY] ; double battles
+	and a
+	jr nz, DontSwitch
+
 	; always load the first trainer class in wTrainerClass for Battle Tower trainers
 	ld hl, TrainerClassAttributes + TRNATTR_AI_ITEM_SWITCH
 	ld a, [wInBattleTowerBattle]

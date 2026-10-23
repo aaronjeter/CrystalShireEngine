@@ -113,6 +113,60 @@ DoMove:
 .DoMoveEffectCommand:
 	jp hl
 
+DoublesSpreadPass::
+; Double battles: the next pass of a spread move, against the target now loaded. Runs the
+; user's move script again from the start; the commands that happen once per move check
+; wDoublesSpread (DOUBLES_SPREAD_PASS2_F, DOUBLES_SPREAD_HIT_F).
+	xor a
+	ld [wAttackMissed], a
+	ld [wEffectFailed], a
+	ld [wBattleAnimParam], a
+	ld [wAlreadyFailed], a
+	ld [wTurnEnded], a
+	ld a, EFFECTIVE
+	ld [wTypeModifier], a
+	jr DoMove
+
+CheckSpreadLaterPass:
+; nz on a later pass of a spread move (double battles). Clobbers a.
+	ld a, [wDoublesSpread]
+	bit DOUBLES_SPREAD_PASS2_F, a
+	ret
+
+CheckSpreadHit:
+; nz if an earlier pass of a spread move hit (double battles): no animation. Clobbers a.
+	ld a, [wDoublesSpread]
+	bit DOUBLES_SPREAD_HIT_F, a
+	ret
+
+ApplySpreadDamage:
+; A spread move with more than one target: wCurDamage * SPREAD_DAMAGE_PERCENT / 100.
+	push bc
+	push de
+	push hl
+	ld hl, wCurDamage
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [hli]
+	ldh [hMultiplicand + 1], a
+	ld a, [hl]
+	ldh [hMultiplicand + 2], a
+	ld a, SPREAD_DAMAGE_PERCENT
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+	ldh a, [hQuotient + 3]
+	ld [hld], a
+	ldh a, [hQuotient + 2]
+	ld [hl], a
+	pop hl
+	pop de
+	pop bc
+	ret
+
 CheckTurn:
 BattleCommand_CheckTurn:
 ; Repurposed as hardcoded turn handling. Useless as a command.
@@ -609,6 +663,9 @@ HitConfusion:
 	jmp BattleCommand_RaiseSub
 
 BattleCommand_CheckObedience:
+	call CheckSpreadLaterPass
+	ret nz
+
 	; Enemy can't disobey
 	ldh a, [hBattleTurn]
 	and a
@@ -896,6 +953,19 @@ IgnoreSleepOnly:
 	dw -1
 
 BattleCommand_UsedMoveText:
+; Double battles: a spread move's text shows once; it arms the later passes unless the
+; user disobeyed (and used another move).
+	ld hl, wDoublesSpread
+	ld a, [hl]
+	and a
+	jr z, .text
+	bit DOUBLES_SPREAD_PASS2_F, a
+	ret nz
+	ld a, [wAlreadyDisobeyed]
+	and a
+	jr nz, .text
+	set DOUBLES_SPREAD_ARMED_F, [hl]
+.text
 	farjp DisplayUsedMoveText
 
 CheckUserIsCharging:
@@ -909,6 +979,8 @@ CheckUserIsCharging:
 	ret
 
 BattleCommand_DoTurn:
+	call CheckSpreadLaterPass
+	ret nz
 	call CheckUserIsCharging
 	ret nz
 
@@ -1777,6 +1849,8 @@ BattleCommand_CheckHit:
 .LockOn:
 ; Return nz if we are locked-on and aren't trying to use Earthquake,
 ; Fissure or Magnitude on a monster that is flying.
+	farcall DoublesCheckLockOn ; double battles: z unless it's the user's own Lock-On
+	ret z
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	bit SUBSTATUS_LOCK_ON, [hl]
@@ -2006,6 +2080,8 @@ BattleCommand_EffectChance:
 	ret
 
 BattleCommand_LowerSub:
+	call CheckSpreadHit
+	ret nz
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
@@ -2077,6 +2153,8 @@ BattleCommand_MoveAnim:
 	jmp BattleCommand_RaiseSub
 
 BattleCommand_MoveAnimNoSub:
+	call CheckSpreadHit
+	jmp nz, BattleCommand_MoveDelay
 	ld a, [wAttackMissed]
 	and a
 	jmp nz, BattleCommand_MoveDelay
@@ -2153,6 +2231,8 @@ BattleCommand_StatUpAnim:
 	jr BattleCommand_StatUpDownAnim
 
 BattleCommand_StatDownAnim:
+	call CheckSpreadHit
+	jmp nz, BattleCommand_MoveDelay
 	ld a, [wAttackMissed]
 	and a
 	jmp nz, BattleCommand_MoveDelay
@@ -2181,6 +2261,8 @@ BattleCommand_SwitchTurn:
 	ret
 
 BattleCommand_RaiseSub:
+	call CheckSpreadHit
+	ret nz
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
@@ -2272,6 +2354,7 @@ BattleCommand_ApplyDamage:
 
 .damage
 	push bc
+	farcall DoublesNoteHit ; double battles: the target's last attacker and damage
 	call .update_damage_taken
 	ld c, FALSE
 	ldh a, [hBattleTurn]
@@ -3183,6 +3266,11 @@ BattleCommand_DamageCalc:
 ; Blaze, Torrent, Overgrow, Swarm: +50% to their type at 1/3 HP or less.
 	farcall CheckLowHPTypeBoost
 	call c, BoostDamageByHalf
+
+; Double battles: a spread move with more than one target.
+	ld a, [wDoublesSpread]
+	bit DOUBLES_SPREAD_ARMED_F, a
+	call nz, ApplySpreadDamage
 
 ; Returns nz and nc.
 	ld a, 1
@@ -4382,6 +4470,13 @@ BattleCommand_EvasionUp2:
 	ld b, $10 | EVASION
 ; fallthrough
 BattleCommand_StatUp:
+	; a spread move raises the user's stat only on the first pass that hits
+	call CheckSpreadHit
+	jr z, .raise
+	ld a, 1
+	ld [wFailedMessage], a
+	ret
+.raise
 	call RaiseStat
 	ld a, [wFailedMessage]
 	and a
@@ -5293,6 +5388,7 @@ BattleCommand_ForceSwitch:
 	inc a
 	ld [wEnemySwitchMonIndex], a
 	farcall ForceEnemySwitch
+	farcall UpdateFieldMons ; double battles
 
 	ld hl, DraggedOutText
 	call StdBattleTextbox
@@ -5702,6 +5798,8 @@ BattleCommand_CheckCharge:
 	jmp SkipToBattleCommand
 
 BattleCommand_Charge:
+	call CheckSpreadLaterPass
+	ret nz
 	call BattleCommand_ClearText
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
@@ -6261,6 +6359,7 @@ BattleCommand_Conversion:
 	farjp _BattleCommand_Conversion ; effect_commands_far.asm
 
 BattleCommand_ResetStats:
+	farcall DoublesHazeStored ; double battles: the two battlers not loaded
 	ld a, BASE_STAT_LEVEL
 	ld hl, wPlayerStatLevels
 	call .Fill
@@ -6560,6 +6659,24 @@ BattleCommand_ArenaTrap:
 	call CheckHiddenOpponent
 	jr nz, .failed
 
+; Double battles: the target can't switch while the user is out (BATTLER_LINK_MEAN_LOOK_BY).
+	ld a, [wDoubleBattle]
+	and a
+	jr z, .singles
+	ld hl, wEnemyBattlerLinks + BATTLER_LINK_MEAN_LOOK_BY
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_links
+	ld hl, wPlayerBattlerLinks + BATTLER_LINK_MEAN_LOOK_BY
+.got_links
+	ld a, [hl]
+	and a
+	jr nz, .failed
+	ld a, BATTLER_LINK_MEAN_LOOK_BY
+	farcall SetTargetLink
+	jr .trapped
+.singles
+
 ; Don't trap if the opponent is already trapped.
 
 	ld a, BATTLE_VARS_SUBSTATUS5
@@ -6570,6 +6687,7 @@ BattleCommand_ArenaTrap:
 ; Otherwise trap the opponent.
 
 	set SUBSTATUS_CANT_RUN, [hl]
+.trapped
 	call AnimateCurrentMove
 	ld hl, CantEscapeNowText
 	jmp StdBattleTextbox

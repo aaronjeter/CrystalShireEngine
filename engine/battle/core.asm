@@ -1827,6 +1827,7 @@ HandleFutureSight:
 	cp $1
 	ret nz
 
+	call DoublesLoadFutureSightTarget
 	ld hl, BattleText_TargetWasHitByFutureSight
 	call StdBattleTextbox
 
@@ -3348,8 +3349,11 @@ ResetEnemyBattleVars:
 	ld [wCurEnemyMove], a
 	dec a
 	ld [wEnemyItemState], a
-	xor a
+	ld a, [wDoubleBattle]
+	and a
+	jr nz, .keep_wrap ; double battles: BattlerLeavesField ended the Wraps it started
 	ld [wPlayerWrapCount], a
+.keep_wrap
 	hlcoord 18, 0
 	ld a, 8
 	call SlideBattlePicOut
@@ -3755,9 +3759,15 @@ endr
 	ld [wEnemyRageCounter], a
 	ld [wEnemyDisabledMove], a
 	ld [wEnemyMinimized], a
-	ld [wPlayerWrapCount], a
 	ld [wEnemyWrapCount], a
 	ld [wEnemyTurnsTaken], a
+	; the opponent's Wrap and Mean Look on it end (double battles: BattlerLeavesField
+	; ends the ones it started)
+	ld a, [wDoubleBattle]
+	and a
+	ret nz
+	xor a
+	ld [wPlayerWrapCount], a
 	ld hl, wPlayerSubStatus5
 	res SUBSTATUS_CANT_RUN, [hl]
 	ret
@@ -4166,8 +4176,11 @@ SendOutPlayerMon:
 	ld [wLastPlayerMove], a
 	call CheckAmuletCoin
 	call FinishBattleAnim
-	xor a
+	ld a, [wDoubleBattle]
+	and a
+	jr nz, .keep_wrap ; double battles: BattlerLeavesField ended the Wraps it started
 	ld [wEnemyWrapCount], a
+.keep_wrap
 	call SetPlayerTurn
 	xor a
 	ld [wNumHits], a
@@ -4226,9 +4239,15 @@ endr
 	ld [wPlayerRageCounter], a
 	ld [wDisabledMove], a
 	ld [wPlayerMinimized], a
-	ld [wEnemyWrapCount], a
 	ld [wPlayerWrapCount], a
 	ld [wPlayerTurnsTaken], a
+	; the opponent's Wrap and Mean Look on it end (double battles: BattlerLeavesField
+	; ends the ones it started)
+	ld a, [wDoubleBattle]
+	and a
+	ret nz
+	xor a
+	ld [wEnemyWrapCount], a
 	ld hl, wEnemySubStatus5
 	res SUBSTATUS_CANT_RUN, [hl]
 	ret
@@ -4280,6 +4299,11 @@ EnemyMonEntersField:
 	farjp Check_Entrance_Ability
 
 BreakAttraction:
+; Double battles: the leaving battler's own attraction is cleared with its substatus, and
+; BattlerLeavesField ends the attractions to it.
+	ld a, [wDoubleBattle]
+	and a
+	ret nz
 	ld hl, wPlayerSubStatus1
 	res SUBSTATUS_IN_LOVE, [hl]
 	ld hl, wEnemySubStatus1
@@ -5249,6 +5273,9 @@ TryPlayerSwitch:
 	ld a, [wPlayerWrapCount]
 	and a
 	jr nz, .trapped
+	ld a, [wPlayerBattlerLinks + BATTLER_LINK_MEAN_LOOK_BY] ; double battles
+	and a
+	jr nz, .trapped
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
 	jr z, .try_switch
@@ -5333,8 +5360,7 @@ BattleMonEntrance:
 	ld hl, wPlayerSubStatus4
 	res SUBSTATUS_RAGE, [hl]
 
-	call SetEnemyTurn
-	call PursuitSwitch
+	call DoublesPursuitSwitch
 	call nc, RecallPlayerMon
 
 	hlcoord 9, 7
@@ -5906,6 +5932,8 @@ CheckPlayerHasUsableMoves:
 ParseEnemyAction:
 	ld a, [wEnemyIsSwitching]
 	and a
+	ret nz
+	call DoublesEnemyActed ; it used Pursuit on a switching battler
 	ret nz
 	ld a, [wLinkMode]
 	and a

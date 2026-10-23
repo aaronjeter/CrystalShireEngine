@@ -633,6 +633,11 @@ wPartyMonSwap:: db ; bit 7 set: SwapInPlayerPartyMon swapped a stored battler in
 ; Per-battler links (BATTLER_LINK_*), in BattlerSwapList like the variables in wBattle
 wPlayerBattlerLinks:: ds NUM_BATTLER_LINKS
 wEnemyBattlerLinks:: ds NUM_BATTLER_LINKS
+; More per-battler doubles state (BattlerSwapList)
+wPlayerLastDamage:: dw ; damage from BATTLER_LINK_LAST_ATTACKER this turn (big-endian)
+wEnemyLastDamage:: dw
+wPlayerFutureSightTarget:: db ; slot mask Future Sight will hit
+wEnemyFutureSightTarget:: db
 
 ; Double battle turn state (engine/battle/doubles.asm)
 wDoublesActions:: ds NUM_BATTLER_SLOTS ; each slot's action this turn (BATTLEPLAYERACTION_*)
@@ -646,6 +651,8 @@ wDoublesDeferEntrance:: db ; nonzero: SendOutPlayerMon leaves the entrance abili
 wDoublesNewMons:: db ; mask of the slots whose battler just entered (DoublesEntrances)
 wDoublesRoutines:: ds 4 ; the doubles iterators' routines: the player's, the enemy's
 wDoublesTemp:: db
+wDoublesSpread:: db ; DOUBLES_SPREAD_* bits of the action running (0 otherwise)
+wDoublesSpreadPower:: db ; Magnitude's power, kept for the later passes
 wBattleStateEnd:: ; start_battle.asm clears wBattle through here
 
 

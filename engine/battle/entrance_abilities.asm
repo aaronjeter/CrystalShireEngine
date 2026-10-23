@@ -16,11 +16,61 @@ Check_Entrance_Ability:
 	jr .loop
 
 .found
-	inc hl ; the target kind (ENTRANCE_*; for double battles)
+	ld a, [hli] ; the target kind (ENTRANCE_*; for double battles)
+	cp ENTRANCE_EACH_FOE
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	jr z, .each_foe
 	jp hl
+
+.each_foe
+; Double battles: the handler runs once against each foe on the field, loaded in turn.
+; (ENTRANCE_OPPOSITE_FOE needs nothing: the foe opposite, or the other one, is loaded.)
+	ld a, [wDoubleBattle]
+	and a
+	jr nz, .doubles_each_foe
+	jp hl
+
+.doubles_each_foe
+	ld de, wAreaSlots
+	ldh a, [hBattleTurn]
+	xor 1 ; the foes' area
+	ld c, a
+	add e
+	ld e, a
+	adc d
+	sub e
+	ld d, a
+	ld a, [de]
+	push af ; the foe loaded now
+	ld a, c
+	add a ; the foes' first slot (P1 or E1)
+	ld c, a
+	call .foe
+	inc c
+	call .foe
+	pop af
+	farjp SwapInBattlerSlot
+
+.foe
+; Run handler hl with the battler in slot c loaded, if there is one.
+	ld a, c
+	farcall BattlerSlotMask
+	ld b, a
+	ld a, [wEmptyBattlerSlots]
+	and b
+	ret nz
+	push bc
+	push hl
+	ld a, c
+	farcall SwapInBattlerSlot
+	pop hl
+	push hl
+	call _hl_
+	pop hl
+	pop bc
+	ret
 
 .Abilities:
 ; Each ability's target kind tells double battles who it affects (ENTRANCE_*,
@@ -444,6 +494,8 @@ LeechAbility:
 	bit SUBSTATUS_LEECH_SEED, [hl]
 	ret nz ; already seeded, do nothing
 	set SUBSTATUS_LEECH_SEED, [hl]
+	ld a, BATTLER_LINK_SEEDED_BY
+	farcall SetTargetLink
 	
 	ld de, LEECH_SEED
 	farcall Call_PlayBattleAnim

@@ -67,6 +67,8 @@ BattlerSwapList:
 	swap_pair BSLOT_CHARGING,            wPlayerCharging,          wEnemyCharging,          1
 	swap_pair BSLOT_JUST_GOT_FROZEN,     wPlayerJustGotFrozen,     wEnemyJustGotFrozen,     1
 	swap_pair BSLOT_LINKS,               wPlayerBattlerLinks,      wEnemyBattlerLinks,      NUM_BATTLER_LINKS
+	swap_pair BSLOT_LAST_DAMAGE,         wPlayerLastDamage,        wEnemyLastDamage,        2
+	swap_pair BSLOT_FUTURE_SIGHT_TARGET, wPlayerFutureSightTarget, wEnemyFutureSightTarget, 1
 	swap_player BSLOT_USED_MOVES,          wPlayerUsedMoves, NUM_MOVES ; what the AI has seen this battler use
 	swap_player BSLOT_LAST_PLAYER_MON,     wLastPlayerMon, 1
 	swap_enemy BSLOT_BASE_STATS,          wEnemyMonBaseStats, NUM_EXP_STATS + 2 ; base stats, catch rate, base EXP
@@ -382,117 +384,498 @@ UpdateFieldMons::
 
 BattlerLeavesField::
 ; Double battles: the battler in area a (0: the player's, 1: the enemy's) leaves the field,
-; or a new one starts fresh there. Its own links (BATTLER_LINK_*) are cleared, and so are
-; the other battlers' links to its slot that end when it leaves (trapped by, Mean Look by,
-; attracted to, locked on to, last attacker). Seeded by and the chosen targets stay: they
-; go to whoever is in that slot. Preserves bc, de and hl.
-	ld b, a
+; or a new one starts fresh there. Its own links (BATTLER_LINK_*) are cleared and its Lock-On
+; ends. The other battlers' links to its slot that end when it leaves (trapped by, Mean Look
+; by, attracted to, locked on to, last attacker) are cleared, with their effects: a Wrap it
+; started, an attraction to it. Seeded by and the chosen targets stay: they go to whoever is
+; in that slot. Preserves bc, de and hl.
+	push de
+	ld e, 0 ; no own links kept
+	jr _BattlerLeavesField
+
+BatonPassLeavesField::
+; As BattlerLeavesField, for a battler leaving by Baton Pass: the links it passes on stay with
+; its slot (the chosen target, seeded by, Mean Look by, locked on to). Preserves bc, de, hl.
+	push de
+	ld e, 1 << BATTLER_LINK_TARGET | 1 << BATTLER_LINK_SEEDED_BY | 1 << BATTLER_LINK_MEAN_LOOK_BY | 1 << BATTLER_LINK_LOCKED_ON_TO
+_BattlerLeavesField:
+	ld d, a
 	ld a, [wDoubleBattle]
 	and a
-	ret z
+	jp z, .singles
 	push bc
-	push de
 	push hl
-	; own links
-	ld hl, wPlayerBattlerLinks
-	ld a, b
-	and a
-	jr z, .got_own
-	ld hl, wEnemyBattlerLinks
-.got_own
-	xor a
-	ld c, NUM_BATTLER_LINKS
-.clear_own
-	ld [hli], a
-	dec c
-	jr nz, .clear_own
-	; d = ~(1 << the leaving slot)
 	ld hl, wAreaSlots
-	ld a, b
+	ld a, d
 	add l
 	ld l, a
 	adc h
 	sub l
 	ld h, a
-	ld a, [hl]
+	ld c, [hl] ; c = the leaving slot
+	; its Lock-On ends (unless it's passed on): the target's SUBSTATUS_LOCK_ON
+	bit BATTLER_LINK_LOCKED_ON_TO, e
+	jr nz, .own_links
+	ld hl, BSLOT_LINKS + BATTLER_LINK_LOCKED_ON_TO
+	call ReadBattlerVar
+	call BattlerMaskToSlot
+	jr c, .own_links
+	push bc
+	ld c, a
+	ld hl, BSLOT_SUBSTATUS + 4
+	ld b, ~(1 << SUBSTATUS_LOCK_ON)
+	call AndBattlerVar
+	pop bc
+.own_links
+	ld hl, BSLOT_LINKS
+	ld b, 0
+	ld d, NUM_BATTLER_LINKS
+.own_loop
+	srl e
+	call nc, AndBattlerVar
+	inc hl
+	dec d
+	jr nz, .own_loop
+	; every other battler on the field: d = ~(1 << the leaving slot)
+	ld a, c
 	call BattlerSlotMask
 	cpl
 	ld d, a
-	; every other battler: the live links of the loaded ones, the stored ones' in their slots
+	ld e, c
 	ld c, NUM_BATTLER_SLOTS
 .loop
 	dec c
 	ld a, c
+	cp e
+	jr z, .next
 	call BattlerSlotMask
 	ld hl, wEmptyBattlerSlots
 	and [hl]
 	jr nz, .next
-	ld hl, wAreaSlots
-	ld e, LOW(wPlayerBattlerLinks)
-	bit BATTLER_SLOT_ENEMY_F, c
-	jr z, .got_area
+	; trapped by it: the Wrap ends
+	ld hl, BSLOT_LINKS + BATTLER_LINK_TRAPPED_BY
+	call ReadBattlerVar
+	or d
+	inc a
+	jr nz, .not_trapped
+	ld hl, BSLOT_WRAP_COUNT
+	ld b, 0
+	call AndBattlerVar
+.not_trapped
+	; attracted to it: the attraction ends
+	ld hl, BSLOT_LINKS + BATTLER_LINK_ATTRACTED_TO
+	call ReadBattlerVar
+	or d
+	inc a
+	jr nz, .not_attracted
+	ld hl, BSLOT_SUBSTATUS
+	ld b, ~(1 << SUBSTATUS_IN_LOVE)
+	call AndBattlerVar
+.not_attracted
+	ld hl, BSLOT_LINKS + BATTLER_LINK_TRAPPED_BY
+	ld b, d
+	call AndBattlerVar ; TRAPPED_BY
 	inc hl
-	ld e, LOW(wEnemyBattlerLinks)
-.got_area
-	ld a, [hl]
-	cp c
-	jr nz, .stored
-	ld h, HIGH(wPlayerBattlerLinks)
-	ld l, e
-	call .clear_links
-	jr .next
-.stored
-	ld a, c
-	ld hl, BSLOT_LINKS
-	call GetBattlerSlotAddress
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wBattlerSlots)
-	ldh [rSVBK], a
-	call .clear_links
-	pop af
-	ldh [rSVBK], a
+	call AndBattlerVar ; MEAN_LOOK_BY
+	inc hl
+	call AndBattlerVar ; ATTRACTED_TO
+	inc hl
+	call AndBattlerVar ; LOCKED_ON_TO
+	inc hl
+	call AndBattlerVar ; LAST_ATTACKER
 .next
 	ld a, c
 	and a
 	jr nz, .loop
 	pop hl
-	pop de
 	pop bc
-	ret
-
-.clear_links
-; hl = a battler's links; clear the bits in ~d of the links that end when that battler leaves
-	push hl
-	ld a, l
-	add BATTLER_LINK_TRAPPED_BY
-	ld l, a
-	adc h
-	sub l
-	ld h, a
-	ld a, [hl]
-	and d
-	ld [hli], a ; TRAPPED_BY
-	ld a, [hl]
-	and d
-	ld [hli], a ; MEAN_LOOK_BY
-	ld a, [hl]
-	and d
-	ld [hli], a ; ATTRACTED_TO
-	ld a, [hl]
-	and d
-	ld [hli], a ; LOCKED_ON_TO
-	ld a, [hl]
-	and d
-	ld [hl], a ; LAST_ATTACKER
-	pop hl
+.singles
+	pop de
 	ret
 
 	assert BATTLER_LINK_MEAN_LOOK_BY == BATTLER_LINK_TRAPPED_BY + 1
 	assert BATTLER_LINK_ATTRACTED_TO == BATTLER_LINK_TRAPPED_BY + 2
 	assert BATTLER_LINK_LOCKED_ON_TO == BATTLER_LINK_TRAPPED_BY + 3
 	assert BATTLER_LINK_LAST_ATTACKER == BATTLER_LINK_TRAPPED_BY + 4
-	assert HIGH(wPlayerBattlerLinks) == HIGH(wEnemyBattlerLinks + NUM_BATTLER_LINKS - 1)
+	assert NUM_BATTLER_LINKS == BATTLER_LINK_LAST_ATTACKER + 1
+
+BattlerMaskToSlot::
+; a = the slot of the lowest bit set in mask a; carry if none. Preserves bc, de and hl.
+	and a
+	scf
+	ret z
+	push bc
+	ld b, -1
+.loop
+	inc b
+	rrca
+	jr nc, .loop
+	ld a, b
+	pop bc
+	and a
+	ret
+
+BattlerVarAddress:
+; hl = the address of field hl (BSLOT_*, a field both sides have) of the battler in slot c:
+; its live variable if the slot is loaded, else its slot storage. a = the WRAM bank to map.
+; Preserves bc and de.
+	push de
+	push bc
+	ld de, wAreaSlots
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_area
+	inc de
+.got_area
+	ld a, [de]
+	cp c
+	jr nz, .stored
+	; find the BattlerSwapList entry holding the field
+	ld e, l ; slots are smaller than 256 bytes
+	ld hl, BattlerSwapList
+.scan
+	ld a, e
+	sub [hl]
+	jr c, .found
+	ld e, a
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	jr .scan
+.found
+	inc hl
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_side
+	inc hl
+	inc hl
+.got_side
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld d, 0
+	add hl, de
+	ld a, BANK(wEnemyMon) ; the live WRAMX variables
+	jr .done
+.stored
+	ld a, c
+	call GetBattlerSlotAddress
+	ld a, BANK(wBattlerSlots)
+.done
+	pop bc
+	pop de
+	ret
+
+	assert BATTLER_SLOT_SIZE < $100
+
+ReadBattlerVar::
+; a = field hl (BSLOT_*) of the battler in slot c (loaded or stored). Preserves bc, de, hl.
+	push de
+	push hl
+	call BattlerVarAddress
+	ld d, a
+	ldh a, [rSVBK]
+	ld e, a
+	ld a, d
+	ldh [rSVBK], a
+	ld d, [hl]
+	ld a, e
+	ldh [rSVBK], a
+	ld a, d
+	pop hl
+	pop de
+	ret
+
+AndBattlerVar::
+; Field hl (BSLOT_*) of the battler in slot c &= b (b = 0 clears it). Preserves bc, de, hl.
+	push de
+	push hl
+	call BattlerVarAddress
+	ld d, a
+	ldh a, [rSVBK]
+	ld e, a
+	ld a, d
+	ldh [rSVBK], a
+	ld a, [hl]
+	and b
+	ld [hl], a
+	ld a, e
+	ldh [rSVBK], a
+	pop hl
+	pop de
+	ret
+
+SetTargetLink::
+; Double battles: link a (BATTLER_LINK_*) of the target (the battler loaded opposite
+; hBattleTurn's) = the user's slot. Does nothing in singles. Preserves all registers.
+	push hl
+	push bc
+	ld c, a
+	ldh a, [hBattleTurn]
+	call _AreaSlotMask ; the user's slot
+	ld b, a
+	ldh a, [hBattleTurn]
+	xor 1
+	jr _SetLink
+
+SetUserLink::
+; Double battles: link a (BATTLER_LINK_*) of the user (hBattleTurn's battler) = the target's
+; slot. Does nothing in singles. Preserves all registers.
+	push hl
+	push bc
+	ld c, a
+	ldh a, [hBattleTurn]
+	xor 1
+	call _AreaSlotMask ; the target's slot
+	ld b, a
+	ldh a, [hBattleTurn]
+_SetLink:
+	; a = the area whose links change, b = the mask, c = the link
+	ld hl, wPlayerBattlerLinks
+	and a
+	jr z, .got_links
+	ld hl, wEnemyBattlerLinks
+.got_links
+	ld a, [wDoubleBattle]
+	and a
+	jr z, .done
+	ld a, l
+	add c
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld [hl], b
+.done
+	ld a, c
+	pop bc
+	pop hl
+	ret
+
+DoublesCheckLockOn::
+; Hit check: in a double battle, z unless the target is the one the user locked on to (then
+; the user's lock-on is used up, and nz). Always nz in singles. Preserves bc, de and hl.
+	ld a, [wDoubleBattle]
+	and a
+	jr z, .singles
+	push hl
+	push bc
+	ldh a, [hBattleTurn]
+	xor 1
+	call _AreaSlotMask ; the target's slot
+	ld b, a
+	ld hl, wPlayerBattlerLinks + BATTLER_LINK_LOCKED_ON_TO
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_links
+	ld hl, wEnemyBattlerLinks + BATTLER_LINK_LOCKED_ON_TO
+.got_links
+	ld a, [hl]
+	and b
+	jr z, .done
+	ld [hl], 0
+	or 1
+.done
+	pop bc
+	pop hl
+	ret
+
+.singles
+	inc a ; nz
+	ret
+
+DoublesNoteHit::
+; A move of the user damages the target (wCurDamage): in a double battle, the target's last
+; attacker is the user (BATTLER_LINK_LAST_ATTACKER) and its last damage this turn is
+; wCurDamage (Counter, Mirror Coat). Preserves all registers.
+	push af
+	ld a, [wDoubleBattle]
+	and a
+	jr z, .done
+	push hl
+	ld a, BATTLER_LINK_LAST_ATTACKER
+	call SetTargetLink
+	ld hl, wEnemyLastDamage
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_damage
+	ld hl, wPlayerLastDamage
+.got_damage
+	ld a, [wCurDamage]
+	ld [hli], a
+	ld a, [wCurDamage + 1]
+	ld [hl], a
+	pop hl
+.done
+	pop af
+	ret
+
+DoublesSetFutureSightTarget::
+; The user foresaw an attack: in a double battle, it will hit the target's slot (whoever is
+; there then). Preserves all registers.
+	push af
+	ld a, [wDoubleBattle]
+	and a
+	jr z, .done
+	push bc
+	push hl
+	ldh a, [hBattleTurn]
+	xor 1
+	call _AreaSlotMask
+	ld b, a
+	ld hl, wPlayerFutureSightTarget
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_user
+	ld hl, wEnemyFutureSightTarget
+.got_user
+	ld [hl], b
+	pop hl
+	pop bc
+.done
+	pop af
+	ret
+
+DoublesHazeStored::
+; Haze in a double battle: the stat levels of the two battlers that aren't loaded are reset
+; too (the move resets the loaded pair itself). Preserves bc, de and hl.
+	ld a, [wDoubleBattle]
+	and a
+	ret z
+	push bc
+	push de
+	push hl
+	ld hl, .haze
+	call _ForStoredBattlers
+	pop hl
+	pop de
+	pop bc
+	ret
+
+.haze
+	ld hl, wPlayerStatLevels
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_levels
+	ld hl, wEnemyStatLevels
+.got_levels
+	ld a, BASE_STAT_LEVEL
+	ld b, NUM_LEVEL_STATS
+.fill
+	ld [hli], a
+	dec b
+	jr nz, .fill
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .enemy
+	farjp CalcPlayerStats
+.enemy
+	farjp CalcEnemyStats
+
+DoublesPerishStored::
+; Perish Song in a double battle: the two battlers that aren't loaded hear it too (the move
+; handles the loaded pair). a = 1 if it started a count on one of them, else 0 (and in
+; singles). Preserves bc, de and hl.
+	ld a, [wDoubleBattle]
+	and a
+	ret z
+	push bc
+	push de
+	push hl
+	xor a
+	ld [wDoublesTemp], a
+	ld hl, .perish
+	call _ForStoredBattlers
+	pop hl
+	pop de
+	pop bc
+	ld a, [wDoublesTemp]
+	ret
+
+.perish
+	ld hl, wPlayerSubStatus1
+	ld de, wPlayerPerishCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_vars
+	ld hl, wEnemySubStatus1
+	ld de, wEnemyPerishCount
+.got_vars
+	bit SUBSTATUS_PERISH, [hl]
+	ret nz
+	set SUBSTATUS_PERISH, [hl]
+	ld a, 4
+	ld [de], a
+	ld a, 1
+	ld [wDoublesTemp], a
+	ret
+
+_ForStoredBattlers:
+; Call hl for each battler on the field that isn't loaded, with it swapped in (c = its slot,
+; hBattleTurn = its side). The battlers that were loaded are loaded back after each call.
+	ldh a, [hBattleTurn]
+	push af
+	ld c, 0
+.loop
+	ld a, c
+	call BattlerSlotMask
+	push hl
+	ld hl, wEmptyBattlerSlots
+	and [hl]
+	jr nz, .skip ; empty
+	ld hl, wAreaSlots
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_area
+	inc hl
+.got_area
+	ld a, [hl]
+	cp c
+	jr z, .skip ; loaded
+	pop hl
+	push bc
+	push hl
+	ld a, c
+	call SwapInBattlerSlot
+	pop hl
+	pop bc
+	push af ; the slot loaded before
+	push bc
+	push hl
+	ld a, c
+	and 1 << BATTLER_SLOT_ENEMY_F
+	rrca
+	ldh [hBattleTurn], a
+	call _hl_
+	pop hl
+	pop bc
+	pop af
+	push bc
+	push hl
+	call SwapInBattlerSlot
+	pop hl
+	pop bc
+	jr .next
+.skip
+	pop hl
+.next
+	inc c
+	ld a, c
+	cp NUM_BATTLER_SLOTS
+	jr nz, .loop
+	pop af
+	ldh [hBattleTurn], a
+	ret
+
+_AreaSlotMask:
+; a = 1 << the slot loaded in area a. Preserves bc, de.
+	ld hl, wAreaSlots
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld a, [hl]
+	jmp BattlerSlotMask
 
 SaveBattlerSlot::
 ; Copy the live variables of slot a's side into slot a.

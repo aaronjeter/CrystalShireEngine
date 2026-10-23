@@ -1,4 +1,12 @@
 BattleCommand_GetMagnitude:
+	; a later pass of the spread move keeps the first pass's magnitude
+	call CheckSpreadLaterPass
+	jr z, .roll
+	ld a, [wDoublesSpreadPower]
+	ld d, a
+	ret
+
+.roll
 	push bc
 	call BattleRandom
 	ld b, a
@@ -21,6 +29,8 @@ BattleCommand_GetMagnitude:
 	ld hl, MagnitudeText
 	call StdBattleTextbox
 	pop de
+	ld a, d
+	ld [wDoublesSpreadPower], a
 	pop bc
 	ret
 

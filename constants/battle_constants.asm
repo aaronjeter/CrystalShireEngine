@@ -307,6 +307,13 @@ DEF BATTLE_STRUCT_LENGTH EQU _RS
 DEF NUM_BATTLER_SLOTS EQU const_value
 DEF BATTLER_SLOT_ENEMY_F EQU 1 ; set for the enemy's slots
 
+; Spread moves in double battles (wDoublesSpread bits; see DoublesRunAction)
+DEF DOUBLES_SPREAD_ACTIVE_F EQU 0 ; the move hits both foes, both are out
+DEF DOUBLES_SPREAD_ARMED_F  EQU 1 ; the move started (its "used" text, not disobeying)
+DEF DOUBLES_SPREAD_HIT_F    EQU 2 ; an earlier pass hit: no animation, no user boost
+DEF DOUBLES_SPREAD_PASS2_F  EQU 3 ; a later pass: no obedience, text, PP, charge, self-KO, roll
+DEF SPREAD_DAMAGE_PERCENT   EQU 75 ; damage of a move with more than one target
+
 ; Per-battler links to other battlers (double battles; wPlayerBattlerLinks/wEnemyBattlerLinks).
 ; Each is a mask of battler slots (1 << BATTLER_SLOT_*); 0 means none.
 rsreset
@@ -351,6 +358,8 @@ DEF BSLOT_WRAP_COUNT         rb
 DEF BSLOT_CHARGING           rb
 DEF BSLOT_JUST_GOT_FROZEN    rb
 DEF BSLOT_LINKS              rb NUM_BATTLER_LINKS ; + BATTLER_LINK_*
+DEF BSLOT_LAST_DAMAGE        rw ; damage from the last attacker this turn (Counter, Mirror Coat)
+DEF BSLOT_FUTURE_SIGHT_TARGET rb ; slot mask Future Sight will hit
 ; player slots only
 DEF BSLOT_USED_MOVES         rb NUM_MOVES
 DEF BSLOT_LAST_PLAYER_MON    rb

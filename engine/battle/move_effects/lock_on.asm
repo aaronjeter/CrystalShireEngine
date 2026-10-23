@@ -9,6 +9,8 @@ BattleCommand_LockOn:
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	set SUBSTATUS_LOCK_ON, [hl]
+	ld a, BATTLER_LINK_LOCKED_ON_TO
+	farcall SetUserLink
 	call AnimateCurrentMove
 
 	ld hl, TookAimText

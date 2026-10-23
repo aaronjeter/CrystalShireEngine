@@ -12,6 +12,8 @@ BattleCommand_Attract:
 	jr nz, .failed
 
 	set SUBSTATUS_IN_LOVE, [hl]
+	ld a, BATTLER_LINK_ATTRACTED_TO
+	farcall SetTargetLink
 	call AnimateCurrentMove
 
 ; 'fell in love!'

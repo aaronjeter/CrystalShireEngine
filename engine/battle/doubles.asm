@@ -216,6 +216,12 @@ DoublesTurnStart:
 	xor a
 	ld [wPlayerIsSwitching], a
 	ld [wEnemyIsSwitching], a
+	ld hl, wPlayerLastDamage ; Counter and Mirror Coat count this turn's hits only
+	ld [hli], a
+	ld [hli], a
+	ld hl, wEnemyLastDamage
+	ld [hli], a
+	ld [hl], a
 	jmp ResetTurnFlinches
 
 DoublesUpdatePlayersInParty:
@@ -480,8 +486,8 @@ DoublesChooseAction:
 
 DoublesChooseTarget:
 ; The loaded player battler chose a move: set its target (BATTLER_LINK_TARGET), the foe
-; opposite it by default. If the move targets a foe and both foes are out, ask which
-; (until phase 3, moves that hit both foes hit only the chosen one). Carry if B was pressed.
+; opposite it by default. If the move targets one foe and both foes are out, ask which.
+; Carry if B was pressed.
 	ld a, [wAreaSlots]
 	xor %10 ; the opposite foe
 	call DoublesIsSlotEmpty
@@ -495,12 +501,7 @@ DoublesChooseTarget:
 	ld a, [wCurPlayerMove]
 	farcall GetMoveTarget
 	cp MOVE_TARGET_SELECTED
-	jr z, .ask
-	cp MOVE_TARGET_BOTH_FOES
-	jr z, .ask
-	cp MOVE_TARGET_ALL_OTHERS
-	jr nz, .set
-.ask
+	jr nz, .set ; spread moves hit both foes (DoublesSpreadPasses)
 	call DoublesTargetMenu
 	ret c
 	ld e, a
@@ -613,6 +614,10 @@ DoublesAIDecisions:
 	call DoublesSwapIn
 	call DoublesLoadFoeFor
 	call SetEnemyTurn
+	ld a, [wCurEnemyMove]
+	inc a
+	ld b, BATTLEPLAYERACTION_USEITEM
+	jr z, .got_action ; it already used Pursuit on a switching battler
 	farcall AI_SwitchOrTryItem
 	ld b, BATTLEPLAYERACTION_USEMOVE
 	jr nc, .move
@@ -943,29 +948,13 @@ DoublesRunAction:
 	jr nc, .got_target
 	ld b, BATTLEPLAYERACTION_USEITEM ; no foe is out: no move
 .got_target
-	; "did the target act first" (CheckOpponentWentFirst): wEnemyGoesFirst =
-	; (the target has acted this turn) XOR (the user's side)
-	ld hl, wAreaSlots + 1
-	bit BATTLER_SLOT_ENEMY_F, c
-	jr z, .got_target_area
-	dec hl
-.got_target_area
-	ld a, [hl]
-	call DoublesSlotMask
-	ld hl, wDoublesActed
-	and [hl]
-	jr z, .got_acted
-	ld a, 1
-.got_acted
-	bit BATTLER_SLOT_ENEMY_F, c
-	jr z, .got_first
-	xor 1
-.got_first
-	ld [wEnemyGoesFirst], a
+	call DoublesSetWentFirst
 	ld a, c
 	call DoublesSlotMask
+	ld hl, wDoublesActed
 	or [hl]
 	ld [hl], a
+	call DoublesSpreadSetup
 	push bc
 	call DrawLoadedBattlers
 	pop bc
@@ -988,6 +977,9 @@ DoublesRunAction:
 	farcall DoEnemyTurn
 .moved
 	pop bc
+	call DoublesSpreadPasses
+	xor a
+	ld [wDoublesSpread], a
 	ld a, [wForcedSwitch]
 	and a
 	jr nz, .ended
@@ -996,16 +988,12 @@ DoublesRunAction:
 	call DoublesCheckFaints
 	pop bc
 	ret c
-	; the user's residual damage, with a foe that's out loaded (Leech Seed)
+	; the user's residual damage
 	ld a, c
 	call DoublesIsSlotEmpty
 	ret nz ; nc
 	call DoublesSwapIn
-	call DoublesLoadFoeFor
-	call DoublesSetTurn
-	push bc
-	call ResidualDamage
-	pop bc
+	call DoublesResidualDamage
 	call DoublesSetTurn
 	call DoublesCheckFaints
 	ret c
@@ -1017,13 +1005,235 @@ DoublesRunAction:
 	scf
 	ret
 
+DoublesResidualDamage:
+; ResidualDamage of the battler in slot c (loaded), with a foe loaded: the one that seeded it
+; (Leech Seed heals whoever is in the seeder's slot; nobody is drained if that slot is empty),
+; else the default foe. Preserves bc.
+	ld a, c
+	call DoublesLoadFoeFor
+	call DoublesSetTurn
+	ld hl, wPlayerSubStatus4
+	ld de, wPlayerBattlerLinks + BATTLER_LINK_SEEDED_BY
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_side
+	ld hl, wEnemySubStatus4
+	ld de, wEnemyBattlerLinks + BATTLER_LINK_SEEDED_BY
+.got_side
+	bit SUBSTATUS_LEECH_SEED, [hl]
+	jr z, .run
+	ld a, [de]
+	call DoublesMaskToSlot
+	jr c, .run
+	call DoublesIsSlotEmpty
+	jr nz, .no_seeder
+	call DoublesSwapIn
+.run
+	push bc
+	call ResidualDamage
+	pop bc
+	ret
+
+.no_seeder
+	res SUBSTATUS_LEECH_SEED, [hl]
+	push hl
+	push bc
+	call ResidualDamage
+	pop bc
+	pop hl
+	set SUBSTATUS_LEECH_SEED, [hl]
+	ret
+
+DoublesLoadFutureSightTarget:
+; HandleFutureSight, the attack is about to hit: in a double battle, load the battler in the
+; target's slot (if it's empty, the foe already loaded is hit). Preserves bc, de and hl.
+	ld a, [wDoubleBattle]
+	and a
+	ret z
+	push hl
+	ld hl, wPlayerFutureSightTarget
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_user
+	ld hl, wEnemyFutureSightTarget
+.got_user
+	ld a, [hl]
+	pop hl
+	call DoublesMaskToSlot
+	ret c
+	call DoublesIsSlotEmpty
+	ret nz
+	jmp DoublesSwapIn
+
+DoublesEnemyActed:
+; nz in a double battle if the enemy's battler has already used its move this turn (Pursuit
+; on a switching battler sets it to $ff), so ParseEnemyAction leaves it. z in singles.
+	ld a, [wDoubleBattle]
+	and a
+	ret z
+	ld a, [wCurEnemyMove]
+	cp $ff
+	jr z, .acted
+	xor a
+	ret
+
+.acted
+	or a ; nz
+	ret
+
+DoublesPursuitSwitch:
+; The player's battler is switching out (BattleMonEntrance): PursuitSwitch for a foe that
+; chose Pursuit. In a double battle, each foe that targeted the switcher's slot (it moves
+; now, and not again this turn). Carry if the switcher fainted.
+	ld a, [wDoubleBattle]
+	and a
+	jr nz, .doubles
+	call SetEnemyTurn
+	jmp PursuitSwitch
+
+.doubles
+	ld a, [wAreaSlots]
+	call DoublesSlotMask
+	ld [wDoublesTemp], a
+	ld a, [wAreaSlots + 1]
+	push af ; the foe loaded now
+	ld c, BATTLER_SLOT_E1
+.loop
+	ld a, c
+	call DoublesIsSlotEmpty
+	jr nz, .next
+	call DoublesSwapIn
+	ld a, [wDoublesTemp]
+	ld hl, wEnemyBattlerLinks + BATTLER_LINK_TARGET
+	and [hl]
+	jr z, .next
+	push bc
+	call SetEnemyTurn
+	call PursuitSwitch
+	pop bc
+	jr c, .fainted
+.next
+	inc c
+	ld a, c
+	cp NUM_BATTLER_SLOTS
+	jr nz, .loop
+	pop af
+	call DoublesSwapIn
+	and a
+	ret
+
+.fainted
+	pop af
+	call DoublesSwapIn
+	scf
+	ret
+
+DoublesSetWentFirst:
+; "Did the target act first" (CheckOpponentWentFirst) for the battler in slot c against the
+; target loaded opposite it: wEnemyGoesFirst = (the target has acted this turn) XOR (the
+; user's side). Preserves bc and de.
+	ld hl, wAreaSlots + 1
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_target_area
+	dec hl
+.got_target_area
+	ld a, [hl]
+	call DoublesSlotMask
+	ld hl, wDoublesActed
+	and [hl]
+	jr z, .got_acted
+	ld a, 1
+.got_acted
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_first
+	xor 1
+.got_first
+	ld [wEnemyGoesFirst], a
+	ret
+
+DoublesSpreadSetup:
+; The battler in slot c is about to use action b: wDoublesSpread = DOUBLES_SPREAD_ACTIVE if
+; it's a move that hits both foes (BOTH_FOES, ALL_OTHERS: no ally hits in v1) and both foes
+; are out, else 0. Called moves (Metronome...) hit only the current target. Preserves bc.
+	xor a
+	ld [wDoublesSpread], a
+	ld a, b
+	and a ; BATTLEPLAYERACTION_USEMOVE?
+	ret nz
+	ld e, 1 << BATTLER_SLOT_E1 | 1 << BATTLER_SLOT_E2
+	ld hl, wCurPlayerMove
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_side
+	ld e, 1 << BATTLER_SLOT_P1 | 1 << BATTLER_SLOT_P2
+	ld hl, wCurEnemyMove
+.got_side
+	ld a, [wEmptyBattlerSlots]
+	and e
+	ret nz
+	ld a, [hl]
+	farcall GetMoveTarget
+	cp MOVE_TARGET_BOTH_FOES
+	jr z, .spread
+	cp MOVE_TARGET_ALL_OTHERS
+	ret nz
+.spread
+	ld a, 1 << DOUBLES_SPREAD_ACTIVE_F
+	ld [wDoublesSpread], a
+	ret
+
+DoublesSpreadPasses:
+; After the first pass of the move of the battler in slot c: if it was a spread move that
+; started (DOUBLES_SPREAD_ARMED), run it again against the other foe. The user must still
+; be standing, unless it used Selfdestruct or Explosion. Preserves bc.
+	ld a, [wDoublesSpread]
+	bit DOUBLES_SPREAD_ARMED_F, a
+	ret z
+	call DoublesSetTurn
+	ld hl, wBattleMonHP
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_hp
+	ld hl, wEnemyMonHP
+.got_hp
+	ld a, [hli]
+	or [hl]
+	jr nz, .standing
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_SELFDESTRUCT
+	ret nz
+.standing
+	ld hl, wDoublesSpread
+	ld a, [wAttackMissed]
+	and a
+	jr nz, .missed
+	set DOUBLES_SPREAD_HIT_F, [hl]
+.missed
+	set DOUBLES_SPREAD_PASS2_F, [hl]
+	; the other foe
+	ld hl, wAreaSlots + 1
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_target_area
+	dec hl
+.got_target_area
+	ld a, [hl]
+	xor 1
+	call DoublesSwapIn
+	call DoublesSetWentFirst
+	push bc
+	call DrawLoadedBattlers
+	pop bc
+	call DoublesSetTurn
+	push bc
+	farcall DoublesSpreadPass
+	pop bc
+	ret
+
 DoublesLoadTarget:
 ; Load the target of the battler in slot c: its chosen target (BATTLER_LINK_TARGET), or the
 ; other foe if that slot is empty; a random foe for RANDOM_FOE moves. b = its action.
 ; Carry if no foe is out.
 	ld a, b
 	and a ; BATTLEPLAYERACTION_USEMOVE?
-	jr nz, .default
+	jp nz, .default
 	ld a, [wCurPlayerMove]
 	ld hl, wPlayerBattlerLinks + BATTLER_LINK_TARGET
 	bit BATTLER_SLOT_ENEMY_F, c
@@ -1036,6 +1246,18 @@ DoublesLoadTarget:
 	pop hl
 	cp MOVE_TARGET_RANDOM_FOE
 	jr z, .random
+	cp MOVE_TARGET_COUNTER
+	jr z, .last_attacker
+	; Bide, unleashing: whoever hit the user last
+	push hl
+	ld hl, wPlayerSubStatus3
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_substatus
+	ld hl, wEnemySubStatus3
+.got_substatus
+	bit SUBSTATUS_BIDE, [hl]
+	pop hl
+	jr nz, .last_attacker
 	ld a, [hl]
 	call DoublesMaskToSlot
 	jr c, .default
@@ -1051,6 +1273,32 @@ DoublesLoadTarget:
 	jr z, .load
 	scf
 	ret
+
+.last_attacker
+; Counter, Mirror Coat, Bide: the battler that last hit the user, with that hit's damage this
+; turn in wCurDamage (none: the default foe, no damage, so Counter fails).
+	xor a
+	ld [wCurDamage], a
+	ld [wCurDamage + 1], a
+	ld de, BATTLER_LINK_LAST_ATTACKER - BATTLER_LINK_TARGET
+	add hl, de
+	ld a, [hl]
+	call DoublesMaskToSlot
+	jr c, .default
+	call DoublesIsSlotEmpty
+	jr nz, .default
+	ld hl, wPlayerLastDamage
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_damage
+	ld hl, wEnemyLastDamage
+.got_damage
+	ld e, a
+	ld a, [hli]
+	ld [wCurDamage], a
+	ld a, [hl]
+	ld [wCurDamage + 1], a
+	ld a, e
+	jr .load
 
 .random
 	ld a, c

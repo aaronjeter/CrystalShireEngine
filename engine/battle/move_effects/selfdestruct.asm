@@ -1,4 +1,6 @@
 BattleCommand_Selfdestruct:
+	call CheckSpreadLaterPass ; the user already fainted on the first pass
+	ret nz
 	ld a, BATTLEANIM_PLAYER_DAMAGE
 	ld [wNumHits], a
 	ld c, 3
