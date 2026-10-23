@@ -2504,15 +2504,10 @@ BattleCommand_CheckFaint:
 	ldh a, [hBattleTurn]
 	and a
 	ld hl, wEnemyMonMaxHP + 1
-	bccoord 2, 2 ; hp bar
-	ld a, 0 ; no-optimize a = 0
 	jr nz, .got_max_hp
 	ld hl, wBattleMonMaxHP + 1
-	bccoord 10, 9 ; hp bar
-	ld a, 1
 
 .got_max_hp
-	ld [wWhichHPBar], a
 	ld a, [hld]
 	ld [wHPBuffer1], a
 	ld a, [hld]
@@ -2527,9 +2522,8 @@ BattleCommand_CheckFaint:
 	ld [hl], a
 	ld [wHPBuffer3], a
 	ld [wHPBuffer3 + 1], a
-	ld h, b
-	ld l, c
-	predef AnimateHPBar
+	ldh a, [hBattleTurn]
+	farcall AnimateAreaHPBar
 	call RefreshBattleHuds
 
 	call BattleCommand_SwitchTurn
@@ -3744,10 +3738,8 @@ DoEnemyDamage:
 	ld a, [hl]
 	ld [wHPBuffer3], a
 
-	hlcoord 2, 2
-	xor a
-	ld [wWhichHPBar], a
-	predef AnimateHPBar
+	ld a, 1 ; the enemy's area
+	farcall AnimateAreaHPBar
 .did_no_damage
 	jmp RefreshBattleHuds
 
@@ -3804,10 +3796,8 @@ DoPlayerDamage:
 	ld a, [hl]
 	ld [wHPBuffer1], a
 
-	hlcoord 10, 9
-	ld a, 1
-	ld [wWhichHPBar], a
-	predef AnimateHPBar
+	xor a ; the player's area
+	farcall AnimateAreaHPBar
 .did_no_damage
 	jmp RefreshBattleHuds
 
@@ -4184,15 +4174,7 @@ SapHealth:
 
 .finish
 	ldh a, [hBattleTurn]
-	and a
-	hlcoord 10, 9
-	ld a, $1
-	jr z, .hp_bar
-	hlcoord 2, 2
-	xor a
-.hp_bar
-	ld [wWhichHPBar], a
-	predef AnimateHPBar
+	farcall AnimateAreaHPBar
 	call RefreshBattleHuds
 	jmp UpdateBattleMonInParty
 
@@ -5275,9 +5257,8 @@ BattleCommand_ForceSwitch:
 .trainer
 	farcall FindAliveEnemyMons
 	jr c, .switch_fail
-	ld a, [wEnemyGoesFirst]
-	and a
-	jr z, .switch_fail
+	call CheckOpponentWentFirst
+	jr z, .switch_fail ; the user went first
 	call UpdateEnemyMonInParty
 	ld a, $1
 	ld [wBattleAnimParam], a
@@ -5291,15 +5272,13 @@ BattleCommand_ForceSwitch:
 	call DelayFrames
 	ld a, [wOTPartyCount]
 	ld b, a
-	ld a, [wCurOTMon]
-	ld c, a
 ; select a random enemy mon to switch to
 .random_loop_trainer
 	call BattleRandom
 	and $7
 	cp b
 	jr nc, .random_loop_trainer
-	cp c
+	farcall IsEnemyMonOnField
 	jr z, .random_loop_trainer
 	push af
 	push bc
@@ -5366,9 +5345,8 @@ BattleCommand_ForceSwitch:
 	call CheckPlayerHasMonToSwitchTo
 	jr c, .fail
 
-	ld a, [wEnemyGoesFirst]
-	cp $1
-	jr z, .switch_fail
+	call CheckOpponentWentFirst
+	jr z, .switch_fail ; the user went first
 
 	call UpdateBattleMonInParty
 	ld a, $1
@@ -5383,15 +5361,13 @@ BattleCommand_ForceSwitch:
 	call DelayFrames
 	ld a, [wPartyCount]
 	ld b, a
-	ld a, [wCurBattleMon]
-	ld c, a
 .random_loop_trainer_playeristarget
 	call BattleRandom
 	and $7
 	cp b
 	jr nc, .random_loop_trainer_playeristarget
 
-	cp c
+	farcall IsPlayerMonOnField
 	jr z, .random_loop_trainer_playeristarget
 
 	push af
@@ -5445,8 +5421,8 @@ CheckPlayerHasMonToSwitchTo:
 	ld e, 0
 	ld bc, PARTYMON_STRUCT_LENGTH
 .loop
-	ld a, [wCurBattleMon]
-	cp e
+	ld a, e
+	farcall IsPlayerMonOnField
 	jr z, .next
 
 	ld a, e

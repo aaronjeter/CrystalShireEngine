@@ -156,22 +156,20 @@ CheckAnyOtherAlivePartyMons:
 	ld hl, wPartyMon1HP
 	ld a, [wPartyCount]
 	ld d, a
-	ld a, [wCurBattleMon]
-	ld e, a
+	ld e, 0 ; the player's side
 	jr CheckAnyOtherAliveMons
 
 CheckAnyOtherAliveEnemyMons:
 	ld hl, wOTPartyMon1HP
 	ld a, [wOTPartyCount]
 	ld d, a
-	ld a, [wCurOTMon]
-	ld e, a
+	ld e, 1 ; the enemy's side
 
 	; fallthrough
 
 CheckAnyOtherAliveMons:
 ; Check for nonzero HP starting from partymon
-; HP at hl for d partymons, besides current mon e.
+; HP at hl for d partymons of side e, besides the ones on the field.
 
 ; Return nz if any are alive.
 
@@ -182,7 +180,7 @@ CheckAnyOtherAliveMons:
 	ld a, c
 	cp d
 	jr z, .done
-	cp e
+	call .OnField
 	jr z, .next
 
 	ld a, [hli]
@@ -199,6 +197,15 @@ CheckAnyOtherAliveMons:
 	pop bc
 	inc c
 	jr .loop
+
+.OnField:
+; z if party mon c of side e is on the field
+	ld a, c
+	bit 0, e
+	jr nz, .enemy
+	farjp IsPlayerMonOnField
+.enemy
+	farjp IsEnemyMonOnField
 
 .done
 	ld a, b

@@ -1941,6 +1941,7 @@ IsItemUsedOnBattleMon:
 	and a
 	ret z
 	ld a, [wCurPartyMon]
+	farcall SwapInPlayerPartyMon ; doubles: load the mon if it's out in the other slot
 	push hl
 	ld hl, wCurBattleMon
 	cp [hl]
@@ -2539,6 +2540,7 @@ BattleRestorePP:
 	and a
 	jr z, .not_in_battle
 	ld a, [wCurPartyMon]
+	farcall SwapInPlayerPartyMon ; doubles: load the mon if it's out in the other slot
 	ld b, a
 	ld a, [wCurBattleMon]
 	cp b

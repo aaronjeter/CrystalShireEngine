@@ -622,6 +622,17 @@ wBattleActions:: ds NUM_BATTLER_SLOTS * 2
 
 ; Real side of the battler in each area, as area XOR this (0 in singles; see GetAreaSide)
 wAreaSideFlip:: ds 2
+
+; Double battle control state (nothing reads it in singles)
+wDoubleBattle:: db ; nonzero in a double battle
+wAreaSlots:: ds 2 ; battler slot loaded in the player's area, the enemy's area
+wEmptyBattlerSlots:: db ; mask of battler slots (1 << BATTLER_SLOT_*) with no battler
+wFieldMons:: ds 2 ; the player's, the enemy's party mons on the field (bit = party index)
+wPartyMonSwap:: db ; bit 7 set: SwapInPlayerPartyMon swapped a stored battler in; bits 0-1: the slot to load back
+
+; Per-battler links (BATTLER_LINK_*), in BattlerSwapList like the variables in wBattle
+wPlayerBattlerLinks:: ds NUM_BATTLER_LINKS
+wEnemyBattlerLinks:: ds NUM_BATTLER_LINKS
 wBattleStateEnd:: ; start_battle.asm clears wBattle through here
 
 

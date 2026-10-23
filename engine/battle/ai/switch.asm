@@ -279,8 +279,8 @@ FindAliveEnemyMons:
 	ld hl, wOTPartyMon1HP
 
 .loop
-	ld a, [wCurOTMon]
-	cp e
+	ld a, e
+	farcall IsEnemyMonOnField
 	jr z, .next
 
 	push bc
@@ -327,8 +327,8 @@ FindEnemyMonsImmuneToLastCounterMove:
 	ld [wEnemyAISwitchScore], a
 
 .loop
-	ld a, [wCurOTMon]
-	cp d
+	ld a, d
+	farcall IsEnemyMonOnField
 	push hl
 	jr z, .next
 

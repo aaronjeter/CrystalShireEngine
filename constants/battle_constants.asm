@@ -281,8 +281,22 @@ DEF BATTLERESULT_BITMASK EQU (1 << BATTLERESULT_CAUGHT_CELEBI) | (1 << BATTLERES
 DEF LINK_BATTLE_RECORD_LENGTH EQU 2 + (NAME_LENGTH - 1) + 2 * 3
 DEF NUM_LINK_BATTLE_RECORDS EQU 5
 
-; battle_struct length (see macros/ram.asm)
-DEF BATTLE_STRUCT_LENGTH EQU 32
+; battle_struct members (see macros/ram.asm; asserted in engine/battle/battler_swap.asm)
+rsreset
+DEF BATTLEMON_SPECIES    rb
+DEF BATTLEMON_ITEM       rb
+DEF BATTLEMON_MOVES      rb NUM_MOVES
+DEF BATTLEMON_DVS        rw
+DEF BATTLEMON_PP         rb NUM_MOVES
+DEF BATTLEMON_HAPPINESS  rb
+DEF BATTLEMON_LEVEL      rb
+DEF BATTLEMON_STATUS     rb 2
+DEF BATTLEMON_HP         rw
+DEF BATTLEMON_MAX_HP     rw
+DEF BATTLEMON_STATS      rw NUM_BATTLE_STATS ; big endian: attack, defense, speed, sp.atk, sp.def
+DEF BATTLEMON_TYPE1      rb
+DEF BATTLEMON_TYPE2      rb
+DEF BATTLE_STRUCT_LENGTH EQU _RS
 
 ; battler slots for double battles (see engine/battle/battler_swap.asm)
 	const_def
@@ -292,8 +306,75 @@ DEF BATTLE_STRUCT_LENGTH EQU 32
 	const BATTLER_SLOT_E2 ; 3
 DEF NUM_BATTLER_SLOTS EQU const_value
 DEF BATTLER_SLOT_ENEMY_F EQU 1 ; set for the enemy's slots
-; bytes per slot: the total of BattlerSwapList's sizes (checked by an assert there)
-DEF BATTLER_SLOT_SIZE EQU 134
+
+; Per-battler links to other battlers (double battles; wPlayerBattlerLinks/wEnemyBattlerLinks).
+; Each is a mask of battler slots (1 << BATTLER_SLOT_*); 0 means none.
+rsreset
+DEF BATTLER_LINK_TARGET        rb ; the chosen target(s) of this battler's move
+DEF BATTLER_LINK_SEEDED_BY     rb ; Leech Seed: the seeder's slot gets the HP
+DEF BATTLER_LINK_TRAPPED_BY    rb ; Wrap, Bind...: ends when the trapper leaves
+DEF BATTLER_LINK_MEAN_LOOK_BY  rb ; Mean Look, Spider Web: ends when the user leaves
+DEF BATTLER_LINK_ATTRACTED_TO  rb ; ends when either leaves
+DEF BATTLER_LINK_LOCKED_ON_TO  rb ; Lock-On, Mind Reader: ends when either leaves
+DEF BATTLER_LINK_LAST_ATTACKER rb ; who last damaged this battler (Counter, Mirror Coat, Bide, Destiny Bond)
+DEF NUM_BATTLER_LINKS EQU _RS
+
+; Battler slot layout (wBattlerSlots): one field per BattlerSwapList entry, in the same order
+; (engine/battle/battler_swap.asm asserts it). Read a stored battler's field at
+; wBattlerSlots + slot * BATTLER_SLOT_SIZE + BSLOT_*, in WRAMX bank BANK(wBattlerSlots).
+rsreset
+DEF BSLOT_MOVE_STRUCT        rb MOVE_LENGTH
+DEF BSLOT_NICKNAME           rb MON_NAME_LENGTH
+DEF BSLOT_MON                rb BATTLE_STRUCT_LENGTH ; + BATTLEMON_*
+DEF BSLOT_ABILITY            rb
+DEF BSLOT_PARTY_INDEX        rb ; wCurBattleMon / wCurOTMon
+DEF BSLOT_TEMP_SPECIES       rb
+DEF BSLOT_SUBSTATUS          rb 5
+DEF BSLOT_COUNTS             rb 8 ; rollout through protect
+DEF BSLOT_DAMAGE_TAKEN       rw
+DEF BSLOT_STATS              rb NUM_BATTLE_STATS * 2 + 1 ; + padding
+DEF BSLOT_STAT_LEVELS        rb NUM_LEVEL_STATS
+DEF BSLOT_TURNS_TAKEN        rb
+DEF BSLOT_SUBSTITUTE_HP      rb
+DEF BSLOT_CUR_MOVE           rb
+DEF BSLOT_CUR_MOVE_NUM       rb
+DEF BSLOT_DISABLED_MOVE      rb
+DEF BSLOT_LAST_COUNTER_MOVE  rb
+DEF BSLOT_MINIMIZED          rb
+DEF BSLOT_IS_SWITCHING       rb
+DEF BSLOT_LAST_MOVE          rb
+DEF BSLOT_FUTURE_SIGHT_COUNT rb
+DEF BSLOT_FUTURE_SIGHT_DAMAGE rw
+DEF BSLOT_RAGE_COUNTER       rb
+DEF BSLOT_TRAPPING_MOVE      rb
+DEF BSLOT_WRAP_COUNT         rb
+DEF BSLOT_CHARGING           rb
+DEF BSLOT_JUST_GOT_FROZEN    rb
+DEF BSLOT_LINKS              rb NUM_BATTLER_LINKS ; + BATTLER_LINK_*
+; player slots only
+DEF BSLOT_USED_MOVES         rb NUM_MOVES
+DEF BSLOT_LAST_PLAYER_MON    rb
+; enemy slots only (one-sided fields don't overlap; each slot has the same layout)
+DEF BSLOT_BASE_STATS         rb NUM_EXP_STATS + 2 ; base stats, catch rate, base EXP
+DEF BSLOT_ABILITY_SLOT       rb
+DEF BSLOT_BACKUP_DVS         rw
+DEF BSLOT_AI_SWITCH          rb 3 ; switch score, param, index
+DEF BSLOT_BACKUP_BASE_STATS  rb NUM_EXP_STATS + 2
+DEF BSLOT_PARTICIPANTS       rb ; wBattleParticipantsNotFainted
+DEF BSLOT_PARTICIPANTS_ALL   rb ; wBattleParticipantsIncludingFainted
+DEF BSLOT_HP_AT_PLAYER_SWITCH rw
+DEF BSLOT_AI_ITEM_STATE      rb
+DEF BATTLER_SLOT_SIZE EQU _RS
+
+; entrance ability target kinds (engine/battle/entrance_abilities.asm; double battles)
+	const_def
+	const ENTRANCE_FIELD        ; weather
+	const ENTRANCE_SELF         ; the mon itself (stat boosts, status cures)
+	const ENTRANCE_OWN_SIDE     ; its side (Safeguard, Reflect)
+	const ENTRANCE_FOE_SIDE     ; the foes' side (Spikes)
+	const ENTRANCE_EACH_FOE     ; each foe on the field, in turn (Intimidate, Leech...)
+	const ENTRANCE_OPPOSITE_FOE ; the foe in the opposite slot, else the other foe (Impostor)
+DEF NUM_ENTRANCE_KINDS EQU const_value
 
 ; MoveAttributes target types (data/moves/move_attributes.asm; double battles)
 	const_def

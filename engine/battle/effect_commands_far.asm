@@ -222,10 +222,8 @@ _BattleCommand_PainSplit:
 	ld hl, wBattleMonMaxHP + 1
 	ld de, wEnemyMonMaxHP + 1
 	call .PlayerShareHP
-	ld a, $1
-	ld [wWhichHPBar], a
-	hlcoord 10, 9
-	predef AnimateHPBar
+	xor a ; the player's area
+	farcall AnimateAreaHPBar
 	ld hl, wEnemyMonHP
 	ld a, [hli]
 	ld [wHPBuffer2 + 1], a
@@ -236,11 +234,9 @@ _BattleCommand_PainSplit:
 	ld a, [hl]
 	ld [wHPBuffer1], a
 	call .EnemyShareHP
-	xor a
-	ld [wWhichHPBar], a
 	call ResetDamage
-	hlcoord 2, 2
-	predef AnimateHPBar
+	ld a, 1 ; the enemy's area
+	farcall AnimateAreaHPBar
 	farcall _UpdateBattleHUDs
 
 	ld hl, SharedPainText
@@ -1057,16 +1053,8 @@ _BattleCommand_Recoil:
 	ld [hli], a
 	ld [hl], a
 .dont_ko
-	hlcoord 10, 9
 	ldh a, [hBattleTurn]
-	and a
-	ld a, 1
-	jr z, .animate_hp_bar
-	hlcoord 2, 2
-	xor a
-.animate_hp_bar
-	ld [wWhichHPBar], a
-	predef AnimateHPBar
+	farcall AnimateAreaHPBar
 	call RefreshBattleHuds
 	ld hl, RecoilText
 	jmp StdBattleTextbox

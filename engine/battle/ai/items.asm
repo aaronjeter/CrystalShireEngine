@@ -612,11 +612,9 @@ EnemyPotionContinue:
 
 EnemyPotionFinish:
 	call PrintText_UsedItemOn
-	hlcoord 2, 2
-	xor a
-	ld [wWhichHPBar], a
 	call AIUsedItemSound
-	predef AnimateHPBar
+	ld a, 1 ; the enemy's area
+	farcall AnimateAreaHPBar
 	jmp AIUpdateHUD
 
 AI_TrySwitch:
@@ -680,6 +678,7 @@ AI_Switch:
 	farcall ResetEnemyStatLevels
 	ld hl, wPlayerSubStatus1
 	res SUBSTATUS_IN_LOVE, [hl]
+	farcall EnemyLeftFieldHook ; doubles: drop the links to its slot
 	farcall EnemySwitch
 	farcall ResetBattleParticipants
 	xor a

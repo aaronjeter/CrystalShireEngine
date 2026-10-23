@@ -1,5 +1,56 @@
 INCLUDE "engine/16/macros.asm"
 
+MACRO ___check_battler_slots
+	; macro arguments: bit setting function, BSLOT_* field offsets...
+	; Double battles only: IDs of the battlers stored in wBattlerSlots (WRAMX bank 5) are in use too.
+	; Expects rSVBK = 1 and leaves it so; clobbers everything.
+	ld a, [wDoubleBattle]
+	and a
+	jr z, .no_battler_slots\@
+	ld a, BANK(wBattlerSlots)
+	ldh [rSVBK], a
+	ld de, .battler_slot_fields\@
+.battler_slot_field_loop\@
+	ld a, [de]
+	inc de
+	inc a
+	jr z, .battler_slots_done\@
+	dec a
+	push de
+	ld hl, wBattlerSlots
+	add l
+	ld e, a
+	adc h
+	sub e
+	ld d, a
+	ld a, NUM_BATTLER_SLOTS
+	ld [wTempLoopCounter], a
+.battler_slot_loop\@
+	ld a, [de]
+	call \1 ; preserves de
+	ld hl, BATTLER_SLOT_SIZE
+	add hl, de
+	ld d, h
+	ld e, l
+	ld hl, wTempLoopCounter
+	dec [hl]
+	jr nz, .battler_slot_loop\@
+	pop de
+	jr .battler_slot_field_loop\@
+
+.battler_slot_fields\@
+	for ___field, 2, _NARG + 1
+		assert (\<___field>) < $ff
+		db \<___field>
+	endr
+	db $ff
+
+.battler_slots_done\@
+	ld a, 1
+	ldh [rSVBK], a
+.no_battler_slots\@
+ENDM
+
 ForceGarbageCollection::
 	push bc
 	ldh a, [rSVBK]
@@ -40,6 +91,7 @@ PokemonTableGarbageCollection:
 	___conversion_bitmap_check_structs wBugContestFirstPlaceMon, wBugContestSecondPlaceMon - wBugContestFirstPlaceMon, 3, .set_bit
 	___conversion_bitmap_check_values .set_bit, wBufferMonSpecies, wTempMonSpecies, wContestMonSpecies, \
 	                                            wBattleMonSpecies, wEnemyMonSpecies, wOddEggSpecies, wBaseSpecies
+	___check_battler_slots .set_bit, BSLOT_MON + BATTLEMON_SPECIES, BSLOT_TEMP_SPECIES
 	pop af
 	ldh [rSVBK], a
 	___conversion_bitmap_free_unused wPokemonIndexTable, MON_TABLE
@@ -76,6 +128,11 @@ MoveTableGarbageCollection:
 		                                            wBattleMonMoves + ___move, wEnemyMonMoves + ___move, wWildMonMoves + ___move, \
 		                                            wPlayerUsedMoves + ___move
 	endr
+	___check_battler_slots .set_bit, \
+		BSLOT_MON + BATTLEMON_MOVES, BSLOT_MON + BATTLEMON_MOVES + 1, BSLOT_MON + BATTLEMON_MOVES + 2, BSLOT_MON + BATTLEMON_MOVES + 3, \
+		BSLOT_USED_MOVES, BSLOT_USED_MOVES + 1, BSLOT_USED_MOVES + 2, BSLOT_USED_MOVES + 3, \
+		BSLOT_MOVE_STRUCT + MOVE_ANIM, BSLOT_CUR_MOVE, BSLOT_DISABLED_MOVE, BSLOT_LAST_COUNTER_MOVE, \
+		BSLOT_LAST_MOVE, BSLOT_TRAPPING_MOVE
 	ld a, [wNamedObjectIndex] ;or any of its aliases...
 	call .set_bit
 	; only valid sometimes
@@ -132,6 +189,7 @@ ItemTableGarbageCollection:
 		wScriptVar, wCurEnemyItem, wEnemyTrainerItem1, \
 		wEnemyTrainerItem2, wNamedObjectIndex, wBaseItem1, \
 		wBaseItem2, wRegisteredItem
+	___check_battler_slots .set_bit, BSLOT_MON + BATTLEMON_ITEM
 
 ; battle tower stuff should be here but this ROM hack doesn't care
 

@@ -171,6 +171,8 @@ ClearBattleRAM:
 	ld bc, wBattleStateEnd - wBattle
 	xor a
 	rst ByteFill
+	ld a, BATTLER_SLOT_E1 ; the player's area holds P1 (0)
+	ld [wAreaSlots + 1], a
 
 	farcall ResetEnemyStatLevels
 

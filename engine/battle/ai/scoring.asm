@@ -1775,8 +1775,8 @@ AICheckLastPlayerMon:
 	ld de, PARTYMON_STRUCT_LENGTH
 
 .loop
-	ld a, [wCurBattleMon]
-	cp c
+	ld a, c
+	farcall IsPlayerMonOnField
 	jr z, .skip
 
 	ld a, [hli]

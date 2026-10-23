@@ -25,7 +25,27 @@ BattleCommand_HealBell:
 
 	ld hl, BellChimedText
 	call StdBattleTextbox
+	call .CalcStats
 
+; Double battles: the partner's stored copy (its party struct was cured above)
+	ld a, [wDoubleBattle]
+	and a
+	ret z
+	farcall GetBattlerPartnerSlot
+	ret nc
+	farcall SwapInBattlerSlot
+	push af
+	ld a, BATTLE_VARS_SUBSTATUS1
+	call GetBattleVarAddr
+	res SUBSTATUS_NIGHTMARE, [hl]
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVarAddr
+	ld [hl], 0
+	call .CalcStats
+	pop af
+	farjp SwapInBattlerSlot
+
+.CalcStats:
 	ldh a, [hBattleTurn]
 	and a
 	jmp z, CalcPlayerStats

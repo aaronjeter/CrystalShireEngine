@@ -12,37 +12,45 @@ Check_Entrance_Ability:
 	jr z, .found
 	inc hl
 	inc hl
+	inc hl
 	jr .loop
 
 .found
+	inc hl ; the target kind (ENTRANCE_*; for double battles)
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	jp hl
 
 .Abilities:
-	dbw ABILITY_DRIZZLE,        .HasDrizzle
-	dbw ABILITY_DROUGHT,        .HasDrought
-	dbw ABILITY_SAND_STREAM,    .HasSandStream
-	dbw ABILITY_SNOW_WARNING,   .HasSnowWarning
-	dbw ABILITY_INTIMIDATE,     .HasIntimidate
-	dbw ABILITY_MYSTIFY,        .HasMystify
-	dbw ABILITY_SNARE,          .HasSnare
-	dbw ABILITY_HASTE,          .HasHaste
-	dbw ABILITY_AIM,            .HasAim
-	dbw ABILITY_FOCUS,          .HasFocus
-	dbw ABILITY_VEILED,         .HasVeiled
-	dbw ABILITY_INVISIBLE_WALL, .HasInvisibleWall
-	dbw ABILITY_IMPOSTOR,       .HasImpostor
-	dbw ABILITY_DEBRIS,         .HasDebris
-	dbw ABILITY_LEECH,          .HasLeech
-	dbw ABILITY_ENERVATE,       .HasEnervate
-	dbw ABILITY_DAUNT,          .HasDaunt
-	dbw ABILITY_LIMBER,         .CureStatus
-	dbw ABILITY_INSOMNIA,       .CureStatus
-	dbw ABILITY_IMMUNITY,       .CureStatus
-	dbw ABILITY_WATER_VEIL,     .CureStatus
-	dbw ABILITY_MAGMA_ARMOR,    .CureStatus
+; Each ability's target kind tells double battles who it affects (ENTRANCE_*,
+; constants/battle_constants.asm); singles ignores it.
+MACRO entrance_ability ; ability, ENTRANCE_* kind, handler
+	db \1, \2
+	dw \3
+ENDM
+	entrance_ability ABILITY_DRIZZLE,         ENTRANCE_FIELD,         .HasDrizzle
+	entrance_ability ABILITY_DROUGHT,         ENTRANCE_FIELD,         .HasDrought
+	entrance_ability ABILITY_SAND_STREAM,     ENTRANCE_FIELD,         .HasSandStream
+	entrance_ability ABILITY_SNOW_WARNING,    ENTRANCE_FIELD,         .HasSnowWarning
+	entrance_ability ABILITY_INTIMIDATE,      ENTRANCE_EACH_FOE,      .HasIntimidate
+	entrance_ability ABILITY_MYSTIFY,         ENTRANCE_EACH_FOE,      .HasMystify
+	entrance_ability ABILITY_SNARE,           ENTRANCE_EACH_FOE,      .HasSnare
+	entrance_ability ABILITY_HASTE,           ENTRANCE_SELF,          .HasHaste
+	entrance_ability ABILITY_AIM,             ENTRANCE_SELF,          .HasAim
+	entrance_ability ABILITY_FOCUS,           ENTRANCE_SELF,          .HasFocus
+	entrance_ability ABILITY_VEILED,          ENTRANCE_OWN_SIDE,      .HasVeiled
+	entrance_ability ABILITY_INVISIBLE_WALL,  ENTRANCE_OWN_SIDE,      .HasInvisibleWall
+	entrance_ability ABILITY_IMPOSTOR,        ENTRANCE_OPPOSITE_FOE,  .HasImpostor
+	entrance_ability ABILITY_DEBRIS,          ENTRANCE_FOE_SIDE,      .HasDebris
+	entrance_ability ABILITY_LEECH,           ENTRANCE_EACH_FOE,      .HasLeech
+	entrance_ability ABILITY_ENERVATE,        ENTRANCE_EACH_FOE,      .HasEnervate
+	entrance_ability ABILITY_DAUNT,           ENTRANCE_EACH_FOE,      .HasDaunt
+	entrance_ability ABILITY_LIMBER,          ENTRANCE_SELF,          .CureStatus
+	entrance_ability ABILITY_INSOMNIA,        ENTRANCE_SELF,          .CureStatus
+	entrance_ability ABILITY_IMMUNITY,        ENTRANCE_SELF,          .CureStatus
+	entrance_ability ABILITY_WATER_VEIL,      ENTRANCE_SELF,          .CureStatus
+	entrance_ability ABILITY_MAGMA_ARMOR,     ENTRANCE_SELF,          .CureStatus
 	db -1
 
 .HasDrizzle:

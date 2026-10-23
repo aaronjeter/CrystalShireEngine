@@ -630,6 +630,11 @@ SECTION "Move Attributes", ROMX
 INCLUDE "data/moves/move_attributes.asm"
 
 
+SECTION "Battle Core 2", ROMX, BANK[$7e] ; not floating: it must not fill the room it frees in Battle Core
+
+INCLUDE "engine/battle/core_far.asm"
+
+
 SECTION "Effect Commands 2", ROMX, BANK[$7e] ; not floating: it must not fill the room it frees in Effect Commands
 
 INCLUDE "engine/battle/effect_commands_far.asm"

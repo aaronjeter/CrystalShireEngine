@@ -63,6 +63,15 @@ def free_space(map_path, bank, need):
 
 # ---------------------------------------------------------------- the patched game
 class Game(H):
+    def slot_size(self):
+        """BATTLER_SLOT_SIZE: the total of BattlerSwapList's sizes, read from the ROM."""
+        b, a = self.sym['BattlerSwapList']
+        r = self.rom()
+        p, n = b * 0x4000 + a - 0x4000, 0
+        while r[p]:
+            n += r[p]; p += 5
+        return n
+
     def __init__(self, rom, sym, state, map_path=None):
         super().__init__(rom, None, sym)
         self.map = map_path or os.path.splitext(sym)[0] + '.map'
@@ -226,7 +235,91 @@ def record(g):
     size = g.sym['wPartyMon2'][1] - g.sym['wPartyMon1'][1]
     r['wPartyMons'] = g.rd('wPartyMon1', size * g.rd('wPartyCount'))
     r['wOTPartyMons'] = g.rd('wOTPartyMon1', size * g.rd('wOTPartyCount'))
+    if 'wDoubleBattle' in g.sym.d and g.rd('wDoubleBattle'):  # doubles only, so singles records don't change
+        for a, b in DOUBLES_REGIONS:
+            r[a] = g.rd(a, g.sym[b][1] - g.sym[a][1])
+        r['wBattlerSlots'] = g.rd('wBattlerSlots', 4 * g.slot_size())
     return r
+
+
+DOUBLES_REGIONS = [('wDoubleBattle', 'wBattleStateEnd')]  # flag, area slots, masks, swap, links
+
+
+# ---------------------------------------------------------------- party/slot consistency
+# At a battle menu, every player battler on the field must agree with its party struct (HP,
+# status, level, PP): the loaded one through the live variables, stored ones (doubles) through
+# wBattlerSlots. It catches a party mon changed while its slot copy wasn't (or the reverse).
+# Only the player's side: the enemy's party struct is written back only when it leaves the
+# field (UpdateEnemyMonInParty), so it lags in singles too. PP is compared only for move slots
+# that hold the party mon's own move (Transform and Mimic change the battle copy only).
+SLOT_FIELDS = [('HP', 2), ('Status', 1), ('Level', 1), ('PP', 4)]
+
+
+def swap_layout(rom_path, sym):
+    """Slot offsets of BattlerSwapList entries, by the player address (or enemy address)."""
+    rom = open(rom_path, 'rb').read()
+    b, a = sym['BattlerSwapList']
+    p = b * 0x4000 + a - 0x4000
+    off, by_addr = 0, {}
+    while rom[p]:
+        size, pa, ea = rom[p], rom[p + 1] | rom[p + 2] << 8, rom[p + 3] | rom[p + 4] << 8
+        for ad in (pa, ea):
+            if ad: by_addr[ad] = off
+        off += size; p += 5
+    return by_addr, off
+
+
+def check_slots(records, rom_path, sym):
+    """Returns a list of problems (strings) for one case's records."""
+    by_addr, slot_size = swap_layout(rom_path, sym)
+    A = lambda n: sym[n][1]
+    psize = A('wPartyMon2') - A('wPartyMon1')
+    pfield = {f: A(f'wPartyMon1{f}') - A('wPartyMon1') for f, _ in SLOT_FIELDS + [('Moves', 4)]}
+    bfield = {f: A(f'wBattleMon{f}') - A('wBattleMon') for f, _ in SLOT_FIELDS + [('Moves', 4)]}
+    problems = []
+    for i, r in enumerate(records):
+        if 'end' in r:
+            continue
+        def party(side, idx, f, n):
+            mons = r['wPartyMons' if side == 0 else 'wOTPartyMons']
+            o = idx * psize + pfield[f]
+            return mons[o:o + n] if o + n <= len(mons) else None
+        battlers = []  # (name, side, party index, {field: bytes})
+        wb = r['wBattle']
+        live = [(0, r['wCurBattleMon'], lambda f, n: wb[A('wBattleMon') - A('wBattle') + bfield[f]:][:n]),
+                (1, wb[A('wCurOTMon') - A('wBattle')], lambda f, n: r['wEnemyMon'][bfield[f]:][:n])]
+        doubles = 'wBattlerSlots' in r
+        if doubles:
+            d = r['wDoubleBattle']
+            areas = d[A('wAreaSlots') - A('wDoubleBattle'):][:2]
+            empty = d[A('wEmptyBattlerSlots') - A('wDoubleBattle')]
+        for side, idx, get in live:
+            if side == 1:
+                continue  # the enemy's party struct lags (see above)
+            name = f'P{areas[0] + 1}' if doubles and side == 0 else f'E{areas[1] - 1}' if doubles else ('player' if side == 0 else 'enemy')
+            battlers.append((name, side, idx, get))
+        if doubles:
+            for slot in range(2):  # the player's slots
+                if slot in areas or empty & (1 << slot):
+                    continue
+                base = slot * slot_size
+                sl = r['wBattlerSlots'][base:base + slot_size]
+                side = slot >> 1
+                idx = sl[by_addr[A('wCurBattleMon') if side == 0 else A('wCurOTMon')]]
+                mon = by_addr[A('wBattleMon')]
+                battlers.append((f'{"PE"[side]}{slot % 2 + 1} (stored)', side, idx,
+                                 lambda f, n, sl=sl, mon=mon: sl[mon + bfield[f]:][:n]))
+        for name, side, idx, get in battlers:
+            pm, bm = party(side, idx, 'Moves', 4), list(get('Moves', 4))
+            for f, n in SLOT_FIELDS:
+                pv = party(side, idx, f, n)
+                bv = list(get(f, n))
+                if pv is not None and f == 'PP':
+                    keep = [j for j in range(4) if pm[j] == bm[j]]
+                    pv, bv = [pv[j] for j in keep], [bv[j] for j in keep]
+                if pv is not None and list(pv) != bv:
+                    problems.append(f'menu {i} {name} (party mon {idx + 1}) {f}: battle {bv} party {list(pv)}')
+    return problems
 
 
 _BATTLE_LABELS = None
@@ -548,6 +641,11 @@ CASES = {
                  (85, 'RAPIDASH', 'PRZCUREBERRY', ['FIRE_BLAST', 'STOMP', 'AGILITY', 'DOUBLE_KICK'])],
         actions=[('move', 1), ('move', 2), ('item', 'X_SPEED'), ('move', 0), ('switch', 1), ('move', 1), ('move', 2),
                  ('move', 3), ('item', 'HYPER_POTION', 1), ('item', 'FULL_HEAL', 1), ('move', 0)] + [('move', 0)] * 8),
+    'hp_berries': dict(  # held HP berries on both sides (HandleHPHealingItem's HP bar), added in phase 1 install C
+        options=0x01 | SCENE_OFF, cls='COOLTRAINERM',
+        party=[('SNORLAX', 70, 'GOLD_BERRY', ['BODY_SLAM', 'DEFENSE_CURL']), ('CHANSEY', 60, 'BERRY', ['POUND'])],
+        trainer=[(55, 'MACHAMP', 'GOLD_BERRY', ['KARATE_CHOP', 'LEER']), (55, 'GOLEM', 'BERRY', ['TACKLE', 'DEFENSE_CURL'])],
+        actions=[('move', 0)] * 4 + [('switch', 1)] + [('move', 0)] * 12, replace=[1]),
     'abilities': dict(  # entrance weather/Intimidate on both sides, contact abilities, Speed Boost-like end-of-turn
         options=0x01 | SCENE_OFF, cls='COOLTRAINERM',
         abilities={'GYARADOS': 'ABILITY_INTIMIDATE', 'POLITOED': 'ABILITY_DRIZZLE', 'TYRANITAR': 'ABILITY_SAND_STREAM',
@@ -700,10 +798,24 @@ def main():
         names = sys.argv[6:] or list(CASES)
         with Pool(min(len(names), os.cpu_count() or 4)) as p:
             res = dict(p.map(_worker, [(rom, sym, state, n) for n in names]))
+        sy = Sym(sym)
         for n in names:
             r = res[n]
             print(f'{n}: ' + (r[0]['error'] if 'error' in r[0] else f'{len(r)} records, result {r[-1].get("result")}'))
+            if 'error' not in r[0]:
+                for pr in check_slots(r, rom, sy):
+                    print('  SLOT MISMATCH', pr)
         json.dump(res, open(out, 'w'))
+    elif sys.argv[1] == 'slots':  # slots ROM SYM records.json: the party/slot check on saved records
+        rom, sy, recs = sys.argv[2], Sym(sys.argv[3]), json.load(open(sys.argv[4]))
+        bad = 0
+        for n, r in recs.items():
+            pr = check_slots(r, rom, sy) if 'error' not in r[0] else []
+            print(f'{n}: ' + ('ok' if not pr else f'{len(pr)} mismatches'))
+            for x in pr[:8]:
+                print('   ', x)
+            bad += bool(pr)
+        sys.exit(1 if bad else 0)
     elif sys.argv[1] == 'check':
         sys.exit(0 if check_swap_list(sys.argv[2], sys.argv[3]) else 1)
     elif sys.argv[1] == 'compare':
