@@ -660,9 +660,11 @@ AI_Switch:
 	ld [wEnemyGoesFirst], a
 	ld hl, wEnemySubStatus4
 	res SUBSTATUS_RAGE, [hl]
+	farcall AIPursuitSwitch
+	push af
 	xor a
 	ldh [hBattleTurn], a
-	farcall PursuitSwitch
+	pop af
 
 	push af
 	ld a, [wCurOTMon]
@@ -694,7 +696,8 @@ AI_Switch:
 	ld [wBattleHasJustStarted], a
 	ld a, [wLinkMode]
 	and a
-	ret nz
+	ret nz ; (the link paths that use AI_Switch do Spikes themselves)
+	farcall AISwitchInEntersField
 	scf
 	ret
 

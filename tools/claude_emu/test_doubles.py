@@ -20,9 +20,10 @@ WIN, LOSE = 0, 1
 
 
 class DoublesBattle(bt.Battle):
-    def __init__(self, g, actions, on_first=None, force_switch=None, force_target=None):
+    def __init__(self, g, actions, on_first=None, force_switch=None, force_target=None, singles=False):
         super().__init__(g, actions)
         self.on_first, self.force_switch, self.patched = on_first, force_switch, None
+        self.singles = singles
         self.force_target = force_target or {}
 
     text_rows = slice(13, 18)  # the 5-row text box (row 12 has P2's HP numbers)
@@ -53,9 +54,10 @@ class DoublesBattle(bt.Battle):
         self.snap(f'menu{len(self.records)}')
         if not self.records and self.on_first:
             self.on_first()
-        if self.force_switch and len(self.records) == 0:
-            self.patch_ai_switch(self.force_switch)
-        elif self.patched and len(self.records) == 2:  # turn 2: the AI decides on its own again
+        mon, at = self.force_switch if isinstance(self.force_switch, tuple) else (self.force_switch, 0)
+        if self.force_switch and len(self.records) == at:  # (mon, record index): switch on that turn
+            self.patch_ai_switch(mon)
+        elif self.patched and len(self.records) == at + (1 if self.singles else 2):  # next turn: the AI decides on its own again
             self.g.poke_rom(*self.patched)
             self.patched = None
         if len(self.records) in self.force_target:  # pin an enemy's target (it's loaded opposite the chooser)
@@ -72,6 +74,8 @@ class DoublesBattle(bt.Battle):
         code = ([0xFA] + lohi('wAreaSlots') [:0] + [(g.sym['wAreaSlots'][1] + 1) & 0xFF, (g.sym['wAreaSlots'][1] + 1) >> 8]
                 + [0xFE, E1, 0x20, 0x08, 0x3E, mon, 0xEA] + lohi('wEnemySwitchMonIndex')
                 + [0xC3] + lohi('AI_TrySwitch') + [0xA7, 0xC9])
+        if self.singles:  # a singles battle: the enemy always switches
+            code = [0x3E, mon, 0xEA] + lohi('wEnemySwitchMonIndex') + [0xC3] + lohi('AI_TrySwitch')
         assert g.sym['AI_TrySwitch'][0] == g.sym['AI_SwitchOrTryItem'][0]
         self.patched = (addr, list(g.rom()[addr:addr + len(code)]))
         g.poke_rom(addr, code)
@@ -618,6 +622,139 @@ def check_spread_misc(recs, v):
     return p
 
 
+# phase 7: the AI's own mid-turn switch gets Spikes and its entrance ability (singles and
+# doubles); a switch-in that Spikes knocks out gets no ability and faints at once
+def ai_switch_in_setup(g, gyarados_hp=None):
+    g.wr('wEnemyScreens', g.rd('wEnemyScreens') | 1)  # SCREENS_SPIKES on the enemy's side
+    if gyarados_hp is not None:
+        psize = g.sym['wOTPartyMon2'][1] - g.sym['wOTPartyMon1'][1]
+        g.wr16(f'wOTPartyMon1HP+{2 * psize}', gyarados_hp)
+
+
+def check_switch_in(recs, v, singles, want_level, at):
+    """The player battlers' Attack levels at record `at` (after turn 1)."""
+    r = recs[at]
+    if singles:
+        got = [v.live(r, 'wPlayerStatLevels')[0]]
+    else:
+        got = [v.stat_levels(r, s)[0] for s in (P1, P2)]
+    p = [] if all(x == want_level for x in got) else [f'player Attack levels {got} at menu {at} (expected {want_level})']
+    turn1 = ' '.join(' '.join(x.get('log') or []) for x in recs[1:at + 1])
+    if 'hurt by Spikes' not in turn1:
+        p.append('no Spikes damage on turn 1')
+    return p
+
+
+AI_SWITCH_IN = dict(
+    cls='SCHOOLBOY',
+    party=[('SNORLAX', 100, None, ['DEFENSE_CURL', 'BODY_SLAM']), ('RAICHU', 100, None, ['THUNDERBOLT', 'QUICK_ATTACK'])],
+    trainer=[(45, 'MAGNETON', None, ['THUNDERBOLT']), (45, 'CHARIZARD', None, ['FLAMETHROWER']),
+             (45, 'GYARADOS', None, ['SURF']), (45, 'STARMIE', None, ['SURF'])],
+    abilities={'SNORLAX': 'NO_ABILITY', 'RAICHU': 'NO_ABILITY', 'MAGNETON': 'NO_ABILITY',
+               'CHARIZARD': 'NO_ABILITY', 'GYARADOS': 'ABILITY_INTIMIDATE', 'STARMIE': 'NO_ABILITY'},
+    force_switch=3,  # turn 1: the AI switches to Gyarados (Intimidate)
+    result=WIN)
+CASES.update({
+    'ai_switch_in_singles': dict(AI_SWITCH_IN, singles=True,
+        actions=[('move', 0)] * 2 + [('move', 1)] * 40,  # Defense Curl (Attack stays), then Body Slam
+        setup=lambda g: ai_switch_in_setup(g),
+        check=lambda recs, v: check_switch_in(recs, v, True, 6, 1),
+        log=['withdrew', 'hurt by Spikes']),
+    'ai_switch_in_singles_ko': dict(AI_SWITCH_IN, singles=True,
+        actions=[('move', 0)] * 2 + [('move', 1)] * 40,
+        setup=lambda g: ai_switch_in_setup(g, 1),
+        check=lambda recs, v: check_switch_in(recs, v, True, 7, 1),
+        log=['withdrew', 'hurt by Spikes', 'fainted']),
+    'doubles_ai_switch_in': dict(AI_SWITCH_IN,
+        actions=[('move', 0), ('move', 0, 1)] * 2 + [('move', 1, 0), ('move', 0, 1)] * 30,
+        setup=lambda g: ai_switch_in_setup(g),
+        check=lambda recs, v: check_switch_in(recs, v, False, 6, 2),
+        log=['withdrew', 'hurt by Spikes']),
+    'doubles_ai_switch_in_ko': dict(AI_SWITCH_IN,
+        actions=[('move', 0), ('move', 0, 1)] * 2 + [('move', 1, 0), ('move', 0, 1)] * 30,
+        setup=lambda g: ai_switch_in_setup(g, 1),
+        check=lambda recs, v: check_switch_in(recs, v, False, 7, 2),
+        log=['withdrew', 'hurt by Spikes', 'fainted']),
+})
+
+
+# phase 7: Pursuit on the AI's own switch. Singles: a knockout gives EXP; last turn's Pursuit
+# doesn't fire when the player used an item. Doubles: the player battler aiming Pursuit at the
+# switcher hits it (not the one loaded opposite it), with EXP on a knockout.
+def turn_text(recs, a, b):
+    return ' '.join(' '.join(x.get('log') or []) for x in recs[a:b + 1])
+
+
+def party_exp(v, rec, i):
+    o = v.A('wPartyMon1Exp') - v.A('wPartyMon1')
+    size = v.A('wPartyMon2') - v.A('wPartyMon1')
+    e = rec['wPartyMons'][i * size + o:][:3]
+    return e[0] << 16 | e[1] << 8 | e[2]
+
+
+def check_pursuit(recs, v, at, mon=None, before=True, ko=False):
+    """Turn 1 (records 1..at): Pursuit before the withdrawal (or not used at all with
+    before=None); on a knockout, party mon `mon` gained EXP and the first OT mon has 0 HP."""
+    p, t = [], turn_text(recs, 1, at)
+    i, w = t.find('used Pursuit'), t.find('withdrew')
+    if before is None:
+        if i >= 0:
+            p.append('Pursuit was used')
+    elif i < 0 or (not ko and (w < 0 or i > w)):
+        p.append(f'Pursuit at {i}, withdrew at {w} (Pursuit should come first)')
+    if ko:
+        if party_exp(v, recs[at], mon) <= party_exp(v, recs[0], mon):
+            p.append(f'party mon {mon} gained no EXP')
+        size = v.A('wOTPartyMon2') - v.A('wOTPartyMon1')
+        o = v.A('wOTPartyMon1HP') - v.A('wOTPartyMon1')
+        if recs[at]['wOTPartyMons'][o:o + 2] != [0, 0]:
+            p.append('the switcher still has HP')
+    return p
+
+
+def ot_hp(mon, hp):
+    def f(g):
+        psize = g.sym['wOTPartyMon2'][1] - g.sym['wOTPartyMon1'][1]
+        g.wr16(f'wOTPartyMon1HP+{mon * psize}', hp)
+    return f
+
+
+PURSUIT = dict(
+    cls='SCHOOLBOY',
+    party=[('SNORLAX', 50, None, ['PURSUIT', 'DEFENSE_CURL', 'BODY_SLAM']),
+           ('RAICHU', 50, None, ['PURSUIT', 'THUNDERBOLT'])],
+    trainer=[(45, 'STARMIE', None, ['SPLASH']), (45, 'CHARIZARD', None, ['SPLASH']),
+             (45, 'GYARADOS', None, ['SPLASH']), (45, 'SLOWBRO', None, ['SPLASH'])],
+    abilities={'SNORLAX': 'NO_ABILITY', 'RAICHU': 'NO_ABILITY', 'STARMIE': 'NO_ABILITY',
+               'CHARIZARD': 'NO_ABILITY', 'GYARADOS': 'NO_ABILITY', 'SLOWBRO': 'NO_ABILITY'},
+    force_switch=3, result=WIN)
+CASES.update({
+    'pursuit_ai_switch_singles_ko': dict(PURSUIT, singles=True,
+        actions=[('move', 0)] + [('move', 2)] * 40,
+        setup=lambda g: g.wr16('wEnemyMonHP', 1),  # the lead, on the field
+        check=lambda recs, v: check_pursuit(recs, v, 1, mon=0, ko=True)),
+    'pursuit_stale_singles': dict(PURSUIT, singles=True, items=[('POTION', 5)], hp={0: 60},
+        force_switch=(3, 1),  # turn 2: the player uses a Potion, the AI switches
+        actions=[('move', 0), ('item', 'POTION', 0)] + [('move', 2)] * 40,
+        check=lambda recs, v: check_pursuit(recs[1:], v, 1, before=None)),
+    'doubles_pursuit_ai_switch': dict(PURSUIT,
+        actions=[('move', 1), ('move', 0, 0)] + [('move', 2, 0), ('move', 1, 1)] * 30,
+        check=lambda recs, v: check_pursuit(recs, v, 2)),
+    'doubles_pursuit_ai_switch_ko': dict(PURSUIT,
+        actions=[('move', 1), ('move', 0, 0)] + [('move', 2, 0), ('move', 1, 1)] * 30,
+        setup=lambda g: g.wr16('wEnemyMonHP', 1),  # E1, loaded at the first menu
+        check=lambda recs, v: check_pursuit(recs, v, 2, mon=1, ko=True)),
+    # the end-of-turn Berry of a battler with no foe opposite it (P2 empty: nothing used to check E2's)
+    'doubles_berry_empty_slot': dict(
+        cls='COOLTRAINERM',
+        party=[('SNORLAX', 80, None, ['TACKLE']), ('PIKACHU', 5, None, ['SPLASH'])], faint=[1],
+        trainer=[(40, 'CHANSEY', None, ['SPLASH']), (40, 'SNORLAX', 'BERRY', ['SPLASH'])],
+        abilities={'SNORLAX': 'NO_ABILITY', 'PIKACHU': 'NO_ABILITY', 'CHANSEY': 'NO_ABILITY'},
+        actions=[('move', 0, 1)] * 40,
+        result=WIN, log=['Berry']),
+})
+
+
 def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
     c = CASES[name]
     g = bt.Game(rom, sym, state)
@@ -640,7 +777,7 @@ def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
     for i, hp in c.get('hp', {}).items():
         g.wr16(f'wPartyMon1HP+{i * psize}', hp)
     g.seed()
-    g.set_trainer(c['cls'], 'Doubles', c['trainer'], doubles=True)
+    g.set_trainer(c['cls'], 'Doubles', c['trainer'], doubles=not c.get('singles'))
     g.seed()
     g.start_battle(c['cls'], 0x01 | bt.SCENE_OFF)
     problems = []
@@ -651,7 +788,9 @@ def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
         def want(what, got, exp):
             if got != exp:
                 problems.append(f'{what}: {got} (expected {exp})')
-        want('wDoubleBattle', bool(g.rd('wDoubleBattle')), True)
+        want('wDoubleBattle', bool(g.rd('wDoubleBattle')), not c.get('singles'))
+        if c.get('setup'):
+            c['setup'](g)
         if 'weather' in c:
             want('wBattleWeather', g.rd('wBattleWeather'), g.const(c['weather']))
         if shot_dir:  # the battle test runs with rendering off
@@ -680,7 +819,8 @@ def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
         want('E2 switching', rd(E2, 'wEnemyIsSwitching')[0], 0)
         want('E2 item state', rd(E2, 'wEnemyItemState')[0], 0xFF)
 
-    b = DoublesBattle(g, list(c['actions']), first, c.get('force_switch'), c.get('force_target'))
+    b = DoublesBattle(g, list(c['actions']), first, c.get('force_switch'), c.get('force_target'),
+                      c.get('singles', False))
     if shots_dir:
         b.shots = os.path.join(shots_dir, name)
         os.makedirs(b.shots, exist_ok=True)

@@ -1061,6 +1061,12 @@ RunBattleActions:
 	call GetEnemyBattleAction
 	pop af
 	ld [hl], a
+	; the AI's switch-in fainted from Spikes: faint and replace, and skip the rest of the turn
+	call HasEnemyFainted
+	jr nz, .loop
+	call HandleEnemyMonFaint
+	scf
+	ret
 
 .loop
 	call RunBattleAction
@@ -4370,6 +4376,22 @@ EnemyMonEntersField:
 	ld [wTempAbility], a
 	farjp Check_Entrance_Ability
 
+AISwitchInEntersField:
+; After the AI's own mid-turn switch (AI_Switch, not in link battles): Spikes, then the
+; entrance ability, unless Spikes knocked the new mon out. The caller handles that faint.
+	farcall UpdateFieldMons
+	call SetEnemyTurn
+	call SpikesDamage
+	call HasEnemyFainted
+	ret z
+	ld a, [wEnemyMonAbility]
+	ld [wTempAbility], a
+	farcall Check_Entrance_Ability
+	ld a, [wDoubleBattle]
+	and a
+	ret z
+	jmp DrawLoadedBattlers ; (its animation draws where singles has the pics)
+
 BreakAttraction:
 ; Double battles: the leaving battler's own attraction is cleared with its substatus, and
 ; BattlerLeavesField ends the attractions to it.
@@ -4531,6 +4553,17 @@ HandleHealingItems:
 	jmp ForEachBattler
 
 .do_it
+; These check the opponent's item. Singles calls them for both battlers, so both are covered;
+; double battles check the battler itself (its foe may be loaded for another battler too, or
+; it may have none opposite it).
+	ld a, [wDoubleBattle]
+	and a
+	jr z, .go
+	call SwitchTurnCore
+	call .go
+	jmp SwitchTurnCore
+
+.go
 	call HandleHPHealingItem
 	call UseHeldStatusHealingItem
 	jmp UseConfusionHealingItem

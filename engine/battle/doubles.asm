@@ -168,6 +168,9 @@ DoublesBattleTurn:
 	jr c, .done
 	call DoublesAIDecisions
 	call DoublesAddFieldParticipants
+	call SetEnemyTurn
+	call DoublesCheckFaints ; an AI switch-in that fainted from Spikes
+	jr c, .done
 	call DoublesDetermineOrder
 	call DoublesRunActions
 	jr c, .done
@@ -1022,6 +1025,72 @@ DoublesPursuitSwitch:
 .fainted
 	pop af
 	call DoublesSwapIn
+	scf
+	ret
+
+AIPursuitSwitch:
+; The enemy's battler is switching out (AI_Switch): PursuitSwitch for a player's battler
+; that chose Pursuit this turn (not last turn's move, if it used an item or switched). In a
+; double battle, each player battler whose target is the switcher's slot. A switcher it
+; knocks out gets the usual enemy-faint handling (EXP). Carry if the switcher fainted.
+	xor a
+	ldh [hBattleTurn], a
+	ld a, [wDoubleBattle]
+	and a
+	jr nz, .doubles
+	ld a, [wBattlePlayerAction]
+	and a ; BATTLEPLAYERACTION_USEMOVE?
+	ret nz ; nc
+	call PursuitSwitch
+	jr .check
+
+.doubles
+	ld a, [wAreaSlots + 1]
+	call DoublesSlotMask
+	ld [wDoublesTemp], a
+	ld a, [wAreaSlots]
+	push af ; the player's battler loaded now
+	ld c, BATTLER_SLOT_P1
+.loop
+	ld a, c
+	call DoublesIsSlotEmpty
+	jr nz, .next
+	ld hl, wDoublesActions
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
+	and a ; BATTLEPLAYERACTION_USEMOVE?
+	jr nz, .next
+	ld a, c
+	call DoublesSwapIn
+	ld a, [wDoublesTemp]
+	ld hl, wPlayerBattlerLinks + BATTLER_LINK_TARGET
+	and [hl]
+	jr z, .next
+	push bc
+	call SetPlayerTurn
+	call PursuitSwitch
+	pop bc
+	jr c, .fainted
+.next
+	inc c
+	ld a, c
+	cp BATTLER_SLOT_E1
+	jr nz, .loop
+	pop af
+	call DoublesSwapIn
+	and a
+	ret
+
+.fainted
+	pop af
+	call DoublesSwapIn
+	scf
+.check
+	ret nc
+	ld a, 1 ; the player's battler is handled on its own
+	ld [wWhichMonFaintedFirst], a
+	call UpdateBattleStateAndExperienceAfterEnemyFaint
 	scf
 	ret
 

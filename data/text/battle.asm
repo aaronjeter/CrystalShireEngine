@@ -1007,7 +1007,7 @@ IdentifiedText:
 	prompt
 
 StartPerishText:
-	text "Both #mon will"
+	text "Each #mon will"
 	line "faint in 3 turns!"
 	prompt
 
