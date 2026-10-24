@@ -453,7 +453,7 @@ PlayersRadioText4:
 Playerhouse_RandomTestTrainer:
 	faceplayer
 	winlosstext PlayersRadioText1, PlayersRadioText3
-	loadtrainer COOLTRAINERM, ASHEN_GAUNTLET1
+	loadtrainer COOLTRAINERM, DOUBLES_TEST
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CUP
 	startbattle
 	dontrestartmapmusic

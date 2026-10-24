@@ -1758,6 +1758,10 @@ CooltrainerMGroup:
 	mon 8, WAILORD
 	end_party
 
+	next_list_item ; COOLTRAINERM (37) Player's room doubles test trainer
+	doubles_trainer "Doubles", TRAINERTYPE_RANDOM, 6, TRIAL_EASY
+	end_party
+
 	end_list_items
 
 CooltrainerFGroup:
