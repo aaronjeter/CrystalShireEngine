@@ -20,9 +20,10 @@ WIN, LOSE = 0, 1
 
 
 class DoublesBattle(bt.Battle):
-    def __init__(self, g, actions, on_first=None, force_switch=None):
+    def __init__(self, g, actions, on_first=None, force_switch=None, force_target=None):
         super().__init__(g, actions)
         self.on_first, self.force_switch, self.patched = on_first, force_switch, None
+        self.force_target = force_target or {}
 
     text_rows = slice(13, 18)  # the 5-row text box (row 12 has P2's HP numbers)
 
@@ -57,6 +58,10 @@ class DoublesBattle(bt.Battle):
         elif self.patched and len(self.records) == 2:  # turn 2: the AI decides on its own again
             self.g.poke_rom(*self.patched)
             self.patched = None
+        if len(self.records) in self.force_target:  # pin an enemy's target (it's loaded opposite the chooser)
+            eslot, pslot = self.force_target[len(self.records)]
+            assert self.g.rd('wAreaSlots', 2)[1] == eslot, 'force_target: that enemy is not loaded'
+            self.g.wr('wEnemyBattlerLinks', 1 << pslot)
         super().at_menu()
 
     def patch_ai_switch(self, mon):
@@ -325,6 +330,7 @@ CASES = {
                  ('move', 1, 1), ('move', 1),        # Flamethrower on E2, Baton Pass (to Snorlax)
                  ('move', 1, 1), ('switch', 3)]      # P2 (Snorlax) switches to Raichu: Pursuit
                 + [('move', 1, 1), ('move', 0, 1)] * 40,
+        force_target={5: (E2, P2)},  # turn 3, P2's menu: Tyranitar's Pursuit aims at P2 (phase 6's AI chooses freely)
         check=lambda recs, v: check_roar_baton_pursuit(recs, v),
         result=WIN),
     # phase 3C: Thief, Destiny Bond (E2 knocks P2 out and faints), Encore, Mirror Move, Beat Up
@@ -351,6 +357,46 @@ CASES = {
         actions=[('move', 1), ('move', 0, 1)] + [('move', 0, 0), ('move', 0, 0)] * 40,
         check=lambda recs, v: check_intimidate(recs, v),
         result=WIN),
+    # phase 6 (doubles AI): a Ground move is never aimed at the Flying foe
+    'doubles_ai_immune': dict(
+        cls='COOLTRAINERM',
+        party=[('PIDGEOT', 100, None, ['SPLASH', 'DRILL_PECK']), ('SNORLAX', 100, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'MAROWAK', None, ['BONE_CLUB']), (30, 'MAROWAK', None, ['BONE_CLUB'])],
+        abilities={'PIDGEOT': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'MAROWAK': 'NO_ABILITY'},
+        actions=[('move', 0), ('move', 0)] * 3 + [('move', 1, 0), ('move', 1, 0)] * 30,
+        check=lambda recs, v: check_ai(recs, v, 3, e1=(0, P2), e2=(0, P2)),
+        result=WIN),
+    # phase 6: E1 goes for the foe it can knock out (P2, 1 HP); E2 then leaves P2 be (no overkill)
+    'doubles_ai_ko': dict(
+        cls='COOLTRAINERM',
+        party=[('SNORLAX', 100, None, ['SPLASH', 'BODY_SLAM']), ('SNORLAX', 60, None, ['SPLASH'])],
+        trainer=[(30, 'RATICATE', None, ['TACKLE']), (30, 'RATICATE', None, ['TACKLE'])],
+        abilities={'SNORLAX': 'NO_ABILITY', 'RATICATE': 'NO_ABILITY'},
+        hp={1: 1},
+        fixed_damage=True,
+        actions=[('move', 0), ('move', 0)] + [('move', 1, 0)] * 30,
+        check=lambda recs, v: check_ai(recs, v, 1, e1=(0, P2), e2=(0, P1)),
+        result=WIN),
+    # phase 6: spread moves: Surf over Water Gun (both foes take damage); Rock Throw over
+    # Earthquake, which can't hit the Flying foe
+    'doubles_ai_spread': dict(
+        cls='COOLTRAINERM',
+        party=[('SNORLAX', 100, None, ['SPLASH', 'BODY_SLAM']), ('PIDGEOT', 100, None, ['SPLASH', 'DRILL_PECK'])],
+        trainer=[(30, 'LAPRAS', None, ['WATER_GUN', 'SURF']), (30, 'GOLEM', None, ['EARTHQUAKE', 'ROCK_THROW'])],
+        abilities={'PIDGEOT': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'LAPRAS': 'NO_ABILITY', 'GOLEM': 'NO_ABILITY'},
+        actions=[('move', 0), ('move', 0)] * 3 + [('move', 1, 0), ('move', 1, 0)] * 30,
+        check=lambda recs, v: check_ai(recs, v, 3, e1=(1, None), e2=(1, None)),
+        result=WIN),
+    # phase 6: a battler locked into a move keeps its target: Dig aimed at P2 (P1 is Flying)
+    # comes up at P2
+    'doubles_ai_locked': dict(
+        cls='COOLTRAINERM',
+        party=[('PIDGEOT', 100, None, ['SPLASH', 'DRILL_PECK']), ('SNORLAX', 100, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'MAROWAK', None, ['DIG']), (30, 'MAGIKARP', None, ['SPLASH'])],
+        abilities={'PIDGEOT': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'MAROWAK': 'NO_ABILITY', 'MAGIKARP': 'NO_ABILITY'},
+        actions=[('move', 0), ('move', 0)] * 4 + [('move', 1, 0), ('move', 1, 0)] * 30,
+        check=lambda recs, v: check_ai_locked(recs, v),
+        result=WIN),
 }
 
 LINK = dict(TARGET=0, SEEDED_BY=1, TRAPPED_BY=2, MEAN_LOOK_BY=3, ATTRACTED_TO=4, LOCKED_ON_TO=5, LAST_ATTACKER=6)
@@ -363,6 +409,43 @@ def link(v, r, slot, name):
 def want(p, what, got, exp):
     if got != exp:
         p.append(f'{what}: {got} (expected {exp})')
+
+
+def ai_choice(v, r, slot):
+    """(move slot, target slot) an enemy battler chose this turn (read at P1's menu)."""
+    num = v.get(r, slot, 'wCurMoveNum', 'wCurEnemyMoveNum')[0]
+    mask = link(v, r, slot, 'TARGET')
+    return num, (mask.bit_length() - 1 if mask else None)
+
+
+def check_ai(recs, v, n, e1=None, e2=None):
+    """For the first n turns, each enemy's (move slot, target slot or None for any) choice."""
+    p = []
+    t = turns(recs, v)
+    if len(t) < n:
+        return [f'only {len(t)} turns']
+    for k, (i, _) in enumerate(t[:n]):
+        r = recs[i]
+        for slot, exp in ((E1, e1), (E2, e2)):
+            if exp is None or v.empty(r, slot):
+                continue
+            num, tgt = ai_choice(v, r, slot)
+            if num != exp[0] or (exp[1] is not None and tgt != exp[1]):
+                p.append(f'turn {k + 1}: {"E1" if slot == E1 else "E2"} chose move {num} at slot {tgt} (expected {exp})')
+    return p
+
+
+def check_ai_locked(recs, v):
+    p = check_ai(recs, v, 4, e1=(0, P2))
+    t = turns(recs, v)
+    r0, r4 = recs[t[0][0]], recs[t[4][0]]
+    want(p, 'P1 HP after 4 turns', v.hp(r4, P1), v.hp(r0, P1))
+    if not v.hp(r4, P2) < v.hp(r0, P2):
+        p.append(f'Dig never hit P2: {v.hp(r0, P2)} -> {v.hp(r4, P2)}')
+    txt = ' '.join(x for _, x in t[:4])
+    if "doesn't affect" in txt:
+        p.append('a move had no effect in turns 1-4')
+    return p
 
 
 def check_leech_wrap(recs, v):
@@ -597,7 +680,7 @@ def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
         want('E2 switching', rd(E2, 'wEnemyIsSwitching')[0], 0)
         want('E2 item state', rd(E2, 'wEnemyItemState')[0], 0xFF)
 
-    b = DoublesBattle(g, list(c['actions']), first, c.get('force_switch'))
+    b = DoublesBattle(g, list(c['actions']), first, c.get('force_switch'), c.get('force_target'))
     if shots_dir:
         b.shots = os.path.join(shots_dir, name)
         os.makedirs(b.shots, exist_ok=True)

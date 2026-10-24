@@ -352,8 +352,9 @@ DoublesSetRoutines:
 ; ---------------------------------------------------------------- choosing
 
 DoublesAIChooseMoves:
-; Each enemy battler chooses a move against the player's battler opposite it (or the other
-; one) and targets it. The doubles AI is phase 6.
+; Each enemy battler chooses a move and a target (DoublesAIChooseMove, the doubles AI).
+	xor a
+	ld [wDoublesAIDoomed], a
 	ld c, BATTLER_SLOT_E1
 .loop
 	ld a, c
@@ -361,14 +362,7 @@ DoublesAIChooseMoves:
 	jr nz, .next
 	push bc
 	call DoublesSwapIn
-	call DoublesLoadFoeFor
-	jr c, .no_foe
-	push af
-	farcall AIChooseMove
-	pop af
-	call DoublesSlotMask
-	ld [wEnemyBattlerLinks + BATTLER_LINK_TARGET], a
-.no_foe
+	farcall DoublesAIChooseMove
 	pop bc
 .next
 	inc c

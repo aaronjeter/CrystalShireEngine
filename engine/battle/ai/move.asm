@@ -1,20 +1,32 @@
 AIChooseMove:
 ; Score each move of wEnemyMonMoves in wEnemyAIMoveScores. Lower is better.
 ; Pick the move with the lowest score.
+	call AIScoreMoves
+	ret c
+	jp AIPickLowestScore
+
+AIScoreMoves:
+; Fill wEnemyAIMoveScores for the loaded enemy against the loaded player battler (the
+; trainer class's scoring layers). Carry if the AI doesn't choose (wild, link, locked in).
+; Double battles call this once per foe (doubles_ai.asm).
 
 ; Wildmons attack at random.
 	ld a, [wBattleMode]
 	dec a
-	ret z
+	jr z, .no_choice
 
 	ld a, [wLinkMode]
 	and a
-	ret nz
+	jr nz, .no_choice
 
 ; No use picking a move if there's no choice.
 	farcall CheckEnemyLockedIn
-	ret nz
+	jr z, .choose
+.no_choice
+	scf
+	ret
 
+.choose
 ; The default score is 20. Unusable moves are given a score of 80.
 	ld a, 20
 	ld hl, wEnemyAIMoveScores
@@ -87,7 +99,7 @@ AIChooseMove:
 
 	ld a, c
 	cp 16 ; up to 16 scoring layers
-	jr z, .DecrementScores
+	jr z, .done
 
 	push bc
 	ld d, BANK(TrainerClassAttributes)
@@ -116,6 +128,11 @@ AIChooseMove:
 
 	jr .CheckLayer
 
+.done
+	and a
+	ret
+
+AIPickLowestScore:
 ; Decrement the scores of all moves one by one until one reaches 0.
 .DecrementScores:
 	ld hl, wEnemyAIMoveScores

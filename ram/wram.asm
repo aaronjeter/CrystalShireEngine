@@ -663,6 +663,15 @@ wDoublesHUDHP:: dw ; HP (big-endian),
 wDoublesHUDMaxHP:: dw ; max HP (big-endian)
 wDoublesScratch:: ds 20 ; doubles_screen.asm's temporaries
 wDoublesAnimMap:: ds 5 ; DANIM_*: battle animation objects' shift (engine/battle_anims/doubles_anims.asm)
+; The doubles AI's choice (engine/battle/ai/doubles_ai.asm)
+wDoublesAIScores:: ds 2 * NUM_MOVES ; each move against foe A, then foe B (lower is better; $ff: not a choice)
+wDoublesAIFoes:: ds 2 ; foe A (the opposite slot, or the only foe), foe B ($ff: none)
+wDoublesAIHits:: db ; bits 0-3: the move damages foe A; bits 4-7: foe B
+wDoublesAIKOs:: db ; bits 0-3: the move should knock out foe A; bits 4-7: foe B
+wDoublesAIDamaging:: db ; bits 0-3: a damaging move (power > 0) against foe A; bits 4-7: foe B
+wDoublesAIBase:: db ; the foe being scored: 0 (foe A) or NUM_MOVES (foe B)
+wDoublesAIUntargeted:: db ; bit = move: one choice that isn't aimed at a foe (spread, self, field)
+wDoublesAIDoomed:: db ; mask of the player's slots an earlier enemy's move should knock out this turn
 wBattleStateEnd:: ; start_battle.asm clears wBattle through here
 
 
