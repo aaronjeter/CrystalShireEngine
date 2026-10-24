@@ -74,6 +74,7 @@ endr
 
 BattleAnimOAMUpdate:
 	call InitBattleAnimBuffer
+	call DoublesRemapAnimObj
 	farcall GetBattleAnimFrame
 	ld a, h
 	cp HIGH(battleoamwait_command)

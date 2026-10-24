@@ -1,6 +1,14 @@
 _DisappearUser:
 	xor a
 	ldh [hBGMapMode], a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles
+	ldh a, [hBattleTurn]
+	farcall DoublesHideAreaPic
+	jr FinishAppearDisappearUser
+
+.singles
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .player
@@ -22,6 +30,14 @@ _AppearUserLowerSub:
 AppearUser:
 	xor a
 	ldh [hBGMapMode], a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles
+	ldh a, [hBattleTurn]
+	farcall DoublesShowAreaPic
+	jr FinishAppearDisappearUser
+
+.singles
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .player

@@ -337,6 +337,31 @@ DoublesSlotOnScreen:
 	pop bc
 	ret
 
+DoublesSlotOffField:
+; nz if slot a's battler is flying or underground (Fly, Dig: its pic stays hidden).
+; Preserves a, bc, de and hl.
+	push hl
+	push bc
+	ld c, a
+	call DoublesScrIsLoaded
+	jr nz, .stored
+	ld a, [wPlayerSubStatus3]
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got
+	ld a, [wEnemySubStatus3]
+	jr .got
+
+.stored
+	ld a, c
+	ld hl, BSLOT_SUBSTATUS + 2 ; substatus 3
+	farcall ReadBattlerSlotByte
+.got
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	ld a, c
+	pop bc
+	pop hl
+	ret
+
 DoublesSetShown:
 ; Slot a's pic is on the screen (c != 0) or not (c = 0). Preserves bc, de and hl.
 	push hl
@@ -742,6 +767,36 @@ DoublesPlacePic:
 	jr nz, .column
 	ret
 
+DoublesHideAreaPic:
+; DisappearUser on the double battle screen: blank the pic box of the battler in area a.
+	call DoublesAreaSlot
+	call DoublesGetGeometry
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hl] ; size
+	push af
+	call DoublesTilemapAddr
+	pop af
+	ld b, a
+	ld c, a
+	jmp ClearBox
+
+DoublesShowAreaPic:
+; AppearUser on the double battle screen: place the pic of the battler in area a (its tiles
+; already hold the right pic: GetBattleMonBackpic, DropPlayerSub...).
+	call DoublesAreaSlot
+	call DoublesSlotOnScreen
+	ret z
+	push af
+	call DoublesGetGeometry
+	ld de, DSG_PIC_SIZE
+	add hl, de
+	ld c, [hl]
+	pop af
+	jr DoublesPlacePic
+
 DoublesPlaceField:
 ; Rows 0-12: blank, then the pics on the screen.
 	hlcoord 0, 0
@@ -753,6 +808,8 @@ DoublesPlaceField:
 	ld a, c
 	call DoublesSlotOnScreen
 	jr z, .next
+	call DoublesSlotOffField
+	jr nz, .next
 	push bc
 	call DoublesGetGeometry
 	ld de, DSG_PIC_SIZE
@@ -770,9 +827,14 @@ DoublesPlaceField:
 
 DoublesBuildAttrmap:
 ; The double battle screen's attributes: each pic's palette (and VRAM bank), each HP box's
-; palette (on its row and, for the player's, the HP numbers' row), the text palette elsewhere.
+; palette (on its row and, for the player's, the HP numbers' row); elsewhere the E1 HP box's
+; palette on the field (as in singles, so screen-wide palette flashes include the empty field;
+; palette 7 isn't flashed) and the text palette on the text box.
 	hlcoord 0, 0, wAttrmap
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
+	ld bc, (TEXTBOX_Y + 1) * SCREEN_WIDTH ; rows 0-12 (the text box is a row lower)
+	ld a, PAL_BATTLE_BG_ENEMY_HP
+	rst ByteFill
+	ld bc, (SCREEN_HEIGHT - TEXTBOX_Y - 1) * SCREEN_WIDTH
 	ld a, PAL_BATTLE_BG_TEXT
 	rst ByteFill
 	ld a, BATTLER_SLOT_E2

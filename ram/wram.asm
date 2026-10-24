@@ -662,6 +662,7 @@ wDoublesHUDStatus:: ds 2 ; status,
 wDoublesHUDHP:: dw ; HP (big-endian),
 wDoublesHUDMaxHP:: dw ; max HP (big-endian)
 wDoublesScratch:: ds 20 ; doubles_screen.asm's temporaries
+wDoublesAnimMap:: ds 5 ; DANIM_*: battle animation objects' shift (engine/battle_anims/doubles_anims.asm)
 wBattleStateEnd:: ; start_battle.asm clears wBattle through here
 
 

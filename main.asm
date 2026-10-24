@@ -373,6 +373,7 @@ INCLUDE "engine/battle_anims/anim_commands.asm"
 INCLUDE "engine/battle_anims/core.asm"
 INCLUDE "engine/battle_anims/functions.asm"
 INCLUDE "engine/battle_anims/helpers.asm"
+INCLUDE "engine/battle_anims/doubles_anims.asm"
 INCLUDE "data/battle_anims/oam.asm"
 INCLUDE "data/battle_anims/object_gfx.asm"
 

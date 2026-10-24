@@ -346,12 +346,15 @@ BattleBGEffect_HideMon:
 	jr nz, .player_side
 	hlcoord 12, 0
 	lb bc, 7, 7
+	ld a, 1
 	jr .got_pointer
 
 .player_side
 	hlcoord 2, 6
 	lb bc, 6, 6
+	xor a
 .got_pointer
+	call BGEffect_ShiftPicCoord
 	call ClearBox
 	pop bc
 	xor a
@@ -401,7 +404,12 @@ BattleBGEffect_BattlerObj_1Row:
 
 .zero
 	call BGEffect_CheckFlyDigStatus
-	jr z, .not_flying_digging
+	jr nz, .no_object
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .not_flying_digging
+.no_object
+; (double battles: no pic rows are shared by the two sides, so no copy is needed)
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
 	jmp EndBattleBGEffect
@@ -441,12 +449,15 @@ BattleBGEffect_BattlerObj_1Row:
 	jr nz, .player_side_2
 	hlcoord 12, 6
 	lb bc, 1, 7
+	ld a, 1
 	jr .okay2
 
 .player_side_2
 	hlcoord 2, 6
 	lb bc, 1, 6
+	xor a
 .okay2
+	call BGEffect_ShiftPicCoord
 	call ClearBox
 	ld a, $1
 	ldh [hBGMapMode], a
@@ -470,7 +481,12 @@ BattleBGEffect_BattlerObj_2Row:
 
 .zero
 	call BGEffect_CheckFlyDigStatus
-	jr z, .not_flying_digging
+	jr nz, .no_object
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .not_flying_digging
+.no_object
+; (double battles: no pic rows are shared by the two sides, so no copy is needed)
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
 	jmp EndBattleBGEffect
@@ -510,12 +526,15 @@ BattleBGEffect_BattlerObj_2Row:
 	jr nz, .player_side_2
 	hlcoord 12, 5
 	lb bc, 2, 7
+	ld a, 1
 	jr .okay2
 
 .player_side_2
 	hlcoord 2, 6
 	lb bc, 2, 6
+	xor a
 .okay2
+	call BGEffect_ShiftPicCoord
 	call ClearBox
 	ld a, $1
 	ldh [hBGMapMode], a
@@ -558,6 +577,9 @@ BattleBGEffect_RemoveMon:
 	ret
 
 .one
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .doubles
 	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
 	add hl, bc
 	ld a, [hl]
@@ -610,6 +632,29 @@ BattleBGEffect_RemoveMon:
 	add hl, bc
 	dec [hl]
 	ret
+
+.doubles
+; The pics are side by side: the pic disappears at once instead of sliding out.
+	push bc
+	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
+	add hl, bc
+	ld a, [hl]
+	and a
+	hlcoord 12, 0
+	lb bc, 7, 7
+	ld a, 1
+	jr z, .got_box
+	hlcoord 2, 6
+	lb bc, 6, 6
+	xor a
+.got_box
+	call BGEffect_ShiftPicCoord
+	call ClearBox
+	pop bc
+	ld hl, BG_EFFECT_STRUCT_PARAM
+	add hl, bc
+	ld [hl], 1
+	jr .okay2
 
 .four
 	xor a
@@ -751,7 +796,16 @@ BattleBGEffect_RunPicResizeScript:
 	and $f
 	ld b, a
 ; get coords
-	ld e, [hl]
+	ld a, [hl]
+	call .GetCoord
+	call ClearBox
+	pop bc
+	ret
+
+.GetCoord:
+; hl = the tilemap address of .Coords entry a, moved to the pic's slot on the double
+; battle screen (entries 0-2 are the player's pic, 3-5 the enemy's). Preserves bc.
+	ld e, a
 	ld d, 0
 	ld hl, .Coords
 	add hl, de
@@ -759,9 +813,12 @@ BattleBGEffect_RunPicResizeScript:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call ClearBox
-	pop bc
-	ret
+	ld a, e
+	cp 3 ; the enemy's pic?
+	ccf
+	sbc a
+	and 1
+	jmp BGEffect_ShiftPicCoord
 
 .PlaceGraphic:
 ; get dims
@@ -792,14 +849,19 @@ BattleBGEffect_RunPicResizeScript:
 	ld [wBattlePicResizeTempBaseTileID], a
 ; get coord
 	push de
-	ld e, [hl]
-	ld d, 0
-	ld hl, .Coords
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+	ld a, [hl]
+	push af
+	call .GetCoord
+	pop af
+	cp 3 ; the enemy's pic?
+	ccf
+	sbc a
+	and 1
+	call BGEffect_DoublesPicShift
+	ld e, a
+	ld a, [wBattlePicResizeTempBaseTileID]
+	add e
+	ld [wBattlePicResizeTempBaseTileID], a
 	pop de
 ; fill box
 .row
@@ -2501,8 +2563,10 @@ BGEffects_LoadPlayerPals:
 	ld a, h
 	push bc
 	push af
-	ld hl, wBGPals2 palette PAL_BATTLE_BG_PLAYER
-	ld de, wBGPals1 palette PAL_BATTLE_BG_PLAYER
+	xor a
+	call BGEffects_AreaPalAddrs
+	pop af
+	push af
 	ld b, a
 	ld c, $1
 	call CopyPals
@@ -2528,8 +2592,10 @@ BGEffects_LoadEnemyPals:
 	ld a, h
 	push bc
 	push af
-	ld hl, wBGPals2 palette PAL_BATTLE_BG_ENEMY
-	ld de, wBGPals1 palette PAL_BATTLE_BG_ENEMY
+	ld a, 1
+	call BGEffects_AreaPalAddrs
+	pop af
+	push af
 	ld b, a
 	ld c, $1
 	call CopyPals
@@ -2544,6 +2610,25 @@ BGEffects_LoadEnemyPals:
 	ldh [rSVBK], a
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
+	ret
+
+BGEffects_AreaPalAddrs:
+; hl, de = the palette of the pic of the battler in area a in wBGPals2, wBGPals1
+; (DoublesAnimAreaPal). Preserves bc.
+	farcall DoublesAnimAreaPal
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, wBGPals2
+	add hl, de
+	push hl
+	ld hl, wBGPals1
+	add hl, de
+	ld d, h
+	ld e, l
+	pop hl
 	ret
 
 BattleBGEffect_GetFirstDMGPal:
@@ -2599,6 +2684,7 @@ BattleBGEffect_SetLCDStatCustoms1:
 .player_turn
 	lb de, $2f, $5e
 .okay
+	call BGEffect_DoublesLYRange
 	ld a, d
 	ldh [hLYOverrideStart], a
 	ld a, e
@@ -2615,10 +2701,25 @@ BattleBGEffect_SetLCDStatCustoms2:
 .player_turn
 	lb de, $2d, $5e
 .okay
+	call BGEffect_DoublesLYRange
 	ld a, d
 	ldh [hLYOverrideStart], a
 	ld a, e
 	ldh [hLYOverrideEnd], a
+	ret
+
+BGEffect_DoublesLYRange:
+; On the double battle screen, the per-line effects move the lines of the pics' rows: the
+; enemies' 0-6, the player's 7-12 (d = the first line, e = the last + 1; d = 0 for the
+; enemy's side).
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	ret nc
+	ld a, d
+	and a
+	lb de, 0, 7 * TILE_WIDTH
+	ret z
+	lb de, 7 * TILE_WIDTH, 13 * TILE_WIDTH
 	ret
 
 BattleAnim_ResetLCDStatCustom:
@@ -2835,6 +2936,66 @@ BGEffect_DisplaceLYOverridesBackup:
 	dec d
 	jr nz, .loop2
 	ret
+
+BGEffect_ShiftPicCoord:
+; hl += how far the pic of the battler in area a (0: the player's, 1: the enemy's) is from
+; where singles draws it (BGEffect_DoublesPicShift). Preserves bc.
+	call BGEffect_DoublesPicShift
+	add hl, de
+	ret
+
+BGEffect_DoublesPicShift:
+; de = how far the pic of the battler loaded in area a (0: the player's, 1: the enemy's) is
+; from where singles draws it, in wTilemap bytes, and a = the difference of its first tile
+; (0 and 0 outside the double battle screen). Preserves bc and hl.
+	push hl
+	and 1
+	ld l, a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .doubles
+	ld de, 0
+	xor a
+	pop hl
+	ret
+
+.doubles
+	ld h, HIGH(wAreaSlots)
+	ld a, LOW(wAreaSlots)
+	add l
+	ld l, a
+	assert HIGH(wAreaSlots) == HIGH(wAreaSlots + 1)
+	ld a, [hl] ; the slot
+	ld l, a
+	add a
+	add l
+	ld hl, .Shifts
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hl]
+	pop hl
+	ret
+
+.Shifts:
+; tilemap offset, first tile: the slot's pic (DoublesSlotGeometry) minus singles' (the
+; player's 6x6 at (2, 6), first tile $31; the enemy's 7x7 at (12, 0), first tile $00)
+	table_width 3
+	dw (7 - 6) * SCREEN_WIDTH + (0 - 2)
+	db $31 - $31 ; BATTLER_SLOT_P1
+	dw (7 - 6) * SCREEN_WIDTH + (6 - 2)
+	db $dc - $31 ; BATTLER_SLOT_P2
+	dw (0 - 0) * SCREEN_WIDTH + (6 - 12)
+	db $00 - $00 ; BATTLER_SLOT_E1
+	dw (0 - 0) * SCREEN_WIDTH + (13 - 12)
+	db $ab - $00 ; BATTLER_SLOT_E2
+	assert_table_length NUM_BATTLER_SLOTS
 
 BGEffect_CheckBattleTurn:
 	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN

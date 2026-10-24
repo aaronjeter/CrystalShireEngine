@@ -14,6 +14,7 @@ PlayBattleAnim:
 	ret
 
 _PlayBattleAnim:
+	call DoublesInitAnimMap
 	ld c, 6
 	call DelayFrames
 
@@ -183,6 +184,13 @@ BattleAnimRequestPals:
 	ret
 
 ClearActorHud:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles
+	ldh a, [hBattleTurn] ; the user's area: its HP box only
+	farjp DoublesClearAreaHUD
+
+.singles
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .player
@@ -1090,7 +1098,9 @@ SetBattleAnimPal:
 	jr nz, .EnemyPal
 .PlayerPal:
 	; Backpic.
-	ld d, PAL_BATTLE_BG_PLAYER
+	xor a ; the player's area
+	call DoublesAnimAreaPal
+	ld d, a
 	call .SetPaletteData
 
 	; Head. + 8 to reference object palettes.
@@ -1103,7 +1113,9 @@ SetBattleAnimPal:
 	jr nz, .PlayerPal
 .EnemyPal:
 	; Frontpic.
-	ld d, PAL_BATTLE_BG_ENEMY
+	ld a, 1 ; the enemy's area
+	call DoublesAnimAreaPal
+	ld d, a
 	call .SetPaletteData
 
 	; Feet.
