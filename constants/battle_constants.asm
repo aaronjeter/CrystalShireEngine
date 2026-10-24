@@ -314,6 +314,11 @@ DEF DOUBLES_SPREAD_HIT_F    EQU 2 ; an earlier pass hit: no animation, no user b
 DEF DOUBLES_SPREAD_PASS2_F  EQU 3 ; a later pass: no obedience, text, PP, charge, self-KO, roll
 DEF SPREAD_DAMAGE_PERCENT   EQU 75 ; damage of a move with more than one target
 
+; The double battle screen (hDoublesScreen bits; see engine/battle/doubles_screen.asm)
+DEF DOUBLES_SCREEN_F         EQU 0 ; the double battle layout is shown (5-row text box too)
+DEF DOUBLES_PIC_ANIM_BANK1_F EQU 1 ; AnimateFrontpic leaves the pic in VRAM bank 1 at its end
+DEF DOUBLES_MAX_PIC_TILES    EQU 170 ; a front pic with more tiles (with its frames) isn't animated
+
 ; Per-battler links to other battlers (double battles; wPlayerBattlerLinks/wEnemyBattlerLinks).
 ; Each is a mask of battler slots (1 << BATTLER_SLOT_*); 0 means none.
 rsreset

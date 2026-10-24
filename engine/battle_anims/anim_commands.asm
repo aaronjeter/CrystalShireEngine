@@ -888,6 +888,9 @@ BattleAnimCmd_Transform:
 	ret
 
 BattleAnimCmd_UpdateActorPic:
+	ldh a, [hBattleTurn]
+	farcall DoublesAnimPicWriteOK
+	ret nz ; double battles: its pic isn't in these tiles (redrawn after the move)
 	ld de, vTiles0 tile $00
 	ldh a, [hBattleTurn]
 	and a
@@ -903,6 +906,9 @@ BattleAnimCmd_UpdateActorPic:
 	jmp Request2bpp
 
 BattleAnimCmd_RaiseSub:
+	ldh a, [hBattleTurn]
+	farcall DoublesAnimPicWriteOK
+	ret nz ; double battles: its pic isn't in these tiles (redrawn after the move)
 	ldh a, [rSVBK]
 	push af
 	ld a, 1 ; unnecessary bankswitch?
@@ -977,6 +983,9 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 	jmp FarCopyBytes
 
 BattleAnimCmd_MinimizeOpp:
+	ldh a, [hBattleTurn]
+	farcall DoublesAnimPicWriteOK
+	ret nz ; double battles: its pic isn't in these tiles (redrawn after the move)
 	ldh a, [rSVBK]
 	push af
 	ld a, 1 ; unnecessary bankswitch?
@@ -1169,6 +1178,9 @@ BattleAnimCmd_DropSub:
 	ret
 
 BattleAnimCmd_BeatUp:
+	ldh a, [hBattleTurn]
+	farcall DoublesAnimPicWriteOK
+	ret nz ; double battles: its pic isn't in these tiles (redrawn after the move)
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wCurPartySpecies)

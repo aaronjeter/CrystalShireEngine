@@ -79,6 +79,46 @@ GetAnimatedFrontpic:
 	ldh [rSVBK], a
 	jmp CloseSRAM
 
+GetAnimatedFrontpicFrames::
+; Double battles: the front pic of wCurPartySpecies and its animation frames, in VRAM bank 1
+; only (vTiles5 tile 0 on, as GetAnimatedFrontpic loads them), for AnimateFrontpic. The pic
+; in VRAM bank 0 isn't touched. Carry (nothing loaded) if the pic and its frames take more
+; than b tiles.
+	ld a, [wCurPartySpecies]
+	ld [wCurSpecies], a
+	call IsAPokemon
+	ret c
+	ldh a, [rSVBK]
+	push af
+	push bc
+	xor a
+	ldh [hBGMapMode], a
+	ld de, vTiles2
+	call _PrepareFrontpic
+	pop bc
+	ld a, [sEnemyFrontPicTileCount]
+	cp b
+	jr z, .fits
+	jr nc, .too_big
+.fits
+	ld a, BANK(vTiles3)
+	ldh [rVBK], a
+	call GetAnimatedEnemyFrontpic
+	xor a
+	ldh [rVBK], a
+	pop af
+	ldh [rSVBK], a
+	call CloseSRAM
+	and a
+	ret
+
+.too_big
+	pop af
+	ldh [rSVBK], a
+	call CloseSRAM
+	scf
+	ret
+
 PrepareFrontpic:
 	ldh a, [rSVBK]
 	push af

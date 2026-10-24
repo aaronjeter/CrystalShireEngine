@@ -19,7 +19,7 @@ InitDoubleBattleSlots:
 	farcall SaveBattlerSlot
 	ld a, 1 ; the leads' entrance abilities run together (DoublesLeadAbilities)
 	ld [wDoublesDeferEntrance], a
-	ret
+	farjp DoublesEnterScreen ; the trainers slide out; the double battle screen
 
 SendOutSecondEnemyLead:
 ; Double battles, after E1 was sent out: send the next OT mon with HP into E2 (or mark E2
@@ -153,28 +153,9 @@ DoublesLeadAbilities:
 	ret
 
 DrawLoadedBattlers:
-; Placeholder display (until phase 4): show the pics, HUDs and palettes of the two battlers
-; now loaded, in the singles layout.
-	xor a
-	ldh [hBGMapMode], a
-	call GetEnemyMonFrontpic
-	xor a
-	ldh [hGraphicStartTile], a
-	hlcoord 12, 0
-	lb bc, 7, 7
-	predef PlaceGraphic
-	call GetBattleMonBackpic
-	ld a, $31
-	ldh [hGraphicStartTile], a
-	hlcoord 2, 6
-	lb bc, 6, 6
-	predef PlaceGraphic
-	call FinishBattleAnim
-	call UpdatePlayerHUD
-	call UpdateEnemyHUD
-	ld a, $1
-	ldh [hBGMapMode], a
-	jmp WaitBGMap
+; Redraw the double battle screen: the four pics and HP boxes (doubles_screen.asm). Its pics
+; are reloaded only when they changed; move animations may have drawn over the screen.
+	farjp DoublesRefreshScreen
 
 ; ---------------------------------------------------------------- the doubles turn (2B)
 
@@ -404,7 +385,7 @@ DoublesPlayerChoices:
 	ld [wDoublesMenuBack], a
 	ld a, BATTLER_SLOT_P1
 	call DoublesChooseAction
-	ret c
+	jr c, .ended
 	ld a, [wDoublesP1Chose]
 	ld [wDoublesMenuBack], a
 	ld a, BATTLER_SLOT_P2
@@ -413,9 +394,16 @@ DoublesPlayerChoices:
 	ld b, a
 	ld a, 0 ; no-optimize a = 0 (keep the carry)
 	ld [wDoublesMenuBack], a
+	ld [wDoublesChooser], a
 	ret c
 	bit 7, b
 	jr nz, DoublesPlayerChoices
+	ret
+
+.ended
+	xor a
+	ld [wDoublesChooser], a
+	scf
 	ret
 
 DoublesChooseAction:
@@ -425,6 +413,9 @@ DoublesChooseAction:
 	call DoublesIsSlotEmpty
 	ret nz ; nc
 	ld c, a
+	inc a
+	ld [wDoublesChooser], a ; its HP box is marked
+	ld a, c
 	call DoublesSwapIn
 	call DoublesLoadFoeFor
 	call DrawLoadedBattlers
@@ -502,7 +493,8 @@ DoublesChooseTarget:
 	farcall GetMoveTarget
 	cp MOVE_TARGET_SELECTED
 	jr nz, .set ; spread moves hit both foes (DoublesSpreadPasses)
-	call DoublesTargetMenu
+	ld a, e ; the default
+	farcall DoublesTargetMenu
 	ret c
 	ld e, a
 .set
@@ -510,94 +502,6 @@ DoublesChooseTarget:
 	call DoublesSlotMask
 	ld [wPlayerBattlerLinks + BATTLER_LINK_TARGET], a
 	and a
-	ret
-
-DoublesTargetMenu:
-; Placeholder target menu (phase 4 draws arrows over the pics): the two foes' names.
-; a = the chosen slot; carry if B was pressed. The cursor is wMenuCursorY (1: E1, 2: E2).
-	call EmptyBattleTextbox
-	hlcoord 1, 14
-	ld de, .Text
-	call PlaceString
-	ld a, BATTLER_SLOT_E1
-	hlcoord 9, 14
-	call DoublesPlaceSlotName
-	ld a, BATTLER_SLOT_E2
-	hlcoord 9, 16
-	call DoublesPlaceSlotName
-	ld a, 1
-	ld [wMenuCursorY], a
-.loop
-	ld a, " "
-	ldcoord_a 8, 14
-	ldcoord_a 8, 16
-	hlcoord 8, 14
-	ld a, [wMenuCursorY]
-	cp 2
-	jr nz, .got_row
-	hlcoord 8, 16
-.got_row
-	ld [hl], "▶"
-	ld a, 1
-	ldh [hBGMapMode], a
-	call DelayFrame
-	call GetJoypad
-	ldh a, [hJoyPressed]
-	bit A_BUTTON_F, a
-	jr nz, .chosen
-	bit B_BUTTON_F, a
-	jr nz, .cancel
-	and D_UP | D_DOWN
-	jr z, .loop
-	ld a, [wMenuCursorY]
-	xor %11
-	ld [wMenuCursorY], a
-	jr .loop
-
-.chosen
-	call PlayClickSFX
-	ld a, [wMenuCursorY]
-	inc a ; 1: BATTLER_SLOT_E1, 2: BATTLER_SLOT_E2
-	and a
-	ret
-
-.cancel
-	scf
-	ret
-
-.Text:
-	db "Target:@"
-
-DoublesPlaceSlotName:
-; Place the nickname of the enemy battler in slot a at hl.
-	push hl
-	call DoublesIsLoaded
-	ld de, wStringBuffer1
-	jr nz, .stored
-	ld hl, wEnemyMonNickname
-	ld bc, MON_NAME_LENGTH
-	rst CopyBytes
-	jr .place
-.stored
-	ld hl, BSLOT_NICKNAME
-	ld c, MON_NAME_LENGTH
-	farcall CopyFromBattlerSlot
-.place
-	pop hl
-	ld de, wStringBuffer1
-	jmp PlaceString
-
-DoublesBattleMenuLabel:
-; Placeholder: "P1"/"P2" in the battle menu's text box for the battler choosing.
-	ld a, [wDoubleBattle]
-	and a
-	ret z
-	hlcoord 1, 14
-	ld [hl], "P"
-	inc hl
-	ld a, [wAreaSlots]
-	add "1"
-	ld [hl], a
 	ret
 
 DoublesAIDecisions:
@@ -1657,6 +1561,7 @@ DoublesEntrances:
 .got_ability
 	ld [wTempAbility], a
 	farcall Check_Entrance_Ability
+	call DrawLoadedBattlers ; (its animation draws where singles has the pics)
 .next
 	pop bc
 	inc c

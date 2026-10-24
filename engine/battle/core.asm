@@ -79,9 +79,13 @@ DoBattle:
 	ld a, [hl]
 	ld [wCurPartySpecies], a
 	ld [wTempBattleMonSpecies], a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .trainer_gone ; DoublesEnterScreen slid it out
 	hlcoord 1, 5
 	ld a, 9
 	call SlideBattlePicOut
+.trainer_gone
 	call LoadTilemapToTempTilemap
 	call ResetBattleParticipants
 	call InitBattleMon
@@ -2326,6 +2330,13 @@ AnimateAreaHPBar::
 ; Animate the HP bar of the battler in area a (0: the player's, 1: the enemy's), from
 ; wHPBuffer2 to wHPBuffer3 (max HP in wHPBuffer1). The one place that knows where the
 ; battle HP bars are. Preserves bc.
+	ld l, a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	ld a, l
+	jr nc, .singles
+	farjp DoublesAnimateAreaHPBar
+.singles
 	and a
 	hlcoord 10, 9
 	ld a, 1
@@ -2534,9 +2545,7 @@ FaintYourPokemon:
 	ld a, [wBattleMonSpecies]
 	call PlayStereoCry
 	call PlayerMonFaintedAnimation
-	hlcoord 9, 7
-	lb bc, 5, 11
-	call ClearBox
+	call ClearPlayerHUDArea
 	ld hl, BattleText_MonFainted
 	jmp StdBattleTextbox
 
@@ -2547,9 +2556,7 @@ FaintEnemyPokemon:
 	call EnemyMonFaintedAnimation
 	ld de, SFX_FAINT
 	call PlaySFX
-	hlcoord 1, 0
-	lb bc, 4, 10
-	call ClearBox
+	call ClearEnemyHUDArea
 	ld hl, BattleText_EnemyMonFainted
 	jmp StdBattleTextbox
 
@@ -3148,15 +3155,24 @@ LostBattle:
 	ret
 
 EnemyMonFaintedAnimation:
+	ld a, 1 ; the enemy's area
 	hlcoord 12, 5
 	decoord 12, 6
 	jr MonFaintedAnimation
 
 PlayerMonFaintedAnimation:
+	xor a ; the player's area
 	hlcoord 1, 10
 	decoord 1, 11
 ; fallthrough
 MonFaintedAnimation:
+	ld b, a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	ld a, b
+	jr nc, .singles
+	farjp DoublesDropAreaPic ; double battles: the pic of the battler loaded in area a
+.singles
 	ld a, [wJoypadDisable]
 	push af
 	set JOYPAD_DISABLE_MON_FAINT_F, a
@@ -3354,9 +3370,17 @@ ResetEnemyBattleVars:
 	jr nz, .keep_wrap ; double battles: BattlerLeavesField ended the Wraps it started
 	ld [wPlayerWrapCount], a
 .keep_wrap
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .doubles
 	hlcoord 18, 0
 	ld a, 8
 	call SlideBattlePicOut
+	jr .slid
+.doubles
+	ld a, 1 ; the enemy's area
+	farcall DoublesDropAreaPic
+.slid
 	call EmptyBattleTextbox
 	jmp LoadStandardMenuHeader
 
@@ -3675,14 +3699,36 @@ OfferSwitch:
 	scf
 	ret
 
+ClearPlayerHUDArea:
+; Clear the HUD of the battler in the player's area (double battles: its HP box).
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .doubles
+	hlcoord 9, 7
+	lb bc, 5, 11
+	jmp ClearBox
+.doubles
+	xor a ; the player's area
+	farjp DoublesClearAreaHUD
+
+ClearEnemyHUDArea:
+; Clear the HUD of the battler in the enemy's area (double battles: its HP box).
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .doubles
+	hlcoord 1, 0
+	lb bc, 4, 10
+	jmp ClearBox
+.doubles
+	ld a, 1 ; the enemy's area
+	farjp DoublesClearAreaHUD
+
 ClearEnemyMonBox:
 	xor a
 	ldh [hBGMapMode], a
 	call ExitMenu
 	call ClearSprites
-	hlcoord 1, 0
-	lb bc, 4, 10
-	call ClearBox
+	call ClearEnemyHUDArea
 	call WaitBGMap
 	jmp FinishBattleAnim
 
@@ -3707,6 +3753,13 @@ ShowSetEnemyMonAndSendOutAnimation:
 	ld [wNumHits], a
 	ld [wBattleAnimParam], a
 	call SetEnemyTurn
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles_anim
+	ld a, 1 ; the enemy's area
+	farcall DoublesRevealAreaPic ; (with the shiny sparkle sound)
+	jr .not_shiny
+.singles_anim
 	ld de, ANIM_SEND_OUT_MON
 	call Call_PlayBattleAnim
 
@@ -3726,6 +3779,14 @@ ShowSetEnemyMonAndSendOutAnimation:
 	farcall CheckBattleScene
 	jr c, .cry_no_anim
 
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles_frontpic
+	farcall DoublesEnemyEntranceAnim
+	jr nc, .skip_cry
+	jr .cry_no_anim ; its pic is too big to animate here
+
+.singles_frontpic
 	hlcoord 12, 0
 	lb de, $0, ANIM_MON_SLOW
 	predef AnimateFrontpic
@@ -4158,10 +4219,14 @@ SwitchPlayerMon:
 SendOutPlayerMon:
 	ld hl, wBattleMonDVs
 	predef GetUnownLetter
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .got_area ; double battles: its slot is blank already
 	hlcoord 1, 5
 	lb bc, 7, 8
 	call ClearBox
 	call WaitBGMap
+.got_area
 	xor a
 	ldh [hBGMapMode], a
 	call GetBattleMonBackpic
@@ -4185,6 +4250,13 @@ SendOutPlayerMon:
 	xor a
 	ld [wNumHits], a
 	ld [wBattleAnimParam], a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles_anim
+	xor a ; the player's area
+	farcall DoublesRevealAreaPic ; (with the shiny sparkle sound)
+	jr .not_shiny
+.singles_anim
 	ld de, ANIM_SEND_OUT_MON
 	call Call_PlayBattleAnim
 	call BattleCheckPlayerShininess
@@ -4435,6 +4507,14 @@ PursuitSwitch:
 	ret
 
 RecallPlayerMon:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles
+	xor a ; the player's area
+	farcall DoublesDropAreaPic
+	scf
+	ret
+.singles
 	ldh a, [hBattleTurn]
 	push af
 	xor a
@@ -4755,6 +4835,12 @@ UpdatePlayerHUD::
 	jmp PopBCDEHL
 
 DrawPlayerHUD:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles
+	xor a ; the player's area
+	farjp DoublesDrawAreaHUD ; (returns e as DrawPlayerHP does, for SetHPPal)
+.singles
 	xor a
 	ldh [hBGMapMode], a
 
@@ -4887,6 +4973,12 @@ UpdateEnemyHUD::
 	jmp PopBCDEHL
 
 DrawEnemyHUD:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles
+	ld a, 1 ; the enemy's area
+	farjp DoublesDrawAreaHUD
+.singles
 	xor a
 	ldh [hBGMapMode], a
 
@@ -5040,7 +5132,6 @@ BattleMenu:
 	call EmptyBattleTextbox
 	call UpdateBattleHuds
 	call EmptyBattleTextbox
-	call DoublesBattleMenuLabel
 	call LoadTilemapToTempTilemap
 .ok
 
@@ -5363,9 +5454,7 @@ BattleMonEntrance:
 	call DoublesPursuitSwitch
 	call nc, RecallPlayerMon
 
-	hlcoord 9, 7
-	lb bc, 5, 11
-	call ClearBox
+	call ClearPlayerHUDArea
 
 	ld a, [wCurBattleMon]
 	ld [wCurPartyMon], a
@@ -5385,9 +5474,7 @@ PassedBattleMonEntrance:
 	ld c, 50
 	call DelayFrames
 
-	hlcoord 9, 7
-	lb bc, 5, 11
-	call ClearBox
+	call ClearPlayerHUDArea
 
 	ld a, [wCurPartyMon]
 	ld [wCurBattleMon], a
@@ -5412,9 +5499,7 @@ SwitchHitPlayerEntrance:
 
 	call RecallPlayerMon
 
-	hlcoord 9, 7
-	lb bc, 5, 11
-	call ClearBox
+	call ClearPlayerHUDArea
 
 	ld a, [wCurBattleMon]
 	ld [wLastPlayerMon], a
@@ -5489,6 +5574,7 @@ MoveSelectionScreen:
 	call _MoveSelectionScreen
 	push af ; (farcall doesn't keep the flags on the way in)
 	farcall HideTypeIcons
+	farcall DoublesMoveMenuClosed ; (the box covered row 12 of the double battle screen)
 	pop af
 	ret
 
@@ -5519,17 +5605,34 @@ _MoveSelectionScreen:
 	lb bc, 4, 14
 	ld a, [wMoveSelectionMenuType]
 	cp $2
-	jr nz, .got_dims
+	jr nz, .not_ether_menu
 	hlcoord 4, 17 - NUM_MOVES - 1 - 4
 	lb bc, 4, 14
+	jr .got_dims
+.not_ether_menu
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .got_dims
+	hlcoord 0, 17 - NUM_MOVES - 1 ; double battles: the full width, info on the right
+	ld c, SCREEN_WIDTH - 2
+	call Textbox
+	call CopyTilemapAtOnce ; (its attributes too: it covers row 12, P2's pic)
+	jr .got_box
 .got_dims
 	call Textbox
+.got_box
 
 	hlcoord 6, 17 - NUM_MOVES
 	ld a, [wMoveSelectionMenuType]
 	cp $2
-	jr nz, .got_start_coord
+	jr nz, .not_ether_menu2
 	hlcoord 6, 17 - NUM_MOVES - 4
+	jr .got_start_coord
+.not_ether_menu2
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .got_start_coord
+	hlcoord 2, 17 - NUM_MOVES
 .got_start_coord
 	ld a, SCREEN_WIDTH
 	ld [wListMovesLineSpacing], a
@@ -5539,9 +5642,17 @@ _MoveSelectionScreen:
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	ld a, 17 - NUM_MOVES
-	jr nz, .got_default_coord
+	jr nz, .not_ether_menu3
 	ld b, 5
 	ld a, 17 - NUM_MOVES - 4
+	jr .got_default_coord
+.not_ether_menu3
+	ld c, a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	ld a, c
+	jr nc, .got_default_coord
+	ld b, 1
 
 .got_default_coord
 	ld [w2DMenuCursorInitY], a
@@ -5602,6 +5713,13 @@ _MoveSelectionScreen:
 	and a
 	jr z, .interpret_joypad
 	hlcoord 5, 13
+	ld c, a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	ld a, c
+	jr nc, .got_swap_coord
+	hlcoord 1, 13
+.got_swap_coord
 	ld bc, SCREEN_WIDTH
 	dec a
 	rst AddNTimes
@@ -5803,10 +5921,14 @@ MoveInfoBox:
 	xor a
 	ldh [hBGMapMode], a
 
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .no_box ; double battles: the info is inside the move list's box
 	hlcoord 0, 9
 	lb bc, 2, 9
 	call Textbox
 	call MobileTextBorder
+.no_box
 	farcall HideTypeIcons
 
 	ld a, [wPlayerDisableCount]
@@ -5820,6 +5942,11 @@ MoveInfoBox:
 	cp b
 	jr nz, .not_disabled
 
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .disabled_text
+	farjp DoublesMoveInfoDisabled
+.disabled_text
 	hlcoord 1, 10
 	ld de, .Disabled
 	rst PlaceString
@@ -5858,16 +5985,27 @@ MoveInfoBox:
 	; category and type icons side by side on row 10 (x = 10 and 46, with a
 	; 4px gap), in icon slots 0-1 with OBJ palettes 0-1
 	; (PAL_BATTLE_OB_ENEMY/PLAYER, given back when hidden)
-	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	lb bc, 10, 10
 	lb de, 10, 46
 	lb hl, 0, 0
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .got_icon_coords
+	lb bc, 13, 15 * TILE_WIDTH ; double battles: on the right of the move list,
+	lb de, 14, 15 * TILE_WIDTH ; one above the other
+.got_icon_coords
+	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	farjp PlaceMoveIconsAtX
 
 .Disabled:
 	db "Disabled!@"
 
 .PrintPP:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .pp_text
+	farjp DoublesMoveInfoPP
+.pp_text
 	hlcoord 5, 11
 	push hl
 	ld de, wStringBuffer1
@@ -6197,6 +6335,7 @@ LoadEnemyMon:
 	farjp SetEnemyMonAbility
 
 BattleWinSlideInEnemyTrainerFrontpic:
+	farcall DoublesLeaveScreen ; back to the singles layout for the trainer
 	xor a
 	ld [wTempEnemyMonSpecies], a
 	call FinishBattleAnim
@@ -6492,10 +6631,12 @@ StatLevelMultipliers_Applied:
 INCLUDE "data/battle/stat_multipliers.asm"
 
 _LoadBattleFontsHPBar:
-	farjp LoadBattleFontsHPBar
+	farcall LoadBattleFontsHPBar
+	farjp DoublesRestoreScreenGfx ; (menus overwrite the doubles screen's tiles)
 
 _LoadHPBar:
-	farjp LoadHPBar
+	farcall LoadHPBar
+	farjp DoublesRestoreScreenGfx
 
 EmptyBattleTextbox:
 	ld hl, .empty
@@ -6773,12 +6914,18 @@ ComeBackText:
 	text_end
 
 GetBattleMonBackpic:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, DoublesLoadPlayerPic
 	ld a, [wPlayerSubStatus4]
 	bit SUBSTATUS_SUBSTITUTE, a
 	ld hl, BattleAnimCmd_RaiseSub
 	jr nz, GetBattleMonBackpic_DoAnim ; substitute
 
 DropPlayerSub:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, DoublesLoadPlayerPic
 	ld a, [wPlayerMinimized]
 	and a
 	ld hl, BattleAnimCmd_MinimizeOpp
@@ -6806,13 +6953,28 @@ GetBattleMonBackpic_DoAnim:
 	ldh [hBattleTurn], a
 	ret
 
+DoublesLoadPlayerPic:
+; Double battles: the pic of the battler in the player's area goes into its slot's tiles.
+	xor a
+	farjp DoublesLoadAreaPic
+
+DoublesLoadEnemyPic:
+	ld a, 1
+	farjp DoublesLoadAreaPic
+
 GetEnemyMonFrontpic:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, DoublesLoadEnemyPic
 	ld a, [wEnemySubStatus4]
 	bit SUBSTATUS_SUBSTITUTE, a
 	ld hl, BattleAnimCmd_RaiseSub
 	jr nz, GetEnemyMonFrontpic_DoAnim
 
 DropEnemySub:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, DoublesLoadEnemyPic
 	ld a, [wEnemyMinimized]
 	and a
 	ld hl, BattleAnimCmd_MinimizeOpp
@@ -7071,6 +7233,7 @@ ExitBattle:
 CleanUpBattleRAM:
 	call BattleEnd_HandleRoamMons
 	xor a
+	ldh [hDoublesScreen], a
 	ld [wLowHealthAlarm], a
 	ld [wBattleMode], a
 	ld [wBattleType], a
@@ -7474,6 +7637,10 @@ GetWeatherImage:
 	pop bc
 	ld hl, wShadowOAMSprite00
 	ld de, .WeatherImageOAMData
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .loop
+	ld de, .DoublesWeatherImageOAMData ; left of E1 (the move list fills the bottom)
 .loop
 	ld a, [de]
 	inc de
@@ -7496,5 +7663,11 @@ GetWeatherImage:
 	db $88, $14 ; y/x - bottom left
 	db $80, $1c ; y/x - top right
 	db $80, $14 ; y/x - top left
+
+.DoublesWeatherImageOAMData
+	db $40, $24 ; y/x - bottom right
+	db $40, $1c ; y/x - bottom left
+	db $38, $24 ; y/x - top right
+	db $38, $1c ; y/x - top left
 
 

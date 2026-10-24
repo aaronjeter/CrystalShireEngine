@@ -5360,9 +5360,7 @@ BattleCommand_ForceSwitch:
 	call AnimateCurrentMove
 	ld c, $14
 	call DelayFrames
-	hlcoord 1, 0
-	lb bc, 4, 10
-	call ClearBox
+	farcall ClearEnemyHUDArea
 	ld c, 20
 	call DelayFrames
 	ld a, [wOTPartyCount]
@@ -5450,9 +5448,7 @@ BattleCommand_ForceSwitch:
 	call AnimateCurrentMove
 	ld c, 20
 	call DelayFrames
-	hlcoord 9, 7
-	lb bc, 5, 11
-	call ClearBox
+	farcall ClearPlayerHUDArea
 	ld c, 20
 	call DelayFrames
 	ld a, [wPartyCount]

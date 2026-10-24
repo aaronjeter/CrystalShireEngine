@@ -953,6 +953,7 @@ GiveExperiencePoints:
 	hlcoord 9, 0
 	lb bc, 10, 9
 	call Textbox
+	farcall DoublesPushScreen ; (the box's attributes, over the double battle screen's pics)
 	hlcoord 11, 1
 	ld bc, 4
 	predef PrintTempMonStats
@@ -960,6 +961,7 @@ GiveExperiencePoints:
 	call DelayFrames
 	call WaitPressAorB_BlinkCursor
 	call SafeLoadTempTilemapToTilemap
+	farcall DoublesRestoreAttrs
 	xor a ; PARTYMON
 	ld [wMonType], a
 	ld a, [wCurSpecies]

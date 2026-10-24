@@ -211,8 +211,12 @@ PokeAnim_DeinitFrames:
 	ldh [rSVBK], a
 	call PokeAnim_PlaceGraphic
 	farcall HDMATransferTilemapToWRAMBank3
+	ldh a, [hDoublesScreen]
+	bit DOUBLES_PIC_ANIM_BANK1_F, a
+	jr nz, .keep_vbank1 ; double battles: the pic's own tiles are in VRAM bank 1
 	call PokeAnim_SetVBank0
 	farcall HDMATransferAttrmapToWRAMBank3
+.keep_vbank1
 	pop af
 	ldh [rSVBK], a
 	ret

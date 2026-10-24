@@ -626,6 +626,11 @@ SECTION "Battler Swap", ROMX
 INCLUDE "engine/battle/battler_swap.asm"
 
 
+SECTION "Doubles Screen", ROMX, ALIGN[4] ; (its first tiles are copied with GDMA)
+
+INCLUDE "engine/battle/doubles_screen.asm"
+
+
 SECTION "Move Attributes", ROMX
 
 INCLUDE "data/moves/move_attributes.asm"

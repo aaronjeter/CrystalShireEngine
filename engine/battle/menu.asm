@@ -1,9 +1,13 @@
 LoadBattleMenu:
 	ld hl, BattleMenuHeader
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .got_header
+	ld hl, DoublesBattleMenuHeader ; a row lower (the 5-row text box)
 	ld a, [wDoublesMenuBack]
 	and a
 	jr z, .got_header
-	ld hl, DoublesBattleMenuHeader ; B allowed: back to P1's choice
+	ld hl, DoublesBackBattleMenuHeader ; B allowed: back to P1's choice
 .got_header
 	call LoadMenuHeader
 	ld a, [wBattleMenuCursorPosition]
@@ -54,12 +58,25 @@ BattleMenuHeader:
 
 DoublesBattleMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 8, 12, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	menu_coords 8, 13, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
-	db STATICMENU_CURSOR ; flags (B allowed)
+	db STATICMENU_CURSOR | STATICMENU_DISABLE_B | STATICMENU_NO_TOP_SPACING ; flags
+	dn 2, 2 ; rows, columns
+	db 6 ; spacing
+	dba BattleMenuHeader.Text
+	dbw BANK(@), NULL
+
+DoublesBackBattleMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 8, 13, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR | STATICMENU_NO_TOP_SPACING ; flags (B allowed)
 	dn 2, 2 ; rows, columns
 	db 6 ; spacing
 	dba BattleMenuHeader.Text

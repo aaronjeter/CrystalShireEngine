@@ -378,6 +378,8 @@ class Battle:
        After the list runs out, ('move', 0) is used. `replace` lists the party index to send in
        each time the player must replace a fainted Pokemon (default: first usable one).
        `shift` lists answers (True/False) for the "Will you switch?" prompt (default False)."""
+
+    text_rows = TEXT_ROWS  # the text box (the double battle screen's starts a row lower)
     STABLE = 24  # frames the screen must stay unchanged before an input
 
     def __init__(self, g, actions, replace=(), shift=()):
@@ -391,6 +393,9 @@ class Battle:
         rows = [''.join(CHARS.get(c, ' ') for c in t[y * 20:(y + 1) * 20]) for y in range(18)]
         rows[17] = rows[17][:18] + ' ' + rows[17][19:]   # mask the blinking prompt arrow
         return rows
+
+    def tile(self, x, y):
+        return self.g.wram_full()[0x4A0 + y * 20 + x]   # wTilemap ($c4a0)
 
     def settle(self, limit=12000):
         """Run until the screen has been still for STABLE frames. Every frame's text box goes
@@ -413,7 +418,7 @@ class Battle:
         the last entry replaces it, and one the last entry already starts with is skipped."""
         if 'Fight' in t[14] and 'Run' in t[16]:
             return
-        msg = ' '.join(x.strip() for x in t[TEXT_ROWS] if x.strip())
+        msg = ' '.join(x.strip() for x in t[self.text_rows] if x.strip())
         if not msg:
             return
         if self.log:
@@ -440,7 +445,8 @@ class Battle:
                 print('STEP', ' | '.join(x.strip() for x in t if x.strip())[:160], flush=True)
             if 'Fight' in t[14] and 'Run' in t[16]:
                 self.at_menu()
-            elif 'Target:' in t[14]:     # double battles: the placeholder target menu
+            elif 'Target:' in t[14] or (t[14].rstrip().endswith(' on') and self.tile(1, 16) == 0xED):
+                # double battles: the target menu ("<move> on" / "▶<foe>"; phase 2's was "Target:")
                 g.wr('wMenuCursorY', self.target + 1)
                 g.press('A', after=4)
             elif is_party_menu(t):
@@ -481,8 +487,8 @@ class Battle:
             g.wr('wCurMoveNum', act[1])
             self.menu_pick(1, 1)
             t = self.settle()
-            if t and '/' in t[11] and not ('Fight' in t[14] and 'Run' in t[16]):
-                g.press('A', after=4)   # move menu: the cursor already sits on wCurMoveNum
+            if t and ('/' in t[11] or self.tile(0, 12) == 0xBA) and not ('Fight' in t[14] and 'Run' in t[16]):
+                g.press('A', after=4)   # move menu (doubles: a box from row 12): the cursor sits on wCurMoveNum
         elif kind == 'switch':
             self.menu_pick(1, 2)
             self.settle()

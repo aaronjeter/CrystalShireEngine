@@ -24,7 +24,32 @@ class DoublesBattle(bt.Battle):
         super().__init__(g, actions)
         self.on_first, self.force_switch, self.patched = on_first, force_switch, None
 
+    text_rows = slice(13, 18)  # the 5-row text box (row 12 has P2's HP numbers)
+
+    shots = None  # --shots DIR: a screenshot at every battle menu (rendering on for 2 frames)
+
+    def snap(self, tag):
+        if not self.shots:
+            return
+        g = self.g
+        bt.LIB.GB_set_rendering_disabled(g.gb, False)
+        g.frames(2)
+        bt.LIB.GB_set_rendering_disabled(g.gb, True)
+        g.shot(os.path.join(self.shots, f'{len(os.listdir(self.shots)):03d}_{tag}.png'), scale=1)
+
+    snapped = ()
+
+    def note(self, t):
+        super().note(t)
+        msg = ' '.join(x.strip() for x in t[13:18] if x.strip())
+        for key in ('defeated', 'fainted', 'come back', 'Go!', 'sent out', 'out of useable', 'out of usable'):
+            if (self.shots and key in msg and msg.endswith(('!', '.')) and len(msg) > 8
+                    and (key, msg) not in self.snapped):
+                self.snapped = self.snapped + ((key, msg),)
+                self.snap(key.replace(' ', '_').replace('!', ''))
+
     def at_menu(self):
+        self.snap(f'menu{len(self.records)}')
         if not self.records and self.on_first:
             self.on_first()
         if self.force_switch and len(self.records) == 0:
@@ -510,7 +535,7 @@ def check_spread_misc(recs, v):
     return p
 
 
-def run_case(rom, sym, state, name, shot_dir=None):
+def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
     c = CASES[name]
     g = bt.Game(rom, sym, state)
     g.rom_path = rom
@@ -573,6 +598,9 @@ def run_case(rom, sym, state, name, shot_dir=None):
         want('E2 item state', rd(E2, 'wEnemyItemState')[0], 0xFF)
 
     b = DoublesBattle(g, list(c['actions']), first, c.get('force_switch'))
+    if shots_dir:
+        b.shots = os.path.join(shots_dir, name)
+        os.makedirs(b.shots, exist_ok=True)
     recs = b.run()
     end = recs[-1]
     if (end.get('result', 0xFF) & 0xF) != c['result']:
@@ -597,7 +625,7 @@ def run_case(rom, sym, state, name, shot_dir=None):
 def main():
     args = sys.argv[1:]
     opts = {}
-    for k in ('--shot', '--records'):
+    for k in ('--shot', '--shots', '--records'):
         if k in args:
             i = args.index(k)
             opts[k] = args[i + 1]
@@ -607,7 +635,7 @@ def main():
     bad, out = 0, {}
     for n in names:
         try:
-            problems, recs = run_case(rom, sym, state, n, opts.get('--shot'))
+            problems, recs = run_case(rom, sym, state, n, opts.get('--shot'), opts.get('--shots'))
             out[n] = recs
         except Exception as e:
             problems = [f'{type(e).__name__}: {e}']

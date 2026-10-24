@@ -83,6 +83,18 @@ _CGB_BattleGrayscale:
 	push af
 	ld a, BANK(wTempBattleMonSpecies)
 	ldh [rSVBK], a
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, .singles
+	ld a, b
+	cp PAL_BATTLE_BG_TEXT + 1
+	jr nc, .singles
+	call DoublesSetBGPalette
+	pop af
+	ldh [rSVBK], a
+	ret
+
+.singles
 	ld a, b
 	and a ; PAL_BATTLE_BG_PLAYER
 	jr z, SetBattlePal_Player
@@ -151,6 +163,9 @@ SetBattlePal_Text:
 	jmp FarCopyWRAM
 
 _CGB_BattleColors:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jmp c, _CGB_DoublesBattleColors
 	ld de, wBGPals1
 	call SetBattlePal_Player
 	call SetBattlePal_Enemy
@@ -164,6 +179,9 @@ _CGB_BattleColors:
 	ld [wDefaultSGBLayout], a
 	call ApplyPals
 _CGB_FinishBattleScreenLayout:
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .doubles
 	call InitPartyMenuBGPal7
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
@@ -193,12 +211,130 @@ _CGB_FinishBattleScreenLayout:
 	ld bc, 6 * SCREEN_WIDTH
 	ld a, PAL_BATTLE_BG_TEXT
 	rst ByteFill
+.object_pals
 	ld hl, BattleObjectPals
 	ld de, wOBPals1 palette PAL_BATTLE_OB_GRAY
 	ld bc, 6 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 	jmp ApplyAttrmap
+
+; Double battles: the four pics, four HP boxes and their palettes, see engine/battle/doubles_screen.asm.
+.doubles
+	farcall DoublesBuildAttrmap
+	jr .object_pals
+
+_CGB_DoublesBattleColors:
+; BG palettes: 0 P1, 1 E1, 2 E1's HP, 3 P1's HP, 4 E2's HP, 5 P2, 6 E2, 7 P2's HP (and the
+; text). OBJ palettes 0-1: the loaded enemy and player battlers, as in singles.
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+	ld de, wBGPals1
+	ld b, 0
+.loop
+	call DoublesSetBGPalette
+	inc b
+	ld a, b
+	cp PAL_BATTLE_BG_TEXT + 1
+	jr nz, .loop
+	pop af
+	ldh [rSVBK], a
+	ld de, wOBPals1
+	call SetBattlePal_Enemy
+	call SetBattlePal_Player
+	ld a, SCGB_BATTLE_COLORS
+	ld [wDefaultSGBLayout], a
+	call ApplyPals
+	jr _CGB_FinishBattleScreenLayout.doubles
+
+DoublesSetBGPalette:
+; Double battles: BG palette b's colors (a pic's or an HP box's) at de, which is advanced past
+; them. WRAMX bank BANK(wBGPals1) must be selected. Preserves b.
+	assert BANK(wDoublesSlotPals) == BANK(wBGPals1)
+	push bc
+	ld hl, .Kinds
+	ld c, b
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
+	ld c, a
+	and $7f
+	bit 7, c
+	jr nz, .hp
+	; the pic's palette (wDoublesSlotPals)
+	ld hl, wDoublesSlotPals
+	ld bc, 1 palettes
+	rst AddNTimes
+	ld c, 1 palettes
+.copy
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .copy
+	pop bc
+	ret
+
+.hp
+	ld hl, wDoublesHPPals
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	call SetBattlePal_HP
+	pop bc
+	ret
+
+.Kinds:
+; a slot's pic palette, or $80 | a slot's HP box palette
+	db BATTLER_SLOT_P1        ; PAL_BATTLE_BG_PLAYER
+	db BATTLER_SLOT_E1        ; PAL_BATTLE_BG_ENEMY
+	db $80 | BATTLER_SLOT_E1  ; PAL_BATTLE_BG_ENEMY_HP
+	db $80 | BATTLER_SLOT_P1  ; PAL_BATTLE_BG_PLAYER_HP
+	db $80 | BATTLER_SLOT_E2  ; PAL_BATTLE_BG_EXP
+	db BATTLER_SLOT_P2        ; PAL_BATTLE_BG_5
+	db BATTLER_SLOT_E2        ; PAL_BATTLE_BG_6
+	db $80 | BATTLER_SLOT_P2  ; PAL_BATTLE_BG_TEXT
+
+DoublesGetPicPalette::
+; Double battles: the palette of the pic of the battler loaded in area a (0: the player's,
+; 1: the enemy's) at de (in WRAMX bank BANK(wBGPals1)).
+	and a
+	jr nz, .enemy
+	call GetBattlemonBackpicPalettePointer
+	jmp LoadPalette_White_Col1_Col2_Black
+.enemy
+	call GetEnemyFrontpicPalettePointer
+	jmp LoadPalette_White_Col1_Col2_Black
+
+DoublesSetHPPalette::
+; Double battles: BG palette c = HP palette a (HP_*), in wBGPals1 and wBGPals2 (shown at once).
+	push af
+	ld hl, wBGPals1
+	ld b, 0
+	ld a, c
+	ld c, a
+	sla c
+	sla c
+	sla c ; * 1 palettes
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop af
+	push af
+	push de
+	call SetBattlePal_HP
+	pop de
+	ld hl, wBGPals2 - wBGPals1
+	add hl, de
+	ld d, h
+	ld e, l
+	pop af
+	call SetBattlePal_HP
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
 
 InitPartyMenuBGPal7:
 	ld hl, PartyMenuBGPalette

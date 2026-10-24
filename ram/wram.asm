@@ -653,6 +653,15 @@ wDoublesRoutines:: ds 4 ; the doubles iterators' routines: the player's, the ene
 wDoublesTemp:: db
 wDoublesSpread:: db ; DOUBLES_SPREAD_* bits of the action running (0 otherwise)
 wDoublesSpreadPower:: db ; Magnitude's power, kept for the later passes
+; Double battle screen (engine/battle/doubles_screen.asm)
+wDoublesShown:: db ; mask of the slots whose pic is on the screen
+wDoublesChooser:: db ; slot + 1 of the player's battler choosing (marked in its HP box); 0: none
+wDoublesHUDName:: ds MON_NAME_LENGTH ; the HP box being drawn: nickname,
+wDoublesHUDLevel:: db ; level,
+wDoublesHUDStatus:: ds 2 ; status,
+wDoublesHUDHP:: dw ; HP (big-endian),
+wDoublesHUDMaxHP:: dw ; max HP (big-endian)
+wDoublesScratch:: ds 20 ; doubles_screen.asm's temporaries
 wBattleStateEnd:: ; start_battle.asm clears wBattle through here
 
 
@@ -3301,6 +3310,17 @@ SECTION "Battler Slots", WRAMX, BANK[5]
 ; Saved per-battler variables of the four battler slots (P1, P2, E1, E2) for double battles.
 ; See BattlerSwapList in engine/battle/battler_swap.asm.
 wBattlerSlots:: ds NUM_BATTLER_SLOTS * BATTLER_SLOT_SIZE
+
+
+SECTION "Doubles Screen RAM", WRAMX, BANK[5], ALIGN[4]
+
+; Double battle screen (engine/battle/doubles_screen.asm)
+wDoublesTileBuf:: ds 8 tiles ; an HP box (or the move menu's PP) being drawn (aligned: GDMA)
+; caches, per battler slot
+wDoublesPicKeys:: ds NUM_BATTLER_SLOTS * 2 ; species, DOUBLES_PIC_* flags of the pic in VRAM
+wDoublesHUDKeys:: ds NUM_BATTLER_SLOTS * 6 ; HP (2), status, level, marker, valid of the HP box in VRAM
+wDoublesSlotPals:: ds NUM_BATTLER_SLOTS palettes ; each pic's palette
+wDoublesHPPals:: ds NUM_BATTLER_SLOTS ; HP_* of each HP box
 
 
 SECTION "Follower Palette", WRAMX, BANK[5]

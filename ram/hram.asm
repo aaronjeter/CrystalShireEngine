@@ -196,6 +196,8 @@ hTilesetGFXBank:: db
 
 hWeatherFadeProgress:: db ; border fade progress (0-255) while the palette WRAM bank is selected
 
-	ds 3
+hDoublesScreen:: db ; DOUBLES_SCREEN_* bits: the double battle screen is shown (engine/battle/doubles_screen.asm)
+
+	ds 2
 
 ENDSECTION

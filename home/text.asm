@@ -133,9 +133,15 @@ TextboxPalette::
 	ret
 
 SpeechTextbox::
-; Standard textbox.
+; Standard textbox. On the double battle screen it's a row shorter (rows 13-17); the
+; text lines stay on rows 14 and 16.
 	hlcoord TEXTBOX_X, TEXTBOX_Y
 	lb bc, TEXTBOX_INNERH, TEXTBOX_INNERW
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr nc, Textbox
+	hlcoord TEXTBOX_X, TEXTBOX_Y + 1
+	dec b
 	jr Textbox
 
 RadioTerminator::
@@ -636,7 +642,14 @@ NullChar::
 TextScroll::
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
 	decoord TEXTBOX_INNERX, TEXTBOX_INNERY - 1
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
 	ld a, TEXTBOX_INNERH - 1
+	jr nc, .col
+	; double battle screen: row 13 is the box's top border, so the first line just goes
+	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 1
+	decoord TEXTBOX_INNERX, TEXTBOX_INNERY
+	dec a
 
 .col
 	push af

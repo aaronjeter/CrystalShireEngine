@@ -134,6 +134,7 @@ ForgetMove:
 	hlcoord 5, 2
 	lb bc, NUM_MOVES * 2, MOVE_NAME_LENGTH
 	call Textbox
+	farcall DoublesPushScreen ; (the box's attributes, over the double battle screen's pics)
 	hlcoord 5 + 2, 2 + 2
 	ld a, SCREEN_WIDTH * 2
 	ld [wListMovesLineSpacing], a
@@ -161,6 +162,7 @@ ForgetMove:
 	call StaticMenuJoypad
 	push af
 	call SafeLoadTempTilemapToTilemap
+	farcall DoublesRestoreAttrs
 	pop af
 	pop hl
 	bit B_BUTTON_F, a
