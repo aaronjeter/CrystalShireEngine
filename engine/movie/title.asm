@@ -231,7 +231,13 @@ SuicuneFrameIterator:
 	db $08 ; vTiles5 tile $08
 
 LoadSuicuneFrame:
-	hlcoord 6, 12
+; Two Delibirds side by side, showing the same frame (d = its first tile).
+	push de
+	hlcoord 2, 12
+	call .Draw
+	pop de
+	hlcoord 10, 12
+.Draw:
 	ld b, 6
 .bgrows
 	ld c, 8
