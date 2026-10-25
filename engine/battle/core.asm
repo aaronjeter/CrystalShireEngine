@@ -7147,6 +7147,7 @@ InitEnemyTrainer:
 	jr nz, .not_double
 	ld a, [wOtherTrainerType]
 	and 1 << TRAINERTYPE_DOUBLE_F
+	ld a, 1
 	ld [wDoubleBattle], a
 .not_double
 
