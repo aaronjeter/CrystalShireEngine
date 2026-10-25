@@ -84,6 +84,7 @@ PlaceFollowerObject:
 	ret
 
 .place
+	call RemoveFollowerSlotStructs
 	ld e, PAL_NPC_FOLLOWER
 
 	ld hl, wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH
@@ -118,6 +119,40 @@ PlaceFollowerObject:
 
 	xor a
 	ld [wObjectMasks + FOLLOWER_OBJECT], a
+	ret
+
+RemoveFollowerSlotStructs:
+; On maps with 15 object_events, the slot's NPC can already have an object
+; struct when the follower replaces it: the map's MAPCALLBACK_OBJECTS runs
+; first, and an `appear` there spawns it (Goldenrod's Move Tutor). Remove it.
+; Left in place, it still points at the slot: when it's deleted offscreen, it
+; unlinks the follower's struct, a second follower comes out on the player's
+; next step, and the first one stays behind.
+	ld bc, wObject1Struct
+	ld e, NUM_OBJECT_STRUCTS - 1
+.loop
+	ld hl, OBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr z, .next
+	ld hl, OBJECT_MAP_OBJECT_INDEX
+	add hl, bc
+	ld a, [hl]
+	cp FOLLOWER_OBJECT
+	jr nz, .next
+	push de
+	push bc
+	farcall DeleteMapObject
+	pop bc
+	pop de
+.next
+	ld hl, OBJECT_LENGTH
+	add hl, bc
+	ld b, h
+	ld c, l
+	dec e
+	jr nz, .loop
 	ret
 
 GetFollowerStartCoords:

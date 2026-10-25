@@ -1920,6 +1920,26 @@ ApplyMovementToFollower:
 	ret z
 	cp movement_slow_step
 	ret c
+	cp movement_show_object
+	jr c, .queue
+	cp movement_bike_step
+	jr z, .queue
+; The following Pokémon only copies steps: emotes, fishing, digging,
+; teleporting... are the player's own. (It's frozen while a script moves the
+; player, so it would play them later: a leftover "!" emote over the player
+; after the Rocket Base camera battles, its tiles overwritten by the battle.)
+	ld e, a
+	push bc
+	ld a, [wObjectFollow_Follower]
+	call GetObjectStruct
+	ld hl, OBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	pop bc
+	cp SPRITE_FOLLOWER
+	ret z
+	ld a, e
+.queue
 	push af
 	ld hl, wFollowerMovementQueueLength
 	ld a, [hl]
