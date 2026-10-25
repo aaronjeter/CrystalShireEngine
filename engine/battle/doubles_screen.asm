@@ -22,11 +22,11 @@ DoublesBlankTile:
 	ds 1 tiles, 0
 
 DoublesArrowGFX:
-; The target arrow (colors: 1 the fill, 3 the outline)
+; The target arrow: solid color 3 (black in every OBJ palette)
 	db $ff, $ff ; ########
-	db $ff, $81 ; #yyyyyy#
-	db $7e, $42 ; .#yyyy#.
-	db $3c, $24 ; ..#yy#..
+	db $ff, $ff ; ########
+	db $7e, $7e ; .######.
+	db $3c, $3c ; ..####..
 	db $18, $18 ; ...##...
 	db $00, $00
 	db $00, $00
@@ -48,7 +48,7 @@ DEF DSG_LENGTH EQU _RS
 DEF DOUBLES_PP_TILE    EQU $71 ; 4 tiles (VRAM bank 0): the move menu's PP
 DEF DOUBLES_ARROW_TILE EQU NUM_TYPE_ICONS * TYPE_ICON_WIDTH ; VRAM bank 1 vTiles3, after the type icons
 	assert DOUBLES_ARROW_TILE < $80
-DEF DOUBLES_TARGET_ARROW_PAL EQU PAL_BATTLE_OB_YELLOW ; the target arrow's OBJ palette
+DEF DOUBLES_TARGET_ARROW_PAL EQU PAL_BATTLE_OB_YELLOW ; the target arrow's OBJ palette (the arrow only uses color 3)
 
 ; wDoublesPicKeys flags
 DEF DOUBLES_PIC_SUB_F   EQU 0
