@@ -6,11 +6,17 @@
 	const TESTROOM_LATIOS
 	const TESTROOM_CANDY
 	const TESTROOM_DJINN
+	const TESTROOM_SPHEAL
 
 TestRoom_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
+	def_callbacks
+	callback MAPCALLBACK_SPRITES, TestroomMonSpritesCallback
+
+TestroomMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, SPHEAL
+	endcallback
 
 Testroom_Ironbubdle:
 	cry IRONBUNDLE
@@ -31,6 +37,12 @@ Testroom_Djiin:
 	givepoke MARS, 5
 	givepoke JUPITER, 5
 	.Done
+	closetext	
+	end
+
+Testroom_Spheal:
+	opentext
+	givepoke SPHEAL, 5
 	closetext	
 	end
 
@@ -1045,4 +1057,4 @@ TestRoom_MapEvents:
 	object_event 14, 15, SPRITE_KRIS_BIKE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Testroom_Kris, -1
 	object_event 16, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, TestroomGenerateTeamScript, -1
 	object_event 19, 05, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Testroom_Djiin, -1
-	
+	object_event 19, 09, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Testroom_Spheal, -1
