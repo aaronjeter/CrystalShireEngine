@@ -249,8 +249,10 @@ SwapInPlayerPartyMon::
 	call ReadBattlerSlotByte
 	cp b
 	jr nz, .done
+	push bc ; SwapInBattlerSlot clobbers bc (b = the party index, returned in a)
 	ld a, c
 	call SwapInBattlerSlot
+	pop bc
 	or $80
 	ld [wPartyMonSwap], a
 .done

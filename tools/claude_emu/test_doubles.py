@@ -211,6 +211,23 @@ CASES = {
                  ('switch', 2)]                              # P2 switches to Golem
                 + [('move', 1, 0), ('move', 0, 1)] * 20,
         result=WIN, log=['Sandstorm', 'recovered 20', 'Golem']),
+    # Oct 27, 2026: a Potion on the partner reaches its battle copy from either menu (P2's menu on
+    # P1, then P1's menu on P2). SwapInPlayerPartyMon returned a clobbered party index, so the heal
+    # went to the party struct only and the next party update undid it; the slot check can't see it
+    'doubles_potion_partner': dict(
+        cls='COOLTRAINERM',
+        party=[('MACHAMP', 60, None, ['SPLASH', 'KARATE_CHOP']), ('PIKACHU', 50, None, ['SPLASH', 'THUNDERSHOCK'])],
+        items=[('POTION', 3)],
+        trainer=[(5, 'MAGIKARP', None, ['SPLASH']), (5, 'MAGIKARP', None, ['SPLASH'])],
+        abilities={'MACHAMP': 'NO_ABILITY', 'PIKACHU': 'NO_ABILITY', 'MAGIKARP': 'NO_ABILITY'},
+        hp={0: 40, 1: 40},
+        actions=[('move', 0, 0), ('item', 'POTION', 0),     # P2's menu: Potion on Machamp (P1)
+                 ('item', 'POTION', 1), ('move', 0, 0)]     # P1's menu: Potion on Pikachu (P2)
+                + [('move', 1, 0), ('move', 1, 1)] * 10,
+        check=lambda recs, v: [x for x in (
+            v.hp(recs[2], P1) != 60 and f'P1 HP after the Potion from P2\'s menu: {v.hp(recs[2], P1)} (expected 60)',
+            v.hp(recs[4], P2) != 60 and f'P2 HP after the Potion from P1\'s menu: {v.hp(recs[4], P2)} (expected 60)') if x],
+        result=WIN),
     # the AI switching (SCHOOLBOY: SWITCH_OFTEN) against bad matchups, with a bench to switch to;
     # Quick Attack moves before faster mons (priority)
     'doubles_ai_switch': dict(
