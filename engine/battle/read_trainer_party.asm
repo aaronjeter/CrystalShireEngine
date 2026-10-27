@@ -498,6 +498,10 @@ GetNextTrainerDataByte:
 INCLUDE "data/trainers/party_pointers.asm"
 
 SetTrainerBattleLevel:
+; wCurPartyLevel = the level of the trainer's lead (for the battle transition), found as
+; ReadTrainerParty does: 3-byte group entries, parties skipped by their size byte, the listed
+; level added to wBaseLevel (the level cap in a Cup battle). A random party's lead isn't
+; chosen yet, so it counts as wBaseLevel.
 	ld a, 255
 	ld [wCurPartyLevel], a
 
@@ -514,22 +518,17 @@ SetTrainerBattleLevel:
 	ld c, a
 	ld b, 0
 
+	ld hl, TrainerGroups
 	ld a, [wHardMode]
 	cp 1
-	jr z, .HardModeOff
-	jp .HardModeOn
-
-	.HardModeOff
-	ld hl, TrainerGroups
-	jp .TrainerGroupsLoaded
-
-	.HardModeOn
+	jr z, .got_groups
 	ld hl, TrainerGroupsHard
-	jp .TrainerGroupsLoaded
-
-	.TrainerGroupsLoaded
+.got_groups
 	add hl, bc
 	add hl, bc
+	add hl, bc
+	ld a, [hli]
+	ld [wTrainerGroupBank], a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -539,19 +538,35 @@ SetTrainerBattleLevel:
 .skip_trainer
 	dec b
 	jr z, .got_trainer
-.skip_party
-	ld a, [hli]
-	cp $ff
-	jr nz, .skip_party
+	ld a, [wTrainerGroupBank]
+	call GetFarByte ; the party's size
+	add l
+	ld l, a
+	jr nc, .skip_trainer
+	inc h
 	jr .skip_trainer
-.got_trainer
 
+.got_trainer
+	inc hl ; the size byte
 .skip_name
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	cp "@"
 	jr nz, .skip_name
 
-	inc hl
-	ld a, [hl]
+	call GetNextTrainerDataByte ; the trainer type
+	ld b, 0
+	bit TRAINERTYPE_RANDOM_F, a
+	jr nz, .got_level
+	call GetNextTrainerDataByte ; the lead's level (added to wBaseLevel)
+	ld b, a
+.got_level
+	ld a, [wBaseLevel]
+	add b
+	ld [wCurPartyLevel], a
+
+	ld a, [wBattleType]
+	cp BATTLETYPE_CUP
+	ret nz
+	ld a, [wLevelCap]
 	ld [wCurPartyLevel], a
 	ret

@@ -2718,11 +2718,13 @@ BGEffect_DoublesLYRange:
 	ld a, d
 	and a
 	lb de, 0, 7 * TILE_WIDTH
-	ret z
+	jr z, .window
 	lb de, 7 * TILE_WIDTH, 13 * TILE_WIDTH
-	ret
+.window
+	farjp DoublesAnimWindowOn ; keep the partner still (preserves de)
 
 BattleAnim_ResetLCDStatCustom:
+	farcall DoublesAnimWindowOff
 	xor a
 	ldh [hLYOverrideStart], a
 	ldh [hLYOverrideEnd], a
@@ -2734,6 +2736,7 @@ BattleAnim_ResetLCDStatCustom:
 	jmp EndBattleBGEffect
 
 BattleBGEffects_ResetVideoHRAM:
+	farcall DoublesAnimWindowOff
 	ld hl, rIE
 	res LCD_STAT, [hl]
 	xor a
@@ -2744,7 +2747,7 @@ BattleBGEffects_ResetVideoHRAM:
 	ld [wOBP1], a
 	ldh [hLYOverrideStart], a
 	ldh [hLYOverrideEnd], a
-	jr BattleBGEffects_ClearLYOverrides
+	jmp BattleBGEffects_ClearLYOverrides
 
 DeformScreen:
 	push bc

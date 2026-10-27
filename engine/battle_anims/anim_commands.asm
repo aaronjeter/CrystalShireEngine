@@ -134,6 +134,7 @@ RunBattleAnimScript:
 	bit BATTLEANIM_STOP_F, a
 	jr z, .playframe
 
+	farcall DoublesAnimWindowOff ; (an effect left on)
 	jr BattleAnim_ClearOAM
 
 BattleAnimClearHud:

@@ -21,6 +21,27 @@ LCDGeneric::
 	pop af
 	reti
 
+LCDDoublesWX::
+; The double battle screen's moving window (engine/battle_anims/doubles_window.asm):
+; rWX = hWX - the line's override (an SCX value). Same bank assumption as LCDGeneric.
+	push af
+	push bc
+	ldh a, [rLY]
+	cp SCREEN_HEIGHT_PX
+	jr c, .continue
+	xor a
+.continue
+	ld c, a
+	ld b, HIGH(wLYOverrides)
+	ld a, [bc]
+	ld b, a
+	ldh a, [hWX]
+	sub b
+	ldh [rWX], a
+	pop bc
+	pop af
+	reti
+
 DisableLCD::
 ; Turn the LCD off
 

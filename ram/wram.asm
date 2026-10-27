@@ -663,6 +663,7 @@ wDoublesHUDHP:: dw ; HP (big-endian),
 wDoublesHUDMaxHP:: dw ; max HP (big-endian)
 wDoublesScratch:: ds 20 ; doubles_screen.asm's temporaries
 wDoublesAnimMap:: ds 5 ; DANIM_*: battle animation objects' shift (engine/battle_anims/doubles_anims.asm)
+wDoublesAnimWindow:: db ; DOUBLES_WINDOW_* flags: a per-line effect's partner pic is on the window (engine/battle_anims/doubles_window.asm)
 ; The doubles AI's choice (engine/battle/ai/doubles_ai.asm)
 wDoublesAIScores:: ds 2 * NUM_MOVES ; each move against foe A, then foe B (lower is better; $ff: not a choice)
 wDoublesAIFoes:: ds 2 ; foe A (the opposite slot, or the only foe), foe B ($ff: none)
@@ -3331,6 +3332,17 @@ wDoublesPicKeys:: ds NUM_BATTLER_SLOTS * 2 ; species, DOUBLES_PIC_* flags of the
 wDoublesHUDKeys:: ds NUM_BATTLER_SLOTS * 6 ; HP (2), status, level, marker, valid of the HP box in VRAM
 wDoublesSlotPals:: ds NUM_BATTLER_SLOTS palettes ; each pic's palette
 wDoublesHPPals:: ds NUM_BATTLER_SLOTS ; HP_* of each HP box
+; per-line effects' window (engine/battle_anims/doubles_window.asm)
+wDoublesAnimWindowX:: db ; the right-hand pic's x, y and size
+wDoublesAnimWindowY:: db
+wDoublesAnimWindowSize:: db
+wDoublesAnimWindowSavedWX:: db ; hWX, hWY before
+wDoublesAnimWindowSavedWY:: db
+wDoublesAnimWindowSaving:: db
+wDoublesAnimWindowRows:: db
+wDoublesAnimWindowCols:: db
+wDoublesAnimWindowMargin:: db
+wDoublesAnimWindowBuf:: ds 7 * 7 * 2 ; the right-hand pic's tiles and attributes, blanked under the window
 
 
 SECTION "Follower Palette", WRAMX, BANK[5]
