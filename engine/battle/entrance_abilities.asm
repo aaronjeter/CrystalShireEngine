@@ -44,12 +44,18 @@ Check_Entrance_Ability:
 	ld d, a
 	ld a, [de]
 	push af ; the foe loaded now
+	ld a, [wDoublesSpread]
+	push af
+	xor a ; EntranceFoeAnim plays the animation for the first foe only
+	ld [wDoublesSpread], a
 	ld a, c
 	add a ; the foes' first slot (P1 or E1)
 	ld c, a
 	call .foe
 	inc c
 	call .foe
+	pop af
+	ld [wDoublesSpread], a
 	pop af
 	farjp SwapInBattlerSlot
 
@@ -178,7 +184,7 @@ ENDM
 .HasIntimidate:
 	call AbilityAnimationCleanup
 	ld de, LEER
-    farcall Call_PlayBattleAnim
+    call EntranceFoeAnim
 	ld hl, BattleCommand_AttackDown
 	call EntranceStatDown
 	ret nz ; blocked; the reason was already printed
@@ -190,7 +196,7 @@ ENDM
 .HasMystify:
 	call AbilityAnimationCleanup
 	ld de, DETECT
-    farcall Call_PlayBattleAnim
+    call EntranceFoeAnim
 	ld hl, BattleCommand_SpecialAttackDown
 	call EntranceStatDown
 	ret nz ; blocked; the reason was already printed
@@ -202,7 +208,7 @@ ENDM
 .HasSnare:
 	call AbilityAnimationCleanup
 	ld de, WRAP
-    farcall Call_PlayBattleAnim
+    call EntranceFoeAnim
 	ld hl, BattleCommand_SpeedDown
 	call EntranceStatDown
 	ret nz ; blocked; the reason was already printed
@@ -266,7 +272,7 @@ ENDM
 .HasEnervate:
 	call AbilityAnimationCleanup
 	ld de, GIGA_DRAIN
-    farcall Call_PlayBattleAnim
+    call EntranceFoeAnim
 	ld hl, BattleCommand_SpecialDefenseDown
 	call EntranceStatDown
 	ret nz ; blocked; the reason was already printed
@@ -278,7 +284,7 @@ ENDM
 .HasDaunt:
 	call AbilityAnimationCleanup
 	ld de, LEER
-    farcall Call_PlayBattleAnim
+    call EntranceFoeAnim
 	ld hl, BattleCommand_DefenseDown
 	call EntranceStatDown
 	ret nz ; blocked; the reason was already printed
@@ -410,6 +416,20 @@ OverworldBattleWeathers:
 	dw SANDSTORM, BattleText_OverworldSandstorm
 	db -1
 
+EntranceFoeAnim:
+; Play animation de for an ENTRANCE_EACH_FOE ability. In a double battle the handler runs
+; once per foe; the animation plays only for the first foe it affects.
+	ld a, [wDoublesSpread]
+	bit DOUBLES_SPREAD_HIT_F, a
+	ret nz
+	ld a, [wDoubleBattle]
+	and a
+	jr z, .play
+	ld hl, wDoublesSpread
+	set DOUBLES_SPREAD_HIT_F, [hl]
+.play
+	farjp Call_PlayBattleAnim
+
 AbilityAnimationCleanup:
 	;set numhits to 0 to prevent animation weirdness
 	;set up as a function, we might need to do other cleanups
@@ -498,7 +518,7 @@ LeechAbility:
 	farcall SetTargetLink
 	
 	ld de, LEECH_SEED
-	farcall Call_PlayBattleAnim
+	call EntranceFoeAnim
 
 	ld hl, WasSeededText
 	jmp StdBattleTextbox

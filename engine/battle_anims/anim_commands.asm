@@ -1,6 +1,24 @@
 ; Battle animation command interpreter.
 
 PlayBattleAnim:
+if DEF(ANIM_LOG)
+	push hl
+	ld hl, wAnimLogCount
+	ld a, [hl]
+	inc [hl]
+	and 15
+	add a
+	add LOW(wAnimLog)
+	ld l, a
+	adc HIGH(wAnimLog)
+	sub l
+	ld h, a
+	ld a, [wFXAnimID]
+	ld [hli], a
+	ld a, [wFXAnimID + 1]
+	ld [hl], a
+	pop hl
+endc
 	ldh a, [rSVBK]
 	push af
 

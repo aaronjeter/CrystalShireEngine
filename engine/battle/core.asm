@@ -1982,13 +1982,19 @@ HandleWeather:
 	ret
 
 .continues
-	; Rain and Sun replay their move animations each turn, like Sandstorm and Hail
+	; each weather plays its animation once per turn, however many battlers it affects
 	ld a, [wBattleWeather]
 	ld de, RAIN_DANCE
 	cp WEATHER_RAIN
 	jr z, .weather_anim
 	ld de, SUNNY_DAY
 	cp WEATHER_SUN
+	jr z, .weather_anim
+	ld de, ANIM_IN_SANDSTORM
+	cp WEATHER_SANDSTORM
+	jr z, .weather_anim
+	ld de, ANIM_IN_HAIL
+	cp WEATHER_HAIL
 	jr nz, .weather_message
 .weather_anim
 	farcall CheckBattleScene ; skip if battle animations are turned off
@@ -2044,15 +2050,6 @@ HandleWeather:
 	call CheckMagicGuardUser
 	ret c
 
-	farcall CheckBattleScene ; skip if battle animations are turned off
-	jr c, .skip_sandstorm_anim
-	call SwitchTurnCore
-	xor a
-	ld [wNumHits], a
-	ld de, ANIM_IN_SANDSTORM
-	call Call_PlayBattleAnim
-	call SwitchTurnCore
-.skip_sandstorm_anim
 	call GetEighthMaxHP
 	call SubtractHPFromUser
 
@@ -2090,15 +2087,6 @@ HandleWeather:
 	call CheckMagicGuardUser
 	ret c
 
-	farcall CheckBattleScene ; skip if battle animations are turned off
-	jr c, .skip_hail_anim
-	call SwitchTurnCore
-	xor a
-	ld [wNumHits], a
-	ld de, ANIM_IN_HAIL
-	call Call_PlayBattleAnim
-	call SwitchTurnCore
-.skip_hail_anim
 
 	call GetSixteenthMaxHP
 	call SubtractHPFromUser

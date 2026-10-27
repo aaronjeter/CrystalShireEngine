@@ -779,7 +779,7 @@ def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
     g.seed()
     g.set_trainer(c['cls'], 'Doubles', c['trainer'], doubles=not c.get('singles'))
     g.seed()
-    g.start_battle(c['cls'], 0x01 | bt.SCENE_OFF)
+    g.start_battle(c['cls'], c.get('options', 0x01 | bt.SCENE_OFF))
     problems = []
     rd = slot_reader(g)
     ex = c.get('expect')
