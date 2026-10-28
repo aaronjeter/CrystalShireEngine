@@ -110,28 +110,74 @@ GetAbilityMove:
 	ret
 
 ApplyThickFat:
-; Halve the damage if the target has Thick Fat
-; and the move is Fire or Ice type.
+; Halve the damage if the target has Thick Fat and the move is Fire or Ice type,
+; or Insulated and the move is Water or Electric type. Preserves bc, de and hl.
+	push bc
+	push de
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
 	and TYPE_MASK
-	cp FIRE
-	jr z, .CheckTarget
-	cp ICE
-	ret nz
-
-.CheckTarget
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
+	ld b, a
+	call GetBreakableOppAbility
+	ld c, FIRE
+	ld d, ICE
 	cp ABILITY_THICK_FAT
+	jr z, .check_type
+	ld c, WATER
+	ld d, ELECTRIC
+	cp ABILITY_INSULATED
+	jr nz, .done
+.check_type
+	ld a, b
+	cp c
+	jr z, .halve
+	cp d
+	jr nz, .done
+.halve
+	push hl
+	call HalveDamage
+	pop hl
+.done
+	pop de
+	pop bc
+	ret
+
+KeenEyeIgnoreEvasion:
+; Keen Eye: the target's evasion level c counts as no higher than normal.
+; Returns a = c. Preserves b, de and hl.
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_KEEN_EYE
+	ld a, c
 	ret nz
-	jmp HalveDamage
+	cp BASE_STAT_LEVEL + 1
+	ret c
+	ld a, BASE_STAT_LEVEL
+	ld c, a
+	ret
+
+ApplyPlusMinus:
+; hl = the user's Sp. Atk -> x1.5 if it has Plus or Minus and so does its ally
+; (double battles only). Preserves bc and de.
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	call .IsPlusMinus
+	ret nz
+	farcall AllyAbility
+	call .IsPlusMinus
+	ret nz
+	jr ApplyGuts.boost
+
+.IsPlusMinus:
+	cp ABILITY_PLUS
+	ret z
+	cp ABILITY_MINUS
+	ret
 
 ApplyMultiscale:
 ; Halve the damage if the target has Multiscale and full HP.
 ; Clobbers bc and hl.
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
+	call GetBreakableOppAbility
 	cp ABILITY_MULTISCALE
 	ret nz
 
@@ -189,6 +235,7 @@ ApplyGuts:
 	cp ABILITY_GUTS
 	ret nz
 
+.boost
 	push bc
 	ld b, h
 	ld c, l
@@ -198,6 +245,13 @@ ApplyGuts:
 	pop bc
 	ret
 
+ApplyFriendGuard:
+; Double battles: cut the damage by 25% if the target's ally has Friend Guard.
+	farcall TargetAllyAbility
+	cp ABILITY_FRIEND_GUARD
+	ret nz
+	jmp ReduceDamageByQuarter
+
 ApplyDurable:
 ; Cut the damage by 25% if the move is super effective
 ; and the target has Durable.
@@ -206,8 +260,7 @@ ApplyDurable:
 	cp EFFECTIVE + 1
 	ret c
 
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
+	call GetBreakableOppAbility
 	cp ABILITY_DURABLE
 	ret nz
 	jmp ReduceDamageByQuarter
@@ -268,11 +321,20 @@ HandleContactStatusAbilities:
 	call CheckContactMove
 	ret nc
 
-; Rough Skin hurts the attacker, whatever its status.
+; Poison Touch: the attacker's contact moves may poison the target.
+	call PoisonTouch
+
+; Rough Skin and Iron Barbs hurt the attacker, whatever its status.
 	ld a, BATTLE_VARS_ABILITY_OPP
 	call GetBattleVar
 	cp ABILITY_ROUGH_SKIN
 	jr z, .rough_skin
+	cp ABILITY_IRON_BARBS
+	jr z, .rough_skin
+	cp ABILITY_GOOEY
+	jr z, .gooey
+	cp ABILITY_CUTE_CHARM
+	jr z, .cute_charm
 
 ; The attacker must not already have a status condition.
 	ld a, BATTLE_VARS_STATUS
@@ -292,13 +354,52 @@ HandleContactStatusAbilities:
 .rough_skin
 	farjp RoughSkinDamage
 
+.gooey
+	farjp GooeyAbility
+
+.cute_charm
+	farjp CuteCharmAbility
+
+PoisonTouch:
+; The attacker has Poison Touch: 30% chance to poison the target (not through Shield Dust;
+; BattleCommand_PoisonTarget does the other checks: status, type, item, ability, Safeguard).
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_POISON_TOUCH
+	ret nz
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_SHIELD_DUST
+	ret z
+	; not a target that fainted
+	ld hl, wEnemyMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld hl, wBattleMonHP
+.got_hp
+	ld a, [hli]
+	or [hl]
+	ret z
+	call BattleRandom
+	cp 30 percent
+	ret nc
+	; the move's own secondary effect (later in its script) keeps its roll
+	ld a, [wEffectFailed]
+	push af
+	xor a
+	ld [wEffectFailed], a
+	call BattleCommand_PoisonTarget
+	pop af
+	ld [wEffectFailed], a
+	ret
+
 ; Status immunity abilities ---------------------------------------------------
 
 OppAbilityBlocksStatus:
 ; Return carry if the target's ability prevents status bits b.
 ; Preserves b, de and hl.
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
+	call GetBreakableOppAbility
 	ld c, a
 	; fallthrough
 
@@ -330,10 +431,84 @@ StatusImmunityAbilities:
 	db ABILITY_MAGMA_ARMOR, 1 << FRZ
 	db NO_ABILITY ; end
 
+ApplyTintedLens:
+; Not very effective hits do double damage if the attacker has Tinted Lens.
+; Must run after BattleCheckTypeMatchup has set wTypeMatchup.
+	ld a, [wTypeMatchup]
+	and a
+	ret z
+	cp EFFECTIVE
+	ret nc
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_TINTED_LENS
+	ret nz
+	jmp DoubleDamage
+
+ForesightOrScrappy:
+; nz if the type chart's Foresight entries are skipped (Normal and Fighting moves hit Ghost
+; types): the target was identified (Foresight), or the attacker has Scrappy.
+; Preserves bc, de and hl.
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_SCRAPPY
+	jr nz, .foresight
+	or 1
+	ret
+.foresight
+	ld a, BATTLE_VARS_SUBSTATUS1_OPP
+	call GetBattleVar
+	and 1 << SUBSTATUS_IDENTIFIED
+	ret
+
+SheerForceApplies:
+; Carry if the attacker has Sheer Force and its move (with power) has an added effect
+; (a chance), which then doesn't happen and the move does x1.3. Thief, Hex/Venoshock and
+; plain hits with a stray chance don't count. Preserves bc, de and hl.
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_SHEER_FORCE
+	jr nz, .no
+	ld a, BATTLE_VARS_MOVE_POWER
+	call GetBattleVar
+	and a
+	jr z, .no
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wPlayerMoveStruct + MOVE_CHANCE]
+	jr z, .got_chance
+	ld a, [wEnemyMoveStruct + MOVE_CHANCE]
+.got_chance
+	and a
+	jr z, .no
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_THIEF
+	jr z, .no
+	cp EFFECT_NORMAL_HIT
+	jr z, .no
+	cp EFFECT_CONDITIONAL_BOOST
+	jr z, .no
+	scf
+	ret
+.no
+	and a
+	ret
+
+GetBreakableOppAbility:
+; a = the target's ability, for the checks Mold Breaker ignores: NO_ABILITY if the
+; attacker (hBattleTurn's battler) has Mold Breaker. Preserves bc, de and hl.
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_MOLD_BREAKER
+	ld a, NO_ABILITY
+	ret z
+	ld a, BATTLE_VARS_ABILITY_OPP
+	jmp GetBattleVar
+
 CheckOppAbility:
 ; Return z if the target has ability b. Preserves bc, de and hl.
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
+	call GetBreakableOppAbility
 	cp b
 	ret
 

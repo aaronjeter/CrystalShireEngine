@@ -7,6 +7,10 @@ BattleCommand_BatonPass:
 	call CheckAnyOtherAlivePartyMons
 	jmp z, FailedBatonPass
 
+	ld a, [wCurBattleMon] ; the player's battler leaves
+	ld b, a
+	xor a
+	farcall AbilityLeavingField
 	call UpdateBattleMonInParty
 	call AnimateCurrentMove
 
@@ -44,6 +48,10 @@ BattleCommand_BatonPass:
 	call CheckAnyOtherAliveEnemyMons
 	jr z, FailedBatonPass
 
+	ld a, [wCurOTMon] ; the enemy's battler leaves
+	ld b, a
+	ld a, 1
+	farcall AbilityLeavingField
 	call UpdateEnemyMonInParty
 	call AnimateCurrentMove
 	call BatonPass_LinkEnemySwitch

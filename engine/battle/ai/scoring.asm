@@ -3351,30 +3351,14 @@ AI_Ability:
 	push bc
 	push de
 
-	;Levitate Check	
+	;Type immunity abilities: Levitate, Waterproof, Lightning Rod, Storm Drain
 	call AIGetEnemyMove
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
 	and TYPE_MASK
-	cp GROUND
-	jr nz, .SkipLevitate
-
+	ld b, a
 	ld a, [wBattleMonAbility]
-	cp ABILITY_LEVITATE
-	jr z, .immune
-
-.SkipLevitate
-
-	;Waterproof Check
-	ld a, [wEnemyMoveStruct + MOVE_TYPE]
-	and TYPE_MASK
-	cp WATER
-	jr nz, .SkipWaterproof
-
-	ld a, [wBattleMonAbility]
-	cp ABILITY_WATERPROOF
-	jr z, .immune
-
-.SkipWaterproof
+	farcall AbilityTypeImmunity
+	jr c, .immune
 
 	;Status immunity check: Limber, Insomnia, Immunity, Water Veil,
 	;Magma Armor (status moves) and Own Tempo (confusing moves)

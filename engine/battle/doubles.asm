@@ -193,6 +193,7 @@ DoublesTurnStart:
 	ld hl, .reset
 	call DoublesForEachSlot
 	call DoublesComputeSpeedOrder
+	farcall SnapshotTurnStartMons ; for Speed Boost
 	call HandleBerserkGene
 	jr DoublesUpdatePlayersInParty
 
@@ -1234,12 +1235,17 @@ DoublesLoadTarget:
 	jr z, .default ; not a foe (no ally targets in v1)
 	ld a, b
 	call DoublesIsSlotEmpty
-	jr z, .load
+	jr z, .redirect
 	xor 1
 	call DoublesIsSlotEmpty
-	jr z, .load
+	jr z, .redirect
 	scf
 	ret
+
+.redirect
+	; Lightning Rod / Storm Drain on the target's ally
+	farcall DoublesRedirectTarget
+	jr .load
 
 .last_attacker
 ; Counter, Mirror Coat, Bide: the battler that last hit the user, with that hit's damage this
@@ -1332,6 +1338,7 @@ DoublesBetweenTurnEffects:
 	call HandleHealAbilities
 	call HandleWeatherHealAbilities
 	call HandleShedSkin
+	call HandleSpeedBoost
 	call HandleMysteryberry
 	call HandleSafeguard
 	call HandleScreens

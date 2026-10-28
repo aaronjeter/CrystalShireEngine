@@ -772,6 +772,354 @@ CASES.update({
 })
 
 
+def check_lightning_rod(recs, v):
+    t = turns(recs, v)
+    p = []
+    (i1, txt1), (i2, _) = t[:2]
+    r1, r2 = recs[i1], recs[i2]
+    want(p, 'E1 HP after Thunderbolt was drawn away', v.hp(r2, E1), v.hp(r1, E1))
+    want(p, 'E2 HP (Lightning Rod)', v.hp(r2, E2), v.hp(r1, E2))
+    want(p, 'E2 Sp. Atk level', v.stat_levels(r2, E2)[3], 8)
+    if 'Lightning Rod' not in txt1:
+        p.append(f'turn 1: no Lightning Rod text: {txt1}')
+    return p
+
+
+def check_storm_drain(recs, v):
+    t = turns(recs, v)
+    p = []
+    (i1, txt1), (i2, _) = t[:2]
+    r1, r2 = recs[i1], recs[i2]
+    if not v.hp(r2, E1) < v.hp(r1, E1):
+        p.append(f'E1 not hit by Surf: {v.hp(r1, E1)} -> {v.hp(r2, E1)}')
+    want(p, 'E2 HP (Storm Drain)', v.hp(r2, E2), v.hp(r1, E2))
+    want(p, 'E2 Sp. Atk level (Water Gun drawn in, Surf absorbed)', v.stat_levels(r2, E2)[3], 9)
+    return p
+
+
+def check_plus_minus(recs, v):
+    t = turns(recs, v)
+    p = []
+    (i1, _), (i2, txt2), (i3, txt3), (i4, _) = t[:4]
+    d1 = v.hp(recs[i1], E1) - v.hp(recs[i2], E1)  # Pikachu (Plus) with Electrode (Minus)
+    d2 = v.hp(recs[i2], E2) - v.hp(recs[i3], E2)  # Pikachu with Machamp
+    p += ratio_check('Plus with a Minus ally vs alone', d1, d2, 1.4, 1.6)
+    want(p, 'Machamp Speed level after the turn it came in (no boost)', v.stat_levels(recs[i3], P2)[2], 7)
+    want(p, 'Machamp Speed level a turn later', v.stat_levels(recs[i4], P2)[2], 8)
+    if 'Speed Boost' in txt2 or 'Speed Boost' not in txt3:
+        p.append(f'Speed Boost text: turn 2 {txt2} / turn 3 {txt3}')
+    return p
+
+
+def check_singles_speed_boost(recs, v):
+    p = []
+    lv = [v.live(r, 'wPlayerStatLevels', 3)[2] for r in recs[:4]]
+    # menus: turn 1 (Machamp +0), turn 2 (Machamp +1), turn 3 (Jolteon, in since turn 2: +0),
+    # turn 4 (Jolteon +1)
+    want(p, 'Speed levels at the first four menus', lv, [7, 8, 7, 8])
+    return p
+
+
+def check_air_lock(recs, v):
+    t = turns(recs, v)
+    p = []
+    (i1, txt1), (i2, txt2), (i3, _) = t[:3]
+    w = lambda i: v.live(recs[i], 'wBattleWeather')[0]
+    want(p, 'weather at the first menu (Drizzle vs Air Lock)', w(i1), 0)
+    want(p, 'weather after turn 1 (Rain Dance with Air Lock out)', w(i2), 0)
+    if 'Rain Dance' not in txt1 or 'failed' not in txt1:
+        p.append(f'turn 1: Rain Dance did not fail: {txt1}')
+    want(p, 'weather after turn 2 (Air Lock switched out, Rain Dance)', w(i3), 1)  # WEATHER_RAIN
+    return p
+
+
+def check_friend_guard(recs, v):
+    t = turns(recs, v)
+    p = []
+    (i1, _), (i2, _), (i3, _), (i4, _) = t[:4]
+    d1 = v.hp(recs[i1], E1) - v.hp(recs[i2], E1)  # Horn Attack on E1 with Friend Guard (E2) out
+    d3 = v.hp(recs[i3], E1) - v.hp(recs[i4], E1)  # the same after E2 fainted
+    if not v.empty(recs[i3], E2):
+        p.append('E2 still out on turn 3')
+    p += ratio_check('Friend Guard ally vs alone', d1, d3, 0.7, 0.8)
+    return p
+
+
+CASES.update({
+    # Air Lock (P1) vs Drizzle (E1): no rain at the start; E2's Rain Dance fails while Golduck is
+    # out and works once it has switched out (turn 2)
+    'doubles_air_lock': dict(
+        cls='COOLTRAINERM',
+        party=[('GOLDUCK', 50, None, ['SPLASH']), ('SNORLAX', 60, None, ['SPLASH', 'BODY_SLAM']),
+               ('MACHAMP', 60, None, ['SPLASH', 'KARATE_CHOP'])],
+        trainer=[(20, 'POLIWRATH', None, ['SPLASH']), (20, 'LAPRAS', None, ['RAIN_DANCE'])],
+        abilities={'GOLDUCK': 'ABILITY_AIR_LOCK', 'SNORLAX': 'NO_ABILITY', 'MACHAMP': 'NO_ABILITY',
+                   'POLIWRATH': 'ABILITY_DRIZZLE', 'LAPRAS': 'NO_ABILITY'},
+        actions=[('move', 0), ('move', 0), ('switch', 2), ('move', 0)] + [('move', 1, 0), ('move', 1, 1)] * 30,
+        check=check_air_lock,
+        result=WIN, log=['weather was kept away']),
+    # Friend Guard on E2 (Clefable): Horn Attack on E1 does 3/4 of what it does once E2 has fainted
+    'doubles_friend_guard': dict(
+        cls='COOLTRAINERM',
+        party=[('MACHAMP', 60, None, ['HORN_ATTACK', 'SPLASH']), ('MACHAMP', 60, None, ['SPLASH', 'HORN_ATTACK'])],
+        trainer=[(50, 'SNORLAX', None, ['SPLASH']), (5, 'CLEFABLE', None, ['SPLASH'])],
+        abilities={'MACHAMP': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'CLEFABLE': 'ABILITY_FRIEND_GUARD'},
+        fixed_damage=True,
+        actions=[('move', 0, 0), ('move', 0), ('move', 1), ('move', 1, 1), ('move', 0, 0), ('move', 0)]
+                + [('move', 0, 0), ('move', 1, 0)] * 30,
+        check=check_friend_guard,
+        result=WIN),
+})
+
+
+def check_volt_absorb(recs, v):
+    t = turns(recs, v)
+    p = []
+    (i1, _), (i2, txt2), (i3, _) = t[:3]
+    h1, h2, h3 = (v.hp(recs[i], E2) for i in (i1, i2, i3))
+    mx = v.get(recs[i2], E2, 'wBattleMonMaxHP', n=2)
+    mx = mx[0] << 8 | mx[1]
+    if not h2 < h1:
+        p.append(f'turn 1: Tackle did no damage to E2: {h1} -> {h2}')
+    want(p, 'E2 HP after Thunderbolt (Volt Absorb heals 1/4)', h3, min(mx, h2 + mx // 4))
+    if 'restored its HP' not in txt2:
+        p.append(f'turn 2: no heal text: {txt2}')
+    return p
+
+
+CASES.update({
+    # Volt Absorb on E2 (Lanturn): Tackle on turn 1, then Thunderbolt heals it by 1/4 of its max HP
+    'doubles_volt_absorb': dict(
+        cls='COOLTRAINERM',
+        party=[('PIKACHU', 50, None, ['TACKLE', 'THUNDERBOLT', 'BODY_SLAM']), ('SNORLAX', 60, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'SNORLAX', None, ['SPLASH']), (40, 'LANTURN', None, ['SPLASH'])],
+        abilities={'PIKACHU': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'LANTURN': 'ABILITY_VOLT_ABSORB'},
+        actions=[('move', 0, 1), ('move', 0), ('move', 1, 1), ('move', 0)] + [('move', 2, 0), ('move', 1, 1)] * 30,
+        check=check_volt_absorb,
+        result=WIN, log=['Volt Absorb']),
+})
+
+
+def check_sturdy(recs, v):
+    # singles: one record per turn (its menu); the log is what happened before that menu
+    p = []
+    ehp = lambda r: v.live(r, 'wEnemyMonHP', 2)
+    log = lambda r: ' | '.join(r.get('log') or [])
+    want(p, 'Geodude HP after Horn Attack from full (Sturdy)', ehp(recs[1]), [0, 1])
+    if 'endured' not in log(recs[1]).lower():
+        p.append(f'turn 1: no "endured" text: {log(recs[1])}')
+    if 'Horn Drill' not in log(recs[3]) or 'unaffected' not in log(recs[3]) or ehp(recs[3]) != ehp(recs[2]):
+        p.append(f'turn 3: Horn Drill on Sturdy: {ehp(recs[2])} -> {ehp(recs[3])} | {log(recs[3])}')
+    return p
+
+
+def check_natural_cure(recs, v):
+    p = []
+    # menus: turn 1 (Starmie, paralyzed by setup), turn 2 (Snorlax), turn 3 (Starmie back)
+    want(p, 'Starmie status after switching out and back (Natural Cure)', v.live(recs[2], 'wBattleMonStatus')[0], 0)
+    want(p, 'Starmie is back', v.live(recs[2], 'wBattleMonSpecies')[0], v.live(recs[0], 'wBattleMonSpecies')[0])
+    return p
+
+
+def start_rain(g):
+    g.wr('wBattleWeather', 1)  # WEATHER_RAIN
+    g.wr('wWeatherCount', 5)
+
+
+def check_cloud_nine(recs, v):
+    p = []
+    want(p, 'weather after Golduck (Cloud Nine) switched in', v.live(recs[1], 'wBattleWeather')[0], 0)
+    log = ' '.join(recs[1].get('log') or [])
+    if 'Cloud Nine' not in log or 'ended the weather' not in log:
+        p.append(f'turn 1: no Cloud Nine text: {log}')
+    return p
+
+
+def hurt_lead(g):
+    g.wr('wBattleMonHP', [0, 20])
+    g.wr('wPartyMon1HP', [0, 20])
+
+
+def check_regenerator(recs, v):
+    p = []
+    mx = v.live(recs[0], 'wBattleMonMaxHP', 2)
+    mx = mx[0] << 8 | mx[1]
+    hp = v.live(recs[2], 'wBattleMonHP', 2)
+    want(p, 'Slowbro HP after switching out and back (Regenerator)', hp[0] << 8 | hp[1], min(mx, 20 + mx // 3))
+    return p
+
+
+def check_mold_breaker_rod(recs, v):
+    t = turns(recs, v)
+    p = []
+    (i1, _), (i2, _) = t[:2]
+    if not v.hp(recs[i2], E1) < v.hp(recs[i1], E1):
+        p.append(f'E1 not hit by Thunderbolt (Mold Breaker vs Lightning Rod): {v.hp(recs[i1], E1)} -> {v.hp(recs[i2], E1)}')
+    want(p, 'E2 Sp. Atk level', v.stat_levels(recs[i2], E2)[3], 7)
+    return p
+
+
+def check_trap(escapes):
+    # singles: the lead tries to switch on turn 1, the mon now out tries to switch back on turn 2.
+    # escapes: whether the lead gets out; the second switch is always refused (trapped).
+    def check(recs, v):
+        p = []
+        sp = [v.live(r, 'wBattleMonSpecies')[0] for r in recs[:3]]
+        log = ' '.join(' '.join(r.get('log') or []) for r in recs[:4])
+        if escapes:
+            if not (sp[1] != sp[0] and sp[2] == sp[1]):
+                p.append(f'species at the first menus: {sp} (expected the lead to switch out, then stay)')
+        elif sp[1] != sp[0]:
+            p.append(f'species at the first menus: {sp} (expected the lead to stay)')
+        if 'recalled' not in log:
+            p.append(f'no "can\'t be recalled" text: {log[-200:]}')
+        return p
+    return check
+
+
+def paralyze_lead(g):
+    g.wr('wBattleMonStatus', 1 << 6)  # PAR
+    g.wr('wPartyMon1Status', 1 << 6)
+
+
+CASES.update({
+    # singles: Sturdy: Horn Attack from full HP leaves Geodude at 1 HP ("endured"), the next one
+    # knocks it out; Horn Drill fails on the second Geodude (at full HP)
+    'singles_sturdy': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('MACHAMP', 60, None, ['HORN_ATTACK', 'HORN_DRILL'])],
+        trainer=[(10, 'GEODUDE', None, ['SPLASH']), (10, 'GEODUDE', None, ['SPLASH'])],
+        abilities={'MACHAMP': 'NO_ABILITY', 'GEODUDE': 'ABILITY_STURDY'},
+        actions=[('move', 0), ('move', 0), ('move', 1)] + [('move', 0)] * 10,
+        check=check_sturdy,
+        result=WIN),
+    # singles: Cloud Nine switching into rain ends it ("<MON>'s Cloud Nine ended the weather!")
+    'singles_cloud_nine': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM']), ('GOLDUCK', 50, None, ['SPLASH', 'SURF'])],
+        trainer=[(20, 'RATTATA', None, ['SPLASH']), (20, 'RATTATA', None, ['SPLASH'])],
+        abilities={'SNORLAX': 'NO_ABILITY', 'GOLDUCK': 'ABILITY_CLOUD_NINE', 'RATTATA': 'NO_ABILITY'},
+        setup=start_rain,
+        actions=[('switch', 1)] + [('move', 1)] * 20,
+        check=check_cloud_nine,
+        result=WIN),
+    # singles: Regenerator: Slowbro at 20 HP switches out and back: +1/3 of its max HP. The enemy
+    # lead has Mold Breaker ("breaks the mold!" on entry)
+    'singles_regenerator': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('SLOWBRO', 50, None, ['SPLASH', 'SURF']), ('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(20, 'PINSIR', None, ['SPLASH']), (20, 'RATTATA', None, ['SPLASH'])],
+        abilities={'SLOWBRO': 'ABILITY_REGENERATOR', 'SNORLAX': 'NO_ABILITY', 'PINSIR': 'ABILITY_MOLD_BREAKER',
+                   'RATTATA': 'NO_ABILITY'},
+        setup=hurt_lead,
+        actions=[('switch', 1), ('switch', 0)] + [('move', 1)] * 20,
+        check=check_regenerator,
+        result=WIN, log=['breaks']),
+    # singles: Arena Trap (Dugtrio): the Flying lead (Pidgeot) switches out; Snorlax can't
+    'singles_arena_trap': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('PIDGEOT', 50, None, ['SPLASH', 'WING_ATTACK']), ('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(20, 'DUGTRIO', None, ['SPLASH']), (20, 'DUGTRIO', None, ['SPLASH'])],
+        abilities={'PIDGEOT': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'DUGTRIO': 'ABILITY_ARENA_TRAP'},
+        actions=[('switch', 1), ('switch', 0)] + [('move', 1)] * 20,
+        check=check_trap(True),
+        result=WIN),
+    # singles: Shadow Tag (Wobbuffet): the Ghost lead (Gengar) switches out; Snorlax can't
+    'singles_shadow_tag': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('GENGAR', 50, None, ['SPLASH', 'SHADOW_BALL']), ('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(20, 'WOBBUFFET', None, ['SPLASH']), (20, 'WOBBUFFET', None, ['SPLASH'])],
+        abilities={'GENGAR': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'WOBBUFFET': 'ABILITY_SHADOW_TAG'},
+        actions=[('switch', 1), ('switch', 0)] + [('move', 1)] * 20,
+        check=check_trap(True),
+        result=WIN),
+    # singles: Magnet Pull (Magneton): the Steel lead (Skarmory, Flying too) can't switch out
+    'singles_magnet_pull': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('SKARMORY', 50, None, ['SPLASH', 'WING_ATTACK']), ('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(20, 'MAGNETON', None, ['SPLASH']), (20, 'MAGNETON', None, ['SPLASH'])],
+        abilities={'SKARMORY': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'MAGNETON': 'ABILITY_MAGNET_PULL'},
+        actions=[('switch', 1)] + [('move', 1)] * 40,
+        check=check_trap(False),
+        result=WIN),
+    # singles: Natural Cure: the paralyzed lead (Starmie) switches out and back: cured
+    'singles_natural_cure': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('STARMIE', 50, None, ['SPLASH', 'SURF']), ('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(20, 'RATTATA', None, ['SPLASH']), (20, 'RATTATA', None, ['SPLASH'])],
+        abilities={'STARMIE': 'ABILITY_NATURAL_CURE', 'SNORLAX': 'NO_ABILITY', 'RATTATA': 'NO_ABILITY'},
+        setup=paralyze_lead,
+        actions=[('switch', 1), ('switch', 0)] + [('move', 1)] * 20,
+        check=check_natural_cure,
+        result=WIN),
+})
+
+
+CASES.update({
+    # Oct 28, 2026 abilities: Lightning Rod on E2 draws in Thunderbolt aimed at E1
+    'doubles_lightning_rod': dict(
+        cls='COOLTRAINERM',
+        party=[('PIKACHU', 60, None, ['THUNDERBOLT', 'BODY_SLAM']), ('SNORLAX', 60, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'SNORLAX', None, ['SPLASH']), (30, 'RAICHU', None, ['SPLASH'])],
+        abilities={'PIKACHU': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'RAICHU': 'ABILITY_LIGHTNING_ROD'},
+        actions=[('move', 0, 0), ('move', 0)] + [('move', 1, 0), ('move', 1, 1)] * 30,
+        check=check_lightning_rod,
+        result=WIN, log=['Lightning Rod']),
+    # Mold Breaker (P1): Thunderbolt at E1 isn't drawn to E2's Lightning Rod
+    'doubles_mold_breaker_rod': dict(
+        cls='COOLTRAINERM',
+        party=[('PIKACHU', 60, None, ['THUNDERBOLT', 'BODY_SLAM']), ('SNORLAX', 60, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'SNORLAX', None, ['SPLASH']), (30, 'RAICHU', None, ['SPLASH'])],
+        abilities={'PIKACHU': 'ABILITY_MOLD_BREAKER', 'SNORLAX': 'NO_ABILITY', 'RAICHU': 'ABILITY_LIGHTNING_ROD'},
+        actions=[('move', 0, 0), ('move', 0)] + [('move', 1, 0), ('move', 1, 1)] * 30,
+        check=check_mold_breaker_rod,
+        result=WIN),
+    # Storm Drain on E2: Water Gun at E1 is drawn in; Surf hits E1 and is absorbed by E2
+    'doubles_storm_drain': dict(
+        cls='COOLTRAINERM',
+        party=[('LAPRAS', 60, None, ['WATER_GUN', 'BODY_SLAM']), ('LAPRAS', 60, None, ['SURF', 'BODY_SLAM'])],
+        trainer=[(30, 'SNORLAX', None, ['SPLASH']), (30, 'VAPOREON', None, ['SPLASH'])],
+        abilities={'LAPRAS': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'VAPOREON': 'ABILITY_STORM_DRAIN'},
+        actions=[('move', 0, 0), ('move', 0)] + [('move', 1, 0), ('move', 1, 1)] * 30,
+        check=check_storm_drain,
+        result=WIN, log=['Storm Drain']),
+    # Plus with a Minus ally (turn 1) vs alone (turn 2, Electrode switched for Machamp);
+    # Machamp's Speed Boost: not at the end of turn 2 (it switched in), then at the end of turn 3
+    'doubles_plus_minus': dict(
+        cls='COOLTRAINERM',
+        party=[('PIKACHU', 50, None, ['THUNDERBOLT', 'SPLASH']), ('ELECTRODE', 50, None, ['SPLASH']),
+               ('MACHAMP', 60, None, ['SPLASH', 'KARATE_CHOP'])],
+        trainer=[(60, 'SNORLAX', None, ['SPLASH']), (60, 'SNORLAX', None, ['SPLASH'])],
+        abilities={'PIKACHU': 'ABILITY_PLUS', 'ELECTRODE': 'ABILITY_MINUS', 'MACHAMP': 'ABILITY_SPEED_BOOST',
+                   'SNORLAX': 'NO_ABILITY'},
+        fixed_damage=True,
+        actions=[('move', 0, 0), ('move', 0), ('move', 0, 1), ('switch', 2), ('move', 1), ('move', 0)]
+                + [('move', 0, 0), ('move', 1, 0)] * 40,
+        check=check_plus_minus,
+        result=WIN),
+    # singles: Speed Boost on the lead boosts at the end of turn 1; a Speed Boost mon switched in
+    # (turn 2) doesn't boost that turn, then does at the end of turn 3
+    'singles_speed_boost': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('MACHAMP', 60, None, ['SPLASH', 'KARATE_CHOP']), ('JOLTEON', 60, None, ['SPLASH', 'THUNDERBOLT'])],
+        trainer=[(30, 'SNORLAX', None, ['SPLASH']), (30, 'SNORLAX', None, ['SPLASH'])],
+        abilities={'MACHAMP': 'ABILITY_SPEED_BOOST', 'JOLTEON': 'ABILITY_SPEED_BOOST', 'SNORLAX': 'NO_ABILITY'},
+        actions=[('move', 0), ('switch', 1), ('move', 0)] + [('move', 1)] * 60,
+        check=check_singles_speed_boost,
+        result=WIN),
+    # the AI doesn't feed Lightning Rod: Thunderbolt at P1 would be drawn to P2 (Raichu), and P2
+    # is immune, so both foes Tackle
+    'doubles_ai_lightning_rod': dict(
+        cls='COOLTRAINERM',
+        party=[('SNORLAX', 100, None, ['SPLASH', 'BODY_SLAM']), ('RAICHU', 100, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'JOLTEON', None, ['THUNDERBOLT', 'TACKLE']), (30, 'JOLTEON', None, ['THUNDERBOLT', 'TACKLE'])],
+        abilities={'SNORLAX': 'NO_ABILITY', 'RAICHU': 'ABILITY_LIGHTNING_ROD', 'JOLTEON': 'NO_ABILITY'},
+        actions=[('move', 0), ('move', 0)] * 3 + [('move', 1, 0), ('move', 1, 0)] * 30,
+        check=lambda recs, v: check_ai(recs, v, 3, e1=(1, None), e2=(1, None)),
+        result=WIN),
+})
+
+
 def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
     c = CASES[name]
     g = bt.Game(rom, sym, state)

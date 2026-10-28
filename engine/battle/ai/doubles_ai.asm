@@ -190,20 +190,18 @@ DoublesAIScoreFoe:
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
 	and TYPE_MASK
 	ld b, a
+	; Levitate, Waterproof, Lightning Rod, Storm Drain
 	ld a, [wBattleMonAbility]
-	cp ABILITY_LEVITATE
-	jr nz, .not_levitate
-	ld a, b
-	cp GROUND
-	jr z, .next
-.not_levitate
-	ld a, [wBattleMonAbility]
-	cp ABILITY_WATERPROOF
-	jr nz, .not_waterproof
-	ld a, b
-	cp WATER
-	jr z, .next
-.not_waterproof
+	farcall AbilityTypeImmunity
+	jr c, .next
+	; drawn away by the foe's ally (Lightning Rod, Storm Drain)
+	ld a, [wEnemyMoveStruct + MOVE_ANIM]
+	ld e, a
+	ld a, [wAreaSlots]
+	ld d, a
+	farcall RedirectTargetSlot
+	cp d
+	jr nz, .next
 	farcall AIDamageCalc
 	ld a, [wCurDamage]
 	ld b, a

@@ -24,6 +24,10 @@ AI_SwitchOrTryItem:
 	and a
 	jr nz, DontSwitch
 
+	ld a, 1 ; Shadow Tag, Arena Trap, Magnet Pull
+	farcall TrappedByAbility
+	jr c, DontSwitch
+
 	; always load the first trainer class in wTrainerClass for Battle Tower trainers
 	ld hl, TrainerClassAttributes + TRNATTR_AI_ITEM_SWITCH
 	ld a, [wInBattleTowerBattle]
@@ -667,6 +671,10 @@ AI_Switch:
 	pop af
 
 	push af
+	ld a, [wCurOTMon] ; the enemy's battler leaves
+	ld b, a
+	ld a, 1
+	farcall AbilityLeavingField
 	ld a, [wCurOTMon]
 	ld hl, wOTPartyMon1Status
 	ld bc, PARTYMON_STRUCT_LENGTH

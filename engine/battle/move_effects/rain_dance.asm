@@ -1,4 +1,6 @@
 BattleCommand_StartRain:
+	farcall AirLockOnField ; Air Lock: no new weather
+	jr c, .failed
 	; don't shorten permanent rain (from overworld weather)
 	ld a, [wBattleWeather]
 	cp WEATHER_RAIN

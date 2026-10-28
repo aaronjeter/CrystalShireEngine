@@ -169,6 +169,7 @@ endc
 	ld [wBattleHasJustStarted], a	
 	ld [wCurDamage], a
 	ld [wCurDamage + 1], a
+	farcall SnapshotTurnStartMons ; for Speed Boost
 
 	call HandleBerserkGene
 	call UpdateBattleMonInParty
@@ -310,6 +311,7 @@ HandleBetweenTurnEffects:
 	call HandleHealAbilities
 	call HandleWeatherHealAbilities
 	call HandleShedSkin
+	call HandleSpeedBoost
 	call HandleMysteryberry
 	call HandleSafeguard
 	call HandleScreens
@@ -853,6 +855,10 @@ TryEnemyFlee:
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, .Stay
+
+	ld a, 1 ; Shadow Tag, Arena Trap, Magnet Pull
+	farcall TrappedByAbility
+	jr c, .Stay
 
 	ld a, [wEnemyWrapCount]
 	and a
@@ -1521,6 +1527,13 @@ HandleLeftovers:
 
 INCLUDE "engine/battle/end_turn_abilities.asm"
 
+HandleSpeedBoost:
+	ld hl, .do_it
+	jmp ForEachBattler
+
+.do_it
+	farjp SpeedBoostAbility
+
 HandleHealAbilities:
 	ld hl, .do_it
 	jmp ForEachBattler
@@ -1649,12 +1662,24 @@ HandleShedSkin:
 	call CheckShedSkinMon
 	pop bc
 	pop de
-	ret nc
+	jr c, .shed_skin
 
+	; Hydration: always, in the rain
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_HYDRATION
+	ret nz
+	ld a, [wBattleWeather]
+	cp WEATHER_RAIN
+	ret nz
+	jr .cure
+
+.shed_skin
 	call BattleRandom
 	cp 30 percent
 	ret nc
 
+.cure
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVarAddr
 	xor a
@@ -1677,7 +1702,10 @@ HandleShedSkin:
 	ld a, BANK(CalcPlayerStats) ; aka BANK(CalcEnemyStats)
 	call FarCall_hl
 	call RefreshBattleHuds
-	ld hl, ShedSkinText
+	ld a, BATTLE_VARS_ABILITY ; Shed Skin, Hydration
+	call GetBattleVar
+	farcall GetAbilityName
+	ld hl, AbilityCuredStatusText
 	jmp StdBattleTextbox
 
 HandleMysteryberry:
@@ -2121,12 +2149,15 @@ HandleWeather:
 	dw BattleText_TheHailStopped
 
 RoughSkinDamage:
-; The attacker (whose turn it is) hit a Rough Skin holder with a contact move:
+; The attacker (whose turn it is) hit a Rough Skin / Iron Barbs holder with a contact move:
 ; it loses 1/8 of its max HP, unless it has Magic Guard.
 	call CheckMagicGuardUser
 	ret c
 	call GetEighthMaxHP
 	call SubtractHPFromUser
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	farcall GetAbilityName
 	ld hl, RoughSkinText
 	jmp StdBattleTextbox
 
@@ -3265,6 +3296,10 @@ SlideBattlePicOut:
 	ret
 
 ForceEnemySwitch:
+	ld a, [wCurOTMon] ; the enemy's battler is dragged out
+	ld b, a
+	ld a, 1
+	farcall AbilityLeavingField
 	call ResetEnemyBattleVars
 	ld a, [wEnemySwitchMonIndex]
 	dec a
@@ -3907,6 +3942,10 @@ TryToRunAwayFromBattle:
 	ld a, [wBattleMode]
 	dec a
 	jmp nz, .cant_run_from_trainer
+
+	xor a ; Shadow Tag, Arena Trap, Magnet Pull
+	farcall TrappedByAbility
+	jmp c, .cant_escape
 
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
@@ -5388,6 +5427,9 @@ TryPlayerSwitch:
 	ld a, [wPlayerBattlerLinks + BATTLER_LINK_MEAN_LOOK_BY] ; double battles
 	and a
 	jr nz, .trapped
+	xor a ; Shadow Tag, Arena Trap, Magnet Pull
+	farcall TrappedByAbility
+	jr c, .trapped
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
 	jr z, .try_switch
@@ -5475,6 +5517,12 @@ BattleMonEntrance:
 	call DoublesPursuitSwitch
 	call nc, RecallPlayerMon
 
+	; Natural Cure, Regenerator (after Pursuit; wCurBattleMon is already the incoming mon)
+	ld a, [wLastPlayerMon]
+	ld b, a
+	xor a
+	farcall AbilityLeavingField
+
 	call ClearPlayerHUDArea
 
 	ld a, [wCurBattleMon]
@@ -5513,6 +5561,10 @@ SwitchHitPlayerEntrance:
 ; and picked the incoming Pokemon (in wCurPartyMon). Works like a normal
 ; switch: the outgoing Pokemon is withdrawn, and the incoming one starts
 ; with reset stat levels and substatus.
+	ld a, [wCurBattleMon] ; the user switches out
+	ld b, a
+	xor a
+	farcall AbilityLeavingField
 	call WithdrawMonText
 
 	ld c, 30
@@ -5542,6 +5594,10 @@ SwitchHitEnemyEntrance:
 	ld hl, wEnemySubStatus4
 	res SUBSTATUS_RAGE, [hl]
 
+	ld a, [wCurOTMon]
+	ld b, a
+	ld a, 1
+	farcall AbilityLeavingField
 	ld hl, SwitchHitEnemyWithdrewText
 	call PrintText
 

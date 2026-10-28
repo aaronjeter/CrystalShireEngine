@@ -68,6 +68,50 @@ AbilityNames:
 	dw RoughSkinNameString
 	dw RockHeadNameString
 	dw GaleWingsNameString
+	dw LightningRodNameString
+	dw StormDrainNameString
+	dw KeenEyeNameString
+	dw SpeedBoostNameString
+	dw SniperNameString
+	dw InsulatedNameString
+	dw PlusNameString
+	dw MinusNameString
+	dw TelepathyNameString
+	dw AirLockNameString
+	dw FriendGuardNameString
+	dw WaterAbsorbNameString
+	dw VoltAbsorbNameString
+	dw SapSipperNameString
+	dw FlashFireNameString
+	dw SturdyNameString
+	dw IronBarbsNameString
+	dw CloudNineNameString
+	dw NaturalCureNameString
+	dw PoisonTouchNameString
+	dw CuteCharmNameString
+	dw GooeyNameString
+	dw MoldBreakerNameString
+	dw RegeneratorNameString
+	dw PixilateNameString
+	dw GalvanizeNameString
+	dw AerilateNameString
+	dw RefrigerateNameString
+	dw DragonizeNameString
+	dw NormalizeNameString
+	dw ImmolateNameString
+	dw HydrateNameString
+	dw ContaminateNameString
+	dw VerdifyNameString
+	dw HydrationNameString
+	dw TintedLensNameString
+	dw ScrappyNameString
+	dw SheerForceNameString
+	dw ShadowTagNameString
+	dw ArenaTrapNameString
+	dw MagnetPullNameString
+	dw BattleArmorNameString
+	dw SynchronizeNameString
+	dw ShellArmorNameString
 	assert_table_length NUM_ABILITIES
 
 NoAbilityNameString:
@@ -270,3 +314,135 @@ RockHeadNameString:
 
 GaleWingsNameString:
 	db "Gale Wings@"
+
+LightningRodNameString:
+	db "Lightning Rod@"
+
+StormDrainNameString:
+	db "Storm Drain@"
+
+KeenEyeNameString:
+	db "Keen Eye@"
+
+SpeedBoostNameString:
+	db "Speed Boost@"
+
+SniperNameString:
+	db "Sniper@"
+
+InsulatedNameString:
+	db "Insulated@"
+
+PlusNameString:
+	db "Plus@"
+
+MinusNameString:
+	db "Minus@"
+
+TelepathyNameString:
+	db "Telepathy@"
+
+AirLockNameString:
+	db "Air Lock@"
+
+FriendGuardNameString:
+	db "Friend Guard@"
+
+WaterAbsorbNameString:
+	db "Water Absorb@"
+
+VoltAbsorbNameString:
+	db "Volt Absorb@"
+
+SapSipperNameString:
+	db "Sap Sipper@"
+
+FlashFireNameString:
+	db "Flash Fire@"
+
+SturdyNameString:
+	db "Sturdy@"
+
+IronBarbsNameString:
+	db "Iron Barbs@"
+
+CloudNineNameString:
+	db "Cloud Nine@"
+
+NaturalCureNameString:
+	db "Natural Cure@"
+
+PoisonTouchNameString:
+	db "Poison Touch@"
+
+CuteCharmNameString:
+	db "Cute Charm@"
+
+GooeyNameString:
+	db "Gooey@"
+
+MoldBreakerNameString:
+	db "Mold Breaker@"
+
+RegeneratorNameString:
+	db "Regenerator@"
+
+PixilateNameString:
+	db "Pixilate@"
+
+GalvanizeNameString:
+	db "Galvanize@"
+
+AerilateNameString:
+	db "Aerilate@"
+
+RefrigerateNameString:
+	db "Refrigerate@"
+
+DragonizeNameString:
+	db "Dragonize@"
+
+NormalizeNameString:
+	db "Normalize@"
+
+ImmolateNameString:
+	db "Immolate@"
+
+HydrateNameString:
+	db "Hydrate@"
+
+ContaminateNameString:
+	db "Contaminate@"
+
+VerdifyNameString:
+	db "Verdify@"
+
+HydrationNameString:
+	db "Hydration@"
+
+TintedLensNameString:
+	db "Tinted Lens@"
+
+ScrappyNameString:
+	db "Scrappy@"
+
+SheerForceNameString:
+	db "Sheer Force@"
+
+ShadowTagNameString:
+	db "Shadow Tag@"
+
+ArenaTrapNameString:
+	db "Arena Trap@"
+
+MagnetPullNameString:
+	db "Magnet Pull@"
+
+BattleArmorNameString:
+	db "Battle Armor@"
+
+SynchronizeNameString:
+	db "Synchronize@"
+
+ShellArmorNameString:
+	db "Shell Armor@"

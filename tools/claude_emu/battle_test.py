@@ -495,6 +495,11 @@ class Battle:
             g.wr('wMenuCursorY', act[1] + 1); g.press('A', after=4)
             self.settle()
             g.press('A', after=4)       # "Switch"
+            t = self.settle()
+            if t and any('recalled' in x for x in t):  # trapped (Shadow Tag etc.): back to the battle menu
+                g.press('A', after=4)
+                self.settle()
+                g.press('B', after=4)
         elif kind == 'item':
             self.pack_item(act[1], act[2] if len(act) > 2 else None)
         elif kind == 'ball':           # the only ball type in the bag

@@ -1003,3 +1003,350 @@ SwapTest::
 	pop af
 	jp LoadBattlerSlot
 endc
+
+SlotEmpty:
+; nz if slot c has no battler. Preserves bc, de and hl.
+	push bc
+	ld a, c
+	and %11
+	ld b, a
+	ld a, 1
+	jr z, .got_mask
+.mask_loop
+	add a
+	dec b
+	jr nz, .mask_loop
+.got_mask
+	ld b, a
+	ld a, [wEmptyBattlerSlots]
+	and b
+	pop bc
+	ret
+
+SnapshotTurnStartMons::
+; At the start of a turn: wTurnStartMons = each slot's party index ($ff: empty).
+; Preserves bc, de and hl.
+	push bc
+	push de
+	push hl
+	ld de, wTurnStartMons
+	ld c, 0
+.loop
+	call SlotEmpty
+	ld a, $ff
+	jr nz, .store
+	ld hl, BSLOT_PARTY_INDEX
+	call ReadBattlerVar
+.store
+	ld [de], a
+	inc de
+	inc c
+	ld a, c
+	cp NUM_BATTLER_SLOTS
+	jr nz, .loop
+	pop hl
+	pop de
+	pop bc
+	ret
+
+EnteredThisTurn::
+; Carry if hBattleTurn's battler wasn't in its slot when the turn started (it switched
+; in, was dragged in or replaced a fainted mon this turn). Preserves bc, de and hl.
+	push bc
+	push hl
+	ldh a, [hBattleTurn]
+	ld c, a
+	ld b, 0
+	ld hl, wAreaSlots
+	add hl, bc
+	ld c, [hl]
+	ld hl, wTurnStartMons
+	add hl, bc
+	ld b, [hl]
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wCurBattleMon]
+	jr z, .got_index
+	ld a, [wCurOTMon]
+.got_index
+	cp b
+	pop hl
+	pop bc
+	scf
+	ret nz
+	and a
+	ret
+
+SlotAbility:
+; a = the ability of the battler in slot c (loaded or stored); NO_ABILITY if the slot is
+; empty. Preserves bc, de and hl.
+	call SlotEmpty
+	ld a, NO_ABILITY
+	ret nz
+	push hl
+	ld hl, BSLOT_ABILITY
+	call ReadBattlerVar
+	pop hl
+	ret
+
+TargetAllyAbility::
+; a = the ability of the ally of the battler opposite hBattleTurn's (the move's target):
+; NO_ABILITY in a single battle, if that slot is empty, or if hBattleTurn's battler (the
+; attacker) has Mold Breaker. Preserves bc, de and hl.
+	ld a, [wDoubleBattle]
+	and a
+	ret z
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wBattleMonAbility]
+	jr z, .got_user_ability
+	ld a, [wEnemyMonAbility]
+.got_user_ability
+	cp ABILITY_MOLD_BREAKER
+	ld a, NO_ABILITY
+	ret z
+	push bc
+	push hl
+	ldh a, [hBattleTurn]
+	xor 1
+	jr AllyAbility.got_side
+
+AllyAbility::
+; a = the ability of the ally of hBattleTurn's battler: NO_ABILITY in a single battle or
+; if its ally's slot is empty. Preserves bc, de and hl.
+	ld a, [wDoubleBattle]
+	and a
+	ret z
+	push bc
+	push hl
+	ldh a, [hBattleTurn]
+.got_side
+	ld c, a
+	ld b, 0
+	ld hl, wAreaSlots
+	add hl, bc
+	ld a, [hl]
+	xor 1
+	ld c, a
+	call SlotAbility
+	pop hl
+	pop bc
+	ret
+
+DoublesRedirectTarget::
+; a = the target slot of the battler in slot c's move (wCurPlayerMove / wCurEnemyMove)
+; -> a = the slot that takes it (RedirectTargetSlot; not for a Mold Breaker user).
+; Preserves bc, de and hl.
+	push de
+	ld e, a
+	call SlotAbility
+	cp ABILITY_MOLD_BREAKER
+	ld a, e
+	jr z, .done
+	ld a, [wCurPlayerMove]
+	bit BATTLER_SLOT_ENEMY_F, c
+	jr z, .got_move
+	ld a, [wCurEnemyMove]
+.got_move
+	ld d, e
+	ld e, a
+	ld a, d
+	call RedirectTargetSlot
+.done
+	pop de
+	ret
+
+RedirectTargetSlot::
+; a = the target slot of single-target move e -> a = the slot that takes it: the target's
+; ally instead if the move is Electric (Water) and the ally has Lightning Rod (Storm Drain)
+; but the target doesn't. Preserves bc, de and hl.
+	push bc
+	push hl
+	ld c, a
+	ld a, e
+	farcall GetMoveTarget
+	cp MOVE_TARGET_SELECTED
+	jr nz, .keep
+	ld l, e
+	ld a, MOVE_TYPE
+	call GetMoveAttribute
+	and TYPE_MASK
+	ld b, ABILITY_LIGHTNING_ROD
+	cp ELECTRIC
+	jr z, .check
+	ld b, ABILITY_STORM_DRAIN
+	cp WATER
+	jr nz, .keep
+.check
+	call SlotAbility
+	cp b
+	jr z, .keep
+	ld a, c
+	xor 1
+	ld c, a
+	call SlotAbility
+	cp b
+	jr z, .keep ; redirected to the ally
+	ld a, c
+	xor 1
+	ld c, a
+.keep
+	ld a, c
+	pop hl
+	pop bc
+	ret
+
+TelepathyBlocksAllyHit::
+; b = the user's slot, c = the target's slot -> carry if the target is the user's ally and
+; has Telepathy. Not used yet: no move hits an ally in v1 (call it when ally hits come).
+; Preserves bc, de and hl.
+	ld a, b
+	xor c
+	cp 1
+	jr nz, .no
+	call SlotAbility
+	cp ABILITY_TELEPATHY
+	scf
+	ret z
+.no
+	and a
+	ret
+
+AirLockOnField::
+; Carry if a battler on the field has Air Lock or Cloud Nine. Preserves bc, de and hl.
+	ld a, [wDoubleBattle]
+	and a
+	jr nz, .doubles
+	ld a, [wBattleMonAbility]
+	call .IsAirLock
+	jr z, .yes
+	ld a, [wEnemyMonAbility]
+	call .IsAirLock
+	jr z, .yes
+	and a
+	ret
+
+.IsAirLock:
+	cp ABILITY_AIR_LOCK
+	ret z
+	cp ABILITY_CLOUD_NINE
+	ret
+
+.doubles
+	push bc
+	ld c, NUM_BATTLER_SLOTS
+.loop
+	dec c
+	call SlotAbility
+	call .IsAirLock
+	jr z, .found
+	inc c
+	dec c
+	jr nz, .loop
+	pop bc
+	and a
+	ret
+
+.found
+	pop bc
+.yes
+	scf
+	ret
+
+TrappedByAbility::
+; Carry if the battler loaded in area a (0: the player's, 1: the enemy's) can't switch out or
+; flee because of a foe's ability: Shadow Tag (not a Shadow Tag holder itself), Arena Trap
+; (not Flying types or Levitate), Magnet Pull (Steel types). Ghost types always escape.
+; Preserves bc, de and hl.
+	push bc
+	push de
+	push hl
+	ld e, a
+	and a
+	ld a, [wBattleMonAbility]
+	ld hl, wBattleMonType1
+	jr z, .got_battler
+	ld a, [wEnemyMonAbility]
+	ld hl, wEnemyMonType1
+.got_battler
+	ld d, a
+	ld a, [hli]
+	ld l, [hl]
+	ld h, a ; h, l = its types
+	cp GHOST
+	jr z, .no
+	ld a, l
+	cp GHOST
+	jr z, .no
+	ld a, [wDoubleBattle]
+	and a
+	jr nz, .doubles
+	ld a, e
+	and a
+	ld a, [wEnemyMonAbility]
+	jr z, .got_foe
+	ld a, [wBattleMonAbility]
+.got_foe
+	call .Traps
+	jr .done
+
+.doubles
+	; the foes' slots: 2 and 3 for the player's battler, 0 and 1 for the enemy's
+	ld a, e
+	xor 1
+	add a
+	ld c, a
+	call SlotAbility
+	call .Traps
+	jr c, .done
+	inc c
+	call SlotAbility
+	call .Traps
+	jr .done
+
+.no
+	and a
+.done
+	pop hl
+	pop de
+	pop bc
+	ret
+
+.Traps:
+; a = a foe's ability, h/l = the battler's types, d = its ability -> carry if trapped
+	cp ABILITY_SHADOW_TAG
+	jr nz, .arena_trap
+	ld a, d
+	cp ABILITY_SHADOW_TAG
+	jr z, .not_trapped
+	scf
+	ret
+.arena_trap
+	cp ABILITY_ARENA_TRAP
+	jr nz, .magnet_pull
+	ld a, h
+	cp FLYING
+	jr z, .not_trapped
+	ld a, l
+	cp FLYING
+	jr z, .not_trapped
+	ld a, d
+	cp ABILITY_LEVITATE
+	jr z, .not_trapped
+	scf
+	ret
+.magnet_pull
+	cp ABILITY_MAGNET_PULL
+	jr nz, .not_trapped
+	ld a, h
+	cp STEEL
+	jr z, .trapped
+	ld a, l
+	cp STEEL
+	jr nz, .not_trapped
+.trapped
+	scf
+	ret
+.not_trapped
+	and a
+	ret

@@ -86,6 +86,9 @@ MACRO entrance_ability ; ability, ENTRANCE_* kind, handler
 	dw \3
 ENDM
 	entrance_ability ABILITY_DRIZZLE,         ENTRANCE_FIELD,         .HasDrizzle
+	entrance_ability ABILITY_AIR_LOCK,        ENTRANCE_FIELD,         .HasAirLock
+	entrance_ability ABILITY_MOLD_BREAKER,    ENTRANCE_SELF,          .HasMoldBreaker
+	entrance_ability ABILITY_CLOUD_NINE,      ENTRANCE_FIELD,         .HasAirLock
 	entrance_ability ABILITY_DROUGHT,         ENTRANCE_FIELD,         .HasDrought
 	entrance_ability ABILITY_SAND_STREAM,     ENTRANCE_FIELD,         .HasSandStream
 	entrance_ability ABILITY_SNOW_WARNING,    ENTRANCE_FIELD,         .HasSnowWarning
@@ -109,7 +112,38 @@ ENDM
 	entrance_ability ABILITY_MAGMA_ARMOR,     ENTRANCE_SELF,          .CureStatus
 	db -1
 
+.AirLockBlocksWeather:
+; Carry (and the text) if Air Lock keeps a weather ability's weather away.
+	farcall AirLockOnField
+	ret nc
+	ld hl, AirLockKeptAwayText
+	call StdBattleTextbox
+	scf
+	ret
+
+.HasMoldBreaker:
+	call AbilityAnimationCleanup
+	ld hl, MoldBreakerText
+	jmp StdBattleTextbox
+
+.HasAirLock:
+; Air Lock, Cloud Nine: end the weather (permanent overworld weather too).
+	ld a, [wBattleWeather]
+	cp WEATHER_NONE
+	ret z
+	xor a ; WEATHER_NONE
+	ld [wBattleWeather], a
+	ld [wWeatherCount], a
+	call AbilityAnimationCleanup
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	farcall GetAbilityName
+	ld hl, AirLockClearedText
+	jmp StdBattleTextbox
+
 .HasDrizzle:
+	call .AirLockBlocksWeather
+	ret c
 	;next, check if it's already raining
 	ld a, [wBattleWeather]
 	cp WEATHER_RAIN
@@ -128,6 +162,8 @@ ENDM
     ret
 
 .HasDrought:
+	call .AirLockBlocksWeather
+	ret c
 	;next, check if it's already sunny
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
@@ -146,6 +182,8 @@ ENDM
     ret
 
 .HasSandStream:
+	call .AirLockBlocksWeather
+	ret c
 	;next, check if it's already sandy
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
@@ -164,6 +202,8 @@ ENDM
 	ret	
 
 .HasSnowWarning:
+	call .AirLockBlocksWeather
+	ret c
 	;next, check if it's already hailing
 	ld a, [wBattleWeather]
 	cp WEATHER_HAIL
@@ -362,9 +402,12 @@ StartOverworldBattleWeather::
 ; Battles on a map with overworld weather start with that weather, permanently
 ; (wWeatherCount = 255; HandleWeather never counts it down).
 ; Runs after the player's entrance ability, so a weather ability (Drought etc.) wins.
+; Not with an Air Lock battler on the field (the player's ran first; the enemy's would clear it).
 	ld a, [wLinkMode]
 	and a
 	ret nz
+	farcall AirLockOnField
+	ret c
 	ld a, [wBattleWeather]
 	and a ; WEATHER_NONE
 	ret nz

@@ -1,4 +1,6 @@
 BattleCommand_StartSandstorm:
+	farcall AirLockOnField ; Air Lock: no new weather
+	jr c, .failed
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
 	jr z, .failed

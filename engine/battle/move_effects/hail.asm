@@ -1,4 +1,6 @@
 BattleCommand_StartHail:
+	farcall AirLockOnField ; Air Lock: no new weather
+	jr c, .failed
 ; starthail
 
 	ld a, [wBattleWeather]

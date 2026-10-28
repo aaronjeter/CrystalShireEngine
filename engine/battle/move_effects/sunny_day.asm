@@ -1,4 +1,6 @@
 BattleCommand_StartSun:
+	farcall AirLockOnField ; Air Lock: no new weather
+	jr c, .failed
 	; don't shorten permanent sun (from overworld weather)
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN

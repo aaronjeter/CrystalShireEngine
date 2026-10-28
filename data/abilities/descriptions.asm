@@ -68,6 +68,50 @@ AbilityDescriptions:
 	dw RoughSkinDesc
 	dw RockHeadDesc
 	dw GaleWingsDesc
+	dw LightningRodDesc
+	dw StormDrainDesc
+	dw KeenEyeDesc
+	dw SpeedBoostDesc
+	dw SniperDesc
+	dw InsulatedDesc
+	dw PlusDesc
+	dw MinusDesc
+	dw TelepathyDesc
+	dw AirLockDesc
+	dw FriendGuardDesc
+	dw WaterAbsorbDesc
+	dw VoltAbsorbDesc
+	dw SapSipperDesc
+	dw FlashFireDesc
+	dw SturdyDesc
+	dw IronBarbsDesc
+	dw CloudNineDesc
+	dw NaturalCureDesc
+	dw PoisonTouchDesc
+	dw CuteCharmDesc
+	dw GooeyDesc
+	dw MoldBreakerDesc
+	dw RegeneratorDesc
+	dw PixilateDesc
+	dw GalvanizeDesc
+	dw AerilateDesc
+	dw RefrigerateDesc
+	dw DragonizeDesc
+	dw NormalizeDesc
+	dw ImmolateDesc
+	dw HydrateDesc
+	dw ContaminateDesc
+	dw VerdifyDesc
+	dw HydrationDesc
+	dw TintedLensDesc
+	dw ScrappyDesc
+	dw SheerForceDesc
+	dw ShadowTagDesc
+	dw ArenaTrapDesc
+	dw MagnetPullDesc
+	dw BattleArmorDesc
+	dw SynchronizeDesc
+	dw ShellArmorDesc
 	assert_table_length NUM_ABILITIES
 
 NoAbilityDesc:
@@ -337,3 +381,179 @@ RockHeadDesc:
 GaleWingsDesc:
 	db    "Gives priority to"
 	next  "Flying moves.@"
+
+LightningRodDesc:
+	db    "Draws in and"
+	next  "absorbs Electric.@"
+
+StormDrainDesc:
+	db    "Draws in and"
+	next  "absorbs Water.@"
+
+KeenEyeDesc:
+	db    "Raises accuracy;"
+	next  "can't lose it.@"
+
+SpeedBoostDesc:
+	db    "Raises Speed"
+	next  "each turn.@"
+
+SniperDesc:
+	db    "Crits more often"
+	next  "and much harder.@"
+
+InsulatedDesc:
+	db    "Halves Water and"
+	next  "Electric damage.@"
+
+PlusDesc:
+	db    "Ups Sp.Atk with a"
+	next  "Plus/Minus ally.@"
+
+MinusDesc:
+	db    "Ups Sp.Atk with a"
+	next  "Plus/Minus ally.@"
+
+TelepathyDesc:
+	db    "Avoids attacks"
+	next  "from its ally.@"
+
+AirLockDesc:
+	db    "Clears weather"
+	next  "and blocks it.@"
+
+FriendGuardDesc:
+	db    "Cuts damage done"
+	next  "to its ally.@"
+
+WaterAbsorbDesc:
+	db    "Heals when hit by"
+	next  "Water moves.@"
+
+VoltAbsorbDesc:
+	db    "Heals when hit by"
+	next  "Electric moves.@"
+
+SapSipperDesc:
+	db    "Grass moves raise"
+	next  "its Attack.@"
+
+FlashFireDesc:
+	db    "Fire moves raise"
+	next  "its Sp.Atk.@"
+
+SturdyDesc:
+	db    "Survives a hit"
+	next  "at full HP.@"
+
+IronBarbsDesc:
+	db    "Hurts foes that"
+	next  "make contact.@"
+
+CloudNineDesc:
+	db    "Clears weather"
+	next  "and blocks it.@"
+
+NaturalCureDesc:
+	db    "Heals status when"
+	next  "switching out.@"
+
+PoisonTouchDesc:
+	db    "May poison foes"
+	next  "it touches.@"
+
+CuteCharmDesc:
+	db    "Contact may cause"
+	next  "infatuation.@"
+
+GooeyDesc:
+	db    "Contact lowers"
+	next  "the foe's Speed.@"
+
+MoldBreakerDesc:
+	db    "Moves ignore the"
+	next  "foe's abilities.@"
+
+RegeneratorDesc:
+	db    "Heals 1/3 HP when"
+	next  "switching out.@"
+
+PixilateDesc:
+	db    "Normal moves"
+	next  "become Fairy.@"
+
+GalvanizeDesc:
+	db    "Normal moves"
+	next  "become Electric.@"
+
+AerilateDesc:
+	db    "Normal moves"
+	next  "become Flying.@"
+
+RefrigerateDesc:
+	db    "Normal moves"
+	next  "become Ice.@"
+
+DragonizeDesc:
+	db    "Normal moves"
+	next  "become Dragon.@"
+
+NormalizeDesc:
+	db    "All its moves"
+	next  "become Normal.@"
+
+ImmolateDesc:
+	db    "Normal moves"
+	next  "become Fire.@"
+
+HydrateDesc:
+	db    "Normal moves"
+	next  "become Water.@"
+
+ContaminateDesc:
+	db    "Normal moves"
+	next  "become Poison.@"
+
+VerdifyDesc:
+	db    "Normal moves"
+	next  "become Grass.@"
+
+HydrationDesc:
+	db    "Heals its status"
+	next  "in the rain.@"
+
+TintedLensDesc:
+	db    "Powers up"
+	next  "resisted moves.@"
+
+ScrappyDesc:
+	db    "Normal/Fighting"
+	next  "moves hit Ghosts.@"
+
+SheerForceDesc:
+	db    "No added effects,"
+	next  "but more power.@"
+
+ShadowTagDesc:
+	db    "Foes can't"
+	next  "switch or flee.@"
+
+ArenaTrapDesc:
+	db    "Grounded foes"
+	next  "can't escape.@"
+
+MagnetPullDesc:
+	db    "Steel-type foes"
+	next  "can't escape.@"
+
+BattleArmorDesc:
+	db    "Blocks critical"
+	next  "hits.@"
+
+SynchronizeDesc:
+	db    "Shares burns,"
+	next  "poison, paralysis@"
+
+ShellArmorDesc:
+	db    "Blocks critical"
+	next  "hits.@"

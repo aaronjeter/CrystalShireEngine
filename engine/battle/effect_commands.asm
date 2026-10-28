@@ -1159,6 +1159,13 @@ BattleCommand_Critical:
 	and a
 	ret z
 
+	; Battle Armor, Shell Armor: no critical hits
+	call GetBreakableOppAbility
+	cp ABILITY_BATTLE_ARMOR
+	ret z
+	cp ABILITY_SHELL_ARMOR
+	ret z
+
 	ldh a, [hBattleTurn]
 	and a
 	ld hl, wEnemyMonItem
@@ -1261,6 +1268,13 @@ BattleCommand_Critical:
 	inc c
 
 .Tally:
+; Sniper: +1 critical level
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_SNIPER
+	jr nz, .no_sniper
+	inc c
+.no_sniper
 	ld hl, CriticalHitChances
 	ld b, 0
 	add hl, bc
@@ -1410,9 +1424,7 @@ BattleCommand_Stab:
 	; foresight
 	cp -2
 	jr nz, .SkipForesightCheck
-	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
-	bit SUBSTATUS_IDENTIFIED, a
+	call ForesightOrScrappy
 	jr nz, .end
 
 	jr .TypesLoop
@@ -1495,8 +1507,10 @@ BattleCommand_Stab:
 .end
 	call ApplyThickFat
 	call BattleCheckTypeMatchup
+	call ApplyTintedLens
 	call ApplyDurable
 	call ApplyMultiscale
+	call ApplyFriendGuard
 	ld a, [wTypeMatchup]
 	ld b, a
 	ld a, [wTypeModifier]
@@ -1533,9 +1547,7 @@ CheckTypeMatchup:
 	jr z, .End
 	cp -2
 	jr nz, .Next
-	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
-	bit SUBSTATUS_IDENTIFIED, a
+	call ForesightOrScrappy
 	jr nz, .End
 	jr .TypesLoop
 
@@ -1687,6 +1699,9 @@ BattleCommand_CheckHit:
 	call .Waterproof
 	jr z, .Miss
 
+	farcall CheckAbsorbAbility ; Lightning Rod, Storm Drain
+	jr c, .Miss
+
 	call .DreamEater
 	jr z, .Miss
 
@@ -1774,8 +1789,7 @@ BattleCommand_CheckHit:
 
 	;Then, we check if the target has Levitate
 
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
+	call GetBreakableOppAbility
 	cp ABILITY_LEVITATE
 	jr z, .Levitating
 	
@@ -1799,8 +1813,7 @@ BattleCommand_CheckHit:
 	ret nz	
 
 	;Then, we check if the target has Waterproof
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
+	call GetBreakableOppAbility
 	cp ABILITY_WATERPROOF
 	jr z, .IsWaterproof
 	
@@ -1969,6 +1982,7 @@ BattleCommand_CheckHit:
 	ld c, a
 
 .got_acc_eva
+	call KeenEyeIgnoreEvasion
 	cp b
 	jr c, .skip_foresight_check
 
@@ -2028,6 +2042,8 @@ BattleCommand_CheckHit:
 	dec d
 	jr nz, .accuracy_loop
 
+	farcall KeenEyeAccuracyBoost
+
 	; if the result is more than 2 bytes, max out at 100%
 	ldh a, [hQuotient + 2]
 	and a
@@ -2045,6 +2061,12 @@ INCLUDE "data/battle/accuracy_multipliers.asm"
 BattleCommand_EffectChance:
 	xor a
 	ld [wEffectFailed], a
+	call SheerForceApplies ; Sheer Force: no added effects
+	jr nc, .not_sheer_force
+	ld a, 1
+	ld [wEffectFailed], a
+	ret
+.not_sheer_force
 	call CheckSubstituteOpp
 	jr nz, .failed
 
@@ -2329,8 +2351,11 @@ BattleCommand_ApplyDamage:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_ENDURE, a
-	jr z, .focus_band
+	jr nz, .endure
+	farcall CheckSturdyFullHP ; Sturdy at full HP: like Endure
+	jr nc, .focus_band
 
+.endure
 	call BattleCommand_FalseSwipe
 	ld b, 0
 	jr nc, .damage
@@ -2883,6 +2908,7 @@ PlayerAttackDamage:
 	call SandstormSpDefBoost
 ; Note: Returns player special attack at hl in hl.
 	call LightBallBoost
+	call ApplyPlusMinus
 	jr .done
 
 .thickclub
@@ -3152,6 +3178,7 @@ EnemyAttackDamage:
 .lightball
 	call SandstormSpDefBoost
 	call LightBallBoost
+	call ApplyPlusMinus
 	jr .done
 
 .thickclub
@@ -3267,6 +3294,16 @@ BattleCommand_DamageCalc:
 	farcall CheckLowHPTypeBoost
 	call c, BoostDamageByHalf
 
+; Pixilate and the other -ate abilities, Normalize: the move's type changes, x1.25.
+	farcall ApplyTypeChangeAbility
+
+; Sheer Force: x1.3 for a move whose added effect it removes.
+	call SheerForceApplies
+	jr nc, .sheer_force_done
+	ld bc, 13 << 8 | 10
+	farcall MultiplyCurDamage
+.sheer_force_done
+
 ; Double battles: a spread move with more than one target.
 	ld a, [wDoublesSpread]
 	bit DOUBLES_SPREAD_ARMED_F, a
@@ -3376,8 +3413,8 @@ ConfusionDamageCalc:
 	call Divide
 
 .DoneItem:
-; Critical hits
-	call .CriticalMultiplier
+; Critical hits (x2; x3 with Sniper)
+	farcall CriticalDamageMultiplier
 
 ; Update wCurDamage. Max 999 (capped at 997, then add 2).
 DEF MAX_DAMAGE EQU 999
@@ -3460,29 +3497,6 @@ DEF DAMAGE_CAP EQU MAX_DAMAGE - MIN_DAMAGE
 ; Returns nz and nc.
 	ld a, 1
 	and a
-	ret
-
-.CriticalMultiplier:
-	ld a, [wCriticalHit]
-	and a
-	ret z
-
-; x2
-	ldh a, [hQuotient + 3]
-	add a
-	ldh [hQuotient + 3], a
-
-	ldh a, [hQuotient + 2]
-	rla
-	ldh [hQuotient + 2], a
-
-; Cap at $ffff.
-	ret nc
-
-	ld a, $ff
-	ldh [hQuotient + 2], a
-	ldh [hQuotient + 3], a
-
 	ret
 
 BoostDamageByQuarter:
@@ -4061,6 +4075,7 @@ BattleCommand_PoisonTarget:
 	ld hl, WasPoisonedText
 	call StdBattleTextbox
 
+	farcall SynchronizeStatus
 	farjp UseHeldStatusHealingItem
 
 BattleCommand_Poison:
@@ -4123,6 +4138,7 @@ BattleCommand_Poison:
 	call StdBattleTextbox
 
 .finished
+	farcall SynchronizeStatus
 	farjp UseHeldStatusHealingItem
 
 .failed
@@ -4305,6 +4321,7 @@ BattleCommand_BurnTarget:
 	ld hl, WasBurnedText
 	call StdBattleTextbox
 
+	farcall SynchronizeStatus
 	farjp UseHeldStatusHealingItem
 
 Defrost:
@@ -4374,6 +4391,7 @@ BattleCommand_FreezeTarget:
 	ld hl, GotAFrostbiteText
 	call StdBattleTextbox
 
+	farcall SynchronizeStatus
 	farcall UseHeldStatusHealingItem	
 	ret
 
@@ -4411,6 +4429,7 @@ BattleCommand_ParalyzeTarget:
 	call PlayOpponentBattleAnim
 	call RefreshBattleHuds
 	call PrintParalyze
+	farcall SynchronizeStatus
 	ld hl, UseHeldStatusHealingItem
 	jmp CallBattleCore
 
@@ -4766,12 +4785,20 @@ BattleCommand_StatDown:
 	ret
 
 CheckClearBodyOpp:
-; Return carry if the opponent has Clear Body.
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
+; Return carry if the opponent's ability blocks lowering stat [wLoweredStat]:
+; Clear Body (any stat) or Keen Eye (accuracy).
+	call GetBreakableOppAbility
 	cp ABILITY_CLEAR_BODY
 	scf
 	ret z
+	cp ABILITY_KEEN_EYE
+	jr nz, .no
+	ld a, [wLoweredStat]
+	and $f
+	cp ACCURACY
+	scf
+	ret z
+.no
 	and a
 	ret
 
@@ -4933,8 +4960,15 @@ BattleCommand_StatDownFailText:
 	ld hl, ProtectedByMistText
 	jmp z, StdBattleTextbox
 	dec a
-	ld hl, ClearBodyText
-	jmp nz, StdBattleTextbox
+	jr z, .wont_drop
+	; Clear Body, Keen Eye
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	farcall GetAbilityName
+	ld hl, AbilityBlocksStatLossText
+	jmp StdBattleTextbox
+
+.wont_drop
 	ld a, [wLoweredStat]
 	and $f
 	ld b, a
@@ -5442,6 +5476,10 @@ BattleCommand_ForceSwitch:
 	call CheckOpponentWentFirst
 	jr z, .switch_fail ; the user went first
 
+	ld a, [wCurBattleMon] ; the player's battler is dragged out
+	ld b, a
+	xor a
+	farcall AbilityLeavingField
 	call UpdateBattleMonInParty
 	ld a, $1
 	ld [wBattleAnimParam], a
@@ -5740,6 +5778,9 @@ BattleCommand_HeldFlinch:
 
 BattleCommand_OHKO:
 	call ResetDamage
+	call GetBreakableOppAbility ; Sturdy: one-hit KO moves fail
+	cp ABILITY_STURDY
+	jr z, .no_effect
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
 	jr z, .no_effect
@@ -6095,6 +6136,7 @@ BattleCommand_Paralyze:
 	call CallBattleCore
 	call UpdateBattleHuds
 	call PrintParalyze
+	farcall SynchronizeStatus
 	ld hl, UseHeldStatusHealingItem
 	jmp CallBattleCore
 
@@ -6146,6 +6188,7 @@ BattleCommand_Burn:
 	call UpdateBattleHuds
 	ld hl, WasBurnedText
 	call StdBattleTextbox
+	farcall SynchronizeStatus
 	ld hl, UseHeldStatusHealingItem
 	jp CallBattleCore
 
@@ -6197,6 +6240,7 @@ BattleCommand_Freeze:
 	call UpdateBattleHuds
 	ld hl, GotAFrostbiteText
 	call StdBattleTextbox
+	farcall SynchronizeStatus
 	ld hl, UseHeldStatusHealingItem
 	jp CallBattleCore
 

@@ -673,6 +673,9 @@ wDoublesAIDamaging:: db ; bits 0-3: a damaging move (power > 0) against foe A; b
 wDoublesAIBase:: db ; the foe being scored: 0 (foe A) or NUM_MOVES (foe B)
 wDoublesAIUntargeted:: db ; bit = move: one choice that isn't aimed at a foe (spread, self, field)
 wDoublesAIDoomed:: db ; mask of the player's slots an earlier enemy's move should knock out this turn
+; Each battler slot's party index at the start of the turn ($ff: empty), singles too
+; (SnapshotTurnStartMons; Speed Boost skips a battler that entered this turn)
+wTurnStartMons:: ds NUM_BATTLER_SLOTS
 if DEF(ANIM_LOG) ; test builds only (tools/claude_emu): each PlayBattleAnim call's wFXAnimID
 wAnimLogCount:: db
 wAnimLog:: ds 2 * 16

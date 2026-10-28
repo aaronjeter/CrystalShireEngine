@@ -1257,12 +1257,6 @@ DauntCutsDefText:
     line "Def!"
 	prompt
 
-ShedSkinText:
-	text "<USER>'s"
-	line "Shed Skin cured"
-	cont "its status!"
-	prompt
-
 StaticParalyzedText:
 	text "<USER>'s"
 	line "Static paralyzed"
@@ -1290,8 +1284,11 @@ FrigidFrostbiteText:
 	prompt
 
 RoughSkinText:
+; Rough Skin, Iron Barbs; the ability's name is in wStringBuffer2 (GetAbilityName)
 	text "<TARGET>'s"
-	line "Rough Skin hurt"
+	line "@"
+	text_ram wStringBuffer2
+	text " hurt"
 	cont "<USER>!"
 	prompt
 
@@ -1334,8 +1331,85 @@ AbilityCuredStatusText:
 	cont "its status!"
 	prompt
 
-ClearBodyText:
+AbilityBlocksStatLossText:
+; the ability's name is in wStringBuffer2 (GetAbilityName)
 	text "<TARGET>'s"
-	line "Clear Body blocks"
+	line "@"
+	text_ram wStringBuffer2
+	text " blocks"
 	cont "stat loss!"
+	prompt
+
+AbsorbAbilityRaisedText:
+; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<TARGET>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "raised its Sp.Atk!"
+	prompt
+
+AbsorbAbilityRaisedAtkText:
+; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<TARGET>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "raised its Attack!"
+	prompt
+
+AbsorbAbilityHealedText:
+; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<TARGET>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "restored its HP!"
+	prompt
+
+AbsorbAbilityText:
+; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<TARGET>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "absorbed the move!"
+	prompt
+
+AirLockClearedText:
+; Air Lock, Cloud Nine; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<USER>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "ended the weather!"
+	prompt
+
+AirLockKeptAwayText:
+	text "But the weather"
+	line "was kept away!"
+	prompt
+
+AbilityActivatedText:
+; "<USER>'s <ABILITY>!"; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<USER>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text "!"
+	prompt
+
+SynchronizeParalyzedText:
+	text "<TARGET> is"
+	line "paralyzed!"
+	prompt
+
+MoldBreakerText:
+	text "<USER> breaks"
+	line "the mold!"
+	prompt
+
+SpeedBoostText:
+	text "<USER>'s"
+	line "Speed Boost"
+	cont "raised its Speed!"
 	prompt
