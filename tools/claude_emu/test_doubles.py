@@ -26,7 +26,7 @@ class DoublesBattle(bt.Battle):
         self.singles = singles
         self.force_target = force_target or {}
 
-    text_rows = slice(13, 18)  # the 5-row text box (row 12 has P2's HP numbers)
+    text_rows = slice(13, 18)  # the 5-row text box (row 12 is part of the field)
 
     shots = None  # --shots DIR: a screenshot at every battle menu (rendering on for 2 frames)
 

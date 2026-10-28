@@ -3,7 +3,7 @@
 ; Layout (tile coordinates), one entry per battler slot in DoublesSlotGeometry:
 ;   E1's pic 7x7 at (6, 0), E2's at (13, 0); P1's back pic 6x6 at (0, 7), P2's at (6, 7).
 ;   HP boxes, one tile row each, drawn into tiles in a 3x5 font: E1 (0, 1) and E2 (0, 3),
-;   6 tiles; P1 (12, 8) and P2 (12, 11), 8 tiles, with the HP numbers on the row below.
+;   6 tiles; P1 (12, 9) and P2 (12, 11), 8 tiles. No HP numbers.
 ;   The text box is rows 13-17 (SpeechTextbox and TextScroll check hDoublesScreen).
 ; VRAM: E1 and P1 keep the singles tiles (bank 0, $00 and $31); E2 and P2 are in bank 1
 ; ($ab and $dc), above the room a front pic's animation frames take there; the HP boxes
@@ -46,6 +46,9 @@ DEF DSG_HUD_PAL   rb
 DEF DSG_LENGTH EQU _RS
 
 DEF DOUBLES_PP_TILE    EQU $71 ; 4 tiles (VRAM bank 0): the move menu's PP
+DEF DOUBLES_POWER_TILE EQU $75 ; 4 tiles (VRAM bank 0): the move menu's power (singles' HUD border tiles)
+DEF DOUBLES_JUNCTION_TILE EQU $79 ; 2 tiles (VRAM bank 0): the move menu divider's "┬" and "┴" (unused in battle)
+DEF DIVIDER_FRAME_BUF EQUS "(wDoublesTileBuf + 2 tiles)" ; 3 frame tiles (1bpp)
 DEF DOUBLES_ARROW_TILE EQU NUM_TYPE_ICONS * TYPE_ICON_WIDTH ; VRAM bank 1 vTiles3, after the type icons
 	assert DOUBLES_ARROW_TILE < $80
 DEF DOUBLES_TARGET_ARROW_PAL EQU PAL_BATTLE_OB_YELLOW ; the target arrow's OBJ palette (the arrow only uses color 3)
@@ -87,7 +90,7 @@ DoublesSlotGeometry:
 	table_width DSG_LENGTH
 	; BATTLER_SLOT_P1
 	db  0,  7, 6, $31, PAL_BATTLE_BG_PLAYER
-	db 12,  8, 8, $61, PAL_BATTLE_BG_PLAYER_HP
+	db 12,  9, 8, $61, PAL_BATTLE_BG_PLAYER_HP
 	; BATTLER_SLOT_P2
 	db  6,  7, 6, $dc, PAL_BATTLE_BG_5 | VRAM_BANK_1
 	db 12, 11, 8, $69, PAL_BATTLE_BG_TEXT
@@ -101,6 +104,8 @@ DoublesSlotGeometry:
 	assert $ab + 7 * 7 == $dc && $dc + 6 * 6 == $100 ; E2 and P2 end vTiles4
 	assert $7f + ($ab - $80) >= DOUBLES_MAX_PIC_TILES ; the frames end below E2 (GetAnimatedEnemyFrontpic)
 	assert $55 + 6 + 6 + 8 + 8 == DOUBLES_PP_TILE
+	assert DOUBLES_PP_TILE + 4 == DOUBLES_POWER_TILE && DOUBLES_POWER_TILE + 4 == DOUBLES_JUNCTION_TILE
+	assert DOUBLES_JUNCTION_TILE + 2 <= " " ; $7f
 
 ; ---------------------------------------------------------------- entering and leaving
 
@@ -827,7 +832,7 @@ DoublesPlaceField:
 
 DoublesBuildAttrmap:
 ; The double battle screen's attributes: each pic's palette (and VRAM bank), each HP box's
-; palette (on its row and, for the player's, the HP numbers' row); elsewhere the E1 HP box's
+; palette (on its row); elsewhere the E1 HP box's
 ; palette on the field (as in singles, so screen-wide palette flashes include the empty field;
 ; palette 7 isn't flashed) and the text palette on the text box.
 	hlcoord 0, 0, wAttrmap
@@ -873,12 +878,6 @@ DoublesBuildAttrmap:
 	ld bc, wAttrmap - wTilemap
 	add hl, bc
 	ld b, 1
-	pop af
-	push af
-	bit BATTLER_SLOT_ENEMY_F, a
-	jr nz, .one_row
-	inc b ; and the HP numbers
-.one_row
 	ld c, d
 	ld a, e
 	call .FillBox
@@ -1195,7 +1194,7 @@ DoublesClearAreaHUD:
 	; fallthrough
 
 DoublesClearSlotHUD:
-; Blank slot a's HP box (and HP numbers) in the tilemap.
+; Blank slot a's HP box in the tilemap.
 	ld [DSCR_HUDSLOT], a
 	call DoublesInvalidateHUDKey
 	call DoublesGetGeometry
@@ -1207,24 +1206,11 @@ DoublesClearSlotHUD:
 	ld b, a
 	ld e, [hl] ; width
 	call DoublesTilemapAddr
-	ld d, 1
-	ld a, [DSCR_HUDSLOT]
-	bit BATTLER_SLOT_ENEMY_F, a
-	jr nz, .rows
-	inc d
-.rows
-	push hl
-	ld b, e
 	ld a, " "
 .blank
 	ld [hli], a
-	dec b
+	dec e
 	jr nz, .blank
-	pop hl
-	ld bc, SCREEN_WIDTH
-	add hl, bc
-	dec d
-	jr nz, .rows
 	ret
 
 DoublesDrawSlotHUD:
@@ -1245,7 +1231,7 @@ DoublesDrawGatheredHUD:
 	ret
 
 DoublesPlaceHUD:
-; Slot [DSCR_HUDSLOT]'s HP box tiles in the tilemap, and the player's HP numbers.
+; Slot [DSCR_HUDSLOT]'s HP box tiles in the tilemap.
 	ld a, [DSCR_HUDSLOT]
 	call DoublesGetGeometry
 	ld bc, DSG_HUD_X
@@ -1258,35 +1244,13 @@ DoublesPlaceHUD:
 	ld e, a ; width
 	ld d, [hl] ; first tile
 	call DoublesTilemapAddr
-	push hl
 .tiles
 	ld a, d
 	ld [hli], a
 	inc d
 	dec e
 	jr nz, .tiles
-	pop hl
-	ld a, [DSCR_HUDSLOT]
-	bit BATTLER_SLOT_ENEMY_F, a
-	ret nz
-	; the player's: HP/max HP on the row below
-	ld bc, SCREEN_WIDTH
-	add hl, bc
-	ld [hl], " "
-	inc hl
-	push hl
-	ld de, wDoublesHUDHP
-	lb bc, 2, 3
-	call PrintNum
-	pop hl
-	inc hl
-	inc hl
-	inc hl
-	ld [hl], "/"
-	inc hl
-	ld de, wDoublesHUDMaxHP
-	lb bc, 2, 3
-	jmp PrintNum
+	ret
 
 DoublesRenderHUD:
 ; Draw slot a's HP box (wDoublesHUD*) into its tiles: the marker if it's choosing, the name,
@@ -1987,9 +1951,182 @@ DoublesLoadArrowGFX:
 	ldh [rVBK], a
 	ret
 
-DoublesMoveInfoPP:
-; MoveInfoBox's PP on the double battle screen: "PP 10/15" in the 3x5 font under the type
-; icons, from wStringBuffer1 (PP left) and wNamedObjectIndex (max PP).
+; ---------------------------------------------------------------- the move menu (singles and doubles)
+; _MoveSelectionScreen's battle layout (not the Ether/Elixer menu's): one full-width box,
+; rows 12-17, with the move info on the left (x 1-4: MoveInfoBox's category and type icons on
+; rows 13-14, the power and PP in the 3x5 font on rows 15-16), a divider in column 5 and the
+; moves from x 7. With weather, a box above the info holds GetWeatherImage's icon.
+; The 3x5 text's 8 tiles (PP, then power): VRAM bank 0 $71-$78 in double battles; VRAM bank 1
+; $ab-$b2 in singles, whose HUD uses bank 0's (bank 1 has E2's and P2's pics there in doubles).
+
+DEF SINGLES_MOVE_INFO_TILE EQU $ab ; VRAM bank 1; 8 tiles
+	assert SINGLES_MOVE_INFO_TILE >= $80 && SINGLES_MOVE_INFO_TILE + 8 <= $100
+
+MoveMenuDivider:
+; After the move menu's box is drawn: the vertical line between the move info and the moves,
+; joining the box's top and bottom borders with junction tiles made from the current frame's
+; "─" and "│" (the frame is an option); the info's text tiles, blank; and the weather box.
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wDoublesTileBuf)
+	ldh [rSVBK], a
+	; the frame's "─", "┐" and "│" (1bpp) after the two junction tiles (2bpp)
+	ld a, [wTextboxFrame]
+	maskbits NUM_FRAMES
+	ld bc, TEXTBOX_FRAME_TILES * LEN_1BPP_TILE
+	ld hl, Frames + 1 * LEN_1BPP_TILE ; "─"
+	rst AddNTimes
+	ld de, DIVIDER_FRAME_BUF
+	ld bc, 3 * LEN_1BPP_TILE
+	ld a, BANK(Frames)
+	call FarCopyBytes
+	; "┬": "─", plus "│" from the horizontal line's first row down
+	ld hl, DIVIDER_FRAME_BUF
+	ld de, wDoublesTileBuf
+	lb bc, LEN_1BPP_TILE, 0
+.top
+	call MoveMenuDividerRow
+	ld [de], a
+	inc de
+	ld [de], a
+	inc de
+	inc hl
+	dec b
+	jr nz, .top
+	; "┴": "─", plus "│" from the horizontal line's last row up
+	ld hl, DIVIDER_FRAME_BUF + LEN_1BPP_TILE - 1
+	ld de, wDoublesTileBuf + 2 tiles - 1
+	lb bc, LEN_1BPP_TILE, 0
+.bottom
+	call MoveMenuDividerRow
+	ld [de], a
+	dec de
+	ld [de], a
+	dec de
+	dec hl
+	dec b
+	jr nz, .bottom
+	ld hl, vTiles2 tile DOUBLES_JUNCTION_TILE
+	ld de, wDoublesTileBuf
+	lb bc, BANK(@), 2
+	call Request2bpp
+	; the info's 8 text tiles, blank
+	call DoublesClearTileBuf
+	call MoveMenuInfoVBank
+	ld c, 16 ; the PP's, then the power's
+	call MoveMenuInfoTile
+	call DoublesTileAddress
+	ld de, wDoublesTileBuf
+	lb bc, BANK(@), 8
+	call Request2bpp
+	xor a
+	ldh [rVBK], a
+	pop af
+	ldh [rSVBK], a
+	; the line
+	hlcoord 5, 12
+	ld [hl], DOUBLES_JUNCTION_TILE ; "┬"
+	ld de, SCREEN_WIDTH
+	add hl, de
+	ld b, NUM_MOVES
+.loop
+	ld [hl], "│"
+	add hl, de
+	dec b
+	jr nz, .loop
+	ld [hl], DOUBLES_JUNCTION_TILE + 1 ; "┴"
+	; singles: the info's text cells take their tiles from VRAM bank 1
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, MoveMenuWeatherBox
+	hlcoord 1, 15, wAttrmap
+	call MoveMenuBank1Cells
+	hlcoord 1, 16, wAttrmap
+	call MoveMenuBank1Cells
+	; fallthrough
+
+MoveMenuWeatherBox:
+; With weather: a box for GetWeatherImage's icon, like the old singles move info box, on rows
+; 8-11 over a back pic (see MoveMenuWeatherColumn). MoveMenuClosed removes it.
+	ld a, [wBattleWeather]
+	and a
+	ret z
+	call MoveMenuWeatherColumn
+	hlcoord 0, 8
+	ld c, a
+	ld b, 0
+	add hl, bc
+	lb bc, 2, 4
+	jmp Textbox
+
+MoveMenuWeatherColumn:
+; a = the weather box's first column: 0 (above the move info, over the player's pic) in
+; singles; in doubles over the back pic of the battler that isn't choosing, so the chooser
+; stays in view: P2's (column 6) while P1 chooses, P1's (column 0) while P2 does.
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	ld a, 0
+	ret nc
+	ld a, [wDoublesChooser]
+	cp BATTLER_SLOT_P1 + 1
+	ld a, 0
+	ret nz
+	ld a, 6
+	ret
+
+MoveMenuWeatherIconX:
+; After GetWeatherImage placed its 4 sprites for column 0: move them with the weather box.
+	call MoveMenuWeatherColumn
+	and a
+	ret z
+	add a
+	add a
+	add a ; * TILE_WIDTH
+	ld hl, wShadowOAMSprite00XCoord
+	ld de, SPRITEOAMSTRUCT_LENGTH
+	ld c, 4
+.loop
+	ld b, a
+	add [hl]
+	ld [hl], a
+	ld a, b
+	add hl, de
+	dec c
+	jr nz, .loop
+	ret
+
+MoveMenuBank1Cells:
+; Set VRAM_BANK_1 in 4 attributes at hl.
+	ld b, 4
+.cell
+	set OAM_TILE_BANK, [hl]
+	inc hl
+	dec b
+	jr nz, .cell
+	ret
+
+MoveMenuDividerRow:
+; a = the "─" row at hl, ORed with the "│" row (2 tiles on) once a row of "─" had pixels
+; (c = $ff from then on).
+	ld a, [hl]
+	and a
+	jr z, .no_line
+	ld c, $ff
+.no_line
+	push hl
+	push de
+	ld de, 2 * LEN_1BPP_TILE
+	add hl, de
+	ld a, [hl]
+	pop de
+	pop hl
+	and c
+	or [hl]
+	ret
+
+MoveMenuInfoPP:
+; MoveInfoBox's PP: "PP 10/15" in the 3x5 font at (1, 16), under the power, from
+; wStringBuffer1 (PP left) and wNamedObjectIndex (max PP).
 	ld hl, wDoublesHUDName ; (free while the move menu is open)
 	ld a, "P"
 	ld [hli], a
@@ -2004,18 +2141,58 @@ DoublesMoveInfoPP:
 	call DoublesNumberString
 	ld [hl], "@"
 	ld hl, wDoublesHUDName
-	jr DoublesMoveInfoText
+	ld c, 16
+	jr MoveMenuInfoText
 
-DoublesMoveInfoDisabled:
-; MoveInfoBox's "Disabled!" on the double battle screen.
+MoveMenuInfoPower:
+; MoveInfoBox's power: "POW 90" in the 3x5 font at (1, 15), under the type icon, from
+; wPlayerMoveStruct (after UpdateMoveData). "POW -" for power 0 (status moves, Splash),
+; "POW ?" for 1 (worked out in battle: Return, Flail, Seismic Toss, Counter, the OHKO moves...).
+	ld hl, wDoublesHUDName
+	ld a, "P"
+	ld [hli], a
+	ld a, "O"
+	ld [hli], a
+	ld a, "W"
+	ld [hli], a
+	ld a, " "
+	ld [hli], a
+	ld a, [wPlayerMoveStruct + MOVE_POWER]
+	cp 2
+	jr nc, .number
+	and a
+	ld a, "-"
+	jr z, .symbol
+	ld a, "?"
+.symbol
+	ld [hli], a
+	jr .done
+.number
+	call DoublesNumberString
+.done
+	ld [hl], "@"
+	ld hl, wDoublesHUDName
+	ld c, 15
+	jr MoveMenuInfoText
+
+MoveMenuInfoDisabled:
+; MoveInfoBox's "Disabled!": at (1, 15) where the power goes, and no PP.
+	ld hl, .Empty
+	ld c, 16
+	call MoveMenuInfoText
 	ld hl, .Disabled
-	jr DoublesMoveInfoText
+	ld c, 15
+	jr MoveMenuInfoText
 
 .Disabled:
-	db "DISABLED@"
+	db "DISABLED"
+.Empty:
+	db "@"
 
-DoublesMoveInfoText:
-; The 3x5-font text at hl in the move menu's 4 info tiles, at (15, 15).
+MoveMenuInfoText:
+; The 3x5-font text at hl in row c's 4 info tiles (c = 15: the power, 16: the PP), placed at
+; (1, c).
+	push bc
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wDoublesTileBuf)
@@ -2027,14 +2204,27 @@ DoublesMoveInfoText:
 	ld e, 2
 	ld c, -1
 	call DoublesTinyString
-	ld hl, vTiles2 tile DOUBLES_PP_TILE
+	pop af
+	pop bc ; c = the row
+	push af ; rSVBK to restore
+	push bc
+	call MoveMenuInfoVBank
+	call MoveMenuInfoTile
+	call DoublesTileAddress
 	ld de, wDoublesTileBuf
 	lb bc, BANK(@), 4
 	call Request2bpp
+	xor a
+	ldh [rVBK], a
+	pop bc
 	pop af
 	ldh [rSVBK], a
-	hlcoord 15, 15
-	ld a, DOUBLES_PP_TILE
+	call MoveMenuInfoTile
+	push af
+	ld b, c
+	ld c, 1
+	call DoublesTilemapAddr
+	pop af
 	ld [hli], a
 	inc a
 	ld [hli], a
@@ -2044,8 +2234,63 @@ DoublesMoveInfoText:
 	ld [hl], a
 	ret
 
-DoublesMoveMenuClosed:
-; The move menu's box covered row 12 with the text palette: back to the screen's attributes.
+MoveMenuInfoTile:
+; a = the first of row c's 4 info tiles (c = 15: the power, 16: the PP). Preserves bc and de.
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	ld a, DOUBLES_PP_TILE
+	jr c, .got_base
+	ld a, SINGLES_MOVE_INFO_TILE
+.got_base
+	bit 0, c
+	ret z ; the PP (row 16)
+	add DOUBLES_POWER_TILE - DOUBLES_PP_TILE
+	ret
+
+MoveMenuInfoVBank:
+; The info's text tiles' VRAM bank: 0 in double battles, 1 in singles.
+	ldh a, [hDoublesScreen]
+	cpl
+	and 1 << DOUBLES_SCREEN_F
+	ldh [rVBK], a
+	ret
+
+MoveMenuClosed:
+; After the move menu (MoveSelectionScreen): back to the screen as BattleMenu saved it
+; (wTempTilemap), and the attributes the menu changed (its box over row 12 and the weather box
+; over the player's pic; in singles, the info's bank 1 cells).
+	xor a
+	ldh [hBGMapMode], a
+	call LoadTempTilemapToTilemap
+	ldh a, [hDoublesScreen]
+	rra ; DOUBLES_SCREEN_F
+	jr c, .doubles
+	; singles: as _CGB_FinishBattleScreenLayout sets them
+	hlcoord 0, 8, wAttrmap
+	ld de, SCREEN_WIDTH
+	ld b, 4
+.row
+	push hl
+	ld c, 6
+	ld a, PAL_BATTLE_BG_PLAYER
+.col
+	ld [hli], a
+	dec c
+	jr nz, .col
+	pop hl
+	add hl, de
+	dec b
+	jr nz, .row
+	hlcoord 0, 12, wAttrmap
+	ld bc, 6 * SCREEN_WIDTH
+	ld a, PAL_BATTLE_BG_TEXT
+	rst ByteFill
+	jmp CopyTilemapAtOnce
+
+.doubles
+	call DoublesBuildAttrmap
+	jmp CopyTilemapAtOnce
+
 DoublesRestoreAttrs:
 ; A box over the double battle screen is gone: back to the screen's attributes.
 	ldh a, [hDoublesScreen]

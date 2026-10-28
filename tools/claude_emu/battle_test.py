@@ -487,8 +487,8 @@ class Battle:
             g.wr('wCurMoveNum', act[1])
             self.menu_pick(1, 1)
             t = self.settle()
-            if t and ('/' in t[11] or self.tile(0, 12) == 0xBA) and not ('Fight' in t[14] and 'Run' in t[16]):
-                g.press('A', after=4)   # move menu (doubles: a box from row 12): the cursor sits on wCurMoveNum
+            if t and self.tile(0, 12) == 0xBA and self.tile(5, 13) == 0xBD and not ('Fight' in t[14] and 'Run' in t[16]):
+                g.press('A', after=4)   # the move menu (its box from row 12, the divider in column 5): the cursor sits on wCurMoveNum
         elif kind == 'switch':
             self.menu_pick(1, 2)
             self.settle()

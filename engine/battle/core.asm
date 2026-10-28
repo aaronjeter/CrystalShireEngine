@@ -5595,7 +5595,7 @@ MoveSelectionScreen:
 	call _MoveSelectionScreen
 	push af ; (farcall doesn't keep the flags on the way in)
 	farcall HideTypeIcons
-	farcall DoublesMoveMenuClosed ; (the box covered row 12 of the double battle screen)
+	farcall MoveMenuClosed ; (the screen and attributes under the menu's boxes)
 	pop af
 	ret
 
@@ -5631,13 +5631,11 @@ _MoveSelectionScreen:
 	lb bc, 4, 14
 	jr .got_dims
 .not_ether_menu
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	jr nc, .got_dims
-	hlcoord 0, 17 - NUM_MOVES - 1 ; double battles: the full width, info on the right
+	hlcoord 0, 17 - NUM_MOVES - 1 ; the full width, the info on the left (MoveMenuDivider)
 	ld c, SCREEN_WIDTH - 2
 	call Textbox
-	call CopyTilemapAtOnce ; (its attributes too: it covers row 12, P2's pic)
+	farcall MoveMenuDivider
+	call CopyTilemapAtOnce ; (its attributes too: it covers row 12, P2's pic in doubles)
 	jr .got_box
 .got_dims
 	call Textbox
@@ -5650,10 +5648,7 @@ _MoveSelectionScreen:
 	hlcoord 6, 17 - NUM_MOVES - 4
 	jr .got_start_coord
 .not_ether_menu2
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	jr nc, .got_start_coord
-	hlcoord 2, 17 - NUM_MOVES
+	hlcoord 7, 17 - NUM_MOVES ; right of the info
 .got_start_coord
 	ld a, SCREEN_WIDTH
 	ld [wListMovesLineSpacing], a
@@ -5668,12 +5663,7 @@ _MoveSelectionScreen:
 	ld a, 17 - NUM_MOVES - 4
 	jr .got_default_coord
 .not_ether_menu3
-	ld c, a
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	ld a, c
-	jr nc, .got_default_coord
-	ld b, 1
+	ld b, 6
 
 .got_default_coord
 	ld [w2DMenuCursorInitY], a
@@ -5733,14 +5723,7 @@ _MoveSelectionScreen:
 	ld a, [wSwappingMove]
 	and a
 	jr z, .interpret_joypad
-	hlcoord 5, 13
-	ld c, a
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	ld a, c
-	jr nc, .got_swap_coord
-	hlcoord 1, 13
-.got_swap_coord
+	hlcoord 6, 13
 	ld bc, SCREEN_WIDTH
 	dec a
 	rst AddNTimes
@@ -5939,17 +5922,9 @@ _MoveSelectionScreen:
 	jmp _MoveSelectionScreen
 
 MoveInfoBox:
+; The move info on the left of the move menu's box (see MoveMenuDivider).
 	xor a
 	ldh [hBGMapMode], a
-
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	jr c, .no_box ; double battles: the info is inside the move list's box
-	hlcoord 0, 9
-	lb bc, 2, 9
-	call Textbox
-	call MobileTextBorder
-.no_box
 	farcall HideTypeIcons
 
 	ld a, [wPlayerDisableCount]
@@ -5962,16 +5937,7 @@ MoveInfoBox:
 	ld a, [wMenuCursorY]
 	cp b
 	jr nz, .not_disabled
-
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	jr nc, .disabled_text
-	farjp DoublesMoveInfoDisabled
-.disabled_text
-	hlcoord 1, 10
-	ld de, .Disabled
-	rst PlaceString
-	ret
+	farjp MoveMenuInfoDisabled
 
 .not_disabled
 	ld hl, wMenuCursorY
@@ -6000,46 +5966,17 @@ MoveInfoBox:
 	ld a, [hl]
 	and PP_MASK
 	ld [wStringBuffer1], a
-	call .PrintPP
+	farcall MoveMenuInfoPP
 
 	farcall UpdateMoveData
-	; category and type icons side by side on row 10 (x = 10 and 46, with a
-	; 4px gap), in icon slots 0-1 with OBJ palettes 0-1
-	; (PAL_BATTLE_OB_ENEMY/PLAYER, given back when hidden)
-	lb bc, 10, 10
-	lb de, 10, 46
+	farcall MoveMenuInfoPower
+	; the category and type icons one above the other on rows 13 and 14, in icon
+	; slots 0-1 with OBJ palettes 0-1 (PAL_BATTLE_OB_ENEMY/PLAYER, given back when hidden)
+	lb bc, 13, 1 * TILE_WIDTH
+	lb de, 14, 1 * TILE_WIDTH
 	lb hl, 0, 0
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	jr nc, .got_icon_coords
-	lb bc, 13, 15 * TILE_WIDTH ; double battles: on the right of the move list,
-	lb de, 14, 15 * TILE_WIDTH ; one above the other
-.got_icon_coords
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	farjp PlaceMoveIconsAtX
-
-.Disabled:
-	db "Disabled!@"
-
-.PrintPP:
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	jr nc, .pp_text
-	farjp DoublesMoveInfoPP
-.pp_text
-	hlcoord 5, 11
-	push hl
-	ld de, wStringBuffer1
-	lb bc, 1, 2
-	call PrintNum
-	pop hl
-	inc hl
-	inc hl
-	ld a, "/"
-	ld [hli], a
-	ld de, wNamedObjectIndex
-	lb bc, 1, 2
-	jmp PrintNum
 
 CheckPlayerHasUsableMoves:
 	ld hl, STRUGGLE
@@ -7658,11 +7595,7 @@ GetWeatherImage:
 	call Request2bpp
 	pop bc
 	ld hl, wShadowOAMSprite00
-	ld de, .WeatherImageOAMData
-	ldh a, [hDoublesScreen]
-	rra ; DOUBLES_SCREEN_F
-	jr nc, .loop
-	ld de, .DoublesWeatherImageOAMData ; left of E1 (the move list fills the bottom)
+	ld de, .WeatherImageOAMData ; in the box above the move info (MoveMenuWeatherBox)
 .loop
 	ld a, [de]
 	inc de
@@ -7676,20 +7609,14 @@ GetWeatherImage:
 	ld a, b
 	ld [hli], a
 	jr nz, .loop
-	ret
+	farjp MoveMenuWeatherIconX ; (doubles: the box can be further right)
 
 .WeatherImageOAMData
 ; positions are backwards since
 ; we load them in reverse order
-	db $88, $1c ; y/x - bottom right
-	db $88, $14 ; y/x - bottom left
-	db $80, $1c ; y/x - top right
-	db $80, $14 ; y/x - top left
-
-.DoublesWeatherImageOAMData
-	db $40, $24 ; y/x - bottom right
-	db $40, $1c ; y/x - bottom left
-	db $38, $24 ; y/x - top right
-	db $38, $1c ; y/x - top left
+	db $60, $20 ; y/x - bottom right
+	db $60, $18 ; y/x - bottom left
+	db $58, $20 ; y/x - top right
+	db $58, $18 ; y/x - top left
 
 
