@@ -184,6 +184,15 @@ ENDM
 	command conditionalboost		; b3
 	command switchhit               ; b4
 	command weatherball             ; b5
+	command knockoff                ; b6
+	command suckerpunch             ; b7
+	command taunt                   ; b8
+	command electroball             ; b9
+	command yawn                    ; ba
+	command strengthsap             ; bb
+	command weightpower             ; bc
+	command brickbreak              ; bd
+	command ingrain                 ; be
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

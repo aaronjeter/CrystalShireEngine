@@ -1255,7 +1255,7 @@ AirLockOnField::
 
 TrappedByAbility::
 ; Carry if the battler loaded in area a (0: the player's, 1: the enemy's) can't switch out or
-; flee because of a foe's ability: Shadow Tag (not a Shadow Tag holder itself), Arena Trap
+; flee because of a foe's ability, or its own Ingrain: Shadow Tag (not a Shadow Tag holder itself), Arena Trap
 ; (not Flying types or Levitate), Magnet Pull (Steel types). Ghost types always escape.
 ; Preserves bc, de and hl.
 	push bc
@@ -1278,6 +1278,16 @@ TrappedByAbility::
 	ld a, l
 	cp GHOST
 	jr z, .no
+	; Ingrain: its own roots trap it
+	ld a, e
+	and a
+	ld a, [wPlayerSubStatus2]
+	jr z, .got_ingrain
+	ld a, [wEnemySubStatus2]
+.got_ingrain
+	bit SUBSTATUS_INGRAIN, a
+	scf
+	jr nz, .done
 	ld a, [wDoubleBattle]
 	and a
 	jr nz, .doubles

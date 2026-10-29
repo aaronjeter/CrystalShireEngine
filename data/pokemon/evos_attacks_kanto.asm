@@ -1280,7 +1280,7 @@ PsyduckEvosAttacks:
 	dbw 5, BUBBLE
 	dbw 10, DISABLE
 	dbw 15, CONFUSION
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, BUBBLEBEAM	
 	dbw 28, PSYBEAM
 	dbw 31, PSYCH_UP
@@ -1300,7 +1300,7 @@ GolduckEvosAttacks:
 	dbw 5, BUBBLE
 	dbw 10, DISABLE
 	dbw 15, CONFUSION
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, BUBBLEBEAM	
 	dbw 28, PSYBEAM
 	dbw 31, PSYCH_UP
@@ -1676,7 +1676,7 @@ TentacoolEvosAttacks:
 	dbw 24, WATER_PULSE	
 	dbw 28, VENOSHOCK
 	dbw 32, AURORA_BEAM
-	dbw 36, ICY_WIND	
+	dbw 36, FROSTBITE	
 	dbw 40, MIST_BALL
 	dbw 45, GIGA_DRAIN
 	dbw 50, SLUDGE_WAVE
@@ -1697,7 +1697,7 @@ TentacruelEvosAttacks:
 	dbw 24, WATER_PULSE	
 	dbw 28, VENOSHOCK
 	dbw 32, AURORA_BEAM
-	dbw 36, ICY_WIND	
+	dbw 36, FROSTBITE	
 	dbw 40, MIST_BALL
 	dbw 45, GIGA_DRAIN
 	dbw 50, SLUDGE_WAVE
@@ -1977,7 +1977,7 @@ SeelEvosAttacks:
 	dbw 36, MIRROR_COAT
 	dbw 40, ICE_BEAM
 	dbw 45, SCALD
-	dbw 50, ICY_WIND
+	dbw 50, FROSTBITE
 	dbw 55, AMNESIA
 	dbw 60, HYDRO_PUMP
 	dbw 65, BLIZZARD
@@ -1998,7 +1998,7 @@ DewgongEvosAttacks:
 	dbw 36, MIRROR_COAT
 	dbw 40, ICE_BEAM
 	dbw 45, SCALD
-	dbw 50, ICY_WIND
+	dbw 50, FROSTBITE
 	dbw 55, AMNESIA
 	dbw 60, HYDRO_PUMP
 	dbw 65, BLIZZARD
@@ -2062,7 +2062,7 @@ ShellderEvosAttacks:
 	dbw 20, ICE_BALL
 	dbw 24, BUBBLEBEAM
 	dbw 28, AURORA_BEAM	
-	dbw 32, ICY_WIND
+	dbw 32, FROSTBITE
 	dbw 36, SPIKES
 	dbw 40, ICE_BEAM
 	dbw 45, RAZORSHELL
@@ -2083,7 +2083,7 @@ CloysterEvosAttacks:
 	dbw 20, ICE_BALL
 	dbw 24, BUBBLEBEAM
 	dbw 28, AURORA_BEAM	
-	dbw 32, ICY_WIND
+	dbw 32, FROSTBITE
 	dbw 36, SPIKES
 	dbw 40, ICE_BEAM
 	dbw 45, RAZORSHELL
@@ -2786,7 +2786,7 @@ JynxEvosAttacks:
 	dbw 18, DOUBLESLAP
 	dbw 24, ICE_PUNCH
 	dbw 28, PSYBEAM
-	dbw 32, ICY_WIND
+	dbw 32, FROSTBITE
 	dbw 36, HEX
 	dbw 40, PSYCHIC_M
 	dbw 45, ICE_BEAM
@@ -3178,7 +3178,7 @@ ArticunoEvosAttacks:
 	dbw 1, POWDER_SNOW
 	dbw 8, CONFUSION
 	dbw 13, MIST
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, WING_ATTACK
 	dbw 28, AGILITY
 	dbw 32, AURORA_BEAM

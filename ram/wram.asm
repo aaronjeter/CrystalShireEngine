@@ -676,6 +676,9 @@ wDoublesAIDoomed:: db ; mask of the player's slots an earlier enemy's move shoul
 ; Each battler slot's party index at the start of the turn ($ff: empty), singles too
 ; (SnapshotTurnStartMons; Speed Boost skips a battler that entered this turn)
 wTurnStartMons:: ds NUM_BATTLER_SLOTS
+; Knock Off: party mons whose held item is suppressed for the rest of the battle
+; (bit = party index; the player's byte, then the enemy's)
+wKnockedOffMons:: ds 2
 if DEF(ANIM_LOG) ; test builds only (tools/claude_emu): each PlayBattleAnim call's wFXAnimID
 wAnimLogCount:: db
 wAnimLog:: ds 2 * 16

@@ -99,6 +99,7 @@ class View:
     wBattlerSlots for a stored one."""
     def __init__(self, g):
         self.sym = g.sym
+        self.g = g  # the game after the battle (party structs, wKnockedOffMons in singles)
         self.by, self.size = bt.swap_layout(g.rom_path, g.sym)
         self.keys = sorted(self.by)
 
@@ -1119,6 +1120,399 @@ CASES.update({
         result=WIN),
 })
 
+
+
+# Knock Off (Oct 29, 2026): the target's battle copy of its item is cleared (x1.5 damage
+# while it has one), the party struct keeps it, and wKnockedOffMons keeps it suppressed when
+# the mon comes back in. Singles: both sides knock off, the player's mon leaves and comes
+# back, an enemy bench mon flagged at the first menu is sent in without its item.
+# Doubles: P1 knocks off E2's item only.
+def check_knock_off_singles(recs, v):
+    p, g = [], v.g
+    item = lambda r, who: v.live(r, f'w{who}MonItem')[0]
+    lo = item(recs[0], 'Battle')  # Leftovers' 8-bit item ID
+    if not lo:
+        p.append('Machamp has no item at the first menu')
+    r1, r3 = recs[1], recs[3]
+    want(p, "Machamp's item after turn 1", item(r1, 'Battle'), 0)
+    want(p, "Sneasel's item after turn 1", item(r1, 'Enemy'), 0)
+    want(p, 'the mon back in after two switches', r3['wCurBattleMon'], 0)
+    want(p, "Machamp's item after coming back", item(r3, 'Battle'), 0)
+    tauros = [r for r in recs if 'end' not in r and v.live(r, 'wEnemyMonSpecies')[0] not in (0, v.live(recs[0], 'wEnemyMonSpecies')[0])]  # not Sneasel
+    if not tauros:
+        p.append('Tauros never came in')
+    else:
+        want(p, "flagged Tauros's item", item(tauros[0], 'Enemy'), 0)
+    psize = g.sym['wPartyMon2'][1] - g.sym['wPartyMon1'][1]
+    want(p, 'party items after the battle', [g.rd(f'wPartyMon1Item+{i * psize}') for i in range(2)], [lo, lo])
+    return p
+
+
+def check_knock_off_doubles(recs, v):
+    t = turns(recs, v)
+    p = []
+    lo = v.get(recs[0], P1, 'wBattleMonItem')[0]  # Leftovers' 8-bit item ID
+    r = recs[t[1][0]]
+    got = [v.get(r, s, 'wBattleMonItem')[0] for s in (P1, P2, E1, E2)]
+    want(p, 'items P1, P2, E1, E2 after turn 1', got, [lo, lo, lo, 0])
+    want(p, 'wKnockedOffMons after turn 1', v.live(r, 'wKnockedOffMons', 2), [0, 1 << 1])
+    if 'was knocked off' not in t[0][1]:
+        p.append(f'turn 1: no knock-off text: {t[0][1]}')
+    return p
+
+
+CASES.update({
+    'knock_off_singles': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('MACHAMP', 50, 'LEFTOVERS', ['KNOCK_OFF', 'KARATE_CHOP']), ('SNORLAX', 50, 'LEFTOVERS', ['SPLASH'])],
+        trainer=[(40, 'SNEASEL', 'LEFTOVERS', ['KNOCK_OFF']), (40, 'TAUROS', 'LEFTOVERS', ['SPLASH'])],
+        abilities={'MACHAMP': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'SNEASEL': 'NO_ABILITY', 'TAUROS': 'NO_ABILITY'},
+        setup=lambda g: g.wr('wKnockedOffMons', [0, 1 << 1]),  # Tauros (enemy mon 2)
+        actions=[('move', 0), ('switch', 1), ('switch', 0)] + [('move', 1)] * 30,
+        check=lambda recs, v: check_knock_off_singles(recs, v),
+        log=['was knocked off'],
+        result=WIN),
+    'knock_off_doubles': dict(
+        cls='COOLTRAINERM',
+        party=[('MACHAMP', 50, 'LEFTOVERS', ['KNOCK_OFF', 'KARATE_CHOP']), ('PIKACHU', 50, 'LEFTOVERS', ['SPLASH', 'THUNDERBOLT'])],
+        trainer=[(40, 'SNORLAX', 'LEFTOVERS', ['SPLASH']), (40, 'GYARADOS', 'LEFTOVERS', ['SPLASH'])],
+        abilities={'MACHAMP': 'NO_ABILITY', 'PIKACHU': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'GYARADOS': 'NO_ABILITY'},
+        actions=[('move', 0, 1), ('move', 0)] + [('move', 1, 0), ('move', 1, 1)] * 30,
+        check=lambda recs, v: check_knock_off_doubles(recs, v),
+        result=WIN),
+})
+
+
+# Sucker Punch (Oct 29, 2026): +1 priority; fails ("But it failed!") unless the target chose a
+# damaging move this turn and hasn't used it yet.
+def sp_turn_text(recs, n):  # singles: the text of turn n (0-based)
+    return ' | '.join(recs[n + 1].get('log') or [])
+
+
+def sp_before(p, what, text, a, b):
+    i, j = text.find(a), text.find(b)
+    if i < 0 or j < 0 or i > j:
+        p.append(f'{what}: "{a}" not before "{b}": {text[-300:]}')
+
+
+def check_sucker_punch_singles(recs, v, turn, fails, before=None):
+    p, t = [], sp_turn_text(recs, turn)
+    if ('But it failed' in t) != fails:
+        p.append(f'turn {turn + 1}: failed={not fails}, expected {fails}: {t[-300:]}')
+    if before:
+        sp_before(p, f'turn {turn + 1}', t, *before)
+    return p
+
+
+def check_sucker_punch_doubles(recs, v):
+    t, p = turns(recs, v), []
+    if 'But it failed' not in t[0][1]:
+        p.append(f'turn 1 (aimed at the Splash user): no failure: {t[0][1][-300:]}')
+    if 'But it failed' in t[1][1]:
+        p.append(f'turn 2 (aimed at the Tackle user) failed: {t[1][1][-300:]}')
+    sp_before(p, 'turn 2', t[1][1], 'used Sucker Punch', 'Snorlax used Tackle')
+    return p
+
+
+SP_AB = {'MACHAMP': 'NO_ABILITY', 'JOLTEON': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'SLOWBRO': 'NO_ABILITY',
+         'PIKACHU': 'NO_ABILITY'}
+CASES.update({
+    'sucker_punch_hits': dict(  # a faster foe's Tackle: Sucker Punch goes first
+        cls='COOLTRAINERM', singles=True, abilities=SP_AB,
+        party=[('MACHAMP', 50, None, ['SUCKER_PUNCH'])], trainer=[(50, 'JOLTEON', None, ['TACKLE'])],
+        actions=[('move', 0)] * 30,
+        check=lambda recs, v: check_sucker_punch_singles(recs, v, 0, False, ('used Sucker Punch', 'used Tackle')),
+        result=WIN),
+    'sucker_punch_fails': dict(  # a status move
+        cls='COOLTRAINERM', singles=True, abilities=SP_AB,
+        party=[('MACHAMP', 50, None, ['SUCKER_PUNCH', 'KARATE_CHOP'])], trainer=[(30, 'SNORLAX', None, ['SPLASH'])],
+        actions=[('move', 0)] + [('move', 1)] * 30,
+        check=lambda recs, v: check_sucker_punch_singles(recs, v, 0, True),
+        result=WIN),
+    'sucker_punch_outsped': dict(  # a faster foe's Quick Attack (same priority) has already hit
+        cls='COOLTRAINERM', singles=True, abilities=SP_AB,
+        party=[('MACHAMP', 50, None, ['SUCKER_PUNCH', 'KARATE_CHOP'])], trainer=[(50, 'JOLTEON', None, ['QUICK_ATTACK'])],
+        actions=[('move', 0)] + [('move', 1)] * 30,
+        check=lambda recs, v: check_sucker_punch_singles(recs, v, 0, True, ('used Quick Attack', 'used Sucker Punch')),
+        result=WIN),
+    'sucker_punch_enemy': dict(  # the AI's Sucker Punch: fails against Splash, then beats Karate Chop
+        cls='COOLTRAINERM', singles=True, abilities=SP_AB,
+        party=[('MACHAMP', 50, None, ['SPLASH', 'KARATE_CHOP'])], trainer=[(45, 'SNORLAX', None, ['SUCKER_PUNCH'])],
+        actions=[('move', 0)] + [('move', 1)] * 30,
+        check=lambda recs, v: check_sucker_punch_singles(recs, v, 0, True)
+            + check_sucker_punch_singles(recs, v, 1, False, ('used Sucker Punch', 'used Karate Chop')),
+        result=WIN),
+    'sucker_punch_doubles': dict(  # turn 1 at the Splash user (fails), turn 2 at the Tackle user (first)
+        cls='COOLTRAINERM', abilities=SP_AB,
+        party=[('MACHAMP', 50, None, ['SUCKER_PUNCH', 'KARATE_CHOP']), ('PIKACHU', 50, None, ['SPLASH', 'THUNDERBOLT'])],
+        trainer=[(45, 'SNORLAX', None, ['TACKLE']), (45, 'SLOWBRO', None, ['SPLASH'])],
+        actions=[('move', 0, 1), ('move', 0), ('move', 0, 0), ('move', 0)] + [('move', 1, 0), ('move', 1, 1)] * 30,
+        check=lambda recs, v: check_sucker_punch_doubles(recs, v),
+        result=WIN),
+})
+
+
+# Taunt (Oct 29, 2026; Gen 5+): 3 turns (4 if the target already moved); status moves are
+# blocked in the menu, by the AI and when the move runs; Struggle when nothing else is left.
+def check_taunt_singles(recs, v):
+    p, t = [], [sp_turn_text(recs, n) for n in range(5)]
+    for w in ('fell for the', 'after'):
+        if w not in t[0]:
+            p.append(f'turn 1: no "{w}": {t[0][-300:]}')
+    for n in (1, 2):
+        if 'used Struggle' not in t[n]:
+            p.append(f'turn {n + 1}: no Struggle: {t[n][-300:]}')
+    if 'shook off the' not in t[2]:
+        p.append(f'turn 3: the taunt did not end: {t[2][-300:]}')
+    if 'used Struggle' in t[3] or not ('used Splash' in t[3] or 'used Growl' in t[3]):
+        p.append(f'turn 4: no status move after the taunt: {t[3][-300:]}')
+    return p
+
+
+def check_taunt_player(recs, v):
+    p, t = [], [sp_turn_text(recs, n) for n in range(3)]
+    for w in ('fell for the', 'after'):
+        if w not in t[0]:
+            p.append(f'turn 1: no "{w}": {t[0][-300:]}')
+    if 'Snorlax used Struggle' not in t[1]:
+        p.append(f'turn 2: no Struggle: {t[1][-300:]}')
+    return p
+
+
+def check_taunt_doubles(recs, v):
+    t, p = turns(recs, v), []
+    if 'fell for the' not in t[0][1]:
+        p.append(f'turn 1: no taunt: {t[0][1][-300:]}')
+    r = recs[t[1][0]]
+    want(p, 'E2 taunt turns after turn 1', v.get(r, E2, 'wPlayerSubStatus2')[0] >> 1 & 7, 2)
+    want(p, 'E1 taunt turns after turn 1', v.get(r, E1, 'wPlayerSubStatus2')[0] >> 1 & 7, 0)
+    if 'Slowbro used Struggle' not in t[1][1]:
+        p.append(f'turn 2: E2 did not Struggle: {t[1][1][-300:]}')
+    if 'Enemy Snorlax used Splash' not in t[1][1]:
+        p.append(f'turn 2: E1 (not taunted) did not use Splash: {t[1][1][-300:]}')
+    return p
+
+
+TAUNT_AB = {'JOLTEON': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'SLOWBRO': 'NO_ABILITY'}
+CASES.update({
+    'taunt_singles': dict(  # Jolteon taunts first: Snorlax (status moves only) Struggles, then shakes it off
+        cls='COOLTRAINERM', singles=True, abilities=TAUNT_AB,
+        party=[('JOLTEON', 50, None, ['TAUNT', 'THUNDERBOLT', 'SPLASH'])],
+        trainer=[(50, 'SNORLAX', None, ['SPLASH', 'GROWL'])],
+        actions=[('move', 0)] + [('move', 2)] * 3 + [('move', 1)] * 30,
+        check=lambda recs, v: check_taunt_singles(recs, v),
+        result=WIN),
+    'taunt_player': dict(  # the faster AI taunts the player: Splash is blocked, then Struggle
+        cls='COOLTRAINERM', singles=True, abilities=TAUNT_AB,
+        party=[('SNORLAX', 50, None, ['SPLASH', 'GROWL'])],
+        trainer=[(30, 'JOLTEON', None, ['TAUNT'])],
+        actions=[('move', 0)] * 40,
+        check=lambda recs, v: check_taunt_player(recs, v),
+        result=WIN),
+    'taunt_doubles': dict(  # P1 taunts E2 only
+        cls='COOLTRAINERM', abilities=TAUNT_AB,
+        party=[('JOLTEON', 50, None, ['TAUNT', 'THUNDERBOLT', 'SPLASH']), ('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(45, 'SNORLAX', None, ['SPLASH']), (45, 'SLOWBRO', None, ['SPLASH', 'GROWL'])],
+        actions=[('move', 0, 1), ('move', 0)] + [('move', 2), ('move', 0)] * 2 + [('move', 1, 0), ('move', 1, 0)] * 30,
+        check=lambda recs, v: check_taunt_doubles(recs, v),
+        result=WIN),
+})
+
+
+# The AI's damage estimate for Electro Ball and Weather Ball (Oct 29, 2026): AIDamageCalc
+# works out their in-battle power (and Weather Ball's type). Before, it saw Electro Ball's
+# placeholder power 1 and Weather Ball as a 50-power Normal move. (Controls with AIDamageCalc.SetPower
+# patched to ret pick the other move on most turns.)
+def check_ai_first_moves(recs, want_move, other, turns_n=2, start=0):
+    p = []
+    n_turns = min(turns_n, len(recs) - 1)
+    if n_turns <= start:
+        return ['too few turns were played']
+    for n in range(start, n_turns):
+        t = sp_turn_text(recs, n)
+        if f'used {want_move}' not in t or f'used {other}' in t:
+            p.append(f'turn {n + 1}: expected {want_move}, not {other}: {t[-250:]}')
+    return p
+
+
+CASES.update({
+    'ai_electro_ball': dict(  # a far faster Jolteon: Electro Ball (150) over Thundershock (35)
+        cls='COOLTRAINERM', singles=True, abilities={'JOLTEON': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY'},
+        party=[('SNORLAX', 50, None, ['SPLASH'])], trainer=[(50, 'JOLTEON', None, ['THUNDERSHOCK', 'ELECTRO_BALL'])],
+        actions=[('move', 0)] * 30,
+        check=lambda recs, v: check_ai_first_moves(recs, 'Electro Ball', 'Thundershock', 3),
+        result=LOSE),
+    'ai_weather_ball': dict(  # rain: Weather Ball (Water, 100) on Arcanine over Body Slam (85)
+        cls='COOLTRAINERM', singles=True, abilities={'ARCANINE': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY'},
+        party=[('ARCANINE', 50, None, ['SPLASH'])], trainer=[(35, 'SNORLAX', None, ['BODY_SLAM', 'WEATHER_BALL'])],
+        setup=lambda g: (g.wr('wBattleWeather', 1), g.wr('wWeatherCount', 255)),  # WEATHER_RAIN
+        actions=[('move', 0)] * 30,
+        check=lambda recs, v: check_ai_first_moves(recs, 'Weather Ball', 'Body Slam', 3, 1),  # from turn 2: the harness sets the rain after the AI's turn-1 choice
+        result=LOSE),
+})
+
+
+# Yawn (Oct 29, 2026; Gen 5+): "grew drowsy", then asleep at the end of the next turn;
+# fails on a drowsy or statused target; switching out cures the drowsiness.
+SLP_MASK_ = 7
+
+
+def check_yawn_singles(recs, v):
+    p, t = [], [sp_turn_text(recs, n) for n in range(2)]
+    if 'grew drowsy' not in t[0] or 'fell asleep' in t[0]:
+        p.append(f'turn 1: {t[0][-250:]}')
+    if 'But it failed' not in t[1]:
+        p.append(f'turn 2: a second Yawn on the drowsy foe did not fail: {t[1][-250:]}')
+    if 'fell asleep' not in t[1]:
+        p.append(f'turn 2: no sleep at the end of the turn: {t[1][-250:]}')
+    want(p, 'enemy asleep after turn 2', bool(v.live(recs[2], 'wEnemyMonStatus')[0] & SLP_MASK_), True)
+    return p
+
+
+def check_yawn_player(recs, v):
+    p, t = [], [sp_turn_text(recs, n) for n in range(2)]
+    if 'grew drowsy' not in t[0]:
+        p.append(f'turn 1: {t[0][-250:]}')
+    if 'Snorlax' not in t[1] or 'fell asleep' not in t[1]:
+        p.append(f'turn 2: the player did not fall asleep: {t[1][-250:]}')
+    want(p, 'player asleep after turn 2', bool(v.live(recs[2], 'wBattleMonStatus')[0] & SLP_MASK_), True)
+    return p
+
+
+def check_yawn_switch(recs, v):
+    p, t = [], [sp_turn_text(recs, n) for n in range(3)]
+    if 'grew drowsy' not in t[0]:
+        p.append(f'turn 1: {t[0][-250:]}')
+    if 'Snorlax' in t[1] and 'fell asleep' in t[1]:
+        p.append(f'turn 2: Snorlax fell asleep after switching out: {t[1][-250:]}')
+    r = recs[3]  # Snorlax back in (turn 3), before the end of turn 4
+    want(p, 'Snorlax back in', r['wCurBattleMon'], 0)
+    want(p, 'Snorlax status after coming back', v.live(r, 'wBattleMonStatus')[0] & SLP_MASK_, 0)
+    return p
+
+
+def check_yawn_doubles(recs, v):
+    t, p = turns(recs, v), []
+    r = recs[t[2][0]]  # after turn 2
+    want(p, 'E2 asleep after turn 2', bool(v.get(r, E2, 'wBattleMonStatus')[0] & SLP_MASK_), True)
+    want(p, 'E1 status after turn 2', v.get(r, E1, 'wBattleMonStatus')[0], 0)
+    if 'grew drowsy' not in t[0][1]:
+        p.append(f'turn 1: {t[0][1][-250:]}')
+    return p
+
+
+YAWN_AB = {'JOLTEON': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'SLOWBRO': 'NO_ABILITY', 'PIKACHU': 'NO_ABILITY'}
+CASES.update({
+    'yawn_singles': dict(
+        cls='COOLTRAINERM', singles=True, abilities=YAWN_AB,
+        party=[('JOLTEON', 50, None, ['YAWN', 'THUNDERBOLT', 'SPLASH'])],
+        trainer=[(50, 'SNORLAX', None, ['SPLASH'])],
+        actions=[('move', 0), ('move', 0)] + [('move', 1)] * 30,
+        check=lambda recs, v: check_yawn_singles(recs, v),
+        result=WIN),
+    'yawn_player': dict(  # the AI's Yawn; the party struct gets the sleep (the slot check)
+        cls='COOLTRAINERM', singles=True, abilities=YAWN_AB,
+        party=[('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(35, 'SLOWBRO', None, ['YAWN'])],
+        actions=[('move', 0), ('move', 0)] + [('move', 1)] * 30,
+        check=lambda recs, v: check_yawn_player(recs, v),
+        result=WIN),
+    'yawn_switch': dict(  # yawned Snorlax switches out (turn 2) and back (turn 3): not asleep
+        cls='COOLTRAINERM', singles=True, abilities=YAWN_AB,
+        party=[('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM']), ('PIKACHU', 50, None, ['SPLASH', 'THUNDERBOLT'])],
+        trainer=[(35, 'SLOWBRO', None, ['YAWN'])],
+        actions=[('move', 0), ('switch', 1), ('switch', 0)] + [('move', 1)] * 30,
+        check=lambda recs, v: check_yawn_switch(recs, v),
+        result=WIN),
+    'yawn_doubles': dict(  # P1 yawns E2 only
+        cls='COOLTRAINERM', abilities=YAWN_AB,
+        party=[('JOLTEON', 50, None, ['YAWN', 'THUNDERBOLT', 'SPLASH']), ('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(45, 'SNORLAX', None, ['SPLASH']), (45, 'SLOWBRO', None, ['SPLASH'])],
+        actions=[('move', 0, 1), ('move', 0)] + [('move', 2), ('move', 0)] * 2 + [('move', 1, 0), ('move', 1, 0)] * 30,
+        check=lambda recs, v: check_yawn_doubles(recs, v),
+        result=WIN),
+})
+
+
+# Grass Knot and Low Kick (Oct 29, 2026): power from the target's weight. The AI knows it
+# (AIDamageCalc): Grass Knot (120) on heavy Snorlax, Razor Leaf over Grass Knot (20) on Pikachu.
+# (Only the heavy case fails with AIDamageCalc.SetPower patched out; the old AI also chose Razor Leaf on Pikachu.)
+CASES.update({
+    'ai_grass_knot_heavy': dict(
+        cls='COOLTRAINERM', singles=True, abilities={'VENUSAUR': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY'},
+        party=[('SNORLAX', 50, None, ['SPLASH'])], trainer=[(40, 'VENUSAUR', None, ['RAZOR_LEAF', 'GRASS_KNOT'])],
+        actions=[('move', 0)] * 40,
+        check=lambda recs, v: check_ai_first_moves(recs, 'Grass Knot', 'Razor Leaf', 3),
+        result=LOSE),
+    'ai_grass_knot_light': dict(
+        cls='COOLTRAINERM', singles=True, abilities={'VENUSAUR': 'NO_ABILITY', 'PIKACHU': 'NO_ABILITY'},
+        party=[('PIKACHU', 60, None, ['SPLASH'])], trainer=[(40, 'VENUSAUR', None, ['RAZOR_LEAF', 'GRASS_KNOT'])],
+        actions=[('move', 0)] * 40,
+        check=lambda recs, v: check_ai_first_moves(recs, 'Razor Leaf', 'Grass Knot', 3),
+        result=LOSE),
+})
+
+
+# Ingrain and Aqua Ring (Oct 29, 2026): each heals 1/8 of max HP at the end of every turn
+# (this hack; mainline 1/16); Ingrain traps its user and blocks Roar; a second use fails.
+def eighth(m):
+    e = (m // 4) // 2
+    return e or 1
+
+
+def check_ingrain_singles(recs, v):
+    p = []
+    m = v.live(recs[0], 'wBattleMonMaxHP', 2); m = m[0] << 8 | m[1]
+    hp = [(lambda h: h[0] << 8 | h[1])(v.live(r, 'wBattleMonHP', 2)) for r in recs[:3]]
+    t = [sp_turn_text(recs, n) for n in range(2)]
+    for w in ('planted its roots', 'anchored itself', 'absorbed nutrients'):
+        if w not in t[0]:
+            p.append(f'turn 1: no "{w}": {t[0][-300:]}')
+    for w in ('surrounded itself', 'absorbed nutrients', 'with Aqua Ring'):
+        if w not in t[1]:
+            p.append(f'turn 2: no "{w}": {t[1][-300:]}')
+    want(p, 'HP after turn 1 (Ingrain)', hp[1], min(m, hp[0] + eighth(m)))
+    want(p, 'HP after turn 2 (both)', hp[2], min(m, hp[1] + 2 * eighth(m)))
+    text = ' '.join(' '.join(r.get('log') or []) for r in recs)
+    if 'recalled' not in text:
+        p.append('the switch attempt was not refused')
+    if 'But it failed' not in text:
+        p.append('a second Ingrain did not fail')
+    if any(r.get('wCurBattleMon', 0) != 0 for r in recs if 'end' not in r):
+        p.append('Venusaur left the field')
+    return p
+
+
+def check_aqua_ring_doubles(recs, v):
+    t, p = turns(recs, v), []
+    r0, r1, r2 = recs[t[0][0]], recs[t[1][0]], recs[t[2][0]]
+    m = v.get(r0, P2, 'wBattleMonMaxHP', n=2); m = m[0] << 8 | m[1]
+    want(p, 'P2 HP after turn 1', v.hp(r1, P2), min(m, v.hp(r0, P2) + eighth(m)))
+    want(p, 'P2 HP after turn 2', v.hp(r2, P2), min(m, v.hp(r1, P2) + eighth(m)))
+    want(p, 'P1 HP (no Aqua Ring)', v.hp(r2, P1), v.hp(r0, P1))
+    want(p, 'Aqua Ring bit on P2', v.get(r1, P2, 'wPlayerSubStatus2')[0] >> 7 & 1, 1)
+    return p
+
+
+ROOT_AB = {'VENUSAUR': 'NO_ABILITY', 'PIKACHU': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'VAPOREON': 'NO_ABILITY'}
+CASES.update({
+    'ingrain_singles': dict(
+        cls='COOLTRAINERM', singles=True, abilities=ROOT_AB,
+        party=[('VENUSAUR', 50, None, ['INGRAIN', 'AQUA_RING', 'RAZOR_LEAF']), ('PIKACHU', 50, None, ['SPLASH'])],
+        hp={0: 40},
+        trainer=[(40, 'SNORLAX', None, ['ROAR'])],
+        actions=[('move', 0), ('move', 1), ('switch', 1), ('move', 0)] + [('move', 2)] * 60,
+        check=lambda recs, v: check_ingrain_singles(recs, v),
+        result=WIN),
+    'aqua_ring_doubles': dict(  # P2 uses Aqua Ring; only P2 heals
+        cls='COOLTRAINERM', abilities=ROOT_AB,
+        party=[('PIKACHU', 50, None, ['SPLASH', 'THUNDERBOLT']), ('VAPOREON', 50, None, ['AQUA_RING', 'SPLASH', 'SURF'])],
+        hp={0: 30, 1: 40},
+        trainer=[(30, 'SNORLAX', None, ['SPLASH']), (30, 'SNORLAX', None, ['SPLASH'])],
+        actions=[('move', 0), ('move', 0), ('move', 0), ('move', 1)] + [('move', 1, 0), ('move', 2)] * 30,
+        check=lambda recs, v: check_aqua_ring_doubles(recs, v),
+        result=WIN),
+})
 
 def run_case(rom, sym, state, name, shot_dir=None, shots_dir=None):
     c = CASES[name]

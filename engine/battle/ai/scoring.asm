@@ -3079,9 +3079,42 @@ AIDamageCalc:
 	farjp BattleCommand_ConstantDamage
 
 .notconstant
+; Weather Ball, Electro Ball, Gyro Ball, Grass Knot, Low Kick and Heavy Slam: the power (and Weather Ball's type) as they'd be in
+; battle; the move struct's power and type are put back after the estimate.
+	ld hl, wEnemyMoveStruct + MOVE_POWER
+	ld a, [hli]
+	ld b, a
+	ld c, [hl] ; MOVE_TYPE
+	push bc
+	call .SetPower
 	farcall EnemyAttackDamage
 	farcall BattleCommand_DamageCalc
-	farjp BattleCommand_Stab
+	farcall BattleCommand_Stab
+	pop bc
+	ld hl, wEnemyMoveStruct + MOVE_POWER
+	ld a, b
+	ld [hli], a
+	ld [hl], c
+	ret
+
+.SetPower:
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
+	cp EFFECT_WEATHER_BALL
+	jr z, .weather_ball
+	cp EFFECT_WEIGHT_POWER
+	jr z, .weight_power
+	cp EFFECT_HEAVY_SLAM
+	jr z, .weight_power
+	cp EFFECT_GYRO_BALL
+	jr z, .electro_ball
+	cp EFFECT_ELECTRO_BALL
+	ret nz
+.electro_ball
+	farjp BattleCommand_ElectroBall
+.weight_power
+	farjp BattleCommand_WeightPower
+.weather_ball
+	farjp BattleCommand_WeatherBall
 
 INCLUDE "data/battle/ai/constant_damage_effects.asm"
 

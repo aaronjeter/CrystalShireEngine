@@ -3,6 +3,35 @@
 ; Calls between here and Battle Core are farcall/farjp (far calls keep a, bc, de, hl and the
 ; flags). Code here must not pass Battle Core a pointer to data in this bank, or the reverse.
 
+KnockedOffBit:
+; a = party index -> a = its bit in wKnockedOffMons (1 << index). Preserves bc, de, hl.
+	push bc
+	ld b, a
+	inc b
+	xor a
+	scf
+.loop
+	rla
+	dec b
+	jr nz, .loop
+	pop bc
+	ret
+
+SetBattleMonAbilityAndItem:
+; InitBattleMon: set wBattleMonAbility, and clear wBattleMonItem if Knock Off
+; suppressed this mon's item earlier in the battle. Preserves bc, de, hl.
+	push hl
+	ld a, [wCurPartyMon]
+	call KnockedOffBit
+	ld hl, wKnockedOffMons
+	and [hl]
+	jr z, .done
+	xor a
+	ld [wBattleMonItem], a
+.done
+	pop hl
+	farjp SetBattleMonAbility
+
 _LoadEnemyMon:
 ; Initialize enemy monster parameters
 ; To do this we pull the species from wTempEnemyMonSpecies
@@ -44,6 +73,13 @@ _LoadEnemyMon:
 	ld hl, wOTPartyMon1Item
 	call GetPartyLocation ; bc = PartyMon[wCurPartyMon] - wPartyMons
 	ld b, [hl]
+; unless Knock Off suppressed it earlier in the battle
+	ld a, [wCurPartyMon]
+	call KnockedOffBit
+	ld hl, wKnockedOffMons + 1
+	and [hl]
+	jr z, .UpdateItem
+	ld b, NO_ITEM
 	jr .UpdateItem
 
 .WildItem:

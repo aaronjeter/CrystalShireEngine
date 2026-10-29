@@ -1033,21 +1033,21 @@ Tentacool2EggMoves:
 
 SnoruntEggMoves:
 	dw SPIKES
-	dw ICY_WIND
+	dw FROSTBITE
 	dw ANCIENTPOWER
 	dw SWORDS_DANCE
 	dw -1 ; end
 
 BarboachEggMoves:
 	dw SPIKES
-	dw ICY_WIND
+	dw FROSTBITE
 	dw ANCIENTPOWER
 	dw SWORDS_DANCE
 	dw -1 ; end
 
 CorphishEggMoves:
 	dw SPIKES
-	dw ICY_WIND
+	dw FROSTBITE
 	dw ANCIENTPOWER
 	dw SWORDS_DANCE
 	dw -1 ; end

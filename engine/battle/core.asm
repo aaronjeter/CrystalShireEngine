@@ -308,6 +308,7 @@ HandleBetweenTurnEffects:
 
 .NoMoreFaintingConditions:
 	call HandleLeftovers
+	call HandleRootRing
 	call HandleHealAbilities
 	call HandleWeatherHealAbilities
 	call HandleShedSkin
@@ -319,7 +320,9 @@ HandleBetweenTurnEffects:
 	call HandleHealingItems
 	call UpdateBattleMonInParty
 	call LoadTilemapToTempTilemap
-	jmp HandleEncore
+	call HandleEncore
+	call HandleTaunt
+	jmp HandleYawn
 
 HasAnyoneFainted:
 	call HasPlayerFainted
@@ -846,6 +849,35 @@ HandleEncore:
 	call SetPlayerTurn
 	ld hl, BattleText_TargetsEncoreEnded
 	jmp StdBattleTextbox
+
+HandleTaunt:
+	ld hl, .do_player
+	ld de, .do_enemy
+	jmp ForEachBattlerPair
+
+.do_player
+	call SetEnemyTurn ; <TARGET> = the player's battler
+	ld hl, wPlayerSubStatus2
+	farjp TauntCountdown
+
+.do_enemy
+	call SetPlayerTurn
+	ld hl, wEnemySubStatus2
+	farjp TauntCountdown
+
+HandleRootRing:
+	ld hl, .do_it
+	jmp ForEachBattler
+
+.do_it
+	farjp RootRingEndOfTurn
+
+HandleYawn:
+	ld hl, .do_it
+	jmp ForEachBattler
+
+.do_it
+	farjp YawnEndOfTurn
 
 TryEnemyFlee:
 	ld a, [wBattleMode]
@@ -4132,7 +4164,7 @@ InitBattleMon:
 	ld de, wPlayerStats
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	rst CopyBytes
-	farcall SetBattleMonAbility
+	farcall SetBattleMonAbilityAndItem ; core_far.asm (Knock Off)
 	jmp ApplyStatusEffectOnPlayerStats
 
 BattleCheckPlayerShininess:
@@ -5790,9 +5822,9 @@ _MoveSelectionScreen:
 	ldh [hBGMapMode], a
 	call ScrollingMenuJoypad
 	bit D_UP_F, a
-	jr nz, .pressed_up
+	jp nz, .pressed_up
 	bit D_DOWN_F, a
-	jr nz, .pressed_down
+	jp nz, .pressed_down
 	bit SELECT_F, a
 	jmp nz, .pressed_select
 	bit B_BUTTON_F, a
@@ -5848,11 +5880,20 @@ _MoveSelectionScreen:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
+	farcall PlayerTauntBlocksMove
+	jr c, .move_taunted
 
 .skip2
 	ld [wCurPlayerMove], a
 	xor a
 	ret
+
+.move_taunted
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	call SetPlayerTurn ; <USER>
+	ld hl, CantUseAfterTauntText
+	jr .place_textbox_start_over
 
 .move_disabled
 	ld hl, BattleText_TheMoveIsDisabled
@@ -6038,6 +6079,12 @@ CheckPlayerHasUsableMoves:
 	ld hl, STRUGGLE
 	call GetMoveIDFromIndex
 	ld [wCurPlayerMove], a
+	farcall PlayerTauntUsableMoves
+	jr nc, .not_taunted
+	and a
+	ret nz
+	jr .force_struggle
+.not_taunted
 	ld a, [wPlayerDisableCount]
 	and a
 	ld hl, wBattleMonPP
@@ -6110,7 +6157,7 @@ ParseEnemyAction:
 	jmp nz, .skip_load
 	ld a, [wEnemySubStatus3]
 	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
-	jr nz, .skip_load
+	jp nz, .skip_load
 
 	ld hl, wEnemySubStatus5
 	bit SUBSTATUS_ENCORED, [hl]
@@ -6145,10 +6192,13 @@ ParseEnemyAction:
 .loop
 	ld a, [hl]
 	and a
-	jr z, .struggle
+	jp z, .struggle
 	ld a, [wEnemyDisabledMove]
 	cp [hl]
 	jr z, .disabled
+	ld a, [hl]
+	farcall EnemyTauntBlocksMove
+	jr c, .disabled
 	ld a, [de]
 	and PP_MASK
 	jr nz, .enough_pp
@@ -6181,6 +6231,8 @@ ParseEnemyAction:
 	ld a, [hl]
 	and a
 	jr z, .loop2
+	farcall EnemyTauntBlocksMove
+	jr c, .loop2
 	ld hl, wEnemyMonPP
 	add hl, bc
 	ld b, a

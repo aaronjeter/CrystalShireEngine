@@ -370,7 +370,7 @@ HoothootEvosAttacks:
 	dbw 40, DRILL_PECK
 	dbw 45, SHADOW_BALL	
 	dbw 50, PSYCHIC_M
-	dbw 55, ICY_WIND
+	dbw 55, FROSTBITE
 	dbw 60, HURRICANE
 	dbw 65, FUTURE_SIGHT
 	dbw 70, SHADOW_FORCE
@@ -393,7 +393,7 @@ NoctowlEvosAttacks:
 	dbw 40, DRILL_PECK
 	dbw 45, SHADOW_BALL	
 	dbw 50, PSYCHIC_M
-	dbw 55, ICY_WIND
+	dbw 55, FROSTBITE
 	dbw 60, HURRICANE
 	dbw 65, FUTURE_SIGHT
 	dbw 70, SHADOW_FORCE
@@ -1166,7 +1166,7 @@ MisdreavusEvosAttacks:
 	dbw 24, HEX
 	dbw 28, CONFUSE_RAY
 	dbw 32, MEAN_LOOK
-	dbw 36, ICY_WIND
+	dbw 36, FROSTBITE
 	dbw 40, SHADOW_BALL	
 	dbw 45, PAIN_SPLIT
 	dbw 50, GLARE
@@ -1601,7 +1601,7 @@ CorsolaEvosAttacks:
 	dbw 7, DEFENSE_CURL
 	dbw 16, ROLLOUT	
 	dbw 20, RECOVER
-	dbw 24, ICY_WIND
+	dbw 24, FROSTBITE
 	dbw 28, BUBBLEBEAM
 	dbw 32, ANCIENTPOWER
 	dbw 36, COSMIC_POWER
@@ -1658,7 +1658,7 @@ DelibirdEvosAttacks:
 	dbw 1, POWDER_SNOW
 	dbw 10, GUST
 	dbw 16, SPIKES
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, AURORA_BEAM
 	dbw 28, WING_ATTACK	
 	dbw 32, RAZOR_WIND
@@ -1917,7 +1917,7 @@ SmoochumEvosAttacks:
 	dbw 18, DOUBLESLAP
 	dbw 24, ICE_PUNCH
 	dbw 28, PSYBEAM
-	dbw 32, ICY_WIND
+	dbw 32, FROSTBITE
 	dbw 36, HEX
 	dbw 40, PSYCHIC_M
 	dbw 45, ICE_BEAM

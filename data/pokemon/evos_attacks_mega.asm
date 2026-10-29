@@ -575,7 +575,7 @@ GlaliexEvosAttacks:
 	dbw 1, ASTONISH
 	dbw 1, POWDER_SNOW
 	dbw 7, LEER
-	dbw 12, ICY_WIND
+	dbw 12, FROSTBITE
 	dbw 16, BITE
 	dbw 20, ICE_FANG
 	dbw 24, DRAININGKISS
@@ -733,7 +733,7 @@ ChimechoxEvosAttacks:
 	dbw 50, RECOVER
 	dbw 55, BARRIER
 	dbw 60, FUTURE_SIGHT
-	dbw 65, ICY_WIND
+	dbw 65, FROSTBITE
 	dbw 70, WILLOWISP
 	db 0 ; no more level-up moves
 
@@ -951,7 +951,7 @@ MercuryEvosAttacks:
 	dbw 1, POWDER_SNOW
 	dbw 8, GROWL
 	dbw 12, PIXIE_DUST
-	dbw 16, ICY_WIND
+	dbw 16, FROSTBITE
 	dbw 20, RAIN_DANCE
 	dbw 24, BUBBLEBEAM
 	dbw 25, AURORA_BEAM

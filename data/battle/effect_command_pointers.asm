@@ -184,4 +184,13 @@ BattleCommandPointers:
 	dw BattleCommand_ConditionalBoost
 	dw BattleCommand_SwitchHit
 	dw BattleCommand_WeatherBall
+	dw BattleCommand_KnockOff
+	dw BattleCommand_SuckerPunch
+	dw BattleCommand_Taunt
+	dw BattleCommand_ElectroBall
+	dw BattleCommand_Yawn
+	dw BattleCommand_StrengthSap
+	dw BattleCommand_WeightPower
+	dw BattleCommand_BrickBreak
+	dw BattleCommand_Ingrain
 	assert_table_length NUM_EFFECT_COMMANDS

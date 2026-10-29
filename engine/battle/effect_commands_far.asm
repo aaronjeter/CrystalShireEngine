@@ -18,6 +18,11 @@ _BattleCommand_Thief:
 	ld a, [hl]
 	and a
 	ret nz
+; Not if Knock Off only suppressed the item: the party struct still has it,
+; and the stolen item would overwrite it.
+	ld a, [de]
+	and a
+	ret nz
 
 ; The enemy needs to have an item to steal.
 
@@ -117,6 +122,827 @@ _BattleCommand_Thief:
 	ld e, l
 	ld hl, wEnemyMonItem
 	ret
+
+_BattleCommand_Ingrain:
+; Ingrain and Aqua Ring (EFFECT_AQUA_RING): set the user's SubStatus2 bit; fails if it's
+; already set. RootRingEndOfTurn heals (1/8 of max HP each, this hack; mainline 1/16).
+; Ingrain also traps the user (TrappedByAbility) and blocks Roar (IngrainBlocksForceSwitch).
+; Both pass with Baton Pass.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_AQUA_RING
+	ld b, 1 << SUBSTATUS_INGRAIN
+	ld de, PlantedRootsText
+	jr nz, .got_effect
+	ld b, 1 << SUBSTATUS_AQUA_RING
+	ld de, AquaRingText
+.got_effect
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	ld a, [hl]
+	and b
+	jr nz, .failed
+	ld a, [hl]
+	or b
+	ld [hl], a
+	push de
+	farcall AnimateCurrentMove
+	pop hl
+	jmp StdBattleTextbox
+
+.failed
+	farcall AnimateFailedMove
+	farjp PrintButItFailed
+
+IngrainBlocksForceSwitch::
+; Roar and Whirlwind (BattleCommand_ForceSwitch): carry, after "<TARGET> anchored itself
+; with its roots!", if the move hit an ingrained target.
+	ld a, [wAttackMissed]
+	and a
+	ret nz ; (no carry) the force-switch code handles misses
+	ld a, BATTLE_VARS_SUBSTATUS2_OPP
+	call GetBattleVar
+	bit SUBSTATUS_INGRAIN, a
+	ret z
+	farcall AnimateFailedMove
+	ld hl, AnchoredRootsText
+	call StdBattleTextbox
+	scf
+	ret
+
+RootRingEndOfTurn::
+; End of turn (HandleRootRing, ForEachBattler: hBattleTurn = the battler): Ingrain and
+; Aqua Ring each heal 1/8 of its max HP.
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVar
+	bit SUBSTATUS_INGRAIN, a
+	jr z, .aqua_ring
+	ld hl, IngrainHealText
+	call .Heal
+.aqua_ring
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVar
+	bit SUBSTATUS_AQUA_RING, a
+	ret z
+	ld hl, AquaRingHealText
+; fallthrough
+.Heal:
+; hl = the text (<TARGET>: this battler). Nothing at full HP (or fainted).
+	push hl
+	ldh a, [hBattleTurn]
+	and a
+	ld hl, wBattleMonHP
+	jr z, .got_hp
+	ld hl, wEnemyMonHP
+.got_hp
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	or b
+	jr z, .no_heal ; fainted
+	ld a, [hli]
+	cp b
+	jr nz, .heal
+	ld a, [hl]
+	cp c
+	jr z, .no_heal ; full HP
+.heal
+	farcall GetEighthMaxHP ; bc
+	farcall SwitchTurnCore
+	farcall RestoreHP
+	pop hl
+	call StdBattleTextbox
+	farjp SwitchTurnCore
+
+.no_heal
+	pop hl
+	ret
+
+_BattleCommand_BrickBreak:
+; Brick Break (Gen 5+): if it hits (not a miss, Protect or an immunity), Reflect and Light
+; Screen end on the target's side first ("It shattered the barrier!"). The damage was
+; worked out before the hit check, so without Reflect it's worked out again.
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+	call GetTargetScreens ; hl = the screens byte, de = the Safeguard count
+	ld a, [hl]
+	and (1 << SCREENS_REFLECT) | (1 << SCREENS_LIGHT_SCREEN)
+	ret z
+	ld b, a
+	ld a, [hl]
+	and ~((1 << SCREENS_REFLECT) | (1 << SCREENS_LIGHT_SCREEN))
+	ld [hl], a
+	xor a
+	inc de
+	ld [de], a ; the Light Screen count
+	inc de
+	ld [de], a ; the Reflect count
+	push bc
+	ld hl, ShatteredBarrierText
+	call StdBattleTextbox
+	pop bc
+	bit SCREENS_REFLECT, b
+	ret z
+	farcall BattleCommand_DamageStats
+	farcall BattleCommand_DamageCalc
+	farcall BattleCommand_Stab
+	farjp BattleCommand_DamageVariation
+
+_BattleCommand_WeightPower:
+; Grass Knot and Low Kick (Gen 5+): the move's power from the target's weight, read from
+; its Pokedex entry (tenths of a pound, after the species name and the height):
+; under 10 kg 20, under 25 kg 40, under 50 kg 60, under 100 kg 80, under 200 kg 100,
+; else 120. The pound thresholds match the kilogram ones for weights converted from
+; tenths of a kilogram. Runs before damagestats; AIDamageCalc calls it too.
+; Heavy Slam and Heat Crash (EFFECT_HEAVY_SLAM, Gen 5+): from the user's weight over the target's:
+; 5x or more 120, 4x 100, 3x 80, 2x 60, less 40.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_HEAVY_SLAM
+	jr z, .heavy_slam
+	call .TargetWeight
+	ld hl, .Thresholds
+	ld c, 0
+.loop
+	ld a, c
+	cp .Powers - .Thresholds ; 5 thresholds
+	jr z, .got_tier
+	ld a, e
+	sub [hl]
+	inc hl
+	ld a, d
+	sbc [hl]
+	inc hl
+	jr c, .got_tier ; lighter than this threshold
+	inc c
+	jr .loop
+.got_tier
+	ld b, 0
+	ld hl, .Powers
+.set_power
+	add hl, bc
+	ld b, [hl]
+	ld a, BATTLE_VARS_MOVE_POWER
+	call GetBattleVarAddr
+	ld [hl], b
+	ret
+
+.heavy_slam
+	call .TargetWeight
+	push de
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wBattleMonSpecies]
+	jr z, .got_user
+	ld a, [wEnemyMonSpecies]
+.got_user
+	call .GetWeight ; de = the user's weight
+	pop bc ; bc = the target's
+; how many times the target's weight fits in the user's (at most 5)
+	ld h, 0
+.ratio_loop
+	ld a, h
+	cp 5
+	jr z, .got_ratio
+	ld a, e
+	sub c
+	ld e, a
+	ld a, d
+	sbc b
+	ld d, a
+	jr c, .got_ratio
+	inc h
+	jr .ratio_loop
+.got_ratio
+	ld c, h
+	ld b, 0
+	ld hl, .HeavySlamPowers
+	jr .set_power
+
+.TargetWeight:
+; de = the target's weight
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wEnemyMonSpecies]
+	jr z, .GetWeight
+	ld a, [wBattleMonSpecies]
+; fallthrough
+.GetWeight:
+; de = species a's weight (tenths of a pound, from its Pokedex entry). Clobbers bc, hl.
+	ld b, a
+	farcall GetDexEntryPointer ; b:de = the entry
+	ld h, d
+	ld l, e
+.skip_name
+	ld a, b
+	call GetFarByte
+	inc hl
+	cp "@"
+	jr nz, .skip_name
+	inc hl ; skip the height
+	inc hl
+	ld a, b
+	call GetFarWord
+	ld d, h
+	ld e, l
+	ret
+
+.HeavySlamPowers: ; by how many times heavier the user is: 0, 1, 2, 3, 4, 5+
+	db 40, 40, 60, 80, 100, 120
+
+.Thresholds: ; tenths of a pound: 10, 25, 50, 100, 200 kg
+	dw 220, 551, 1102, 2205, 4409
+.Powers:
+	db 20, 40, 60, 80, 100, 120
+
+_BattleCommand_StrengthSap:
+; Strength Sap (Gen 7+) and Enervate (this hack: the same with Sp. Atk): fails if it
+; missed (Protect), against a Substitute, or if the target's Attack (Sp. Atk) is at -6.
+; Otherwise wCurDamage = 2x that stat (with stat stages), so draintarget (which heals
+; half of it) heals the stat. The script then lowers it; a blocked drop (Clear Body,
+; Mist) still heals.
+	ld a, [wAttackMissed]
+	and a
+	jr nz, .missed
+	farcall CheckSubstituteOpp
+	jr nz, .failed
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_ENERVATE
+	jr z, .enervate
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wEnemyAtkLevel]
+	ld hl, wEnemyMonAttack
+	jr z, .got_target
+	ld a, [wPlayerAtkLevel]
+	ld hl, wBattleMonAttack
+.got_target
+	cp BASE_STAT_LEVEL - 5 ; -6 is the lowest
+	jr c, .failed
+	ld a, [hli]
+	ld l, [hl]
+	ld h, a
+; Burn halves the stored Attack here; mainline heals by the unhalved stat.
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	and 1 << BRN
+	jr z, .got_attack
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	cp ABILITY_GUTS
+	jr z, .got_attack
+	add hl, hl
+	jr .got_attack
+
+.enervate
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wEnemySAtkLevel]
+	ld hl, wEnemyMonSpclAtk
+	jr z, .got_sp_atk_target
+	ld a, [wPlayerSAtkLevel]
+	ld hl, wBattleMonSpclAtk
+.got_sp_atk_target
+	cp BASE_STAT_LEVEL - 5
+	jr c, .failed
+	ld a, [hli]
+	ld l, [hl]
+	ld h, a
+; Frostbite halves the stored Sp. Atk: heal by the unhalved stat.
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	and 1 << FRZ
+	jr z, .got_attack
+	add hl, hl
+.got_attack
+	add hl, hl
+	ld a, h
+	ld [wCurDamage], a
+	ld a, l
+	ld [wCurDamage + 1], a
+	ret
+
+.missed
+	farcall PrintDidntAffect2 ; "protected itself" against Protect
+	farjp EndMoveEffect
+
+.failed
+	farcall AnimateFailedMove
+	farcall PrintButItFailed
+	farjp EndMoveEffect
+
+_BattleCommand_Yawn:
+; Yawn (Gen 5+): the target grows drowsy and falls asleep at the end of the next turn
+; (YawnEndOfTurn). Fails on a target that has a status, is drowsy, is behind a
+; Substitute or has an ability that prevents sleep (Safeguard: checksafeguard).
+	ld a, [wAttackMissed]
+	and a
+	jr nz, .missed
+	farcall CheckSubstituteOpp
+	jr nz, .failed
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	and a
+	jr nz, .failed
+	ld a, BATTLE_VARS_SUBSTATUS2_OPP
+	call GetBattleVarAddr
+	ld a, [hl]
+	and SUBSTATUS_YAWN_MASK
+	jr nz, .failed
+	ld b, SLP_MASK
+	farcall OppAbilityBlocksStatus ; c = the ability
+	jr c, .ability
+	ld a, [hl]
+	or 2 << SUBSTATUS_YAWN_SHIFT
+	ld [hl], a
+	farcall AnimateCurrentMove
+	ld hl, GrewDrowsyText
+	jmp StdBattleTextbox
+
+.ability
+	farjp FailStatusMoveAbility
+
+.missed
+	farjp PrintDidntAffect2 ; "protected itself" against Protect
+
+.failed
+	farcall AnimateFailedMove
+	farjp PrintButItFailed
+
+YawnEndOfTurn::
+; End of turn (HandleYawn, ForEachBattler: hBattleTurn = the battler): count its
+; drowsiness down; when it runs out, it falls asleep, unless it has a status by now,
+; Safeguard, an ability or an item that prevents sleep. A status-healing berry works
+; at once.
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	ld a, [hl]
+	and SUBSTATUS_YAWN_MASK
+	ret z
+	ld a, [hl]
+	sub 1 << SUBSTATUS_YAWN_SHIFT
+	ld [hl], a
+	and SUBSTATUS_YAWN_MASK
+	ret nz
+; the drowsy battler is the target from here (the texts and the berry use it)
+	farcall SwitchTurnCore
+	call .TrySleep
+	farjp SwitchTurnCore
+
+.TrySleep:
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	and a
+	ret nz
+	farcall SafeCheckSafeguard
+	ret nz
+	ld a, BATTLE_VARS_ABILITY_OPP
+	call GetBattleVar
+	ld c, a
+	ld b, SLP_MASK
+	farcall AbilityBlocksStatus
+	ret c
+	farcall GetOpponentItem
+	ld a, b
+	cp HELD_PREVENT_SLEEP
+	ret z
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	ld b, %011
+.random
+	call BattleRandom
+	and b
+	jr z, .random
+	inc a
+	ld [hl], a
+	call UpdateOpponentInParty
+	call RefreshBattleHuds
+	ld hl, FellAsleepText
+	call StdBattleTextbox
+	farjp UseHeldStatusHealingItem
+
+BodyPressAttackStat::
+; Physical damage stats (PlayerAttackDamage, EnemyAttackDamage; the AI's estimate too):
+; hl = the attacker's Attack (wBattleMonAttack/wEnemyMonAttack, or the unboosted
+; wPlayerAttack/wEnemyAttack on a critical hit). For Body Press: carry and hl = the
+; Defense (the next word) instead, halved if burned (burn halves physical damage, and
+; here the burn's own halving is on the Attack stat), unless the attacker has Guts.
+; Thick Club and Guts don't apply. Otherwise nc, hl unchanged. Preserves bc, de.
+	push hl
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	pop hl
+	cp EFFECT_BODY_PRESS
+	jr z, .body_press
+	and a
+	ret
+
+.body_press
+	inc hl
+	inc hl
+	ld a, [hli]
+	ld l, [hl]
+	ld h, a
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVar
+	and 1 << BRN
+	jr z, .done
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	cp ABILITY_GUTS
+	jr z, .done
+	srl h
+	rr l
+	ld a, h
+	or l
+	jr nz, .done
+	inc l
+.done
+	scf
+	ret
+
+_BattleCommand_ElectroBall:
+; Also Gyro Ball (EFFECT_GYRO_BALL: .gyro_ball).
+; Electro Ball (Gen 5+): the move's power from the user's Speed over the target's:
+; 4x or more 150, 3x 120, 2x 80, 1x 60, slower 40. Speeds as for the turn order (stat
+; stages, paralysis, weather Speed abilities). Runs before damagestats; AIDamageCalc
+; calls it too, for the AI's damage estimate.
+	call .GetSpeed
+	push bc
+	ldh a, [hBattleTurn]
+	xor 1
+	ldh [hBattleTurn], a
+	call .GetSpeed ; bc = the target's Speed
+	ldh a, [hBattleTurn]
+	xor 1
+	ldh [hBattleTurn], a
+	pop de ; de = the user's Speed
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_GYRO_BALL
+	jr z, .gyro_ball
+; h = how many times the target's Speed fits in the user's (at most 4)
+	ld h, 0
+.loop
+	ld a, h
+	cp 4
+	jr z, .got_ratio
+	ld a, e
+	sub c
+	ld e, a
+	ld a, d
+	sbc b
+	ld d, a
+	jr c, .got_ratio
+	inc h
+	jr .loop
+.got_ratio
+	ld a, h
+	add LOW(.Powers)
+	ld l, a
+	ld a, HIGH(.Powers)
+	adc 0
+	ld h, a
+	ld b, [hl]
+	ld a, BATTLE_VARS_MOVE_POWER
+	call GetBattleVarAddr
+	ld [hl], b
+	ret
+
+.gyro_ball
+; Gyro Ball (Gen 5+): power = 25 x the target's Speed / the user's Speed + 1, at most 150.
+; hProduct = 25 x the target's Speed (it fits in 24 bits); then count how many times the
+; user's Speed fits in it, stopping at 149.
+	xor a
+	ldh [hMultiplicand], a
+	ld a, b
+	ldh [hMultiplicand + 1], a
+	ld a, c
+	ldh [hMultiplicand + 2], a
+	ld a, 25
+	ldh [hMultiplier], a
+	call Multiply
+	ld c, 1
+.gyro_loop
+	ld a, c
+	cp 150
+	jr z, .gyro_done
+	ldh a, [hProduct + 3]
+	sub e
+	ld l, a
+	ldh a, [hProduct + 2]
+	sbc d
+	ld h, a
+	ldh a, [hProduct + 1]
+	sbc 0
+	jr c, .gyro_done
+	ldh [hProduct + 1], a
+	ld a, h
+	ldh [hProduct + 2], a
+	ld a, l
+	ldh [hProduct + 3], a
+	inc c
+	jr .gyro_loop
+.gyro_done
+	ld b, c
+	ld a, BATTLE_VARS_MOVE_POWER
+	call GetBattleVarAddr
+	ld [hl], b
+	ret
+
+.GetSpeed:
+; bc = hBattleTurn's battler's turn-order Speed
+	ldh a, [hBattleTurn]
+	and a
+	ld hl, wBattleMonSpeed
+	jr z, .got_speed
+	ld hl, wEnemyMonSpeed
+.got_speed
+	farjp GetTurnOrderSpeed
+
+.Powers:
+	db 40, 60, 80, 120, 150
+
+_BattleCommand_Taunt:
+; Taunt (Gen 5+ duration): the target can't use status moves for 3 turns, or 4 if it
+; already moved this turn (the count also goes down at the end of this turn). Goes through
+; Substitute; fails on a taunted target.
+	ld a, [wAttackMissed]
+	and a
+	jr nz, .missed
+	ld a, BATTLE_VARS_SUBSTATUS2_OPP
+	call GetBattleVarAddr
+	ld a, [hl]
+	and SUBSTATUS_TAUNT_MASK
+	jr nz, .failed
+	ld b, 3 << SUBSTATUS_TAUNT_SHIFT
+	farcall CheckOpponentWentFirst
+	jr z, .got_count
+	ld b, 4 << SUBSTATUS_TAUNT_SHIFT
+.got_count
+	ld a, [hl]
+	or b
+	ld [hl], a
+	farcall AnimateCurrentMove
+	ld hl, FellForTauntText
+	jmp StdBattleTextbox
+
+.missed
+	farjp PrintDidntAffect2 ; "protected itself" against Protect
+
+.failed
+	farcall AnimateFailedMove
+	farjp PrintButItFailed
+
+TauntCheckMove:
+; Before the user (hBattleTurn) moves: carry, after "can't use <move> after the taunt!",
+; if it's taunted and its move is a status move.
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .enemy
+	ld a, [wCurPlayerMove]
+	call PlayerTauntBlocksMove
+	jr .got_result
+.enemy
+	ld a, [wCurEnemyMove]
+	call EnemyTauntBlocksMove
+.got_result
+	ret nc
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	ld hl, CantUseAfterTauntText
+	call StdBattleTextbox
+	scf
+	ret
+
+PlayerTauntBlocksMove::
+; Carry if the player's battler is taunted and move a is a status move. Preserves all
+; registers but the flags.
+	push hl
+	ld hl, wPlayerSubStatus2
+	jr TauntBlocksMove
+
+EnemyTauntBlocksMove::
+; As PlayerTauntBlocksMove, for the enemy's battler.
+	push hl
+	ld hl, wEnemySubStatus2
+; fallthrough
+TauntBlocksMove:
+; hl = the battler's SubStatus2, pushed hl on the stack; a = a move.
+	push bc
+	ld b, a
+	ld a, [hl]
+	and SUBSTATUS_TAUNT_MASK
+	jr z, .no
+	ld a, b
+	and a
+	jr z, .no
+	ld l, a
+	ld a, MOVE_TYPE
+	call GetMoveAttribute
+	and ~TYPE_MASK
+	cp STATUS
+	jr nz, .no
+	ld a, b
+	pop bc
+	pop hl
+	scf
+	ret
+.no
+	ld a, b
+	pop bc
+	pop hl
+	and a
+	ret
+
+PlayerTauntUsableMoves::
+; Carry if the player's battler is taunted; then a = nonzero if it has a usable move:
+; PP left, not the disabled one, not a status move. Preserves bc, de, hl.
+	ld a, [wPlayerSubStatus2]
+	and SUBSTATUS_TAUNT_MASK
+	ret z
+	push bc
+	push de
+	push hl
+	ld a, [wPlayerDisableCount]
+	swap a
+	and $f
+	ld e, a ; the disabled move's slot + 1, or 0
+	ld c, 0
+.loop
+	ld a, c
+	cp NUM_MOVES
+	jr z, .none
+	inc c
+	cp e
+	jr z, .loop
+	ld hl, wBattleMonPP - 1
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
+	and PP_MASK
+	jr z, .loop
+	ld hl, wBattleMonMoves - 1
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr z, .loop
+	ld l, a
+	ld a, MOVE_TYPE
+	call GetMoveAttribute
+	and ~TYPE_MASK
+	cp STATUS
+	jr z, .loop
+	ld a, 1
+	jr .done
+.none
+	xor a
+.done
+	pop hl
+	pop de
+	pop bc
+	scf
+	ret
+
+AITauntScoreMoves::
+; The AI: a taunted enemy battler's status moves get the "unusable" score (80).
+; Preserves bc, de, hl.
+	ld a, [wEnemySubStatus2]
+	and SUBSTATUS_TAUNT_MASK
+	ret z
+	push bc
+	push de
+	push hl
+	ld hl, wEnemyMonMoves
+	ld de, wEnemyAIMoveScores
+	ld b, NUM_MOVES
+.loop
+	ld a, [hli]
+	call EnemyTauntBlocksMove
+	jr nc, .next
+	ld a, 80
+	ld [de], a
+.next
+	inc de
+	dec b
+	jr nz, .loop
+	pop hl
+	pop de
+	pop bc
+	ret
+
+TauntCountdown::
+; End of turn: hl = a battler's SubStatus2; count its Taunt down ("shook off the taunt!"
+; when it ends; <TARGET> is that battler).
+	ld a, [hl]
+	and SUBSTATUS_TAUNT_MASK
+	ret z
+	ld a, [hl]
+	sub 1 << SUBSTATUS_TAUNT_SHIFT
+	ld [hl], a
+	and SUBSTATUS_TAUNT_MASK
+	ret nz
+	ld hl, ShookOffTauntText
+	jmp StdBattleTextbox
+
+_BattleCommand_SuckerPunch:
+; Sucker Punch (Gen 7+): fails unless the target chose a damaging move this turn and
+; hasn't used it yet (not a status move, a switch, an item, or a move already used).
+; Singles and doubles alike: wBattleActions holds each battler slot's action this turn.
+	farcall CheckOpponentWentFirst
+	jr nz, .fail
+; the target's slot: the one loaded in the opponent's area
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wAreaSlots + 1]
+	jr z, .got_slot
+	ld a, [wAreaSlots]
+.got_slot
+	ld c, a
+	ld hl, wBattleActions
+	ld a, [wNumBattleActions]
+	and a
+	jr z, .fail
+	ld b, a
+.find
+	ld a, [hli]
+	cp c
+	jr z, .found
+	inc hl
+	dec b
+	jr nz, .find
+	jr .fail
+.found
+	ld a, [hl]
+	and a ; BATTLEPLAYERACTION_USEMOVE
+	jr nz, .fail
+; the target's chosen move
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wCurEnemyMove]
+	jr z, .got_move
+	ld a, [wCurPlayerMove]
+.got_move
+	and a
+	jr z, .fail
+	ld l, a
+	ld a, MOVE_TYPE
+	call GetMoveAttribute
+	and ~TYPE_MASK
+	cp STATUS
+	ret nz
+.fail
+	farcall PrintButItFailed
+	farjp EndMoveEffect
+
+_BattleCommand_KnockOff:
+; Knock Off: suppress the target's held item for the rest of the battle. Only the
+; battle copy is cleared: the party struct keeps the item, so it's back after the
+; battle. wKnockedOffMons keeps it suppressed if the target switches out and back in.
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+	farcall CheckSubstituteOpp
+	ret nz
+	ldh a, [hBattleTurn]
+	and a
+	ld hl, wEnemyMonHP
+	ld de, wKnockedOffMons + 1
+	ld a, [wCurOTMon]
+	jr z, .got_target
+	ld hl, wBattleMonHP
+	ld de, wKnockedOffMons
+	ld a, [wCurBattleMon]
+.got_target
+	ld c, a
+; not if the target fainted
+	ld a, [hli]
+	or [hl]
+	ret z
+; the item (wEnemyMonItem / wBattleMonItem) is MON_ITEM - MON_HP bytes before the HP
+	ld a, l
+	sub LOW(wEnemyMonHP + 1 - wEnemyMonItem)
+	ld l, a
+	ld a, h
+	sbc HIGH(wEnemyMonHP + 1 - wEnemyMonItem)
+	ld h, a
+	ld a, [hl]
+	and a
+	ret z
+	ld [wNamedObjectIndex], a
+	ld [hl], NO_ITEM
+	ld a, c
+	call KnockedOffBit
+	ld h, d
+	ld l, e
+	or [hl]
+	ld [hl], a
+	call GetItemName
+	ld hl, KnockedOffText
+	jmp StdBattleTextbox
 
 ; ---- from engine/battle/move_effects/rollout.asm
 

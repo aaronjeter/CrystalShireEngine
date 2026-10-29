@@ -344,6 +344,36 @@ DEF GEN1_MOVES EQU const_value - 1
 	const NIGHT_SLASH
 	const WEATHER_BALL
 	const FREEZE_DRY
+	const FROSTBITE
+	const ACROBATICS
+	const COUP_DE_GRACE
+	const KNOCK_OFF
+	const DISCHARGE
+	const BULLDOZE
+	const ELECTRO_WEB
+	const BREAKING_SWIPE
+	const FACADE
+	const SUCKER_PUNCH
+	const LAVA_PLUME
+	const TAUNT
+	const CHARGE_BEAM
+	const ELECTRO_BALL
+	const BODY_PRESS
+	const FLAME_CHARGE
+	const MYSTICAL_FIRE
+	const YAWN
+	const STRENGTH_SAP
+	const ENERVATE
+	const AQUA_TAIL
+	const GRASS_KNOT
+	const GYRO_BALL
+	const HEAVY_SLAM
+	const HEAT_CRASH
+	const INGRAIN
+	const AQUA_RING
+	const DRAIN_PUNCH
+	const FORCE_PALM
+	const ACID_SPRAY
 
 DEF GEN2_MOVES EQU const_value - 1
 

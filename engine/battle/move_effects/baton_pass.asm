@@ -136,6 +136,13 @@ ResetBatonPassStatus:
 	; Disable isn't passed.
 	call ResetActorDisable
 
+	; Taunt and Yawn's drowsiness aren't passed.
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	ld a, [hl]
+	and ~(SUBSTATUS_TAUNT_MASK | SUBSTATUS_YAWN_MASK)
+	ld [hl], a
+
 	; Attraction isn't passed.
 	ld a, [wDoubleBattle]
 	and a

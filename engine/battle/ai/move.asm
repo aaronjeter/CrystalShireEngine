@@ -56,6 +56,7 @@ AIScoreMoves:
 
 ; Don't pick moves with 0 PP.
 .CheckPP:
+	farcall AITauntScoreMoves ; nor status moves while taunted
 	ld hl, wEnemyAIMoveScores - 1
 	ld de, wEnemyMonPP
 	ld b, 0

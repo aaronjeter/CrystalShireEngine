@@ -2267,3 +2267,207 @@ SwitchHit:
 	kingsrock
 	switchhit
 	endmove
+
+KnockOff:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	conditionalboost ; x1.5 if the target holds an item
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	knockoff
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+SuckerPunch:
+	checkobedience
+	usedmovetext
+	doturn
+	suckerpunch ; "But it failed!" unless the target is about to attack
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+Taunt:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	taunt
+	endmove
+
+ElectroBall:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	electroball
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+Yawn:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	checksafeguard
+	yawn
+	endmove
+
+StrengthSap:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	strengthsap ; fails here, or wCurDamage = 2x the target's Attack (draintarget heals half)
+	attackdown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext ; Clear Body or Mist: no drop, but the heal still happens
+	draintarget
+	endmove
+
+Enervate:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	strengthsap ; fails here, or wCurDamage = 2x the target's Sp. Atk (draintarget heals half)
+	specialattackdown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext ; Clear Body or Mist: no drop, but the heal still happens
+	draintarget
+	endmove
+
+WeightPower:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	weightpower
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+HeavySlam:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	weightpower ; branches on EFFECT_HEAVY_SLAM
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleminimizedamage ; Gen 6+: double damage against a minimized target
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+BrickBreak:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	brickbreak ; if it hits: no more Reflect or Light Screen (and the damage without Reflect)
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+Ingrain:
+	checkobedience
+	usedmovetext
+	doturn
+	ingrain
+	endmove
+
+SpecialDefenseDown2Hit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	specialdefensedown2
+	statdownmessage
+	endmove

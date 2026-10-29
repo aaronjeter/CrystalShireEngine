@@ -170,4 +170,19 @@ MoveEffectsPointers:
 	dw ConditionalBoostHit
 	dw SwitchHit
 	dw WeatherBall
+	dw KnockOff
+	dw SuckerPunch
+	dw Taunt
+	dw ElectroBall
+	dw NormalHit ; EFFECT_BODY_PRESS: the damage stats check the effect (BodyPressAttackStat)
+	dw Yawn
+	dw StrengthSap
+	dw Enervate
+	dw WeightPower
+	dw ElectroBall ; EFFECT_GYRO_BALL: the electroball command branches on the effect
+	dw HeavySlam
+	dw BrickBreak
+	dw Ingrain
+	dw Ingrain ; EFFECT_AQUA_RING: the ingrain command branches on the effect
+	dw SpecialDefenseDown2Hit
 	assert_table_length NUM_MOVE_EFFECTS

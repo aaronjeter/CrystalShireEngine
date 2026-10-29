@@ -13,6 +13,6 @@ ResidualMoves:
 	dw CONVERSION
 	dw SUBSTITUTE
 	dw SPIKES
-	dw ICY_WIND
+	dw FROSTBITE
 	dw WILLOWISP
 	dw -1 ; end

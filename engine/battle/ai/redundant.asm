@@ -26,6 +26,10 @@ AI_Redundant:
 	dbw EFFECT_LEECH_SEED,   .LeechSeed
 	dbw EFFECT_DISABLE,      .Disable
 	dbw EFFECT_ENCORE,       .Encore
+	dbw EFFECT_TAUNT,        .Taunt
+	dbw EFFECT_YAWN,         .Yawn
+	dbw EFFECT_INGRAIN,      .Ingrain
+	dbw EFFECT_AQUA_RING,    .AquaRing
 	dbw EFFECT_SNORE,        .Snore
 	dbw EFFECT_SLEEP_TALK,   .SleepTalk
 	dbw EFFECT_MEAN_LOOK,    .MeanLook
@@ -98,6 +102,26 @@ AI_Redundant:
 .Encore:
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_ENCORED, a
+	ret
+
+.Taunt:
+	ld a, [wPlayerSubStatus2]
+	and SUBSTATUS_TAUNT_MASK
+	ret
+
+.Yawn:
+	ld a, [wPlayerSubStatus2]
+	and SUBSTATUS_YAWN_MASK
+	ret
+
+.Ingrain:
+	ld a, [wEnemySubStatus2]
+	and 1 << SUBSTATUS_INGRAIN
+	ret
+
+.AquaRing:
+	ld a, [wEnemySubStatus2]
+	and 1 << SUBSTATUS_AQUA_RING
 	ret
 
 .Snore:

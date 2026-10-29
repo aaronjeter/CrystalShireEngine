@@ -193,7 +193,7 @@ GlaceonEvosAttacks:
 	dbw 8, SAND_ATTACK
 	dbw 12, POWDER_SNOW
 	dbw 16, QUICK_ATTACK
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, AURORA_BEAM
 	dbw 28, WATER_PULSE
 	dbw 32, MUD_SHOT
@@ -253,7 +253,7 @@ FroslassEvosAttacks:
 	dbw 1, ASTONISH
 	dbw 1, POWDER_SNOW
 	dbw 7, LEER
-	dbw 12, ICY_WIND
+	dbw 12, FROSTBITE
 	dbw 16, BITE
 	dbw 20, ICE_FANG
 	dbw 24, DRAININGKISS
@@ -580,7 +580,7 @@ AsandshrewEvosAttacks:
 	dbw 50, BULK_UP
 	dbw 55, EARTHQUAKE
 	dbw 60, GUILLOTINE
-	dbw 65, ICY_WIND
+	dbw 65, FROSTBITE
 	dbw 70, BLIZZARD
 	db 0 ; no more level-up moves
 
@@ -601,7 +601,7 @@ AsandslashEvosAttacks:
 	dbw 50, BULK_UP
 	dbw 55, EARTHQUAKE
 	dbw 60, GUILLOTINE
-	dbw 65, ICY_WIND
+	dbw 65, FROSTBITE
 	dbw 70, BLIZZARD
 	db 0 ; no more level-up moves
 
@@ -615,7 +615,7 @@ AvulpixEvosAttacks:
 	dbw 7, QUICK_ATTACK
 	dbw 12, ROAR
 	dbw 16, NIGHT_SHADE
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, DRAININGKISS
 	dbw 28, AURORA_BEAM
 	dbw 32, HEX
@@ -638,7 +638,7 @@ AninetalesEvosAttacks:
 	dbw 7, QUICK_ATTACK
 	dbw 12, ROAR
 	dbw 16, NIGHT_SHADE
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, DRAININGKISS
 	dbw 28, AURORA_BEAM
 	dbw 32, HEX
@@ -912,7 +912,7 @@ IronbundleEvosAttacks:
 	dbw 1, POWDER_SNOW
 	dbw 10, GUST
 	dbw 16, SPIKES
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, AURORA_BEAM
 	dbw 28, WING_ATTACK	
 	dbw 32, RAZOR_WIND
@@ -1048,7 +1048,7 @@ Noctowl2EvosAttacks:
 	dbw 40, DRILL_PECK
 	dbw 45, SHADOW_BALL	
 	dbw 50, PSYCHIC_M
-	dbw 55, ICY_WIND
+	dbw 55, FROSTBITE
 	dbw 60, HURRICANE
 	dbw 65, FUTURE_SIGHT
 	dbw 70, SHADOW_FORCE
@@ -1548,7 +1548,7 @@ AshibombEvosAttacks:
 	dbw 36, MIRROR_COAT
 	dbw 40, FLAMETHROWER
 	dbw 45, SCALD
-	dbw 50, ICY_WIND
+	dbw 50, FROSTBITE
 	dbw 55, WILLOWISP
 	dbw 60, HYDRO_PUMP
 	dbw 65, FIRE_BLAST
@@ -1648,7 +1648,7 @@ MismagiusEvosAttacks:
 	dbw 24, HEX
 	dbw 28, CONFUSE_RAY
 	dbw 32, MEAN_LOOK
-	dbw 36, ICY_WIND
+	dbw 36, FROSTBITE
 	dbw 40, SHADOW_BALL	
 	dbw 45, PAIN_SPLIT
 	dbw 50, GLARE
@@ -1846,7 +1846,7 @@ FroslassxEvosAttacks:
 	dbw 1, ASTONISH
 	dbw 1, POWDER_SNOW
 	dbw 7, LEER
-	dbw 12, ICY_WIND
+	dbw 12, FROSTBITE
 	dbw 16, BITE
 	dbw 20, ICE_FANG
 	dbw 24, DRAININGKISS

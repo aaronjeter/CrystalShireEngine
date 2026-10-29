@@ -171,6 +171,36 @@ BattleAnimationsGen2::
 	dw BattleAnim_NightSlash
 	dw BattleAnim_WeatherBall
 	dw BattleAnim_FreezeDry
+	dw BattleAnim_IcyWind ; FROSTBITE
+	dw BattleAnim_AerialAce ; ACROBATICS
+	dw BattleAnim_CrossChop ; COUP_DE_GRACE
+	dw BattleAnim_Thief ; KNOCK_OFF
+	dw BattleAnim_Thunderbolt ; DISCHARGE
+	dw BattleAnim_Earthquake ; BULLDOZE
+	dw BattleAnim_SpiderWeb ; ELECTRO_WEB
+	dw BattleAnim_DragonClaw ; BREAKING_SWIPE
+	dw BattleAnim_Return ; FACADE
+	dw BattleAnim_MachPunch ; SUCKER_PUNCH
+	dw BattleAnim_Eruption ; LAVA_PLUME
+	dw BattleAnim_Swagger ; TAUNT
+	dw BattleAnim_ZapCannon ; CHARGE_BEAM
+	dw BattleAnim_ShadowBall ; ELECTRO_BALL
+	dw BattleAnim_BodySlam ; BODY_PRESS
+	dw BattleAnim_FlameWheel ; FLAME_CHARGE
+	dw BattleAnim_Flamethrower ; MYSTICAL_FIRE
+	dw BattleAnim_Hypnosis ; YAWN
+	dw BattleAnim_GigaDrain ; STRENGTH_SAP
+	dw BattleAnim_DreamEater ; ENERVATE
+	dw BattleAnim_Waterfall ; AQUA_TAIL
+	dw BattleAnim_VineWhip ; GRASS_KNOT
+	dw BattleAnim_RapidSpin ; GYRO_BALL
+	dw BattleAnim_IronTail ; HEAVY_SLAM
+	dw BattleAnim_SacredFire ; HEAT_CRASH
+	dw BattleAnim_Growth ; INGRAIN
+	dw BattleAnim_Mist ; AQUA_RING
+	dw BattleAnim_MegaPunch ; DRAIN_PUNCH
+	dw BattleAnim_KarateChop ; FORCE_PALM
+	dw BattleAnim_Acid ; ACID_SPRAY
 
 .IndirectEnd::
 

@@ -991,7 +991,7 @@ PopplioEvosAttacks:
 	dbw 7, POUND
 	dbw 12, AQUA_JET
 	dbw 16, SING
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, BUBBLEBEAM
 	dbw 28, FAE_VOICE	
 	dbw 32, RAIN_DANCE
@@ -1013,7 +1013,7 @@ BrionneEvosAttacks:
 	dbw 7, POUND
 	dbw 12, AQUA_JET
 	dbw 16, SING
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, BUBBLEBEAM
 	dbw 28, FAE_VOICE	
 	dbw 32, RAIN_DANCE
@@ -1034,7 +1034,7 @@ PrimarinaEvosAttacks:
 	dbw 7, POUND
 	dbw 12, AQUA_JET
 	dbw 16, SING
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, BUBBLEBEAM
 	dbw 28, FAE_VOICE	
 	dbw 32, RAIN_DANCE
@@ -2358,7 +2358,7 @@ ChimechoEvosAttacks:
 	dbw 50, RECOVER
 	dbw 55, BARRIER
 	dbw 60, FUTURE_SIGHT
-	dbw 65, ICY_WIND
+	dbw 65, FROSTBITE
 	dbw 70, WILLOWISP
 	db 0 ; no more level-up moves
 
@@ -2403,7 +2403,7 @@ SnoruntEvosAttacks:
 	dbw 1, ASTONISH
 	dbw 1, POWDER_SNOW
 	dbw 7, LEER
-	dbw 12, ICY_WIND
+	dbw 12, FROSTBITE
 	dbw 16, BITE
 	dbw 20, ICE_FANG
 	dbw 24, DRAININGKISS
@@ -2426,7 +2426,7 @@ GlalieEvosAttacks:
 	dbw 1, ASTONISH
 	dbw 1, POWDER_SNOW
 	dbw 7, LEER
-	dbw 12, ICY_WIND
+	dbw 12, FROSTBITE
 	dbw 16, BITE
 	dbw 20, ICE_FANG
 	dbw 24, DRAININGKISS
@@ -2457,7 +2457,7 @@ SphealEvosAttacks:
 	dbw 36, MIRROR_COAT
 	dbw 40, ICE_BEAM
 	dbw 45, BULK_UP
-	dbw 50, ICY_WIND
+	dbw 50, FROSTBITE
 	dbw 55, AMNESIA
 	dbw 60, HYDRO_PUMP
 	dbw 65, BLIZZARD
@@ -2478,7 +2478,7 @@ SealeoEvosAttacks:
 	dbw 36, MIRROR_COAT
 	dbw 40, ICE_BEAM
 	dbw 45, BULK_UP
-	dbw 50, ICY_WIND
+	dbw 50, FROSTBITE
 	dbw 55, AMNESIA
 	dbw 60, HYDRO_PUMP
 	dbw 65, BLIZZARD
@@ -2498,7 +2498,7 @@ WalreinEvosAttacks:
 	dbw 36, MIRROR_COAT
 	dbw 40, ICE_BEAM
 	dbw 45, BULK_UP
-	dbw 50, ICY_WIND
+	dbw 50, FROSTBITE
 	dbw 55, AMNESIA
 	dbw 60, HYDRO_PUMP
 	dbw 65, BLIZZARD
@@ -2752,7 +2752,7 @@ RegiceEvosAttacks:
 	dbw 1, EXPLOSION
 	dbw 1, POWDER_SNOW
 	dbw 10, RAPID_SPIN
-	dbw 16, ICY_WIND
+	dbw 16, FROSTBITE
 	dbw 20, STOMP
 	dbw 24, AURORA_BEAM
 	dbw 28, ANCIENTPOWER
@@ -2829,7 +2829,7 @@ KyogreEvosAttacks:
 	dbw 1, WATER_GUN
 	dbw 7, SCARY_FACE
 	dbw 16, WATER_PULSE
-	dbw 20, ICY_WIND
+	dbw 20, FROSTBITE
 	dbw 24, SLAM
 	dbw 28, RAIN_DANCE
 	dbw 32, BODY_SLAM

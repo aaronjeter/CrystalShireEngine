@@ -187,6 +187,14 @@ DEF ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP_MASK
 ; wPlayerSubStatus2 or wEnemySubStatus2 bit flags
 	const_def
 	const SUBSTATUS_CURLED
+; bits 1-3: Taunt's turns left (0: not taunted; counted down at the end of each turn)
+DEF SUBSTATUS_TAUNT_SHIFT EQU 1
+DEF SUBSTATUS_TAUNT_MASK  EQU %111 << SUBSTATUS_TAUNT_SHIFT
+; bits 4-5: Yawn's drowsiness (2 when yawned at; it falls asleep when the count runs out)
+DEF SUBSTATUS_YAWN_SHIFT EQU 4
+DEF SUBSTATUS_YAWN_MASK  EQU %11 << SUBSTATUS_YAWN_SHIFT
+DEF SUBSTATUS_INGRAIN   EQU 6 ; heals at the end of each turn; can't switch out or be forced out
+DEF SUBSTATUS_AQUA_RING EQU 7 ; heals at the end of each turn
 
 ; wPlayerSubStatus3 or wEnemySubStatus3 bit flags
 	const_def

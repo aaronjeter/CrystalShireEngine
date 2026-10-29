@@ -346,6 +346,36 @@ MoveDescriptionsGen2:
 	dw NightSlashDescription
 	dw WeatherBallDescription
 	dw FreezeDryDescription
+	dw FrostbiteDescription
+	dw AcrobaticsDescription
+	dw HexDescription ; COUP_DE_GRACE
+	dw KnockOffDescription
+	dw DischargeDescription
+	dw BulldozeDescription
+	dw ElectroWebDescription
+	dw BreakingSwipeDescription
+	dw FacadeDescription
+	dw SuckerPunchDescription
+	dw LavaPlumeDescription
+	dw TauntDescription
+	dw ChargeBeamDescription
+	dw ElectroBallDescription
+	dw BodyPressDescription
+	dw FlameChargeDescription
+	dw MysticalFireDescription
+	dw YawnDescription
+	dw StrengthSapDescription
+	dw EnervateDescription
+	dw AquaTailDescription
+	dw LowKickDescription ; GRASS_KNOT
+	dw GyroBallDescription
+	dw HeavySlamDescription
+	dw HeavySlamDescription ; HEAT_CRASH
+	dw IngrainDescription
+	dw AquaRingDescription
+	dw DrainPunchDescription
+	dw ForcePalmDescription
+	dw AcidSprayDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -615,9 +645,9 @@ SubmissionDescription:
 	db   "An attack that al-"
 	next "so hurts the user.@"
 
-LowKickDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
+LowKickDescription: ; and Grass Knot
+	db   "Stronger against"
+	next "heavier foes.@"
 
 CounterDescription:
 	db   "Returns a physical"
@@ -1133,8 +1163,116 @@ PerishSongDescription:
 	next "faint in 3 turns.@"
 
 IcyWindDescription:
+	db   "An icy attack that"
+	next "lowers Speed.@"
+
+FrostbiteDescription:
 	db   "An attack that"
 	next "causes frostbite.@"
+
+AcrobaticsDescription:
+	db   "Double damage if"
+	next "user has no item.@"
+
+KnockOffDescription:
+	db   "Knocks away the"
+	next "foe's held item.@"
+
+DischargeDescription:
+	db   "An electric blast"
+	next "that may paralyze.@"
+
+BulldozeDescription:
+	db   "A stomping attack"
+	next "that lowers Speed.@"
+
+ElectroWebDescription:
+	db   "An electric net"
+	next "that lowers Speed.@"
+
+BreakingSwipeDescription:
+	db   "A tail swipe that"
+	next "lowers Attack.@"
+
+FacadeDescription:
+	db   "Double damage if"
+	next "user is statused.@"
+
+SuckerPunchDescription:
+	db   "Strikes first if"
+	next "the foe attacks.@"
+
+LavaPlumeDescription:
+	db   "Scarlet flames"
+	next "that may burn.@"
+
+TauntDescription:
+	db   "Foe can only use"
+	next "damaging moves.@"
+
+ChargeBeamDescription:
+	db   "May raise user's"
+	next "Special Attack.@"
+
+ElectroBallDescription:
+	db   "Stronger the more"
+	next "the user outspeeds.@"
+
+GyroBallDescription:
+	db   "Stronger the more"
+	next "the foe outspeeds.@"
+
+HeavySlamDescription:
+	db   "Stronger if user"
+	next "outweighs the foe.@"
+
+IngrainDescription:
+	db   "Heals each turn,"
+	next "but can't switch.@"
+
+AquaRingDescription:
+	db   "A veil of water"
+	next "heals each turn.@"
+
+DrainPunchDescription:
+	db   "Steals half the"
+	next "damage it deals.@"
+
+ForcePalmDescription:
+	db   "A shock wave that"
+	next "may paralyze.@"
+
+AcidSprayDescription:
+	db   "Acid that sharply"
+	next "lowers Sp. Def.@"
+
+BodyPressDescription:
+	db   "Uses Defense in"
+	next "place of Attack.@"
+
+FlameChargeDescription:
+	db   "A fiery charge"
+	next "that raises Speed.@"
+
+MysticalFireDescription:
+	db   "Mystic flames that"
+	next "lower Sp. Atk.@"
+
+YawnDescription:
+	db   "The foe falls"
+	next "asleep next turn.@"
+
+StrengthSapDescription:
+	db   "Heals by foe's"
+	next "Attack, lowers it.@"
+
+EnervateDescription:
+	db   "Heals by foe's"
+	next "Sp.Atk, lowers it.@"
+
+AquaTailDescription:
+	db   "Swings its tail"
+	next "like a raging wave.@"
 
 DetectDescription:
 	db   "Evades attack that"
@@ -1399,8 +1537,8 @@ SuperpowerDescription:
 	next "physical stats.@"
 
 BrickBreakDescription:
-	db   "An attack that may"
-	next "lower Defense.@"
+	db   "Breaks barriers"
+	next "such as Reflect.@"
 
 EruptionDescription:
 	db   "Strong, but lowers"
@@ -1676,7 +1814,7 @@ HexDescription:
 
 VenoshockDescription:
 	db   "Double damage on"
-	next "poisoned targets.@"
+	next "statused targets.@"
 
 FreezeDryDescription:
 	db   "Strong vs. Water."

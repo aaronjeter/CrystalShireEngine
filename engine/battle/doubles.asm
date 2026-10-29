@@ -1335,6 +1335,7 @@ DoublesBetweenTurnEffects:
 	call .faints
 	ret c
 	call HandleLeftovers
+	call HandleRootRing
 	call HandleHealAbilities
 	call HandleWeatherHealAbilities
 	call HandleShedSkin
@@ -1347,6 +1348,8 @@ DoublesBetweenTurnEffects:
 	call DoublesUpdatePlayersInParty
 	call LoadTilemapToTempTilemap
 	call HandleEncore
+	call HandleTaunt
+	call HandleYawn
 	and a
 	ret
 

@@ -952,6 +952,75 @@ MirrorMoveFailedText:
 	next "failed!"
 	prompt
 
+PlantedRootsText:
+	text "<USER>"
+	line "planted its roots!"
+	prompt
+
+AquaRingText:
+	text "<USER>"
+	line "surrounded itself"
+	cont "with a veil of"
+	cont "water!"
+	prompt
+
+IngrainHealText:
+	text "<TARGET>"
+	line "absorbed nutrients"
+	cont "with its roots!"
+	prompt
+
+AquaRingHealText:
+	text "<TARGET>"
+	line "regained HP with"
+	cont "Aqua Ring!"
+	prompt
+
+AnchoredRootsText:
+	text "<TARGET>"
+	line "anchored itself"
+	cont "with its roots!"
+	prompt
+
+ShatteredBarrierText:
+	text "It shattered the"
+	line "barrier!"
+	prompt
+
+GrewDrowsyText:
+	text "<TARGET>"
+	line "grew drowsy!"
+	prompt
+
+FellForTauntText:
+	text "<TARGET>"
+	line "fell for the"
+	cont "taunt!"
+	prompt
+
+ShookOffTauntText:
+	text "<TARGET>"
+	line "shook off the"
+	cont "taunt!"
+	prompt
+
+CantUseAfterTauntText:
+	text "<USER>"
+	line "can't use"
+	cont "@"
+	text_ram wStringBuffer1
+	text " after"
+	cont "the taunt!"
+	prompt
+
+KnockedOffText:
+	text "<TARGET>'s"
+	line "@"
+	text_ram wStringBuffer1
+	text " was"
+	cont "knocked off!"
+	prompt
+
 StoleText:
 	text "<USER>"
 	line "stole @"

@@ -355,10 +355,13 @@ BattleCommand_CheckTurn:
 	jr nz, .no_disabled_move
 
 	call MoveDisabled
+.cant_move
 	call CantMove
 	jmp EndTurn
 
 .no_disabled_move
+	farcall TauntCheckMove
+	jr c, .cant_move
 
 	ld hl, wBattleMonStatus
 	bit PAR, [hl]
@@ -593,11 +596,13 @@ CheckEnemyTurn:
 	jr nz, .no_disabled_move
 
 	call MoveDisabled
-
+.cant_move
 	call CantMove
 	jr EndTurn
 
 .no_disabled_move
+	farcall TauntCheckMove
+	jr c, .cant_move
 
 	ld hl, wEnemyMonStatus
 	bit PAR, [hl]
@@ -2913,6 +2918,8 @@ PlayerAttackDamage:
 
 .thickclub
 	call HailDefBoost
+	farcall BodyPressAttackStat
+	jr c, .done
 ; Note: Returns player attack at hl in hl.
 	call ThickClubBoost
 	call ApplyGuts
@@ -3183,6 +3190,8 @@ EnemyAttackDamage:
 
 .thickclub
 	call HailDefBoost
+	farcall BodyPressAttackStat
+	jr c, .done
 	call ThickClubBoost
 	call ApplyGuts
 
@@ -5336,6 +5345,8 @@ SetBattleDraw:
 	ret
 
 BattleCommand_ForceSwitch:
+	farcall IngrainBlocksForceSwitch
+	ret c
 	ld a, [wBattleType]
 	cp BATTLETYPE_FORCESHINY
 	jmp z, .fail
@@ -7216,3 +7227,30 @@ CheckMoveInList:
 	pop de
 	pop bc
 	ret
+
+BattleCommand_KnockOff:
+	farjp _BattleCommand_KnockOff ; effect_commands_far.asm
+
+BattleCommand_SuckerPunch:
+	farjp _BattleCommand_SuckerPunch ; effect_commands_far.asm
+
+BattleCommand_Taunt:
+	farjp _BattleCommand_Taunt ; effect_commands_far.asm
+
+BattleCommand_ElectroBall:
+	farjp _BattleCommand_ElectroBall ; effect_commands_far.asm
+
+BattleCommand_Yawn:
+	farjp _BattleCommand_Yawn ; effect_commands_far.asm
+
+BattleCommand_StrengthSap:
+	farjp _BattleCommand_StrengthSap ; effect_commands_far.asm
+
+BattleCommand_WeightPower:
+	farjp _BattleCommand_WeightPower ; effect_commands_far.asm
+
+BattleCommand_BrickBreak:
+	farjp _BattleCommand_BrickBreak ; effect_commands_far.asm
+
+BattleCommand_Ingrain:
+	farjp _BattleCommand_Ingrain ; effect_commands_far.asm

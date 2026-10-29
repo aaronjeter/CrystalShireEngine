@@ -123,7 +123,7 @@ check(all(s == 0 for s in got), f'Limber blocks Static: {got}')
 S2 = 'nab_s2.state'
 setup(S2, ['THUNDER_WAVE', 'SPORE', 'TOXIC', 'GROWL'])
 S3 = 'nab_s3.state'
-setup(S3, ['WILLOWISP', 'ICY_WIND', 'CONFUSE_RAY', 'REST'])
+setup(S3, ['WILLOWISP', 'FROSTBITE', 'CONFUSE_RAY', 'REST'])  # Frostbite: Icy Wind's old status effect (Oct 29)
 for state, slot, eslot, ab, name, test in (
         (S2, 0, 3, 'ABILITY_LIMBER', 'Limber', lambda t: t['est'] == PAR),
         (S2, 1, 3, 'ABILITY_INSOMNIA', 'Insomnia', lambda t: t['est'] & SLP),

@@ -276,7 +276,7 @@ got = [t['est'] for t in r]
 check(any(x == PSN for x in got) and all(x in (0, PSN) for x in got) and any('poisoned' in txt(t) for t in r if t['est']),
       f'Poison Touch on contact: {got}')
 got = [turn2(S1, 0, 3, player_ab='ABILITY_POISON_TOUCH', wait=60 + 7 * i)[1]['est'] for i in range(8)]
-check(all(x == 0 for x in got), f'Poison Touch: not with Thunderbolt: {got}')
+check(all(not x & PSN for x in got), f'Poison Touch: not with Thunderbolt: {got}')  # Thunderbolt's own paralysis is fine
 got = [turn2(S1, 2, 3, player_ab='ABILITY_POISON_TOUCH', enemy_ab='ABILITY_SHIELD_DUST', wait=60 + 7 * i)[1]['est'] for i in range(8)]
 check(all(x == 0 for x in got), f'Poison Touch: not through Shield Dust: {got}')
 
@@ -408,9 +408,9 @@ g, r = turn2(S6, 0, 1, enemy_ab='ABILITY_SYNCHRONIZE', extra=lambda g: g.wr('wPl
 pst = g.rd('wBattleMonStatus')
 check(r['est'] == BRN and pst == BRN and 'burned' in txt(r) and 'paralyzed' not in txt(r), f'Synchronize burn: {r["est"]:#x} / {pst:#x} | {txt(r)[-120:]}')
 
-# 25. Synchronize passes frostbite too (Icy Wind, the frostbite status move); not to an Ice type
+# 25. Synchronize passes frostbite too (Frostbite, the frostbite status move since Oct 29); not to an Ice type
 S11 = 'mab_s11.state'
-setup(S11, ['ICY_WIND', 'GROWL', 'GROWL', 'GROWL'])
+setup(S11, ['FROSTBITE', 'GROWL', 'GROWL', 'GROWL'])
 g, r = turn2(S11, 0, 1, enemy_ab='ABILITY_SYNCHRONIZE', extra=hit)
 pst = g.rd('wBattleMonStatus')
 check(r['est'] == FRZ and pst == FRZ and 'Synchronize' in txt(r) and 'paralyzed' not in txt(r), f'Synchronize frostbite: {r["est"]:#x} / {pst:#x} | {txt(r)[-120:]}')

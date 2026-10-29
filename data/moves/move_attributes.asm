@@ -373,4 +373,34 @@ MoveAttributeData:
 	move_attr SELECTED, CONTACT, SLICING           ; NIGHT_SLASH
 	move_attr SELECTED                             ; WEATHER_BALL
 	move_attr SELECTED                             ; FREEZE_DRY
+	move_attr SELECTED                             ; FROSTBITE
+	move_attr SELECTED, CONTACT                    ; ACROBATICS
+	move_attr SELECTED, CONTACT                    ; COUP_DE_GRACE
+	move_attr SELECTED, CONTACT                    ; KNOCK_OFF
+	move_attr ALL_OTHERS                           ; DISCHARGE
+	move_attr ALL_OTHERS                           ; BULLDOZE
+	move_attr BOTH_FOES                            ; ELECTRO_WEB
+	move_attr BOTH_FOES, CONTACT                   ; BREAKING_SWIPE
+	move_attr SELECTED, CONTACT                    ; FACADE
+	move_attr SELECTED, CONTACT                    ; SUCKER_PUNCH
+	move_attr ALL_OTHERS                           ; LAVA_PLUME
+	move_attr SELECTED                             ; TAUNT
+	move_attr SELECTED                             ; CHARGE_BEAM
+	move_attr SELECTED                             ; ELECTRO_BALL
+	move_attr SELECTED, CONTACT                    ; BODY_PRESS
+	move_attr SELECTED, CONTACT                    ; FLAME_CHARGE
+	move_attr SELECTED                             ; MYSTICAL_FIRE
+	move_attr SELECTED                             ; YAWN
+	move_attr SELECTED                             ; STRENGTH_SAP
+	move_attr SELECTED                             ; ENERVATE
+	move_attr SELECTED, CONTACT                    ; AQUA_TAIL
+	move_attr SELECTED, CONTACT                    ; GRASS_KNOT
+	move_attr SELECTED, CONTACT                    ; GYRO_BALL
+	move_attr SELECTED, CONTACT                    ; HEAVY_SLAM
+	move_attr SELECTED, CONTACT                    ; HEAT_CRASH
+	move_attr USER                                 ; INGRAIN
+	move_attr USER                                 ; AQUA_RING
+	move_attr SELECTED, CONTACT, PUNCH             ; DRAIN_PUNCH
+	move_attr SELECTED, CONTACT                    ; FORCE_PALM
+	move_attr SELECTED                             ; ACID_SPRAY
 .IndirectEnd::

@@ -220,8 +220,8 @@ PryceText_IcyWindSpeech:
 	text "That TM contains"
 	line "Icy Wind."
 
-	para "It inflicts"
-	line "Frostbite."
+	para "It inflicts damage"
+	line "and lowers Speed."
 
 	para "It demonstrates"
 	line "the harshness of"

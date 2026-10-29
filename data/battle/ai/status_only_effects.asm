@@ -8,4 +8,5 @@ StatusOnlyEffects:
 	db EFFECT_PARALYZE
 	db EFFECT_BURN
 	db EFFECT_FREEZE
+	db EFFECT_YAWN
 	db -1 ; end
