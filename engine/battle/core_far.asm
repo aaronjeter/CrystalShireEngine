@@ -646,7 +646,7 @@ GiveExperiencePoints:
 
 ; Give EVs
 ; e = 0 for no Pokérus, 1 for Pokérus
-	ld e, 0
+	ld e, 0 ; bit 0: Pokerus (x2), bit 1: Macho Brace (x2)
 	ld hl, MON_POKERUS
 	add hl, bc
 	ld a, [hl]
@@ -654,6 +654,22 @@ GiveExperiencePoints:
 	jr z, .no_pokerus
 	inc e
 .no_pokerus
+	ld hl, MON_ITEM
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr z, .no_macho_brace
+	push de
+	push bc
+	ld b, a
+	farcall GetItemHeldEffect
+	ld a, b
+	pop bc
+	pop de
+	cp HELD_MACHO_BRACE
+	jr nz, .no_macho_brace
+	set 1, e
+.no_macho_brace
 	ld hl, MON_EVS
 	add hl, bc
 	push bc
@@ -675,7 +691,12 @@ GiveExperiencePoints:
 	jr z, .no_pokerus_boost
 	add a
 .no_pokerus_boost
+	bit 1, e
+	jr z, .no_macho_brace_boost
+	add a
+.no_macho_brace_boost
 ; Make sure total EVs never surpass 510
+	push de ; the boost flags in e (the code below reuses e)
 	push bc
 	push hl
 	ld d, a
@@ -719,6 +740,7 @@ GiveExperiencePoints:
 	ld a, MAX_EV
 .got_ev
 	ld [hli], a
+	pop de
 	dec c
 	jr z, .evs_done
 ; Use the second byte for Sp.Atk and Sp.Def

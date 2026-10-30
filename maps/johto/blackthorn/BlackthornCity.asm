@@ -296,7 +296,7 @@ BlackthornCityTrainerTipsText:
 	text "Trainer Tips"
 
 	para "A #mon holding"
-	line "a Miracleberry"
+	line "a Lum Berry"
 
 	para "will cure itself"
 	line "of any status"

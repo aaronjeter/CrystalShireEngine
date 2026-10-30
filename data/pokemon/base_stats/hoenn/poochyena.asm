@@ -7,7 +7,7 @@
 	db DARK, DARK ; type
 	db 255 ; catch rate
 	db 55 ; base exp
-	dw BERRY, GOLD_BERRY ; items
+	dw ORAN_BERRY, SITRUS_BERRY ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/poochyena/front.dimensions"

@@ -360,6 +360,21 @@ HandleContactStatusAbilities:
 .cute_charm
 	farjp CuteCharmAbility
 
+HandleRockyHelmet:
+; Called after each hit (after HandleContactStatusAbilities), on the attacker's turn.
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+	ld hl, wCurDamage
+	ld a, [hli]
+	or [hl]
+	ret z
+	call CheckSubstituteOpp
+	ret nz
+	call CheckContactMove
+	ret nc
+	farjp RockyHelmetDamage
+
 PoisonTouch:
 ; The attacker has Poison Touch: 30% chance to poison the target (not through Shield Dust;
 ; BattleCommand_PoisonTarget does the other checks: status, type, item, ability, Safeguard).

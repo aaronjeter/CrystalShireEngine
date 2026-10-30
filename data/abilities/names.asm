@@ -112,6 +112,7 @@ AbilityNames:
 	dw BattleArmorNameString
 	dw SynchronizeNameString
 	dw ShellArmorNameString
+	dw PoisonHealNameString
 	assert_table_length NUM_ABILITIES
 
 NoAbilityNameString:
@@ -446,3 +447,6 @@ SynchronizeNameString:
 
 ShellArmorNameString:
 	db "Shell Armor@"
+
+PoisonHealNameString:
+	db "Poison Heal@"

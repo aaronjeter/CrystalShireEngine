@@ -298,7 +298,7 @@ BattleText_UserHurtBySpikes:
 
 RecoveredUsingText:
 	text "<TARGET>"
-	line "recovered using a"
+	line "recovered with its"
 	cont "@"
 	text_ram wStringBuffer1
 	text "!"
@@ -474,6 +474,66 @@ StoringEnergyText:
 UnleashedEnergyText:
 	text "<USER>"
 	line "unleashed energy!"
+	prompt
+
+StatusOrbBurnText:
+; the item's name is in wStringBuffer1
+	text "<TARGET>"
+	line "was burned by"
+	cont "the @"
+	text_ram wStringBuffer1
+	text "!"
+	prompt
+
+StatusOrbToxicText:
+; the item's name is in wStringBuffer1
+	text "<TARGET>"
+	line "was badly poisoned"
+	cont "by the @"
+	text_ram wStringBuffer1
+	text "!"
+	prompt
+
+HurtByHeldItemText:
+; the item's name is in wStringBuffer1
+	text "<USER>"
+	line "was hurt by its"
+	cont "@"
+	text_ram wStringBuffer1
+	text "!"
+	prompt
+
+RockyHelmetText:
+; the item's name is in wStringBuffer1
+	text "<USER>"
+	line "was hurt by the"
+	cont "@"
+	text_ram wStringBuffer1
+	text "!"
+	prompt
+
+ShellBellText:
+; the item's name is in wStringBuffer1
+	text "<USER>"
+	line "restored HP with"
+	cont "its @"
+	text_ram wStringBuffer1
+	text "!"
+	prompt
+
+LifeOrbRecoilText:
+	text "<USER>"
+	line "lost some of"
+	cont "its HP!"
+	prompt
+
+PoisonHealText:
+; the ability's name is in wStringBuffer2 (GetAbilityName)
+	text "<USER>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "restored its HP!"
 	prompt
 
 HungOnText:

@@ -7,7 +7,7 @@
 	db GRASS, DARK ; type
 	db 45 ; catch rate
 	db 181 ; base exp
-	dw BERRY, LEAF_STONE ; items
+	dw ORAN_BERRY, LEAF_STONE ; items
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/shiftry/front.dimensions"

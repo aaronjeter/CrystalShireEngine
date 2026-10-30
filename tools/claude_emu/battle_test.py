@@ -657,17 +657,17 @@ CASES = {
     'held_items': dict(  # berries, Quick Claw, Bright Powder, Full Heal/Max Potion by the trainer, player status items
         options=0x01 | SCENE_OFF, cls='BLAINE',
         party=[('NIDOKING', 100, 'QUICK_CLAW', ['EARTHQUAKE', 'TOXIC', 'THUNDER_WAVE', 'ICE_BEAM']),
-               ('SNORLAX', 100, 'MIRACLEBERRY', ['BODY_SLAM', 'REST', 'SLEEP_TALK', 'SNORE'])],
+               ('SNORLAX', 100, 'LUM_BERRY', ['BODY_SLAM', 'REST', 'SLEEP_TALK', 'SNORE'])],
         items=[('FULL_HEAL', 2), ('HYPER_POTION', 2), ('X_SPEED', 1)],
         trainer=[(85, 'MAGMAR', 'BRIGHTPOWDER', ['FIRE_PUNCH', 'CONFUSE_RAY', 'SMOG', 'THUNDERPUNCH']),
-                 (85, 'ARCANINE', 'MINT_BERRY', ['FLAMETHROWER', 'REST', 'EXTREMESPEED', 'ROAR']),
-                 (85, 'RAPIDASH', 'PRZCUREBERRY', ['FIRE_BLAST', 'STOMP', 'AGILITY', 'DOUBLE_KICK'])],
+                 (85, 'ARCANINE', 'CHESTO_BERRY', ['FLAMETHROWER', 'REST', 'EXTREMESPEED', 'ROAR']),
+                 (85, 'RAPIDASH', 'CHERI_BERRY', ['FIRE_BLAST', 'STOMP', 'AGILITY', 'DOUBLE_KICK'])],
         actions=[('move', 1), ('move', 2), ('item', 'X_SPEED'), ('move', 0), ('switch', 1), ('move', 1), ('move', 2),
                  ('move', 3), ('item', 'HYPER_POTION', 1), ('item', 'FULL_HEAL', 1), ('move', 0)] + [('move', 0)] * 8),
     'hp_berries': dict(  # held HP berries on both sides (HandleHPHealingItem's HP bar), added in phase 1 install C
         options=0x01 | SCENE_OFF, cls='COOLTRAINERM',
-        party=[('SNORLAX', 70, 'GOLD_BERRY', ['BODY_SLAM', 'DEFENSE_CURL']), ('CHANSEY', 60, 'BERRY', ['POUND'])],
-        trainer=[(55, 'MACHAMP', 'GOLD_BERRY', ['KARATE_CHOP', 'LEER']), (55, 'GOLEM', 'BERRY', ['TACKLE', 'DEFENSE_CURL'])],
+        party=[('SNORLAX', 70, 'SITRUS_BERRY', ['BODY_SLAM', 'DEFENSE_CURL']), ('CHANSEY', 60, 'ORAN_BERRY', ['POUND'])],
+        trainer=[(55, 'MACHAMP', 'SITRUS_BERRY', ['KARATE_CHOP', 'LEER']), (55, 'GOLEM', 'ORAN_BERRY', ['TACKLE', 'DEFENSE_CURL'])],
         actions=[('move', 0)] * 4 + [('switch', 1)] + [('move', 0)] * 12, replace=[1]),
     'abilities': dict(  # entrance weather/Intimidate on both sides, contact abilities, Speed Boost-like end-of-turn
         options=0x01 | SCENE_OFF, cls='COOLTRAINERM',

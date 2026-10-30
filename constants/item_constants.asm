@@ -63,17 +63,17 @@
 	const ELIXER       ; 0037
 	const MOOMOO_MILK  ; 0038
 	const QUICK_CLAW   ; 0039
-	const PSNCUREBERRY ; 003A
+	const PECHA_BERRY ; 003A
 	const GOLD_LEAF    ; 003B
 	const SOFT_SAND    ; 003C
 	const SHARP_BEAK   ; 003D
-	const PRZCUREBERRY ; 003E
-	const BURNT_BERRY  ; 003F
-	const ICE_BERRY    ; 0040
+	const CHERI_BERRY ; 003E
+	const ASPEAR_BERRY  ; 003F
+	const RAWST_BERRY    ; 0040
 	const POISON_BARB  ; 0041
 	const KINGS_ROCK   ; 0042
-	const BITTER_BERRY ; 0043
-	const MINT_BERRY   ; 0044
+	const PERSIM_BERRY ; 0043
+	const CHESTO_BERRY   ; 0044
 	const RED_APRICORN ; 0045
 	const TINYMUSHROOM ; 0046
 	const BIG_MUSHROOM ; 0047
@@ -98,7 +98,7 @@
 	const SMOKE_BALL   ; 005A
 	const NEVERMELTICE ; 005B
 	const MAGNET       ; 005C
-	const MIRACLEBERRY ; 005D
+	const LUM_BERRY ; 005D
 	const PEARL        ; 005E
 	const BIG_PEARL    ; 005F
 	const EVERSTONE    ; 0060
@@ -131,7 +131,7 @@
 	const KANTOITE_X   ; 007B
 	const KANTOITE_Y   ; 007C
 	const JOHTOITE_X   ; 007D
-	const MYSTERYBERRY ; 007E
+	const LEPPA_BERRY ; 007E
 	const DRAGON_SCALE ; 007F
 	const BERSERK_GENE ; 0080
 	const HOENNITE_X   ; 0081
@@ -147,8 +147,8 @@
 	const POLKADOT_BOW ; 008B
 	const ITEM_AB      ; 008C
 	const UP_GRADE     ; 008D
-	const BERRY        ; 008E
-	const GOLD_BERRY   ; 008F
+	const ORAN_BERRY        ; 008E
+	const SITRUS_BERRY   ; 008F
 	const FOCUS_BERRY  ; 0090
 	const WARD_BERRY   ; 0091
 	const BRICK_PIECE  ; 0092
@@ -167,6 +167,21 @@
 	const ITEM_FA      ; 009F
 	const ABILITY_CAPSULE ; 00A0
 	const ABILITY_PATCH   ; 00A1
+	const FLAME_ORB    ; 00A2
+	const TOXIC_ORB    ; 00A3
+	const EVIOLITE     ; 00A4
+	const WIDE_LENS    ; 00A5
+	const BLACK_SLUDGE ; 00A6
+	const LIFE_ORB     ; 00A7
+	const FOCUS_SASH   ; 00A8
+	const ROCKY_HELMET ; 00A9
+	const EXPERT_BELT  ; 00AA
+	const MUSCLE_BAND  ; 00AB
+	const WISE_GLASSES ; 00AC
+	const SHELL_BELL   ; 00AD
+	const BIG_ROOT     ; 00AE
+	const BINDING_BAND ; 00AF
+	const MACHO_BRACE  ; 00B0
 DEF NUM_ITEM_POCKET EQU const_value - 1
 
 	const_align 8 ; Key items assume the value of HIGH(FIRST_KEY_ITEM) when storing in bag.

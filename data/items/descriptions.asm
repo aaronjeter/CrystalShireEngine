@@ -66,17 +66,17 @@ ItemDescriptions1:
 	dw ElixerDesc       ; 0037
 	dw MoomooMilkDesc   ; 0038
 	dw QuickClawDesc    ; 0039
-	dw PsnCureBerryDesc ; 003A
+	dw PechaBerryDesc ; 003A
 	dw GoldLeafDesc     ; 003B
 	dw SoftSandDesc     ; 003C
 	dw SharpBeakDesc    ; 003D
-	dw PrzCureBerryDesc ; 003E
-	dw BurntBerryDesc   ; 003F
-	dw IceBerryDesc     ; 0040
+	dw CheriBerryDesc ; 003E
+	dw AspearBerryDesc   ; 003F
+	dw RawstBerryDesc     ; 0040
 	dw PoisonBarbDesc   ; 0041
 	dw KingsRockDesc    ; 0042
-	dw BitterBerryDesc  ; 0043
-	dw MintBerryDesc    ; 0044
+	dw PersimBerryDesc  ; 0043
+	dw ChestoBerryDesc    ; 0044
 	dw RedApricornDesc  ; 0045
 	dw TinyMushroomDesc ; 0046
 	dw BigMushroomDesc  ; 0047
@@ -101,7 +101,7 @@ ItemDescriptions1:
 	dw SmokeBallDesc    ; 005A
 	dw NeverMeltIceDesc ; 005B
 	dw MagnetDesc       ; 005C
-	dw MiracleBerryDesc ; 005D
+	dw LumBerryDesc ; 005D
 	dw PearlDesc        ; 005E
 	dw BigPearlDesc     ; 005F
 	dw EverStoneDesc    ; 0060
@@ -134,7 +134,7 @@ ItemDescriptions1:
 	dw KantoiteXDesc    ; 007B
 	dw KantoiteYDesc    ; 007C
 	dw JohtoiteXDesc    ; 007D
-	dw MysteryBerryDesc ; 007E
+	dw LeppaBerryDesc ; 007E
 	dw DragonScaleDesc  ; 007F
 	dw BerserkGeneDesc  ; 0080
 	dw HoenniteXDesc    ; 0081
@@ -150,8 +150,8 @@ ItemDescriptions1:
 	dw PolkadotBowDesc  ; 008B
 	dw QuestionMarkDesc ; 008C
 	dw UpGradeDesc      ; 008D
-	dw BerryDesc        ; 008E
-	dw GoldBerryDesc    ; 008F
+	dw OranBerryDesc        ; 008E
+	dw SitrusBerryDesc    ; 008F
 	dw FocusberryDesc   ; 0090
 	dw WardberryDesc    ; 0091
 	dw BrickPieceDesc   ; 0092
@@ -170,6 +170,21 @@ ItemDescriptions1:
 	dw QuestionMarkDesc ; 009F
 	dw AbilityCapsuleDesc ; 00A0
 	dw AbilityPatchDesc   ; 00A1
+	dw FlameOrbDesc    ; 00A2
+	dw ToxicOrbDesc    ; 00A3
+	dw EvioliteDesc    ; 00A4
+	dw WideLensDesc    ; 00A5
+	dw BlackSludgeDesc ; 00A6
+	dw LifeOrbDesc     ; 00A7
+	dw FocusSashDesc   ; 00A8
+	dw RockyHelmetDesc ; 00A9
+	dw ExpertBeltDesc  ; 00AA
+	dw MuscleBandDesc  ; 00AB
+	dw WiseGlassesDesc ; 00AC
+	dw ShellBellDesc   ; 00AD
+	dw BigRootDesc     ; 00AE
+	dw BindingBandDesc ; 00AF
+	dw MachoBraceDesc  ; 00B0
 .IndirectEnd:
 
 ItemDescriptionsKeyItems:
@@ -489,7 +504,7 @@ QuickClawDesc:
 	db   "Raises 1st strike"
 	next "ratio. (Hold)@"
 
-PsnCureBerryDesc:
+PechaBerryDesc:
 	db   "A self-cure for"
 	next "poison. (Hold)@"
 
@@ -505,15 +520,15 @@ SharpBeakDesc:
 	db   "Powers up flying-"
 	next "type moves. (Hold)@"
 
-PrzCureBerryDesc:
+CheriBerryDesc:
 	db   "A self-cure for"
 	next "paralysis. (Hold)@"
 
-BurntBerryDesc:
+AspearBerryDesc:
 	db   "A self-cure for"
-	next "freezing. (Hold)@"
+	next "frostbite. (Hold)@"
 
-IceBerryDesc:
+RawstBerryDesc:
 	db   "A self-heal for a"
 	next "burn. (Hold)@"
 
@@ -525,11 +540,11 @@ KingsRockDesc:
 	db   "May make the foe"
 	next "flinch. (Hold)@"
 
-BitterBerryDesc:
+PersimBerryDesc:
 	db   "A self-cure for"
 	next "confusion. (Hold)@"
 
-MintBerryDesc:
+ChestoBerryDesc:
 	db   "A self-awakening"
 	next "for sleep. (Hold)@"
 
@@ -616,7 +631,7 @@ MagnetDesc:
 	db   "Boosts electric-"
 	next "type moves. (Hold)@"
 
-MiracleBerryDesc:
+LumBerryDesc:
 	db   "Cures all status"
 	next "problems. (Hold)@"
 
@@ -751,9 +766,9 @@ LeftoversDesc:
 	db   "Restores HP during"
 	next "battle. (Hold)@"
 
-MysteryBerryDesc:
-	db   "A self-restore"
-	next "for PP. (Hold)@"
+LeppaBerryDesc:
+	db   "Restores 10 PP of"
+	next "a move. (Hold)@"
 
 DragonScaleDesc:
 	db   "A rare dragon-type"
@@ -823,13 +838,13 @@ UpGradeDesc:
 	db   "A mysterious box"
 	next "made by Silph Co.@"
 
-BerryDesc:
+OranBerryDesc:
 	db   "A self-restore"
 	next "item. (10HP, Hold)@"
 
-GoldBerryDesc:
-	db   "A self-restore"
-	next "item. (30HP, Hold)@"
+SitrusBerryDesc:
+	db   "Restores 1/4 of"
+	next "max HP. (Hold)@"
 
 SquirtBottleDesc:
 	db   "A bottle used for"
@@ -853,6 +868,66 @@ AbilityCapsuleDesc:
 AbilityPatchDesc:
 	db   "Gives a #mon its"
 	next "hidden Ability.@"
+
+FlameOrbDesc:
+	db   "Burns the holder"
+	next "in battle. (Hold)@"
+
+ToxicOrbDesc:
+	db   "Badly poisons the"
+	next "holder. (Hold)@"
+
+EvioliteDesc:
+	db   "Ups Def/Sp.Def of"
+	next "unevolved. (Hold)@"
+
+WideLensDesc:
+	db   "Slightly raises"
+	next "accuracy. (Hold)@"
+
+BlackSludgeDesc:
+	db   "Heals Poison types"
+	next "but hurts others.@"
+
+LifeOrbDesc:
+	db   "Ups power, but"
+	next "costs HP. (Hold)@"
+
+FocusSashDesc:
+	db   "Survives a KO hit"
+	next "at full HP. (Hold)@"
+
+RockyHelmetDesc:
+	db   "Hurts foes that"
+	next "touch it. (Hold)@"
+
+ExpertBeltDesc:
+	db   "Ups super-effec-"
+	next "tive moves. (Hold)@"
+
+MuscleBandDesc:
+	db   "Ups physical"
+	next "moves. (Hold)@"
+
+WiseGlassesDesc:
+	db   "Ups special"
+	next "moves. (Hold)@"
+
+ShellBellDesc:
+	db   "Restores HP from"
+	next "damage. (Hold)@"
+
+BigRootDesc:
+	db   "Boosts HP from"
+	next "draining. (Hold)@"
+
+BindingBandDesc:
+	db   "Ups the damage of"
+	next "binding. (Hold)@"
+
+MachoBraceDesc:
+	db   "Doubles EV gains"
+	next "but halves Speed.@"
 
 BrickPieceDesc:
 	db   "A rare chunk of"

@@ -273,7 +273,8 @@ check(g.rd('wBattleWeather') == 0 and 'failed' in txt(r), f'Cloud Nine: Rain Dan
 # 13. Poison Touch: 30% on contact (Fire Punch); never with Thunderbolt or through Shield Dust
 r = [turn2(S1, 2, 3, player_ab='ABILITY_POISON_TOUCH', wait=60 + 7 * i)[1] for i in range(12)]
 got = [t['est'] for t in r]
-check(any(x == PSN for x in got) and all(x in (0, PSN) for x in got) and any('poisoned' in txt(t) for t in r if t['est']),
+check(any(x == PSN for x in got) and all(x in (0, PSN, BRN) for x in got)  # BRN: Fire Punch's own 10% burn (then no poison)
+      and any('poisoned' in txt(t) for t in r if t['est']),
       f'Poison Touch on contact: {got}')
 got = [turn2(S1, 0, 3, player_ab='ABILITY_POISON_TOUCH', wait=60 + 7 * i)[1]['est'] for i in range(8)]
 check(all(not x & PSN for x in got), f'Poison Touch: not with Thunderbolt: {got}')  # Thunderbolt's own paralysis is fine

@@ -476,7 +476,7 @@ OakCharmanderPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CHARMANDER, 5, BERRY
+	givepoke CHARMANDER, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -496,7 +496,7 @@ OakCyndaquilPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CYNDAQUIL, 5, BERRY
+	givepoke CYNDAQUIL, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -516,7 +516,7 @@ OakTorchicPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TORCHIC, 5, BERRY
+	givepoke TORCHIC, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -536,7 +536,7 @@ OakLittenPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke LITTEN, 5, BERRY
+	givepoke LITTEN, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -556,7 +556,7 @@ OakCyndaquil2PokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CYNDAQUIL2, 5, BERRY
+	givepoke CYNDAQUIL2, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -576,7 +576,7 @@ OakHonobeaPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke HONOBEA, 5, BERRY
+	givepoke HONOBEA, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -596,7 +596,7 @@ OakSquirtlePokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke SQUIRTLE, 5, BERRY	
+	givepoke SQUIRTLE, 5, ORAN_BERRY	
 	closedialog
 	sjump OakDirectionsScript
 
@@ -616,7 +616,7 @@ OakTotodilePokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TOTODILE, 5, BERRY
+	givepoke TOTODILE, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -636,7 +636,7 @@ OakMudkipPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke MUDKIP, 5, BERRY
+	givepoke MUDKIP, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -656,7 +656,7 @@ OakPopplioPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke POPPLIO, 5, BERRY
+	givepoke POPPLIO, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -676,7 +676,7 @@ OakTotodile2PokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TOTODILE2, 5, BERRY
+	givepoke TOTODILE2, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -696,7 +696,7 @@ OakKotoraPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke KOTORA, 5, BERRY
+	givepoke KOTORA, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -716,7 +716,7 @@ OakBulbasaurPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke BULBASAUR, 5, BERRY
+	givepoke BULBASAUR, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -736,7 +736,7 @@ OakChikoritaPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CHIKORITA, 5, BERRY
+	givepoke CHIKORITA, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -756,7 +756,7 @@ OakTreeckoPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TREECKO, 5, BERRY
+	givepoke TREECKO, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -776,7 +776,7 @@ OakRowletPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke ROWLET, 5, BERRY
+	givepoke ROWLET, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -796,7 +796,7 @@ OakChikorita2PokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CHIKORITA2, 5, BERRY
+	givepoke CHIKORITA2, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 
@@ -816,7 +816,7 @@ OakKurusuPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke KURUSU, 5, BERRY
+	givepoke KURUSU, 5, ORAN_BERRY
 	closedialog
 	sjump OakDirectionsScript
 

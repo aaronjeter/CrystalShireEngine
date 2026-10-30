@@ -209,6 +209,7 @@ RootRingEndOfTurn::
 	jr z, .no_heal ; full HP
 .heal
 	farcall GetEighthMaxHP ; bc
+	call BigRootBoostUser
 	farcall SwitchTurnCore
 	farcall RestoreHP
 	pop hl
@@ -1781,6 +1782,7 @@ _BattleCommand_TrapTarget:
 	inc a
 	inc a
 	ld [hl], a
+	call BindingBandMark
 	ld a, BATTLER_LINK_TRAPPED_BY
 	farcall SetTargetLink
 	ld a, BATTLE_VARS_MOVE_ANIM

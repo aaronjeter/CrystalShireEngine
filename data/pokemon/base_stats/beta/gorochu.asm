@@ -7,7 +7,7 @@
 	db ELECTRIC, DRAGON ; type
 	db 25 ; catch rate
 	db 225 ; base exp
-	dw NO_ITEM, BERRY ; items
+	dw NO_ITEM, ORAN_BERRY ; items
 	db GENDER_F50 ; gender ratio
 	db 10 ; step cycles to hatch
 	INCBIN "gfx/pokemon/gorochu/front.dimensions"

@@ -112,6 +112,7 @@ AbilityDescriptions:
 	dw BattleArmorDesc
 	dw SynchronizeDesc
 	dw ShellArmorDesc
+	dw PoisonHealDesc
 	assert_table_length NUM_ABILITIES
 
 NoAbilityDesc:
@@ -557,3 +558,7 @@ SynchronizeDesc:
 ShellArmorDesc:
 	db    "Blocks critical"
 	next  "hits.@"
+
+PoisonHealDesc:
+	db    "Poison restores HP"
+	next  "instead of hurting.@"

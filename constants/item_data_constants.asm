@@ -66,6 +66,9 @@ DEF MAIL_STRUCT_LENGTH_JP EQU $2a ; mailmsg_jp struct
 	const MAIL_LANG_ITALIAN
 	const MAIL_LANG_SPANISH
 
+; HealingHPAmounts: heal 1/4 of max HP (Sitrus Berry)
+DEF HEAL_QUARTER_MAX_HP EQU $fffe
+
 ; held item effects
 	const_def
 	const HELD_NONE
@@ -142,3 +145,20 @@ DEF MAIL_STRUCT_LENGTH_JP EQU $2a ; mailmsg_jp struct
 	const HELD_BRIGHTPOWDER
 	const_skip
 	const HELD_FOCUS_BAND
+
+	const_next 80
+	const HELD_FLAME_ORB
+	const HELD_TOXIC_ORB
+	const HELD_EVIOLITE
+	const HELD_WIDE_LENS
+	const HELD_BLACK_SLUDGE
+	const HELD_LIFE_ORB
+	const HELD_FOCUS_SASH
+	const HELD_ROCKY_HELMET
+	const HELD_EXPERT_BELT
+	const HELD_MUSCLE_BAND
+	const HELD_WISE_GLASSES
+	const HELD_SHELL_BELL
+	const HELD_BIG_ROOT
+	const HELD_BINDING_BAND
+	const HELD_MACHO_BRACE

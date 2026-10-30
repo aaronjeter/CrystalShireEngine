@@ -1513,6 +1513,7 @@ BattleCommand_Stab:
 	call ApplyThickFat
 	call BattleCheckTypeMatchup
 	call ApplyTintedLens
+	farcall ExpertBeltBoost
 	call ApplyDurable
 	call ApplyMultiscale
 	call ApplyFriendGuard
@@ -1764,6 +1765,7 @@ BattleCommand_CheckHit:
 	ld b, 0
 
 .skip_brightpowder
+	farcall WideLensBoost
 	ld a, b
 	cp -1
 	ret z ; Hit
@@ -2370,6 +2372,8 @@ BattleCommand_ApplyDamage:
 .focus_band
 	call GetOpponentItem
 	ld a, b
+	cp HELD_FOCUS_SASH
+	jr z, .focus_sash
 	cp HELD_FOCUS_BAND
 	ld b, 0
 	jr nz, .damage
@@ -2381,9 +2385,21 @@ BattleCommand_ApplyDamage:
 	ld b, 0
 	jr nc, .damage
 	ld b, 2
+	jr .damage
+
+.focus_sash
+; Focus Sash: at full HP, survive a hit that would knock out (used up: ConsumeFocusSash)
+	farcall CheckOppFullHP
+	ld b, 0
+	jr nc, .damage
+	call BattleCommand_FalseSwipe
+	ld b, 0
+	jr nc, .damage
+	ld b, 2
 
 .damage
 	push bc
+	farcall MoveHitNote ; Life Orb, Shell Bell
 	farcall DoublesNoteHit ; double battles: the target's last attacker and damage
 	call .update_damage_taken
 	ld c, FALSE
@@ -2413,7 +2429,8 @@ BattleCommand_ApplyDamage:
 	ld [wNamedObjectIndex], a
 	call GetItemName
 	ld hl, HungOnText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	farjp ConsumeFocusSash
 
 .update_damage_taken
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
@@ -2594,6 +2611,7 @@ BattleCommand_CheckFaint:
 ; Ends the move effect if the opponent faints.
 
 	call HandleContactStatusAbilities
+	call HandleRockyHelmet
 
 	ld hl, wEnemyMonHP
 	ldh a, [hBattleTurn]
@@ -2930,6 +2948,7 @@ PlayerAttackDamage:
 	ld a, [wBattleMonLevel]
 	ld e, a
 	call DittoMetalPowder
+	farcall EvioliteBoost
 
 	ld a, 1
 	and a
@@ -3201,6 +3220,7 @@ EnemyAttackDamage:
 	ld a, [wEnemyMonLevel]
 	ld e, a
 	call DittoMetalPowder
+	farcall EvioliteBoost
 
 	ld a, 1
 	and a
@@ -3313,6 +3333,9 @@ BattleCommand_DamageCalc:
 	farcall MultiplyCurDamage
 .sheer_force_done
 
+; Life Orb x1.3; Muscle Band, Wise Glasses x1.1.
+	farcall HeldItemDamageBoost
+
 ; Double battles: a spread move with more than one target.
 	ld a, [wDoublesSpread]
 	bit DOUBLES_SPREAD_ARMED_F, a
@@ -3406,6 +3429,7 @@ ConfusionDamageCalc:
 	ld b, a
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK ; without the physical/special bits
 	cp b
 	jr nz, .DoneItem
 
@@ -4221,6 +4245,7 @@ SapHealth:
 	ld a, 1
 	ldh [hDividend + 1], a
 .at_least_one
+	farcall BigRootSapHealth
 
 	ld hl, wBattleMonHP
 	ld de, wBattleMonMaxHP

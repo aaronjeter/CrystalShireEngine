@@ -246,7 +246,7 @@ CharmanderPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CHARMANDER, 5, BERRY
+	givepoke CHARMANDER, 5, ORAN_BERRY
 	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -269,7 +269,7 @@ CyndaquilPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CYNDAQUIL, 5, BERRY
+	givepoke CYNDAQUIL, 5, ORAN_BERRY
 	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -292,7 +292,7 @@ TorchicPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TORCHIC, 5, BERRY
+	givepoke TORCHIC, 5, ORAN_BERRY
 	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -315,7 +315,7 @@ LittenPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke LITTEN, 5, BERRY
+	givepoke LITTEN, 5, ORAN_BERRY
 	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -338,7 +338,7 @@ Cyndaquil2PokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CYNDAQUIL2, 5, BERRY
+	givepoke CYNDAQUIL2, 5, ORAN_BERRY
 	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -361,7 +361,7 @@ HonobeaPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke HONOBEA, 5, BERRY
+	givepoke HONOBEA, 5, ORAN_BERRY
 	closedialog
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -384,7 +384,7 @@ SquirtlePokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke SQUIRTLE, 5, BERRY
+	givepoke SQUIRTLE, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -405,7 +405,7 @@ TotodilePokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TOTODILE, 5, BERRY
+	givepoke TOTODILE, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -426,7 +426,7 @@ MudkipPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke MUDKIP, 5, BERRY
+	givepoke MUDKIP, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -447,7 +447,7 @@ PopplioPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke POPPLIO, 5, BERRY
+	givepoke POPPLIO, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -468,7 +468,7 @@ Totodile2PokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TOTODILE2, 5, BERRY
+	givepoke TOTODILE2, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -489,7 +489,7 @@ KotoraPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke KOTORA, 5, BERRY
+	givepoke KOTORA, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -510,7 +510,7 @@ BulbasaurPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke BULBASAUR, 5, BERRY
+	givepoke BULBASAUR, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -531,7 +531,7 @@ ChikoritaPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CHIKORITA, 5, BERRY
+	givepoke CHIKORITA, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -552,7 +552,7 @@ TreeckoPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TREECKO, 5, BERRY
+	givepoke TREECKO, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -573,7 +573,7 @@ RowletPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke ROWLET, 5, BERRY
+	givepoke ROWLET, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -594,7 +594,7 @@ Chikorita2PokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CHIKORITA2, 5, BERRY
+	givepoke CHIKORITA2, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -615,7 +615,7 @@ KurusuPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke KURUSU, 5, BERRY
+	givepoke KURUSU, 5, ORAN_BERRY
 	closedialog
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript

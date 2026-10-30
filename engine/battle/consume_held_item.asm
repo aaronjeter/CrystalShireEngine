@@ -30,22 +30,13 @@ ConsumeHeldItem:
 	jmp PopBCDEHL
 
 .ok
+; Only the battle copy is cleared: the party struct keeps the item, so it's back after the
+; battle (like Knock Off; wKnockedOffMons keeps it away if the mon switches back in).
 	xor a
 	ld [de], a
 	pop af
 	pop hl
-	call GetPartyLocation
-	ldh a, [hBattleTurn]
-	and a
-	jr nz, .ourturn
-	ld a, [wBattleMode]
-	dec a
-	jr z, .done
-
-.ourturn
-	ld [hl], NO_ITEM
-
-.done
+	farcall SuppressOpponentItem
 	jmp PopBCDEHL
 
 INCLUDE "data/battle/held_consumables.asm"

@@ -651,6 +651,7 @@ INCLUDE "engine/battle/ai/doubles_ai.asm"
 SECTION "Effect Commands 2", ROMX, BANK[$7e] ; not floating: it must not fill the room it frees in Effect Commands
 
 INCLUDE "engine/battle/effect_commands_far.asm"
+INCLUDE "engine/battle/held_items_far.asm"
 
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]

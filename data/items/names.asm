@@ -57,17 +57,17 @@ ItemNames::
 	li "Elixer"       ; 0037
 	li "Moomoo Milk"  ; 0038
 	li "Quick Claw"   ; 0039
-	li "Psncureberry" ; 003A
+	li "Pecha Berry"  ; 003A
 	li "Gold Leaf"    ; 003B
 	li "Soft Sand"    ; 003C
 	li "Sharp Beak"   ; 003D
-	li "Przcureberry" ; 003E
-	li "Burnt Berry"  ; 003F
-	li "Ice Berry"    ; 0040
+	li "Cheri Berry"  ; 003E
+	li "Aspear Berry" ; 003F
+	li "Rawst Berry"  ; 0040
 	li "Poison Barb"  ; 0041
 	li "King's Rock"  ; 0042
-	li "Bitter Berry" ; 0043
-	li "Mint Berry"   ; 0044
+	li "Persim Berry" ; 0043
+	li "Chesto Berry" ; 0044
 	li "Red Apricorn" ; 0045
 	li "Tinymushroom" ; 0046
 	li "Big Mushroom" ; 0047
@@ -92,7 +92,7 @@ ItemNames::
 	li "Smoke Ball"   ; 005A
 	li "Nevermeltice" ; 005B
 	li "Magnet"       ; 005C
-	li "Miracleberry" ; 005D
+	li "Lum Berry"    ; 005D
 	li "Pearl"        ; 005E
 	li "Big Pearl"    ; 005F
 	li "Everstone"    ; 0060
@@ -125,7 +125,7 @@ ItemNames::
 	li "Kantoite X"   ; 007B
 	li "Kantoite Y"   ; 007C
 	li "Johtoite X"   ; 007D
-	li "Mysteryberry" ; 007E
+	li "Leppa Berry"  ; 007E
 	li "Dragon Scale" ; 007F
 	li "Bersrk Gene" ; 0080
 	li "Hoennite X"   ; 0083
@@ -141,8 +141,8 @@ ItemNames::
 	li "Polkadot Bow" ; 008B
 	li "Teru-Sama"    ; 008C
 	li "Up-Grade"     ; 008D
-	li "Berry"        ; 008E
-	li "Gold Berry"   ; 008F
+	li "Oran Berry"   ; 008E
+	li "Sitrus Berry" ; 008F
 	li "Focus Berry"  ; 0091
 	li "Ward Berry"   ; 0090
 	li "Brick Piece"  ; 0092
@@ -161,6 +161,21 @@ ItemNames::
 	li "Teru-Sama"    ; 009E
 	li "Abil.Capsule" ; 00A0
 	li "Abil.Patch"   ; 00A1
+	li "Flame Orb"    ; 00A2
+	li "Toxic Orb"    ; 00A3
+	li "Eviolite"     ; 00A4
+	li "Wide Lens"    ; 00A5
+	li "Black Sludge" ; 00A6
+	li "Life Orb"     ; 00A7
+	li "Focus Sash"   ; 00A8
+	li "Rocky Helmet" ; 00A9
+	li "Expert Belt"  ; 00AA
+	li "Muscle Band"  ; 00AB
+	li "Wise Glasses" ; 00AC
+	li "Shell Bell"   ; 00AD
+	li "Big Root"     ; 00AE
+	li "Binding Band" ; 00AF
+	li "Macho Brace"  ; 00B0
 	assert_list_length NUM_ITEM_POCKET
 
 KeyItemNames::

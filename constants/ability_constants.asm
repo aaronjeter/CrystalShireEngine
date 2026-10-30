@@ -115,6 +115,7 @@
 	const ABILITY_BATTLE_ARMOR
 	const ABILITY_SYNCHRONIZE
 	const ABILITY_SHELL_ARMOR
+	const ABILITY_POISON_HEAL
 DEF NUM_ABILITIES EQU const_value
 
 ; ability slots: which of its species' three abilities a Pokemon has

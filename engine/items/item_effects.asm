@@ -86,17 +86,17 @@ ItemEffects1:
 	dw RestorePPEffect     ; ELIXER
 	dw RestoreHPEffect     ; MOOMOO_MILK
 	dw NoEffect            ; QUICK_CLAW
-	dw StatusHealingEffect ; PSNCUREBERRY
+	dw StatusHealingEffect ; PECHA_BERRY
 	dw NoEffect            ; GOLD_LEAF
 	dw NoEffect            ; SOFT_SAND
 	dw NoEffect            ; SHARP_BEAK
-	dw StatusHealingEffect ; PRZCUREBERRY
-	dw StatusHealingEffect ; BURNT_BERRY
-	dw StatusHealingEffect ; ICE_BERRY
+	dw StatusHealingEffect ; CHERI_BERRY
+	dw StatusHealingEffect ; ASPEAR_BERRY
+	dw StatusHealingEffect ; RAWST_BERRY
 	dw NoEffect            ; POISON_BARB
 	dw EvoStoneEffect      ; KINGS_ROCK
-	dw BitterBerryEffect   ; BITTER_BERRY
-	dw StatusHealingEffect ; MINT_BERRY
+	dw BitterBerryEffect   ; PERSIM_BERRY
+	dw StatusHealingEffect ; CHESTO_BERRY
 	dw NoEffect            ; RED_APRICORN
 	dw NoEffect            ; TINYMUSHROOM
 	dw NoEffect            ; BIG_MUSHROOM
@@ -121,7 +121,7 @@ ItemEffects1:
 	dw NoEffect            ; SMOKE_BALL
 	dw NoEffect            ; NEVERMELTICE
 	dw NoEffect            ; MAGNET
-	dw StatusHealingEffect ; MIRACLEBERRY
+	dw StatusHealingEffect ; LUM_BERRY
 	dw NoEffect            ; PEARL
 	dw NoEffect            ; BIG_PEARL
 	dw NoEffect            ; EVERSTONE
@@ -154,7 +154,7 @@ ItemEffects1:
 	dw EvoStoneEffect      ; KANTOITE_X
 	dw EvoStoneEffect      ; KANTOITE_Y
 	dw EvoStoneEffect      ; JOHTOITE_X
-	dw RestorePPEffect     ; MYSTERYBERRY
+	dw RestorePPEffect     ; LEPPA_BERRY
 	dw EvoStoneEffect      ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
 	dw EvoStoneEffect      ; HOENNITE_X
@@ -170,8 +170,8 @@ ItemEffects1:
 	dw NoEffect            ; POLKADOT_BOW
 	dw NoEffect            ; ITEM_AB
 	dw EvoStoneEffect      ; UP_GRADE
-	dw RestoreHPEffect     ; BERRY
-	dw RestoreHPEffect     ; GOLD_BERRY
+	dw RestoreHPEffect     ; ORAN_BERRY
+	dw RestoreHPEffect     ; SITRUS_BERRY
 	dw NoEffect            ; ITEM_B0
 	dw NoEffect            ; ITEM_B3
 	dw NoEffect            ; BRICK_PIECE
@@ -190,6 +190,21 @@ ItemEffects1:
 	dw NoEffect            ; ITEM_FA
 	dw AbilityCapsuleEffect ; ABILITY_CAPSULE
 	dw AbilityPatchEffect   ; ABILITY_PATCH
+	dw NoEffect            ; FLAME_ORB
+	dw NoEffect            ; TOXIC_ORB
+	dw NoEffect            ; EVIOLITE
+	dw NoEffect            ; WIDE_LENS
+	dw NoEffect            ; BLACK_SLUDGE
+	dw NoEffect            ; LIFE_ORB
+	dw NoEffect            ; FOCUS_SASH
+	dw NoEffect            ; ROCKY_HELMET
+	dw NoEffect            ; EXPERT_BELT
+	dw NoEffect            ; MUSCLE_BAND
+	dw NoEffect            ; WISE_GLASSES
+	dw NoEffect            ; SHELL_BELL
+	dw NoEffect            ; BIG_ROOT
+	dw NoEffect            ; BINDING_BAND
+	dw NoEffect            ; MACHO_BRACE
 .IndirectEnd:
 
 ItemEffectsKeyItems:
@@ -2128,6 +2143,36 @@ GetHealingItemAmount:
 	ld d, [hl]
 	ld e, a
 	pop hl
+	ret c
+; HEAL_QUARTER_MAX_HP (Sitrus Berry): 1/4 of the party mon's max HP, at least 1
+	assert HEAL_QUARTER_MAX_HP == $fffe
+	ld a, d
+	inc a
+	jr nz, .amount ; d != $ff
+	ld a, e
+	inc a
+	inc a
+	jr z, .quarter ; e == $fe
+.amount
+	and a
+	ret
+
+.quarter
+	push hl
+	ld a, MON_MAXHP
+	call GetPartyParamLocation
+	ld a, [hli]
+	ld d, a
+	ld e, [hl]
+	pop hl
+	srl d
+	rr e
+	srl d
+	rr e
+	ld a, d
+	or e
+	ret nz
+	inc e
 	ret
 
 INCLUDE "data/items/heal_hp.asm"
@@ -2660,15 +2705,7 @@ RestorePP:
 	pop hl
 	jr z, .restore_all
 
-	ld c, 5
-	ld a, [wTempRestorePPItem]
-	push hl
-	call GetItemIndexFromID
-	cphl16 MYSTERYBERRY
-	pop hl
-	jr z, .restore_some
-
-	ld c, 10
+	ld c, 10 ; Ether, Elixer, Leppa Berry
 
 .restore_some
 	ld a, [hl]

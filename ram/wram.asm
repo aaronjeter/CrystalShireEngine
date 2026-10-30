@@ -679,6 +679,10 @@ wTurnStartMons:: ds NUM_BATTLER_SLOTS
 ; Knock Off: party mons whose held item is suppressed for the rest of the battle
 ; (bit = party index; the player's byte, then the enemy's)
 wKnockedOffMons:: ds 2
+; Life Orb: set when the user's move damaged something; cleared when a move starts
+wLifeOrbHit:: db
+; Shell Bell: the damage the user's move did (big-endian, capped by the targets' HP)
+wShellBellDamage:: dw
 if DEF(ANIM_LOG) ; test builds only (tools/claude_emu): each PlayBattleAnim call's wFXAnimID
 wAnimLogCount:: db
 wAnimLog:: ds 2 * 16

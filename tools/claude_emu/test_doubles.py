@@ -766,7 +766,7 @@ CASES.update({
     'doubles_berry_empty_slot': dict(
         cls='COOLTRAINERM',
         party=[('SNORLAX', 80, None, ['TACKLE']), ('PIKACHU', 5, None, ['SPLASH'])], faint=[1],
-        trainer=[(40, 'CHANSEY', None, ['SPLASH']), (40, 'SNORLAX', 'BERRY', ['SPLASH'])],
+        trainer=[(40, 'CHANSEY', None, ['SPLASH']), (40, 'SNORLAX', 'ORAN_BERRY', ['SPLASH'])],
         abilities={'SNORLAX': 'NO_ABILITY', 'PIKACHU': 'NO_ABILITY', 'CHANSEY': 'NO_ABILITY'},
         actions=[('move', 0, 1)] * 40,
         result=WIN, log=['Berry']),

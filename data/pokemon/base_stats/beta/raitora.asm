@@ -7,7 +7,7 @@
 	db ELECTRIC, DARK ; type
 	db 45 ; catch rate
 	db 200 ; base exp
-	dw NO_ITEM, BERRY ; items
+	dw NO_ITEM, ORAN_BERRY ; items
 	db GENDER_F50 ; gender ratio
 	db 10 ; step cycles to hatch
 	INCBIN "gfx/pokemon/raitora/front.dimensions"

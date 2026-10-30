@@ -7,7 +7,7 @@
 	db FIRE, FIRE ; type
 	db 45 ; catch rate
 	db 147 ; base exp
-	dw BURNT_BERRY, BURNT_BERRY ; items
+	dw ASPEAR_BERRY, ASPEAR_BERRY ; items
 	db GENDER_F25 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/torracat/front.dimensions"

@@ -285,6 +285,9 @@ HandleBetweenTurnEffects:
 	call HandleWrap
 	call CheckFaint_PlayerThenEnemy
 	ret c
+	call HandleBlackSludge
+	call CheckFaint_PlayerThenEnemy
+	ret c
 	call HandlePerishSong
 	call CheckFaint_PlayerThenEnemy
 	ret c
@@ -300,6 +303,9 @@ HandleBetweenTurnEffects:
 	call CheckFaint_EnemyThenPlayer
 	ret c
 	call HandleWrap
+	call CheckFaint_EnemyThenPlayer
+	ret c
+	call HandleBlackSludge
 	call CheckFaint_EnemyThenPlayer
 	ret c
 	call HandlePerishSong
@@ -318,6 +324,7 @@ HandleBetweenTurnEffects:
 	call HandleScreens
 	call HandleStatBoostingHeldItems
 	call HandleHealingItems
+	call HandleStatusOrbs
 	call UpdateBattleMonInParty
 	call LoadTilemapToTempTilemap
 	call HandleEncore
@@ -626,17 +633,19 @@ DetermineMoveOrder:
 	ret
 
 GetTurnOrderSpeed:
-; bc = Speed at hl (big-endian), doubled if a weather ability boosts the hBattleTurn mon
+; bc = Speed at hl (big-endian), doubled if a weather ability boosts the hBattleTurn mon,
+; halved if it holds a Macho Brace
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	push bc
 	call CheckWeatherSpeedBoost
 	pop bc
-	ret nc
+	jr nc, .no_weather_boost
 	sla c
 	rl b
-	ret
+.no_weather_boost
+	farjp MachoBraceSpeed
 
 CheckContestBattleOver:
 	ld a, [wBattleType]
@@ -1212,6 +1221,7 @@ EnemyTurn_EndOpponentProtectEndureDestinyBond:
 	farcall DoEnemyTurn
 ; fallthrough
 EndOpponentProtectEndureDestinyBond:
+	farcall PostMoveHeldItems ; Life Orb, Shell Bell
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVarAddr
 	res SUBSTATUS_PROTECT, [hl]
@@ -1222,6 +1232,8 @@ EndOpponentProtectEndureDestinyBond:
 	ret
 
 EndUserDestinyBond:
+; (before the user's action: clear the Life Orb / Shell Bell notes, see PostMoveHeldItems)
+	farcall ClearMoveHitNotes
 	ld a, BATTLE_VARS_SUBSTATUS5
 	call GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
@@ -1254,6 +1266,9 @@ ResidualDamage:
 ; Magic Guard: no status, Leech Seed, Nightmare or Curse damage.
 	call CheckMagicGuardUser
 	jp c, .not_cursed
+; Poison Heal: a poisoned holder heals instead
+	farcall PoisonHealResidual
+	jr c, .did_psn_brn
 
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
@@ -1329,6 +1344,7 @@ ResidualDamage:
 
 	call GetEighthMaxHP
 	call SubtractHPFromUser
+	farcall BigRootBoostOpponent ; the seeder heals more with a Big Root
 	ld a, $1
 	ldh [hBGMapMode], a
 	call RestoreHP
@@ -1499,6 +1515,7 @@ HandleWrap:
 
 .skip_anim
 	call GetSixteenthMaxHP
+	farcall BindingBandDamage
 	call SubtractHPFromUser
 	ld hl, BattleText_UsersHurtByStringBuffer1
 	jr .print_text
@@ -1558,6 +1575,20 @@ HandleLeftovers:
 	jmp StdBattleTextbox
 
 INCLUDE "engine/battle/end_turn_abilities.asm"
+
+HandleBlackSludge:
+	ld hl, .do_it
+	jmp ForEachBattler
+
+.do_it
+	farjp BlackSludgeEffect
+
+HandleStatusOrbs:
+	ld hl, .do_it
+	jmp ForEachBattler
+
+.do_it
+	farjp StatusOrbEffect
 
 HandleSpeedBoost:
 	ld hl, .do_it
@@ -1792,20 +1823,8 @@ HandleMysteryberry:
 	ret
 
 .restore
-	; lousy hack
 	ld a, [hl]
-	push hl
-	call GetMoveIndexFromID
-	ld a, h
-	if HIGH(SKETCH)
-		cp HIGH(SKETCH)
-	else
-		and a
-	endc
-	ld a, l
-	pop hl
-	ld b, 5
-	jr nz, .not_sketch
+	farcall LeppaRestoreAmount ; b = the PP to restore (10, or the max PP)
 	cp LOW(SKETCH)
 	jr nz, .not_sketch
 	ld b, 1
@@ -1856,20 +1875,8 @@ HandleMysteryberry:
 	ld [wNamedObjectIndex], a
 	xor a
 	ld [hl], a
-	call GetPartymonItem
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .consume_item
-	ld a, [wBattleMode]
-	dec a
-	jr z, .skip_consumption
-	call GetOTPartymonItem
+	farcall SuppressUserItem ; back after the battle
 
-.consume_item
-	xor a
-	ld [hl], a
-
-.skip_consumption
 	call GetItemName
 	call SwitchTurnCore
 	call ItemRecoveryAnim
@@ -4674,6 +4681,23 @@ HandleHPHealingItem:
 	ld [wHPBuffer1 + 1], a
 	ld a, [hl]
 	ld [wHPBuffer1], a
+	; amount 0 (Sitrus Berry): 1/4 of max HP (at most 249)
+	inc c
+	dec c
+	jr nz, .got_amount
+	ld a, [wHPBuffer1 + 1]
+	ld b, a
+	ld a, [wHPBuffer1]
+	srl b
+	rra
+	srl b
+	rra
+	and a
+	jr nz, .quarter
+	inc a
+.quarter
+	ld c, a
+.got_amount
 	ld a, [de]
 	add c
 	ld [wHPBuffer3], a
@@ -4808,24 +4832,9 @@ UseConfusionHealingItem:
 	call ItemRecoveryAnim
 	ld hl, BattleText_ItemHealedConfusion
 	call StdBattleTextbox
-	ldh a, [hBattleTurn]
-	and a
-	jr nz, .do_partymon
-	call GetOTPartymonItem
-	xor a
-	ld [bc], a
-	ld a, [wBattleMode]
-	dec a
-	ret z
-	ld [hl], $0
-	ret
-
-.do_partymon
-	call GetPartymonItem
-	xor a
-	ld [bc], a
-	ld [hl], a
-	ret
+	farcall GetOpponentItem
+	ld [hl], NO_ITEM ; the battle copy; the item is back after the battle
+	farjp SuppressOpponentItem
 
 HandleStatBoostingHeldItems:
 ; The effects handled here are not used in-game.

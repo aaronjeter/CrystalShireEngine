@@ -7,7 +7,7 @@
 	db FAIRY, GRASS ; type
 	db 45 ; catch rate
 	db 64 ; base exp
-	dw NO_ITEM, MIRACLEBERRY ; items
+	dw NO_ITEM, LUM_BERRY ; items
 	db GENDER_UNKNOWN ; gender ratio
 	db 10 ; step cycles to hatch
 	INCBIN "gfx/pokemon/celebi/front.dimensions"

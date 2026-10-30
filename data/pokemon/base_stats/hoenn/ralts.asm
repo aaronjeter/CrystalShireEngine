@@ -7,7 +7,7 @@
 	db PSYCHIC_TYPE, FAIRY ; type
 	db 235 ; catch rate
 	db 70 ; base exp
-	dw BERRY, GOLD_BERRY ; items
+	dw ORAN_BERRY, SITRUS_BERRY ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/ralts/front.dimensions"

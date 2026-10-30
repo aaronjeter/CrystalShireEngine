@@ -3412,6 +3412,12 @@ AI_Ability:
 	ld b, a
 	ld a, [wBattleMonAbility]
 	ld c, a
+	; Poison Heal: poisoning heals it
+	cp ABILITY_POISON_HEAL
+	jr nz, .not_poison_heal
+	bit PSN, b
+	jr nz, .immune
+.not_poison_heal
 	farcall AbilityBlocksStatus
 	jr c, .immune
 	jr .SkipStatus

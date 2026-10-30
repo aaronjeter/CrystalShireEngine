@@ -488,7 +488,12 @@ CheckSturdyFullHP:
 ; Preserves bc, de and hl.
 	call _GetBreakableOppAbility
 	cp ABILITY_STURDY
-	jr nz, .no
+	jr z, CheckOppFullHP
+	and a
+	ret
+
+CheckOppFullHP:
+; Carry if the target (hBattleTurn's opponent) has full HP. Preserves bc, de and hl.
 	push hl
 	ld hl, wEnemyMonHP
 	ldh a, [hBattleTurn]

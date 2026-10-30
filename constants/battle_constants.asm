@@ -212,7 +212,7 @@ DEF SUBSTATUS_AQUA_RING EQU 7 ; heals at the end of each turn
 	const SUBSTATUS_X_ACCURACY
 	const SUBSTATUS_MIST
 	const SUBSTATUS_FOCUS_ENERGY
-	const_skip
+	const SUBSTATUS_BINDING_BAND ; trapped by a Binding Band holder: 1/8 a turn instead of 1/16
 	const SUBSTATUS_SUBSTITUTE
 	const SUBSTATUS_RECHARGE
 	const SUBSTATUS_RAGE

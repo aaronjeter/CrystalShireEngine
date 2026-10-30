@@ -882,6 +882,8 @@ DoublesRunAction:
 	call DoublesSpreadPasses
 	xor a
 	ld [wDoublesSpread], a
+	call DoublesSetTurn
+	farcall PostMoveHeldItems ; Life Orb, Shell Bell
 	ld a, [wForcedSwitch]
 	and a
 	jr nz, .ended
@@ -1331,6 +1333,9 @@ DoublesBetweenTurnEffects:
 	call HandleWrap
 	call .faints
 	ret c
+	call HandleBlackSludge
+	call .faints
+	ret c
 	call HandlePerishSong
 	call .faints
 	ret c
@@ -1345,6 +1350,7 @@ DoublesBetweenTurnEffects:
 	call HandleScreens
 	call HandleStatBoostingHeldItems
 	call HandleHealingItems
+	call HandleStatusOrbs
 	call DoublesUpdatePlayersInParty
 	call LoadTilemapToTempTilemap
 	call HandleEncore
