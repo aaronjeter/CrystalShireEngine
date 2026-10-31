@@ -449,25 +449,27 @@ ChinchouEggMoves:
 
 PichuEggMoves:
 	dw REVERSAL
-	dw BIDE
 	dw PRESENT
 	dw ENCORE
 	dw DOUBLESLAP
+	dw CHARGE
+	dw FLAIL
 	dw -1 ; end
 
 CleffaEggMoves:
 	dw PRESENT
-	dw METRONOME
 	dw AMNESIA
 	dw BELLY_DRUM
 	dw SPLASH
 	dw MIMIC
+	dw SUBSTITUTE
 	dw -1 ; end
 
 IgglybuffEggMoves:
-	dw PERISH_SONG
 	dw PRESENT
 	dw FAINT_ATTACK
+	dw CHARM
+	dw MIMIC
 	dw -1 ; end
 
 TogepiEggMoves:
@@ -708,14 +710,16 @@ StantlerEggMoves:
 	dw -1 ; end
 
 TyrogueEggMoves:
-	dw RAPID_SPIN
 	dw HI_JUMP_KICK
-	dw MACH_PUNCH
 	dw MIND_READER
+	dw BULLET_PUNCH
+	dw COUNTER
+	dw PURSUIT
 	dw -1 ; end
 
 SmoochumEggMoves:
-	dw MEDITATE
+	dw ICY_WIND
+	dw SING
 	dw -1 ; end
 
 ElekidEggMoves:
@@ -723,7 +727,6 @@ ElekidEggMoves:
 	dw BARRIER
 	dw ROLLING_KICK
 	dw MEDITATE
-	dw CROSS_CHOP
 	dw -1 ; end
 
 MagbyEggMoves:
@@ -732,6 +735,8 @@ MagbyEggMoves:
 	dw BARRIER
 	dw SCREECH
 	dw CROSS_CHOP
+	dw BELLY_DRUM
+	dw FOCUS_ENERGY
 	dw -1 ; end
 
 MiltankEggMoves:
@@ -750,7 +755,12 @@ NoEggMoves2:
 	dw -1 ; end
 
 MunchlaxEggMoves:
-	dw LICK
+	dw CHARM
+	dw FISSURE
+	dw PURSUIT
+	dw SELFDESTRUCT
+	dw SUBSTITUTE
+	dw WHIRLWIND
 	dw -1 ; end
 
 TreeckoEggMoves:

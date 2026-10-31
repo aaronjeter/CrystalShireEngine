@@ -4,7 +4,7 @@
 	evs  0,   1,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIRE, NORMAL ; type
+	db FIRE, FIRE ; type
 	db 190 ; catch rate
 	db 91 ; base exp
 	dw ASPEAR_BERRY, ASPEAR_BERRY ; items

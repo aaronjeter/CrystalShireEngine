@@ -4,7 +4,7 @@
 	evs  0,   2,   0,   0,   0,   1
 	;   hp  atk  def  spd  sat  sdf
 
-	db BUG, DARK ; type
+	db BUG, POISON ; type
 	db 45 ; catch rate
 	db 159 ; base exp
 	dw NO_ITEM, POISON_BARB ; items
