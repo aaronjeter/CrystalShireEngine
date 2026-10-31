@@ -1095,23 +1095,29 @@ AzurillEvosAttacks:
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, MARILL
 	dbbw EVOLVE_LEVEL, 16, MARILL
 	db 0 ; no more evolutions
-	dbw 1, BUBBLE
-	dbw 5, DEFENSE_CURL
-	dbw 8, TAIL_WHIP
-	dbw 12, POUND
-	dbw 16, ROLLOUT
-	dbw 20, AQUA_JET
-	dbw 24, BUBBLEBEAM
-	dbw 28, DIZZY_PUNCH
-	dbw 32, RAIN_DANCE
-	dbw 36, BELLY_DRUM
-	dbw 40, PLAY_ROUGH
-	dbw 45, WATERFALL
-	dbw 50, FAERIEGLEAM	
+	dbw 1, SPLASH
+	dbw 1, WATER_GUN
+	dbw 1, TAIL_WHIP
+	dbw 4, POUND
+	dbw 7, DEFENSE_CURL
+	dbw 10, CHARM
+	dbw 13, ROLLOUT
+	dbw 16, AQUA_JET
+	dbw 19, BUBBLEBEAM
+	dbw 22, SLAM
+	dbw 25, AQUA_RING
+	dbw 28, RAIN_DANCE
+	dbw 31, DIZZY_PUNCH
+	dbw 34, AQUA_TAIL
+	dbw 37, KNOCK_OFF
+	dbw 40, BELLY_DRUM
+	dbw 43, PLAY_ROUGH
+	dbw 46, SCALD
+	dbw 49, FAERIEGLEAM
+	dbw 52, BULK_UP
 	dbw 55, DOUBLE_EDGE
-	dbw 60, HYDRO_PUMP
-	dbw 65, AMNESIA
-	dbw 70, BULK_UP
+	dbw 58, SUPERPOWER
+	dbw 62, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 NosepassEvosAttacks:
@@ -2390,10 +2396,11 @@ WynautEvosAttacks:
 	dbw 1, CHARM
 	dbw 1, ENCORE
 	dbw 1, SPLASH
+	dbw 1, AMNESIA
 	dbw 15, COUNTER
-	dbw 15, DESTINY_BOND
 	dbw 15, MIRROR_COAT
 	dbw 15, SAFEGUARD
+	dbw 15, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 SnoruntEvosAttacks:
