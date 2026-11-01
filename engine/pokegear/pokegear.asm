@@ -91,7 +91,7 @@ PokeGear:
 	ld [wJumptableIndex], a ; POKEGEARSTATE_CLOCKINIT
 	ld [wPokegearCard], a ; POKEGEARCARD_CLOCK
 	ld [wPokegearMapRegion], a ; JOHTO_REGION
-	ld [wUnusedPokegearByte], a
+	ld [wPokegearShownRegion], a ; JOHTO_REGION
 	ld [wPokegearPhoneScrollPosition], a
 	ld [wPokegearPhoneCursorPosition], a
 	ld [wPokegearPhoneSelectedPerson], a
@@ -312,18 +312,8 @@ InitPokegearTilemap:
 	db " SWITCH▶@"
 
 .Map:
-	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
-	jr z, .johto
-	cp KANTO_LANDMARK
-	jr nc, .kanto
-.johto
-	ld e, 0
-	jr .ok
-
-.kanto
-	ld e, 1
-.ok
+	ld a, [wPokegearShownRegion]
+	ld e, a
 	call PokegearMap
 	ld a, $07
 	ld bc, SCREEN_WIDTH - 2
@@ -508,26 +498,106 @@ Pokegear_UpdateClock:
 	text_end
 
 PokegearMap_CheckRegion:
-	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
-	jr z, .johto
-	cp KANTO_LANDMARK
-	jr nc, .kanto
-.johto
-	ld a, POKEGEARSTATE_JOHTOMAPINIT
-	jr .done
-	ret
-
-.kanto
-	ld a, POKEGEARSTATE_KANTOMAPINIT
-.done
+; Opening the map card: show the player's region, cursor on the player.
+	call PokegearMap_GetPlayerRegion
+	ld [wPokegearShownRegion], a
+	call PokegearMap_SetPlayerCursor
+	ld a, POKEGEARSTATE_JOHTOMAPINIT ; used for every region
 	ld [wJumptableIndex], a
 	jmp ExitPokegearRadio_HandleMusic
 
+PokegearMap_GetPlayerRegion:
+; a = the player's region (the Fast Ship counts as Johto)
+	ld a, [wPokegearMapPlayerIconLandmark]
+	cp LANDMARK_FAST_SHIP
+	ld b, JOHTO_REGION
+	jr z, .got
+	cp HOENN_LANDMARK
+	ld b, HOENN_REGION
+	jr nc, .got
+	cp KANTO_LANDMARK
+	ld b, KANTO_REGION
+	jr nc, .got
+	ld b, JOHTO_REGION
+.got
+	ld a, b
+	ret
+
+PokegearMap_SetPlayerCursor:
+	ld a, [wPokegearMapPlayerIconLandmark]
+	cp LANDMARK_FAST_SHIP
+	jr nz, .ok
+	ld a, LANDMARK_NEW_BARK_TOWN
+.ok
+	ld [wPokegearMapCursorLandmark], a
+	ret
+
+PokegearMap_SwitchRegion:
+; Select: show the next region with a visited flypoint (the player's own
+; region always counts). Returns z if there's no other region to show.
+	call PokegearMap_GetPlayerRegion
+	ld e, a
+	ld a, [wPokegearShownRegion]
+	ld d, a
+	ld c, NUM_REGIONS - 1
+.loop
+	inc d
+	ld a, d
+	cp NUM_REGIONS
+	jr c, .ok
+	ld d, JOHTO_REGION
+.ok
+	ld a, d
+	cp e
+	jr z, .players_region
+	push bc
+	push de
+	call RegionHasVisitedFlypoint
+	pop de
+	pop bc
+	jr nz, .other_region
+	dec c
+	jr nz, .loop
+	xor a
+	ret
+
+.players_region
+	ld [wPokegearShownRegion], a
+	call PokegearMap_SetPlayerCursor
+	or 1
+	ret
+
+.other_region
+	ld a, d
+	ld [wPokegearShownRegion], a
+	ld hl, .FirstLandmarks
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld a, [hl]
+	ld [wPokegearMapCursorLandmark], a
+	or 1
+	ret
+
+.FirstLandmarks:
+	table_width 1
+	db LANDMARK_NEW_BARK_TOWN ; JOHTO_REGION
+	db LANDMARK_PALLET_TOWN   ; KANTO_REGION
+	db LANDMARK_LITTLEROOT    ; HOENN_REGION
+	assert_table_length NUM_REGIONS
+
 PokegearMap_Init:
 	call InitPokegearTilemap
+	call PokegearMap_GetPlayerRegion
+	ld b, a
+	ld a, [wPokegearShownRegion]
+	cp b
+	jr nz, .no_player_icon ; the player is in another region
 	ld a, [wPokegearMapPlayerIconLandmark]
 	call PokegearMap_InitPlayerIcon
+.no_player_icon
 	ld a, [wPokegearMapCursorLandmark]
 	call PokegearMap_InitCursor
 	ld a, c
@@ -539,12 +609,13 @@ PokegearMap_Init:
 	ret
 
 PokegearMap_KantoMap:
-	call TownMap_GetKantoLandmarkLimits
-	jr PokegearMap_ContinueMap
-
 PokegearMap_JohtoMap:
-	lb de, LANDMARK_SILVER_CAVE, LANDMARK_NEW_BARK_TOWN
+	ld a, [wPokegearShownRegion]
+	call TownMap_GetRegionLandmarkLimits
 PokegearMap_ContinueMap:
+	ldh a, [hJoyPressed]
+	and SELECT
+	jr nz, .switch_region
 	ld hl, hJoyLast
 	ld a, [hl]
 	and B_BUTTON
@@ -580,6 +651,12 @@ PokegearMap_ContinueMap:
 	ld hl, wJumptableIndex
 	set JUMPTABLE_EXIT_F, [hl]
 	ret
+
+.switch_region
+	call PokegearMap_SwitchRegion
+	ret z
+	lb bc, POKEGEARCARD_MAP, POKEGEARSTATE_JOHTOMAPINIT
+	jr .done
 
 .DPad:
 	ld hl, hJoyLast
@@ -694,6 +771,56 @@ PokegearMap_UpdateCursorPosition:
 	add hl, bc
 	ld [hl], d
 	ret
+
+TownMap_GetRegionLandmarkLimits:
+; a = region -> d = last landmark, e = first landmark
+	cp HOENN_REGION
+	jr z, .hoenn
+	cp KANTO_REGION
+	jr z, TownMap_GetKantoLandmarkLimits
+	lb de, LANDMARK_SILVER_CAVE, LANDMARK_NEW_BARK_TOWN
+	ret
+
+.hoenn
+	lb de, NUM_LANDMARKS - 1, HOENN_LANDMARK
+	ret
+
+RegionHasVisitedFlypoint:
+; a = region. Returns nz if any of its flypoints has been visited.
+	ld hl, .Ranges
+	add a
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld a, [hli]
+	ld b, a ; first flypoint
+	ld c, [hl] ; last flypoint
+.loop
+	push bc
+	ld l, b
+	ld h, 0
+	add hl, hl
+	ld de, Flypoints + 1
+	add hl, de
+	ld c, [hl]
+	call HasVisitedSpawn
+	pop bc
+	and a
+	ret nz
+	ld a, b
+	cp c
+	ret z
+	inc b
+	jr .loop
+
+.Ranges:
+	table_width 2
+	db JOHTO_FLYPOINT, KANTO_FLYPOINT - 1
+	db KANTO_FLYPOINT, HOENN_FLYPOINT - 1
+	db HOENN_FLYPOINT, NUM_FLYPOINTS - 1
+	assert_table_length NUM_REGIONS
 
 TownMap_GetKantoLandmarkLimits:
 	ld a, [wStatusFlags]
@@ -1719,14 +1846,15 @@ _TownMap:
 
 .dmg
 	ld a, [wTownMapPlayerIconLandmark]
-	cp KANTO_LANDMARK
-	jr nc, .kanto
+	call FlyMap_LandmarkToRegion
+	and a ; JOHTO_REGION
+	jr nz, .not_johto
 	lb de, KANTO_LANDMARK - 1, 1
 	call .loop
 	jr .resume
 
-.kanto
-	call TownMap_GetKantoLandmarkLimits
+.not_johto
+	call TownMap_GetRegionLandmarkLimits
 	call .loop
 
 .resume
@@ -1800,11 +1928,8 @@ _TownMap:
 
 .InitTilemap:
 	ld a, [wTownMapPlayerIconLandmark]
-	cp KANTO_LANDMARK
-	ld e, JOHTO_REGION
-	jr c, .okay_tilemap
-	ld e, KANTO_REGION
-.okay_tilemap
+	call FlyMap_LandmarkToRegion
+	ld e, a
 	call PokegearMap
 	ld a, $07
 	ld bc, 6
@@ -1909,15 +2034,16 @@ LoadStation_PokemonChannel:
 	jmp LoadStation_PlacesAndPeople
 
 PokegearMap:
+; e = region
+	push de
+	call LoadTownMapGFX
+	pop de
 	ld a, e
-	and a
-	jr nz, .kanto
-	call LoadTownMapGFX
+	cp HOENN_REGION
+	jmp z, FillHoennMap
+	cp KANTO_REGION
+	jmp z, FillKantoMap
 	jmp FillJohtoMap
-
-.kanto
-	call LoadTownMapGFX
-	jmp FillKantoMap
 
 _FlyMap:
 	call ClearBGPalettes

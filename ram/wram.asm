@@ -1401,7 +1401,7 @@ NEXTU
 ; pokegear
 wPokegearCard:: db
 wPokegearMapRegion:: db
-wUnusedPokegearByte:: db
+wPokegearShownRegion:: db ; the region the map card shows (was unused)
 
 NEXTU
 ; pack
