@@ -1471,8 +1471,7 @@ TitleScreenEntrance:
 	inc hl
 	dec b
 	jr nz, .loop
-
-	farjp AnimateTitleCrystal
+	ret
 
 .done
 ; Next scene
@@ -1486,10 +1485,22 @@ TitleScreenEntrance:
 ; Play the title screen music.
 	ld de, MUSIC_TITLE
 	call PlayMusic
+; Delibird calls out; Iron Bundle answers from TitleScreenMain.
+	ld de, DELIBIRD - 1
+	call TitleScreenCry
 
 	ld a, $88
 	ldh [hWY], a
 	ret
+
+TitleScreenCry:
+; Play cry de (a species index - 1, see GetCryIndex) over the music, without waiting.
+	xor a
+	ld [wStereoPanningMask], a
+	ld [wCryTracks], a
+	jmp PlayCry
+
+DEF TITLE_SCREEN_TIMER EQU 73 * 60 + 36
 
 TitleScreenTimer:
 ; Next scene
@@ -1498,7 +1509,7 @@ TitleScreenTimer:
 
 ; Start a timer
 	ld hl, wTitleScreenTimer
-	ld de, 73 * 60 + 36
+	ld de, TITLE_SCREEN_TIMER
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -1517,6 +1528,17 @@ TitleScreenMain:
 	ld a, d
 	ld [hld], a
 	ld [hl], e
+
+; Iron Bundle answers Delibird's cry (TitleScreenEntrance) about a second later.
+	ld a, e
+	cp LOW(TITLE_SCREEN_TIMER - 70)
+	jr nz, .no_answer
+	ld a, d
+	cp HIGH(TITLE_SCREEN_TIMER - 70)
+	jr nz, .no_answer
+	ld de, IRONBUNDLE - 1
+	call TitleScreenCry
+.no_answer
 
 ; Save data can be deleted by pressing Up + B + Select.
 	call GetJoypad

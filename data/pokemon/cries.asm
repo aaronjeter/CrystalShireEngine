@@ -444,7 +444,7 @@ PokemonCries::
 	mon_cry CRY_DIGLETT,     170,  129 ; ADIGLETT
 	mon_cry CRY_DIGLETT,      42,  144 ; ADUGTRIO
 	mon_cry CRY_GOLEM,       255,  383 ; GWEEZING
-	mon_cry CRY_TEDDIURSA,     2,  106 ; IRONBUNDLE
+	mon_cry CRY_TEDDIURSA,  -300,   52 ; IRONBUNDLE
 	;reddit mons
 	mon_cry CRY_VOLTORB,     237,  256 ; VOLTORB2
 	mon_cry CRY_VOLTORB,     168,  272 ; ELECTRODE2

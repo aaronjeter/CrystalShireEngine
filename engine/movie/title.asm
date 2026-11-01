@@ -1,3 +1,5 @@
+DEF TITLE_HORIZON_TILE EQU $20 ; the horizon's side columns: vTiles2, VRAM bank 0, 24 tiles
+
 _TitleScreen:
 	call ClearBGPalettes
 	call ClearSprites
@@ -44,7 +46,13 @@ _TitleScreen:
 
 ; BG Map 0:
 
-; Apply logo gradient:
+; Apply logo gradient (an evening sky: the stripes are each palette's color 0):
+
+; lines 0-2: the darkest stripe up to the top of the screen
+	hlbgcoord 0, 0
+	ld bc, 3 * BG_MAP_WIDTH
+	ld a, 2
+	rst ByteFill
 
 ; lines 3-4
 	hlbgcoord 0, 3
@@ -78,11 +86,40 @@ _TitleScreen:
 	ld a, 1
 	rst ByteFill
 
-; Suicune gfx
+; Delibird (left, mirrored to face right) and Iron Bundle (right, palette 7) gfx
 	hlbgcoord 0, 12
 	ld bc, 6 * BG_MAP_WIDTH ; the rest of the screen
-	ld a, 0 | VRAM_BANK_1
+	ld a, 0 | VRAM_BANK_1 | X_FLIP
 	rst ByteFill
+	hlbgcoord 10, 12
+	ld b, 6
+.iron_bundle_attrs
+	push bc
+	push hl
+	ld bc, SCREEN_WIDTH - 10
+	ld a, 7 | VRAM_BANK_1
+	rst ByteFill
+	pop hl
+	ld bc, BG_MAP_WIDTH
+	add hl, bc
+	pop bc
+	dec b
+	jr nz, .iron_bundle_attrs
+; the horizon's side columns (0-1 and 18-19): palette 7 (color 1 is black), VRAM bank 0
+	hlbgcoord 0, 12
+	ld b, 6
+.horizon_attrs
+	ld a, 7
+	ld [hli], a
+	ld [hli], a
+	ld de, SCREEN_WIDTH - 4
+	add hl, de
+	ld [hli], a
+	ld [hli], a
+	ld de, BG_MAP_WIDTH - SCREEN_WIDTH
+	add hl, de
+	dec b
+	jr nz, .horizon_attrs
 
 ; Back to VRAM bank 0
 	xor a
@@ -93,10 +130,11 @@ _TitleScreen:
 	ld de, vTiles1
 	call Decompress
 
-; Decompress background crystal
-	ld hl, TitleCrystalGFX
-	ld de, vTiles0
-	call Decompress
+; The horizon's side columns
+	ld hl, TitleHorizonGFX
+	ld de, vTiles2 tile TITLE_HORIZON_TILE
+	ld bc, TitleHorizonGFX.End - TitleHorizonGFX
+	rst CopyBytes
 
 ; Clear screen tiles
 	hlbgcoord 0, 0
@@ -110,18 +148,39 @@ _TitleScreen:
 	lb de, $80, 20
 	call DrawTitleGraphic
 
+; The ground (the window's line): solid tile $19 from the logo gfx, then the date and name
+	hlbgcoord 0, 0, vBGMap1
+	ld bc, SCREEN_WIDTH
+	ld a, $19
+	rst ByteFill
+
 ; Draw copyright text
 	hlbgcoord 3, 0, vBGMap1
 	lb bc, 1, 13
 	lb de, $c, 16
 	call DrawTitleGraphic
 
-; Initialize running Suicune?
-	ld d, $0
+; Draw Delibird and Iron Bundle
+	ld e, 0
 	call LoadSuicuneFrame
 
-; Initialize background crystal
-	call InitializeBackground
+; Draw the horizon's side columns
+	hlcoord 0, 12
+	ld a, TITLE_HORIZON_TILE
+	ld b, 6
+.horizon_tiles
+	ld [hli], a
+	inc a
+	ld [hli], a
+	inc a
+	ld de, SCREEN_WIDTH - 4
+	add hl, de
+	ld [hli], a
+	inc a
+	ld [hli], a
+	inc a
+	dec b
+	jr nz, .horizon_tiles
 
 ; Update palette colors
 	ldh a, [rSVBK]
@@ -202,19 +261,14 @@ SuicuneFrameIterator:
 	ld c, a
 	inc [hl]
 
-; Only do this once every eight frames
-	and %111
+; Only do this once every sixteen frames
+	and %1111
 	ret nz
 
 	ld a, c
-	and %11000
-	add a
 	swap a
-	ld e, a
-	ld d, 0
-	ld hl, .Frames
-	add hl, de
-	ld d, [hl]
+	and %11
+	ld e, a ; animation step 0-3
 	xor a
 	ldh [hBGMapMode], a
 	call LoadSuicuneFrame
@@ -224,19 +278,24 @@ SuicuneFrameIterator:
 	ldh [hBGMapThird], a
 	ret
 
-.Frames:
-	db $80 ; vTiles3 tile $80
-	db $88 ; vTiles3 tile $88
-	db $00 ; vTiles5 tile $00
-	db $08 ; vTiles5 tile $08
-
 LoadSuicuneFrame:
-; Two Delibirds side by side, showing the same frame (d = its first tile).
+; Delibird on the left, mirrored to face right (drawn right to left; its cells have
+; X_FLIP), and Iron Bundle on the right, facing left. e = animation step (0-3).
+	ld d, 0
+	ld hl, .DelibirdFrames
+	add hl, de
+	ld a, [hl]
 	push de
-	hlcoord 2, 12
-	call .Draw
+	ld d, a
+	hlcoord 9, 12
+	call .DrawMirrored
 	pop de
+	ld d, 0
+	ld hl, .IronBundleFrames
+	add hl, de
+	ld d, [hl]
 	hlcoord 10, 12
+; fallthrough
 .Draw:
 	ld b, 6
 .bgrows
@@ -259,6 +318,36 @@ LoadSuicuneFrame:
 	dec b
 	jr nz, .bgrows
 	ret
+
+.DrawMirrored:
+	ld b, 6
+.mirrored_rows
+	ld c, 8
+.mirrored_col
+	ld a, d
+	ld [hld], a
+	inc d
+	dec c
+	jr nz, .mirrored_col
+	ld a, SCREEN_WIDTH + 8
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld a, 8
+	add d
+	ld d, a
+	dec b
+	jr nz, .mirrored_rows
+	ret
+
+; first tile of each frame (gfx/title/suicune.png): the top half is Delibird ($80, $88),
+; the bottom half Iron Bundle ($00, $08)
+.DelibirdFrames:
+	db $80, $88, $80, $80
+.IronBundleFrames:
+	db $00, $00, $00, $08
 
 DrawTitleGraphic:
 ; input:
@@ -289,72 +378,15 @@ DrawTitleGraphic:
 	jr nz, .bgrows
 	ret
 
-InitializeBackground:
-	ld hl, wShadowOAMSprite00
-	lb de, -$22, $0
-	ld c, 5
-.loop
-	push bc
-	call .InitColumn
-	pop bc
-	ld a, $10
-	add d
-	ld d, a
-	dec c
-	jr nz, .loop
-	ret
-
-.InitColumn:
-	lb bc, $40, $6
-.loop2
-	ld a, d
-	ld [hli], a ; y
-	ld a, b
-	ld [hli], a ; x
-	add $8
-	ld b, a
-	ld a, e
-	ld [hli], a ; tile id
-	inc e
-	inc e
-	ld a, 0 | PRIORITY
-	ld [hli], a ; attributes
-	dec c
-	jr nz, .loop2
-	ret
-
-AnimateTitleCrystal:
-; Move the title screen crystal downward until it's fully visible
-
-; Stop at y=6
-; y is really from the bottom of the sprite, which is two tiles high
-	ld hl, wShadowOAMSprite00YCoord
-	ld a, [hl]
-	cp 6 + 2 * TILE_WIDTH
-	ret z
-
-; Move all 30 parts of the crystal down by 2
-	ld c, 30
-.loop
-	ld a, [hl]
-	add 2
-	ld [hli], a ; y
-rept SPRITEOAMSTRUCT_LENGTH - 1
-	inc hl
-endr
-	dec c
-	jr nz, .loop
-
-	ret
-
 TitleSuicuneGFX:
 INCBIN "gfx/title/suicune.2bpp.lz"
 
 TitleLogoGFX:
 INCBIN "gfx/title/logo.2bpp.lz"
 
-TitleCrystalGFX:
-INCBIN "gfx/title/crystal.2bpp.lz"
+TitleHorizonGFX:
+INCBIN "gfx/title/horizon.2bpp"
+.End
 
 TitleScreenPalettes:
 INCLUDE "gfx/title/title.pal"

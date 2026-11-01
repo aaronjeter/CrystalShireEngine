@@ -1,51 +1,51 @@
 ; BG
-	;animation
-	RGB 26, 27, 31
+	;animation (Delibird; color 0 is the horizon glow behind the Pokemon)
+	RGB 31, 25, 19
 	RGB 30, 08, 02
 	RGB 21, 16, 31
 	RGB 00, 00, 00
 
 	;title subtext
-	RGB 14, 15, 31
+	RGB 29, 14, 15
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 31, 01, 13
 
 	;top of title background
-	RGB 14, 05, 31
+	RGB 07, 04, 17
 	RGB 07, 07, 07
 	RGB 31, 31, 31
 	RGB 02, 03, 30
 
 	;second row of title
-	RGB 14, 09, 31
+	RGB 13, 05, 21
 	RGB 13, 13, 13
 	RGB 31, 31, 18
 	RGB 02, 03, 30
 
 	;third row of title
-	RGB 14, 11, 31
+	RGB 19, 07, 21
 	RGB 19, 19, 19
 	RGB 29, 28, 12
 	RGB 02, 03, 30
 
 	;4th row of title
-	RGB 14, 13, 31
+	RGB 25, 10, 19
 	RGB 25, 25, 25
 	RGB 28, 25, 06
 	RGB 02, 03, 30
 
 	;5th row of title
-	RGB 14, 15, 31
+	RGB 29, 14, 15
 	RGB 31, 31, 31
 	RGB 26, 21, 00
 	RGB 02, 03, 30
 
-	;version number text
-	RGB 26, 27, 31
+	;version number text (colors 0-1) and Iron Bundle (all four)
+	RGB 31, 25, 19
 	RGB 00, 00, 00
-	RGB 31, 31, 31
-	RGB 00, 00, 00
+	RGB 13, 20, 31
+	RGB 30, 08, 02
 
 ; OBJ
 	RGB 00, 00, 00
