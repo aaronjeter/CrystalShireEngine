@@ -291,11 +291,6 @@ _AlreadySurfingText::
 	line "Surfing."
 	prompt
 
-_AskSurfText::
-	text "The water is calm."
-	line "Want to Surf?"
-	done
-
 _UseWaterfallText::
 	text "<PLAYER> used"
 	line "Waterfall!"

@@ -499,16 +499,14 @@ TrySurfOW::
 	ret
 
 AskSurfScript:
-	opentext
-	writetext AskSurfText
-	yesorno
-	iftrue UsedSurfScript
-	closetext
+; Pressing A while facing surfable water starts surfing right away, with no
+; "Want to Surf?" question or "used Surf!" message.
+	readmem wSurfingPlayerState
+	writevar VAR_MOVEMENT
+	special UpdatePlayerSprite
+	special PlayMapMusic
+	special SurfStartStep
 	end
-
-AskSurfText:
-	text_far _AskSurfText
-	text_end
 
 FlyFunction:
 	call FieldMoveJumptableReset
