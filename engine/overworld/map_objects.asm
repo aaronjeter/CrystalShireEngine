@@ -376,10 +376,40 @@ GetStepVector:
 	ld a, [hl]
 	cp (STEP_SLOW << 2 | RIGHT) + 1
 	jr c, .slowStep
+	bit WALK_DIAGONAL_F, a
+	jr nz, .diagonal
 	pop hl
 	pop af
 	and a
 	ret
+
+.diagonal
+; Also move along the other axis, as far as along the main one.
+	ld l, a ; walking
+	ld a, d
+	or e ; one of them is 0
+	bit 7, a
+	jr z, .got_distance
+	cpl
+	inc a
+.got_distance
+	bit WALK_DIAG_PLUS_F, l
+	jr nz, .got_sign
+	cpl
+	inc a
+.got_sign
+	bit 1, l ; main direction LEFT or RIGHT?
+	jr nz, .main_x
+	ld d, a
+	jr .diagonal_done
+.main_x
+	ld e, a
+.diagonal_done
+	pop hl
+	pop af
+	and a
+	ret
+
 .slowStep
 	pop hl
 	pop af
@@ -417,12 +447,47 @@ GetStepVectorSign:
 	ld a, -1
 	ret    ; -127 to -1
 
+GetDiagonalDirection::
+; For OBJECT_WALKING value a, return the direction of a diagonal step's
+; other axis, or STANDING if it isn't diagonal.
+	bit WALK_DIAGONAL_F, a
+	jr z, .no
+	bit 1, a
+	jr nz, .main_x
+	bit WALK_DIAG_PLUS_F, a
+	ld a, RIGHT
+	ret nz
+	ld a, LEFT
+	ret
+.main_x
+	bit WALK_DIAG_PLUS_F, a
+	ld a, DOWN
+	ret nz
+	ld a, UP
+	ret
+.no
+	ld a, STANDING
+	ret
+
 UpdatePlayerStep:
 	ld hl, OBJECT_WALKING
 	add hl, bc
 	ld a, [hl]
 	and %00000011
 	ld [wPlayerStepDirection], a
+	ld a, [hl]
+	call GetDiagonalDirection
+	ld [wPlayerStepDiagonal], a
+; For a diagonal step, wPlayerStepDirection is always the vertical direction
+; and wPlayerStepDiagonal the horizontal one (the map scrolls in that order).
+	cp LEFT
+	jr nc, .got_step_directions ; also STANDING
+	ld e, a
+	ld a, [wPlayerStepDirection]
+	ld [wPlayerStepDiagonal], a
+	ld a, e
+	ld [wPlayerStepDirection], a
+.got_step_directions
 	call AddStepVector
 	ld a, [wPlayerStepVectorX]
 	add d
@@ -1924,6 +1989,8 @@ ApplyMovementToFollower:
 	jr c, .queue
 	cp movement_bike_step
 	jr z, .queue
+	cp movement_diag_step
+	jr nc, .queue
 ; The following Pokémon only copies steps: emotes, fishing, digging,
 ; teleporting... are the player's own. (It's frozen while a script moves the
 ; player, so it would play them later: a leftover "!" emote over the player
@@ -2446,6 +2513,7 @@ HandleNPCStep::
 	ret nz
 	dec a
 	ld [wPlayerStepDirection], a
+	ld [wPlayerStepDiagonal], a
 	ret
 
 RefreshPlayerSprite:

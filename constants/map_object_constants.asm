@@ -287,3 +287,12 @@ DEF NUM_FACINGS EQU const_value
 	const STEP_BACK_LEDGE    ; 7
 	const STEP_WALK_IN_PLACE ; 8
 DEF NUM_STEPS EQU const_value
+
+; OBJECT_WALKING is STEP_* << 2 | direction (bits 0-3), or STANDING.
+; A diagonal step also moves one tile along the other axis:
+DEF WALK_DIAGONAL_F  EQU 5 ; set for a diagonal step
+DEF WALK_DIAG_PLUS_F EQU 4 ; the other axis moves right/down (else left/up)
+DEF WALK_DIAG_MASK   EQU 1 << WALK_DIAGONAL_F | 1 << WALK_DIAG_PLUS_F
+; From a standstill, a single direction waits this many frames for a second
+; one before the player steps straight (see DoPlayerMovement.DiagonalGrace).
+DEF DIAGONAL_GRACE_FRAMES EQU 4

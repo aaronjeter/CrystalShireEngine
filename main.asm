@@ -287,6 +287,10 @@ SECTION "bank20", ROMX
 INCLUDE "engine/overworld/player_movement.asm"
 INCLUDE "engine/events/engine_flags.asm"
 INCLUDE "engine/overworld/variables.asm"
+
+
+SECTION "Battle Text", ROMX
+
 INCLUDE "data/text/battle.asm"
 
 
@@ -674,3 +678,5 @@ INCLUDE "engine/overworld/follower.asm"
 SECTION "Repel Wore Off Script", ROMX
 
 INCLUDE "engine/events/repel.asm"
+
+INCLUDE "engine/overworld/diagonal_scroll.asm"

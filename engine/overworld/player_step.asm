@@ -68,10 +68,33 @@ HandlePlayerStep:
 	dw DoNothing ; .fail1
 
 .mobile
-	farjp StubbedTrainerRankings_StepCount
+; A diagonal step scrolls the map along its second axis one frame after the
+; first: the BG map buffer only holds one row or column per frame.
+	ld a, [wPlayerStepDiagonal]
+	cp STANDING
+	ret z
+.wait_bg_map
+	ldh a, [hBGMapUpdate]
+	and a
+	jr nz, .wait_bg_map ; the first axis's row hasn't been copied yet
+
+	ld a, [wPlayerStepDiagonal]
+	cp RIGHT
+	jr z, .right
+	call UpdateOverworldMapForDirection.ScrollOverworldMapLeft
+	jr .scrolled
+.right
+	call UpdateOverworldMapForDirection.ScrollOverworldMapRight
+.scrolled
+	call _LoadOverworldTilemap
+	farjp DiagonalColumnAndCorner
 
 UpdatePlayerCoords:
+	ld a, [wPlayerStepDiagonal]
+	cp STANDING
+	call nz, .apply
 	ld a, [wPlayerStepDirection]
+.apply
 	and a
 	jr nz, .check_step_down
 	ld hl, wYCoord
@@ -101,6 +124,7 @@ UpdatePlayerCoords:
 
 UpdateOverworldMap:
 	ld a, [wPlayerStepDirection]
+UpdateOverworldMapForDirection:
 	and a
 	jr z, .step_down
 	cp UP

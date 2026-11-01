@@ -61,12 +61,18 @@ endc
 
 .Normal:
 	call .CheckForced
+	call .DiagonalGrace
+	ret c
 	call .GetAction
 	call .CheckTile
 	ret c
-	call .CheckTurning
+	call .TryDiagonal
 	ret c
+; Walk off in a new direction without turning first; turn in place only
+; when the way is blocked (to face a wall, sign or person).
 	call .TryStep
+	ret c
+	call .CheckTurning
 	ret c
 	call .TryJump
 	ret c
@@ -76,8 +82,12 @@ endc
 
 .Surf:
 	call .CheckForced
+	call .DiagonalGrace
+	ret c
 	call .GetAction
 	call .CheckTile
+	ret c
+	call .TryDiagonal
 	ret c
 	call .CheckTurning
 	ret c
@@ -235,6 +245,446 @@ endc
 	call .DoStep
 	ld a, PLAYERMOVEMENT_CONTINUE
 	scf
+	ret
+
+.DiagonalGrace:
+; Starting from a standstill with one direction held, wait a few frames
+; before stepping straight: the second direction of a diagonal is rarely
+; pressed on exactly the same frame. Meanwhile the player turns to face the
+; direction at once, so a short tap still turns (to talk, surf, etc.).
+; Return carry while waiting.
+	ld hl, wDiagonalGrace
+	ld a, [wInputType]
+	cp AUTO_INPUT
+	jr z, .grace_reset ; scripted input (e.g. the step onto the water after Surf)
+	ld a, [wPlayerTurningDirection]
+	and a
+	jr nz, .grace_reset ; already walking
+	ld a, [wCurInput]
+	and D_PAD
+	jr z, .grace_reset
+	ld b, a
+	dec a
+	and b
+	jr nz, .grace_reset ; two or more directions: no need to wait
+	ld a, [hl]
+	cp DIAGONAL_GRACE_FRAMES
+	ret nc
+	inc [hl]
+; face the held direction
+	ld e, DOWN
+	bit D_DOWN_F, b
+	jr nz, .grace_got_dir
+	inc e ; UP
+	bit D_UP_F, b
+	jr nz, .grace_got_dir
+	inc e ; LEFT
+	bit D_LEFT_F, b
+	jr nz, .grace_got_dir
+	inc e ; RIGHT
+.grace_got_dir
+	ld a, [wPlayerDirection]
+	rrca
+	rrca
+	maskbits NUM_DIRECTIONS
+	cp e
+	jr z, .grace_wait
+	ld a, e
+	or movement_turn_head
+	ld [wMovementAnimation], a
+.grace_wait
+	ld a, PLAYERMOVEMENT_NORMAL
+	scf
+	ret
+
+.grace_reset
+	xor a
+	ld [hl], a
+	ret
+
+.TryDiagonal:
+; With a vertical and a horizontal direction held, step diagonally when the
+; current tile, the two tiles beside the way and the destination are all
+; plain floor or grass (plain water when surfing), nobody stands on them and no coord event would be
+; skipped. Otherwise walk along whichever of the two ways is open.
+	ld a, [wCurInput]
+	and D_UP | D_DOWN
+	ret z
+	cp D_UP | D_DOWN
+	ret z
+	ld a, [wCurInput]
+	and D_LEFT | D_RIGHT
+	ret z
+	cp D_LEFT | D_RIGHT
+	ret z
+
+	ld b, LEFT
+	bit D_RIGHT_F, a
+	jr z, .got_x
+	ld b, RIGHT
+.got_x
+	ld c, UP
+	ld a, [wCurInput]
+	bit D_DOWN_F, a
+	jr z, .got_y
+	ld c, DOWN
+.got_y
+	ld a, b
+	ld [wDiagonalX], a
+	ld a, c
+	ld [wDiagonalY], a
+
+; The main (facing) direction: the current facing if it's one of the two,
+; else the vertical one.
+	ld a, [wPlayerDirection]
+	rrca
+	rrca
+	maskbits NUM_DIRECTIONS
+	cp b
+	jr z, .got_main
+	cp c
+	jr z, .got_main
+	ld a, c
+.got_main
+	ld [wDiagonalMain], a
+
+	call CheckStandingOnIce
+	jp c, .walk_straight
+	ld a, [wPlayerTileCollision]
+	call .IsDiagonalTile
+	jp nz, .walk_straight
+
+; walls on the current tile's edges
+	ld a, [wDiagonalX]
+	call .DirectionMask
+	ld b, a
+	ld a, [wDiagonalY]
+	call .DirectionMask
+	or b
+	ld b, a
+	ld a, [wTilePermissions]
+	and b
+	jp nz, .walk_straight
+
+; the tiles beside the way
+	ld a, [wDiagonalX]
+	call .NeighborTile
+	call .IsDiagonalTile
+	jp nz, .walk_straight
+	ld a, [wDiagonalY]
+	call .NeighborTile
+	call .IsDiagonalTile
+	jp nz, .walk_straight
+
+; stay inside the map (no connections or edge warps)
+	ld a, [wDiagonalX]
+	call .DirectionDelta
+	ld hl, wXCoord
+	add [hl]
+	ld d, a
+	ld a, [wMapWidth]
+	add a
+	ld e, a
+	ld a, d
+	cp e
+	jp nc, .walk_straight
+	ld a, [wDiagonalY]
+	call .DirectionDelta
+	ld hl, wYCoord
+	add [hl]
+	ld d, a
+	ld a, [wMapHeight]
+	add a
+	ld e, a
+	ld a, d
+	cp e
+	jp nc, .walk_straight
+
+; the destination tile, then objects there and beside the way
+	call .DiagonalCoords
+	push de
+	call GetCoordTileCollision
+	pop de
+	call .IsDiagonalTile
+	jp nz, .walk_straight
+	call .IsBlockingObjectAt
+	jp c, .walk_straight
+	call .DiagonalCoords
+	ld a, [wPlayerMapY]
+	ld e, a
+	push de
+	call .IsBlockingObjectAt
+	pop de
+	jr c, .walk_straight
+	call .IsCoordEventAt
+	jr c, .walk_straight
+	call .DiagonalCoords
+	ld a, [wPlayerMapX]
+	ld d, a
+	push de
+	call .IsBlockingObjectAt
+	pop de
+	jr c, .walk_straight
+	call .IsCoordEventAt
+	jr c, .walk_straight
+
+; Step. Set up the main direction's walking info first.
+	ld a, [wDiagonalMain]
+	call .SetInputDirection
+	call .GetAction
+	call .IsSurfing
+	ld a, DIAG_WALK
+	jr z, .got_speed
+	call .BikeCheck
+	ld a, DIAG_BIKE
+	jr z, .got_speed
+	ld a, [wCurInput]
+	and B_BUTTON
+	ld a, DIAG_RUN
+	jr nz, .got_speed
+	ld a, DIAG_WALK
+.got_speed
+	ld [wDiagonalSpeed], a
+	add a
+	add a
+	add a
+	ld b, a
+	ld a, [wDiagonalMain]
+	ld e, a
+	add a
+	add b
+	ld b, a
+; + 1 if the other direction is RIGHT or DOWN
+	ld a, e
+	cp LEFT
+	jr nc, .other_is_y
+	ld a, [wDiagonalX]
+	cp RIGHT
+	jr .add_plus
+.other_is_y
+	ld a, [wDiagonalY]
+	cp DOWN
+.add_plus
+	ld a, b
+	jr nz, .no_plus
+	inc a
+.no_plus
+	add movement_diag_step
+	ld [wMovementAnimation], a
+	ld a, e
+	or $80 ; see .FinishFacing
+	ld [wPlayerTurningDirection], a
+	ld a, [wDiagonalSpeed]
+	cp DIAG_RUN
+	call z, CheckTrainerRun
+	ld a, PLAYERMOVEMENT_FINISH
+	scf
+	ret
+
+.walk_straight
+; Walk along the main direction if it's open, else along the other one.
+	ld a, [wDiagonalMain]
+	ld e, a
+	call .DirectionMask
+	ld b, a
+	ld a, [wTilePermissions]
+	and b
+	jr nz, .take_other
+	ld a, e
+	call .NeighborTile
+	call .CanStepStraightOnto
+	jr c, .take_other
+	ld a, [wDiagonalMain]
+	jr .take
+.take_other
+	ld a, [wDiagonalMain]
+	ld e, a
+	ld a, [wDiagonalX]
+	cp e
+	jr nz, .take
+	ld a, [wDiagonalY]
+.take
+	call .SetInputDirection
+	call .GetAction
+	xor a
+	ret
+
+.SetInputDirection:
+; Keep only direction a in wCurInput's D-pad bits.
+	ld e, a
+	ld d, 0
+	ld hl, .forced_dpad
+	add hl, de
+	ld a, [wCurInput]
+	and BUTTONS
+	or [hl]
+	ld [wCurInput], a
+	ret
+
+.DiagonalCoords:
+; de = the destination's object coords
+	ld a, [wDiagonalX]
+	call .DirectionDelta
+	ld hl, wPlayerMapX
+	add [hl]
+	ld d, a
+	ld a, [wDiagonalY]
+	call .DirectionDelta
+	ld hl, wPlayerMapY
+	add [hl]
+	ld e, a
+	ret
+
+.DirectionDelta:
+; a = -1 for UP or LEFT, 1 for DOWN or RIGHT
+	cp UP
+	jr z, .minus
+	cp LEFT
+	jr z, .minus
+	ld a, 1
+	ret
+.minus
+	ld a, -1
+	ret
+
+.DirectionMask:
+; wTilePermissions bit for direction a
+	push hl
+	push de
+	ld e, a
+	ld d, 0
+	ld hl, .direction_masks
+	add hl, de
+	ld a, [hl]
+	pop de
+	pop hl
+	ret
+
+.direction_masks
+	db DOWN_MASK, UP_MASK, LEFT_MASK, RIGHT_MASK
+
+.NeighborTile:
+; collision of the tile next to the player in direction a
+	ld e, a
+	ld d, 0
+	ld hl, .neighbor_tiles
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [hl]
+	ret
+
+.neighbor_tiles
+	dw wTileDown, wTileUp, wTileLeft, wTileRight
+
+.IsDiagonalTile:
+; Return z if collision a can be crossed diagonally: any plain land tile
+; (collision $00-$1f with land permission: floor, grass, the "garbage" floor
+; types some tilesets use), or when surfing any plain water tile ($2x with
+; water permission: not whirlpools, currents, waterfalls or buoys).
+	push bc
+	ld b, a
+	call .IsSurfing
+	ld a, b
+	jr z, .check_water
+	cp $20
+	jr nc, .not_diagonal_tile
+	call GetTilePermission
+	cp LAND_TILE
+	pop bc
+	ret
+
+.check_water
+	and $f0
+	cp HI_NYBBLE_WATER
+	jr nz, .not_diagonal_tile
+	ld a, b
+	call GetTilePermission
+	cp WATER_TILE
+	pop bc
+	ret
+
+.not_diagonal_tile
+	pop bc
+	or 1 ; nz
+	ret
+
+.IsSurfing:
+; Return z if surfing.
+	ld a, [wPlayerState]
+	cp PLAYER_SURF
+	ret z
+	cp PLAYER_SURF_PIKA
+	ret
+
+.CanStepStraightOnto:
+; Return carry if collision a can't be walked onto (or surfed or landed on
+; when surfing).
+	push bc
+	ld b, a
+	call .IsSurfing
+	ld a, b
+	pop bc
+	jp z, .CheckSurfable
+	jp .CheckWalkable
+
+.IsBlockingObjectAt:
+; Return carry if an object other than the player or the following Pokémon
+; is at (or stepping from) object coords de.
+	xor a
+	ldh [hMapObjectIndex], a
+	farcall IsNPCAtCoord
+	ret nc
+	ld hl, OBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	cp SPRITE_FOLLOWER
+	scf
+	ret nz
+	and a
+	ret
+
+.IsCoordEventAt:
+; Return carry if any coord event (in any scene) is at object coords de.
+	ld a, [wCurMapCoordEventCount]
+	and a
+	ret z
+	ld c, a
+	ld a, d
+	sub 4
+	ld d, a
+	ld a, e
+	sub 4
+	ld e, a
+	ld hl, wCurMapCoordEventsPointer
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	inc hl ; skip the scene id
+.coord_loop
+	call GetMapScriptsBank
+	call GetFarByte
+	cp e
+	jr nz, .coord_next
+	inc hl
+	call GetMapScriptsBank
+	call GetFarByte
+	dec hl
+	cp d
+	scf
+	ret z
+.coord_next
+	ld a, COORD_EVENT_SIZE
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	dec c
+	jr nz, .coord_loop
+	and a
 	ret
 
 .CheckTurning:

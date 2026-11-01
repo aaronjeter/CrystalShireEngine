@@ -95,6 +95,9 @@ MovementPointers:
 	dw Movement_bike_step_up          ; 5b
 	dw Movement_bike_step_left        ; 5c
 	dw Movement_bike_step_right       ; 5d
+for n, NUM_DIAG_SPEEDS * 8
+	dw Movement_diag_step_{d:n}       ; 5e+
+endr
 	assert_table_length NUM_MOVEMENT_CMDS
 
 Movement_teleport_from:
@@ -491,6 +494,16 @@ Movement_do_step:
 	ld d, OBJECT_ACTION_STEP
 Movement_normal_step:
 	jmp NormalStep
+
+for n, NUM_DIAG_SPEEDS * 8
+Movement_diag_step_{d:n}:
+	ld a, ((n / 8) + STEP_WALK) << 2 | ((n % 8) / 2) | 1 << WALK_DIAGONAL_F | (n % 2) << WALK_DIAG_PLUS_F
+	if n / 8 == DIAG_RUN
+		jr Movement_do_run
+	else
+		jr Movement_do_step
+	endc
+endr
 
 Movement_big_step_down:
 	ld a, STEP_RUN << 2 | DOWN

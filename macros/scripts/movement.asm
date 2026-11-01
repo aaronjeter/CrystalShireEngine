@@ -226,4 +226,17 @@ ENDM
 
 	const_skip 3
 
+; Diagonal steps (movement feel prototype). 8 per speed: the facing (main)
+; direction * 2, + 1 if the other axis moves right/down.
+; \1: DIAG_WALK, DIAG_RUN or DIAG_BIKE; \2: facing direction; \3: other direction
+	const movement_diag_step ; $5e
+DEF DIAG_WALK EQU 0
+DEF DIAG_RUN  EQU 1
+DEF DIAG_BIKE EQU 2
+DEF NUM_DIAG_SPEEDS EQU 3
+MACRO diag_step
+	db movement_diag_step + (\1) * 8 + (\2) * 2 + ((\3) == RIGHT || (\3) == DOWN)
+ENDM
+	const_skip NUM_DIAG_SPEEDS * 8 - 1
+
 DEF NUM_MOVEMENT_CMDS EQU const_value

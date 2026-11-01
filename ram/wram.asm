@@ -3384,6 +3384,16 @@ SECTION "Follower GFX Buffer", WRAMX, BANK[2]
 wFollowerGFXBuffer:: ds 28 tiles ; a decompressed follower sprite (see DecompressFollowerGFX), + 4 tiles of scratch
 
 
+SECTION "Diagonal Movement RAM", WRAMX, BANK[1]
+
+wPlayerStepDiagonal:: db ; a diagonal step's other direction, or STANDING
+wDiagonalX:: db
+wDiagonalY:: db
+wDiagonalMain:: db
+wDiagonalSpeed:: db
+wDiagonalGrace:: db ; frames a single direction has been held from a standstill
+
+
 SECTION "Tile Animation RAM", WRAMX, BANK[1]
 
 wWaveTileFrame:: db ; frame counter for AnimateDeepWaveTile (Hoenn deep water)

@@ -141,7 +141,14 @@ HandleMap:
 	call NextOverworldFrame
 	call HandleMapBackground
 	call CheckPlayerState
+; The frame after a step ends runs the step's events, picks the next step and
+; loads its map tiles: skip the weather then, or the frame can run long and
+; the screen stutters for a frame.
+	ld a, [wPlayerStepFlags]
+	bit PLAYERSTEP_STOP_F, a
+	jr nz, .skip_weather
 	farcall DoOverworldWeather
+.skip_weather
 	farcall WeatherFadeStep
 	xor a
 	ret
@@ -247,7 +254,21 @@ _CheckObjectEnteringVisibleRange:
 	ld hl, wPlayerStepFlags
 	bit PLAYERSTEP_STOP_F, [hl]
 	ret z
-	farjp CheckObjectEnteringVisibleRange
+	farcall CheckObjectEnteringVisibleRange
+; A diagonal step also brings objects in along its other axis.
+	ld a, [wPlayerStepDiagonal]
+	cp STANDING
+	ret z
+	ld hl, wPlayerStepDirection
+	ld b, [hl]
+	ld [hl], a
+	push bc
+	push hl
+	farcall CheckObjectEnteringVisibleRange
+	pop hl
+	pop bc
+	ld [hl], b
+	ret
 
 PlayerEvents:
 	xor a
