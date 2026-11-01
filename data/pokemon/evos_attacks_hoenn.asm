@@ -2347,7 +2347,8 @@ SwabluEvosAttacks:
 	dbw 54, RECOVER
 	dbw 57, DOUBLE_EDGE
 	dbw 60, OUTRAGE
-	dbw 65, PERISH_SONG
+	dbw 63, PERISH_SONG
+	dbw 66, LUSTER_PURGE
 	dbw 70, SKY_ATTACK
 	db 0 ; no more level-up moves
 
@@ -2374,7 +2375,8 @@ AltariaEvosAttacks:
 	dbw 54, RECOVER
 	dbw 57, DOUBLE_EDGE
 	dbw 60, OUTRAGE
-	dbw 65, PERISH_SONG
+	dbw 63, PERISH_SONG
+	dbw 66, LUSTER_PURGE
 	dbw 70, SKY_ATTACK
 	db 0 ; no more level-up moves
 

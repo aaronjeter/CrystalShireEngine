@@ -394,7 +394,6 @@ ChikoritaEggMoves:
 CyndaquilEggMoves:
 	dw FURY_SWIPES
 	dw REVERSAL
-	dw THRASH
 	dw FORESIGHT
 	dw SUBMISSION
 	dw EXTRASENSORY
@@ -1077,7 +1076,6 @@ SeviperEggMoves:
 	dw -1 ; end
 
 Exeggcute2EggMoves:
-	dw SYNTHESIS
 	dw MOONLIGHT
 	dw REFLECT
 	dw MEGA_DRAIN
@@ -1095,7 +1093,6 @@ Scyther2EggMoves:
 
 Tentacool2EggMoves:
 	dw AURORA_BEAM
-	dw MIRROR_COAT
 	dw RAPID_SPIN
 	dw HAZE
 	dw SAFEGUARD

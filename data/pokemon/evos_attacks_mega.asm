@@ -54,45 +54,61 @@ Bayleef2EvosAttacks:
 	dbbw EVOLVE_LEVEL, 32, MEGANIUM2
 	dbww EVOLVE_ITEM, LEAF_STONE, BAYLEEF
 	db 0 ; no more evolutions
-	dbw 1, BUBBLE
-	dbw 5, ABSORB
-	dbw 8, GROWL
-	dbw 12, LEECH_SEED
-	dbw 16, VINE_WHIP
-	dbw 20, RAIN_DANCE
-	dbw 24, BUBBLEBEAM
-	dbw 28, RAZOR_LEAF
-	dbw 32, AURORA_BEAM
-	dbw 36, COSMIC_POWER
+	dbw 1, TACKLE
+	dbw 1, GROWL
+	dbw 4, BUBBLE
+	dbw 7, ABSORB
+	dbw 10, LEECH_SEED
+	dbw 13, MAGICAL_LEAF
+	dbw 16, BUBBLEBEAM
+	dbw 19, AQUA_RING
+	dbw 22, RAZOR_LEAF
+	dbw 25, SYNTHESIS
+	dbw 28, RAIN_DANCE
+	dbw 31, SUNNY_DAY
+	dbw 34, AURORA_BEAM
+	dbw 37, SAFEGUARD
 	dbw 40, GIGA_DRAIN
-	dbw 45, MIST_BALL
-	dbw 50, RECOVER	
-	dbw 55, ICE_BEAM
-	dbw 60, HYDRO_PUMP
-	dbw 65, MIRROR_COAT
-	dbw 70, FRENZY_PLANT
+	dbw 43, SCALD
+	dbw 46, COSMIC_POWER
+	dbw 49, CALM_MIND
+	dbw 52, MIST_BALL
+	dbw 55, RECOVER
+	dbw 58, ICE_BEAM
+	dbw 61, MIRROR_COAT
+	dbw 64, SOLARBEAM
+	dbw 68, HYDRO_PUMP
+	dbw 72, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
 Meganium2EvosAttacks:
 	dbww EVOLVE_ITEM, LEAF_STONE, MEGANIUM
 	db 0 ; no more evolutions
-	dbw 1, BUBBLE
-	dbw 5, ABSORB
-	dbw 8, GROWL
-	dbw 12, LEECH_SEED
-	dbw 16, VINE_WHIP
-	dbw 20, RAIN_DANCE
-	dbw 24, BUBBLEBEAM
-	dbw 28, RAZOR_LEAF
-	dbw 32, AURORA_BEAM
-	dbw 36, COSMIC_POWER
+	dbw 1, TACKLE
+	dbw 1, GROWL
+	dbw 4, BUBBLE
+	dbw 7, ABSORB
+	dbw 10, LEECH_SEED
+	dbw 13, MAGICAL_LEAF
+	dbw 16, BUBBLEBEAM
+	dbw 19, AQUA_RING
+	dbw 22, RAZOR_LEAF
+	dbw 25, SYNTHESIS
+	dbw 28, RAIN_DANCE
+	dbw 31, SUNNY_DAY
+	dbw 34, AURORA_BEAM
+	dbw 37, SAFEGUARD
 	dbw 40, GIGA_DRAIN
-	dbw 45, MIST_BALL
-	dbw 50, RECOVER	
-	dbw 55, ICE_BEAM
-	dbw 60, HYDRO_PUMP
-	dbw 65, MIRROR_COAT
-	dbw 70, FRENZY_PLANT
+	dbw 43, SCALD
+	dbw 46, COSMIC_POWER
+	dbw 49, CALM_MIND
+	dbw 52, MIST_BALL
+	dbw 55, RECOVER
+	dbw 58, ICE_BEAM
+	dbw 61, MIRROR_COAT
+	dbw 64, SOLARBEAM
+	dbw 68, HYDRO_PUMP
+	dbw 72, FRENZY_PLANT
 	db 0 ; no more level-up moves
 
 DragonitexEvosAttacks:
@@ -687,7 +703,8 @@ AltariaxEvosAttacks:
 	dbw 54, RECOVER
 	dbw 57, DOUBLE_EDGE
 	dbw 60, OUTRAGE
-	dbw 65, PERISH_SONG
+	dbw 63, PERISH_SONG
+	dbw 66, LUSTER_PURGE
 	dbw 70, SKY_ATTACK
 	db 0 ; no more level-up moves
 
@@ -1194,91 +1211,102 @@ MercuryEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, BUBBLE
 	dbw 1, POWDER_SNOW
-	dbw 8, GROWL
-	dbw 12, PIXIE_DUST
-	dbw 16, FROSTBITE
-	dbw 20, RAIN_DANCE
+	dbw 5, GROWL
+	dbw 9, PIXIE_DUST
+	dbw 13, WATER_PULSE
+	dbw 17, FROSTBITE
+	dbw 21, AQUA_RING
 	dbw 24, BUBBLEBEAM
-	dbw 25, AURORA_BEAM
-	dbw 28, DRAININGKISS
-	dbw 32, RECOVER
-	dbw 36, CALM_MIND
-	dbw 40, MIST_BALL
-	dbw 45, ICE_BEAM
-	dbw 50, FAERIEGLEAM
-	dbw 55, HEAL_BELL
+	dbw 27, AURORA_BEAM
+	dbw 30, DRAININGKISS
+	dbw 33, RAIN_DANCE
+	dbw 36, RECOVER
+	dbw 39, CALM_MIND
+	dbw 42, SCALD
+	dbw 45, MIST_BALL
+	dbw 48, ICE_BEAM
+	dbw 51, HEAL_BELL
+	dbw 54, SAFEGUARD
+	dbw 57, FAERIEGLEAM
 	dbw 60, HYDRO_PUMP
 	dbw 65, BLIZZARD
 	dbw 70, MOONBLAST
-	dbw 75, HYDRO_CANNON
 	db 0 ; no more level-up moves
 
 VenusEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, SAND_ATTACK
 	dbw 1, LEECH_SEED
-	dbw 8, VINE_WHIP
-	dbw 12, ROCK_THROW
-	dbw 16, STUN_SPORE
-	dbw 20, SANDSTORM
-	dbw 24, MAGNITUDE
-	dbw 25, NEEDLE_ARM
-	dbw 28, ROCK_TOMB
-	dbw 32, RECOVER
-	dbw 36, BULK_UP
-	dbw 40, EARTHQUAKE
-	dbw 45, LEAF_BLADE
-	dbw 50, ROCK_SLIDE
-	dbw 55, HEAL_BELL
-	dbw 60, TOXIC
-	dbw 65, PETAL_DANCE
-	dbw 70, STONE_EDGE
-	dbw 75, FISSURE
+	dbw 5, VINE_WHIP
+	dbw 9, ROCK_THROW
+	dbw 13, MUD_SLAP
+	dbw 17, STUN_SPORE
+	dbw 21, BULLDOZE
+	dbw 24, NEEDLE_ARM
+	dbw 27, ROCK_TOMB
+	dbw 30, SPIKES
+	dbw 33, SANDSTORM
+	dbw 36, RECOVER
+	dbw 39, BULK_UP
+	dbw 42, SWORDS_DANCE
+	dbw 45, EARTHQUAKE
+	dbw 48, LEAF_BLADE
+	dbw 51, HEAL_BELL
+	dbw 54, ROCK_SLIDE
+	dbw 57, TOXIC
+	dbw 60, PETAL_DANCE
+	dbw 65, STONE_EDGE
+	dbw 70, FISSURE
 	db 0 ; no more level-up moves
 
 MarsEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, EMBER
 	dbw 1, TWISTER
-	dbw 8, BITE
-	dbw 12, GROWL
-	dbw 16, WILLOWISP
-	dbw 20, SUNNY_DAY
-	dbw 24, FIRE_SPIN
-	dbw 25, DRAGON_RAGE
-	dbw 28, SNARL
-	dbw 32, REFLECT
-	dbw 36, CALM_MIND
-	dbw 40, FLAMETHROWER
-	dbw 45, DRAGONBREATH
-	dbw 50, CHARGE
-	dbw 55, DARK_PULSE
-	dbw 60, RECOVER
-	dbw 65, BEAT_UP
-	dbw 70, SOLARBEAM
-	dbw 75, BLAST_BURN
+	dbw 5, GROWL
+	dbw 9, SMOKESCREEN
+	dbw 13, DRAGON_RAGE
+	dbw 17, WILLOWISP
+	dbw 21, FIRE_SPIN
+	dbw 24, SNARL
+	dbw 27, MYSTICAL_FIRE
+	dbw 30, REFLECT
+	dbw 33, SUNNY_DAY
+	dbw 36, RECOVER
+	dbw 39, CALM_MIND
+	dbw 42, DRAGONBREATH
+	dbw 45, FLAMETHROWER
+	dbw 48, DARK_PULSE
+	dbw 51, LIGHT_SCREEN
+	dbw 54, LAVA_PLUME
+	dbw 57, SOLARBEAM
+	dbw 60, FIRE_BLAST
+	dbw 65, HEAT_WAVE
 	db 0 ; no more level-up moves
 
 JupiterEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 1, GUST
-	dbw 8, CONFUSION
-	dbw 12, GROWL
-	dbw 16, THUNDER_WAVE
-	dbw 20, SILVER_WIND
-	dbw 24, SHOCK_WAVE
-	dbw 25, AIR_CUTTER
-	dbw 28, PSYBEAM
-	dbw 32, LIGHT_SCREEN
-	dbw 36, CALM_MIND
-	dbw 40, THUNDERBOLT
+	dbw 5, GROWL
+	dbw 9, CONFUSION
+	dbw 13, THUNDER_WAVE
+	dbw 17, SHOCK_WAVE
+	dbw 21, AIR_CUTTER
+	dbw 24, PSYBEAM
+	dbw 27, CHARGE_BEAM
+	dbw 30, LIGHT_SCREEN
+	dbw 33, RAIN_DANCE
+	dbw 36, RECOVER
+	dbw 39, CALM_MIND
+	dbw 42, THUNDERBOLT
 	dbw 45, RAZOR_WIND
-	dbw 50, CHARGE
-	dbw 55, RAIN_DANCE
+	dbw 48, PSYCHIC_M
+	dbw 51, CHARGE
+	dbw 54, DISCHARGE
+	dbw 57, AGILITY
 	dbw 60, THUNDER
 	dbw 65, HURRICANE
-	dbw 70, PSYCHIC_M
 	dbw 75, AEROBLAST
 	db 0 ; no more level-up moves
 
