@@ -8,7 +8,10 @@
 	const OPT_MENU_ACCOUNT  ; 5
 	const OPT_FRAME         ; 6
 	const OPT_CANCEL        ; 7
-DEF NUM_OPTIONS EQU const_value ; 8
+DEF OPT_PAGE2 EQU const_value ; first option on page 2
+	const OPT_BATTLES       ; 8
+	const OPT_CANCEL2       ; 9
+DEF NUM_OPTIONS EQU const_value ; 10
 
 _Option:
 	call ClearJoypad
@@ -17,32 +20,10 @@ _Option:
 	push af
 	ld [hl], TRUE
 	call ClearBGPalettes
-	hlcoord 0, 0
-	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
-	call Textbox
-	hlcoord 2, 2
-	ld de, StringOptions
-	rst PlaceString
 	xor a
 	ld [wJumptableIndex], a
-
-; display the settings of each option when the menu is opened
-	ld c, NUM_OPTIONS - 2 ; omit frame type, the last option
-.print_text_loop
-	push bc
-	xor a
-	ldh [hJoyLast], a
-	call GetOptionPointer
-	pop bc
-	ld hl, wJumptableIndex
-	inc [hl]
-	dec c
-	jr nz, .print_text_loop
-	call UpdateFrame ; display the frame type
-
-	xor a
-	ld [wJumptableIndex], a
-	inc a
+	call Options_DrawPage
+	ld a, 1
 	ldh [hBGMapMode], a
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA
@@ -54,11 +35,31 @@ _Option:
 	ldh a, [hJoyPressed]
 	and START | B_BUTTON
 	jr nz, .ExitOptions
+	ld a, [wJumptableIndex]
+	push af
 	call OptionsControl
-	jr c, .dpad
+	pop bc ; b = the option before the move (keeps the flags)
+	jr c, .moved
 	call GetOptionPointer
 	jr c, .ExitOptions
+	jr .dpad
 
+.moved
+	; redraw if the cursor moved to the other page
+	ld a, b
+	cp OPT_PAGE2
+	sbc a
+	ld c, a
+	ld a, [wJumptableIndex]
+	cp OPT_PAGE2
+	sbc a
+	cp c
+	jr z, .same_page
+	xor a
+	ldh [hBGMapMode], a
+	call Options_DrawPage
+	call WaitBGMap ; also turns hBGMapMode back on
+.same_page
 .dpad
 	call Options_UpdateCursorPosition
 	ld c, 3
@@ -90,6 +91,62 @@ StringOptions:
 	db "        :TYPE<LF>"
 	db "Cancel@"
 
+StringOptionsPage2:
+	db "Battles<LF>"
+	db "        :<LF>"
+	db "Cancel@"
+
+Options_DrawPage:
+; Draw the page that holds option [wJumptableIndex], with the current settings.
+	ld a, [wJumptableIndex]
+	push af
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
+	call Textbox
+	pop af
+	push af
+	cp OPT_PAGE2
+	jr nc, .page2
+	hlcoord 2, 2
+	ld de, StringOptions
+	rst PlaceString
+	hlcoord 18, 16
+	ld [hl], "▼"
+	lb bc, OPT_TEXT_SPEED, OPT_FRAME - OPT_TEXT_SPEED ; frame type is shown by UpdateFrame
+	call .PrintSettings
+	call UpdateFrame
+	jr .done
+
+.page2
+	hlcoord 2, 2
+	ld de, StringOptionsPage2
+	rst PlaceString
+	hlcoord 18, 1
+	ld [hl], "▲"
+	lb bc, OPT_BATTLES, OPT_CANCEL2 - OPT_BATTLES
+	call .PrintSettings
+.done
+	pop af
+	ld [wJumptableIndex], a
+	ret
+
+.PrintSettings:
+; print c settings starting at option b (with no button pressed)
+	ld a, b
+	ld [wJumptableIndex], a
+.loop
+	push bc
+	xor a
+	ldh [hJoyLast], a
+	ldh [hJoyPressed], a
+	call GetOptionPointer
+	pop bc
+	ld hl, wJumptableIndex
+	inc [hl]
+	dec c
+	jr nz, .loop
+	ret
+
 GetOptionPointer:
 	jumptable .Pointers, wJumptableIndex
 
@@ -102,6 +159,8 @@ GetOptionPointer:
 	dw Options_Follower
 	dw Options_MenuAccount
 	dw Options_Frame
+	dw Options_Cancel
+	dw Options_Battles
 	dw Options_Cancel
 
 	const_def
@@ -403,6 +462,29 @@ UpdateFrame:
 	and a
 	ret
 
+Options_Battles:
+; TRAINER_DOUBLES in wOptions2: Normal (only double-battle trainers) or Doubles (every trainer).
+	ld hl, wOptions2
+	ldh a, [hJoyPressed]
+	and D_LEFT | D_RIGHT
+	jr z, .Display
+	ld a, [hl]
+	xor 1 << TRAINER_DOUBLES
+	ld [hl], a
+.Display:
+	ld de, .Normal
+	bit TRAINER_DOUBLES, [hl]
+	jr z, .got_string
+	ld de, .Doubles
+.got_string
+	hlcoord 11, 3
+	rst PlaceString
+	and a
+	ret
+
+.Normal:  db "Normal @"
+.Doubles: db "Doubles@"
+
 Options_Cancel:
 	ldh a, [hJoyPressed]
 	and A_BUTTON
@@ -426,16 +508,11 @@ OptionsControl:
 
 .DownPressed:
 	ld a, [hl]
-	cp OPT_CANCEL ; maximum option index
-	jr nz, .CheckMenuAccount
+	cp NUM_OPTIONS - 1 ; maximum option index
+	jr nz, .Increase
 	ld [hl], OPT_TEXT_SPEED ; first option
 	scf
 	ret
-
-.CheckMenuAccount: ; I have no idea why this exists...
-	cp OPT_MENU_ACCOUNT
-	jr nz, .Increase
-	ld [hl], OPT_MENU_ACCOUNT
 
 .Increase:
 	inc [hl]
@@ -444,18 +521,9 @@ OptionsControl:
 
 .UpPressed:
 	ld a, [hl]
-
-; Another thing where I'm not sure why it exists
-	cp OPT_FRAME
-	jr nz, .NotFrame
-	ld [hl], OPT_MENU_ACCOUNT
-	scf
-	ret
-
-.NotFrame:
 	and a ; OPT_TEXT_SPEED, minimum option index
 	jr nz, .Decrease
-	ld [hl], NUM_OPTIONS ; decrements to OPT_CANCEL, maximum option index
+	ld [hl], NUM_OPTIONS ; decrements to the last option on page 2
 
 .Decrease:
 	dec [hl]
@@ -474,6 +542,10 @@ Options_UpdateCursorPosition:
 	hlcoord 1, 2
 	ld bc, 2 * SCREEN_WIDTH
 	ld a, [wJumptableIndex]
+	cp OPT_PAGE2
+	jr c, .got_row
+	sub OPT_PAGE2
+.got_row
 	rst AddNTimes
 	ld [hl], "▶"
 	ret

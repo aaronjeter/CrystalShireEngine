@@ -78,6 +78,7 @@ DEF GBPRINTER_DARKEST  EQU $7f
 	const_def
 	const MENU_ACCOUNT ; 0
 	const FOLLOWER_OFF ; 1 (0 = the lead Pokémon follows the player)
+	const TRAINER_DOUBLES ; 2 (1 = trainer battles are double battles, when the trainer has 2+ Pokémon)
 
 ; wFollowerFlags::
 DEF FOLLOWER_HIDDEN_BY_SCRIPT_F EQU 0 ; hidefollower (cleared by showfollower or a map load)

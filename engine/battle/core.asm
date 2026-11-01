@@ -7189,7 +7189,16 @@ InitEnemyTrainer:
 	jr nz, .not_double
 	ld a, [wOtherTrainerType]
 	and 1 << TRAINERTYPE_DOUBLE_F
-	ld a, 1
+	jr nz, .set_double
+	; the Battles option (Doubles) makes every trainer with 2+ Pokémon a double battle
+	ld a, [wOptions2]
+	and 1 << TRAINER_DOUBLES
+	jr z, .set_double
+	ld a, [wOTPartyCount]
+	cp 2
+	sbc a ; $ff if fewer than 2
+	inc a ; 0 if fewer than 2, else 1
+.set_double
 	ld [wDoubleBattle], a
 .not_double
 
