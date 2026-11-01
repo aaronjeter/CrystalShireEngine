@@ -142,17 +142,22 @@ DoublesEnterScreen:
 
 DoublesLeaveScreen:
 ; Back to the singles layout (for the trainer's pic at the end of a double battle).
+; Blank the field on screen first, still with the double battle attributes: the singles
+; layout (FinishBattleAnim) shows a frame, and E2's and P2's pic tiles would show as
+; VRAM bank 0 tiles (the font) in it.
 	ldh a, [hDoublesScreen]
 	rra ; DOUBLES_SCREEN_F
 	ret nc
 	xor a
-	ldh [hDoublesScreen], a
-	ld [wDoublesShown], a
 	ldh [hBGMapMode], a
 	hlcoord 0, 0
 	ld bc, (TEXTBOX_Y + 1) * SCREEN_WIDTH
 	ld a, " "
 	rst ByteFill
+	call CopyTilemapAtOnce
+	xor a
+	ldh [hDoublesScreen], a
+	ld [wDoublesShown], a
 	farcall FinishBattleAnim
 	call CopyTilemapAtOnce
 	ld a, 1
