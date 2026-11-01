@@ -194,31 +194,45 @@ RollAbilitySlot::
 	ret
 
 RollWildAbilitySlot:
-; Like RollAbilitySlot, for a wild Pokemon of species a (8-bit ID): the
-; setnextability slot if one is waiting, else a WILD_HIDDEN_ABILITY_CHANCE
-; chance of the hidden ability (if the species has one), else ability 1 or 2
-; as in RollAbilitySlot.
+; RollAbilitySlot for a wild Pokemon of species a (8-bit ID): first a chance
+; of the hidden ability (MaybeHiddenAbility), then the usual roll.
 ; out: a = ABILITY_SLOT_*. Preserves bc, de and hl.
+	push af
+	call MaybeHiddenAbility
+	pop af
+	jmp RollAbilitySlot
+
+RollGiftHiddenAbility::
+; Called by givepoke before GivePoke: the same hidden ability chance as wild
+; Pokemon, for species wCurPartySpecies. Preserves all registers but a.
+	ld a, [wCurPartySpecies]
+	; fallthrough
+
+MaybeHiddenAbility:
+; Unless setnextability already chose a slot, make the next RollAbilitySlot
+; for species a (8-bit ID) give the hidden ability, WILD_HIDDEN_ABILITY_CHANCE
+; of the time, if the species has one. Preserves bc, de and hl.
 	push bc
+	push de
+	push hl
 	ld c, a
 	ld a, [wAbilitySlotOverride]
 	and a
-	jr nz, .normal_roll ; RollAbilitySlot uses and clears it
+	jr nz, .done ; setnextability wins
 	ld a, c
 	ld b, ABILITY_SLOT_HIDDEN
 	call GetSpeciesIDAbility
-	jr c, .normal_roll ; no hidden ability
+	jr c, .done ; no hidden ability
 	call Random
 	cp WILD_HIDDEN_ABILITY_CHANCE
-	jr nc, .normal_roll
-	ld a, ABILITY_SLOT_HIDDEN
+	jr nc, .done
+	ld a, ABILITY_SLOT_HIDDEN + 1
+	ld [wAbilitySlotOverride], a
+.done
+	pop hl
+	pop de
 	pop bc
 	ret
-
-.normal_roll
-	ld a, c
-	pop bc
-	jmp RollAbilitySlot
 
 SetBattleMonAbility::
 ; Set wBattleMonAbility from wBattleMonSpecies and the ability slot of

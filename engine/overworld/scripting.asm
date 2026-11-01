@@ -1950,7 +1950,10 @@ Script_givepoke:
 	rst GetScriptByte
 	rst GetScriptByte
 .ok
+	farcall RollGiftHiddenAbility ; 10% hidden ability, unless setnextability
 	farcall GivePoke
+	xor a
+	ld [wAbilitySlotOverride], a ; unused if the gift couldn't be given
 	ld a, b
 	ld [wScriptVar], a
 	ret
