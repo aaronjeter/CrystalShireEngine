@@ -19,6 +19,11 @@ DEF ITEMATTR_STRUCT_LENGTH EQU _RS
 	const TM_HM    ; 4
 DEF NUM_ITEM_TYPES EQU const_value - 1
 
+; Repel steps (engine/items/item_effects.asm; wLastRepelSteps identifies the last Repel used)
+DEF REPEL_STEPS       EQU 100
+DEF SUPER_REPEL_STEPS EQU 200
+DEF MAX_REPEL_STEPS   EQU 250
+
 ; item menu types
 ; UseItem.dw indexes (see engine/items/pack.asm)
 ; UseRegisteredItem.SwitchTo indexes (see engine/overworld/select_menu.asm)

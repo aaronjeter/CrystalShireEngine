@@ -2256,15 +2256,15 @@ EscapeRopeEffect:
 	ret
 
 SuperRepelEffect:
-	ld b, 200
+	ld b, SUPER_REPEL_STEPS
 	jr UseRepel
 
 MaxRepelEffect:
-	ld b, 250
+	ld b, MAX_REPEL_STEPS
 	jr UseRepel
 
 RepelEffect:
-	ld b, 100
+	ld b, REPEL_STEPS
 
 UseRepel:
 	ld a, [wRepelEffect]
@@ -2274,6 +2274,7 @@ UseRepel:
 
 	ld a, b
 	ld [wRepelEffect], a
+	ld [wLastRepelSteps], a ; for "Use another?" when it wears off (RepelWoreOffScript)
 	jmp UseItemText
 
 RepelUsedEarlierIsStillInEffectText:

@@ -978,6 +978,23 @@ _RepelWoreOffText::
 	line "wore off."
 	done
 
+_RepelWoreOffUseAnotherText::
+	text "Repel's effect"
+	line "wore off."
+
+	para "Use another"
+	line "@"
+	text_ram wStringBuffer3
+	text "?"
+	done
+
+_RepelUsedAnotherText::
+	text "<PLAYER> used the"
+	line "@"
+	text_ram wStringBuffer3
+	text "."
+	done
+
 _PlayerFoundItemText::
 	text "<PLAYER> found"
 	line "@"

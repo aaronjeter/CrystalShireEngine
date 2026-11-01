@@ -65,7 +65,6 @@ INCLUDE "engine/pokemon/mon_menu.asm"
 INCLUDE "engine/overworld/select_menu.asm"
 INCLUDE "engine/events/elevator.asm"
 INCLUDE "engine/events/bug_contest/contest.asm"
-INCLUDE "engine/events/repel.asm"
 INCLUDE "engine/events/hidden_item.asm"
 INCLUDE "engine/events/std_collision.asm"
 INCLUDE "engine/events/bug_contest/judging.asm"
@@ -671,3 +670,7 @@ INCLUDE "data/trainers/parties.asm"
 INCLUDE "data/trainers/hard_parties.asm"
 
 INCLUDE "engine/overworld/follower.asm"
+
+SECTION "Repel Wore Off Script", ROMX
+
+INCLUDE "engine/events/repel.asm"

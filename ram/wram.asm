@@ -2941,7 +2941,7 @@ wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 
 ; fight counts
-wJackFightCount::    db ;unused
+wLastRepelSteps::    db ; the last Repel used (its REPEL_STEPS etc.), 0 if unknown; was wJackFightCount (unused)
 wHueyFightCount::    db
 wGavenFightCount::   db
 wBethFightCount::    db
