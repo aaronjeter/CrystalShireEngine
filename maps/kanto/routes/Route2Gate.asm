@@ -7,21 +7,11 @@ Route2Gate_MapScripts:
 	def_callbacks
 
 Route2GateScientistScript:
-	jumptextfaceplayer Route2GateScientistText
+	getstring STRING_BUFFER_3, .profname
+	farsjump PokedexAideScript
 
-Route2GateScientistText:
-	text "Are you <PLAY_G>?"
-
-	para "I work as Prof."
-	line "Oak's Aide."
-
-	para "I had no idea that"
-	line "you were out here."
-
-	para "Prof.Oak's Lab is"
-	line "nearby in Pallet"
-	cont "Town."
-	done
+.profname
+	db "Oak@"
 
 Route2Gate_MapEvents:
 	db 0, 0 ; filler

@@ -3,6 +3,8 @@
 	const PETALBURGPOKECENTER_CHANSEY
 	const PETALBURGPOKECENTER_TEACHER
 	const PETALBURGPOKECENTER_PIKACHU
+	const PETALBURGPOKECENTER_COOLTRAINER
+	const PETALBURGPOKECENTER_SCIENTIST
 
 PetalburgPokecenter_MapScripts:
 	def_scene_scripts
@@ -50,6 +52,13 @@ PetalburgPokecenterCooltrainerText:
 	cont "really tough!"
 	done
 
+PetalburgPokecenterScientistScript:
+	getstring STRING_BUFFER_3, .profname
+	farsjump PokedexAideScript
+
+.profname
+	db "Birch@"
+
 PetalburgPokecenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -68,3 +77,4 @@ PetalburgPokecenter_MapEvents:
 	object_event 08, 06, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterPikachuScript, -1
 	object_event 09, 03, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterCooltrainerScript, -1
 	
+	object_event 12, 05, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PetalburgPokecenterScientistScript, -1

@@ -680,3 +680,8 @@ SECTION "Repel Wore Off Script", ROMX
 INCLUDE "engine/events/repel.asm"
 
 INCLUDE "engine/overworld/diagonal_scroll.asm"
+
+
+SECTION "Pokedex Aides", ROMX
+
+INCLUDE "engine/events/pokedex_aides.asm"

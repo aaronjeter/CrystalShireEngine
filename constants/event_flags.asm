@@ -1034,25 +1034,25 @@
 	const EVENT_MOUNT_MOON_MOONSTONE2
 	const EVENT_MOUNT_MOON_MOONSTONE3
 	const EVENT_MOUNT_MOON_MOONSTONE4
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_GOT_LUCKY_EGG_FROM_DEX_AIDE ; Pokédex aides (Nov 1, 2026)
+	const EVENT_GOT_ABILITY_CAPSULE_FROM_DEX_AIDE
+	const EVENT_GOT_EVIOLITE_FROM_DEX_AIDE
+	const EVENT_GOT_MUSCLE_BAND_FROM_DEX_AIDE
+	const EVENT_GOT_WISE_GLASSES_FROM_DEX_AIDE
+	const EVENT_GOT_ABILITY_PATCH_FROM_DEX_AIDE
+	const EVENT_GOT_MASTER_BALL_FROM_DEX_AIDE
+	const EVENT_GOT_BIG_ROOT_FROM_DEX_AIDE
+	const EVENT_GOT_BINDING_BAND_FROM_DEX_AIDE
+	const EVENT_GOT_LEFTOVERS_FROM_DEX_AIDE
+	const EVENT_DEX_AIDE_BUNDLE_10
+	const EVENT_DEX_AIDE_BUNDLE_25
+	const EVENT_DEX_AIDE_BUNDLE_40
+	const EVENT_DEX_AIDE_BUNDLE_60
+	const EVENT_DEX_AIDE_BUNDLE_75
+	const EVENT_DEX_AIDE_BUNDLE_90
+	const EVENT_DEX_AIDE_BUNDLE_100
+	const EVENT_DEX_AIDE_BUNDLE_120
+	const EVENT_DEX_AIDE_BUNDLE_150
 	const_skip ; unused	
 	const_skip ; unused
 	const_skip ; unused

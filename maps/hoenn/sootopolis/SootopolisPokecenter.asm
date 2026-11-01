@@ -1,6 +1,7 @@
 	object_const_def
 	const SOOTOPOLISPOKECENTER_NURSE
 	const SOOTOPOLISPOKECENTER_CHANSEY
+	const SOOTOPOLISPOKECENTER_SCIENTIST
 
 SootopolisPokecenter_MapScripts:
 	def_scene_scripts
@@ -19,6 +20,13 @@ SootopolisPokecenterChanseyScript:
 	cry CHANSEY
 	end
 
+SootopolisPokecenterScientistScript:
+	getstring STRING_BUFFER_3, .profname
+	farsjump PokedexAideMasterBallScript
+
+.profname
+	db "Birch@"
+
 SootopolisPokecenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -34,3 +42,4 @@ SootopolisPokecenter_MapEvents:
 	object_event  5,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, SootopolisPokecenterNurseScript, -1
 	object_event  7,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, SootopolisPokecenterChanseyScript, -1
 	
+	object_event 12, 05, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SootopolisPokecenterScientistScript, -1

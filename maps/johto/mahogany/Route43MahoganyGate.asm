@@ -1,5 +1,6 @@
 	object_const_def
 	const ROUTE43MAHOGANYGATE_OFFICER
+	const ROUTE43MAHOGANYGATE_SCIENTIST
 
 Route43MahoganyGate_MapScripts:
 	def_scene_scripts
@@ -36,6 +37,13 @@ Route43MahoganyGateOfficerRocketsClearedText:
 	cont "days."
 	done
 
+Route43MahoganyGateScientistScript:
+	getstring STRING_BUFFER_3, .profname
+	farsjump PokedexAideBandsScript
+
+.profname
+	db "Elm@"
+
 Route43MahoganyGate_MapEvents:
 	db 0, 0 ; filler
 
@@ -51,3 +59,4 @@ Route43MahoganyGate_MapEvents:
 
 	def_object_events
 	object_event  0,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route43MahoganyGateOfficer, -1
+	object_event  9,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route43MahoganyGateScientistScript, -1

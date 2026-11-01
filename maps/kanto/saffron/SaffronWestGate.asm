@@ -1,5 +1,6 @@
 	object_const_def
 	const SAFFRONWESTGATE_OFFICER
+	const SAFFRONWESTGATE_SCIENTIST
 
 SaffronWestGate_MapScripts:
 	def_scene_scripts
@@ -43,6 +44,13 @@ SaffronWestGateGuardSeriousText:
 	line "through."
 	done
 
+SaffronWestGateScientistScript:
+	getstring STRING_BUFFER_3, .profname
+	farsjump PokedexAidePatchScript
+
+.profname
+	db "Oak@"
+
 SaffronWestGate_MapEvents:
 	db 0, 0 ; filler
 
@@ -58,3 +66,4 @@ SaffronWestGate_MapEvents:
 
 	def_object_events
 	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronWestGateGuardScript, -1
+	object_event  3,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronWestGateScientistScript, -1

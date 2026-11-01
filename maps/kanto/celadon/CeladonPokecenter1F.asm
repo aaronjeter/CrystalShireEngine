@@ -4,6 +4,7 @@
 	const CELADONPOKECENTER1F_PHARMACIST
 	const CELADONPOKECENTER1F_COOLTRAINER_F
 	const CELADONPOKECENTER1F_EUSINE
+	const CELADONPOKECENTER1F_SCIENTIST
 
 CeladonPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -143,6 +144,13 @@ NoBeastsText:
 	line "you, <PLAYER>!"
 	done
 
+CeladonPokecenter1FScientistScript:
+	getstring STRING_BUFFER_3, .profname
+	farsjump PokedexAideBigRootScript
+
+.profname
+	db "Oak@"
+
 CeladonPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -161,3 +169,4 @@ CeladonPokecenter1F_MapEvents:
 	object_event  0,  3, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FPharmacistScript, -1
 	object_event  8,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FCooltrainerFScript, -1
 	object_event  4,  3, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonEusine, EVENT_SET_WHEN_FOUGHT_HO_OH
+	object_event  7,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FScientistScript, -1
