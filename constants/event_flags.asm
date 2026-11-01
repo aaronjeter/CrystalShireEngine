@@ -2222,10 +2222,10 @@
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
+	const EVENT_GOT_TOGEPI_EGG_FROM_OAKS_AIDE ; Togepi Eggs for Kanto/Hoenn starts (Nov 1, 2026)
+	const EVENT_OAKS_AIDE_IN_PEWTER_POKECENTER ; set = hidden
+	const EVENT_GOT_TOGEPI_EGG_FROM_BIRCHS_AIDE
+	const EVENT_BIRCHS_AIDE_IN_RUSTBORO_POKECENTER ; set = hidden
 
 	const_next 2048
 DEF NUM_EVENTS EQU const_value ; 800
