@@ -4,6 +4,7 @@
 	const VIRIDIANCITY_FISHER
 	const VIRIDIANCITY_YOUNGSTER
 	const VIRIDIANCITY_SLEET
+	const VIRIDIANCITY_GUIDE
 
 ViridianCity_MapScripts:
 	def_scene_scripts
@@ -69,6 +70,265 @@ ViridianCityDreamEaterFisher:
 .NoRoomForDreamEater:
 	closetext
 	end
+
+ViridianCityGuideScript:
+; Gives the Map Card to players who don't have one yet (Kanto starts),
+; after a short tour like Cherrygrove's guide.
+	faceplayer
+	opentext
+	checkflag ENGINE_MAP_CARD
+	iftrue .HaveMapCard
+	writetext ViridianGuideIntroText
+	yesorno
+	iffalse .No
+	writetext ViridianGuideTourText
+	waitbutton
+	closetext
+	playmusic MUSIC_SHOW_ME_AROUND
+	follow VIRIDIANCITY_GUIDE, PLAYER
+	applymovement VIRIDIANCITY_GUIDE, ViridianGuideMovement1
+	turnobject PLAYER, UP
+	opentext
+	writetext ViridianGuideMartText
+	waitbutton
+	closetext
+	applymovement VIRIDIANCITY_GUIDE, ViridianGuideMovement2
+	opentext
+	writetext ViridianGuidePokecenterText
+	waitbutton
+	closetext
+	applymovement VIRIDIANCITY_GUIDE, ViridianGuideMovement3
+	turnobject PLAYER, LEFT
+	opentext
+	writetext ViridianGuideRoute22Text
+	waitbutton
+	closetext
+	applymovement VIRIDIANCITY_GUIDE, ViridianGuideMovement4
+	turnobject PLAYER, UP
+	opentext
+	writetext ViridianGuideRoute2Text
+	waitbutton
+	closetext
+	applymovement VIRIDIANCITY_GUIDE, ViridianGuideMovement5
+	turnobject PLAYER, UP
+	opentext
+	writetext ViridianGuideGymText
+	waitbutton
+	closetext
+	pause 30
+	turnobject VIRIDIANCITY_GUIDE, LEFT
+	turnobject PLAYER, RIGHT
+	opentext
+	writetext ViridianGuideGiftText
+	promptbutton
+	getstring STRING_BUFFER_4, .mapcardname
+	scall .ReceiveItem
+	setflag ENGINE_MAP_CARD
+	writetext ViridianGuideGotMapCardText
+	promptbutton
+	writetext ViridianGuidePokegearText
+	waitbutton
+	closetext
+	stopfollow
+	special RestartMapMusic
+	turnobject PLAYER, UP
+	applymovement VIRIDIANCITY_GUIDE, ViridianGuideMovement6
+	playsound SFX_ENTER_DOOR
+	disappear VIRIDIANCITY_GUIDE
+	waitsfx
+	end
+
+.ReceiveItem:
+	jumpstd ReceiveItemScript
+	end
+
+.mapcardname
+	db "Map Card@"
+
+.No:
+	writetext ViridianGuideNoText
+	waitbutton
+	closetext
+	end
+
+.HaveMapCard:
+	writetext ViridianGuideHaveMapCardText
+	waitbutton
+	closetext
+	end
+
+ViridianGuideMovement1: ; to the Mart
+	step UP
+	step UP
+	step UP
+	step UP
+	step RIGHT
+	step UP
+	turn_head UP
+	step_end
+
+ViridianGuideMovement2: ; to the Pokémon Center
+	step LEFT
+	step LEFT
+	step LEFT
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step LEFT
+	step LEFT
+	step LEFT
+	turn_head UP
+	step_end
+
+ViridianGuideMovement3: ; to the road west, Route 22
+	step LEFT
+	step LEFT
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	turn_head LEFT
+	step_end
+
+ViridianGuideMovement4: ; to the road north, Route 2
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	turn_head LEFT
+	step_end
+
+ViridianGuideMovement5: ; to the Gym
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	turn_head UP
+	step_end
+
+ViridianGuideMovement6: ; into the Gym
+	step UP
+	step UP
+	step UP
+	step_end
+
+ViridianGuideIntroText:
+	text "Hey there! You're"
+	line "a new trainer,"
+	cont "aren't you?"
+
+	para "Everyone passes"
+	line "through Viridian"
+	cont "at the start."
+
+	para "Want me to show"
+	line "you around town?"
+	done
+
+ViridianGuideTourText:
+	text "Great! This way!"
+	done
+
+ViridianGuideMartText:
+	text "This is the"
+	line "#mart."
+
+	para "Stock up on #"
+	line "Balls and Potions"
+	cont "before you go."
+	done
+
+ViridianGuidePokecenterText:
+	text "And here's the"
+	line "#mon Center."
+
+	para "Your #mon get"
+	line "healed for free."
+
+	para "Come back here"
+	line "whenever they're"
+	cont "worn out."
+	done
+
+ViridianGuideRoute22Text:
+	text "That road west is"
+	line "Route 22."
+
+	para "It leads to the"
+	line "#mon League."
+
+	para "Only the toughest"
+	line "trainers go that"
+	cont "way!"
+	done
+
+ViridianGuideRoute2Text:
+	text "This road north is"
+	line "Route 2."
+
+	para "It goes through"
+	line "Viridian Forest"
+	cont "to Pewter City."
+	done
+
+ViridianGuideGymText:
+	text "And this is the"
+	line "Viridian Gym."
+
+	para "Its Leader is very"
+	line "strong. Leave it"
+	cont "for later!"
+	done
+
+ViridianGuideGiftText:
+	text "That's the tour!"
+
+	para "Thanks for coming"
+	line "along. Here's a"
+	cont "little gift."
+	done
+
+ViridianGuideGotMapCardText:
+	text "<PLAYER>'s #gear"
+	line "now has a Map!"
+	done
+
+ViridianGuidePokegearText:
+	text "Now you won't get"
+	line "lost out there."
+
+	para "I'm going to go"
+	line "watch the Gym."
+	cont "Good luck!"
+	done
+
+ViridianGuideNoText:
+	text "Oh, OK."
+
+	para "I'll be around if"
+	line "you change your"
+	cont "mind."
+	done
+
+ViridianGuideHaveMapCardText:
+	text "Viridian's always"
+	line "full of trainers"
+	cont "passing through!"
+	done
 
 ViridianCityYoungsterScript:
 	jumptextfaceplayer ViridianCityYoungsterText
@@ -300,3 +560,4 @@ ViridianCity_MapEvents:
 	object_event  6, 23, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ViridianCityDreamEaterFisher, -1
 	object_event 17, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 3, 3, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ViridianCityYoungsterScript, -1
 	object_event 07, 26, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_SleetScript, EVENT_GOT_SLEET
+	object_event 28, 25, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ViridianCityGuideScript, -1
