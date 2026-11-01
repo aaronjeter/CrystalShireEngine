@@ -524,11 +524,15 @@ FlyFunction:
 	dw .TryFly
 	dw .DoFly
 	dw .FailFly
+	dw .NoFlypoints
 
 .TryFly:	
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr nz, .indoors
+	; a region with no visited flypoint has nothing to select on the fly map
+	farcall FlyMap_RegionHasFlypoint
+	jr z, .no_flypoints
 	xor a
 	ldh [hMapAnims], a
 	call LoadStandardMenuHeader
@@ -547,6 +551,10 @@ FlyFunction:
 
 .indoors
 	ld a, $2
+	ret
+
+.no_flypoints
+	ld a, $3
 	ret
 
 .illegal
@@ -579,6 +587,16 @@ FlyFunction:
 	call QueueScript
 	ld a, JUMPTABLE_EXIT | $1
 	ret
+
+.NoFlypoints:
+	ld hl, .NoFlypointsText
+	call MenuTextboxBackup
+	ld a, JUMPTABLE_EXIT
+	ret
+
+.NoFlypointsText:
+	text_far _NoFlypointsText
+	text_end
 
 .FailFly:
 	call FieldMoveFailed

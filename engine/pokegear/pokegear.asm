@@ -2111,6 +2111,83 @@ GetMapCursorCoordinates:
 	ld [hl], d
 	ret
 
+FlyMap_RegionHasFlypoint::
+; Called by FlyFunction before opening the fly map.
+; Returns nz if the player's region has a visited flypoint, z if it has none
+; (the fly map can't select anything then).
+	call FlyMap_GetLandmark
+	call FlyMap_SetRegionRange
+	; fallthrough
+
+FlyMap_SelectVisitedFlypoint:
+; Keep the region's default flypoint in wTownMapPlayerIconLandmark if it has
+; been visited; otherwise select the region's first visited flypoint.
+; Returns nz if one was found, z (selection unchanged) if none is visited.
+	ld hl, wTownMapPlayerIconLandmark
+	call CheckIfVisitedFlypoint
+	ret nz
+	ld c, [hl] ; default
+	ld a, [wStartFlypoint]
+	ld [hl], a
+.loop
+	call CheckIfVisitedFlypoint
+	ret nz
+	ld a, [wEndFlypoint]
+	cp [hl]
+	jr z, .none
+	inc [hl]
+	jr .loop
+
+.none
+	ld [hl], c
+	xor a
+	ret
+
+FlyMap_GetLandmark:
+; a = the player's landmark (the backup map's in places like Pokecenter 2F)
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	cp LANDMARK_SPECIAL
+	ret nz
+	ld a, [wBackupMapGroup]
+	ld b, a
+	ld a, [wBackupMapNumber]
+	ld c, a
+	jmp GetWorldMapLocation
+
+FlyMap_SetRegionRange:
+; a = landmark. Sets wStartFlypoint and wEndFlypoint to the landmark's region,
+; and wTownMapPlayerIconLandmark to its default flypoint
+; (the first one in Johto, the last one in Kanto and Hoenn).
+	cp HOENN_LANDMARK
+	jr nc, .hoenn
+	cp KANTO_LANDMARK
+	jr nc, .kanto
+	ld a, JOHTO_FLYPOINT
+	ld [wStartFlypoint], a
+	ld [wTownMapPlayerIconLandmark], a
+	ld a, KANTO_FLYPOINT - 1
+	ld [wEndFlypoint], a
+	ret
+
+.kanto
+	ld a, KANTO_FLYPOINT
+	ld [wStartFlypoint], a
+	ld a, HOENN_FLYPOINT - 1
+	jr .set_end_and_default
+
+.hoenn
+	ld a, HOENN_FLYPOINT
+	ld [wStartFlypoint], a
+	ld a, NUM_FLYPOINTS - 1
+.set_end_and_default
+	ld [wEndFlypoint], a
+	ld [wTownMapPlayerIconLandmark], a
+	ret
+
 CheckIfVisitedFlypoint:
 ; Check if the flypoint loaded in [hl] has been visited yet.
 	push bc
@@ -2141,75 +2218,31 @@ HasVisitedSpawn:
 INCLUDE "data/maps/flypoints.asm"
 
 FlyMap:
-	ld a, [wMapGroup]
-	ld b, a
-	ld a, [wMapNumber]
-	ld c, a
-	call GetWorldMapLocation
-; If we're not in a valid location, i.e. Pokecenter floor 2F,
-; the backup map information is used.
-	cp LANDMARK_SPECIAL
-	jr nz, .CheckRegion
-	ld a, [wBackupMapGroup]
-	ld b, a
-	ld a, [wBackupMapNumber]
-	ld c, a
-	call GetWorldMapLocation
-.CheckRegion:
-; The first 46 locations are part of Johto. The rest are in Kanto.
+	call FlyMap_GetLandmark
+	push af
+	call FlyMap_SetRegionRange
+	call FlyMap_SelectVisitedFlypoint ; FlyFunction already checked there is one
+	pop af
 	cp HOENN_LANDMARK
 	jr nc, .HoennFlyMap
-
 	cp KANTO_LANDMARK
 	jr nc, .KantoFlyMap
 ; Johto fly map
-; Note that .NoKanto should be modified in tandem with this branch
 	push af
-	ld a, JOHTO_FLYPOINT ; first Johto flypoint
-	ld [wTownMapPlayerIconLandmark], a ; first one is default (New Bark Town)
-	ld [wStartFlypoint], a
-	ld a, KANTO_FLYPOINT - 1 ; last Johto flypoint
-	ld [wEndFlypoint], a
-; Fill out the map
 	call FillJohtoMap
 	call .MapHud
 	pop af
 	jmp TownMapPlayerIcon
 
 .HoennFlyMap:
-;To resolve the below issue, I'm initializing some flypoints on the intro menu
-;For a Johto start, Saffron and Slateport flypoints are activated
-;For Hoenn start, Saffron and Goldenrod will be activated
-;For Kanto start, Goldenrod and Slateport will be activated
-
-; The event that there are no flypoints enabled in a map is not
-; accounted for. As a result, if you attempt to select a flypoint
-; when there are none enabled, the game will crash. Additionally,
-; the flypoint selection has a default starting point that
-; can be flown to even if none are enabled.
-; To prevent both of these things from happening when the player
-; enters Kanto, fly access is restricted until Saffron City is
-; visited and its flypoint enabled.
-	push af	
-	ld a, HOENN_FLYPOINT ; first Hoenn flypoint
-	ld [wStartFlypoint], a
-	ld a, NUM_FLYPOINTS - 1 ; last Hoenn flypoint
-	ld [wEndFlypoint], a
-	ld [wTownMapPlayerIconLandmark], a ; 
-; Fill out the map
+	push af
 	call FillHoennMap
 	call .MapHud
 	pop af
 	jmp TownMapPlayerIcon
 
 .KantoFlyMap:
-	push af	
-	ld a, KANTO_FLYPOINT ; first Kanto flypoint
-	ld [wStartFlypoint], a
-	ld a, HOENN_FLYPOINT - 1 ; last Kanto flypoint
-	ld [wEndFlypoint], a
-	ld [wTownMapPlayerIconLandmark], a ; last one is default (Saffron City)
-; Fill out the map
+	push af
 	call FillKantoMap
 	call .MapHud
 	pop af

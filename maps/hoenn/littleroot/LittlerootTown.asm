@@ -19,8 +19,6 @@ LittlerootTownMonSpritesCallback:
 
 LittlerootTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_LITTLEROOT
-	setflag ENGINE_FLYPOINT_SAFFRON
-	setflag ENGINE_FLYPOINT_GOLDENROD
 	endcallback
 
 LittlerootTownConditionalWarpScript:

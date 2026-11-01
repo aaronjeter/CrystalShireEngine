@@ -10,7 +10,6 @@ PalletTown_MapScripts:
 
 PalletTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_PALLET
-	setflag ENGINE_FLYPOINT_GOLDENROD
 	endcallback
 
 

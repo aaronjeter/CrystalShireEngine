@@ -255,6 +255,11 @@ _CantUseItemText::
 	line "here."
 	prompt
 
+_NoFlypointsText::
+	text "There's nowhere"
+	line "to fly to yet."
+	prompt
+
 _UseCutText::
 	text "<PLAYER> used"
 	line "Cut!"
