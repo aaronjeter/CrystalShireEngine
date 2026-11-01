@@ -193,6 +193,33 @@ RollAbilitySlot::
 	pop bc
 	ret
 
+RollWildAbilitySlot:
+; Like RollAbilitySlot, for a wild Pokemon of species a (8-bit ID): the
+; setnextability slot if one is waiting, else a WILD_HIDDEN_ABILITY_CHANCE
+; chance of the hidden ability (if the species has one), else ability 1 or 2
+; as in RollAbilitySlot.
+; out: a = ABILITY_SLOT_*. Preserves bc, de and hl.
+	push bc
+	ld c, a
+	ld a, [wAbilitySlotOverride]
+	and a
+	jr nz, .normal_roll ; RollAbilitySlot uses and clears it
+	ld a, c
+	ld b, ABILITY_SLOT_HIDDEN
+	call GetSpeciesIDAbility
+	jr c, .normal_roll ; no hidden ability
+	call Random
+	cp WILD_HIDDEN_ABILITY_CHANCE
+	jr nc, .normal_roll
+	ld a, ABILITY_SLOT_HIDDEN
+	pop bc
+	ret
+
+.normal_roll
+	ld a, c
+	pop bc
+	jmp RollAbilitySlot
+
 SetBattleMonAbility::
 ; Set wBattleMonAbility from wBattleMonSpecies and the ability slot of
 ; party mon wCurPartyMon (the one InitBattleMon copied).
@@ -216,8 +243,8 @@ SetEnemyMonAbility::
 ; - Trainer and link battles: the slot from party struct wOTPartyMon[wCurPartyMon].
 ; - A wild Pokemon re-loaded in battle to catch it (SUBSTATUS_TRANSFORMED is
 ;   set then): keep the slot.
-; - Otherwise (a new wild Pokemon, or a gift Pokemon going to the PC):
-;   RollAbilitySlot.
+; - A new wild Pokemon: RollWildAbilitySlot (10% hidden ability).
+; - Otherwise (a gift Pokemon going to the PC): RollAbilitySlot.
 ; Preserves bc, de and hl.
 	push hl
 	push bc
@@ -230,7 +257,14 @@ SetEnemyMonAbility::
 	bit SUBSTATUS_TRANSFORMED, a
 	jr nz, .got_slot
 .roll
+	ld a, [wBattleMode]
+	cp WILD_BATTLE
 	ld a, [wEnemyMonSpecies]
+	jr nz, .not_wild
+	call RollWildAbilitySlot
+	jr .set_slot
+
+.not_wild
 	call RollAbilitySlot
 	jr .set_slot
 

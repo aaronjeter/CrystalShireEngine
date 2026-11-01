@@ -128,3 +128,6 @@ DEF NUM_ABILITY_SLOTS EQU const_value
 ; A Pokemon's slot is stored in bits 0-1 of MON_ABILITY_SLOT (box_struct padding).
 ; Slot value 3 is unused and counts as ABILITY_SLOT_1. Bits 2-7 are free.
 DEF ABILITY_SLOT_MASK EQU %11
+
+; Chance that a wild Pokemon has its hidden ability (if its species has one)
+DEF WILD_HIDDEN_ABILITY_CHANCE EQU 10 percent + 1
