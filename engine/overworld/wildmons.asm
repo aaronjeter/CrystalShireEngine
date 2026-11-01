@@ -37,8 +37,13 @@ GetTimeOfDayNotEve:
 
 FindNest:
 ; Parameters:
-; e: 0 = Johto, 1 = Kanto
+; e: region (JOHTO_REGION, KANTO_REGION or HOENN_REGION)
 ; wNamedObjectIndex: species
+; Writes the landmarks of that region where the species appears to wTilemap.
+; Every wild table is searched (a nest counts for the region of its map's
+; landmark), plus the roaming Pokémon.
+	ld a, e
+	ldh [hMathBuffer + 2], a
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
@@ -47,23 +52,21 @@ FindNest:
 	call GetPokemonIndexFromID
 	ld b, h
 	ld c, l
-	ld a, e
-	and a
-	jr nz, .kanto
 	decoord 0, 0
 	ld hl, JohtoGrassWildMons
 	call .FindGrass
 	ld hl, JohtoWaterWildMons
 	call .FindWater
-	call .RoamMon1
-	jmp .RoamMon2
-
-.kanto
-	decoord 0, 0
 	ld hl, KantoGrassWildMons
 	call .FindGrass
 	ld hl, KantoWaterWildMons
-	jr .FindWater
+	call .FindWater
+	ld hl, HoennGrassWildMons
+	call .FindGrass
+	ld hl, HoennWaterWildMons
+	call .FindWater
+	call .RoamMon1
+	jmp .RoamMon2
 
 .FindGrass:
 	ld a, [hl]
@@ -145,7 +148,23 @@ FindNest:
 .AppendNest:
 	push de
 	call GetWorldMapLocation
+	and a ; LANDMARK_SPECIAL: nowhere on the map
+	jr z, .found_nest
 	ld c, a
+; skip nests in other regions
+	ld b, JOHTO_REGION
+	cp LANDMARK_FAST_SHIP
+	jr z, .got_region
+	cp KANTO_LANDMARK
+	jr c, .got_region
+	ld b, KANTO_REGION
+	cp HOENN_LANDMARK
+	jr c, .got_region
+	ld b, HOENN_REGION
+.got_region
+	ldh a, [hMathBuffer + 2]
+	cp b
+	jr nz, .found_nest
 	hlcoord 0, 0
 	ld de, SCREEN_WIDTH * SCREEN_HEIGHT
 .AppendNestLoop:

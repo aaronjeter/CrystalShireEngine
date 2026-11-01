@@ -2542,22 +2542,19 @@ Pokedex_GetArea:
 	ld c, 4
 	call Request2bpp
 	call LoadTownMapGFX
-	call FillKantoMap
-	call .PlaceString_MonsNest
-	call TownMapPals
-	hlbgcoord 0, 0, vBGMap1
-	call TownMapBGUpdate
-	call FillJohtoMap
-	call .PlaceString_MonsNest
-	call TownMapPals
-	hlbgcoord 0, 0
-	call TownMapBGUpdate
+	ld a, SCREEN_HEIGHT_PX
+	ldh [hWY], a
+; start on the player's region
+	ld a, [wTownMapPlayerIconLandmark]
+	call .LandmarkRegion
+	ld [wTownMapCursorLandmark], a ; the region shown
+	call .DrawRegion
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
 	xor a
 	ldh [hBGMapMode], a
-	xor a ; JOHTO_REGION
+	ld a, [wTownMapCursorLandmark]
 	call .GetAndPlaceNest
 .loop
 	call JoyTextDelay
@@ -2587,36 +2584,82 @@ Pokedex_GetArea:
 	ret
 
 .LeftRightInput:
+; Left/Right: the previous/next region the player has visited (a region with
+; a visited flypoint, or the one the player is in).
 	ld a, [hl]
 	and D_LEFT
-	jr nz, .left
+	ld b, NUM_REGIONS - 1 ; -1
+	jr nz, .switch
 	ld a, [hl]
 	and D_RIGHT
-	jr nz, .right
+	ret z
+	ld b, 1
+.switch
+	ld a, [wTownMapCursorLandmark]
+	ld c, NUM_REGIONS - 1
+.switch_loop
+	add b
+	cp NUM_REGIONS
+	jr c, .in_range
+	sub NUM_REGIONS
+.in_range
+	ld d, a
+	push bc
+	push de
+	call .IsPlayersRegion
+	jr nz, .found_region
+	ld a, d
+	call RegionHasVisitedFlypoint
+.found_region
+	pop de
+	pop bc
+	jr nz, .show_region
+	ld a, d
+	dec c
+	jr nz, .switch_loop
 	ret
 
-.left
-	ldh a, [hWY]
-	cp SCREEN_HEIGHT_PX
-	ret z
+.show_region
+	ld a, d
+	ld [wTownMapCursorLandmark], a
 	call ClearSprites
-	ld a, SCREEN_HEIGHT_PX
-	ldh [hWY], a
-	xor a ; JOHTO_REGION
+	ld de, SFX_MENU
+	call PlaySFX
+	call .DrawRegion
+	ld a, [wTownMapCursorLandmark]
 	jr .GetAndPlaceNest
 
-.right
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_HALL_OF_FAME_F, a
-	ret z
-	ldh a, [hWY]
-	and a
-	ret z
-	call ClearSprites
+.IsPlayersRegion:
+; d = region. Returns nz (a = 1) if it's the player's region, else z.
+	ld a, [wTownMapPlayerIconLandmark]
+	call .LandmarkRegion
+	cp d
+	ld a, 1
+	jr z, .yes
 	xor a
-	ldh [hWY], a
-	ld a, KANTO_REGION
-	jr .GetAndPlaceNest
+	ret
+.yes
+	and a
+	ret
+
+.LandmarkRegion:
+; a = landmark -> a = region (the Fast Ship counts as Johto)
+	cp LANDMARK_FAST_SHIP
+	jmp nz, FlyMap_LandmarkToRegion
+	xor a ; JOHTO_REGION
+	ret
+
+.DrawRegion:
+; Draw region [wTownMapCursorLandmark]'s map with the "<MON>'S NEST" header.
+	xor a
+	ldh [hBGMapMode], a
+	ld a, [wTownMapCursorLandmark]
+	ld e, a
+	call PokegearMap ; e = region
+	call .PlaceString_MonsNest
+	call TownMapPals
+	hlbgcoord 0, 0
+	jmp TownMapBGUpdate
 
 .BlinkNestIcons:
 	ldh a, [hVBlankCounter]
@@ -2661,6 +2704,9 @@ Pokedex_GetArea:
 	decoord 0, 0
 	ld hl, wShadowOAMSprite00
 .nestloop
+	ld a, l
+	cp LOW(wShadowOAMEnd)
+	jr z, .done_nest ; no room for more nest icons
 	ld a, [de]
 	and a
 	jr z, .done_nest
@@ -2747,22 +2793,10 @@ Pokedex_GetArea:
 ; Don't show the player's sprite if you're
 ; not in the same region as what's currently
 ; on the screen.
-	ld a, [wTownMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
-	jr z, .johto
-	cp KANTO_LANDMARK
-	jr c, .johto
-; kanto
 	ld a, [wTownMapCursorLandmark]
-	and a
+	ld d, a
+	call .IsPlayersRegion
 	jr z, .clear
-	jr .ok
-
-.johto
-	ld a, [wTownMapCursorLandmark]
-	and a
-	jr nz, .clear
-.ok
 	and a
 	ret
 
