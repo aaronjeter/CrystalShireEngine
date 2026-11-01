@@ -3394,6 +3394,11 @@ wDiagonalSpeed:: db
 wDiagonalGrace:: db ; frames a single direction has been held from a standstill
 
 
+SECTION "Fly Map RAM", WRAMX, BANK[1]
+
+wFlyMapRegion:: db ; the region the fly map shows (JOHTO_REGION...)
+
+
 SECTION "Tile Animation RAM", WRAMX, BANK[1]
 
 wWaveTileFrame:: db ; frame counter for AnimateDeepWaveTile (Hoenn deep water)

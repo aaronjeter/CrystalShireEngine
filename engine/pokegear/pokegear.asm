@@ -1951,6 +1951,9 @@ _FlyMap:
 	ld a, [hl]
 	and A_BUTTON
 	jr nz, .pressedA
+	ld a, [hl]
+	and SELECT
+	call nz, FlyMap_SwitchRegion
 	call .HandleDPad
 	call GetMapCursorCoordinates
 	farcall PlaySpriteAnimations
@@ -2071,7 +2074,32 @@ TownMapBubble:
 ; Up/down arrows
 	hlcoord 18, 1
 	ld [hl], $34
+; The region's name, if Select can switch to another region
+	call FlyMap_CountRegions
+	cp 2
+	ret c
+	ld a, [wFlyMapRegion]
+	ld e, a
+	ld d, 0
+	ld hl, .RegionNames
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	hlcoord 12, 0
+	rst PlaceString
 	ret
+
+.RegionNames:
+	table_width 2
+	dw .Johto
+	dw .Kanto
+	dw .Hoenn
+	assert_table_length NUM_REGIONS
+.Johto: db "Johto@"
+.Kanto: db "Kanto@"
+.Hoenn: db "Hoenn@"
 
 .Where:
 	db "Where?@"
@@ -2112,12 +2140,89 @@ GetMapCursorCoordinates:
 	ret
 
 FlyMap_RegionHasFlypoint::
-; Called by FlyFunction before opening the fly map.
-; Returns nz if the player's region has a visited flypoint, z if it has none
-; (the fly map can't select anything then).
+; Called by FlyFunction before opening the fly map, and by FlyMap.
+; Picks the region the fly map shows (wFlyMapRegion): the player's own if it
+; has a visited flypoint, else the next region that has one.
+; Returns nz if one was found, z if no region has a visited flypoint.
 	call FlyMap_GetLandmark
+	call FlyMap_LandmarkToRegion
+	ld [wFlyMapRegion], a
+	ld c, NUM_REGIONS
+.loop
+	push bc
+	ld a, [wFlyMapRegion]
 	call FlyMap_SetRegionRange
-	; fallthrough
+	call FlyMap_SelectVisitedFlypoint
+	pop bc
+	ret nz
+	call FlyMap_NextRegion
+	dec c
+	jr nz, .loop
+	xor a
+	ret
+
+FlyMap_NextRegion:
+; wFlyMapRegion = the next region (Johto -> Kanto -> Hoenn -> Johto)
+	ld a, [wFlyMapRegion]
+	inc a
+	cp NUM_REGIONS
+	jr c, .ok
+	xor a ; JOHTO_REGION
+.ok
+	ld [wFlyMapRegion], a
+	ret
+
+FlyMap_LandmarkToRegion:
+; a = landmark -> a = region
+	cp HOENN_LANDMARK
+	ld b, HOENN_REGION
+	jr nc, .got
+	cp KANTO_LANDMARK
+	ld b, KANTO_REGION
+	jr nc, .got
+	ld b, JOHTO_REGION
+.got
+	ld a, b
+	ret
+
+FlyMap_SwitchRegion:
+; Select on the fly map: show the next region that has a visited flypoint.
+	ld a, [wFlyMapRegion]
+	push af
+	ld a, [wTownMapPlayerIconLandmark]
+	push af
+	ld c, NUM_REGIONS - 1
+.loop
+	push bc
+	call FlyMap_NextRegion
+	ld a, [wFlyMapRegion]
+	call FlyMap_SetRegionRange
+	call FlyMap_SelectVisitedFlypoint
+	pop bc
+	jr nz, .found
+	dec c
+	jr nz, .loop
+; no other region to show
+	pop bc ; b = the selected flypoint
+	pop af
+	ld [wFlyMapRegion], a
+	push bc
+	call FlyMap_SetRegionRange
+	pop bc
+	ld a, b
+	ld [wTownMapPlayerIconLandmark], a
+	ret
+
+.found
+	pop af
+	pop af
+	ld de, SFX_MENU
+	call PlaySFX
+	xor a
+	ldh [hBGMapMode], a
+	call ClearSprites
+	farcall ClearSpriteAnims
+	jmp FlyMap_DrawRegion
 
 FlyMap_SelectVisitedFlypoint:
 ; Keep the region's default flypoint in wTownMapPlayerIconLandmark if it has
@@ -2159,13 +2264,13 @@ FlyMap_GetLandmark:
 	jmp GetWorldMapLocation
 
 FlyMap_SetRegionRange:
-; a = landmark. Sets wStartFlypoint and wEndFlypoint to the landmark's region,
+; a = region. Sets wStartFlypoint and wEndFlypoint to the region's flypoints,
 ; and wTownMapPlayerIconLandmark to its default flypoint
 ; (the first one in Johto, the last one in Kanto and Hoenn).
-	cp HOENN_LANDMARK
-	jr nc, .hoenn
-	cp KANTO_LANDMARK
-	jr nc, .kanto
+	cp HOENN_REGION
+	jr z, .hoenn
+	cp KANTO_REGION
+	jr z, .kanto
 	ld a, JOHTO_FLYPOINT
 	ld [wStartFlypoint], a
 	ld [wTownMapPlayerIconLandmark], a
@@ -2186,6 +2291,38 @@ FlyMap_SetRegionRange:
 .set_end_and_default
 	ld [wEndFlypoint], a
 	ld [wTownMapPlayerIconLandmark], a
+	ret
+
+FlyMap_CountRegions:
+; a = how many regions have a visited flypoint
+	ld a, [wStartFlypoint]
+	push af
+	ld a, [wEndFlypoint]
+	push af
+	ld a, [wTownMapPlayerIconLandmark]
+	push af
+	ld c, 0
+	ld b, JOHTO_REGION
+.loop
+	push bc
+	ld a, b
+	call FlyMap_SetRegionRange
+	call FlyMap_SelectVisitedFlypoint
+	pop bc
+	jr z, .next
+	inc c
+.next
+	inc b
+	ld a, b
+	cp NUM_REGIONS
+	jr c, .loop
+	pop af
+	ld [wTownMapPlayerIconLandmark], a
+	pop af
+	ld [wEndFlypoint], a
+	pop af
+	ld [wStartFlypoint], a
+	ld a, c
 	ret
 
 CheckIfVisitedFlypoint:
@@ -2218,37 +2355,25 @@ HasVisitedSpawn:
 INCLUDE "data/maps/flypoints.asm"
 
 FlyMap:
-	call FlyMap_GetLandmark
-	push af
-	call FlyMap_SetRegionRange
-	call FlyMap_SelectVisitedFlypoint ; FlyFunction already checked there is one
-	pop af
-	cp HOENN_LANDMARK
-	jr nc, .HoennFlyMap
-	cp KANTO_LANDMARK
-	jr nc, .KantoFlyMap
-; Johto fly map
-	push af
+	call FlyMap_RegionHasFlypoint ; FlyFunction already checked there is one
+	; fallthrough
+
+FlyMap_DrawRegion:
+; Draw wFlyMapRegion's map with the selection bubble and the Fly mon icon;
+; the player icon only on the player's own region's map.
+	ld a, [wFlyMapRegion]
+	cp HOENN_REGION
+	jr z, .hoenn
+	cp KANTO_REGION
+	jr z, .kanto
 	call FillJohtoMap
-	call .MapHud
-	pop af
-	jmp TownMapPlayerIcon
-
-.HoennFlyMap:
-	push af
+	jr .filled
+.hoenn
 	call FillHoennMap
-	call .MapHud
-	pop af
-	jmp TownMapPlayerIcon
-
-.KantoFlyMap:
-	push af
+	jr .filled
+.kanto
 	call FillKantoMap
-	call .MapHud
-	pop af
-	jmp TownMapPlayerIcon
-
-.MapHud:
+.filled
 	call TownMapBubble
 	call TownMapPals
 	hlbgcoord 0, 0 ; BG Map 0
@@ -2258,7 +2383,16 @@ FlyMap:
 	ld [wTownMapCursorCoordinates], a
 	ld a, b
 	ld [wTownMapCursorCoordinates + 1], a
-	ret
+	call FlyMap_GetLandmark
+	push af
+	call FlyMap_LandmarkToRegion
+	ld b, a
+	ld a, [wFlyMapRegion]
+	cp b
+	pop bc ; b = landmark
+	ret nz
+	ld a, b
+	jmp TownMapPlayerIcon
 
 Pokedex_GetArea:
 ; e: Current landmark
