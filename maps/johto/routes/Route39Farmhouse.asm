@@ -80,7 +80,7 @@ PokefanF_SnoreFarmer:
 FarmerFScript_GiveSnore:
 	writetext FarmerFText_HealedMiltank
 	promptbutton
-	verbosegiveitem TM_SNORE
+	verbosegiveitem TM_BODY_SLAM
 	iffalse FarmerFScript_NoRoomForSnore
 	setevent EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
 FarmerFScript_GotSnore:
@@ -174,17 +174,15 @@ FarmerFText_HealedMiltank:
 
 FarmerFText_SnoreSpeech:
 	text "That there's"
-	line "Snore."
+	line "Body Slam."
 
-	para "It's a rare move"
-	line "that only works"
+	para "Our Miltank use it"
+	line "to keep the Tauros"
+	cont "in line."
 
-	para "while the #mon"
-	line "is asleep."
-
-	para "You best think how"
-	line "you ought to use"
-	cont "it, hon."
+	para "It may leave the"
+	line "foe paralyzed,"
+	cont "hon."
 	done
 
 Route39Farmhouse_MapEvents:

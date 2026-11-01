@@ -20,10 +20,10 @@ TimeCapsule_CatchRateItems:
 	dbw 180, BRICK_PIECE
 	dbw 190, ORAN_BERRY
 	dbw 195, ORAN_BERRY
-	dbw 200, TM_PSYCH_UP
+	dbw 200, TM_DARK_PULSE
 	dbw 220, ORAN_BERRY
 	dbw 225, TM_ICE_PUNCH
-	dbw 235, TM_DETECT
+	dbw 235, TM_ZEN_HEADBUTT
 	dbw 250, ORAN_BERRY
 	dbw 255, ORAN_BERRY
 	db 0 ; end

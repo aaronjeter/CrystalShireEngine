@@ -383,6 +383,9 @@ DEF UNOWN_WALL_MENU_HEADER_SIZE EQU 5
 	const MOVETUTOR_FLAMETHROWER ; 1
 	const MOVETUTOR_THUNDERBOLT  ; 2
 	const MOVETUTOR_ICE_BEAM     ; 3
+	const MOVETUTOR_KNOCK_OFF    ; 4
+	const MOVETUTOR_U_TURN       ; 5
+	const MOVETUTOR_VOLT_SWITCH  ; 6
 
 ; monpaletteservice results (see engine/events/mon_palette_service.asm)
 	const_def

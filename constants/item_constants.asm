@@ -263,19 +263,19 @@ DEF TM01 EQU const_value
 	add_tm TOXIC        ; 0305
 	add_tm ZAP_CANNON   ; 0306
 	add_tm ROCK_SMASH   ; 0307
-	add_tm PSYCH_UP     ; 0308
+	add_tm DARK_PULSE     ; 0308
 	add_tm HIDDEN_POWER ; 0309
 	add_tm SUNNY_DAY    ; 030A
-	add_tm SWEET_SCENT  ; 030B
-	add_tm SNORE        ; 030C
+	add_tm GRASS_KNOT  ; 030B
+	add_tm BODY_SLAM        ; 030C
 	add_tm BLIZZARD     ; 030D
 	add_tm HYPER_BEAM   ; 030E
 	add_tm ICY_WIND     ; 030F
 	add_tm PROTECT      ; 0310
 	add_tm RAIN_DANCE   ; 0311
 	add_tm GIGA_DRAIN   ; 0312
-	add_tm ENDURE       ; 0313
-	add_tm FRUSTRATION  ; 0314
+	add_tm FLASHCANNON       ; 0313
+	add_tm TAUNT  ; 0314
 	add_tm SOLARBEAM    ; 0315
 	add_tm IRON_TAIL    ; 0316
 	add_tm DRAGONBREATH ; 0317
@@ -286,25 +286,25 @@ DEF TM01 EQU const_value
 	add_tm PSYCHIC_M    ; 031C
 	add_tm SHADOW_BALL  ; 031D
 	add_tm MUD_SLAP     ; 031E
-	add_tm DOUBLE_TEAM  ; 031F
+	add_tm SUBSTITUTE  ; 031F
 	add_tm ICE_PUNCH    ; 0320
-	add_tm SWAGGER      ; 0321
+	add_tm HYPER_VOICE      ; 0321
 	add_tm SLEEP_TALK   ; 0322
 	add_tm SLUDGE_BOMB  ; 0323
 	add_tm SANDSTORM    ; 0324
 	add_tm FIRE_BLAST   ; 0325
 	add_tm SWIFT        ; 0326
-	add_tm DEFENSE_CURL ; 0327
+	add_tm DRAIN_PUNCH ; 0327
 	add_tm THUNDERPUNCH ; 0328
 	add_tm DREAM_EATER  ; 0329
-	add_tm DETECT       ; 032A
+	add_tm ZEN_HEADBUTT       ; 032A
 	add_tm REST         ; 032B
 	add_tm ATTRACT      ; 032C
 	add_tm THIEF        ; 032D
 	add_tm STEEL_WING   ; 032E
 	add_tm FIRE_PUNCH   ; 032F
 	add_tm FURY_CUTTER  ; 0330
-	add_tm NIGHTMARE    ; 0331
+	add_tm FACADE    ; 0331
 	;new tms
 	add_tm HAIL
 	add_tm FIRE_FANG
@@ -323,14 +323,14 @@ DEF TM01 EQU const_value
 	add_tm DRAGON_CLAW
 	add_tm BRICK_BREAK
 	add_tm ANCIENTPOWER
-	add_tm CHARGE
-	add_tm DRAGON_DANCE		
-	add_tm MUD_SHOT		
-	add_tm SILVER_WIND
-	add_tm AURORA_BEAM	
-	add_tm FOCUS_PUNCH
-	add_tm FLAME_WHEEL	
-	add_tm DIZZY_PUNCH
+	add_tm LIGHT_SCREEN
+	add_tm REFLECT		
+	add_tm ROCK_SLIDE		
+	add_tm PLAY_ROUGH
+	add_tm POISON_JAB	
+	add_tm SLUDGE_WAVE
+	add_tm EARTHPOWER	
+	add_tm SHADOW_CLAW
 	
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
@@ -370,6 +370,9 @@ DEF MT01 EQU const_value
 	add_mt FLAMETHROWER
 	add_mt THUNDERBOLT
 	add_mt ICE_BEAM
+	add_mt KNOCK_OFF
+	add_mt U_TURN
+	add_mt VOLT_SWITCH
 DEF NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 DEF NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS

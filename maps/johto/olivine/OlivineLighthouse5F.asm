@@ -29,7 +29,7 @@ OlivineLighthouse5FSuperRepel:
 	itemball SUPER_REPEL
 
 OlivineLighthouse5FTMSwagger:
-	itemball TM_SWAGGER
+	itemball TM_HYPER_VOICE
 
 OlivineLighthouse5FHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_OLIVINE_LIGHTHOUSE_5F_HIDDEN_HYPER_POTION

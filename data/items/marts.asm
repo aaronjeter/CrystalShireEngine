@@ -289,7 +289,9 @@ MartCeladon2F2:
 	dw PARLYZ_HEAL
 
 MartCeladon3F:
-	db 5 ; # items
+	db 7 ; # items
+	dw TM_LIGHT_SCREEN
+	dw TM_REFLECT
 	dw TM_HIDDEN_POWER
 	dw TM_SUNNY_DAY
 	dw TM_PROTECT
@@ -396,7 +398,9 @@ Lilycove2FGear:
 	dw BLUESKY_MAIL
 
 Lilycove3FTms:
-	db 7 ; # items
+	db 9 ; # items
+	dw TM_LIGHT_SCREEN
+	dw TM_REFLECT
 	dw TM_ROCK_SMASH
 	dw TM_HIDDEN_POWER
 	dw TM_STEEL_WING

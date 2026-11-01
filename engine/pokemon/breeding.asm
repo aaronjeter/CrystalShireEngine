@@ -485,7 +485,7 @@ GetEggMove:
 	ld l, c
 	call GetFarWord
 	ld a, h
-	and l
+	or l ; 0 = end of the list
 	jr z, .done
 	inc bc
 	inc bc
@@ -523,6 +523,7 @@ GetEggMove:
 	and a
 	jr z, .not_learnset_move
 	push hl
+	ld a, b
 	call GetFarWord
 	ld a, l
 	cp e

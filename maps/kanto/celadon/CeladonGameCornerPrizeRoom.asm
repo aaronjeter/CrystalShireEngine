@@ -39,10 +39,10 @@ CeladonPrizeRoom_tmcounterloop:
 .DoubleTeam:
 	checkcoins CELADON_500_COINS
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
-	getitemname STRING_BUFFER_3, TM_DOUBLE_TEAM
+	getitemname STRING_BUFFER_3, TM_SUBSTITUTE
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
-	giveitem TM_DOUBLE_TEAM
+	giveitem TM_SUBSTITUTE
 	iffalse CeladonPrizeRoom_notenoughroom
 	takecoins CELADON_500_COINS
 	sjump CeladonPrizeRoom_purchased
@@ -114,7 +114,7 @@ CeladonPrizeRoom_TMMenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "DoubleTeam {d:CELADON_500_COINS}@"
+	db "Substitute {d:CELADON_500_COINS}@"
 	db "GigaDrain {d:CELADON_1500_COINS}@"
 	db "HyperBeam {d:CELADON_1500_COINS}@"
 	db "Cancel@"

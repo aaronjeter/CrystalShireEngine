@@ -10,6 +10,13 @@ DEF MAUVILLE_2000_COINS		EQU 2000
 	const MAUVILLE_GC_POKEMON_VENDOR2
 	const MAUVILLE_GC_VIP_GUARD
 	const MAUVILLE_GC_ROCKET_BOSS
+	const MAUVILLE_GC_GRANNY
+	const MAUVILLE_GC_NERD
+	const MAUVILLE_GC_ROCKET
+	const MAUVILLE_GC_GENTLEMAN
+	const MAUVILLE_GC_BEAUTY
+	const MAUVILLE_GC_CARD_SHARK
+	const MAUVILLE_GC_MOVE_TUTOR
 
 MauvilleGameCorner_MapScripts:
 	def_scene_scripts
@@ -599,6 +606,120 @@ MauvilleGameCornerHiddenSodaPop:
 	hiddenitem SODA_POP, EVENT_MAUVILLE_GAME_CORNER_SODA_POP
 
 
+MauvilleGameCornerMoveTutorScript:
+	faceplayer
+	opentext
+	writetext MauvilleMoveTutorIntroText
+	yesorno
+	iffalse .Refused
+	special DisplayCoinCaseBalance
+	writetext MauvilleMoveTutorCostText
+	yesorno
+	iffalse .Refused
+	checkcoins 500
+	ifequal HAVE_LESS, .NotEnoughCoins
+	writetext MauvilleMoveTutorWhichMoveText
+	loadmenu .MoveMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .KnockOff
+	ifequal 2, .UTurn
+	ifequal 3, .VoltSwitch
+	sjump .Refused
+
+.KnockOff:
+	setval MOVETUTOR_KNOCK_OFF
+	sjump .Teach
+
+.UTurn:
+	setval MOVETUTOR_U_TURN
+	sjump .Teach
+
+.VoltSwitch:
+	setval MOVETUTOR_VOLT_SWITCH
+.Teach:
+	writetext MauvilleMoveTutorBlankText
+	special MoveTutor
+	ifequal FALSE, .Taught
+	writetext MauvilleMoveTutorRefusedText
+	waitbutton
+	closetext
+	end
+
+.Taught:
+	takecoins 500
+	waitsfx
+	playsound SFX_TRANSACTION
+	special DisplayCoinCaseBalance
+	writetext MauvilleMoveTutorTaughtText
+	waitbutton
+	closetext
+	end
+
+.Refused:
+	writetext MauvilleMoveTutorRefusedText
+	waitbutton
+	closetext
+	end
+
+.NotEnoughCoins:
+	writetext MauvilleMoveTutorNoCoinsText
+	waitbutton
+	closetext
+	end
+
+.MoveMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 4 ; items
+	db "Knock Off@"
+	db "U-turn@"
+	db "Volt Switch@"
+	db "Cancel@"
+
+MauvilleMoveTutorIntroText:
+	text "I teach moves for"
+	line "a quick getaway or"
+	cont "a dirty trick."
+
+	para "Want me to teach"
+	line "your #mon one?"
+	done
+
+MauvilleMoveTutorCostText:
+	text "It will cost you"
+	line "500 coins. Okay?"
+	done
+
+MauvilleMoveTutorWhichMoveText:
+	text "Which move should"
+	line "I teach?"
+	done
+
+MauvilleMoveTutorTaughtText:
+	text "Use it well! Come"
+	line "back anytime."
+	done
+
+MauvilleMoveTutorRefusedText:
+	text "Suit yourself."
+	line "I'll be here."
+	done
+
+MauvilleMoveTutorNoCoinsText:
+	text "…You don't have"
+	line "enough coins…"
+	done
+
+MauvilleMoveTutorBlankText:
+	text_start
+	done
+
 CardSharkScript:
 	faceplayer
 	opentext
@@ -722,3 +843,4 @@ MauvilleGameCorner_MapEvents:
 	object_event  15, 01, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerRocketScript, -1
 	object_event  05, 17, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerBeautyScript, -1
 	object_event  11, 07, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CardSharkScript, -1
+	object_event  09, 21, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleGameCornerMoveTutorScript, -1

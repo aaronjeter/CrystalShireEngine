@@ -8,7 +8,7 @@ MtMoonB1F_MapScripts:
 	def_callbacks	
 
 MtMoonMoonstone3:
-	itemball MOON_STONE
+	itemball TM_PLAY_ROUGH
 
 MtMoonB1F_MapEvents:
 	db 0, 0 ; filler

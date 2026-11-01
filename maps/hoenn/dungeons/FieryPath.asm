@@ -42,7 +42,7 @@ FieryPathFireStone:
 	itemball FIRE_STONE
 
 FieryPathPpUp:
-	itemball PP_UP
+	itemball TM_SLUDGE_WAVE
 
 FieryPath_MapEvents:
 	db 0, 0 ; filler

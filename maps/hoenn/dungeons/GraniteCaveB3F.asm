@@ -119,7 +119,7 @@ GraniteCaveB2F_Tentacool3:
 	end
 
 GraniteCaveB3FEscapeRope:
-	itemball ESCAPE_ROPE
+	itemball TM_EARTHPOWER
 
 GraniteCaveB3F_MapEvents:
 	db 0, 0 ; filler

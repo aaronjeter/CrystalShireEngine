@@ -34,16 +34,25 @@ MoveTutor:
 
 .GetMoveTutorMove:
 	ld a, [wScriptVar]
-	cp MOVETUTOR_FLAMETHROWER
-	ld hl, FLAMETHROWER
-	jr z, .ok
-	cp MOVETUTOR_THUNDERBOLT
-	ld hl, THUNDERBOLT
-	jr z, .ok
-	; MOVETUTOR_ICE_BEAM
-	ld hl, ICE_BEAM
-.ok
+	dec a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, .Moves
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 	jmp GetMoveIDFromIndex
+
+.Moves:
+; indexed by MOVETUTOR_* - 1
+	dw FLAMETHROWER
+	dw THUNDERBOLT
+	dw ICE_BEAM
+	dw KNOCK_OFF
+	dw U_TURN
+	dw VOLT_SWITCH
 
 CheckCanLearnMoveTutorMove:
 	ld hl, .MenuHeader

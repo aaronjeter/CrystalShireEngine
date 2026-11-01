@@ -120,19 +120,19 @@ if DEF(_DEBUG)
 	giveitem TM_TOXIC
 	giveitem TM_ZAP_CANNON
 	giveitem TM_ROCK_SMASH
-	giveitem TM_PSYCH_UP
+	giveitem TM_DARK_PULSE
 	giveitem TM_HIDDEN_POWER
 	giveitem TM_SUNNY_DAY
-	giveitem TM_SWEET_SCENT
-	giveitem TM_SNORE
+	giveitem TM_GRASS_KNOT
+	giveitem TM_BODY_SLAM
 	giveitem TM_BLIZZARD
 	giveitem TM_HYPER_BEAM
 	giveitem TM_ICY_WIND
 	giveitem TM_PROTECT
 	giveitem TM_RAIN_DANCE
 	giveitem TM_GIGA_DRAIN
-	giveitem TM_ENDURE
-	giveitem TM_FRUSTRATION
+	giveitem TM_FLASHCANNON
+	giveitem TM_TAUNT
 	giveitem TM_SOLARBEAM
 	giveitem TM_IRON_TAIL
 	giveitem TM_DRAGONBREATH
@@ -143,25 +143,25 @@ if DEF(_DEBUG)
 	giveitem TM_PSYCHIC_M
 	giveitem TM_SHADOW_BALL
 	giveitem TM_MUD_SLAP
-	giveitem TM_DOUBLE_TEAM
+	giveitem TM_SUBSTITUTE
 	giveitem TM_ICE_PUNCH
-	giveitem TM_SWAGGER
+	giveitem TM_HYPER_VOICE
 	giveitem TM_SLEEP_TALK
 	giveitem TM_SLUDGE_BOMB
 	giveitem TM_SANDSTORM
 	giveitem TM_FIRE_BLAST
 	giveitem TM_SWIFT
-	giveitem TM_DEFENSE_CURL
+	giveitem TM_DRAIN_PUNCH
 	giveitem TM_THUNDERPUNCH
 	giveitem TM_DREAM_EATER
-	giveitem TM_DETECT
+	giveitem TM_ZEN_HEADBUTT
 	giveitem TM_REST
 	giveitem TM_ATTRACT
 	giveitem TM_THIEF
 	giveitem TM_STEEL_WING
 	giveitem TM_FIRE_PUNCH
 	giveitem TM_FURY_CUTTER
-	giveitem TM_NIGHTMARE
+	giveitem TM_FACADE
 	
 	giveitem TM_HAIL
 	giveitem TM_FIRE_FANG

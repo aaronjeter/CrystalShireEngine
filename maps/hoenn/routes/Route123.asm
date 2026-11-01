@@ -27,7 +27,7 @@ Route123RareCandy:
 	itemball RARE_CANDY
 
 Route123PpUp:
-	itemball PP_UP
+	itemball TM_SHADOW_CLAW
 
 Route123TeacherScript:
 	faceplayer
