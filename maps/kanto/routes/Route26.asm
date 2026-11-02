@@ -14,10 +14,10 @@ Route26_MapScripts:
 	def_callbacks
 
 TrainerCooltrainermJake:
-	trainer COOLTRAINERM, JAKE, EVENT_BEAT_COOLTRAINERM_JAKE, CooltrainermJakeSeenText, CooltrainermJakeBeatenText, 0, .Script
+	trainer ACE_DUO, JAKEANDJOY, EVENT_BEAT_ACE_DUO_JAKE_JOY, AceDuoJakeJoySeenText, AceDuoJakeJoyBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainermJakeAfterBattleText
+	trainerafter AceDuoJakeJoyAfterBattleText
 
 TrainerCooltrainermGaven3:
 	trainer COOLTRAINERM, GAVEN, EVENT_BEAT_COOLTRAINERM_GAVEN, CooltrainermGaven3SeenText, CooltrainermGaven3BeatenText, 0, .Script
@@ -26,10 +26,10 @@ TrainerCooltrainermGaven3:
 	trainerafter CooltrainermGavenAfterText
 
 TrainerCooltrainerfJoyce:
-	trainer COOLTRAINERF, JOYCE, EVENT_BEAT_COOLTRAINERF_JOYCE, CooltrainerfJoyceSeenText, CooltrainerfJoyceBeatenText, 0, .Script
+	trainer ACE_DUO, JAKEANDJOY, EVENT_BEAT_ACE_DUO_JAKE_JOY, AceDuoJakeJoySeenText, AceDuoJakeJoyBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainerfJoyceAfterBattleText
+	trainerafter AceDuoJakeJoyAfterBattleText
 
 TrainerCooltrainerfBeth1:
 	trainer COOLTRAINERF, BETH, EVENT_BEAT_COOLTRAINERF_BETH, CooltrainerfBeth1SeenText, CooltrainerfBeth1BeatenText, 0, .Script
@@ -58,33 +58,6 @@ Route26FruitTree:
 Route26MaxElixer:
 	itemball MAX_ELIXER
 
-CooltrainermJakeSeenText:
-	text "I'm making my"
-	line "final preparations"
-
-	para "for the #mon"
-	line "League."
-	done
-
-CooltrainermJakeBeatenText:
-	text "I blew it!"
-	done
-
-CooltrainermJakeAfterBattleText:
-	text "It's going to be"
-	line "tough to win at"
-	cont "the League."
-
-	para "I need to do some"
-	line "more training."
-
-	para "I hear that the"
-	line "League's Elite"
-
-	para "Four are tougher"
-	line "than Gym Leaders."
-	done
-
 CooltrainermGaven3SeenText:
 	text "By experiencing"
 	line "tough battles, you"
@@ -108,32 +81,6 @@ CooltrainermGavenAfterText:
 
 	para "Practically nobody"
 	line "goes there!"
-	done
-
-CooltrainerfJoyceSeenText:
-	text "Since you've come"
-	line "this far, you must"
-	cont "be good."
-
-	para "I'm going to give"
-	line "this battle every-"
-	cont "thing I've got!"
-	done
-
-CooltrainerfJoyceBeatenText:
-	text "No! I don't"
-	line "believe this!"
-	done
-
-CooltrainerfJoyceAfterBattleText:
-	text "I've defeated"
-	line "eight Gym Leaders,"
-
-	para "so I was feeling"
-	line "confident."
-
-	para "I'll have to try"
-	line "harder next time."
 	done
 
 CooltrainerfBeth1SeenText:
@@ -216,6 +163,26 @@ Route26SignText:
 	line "Reception Gate"
 	done
 
+AceDuoJakeJoySeenText:
+	text "Jake: Victory Road"
+	line "is just ahead."
+
+	para "Joy: Only the"
+	line "strong get past"
+	cont "us!"
+	done
+
+AceDuoJakeJoyBeatenText:
+	text "Joy: You're the"
+	line "real deal…"
+	done
+
+AceDuoJakeJoyAfterBattleText:
+	text "Jake: The League"
+	line "is a different"
+	cont "level. Good luck."
+	done
+
 Route26_MapEvents:
 	db 0, 0 ; filler
 
@@ -230,9 +197,9 @@ Route26_MapEvents:
 	bg_event  8,  6, BGEVENT_READ, Route26Sign
 
 	def_object_events
-	object_event 14, 24, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainermJake, -1
+	object_event 15, 24, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainermJake, -1
 	object_event  9, 38, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermGaven3, -1
-	object_event 10, 56, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfJoyce, -1
+	object_event 15, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfJoyce, -1
 	object_event  5,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerfBeth1, -1
 	object_event 13, 79, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicRichard, -1
 	object_event 10, 92, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherScott, -1

@@ -13,57 +13,17 @@ Route105_MapScripts:
 	def_callbacks	
 
 Route105ImaniScript:
-	trainer SWIMMERF, ROUTE105_IMANI, EVENT_BEAT_ROUTE105_IMANI, Route105ImaniSeenText, Route105ImaniBeatenText, 0, .AfterScript
+	trainer SWIMMERS, LUANDIMA, EVENT_BEAT_SWIMMERS_LU_IMA, SwimmersLuImaSeenText, SwimmersLuImaBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route105ImaniAfterBattleText
-
-Route105ImaniSeenText:
-	text "Hi there!"
-
-	para "We're swimming to"
-	line "Deword Town."
-	done
-
-Route105ImaniBeatenText:
-	text "Nice!"
-
-	para "You're pretty"
-	line "good."
-	done
-
-Route105ImaniAfterBattleText:
-	text "That was a fun"
-	line "distraction."
-	done
+.Script:
+	trainerafter SwimmersLuImaAfterBattleText
 
 
 Route105LuisScript:
-	trainer SWIMMERM, ROUTE105_LUIS, EVENT_BEAT_ROUTE105_LUIS, Route105LuisSeenText, Route105LuisBeatenText, 0, .AfterScript
+	trainer SWIMMERS, LUANDIMA, EVENT_BEAT_SWIMMERS_LU_IMA, SwimmersLuImaSeenText, SwimmersLuImaBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route105LuisAfterBattleText
-
-Route105LuisSeenText:
-	text "Hey there."
-
-	para "Are you going"
-	line "to challenge"
-
-	para "Brawly as well?"
-	done
-
-Route105LuisBeatenText:
-	text "That was a"
-	line "good warmup!"
-	done
-
-Route105LuisAfterBattleText:
-	text "I hope I'm"
-	line "ready for"
-
-	para "Dewford Gym."
-	done
+.Script:
+	trainerafter SwimmersLuImaAfterBattleText
 
 
 Route105FosterScript:
@@ -201,6 +161,22 @@ Route105ElliotAfterBattleText:
 	line "to be alone."
 	done
 
+SwimmersLuImaSeenText:
+	text "Lu: Deep water"
+	line "makes us strong!"
+
+	para "Ima: Dive in!"
+	done
+
+SwimmersLuImaBeatenText:
+	text "Ima: We sank…"
+	done
+
+SwimmersLuImaAfterBattleText:
+	text "Lu: The current is"
+	line "gentle here."
+	done
+
 Route105_MapEvents:
 	db 0, 0 ; filler
 
@@ -214,7 +190,7 @@ Route105_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event 21, 15, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route105ImaniScript, -1
+	object_event 24, 15, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route105ImaniScript, -1
 	object_event 23, 15, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route105LuisScript, -1
 	object_event 19, 26, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route105FosterScript, -1
 	object_event 11, 20, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route105AndresScript, -1

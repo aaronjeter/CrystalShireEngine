@@ -83,16 +83,16 @@ TrainerSchoolboyJack1:
 	trainerafter SchoolboyJackTradeMonText
 
 TrainerPokefanmWilliam:
-	trainer POKEFANM, WILLIAM, EVENT_BEAT_POKEFANM_WILLIAM, PokefanmWilliamSeenText, PokefanmWilliamBeatenText, 0, .Script
+	trainer POKEFANS, HALANDBEV, EVENT_BEAT_POKEFANS_HAL_BEV, PokefansHalBevSeenText, PokefansHalBevBeatenText, 0, .Script
 
 .Script:
-	trainerafter PokefanmWilliamAfterBattleText
+	trainerafter PokefansHalBevAfterBattleText
 
 TrainerPokefanfBeverly1:
-	trainer POKEFANF, BEVERLY, EVENT_BEAT_POKEFANF_BEVERLY, PokefanfBeverly1SeenText, PokefanfBeverly1BeatenText, 0, .Script
+	trainer POKEFANS, HALANDBEV, EVENT_BEAT_POKEFANS_HAL_BEV, PokefansHalBevSeenText, PokefansHalBevBeatenText, 0, .Script
 
 .Script:
-	trainerafter PokefanBeverlyCuteMonText
+	trainerafter PokefansHalBevAfterBattleText
 
 TrainerLassKrise:
 	trainer LASS, KRISE, EVENT_BEAT_LASS_KRISE, LassKriseSeenText, LassKriseBeatenText, 0, .Script
@@ -231,47 +231,6 @@ SchoolboyJackTradeMonText:
 	line "level up faster."
 	done
 
-PokefanfBeverly1SeenText:
-	text "My #mon are"
-	line "simply darling."
-
-	para "Let me tell you"
-	line "how proud my"
-	cont "darlings make me."
-	done
-
-PokefanfBeverly1BeatenText:
-	text "I can beat you in"
-	line "pride, but…"
-	done
-
-PokefanBeverlyCuteMonText:
-	text "I must say, your"
-	line "#mon are quite"
-	cont "cute, too."
-	done
-
-PokefanmWilliamSeenText:
-	text "We adore our #-"
-	line "MON, even if they"
-	cont "dislike us."
-
-	para "That's what being"
-	line "a fan is about."
-	done
-
-PokefanmWilliamBeatenText:
-	text "M-my #mon!"
-	done
-
-PokefanmWilliamAfterBattleText:
-	text "I lost the battle,"
-	line "but my #mon win"
-
-	para "the prize for"
-	line "being most lovely."
-	done
-
 PokefanFBeverlyMarillFriendText:
 	text "My friend keeps a"
 	line "Marill!"
@@ -332,6 +291,26 @@ NationalParkHeracrossScript:
 	disappear NATIONALPARK_HERACROSS
 	end
 
+PokefansHalBevSeenText:
+	text "Hal: Our darling"
+	line "#mon are the"
+	cont "cutest in Johto!"
+
+	para "Bev: Let us show"
+	line "you, dear!"
+	done
+
+PokefansHalBevBeatenText:
+	text "Hal: My precious"
+	line "Raichu…"
+	done
+
+PokefansHalBevAfterBattleText:
+	text "Bev: We brush our"
+	line "#mon every day"
+	cont "in this park."
+	done
+
 NationalPark_MapEvents:
 	db 0, 0 ; filler
 
@@ -358,8 +337,8 @@ NationalPark_MapEvents:
 	object_event 17, 41, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkTeacher2Script, -1
 	object_event 26, 40, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkPersian, -1
 	object_event 27, 23, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyJack1, -1
-	object_event 18, 29, SPRITE_POKEFAN_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanfBeverly1, -1
-	object_event 16,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanmWilliam, -1
+	object_event 17,  9, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanfBeverly1, -1
+	object_event 16,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanmWilliam, -1
 	object_event  8, 14, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassKrise, -1
 	object_event 35, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NationalParkParlyzHeal, EVENT_NATIONAL_PARK_PARLYZ_HEAL
 	object_event 26,  6, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkGameboyKidScript, -1

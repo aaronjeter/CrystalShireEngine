@@ -152,12 +152,9 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const RUSTBORO_JOSH
 	const RUSTBORO_TOMMY
 	const ROUTE102_CALVIN
-	const ROUTE102_ALLEN
 	const ROUTE104_BILLY	
-	const ROUTE116_JOEY
 	const ROUTE116_JOHNSON
 	const ROUTE110_TIMMY
-	const MOON_JOSH	
 	const ROUTE113_LAO
 	const ROUTE113_DILLON
 
@@ -165,34 +162,23 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const JACK
 	const KIPP
 	const ALAN1
-	const JOHNNY
 	const DANNY
 	const TOMMY
 	const DUDLEY
-	const JOE
-	const BILLY
-	const CHAD1
 	const NATE
 	const RICKY
 	const MAUVILLE_BEN
-	const ROUTE118_DALE
 
 	trainerclass BIRD_KEEPER ; 18
 	const ROD
 	const ABE
 	const BRYAN
-	const THEO
 	const TOBY
-	const DENIS
 	const VANCE
 	const HANK
 	const ROY
-	const BORIS
-	const BOB
 	const JOSE
 	const PETER
-	const PERRY
-	const BRET
 	const ROUTE105_JOSUE
 	const FORTREE_HUMBERT
 	const FORTREE_JARED
@@ -213,19 +199,13 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const KRISE
 	const CONNIE
 	const LINDA
-	const LAURA
 	const SHANNON
 	const MICHELLE
-	const DANA
 	const ELLEN
 	const MAUVILLE_VIVIAN
-	const ROUTE102_TIANA
 	const ROUTE104_HALEY
 	const ROUTE116_KAREN
-	const ROUTE116_JANICE
-	const MOON_IRIS
 	const MOON_MIRIAM
-	const ROUTE118_SALLY
 	const ROUTE118_ANNIE
 	const SOOTOPOLIS_ANDREA
 	const SOOTOPOLIS_CRISSY
@@ -237,18 +217,14 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass COOLTRAINERM ; 1b
 	const NICK
-	const AARON
 	const PAUL
 	const CODY
 	const MIKE
 	const GAVEN
 	const RYAN
-	const JAKE
 	const BLAKE
-	const BRIAN
 	const SEAN
 	const KEVIN
-	const ALLEN
 	const DARIN
 	const PETALBURG_RANDALL
 	const PETALBURG_PARKER
@@ -258,7 +234,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DALORIC2
 	const CONTEST_CRYSTAL1
 	const CONTEST_CRYSTAL2
-	const ROUTE120_LEONEL
 	const ASHEN_GAUNTLET1
 	const WEEKDAY_WESLEY
 	const WEEKDAY_ARTHUR
@@ -276,20 +251,15 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
-	const LOIS
 	const FRAN
 	const LOLA
 	const KATE
 	const IRENE
 	const KELLY
-	const JOYCE
 	const BETH
-	const REENA
 	const MEGAN
 	const CAROL
 	const QUINN
-	const EMMA
-	const CYBIL
 	const JENN
 	const CARA
 	const MARINA1
@@ -298,7 +268,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const PETALBURG_MARY
 	const PETALBURG_LORI
 	const PETALBURG_JODY
-	const ROUTE120_JENNIFER
 	const WEEKDAY_MONICA
 	const WEEKDAY_TUSCANY
 	const WEEKDAY_FRIEDA
@@ -491,37 +460,27 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
-	const SIMON
 	const RANDALL
-	const CHARLIE
 	const GEORGE
 	const BERKE
 	const KIRK
 	const MATHEW
 	const JEROME
-	const TUCKER
-	const CAMERON
 	const SETH
 	const PARKER
-	const ROUTE105_LUIS
 	const ROUTE108_TONY
 	const ROUTE108_DARRIN
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE
-	const PAULA
-	const KAYLEE
 	const SUSIE
 	const DENISE
 	const KARA
 	const WENDY	
-	const DAWN
 	const NICOLE
-	const LORI
 	const NIKKI
 	const DIANA
 	const BRIANA
-	const ROUTE105_IMANI
 	const ROUTE108_DENISE
 	const ROUTE108_BETH
 
@@ -568,30 +527,20 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass HIKER ; 2c
 	const ANTHONY
-	const RUSSELL
-	const PHILLIP
-	const LEONARD
 	const BENJAMIN
 	const ERIK
-	const MICHAEL
 	const PARRY
-	const TIMOTHY
 	const BAILEY
 	const TIM
 	const NOLAND
 	const SIDNEY
 	const KENNY
 	const JIM
-	const DANIEL
 	const RUSTBORO_MARC
 	const ROUTE116_CLARK
 	const ROUTE116_DEVAN
 	const LAVARIDGE_ELI
 	const MOON_MARCOS	
-	const ROUTE112_TRENT
-	const ROUTE112_BRICE
-	const ROUTE114_LUCAS
-	const ROUTE114_LENNY
 
 	trainerclass BIKER ; 2d
 	const DWAYNE
@@ -675,24 +624,17 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const JARED2
 
 	trainerclass PICNICKER ; 35
-	const LIZ
-	const GINA
-	const BROOKE
 	const KIM
 	const CINDY
 	const HOPE
 	const SHARON
 	const DEBRA
-	const ERIN
 	const HEIDI
-	const EDNA
-	const TIFFANY
 	const TANYA
 	const ROUTE117_MARIA
 	const ROUTE117_MELINA
 	const ROUTE111_CELINA
 	const ROUTE111_BIANCA
-	const ROUTE111_GABBY
 	const ROUTE111_IRENE
 	const FORTREE_ASHLEY
 	const ROUTE112_CAROL
@@ -702,29 +644,21 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE114_NANCY
 	const ROUTE114_ANGELINA
 	const DESERT_HEIDI	
-	const DESERT_BECKY
 	const DESERT_CELIA
 	const PEWTER_AMARA
 	
 
 	trainerclass CAMPER ; 36
-	const ROLAND
-	const TODD
 	const IVAN
-	const ELLIOT
 	const BARRY
 	const LLOYD
 	const DEAN
-	const SID
-	const TED
 	const JERRY
-	const SPENCER
 	const QUENTIN
 	const ROUTE104_WINSTON
 	const ROUTE117_DYLAN
 	const ROUTE108_CAMRON
 	const ROUTE111_TYRON
-	const ROUTE111_TRAVIS
 	const FORTREE_FLINT
 	const ROUTE112_LARRY
 	const ROUTE113_JAYLEN
@@ -732,7 +666,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE113_LAWRENCE
 	const ROUTE114_SHANE
 	const DESERT_BEAU
-	const DESERT_DREW	
 	const DESERT_BRANDEN
 	const PEWTER_LIAM
 
@@ -773,20 +706,14 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass POKEFANM ; 3b
 	const WILLIAM
-	const DEREK
 	const ROBERT
 	const JOSHUA
-	const CARTER
-	const TREVOR
 	const BRANDON
 	const JEREMY
 	const COLIN
 	const ALEX
-	const REX
-	const ALLAN
 	const ROUTE103_MIGUEL
 	const ROUTE117_ISAAC
-	const ROUTE110_KALEB
 	const ROUTE110_EDWIN
 
 	trainerclass KIMONO_GIRL ; 3c
@@ -809,12 +736,9 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE113_TORITIA
 
 	trainerclass POKEFANF ; 3e
-	const BEVERLY
-	const RUTH
 	const GEORGIA
 	const JAIME
 	const ROUTE117_LYDIA
-	const ROUTE110_ISABEL
 	const SOOTOPOLIS_ANNIKA
 	const SOOTOPOLIS_BETHANY
 
@@ -937,9 +861,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const SAFARI_ELI
 	const SAFARI_RANDAL
 	const SAFARI_STEVEN
-	const ROUTE119_JACKSON
 	const ROUTE119_TAKASHI
-	const ROUTE119_YASU
 	const ROUTE119_HIDEO
 	const ROUTE120_RILEY
 	const ROUTE120_LORENZO
@@ -951,8 +873,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const SAFARI_MONICA
 	const SAFARI_TINA
 	const SAFARI_RACHAEL
-	const ROUTE119_CATHERINE
-	const ROUTE119_RACHEL
 	const ROUTE119_DANI
 	const ROUTE120_JENNA
 
@@ -1021,6 +941,77 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass NURSE
 	const NURSE1
+
+; duo classes (Nov 2026): one party, two NPCs; always DOUBLES
+
+	trainerclass COUPLE
+	const TEDANDERIN
+	const ROLFANDLIZ
+	const TODDANDGINA
+	const ELIANDBREE
+	const SYANDTIFF
+	const NEDANDIVY
+	const SIDANDEDNA
+	const TYANDMAE
+	const EDANDGABBY
+	const DREWANDBEC
+
+	trainerclass SWIMMERS
+	const SAMANDPAM
+	const CALANDKAY
+	const TUCKANDDI
+	const CAMANDLIV
+	const KIPANDNIA
+	const RIOANDMEL
+	const LUANDIMA
+
+	trainerclass ACE_DUO
+	const NICKANDEM
+	const ABEANDLOIS
+	const ALANDCYBIL
+	const JAKEANDJOY
+	const BOANDREENA
+	const LEONANDJEN
+
+	trainerclass RANGERS
+	const YASUANDRAE
+	const JACKANDKAT
+
+	trainerclass FIGHTERS
+	const KAIANDMEI
+
+	trainerclass BIRDERS
+	const JEDANDLOU
+	const THEOANDDEN
+	const RAYANDBRET
+	const ROBANDBOB
+
+	trainerclass HIKERS
+	const DANANDRUSS
+	const PHILANDLEO
+	const MIKEANDTIM
+	const GUSANDTED
+	const TRENTANDIKE
+	const LENANDLUKE
+
+	trainerclass POKEFANS
+	const HALANDBEV
+	const ALANDRUTH
+	const MOANDFLO
+	const REXANDANN
+	const VICANDCAT
+	const KALANDISA
+
+	trainerclass PUPILS
+	const KENANDAMY
+	const CHADANDANA
+	const JOANDIRIS
+	const JOEANDLARA
+	const JONANDBEA
+	const ALANDTIANA
+	const JOEYANDJAN
+	const BENANDZOE
+	const DALEANDSAL
 
 DEF KRIS EQU __trainer_class__
 

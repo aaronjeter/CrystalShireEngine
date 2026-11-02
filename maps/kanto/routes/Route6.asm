@@ -8,16 +8,16 @@ Route6_MapScripts:
 	def_callbacks
 
 TrainerPokefanmRex:
-	trainer POKEFANM, REX, EVENT_BEAT_POKEFANM_REX, PokefanmRexSeenText, PokefanmRexBeatenText, 0, .Script
+	trainer POKEFANS, REXANDANN, EVENT_BEAT_POKEFANS_REX_ANN, PokefansRexAnnSeenText, PokefansRexAnnBeatenText, 0, .Script
 
 .Script:
-	trainerafter PokefanmRexAfterBattleText
+	trainerafter PokefansRexAnnAfterBattleText
 
 TrainerPokefanmAllan:
-	trainer POKEFANM, ALLAN, EVENT_BEAT_POKEFANM_ALLAN, PokefanmAllanSeenText, PokefanmAllanBeatenText, 0, .Script
+	trainer POKEFANS, REXANDANN, EVENT_BEAT_POKEFANS_REX_ANN, PokefansRexAnnSeenText, PokefansRexAnnBeatenText, 0, .Script
 
 .Script:
-	trainerafter PokefanmAllanAfterBattleText
+	trainerafter PokefansRexAnnAfterBattleText
 
 Route6UndergroundPathSign:
 	jumptext Route6UndergroundPathSignText
@@ -29,42 +29,22 @@ Route6UndergroundPathSignText:
 	line "Vermilion City"
 	done
 
-PokefanmRexSeenText:
-	text "My Phanpy is the"
-	line "cutest in the"
-	cont "world."
+PokefansRexAnnSeenText:
+	text "Rex: Ann, show"
+	line "them our babies!"
+
+	para "Ann: With joy,"
+	line "dear!"
 	done
 
-PokefanmRexBeatenText:
-	text "My Phanpy!"
+PokefansRexAnnBeatenText:
+	text "Ann: My poor"
+	line "sweeties…"
 	done
 
-PokefanmRexAfterBattleText:
-	text "Look how adorable"
-	line "my Phanpy acts!"
-
-	para "Isn't it cute"
-	line "enough to make"
-	cont "your heart melt?"
-	done
-
-PokefanmAllanSeenText:
-	text "My Teddiursa is"
-	line "the cutest in the"
-	cont "world."
-	done
-
-PokefanmAllanBeatenText:
-	text "My Teddiursa!"
-	done
-
-PokefanmAllanAfterBattleText:
-	text "Look how adorable"
-	line "my Teddiursa acts!"
-
-	para "Isn't it cute"
-	line "enough to make"
-	cont "your heart melt?"
+PokefansRexAnnAfterBattleText:
+	text "Rex: We dress our"
+	line "#mon to match."
 	done
 
 Route6_MapEvents:
@@ -81,4 +61,4 @@ Route6_MapEvents:
 
 	def_object_events
 	object_event  9, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmRex, -1
-	object_event 10, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmAllan, -1
+	object_event 10, 12, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmAllan, -1

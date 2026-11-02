@@ -39,26 +39,10 @@ TrainerMoonKentAfterBattleText:
 
 
 TrainerMoonIris:
-	trainer LASS, MOON_IRIS, EVENT_BEAT_MOON_IRIS, TrainerMoonIrisSeenText, TrainerMoonIrisBeatenText, 0, .Script
+	trainer PUPILS, JOANDIRIS, EVENT_BEAT_PUPILS_JO_IRIS, PupilsJoIrisSeenText, PupilsJoIrisBeatenText, 0, .Script
 
 .Script:
-	trainerafter TrainerMoonIrisAfterBattleText
-
-TrainerMoonIrisSeenText:
-	text "Hey, have you"
-	line "seen Mount"
-	cont "Moon Square yet?"
-	done
-
-TrainerMoonIrisBeatenText:
-	text "That was fun!"
-	done
-
-TrainerMoonIrisAfterBattleText:
-	text "I just saw a"
-	line "Clefairy in"
-	cont "the square!"
-	done
+	trainerafter PupilsJoIrisAfterBattleText
 
 
 TrainerMoonJovan:
@@ -129,24 +113,10 @@ TrainerMoonMiriamAfterBattleText:
 
 
 TrainerMoonJosh:
-	trainer YOUNGSTER, MOON_JOSH, EVENT_BEAT_MOON_JOSH, TrainerMoonJoshSeenText, TrainerMoonJoshBeatenText, 0, .Script
+	trainer PUPILS, JOANDIRIS, EVENT_BEAT_PUPILS_JO_IRIS, PupilsJoIrisSeenText, PupilsJoIrisBeatenText, 0, .Script
 
 .Script:
-	trainerafter TrainerMoonJoshAfterBattleText
-
-TrainerMoonJoshSeenText:
-	text "These Geodude"
-	line "are good training."
-	done
-
-TrainerMoonJoshBeatenText:
-	text "Huh."
-	done
-
-TrainerMoonJoshAfterBattleText:
-	text "I need to train"
-	line "more, I guess."
-	done
+	trainerafter PupilsJoIrisAfterBattleText
 
 
 TrainerMoonMarcos:
@@ -174,6 +144,24 @@ MtMoonMoonstone4:
 	hiddenitem MOON_STONE, EVENT_MOUNT_MOON_MOONSTONE4
 
 
+PupilsJoIrisSeenText:
+	text "Jo: We're looking"
+	line "for Moon Stones!"
+
+	para "Iris: Battle us"
+	line "for them!"
+	done
+
+PupilsJoIrisBeatenText:
+	text "Iris: No fair…"
+	done
+
+PupilsJoIrisAfterBattleText:
+	text "Jo: Clefairy dance"
+	line "under the full"
+	cont "moon, they say."
+	done
+
 MtMoon1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -191,10 +179,10 @@ MtMoon1F_MapEvents:
 
 	def_object_events
 	object_event  05, 24, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerMoonKent, -1
-	object_event  16, 24, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerMoonIris, -1
+	object_event 15, 21, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerMoonIris, -1
 	object_event  27, 34, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonJovan, -1
 	object_event  23, 19, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerMoonRobby, -1
 	object_event  29, 05, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerMoonMiriam, -1
-	object_event  14, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerMoonJosh, -1
+	object_event 14, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerMoonJosh, -1
 	object_event  08, 06, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerMoonMarcos, -1
 	

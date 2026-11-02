@@ -1,19 +1,12 @@
 	object_const_def
 	const OLIVINELIGHTHOUSE3F_SAILOR
 	const OLIVINELIGHTHOUSE3F_GENTLEMAN
-	const OLIVINELIGHTHOUSE3F_YOUNGSTER
 	const OLIVINELIGHTHOUSE3F_POKE_BALL
 
 OlivineLighthouse3F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-
-TrainerBirdKeeperTheo:
-	trainer BIRD_KEEPER, THEO, EVENT_BEAT_BIRD_KEEPER_THEO, BirdKeeperTheoSeenText, BirdKeeperTheoBeatenText, 0, .Script
-
-.Script:
-	trainerafter BirdKeeperTheoAfterBattleText
 
 TrainerGentlemanPreston:
 	trainer GENTLEMAN, PRESTON, EVENT_BEAT_GENTLEMAN_PRESTON, GentlemanPrestonSeenText, GentlemanPrestonBeatenText, 0, .Script
@@ -29,30 +22,6 @@ TrainerSailorTerrell:
 
 OlivineLighthouse3FEther:
 	itemball ETHER
-
-BirdKeeperTheoSeenText:
-	text "Why are you here?"
-	line "Are you just going"
-
-	para "to gawk? I suggest"
-	line "that you leave!"
-	done
-
-BirdKeeperTheoBeatenText:
-	text "You really are"
-	line "concerned…"
-	done
-
-BirdKeeperTheoAfterBattleText:
-	text "How the heck do"
-	line "you go up?"
-
-	para "I want to visit"
-	line "the sick #mon,"
-
-	para "but I can't get up"
-	line "there…"
-	done
 
 SailorTerrellSeenText:
 	text "Sailors are both"
@@ -116,5 +85,4 @@ OlivineLighthouse3F_MapEvents:
 	def_object_events
 	object_event  9,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSailorTerrell, -1
 	object_event 13,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerGentlemanPreston, -1
-	object_event  3,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperTheo, -1
 	object_event  8,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse3FEther, EVENT_OLIVINE_LIGHTHOUSE_3F_ETHER

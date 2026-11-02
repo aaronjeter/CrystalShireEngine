@@ -41,10 +41,10 @@ TrainerFisherEdgar:
 	trainerafter FisherEdgarAfterBattleText
 
 TrainerCooltrainerfCybil:
-	trainer COOLTRAINERF, CYBIL, EVENT_BEAT_COOLTRAINERF_CYBIL, CooltrainerfCybilSeenText, CooltrainerfCybilBeatenText, 0, .Script
+	trainer ACE_DUO, ALANDCYBIL, EVENT_BEAT_ACE_DUO_AL_CYBIL, AceDuoAlCybilSeenText, AceDuoAlCybilBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainerfCybilAfterBattleText
+	trainerafter AceDuoAlCybilAfterBattleText
 
 TrainerPokemaniacZach:
 	trainer POKEMANIAC, ZACH, EVENT_BEAT_POKEMANIAC_ZACH, PokemaniacZachSeenText, PokemaniacZachBeatenText, 0, .Script
@@ -53,10 +53,10 @@ TrainerPokemaniacZach:
 	trainerafter PokemaniacZachAfterBattleText
 
 TrainerCooltrainermAllen:
-	trainer COOLTRAINERM, ALLEN, EVENT_BEAT_COOLTRAINERM_ALLEN, CooltrainermAllenSeenText, CooltrainermAllenBeatenText, 0, .Script
+	trainer ACE_DUO, ALANDCYBIL, EVENT_BEAT_ACE_DUO_AL_CYBIL, AceDuoAlCybilSeenText, AceDuoAlCybilBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainermAllenAfterBattleText
+	trainerafter AceDuoAlCybilAfterBattleText
 
 Route44Sign1:
 	jumptext Route44Sign1Text
@@ -198,61 +198,6 @@ PokemaniacZachAfterBattleText:
 	line "that's not true?"
 	done
 
-CooltrainermAllenSeenText:
-	text "I can tell you're"
-	line "a good trainer by"
-	cont "looking at you."
-
-	para "I'm good at #-"
-	line "MON, and I can see"
-	cont "that you are too."
-	done
-
-CooltrainermAllenBeatenText:
-	text "Tch! It's a total"
-	line "loss on my part."
-	done
-
-CooltrainermAllenAfterBattleText:
-	text "Wow. You have a"
-	line "lot of Badges."
-
-	para "No wonder you're"
-	line "so tough."
-
-	para "I wonder if"
-	line "Ecruteak Gym's"
-
-	para "Morty is still in"
-	line "training?"
-
-	para "He really hammered"
-	line "me."
-	done
-
-CooltrainerfCybilSeenText:
-	text "You look strong."
-
-	para "Good trainers seek"
-	line "tough opponents"
-	cont "instinctively."
-	done
-
-CooltrainerfCybilBeatenText:
-	text "Nope! This won't"
-	line "do at all."
-	done
-
-CooltrainerfCybilAfterBattleText:
-	text "We all get better"
-	line "by experiencing"
-	cont "many battles."
-
-	para "I battled a lot to"
-	line "become what I am"
-	cont "today--an elite."
-	done
-
 Route44Sign1Text:
 	text "Route 44"
 	line "Ice Path Ahead"
@@ -263,6 +208,28 @@ Route44Sign2Text:
 
 	para "Mahogany Town -"
 	line "Blackthorn City"
+	done
+
+AceDuoAlCybilSeenText:
+	text "Cybil: You're"
+	line "headed to the"
+	cont "Ice Path?"
+
+	para "Al: Prove you can"
+	line "handle it first!"
+	done
+
+AceDuoAlCybilBeatenText:
+	text "Al: You're ready."
+	done
+
+AceDuoAlCybilAfterBattleText:
+	text "Cybil: Blackthorn's"
+	line "Gym Leader uses"
+	cont "dragons."
+
+	para "Al: Ice beats"
+	line "them, they say."
 	done
 
 Route44_MapEvents:
@@ -284,8 +251,8 @@ Route44_MapEvents:
 	object_event 10,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicPhil, -1
 	object_event 43,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacZach, -1
 	object_event 51,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperVance1, -1
-	object_event 41, 15, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainermAllen, -1
-	object_event 31, 14, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfCybil, -1
+	object_event 27, 14, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermAllen, -1
+	object_event 26, 14, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfCybil, -1
 	object_event  9,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route44FruitTree, -1
 	object_event 30,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route44MaxRevive, EVENT_ROUTE_44_MAX_REVIVE
 	object_event 45,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route44UltraBall, EVENT_ROUTE_44_ULTRA_BALL

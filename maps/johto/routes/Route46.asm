@@ -18,16 +18,16 @@ Route46MonSpritesCallback:
 	endcallback
 
 TrainerCamperTed:
-	trainer CAMPER, TED, EVENT_BEAT_CAMPER_TED, CamperTedSeenText, CamperTedBeatenText, 0, .Script
+	trainer COUPLE, TEDANDERIN, EVENT_BEAT_COUPLE_TED_ERIN, CoupleTedErinSeenText, CoupleTedErinBeatenText, 0, .Script
 
 .Script:
-	trainerafter CamperTedAfterBattleText
+	trainerafter CoupleTedErinAfterBattleText
 
 TrainerPicnickerErin1:
-	trainer PICNICKER, ERIN, EVENT_BEAT_PICNICKER_ERIN, PicnickerErin1SeenText, PicnickerErin1BeatenText, 0, .Script
+	trainer COUPLE, TEDANDERIN, EVENT_BEAT_COUPLE_TED_ERIN, CoupleTedErinSeenText, CoupleTedErinBeatenText, 0, .Script
 
 .Script:
-	trainerafter PicnickerErinAfterBattleText
+	trainerafter CoupleTedErinAfterBattleText
 
 TrainerHikerBailey:
 	trainer HIKER, BAILEY, EVENT_BEAT_HIKER_BAILEY, HikerBaileySeenText, HikerBaileyBeatenText, 0, .Script
@@ -72,49 +72,6 @@ HikerBaileyAfterBattleText:
 	cont "are like that."
 	done
 
-CamperTedSeenText:
-	text "I'm raising #-"
-	line "MON too!"
-
-	para "Will you battle"
-	line "with me?"
-	done
-
-CamperTedBeatenText:
-	text "Wha…?"
-	done
-
-CamperTedAfterBattleText:
-	text "I did my best but"
-	line "came up short."
-
-	para "No excuses--I"
-	line "admit I lost."
-	done
-
-PicnickerErin1SeenText:
-	text "I raise #mon"
-	line "too!"
-
-	para "Will you battle"
-	line "with me?"
-	done
-
-PicnickerErin1BeatenText:
-	text "Oh, rats!"
-	done
-
-PicnickerErinAfterBattleText:
-	text "I've been to many"
-	line "Gyms, but the Gym"
-
-	para "in Goldenrod is my"
-	line "favorite."
-
-	para "It's filled with"
-	line "pretty flowers!"
-	done
-
 PicnickerErin2BeatenText:
 	text "Aww… I keep losing"
 	line "all the time!"
@@ -135,6 +92,29 @@ Route46SignText:
 	line "Mountain Rd. Ahead"
 	done
 
+CoupleTedErinSeenText:
+	text "Ted: We camp out"
+	line "here every week!"
+
+	para "Erin: Our #mon"
+	line "train together."
+	cont "Battle us both!"
+	done
+
+CoupleTedErinBeatenText:
+	text "Ted: Wha…?"
+	line "Erin: Oh, rats!"
+	done
+
+CoupleTedErinAfterBattleText:
+	text "Ted: We did our"
+	line "best. No excuses."
+
+	para "Erin: Next time,"
+	line "we'll camp near a"
+	cont "#mon Center!"
+	done
+
 Route46_MapEvents:
 	db 0, 0 ; filler
 
@@ -151,7 +131,7 @@ Route46_MapEvents:
 	def_object_events
 	object_event 12, 19, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerBailey, -1
 	object_event  4, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperTed, -1
-	object_event  2, 13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerErin1, -1
+	object_event  3, 14, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerErin1, -1
 	object_event  7,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route46FruitTree1, -1
 	object_event  8,  6, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route46FruitTree2, -1
 	object_event  1, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route46XSpeed, EVENT_ROUTE_46_X_SPEED

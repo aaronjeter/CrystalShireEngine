@@ -5,6 +5,8 @@
 	const MAPROUTE109_RICKY
 	const MAPROUTE109_LOLA
 	const MAPROUTE109_CHANDLER
+	const ROUTE109_SWIMMER1
+	const ROUTE109_SWIMMER2
 
 Route109_MapScripts:
 	def_scene_scripts
@@ -146,6 +148,34 @@ Route109ChandlerAfterBattleText:
 	line "get ahead..."
 	done
 
+TrainerSwimmersRio:
+	trainer SWIMMERS, RIOANDMEL, EVENT_BEAT_SWIMMERS_RIO_MEL, SwimmersRioMelSeenText, SwimmersRioMelBeatenText, 0, .Script
+
+.Script:
+	trainerafter SwimmersRioMelAfterBattleText
+
+TrainerSwimmersMel:
+	trainer SWIMMERS, RIOANDMEL, EVENT_BEAT_SWIMMERS_RIO_MEL, SwimmersRioMelSeenText, SwimmersRioMelBeatenText, 0, .Script
+
+.Script:
+	trainerafter SwimmersRioMelAfterBattleText
+
+SwimmersRioMelSeenText:
+	text "Rio: Surf's up!"
+
+	para "Mel: Battle us"
+	line "before you dive!"
+	done
+
+SwimmersRioMelBeatenText:
+	text "Mel: Wiped out!"
+	done
+
+SwimmersRioMelAfterBattleText:
+	text "Rio: Slateport's"
+	line "beach is the best!"
+	done
+
 Route109_MapEvents:
 	db 0, 0 ; filler
 
@@ -163,3 +193,5 @@ Route109_MapEvents:
 	object_event 19, 16, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route109LolaScript, -1
 	object_event 22, 10, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route109ChandlerScript, -1
 	
+	object_event 25, 24, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSwimmersRio, -1
+	object_event 25, 25, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSwimmersMel, -1

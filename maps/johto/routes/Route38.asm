@@ -25,16 +25,16 @@ TrainerSailorHarry:
 	trainerafter SailorHarryAfterBattleText
 
 TrainerLassDana:
-	trainer LASS, DANA, EVENT_BEAT_LASS_DANA, LassDana1SeenText, LassDana1BeatenText, 0, .Script
+	trainer PUPILS, CHADANDANA, EVENT_BEAT_PUPILS_CHAD_ANA, PupilsChadAnaSeenText, PupilsChadAnaBeatenText, 0, .Script
 
-.Script
-	trainerafter LassDanaMoomooMilkText
+.Script:
+	trainerafter PupilsChadAnaAfterBattleText
 
 TrainerSchoolboyChad1:
-	trainer SCHOOLBOY, CHAD1, EVENT_BEAT_SCHOOLBOY_CHAD, SchoolboyChad1SeenText, SchoolboyChad1BeatenText, 0, .Script
+	trainer PUPILS, CHADANDANA, EVENT_BEAT_PUPILS_CHAD_ANA, PupilsChadAnaSeenText, PupilsChadAnaBeatenText, 0, .Script
 
-.Script
-	trainerafter SchoolboyChadSoManyTestsText
+.Script:
+	trainerafter PupilsChadAnaAfterBattleText
 
 TrainerBeautyValerie:
 	trainer BEAUTY, VALERIE, EVENT_BEAT_BEAUTY_VALERIE, BeautyValerieSeenText, BeautyValerieBeatenText, 0, .Script
@@ -74,52 +74,6 @@ BirdKeeperTobyAfterBattleText:
 
 	para "teach my #mon"
 	line "how to Fly."
-	done
-
-SchoolboyChad1SeenText:
-	text "Let me try some-"
-	line "thing I learned"
-	cont "today."
-	done
-
-SchoolboyChad1BeatenText:
-	text "I didn't study"
-	line "enough, I guess."
-	done
-
-SchoolboyChadSoManyTestsText:
-	text "I have to take so"
-	line "many tests, I"
-
-	para "don't have much"
-	line "time for #mon."
-
-	para "So when I do get"
-	line "to play, I really"
-	cont "concentrate."
-	done
-
-LassDana1SeenText:
-	text "You seem to be"
-	line "good at #mon."
-
-	para "If you are, how"
-	line "about giving me"
-	cont "some advice?"
-	done
-
-LassDana1BeatenText:
-	text "I see. So you can"
-	line "battle that way."
-	done
-
-LassDanaMoomooMilkText:
-	text "I know something"
-	line "good!"
-
-	para "Moomoo Farm's milk"
-	line "is famous for its"
-	cont "flavor."
 	done
 
 BeautyValerieSeenText:
@@ -207,6 +161,26 @@ Route38TrainerTipsText:
 	cont "its evolution."
 	done
 
+PupilsChadAnaSeenText:
+	text "Chad: We're on our"
+	line "way home from"
+	cont "school!"
+
+	para "Ana: A battle is"
+	line "our homework!"
+	done
+
+PupilsChadAnaBeatenText:
+	text "Ana: We failed"
+	line "our homework…"
+	done
+
+PupilsChadAnaAfterBattleText:
+	text "Chad: My Mr.Mime"
+	line "and her Flaaffy"
+	cont "are best pals."
+	done
+
 Route38_MapEvents:
 	db 0, 0 ; filler
 
@@ -221,8 +195,8 @@ Route38_MapEvents:
 	bg_event  5, 13, BGEVENT_READ, Route38TrainerTips
 
 	def_object_events
-	object_event  4,  1, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSchoolboyChad1, -1
-	object_event 15,  3, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerLassDana, -1
+	object_event 32,  5, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSchoolboyChad1, -1
+	object_event 33,  5, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassDana, -1
 	object_event 12, 15, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBirdKeeperToby, -1
 	object_event 19,  9, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBeautyValerie, -1
 	object_event 24,  5, SPRITE_SAILOR, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSailorHarry, -1

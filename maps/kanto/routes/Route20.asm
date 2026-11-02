@@ -20,16 +20,16 @@ TrainerSwimmerfNicole:
 	trainerafter SwimmerfNicoleAfterBattleText
 
 TrainerSwimmerfLori:
-	trainer SWIMMERF, LORI, EVENT_BEAT_SWIMMERF_LORI, SwimmerfLoriSeenText, SwimmerfLoriBeatenText, 0, .Script
+	trainer SWIMMERS, CAMANDLIV, EVENT_BEAT_SWIMMERS_CAM_LIV, SwimmersCamLivSeenText, SwimmersCamLivBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmerfLoriAfterBattleText
+	trainerafter SwimmersCamLivAfterBattleText
 
 TrainerSwimmermCameron:
-	trainer SWIMMERM, CAMERON, EVENT_BEAT_SWIMMERM_CAMERON, SwimmermCameronSeenText, SwimmermCameronBeatenText, 0, .Script
+	trainer SWIMMERS, CAMANDLIV, EVENT_BEAT_SWIMMERS_CAM_LIV, SwimmersCamLivSeenText, SwimmersCamLivBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmermCameronAfterBattleText
+	trainerafter SwimmersCamLivAfterBattleText
 
 CinnabarGymSign:
 	jumptext CinnabarGymSignText
@@ -51,48 +51,29 @@ SwimmerfNicoleAfterBattleText:
 	line "for you."
 	done
 
-SwimmerfLoriSeenText:
-	text "What an impressive"
-	line "collection of Gym"
-
-	para "Badges. We should"
-	line "battle!"
-	done
-
-SwimmerfLoriBeatenText:
-	text "No!"
-	done
-
-SwimmerfLoriAfterBattleText:
-	text "Surf is no longer"
-	line "the only HM move"
-	cont "you use in water."
-	done
-
-SwimmermCameronSeenText:
-	text "I guess it's im-"
-	line "possible to swim"
-
-	para "all the way to"
-	line "Johto."
-	done
-
-SwimmermCameronBeatenText:
-	text "Aiyah!"
-	done
-
-SwimmermCameronAfterBattleText:
-	text "Besides the sea, I"
-	line "can also swim in"
-	cont "ponds and rivers."
-	done
-
 CinnabarGymSignText:
 	text "What does this"
 	line "sign say?"
 
 	para "Cinnabar Gym"
 	line "Leader: Blaine"
+	done
+
+SwimmersCamLivSeenText:
+	text "Liv: Cam, someone"
+	line "is surfing by!"
+
+	para "Cam: Let's make a"
+	line "splash!"
+	done
+
+SwimmersCamLivBeatenText:
+	text "Cam: Sunk…"
+	done
+
+SwimmersCamLivAfterBattleText:
+	text "Liv: Swimming in"
+	line "pairs is safer."
 	done
 
 Route20_MapEvents:
@@ -108,5 +89,5 @@ Route20_MapEvents:
 
 	def_object_events
 	object_event 52,  8, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfNicole, -1
-	object_event 45, 13, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfLori, -1
-	object_event 12, 13, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCameron, -1
+	object_event 12, 14, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfLori, -1
+	object_event 12, 13, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCameron, -1

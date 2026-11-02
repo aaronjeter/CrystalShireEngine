@@ -24,16 +24,16 @@ TrainerPicnickerHeidi:
 	trainerafter PicnickerHeidiAfterBattleText
 
 TrainerCamperSid:
-	trainer CAMPER, SID, EVENT_BEAT_CAMPER_SID, CamperSidSeenText, CamperSidBeatenText, 0, .Script
+	trainer COUPLE, SIDANDEDNA, EVENT_BEAT_COUPLE_SID_EDNA, CoupleSidEdnaSeenText, CoupleSidEdnaBeatenText, 0, .Script
 
 .Script:
-	trainerafter CamperSidAfterBattleText
+	trainerafter CoupleSidEdnaAfterBattleText
 
 TrainerPicnickerEdna:
-	trainer PICNICKER, EDNA, EVENT_BEAT_PICNICKER_EDNA, PicnickerEdnaSeenText, PicnickerEdnaBeatenText, 0, .Script
+	trainer COUPLE, SIDANDEDNA, EVENT_BEAT_COUPLE_SID_EDNA, CoupleSidEdnaSeenText, CoupleSidEdnaBeatenText, 0, .Script
 
 .Script:
-	trainerafter PicnickerEdnaAfterBattleText
+	trainerafter CoupleSidEdnaAfterBattleText
 
 TrainerHikerTim:
 	trainer HIKER, TIM, EVENT_BEAT_HIKER_TIM, HikerTimSeenText, HikerTimBeatenText, 0, .Script
@@ -94,40 +94,6 @@ PicnickerHeidiAfterBattleText:
 	line "They're delicious!"
 	done
 
-CamperSidSeenText:
-	text "Hey, you!"
-	line "Don't litter!"
-	done
-
-CamperSidBeatenText:
-	text "I was just point-"
-	line "ing out…"
-	done
-
-CamperSidAfterBattleText:
-	text "Sorry. You weren't"
-	line "littering. It was"
-	cont "my mistake."
-	done
-
-PicnickerEdnaSeenText:
-	text "People shouldn't"
-	line "leave any litter"
-	cont "behind."
-	done
-
-PicnickerEdnaBeatenText:
-	text "Ohh… I lost…"
-	done
-
-PicnickerEdnaAfterBattleText:
-	text "Conserving energy"
-	line "is important, but"
-
-	para "the environment is"
-	line "even more vital."
-	done
-
 HikerTimSeenText:
 	text "She'll be coming"
 	line "'round Mt.Silver"
@@ -173,6 +139,24 @@ Route9SignText:
 	line "Rock Tunnel"
 	done
 
+CoupleSidEdnaSeenText:
+	text "Edna: Sid, we have"
+	line "a visitor!"
+
+	para "Sid: Let's give"
+	line "them a welcome!"
+	done
+
+CoupleSidEdnaBeatenText:
+	text "Sid: Some welcome…"
+	done
+
+CoupleSidEdnaAfterBattleText:
+	text "Edna: Rock Tunnel"
+	line "is pitch dark."
+	cont "Bring Flash!"
+	done
+
 Route9_MapEvents:
 	db 0, 0 ; filler
 
@@ -187,7 +171,7 @@ Route9_MapEvents:
 	def_object_events
 	object_event 22,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperDean, -1
 	object_event 48,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerHeidi, -1
-	object_event 22,  2, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperSid, -1
+	object_event 20, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerCamperSid, -1
 	object_event 19, 15, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerEdna, -1
 	object_event 31,  7, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerTim, -1
 	object_event 36, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerSidney, -1

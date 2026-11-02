@@ -8,6 +8,8 @@
 	const ROUTE36_ARTHUR
 	const ROUTE36_FLORIA
 	const ROUTE36_SUICUNE
+	const ROUTE36_BIRDER1
+	const ROUTE36_BIRDER2
 
 Route36_MapScripts:
 	def_scene_scripts
@@ -503,6 +505,40 @@ Route36TrainerTips2Text:
 	line "landmarks."
 	done
 
+TrainerBirdersJed:
+	trainer BIRDERS, JEDANDLOU, EVENT_BEAT_BIRDERS_JED_LOU, BirdersJedLouSeenText, BirdersJedLouBeatenText, 0, .Script
+
+.Script:
+	trainerafter BirdersJedLouAfterBattleText
+
+TrainerBirdersLou:
+	trainer BIRDERS, JEDANDLOU, EVENT_BEAT_BIRDERS_JED_LOU, BirdersJedLouSeenText, BirdersJedLouBeatenText, 0, .Script
+
+.Script:
+	trainerafter BirdersJedLouAfterBattleText
+
+BirdersJedLouSeenText:
+	text "Jed: We're bird-"
+	line "watching!"
+
+	para "Lou: And battling!"
+	line "Flock together!"
+	done
+
+BirdersJedLouBeatenText:
+	text "Lou: Our birds"
+	line "flew the coop…"
+	done
+
+BirdersJedLouAfterBattleText:
+	text "Jed: A legendary"
+	line "bird roosts on"
+	cont "Tin Tower."
+
+	para "Lou: We'll see it"
+	line "someday!"
+	done
+
 Route36_MapEvents:
 	db 0, 0 ; filler
 
@@ -532,3 +568,5 @@ Route36_MapEvents:
 	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
 	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36
+	object_event 24, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdersJed, -1
+	object_event 25, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdersLou, -1

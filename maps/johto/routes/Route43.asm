@@ -25,10 +25,10 @@ Route43CheckIfRocketsScene:
 	endcallback
 
 TrainerCamperSpencer:
-	trainer CAMPER, SPENCER, EVENT_BEAT_CAMPER_SPENCER, CamperSpencerSeenText, CamperSpencerBeatenText, 0, .Script
+	trainer COUPLE, SYANDTIFF, EVENT_BEAT_COUPLE_SY_TIFF, CoupleSyTiffSeenText, CoupleSyTiffBeatenText, 0, .Script
 
 .Script:
-	trainerafter CamperSpencerAfterBattleText
+	trainerafter CoupleSyTiffAfterBattleText
 
 TrainerPokemaniacBen:
 	trainer POKEMANIAC, BEN, EVENT_BEAT_POKEMANIAC_BEN, PokemaniacBenSeenText, PokemaniacBenBeatenText, 0, .Script
@@ -55,10 +55,10 @@ TrainerFisherMarvin:
 	trainerafter FisherMarvinAfterBattleText
 
 TrainerPicnickerTiffany:
-	trainer PICNICKER, TIFFANY, EVENT_BEAT_PICNICKER_TIFFANY, PicnickerTiffanySeenText, PicnickerTiffanyBeatenText, 0, .Script
+	trainer COUPLE, SYANDTIFF, EVENT_BEAT_COUPLE_SY_TIFF, CoupleSyTiffSeenText, CoupleSyTiffBeatenText, 0, .Script
 
 .Script:
-	trainerafter PicnickerTiffanyWantsPicnicText
+	trainerafter CoupleSyTiffAfterBattleText
 
 Route43Sign1:
 	jumptext Route43Sign1Text
@@ -171,44 +171,6 @@ FisherMarvinAfterBattleText:
 	cont "Ultra Ball."
 	done
 
-CamperSpencerSeenText:
-	text "I can do so much"
-	line "with my #mon--"
-	cont "it's super-fun!"
-	done
-
-CamperSpencerBeatenText:
-	text "Losing isn't fun"
-	line "at all…"
-	done
-
-CamperSpencerAfterBattleText:
-	text "What is going on"
-	line "at Lake of Rage?"
-
-	para "We were planning"
-	line "to camp there."
-	done
-
-PicnickerTiffanySeenText:
-	text "Are you going to"
-	line "Lake of Rage too?"
-
-	para "Let's play for a"
-	line "little while!"
-	done
-
-PicnickerTiffanyBeatenText:
-	text "I played too much!"
-	done
-
-PicnickerTiffanyWantsPicnicText:
-	text "I'm having a pic-"
-	line "nic with #mon."
-
-	para "Won't you join us?"
-	done
-
 PicnickerTiffanyClefairyText:
 	text "Isn't my Clefairy"
 	line "just the most"
@@ -251,6 +213,26 @@ Route43TrainerTipsText:
 	line "#mon's type."
 	done
 
+CoupleSyTiffSeenText:
+	text "Tiff: Sy, don't"
+	line "let them scare"
+	cont "my Clefable!"
+
+	para "Sy: Leave it to"
+	line "my Sandslash!"
+	done
+
+CoupleSyTiffBeatenText:
+	text "Sy: Ouch…"
+	line "Tiff: My baby!"
+	done
+
+CoupleSyTiffAfterBattleText:
+	text "Tiff: Watch out at"
+	line "the gate. They"
+	cont "charge a toll!"
+	done
+
 Route43_MapEvents:
 	db 0, 0 ; filler
 
@@ -274,6 +256,6 @@ Route43_MapEvents:
 	object_event 14,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPokemaniacRon, -1
 	object_event  4, 16, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerFisherMarvin, -1
 	object_event  9, 25, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerTiffany, -1
-	object_event 13, 40, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperSpencer, -1
+	object_event 10, 25, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperSpencer, -1
 	object_event  1, 26, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route43FruitTree, -1
 	object_event 12, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route43MaxEther, EVENT_ROUTE_43_MAX_ETHER

@@ -101,4 +101,13 @@ BTTrainerClassGenders:
 	db MALE   ; Elm
 	db MALE   ; Birch
 	db FEMALE ; Nurse
+	db MALE   ; Couple
+	db MALE   ; Swimmers
+	db MALE   ; Ace Duo
+	db MALE   ; Rangers
+	db MALE   ; Fighters
+	db MALE   ; Birders
+	db MALE   ; Hikers
+	db MALE   ; #fans
+	db MALE   ; Pupils
 	assert_table_length NUM_TRAINER_CLASSES ; 

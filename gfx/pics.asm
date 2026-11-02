@@ -1505,3 +1505,15 @@ SECTION "New Prof Trainers", ROMX
 ElmPic:     INCBIN "gfx/trainers/elm.2bpp.lz"
 BirchPic:   INCBIN "gfx/trainers/birch.2bpp.lz"
 NursePic:   INCBIN "gfx/trainers/nurse.2bpp.lz"
+
+
+SECTION "Duo Trainers", ROMX
+CouplePic:    INCBIN "gfx/trainers/couple.2bpp.lz"
+SwimmersPic:  INCBIN "gfx/trainers/swimmers.2bpp.lz"
+AceDuoPic:    INCBIN "gfx/trainers/ace_duo.2bpp.lz"
+RangersPic:   INCBIN "gfx/trainers/rangers.2bpp.lz"
+FightersPic:  INCBIN "gfx/trainers/fighters.2bpp.lz"
+BirdersPic:   INCBIN "gfx/trainers/birders.2bpp.lz"
+HikersPic:    INCBIN "gfx/trainers/hikers.2bpp.lz"
+PokefansPic:  INCBIN "gfx/trainers/pokefans.2bpp.lz"
+PupilsPic:    INCBIN "gfx/trainers/pupils.2bpp.lz"

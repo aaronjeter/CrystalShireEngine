@@ -9,6 +9,8 @@
 	const MOUNTMORTAR1FINSIDE_SUPER_NERD2
 	const MOUNTMORTAR1FINSIDE_POKE_BALL6
 	const MOUNTMORTAR1FINSIDE_POKE_BALL7
+	const MOUNTMORTAR1FINSIDE_FIGHTER1
+	const MOUNTMORTAR1FINSIDE_FIGHTER2
 
 MountMortar1FInside_MapScripts:
 	def_scene_scripts
@@ -104,6 +106,37 @@ SupernerdMarkusAfterBattleText:
 	line "Waterfall?"
 	done
 
+TrainerFightersKai:
+	trainer FIGHTERS, KAIANDMEI, EVENT_BEAT_FIGHTERS_KAI_MEI, FightersKaiMeiSeenText, FightersKaiMeiBeatenText, 0, .Script
+
+.Script:
+	trainerafter FightersKaiMeiAfterBattleText
+
+TrainerFightersMei:
+	trainer FIGHTERS, KAIANDMEI, EVENT_BEAT_FIGHTERS_KAI_MEI, FightersKaiMeiSeenText, FightersKaiMeiBeatenText, 0, .Script
+
+.Script:
+	trainerafter FightersKaiMeiAfterBattleText
+
+FightersKaiMeiSeenText:
+	text "Kai: We train with"
+	line "the Karate King!"
+
+	para "Mei: Hiyaah! Face"
+	line "our combo!"
+	done
+
+FightersKaiMeiBeatenText:
+	text "Mei: Our combo"
+	line "broke…"
+	done
+
+FightersKaiMeiAfterBattleText:
+	text "Kai: The Karate"
+	line "King trains deep"
+	cont "in this cave."
+	done
+
 MountMortar1FInside_MapEvents:
 	db 0, 0 ; filler
 
@@ -131,3 +164,5 @@ MountMortar1FInside_MapEvents:
 	object_event 24, 28, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdMarkus, -1
 	object_event  8, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FInsideIron, EVENT_MOUNT_MORTAR_1F_INSIDE_IRON
 	object_event 17, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FInsideUltraBall, EVENT_MOUNT_MORTAR_1F_INSIDE_ULTRA_BALL
+	object_event 24, 46, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerFightersKai, -1
+	object_event 25, 46, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerFightersMei, -1

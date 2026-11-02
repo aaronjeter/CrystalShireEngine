@@ -99,4 +99,13 @@ TrainerClassNames::
 	li "#mon Prof."
 	li "#mon Prof."
 	li "Nurse"
+	li "Couple"
+	li "Swimmers"
+	li "Ace Duo"
+	li "Rangers"
+	li "Fighters"
+	li "Birders"
+	li "Hikers"
+	li "#fans"
+	li "Pupils"
 	assert_list_length NUM_TRAINER_CLASSES

@@ -35,16 +35,16 @@ TrainerCamperIvan:
 	trainerafter CamperIvanAfterBattleText
 
 TrainerCamperElliot:
-	trainer CAMPER, ELLIOT, EVENT_BEAT_CAMPER_ELLIOT, CamperElliotSeenText, CamperElliotBeatenText, 0, .Script
+	trainer COUPLE, ELIANDBREE, EVENT_BEAT_COUPLE_ELI_BREE, CoupleEliBreeSeenText, CoupleEliBreeBeatenText, 0, .Script
 
 .Script:
-	trainerafter CamperElliotAfterBattleText
+	trainerafter CoupleEliBreeAfterBattleText
 
 TrainerPicnickerBrooke:
-	trainer PICNICKER, BROOKE, EVENT_BEAT_PICNICKER_BROOKE, PicnickerBrookeSeenText, PicnickerBrookeBeatenText, 0, .Script
+	trainer COUPLE, ELIANDBREE, EVENT_BEAT_COUPLE_ELI_BREE, CoupleEliBreeSeenText, CoupleEliBreeBeatenText, 0, .Script
 
 .Script:
-	trainerafter PicnickerBrookeAfterBattleText
+	trainerafter CoupleEliBreeAfterBattleText
 
 TrainerPicnickerKim:
 	trainer PICNICKER, KIM, EVENT_BEAT_PICNICKER_KIM, PicnickerKimSeenText, PicnickerKimBeatenText, 0, .Script
@@ -120,40 +120,6 @@ CamperIvanAfterBattleText:
 	text "Music on the radio"
 	line "changes the moods"
 	cont "of wild #mon."
-	done
-
-CamperElliotSeenText:
-	text "I'm gonna show my"
-	line "girlfriend I'm hot"
-	cont "stuff!"
-	done
-
-CamperElliotBeatenText:
-	text "I wish you would"
-	line "have lost for me…"
-	done
-
-CamperElliotAfterBattleText:
-	text "I was humiliated"
-	line "in front of my"
-	cont "girlfriend…"
-	done
-
-PicnickerBrookeSeenText:
-	text "My boyfriend's"
-	line "weak, so I can't"
-	cont "rely on him."
-	done
-
-PicnickerBrookeBeatenText:
-	text "Oh, my! You're so"
-	line "strong!"
-	done
-
-PicnickerBrookeAfterBattleText:
-	text "I can count on my"
-	line "#mon more than"
-	cont "my boyfriend."
 	done
 
 PicnickerKimSeenText:
@@ -282,6 +248,25 @@ Route35SignText:
 	text "Route 35"
 	done
 
+CoupleEliBreeSeenText:
+	text "Bree: Eli, it's a"
+	line "trainer!"
+
+	para "Eli: Let's show"
+	line "'em our Marill!"
+	done
+
+CoupleEliBreeBeatenText:
+	text "Eli: Whoa, you're"
+	line "strong!"
+	done
+
+CoupleEliBreeAfterBattleText:
+	text "Bree: Our Marill"
+	line "are best friends,"
+	cont "just like us!"
+	done
+
 Route35_MapEvents:
 	db 0, 0 ; filler
 
@@ -299,7 +284,7 @@ Route35_MapEvents:
 	def_object_events
 	object_event  4, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperIvan, -1
 	object_event  8, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperElliot, -1
-	object_event  7, 20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerBrooke, -1
+	object_event  7, 20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerBrooke, -1
 	object_event 10, 26, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerKim, -1
 	object_event 14, 28, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerBirdKeeperBryan, -1
 	object_event  2, 10, SPRITE_FISHER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherWalt, -1

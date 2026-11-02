@@ -65,16 +65,16 @@ TrainerCooltrainermBlake:
 	trainerafter CooltrainermBlakeAfterBattleText
 
 TrainerCooltrainermBrian:
-	trainer COOLTRAINERM, BRIAN, EVENT_BEAT_COOLTRAINERM_BRIAN, CooltrainermBrianSeenText, CooltrainermBrianBeatenText, 0, .Script
+	trainer ACE_DUO, BOANDREENA, EVENT_BEAT_ACE_DUO_BO_REENA, AceDuoBoReenaSeenText, AceDuoBoReenaBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainermBrianAfterBattleText
+	trainerafter AceDuoBoReenaAfterBattleText
 
 TrainerCooltrainerfReena:
-	trainer COOLTRAINERF, REENA, EVENT_BEAT_COOLTRAINERF_REENA, CooltrainerfReenaSeenText, CooltrainerfReenaBeatenText, 0, .Script
+	trainer ACE_DUO, BOANDREENA, EVENT_BEAT_ACE_DUO_BO_REENA, AceDuoBoReenaSeenText, AceDuoBoReenaBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainerfReenaAfterBattleText
+	trainerafter AceDuoBoReenaAfterBattleText
 
 TrainerCooltrainerfMegan:
 	trainer COOLTRAINERF, MEGAN, EVENT_BEAT_COOLTRAINERF_MEGAN, CooltrainerfMeganSeenText, CooltrainerfMeganBeatenText, 0, .Script
@@ -136,42 +136,6 @@ CooltrainermBlakeAfterBattleText:
 	para "Heh, sorry, I just"
 	line "wanted to say"
 	cont "something cool."
-	done
-
-CooltrainermBrianSeenText:
-	text "Hm? You're good,"
-	line "aren't you?"
-	done
-
-CooltrainermBrianBeatenText:
-	text "Just as I thought!"
-	done
-
-CooltrainermBrianAfterBattleText:
-	text "A good trainer can"
-	line "recognize other"
-	cont "good trainers."
-	done
-
-CooltrainerfReenaSeenText:
-	text "You shouldn't"
-	line "underestimate the"
-
-	para "wild #mon in"
-	line "these parts."
-	done
-
-CooltrainerfReenaBeatenText:
-	text "Oh! You're much"
-	line "too strong!"
-	done
-
-CooltrainerfReenaAfterBattleText:
-	text "You're just a kid,"
-	line "but you're not to"
-
-	para "be underestimated"
-	line "either."
 	done
 
 CooltrainerfMeganSeenText:
@@ -251,6 +215,24 @@ TohjoFallsSignText:
 	line "Kanto and Johto"
 	done
 
+AceDuoBoReenaSeenText:
+	text "Reena: You came"
+	line "from Johto?"
+
+	para "Bo: Then show us"
+	line "what Johto's got!"
+	done
+
+AceDuoBoReenaBeatenText:
+	text "Bo: Johto's tough!"
+	done
+
+AceDuoBoReenaAfterBattleText:
+	text "Reena: Tohjo Falls"
+	line "links Johto and"
+	cont "Kanto."
+	done
+
 Route27_MapEvents:
 	db 0, 0 ; filler
 
@@ -268,8 +250,8 @@ Route27_MapEvents:
 
 	def_object_events
 	object_event 48,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermBlake, -1
-	object_event 58,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainermBrian, -1
-	object_event 72, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerfReena, -1
+	object_event 57,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermBrian, -1
+	object_event 56,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfReena, -1
 	object_event 37,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfMegan, -1
 	object_event 65,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicGilbert, -1
 	object_event 58, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperJose2, -1

@@ -29,16 +29,16 @@ Route39Miltank:
 	end
 
 TrainerPokefanmDerek:
-	trainer POKEFANM, DEREK, EVENT_BEAT_POKEFANM_DEREK, PokefanmDerekSeenText, PokefanmDerekBeatenText, 0, .Script
+	trainer POKEFANS, ALANDRUTH, EVENT_BEAT_POKEFANS_AL_RUTH, PokefansAlRuthSeenText, PokefansAlRuthBeatenText, 0, .Script
 
 .Script:
-	trainerafter PokefanMDerekText_NotBragging
+	trainerafter PokefansAlRuthAfterBattleText
 
 TrainerPokefanfRuth:
-	trainer POKEFANF, RUTH, EVENT_BEAT_POKEFANF_RUTH, PokefanfRuthSeenText, PokefanfRuthBeatenText, 0, .Script
+	trainer POKEFANS, ALANDRUTH, EVENT_BEAT_POKEFANS_AL_RUTH, PokefansAlRuthSeenText, PokefansAlRuthBeatenText, 0, .Script
 
 .Script:
-	trainerafter PokefanfRuthAfterBattleText
+	trainerafter PokefansAlRuthAfterBattleText
 
 TrainerSailorEugene:
 	trainer SAILOR, EUGENE, EVENT_BEAT_SAILOR_EUGENE, SailorEugeneSeenText, SailorEugeneBeatenText, 0, .Script
@@ -121,50 +121,6 @@ SailorEugeneAfterBattleText:
 	para "They're my compan-"
 	line "ions on those long"
 	cont "voyages."
-	done
-
-PokefanmDerekSeenText:
-	text "This is a good"
-	line "time to brag about"
-	cont "my Pikachu!"
-	done
-
-PokefanmDerekBeatenText:
-	text "I had no time to"
-	line "show off Pikachu…"
-	done
-
-PokefanMDerekText_NotBragging:
-	text "I'm not listening"
-	line "to your bragging!"
-
-	para "We # Fans have"
-	line "a policy of not"
-
-	para "listening to other"
-	line "people brag!"
-	done
-
-PokefanfRuthSeenText:
-	text "Such darling"
-	line "#mon."
-
-	para "Let's show our"
-	line "#mon together"
-	cont "at the same time."
-	done
-
-PokefanfRuthBeatenText:
-	text "I don't mind"
-	line "losing."
-	done
-
-PokefanfRuthAfterBattleText:
-	text "Do you know about"
-	line "baby #mon?"
-
-	para "I bet they're just"
-	line "adorable!"
 	done
 
 PokefanMDerekPikachuIsItText:
@@ -258,6 +214,25 @@ Route39TrainerTipsText:
 	line "any tree you see!"
 	done
 
+PokefansAlRuthSeenText:
+	text "Ruth: Our Pikachu"
+	line "match! Isn't that"
+	cont "adorable?"
+
+	para "Al: Let's battle!"
+	done
+
+PokefansAlRuthBeatenText:
+	text "Al: Our Pikachu"
+	line "are still cute!"
+	done
+
+PokefansAlRuthAfterBattleText:
+	text "Ruth: We bought"
+	line "matching Pikachu"
+	cont "at the same time!"
+	done
+
 Route39_MapEvents:
 	db 0, 0 ; filler
 
@@ -275,8 +250,8 @@ Route39_MapEvents:
 
 	def_object_events
 	object_event 13, 29, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSailorEugene, -1
-	object_event 10, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmDerek, -1
-	object_event 11, 19, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanfRuth, -1
+	object_event 11, 20, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmDerek, -1
+	object_event 11, 19, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanfRuth, -1
 	object_event  3, 12, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event  6, 11, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event  4, 15, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1

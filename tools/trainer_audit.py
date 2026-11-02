@@ -8,6 +8,7 @@
     python3 tools/trainer_audit.py unused               parties with no direct `trainer`/`loadtrainer` reference
     python3 tools/trainer_audit.py bands                maps with trainers and their band
     python3 tools/trainer_audit.py learn SPECIES [LEVEL] what it can know at LEVEL
+    python3 tools/trainer_audit.py coverage [all]       maps missing an elite or a double battle
 
 Run from the repo root (or pass --repo PATH). Reads the source only, no build needed.
 Levels: wBaseLevel = 5 + the badge modifier (engine/events/std_scripts.asm); a party's
@@ -247,6 +248,12 @@ class Data:
                 m = re.match(r'(trainer|loadtrainer)\s+(\w+),\s*(\w+)', code)
                 if m and m.group(3) in self.parties:
                     self.uses[m.group(3)].append((rel, n))
+        # Bug-Catching Contest winners: names only (no battle); not counted as a map's trainer
+        self.name_uses = set()
+        for n, code, _ in code_lines(self.p('data/events/bug_contest_winners.asm')):
+            m = re.match(r'db (\w+), (\w+)$', code)
+            if m and m.group(2) in self.parties:
+                self.name_uses.add(m.group(2))
 
     def _bands(self):
         """tools/trainer_bands.txt: lines 'maps/REGION/AREA[/MAP.asm]  BAND'; the longest
@@ -303,7 +310,15 @@ BOSS_NAMES = {'Leader', 'Elite', 'Champion'}
 BOSS_CLASSES = {'RIVAL1', 'RIVAL2', 'WALLY', 'GREEN', 'RED', 'EXECUTIVEM', 'EXECUTIVEF',
                 'GIOVANNI', 'AGATHA'}
 ONE_OFF = {'OAK', 'ELM', 'BIRCH', 'NURSE', 'OFFICER', 'CAL', 'MYSTICALMAN', 'LINK_KRIS'}
-ELITE_CLASSES = {'COOLTRAINERM', 'COOLTRAINERF', 'RANGERM', 'RANGERF', 'KIMONO_GIRL'}
+ELITE_CLASSES = {'COOLTRAINERM', 'COOLTRAINERF', 'RANGERM', 'RANGERF', 'KIMONO_GIRL', 'ACE_DUO', 'RANGERS'}
+# duo classes (Nov 2): one party for two NPCs, always DOUBLES
+DUO_CLASSES = {'TWINS', 'TATELIZA', 'COUPLE', 'SWIMMERS', 'ACE_DUO', 'RANGERS', 'FIGHTERS',
+               'BIRDERS', 'HIKERS', 'POKEFANS', 'PUPILS'}
+# not held to the elite/double rule (user, Nov 2): Gyms, Sprout Tower (an easy intro Gym), the Wise
+# Trio (a boss), the Dance Theater (all elites); Rocket hideouts and Radio Tower get their own pass
+COVERAGE_SKIP = ('Gym', 'SproutTower', 'WiseTriosRoom', 'DanceTheater', 'TeamRocketBase', 'RadioTower',
+                 'GoldenrodUndergroundSwitchRoom', '/safari/', 'NewMauville')  # Rocket areas (user, Nov 2): the Safari Zone; New Mauville (its scientists are Rocket-affiliated)
+GRUNT_CLASSES = {'GRUNTM', 'GRUNTF', 'EXECUTIVEM', 'EXECUTIVEF'}
 # parties based on playtesters' teams (user, Nov 2): species and party size stay; moves may change
 PLAYTESTER_PARTIES = {'RONALD1', 'RONALD2', 'RONALD3', 'MARINA1', 'MARINA2', 'MARINA3',
                       'DALORIC2', 'CONTEST_CRYSTAL2', 'KLUTCH3', 'AMAYA3', 'AARON3',  # + Johto Games (later)
@@ -313,7 +328,7 @@ PLAYTESTER_PARTIES = {'RONALD1', 'RONALD2', 'RONALD3', 'MARINA1', 'MARINA2', 'MA
 EVOLUTION_EXEMPT = {'RAYMOND', 'MARVIN', 'JOSHUA'}  # + Joshua's Pikachu
 
 # single parties treated as bosses (user, Nov 2): the Karate King
-BOSS_PARTIES = {'KIYO'}
+BOSS_PARTIES = {'KIYO', 'GAKU', 'MASA', 'KOJI'}  # Kiyo; the Wise Trio (one boss fight in three stages, user Nov 2)
 # single parties treated as elite trainers (user, Nov 2)
 ELITE_PARTIES = {'ROUTE105_JOSUE', 'RONALD3', 'JESS2'}  # + World Cup qualifiers (tournament)
 
@@ -321,7 +336,7 @@ def tier(d, p):
     c = p['class']
     if p['id'] in BOSS_PARTIES:
         return 'boss'
-    if p['id'] in ELITE_PARTIES:
+    if p['id'] in ELITE_PARTIES or '(elite)' in p['comment']:  # promoted in place (Nov 2)
         return 'elite'
     if c in BOSS_CLASSES or d.class_names.get(c) in BOSS_NAMES:
         return 'boss'
@@ -420,6 +435,8 @@ def team_findings(d, p, team, mode, band):
         out.append((None, f'{mode}: {size} Pokemon (route trainers have 2-3, doubles up to 4)'))
     if t == 'elite' and size > (6 if p['doubles'] else 4) and not playtester:
         out.append((None, f'{mode}: {size} Pokemon (elite: up to 4, doubles 4-6)'))
+    if t == 'elite' and p['doubles'] and size < 4 and not playtester:
+        out.append((None, f'{mode}: {size} Pokemon (elite doubles have 4-6)'))
     base = base_level(band) if band is not None else None
     for i, m in enumerate(mons):
         lvl = (base + m['level']) if base is not None else None
@@ -464,9 +481,54 @@ def party_findings(d, p):
                 out.append((None, f'hard has fewer Pokemon ({len(h["mons"])} < {len(n["mons"])})'))
             if max(m['level'] for m in h['mons']) < max(m['level'] for m in n['mons']):
                 out.append((None, 'hard top level below normal'))
-    if p['id'] not in d.uses:
+    if p['id'] not in d.uses and p['id'] not in d.name_uses:
         out.append((None, 'unused (no map or script)'))
+    if p['class'] in DUO_CLASSES and not p['doubles']:
+        out.append((None, 'duo class without DOUBLES'))
+    # "<ENEMY>" = class, space, name, at the start of an 18-tile text line (Nov 2)
+    tiles = lambda t: len(t.replace('#', 'POKe').replace('<PKMN>', 'PK'))
+    if p['class'] not in ('RIVAL1', 'RIVAL2'):
+        n = tiles(d.class_names.get(p['class'], '')) + 1 + tiles(p['name'])
+        if n > 18:
+            out.append((None, f'class + name is {n} characters (the text line has 18)'))
     return out
+
+
+def coverage(d, show_all=False):
+    """elites and doubles pass (Nov 2): every banded map with route/elite trainers needs at least
+    one elite and one double battle; Gyms and maps with only Rocket/Aqua/Magma classes are skipped.
+    A building's floors (same name without the 1F/B2F suffix, same band) count as one area."""
+    maps = collections.defaultdict(list)
+    for pid, uses in d.uses.items():
+        for f, _ in uses:
+            if pid not in maps[f]:
+                maps[f].append(pid)
+    areas = collections.OrderedDict()
+    key = lambda f: (f.split('/')[1], d.band_of(f) if d.band_of(f) is not None else 99, f)
+    for f in sorted(maps, key=key):
+        b = d.band_of(f)
+        if b is None or any(k in f for k in COVERAGE_SKIP):
+            continue
+        ps = [d.parties[i] for i in maps[f]]
+        ps = [p for p in ps if tier(d, p) in ('route', 'elite')]
+        if not ps or all(p['class'] in GRUNT_CLASSES for p in ps):
+            continue
+        a = (re.sub(r'(B?\d+F)?(Inside|Outside)?\.asm$', '', f), b)
+        if 'FastShip' in f:  # the ship's deck and cabins are one area
+            a = ('maps/FastShip', b)
+        areas.setdefault(a, []).extend(p for p in ps if p not in areas.get(a, []))
+    tot = collections.Counter()
+    for (f, b), ps in areas.items():
+        n_el = sum(tier(d, p) == 'elite' for p in ps)
+        n_db = sum(p['doubles'] for p in ps)
+        flag = ('' if n_el else ' NO-ELITE') + ('' if n_db else ' NO-DOUBLE')
+        tot['areas'] += 1; tot['no elite'] += not n_el; tot['no double'] += not n_db
+        if flag or show_all:
+            names = ', '.join(p['id'] + ('*' if tier(d, p) == 'elite' else '') + ('+' if p['doubles'] else '')
+                              for p in ps)
+            print(f'{f[5:]:45} band {b}  {len(ps):2} trainers  elite {n_el}  double {n_db}{flag}')
+            print(f'      {names}')
+    print(dict(tot), '(* elite, + double)')
 
 
 # ---------------------------------------------------------------- output
@@ -563,7 +625,7 @@ def learn(d, s, lvl):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('cmd', choices=['summary', 'area', 'class', 'party', 'unused', 'bands', 'learn'])
+    ap.add_argument('cmd', choices=['summary', 'area', 'class', 'party', 'unused', 'bands', 'learn', 'coverage'])
     ap.add_argument('arg', nargs='?')
     ap.add_argument('level', nargs='?', type=int, default=100)
     ap.add_argument('--repo', default='.')
@@ -585,6 +647,8 @@ def main():
                 print(p['id'], f'"{p["name"]}"', p['comment'])
     elif a.cmd == 'bands':
         bands(d)
+    elif a.cmd == 'coverage':
+        coverage(d, a.arg == 'all')
     elif a.cmd == 'learn':
         learn(d, a.arg, a.level)
 

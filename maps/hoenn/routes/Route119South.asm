@@ -172,31 +172,10 @@ Route119ChrisAfterBattleText:
 
 
 Route119JacksonScript:
-	trainer RANGERM, ROUTE119_JACKSON, EVENT_BEAT_ROUTE119_JACKSON, Route119JacksonSeenText, Route119JacksonBeatenText, 0, .AfterScript
+	trainer RANGERS, JACKANDKAT, EVENT_BEAT_RANGERS_JACK_KAT, RangersJackKatSeenText, RangersJackKatBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route119JacksonAfterBattleText
-
-Route119JacksonSeenText:
-	text "Who has the"
-	line "knowledge and"
-
-	para "the technique"
-	line "for survival?"
-
-	para "#mon Rangers!"
-	done
-
-Route119JacksonBeatenText:
-	text "I didn't have"
-	line "enough #mon."
-	done
-
-Route119JacksonAfterBattleText:
-	text "It's just nice"
-	line "to get away from"
-	cont "it all!"
-	done
+.Script:
+	trainerafter RangersJackKatAfterBattleText
 
 Route119TakashiScript:
 	trainer RANGERM, ROUTE119_TAKASHI, EVENT_BEAT_ROUTE119_TAKASHI, Route119TakashiSeenText, Route119TakashiBeatenText, 0, .AfterScript
@@ -224,31 +203,10 @@ Route119TakashiAfterBattleText:
 	done
 
 Route119CatherineScript:
-	trainer RANGERF, ROUTE119_CATHERINE, EVENT_BEAT_ROUTE119_CATHERINE, Route119CatherineSeenText, Route119CatherineBeatenText, 0, .AfterScript
+	trainer RANGERS, JACKANDKAT, EVENT_BEAT_RANGERS_JACK_KAT, RangersJackKatSeenText, RangersJackKatBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route119CatherineAfterBattleText
-
-Route119CatherineSeenText:
-	text "Oh? Look at you."
-
-	para "For someone on"
-	line "an adventure,"
-
-	para "you're traveling"
-	line "awfully light."
-	done
-
-Route119CatherineBeatenText:
-	text "Accidents happen"
-	line "when you're not"
-	cont "prepared!"
-	done
-
-Route119CatherineAfterBattleText:
-	text "You're on top"
-	line "of things!"
-	done
+.Script:
+	trainerafter RangersJackKatAfterBattleText
 
 
 Route119FruitTree1:
@@ -278,6 +236,24 @@ Route119SilverPowder:
 	itemball SILVERPOWDER
 
 
+RangersJackKatSeenText:
+	text "Jack: This jungle"
+	line "is our patrol."
+
+	para "Kat: Let's see"
+	line "your skills!"
+	done
+
+RangersJackKatBeatenText:
+	text "Kat: Well done!"
+	done
+
+RangersJackKatAfterBattleText:
+	text "Jack: Feebas hide"
+	line "in just a few"
+	cont "spots here."
+	done
+
 Route119South_MapEvents:
 	db 0, 0 ; filler
 
@@ -297,9 +273,9 @@ Route119South_MapEvents:
 	object_event 28, 59, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route119GregScript, -1
 	object_event 09, 32, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_TRAINER, 3, Route119DougScript, -1
 	object_event 17, 18, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route119ChrisScript, -1
-	object_event 29, 06, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route119JacksonScript, -1
+	object_event 29,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route119JacksonScript, -1
 	object_event 07, 04, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route119TakashiScript, -1
-	object_event 32, 20, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route119CatherineScript, -1
+	object_event 30,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route119CatherineScript, -1
 	object_event 10, 28, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree1, -1
 	object_event 11, 28, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree2, -1
 	object_event 07, 21, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route119FruitTree3, -1

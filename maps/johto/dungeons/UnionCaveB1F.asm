@@ -31,16 +31,16 @@ TrainerPokemaniacCalvin:
 	trainerafter PokemaniacCalvinAfterBattleText
 
 TrainerHikerPhillip:
-	trainer HIKER, PHILLIP, EVENT_BEAT_HIKER_PHILLIP, HikerPhillipSeenText, HikerPhillipBeatenText, 0, .Script
+	trainer HIKERS, PHILANDLEO, EVENT_BEAT_HIKERS_PHIL_LEO, HikersPhilLeoSeenText, HikersPhilLeoBeatenText, 0, .Script
 
 .Script:
-	trainerafter HikerPhillipAfterBattleText
+	trainerafter HikersPhilLeoAfterBattleText
 
 TrainerHikerLeonard:
-	trainer HIKER, LEONARD, EVENT_BEAT_HIKER_LEONARD, HikerLeonardSeenText, HikerLeonardBeatenText, 0, .Script
+	trainer HIKERS, PHILANDLEO, EVENT_BEAT_HIKERS_PHIL_LEO, HikersPhilLeoSeenText, HikersPhilLeoBeatenText, 0, .Script
 
 .Script:
-	trainerafter HikerLeonardAfterBattleText
+	trainerafter HikersPhilLeoAfterBattleText
 
 UnionCaveB1FTMSwift:
 	itemball TM_SWIFT
@@ -50,48 +50,6 @@ UnionCaveB1FXDefend:
 
 UnionCaveB1FBoulder:
 	jumpstd StrengthBoulderScript
-
-HikerPhillipSeenText:
-	text "It's been a while"
-	line "since I last saw"
-	cont "another person."
-
-	para "Don't be shy."
-	line "Let's battle!"
-	done
-
-HikerPhillipBeatenText:
-	text "Uurggh…"
-	done
-
-HikerPhillipAfterBattleText:
-	text "I've been lost for"
-	line "a long time…"
-
-	para "I don't mind it"
-	line "here, but I am"
-	cont "soooo hungry!"
-	done
-
-HikerLeonardSeenText:
-	text "What do you know!"
-	line "A visitor!"
-	done
-
-HikerLeonardBeatenText:
-	text "Wahahah! You're a"
-	line "feisty one!"
-	done
-
-HikerLeonardAfterBattleText:
-	text "I live down here."
-
-	para "You can, too, if"
-	line "you'd like."
-
-	para "There's plenty of"
-	line "room, you see."
-	done
 
 PokemaniacAndrewSeenText:
 	text "Who's there?"
@@ -164,6 +122,27 @@ Djinn_FizzText:
 	line "join your party?"
 	done
 
+HikersPhilLeoSeenText:
+	text "Phil: It's dark"
+	line "down here, kid."
+
+	para "Leo: But our"
+	line "rocks still shine!"
+	done
+
+HikersPhilLeoBeatenText:
+	text "Leo: We crumbled…"
+	done
+
+HikersPhilLeoAfterBattleText:
+	text "Phil: Rumor says a"
+	line "#mon sings deep"
+	cont "in this cave."
+
+	para "Leo: On Fridays,"
+	line "or so they say."
+	done
+
 UnionCaveB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -179,8 +158,8 @@ UnionCaveB1F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerPhillip, -1
-	object_event 16,  7, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerLeonard, -1
+	object_event 17,  7, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerPhillip, -1
+	object_event 17,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerLeonard, -1
 	object_event  5, 32, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacAndrew, -1
 	object_event 17, 30, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacCalvin, -1
 	object_event  2, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCaveB1FTMSwift, EVENT_UNION_CAVE_B1F_TM_SWIFT

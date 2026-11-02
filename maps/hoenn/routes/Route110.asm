@@ -15,50 +15,17 @@ Route110_MapScripts:
 	def_callbacks	
 
 Route110IsabelScript:
-	trainer POKEFANF, ROUTE110_ISABEL, EVENT_BEAT_ROUTE110_ISABEL, Route110IsabelSeenText, Route110IsabelBeatenText, 0, .AfterScript
+	trainer POKEFANS, KALANDISA, EVENT_BEAT_POKEFANS_KAL_ISA, PokefansKalIsaSeenText, PokefansKalIsaBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route110IsabelAfterBattleText
-
-Route110IsabelSeenText:
-	text "Ahahaha!"
-
-	para "I would go"
-	line "anywhere to show"
-	cont "off my #mon."
-	done
-
-Route110IsabelBeatenText:
-	text "Oh dear."
-	line "this won't do."
-	done
-
-Route110IsabelAfterBattleText:
-	text "Maybe I should"
-	line "just join a"
-	cont "fan club?"
-	done
+.Script:
+	trainerafter PokefansKalIsaAfterBattleText
 
 
 Route110KalebScript:
-	trainer POKEFANM, ROUTE110_KALEB, EVENT_BEAT_ROUTE110_KALEB, Route110KalebSeenText, Route110KalebBeatenText, 0, .AfterScript
+	trainer POKEFANS, KALANDISA, EVENT_BEAT_POKEFANS_KAL_ISA, PokefansKalIsaSeenText, PokefansKalIsaBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route110KalebAfterBattleText
-
-Route110KalebSeenText:
-	text "Cute, adorable"
-	line "#mon!"
-	done
-
-Route110KalebBeatenText:
-	text "Have you no pity?"
-	done
-
-Route110KalebAfterBattleText:
-	text "Well done, my"
-	line "pretties!"
-	done
+.Script:
+	trainerafter PokefansKalIsaAfterBattleText
 
 
 Route110TimmyScript:
@@ -214,6 +181,25 @@ Route110RareCandy:
 Route110Lemonade:
 	itemball LEMONADE
 
+PokefansKalIsaSeenText:
+	text "Isa: Plusle and"
+	line "Minun cheer each"
+	cont "other on!"
+
+	para "Kal: Just like us!"
+	done
+
+PokefansKalIsaBeatenText:
+	text "Kal: Aww, they"
+	line "tried so hard!"
+	done
+
+PokefansKalIsaAfterBattleText:
+	text "Isa: Doubles bring"
+	line "out their true"
+	cont "power."
+	done
+
 Route110_MapEvents:
 	db 0, 0 ; filler
 
@@ -230,8 +216,8 @@ Route110_MapEvents:
 	bg_event 17, 14, BGEVENT_READ, Route110CyclingRoadSign
 
 	def_object_events
-	object_event 02, 47, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route110IsabelScript, -1
-	object_event 09, 47, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route110KalebScript, -1
+	object_event  2, 47, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route110IsabelScript, -1
+	object_event  2, 48, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route110KalebScript, -1
 	object_event 02, 51, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route110TimmyScript, -1
 	object_event 12, 30, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route110EdwinScript, -1
 	object_event 35, 17, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route110JosephScript, -1

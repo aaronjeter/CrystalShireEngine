@@ -6,6 +6,8 @@
 	const ROUTE12_POKE_BALL1
 	const ROUTE12_POKE_BALL2
 	const ROUTE12_CINDER
+	const ROUTE12_SWIMMER1
+	const ROUTE12_SWIMMER2
 
 Route12_MapScripts:
 	def_scene_scripts
@@ -184,6 +186,35 @@ Djinn_CinderScriptText:
 	line "join your party?"
 	done
 
+TrainerSwimmersKip:
+	trainer SWIMMERS, KIPANDNIA, EVENT_BEAT_SWIMMERS_KIP_NIA, SwimmersKipNiaSeenText, SwimmersKipNiaBeatenText, 0, .Script
+
+.Script:
+	trainerafter SwimmersKipNiaAfterBattleText
+
+TrainerSwimmersNia:
+	trainer SWIMMERS, KIPANDNIA, EVENT_BEAT_SWIMMERS_KIP_NIA, SwimmersKipNiaSeenText, SwimmersKipNiaBeatenText, 0, .Script
+
+.Script:
+	trainerafter SwimmersKipNiaAfterBattleText
+
+SwimmersKipNiaSeenText:
+	text "Kip: Too many"
+	line "fishers here!"
+
+	para "Nia: Let's battle"
+	line "instead!"
+	done
+
+SwimmersKipNiaBeatenText:
+	text "Nia: Glub…"
+	done
+
+SwimmersKipNiaAfterBattleText:
+	text "Kip: Fishers love"
+	line "these waters!"
+	done
+
 Route12_MapEvents:
 	db 0, 0 ; filler
 
@@ -205,3 +236,5 @@ Route12_MapEvents:
 	object_event  5, 43, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Calcium, EVENT_ROUTE_12_CALCIUM
 	object_event  5, 51, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Nugget, EVENT_ROUTE_12_NUGGET
 	object_event 04, 53, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_CinderScript, EVENT_GOT_CINDER
+	object_event 16, 18, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSwimmersKip, -1
+	object_event 16, 19, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSwimmersNia, -1

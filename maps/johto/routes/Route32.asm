@@ -139,10 +139,10 @@ _OfferToSellSlowpokeTail:
 	end
 
 TrainerCamperRoland:
-	trainer CAMPER, ROLAND, EVENT_BEAT_CAMPER_ROLAND, CamperRolandSeenText, CamperRolandBeatenText, 0, .Script
+	trainer COUPLE, ROLFANDLIZ, EVENT_BEAT_COUPLE_ROLF_LIZ, CoupleRolfLizSeenText, CoupleRolfLizBeatenText, 0, .Script
 
 .Script:
-	trainerafter CamperRolandAfterText
+	trainerafter CoupleRolfLizAfterBattleText
 
 TrainerFisherJustin:
 	trainer FISHER, JUSTIN, EVENT_BEAT_FISHER_JUSTIN, FisherJustinSeenText, FisherJustinBeatenText, 0, .Script
@@ -163,10 +163,10 @@ TrainerFisherHenry:
 	trainerafter FisherHenryAfterText
 
 TrainerPicnickerLiz1:
-	trainer PICNICKER, LIZ, EVENT_BEAT_PICNICKER_LIZ, PicnickerLiz1SeenText, PicnickerLiz1BeatenText, 0, .Script
+	trainer COUPLE, ROLFANDLIZ, EVENT_BEAT_COUPLE_ROLF_LIZ, CoupleRolfLizSeenText, CoupleRolfLizBeatenText, 0, .Script
 
 .Script:
-	trainerafter PicnickerLiz1AfterText
+	trainerafter CoupleRolfLizAfterBattleText
 
 TrainerYoungsterAlbert:
 	trainer YOUNGSTER, ALBERT, EVENT_BEAT_YOUNGSTER_ALBERT, YoungsterAlbertSeenText, YoungsterAlbertBeatenText, 0, .Script
@@ -458,43 +458,6 @@ YoungsterGordonAfterText:
 	line "of clingy things."
 	done
 
-CamperRolandSeenText:
-	text "That glance…"
-	line "It's intriguing."
-	done
-
-CamperRolandBeatenText:
-	text "Hmmm. This is"
-	line "disappointing."
-	done
-
-CamperRolandAfterText:
-	text "If you don't want"
-	line "to battle, just"
-	cont "avoid eye contact."
-	done
-
-PicnickerLiz1SeenText:
-	text "Uh-huh. Yeah, and"
-	line "you know…"
-
-	para "Pardon? Battle?"
-	line "I'm on the phone."
-
-	para "Oh, all right. But"
-	line "make it fast."
-	done
-
-PicnickerLiz1BeatenText:
-	text "Oh! I've got to"
-	line "relieve my anger!"
-	done
-
-PicnickerLiz1AfterText:
-	text "I was having a"
-	line "nice chat too."
-	done
-
 BirdKeeperPeterSeenText:
 	text "That Badge! It's"
 	line "from Violet City!"
@@ -597,6 +560,26 @@ Route32UnionCaveSignText:
 	line "Ahead"
 	done
 
+CoupleRolfLizSeenText:
+	text "Liz: Rolf, look!"
+	line "A trainer!"
+
+	para "Rolf: Our Nidoran"
+	line "are ready. Let's"
+	cont "battle!"
+	done
+
+CoupleRolfLizBeatenText:
+	text "Liz: Our Nidoran"
+	line "lost…"
+	done
+
+CoupleRolfLizAfterBattleText:
+	text "Liz: We want our"
+	line "Nidoran to evolve"
+	cont "together someday!"
+	done
+
 Route32_MapEvents:
 	db 0, 0 ; filler
 
@@ -624,8 +607,8 @@ Route32_MapEvents:
 	object_event  6, 48, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherHenry, -1
 	object_event 12, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterAlbert, -1
 	object_event  4, 63, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterGordon, -1
-	object_event  3, 45, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperRoland, -1
-	object_event 10, 30, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerLiz1, -1
+	object_event 10, 31, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperRoland, -1
+	object_event 10, 30, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerLiz1, -1
 	object_event 19,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32CooltrainerMScript, -1
 	object_event 11, 82, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperPeter, -1
 	object_event  7, 70, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeTailSalesmanScript, EVENT_SLOWPOKE_WELL_ROCKETS

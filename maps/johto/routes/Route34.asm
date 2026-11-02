@@ -84,16 +84,16 @@ DayCareMon2Script:
 	end
 
 TrainerCamperTodd1:
-	trainer CAMPER, TODD, EVENT_BEAT_CAMPER_TODD, CamperTodd1SeenText, CamperTodd1BeatenText, 0, .Script
+	trainer COUPLE, TODDANDGINA, EVENT_BEAT_COUPLE_TODD_GINA, CoupleToddGinaSeenText, CoupleToddGinaBeatenText, 0, .Script
 
 .Script:
-	trainerafter CamperTodd1AfterText
+	trainerafter CoupleToddGinaAfterBattleText
 
 TrainerPicnickerGina1:
-	trainer PICNICKER, GINA, EVENT_BEAT_PICNICKER_GINA, PicnickerGina1SeenText, PicnickerGina1BeatenText, 0, .Script
+	trainer COUPLE, TODDANDGINA, EVENT_BEAT_COUPLE_TODD_GINA, CoupleToddGinaSeenText, CoupleToddGinaBeatenText, 0, .Script
 
 .Script:
-	trainerafter PicnickerGina1AfterText
+	trainerafter CoupleToddGinaAfterBattleText
 
 OfficerKeithScript:
 	faceplayer
@@ -269,51 +269,12 @@ YoungsterIanAfterText:
 	cont "in my class."
 	done
 
-CamperTodd1SeenText:
-	text "I'm confident in"
-	line "my ability to"
-	cont "raise #mon."
-
-	para "Want to see?"
-	done
-
-CamperTodd1BeatenText:
-	text "Did I screw up my"
-	line "training?"
-	done
-
-CamperTodd1AfterText:
-	text "Maybe I should"
-	line "take one to a Day-"
-
-	para "Care. Or maybe use"
-	line "some items…"
-	done
-
 CamperToddSaleText:
 	text "Shopping under the"
 	line "sky!"
 
 	para "It feels so nice"
 	line "up on a rooftop."
-	done
-
-PicnickerGina1SeenText:
-	text "Are you a trainer?"
-
-	para "Let's have a"
-	line "practice battle."
-	done
-
-PicnickerGina1BeatenText:
-	text "Oh, no! I just"
-	line "can't win…"
-	done
-
-PicnickerGina1AfterText:
-	text "You're too strong"
-	line "to be a practice"
-	cont "partner."
 	done
 
 OfficerKeithSeenText:
@@ -471,6 +432,28 @@ DayCareSignText:
 	line "#mon for you!"
 	done
 
+CoupleToddGinaSeenText:
+	text "Tod: Gina, let's"
+	line "show this trainer"
+	cont "our teamwork!"
+
+	para "Gina: A double"
+	line "battle it is!"
+	done
+
+CoupleToddGinaBeatenText:
+	text "Tod: Aww…"
+	line "Gina: We lost!"
+	done
+
+CoupleToddGinaAfterBattleText:
+	text "Gina: Let's train"
+	line "harder, Tod!"
+
+	para "Tod: Yeah! Next"
+	line "time we'll win!"
+	done
+
 Route34_MapEvents:
 	db 0, 0 ; filler
 
@@ -491,7 +474,7 @@ Route34_MapEvents:
 	bg_event 17, 19, BGEVENT_ITEM, Route34HiddenSuperPotion
 
 	def_object_events
-	object_event 13,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperTodd1, -1
+	object_event 10, 27, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperTodd1, -1
 	object_event 15, 32, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterSamuel, -1
 	object_event 11, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterIan, -1
 	object_event 10, 26, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerGina1, -1

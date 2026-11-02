@@ -102,4 +102,13 @@ TrainerPicPointers::
 	dba ElmPic
 	dba BirchPic
 	dba NursePic
+	dba CouplePic
+	dba SwimmersPic
+	dba AceDuoPic
+	dba RangersPic
+	dba FightersPic
+	dba BirdersPic
+	dba HikersPic
+	dba PokefansPic
+	dba PupilsPic
 	assert_table_length NUM_TRAINER_CLASSES

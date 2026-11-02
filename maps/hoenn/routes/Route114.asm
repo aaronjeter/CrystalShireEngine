@@ -107,44 +107,16 @@ Route114ClaudeAfterBattleText:
 	done
 
 Route114LucasScript:
-	trainer HIKER, ROUTE114_LUCAS, EVENT_BEAT_ROUTE114_LUCAS, Route114LucasSeenText, Route114LucasBeatenText, 0, .AfterScript
+	trainer HIKERS, LENANDLUKE, EVENT_BEAT_HIKERS_LEN_LUKE, HikersLenLukeSeenText, HikersLenLukeBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route114LucasAfterBattleText
-
-Route114LucasSeenText:
-	text "Meteor Falls is"
-	line "beautiful!"
-	done
-
-Route114LucasBeatenText:
-	text "I love a good"
-	line "battle! Well done!"
-	done
-
-Route114LucasAfterBattleText:
-	text "I just got out"
-	line "of the falls."
-	done
+.Script:
+	trainerafter HikersLenLukeAfterBattleText
 
 Route114LennyScript:
-	trainer HIKER, ROUTE114_LENNY, EVENT_BEAT_ROUTE114_LENNY, Route114LennySeenText, Route114LennyBeatenText, 0, .AfterScript
+	trainer HIKERS, LENANDLUKE, EVENT_BEAT_HIKERS_LEN_LUKE, HikersLenLukeSeenText, HikersLenLukeBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route114LennyAfterBattleText
-
-Route114LennySeenText:
-	text "Ugh, I'm tired."
-	done
-
-Route114LennyBeatenText:
-	text "..."
-	done
-
-Route114LennyAfterBattleText:
-	text "I still need"
-	line "to walk home too."
-	done
+.Script:
+	trainerafter HikersLenLukeAfterBattleText
 
 Route114BernieScript:
 	trainer FIREBREATHER, ROUTE114_BERNIE, EVENT_BEAT_ROUTE114_BERNIE, Route114BernieSeenText, Route114BernieBeatenText, 0, .AfterScript
@@ -288,6 +260,24 @@ Route114RareCandy:
 Route114Stardust:
 	itemball STARDUST
 
+HikersLenLukeSeenText:
+	text "Len: Meteor Falls"
+	line "is up ahead!"
+
+	para "Luke: Got past"
+	line "worse than you!"
+	done
+
+HikersLenLukeBeatenText:
+	text "Luke: Rockslide!"
+	done
+
+HikersLenLukeAfterBattleText:
+	text "Len: Meteorites"
+	line "fell here long"
+	cont "ago, they say."
+	done
+
 Route114_MapEvents:
 	db 0, 0 ; filler
 
@@ -306,7 +296,7 @@ Route114_MapEvents:
 	object_event 10, 24, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route114NolanScript, -1
 	object_event 19, 13, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, Route114KaiScript, -1
 	object_event 21, 29, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_TRAINER, 1, Route114ClaudeScript, -1
-	object_event 07, 75, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route114LucasScript, -1
+	object_event 26, 57, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, Route114LucasScript, -1
 	object_event 25, 57, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route114LennyScript, -1
 	object_event 08, 40, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route114BernieScript, -1
 	object_event 18, 65, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route114CharlotteScript, -1

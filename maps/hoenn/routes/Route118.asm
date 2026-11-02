@@ -12,25 +12,10 @@ Route118_MapScripts:
 	def_callbacks	
 
 Route118DaleScript:
-	trainer SCHOOLBOY, ROUTE118_DALE, EVENT_BEAT_ROUTE118_DALE, Route118DaleSeenText, Route118DaleBeatenText, 0, .AfterScript
+	trainer PUPILS, DALEANDSAL, EVENT_BEAT_PUPILS_DALE_SAL, PupilsDaleSalSeenText, PupilsDaleSalBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route118DaleAfterBattleText
-
-Route118DaleSeenText:
-	text "Hey there!"
-
-	para "Wanna join us?"
-	done
-
-Route118DaleBeatenText:
-	text "Awww!"
-	done
-
-Route118DaleAfterBattleText:
-	text "We're just out"
-	line "for a picnic."
-	done
+.Script:
+	trainerafter PupilsDaleSalAfterBattleText
 
 
 Route118ChesterScript:
@@ -83,27 +68,10 @@ Route118PerryAfterBattleText:
 
 
 Route118SallyScript:
-	trainer LASS, ROUTE118_SALLY, EVENT_BEAT_ROUTE118_SALLY, Route118SallySeenText, Route118SallyBeatenText, 0, .AfterScript
+	trainer PUPILS, DALEANDSAL, EVENT_BEAT_PUPILS_DALE_SAL, PupilsDaleSalSeenText, PupilsDaleSalBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route118SallyAfterBattleText
-
-Route118SallySeenText:
-	text "The water is"
-	line "too deep to"
-	cont "walk across."
-	done
-
-Route118SallyBeatenText:
-	text "Fun! Want"
-	line "to stick around?"
-	done
-
-Route118SallyAfterBattleText:
-	text "Still waiting"
-	line "on Dad to catch"
-	cont "some fish..."
-	done
+.Script:
+	trainerafter PupilsDaleSalAfterBattleText
 
 
 Route118AnnieScript:
@@ -162,6 +130,22 @@ Route118FruitTree2:
 Route118Elixer:
 	itemball ELIXER
 
+PupilsDaleSalSeenText:
+	text "Dale: We biked all"
+	line "the way here!"
+
+	para "Sal: Now, battle!"
+	done
+
+PupilsDaleSalBeatenText:
+	text "Sal: Ouch…"
+	done
+
+PupilsDaleSalAfterBattleText:
+	text "Dale: Route 119"
+	line "is always rainy."
+	done
+
 Route118_MapEvents:
 	db 0, 0 ; filler
 
@@ -175,11 +159,9 @@ Route118_MapEvents:
 	object_event 18,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route118DaleScript, -1
 	object_event 55, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, Route118ChesterScript, -1
 	object_event 55,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route118PerryScript, -1
-	object_event 22, 07, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, Route118SallyScript, -1
+	object_event 19,  7, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, Route118SallyScript, -1
 	object_event 18, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route118AnnieScript, -1
 	object_event 31, 15, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route118BarnyScript, -1
 	object_event 65,  6, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route118FruitTree1, -1
 	object_event 74,  6, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route118FruitTree2, -1
 	object_event 13,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route118Elixer, EVENT_ROUTE_118_ELIXER
-
-

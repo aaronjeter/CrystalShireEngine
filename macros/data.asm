@@ -229,6 +229,7 @@ MACRO party
 	DEF _party_n += 1
 	dw .__party_end{d:_party_n} - .__party_start{d:_party_n}
 .__party_start{d:_party_n}
+	assert CHARLEN(\2) <= NAME_LENGTH - 1, "party \1: the name is longer than NAME_LENGTH - 1 characters"
 	db \2, "@"
 	db _party_flags{d:_party_n}
 	REDEF _party_name EQUS "\1"

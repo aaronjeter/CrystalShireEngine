@@ -4,6 +4,7 @@
 	const OLIVINELIGHTHOUSE5F_POKE_BALL1
 	const OLIVINELIGHTHOUSE5F_POKE_BALL2
 	const OLIVINELIGHTHOUSE5F_POKE_BALL3
+	const OLIVINELIGHTHOUSE5F_BIRDER
 
 OlivineLighthouse5F_MapScripts:
 	def_scene_scripts
@@ -11,10 +12,10 @@ OlivineLighthouse5F_MapScripts:
 	def_callbacks
 
 TrainerBirdKeeperDenis:
-	trainer BIRD_KEEPER, DENIS, EVENT_BEAT_BIRD_KEEPER_DENIS, BirdKeeperDenisSeenText, BirdKeeperDenisBeatenText, 0, .Script
+	trainer BIRDERS, THEOANDDEN, EVENT_BEAT_BIRDERS_THEO_DEN, BirdersTheoDenSeenText, BirdersTheoDenBeatenText, 0, .Script
 
 .Script:
-	trainerafter BirdKeeperDenisAfterBattleText
+	trainerafter BirdersTheoDenAfterBattleText
 
 TrainerSailorErnest:
 	trainer SAILOR, ERNEST, EVENT_BEAT_SAILOR_ERNEST, SailorErnestSeenText, SailorErnestBeatenText, 0, .Script
@@ -56,26 +57,32 @@ SailorErnestAfterBattleText:
 	cont "compassionate."
 	done
 
-BirdKeeperDenisSeenText:
-	text "We're pretty high"
-	line "up here. My bird"
+TrainerBirdersTheo:
+	trainer BIRDERS, THEOANDDEN, EVENT_BEAT_BIRDERS_THEO_DEN, BirdersTheoDenSeenText, BirdersTheoDenBeatenText, 0, .Script
 
-	para "#mon are in"
-	line "prime form."
+.Script:
+	trainerafter BirdersTheoDenAfterBattleText
+
+BirdersTheoDenSeenText:
+	text "Theo: From up here"
+	line "we watch the sea"
+	cont "birds fly."
+
+	para "Den: Our birds"
+	line "fly together!"
 	done
 
-BirdKeeperDenisBeatenText:
-	text "Oops…They crashed…"
+BirdersTheoDenBeatenText:
+	text "Den: Shot down…"
 	done
 
-BirdKeeperDenisAfterBattleText:
-	text "My #mon learned"
-	line "how to use Fly in"
-	cont "Cianwood."
+BirdersTheoDenAfterBattleText:
+	text "Theo: Sick #mon"
+	line "can't light the"
+	cont "lighthouse lamp."
 
-	para "Well, since I'm a"
-	line "loser, I'll Fly"
-	cont "across the sea…"
+	para "Den: Someone has"
+	line "to help it!"
 	done
 
 OlivineLighthouse5F_MapEvents:
@@ -97,7 +104,8 @@ OlivineLighthouse5F_MapEvents:
 
 	def_object_events
 	object_event  8, 11, SPRITE_SAILOR, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSailorErnest, -1
-	object_event  8,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBirdKeeperDenis, -1
+	object_event  4,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBirdKeeperDenis, -1
 	object_event 15, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse5FRareCandy, EVENT_OLIVINE_LIGHTHOUSE_5F_RARE_CANDY
 	object_event  6, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse5FSuperRepel, EVENT_OLIVINE_LIGHTHOUSE_5F_SUPER_REPEL
 	object_event  2, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse5FTMSwagger, EVENT_OLIVINE_LIGHTHOUSE_5F_TM_SWAGGER
+	object_event  4,  2, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBirdersTheo, -1

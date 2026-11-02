@@ -36,10 +36,10 @@ UnionCaveLapras:
 	end
 
 TrainerCooltrainermNick:
-	trainer COOLTRAINERM, NICK, EVENT_BEAT_COOLTRAINERM_NICK, CooltrainermNickSeenText, CooltrainermNickBeatenText, 0, .Script
+	trainer ACE_DUO, NICKANDEM, EVENT_BEAT_ACE_DUO_NICK_EM, AceDuoNickEmSeenText, AceDuoNickEmBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainermNickAfterBattleText
+	trainerafter AceDuoNickEmAfterBattleText
 
 TrainerCooltrainerfGwen:
 	trainer COOLTRAINERF, GWEN, EVENT_BEAT_COOLTRAINERF_GWEN, CooltrainerfGwenSeenText, CooltrainerfGwenBeatenText, 0, .Script
@@ -48,42 +48,16 @@ TrainerCooltrainerfGwen:
 	trainerafter CooltrainerfGwenAfterBattleText
 
 TrainerCooltrainerfEmma:
-	trainer COOLTRAINERF, EMMA, EVENT_BEAT_COOLTRAINERF_EMMA, CooltrainerfEmmaSeenText, CooltrainerfEmmaBeatenText, 0, .Script
+	trainer ACE_DUO, NICKANDEM, EVENT_BEAT_ACE_DUO_NICK_EM, AceDuoNickEmSeenText, AceDuoNickEmBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainerfEmmaAfterBattleText
+	trainerafter AceDuoNickEmAfterBattleText
 
 UnionCaveB2FElixer:
 	itemball ELIXER
 
 UnionCaveB2FHyperPotion:
 	itemball HYPER_POTION
-
-CooltrainermNickSeenText:
-	text "There are two"
-	line "kinds of people."
-
-	para "Those who have"
-	line "style, and those"
-	cont "who don't."
-
-	para "What kind of"
-	line "person are you?"
-	done
-
-CooltrainermNickBeatenText:
-	text "You've got"
-	line "dazzling style!"
-	done
-
-CooltrainermNickAfterBattleText:
-	text "Your #mon style"
-	line "is stunning and"
-	cont "colorful, I admit."
-
-	para "You'll just keep"
-	line "getting better!"
-	done
 
 CooltrainerfGwenSeenText:
 	text "I'm in training."
@@ -101,31 +75,31 @@ CooltrainerfGwenAfterBattleText:
 	cont "improve."
 	done
 
-CooltrainerfEmmaSeenText:
-	text "If the #mon I"
-	line "liked were there,"
-	cont "I'd go anywhere."
-
-	para "That's what a real"
-	line "trainer does."
-	done
-
-CooltrainerfEmmaBeatenText:
-	text "I'd rather pet my"
-	line "babies than this!"
-	done
-
-CooltrainerfEmmaAfterBattleText:
-	text "Just once a week,"
-	line "a #mon comes to"
-	cont "the water's edge."
-
-	para "I wanted to see"
-	line "that #mon…"
-	done
-
 UnionCaveB2FFinFossil:
 	itemball FIN_FOSSIL
+
+AceDuoNickEmSeenText:
+	text "Nick: We trained"
+	line "in the dark for"
+	cont "this moment."
+
+	para "Em: Show us what"
+	line "you've got!"
+	done
+
+AceDuoNickEmBeatenText:
+	text "Nick: Incredible…"
+	line "Em: We'll be back!"
+	done
+
+AceDuoNickEmAfterBattleText:
+	text "Em: Teamwork is"
+	line "everything in a"
+	cont "double battle."
+
+	para "Nick: You get it."
+	line "That's rare."
+	done
 
 UnionCaveB2F_MapEvents:
 	db 0, 0 ; filler
@@ -140,7 +114,7 @@ UnionCaveB2F_MapEvents:
 	def_object_events
 	object_event 15, 19, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermNick, -1
 	object_event  5, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfGwen, -1
-	object_event  3, 30, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfEmma, -1
+	object_event 16, 19, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfEmma, -1
 	object_event 16,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCaveB2FElixer, EVENT_UNION_CAVE_B2F_ELIXER
 	object_event 12, 19, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCaveB2FHyperPotion, EVENT_UNION_CAVE_B2F_HYPER_POTION
 	object_event 11, 31, SPRITE_SURF, SPRITEMOVEDATA_SWIM_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, UnionCaveLapras, EVENT_UNION_CAVE_B2F_LAPRAS

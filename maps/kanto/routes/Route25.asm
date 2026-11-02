@@ -97,16 +97,16 @@ TrainerLassEllen:
 	trainerafter LassEllenAfterBattleText
 
 TrainerSchoolboyJoe:
-	trainer SCHOOLBOY, JOE, EVENT_BEAT_SCHOOLBOY_JOE, SchoolboyJoeSeenText, SchoolboyJoeBeatenText, 0, .Script
+	trainer PUPILS, JOEANDLARA, EVENT_BEAT_PUPILS_JOE_LARA, PupilsJoeLaraSeenText, PupilsJoeLaraBeatenText, 0, .Script
 
 .Script:
-	trainerafter SchoolboyJoeAfterBattleText
+	trainerafter PupilsJoeLaraAfterBattleText
 
 TrainerLassLaura:
-	trainer LASS, LAURA, EVENT_BEAT_LASS_LAURA, LassLauraSeenText, LassLauraBeatenText, 0, .Script
+	trainer PUPILS, JOEANDLARA, EVENT_BEAT_PUPILS_JOE_LARA, PupilsJoeLaraSeenText, PupilsJoeLaraBeatenText, 0, .Script
 
 .Script:
-	trainerafter LassLauraAfterBattleText
+	trainerafter PupilsJoeLaraAfterBattleText
 
 TrainerCamperLloyd:
 	trainer CAMPER, LLOYD, EVENT_BEAT_CAMPER_LLOYD, CamperLloydSeenText, CamperLloydBeatenText, 0, .Script
@@ -271,34 +271,6 @@ LassEllenAfterBattleText:
 	line "I have no regrets."
 	done
 
-SchoolboyJoeSeenText:
-	text "Here's No. 3!"
-	line "I won't be easy."
-	done
-
-SchoolboyJoeBeatenText:
-	text "Ow! Stomped flat!"
-	done
-
-SchoolboyJoeAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
-	done
-
-LassLauraSeenText:
-	text "I'm No. 4!"
-	line "Getting tired?"
-	done
-
-LassLauraBeatenText:
-	text "I lost too…"
-	done
-
-LassLauraAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
-	done
-
 CamperLloydSeenText:
 	text "OK! I'm No. 5."
 	line "I'll stomp you!"
@@ -393,6 +365,23 @@ BillsHouseSignText:
 	line "Bill's House"
 	done
 
+PupilsJoeLaraSeenText:
+	text "Joe: We're going"
+	line "to see Bill!"
+
+	para "Lara: You too?"
+	line "Battle us first!"
+	done
+
+PupilsJoeLaraBeatenText:
+	text "Lara: Oh no!"
+	done
+
+PupilsJoeLaraAfterBattleText:
+	text "Joe: Bill's house"
+	line "is past the cape."
+	done
+
 Route25_MapEvents:
 	db 0, 0 ; filler
 
@@ -413,7 +402,7 @@ Route25_MapEvents:
 	object_event 12,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyDudley, -1
 	object_event 16, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassEllen, -1
 	object_event 21,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSchoolboyJoe, -1
-	object_event 22,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassLaura, -1
+	object_event 20,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassLaura, -1
 	object_event 25,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperLloyd, -1
 	object_event 28, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassShannon, -1
 	object_event 31,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerSupernerdPat, -1

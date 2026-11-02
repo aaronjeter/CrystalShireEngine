@@ -37,10 +37,10 @@ TrainerHikerErik:
 	trainerafter HikerErikAfterBattleText
 
 TrainerHikerMichael:
-	trainer HIKER, MICHAEL, EVENT_BEAT_HIKER_MICHAEL, HikerMichaelSeenText, HikerMichaelBeatenText, 0, .Script
+	trainer HIKERS, MIKEANDTIM, EVENT_BEAT_HIKERS_MIKE_TIM, HikersMikeTimSeenText, HikersMikeTimBeatenText, 0, .Script
 
 .Script:
-	trainerafter HikerMichaelAfterBattleText
+	trainerafter HikersMikeTimAfterBattleText
 
 TrainerHikerParry:
 	trainer HIKER, PARRY, EVENT_BEAT_HIKER_PARRY, HikerParry3SeenText, HikerParry3BeatenText, 0, .Script
@@ -49,10 +49,10 @@ TrainerHikerParry:
 	trainerafter HikerParryAfterBattleText
 
 TrainerHikerTimothy:
-	trainer HIKER, TIMOTHY, EVENT_BEAT_HIKER_TIMOTHY, HikerTimothySeenText, HikerTimothyBeatenText, 0, .Script
+	trainer HIKERS, MIKEANDTIM, EVENT_BEAT_HIKERS_MIKE_TIM, HikersMikeTimSeenText, HikersMikeTimBeatenText, 0, .Script
 
 .Script:
-	trainerafter HikerTimothyAfterBattleText
+	trainerafter HikersMikeTimAfterBattleText
 
 TrainerCooltrainermRyan:
 	trainer COOLTRAINERM, RYAN, EVENT_BEAT_COOLTRAINERM_RYAN, CooltrainermRyanSeenText, CooltrainermRyanBeatenText, 0, .Script
@@ -130,30 +130,6 @@ HikerErikAfterBattleText:
 	line "some more."
 	done
 
-HikerMichaelSeenText:
-	text "Yo! You're spunky!"
-	line "But you know what?"
-
-	para "When it comes to"
-	line "sheer spunkiness,"
-	cont "I'm the man!"
-	done
-
-HikerMichaelBeatenText:
-	text "My #mon weren't"
-	line "spunky enough!"
-	done
-
-HikerMichaelAfterBattleText:
-	text "Boy, do I love"
-	line "HP UP! Mmmm, yum!"
-
-	para "I keep drinking my"
-	line "#mon's!"
-
-	para "I can't help it!"
-	done
-
 HikerParry3SeenText:
 	text "My #mon are"
 	line "power packed!"
@@ -170,33 +146,6 @@ HikerParryAfterBattleText:
 
 	para "So, I just plow"
 	line "ahead with power!"
-	done
-
-HikerTimothySeenText:
-	text "Why do I climb"
-	line "mountains?"
-
-	para "Because they're"
-	line "there."
-
-	para "Why do I train"
-	line "#mon?"
-
-	para "Because they're"
-	line "there!"
-	done
-
-HikerTimothyBeatenText:
-	text "Losses…"
-	line "They're there too!"
-	done
-
-HikerTimothyAfterBattleText:
-	text "The best thing to"
-	line "ever happen to me"
-
-	para "was discovering"
-	line "#mon."
 	done
 
 HikerParryGivesIronText:
@@ -349,6 +298,25 @@ Djinn_EchoText:
 	line "join your party?"
 	done
 
+HikersMikeTimSeenText:
+	text "Mike: Route 45 is"
+	line "all downhill…"
+
+	para "Tim: …for you!"
+	line "Gahahaha!"
+	done
+
+HikersMikeTimBeatenText:
+	text "Tim: We tumbled"
+	line "down the slope!"
+	done
+
+HikersMikeTimAfterBattleText:
+	text "Mike: Ledges only"
+	line "go one way, so"
+	cont "plan your climb."
+	done
+
 Route45_MapEvents:
 	db 0, 0 ; filler
 
@@ -363,7 +331,7 @@ Route45_MapEvents:
 
 	def_object_events
 	object_event 10, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerErik, -1
-	object_event 15, 65, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerMichael, -1
+	object_event  9, 64, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerMichael, -1
 	object_event  5, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerParry, -1
 	object_event  9, 65, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerTimothy, -1
 	object_event 11, 50, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackbeltKenji, -1

@@ -13,24 +13,10 @@ Route116_MapScripts:
 	def_callbacks	
 
 Route116JoeyScript:
-	trainer YOUNGSTER, ROUTE116_JOEY, EVENT_BEAT_ROUTE116_JOEY, Route116JoeySeenText, Route116JoeyBeatenText, 0, .AfterScript
+	trainer PUPILS, JOEYANDJAN, EVENT_BEAT_PUPILS_JOEY_JAN, PupilsJoeyJanSeenText, PupilsJoeyJanBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route116JoeyAfterBattleText
-
-Route116JoeySeenText:
-	text "My #mon rule!"
-	done
-
-Route116JoeyBeatenText:
-	text "Ouch! A scrape!"
-	done
-
-Route116JoeyAfterBattleText:
-	text "Bandages are"
-	line "signs of"
-	cont "toughness!"
-	done
+.Script:
+	trainerafter PupilsJoeyJanAfterBattleText
 
 
 Route116JohnsonScript:
@@ -86,33 +72,10 @@ Route116KarenAfterBattleText:
 
 
 Route116JaniceScript:
-	trainer LASS, ROUTE116_JANICE, EVENT_BEAT_ROUTE116_JANICE, Route116JaniceSeenText, Route116JaniceBeatenText, 0, .AfterScript
+	trainer PUPILS, JOEYANDJAN, EVENT_BEAT_PUPILS_JOEY_JAN, PupilsJoeyJanSeenText, PupilsJoeyJanBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route116JaniceAfterBattleText
-
-Route116JaniceSeenText:
-	text "Let me teach you "
-	line "how strong my"
-
-	para "adorable #mon"
-	line "is."
-	done
-
-Route116JaniceBeatenText:
-	text "You're a notch"
-	line "above me."
-	done
-
-Route116JaniceAfterBattleText:
-	text "#mon that "
-	line "possess cuteness"
-
-	para "and power..."
-
-	para "That's"
-	line "ideal, I think."
-	done
+.Script:
+	trainerafter PupilsJoeyJanAfterBattleText
 
 
 Route116JoseScript:
@@ -216,6 +179,24 @@ Route116Revive:
 Route116Ether:
 	itemball ETHER
 
+PupilsJoeyJanSeenText:
+	text "Joey: We trained"
+	line "hard after class!"
+
+	para "Jan: Time for a"
+	line "test!"
+	done
+
+PupilsJoeyJanBeatenText:
+	text "Jan: We flunked…"
+	done
+
+PupilsJoeyJanAfterBattleText:
+	text "Joey: Rusturf"
+	line "Tunnel is blocked"
+	cont "by rocks."
+	done
+
 Route116_MapEvents:
 	db 0, 0 ; filler
 
@@ -227,10 +208,10 @@ Route116_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  07, 07, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route116JoeyScript, -1
+	object_event  7,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route116JoeyScript, -1
 	object_event  06, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route116JohnsonScript, -1
 	object_event  20, 16, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route116KarenScript, -1
-	object_event  23, 05, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route116JaniceScript, -1
+	object_event  8,  7, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route116JaniceScript, -1
 	object_event  31, 02, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route116JoseScript, -1
 	object_event  28, 02, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route116ClarkScript, -1
 	object_event  50, 13, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route116DevanScript, -1

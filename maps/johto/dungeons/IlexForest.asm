@@ -10,6 +10,8 @@
 	const ILEXFOREST_POKE_BALL2
 	const ILEXFOREST_POKE_BALL3
 	const ILEXFOREST_POKE_BALL4
+	const ILEXFOREST_PUPIL1
+	const ILEXFOREST_PUPIL2
 
 IlexForest_MapScripts:
 	def_scene_scripts
@@ -926,6 +928,41 @@ BugCatcherWayneAfterBattleText:
 	cont "places too."
 	done
 
+TrainerPupilsKen:
+	trainer PUPILS, KENANDAMY, EVENT_BEAT_PUPILS_KEN_AMY, PupilsKenAmySeenText, PupilsKenAmyBeatenText, 0, .Script
+
+.Script:
+	trainerafter PupilsKenAmyAfterBattleText
+
+TrainerPupilsAmy:
+	trainer PUPILS, KENANDAMY, EVENT_BEAT_PUPILS_KEN_AMY, PupilsKenAmySeenText, PupilsKenAmyBeatenText, 0, .Script
+
+.Script:
+	trainerafter PupilsKenAmyAfterBattleText
+
+PupilsKenAmySeenText:
+	text "Ken: Our class is"
+	line "on a field trip!"
+
+	para "Amy: We caught"
+	line "bugs in the woods."
+	cont "Battle us!"
+	done
+
+PupilsKenAmyBeatenText:
+	text "Ken: Teacher won't"
+	line "believe this…"
+	done
+
+PupilsKenAmyAfterBattleText:
+	text "Amy: Ilex Forest"
+	line "is so spooky…"
+
+	para "Ken: They say a"
+	line "forest guardian"
+	cont "lives here!"
+	done
+
 IlexForest_MapEvents:
 	db 0, 0 ; filler
 
@@ -959,3 +996,5 @@ IlexForest_MapEvents:
 	object_event  9, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestSilverLeaf, EVENT_ILEX_FOREST_SILVER_LEAF
 	object_event 17,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestAntidote, EVENT_ILEX_FOREST_ANTIDOTE
 	object_event 27,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestEther, EVENT_ILEX_FOREST_ETHER
+	object_event 11,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPupilsKen, -1
+	object_event 11,  7, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPupilsAmy, -1

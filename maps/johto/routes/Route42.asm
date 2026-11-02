@@ -8,6 +8,8 @@
 	const ROUTE42_POKE_BALL1
 	const ROUTE42_POKE_BALL2
 	const ROUTE42_SUICUNE
+	const ROUTE42_COUPLE1
+	const ROUTE42_COUPLE2
 
 Route42_MapScripts:
 	def_scene_scripts
@@ -186,6 +188,37 @@ Route42Sign2Text:
 	line "Mahogany Town"
 	done
 
+TrainerCoupleNed:
+	trainer COUPLE, NEDANDIVY, EVENT_BEAT_COUPLE_NED_IVY, CoupleNedIvySeenText, CoupleNedIvyBeatenText, 0, .Script
+
+.Script:
+	trainerafter CoupleNedIvyAfterBattleText
+
+TrainerCoupleIvy:
+	trainer COUPLE, NEDANDIVY, EVENT_BEAT_COUPLE_NED_IVY, CoupleNedIvySeenText, CoupleNedIvyBeatenText, 0, .Script
+
+.Script:
+	trainerafter CoupleNedIvyAfterBattleText
+
+CoupleNedIvySeenText:
+	text "Ivy: We picnic"
+	line "here every Sunday."
+
+	para "Ned: Join us for a"
+	line "battle!"
+	done
+
+CoupleNedIvyBeatenText:
+	text "Ned: Oof!"
+	line "Ivy: Good game!"
+	done
+
+CoupleNedIvyAfterBattleText:
+	text "Ivy: Mt.Mortar is"
+	line "huge. Bring lots"
+	cont "of Repels!"
+	done
+
 Route42_MapEvents:
 	db 0, 0 ; filler
 
@@ -216,3 +249,5 @@ Route42_MapEvents:
 	object_event  6,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route42UltraBall, EVENT_ROUTE_42_ULTRA_BALL
 	object_event 33,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route42SuperPotion, EVENT_ROUTE_42_SUPER_POTION
 	object_event 26, 16, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_42
+	object_event 48, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCoupleNed, -1
+	object_event 49, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCoupleIvy, -1

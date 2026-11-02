@@ -2220,20 +2220,21 @@ YoungsterGroup:
 	mon 6, ASANDSHREW
 	end_party
 
-	party ROUTE102_CALVIN, "Calvin" ; Route 102
+	party ROUTE102_CALVIN, "Calvin" ; Route 102 (elite)
 	mon 0, POOCHYENA
+		ability INTIMIDATE
 	mon 0, TAILLOW
+		ability GUTS
+	mon 1, ZIGZAGOON
+		ability KEEN_EYE
 	hard
-	mon 0, POOCHYENA
+	mon 1, POOCHYENA
+		ability INTIMIDATE
 	mon 1, TAILLOW
-	end_party
-
-	party ROUTE102_ALLEN, "Allen" ; Route 102
-	mon 0, ZIGZAGOON
-	mon 0, TAILLOW
-	hard
-	mon 0, ZIGZAGOON
-	mon 1, TAILLOW
+		ability GUTS
+	mon 2, ZIGZAGOON
+		item ORAN_BERRY
+		ability KEEN_EYE
 	end_party
 
 	party ROUTE104_BILLY, "Billy" ; Route 104
@@ -2242,14 +2243,6 @@ YoungsterGroup:
 	hard
 	mon 4, ZIGZAGOON
 	mon 4, SEEDOT
-	end_party
-
-	party ROUTE116_JOEY, "Joey" ; Route 116
-	mon 4, TAILLOW
-	mon 5, MACHOP
-	hard
-	mon 4, TAILLOW
-	mon 5, MACHOP
 	end_party
 
 	party ROUTE116_JOHNSON, "Johnson" ; Route 116
@@ -2266,16 +2259,6 @@ YoungsterGroup:
 	hard
 	mon 7, ARON
 	mon 7, ELECTRIKE
-	end_party
-
-	party MOON_JOSH, "Josh" ; Mount Moon
-	mon 3, ARON
-	mon 4, ELECTRIKE
-	mon 5, RATTATA
-	hard
-	mon 5, ARON
-	mon 6, ELECTRIKE
-	mon 7, RATTATA
 	end_party
 
 	party ROUTE113_LAO, "Lao" ; Route 113
@@ -2324,12 +2307,6 @@ SchoolboyGroup:
 	mon 7, SKIPLOOM
 	end_party
 
-	party JOHNNY, "Johnny" ; Route 15
-	mon 2, BELLSPROUT
-	mon 4, WEEPINBELL
-	mon 7, WEEPINBELL
-	end_party
-
 	party DANNY, "Danny" ; Viridian Forest
 	mon 0, PIDGEY
 	mon 0, RATTATA
@@ -2338,30 +2315,26 @@ SchoolboyGroup:
 	mon 1, RATTATA
 	end_party
 
-	party TOMMY, "Tommy" ; Route 15
+	party TOMMY, "Tommy" ; Route 15 (elite)
 	mon 7, XATU
+		ability MAGIC_GUARD
 	mon 8, KADABRA
+		ability MAGIC_GUARD
+	mon 6, GIRAFARIG
+		ability INNER_FOCUS
+	hard
+	mon 8, XATU
+		ability MAGIC_GUARD
+	mon 9, KADABRA
+		item TWISTEDSPOON
+		ability MAGIC_GUARD
+	mon 7, GIRAFARIG
+		ability INNER_FOCUS
 	end_party
 
 	party DUDLEY, "Dudley" ; Route 24
 	mon 5, ODDISH
 	mon 5, VULPIX
-	end_party
-
-	party JOE, "Joe" ; Route 25
-	mon 3, TANGELA
-	mon 5, EEVEE
-	end_party
-
-	party BILLY, "Billy" ; Route 15
-	mon 4, PARAS
-	mon 5, POLIWHIRL
-	mon 7, DITTO
-	end_party
-
-	party CHAD1, "Chad" ; Route 38
-	mon 9, MR__MIME
-	mon 8, NATU
 	end_party
 
 	party NATE, "Nate" ; Fast Ship B1F
@@ -2382,14 +2355,6 @@ SchoolboyGroup:
 	mon 9, LINOONE
 	end_party
 
-	party ROUTE118_DALE, "Dale" ; Route 118
-	mon 3, MINUN
-	mon 5, RAITORA
-	hard
-	mon 5, MINUN
-	mon 7, RAITORA
-	end_party
-
 	end_list_items
 
 BirdKeeperGroup:
@@ -2405,24 +2370,21 @@ BirdKeeperGroup:
 	random_mons 3, BIRDS_EASY
 	end_party
 
-	party BRYAN, "Bryan" ; Route 35
+	party BRYAN, "Bryan" ; Route 35 (elite)
 	mon 6, PIDGEOTTO
-	mon 4, TAILLOW
-	mon 6, SWELLOW
+		ability TINTED_LENS
+	mon 5, TAILLOW
+		ability GUTS
+	mon 7, SWELLOW
+		ability SCRAPPY
 	hard
 	mon 7, PIDGEOTTO
-	mon 4, TAILLOW
-	mon 7, SWELLOW
-	end_party
-
-	party THEO, "Theo" ; Glitter Lighthouse - 3F
-	mon 6, PIDGEOTTO
-	mon 4, TAILLOW
-	mon 6, SWELLOW
-	hard
-	mon 7, PIDGEOTTO
-	mon 4, TAILLOW
-	mon 7, SWELLOW
+		ability TINTED_LENS
+	mon 6, TAILLOW
+		ability GUTS
+	mon 8, SWELLOW
+		item SHARP_BEAK
+		ability SCRAPPY
 	end_party
 
 	party TOBY, "Toby" ; Route 38
@@ -2431,37 +2393,44 @@ BirdKeeperGroup:
 	mon 7, DODRIO
 	end_party
 
-	party DENIS, "Denis" ; Glitter Lighthouse - 5F
-	mon 3, SPEAROW
-	mon 7, FEAROW
-	mon 3, SPEAROW
-	end_party
-
 	party VANCE, "Vance" ; Route 44
 	mon 4, PIDGEOTTO
 	mon 5, PIDGEOTTO
 	mon 7, FARFETCH_D
 	end_party
 
-	party HANK, "Hank" ; Route 04
-	random_mons 3, BIRDS_EASY
-	end_party
-
-	party ROY, "Roy" ; Route 14
-	mon 4, FEAROW
-	mon 5, FEAROW
-	mon 7, FARFETCH_D
-	end_party
-
-	party BORIS, "Boris" ; Route 18
-	mon 3, DODUO
+	party HANK, "Hank" ; Route 04 (elite)
+	mon 6, PIDGEOTTO
+		ability KEEN_EYE
 	mon 5, DODUO
-	mon 7, FARFETCH_D
+		ability HASTE
+	mon 5, NATU
+		ability MAGIC_GUARD
+	hard
+	mon 7, PIDGEOTTO
+		item SHARP_BEAK
+		ability KEEN_EYE
+	mon 6, DODUO
+		ability HASTE
+	mon 6, NATU
+		ability MAGIC_GUARD
 	end_party
 
-	party BOB, "Bob" ; Route 18
-	mon 7, NOCTOWL
+	party ROY, "Roy" ; Route 14 (elite)
+	mon 4, FEAROW
+		ability SNIPER
+	mon 5, FEAROW
+		ability TOUGH_CLAWS
 	mon 7, FARFETCH_D
+		ability SHARPNESS
+	hard
+	mon 5, FEAROW
+		ability SNIPER
+	mon 6, FEAROW
+		ability TOUGH_CLAWS
+	mon 8, FARFETCH_D
+		item SHARP_BEAK
+		ability SHARPNESS
 	end_party
 
 	party JOSE, "Jose" ; Route 27
@@ -2474,18 +2443,21 @@ BirdKeeperGroup:
 	mon 11, AERODACTYL
 	end_party
 
-	party PETER, "Peter" ; Route 32
-	random_mons 3, BIRDS_EASY
-	end_party
-
-	party PERRY, "Perry" ; Route 13
+	party PETER, "Peter" ; Route 32 (elite)
+	mon 7, PIDGEOTTO
+		ability KEEN_EYE
+	mon 6, SPEAROW
+		ability SNIPER
+	mon 6, HOOTHOOT
+		ability INSOMNIA
+	hard
 	mon 8, PIDGEOTTO
-	mon 9, FARFETCH_D
-	end_party
-
-	party BRET, "Bret" ; Route 13
-	mon 6, PIDGEOTTO
-	mon 8, FEAROW
+		item SHARP_BEAK
+		ability KEEN_EYE
+	mon 7, SPEAROW
+		ability SNIPER
+	mon 7, HOOTHOOT
+		ability INSOMNIA
 	end_party
 
 	party ROUTE105_JOSUE, "Josue" ; Route 105
@@ -2548,12 +2520,21 @@ BirdKeeperGroup:
 	mon 7, GLIGAR
 	end_party
 
-	party ROUTE113_COBY, "Coby" ; Route 113
+	party ROUTE113_COBY, "Coby" ; Route 113 (elite)
 	mon 6, SKARMORY
+		ability STURDY
 	mon 4, SWELLOW
+		ability GUTS
+	mon 5, PELIPPER
+		ability DRIZZLE
 	hard
 	mon 7, SKARMORY
+		ability STURDY
 	mon 7, SWELLOW
+		item SHARP_BEAK
+		ability GUTS
+	mon 6, PELIPPER
+		ability DRIZZLE
 	end_party
 
 	party ROUTE119_PHIL, "Phil" ; Route 119
@@ -2609,9 +2590,21 @@ LassGroup:
 	mon 7, SWALOT
 	end_party
 
-	party KRISE, "Krise" ; National Park
-	mon 7, ODDISH
+	party KRISE, "Krise" ; National Park (elite)
+	mon 6, GLOOM
+		ability EFFECT_SPORE
+	mon 6, CUBONE
+		ability ROCK_HEAD
+	mon 7, CLEFAIRY
+		ability MAGIC_GUARD
+	hard
+	mon 7, GLOOM
+		ability EFFECT_SPORE
 	mon 7, CUBONE
+		ability ROCK_HEAD
+	mon 8, CLEFAIRY
+		item ORAN_BERRY
+		ability MAGIC_GUARD
 	end_party
 
 	party CONNIE, "Connie" ; Glitter Lighthouse - 4F
@@ -2624,15 +2617,6 @@ LassGroup:
 	mon 7, TANGELA
 	mon 7, HYPNO
 	mon 7, VENUSAUR
-	end_party
-
-	party LAURA, "Laura" ; Route 25
-	mon 5, ODDISH
-	mon 5, PIDGEOTTO
-	hard
-	mon 5, ODDISH
-	mon 5, PIDGEOTTO
-	mon 7, BELLOSSOM
 	end_party
 
 	party SHANNON, "Shannon" ; Route 25
@@ -2650,11 +2634,6 @@ LassGroup:
 	mon 7, SKIPLOOM
 	end_party
 
-	party DANA, "Dana" ; Route 38
-	mon 7, FLAAFFY
-	mon 7, GOLDUCK
-	end_party
-
 	party ELLEN, "Ellen" ; Route 24
 	mon 5, JIGGLYPUFF
 	mon 5, SNUBBULL
@@ -2666,14 +2645,6 @@ LassGroup:
 	hard
 	mon 9, CHINCHOU
 	mon 9, HITMONCHAN
-	end_party
-
-	party ROUTE102_TIANA, "Tiana" ; Route 102
-	mon 0, ZIGZAGOON
-	mon 1, SHROOMISH
-	hard
-	mon 1, ZIGZAGOON
-	mon 2, SHROOMISH
 	end_party
 
 	party ROUTE104_HALEY, "Haley" ; Route 104
@@ -2689,36 +2660,12 @@ LassGroup:
 	mon 6, PIDGEY
 	end_party
 
-	party ROUTE116_JANICE, "Janice" ; Route 116
-	mon 5, MARILL
-	mon 4, SPEAROW
-	hard
-	mon 5, MARILL
-	mon 4, SPEAROW
-	end_party
-
-	party MOON_IRIS, "Iris" ; Mount Moon
-	mon 4, CLEFAIRY
-	mon 5, JIGGLYPUFF
-	hard
-	mon 5, CLEFAIRY
-	mon 7, JIGGLYPUFF
-	end_party
-
 	party MOON_MIRIAM, "Miriam" ; Mount Moon
 	mon 4, ODDISH
 	mon 5, ROSELIA
 	hard
 	mon 5, ODDISH
 	mon 7, ROSELIA
-	end_party
-
-	party ROUTE118_SALLY, "Sally" ; Route 118
-	mon 4, GLOOM
-	mon 5, VOLBEAT
-	hard
-	mon 5, GLOOM
-	mon 6, VOLBEAT
 	end_party
 
 	party ROUTE118_ANNIE, "Annie" ; Route 118
@@ -2867,12 +2814,6 @@ CooltrainerMGroup:
 	mon 5, SKARMORY
 	end_party
 
-	party AARON, "Aaron" ; Lake of Rage
-	mon 6, IVYSAUR
-	mon 6, CHARMELEON
-	mon 6, WARTORTLE
-	end_party
-
 	party PAUL, "Paul" ; Blackthorn City Gym
 	mon 9, DRAGONAIR
 	mon 9, SEADRA
@@ -2919,18 +2860,6 @@ CooltrainerMGroup:
 	mon 8, JYNX
 	end_party
 
-	party JAKE, "Jake" ; Route 26
-	mon 7, PARASECT
-	mon 7, GOLDUCK
-	mon 4, VIBRAVA
-	mon 9, CAMERUPT
-	hard
-	mon 9, PARASECT
-	mon 9, GOLDUCK
-	mon 5, VIBRAVA
-	mon 10, CAMERUPT
-	end_party
-
 	party BLAKE, "Blake" ; Route 27
 	mon 7, MAGNEZONE
 	mon 7, QUAGSIRE
@@ -2939,16 +2868,6 @@ CooltrainerMGroup:
 	mon 10, MAGNEZONE
 	mon 10, QUAGSIRE
 	mon 10, EXEGGUTOR2
-	end_party
-
-	party BRIAN, "Brian" ; Route 27
-	mon 9, SANDSLASH
-	mon 9, SWALOT
-	mon 9, GRUMPIG
-	hard
-	mon 10, ASANDSLASH
-	mon 10, SWALOT
-	mon 10, GRUMPIG
 	end_party
 
 	party SEAN, "Sean" ; Fast Ship
@@ -2961,12 +2880,6 @@ CooltrainerMGroup:
 	mon 8, RHYHORN
 	mon 5, CHARMELEON
 	mon 5, WARTORTLE
-	end_party
-
-	party ALLEN, "Allen" ; Route 44
-	mon 6, ARCANINE
-	mon 7, CHARIZARD
-		moves EMBER, SMOKESCREEN, SCARY_FACE, DRAGON_CLAW
 	end_party
 
 	party DARIN, "Darin" ; Dragon's Den
@@ -3045,18 +2958,6 @@ CooltrainerMGroup:
 	mon 11, DYNABEA
 	mon 11, LUNATONE
 	mon 11, SANDSLASH
-	end_party
-
-	party ROUTE120_LEONEL, "Leonel" ; Route 120
-	mon 7, MANECTRIC
-	mon 7, MANTINE
-	mon 7, PARASECT
-	mon 8, AKUERIA
-	hard
-	mon 9, MANECTRIC
-	mon 9, MANTINE
-	mon 9, PARASECT
-	mon 9, AKUERIA
 	end_party
 
 	party ASHEN_GAUNTLET1, "" ; Ashen Gauntlet
@@ -3247,11 +3148,6 @@ CooltrainerFGroup:
 	mon 10, GLACEON
 	end_party
 
-	party LOIS, "Lois" ; Lake of Rage
-	mon 5, SKIPLOOM
-	mon 7, NINETALES
-	end_party
-
 	party FRAN, "Fran" ; Blackthorn City Gym
 	mon 7, SEADRA
 	mon 7, WAILORD
@@ -3286,25 +3182,11 @@ CooltrainerFGroup:
 	mon 4, BLASTOISE
 	end_party
 
-	party JOYCE, "Joyce" ; Route 26
-	mon 8, RAICHU
-	mon 9, BLASTOISE
-	mon 11, URSARING
-	mon 9, SKARMORY
-	end_party
-
 	party BETH, "Beth" ; Route 26
 	mon 9, RAPIDASH
 	mon 9, RAPIDASH2
 	mon 9, NINETALES
 	mon 9, ANINETALES
-	end_party
-
-	party REENA, "Reena" ; Route 27
-	mon 8, STARMIE
-	mon 8, NIDOQUEEN
-	mon 7, GLISCOR
-	mon 10, FROSLASS
 	end_party
 
 	party MEGAN, "Megan" ; Route 27
@@ -3326,25 +3208,6 @@ CooltrainerFGroup:
 	hard
 	mon 1, ODDISH
 	mon 1, BULBASAUR
-	end_party
-
-	party EMMA, "Emma" ; Union Cave - B2F
-	mon 8, POLITOED
-	mon 8, SUDOWOODO
-	mon 8, LEDIAN
-	mon 8, GIRAFARIG
-	hard
-	mon 9, POLITOED
-	mon 9, SUDOWOODO
-	mon 9, LEDIAN
-	mon 9, GIRAFARIG
-	end_party
-
-	party CYBIL, "Cybil" ; Route 44
-	mon 7, BUTTERFREE
-	mon 7, BELLOSSOM
-	mon 7, SLOWKING
-	mon 7, UMBREON
 	end_party
 
 	party JENN, "Jenn" ; Route 34
@@ -3414,18 +3277,6 @@ CooltrainerFGroup:
 	hard
 	mon 11, SWELLOW
 	mon 11, NOCTOWL
-	end_party
-
-	party ROUTE120_JENNIFER, "Jenni" ; Route 120
-	mon 7, SABLEYE
-	mon 7, CORSOLA
-	mon 7, RAITORA
-	mon 7, MAWILE
-	hard
-	mon 9, SABLEYE
-	mon 9, CORSOLA
-	mon 9, RAITORA
-	mon 10, MAWILE
 	end_party
 
 	party WEEKDAY_MONICA, "Monica" ; World Cup
@@ -3630,24 +3481,42 @@ BeautyGroup:
 	mon 7, SUNFLORA
 	end_party
 
-	party OLIVIA, "Olivia" ; Route 38
+	party OLIVIA, "Olivia" ; Route 38 (elite)
 	mon 9, CORSOLA
+		ability REGENERATOR
 	mon 8, AZUMARILL
+		ability THICK_FAT
+	mon 8, STARMIE
+		ability NATURAL_CURE
 	hard
 	mon 12, CORSOLA
+		ability REGENERATOR
 	mon 11, AZUMARILL
+		ability THICK_FAT
+	mon 11, STARMIE
+		item MYSTIC_WATER
+		ability NATURAL_CURE
 	end_party
 
 	party ROUTE103_DAISY, "Daisy" ; Route 103
 	mon 5, FURRET
 	end_party
 
-	party ROUTE104_CINDY, "Cindy" ; Route 104
+	party ROUTE104_CINDY, "Cindy" ; Route 104 (elite)
 	mon 2, SKITTY
+		ability CUTE_CHARM
 	mon 3, HOOTHOOT
+		ability INSOMNIA
+	mon 2, AZURILL
+		ability THICK_FAT
 	hard
 	mon 4, SKITTY
+		ability CUTE_CHARM
 	mon 5, HOOTHOOT
+		ability INSOMNIA
+	mon 4, AZURILL
+		item ORAN_BERRY
+		ability THICK_FAT
 	end_party
 
 	party ROUTE109_HAILEY, "Hailey" ; Route 109
@@ -3741,12 +3610,21 @@ PokemaniacGroup:
 	mon 7, TAUROS
 	end_party
 
-	party SHANE, "Shane" ; Route 42
-	mon 8, NIDORINA
-	mon 8, NIDORINO
-	hard
+	party SHANE, "Shane" ; Route 42 (elite)
+	mon 7, NIDORINA
+		ability INTIMIDATE
 	mon 8, NIDOQUEEN
-	mon 8, NIDOKING
+		ability SHEER_FORCE
+	mon 9, NIDOKING
+		ability SHEER_FORCE
+	hard
+	mon 8, NIDORINA
+		ability INTIMIDATE
+	mon 9, NIDOQUEEN
+		ability SHEER_FORCE
+	mon 10, NIDOKING
+		item LIFE_ORB
+		ability SHEER_FORCE
 	end_party
 
 	party BEN, "Ben" ; Route 43
@@ -3761,10 +3639,21 @@ PokemaniacGroup:
 	mon 5, CHANSEY
 	end_party
 
-	party RON, "Ron" ; Route 43
+	party RON, "Ron" ; Route 43 (elite)
 	mon 4, HITMONLEE
+		ability LIMBER
 	mon 5, WOBBUFFET
+		ability SHADOW_TAG
 	mon 9, NIDOKING
+		ability SHEER_FORCE
+	hard
+	mon 5, HITMONLEE
+		item BLACKBELT_I
+		ability LIMBER
+	mon 6, WOBBUFFET
+		ability SHADOW_TAG
+	mon 10, NIDOKING
+		ability SHEER_FORCE
 	end_party
 
 	party ETHAN, "Ethan" ; Fast Ship
@@ -4224,9 +4113,21 @@ GruntMGroup:
 	end_list_items
 
 GentlemanGroup:
-	party PRESTON, "Preston" ; Glitter Lighthouse - 3F
+	party PRESTON, "Preston" ; Olivine Lighthouse - 3F (elite)
 	mon 7, ARCANINE
+		ability INTIMIDATE
 	mon 7, RAPIDASH
+		ability FLAME_BODY
+	mon 8, NINETALES
+		ability DROUGHT
+	hard
+	mon 8, ARCANINE
+		item CHARCOAL
+		ability INTIMIDATE
+	mon 8, RAPIDASH
+		ability FLAME_BODY
+	mon 9, NINETALES
+		ability DROUGHT
 	end_party
 
 	party EDWARD, "Edward" ; Fast Ship
@@ -4535,9 +4436,21 @@ SabrinaGroup: ;Gym Leader
 	end_list_items
 
 BugCatcherGroup:
-	party DON, "Don" ; Route 30
-	mon 3, CATERPIE
-	mon 3, SURSKIT
+	party DON, "Don" ; Route 30 (elite)
+	mon 3, LEDYBA
+		ability IRON_FIST
+	mon 3, SPINARAK
+		ability SNARE
+	mon 4, SURSKIT
+		ability INTIMIDATE
+	hard
+	mon 4, LEDYBA
+		ability IRON_FIST
+	mon 4, SPINARAK
+		ability SNARE
+	mon 5, SURSKIT
+		item ORAN_BERRY
+		ability INTIMIDATE
 	end_party
 
 	party ROB, "Rob" ; Viridian Forest
@@ -4610,12 +4523,21 @@ BugCatcherGroup:
 	mon 1, WEEDLE
 	end_party
 
-	party PETALBURGWOODS_LYLE, "Lyle" ; Petalburg Woods
+	party PETALBURGWOODS_LYLE, "Lyle" ; Petalburg Woods (elite)
 	mon 3, PARAS
+		ability EFFECT_SPORE
 	mon 4, SHROOMISH
+		ability EFFECT_SPORE
+	mon 3, SURSKIT
+		ability SWIFT_SWIM
 	hard
 	mon 4, PARAS
+		ability EFFECT_SPORE
 	mon 5, SHROOMISH
+		item ORAN_BERRY
+		ability EFFECT_SPORE
+	mon 4, SURSKIT
+		ability SWIFT_SWIM
 	end_party
 
 	party PETALBURGWOODS_JAMES, "James" ; Petalburg Woods
@@ -4760,10 +4682,21 @@ FisherGroup:
 	mon 6, REMORAID
 	end_party
 
-	party STEPHEN, "Stephen" ; Route 12
+	party STEPHEN, "Stephen" ; Route 12 (elite)
 	mon 5, GYARADOS
+		ability INTIMIDATE
 	mon 6, QWILFISH
+		ability POISON_POINT
 	mon 7, TENTACRUEL
+		ability SNARE
+	hard
+	mon 6, GYARADOS
+		ability INTIMIDATE
+	mon 7, QWILFISH
+		item POISON_BARB
+		ability POISON_POINT
+	mon 8, TENTACRUEL
+		ability SNARE
 	end_party
 
 	party BARNEY, "Barney" ; Route 12
@@ -4832,10 +4765,21 @@ FisherGroup:
 	mon 7, CARVANHA
 	end_party
 
-	party ROUTE118_BARNY, "Barney" ; Route 118
+	party ROUTE118_BARNY, "Barney" ; Route 118 (elite)
 	mon 7, MAGNETON
+		ability MAGNET_PULL
 	mon 5, BARBOACH
+		ability OWN_TEMPO
 	mon 7, HUNTAIL
+		ability STRONG_JAW
+	hard
+	mon 8, MAGNETON
+		item MAGNET
+		ability MAGNET_PULL
+	mon 6, BARBOACH
+		ability OWN_TEMPO
+	mon 8, HUNTAIL
+		ability STRONG_JAW
 	end_party
 
 	party ROUTE114_NOLAN, "Nolan" ; Route 114
@@ -4880,24 +4824,21 @@ SwimmerMGroup:
 	mon 4, SEADRA
 	end_party
 
-	party SIMON, "Simon" ; Route 40
-	mon 3, TENTACOOL
-	mon 3, TENTACOOL
-	hard
-	mon 3, TENTACOOL
-	mon 5, TENTACOOL
-	end_party
-
-	party RANDALL, "Randal" ; Route 40
-	mon 3, SHELLDER
+	party RANDALL, "Randal" ; Route 40 (elite)
+	mon 4, SHELLDER
+		ability TECHNICIAN
 	mon 5, WARTORTLE
-	mon 3, SHELLDER
-	end_party
-
-	party CHARLIE, "Charlie" ; Route 41
+		ability TORRENT
+	mon 6, CLOYSTER
+		ability SHELL_ARMOR
+	hard
 	mon 5, SHELLDER
-	mon 3, TENTACOOL
-	mon 3, TENTACOOL
+		ability TECHNICIAN
+	mon 6, WARTORTLE
+		ability TORRENT
+	mon 7, CLOYSTER
+		item MYSTIC_WATER
+		ability SHELL_ARMOR
 	end_party
 
 	party GEORGE, "George" ; Route 41
@@ -4906,9 +4847,21 @@ SwimmerMGroup:
 	mon 4, REMORAID
 	end_party
 
-	party BERKE, "Berke" ; Route 41
+	party BERKE, "Berke" ; Route 41 (elite)
 	mon 8, QWILFISH
+		ability POISON_POINT
 	mon 7, TENTACRUEL
+		ability SNARE
+	mon 7, LANTURN
+		ability VOLT_ABSORB
+	hard
+	mon 9, QWILFISH
+		ability POISON_POINT
+	mon 8, TENTACRUEL
+		item BLACK_SLUDGE
+		ability SNARE
+	mon 8, LANTURN
+		ability VOLT_ABSORB
 	end_party
 
 	party KIRK, "Kirk" ; Route 41
@@ -4921,42 +4874,44 @@ SwimmerMGroup:
 	mon 6, HORSEA
 	end_party
 
-	party JEROME, "Jerome" ; Route 19
+	party JEROME, "Jerome" ; Route 19 (elite)
 	mon 6, SEADRA
+		ability SNIPER
 	mon 7, TENTACRUEL
+		ability SNARE
 	mon 6, SEAKING
+		ability SWIFT_SWIM
+	hard
+	mon 7, SEADRA
+		item MYSTIC_WATER
+		ability SNIPER
+	mon 8, TENTACRUEL
+		ability SNARE
+	mon 7, SEAKING
+		ability SWIFT_SWIM
 	end_party
 
-	party TUCKER, "Tucker" ; Route 19
-	mon 3, SHELLDER
-	mon 6, CLOYSTER
-	end_party
-
-	party CAMERON, "Cameron" ; Route 20
-	mon 6, TENTACRUEL
-	mon 7, AZUMARILL
-	end_party
-
-	party SETH, "Seth" ; Route 21
+	party SETH, "Seth" ; Route 21 (elite)
 	mon 4, QUAGSIRE
+		ability WATER_ABSORB
 	mon 4, OCTILLERY
+		ability SNIPER
 	mon 7, QUAGSIRE
+		ability SAP_SIPPER
+	hard
+	mon 5, QUAGSIRE
+		ability WATER_ABSORB
+	mon 5, OCTILLERY
+		item MYSTIC_WATER
+		ability SNIPER
+	mon 8, QUAGSIRE
+		ability SAP_SIPPER
 	end_party
 
 	party PARKER, "Parker" ; Cerulean City Gym
 	mon 7, HORSEA
 	mon 7, WARTORTLE
 	mon 7, HORSEA
-	end_party
-
-	party ROUTE105_LUIS, "Luis" ; Route105
-	mon 7, LUVDISC
-	mon 7, SEADRA
-	mon 7, HUNTAIL
-	hard
-	mon 10, LUVDISC
-	mon 7, SEADRA
-	mon 7, HUNTAIL
 	end_party
 
 	party ROUTE108_TONY, "Tony" ; Route108
@@ -4969,14 +4924,21 @@ SwimmerMGroup:
 	mon 8, SLOWKING
 	end_party
 
-	party ROUTE108_DARRIN, "Darrin" ; Route108
+	party ROUTE108_DARRIN, "Darrin" ; Route108 (elite)
 	mon 6, BARBOACH
+		ability OWN_TEMPO
 	mon 6, CORPHISH
+		ability SHELL_ARMOR
 	mon 7, LINOONE
+		ability KEEN_EYE
 	hard
 	mon 8, WHISCASH
+		ability OWN_TEMPO
 	mon 8, CRAWDAUNT
+		item MYSTIC_WATER
+		ability SHELL_ARMOR
 	mon 9, LINOONE
+		ability KEEN_EYE
 	end_party
 
 	end_list_items
@@ -4985,21 +4947,6 @@ SwimmerFGroup:
 	party ELAINE, "Elaine" ; Route 40
 	mon 6, STARYU
 	mon 5, GOLDEEN
-	end_party
-
-	party PAULA, "Paula" ; Route 40
-	mon 5, STARYU
-	mon 5, SHELLDER
-	end_party
-
-	party KAYLEE, "Kaylee" ; Route 41
-	mon 3, GOLDEEN
-	mon 5, GOLDEEN
-	mon 5, SEAKING
-	hard
-	mon 3, GOLDEEN
-	mon 5, GOLDEEN
-	mon 7, SEAKING
 	end_party
 
 	party SUSIE, "Susie" ; Route 41
@@ -5026,20 +4973,21 @@ SwimmerFGroup:
 		moves DRAGON_RAGE, SMOKESCREEN, LEER, WATER_GUN
 	end_party
 
-	party DAWN, "Dawn" ; Route 19
-	mon 7, STARMIE
-	mon 8, SEAKING
-	end_party
-
-	party NICOLE, "Nicole" ; Route 20
+	party NICOLE, "Nicole" ; Route 20 (elite)
 	mon 4, AZUMARILL
+		ability THICK_FAT
 	mon 4, AZUMARILL
+		ability SAP_SIPPER
 	mon 7, LAPRAS
-	end_party
-
-	party LORI, "Lori" ; Route 20
-	mon 2, STARMIE
-	mon 2, STARMIE
+		ability WATER_ABSORB
+	hard
+	mon 5, AZUMARILL
+		ability THICK_FAT
+	mon 5, AZUMARILL
+		ability SAP_SIPPER
+	mon 8, LAPRAS
+		item NEVERMELTICE
+		ability WATER_ABSORB
 	end_party
 
 	party NIKKI, "Nikki" ; Route 21
@@ -5064,14 +5012,6 @@ SwimmerFGroup:
 	mon 5, BARBOACH
 	end_party
 
-	party ROUTE105_IMANI, "Imani" ; Route 105
-	mon 5, MANTINE
-	mon 5, GOREBYSS
-	hard
-	mon 7, MANTINE
-	mon 7, GOREBYSS
-	end_party
-
 	party ROUTE108_DENISE, "Denise" ; Route 108
 	mon 5, PELIPPER
 	mon 5, SEAKING
@@ -5091,10 +5031,21 @@ SwimmerFGroup:
 	end_list_items
 
 SailorGroup:
-	party EUGENE, "Eugene" ; Route 39
-	mon 3, POLIWHIRL
+	party EUGENE, "Eugene" ; Route 39 (elite)
+	mon 4, POLIWHIRL
+		ability SWIFT_SWIM
 	mon 5, RATICATE
-	mon 6, KRABBY
+		ability GUTS
+	mon 6, KINGLER
+		ability TOUGH_CLAWS
+	hard
+	mon 5, POLIWHIRL
+		ability SWIFT_SWIM
+	mon 6, RATICATE
+		ability GUTS
+	mon 7, KINGLER
+		item MYSTIC_WATER
+		ability TOUGH_CLAWS
 	end_party
 
 	party HUEY, "Huey" ; Glitter Lighthouse - 2F
@@ -5191,12 +5142,21 @@ SailorGroup:
 	mon 8, NOSEPASS
 	end_party
 
-	party ROUTE109_CHANDLER, "Chandler" ; Route 109
+	party ROUTE109_CHANDLER, "Chandler" ; Route 109 (elite)
 	mon 6, HITMONCHAN
+		ability IRON_FIST
 	mon 7, WARTORTLE
+		ability TORRENT
+	mon 5, MACHOP
+		ability GUTS
 	hard
 	mon 8, HITMONCHAN
+		item BLACKBELT_I
+		ability IRON_FIST
 	mon 8, WARTORTLE
+		ability TORRENT
+	mon 6, MACHOP
+		ability GUTS
 	end_party
 
 	end_list_items
@@ -5229,20 +5189,40 @@ SuperNerdGroup:
 	mon 2, MAGNETON
 	end_party
 
-	party TERU, "Teru" ; Goldenrod Underground
+	party TERU, "Teru" ; Goldenrod Underground (elite)
 	mon 4, MANECTRIC
+		ability LIGHTNING_ROD
 	mon 8, ELECTRODE
+		ability STATIC
 	mon 4, MAGNETON
+		ability MAGNET_PULL
+	hard
+	mon 5, MANECTRIC
+		ability LIGHTNING_ROD
+	mon 9, ELECTRODE
+		ability STATIC
+	mon 5, MAGNETON
+		item MAGNET
+		ability MAGNET_PULL
 	end_party
 
-	party HUGH, "Hugh" ; Mt. Mortar
+	party HUGH, "Hugh" ; Mt. Mortar (elite)
 	mon 12, KINGDRA
+		ability SWIFT_SWIM
 		moves SMOKESCREEN, TWISTER, SURF, WATERFALL
 	mon 11, PORYGON
+		ability STABILITY
+	mon 11, MAGNETON
+		ability MAGNET_PULL
 	hard
 	mon 15, KINGDRA
+		item DRAGON_FANG
+		ability SWIFT_SWIM
 		moves SMOKESCREEN, TWISTER, SURF, WATERFALL
 	mon 14, PORYGON2
+		ability STABILITY
+	mon 14, MAGNETON
+		ability MAGNET_PULL
 	end_party
 
 	party MARKUS, "Markus" ; Mt. Mortar
@@ -5386,26 +5366,21 @@ GuitaristGroup:
 	end_list_items
 
 HikerGroup:
-	party ANTHONY, "Anthony" ; Route 33
+	party ANTHONY, "Anthony" ; Route 33 (elite)
 	mon 6, GEODUDE
+		ability STURDY
+	mon 7, MACHOP
+		ability GUTS
+	mon 8, GRAVELER
+		ability ROCK_HEAD
+	hard
+	mon 7, GEODUDE
+		ability STURDY
 	mon 8, MACHOP
-	end_party
-
-	party RUSSELL, "Russell" ; Union Cave - 1F
-	mon 4, GEODUDE
-	mon 6, SUDOWOODO
-	mon 8, ARON
-	end_party
-
-	party PHILLIP, "Phillip" ; Union Cave - B1F
-	mon 3, GEODUDE
-	mon 3, GEODUDE
-	mon 5, GRAVELER
-	end_party
-
-	party LEONARD, "Leonard" ; Union Cave - B1F
-	mon 3, ARON
-	mon 5, MAKUHITA
+		item BLACKBELT_I
+		ability GUTS
+	mon 9, GRAVELER
+		ability ROCK_HEAD
 	end_party
 
 	party BENJAMIN, "Benjamin" ; Route 42
@@ -5420,34 +5395,43 @@ HikerGroup:
 	mon 7, GRUMPIG
 	end_party
 
-	party MICHAEL, "Michael" ; Route 45
-	mon 3, GRAVELER
-	mon 5, GOLEM
-	mon 5, GOLEM
-	end_party
-
 	party PARRY, "Parry" ; Route 45
 	mon 6, ONIX
 	mon 5, PILOSWINE
 	end_party
 
-	party TIMOTHY, "Timothy" ; Route 45
-	mon 6, DUGTRIO
-		moves MAGNITUDE, DIG, SAND_ATTACK, SLASH
-	mon 6, DUGTRIO
-		moves MAGNITUDE, DIG, SAND_ATTACK, SLASH
-	end_party
-
-	party BAILEY, "Bailey" ; Route 46
-	mon 4, GEODUDE
-	mon 4, GEODUDE
+	party BAILEY, "Bailey" ; Route 46 (elite)
 	mon 5, GEODUDE
+		ability STURDY
+	mon 5, GEODUDE
+		ability ROCK_HEAD
+	mon 6, ONIX
+		ability STURDY
+	hard
+	mon 6, GEODUDE
+		ability STURDY
+	mon 6, GEODUDE
+		ability ROCK_HEAD
+	mon 7, ONIX
+		item ORAN_BERRY
+		ability STURDY
 	end_party
 
-	party TIM, "Tim" ; Route 9
+	party TIM, "Tim" ; Route 9 (elite)
 	mon 3, GEODUDE
+		ability STURDY
 	mon 5, GRAVELER
+		ability ROCK_HEAD
 	mon 6, GRAVELER
+		ability STURDY
+	hard
+	mon 4, GEODUDE
+		ability STURDY
+	mon 6, GRAVELER
+		ability ROCK_HEAD
+	mon 7, GRAVELER
+		item HARD_STONE
+		ability STURDY
 	end_party
 
 	party NOLAND, "Noland" ; S.S. Aqua
@@ -5466,15 +5450,21 @@ HikerGroup:
 	mon 6, GRAVELER
 	end_party
 
-	party JIM, "Jim" ; Route 10
+	party JIM, "Jim" ; Route 10 (elite)
 	mon 7, GRAVELER
+		ability STURDY
 	mon 8, MACHOKE
-	end_party
-
-	party DANIEL, "Daniel" ; Union Cave - 1F
-	mon 6, ONIX
-	mon 6, SMOOCHUM
-	mon 6, SABLEYE
+		ability GUTS
+	mon 7, ONIX
+		ability STURDY
+	hard
+	mon 8, GRAVELER
+		ability STURDY
+	mon 9, MACHOKE
+		item BLACKBELT_I
+		ability GUTS
+	mon 8, ONIX
+		ability STURDY
 	end_party
 
 	party RUSTBORO_MARC, "Marc" ; Rustboro Gym
@@ -5485,9 +5475,21 @@ HikerGroup:
 	mon 7, ANORITH
 	end_party
 
-	party ROUTE116_CLARK, "Clark" ; Route 116
+	party ROUTE116_CLARK, "Clark" ; Route 116 (elite)
 	mon 8, NOSEPASS
+		ability STURDY
 	mon 9, AGEODUDE
+		ability MAGNET_PULL
+	mon 7, DUNSPARCE
+		ability SERENE_GRACE
+	hard
+	mon 9, NOSEPASS
+		ability STURDY
+	mon 10, AGEODUDE
+		item HARD_STONE
+		ability MAGNET_PULL
+	mon 8, DUNSPARCE
+		ability SERENE_GRACE
 	end_party
 
 	party ROUTE116_DEVAN, "Devan" ; Route 116
@@ -5503,54 +5505,21 @@ HikerGroup:
 	mon 8, SOLROCK
 	end_party
 
-	party MOON_MARCOS, "Marcos" ; Mount Moon
+	party MOON_MARCOS, "Marcos" ; Mount Moon (elite)
 	mon 3, GEODUDE
+		ability STURDY
 	mon 4, SANDSHREW
+		ability SAND_RUSH
 	mon 5, LUNATONE
+		ability LEVITATE
 	hard
 	mon 5, GEODUDE
+		ability STURDY
 	mon 5, SANDSHREW
-	mon 5, LUNATONE
-	end_party
-
-	party ROUTE112_TRENT, "Trent" ; Route 112
-	mon 3, GEODUDE
-	mon 4, GEODUDE
-	mon 5, AGRAVELER
-	hard
-	mon 5, GEODUDE
-	mon 6, GRAVELER
-	mon 7, AGOLEM
-	end_party
-
-	party ROUTE112_BRICE, "Brice" ; Route 112
-	mon 3, NUMEL
-	mon 4, MACHOP
-	mon 5, MACHOP
-	hard
-	mon 5, NUMEL
-	mon 6, MACHOP
-	mon 7, NOSEPASS
-	end_party
-
-	party ROUTE114_LUCAS, "Lucas" ; Route 114
-	mon 6, ONIX
-	mon 6, MACHOP
-	mon 7, TAUROS
-	hard
-	mon 7, ONIX
-	mon 7, MACHOP
-	mon 8, TAUROS
-	end_party
-
-	party ROUTE114_LENNY, "Lenny" ; Route 114
-	mon 6, CUBONE
-	mon 6, SWINUB
-	mon 7, DONPHAN
-	hard
-	mon 8, MAROWAK
-	mon 7, SWINUB
-	mon 8, DONPHAN
+		ability SAND_RUSH
+	mon 6, LUNATONE
+		item HARD_STONE
+		ability LEVITATE
 	end_party
 
 	end_list_items
@@ -5562,9 +5531,21 @@ BikerGroup:
 	mon 8, KOFFING
 	end_party
 
-	party HARRIS, "Harris" ; Route 8
+	party HARRIS, "Harris" ; Route 8 (elite)
 	mon 6, GRIMER
+		ability POISON_TOUCH
+	mon 7, WEEZING
+		ability LEVITATE
 	mon 7, FLAREON
+		ability FLASH_FIRE
+	hard
+	mon 7, GRIMER
+		ability POISON_TOUCH
+	mon 8, WEEZING
+		item BLACK_SLUDGE
+		ability LEVITATE
+	mon 8, FLAREON
+		ability FLASH_FIRE
 	end_party
 
 	party ZEKE, "Zeke" ; Route 8
@@ -5588,10 +5569,21 @@ BikerGroup:
 	mon 5, MAGMAR
 	end_party
 
-	party GLENN, "Glenn" ; Route 17
+	party GLENN, "Glenn" ; Route 17 (elite)
 	mon 3, KOFFING
+		ability LEVITATE
 	mon 5, MAGMAR
+		ability FLAME_BODY
 	mon 7, WEEZING
+		ability LEVITATE
+	hard
+	mon 4, KOFFING
+		ability LEVITATE
+	mon 6, MAGMAR
+		item CHARCOAL
+		ability FLAME_BODY
+	mon 8, WEEZING
+		ability LEVITATE
 	end_party
 
 	end_list_items
@@ -5730,9 +5722,21 @@ FirebreatherGroup:
 	mon 3, KOFFING
 	end_party
 
-	party BURT, "Burt" ; Route 03
+	party BURT, "Burt" ; Route 03 (elite)
 	mon 3, KOFFING
+		ability LEVITATE
 	mon 4, SLUGMA
+		ability FLAME_BODY
+	mon 4, MAGBY
+		ability FLAME_BODY
+	hard
+	mon 4, KOFFING
+		ability LEVITATE
+	mon 5, SLUGMA
+		item CHARCOAL
+		ability FLAME_BODY
+	mon 5, MAGBY
+		ability FLAME_BODY
 	end_party
 
 	party BILL, "Bill" ; Union Cave - 1F
@@ -5748,9 +5752,21 @@ FirebreatherGroup:
 	mon 6, MAGBY
 	end_party
 
-	party RAY, "Ray" ; Union Cave - 1F
+	party RAY, "Ray" ; Union Cave - 1F (elite)
 	mon 7, VULPIX
+		ability DROUGHT
 	mon 7, PONYTA
+		ability FLAME_BODY
+	mon 8, SLUGMA
+		ability MAGMA_ARMOR
+	hard
+	mon 8, VULPIX
+		ability DROUGHT
+	mon 8, PONYTA
+		item CHARCOAL
+		ability FLAME_BODY
+	mon 9, SLUGMA
+		ability MAGMA_ARMOR
 	end_party
 
 	party LYLE, "Lyle" ; S.S. Aqua
@@ -5809,30 +5825,55 @@ FirebreatherGroup:
 	mon 9, BORUBEA
 	end_party
 
-	party ROUTE111_HAYDEN, "Hayden" ; Route 111
+	party ROUTE111_HAYDEN, "Hayden" ; Route 111 (elite)
 	mon 5, KANGASKHAN
+		ability SCRAPPY
 	mon 6, SHUCKLE
+		ability STURDY
 	mon 7, VOLBEAT
+		ability PRANKSTER
 	hard
 	mon 7, KANGASKHAN
+		item LEFTOVERS
+		ability SCRAPPY
 	mon 8, SHUCKLE
+		ability STURDY
 	mon 9, VOLBEAT
+		ability PRANKSTER
 	end_party
 
-	party ROUTE112_BRYANT, "Bryan" ; Route 112
+	party ROUTE112_BRYANT, "Bryan" ; Route 112 (elite)
 	mon 5, SLUGMA
+		ability MAGMA_ARMOR
 	mon 6, NUMEL
+		ability SHEER_FORCE
 	mon 7, QUILAVA
+		ability BLAZE
 	hard
 	mon 7, SLUGMA
-	mon 6, NUMEL
-	mon 7, QUILAVA
+		ability MAGMA_ARMOR
+	mon 7, NUMEL
+		ability SHEER_FORCE
+	mon 8, QUILAVA
+		item CHARCOAL
+		ability BLAZE
 	end_party
 
-	party ROUTE114_BERNIE, "Berny" ; Route 114
+	party ROUTE114_BERNIE, "Berny" ; Route 114 (elite)
 	mon 5, MAGBY
+		ability FLAME_BODY
 	mon 6, QUILAVA2
+		ability INTIMIDATE
 	mon 7, PELIPPER
+		ability RAIN_DISH
+	hard
+	mon 6, MAGBY
+		ability FLAME_BODY
+	mon 7, QUILAVA2
+		item CHARCOAL
+		ability INTIMIDATE
+	mon 8, PELIPPER
+		ability RAIN_DISH
 	end_party
 
 	party ROUTE119_DAYTON, "Dayton" ; Route 119
@@ -6139,20 +6180,42 @@ ExecutiveMGroup:
 	end_list_items
 
 PsychicGroup:
-	party NATHAN, "Nathan" ; Ruins of Alph
+	party NATHAN, "Nathan" ; Ruins of Alph (elite)
 	mon 6, GIRAFARIG
+		ability INNER_FOCUS
 	mon 7, UNOWN
+		ability LEVITATE
 	mon 7, UNOWN
+		ability TINTED_LENS
+	hard
+	mon 7, GIRAFARIG
+		item TWISTEDSPOON
+		ability INNER_FOCUS
+	mon 8, UNOWN
+		ability LEVITATE
+	mon 8, UNOWN
+		ability TINTED_LENS
 	end_party
 
 	party FRANKLIN, "Franklin" ; Saffron City Gym
 	random_mons 3, PSYCHIC_EASY
 	end_party
 
-	party HERMAN, "Herman" ; Route 11
+	party HERMAN, "Herman" ; Route 11 (elite)
 	mon 6, EXEGGCUTE
+		ability CHLOROPHYLL
 	mon 6, EXEGGCUTE
+		ability THICK_FAT
 	mon 7, EXEGGUTOR
+		ability CHLOROPHYLL
+	hard
+	mon 7, EXEGGCUTE
+		ability CHLOROPHYLL
+	mon 7, EXEGGCUTE
+		ability THICK_FAT
+	mon 8, EXEGGUTOR
+		item MIRACLE_SEED
+		ability CHLOROPHYLL
 	end_party
 
 	party FIDEL, "Fidel" ; Route 11
@@ -6160,10 +6223,22 @@ PsychicGroup:
 	mon 6, NATU
 	end_party
 
-	party GREG, "Greg" ; Route 37
-	mon 7, DROWZEE
+	party GREG, "Greg" ; Route 37 (elite)
+	mon 6, DROWZEE
+		ability INSOMNIA
 		moves HYPNOSIS, DISABLE, DREAM_EATER
 	mon 6, NATU
+		ability MAGIC_GUARD
+	mon 7, GIRAFARIG
+		ability INNER_FOCUS
+	hard
+	mon 7, HYPNO
+		item TWISTEDSPOON
+		ability INSOMNIA
+	mon 7, NATU
+		ability MAGIC_GUARD
+	mon 8, GIRAFARIG
+		ability INNER_FOCUS
 	end_party
 
 	party NORMAN, "Norman" ; Route 39
@@ -6173,13 +6248,21 @@ PsychicGroup:
 		moves CURSE, WATER_GUN, CONFUSION, RECOVER
 	end_party
 
-	party MARK, "Mark" ; Route 36
-	mon 1, ABRA
-		moves TELEPORT, FLASH
+	party MARK, "Mark" ; Route 36 (elite)
+	mon 3, ABRA
+		ability INNER_FOCUS
+	mon 5, KADABRA
+		ability SYNCHRONIZE
+	mon 8, KADABRA
+		ability MAGIC_GUARD
+	hard
 	mon 4, ABRA
-		moves TELEPORT, FLASH
+		ability INNER_FOCUS
+	mon 6, KADABRA
+		ability SYNCHRONIZE
 	mon 9, KADABRA
-		moves TELEPORT, KINESIS, CONFUSION
+		item TWISTEDSPOON
+		ability MAGIC_GUARD
 	end_party
 
 	party PHIL, "Phil" ; Route 44
@@ -6209,12 +6292,21 @@ PsychicGroup:
 	mon 8, HYPNO
 	end_party
 
-	party ROUTE110_EDWARD, "Edward" ; Route 110
+	party ROUTE110_EDWARD, "Edward" ; Route 110 (elite)
 	mon 6, MR__MIME
+		ability INVISIBLE_WALL
 	mon 6, SMOOCHUM
+		ability ICE_BODY
+	mon 6, KIRLIA
+		ability SYNCHRONIZE
 	hard
 	mon 9, MR__MIME
+		ability INVISIBLE_WALL
 	mon 9, SMOOCHUM
+		ability ICE_BODY
+	mon 9, KIRLIA
+		item TWISTEDSPOON
+		ability SYNCHRONIZE
 	end_party
 
 	party MOSSDEEP_PRESTON, "Preston" ; Mossdeep Gym
@@ -6260,23 +6352,6 @@ PsychicGroup:
 	end_list_items
 
 PicnickerGroup:
-	party LIZ, "Liz" ; Route 32
-	mon 5, NIDORAN_F
-	mon 5, NIDORAN_F
-	end_party
-
-	party GINA, "Gina" ; Route 34
-	mon 3, HOPPIP
-	mon 3, ROSELIA
-	mon 5, BULBASAUR
-	end_party
-
-	party BROOKE, "Brooke" ; Route 35
-	mon 6, PIKACHU
-		moves THUNDERSHOCK, GROWL, QUICK_ATTACK, DOUBLE_TEAM
-	mon 5, MARILL
-	end_party
-
 	party KIM, "Kim" ; Route 35
 	mon 5, VULPIX
 	mon 4, PONYTA
@@ -6302,29 +6377,9 @@ PicnickerGroup:
 	mon 7, SEAKING
 	end_party
 
-	party ERIN, "Erin" ; Route 46
-	mon 6, VULPIX
-	mon 6, PONYTA
-	end_party
-
 	party HEIDI, "Heidi" ; Route 9
 	mon 5, SKIPLOOM
 	mon 5, SKIPLOOM
-	end_party
-
-	party EDNA, "Edna" ; Route 9
-	mon 2, NIDORINA
-	mon 6, RAICHU
-	end_party
-
-	party TIFFANY, "Tiffany" ; Route 43
-	mon 12, CLEFABLE
-		moves ENCORE, SING, DOUBLESLAP, MINIMIZE
-	mon 11, WIGGLYTUFF
-	hard
-	mon 12, CLEFABLE
-		moves ENCORE, SING, MOONBLAST, MINIMIZE
-	mon 11, WIGGLYTUFF
 	end_party
 
 	party TANYA, "Tanya" ; Celadon City Gym
@@ -6362,14 +6417,6 @@ PicnickerGroup:
 	hard
 	mon 7, BAYLEEF
 	mon 8, AMAROWAK
-	end_party
-
-	party ROUTE111_GABBY, "Gabby" ; Route 111
-	mon 6, LINOONE
-	mon 5, PINSIR
-	hard
-	mon 7, LINOONE
-	mon 7, PINSIR
 	end_party
 
 	party ROUTE111_IRENE, "Irene" ; Route 111
@@ -6444,14 +6491,6 @@ PicnickerGroup:
 	mon 7, SANDSLASH
 	end_party
 
-	party DESERT_BECKY, "Becky" ; Lavaridge Desert
-	mon 5, NIDORINA
-	mon 6, AZUMARILL
-	hard
-	mon 7, NIDOQUEEN
-	mon 6, AZUMARILL
-	end_party
-
 	party DESERT_CELIA, "Celia" ; Lavaridge Desert
 	mon 5, AMAROWAK
 	mon 6, MAROWAK
@@ -6471,28 +6510,10 @@ PicnickerGroup:
 	end_list_items
 
 CamperGroup:
-	party ROLAND, "Roland" ; Route 32
-	mon 3, NIDORAN_M
-	mon 3, SENTRET
-	end_party
-
-	party TODD, "Todd" ; Route 34
-	mon 4, PSYDUCK
-	mon 4, PHANPY
-	hard
-	mon 4, PSYDUCK
-	mon 4, RALTS
-	end_party
-
 	party IVAN, "Ivan" ; Route 35
 	mon 4, DIGLETT
 	mon 4, ZUBAT
 	mon 7, DIGLETT
-	end_party
-
-	party ELLIOT, "Elliot" ; Route 35
-	mon 3, SANDSHREW
-	mon 5, MARILL
 	end_party
 
 	party BARRY, "Barry" ; Fuschia City Gym
@@ -6510,29 +6531,12 @@ CamperGroup:
 	mon 4, SANDSLASH
 	end_party
 
-	party SID, "Sid" ; Route 9
-	mon 2, DIGLETT
-	mon 7, MANKEY
-	mon 7, POLIWRATH
-	end_party
-
-	party TED, "Ted" ; Route 46
-	mon 7, MANKEY
-	mon 6, SANDSHREW
-	end_party
-
 	party JERRY, "Jerry" ; Pewter City Gym
 	mon 1, SANDSHREW
 	mon 2, KABUTO
 	hard
 	mon 2, SANDSHREW
 	mon 3, KABUTO
-	end_party
-
-	party SPENCER, "Spencer" ; Route 43
-	mon 3, SANDSLASH
-	mon 5, SANDSLASH
-	mon 4, GOLBAT
 	end_party
 
 	party QUENTIN, "Quentin" ; Route 45
@@ -6572,14 +6576,6 @@ CamperGroup:
 	hard
 	mon 7, TOGETIC
 	mon 8, MURKROW
-	end_party
-
-	party ROUTE111_TRAVIS, "Travis" ; Route 111
-	mon 5, GLIGAR
-	mon 5, CACNEA
-	hard
-	mon 7, GLIGAR
-	mon 9, CACNEA
 	end_party
 
 	party FORTREE_FLINT, "Flint" ; Fortree Gym
@@ -6636,14 +6632,6 @@ CamperGroup:
 	hard
 	mon 7, VIBRAVA
 	mon 6, DUGTRIO
-	end_party
-
-	party DESERT_DREW, "Drew" ; Lavaridge Desert
-	mon 4, SUDOWOODO
-	mon 6, NIDORINO
-	hard
-	mon 6, SUDOWOODO
-	mon 7, NIDOKING
 	end_party
 
 	party DESERT_BRANDEN, "Branden" ; Lavaridge Desert
@@ -6928,19 +6916,55 @@ SageGroup:
 	mon 7, HOOTHOOT
 	end_party
 
-	party GAKU, "Gaku" ; Tin Tower 1F
-	mon 7, NOCTOWL
-	mon 7, FLAREON
+	party GAKU, "Gaku" ; Tin Tower 1F (Wise Trio: a boss in three stages)
+	mon 6, NOCTOWL
+		ability INSOMNIA
+	mon 6, GROWLITHE
+		ability INTIMIDATE
+	mon 8, FLAREON
+		ability FLASH_FIRE
+	hard
+	mon 8, NOCTOWL
+		ability INSOMNIA
+	mon 8, GROWLITHE
+		ability INTIMIDATE
+	mon 10, FLAREON
+		item CHARCOAL
+		ability FLASH_FIRE
 	end_party
 
-	party MASA, "Masa" ; Tin Tower 1F
-	mon 7, NOCTOWL
-	mon 7, JOLTEON
+	party MASA, "Masa" ; Tin Tower 1F (Wise Trio: a boss in three stages)
+	mon 6, NOCTOWL
+		ability TINTED_LENS
+	mon 6, FLAAFFY
+		ability STATIC
+	mon 8, JOLTEON
+		ability VOLT_ABSORB
+	hard
+	mon 8, NOCTOWL
+		ability TINTED_LENS
+	mon 8, FLAAFFY
+		ability STATIC
+	mon 10, JOLTEON
+		item MAGNET
+		ability VOLT_ABSORB
 	end_party
 
-	party KOJI, "Koji" ; Tin Tower 1F
-	mon 7, NOCTOWL
-	mon 7, VAPOREON
+	party KOJI, "Koji" ; Tin Tower 1F (Wise Trio: a boss in three stages)
+	mon 7, XATU
+		ability MAGIC_GUARD
+	mon 7, AZUMARILL
+		ability THICK_FAT
+	mon 9, VAPOREON
+		ability WATER_ABSORB
+	hard
+	mon 9, XATU
+		ability MAGIC_GUARD
+	mon 9, AZUMARILL
+		ability THICK_FAT
+	mon 11, VAPOREON
+		item MYSTIC_WATER
+		ability WATER_ABSORB
 	end_party
 
 	end_list_items
@@ -7006,14 +7030,9 @@ BoarderGroup:
 	end_list_items
 
 PokefanMGroup:
-	party WILLIAM, "William" ; National Park
+	party WILLIAM, "William" ; Bug-Catching Contest name only (no battle; the National Park pair is HALANDBEV)
 	mon 3, PIKACHU
 	mon 4, RAICHU
-	end_party
-
-	party DEREK, "Derek" ; Route 39
-	mon 7, PIKACHU
-	mon 6, FURRET
 	end_party
 
 	party ROBERT, "Robert" ; Route 10
@@ -7025,17 +7044,6 @@ PokefanMGroup:
 	mon 4, PIKACHU
 	mon 5, PIKACHU
 	mon 5, RAICHU
-	end_party
-
-	party CARTER, "Carter" ; Route 14
-	mon 3, IVYSAUR
-	mon 3, CHARMELEON
-	mon 3, WARTORTLE
-	end_party
-
-	party TREVOR, "Trevor" ; Route 14
-	mon 4, SLOWPOKE
-	mon 5, PSYDUCK
 	end_party
 
 	party BRANDON, "Brandon" ; Route 34
@@ -7054,20 +7062,21 @@ PokefanMGroup:
 	mon 7, DELIBIRD
 	end_party
 
-	party ALEX, "Alex" ; Route 13
+	party ALEX, "Alex" ; Route 13 (elite)
 	mon 7, NIDOKING
+		ability SHEER_FORCE
 	mon 7, SLOWKING
+		ability REGENERATOR
 	mon 7, SEAKING
-	end_party
-
-	party REX, "Rex" ; Route 6
-	mon 4, SNUBBULL
-	mon 5, PHANPY
-	end_party
-
-	party ALLAN, "Allan" ; Route 6
-	mon 4, SENTRET
-	mon 5, TEDDIURSA
+		ability SWIFT_SWIM
+	hard
+	mon 8, NIDOKING
+		item LIFE_ORB
+		ability SHEER_FORCE
+	mon 8, SLOWKING
+		ability REGENERATOR
+	mon 8, SEAKING
+		ability SWIFT_SWIM
 	end_party
 
 	party ROUTE103_MIGUEL, "Miguel" ; Route 103
@@ -7088,14 +7097,6 @@ PokefanMGroup:
 	mon 9, CLEFAIRY
 	end_party
 
-	party ROUTE110_KALEB, "Kaleb" ; Route 110
-	mon 5, PIKACHU
-	mon 5, JIGGLYPUFF
-	hard
-	mon 7, ARAICHU
-	mon 7, WIGGLYTUFF
-	end_party
-
 	party ROUTE110_EDWIN, "Edwin" ; Route 110
 	mon 5, CLEFAIRY
 	mon 5, SCYTHER
@@ -7109,125 +7110,160 @@ PokefanMGroup:
 KimonoGirlGroup:
 	party NAOKO, "Naoko" ; Ecruteak City
 	mon 4, QUILAVA
+		ability BLAZE
 		moves FIRE_SPIN, MUD_SLAP, MUD_SHOT, DEFENSE_CURL
 		dvs 10, 10, 10, 10
 	mon 5, QUILAVA2
+		ability INTIMIDATE
 		moves MUD_SLAP, FAINT_ATTACK, FIRE_FANG, FLAME_CHARGE
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_FIRE_COLOR
 	hard
 	mon 4, QUILAVA
+		ability BLAZE
 		moves FIRE_SPIN, MUD_SLAP, MUD_SHOT, DEFENSE_CURL
 		dvs 10, 10, 10, 10
 	mon 5, QUILAVA2
+		ability INTIMIDATE
 		moves MUD_SLAP, FAINT_ATTACK, FIRE_FANG, FLAME_CHARGE
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_FIRE_COLOR
 	mon 8, FLAREON
+		ability FLASH_FIRE
 		moves FIRE_FANG, WILLOWISP, STOMP, POISON_FANG
 		dvs 14, 12, 15, 12
 	end_party
 
 	party SAYO, "Sayo" ; Ecruteak City
 	mon 4, NATU
+		ability MAGIC_GUARD
 		moves PSYBEAM, CONFUSE_RAY, HEX, PURSUIT
 		dvs 10, 10, 10, 10
 	mon 5, SPOINK
+		ability THICK_FAT
 		moves RAPID_SPIN, CONFUSE_RAY, ENCORE, PSYBEAM
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_PSYCHIC_COLOR
 	hard
 	mon 4, NATU
+		ability MAGIC_GUARD
 		moves PSYBEAM, CONFUSE_RAY, HEX, PURSUIT
 		dvs 10, 10, 10, 10
 	mon 5, SPOINK
+		ability THICK_FAT
 		moves RAPID_SPIN, CONFUSE_RAY, ENCORE, PSYBEAM
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_PSYCHIC_COLOR
 	mon 8, ESPEON
+		ability MAGIC_GUARD
 		moves PSYBEAM, FAE_VOICE, CONFUSE_RAY, RECOVER
 		dvs 15, 12, 15, 12
 	end_party
 
 	party ZUKI, "Zuki" ; Ecruteak City
 	mon 4, UNOWN
+		ability LEVITATE
 		moves FAINT_ATTACK, HIDDEN_POWER, WILLOWISP, HEX
 		dvs 12, 13, 10, 10
 	mon 5, NUZLEAF
+		ability SHARPNESS
 		moves FAINT_ATTACK, LEECH_SEED, RAZOR_LEAF, AIR_CUTTER
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_DARK_COLOR
 	hard
 	mon 4, UNOWN
+		ability LEVITATE
 		moves FAINT_ATTACK, HIDDEN_POWER, WILLOWISP, HEX
 		dvs 12, 13, 10, 10
 	mon 5, NUZLEAF
+		ability SHARPNESS
 		moves FAINT_ATTACK, LEECH_SEED, RAZOR_LEAF, AIR_CUTTER
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_DARK_COLOR
 	mon 8, UMBREON
+		ability INNER_FOCUS
 		moves SNARL, CONFUSE_RAY, STOMP, NIGHT_SHADE
 		dvs 15, 15, 15, 12
 	end_party
 
 	party KUNI, "Kuni" ; Ecruteak City
 	mon 4, WINGULL
+		ability DRIZZLE
 		moves WATER_PULSE, AERIAL_ACE, PROTECT, SUPERSONIC
 		dvs 10, 10, 10, 10
 	mon 5, CHINCHOU
+		ability VOLT_ABSORB
 		moves WATER_PULSE, SHOCK_WAVE, THUNDER_WAVE, SUPERSONIC
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_WATER_COLOR
 	hard
 	mon 4, WINGULL
+		ability DRIZZLE
 		moves WATER_PULSE, AERIAL_ACE, PROTECT, SUPERSONIC
 		dvs 10, 10, 10, 10
 	mon 5, CHINCHOU
+		ability VOLT_ABSORB
 		moves WATER_PULSE, SHOCK_WAVE, THUNDER_WAVE, SUPERSONIC
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_WATER_COLOR
 	mon 8, VAPOREON
+		ability WATER_ABSORB
 		moves BUBBLEBEAM, AURORA_BEAM, STOMP, ACID_ARMOR
 		dvs 14, 13, 15, 12
 	end_party
 
 	party MIKI, "Miki" ; Ecruteak City
 	mon 4, PLUSLE
+		ability LIGHTNING_ROD
 		moves HIDDEN_POWER, THUNDER_WAVE, SHOCK_WAVE, CHARM
 		dvs 14, 13, 10, 10
 	mon 5, MINUN
+		ability VOLT_ABSORB
 		moves HIDDEN_POWER, THUNDER_WAVE, SHOCK_WAVE, GROWL
 		dvs 14, 12, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_ELECTRIC_COLOR
 	hard
 	mon 4, PLUSLE
+		ability LIGHTNING_ROD
 		moves HIDDEN_POWER, THUNDER_WAVE, SHOCK_WAVE, CHARM
 		dvs 14, 13, 10, 10
 	mon 5, MINUN
+		ability VOLT_ABSORB
 		moves HIDDEN_POWER, THUNDER_WAVE, SHOCK_WAVE, GROWL
 		dvs 14, 12, 10, 10
 	mon 7, EEVEE
+		ability HASTE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_ELECTRIC_COLOR
 	mon 8, JOLTEON
+		ability VOLT_ABSORB
 		moves SPARK, TWINEEDLE, STOMP, SPIKES
 		dvs 14, 15, 15, 12
 	end_party
@@ -7312,16 +7348,6 @@ TwinsGroup:
 	end_list_items
 
 PokefanFGroup:
-	party BEVERLY, "Beverly" ; National Park
-	mon 4, SNUBBULL
-	mon 3, MARILL
-	end_party
-
-	party RUTH, "Ruth" ; Route 39
-	mon 7, PIKACHU
-	mon 6, CLEFAIRY
-	end_party
-
 	party GEORGIA, "Georgia" ; Fast Ship
 	mon 3, FURRET
 	mon 8, FURRET
@@ -7341,14 +7367,6 @@ PokefanFGroup:
 	mon 5, PELIPPER
 	mon 5, AZUMARILL
 	mon 7, DELCATTY
-	end_party
-
-	party ROUTE110_ISABEL, "Isabel" ; Route 110
-	mon 6, PLUSLE
-	mon 6, MINUN
-	hard
-	mon 8, PLUSLE
-	mon 8, MINUN
 	end_party
 
 	party SOOTOPOLIS_ANNIKA, "Annika" ; Sootopolos Gym
@@ -9214,12 +9232,21 @@ BattleGirlGroup:
 	mon 9, TORRACAT
 	end_party
 
-	party ROUTE117_AISHA, "Aisha" ; Route 117
+	party ROUTE117_AISHA, "Aisha" ; Route 117 (elite)
 	mon 6, HITMONLEE
+		ability LIMBER
 	mon 6, ABSOL
+		ability SHARPNESS
+	mon 5, MEDITITE
+		ability ELEMENTAL_FIST
 	hard
 	mon 9, HITMONLEE
+		item BLACKBELT_I
+		ability LIMBER
 	mon 9, ABSOL
+		ability SHARPNESS
+	mon 8, MEDITITE
+		ability ELEMENTAL_FIST
 	end_party
 
 	party ROUTE120_CALLIE, "Callie" ; Route 120
@@ -9339,16 +9366,6 @@ RangerMGroup:
 	mon 10, SCYTHER
 	end_party
 
-	party ROUTE119_JACKSON, "Jackson" ; Route 119
-	mon 7, BAYLEEF
-	mon 7, GOLDUCK
-	mon 7, BRELOOM
-	hard
-	mon 8, MEGANIUM
-	mon 8, GOLDUCK
-	mon 8, BRELOOM
-	end_party
-
 	party ROUTE119_TAKASHI, "Takashi" ; Route 119
 	mon 7, LEAFEON
 	mon 7, FLAREON
@@ -9357,16 +9374,6 @@ RangerMGroup:
 	mon 8, LEAFEON
 	mon 8, FLAREON
 	mon 8, GLACEON
-	end_party
-
-	party ROUTE119_YASU, "Yasu" ; Route 119
-	mon 7, ESPEON
-	mon 7, UMBREON
-	mon 7, SYLVEON
-	hard
-	mon 8, ESPEON
-	mon 8, UMBREON
-	mon 8, SYLVEON
 	end_party
 
 	party ROUTE119_HIDEO, "Hideo" ; Route 119
@@ -9456,18 +9463,6 @@ RangerFGroup:
 	mon 10, SLOWKING
 	end_party
 
-	party ROUTE119_CATHERINE, "Catherine" ; Route 119
-	mon 7, LUVDISC
-	mon 7, AZUMARILL
-	mon 7, SEADRA
-	end_party
-
-	party ROUTE119_RACHEL, "Rachel" ; Route 119
-	mon 7, TORKOAL
-	mon 7, TROPIUS
-	mon 7, FLAREON
-	end_party
-
 	party ROUTE119_DANI, "Dani" ; Route 119
 	mon 7, ANINETALES
 	mon 7, FROSLASS
@@ -9543,14 +9538,21 @@ ExplorerGroup:
 	random_mons 3, PSYCHIC_EASY
 	end_party
 
-	party DESERT_DUSTY, "Dusty" ; Lavaridge Desert
+	party DESERT_DUSTY, "Dusty" ; Lavaridge Desert (elite)
 	mon 5, GLIGAR
+		ability SAND_BODY
 	mon 5, SHUCKLE
+		ability STURDY
 	mon 7, KLEAVOR
+		ability SHARPNESS
 	hard
 	mon 7, GLIGAR
+		item TOXIC_ORB
+		ability POISON_HEAL
 	mon 7, SHUCKLE
+		ability STURDY
 	mon 7, KLEAVOR
+		ability SHARPNESS
 	end_party
 
 	party DESERT_BRYAN, "Bryan" ; Lavaridge Desert
@@ -10364,6 +10366,769 @@ NurseGroup:
 	mon 16, BLASTOISEX
 		item LEFTOVERS
 		moves SCALD, RAIN_DANCE, HYDRO_PUMP, COSMIC_POWER
+	end_party
+
+	end_list_items
+
+CoupleGroup:
+	party TEDANDERIN, "Ted & Erin", DOUBLES ; Route 46
+	mon 7, MANKEY
+	mon 6, SANDSHREW
+	mon 6, VULPIX
+	mon 6, PONYTA
+	hard
+	mon 8, MANKEY
+	mon 7, SANDSHREW
+	mon 7, VULPIX
+	mon 7, PONYTA
+	end_party
+
+	party ROLFANDLIZ, "Rolf & Liz", DOUBLES ; Route 32
+	mon 4, NIDORAN_M
+	mon 3, SENTRET
+	mon 4, NIDORAN_F
+	mon 5, NIDORAN_F
+	hard
+	mon 5, NIDORAN_M
+	mon 4, SENTRET
+	mon 5, NIDORAN_F
+	mon 6, NIDORAN_F
+	end_party
+
+	party TODDANDGINA, "Tod & Gina", DOUBLES ; Route 34
+	mon 4, PSYDUCK
+	mon 4, PHANPY
+	mon 4, ROSELIA
+	mon 5, BULBASAUR
+	hard
+	mon 5, PSYDUCK
+	mon 5, RALTS
+	mon 5, ROSELIA
+	mon 6, BULBASAUR
+	end_party
+
+	party ELIANDBREE, "Eli & Bree", DOUBLES ; Route 35
+	mon 3, SANDSHREW
+	mon 5, MARILL
+	mon 6, PIKACHU
+		moves THUNDERSHOCK, GROWL, QUICK_ATTACK, DOUBLE_TEAM
+	mon 4, CLEFAIRY
+	hard
+	mon 4, SANDSHREW
+	mon 6, MARILL
+	mon 7, PIKACHU
+		moves THUNDERSHOCK, GROWL, QUICK_ATTACK, DOUBLE_TEAM
+	mon 5, CLEFAIRY
+	end_party
+
+	party SYANDTIFF, "Sy & Tiff", DOUBLES ; Route 43
+	mon 5, SANDSLASH
+	mon 4, GOLBAT
+	mon 6, CLEFABLE
+		moves ENCORE, SING, DOUBLESLAP, MINIMIZE
+	mon 6, WIGGLYTUFF
+	hard
+	mon 6, SANDSLASH
+	mon 5, GOLBAT
+	mon 7, CLEFABLE
+		moves ENCORE, SING, MOONBLAST, MINIMIZE
+	mon 7, WIGGLYTUFF
+	end_party
+
+	party NEDANDIVY, "Ned & Ivy", DOUBLES ; Route 42
+	mon 2, FURRET
+	mon 2, AZUMARILL
+	mon 1, FLAAFFY
+	mon 1, SKIPLOOM
+	hard
+	mon 3, FURRET
+	mon 3, AZUMARILL
+	mon 2, FLAAFFY
+	mon 2, SKIPLOOM
+	end_party
+
+	party SIDANDEDNA, "Sid & Edna", DOUBLES ; Route 9
+	mon 7, MANKEY
+	mon 7, POLIWRATH
+	mon 4, NIDORINA
+	mon 6, RAICHU
+	hard
+	mon 8, MANKEY
+	mon 8, POLIWRATH
+	mon 5, NIDORINA
+	mon 7, RAICHU
+	end_party
+
+	party TYANDMAE, "Ty & Mae", DOUBLES ; Route 8
+	mon 5, GROWLITHE
+	mon 5, VULPIX
+	mon 4, PIDGEOTTO
+	mon 4, JIGGLYPUFF
+	hard
+	mon 6, GROWLITHE
+	mon 6, VULPIX
+	mon 5, PIDGEOTTO
+	mon 5, JIGGLYPUFF
+	end_party
+
+	party EDANDGABBY, "Ed & Gabby", DOUBLES ; Route 111
+	mon 5, GLIGAR
+	mon 5, CACNEA
+	mon 6, LINOONE
+	mon 5, PINSIR
+	hard
+	mon 7, GLIGAR
+	mon 9, CACNEA
+	mon 7, LINOONE
+	mon 7, PINSIR
+	end_party
+
+	party DREWANDBEC, "Drew & Bec", DOUBLES ; Lavaridge Desert
+	mon 4, SUDOWOODO
+	mon 6, NIDORINO
+	mon 5, NIDORINA
+	mon 6, AZUMARILL
+	hard
+	mon 6, SUDOWOODO
+	mon 7, NIDOKING
+	mon 7, NIDOQUEEN
+	mon 7, AZUMARILL
+	end_party
+
+	end_list_items
+
+SwimmersGroup:
+	party SAMANDPAM, "Sam & Pam", DOUBLES ; Route 40
+	mon 3, TENTACOOL
+	mon 3, TENTACOOL
+	mon 5, STARYU
+	mon 5, SHELLDER
+	hard
+	mon 4, TENTACOOL
+	mon 4, TENTACOOL
+	mon 6, STARYU
+	mon 6, SHELLDER
+	end_party
+
+	party CALANDKAY, "Cal & Kay", DOUBLES ; Route 41
+	mon 5, SHELLDER
+	mon 3, TENTACOOL
+	mon 5, GOLDEEN
+	mon 5, SEAKING
+	hard
+	mon 6, SHELLDER
+	mon 4, TENTACOOL
+	mon 6, GOLDEEN
+	mon 7, SEAKING
+	end_party
+
+	party TUCKANDDI, "Tuck & Di", DOUBLES ; Route 19
+	mon 3, SHELLDER
+	mon 6, CLOYSTER
+	mon 7, STARMIE
+	mon 8, SEAKING
+	hard
+	mon 4, SHELLDER
+	mon 7, CLOYSTER
+	mon 8, STARMIE
+	mon 9, SEAKING
+	end_party
+
+	party CAMANDLIV, "Cam & Liv", DOUBLES ; Route 20
+	mon 6, TENTACRUEL
+	mon 7, AZUMARILL
+	mon 2, STARMIE
+	mon 2, STARMIE
+	hard
+	mon 7, TENTACRUEL
+	mon 8, AZUMARILL
+	mon 3, STARMIE
+	mon 3, STARMIE
+	end_party
+
+	party KIPANDNIA, "Kip & Nia", DOUBLES ; Route 12
+	mon 5, TENTACOOL
+	mon 5, STARYU
+	mon 6, HORSEA
+	mon 6, SEEL
+	hard
+	mon 6, TENTACOOL
+	mon 6, STARYU
+	mon 7, HORSEA
+	mon 7, SEEL
+	end_party
+
+	party RIOANDMEL, "Rio & Mel", DOUBLES ; Route 109
+	mon 4, TENTACOOL
+	mon 4, WINGULL
+	mon 5, HORSEA
+	mon 5, MARILL
+	hard
+	mon 5, TENTACOOL
+	mon 5, WINGULL
+	mon 6, HORSEA
+	mon 6, MARILL
+	end_party
+
+	party LUANDIMA, "Lu & Ima", DOUBLES ; Route 105
+	mon 5, MANTINE
+	mon 5, GOREBYSS
+	mon 7, SEADRA
+	mon 7, HUNTAIL
+	hard
+	mon 7, MANTINE
+	mon 7, GOREBYSS
+	mon 8, SEADRA
+	mon 8, HUNTAIL
+	end_party
+
+	end_list_items
+
+AceDuoGroup:
+	party NICKANDEM, "Nick & Em", DOUBLES ; Union Cave - B2F (elite)
+	mon 9, VENUSAUR
+		ability OVERGROW
+	mon 9, CHARIZARD
+		ability BLAZE
+	mon 9, BLASTOISE
+		ability TORRENT
+	mon 8, POLITOED
+		ability WATER_ABSORB
+	mon 8, SUDOWOODO
+		ability STURDY
+	hard
+	mon 10, VENUSAUR
+		item MIRACLE_SEED
+		ability OVERGROW
+	mon 10, CHARIZARD
+		item CHARCOAL
+		ability BLAZE
+	mon 10, BLASTOISE
+		item MYSTIC_WATER
+		ability TORRENT
+	mon 9, POLITOED
+		ability WATER_ABSORB
+	mon 9, SUDOWOODO
+		ability STURDY
+	end_party
+
+	party ABEANDLOIS, "Abe & Lois", DOUBLES ; Lake of Rage (elite)
+	mon 7, NINETALES
+		ability DROUGHT
+	mon 5, JUMPLUFF
+		ability CHLOROPHYLL
+	mon 6, VENUSAUR
+		ability CHLOROPHYLL
+	mon 6, CHARIZARD
+		ability SUNBASK
+	hard
+	mon 8, NINETALES
+		ability DROUGHT
+	mon 6, JUMPLUFF
+		ability CHLOROPHYLL
+	mon 7, VENUSAUR
+		item MIRACLE_SEED
+		ability CHLOROPHYLL
+	mon 7, CHARIZARD
+		item CHARCOAL
+		ability SUNBASK
+	mon 6, BELLOSSOM
+		ability CHLOROPHYLL
+	end_party
+
+	party ALANDCYBIL, "Al & Cybil", DOUBLES ; Route 44 (elite)
+	mon 6, ARCANINE
+		ability INTIMIDATE
+	mon 7, CHARIZARD
+		ability BLAZE
+		moves EMBER, SMOKESCREEN, SCARY_FACE, DRAGON_CLAW
+	mon 7, BELLOSSOM
+		ability CHLOROPHYLL
+	mon 7, SLOWKING
+		ability REGENERATOR
+	mon 7, UMBREON
+		ability INNER_FOCUS
+	hard
+	mon 7, ARCANINE
+		ability INTIMIDATE
+	mon 8, CHARIZARD
+		item CHARCOAL
+		ability BLAZE
+		moves EMBER, SMOKESCREEN, SCARY_FACE, DRAGON_CLAW
+	mon 8, BELLOSSOM
+		ability CHLOROPHYLL
+	mon 8, SLOWKING
+		ability REGENERATOR
+	mon 8, UMBREON
+		item LEFTOVERS
+		ability INNER_FOCUS
+	end_party
+
+	party JAKEANDJOY, "Jake & Joy", DOUBLES ; Route 26 (elite)
+	mon 9, CAMERUPT
+		ability MAGMA_ARMOR
+	mon 7, GOLDUCK
+		ability SWIFT_SWIM
+	mon 8, RAICHU
+		ability STATIC
+	mon 9, SKARMORY
+		ability STURDY
+	mon 11, URSARING
+		ability GUTS
+	hard
+	mon 10, CAMERUPT
+		ability MAGMA_ARMOR
+	mon 9, GOLDUCK
+		ability SWIFT_SWIM
+	mon 9, RAICHU
+		ability STATIC
+	mon 10, SKARMORY
+		item LEFTOVERS
+		ability STURDY
+	mon 12, URSARING
+		item FLAME_ORB
+		ability GUTS
+	end_party
+
+	party BOANDREENA, "Bo & Reena", DOUBLES ; Route 27 (elite)
+	mon 8, STARMIE
+		ability NATURAL_CURE
+	mon 8, NIDOQUEEN
+		ability SHEER_FORCE
+	mon 10, FROSLASS
+		ability ICE_BODY
+	mon 9, SANDSLASH
+		ability SAND_RUSH
+	mon 9, GRUMPIG
+		ability THICK_FAT
+	hard
+	mon 9, STARMIE
+		ability NATURAL_CURE
+	mon 9, NIDOQUEEN
+		item LIFE_ORB
+		ability SHEER_FORCE
+	mon 11, FROSLASS
+		item NEVERMELTICE
+		ability ICE_BODY
+	mon 10, ASANDSLASH
+		ability SLUSH_RUSH
+	mon 10, GRUMPIG
+		ability THICK_FAT
+	end_party
+
+	party LEONANDJEN, "Leon & Jen", DOUBLES ; Route 120 (elite)
+	mon 7, MANECTRIC
+		ability LIGHTNING_ROD
+	mon 7, MANTINE
+		ability WATER_ABSORB
+	mon 8, AKUERIA
+		ability SWIFT_SWIM
+	mon 7, SABLEYE
+		ability PRANKSTER
+	mon 7, MAWILE
+		ability INTIMIDATE
+	hard
+	mon 9, MANECTRIC
+		item MAGNET
+		ability LIGHTNING_ROD
+	mon 9, MANTINE
+		ability WATER_ABSORB
+	mon 9, AKUERIA
+		item MYSTIC_WATER
+		ability SWIFT_SWIM
+	mon 9, SABLEYE
+		ability PRANKSTER
+	mon 10, MAWILE
+		item LEFTOVERS
+		ability INTIMIDATE
+	end_party
+
+	end_list_items
+
+RangersGroup:
+	party YASUANDRAE, "Yasu & Rae", DOUBLES ; Route 119 (elite)
+	mon 7, TORKOAL
+		ability DROUGHT
+	mon 7, FLAREON
+		ability FLASH_FIRE
+	mon 7, ESPEON
+		ability MAGIC_GUARD
+	mon 7, UMBREON
+		ability INNER_FOCUS
+	mon 7, SYLVEON
+		ability PIXILATE
+	hard
+	mon 8, TORKOAL
+		item CHARCOAL
+		ability DROUGHT
+	mon 8, FLAREON
+		ability FLASH_FIRE
+	mon 8, ESPEON
+		item TWISTEDSPOON
+		ability MAGIC_GUARD
+	mon 8, UMBREON
+		item LEFTOVERS
+		ability INNER_FOCUS
+	mon 8, SYLVEON
+		ability PIXILATE
+	end_party
+
+	party JACKANDKAT, "Jack & Kat", DOUBLES ; Route 119 (elite)
+	mon 7, BAYLEEF
+		ability OVERGROW
+	mon 7, GOLDUCK
+		ability SWIFT_SWIM
+	mon 7, BRELOOM
+		ability TECHNICIAN
+	mon 7, AZUMARILL
+		ability THICK_FAT
+	mon 7, SEADRA
+		ability SNIPER
+	hard
+	mon 8, MEGANIUM
+		item MIRACLE_SEED
+		ability OVERGROW
+	mon 8, GOLDUCK
+		ability SWIFT_SWIM
+	mon 8, BRELOOM
+		item TOXIC_ORB
+		ability POISON_HEAL
+	mon 8, AZUMARILL
+		ability THICK_FAT
+	mon 8, SEADRA
+		item MYSTIC_WATER
+		ability SNIPER
+	end_party
+
+	end_list_items
+
+FightersGroup:
+	party KAIANDMEI, "Kai & Mei", DOUBLES ; Mt. Mortar
+	mon 2, MACHOKE
+	mon 3, HITMONCHAN
+	mon 1, MEDITITE
+	mon 2, MAKUHITA
+	hard
+	mon 3, MACHOKE
+	mon 4, HITMONCHAN
+	mon 2, MEDITITE
+	mon 3, MAKUHITA
+	end_party
+
+	end_list_items
+
+BirdersGroup:
+	party JEDANDLOU, "Jed & Lou", DOUBLES ; Route 36
+	mon 2, PIDGEY
+	mon 2, SPEAROW
+	mon 2, HOOTHOOT
+	mon 3, NATU
+	hard
+	mon 3, PIDGEY
+	mon 3, SPEAROW
+	mon 3, HOOTHOOT
+	mon 4, NATU
+	end_party
+
+	party THEOANDDEN, "Theo & Den", DOUBLES ; Olivine Lighthouse - 5F
+	mon 6, PIDGEOTTO
+	mon 4, TAILLOW
+	mon 6, SWELLOW
+	mon 7, FEAROW
+	hard
+	mon 7, PIDGEOTTO
+	mon 5, TAILLOW
+	mon 7, SWELLOW
+	mon 8, FEAROW
+	end_party
+
+	party RAYANDBRET, "Ray & Bret", DOUBLES ; Route 13
+	mon 8, PIDGEOTTO
+	mon 9, FARFETCH_D
+	mon 6, PIDGEOTTO
+	mon 8, FEAROW
+	hard
+	mon 9, PIDGEOTTO
+	mon 10, FARFETCH_D
+	mon 7, PIDGEOTTO
+	mon 9, FEAROW
+	end_party
+
+	party ROBANDBOB, "Rob & Bob", DOUBLES ; Route 18
+	mon 3, DODUO
+	mon 5, DODUO
+	mon 7, NOCTOWL
+	mon 7, FARFETCH_D
+	hard
+	mon 4, DODUO
+	mon 6, DODUO
+	mon 8, NOCTOWL
+	mon 8, FARFETCH_D
+	end_party
+
+	end_list_items
+
+HikersGroup:
+	party DANANDRUSS, "Dan & Russ", DOUBLES ; Union Cave - 1F
+	mon 6, ONIX
+	mon 6, SUDOWOODO
+	mon 5, GEODUDE
+	mon 7, ARON
+	hard
+	mon 7, ONIX
+	mon 7, SUDOWOODO
+	mon 6, GEODUDE
+	mon 8, ARON
+	end_party
+
+	party PHILANDLEO, "Phil & Leo", DOUBLES ; Union Cave - B1F
+	mon 3, GEODUDE
+	mon 5, GRAVELER
+	mon 3, ARON
+	mon 5, MAKUHITA
+	hard
+	mon 4, GEODUDE
+	mon 6, GRAVELER
+	mon 4, ARON
+	mon 6, MAKUHITA
+	end_party
+
+	party MIKEANDTIM, "Mike & Tim", DOUBLES ; Route 45
+	mon 5, GOLEM
+	mon 3, GRAVELER
+	mon 6, DUGTRIO
+		moves MAGNITUDE, DIG, SAND_ATTACK, SLASH
+	mon 6, DUGTRIO
+		moves MAGNITUDE, DIG, SAND_ATTACK, SLASH
+	hard
+	mon 6, GOLEM
+	mon 4, GRAVELER
+	mon 7, DUGTRIO
+		moves MAGNITUDE, DIG, SAND_ATTACK, SLASH
+	mon 7, DUGTRIO
+		moves MAGNITUDE, DIG, SAND_ATTACK, SLASH
+	end_party
+
+	party GUSANDTED, "Gus & Ted", DOUBLES ; Route 3
+	mon 3, GEODUDE
+	mon 3, ONIX
+	mon 3, MACHOP
+	mon 2, ZUBAT
+	hard
+	mon 4, GEODUDE
+	mon 4, ONIX
+	mon 4, MACHOP
+	mon 3, ZUBAT
+	end_party
+
+	party TRENTANDIKE, "Tex & Ike", DOUBLES ; Route 112
+	mon 4, GEODUDE
+	mon 5, AGRAVELER
+	mon 3, NUMEL
+	mon 5, MACHOP
+	hard
+	mon 6, GRAVELER
+	mon 7, AGOLEM
+	mon 5, NUMEL
+	mon 7, NOSEPASS
+	end_party
+
+	party LENANDLUKE, "Len & Luke", DOUBLES ; Route 114
+	mon 6, ONIX
+	mon 7, TAUROS
+	mon 6, CUBONE
+	mon 7, DONPHAN
+	hard
+	mon 7, ONIX
+	mon 8, TAUROS
+	mon 8, MAROWAK
+	mon 8, DONPHAN
+	end_party
+
+	end_list_items
+
+PokefansGroup:
+	party HALANDBEV, "Hal & Bev", DOUBLES ; National Park
+	mon 3, PIKACHU
+	mon 4, RAICHU
+	mon 4, SNUBBULL
+	mon 3, MARILL
+	hard
+	mon 4, PIKACHU
+	mon 5, RAICHU
+	mon 5, SNUBBULL
+	mon 4, MARILL
+	end_party
+
+	party ALANDRUTH, "Al & Ruth", DOUBLES ; Route 39
+	mon 7, PIKACHU
+	mon 6, FURRET
+	mon 7, PIKACHU
+	mon 6, CLEFAIRY
+	hard
+	mon 8, PIKACHU
+	mon 7, FURRET
+	mon 8, PIKACHU
+	mon 7, CLEFAIRY
+	end_party
+
+	party MOANDFLO, "Mo & Flo", DOUBLES ; Goldenrod Underground
+	mon 2, CLEFABLE
+	mon 2, WIGGLYTUFF
+	mon 3, TOGETIC
+	mon 2, PERSIAN
+	hard
+	mon 3, CLEFABLE
+	mon 3, WIGGLYTUFF
+	mon 4, TOGETIC
+	mon 3, PERSIAN
+	end_party
+
+	party REXANDANN, "Rex & Ann", DOUBLES ; Route 6
+	mon 4, SNUBBULL
+	mon 5, PHANPY
+	mon 4, SENTRET
+	mon 5, TEDDIURSA
+	hard
+	mon 5, SNUBBULL
+	mon 6, PHANPY
+	mon 5, SENTRET
+	mon 6, TEDDIURSA
+	end_party
+
+	party VICANDCAT, "Vic & Cat", DOUBLES ; Route 14
+	mon 3, IVYSAUR
+	mon 3, CHARMELEON
+	mon 3, WARTORTLE
+	mon 5, PSYDUCK
+	hard
+	mon 4, IVYSAUR
+	mon 4, CHARMELEON
+	mon 4, WARTORTLE
+	mon 6, PSYDUCK
+	end_party
+
+	party KALANDISA, "Kal & Isa", DOUBLES ; Route 110
+	mon 6, PLUSLE
+	mon 6, MINUN
+	mon 5, PIKACHU
+	mon 5, JIGGLYPUFF
+	hard
+	mon 8, PLUSLE
+	mon 8, MINUN
+	mon 7, ARAICHU
+	mon 7, WIGGLYTUFF
+	end_party
+
+	end_list_items
+
+PupilsGroup:
+	party KENANDAMY, "Ken & Amy", DOUBLES ; Ilex Forest
+	mon 3, LEDYBA
+	mon 3, PARAS
+	mon 4, ODDISH
+	mon 4, PINECO
+	hard
+	mon 4, LEDYBA
+	mon 4, PARAS
+	mon 5, ODDISH
+	mon 5, PINECO
+	end_party
+
+	party CHADANDANA, "Chad & Ana", DOUBLES ; Route 38
+	mon 9, MR__MIME
+	mon 8, NATU
+	mon 7, FLAAFFY
+	mon 7, GOLDUCK
+	hard
+	mon 10, MR__MIME
+	mon 9, NATU
+	mon 8, FLAAFFY
+	mon 8, GOLDUCK
+	end_party
+
+	party JOANDIRIS, "Jo & Iris", DOUBLES ; Mount Moon
+	mon 3, ARON
+	mon 4, ELECTRIKE
+	mon 4, CLEFAIRY
+	mon 5, JIGGLYPUFF
+	hard
+	mon 5, ARON
+	mon 6, ELECTRIKE
+	mon 5, CLEFAIRY
+	mon 7, JIGGLYPUFF
+	end_party
+
+	party JOEANDLARA, "Joe & Lara", DOUBLES ; Route 25
+	mon 3, TANGELA
+	mon 5, EEVEE
+	mon 5, ODDISH
+	mon 5, PIDGEOTTO
+	hard
+	mon 4, TANGELA
+	mon 6, EEVEE
+	mon 6, ODDISH
+	mon 6, PIDGEOTTO
+	end_party
+
+	party JONANDBEA, "Jon & Bea", DOUBLES ; Route 15
+	mon 4, WEEPINBELL
+	mon 7, WEEPINBELL
+	mon 4, PARAS
+	mon 5, POLIWHIRL
+	hard
+	mon 5, WEEPINBELL
+	mon 8, WEEPINBELL
+	mon 5, PARAS
+	mon 6, POLIWHIRL
+	end_party
+
+	party ALANDTIANA, "Al & Tiana", DOUBLES ; Route 102
+	mon 0, ZIGZAGOON
+	mon 0, TAILLOW
+	mon 0, ZIGZAGOON
+	mon 1, SHROOMISH
+	hard
+	mon 1, ZIGZAGOON
+	mon 1, TAILLOW
+	mon 1, ZIGZAGOON
+	mon 2, SHROOMISH
+	end_party
+
+	party JOEYANDJAN, "Joey & Jan", DOUBLES ; Route 116
+	mon 4, TAILLOW
+	mon 5, MACHOP
+	mon 5, MARILL
+	mon 4, SPEAROW
+	hard
+	mon 5, TAILLOW
+	mon 6, MACHOP
+	mon 6, MARILL
+	mon 5, SPEAROW
+	end_party
+
+	party BENANDZOE, "Ben & Zoe", DOUBLES ; Viridian Forest
+	mon 0, CATERPIE
+	mon 0, WEEDLE
+	mon 0, PIDGEY
+	mon 0, ODDISH
+	hard
+	mon 1, CATERPIE
+	mon 1, WEEDLE
+	mon 1, PIDGEY
+	mon 1, ODDISH
+	end_party
+
+	party DALEANDSAL, "Dale & Sal", DOUBLES ; Route 118
+	mon 3, MINUN
+	mon 5, RAITORA
+	mon 4, GLOOM
+	mon 5, VOLBEAT
+	hard
+	mon 5, MINUN
+	mon 7, RAITORA
+	mon 5, GLOOM
+	mon 6, VOLBEAT
 	end_party
 
 	end_list_items

@@ -17,7 +17,7 @@ PhoneContacts:
 	phone TRAINER_NONE, PHONECONTACT_BILL,     N_A,                       ANYTIME, BillPhoneCalleeScript,    0,       BillPhoneCallerScript
 	phone TRAINER_NONE, PHONECONTACT_ELM,      ELMS_LAB,                  ANYTIME, ElmPhoneCalleeScript,     0,       ElmPhoneCallerScript
 	phone SCHOOLBOY,    JACK,                  NATIONAL_PARK,             ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone POKEFANF,     BEVERLY,               NATIONAL_PARK,             ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone SAILOR,       HUEY,                  OLIVINE_LIGHTHOUSE_2F,     ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
@@ -25,28 +25,28 @@ PhoneContacts:
 	phone COOLTRAINERM, GAVEN,                 ROUTE_26,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone COOLTRAINERF, BETH,                  ROUTE_26,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone BIRD_KEEPER,  JOSE,                  ROUTE_27,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone COOLTRAINERF, REENA,                 ROUTE_27,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone YOUNGSTER,    JOEY,                  ROUTE_30,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone BUG_CATCHER,  WADE,                  ROUTE_31,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone FISHER,       RALPH,                 ROUTE_32,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone PICNICKER,    LIZ,                   ROUTE_32,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone HIKER,        ANTHONY,               ROUTE_33,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone CAMPER,       TODD,                  ROUTE_34,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone PICNICKER,    GINA,                  ROUTE_34,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone JUGGLER,      IRWIN,                 ROUTE_35,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone BUG_CATCHER,  ARNIE,                 ROUTE_35,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone SCHOOLBOY,    ALAN1,                 ROUTE_36,                  ANYTIME, UnusedPhoneScript,		 ANYTIME, UnusedPhoneScript
 	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
-	phone LASS,         DANA,                  ROUTE_38,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone SCHOOLBOY,    CHAD1,                 ROUTE_38,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone POKEFANM,     DEREK,                 ROUTE_39,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone FISHER,       TULLY,                 ROUTE_42,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone POKEMANIAC,   BRENT1,                ROUTE_43,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone PICNICKER,    TIFFANY,               ROUTE_43,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone BIRD_KEEPER,  VANCE,                 ROUTE_44,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone FISHER,       WILTON,                ROUTE_44,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone BLACKBELT_T,  KENJI,                 ROUTE_45,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone HIKER,        PARRY,                 ROUTE_45,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone PICNICKER,    ERIN,                  ROUTE_46,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone TRAINER_NONE, PHONECONTACT_BUENA,    RADIO_TOWER_2F,            ANYTIME, BuenaPhoneCalleeScript,   0,       UnusedPhoneScript
 	assert_table_length NUM_PHONE_CONTACTS + 1

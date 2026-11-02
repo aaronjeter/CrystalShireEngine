@@ -69,51 +69,16 @@ Route120ColinAfterBattleText:
 	done
 
 Route120LeonelScript:
-	trainer COOLTRAINERM, ROUTE120_LEONEL, EVENT_BEAT_ROUTE120_LEONEL, Route120LeonelSeenText, Route120LeonelBeatenText, 0, .AfterScript
+	trainer ACE_DUO, LEONANDJEN, EVENT_BEAT_ACE_DUO_LEON_JEN, AceDuoLeonJenSeenText, AceDuoLeonJenBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route120LeonelAfterBattleText
-
-Route120LeonelSeenText:
-	text "Your party"
-	line "#mon..."
-
-	para "Do you have"
-	line "different types?"
-	done
-
-Route120LeonelBeatenText:
-	text "I've seen your"
-	line "policy in action!"
-	done
-
-Route120LeonelAfterBattleText:
-	text "I think it's"
-	line "awesome you're"
-	cont "so strong!"
-	done
+.Script:
+	trainerafter AceDuoLeonJenAfterBattleText
 
 Route120JenniferScript:
-	trainer COOLTRAINERF, ROUTE120_JENNIFER, EVENT_BEAT_ROUTE120_JENNIFER, Route120JenniferSeenText, Route120JenniferBeatenText, 0, .AfterScript
+	trainer ACE_DUO, LEONANDJEN, EVENT_BEAT_ACE_DUO_LEON_JEN, AceDuoLeonJenSeenText, AceDuoLeonJenBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route120JenniferAfterBattleText
-
-Route120JenniferSeenText:
-	text "#mon have many"
-	line "special abilities."
-	done
-
-Route120JenniferBeatenText:
-	text "You're obviously"
-	line "thinking."
-	done
-
-Route120JenniferAfterBattleText:
-	text "#mon abilities"
-	line "really change"
-	cont "things!"
-	done
+.Script:
+	trainerafter AceDuoLeonJenAfterBattleText
 
 Route120ClarissaScript:
 	trainer BEAUTY, ROUTE120_CLARISSA, EVENT_BEAT_ROUTE120_CLARISSA, Route120ClarissaSeenText, Route120ClarissaBeatenText, 0, .AfterScript
@@ -379,6 +344,23 @@ Route120HiddenTmSunnyDay:
 	hiddenitem TM_SUNNY_DAY, EVENT_ROUTE_120_TM_SUNNY_DAY
 
 
+AceDuoLeonJenSeenText:
+	text "Jen: Fortree's"
+	line "ahead. Prove"
+	cont "yourself!"
+
+	para "Leon: Two at once!"
+	done
+
+AceDuoLeonJenBeatenText:
+	text "Leon: Impressive."
+	done
+
+AceDuoLeonJenAfterBattleText:
+	text "Jen: This rain"
+	line "never lets up…"
+	done
+
 Route120_MapEvents:
 	db 0, 0 ; filler
 
@@ -394,7 +376,7 @@ Route120_MapEvents:
 	object_event 06, 06, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route120RobertScript, -1
 	object_event 29, 25, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_TRAINER, 3, Route120ColinScript, -1
 	object_event 14, 70, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route120LeonelScript, -1
-	object_event 14, 64, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route120JenniferScript, -1
+	object_event 14, 69, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route120JenniferScript, -1
 	object_event 31, 12, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, Route120ClarissaScript, -1
 	object_event 04, 25, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route120AngelicaScript, -1
 	object_event 17, 32, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, Route120JeffreyScript, -1

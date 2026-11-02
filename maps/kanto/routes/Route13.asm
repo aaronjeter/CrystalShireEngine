@@ -23,16 +23,16 @@ TrainerPokefanmJoshua:
 	trainerafter PokefanmJoshuaAfterBattleText
 
 TrainerBirdKeeperPerry:
-	trainer BIRD_KEEPER, PERRY, EVENT_BEAT_BIRD_KEEPER_PERRY, BirdKeeperPerrySeenText, BirdKeeperPerryBeatenText, 0, .Script
+	trainer BIRDERS, RAYANDBRET, EVENT_BEAT_BIRDERS_RAY_BRET, BirdersRayBretSeenText, BirdersRayBretBeatenText, 0, .Script
 
 .Script:
-	trainerafter BirdKeeperPerryAfterBattleText
+	trainerafter BirdersRayBretAfterBattleText
 
 TrainerBirdKeeperBret:
-	trainer BIRD_KEEPER, BRET, EVENT_BEAT_BIRD_KEEPER_BRET, BirdKeeperBretSeenText, BirdKeeperBretBeatenText, 0, .Script
+	trainer BIRDERS, RAYANDBRET, EVENT_BEAT_BIRDERS_RAY_BRET, BirdersRayBretSeenText, BirdersRayBretBeatenText, 0, .Script
 
 .Script:
-	trainerafter BirdKeeperBretAfterBattleText
+	trainerafter BirdersRayBretAfterBattleText
 
 TrainerHikerKenny:
 	trainer HIKER, KENNY, EVENT_BEAT_HIKER_KENNY, HikerKennySeenText, HikerKennyBeatenText, 0, .Script
@@ -86,41 +86,6 @@ PokefanmJoshuaAfterBattleText:
 	line "still the best."
 	done
 
-BirdKeeperPerrySeenText:
-	text "Agility is the key"
-	line "attribute of bird"
-	cont "#mon."
-	done
-
-BirdKeeperPerryBeatenText:
-	text "You beat me with"
-	line "your speed…"
-	done
-
-BirdKeeperPerryAfterBattleText:
-	text "Your #mon are"
-	line "remarkably well-"
-	cont "trained."
-	done
-
-BirdKeeperBretSeenText:
-	text "Check out my #-"
-	line "mon. Just look at"
-
-	para "their coloring and"
-	line "their plumage."
-	done
-
-BirdKeeperBretBeatenText:
-	text "Shoot!"
-	line "Not good enough!"
-	done
-
-BirdKeeperBretAfterBattleText:
-	text "If you groom them,"
-	line "#mon get happy."
-	done
-
 HikerKennySeenText:
 	text "I should go to"
 	line "Rock Tunnel to get"
@@ -162,6 +127,24 @@ Route13DirectionsSignText:
 
 	para "West to Fuchsia"
 	line "City"
+	done
+
+BirdersRayBretSeenText:
+	text "Ray: Our birds"
+	line "fly as one!"
+
+	para "Bret: Try to keep"
+	line "up!"
+	done
+
+BirdersRayBretBeatenText:
+	text "Bret: Grounded…"
+	done
+
+BirdersRayBretAfterBattleText:
+	text "Ray: The fences"
+	line "here make a maze."
+	cont "Birds don't care!"
 	done
 
 Route13_MapEvents:

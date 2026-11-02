@@ -45,29 +45,10 @@ Route102CalvinAfterBattleText:
 
 
 Route102AllenScript:
-	trainer YOUNGSTER, ROUTE102_ALLEN, EVENT_BEAT_ROUTE102_ALLEN, Route102AllenSeenText, Route102AllenBeatenText, 0, .AfterScript
+	trainer PUPILS, ALANDTIANA, EVENT_BEAT_PUPILS_AL_TIANA, PupilsAlTianaSeenText, PupilsAlTianaBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route102AllenAfterBattleText
-
-Route102AllenSeenText:
-	text "Shh!"
-
-	para "I'm trying to"
-	line "catch a #mon!"
-	done
-
-Route102AllenBeatenText:
-	text "I guess it"
-	line "ran away."
-	done
-
-Route102AllenAfterBattleText:
-	text "Sometimes they"
-	line "run away."
-
-	para "So annoying..."
-	done
+.Script:
+	trainerafter PupilsAlTianaAfterBattleText
 
 
 Route102RickScript:
@@ -97,27 +78,10 @@ Route102RickAfterBattleText:
 
 
 Route102TianaScript:
-	trainer LASS, ROUTE102_TIANA, EVENT_BEAT_ROUTE102_TIANA, Route102TianaSeenText, Route102TianaBeatenText, 0, .AfterScript
+	trainer PUPILS, ALANDTIANA, EVENT_BEAT_PUPILS_AL_TIANA, PupilsAlTianaSeenText, PupilsAlTianaBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route102TianaAfterBattleText
-
-Route102TianaSeenText:
-	text "I'm tired of"
-	line "all these bugs."
-
-	para "Let's do this!"
-	done
-
-Route102TianaBeatenText:
-	text "Ugh..."
-	done
-
-Route102TianaAfterBattleText:
-	text "I thought I"
-	line "was ready for"
-	cont "trainer battles."
-	done
+.Script:
+	trainerafter PupilsAlTianaAfterBattleText
 
 Route102_Surskit:
 	cry SURSKIT
@@ -159,6 +123,24 @@ Route102SignText:
 	line "West: Petalburg"
 	done
 
+PupilsAlTianaSeenText:
+	text "Al: We just got"
+	line "our first #mon!"
+
+	para "Tiana: Let's see"
+	line "whose is better!"
+	done
+
+PupilsAlTianaBeatenText:
+	text "Tiana: Yours is!"
+	done
+
+PupilsAlTianaAfterBattleText:
+	text "Al: Petalburg has"
+	line "a Gym, but you"
+	cont "need badges first."
+	done
+
 Route102_MapEvents:
 	db 0, 0 ; filler
 
@@ -172,9 +154,9 @@ Route102_MapEvents:
 
 	def_object_events
 	object_event  32,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route102CalvinScript, -1
-	object_event  19, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route102AllenScript, -1
+	object_event 22,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route102AllenScript, -1
 	object_event  12, 11, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route102RickScript, -1
-	object_event   6,  2, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route102TianaScript, -1
+	object_event 23,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route102TianaScript, -1
 	object_event  30,  3, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route102_Surskit, -1
 	object_event  24,  6, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route102_Taillow, -1
 	object_event   7, 18, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route102_Seedot, -1

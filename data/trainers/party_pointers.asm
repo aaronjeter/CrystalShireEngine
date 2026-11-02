@@ -101,5 +101,14 @@ TrainerGroups:
 	dba ElmGroup
 	dba BirchGroup
 	dba NurseGroup
+	dba CoupleGroup
+	dba SwimmersGroup
+	dba AceDuoGroup
+	dba RangersGroup
+	dba FightersGroup
+	dba BirdersGroup
+	dba HikersGroup
+	dba PokefansGroup
+	dba PupilsGroup
 	assert_table_length NUM_TRAINER_CLASSES
 

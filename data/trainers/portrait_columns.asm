@@ -102,4 +102,13 @@ TrainerPortraitColumns:
 	db 1 ; ELM (elm)
 	db 1 ; BIRCH (birch)
 	db 1 ; NURSE (nurse)
+	db 1 ; COUPLE (couple)
+	db 1 ; SWIMMERS (swimmers)
+	db 1 ; ACE_DUO (ace_duo)
+	db 1 ; RANGERS (rangers)
+	db 1 ; FIGHTERS (fighters)
+	db 1 ; BIRDERS (birders)
+	db 1 ; HIKERS (hikers)
+	db 1 ; POKEFANS (pokefans)
+	db 1 ; PUPILS (pupils)
 	assert_table_length NUM_TRAINER_CLASSES

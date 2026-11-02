@@ -107,6 +107,15 @@ INCBIN "gfx/trainers/green.gbcpal", middle_colors
 INCBIN "gfx/trainers/elm.gbcpal", middle_colors
 INCBIN "gfx/trainers/birch.gbcpal", middle_colors
 INCBIN "gfx/trainers/nurse.gbcpal", middle_colors
+INCBIN "gfx/trainers/couple.gbcpal", middle_colors
+INCBIN "gfx/trainers/swimmers.gbcpal", middle_colors
+INCBIN "gfx/trainers/ace_duo.gbcpal", middle_colors
+INCBIN "gfx/trainers/rangers.gbcpal", middle_colors
+INCBIN "gfx/trainers/fighters.gbcpal", middle_colors
+INCBIN "gfx/trainers/birders.gbcpal", middle_colors
+INCBIN "gfx/trainers/hikers.gbcpal", middle_colors
+INCBIN "gfx/trainers/pokefans.gbcpal", middle_colors
+INCBIN "gfx/trainers/pupils.gbcpal", middle_colors
 KrisPalette: 
 INCLUDE "gfx/player/kris.pal"
 	assert_table_length NUM_TRAINER_CLASSES + 2

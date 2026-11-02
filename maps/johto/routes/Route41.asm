@@ -22,10 +22,10 @@ Route41MonSpritesCallback:
 	endcallback
 
 TrainerSwimmerfKaylee:
-	trainer SWIMMERF, KAYLEE, EVENT_BEAT_SWIMMERF_KAYLEE, SwimmerfKayleeSeenText, SwimmerfKayleeBeatenText, 0, .Script
+	trainer SWIMMERS, CALANDKAY, EVENT_BEAT_SWIMMERS_CAL_KAY, SwimmersCalKaySeenText, SwimmersCalKayBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmerfKayleeAfterBattleText
+	trainerafter SwimmersCalKayAfterBattleText
 
 TrainerSwimmerfSusie:
 	trainer SWIMMERF, SUSIE, EVENT_BEAT_SWIMMERF_SUSIE, SwimmerfSusieSeenText, SwimmerfSusieBeatenText, 0, .Script
@@ -52,10 +52,10 @@ TrainerSwimmerfWendy:
 	trainerafter SwimmerfWendyAfterBattleText
 
 TrainerSwimmermCharlie:
-	trainer SWIMMERM, CHARLIE, EVENT_BEAT_SWIMMERM_CHARLIE, SwimmermCharlieSeenText, SwimmermCharlieBeatenText, 0, .Script
+	trainer SWIMMERS, CALANDKAY, EVENT_BEAT_SWIMMERS_CAL_KAY, SwimmersCalKaySeenText, SwimmersCalKayBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmermCharlieAfterBattleText
+	trainerafter SwimmersCalKayAfterBattleText
 
 TrainerSwimmermGeorge:
 	trainer SWIMMERM, GEORGE, EVENT_BEAT_SWIMMERM_GEORGE, SwimmermGeorgeSeenText, SwimmermGeorgeBeatenText, 0, .Script
@@ -83,26 +83,6 @@ TrainerSwimmermMathew:
 
 Route41HiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_41_HIDDEN_MAX_ETHER
-
-SwimmermCharlieSeenText:
-	text "The water's warm"
-	line "here. I'm loose"
-	cont "and limber."
-
-	para "Sure, I'll take"
-	line "you on!"
-	done
-
-SwimmermCharlieBeatenText:
-	text "Yikes! I've got"
-	line "prune skin!"
-	done
-
-SwimmermCharlieAfterBattleText:
-	text "Isn't it relaxing"
-	line "just floating like"
-	cont "this?"
-	done
 
 SwimmermGeorgeSeenText:
 	text "I'm a bit tired."
@@ -187,29 +167,6 @@ SwimmermMathewAfterBattleText:
 
 	para "It's pitch-black"
 	line "inside!"
-	done
-
-SwimmerfKayleeSeenText:
-	text "I'm on my way to"
-	line "Whirl Islands."
-
-	para "I'm going explor-"
-	line "ing with friends."
-	done
-
-SwimmerfKayleeBeatenText:
-	text "Is that how you do"
-	line "it?"
-	done
-
-SwimmerfKayleeAfterBattleText:
-	text "There's supposed"
-	line "to be a big #-"
-	cont "MON deep beneath"
-	cont "Whirl Islands."
-
-	para "I wonder what it"
-	line "could be?"
 	done
 
 SwimmerfSusieSeenText:
@@ -322,6 +279,25 @@ Djinn_SpritzText:
 	line "join your party?"
 	done
 
+SwimmersCalKaySeenText:
+	text "Kay: Cal, a"
+	line "challenger!"
+
+	para "Cal: In the water,"
+	line "we're unbeatable!"
+	done
+
+SwimmersCalKayBeatenText:
+	text "Cal: Beaten…"
+	line "in the water?!"
+	done
+
+SwimmersCalKayAfterBattleText:
+	text "Kay: There are"
+	line "islands hidden"
+	cont "in the whirlpools."
+	done
+
 Route41_MapEvents:
 	db 0, 0 ; filler
 
@@ -337,12 +313,12 @@ Route41_MapEvents:
 	bg_event  9, 35, BGEVENT_ITEM, Route41HiddenMaxEther
 
 	def_object_events
-	object_event 32,  6, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCharlie, -1
+	object_event 32,  6, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCharlie, -1
 	object_event 46,  8, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermGeorge, -1
 	object_event 20, 26, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermBerke, -1
 	object_event 32, 30, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermKirk, -1
 	object_event 19, 46, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermMathew, -1
-	object_event 17,  4, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfKaylee, -1
+	object_event 32,  7, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfKaylee, -1
 	object_event 23, 19, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfSusie, -1
 	object_event 27, 34, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfDenise, -1
 	object_event 44, 28, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerSwimmerfKara, -1

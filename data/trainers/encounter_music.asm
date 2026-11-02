@@ -102,6 +102,15 @@ TrainerEncounterMusic::
 	db MUSIC_HIKER_ENCOUNTER       ; elm
 	db MUSIC_HIKER_ENCOUNTER       ; birch
 	db MUSIC_POKEMON_CENTER		   ; nurse
+	db MUSIC_LASS_ENCOUNTER        ; couple
+	db MUSIC_BEAUTY_ENCOUNTER      ; swimmers
+	db MUSIC_HIKER_ENCOUNTER       ; ace duo
+	db MUSIC_HIKER_ENCOUNTER       ; rangers
+	db MUSIC_HIKER_ENCOUNTER       ; fighters
+	db MUSIC_YOUNGSTER_ENCOUNTER   ; birders
+	db MUSIC_HIKER_ENCOUNTER       ; hikers
+	db MUSIC_BEAUTY_ENCOUNTER      ; #fans
+	db MUSIC_LASS_ENCOUNTER        ; pupils
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

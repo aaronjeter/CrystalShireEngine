@@ -100,4 +100,13 @@ TrainerClassDVs:
 	dn 15, 15, 15, 13 ; ELM
 	dn 15, 15, 15, 13 ; BIRCH
 	dn  6,  9, 12,  8 ; NURSE
+	dn 9,  9,  9,  8 ; COUPLE
+	dn 9,  8,  8,  8 ; SWIMMERS
+	dn 13, 12, 12,  8 ; ACE_DUO
+	dn 12, 12, 12, 11 ; RANGERS
+	dn 10,  8,  8,  8 ; FIGHTERS
+	dn 9,  8,  8,  8 ; BIRDERS
+	dn 10,  8,  8,  8 ; HIKERS
+	dn 9, 10,  8,  8 ; POKEFANS
+	dn 9,  8,  8,  8 ; PUPILS
 	assert_table_length NUM_TRAINER_CLASSES

@@ -73,29 +73,10 @@ DesertHeidiAfterBattleText:
 
 
 DesertBeckyScript:
-	trainer PICNICKER, DESERT_BECKY, EVENT_BEAT_DESERT_BECKY, DesertBeckySeenText, DesertBeckyBeatenText, 0, .AfterScript
+	trainer COUPLE, DREWANDBEC, EVENT_BEAT_COUPLE_DREW_BEC, CoupleDrewBecSeenText, CoupleDrewBecBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter DesertBeckyAfterBattleText
-
-DesertBeckySeenText:
-	text "There's so much"
-	line "sand here..."
-
-	para "And people used"
-	line "to live here."
-	done
-
-DesertBeckyBeatenText:
-	text "You're pretty"
-	line "tough."
-	done
-
-DesertBeckyAfterBattleText:
-	text "I guess it"
-	line "wasn't so dry"
-	cont "back in the day."
-	done
+.Script:
+	trainerafter CoupleDrewBecAfterBattleText
 
 
 DesertCeliaScript:
@@ -147,27 +128,10 @@ DesertBeauAfterBattleText:
 
 
 DesertDrewScript:
-	trainer CAMPER, DESERT_DREW, EVENT_BEAT_DESERT_DREW, DesertDrewSeenText, DesertDrewBeatenText, 0, .AfterScript
+	trainer COUPLE, DREWANDBEC, EVENT_BEAT_COUPLE_DREW_BEC, CoupleDrewBecSeenText, CoupleDrewBecBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter DesertDrewAfterBattleText
-
-DesertDrewSeenText:
-	text "We learned about"
-	line "these ruins in"
-	cont "school."
-	done
-
-DesertDrewBeatenText:
-	text "I was hoping"
-	line "to win again."
-	done
-
-DesertDrewAfterBattleText:
-	text "Lots of people"
-	line "used to live"
-	cont "here."
-	done
+.Script:
+	trainerafter CoupleDrewBecAfterBattleText
 
 
 DesertBrandenScript:
@@ -331,6 +295,24 @@ DesertTMSandstorm:
 DesertSoftSand:
 	itemball SOFT_SAND
 
+CoupleDrewBecSeenText:
+	text "Bec: Sand in my"
+	line "hair again…"
+
+	para "Drew: Shake it off"
+	line "with a battle!"
+	done
+
+CoupleDrewBecBeatenText:
+	text "Drew: Sandblasted!"
+	done
+
+CoupleDrewBecAfterBattleText:
+	text "Bec: Ruins lie"
+	line "under the sand,"
+	cont "they say."
+	done
+
 LavaridgeDesert_MapEvents:
 	db 0, 0 ; filler
 
@@ -352,7 +334,7 @@ LavaridgeDesert_MapEvents:
 	object_event 10, 24, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, DesertBeckyScript, -1
 	object_event 25, 32, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, DesertCeliaScript, -1
 	object_event 07, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_TRAINER, 3, DesertBeauScript, -1
-	object_event 09, 24, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, DesertDrewScript, -1
+	object_event  9, 24, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, DesertDrewScript, -1
 	object_event 23, 35, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, DesertBrandenScript, -1
 	object_event 42, 39, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, DesertDustyScript, -1
 	object_event 27, 22, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, DesertBryanScript, -1
@@ -362,4 +344,3 @@ LavaridgeDesert_MapEvents:
 	object_event 40, 10, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertJaneScript, EVENT_HIDE_DESERT_JANE
 	object_event 41, 10, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertLatiasScript, EVENT_HIDE_LATIAS
 	object_event 12, 50, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DesertLatiosScript, EVENT_HIDE_LATIOS
-

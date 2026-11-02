@@ -14,52 +14,16 @@ Route112_MapScripts:
 	def_callbacks	
 
 Route112TrentScript:
-	trainer HIKER, ROUTE112_TRENT, EVENT_BEAT_ROUTE112_TRENT, Route112TrentSeenText, Route112TrentBeatenText, 0, .AfterScript
+	trainer HIKERS, TRENTANDIKE, EVENT_BEAT_HIKERS_TRENT_IKE, HikersTrentIkeSeenText, HikersTrentIkeBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route112TrentAfterBattleText
-
-Route112TrentSeenText:
-	text "Hey there!"
-
-	para "Headed to"
-	line "Fallarbor?"
-	done
-
-Route112TrentBeatenText:
-	text "Aww!"
-	done
-
-Route112TrentAfterBattleText:
-	text "The path here"
-	line "is HOT!"
-	done
+.Script:
+	trainerafter HikersTrentIkeAfterBattleText
 
 Route112BriceScript:
-	trainer HIKER, ROUTE112_BRICE, EVENT_BEAT_ROUTE112_BRICE, Route112BriceSeenText, Route112BriceBeatenText, 0, .AfterScript
+	trainer HIKERS, TRENTANDIKE, EVENT_BEAT_HIKERS_TRENT_IKE, HikersTrentIkeSeenText, HikersTrentIkeBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route112BriceAfterBattleText
-
-Route112BriceSeenText:
-	text "WHEW!"
-
-	para "I just came"
-	line "through the"
-	cont "Fiery Path!"
-	done
-
-Route112BriceBeatenText:
-	text "Smoked!"
-	done
-
-Route112BriceAfterBattleText:
-	text "Hot caves make"
-	line "me tired."
-
-	para "Maybe it's time"
-	line "for a nap."
-	done
+.Script:
+	trainerafter HikersTrentIkeAfterBattleText
 
 
 Route112CarolScript:
@@ -172,6 +136,23 @@ Route112FruitTree2:
 Route112Lemonade:
 	itemball LEMONADE
 
+HikersTrentIkeSeenText:
+	text "Tex: Mt.Chimney"
+	line "is hot, hot, hot!"
+
+	para "Ike: Our rocks can"
+	line "take the heat!"
+	done
+
+HikersTrentIkeBeatenText:
+	text "Ike: We melted…"
+	done
+
+HikersTrentIkeAfterBattleText:
+	text "Tex: Hiking makes"
+	line "your legs strong!"
+	done
+
 Route112_MapEvents:
 	db 0, 0 ; filler
 
@@ -185,7 +166,7 @@ Route112_MapEvents:
 
 	def_object_events
 	object_event 24, 29, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route112TrentScript, -1
-	object_event 15, 35, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route112BriceScript, -1
+	object_event 24, 28, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route112BriceScript, -1
 	object_event 22, 48, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, Route112CarolScript, -1
 	object_event 28, 50, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route112LarryScript, -1
 	object_event 13, 06, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route112BryantScript, -1

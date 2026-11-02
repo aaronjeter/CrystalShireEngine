@@ -5,6 +5,8 @@
 	const ROUTE8_SUPER_NERD1
 	const ROUTE8_SUPER_NERD2
 	const ROUTE8_FRUIT_TREE
+	const ROUTE8_COUPLE1
+	const ROUTE8_COUPLE2
 
 Route8_MapScripts:
 	def_scene_scripts
@@ -145,6 +147,36 @@ Route8UndergroundPathSignText:
 	line "read…"
 	done
 
+TrainerCoupleTy:
+	trainer COUPLE, TYANDMAE, EVENT_BEAT_COUPLE_TY_MAE, CoupleTyMaeSeenText, CoupleTyMaeBeatenText, 0, .Script
+
+.Script:
+	trainerafter CoupleTyMaeAfterBattleText
+
+TrainerCoupleMae:
+	trainer COUPLE, TYANDMAE, EVENT_BEAT_COUPLE_TY_MAE, CoupleTyMaeSeenText, CoupleTyMaeBeatenText, 0, .Script
+
+.Script:
+	trainerafter CoupleTyMaeAfterBattleText
+
+CoupleTyMaeSeenText:
+	text "Mae: We're on a"
+	line "date in Saffron!"
+
+	para "Ty: But first,"
+	line "a battle!"
+	done
+
+CoupleTyMaeBeatenText:
+	text "Ty: Some date…"
+	done
+
+CoupleTyMaeAfterBattleText:
+	text "Mae: Lavender's"
+	line "tower is so"
+	cont "spooky at night."
+	done
+
 Route8_MapEvents:
 	db 0, 0 ; filler
 
@@ -165,3 +197,5 @@ Route8_MapEvents:
 	object_event 23,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdSam, -1
 	object_event 31, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerSupernerdTom, -1
 	object_event 33,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route8FruitTree, -1
+	object_event 26,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCoupleTy, -1
+	object_event 27,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCoupleMae, -1

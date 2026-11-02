@@ -168,16 +168,16 @@ TrainerFisherRaymond:
 	trainerafter FisherRaymondAfterBattleText
 
 TrainerCooltrainermAaron:
-	trainer COOLTRAINERM, AARON, EVENT_BEAT_COOLTRAINERM_AARON, CooltrainermAaronSeenText, CooltrainermAaronBeatenText, 0, .Script
+	trainer ACE_DUO, ABEANDLOIS, EVENT_BEAT_ACE_DUO_ABE_LOIS, AceDuoAbeLoisSeenText, AceDuoAbeLoisBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainermAaronAfterBattleText
+	trainerafter AceDuoAbeLoisAfterBattleText
 
 TrainerCooltrainerfLois:
-	trainer COOLTRAINERF, LOIS, EVENT_BEAT_COOLTRAINERF_LOIS, CooltrainerfLoisSeenText, CooltrainerfLoisBeatenText, 0, .Script
+	trainer ACE_DUO, ABEANDLOIS, EVENT_BEAT_ACE_DUO_ABE_LOIS, AceDuoAbeLoisSeenText, AceDuoAbeLoisBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainerfLoisAfterBattleText
+	trainerafter AceDuoAbeLoisAfterBattleText
 
 WesleyScript:
 	faceplayer
@@ -385,53 +385,6 @@ FisherRaymondAfterBattleText:
 	line "any good #mon?"
 	done
 
-CooltrainermAaronSeenText:
-	text "If a trainer spots"
-	line "another trainer,"
-
-	para "he has to make a"
-	line "challenge."
-
-	para "That is our"
-	line "destiny."
-	done
-
-CooltrainermAaronBeatenText:
-	text "Whew…"
-	line "Good battle."
-	done
-
-CooltrainermAaronAfterBattleText:
-	text "#mon and their"
-	line "trainer become"
-
-	para "powerful through"
-	line "constant battling."
-	done
-
-CooltrainerfLoisSeenText:
-	text "What happened to"
-	line "the red Gyarados?"
-
-	para "It's gone?"
-
-	para "Oh, darn. I came"
-	line "here for nothing?"
-
-	para "I know--let's"
-	line "battle!"
-	done
-
-CooltrainerfLoisBeatenText:
-	text "Good going!"
-	done
-
-CooltrainerfLoisAfterBattleText:
-	text "Come to think of"
-	line "it, I've seen a"
-	cont "pink Butterfree."
-	done
-
 MeetWesleyText:
 	text "Wesley: Well, how"
 	line "do you do?"
@@ -483,6 +436,28 @@ FishingGurusHouseSignText:
 	line "House"
 	done
 
+AceDuoAbeLoisSeenText:
+	text "Lois: The sun"
+	line "shines on us!"
+
+	para "Abe: Our team"
+	line "burns brightest"
+	cont "in its light!"
+	done
+
+AceDuoAbeLoisBeatenText:
+	text "Abe: Eclipsed…"
+	done
+
+AceDuoAbeLoisAfterBattleText:
+	text "Lois: The lake"
+	line "turned red when"
+	cont "Gyarados raged."
+
+	para "Abe: Something's"
+	line "not right here."
+	done
+
 LakeOfRage_MapEvents:
 	db 0, 0 ; filler
 
@@ -506,8 +481,8 @@ LakeOfRage_MapEvents:
 	object_event 25, 29, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LakeOfRageCooltrainerFScript, -1
 	object_event 30, 23, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherAndre, EVENT_LAKE_OF_RAGE_CIVILIANS
 	object_event 24, 26, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherRaymond, EVENT_LAKE_OF_RAGE_CIVILIANS
-	object_event  4, 15, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermAaron, EVENT_LAKE_OF_RAGE_CIVILIANS
-	object_event 36,  7, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerCooltrainerfLois, EVENT_LAKE_OF_RAGE_CIVILIANS
+	object_event 38,  5, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermAaron, EVENT_LAKE_OF_RAGE_CIVILIANS
+	object_event 37,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfLois, EVENT_LAKE_OF_RAGE_CIVILIANS
 	object_event 18, 22, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RedGyarados, EVENT_LAKE_OF_RAGE_RED_GYARADOS
 	object_event  4,  4, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WesleyScript, EVENT_LAKE_OF_RAGE_WESLEY_OF_WEDNESDAY
 	object_event  7, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, LakeOfRageElixer, EVENT_LAKE_OF_RAGE_ELIXER

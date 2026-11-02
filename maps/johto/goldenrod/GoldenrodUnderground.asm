@@ -11,6 +11,8 @@ DEF GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_PRICE EQU 300
 	const GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
 	const GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
 	const GOLDENRODUNDERGROUND_GRANNY
+	const GOLDENRODUNDERGROUND_POKEFAN1
+	const GOLDENRODUNDERGROUND_POKEFAN2
 
 GoldenrodUnderground_MapScripts:
 	def_scene_scripts
@@ -625,6 +627,36 @@ GoldenrodUndergroundNoEntryText:
 	line "This Point"
 	done
 
+TrainerPokefansMo:
+	trainer POKEFANS, MOANDFLO, EVENT_BEAT_POKEFANS_MO_FLO, PokefansMoFloSeenText, PokefansMoFloBeatenText, 0, .Script
+
+.Script:
+	trainerafter PokefansMoFloAfterBattleText
+
+TrainerPokefansFlo:
+	trainer POKEFANS, MOANDFLO, EVENT_BEAT_POKEFANS_MO_FLO, PokefansMoFloSeenText, PokefansMoFloBeatenText, 0, .Script
+
+.Script:
+	trainerafter PokefansMoFloAfterBattleText
+
+PokefansMoFloSeenText:
+	text "Mo: We came for"
+	line "the bargains!"
+
+	para "Flo: And to show"
+	line "off our darlings!"
+	done
+
+PokefansMoFloBeatenText:
+	text "Flo: My darlings!"
+	done
+
+PokefansMoFloAfterBattleText:
+	text "Mo: Haircuts here"
+	line "make #mon so"
+	cont "happy!"
+	done
+
 GoldenrodUnderground_MapEvents:
 	db 0, 0 ; filler
 
@@ -655,3 +687,5 @@ GoldenrodUnderground_MapEvents:
 	object_event  7, 14, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OlderHaircutBrotherScript, EVENT_GOLDENROD_UNDERGROUND_OLDER_HAIRCUT_BROTHER
 	object_event  7, 15, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, YoungerHaircutBrotherScript, EVENT_GOLDENROD_UNDERGROUND_YOUNGER_HAIRCUT_BROTHER
 	object_event  7, 21, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BitterMerchantScript, EVENT_GOLDENROD_UNDERGROUND_GRANNY
+	object_event  6, 18, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefansMo, -1
+	object_event  6, 19, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefansFlo, -1

@@ -25,10 +25,10 @@ Route19ClearRocksCallback:
 	endcallback
 
 TrainerSwimmerfDawn:
-	trainer SWIMMERF, DAWN, EVENT_BEAT_SWIMMERF_DAWN, SwimmerfDawnSeenText, SwimmerfDawnBeatenText, 0, .Script
+	trainer SWIMMERS, TUCKANDDI, EVENT_BEAT_SWIMMERS_TUCK_DI, SwimmersTuckDiSeenText, SwimmersTuckDiBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmerfDawnAfterBattleText
+	trainerafter SwimmersTuckDiAfterBattleText
 
 TrainerSwimmermHarold:
 	trainer SWIMMERM, HAROLD, EVENT_BEAT_SWIMMERM_HAROLD, SwimmermHaroldSeenText, SwimmermHaroldBeatenText, 0, .Script
@@ -43,10 +43,10 @@ TrainerSwimmermJerome:
 	trainerafter SwimmermJeromeAfterBattleText
 
 TrainerSwimmermTucker:
-	trainer SWIMMERM, TUCKER, EVENT_BEAT_SWIMMERM_TUCKER, SwimmermTuckerSeenText, SwimmermTuckerBeatenText, 0, .Script
+	trainer SWIMMERS, TUCKANDDI, EVENT_BEAT_SWIMMERS_TUCK_DI, SwimmersTuckDiSeenText, SwimmersTuckDiBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmermTuckerAfterBattleText
+	trainerafter SwimmersTuckDiAfterBattleText
 
 Route19Fisher1Script:
 	faceplayer
@@ -102,47 +102,6 @@ SwimmermHaroldAfterBattleText:
 
 	para "feels like it will"
 	line "swallow you up."
-	done
-
-SwimmermTuckerSeenText:
-	text "Pant, pant…"
-	line "Just… a little…"
-
-	para "farther… to…"
-	line "Fuchsia…"
-	done
-
-SwimmermTuckerBeatenText:
-	text "I'm drowning!"
-	done
-
-SwimmermTuckerAfterBattleText:
-	text "I… asked my girl-"
-	line "friend to swim to"
-	cont "Fuchsia… Gasp…"
-	done
-
-SwimmerfDawnSeenText:
-	text "I'm disgusted by"
-	line "wimpy people!"
-	done
-
-SwimmerfDawnBeatenText:
-	text "I could beat you"
-	line "at swimming…"
-	done
-
-SwimmerfDawnAfterBattleText:
-	text "It's a quick swim"
-	line "between Fuchsia"
-
-	para "and Seafoam Is-"
-	line "lands…"
-
-	para "Sheesh, some big"
-	line "man my boyfriend"
-
-	para "is! What a wimp!"
 	done
 
 SwimmermJeromeSeenText:
@@ -212,6 +171,24 @@ CarefulSwimmingSignText:
 	para "Fuchsia Police"
 	done
 
+SwimmersTuckDiSeenText:
+	text "Tuck: We swim"
+	line "to Cinnabar!"
+
+	para "Di: Racing you is"
+	line "a nice break!"
+	done
+
+SwimmersTuckDiBeatenText:
+	text "Di: Wiped out!"
+	done
+
+SwimmersTuckDiAfterBattleText:
+	text "Tuck: The Seafoam"
+	line "Islands are icy."
+	cont "Brrr!"
+	done
+
 Route19_MapEvents:
 	db 0, 0 ; filler
 
@@ -225,7 +202,7 @@ Route19_MapEvents:
 	bg_event 11,  1, BGEVENT_READ, CarefulSwimmingSign
 
 	def_object_events
-	object_event  9, 23, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerSwimmerfDawn, -1
+	object_event  9, 23, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerSwimmerfDawn, -1
 	object_event 13, 28, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermHarold, -1
 	object_event 11, 17, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermJerome, -1
 	object_event  8, 23, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerSwimmermTucker, -1

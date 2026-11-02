@@ -305,9 +305,9 @@
 	;Hoenn Route Trainers
 
 	const EVENT_BEAT_ROUTE102_CALVIN
-	const EVENT_BEAT_ROUTE102_ALLEN
+	const EVENT_BEAT_PUPILS_AL_TIANA
 	const EVENT_BEAT_ROUTE102_RICK
-	const EVENT_BEAT_ROUTE102_TIANA
+	const_skip ; unused (was EVENT_BEAT_ROUTE102_TIANA until Nov 2026: may be set in old saves)
 
 	const EVENT_BEAT_ROUTE103_DAISY
 	const EVENT_BEAT_ROUTE103_AMYLIV
@@ -327,8 +327,8 @@
 	const EVENT_BEAT_PETALBURGWOODS_LYLE
 	const EVENT_BEAT_PETALBURGWOODS_JAMES	
 
-	const EVENT_BEAT_ROUTE105_IMANI
-	const EVENT_BEAT_ROUTE105_LUIS
+	const_skip ; unused (was EVENT_BEAT_ROUTE105_IMANI until Nov 2026: may be set in old saves)
+	const EVENT_BEAT_SWIMMERS_LU_IMA
 	const EVENT_BEAT_ROUTE105_FOSTER
 	const EVENT_BEAT_ROUTE105_ANDRES
 	const EVENT_BEAT_ROUTE105_JOSUE
@@ -349,8 +349,8 @@
 	const EVENT_BEAT_ROUTE109_LOLA
 	const EVENT_BEAT_ROUTE109_CHANDLER
 
-	const EVENT_BEAT_ROUTE110_ISABEL
-	const EVENT_BEAT_ROUTE110_KALEB
+	const EVENT_BEAT_POKEFANS_KAL_ISA
+	const_skip ; unused (was EVENT_BEAT_ROUTE110_KALEB until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_ROUTE110_TIMMY
 	const EVENT_BEAT_ROUTE110_EDWIN
 	const EVENT_BEAT_ROUTE110_JOSEPH
@@ -361,12 +361,12 @@
 	const EVENT_BEAT_ROUTE111_CELINA
 	const EVENT_BEAT_ROUTE111_BIANCA
 	const EVENT_BEAT_ROUTE111_HAYDEN
-	const EVENT_BEAT_ROUTE111_GABBY
+	const EVENT_BEAT_COUPLE_ED_GABBY
 	const EVENT_BEAT_ROUTE111_IRENE
-	const EVENT_BEAT_ROUTE111_TRAVIS
+	const_skip ; unused (was EVENT_BEAT_ROUTE111_TRAVIS until Nov 2026: may be set in old saves)
 
-	const EVENT_BEAT_ROUTE112_TRENT
-	const EVENT_BEAT_ROUTE112_BRICE
+	const EVENT_BEAT_HIKERS_TRENT_IKE
+	const_skip ; unused (was EVENT_BEAT_ROUTE112_BRICE until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_ROUTE112_CAROL
 	const EVENT_BEAT_ROUTE112_LARRY
 	const EVENT_BEAT_ROUTE112_BRYANT
@@ -387,8 +387,8 @@
 	const EVENT_BEAT_ROUTE114_NOLAN
 	const EVENT_BEAT_ROUTE114_KAI
 	const EVENT_BEAT_ROUTE114_CLAUDE
-	const EVENT_BEAT_ROUTE114_LUCAS
-	const EVENT_BEAT_ROUTE114_LENNY
+	const_skip ; unused (was EVENT_BEAT_ROUTE114_LUCAS until Nov 2026: may be set in old saves)
+	const EVENT_BEAT_HIKERS_LEN_LUKE
 	const EVENT_BEAT_ROUTE114_BERNIE
 	const EVENT_BEAT_ROUTE114_CHARLOTTE
 	const EVENT_BEAT_ROUTE114_NANCY
@@ -396,18 +396,18 @@
 	const EVENT_BEAT_ROUTE114_SHANE
 
 	const EVENT_BEAT_DESERT_HEIDI
-	const EVENT_BEAT_DESERT_BECKY
+	const_skip ; unused (was EVENT_BEAT_DESERT_BECKY until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_DESERT_CELIA
 	const EVENT_BEAT_DESERT_BEAU
-	const EVENT_BEAT_DESERT_DREW
+	const EVENT_BEAT_COUPLE_DREW_BEC
 	const EVENT_BEAT_DESERT_BRANDEN
 	const EVENT_BEAT_DESERT_DUSTY	
 	const EVENT_BEAT_DESERT_BRYAN	
 
-	const EVENT_BEAT_ROUTE116_JOEY
+	const EVENT_BEAT_PUPILS_JOEY_JAN
 	const EVENT_BEAT_ROUTE116_JOHNSON
 	const EVENT_BEAT_ROUTE116_KAREN
-	const EVENT_BEAT_ROUTE116_JANICE
+	const_skip ; unused (was EVENT_BEAT_ROUTE116_JANICE until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_ROUTE116_JOSE
 	const EVENT_BEAT_ROUTE116_CLARK
 	const EVENT_BEAT_ROUTE116_DEVAN
@@ -422,10 +422,10 @@
 	const EVENT_BEAT_ROUTE117_AISHA
 	const EVENT_BEAT_ROUTE117_LYDIA
 
-	const EVENT_BEAT_ROUTE118_DALE
+	const EVENT_BEAT_PUPILS_DALE_SAL
 	const EVENT_BEAT_ROUTE118_CHESTER
 	const EVENT_BEAT_ROUTE118_PERRY
-	const EVENT_BEAT_ROUTE118_SALLY
+	const_skip ; unused (was EVENT_BEAT_ROUTE118_SALLY until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_ROUTE118_ANNIE
 	const EVENT_BEAT_ROUTE118_BARNY
 
@@ -440,18 +440,18 @@
 	const EVENT_BEAT_ROUTE119_CHRIS
 	const EVENT_BEAT_ROUTE119_FABIAN
 	const EVENT_BEAT_ROUTE119_DAYTON
-	const EVENT_BEAT_ROUTE119_JACKSON
+	const EVENT_BEAT_RANGERS_JACK_KAT
 	const EVENT_BEAT_ROUTE119_TAKASHI
-	const EVENT_BEAT_ROUTE119_YASU
+	const EVENT_BEAT_RANGERS_YASU_RAE
 	const EVENT_BEAT_ROUTE119_HIDEO
-	const EVENT_BEAT_ROUTE119_CATHERINE
-	const EVENT_BEAT_ROUTE119_RACHEL
+	const_skip ; unused (was EVENT_BEAT_ROUTE119_CATHERINE until Nov 2026: may be set in old saves)
+	const_skip ; unused (was EVENT_BEAT_ROUTE119_RACHEL until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_ROUTE119_DANI
 
 	const EVENT_BEAT_ROUTE120_ROBERT
 	const EVENT_BEAT_ROUTE120_COLIN
-	const EVENT_BEAT_ROUTE120_LEONEL
-	const EVENT_BEAT_ROUTE120_JENNIFER
+	const EVENT_BEAT_ACE_DUO_LEON_JEN
+	const_skip ; unused (was EVENT_BEAT_ROUTE120_JENNIFER until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_ROUTE120_CLARISSA
 	const EVENT_BEAT_ROUTE120_ANGELICA
 	const EVENT_BEAT_ROUTE120_JEFFREY
@@ -1054,16 +1054,16 @@
 	const EVENT_DEX_AIDE_BUNDLE_120
 	const EVENT_DEX_AIDE_BUNDLE_150
 	const_skip ; unused	
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_BEAT_PUPILS_KEN_AMY
+	const EVENT_BEAT_BIRDERS_JED_LOU
+	const EVENT_BEAT_FIGHTERS_KAI_MEI
+	const EVENT_BEAT_COUPLE_NED_IVY
+	const EVENT_BEAT_POKEFANS_MO_FLO
+	const EVENT_BEAT_HIKERS_GUS_TED
+	const EVENT_BEAT_COUPLE_TY_MAE
+	const EVENT_BEAT_SWIMMERS_KIP_NIA
+	const EVENT_BEAT_PUPILS_BEN_ZOE
+	const EVENT_BEAT_SWIMMERS_RIO_MEL
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
@@ -1081,8 +1081,8 @@
 ; Trainer flags
 ; Swimmer F
 	const EVENT_BEAT_SWIMMERF_ELAINE
-	const EVENT_BEAT_SWIMMERF_PAULA
-	const EVENT_BEAT_SWIMMERF_KAYLEE
+	const_skip ; unused (was EVENT_BEAT_SWIMMERF_PAULA until Nov 2026: may be set in old saves)
+	const_skip ; unused (was EVENT_BEAT_SWIMMERF_KAYLEE until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_SWIMMERF_SUSIE
 	const EVENT_BEAT_SWIMMERF_DENISE
 	const EVENT_BEAT_SWIMMERF_KARA
@@ -1091,10 +1091,10 @@
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
-	const EVENT_BEAT_SWIMMERF_DAWN
+	const_skip ; unused (was EVENT_BEAT_SWIMMERF_DAWN until Nov 2026: may be set in old saves)
 	const_skip ; unused
 	const EVENT_BEAT_SWIMMERF_NICOLE
-	const EVENT_BEAT_SWIMMERF_LORI
+	const_skip ; unused (was EVENT_BEAT_SWIMMERF_LORI until Nov 2026: may be set in old saves)
 	const_skip ; unused
 	const EVENT_BEAT_SWIMMERF_NIKKI
 	const EVENT_BEAT_SWIMMERF_DIANA
@@ -1103,19 +1103,19 @@
 	const EVENT_BEAT_BIRD_KEEPER_ROD
 	const EVENT_BEAT_BIRD_KEEPER_ABE
 	const EVENT_BEAT_BIRD_KEEPER_BRYAN
-	const EVENT_BEAT_BIRD_KEEPER_THEO
+	const_skip ; unused (was EVENT_BEAT_BIRD_KEEPER_THEO until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_BIRD_KEEPER_TOBY
-	const EVENT_BEAT_BIRD_KEEPER_DENIS
+	const EVENT_BEAT_BIRDERS_THEO_DEN
 	const EVENT_BEAT_BIRD_KEEPER_VANCE
 	const EVENT_BEAT_BIRD_KEEPER_HANK
 	const EVENT_BEAT_BIRD_KEEPER_ROY
-	const EVENT_BEAT_BIRD_KEEPER_BORIS
-	const EVENT_BEAT_BIRD_KEEPER_BOB
+	const_skip ; unused (was EVENT_BEAT_BIRD_KEEPER_BORIS until Nov 2026: may be set in old saves)
+	const EVENT_BEAT_BIRDERS_ROB_BOB
 	const_skip ; unused
 	const EVENT_BEAT_BIRD_KEEPER_PETER
 	const EVENT_BEAT_BIRD_KEEPER_JOSE2 ;for whatever reason, JOSE2is the one actually used
-	const EVENT_BEAT_BIRD_KEEPER_PERRY
-	const EVENT_BEAT_BIRD_KEEPER_BRET
+	const EVENT_BEAT_BIRDERS_RAY_BRET
+	const_skip ; unused (was EVENT_BEAT_BIRD_KEEPER_BRET until Nov 2026: may be set in old saves)
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
@@ -1134,17 +1134,17 @@
 	const EVENT_BEAT_SAGE_NEAL
 	const EVENT_BEAT_SAGE_LI
 ; Camper
-	const EVENT_BEAT_CAMPER_ROLAND
-	const EVENT_BEAT_CAMPER_TODD
+	const_skip ; unused (was EVENT_BEAT_CAMPER_ROLAND until Nov 2026: may be set in old saves)
+	const_skip ; unused (was EVENT_BEAT_CAMPER_TODD until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_CAMPER_IVAN
-	const EVENT_BEAT_CAMPER_ELLIOT
+	const EVENT_BEAT_COUPLE_ELI_BREE
 	const EVENT_BEAT_CAMPER_BARRY
 	const EVENT_BEAT_CAMPER_LLOYD
 	const EVENT_BEAT_CAMPER_DEAN
-	const EVENT_BEAT_CAMPER_SID
+	const_skip ; unused (was EVENT_BEAT_CAMPER_SID until Nov 2026: may be set in old saves)
 	const_skip ; unused
 	const_skip ; unused
-	const EVENT_BEAT_CAMPER_TED
+	const EVENT_BEAT_COUPLE_TED_ERIN
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
@@ -1152,7 +1152,7 @@
 	const_skip ; unused
 	const EVENT_BEAT_CAMPER_LIAM
 	const EVENT_BEAT_CAMPER_JERRY
-	const EVENT_BEAT_CAMPER_SPENCER
+	const_skip ; unused (was EVENT_BEAT_CAMPER_SPENCER until Nov 2026: may be set in old saves)
 ; Burglar
 	const EVENT_BEAT_BURGLAR_DUNCAN
 	const EVENT_BEAT_BURGLAR_EDDIE
@@ -1226,13 +1226,13 @@
 	const EVENT_BEAT_SCHOOLBOY_JACK
 	const EVENT_BEAT_SCHOOLBOY_KIP
 	const EVENT_BEAT_SCHOOLBOY_ALAN
-	const EVENT_BEAT_SCHOOLBOY_JOHNNY
+	const EVENT_BEAT_PUPILS_JON_BEA
 	const EVENT_BEAT_SCHOOLBOY_DANNY
 	const EVENT_BEAT_SCHOOLBOY_TOMMY
 	const EVENT_BEAT_SCHOOLBOY_DUDLEY
-	const EVENT_BEAT_SCHOOLBOY_JOE
-	const EVENT_BEAT_SCHOOLBOY_BILLY
-	const EVENT_BEAT_SCHOOLBOY_CHAD
+	const EVENT_BEAT_PUPILS_JOE_LARA
+	const_skip ; unused (was EVENT_BEAT_SCHOOLBOY_BILLY until Nov 2026: may be set in old saves)
+	const EVENT_BEAT_PUPILS_CHAD_ANA
 	const EVENT_BEAT_SCHOOLBOY_NATE
 	const EVENT_BEAT_SCHOOLBOY_RICKY
 	const_skip ; unused
@@ -1242,26 +1242,26 @@
 	const_skip ; unused
 	const_skip ; unused
 ; Picnicker
-	const EVENT_BEAT_PICNICKER_LIZ
-	const EVENT_BEAT_PICNICKER_GINA
-	const EVENT_BEAT_PICNICKER_BROOKE
+	const EVENT_BEAT_COUPLE_ROLF_LIZ
+	const EVENT_BEAT_COUPLE_TODD_GINA
+	const_skip ; unused (was EVENT_BEAT_PICNICKER_BROOKE until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_PICNICKER_KIM
 	const EVENT_BEAT_PICNICKER_CINDY
 	const EVENT_BEAT_PICNICKER_HOPE
 	const EVENT_BEAT_PICNICKER_SHARON
 	const EVENT_BEAT_PICNICKER_DEBRA
 	const EVENT_BEAT_PICNICKER_AMARA
-	const EVENT_BEAT_PICNICKER_ERIN
+	const_skip ; unused (was EVENT_BEAT_PICNICKER_ERIN until Nov 2026: may be set in old saves)
 	const_skip ; unused
 	const_skip ; unused
 	const EVENT_BEAT_PICNICKER_HEIDI
-	const EVENT_BEAT_PICNICKER_EDNA
+	const EVENT_BEAT_COUPLE_SID_EDNA
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
 	const EVENT_BEAT_PICNICKER_TANYA
-	const EVENT_BEAT_PICNICKER_TIFFANY
+	const EVENT_BEAT_COUPLE_SY_TIFF
 	const_skip ; unused
 ; Guitarist
 	const EVENT_BEAT_GUITARIST_CLYDE
@@ -1330,12 +1330,12 @@
 	const EVENT_BEAT_BLAINE
 	const EVENT_BEAT_BLUE
 ; PokefanM
-	const EVENT_BEAT_POKEFANM_WILLIAM
-	const EVENT_BEAT_POKEFANM_DEREK
+	const EVENT_BEAT_POKEFANS_HAL_BEV
+	const_skip ; unused (was EVENT_BEAT_POKEFANM_DEREK until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_POKEFANM_ROBERT
 	const EVENT_BEAT_POKEFANM_JOSHUA
-	const EVENT_BEAT_POKEFANM_CARTER
-	const EVENT_BEAT_POKEFANM_TREVOR
+	const EVENT_BEAT_POKEFANS_VIC_CAT
+	const_skip ; unused (was EVENT_BEAT_POKEFANM_TREVOR until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_POKEFANM_BRANDON
 	const EVENT_BEAT_POKEFANM_JEREMY
 	const EVENT_BEAT_POKEFANM_COLIN
@@ -1343,8 +1343,8 @@
 	const EVENT_BEAT_POKEFANM_DEREK3
 	const EVENT_BEAT_POKEFANM_ALEX
 ; PokefanF
-	const EVENT_BEAT_POKEFANF_BEVERLY
-	const EVENT_BEAT_POKEFANF_RUTH
+	const_skip ; unused (was EVENT_BEAT_POKEFANF_BEVERLY until Nov 2026: may be set in old saves)
+	const EVENT_BEAT_POKEFANS_AL_RUTH
 	const_skip ; unused
 	const_skip ; unused
 	const EVENT_BEAT_POKEFANF_GEORGIA
@@ -1414,10 +1414,10 @@
 	const EVENT_BEAT_LASS_KRISE
 	const EVENT_BEAT_LASS_CONNIE
 	const EVENT_BEAT_LASS_LINDA
-	const EVENT_BEAT_LASS_LAURA
+	const_skip ; unused (was EVENT_BEAT_LASS_LAURA until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_LASS_SHANNON
 	const EVENT_BEAT_LASS_MICHELLE
-	const EVENT_BEAT_LASS_DANA
+	const_skip ; unused (was EVENT_BEAT_LASS_DANA until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_LASS_ELLEN
 	const_skip ; unused
 	const_skip ; unused
@@ -1425,15 +1425,15 @@
 	const_skip ; unused
 ; Hiker
 	const EVENT_BEAT_HIKER_ANTHONY2
-	const EVENT_BEAT_HIKER_RUSSELL
-	const EVENT_BEAT_HIKER_PHILLIP
-	const EVENT_BEAT_HIKER_LEONARD
+	const_skip ; unused (was EVENT_BEAT_HIKER_RUSSELL until Nov 2026: may be set in old saves)
+	const_skip ; unused (was EVENT_BEAT_HIKER_PHILLIP until Nov 2026: may be set in old saves)
+	const EVENT_BEAT_HIKERS_PHIL_LEO
 	const EVENT_BEAT_HIKER_ANTHONY
 	const EVENT_BEAT_HIKER_BENJAMIN
 	const EVENT_BEAT_HIKER_ERIK
-	const EVENT_BEAT_HIKER_MICHAEL
+	const_skip ; unused (was EVENT_BEAT_HIKER_MICHAEL until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_HIKER_PARRY
-	const EVENT_BEAT_HIKER_TIMOTHY
+	const EVENT_BEAT_HIKERS_MIKE_TIM
 	const EVENT_BEAT_HIKER_BAILEY
 	const EVENT_BEAT_HIKER_ANTHONY3
 	const EVENT_BEAT_HIKER_TIM
@@ -1441,7 +1441,7 @@
 	const EVENT_BEAT_HIKER_SIDNEY
 	const EVENT_BEAT_HIKER_KENNY
 	const EVENT_BEAT_HIKER_JIM
-	const EVENT_BEAT_HIKER_DANIEL
+	const EVENT_BEAT_HIKERS_DAN_RUSS
 	const EVENT_BEAT_HIKER_PARRY2
 	const EVENT_BEAT_HIKER_PARRY3
 ; Bug Catcher
@@ -1463,42 +1463,42 @@
 	const EVENT_BEAT_OFFICER_KEITH
 	const EVENT_BEAT_OFFICER_DIRK
 ; CooltrainerM
-	const EVENT_BEAT_COOLTRAINERM_NICK
-	const EVENT_BEAT_COOLTRAINERM_AARON
+	const EVENT_BEAT_ACE_DUO_NICK_EM
+	const_skip ; unused (was EVENT_BEAT_COOLTRAINERM_AARON until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_COOLTRAINERM_PAUL
 	const EVENT_BEAT_COOLTRAINERM_CODY
 	const EVENT_BEAT_COOLTRAINERM_MIKE
 	const_skip ; unused
 	const_skip ; unused
 	const EVENT_BEAT_COOLTRAINERM_RYAN
-	const EVENT_BEAT_COOLTRAINERM_JAKE
+	const EVENT_BEAT_ACE_DUO_JAKE_JOY
 	const EVENT_BEAT_COOLTRAINERM_GAVEN
 	const EVENT_BEAT_COOLTRAINERM_BLAKE
-	const EVENT_BEAT_COOLTRAINERM_BRIAN
+	const_skip ; unused (was EVENT_BEAT_COOLTRAINERM_BRIAN until Nov 2026: may be set in old saves)
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
 	const EVENT_BEAT_COOLTRAINERM_SEAN
 	const EVENT_BEAT_COOLTRAINERM_KEVIN
 	const_skip ; unused
-	const EVENT_BEAT_COOLTRAINERM_ALLEN
+	const_skip ; unused (was EVENT_BEAT_COOLTRAINERM_ALLEN until Nov 2026: may be set in old saves)
 ; CooltrainerF
 	const EVENT_BEAT_COOLTRAINERF_GWEN
-	const EVENT_BEAT_COOLTRAINERF_LOIS
+	const EVENT_BEAT_ACE_DUO_ABE_LOIS
 	const EVENT_BEAT_COOLTRAINERF_FRAN
 	const EVENT_BEAT_COOLTRAINERF_LOLA
 	const EVENT_BEAT_COOLTRAINERF_KATE
 	const EVENT_BEAT_COOLTRAINERF_IRENE
 	const EVENT_BEAT_COOLTRAINERF_KELLY
-	const EVENT_BEAT_COOLTRAINERF_JOYCE
+	const_skip ; unused (was EVENT_BEAT_COOLTRAINERF_JOYCE until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_COOLTRAINERF_BETH
-	const EVENT_BEAT_COOLTRAINERF_REENA
+	const EVENT_BEAT_ACE_DUO_BO_REENA
 	const EVENT_BEAT_COOLTRAINERF_MEGAN
 	const EVENT_BEAT_COOLTRAINERF_BETH2
 	const EVENT_BEAT_COOLTRAINERF_CAROL
 	const EVENT_BEAT_COOLTRAINERF_QUINN
-	const EVENT_BEAT_COOLTRAINERF_EMMA
-	const EVENT_BEAT_COOLTRAINERF_CYBIL
+	const_skip ; unused (was EVENT_BEAT_COOLTRAINERF_EMMA until Nov 2026: may be set in old saves)
+	const EVENT_BEAT_ACE_DUO_AL_CYBIL
 	const EVENT_BEAT_COOLTRAINERF_JENN
 	const EVENT_BEAT_COOLTRAINERF_BETH3
 	const EVENT_BEAT_COOLTRAINERF_REENA2
@@ -1548,9 +1548,9 @@
 	const EVENT_BEAT_SKIER_CLARISSA
 ; SwimmerM
 	const EVENT_BEAT_SWIMMERM_HAROLD
-	const EVENT_BEAT_SWIMMERM_SIMON
+	const EVENT_BEAT_SWIMMERS_SAM_PAM
 	const EVENT_BEAT_SWIMMERM_RANDALL
-	const EVENT_BEAT_SWIMMERM_CHARLIE
+	const EVENT_BEAT_SWIMMERS_CAL_KAY
 	const EVENT_BEAT_SWIMMERM_GEORGE
 	const EVENT_BEAT_SWIMMERM_BERKE
 	const EVENT_BEAT_SWIMMERM_KIRK
@@ -1561,9 +1561,9 @@
 	const_skip ; unused
 	const_skip ; unused
 	const EVENT_BEAT_SWIMMERM_JEROME
-	const EVENT_BEAT_SWIMMERM_TUCKER
+	const EVENT_BEAT_SWIMMERS_TUCK_DI
 	const_skip ; unused
-	const EVENT_BEAT_SWIMMERM_CAMERON
+	const EVENT_BEAT_SWIMMERS_CAM_LIV
 	const EVENT_BEAT_SWIMMERM_SETH
 	const_skip ; unused
 	const_skip ; unused
@@ -1602,8 +1602,8 @@
 	const EVENT_BEAT_POKEMANIAC_MILLER
 	const EVENT_BEAT_SUPER_NERD_HUGH
 	const EVENT_BEAT_SUPER_NERD_MARKUS
-	const EVENT_BEAT_POKEFANM_REX
-	const EVENT_BEAT_POKEFANM_ALLAN
+	const EVENT_BEAT_POKEFANS_REX_ANN
+	const_skip ; unused (was EVENT_BEAT_POKEFANM_ALLAN until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_SAGE_GAKU
 	const EVENT_BEAT_SAGE_MASA
 	const EVENT_BEAT_SAGE_KOJI
@@ -1688,11 +1688,11 @@
 	;Mount Moon Trainers
 
 	const EVENT_BEAT_MOON_KENT
-	const EVENT_BEAT_MOON_IRIS
+	const_skip ; unused (was EVENT_BEAT_MOON_IRIS until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_MOON_JOVAN
 	const EVENT_BEAT_MOON_ROBBY
 	const EVENT_BEAT_MOON_MIRIAM
-	const EVENT_BEAT_MOON_JOSH
+	const EVENT_BEAT_PUPILS_JO_IRIS
 	const EVENT_BEAT_MOON_MARCOS
 	const EVENT_BEAT_MOON_GRUNT1
 	const EVENT_BEAT_MOON_GRUNT2

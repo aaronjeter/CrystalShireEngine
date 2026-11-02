@@ -103,23 +103,10 @@ Route111HaydenAfterBattleText:
 
 
 Route111GabbyScript:
-	trainer PICNICKER, ROUTE111_GABBY, EVENT_BEAT_ROUTE111_GABBY, Route111GabbySeenText, Route111GabbyBeatenText, 0, .AfterScript
+	trainer COUPLE, EDANDGABBY, EVENT_BEAT_COUPLE_ED_GABBY, CoupleEdGabbySeenText, CoupleEdGabbyBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route111GabbyAfterBattleText
-
-Route111GabbySeenText:
-	text "Hi there!"
-	done
-
-Route111GabbyBeatenText:
-	text "Ugh!"
-	done
-
-Route111GabbyAfterBattleText:
-	text "I think I"
-	line "should be alone."
-	done
+.Script:
+	trainerafter CoupleEdGabbyAfterBattleText
 
 
 Route111IreneScript:
@@ -147,23 +134,10 @@ Route111IreneAfterBattleText:
 
 
 Route111TravisScript:
-	trainer CAMPER, ROUTE111_TRAVIS, EVENT_BEAT_ROUTE111_TRAVIS, Route111TravisSeenText, Route111TravisBeatenText, 0, .AfterScript
+	trainer COUPLE, EDANDGABBY, EVENT_BEAT_COUPLE_ED_GABBY, CoupleEdGabbySeenText, CoupleEdGabbyBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route111TravisAfterBattleText
-
-Route111TravisSeenText:
-	text "I'm full of pep!"
-	done
-
-Route111TravisBeatenText:
-	text "My #mon"
-	line "lost its pep."
-	done
-
-Route111TravisAfterBattleText:
-	text "I can't help it!"
-	done
+.Script:
+	trainerafter CoupleEdGabbyAfterBattleText
 
 Route111FruitTree1:
 	fruittree FRUITTREE_ROUTE_111_1
@@ -173,6 +147,24 @@ Route111FruitTree2:
 
 Route111HeavyBall:
 	itemball HEAVY_BALL
+
+CoupleEdGabbySeenText:
+	text "Gabby: The desert"
+	line "is so windy!"
+
+	para "Ed: Let's blow off"
+	line "steam, then!"
+	done
+
+CoupleEdGabbyBeatenText:
+	text "Ed: Blown away…"
+	done
+
+CoupleEdGabbyAfterBattleText:
+	text "Gabby: The sand-"
+	line "storms out there"
+	cont "never stop!"
+	done
 
 Route111_MapEvents:
 	db 0, 0 ; filler
@@ -189,9 +181,9 @@ Route111_MapEvents:
 	object_event 23, 50, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, Route111CelinaScript, -1
 	object_event 19, 34, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route111BiancaScript, -1
 	object_event 15, 19, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route111HaydenScript, -1
-	object_event 11, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route111GabbyScript, -1
+	object_event 11, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route111GabbyScript, -1
 	object_event 18, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route111IreneScript, -1
-	object_event 12, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, Route111TravisScript, -1
+	object_event 12, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, Route111TravisScript, -1
 	object_event 04, 22, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route111FruitTree1, -1
 	object_event 05, 22, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route111FruitTree2, -1
 	object_event 26, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route111HeavyBall, EVENT_ROUTE_111_HEAVY_BALL

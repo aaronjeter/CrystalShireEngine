@@ -44,16 +44,16 @@ TrainerSwimmerfElaine:
 	trainerafter SwimmerfElaineAfterBattleText
 
 TrainerSwimmerfPaula:
-	trainer SWIMMERF, PAULA, EVENT_BEAT_SWIMMERF_PAULA, SwimmerfPaulaSeenText, SwimmerfPaulaBeatenText, 0, .Script
+	trainer SWIMMERS, SAMANDPAM, EVENT_BEAT_SWIMMERS_SAM_PAM, SwimmersSamPamSeenText, SwimmersSamPamBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmerfPaulaAfterBattleText
+	trainerafter SwimmersSamPamAfterBattleText
 
 TrainerSwimmermSimon:
-	trainer SWIMMERM, SIMON, EVENT_BEAT_SWIMMERM_SIMON, SwimmermSimonSeenText, SwimmermSimonBeatenText, 0, .Script
+	trainer SWIMMERS, SAMANDPAM, EVENT_BEAT_SWIMMERS_SAM_PAM, SwimmersSamPamSeenText, SwimmersSamPamBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmermSimonAfterBattleText
+	trainerafter SwimmersSamPamAfterBattleText
 
 TrainerSwimmermRandall:
 	trainer SWIMMERM, RANDALL, EVENT_BEAT_SWIMMERM_RANDALL, SwimmermRandallSeenText, SwimmermRandallBeatenText, 0, .Script
@@ -118,24 +118,6 @@ Route40Rock:
 Route40HiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_ROUTE_40_HIDDEN_HYPER_POTION
 
-SwimmermSimonSeenText:
-	text "You have to warm"
-	line "up before going"
-	cont "into the water."
-
-	para "That's basic."
-	done
-
-SwimmermSimonBeatenText:
-	text "OK! Uncle! I give!"
-	done
-
-SwimmermSimonAfterBattleText:
-	text "Cianwood City is"
-	line "a good distance"
-	cont "away from here."
-	done
-
 SwimmermRandallSeenText:
 	text "Hey, you're young"
 	line "and fit!"
@@ -170,25 +152,6 @@ SwimmerfElaineAfterBattleText:
 	text "I'd say I'm a bet-"
 	line "ter swimmer than"
 	cont "you. Yeah!"
-	done
-
-SwimmerfPaulaSeenText:
-	text "No inner tube for"
-	line "me."
-
-	para "I'm hanging on to"
-	line "a sea #mon!"
-	done
-
-SwimmerfPaulaBeatenText:
-	text "Ooh, I'm feeling"
-	line "dizzy!"
-	done
-
-SwimmerfPaulaAfterBattleText:
-	text "While I float like"
-	line "this, the waves"
-	cont "carry me along."
 	done
 
 Route40Lass1Text:
@@ -300,6 +263,25 @@ Route40_Wingull:
 	disappear ROUTE40_WINGULL
 	end
 
+SwimmersSamPamSeenText:
+	text "Sam: We swim to"
+	line "Cianwood and back"
+	cont "every day!"
+
+	para "Pam: Race us in a"
+	line "battle!"
+	done
+
+SwimmersSamPamBeatenText:
+	text "Pam: Glub glub…"
+	done
+
+SwimmersSamPamAfterBattleText:
+	text "Sam: The current"
+	line "is strong out"
+	cont "here. Careful!"
+	done
+
 Route40_MapEvents:
 	db 0, 0 ; filler
 
@@ -313,10 +295,10 @@ Route40_MapEvents:
 	bg_event  7,  8, BGEVENT_ITEM, Route40HiddenHyperPotion
 
 	def_object_events
-	object_event 14, 15, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerSwimmermSimon, -1
+	object_event 14, 15, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerSwimmermSimon, -1
 	object_event 18, 30, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerSwimmermRandall, -1
 	object_event  3, 19, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerSwimmerfElaine, -1
-	object_event 10, 25, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfPaula, -1
+	object_event 14, 16, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfPaula, -1
 	object_event  7, 11, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1
 	object_event  6,  9, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1
 	object_event  7,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1

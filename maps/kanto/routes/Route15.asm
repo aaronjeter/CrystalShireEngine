@@ -37,16 +37,16 @@ TrainerSchoolboyTommy:
 	trainerafter SchoolboyTommyAfterBattleText
 
 TrainerSchoolboyJohnny:
-	trainer SCHOOLBOY, JOHNNY, EVENT_BEAT_SCHOOLBOY_JOHNNY, SchoolboyJohnnySeenText, SchoolboyJohnnyBeatenText, 0, .Script
+	trainer PUPILS, JONANDBEA, EVENT_BEAT_PUPILS_JON_BEA, PupilsJonBeaSeenText, PupilsJonBeaBeatenText, 0, .Script
 
 .Script:
-	trainerafter SchoolboyJohnnyAfterBattleText
+	trainerafter PupilsJonBeaAfterBattleText
 
 TrainerSchoolboyBilly:
-	trainer SCHOOLBOY, BILLY, EVENT_BEAT_SCHOOLBOY_BILLY, SchoolboyBillySeenText, SchoolboyBillyBeatenText, 0, .Script
+	trainer PUPILS, JONANDBEA, EVENT_BEAT_PUPILS_JON_BEA, PupilsJonBeaSeenText, PupilsJonBeaBeatenText, 0, .Script
 
 .Script:
-	trainerafter SchoolboyBillyAfterBattleText
+	trainerafter PupilsJonBeaAfterBattleText
 
 Route15Sign:
 	jumptext Route15SignText
@@ -127,46 +127,29 @@ SchoolboyTommyAfterBattleText:
 	cont "Japanese class."
 	done
 
-SchoolboyJohnnySeenText:
-	text "We're on a field"
-	line "trip to Lavender"
-
-	para "Radio Tower for"
-	line "social studies."
-	done
-
-SchoolboyJohnnyBeatenText:
-	text "You're wickedly"
-	line "tough!"
-	done
-
-SchoolboyJohnnyAfterBattleText:
-	text "I'm tired of walk-"
-	line "ing. I need to"
-	cont "take a break."
-	done
-
-SchoolboyBillySeenText:
-	text "My favorite class"
-	line "is gym!"
-	done
-
-SchoolboyBillyBeatenText:
-	text "Oh, no!"
-	line "How could I lose?"
-	done
-
-SchoolboyBillyAfterBattleText:
-	text "If #mon were a"
-	line "subject at school,"
-	cont "I'd be the best!"
-	done
-
 Route15SignText:
 	text "Route 15"
 
 	para "Fuchsia City -"
 	line "Lavender Town"
+	done
+
+PupilsJonBeaSeenText:
+	text "Jon: Our teacher"
+	line "says we need"
+	cont "practice!"
+
+	para "Bea: Help us out!"
+	done
+
+PupilsJonBeaBeatenText:
+	text "Bea: That's a"
+	line "failing grade…"
+	done
+
+PupilsJonBeaAfterBattleText:
+	text "Jon: Fuchsia has"
+	line "a Safari Zone!"
 	done
 
 Route15_MapEvents:
@@ -185,7 +168,7 @@ Route15_MapEvents:
 	object_event 10, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboyKipp, -1
 	object_event 15, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyTommy, -1
 	object_event 33, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyJohnny, -1
-	object_event 27, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyBilly, -1
+	object_event 34, 10, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyBilly, -1
 	object_event 30, 12, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerTeacherColette, -1
 	object_event 20, 10, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerTeacherHillary, -1
 	object_event 12,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route15PPUp, EVENT_ROUTE_15_PP_UP

@@ -18,10 +18,10 @@ Kim:
 	end
 
 TrainerPokefanmCarter:
-	trainer POKEFANM, CARTER, EVENT_BEAT_POKEFANM_CARTER, PokefanmCarterSeenText, PokefanmCarterBeatenText, 0, .Script
+	trainer POKEFANS, VICANDCAT, EVENT_BEAT_POKEFANS_VIC_CAT, PokefansVicCatSeenText, PokefansVicCatBeatenText, 0, .Script
 
 .Script:
-	trainerafter PokefanmCarterAfterBattleText
+	trainerafter PokefansVicCatAfterBattleText
 
 TrainerBirdKeeperRoy:
 	trainer BIRD_KEEPER, ROY, EVENT_BEAT_BIRD_KEEPER_ROY, BirdKeeperRoySeenText, BirdKeeperRoyBeatenText, 0, .Script
@@ -30,30 +30,10 @@ TrainerBirdKeeperRoy:
 	trainerafter BirdKeeperRoyAfterBattleText
 
 TrainerPokefanmTrevor:
-	trainer POKEFANM, TREVOR, EVENT_BEAT_POKEFANM_TREVOR, PokefanmTrevorSeenText, PokefanmTrevorBeatenText, 0, .Script
+	trainer POKEFANS, VICANDCAT, EVENT_BEAT_POKEFANS_VIC_CAT, PokefansVicCatSeenText, PokefansVicCatBeatenText, 0, .Script
 
 .Script:
-	trainerafter PokefanmTrevorAfterBattleText
-
-PokefanmCarterSeenText:
-	text "Let me tell you,"
-	line "I had a hard time"
-
-	para "catching my prized"
-	line "#mon."
-	done
-
-PokefanmCarterBeatenText:
-	text "Awaaah!"
-	done
-
-PokefanmCarterAfterBattleText:
-	text "Squirtle, Charman-"
-	line "der and Bulbasaur…"
-
-	para "I think that's a"
-	line "well-balanced mix."
-	done
+	trainerafter PokefansVicCatAfterBattleText
 
 BirdKeeperRoySeenText:
 	text "My dream is to fly"
@@ -74,28 +54,22 @@ BirdKeeperRoyAfterBattleText:
 	line "you? I envy you."
 	done
 
-PokefanmTrevorSeenText:
-	text "Hi. Did you know…?"
+PokefansVicCatSeenText:
+	text "Cat: Our starters"
+	line "are all grown up!"
 
-	para "#mon get more"
-	line "friendly if you"
-
-	para "train them in a"
-	line "place that they"
-	cont "remember."
+	para "Vic: Aren't they"
+	line "precious?"
 	done
 
-PokefanmTrevorBeatenText:
-	text "Where did I meet"
-	line "this Psyduck?"
+PokefansVicCatBeatenText:
+	text "Vic: Our babies!"
 	done
 
-PokefanmTrevorAfterBattleText:
-	text "If only there were"
-	line "an easy way to"
-
-	para "identify where I"
-	line "got my #mon…"
+PokefansVicCatAfterBattleText:
+	text "Cat: We raised"
+	line "them from tiny"
+	cont "little things."
 	done
 
 Route14_MapEvents:
@@ -108,7 +82,7 @@ Route14_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 11, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmCarter, -1
+	object_event 11, 15, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmCarter, -1
 	object_event 11, 27, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperRoy, -1
-	object_event  6, 11, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmTrevor, -1
+	object_event 11, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmTrevor, -1
 	object_event  7,  5, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 4, Kim, -1

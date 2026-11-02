@@ -3,6 +3,8 @@
 	const ROUTE3_YOUNGSTER1
 	const ROUTE3_YOUNGSTER2
 	const ROUTE3_FISHER2
+	const ROUTE3_HIKER1
+	const ROUTE3_HIKER2
 
 Route3_MapScripts:
 	def_scene_scripts
@@ -110,6 +112,37 @@ Route3MtMoonSquareSignText:
 	line "stairs."
 	done
 
+TrainerHikersGus:
+	trainer HIKERS, GUSANDTED, EVENT_BEAT_HIKERS_GUS_TED, HikersGusTedSeenText, HikersGusTedBeatenText, 0, .Script
+
+.Script:
+	trainerafter HikersGusTedAfterBattleText
+
+TrainerHikersTed:
+	trainer HIKERS, GUSANDTED, EVENT_BEAT_HIKERS_GUS_TED, HikersGusTedSeenText, HikersGusTedBeatenText, 0, .Script
+
+.Script:
+	trainerafter HikersGusTedAfterBattleText
+
+HikersGusTedSeenText:
+	text "Gus: Mt.Moon's"
+	line "right there!"
+
+	para "Ted: Warm up with"
+	line "us first!"
+	done
+
+HikersGusTedBeatenText:
+	text "Ted: Gahaha!"
+	line "You're tough!"
+	done
+
+HikersGusTedAfterBattleText:
+	text "Gus: Rockets were"
+	line "seen in Mt.Moon."
+	cont "Watch yourself."
+	done
+
 Route3_MapEvents:
 	db 0, 0 ; filler
 
@@ -127,3 +160,5 @@ Route3_MapEvents:
 	object_event 10,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterWarren, -1
 	object_event 16,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerYoungsterJimmy, -1
 	object_event 50,  7, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerFirebreatherBurt, -1
+	object_event 50,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikersGus, -1
+	object_event 50,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikersTed, -1

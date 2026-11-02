@@ -7,6 +7,8 @@
 	const ROUTE2_BUG_CATCHER1
 	const ROUTE2_BUG_CATCHER2
 	const ROUTE2_BUG_CATCHER3
+	const VIRIDIANFOREST_PUPIL1
+	const VIRIDIANFOREST_PUPIL2
 
 ViridianForest_MapScripts:
 	def_scene_scripts
@@ -147,6 +149,34 @@ CooltrainerfQuinnAfterBattleText:
 	line "have trained hard."
 	done
 
+TrainerPupilsBen:
+	trainer PUPILS, BENANDZOE, EVENT_BEAT_PUPILS_BEN_ZOE, PupilsBenZoeSeenText, PupilsBenZoeBeatenText, 0, .Script
+
+.Script:
+	trainerafter PupilsBenZoeAfterBattleText
+
+TrainerPupilsZoe:
+	trainer PUPILS, BENANDZOE, EVENT_BEAT_PUPILS_BEN_ZOE, PupilsBenZoeSeenText, PupilsBenZoeBeatenText, 0, .Script
+
+.Script:
+	trainerafter PupilsBenZoeAfterBattleText
+
+PupilsBenZoeSeenText:
+	text "Ben: Field trip!"
+	line "We caught bugs!"
+
+	para "Zoe: Wanna see?"
+	done
+
+PupilsBenZoeBeatenText:
+	text "Zoe: Our bugs!"
+	done
+
+PupilsBenZoeAfterBattleText:
+	text "Ben: Don't get lost"
+	line "in the forest."
+	done
+
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
 
@@ -173,3 +203,5 @@ ViridianForest_MapEvents:
 	object_event 02, 42, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfQuinn, -1
 		
 	
+	object_event 12, 40, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPupilsBen, -1
+	object_event 13, 40, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPupilsZoe, -1
