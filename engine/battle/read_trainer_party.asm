@@ -1,4 +1,6 @@
 ReadTrainerParty:
+; Loads the party of trainer wOtherTrainerClass/wOtherTrainerID into the OT party.
+; Party format: data/trainers/parties.asm and the party macros in macros/data.asm.
 	ld a, [wInBattleTowerBattle]
 	bit IN_BATTLE_TOWER_BATTLE_F, a
 	ret nz
@@ -17,111 +19,46 @@ ReadTrainerParty:
 	ld bc, PARTYMON_STRUCT_LENGTH * PARTY_LENGTH
 	xor a
 	rst ByteFill
-
-	ld a, [wOtherTrainerClass]
-	cp CAL
-	jr nz, .not_cal2
-	ld a, [wOtherTrainerID]
-	cp CAL2
-	jr z, .cal2
-	ld a, [wOtherTrainerClass]
-.not_cal2
-
-	dec a
-	ld c, a
-	ld b, 0
-
-	ld a, [wHardMode]
-	cp 1
-	jr z, .HardModeOff
-	jp .HardModeOn
-
-	.HardModeOff
-	ld hl, TrainerGroups
-	jp .TrainerGroupsLoaded
-
-	.HardModeOn
-	ld hl, TrainerGroupsHard
-	jp .TrainerGroupsLoaded
-
-	.TrainerGroupsLoaded
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld [wTrainerGroupBank], a
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+	ld hl, wOTPartyMonNicknames ; nicknames: zero = none (see _LoadEnemyMon)
+	ld bc, MON_NAME_LENGTH * PARTY_LENGTH
+	xor a
+	rst ByteFill
 
 	ld a, [wOtherTrainerID]
 	ld b, a
-.skip_trainer
-	dec b
-	jr z, .got_trainer
-.loop
+	ld a, [wOtherTrainerClass]
+	ld c, a
+	call FindTrainerParty
+	call FindTrainerTeam
 	ld a, [wTrainerGroupBank]
 	call GetFarByte
-	add l
-	ld l, a
-	jr nc, .skip_trainer
-	inc h
-	jr .skip_trainer
-.got_trainer
-	inc hl
+	cp RANDOM_TEAM
+	jr z, .random
 
-.skip_name
-	call GetNextTrainerDataByte
-	cp "@"
-	jr nz, .skip_name
-
-	call GetNextTrainerDataByte
-	ld [wOtherTrainerType], a
-	ld d, h
-	ld e, l
-	call ReadTrainerPartyPieces
-
-.done
+.loop
+	call ReadTrainerMon
+	jr nc, .loop
 	jmp ComputeTrainerReward
 
-.cal2
-	ld a, BANK(sMysteryGiftTrainer)
-	call OpenSRAM
-	ld a, TRAINERTYPE_MOVES
-	ld [wOtherTrainerType], a
-	ld de, sMysteryGiftTrainer
-	call ReadTrainerPartyPieces
-	call CloseSRAM
-	jr .done
-
-ReadTrainerPartyPieces:
-	ld h, d
-	ld l, e
-
-; Random?
-	bit TRAINERTYPE_RANDOM_F, a
-	jr z, .not_random
+.random
+; RANDOM_TEAM, count, list: pick count different entries of the list
+	inc hl
 	call GetNextTrainerDataByte
 	ld [wRandomTrainerNumPokemon], a
 	call GetNextTrainerDataByte
-	ld b, a ; list number, skip this many $ff after bank switch
+	ld e, a
+	ld d, 0
+	ld hl, RandomPartyLists
+	add hl, de
+	add hl, de
 	ld a, BANK(RandomPartyLists)
 	ld [wTrainerGroupBank], a
-	ld hl, RandomPartyLists
-.random_skiploop
-	ld a, b
-	and a
-	jr z, .skipdone
-.random_innerskiploop
-	call GetNextTrainerDataByte
-	cp -1
-	jr nz, .random_innerskiploop
-	dec b
-	jr .random_skiploop
-.skipdone
+	call GetNextTrainerDataWord
+	ld h, d
+	ld l, e
 	call GetNextTrainerDataByte
 	ld [wRandomTrainerTotalPokemon], a
-	push hl
+	push hl ; the list's first entry
 .start_random
 	ld hl, wRandomTrainerRandomNumbers
 	ld a, [wRandomTrainerTotalPokemon]
@@ -141,247 +78,395 @@ ReadTrainerPartyPieces:
 	ld [hl], b
 	pop hl
 	push hl
-	; skip b $fe delimiters
-.random_skiploop2
-	ld a, b
-	and a
-	jr z, .skipdone2
-.random_innerskiploop2
+; each entry starts with its size (after the size byte)
+.skip_entries
 	call GetNextTrainerDataByte
-	cp $fe
-	jr nz, .random_innerskiploop2
 	dec b
-	jr .random_skiploop2
-.skipdone2
-.not_random
+	inc b
+	jr z, .got_entry
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	dec b
+	jr .skip_entries
+.got_entry
+	call ReadTrainerMon
+	ld hl, wRandomTrainerNumPokemon
+	dec [hl]
+	jr nz, .start_random
+	pop hl
+	jmp ComputeTrainerReward
 
-.loop
+FindTrainerParty:
+; hl = the party of trainer class c, ID b (after its size word), wTrainerGroupBank =
+; its bank. TrainerGroups has 3-byte entries; each party starts with its size (a word).
+	dec c
+	push bc
+	ld b, 0
+	ld hl, TrainerGroups
+	add hl, bc
+	add hl, bc
+	add hl, bc
+	ld a, [hli]
+	ld [wTrainerGroupBank], a
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	pop bc
+.skip_party
+	dec b
+	jr z, .got_party
+	push bc
+	call GetNextTrainerDataWord
+	add hl, de
+	pop bc
+	jr .skip_party
+.got_party
+	inc hl
+	inc hl
+	ret
+
+FindTrainerTeam:
+; From the party at hl: skips the name, sets wOtherTrainerType to the party flags
+; and leaves hl at the team for this mode (the Hard team if there is one and
+; wHardMode is on; wHardMode 1 = Normal).
+.skip_name
 	call GetNextTrainerDataByte
-	cp $ff
+	cp "@"
+	jr nz, .skip_name
+	call GetNextTrainerDataByte
+	ld [wOtherTrainerType], a
+	bit TRAINERTYPE_HARD_F, a
 	ret z
+	ld a, [wHardMode]
+	cp 1
+	ret z
+	; fallthrough
 
-	; apply level scaling
+SkipTrainerTeam:
+; hl = past the team at hl (RANDOM_TEAM, count, list; or Pokemon up to END_PARTY_MONS)
+	call GetNextTrainerDataByte
+	cp RANDOM_TEAM
+	jr nz, .mon
+	inc hl
+	inc hl
+	ret
+.mon
+	cp END_PARTY_MONS
+	ret z
+	ld b, a ; flags
+	inc hl ; level
+	inc hl ; species
+	inc hl
+	bit MONFLAG_ITEM_F, b
+	jr z, .no_item
+	inc hl
+	inc hl
+.no_item
+	bit MONFLAG_ABILITY_F, b
+	jr z, .no_ability
+	inc hl
+.no_ability
+	bit MONFLAG_MOVES_F, b
+	jr z, .no_moves
+	call GetNextTrainerDataByte
+	add a
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+.no_moves
+	bit MONFLAG_DVS_F, b
+	jr z, .no_dvs
+	inc hl
+	inc hl
+.no_dvs
+	bit MONFLAG_EVS_F, b
+	jr z, .no_evs
+	inc hl
+.no_evs
+	bit MONFLAG_NICKNAME_F, b
+	jr z, SkipTrainerTeam.next
+.nickname
+	call GetNextTrainerDataByte
+	cp "@"
+	jr nz, .nickname
+.next
+	call GetNextTrainerDataByte
+	jr .mon
+
+ReadTrainerMon:
+; Adds the Pokemon at hl (bank wTrainerGroupBank) to the OT party: flags, level,
+; species, then the fields the flags name (MONFLAG_*, constants/trainer_data_constants.asm).
+; Returns carry at END_PARTY_MONS; else hl points past the Pokemon.
+	call GetNextTrainerDataByte
+	cp END_PARTY_MONS
+	scf
+	ret z
+	ld [wTrainerMonFlags], a
+
+; the level is added to wBaseLevel; a Cup battle uses the level cap
+	call GetNextTrainerDataByte
 	ld b, a
 	ld a, [wBaseLevel]
-	add a, b
-
+	add b
 	ld [wCurPartyLevel], a
-
-	;If we're in a Cup Battle, just replace with the current level cap
 	ld a, [wBattleType]
 	cp BATTLETYPE_CUP
-	jr nz, .skipCupScaling
-
+	jr nz, .got_level
 	ld a, [wLevelCap]
 	ld [wCurPartyLevel], a
+.got_level
 
-.skipCupScaling
-	call GetNextTrainerDataByte
+	call GetNextTrainerDataWord
 	push hl
-	push af
-	call GetNextTrainerDataByte
-	ld h, a
-	pop af
-	ld l, a
+	ld h, d
+	ld l, e
 	call GetPokemonIDFromIndex
 	ld [wCurPartySpecies], a
-
 	ld a, OTPARTYMON
 	ld [wMonType], a
 	predef TryAddMonToParty
 	pop hl
-	inc hl ;because hl was pushed before the last call to GetNextTrainerDataByte
 
-; dvs?
-	ld a, [wOtherTrainerType]
-	bit TRAINERTYPE_DVS_F, a
-	jr z, .no_dvs
-
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_ITEM_F, a
+	jr z, .no_item
+	call GetNextTrainerDataWord
 	push hl
-	ld a, [wOTPartyCount]
-	dec a
-	ld hl, wOTPartyMon1DVs
-	call GetPartyLocation
-	ld d, h
-	ld e, l
+	ld h, d
+	ld l, e
+	call GetItemIDFromIndex
 	pop hl
+	push af
+	ld bc, MON_ITEM
+	call TrainerMonField
+	pop af
+	ld [de], a
+.no_item
 
-; When reading DVs, treat PERFECT_DV as $ff
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_ABILITY_F, a
+	call nz, .Ability
+
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_MOVES_F, a
+	call nz, .Moves
+
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_DVS_F, a
+	jr z, .no_dvs
+	ld bc, MON_DVS
+	call TrainerMonField
 	call GetNextTrainerDataByte
-	cp PERFECT_DV
-	jr nz, .atk_def_dv_nonzero
-	ld a, $ff
-.atk_def_dv_nonzero
 	ld [de], a
 	inc de
 	call GetNextTrainerDataByte
-	cp PERFECT_DV
-	jr nz, .spd_spc_dv_nonzero
-	ld a, $ff
-.spd_spc_dv_nonzero
 	ld [de], a
 .no_dvs
 
-;item?
-	ld a, [wOtherTrainerType]
-	and TRAINERTYPE_ITEM
-	jr z, .no_item
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_EVS_F, a
+	jr z, .no_evs
+	call GetNextTrainerDataByte
+	push hl
+	dec a
+	ld hl, TrainerEVSpreads
+	ld bc, NUM_STATS
+	rst AddNTimes
+	push hl
+	ld bc, MON_EVS
+	call TrainerMonField
+	pop hl
+	ld bc, NUM_STATS
+	rst CopyBytes
+	pop hl
+.no_evs
+
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_NICKNAME_F, a
+	jr z, .no_nickname
 	push hl
 	ld a, [wOTPartyCount]
 	dec a
-	ld hl, wOTPartyMon1Item
-	call GetPartyLocation
+	ld hl, wOTPartyMonNicknames
+	call SkipNames
 	ld d, h
 	ld e, l
 	pop hl
-	push hl
+.nickname_loop
 	call GetNextTrainerDataByte
-	push af
-	call GetNextTrainerDataByte
-	ld h, a
-	pop af
-	ld l, a
-	call GetItemIDFromIndex
-	pop hl
-	ld [de], a
-	inc hl
-	inc hl
-.no_item
-
-	ld a, [wOtherTrainerType]
-	rra ; TRAINERTYPE_MOVES_F == 0
-	jr nc, .no_moves
-	push hl
-	ld a, [wOTPartyCount]
-	dec a
-	ld hl, wOTPartyMon1Moves
-	call GetPartyLocation
-	ld d, h
-	ld e, l
-	pop hl
-
-	ld b, NUM_MOVES
-.copy_moves
-	call GetNextTrainerDataByte
-	push hl
-	push af
-	call GetNextTrainerDataByte
-	ld h, a
-	pop af
-	ld l, a
-	call GetMoveIDFromIndex
-	pop hl
-	inc hl
 	ld [de], a
 	inc de
-	dec b
-	jr nz, .copy_moves
+	cp "@"
+	jr nz, .nickname_loop
+.no_nickname
 
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_SHINY_F, a
+	jr z, .no_shiny
+	ld bc, MON_DVS + 1
+	call TrainerMonField
+	ld a, SHINY_SPDSPC_DV
+	ld [de], a
+.no_shiny
+
+; DVs and EVs change the stats: recalculate them, and set HP to the new max
+	ld a, [wTrainerMonFlags]
+	and (1 << MONFLAG_DVS_F) | (1 << MONFLAG_EVS_F) | (1 << MONFLAG_SHINY_F)
+	jr z, .done
 	push hl
-
-	ld a, [wOTPartyCount]
-	dec a
-	ld hl, wOTPartyMon1
-	call GetPartyLocation
-	ld d, h
-	ld e, l
-	ld hl, MON_PP
-	add hl, de
-
-	push hl
-	ld hl, MON_MOVES
-	add hl, de
+	ld bc, MON_MAXHP
+	call TrainerMonField
+	push de
+	ld bc, MON_EVS - 1
+	call TrainerMonField
+	ld h, d
+	ld l, e
 	pop de
-
-	ld b, NUM_MOVES
-.copy_pp
-	ld a, [hli]
-	and a
-	jr z, .copied_pp
-
-	push hl
-	ld l, a
-	ld a, MOVE_PP
-	call GetMoveAttribute
-	pop hl
-
-	ld [de], a
-	inc de
-	dec b
-	jr nz, .copy_pp
-.copied_pp
-
-	pop hl
-.no_moves
-
-; Custom DVs affect stats, so recalculate them after TryAddMonToParty
-	ld a, [wOtherTrainerType]
-	and TRAINERTYPE_DVS
-	jr z, .no_stat_recalc
-
-	push hl
-
-	ld a, [wOTPartyCount]
-	dec a
-	ld hl, wOTPartyMon1MaxHP
-	call GetPartyLocation
-	ld d, h
-	ld e, l
-
-	ld a, [wOTPartyCount]
-	dec a
-	ld hl, wOTPartyMon1EVs - 1
-	call GetPartyLocation
-
-; recalculate stats
 	ld b, TRUE
 	push de
 	predef CalcMonStats
 	pop hl
-
-; copy max HP to current HP
-	inc hl
+	ld a, [hli]
 	ld c, [hl]
 	dec hl
-	ld b, [hl]
 	dec hl
 	ld [hl], c
 	dec hl
-	ld [hl], b
-
+	ld [hl], a
 	pop hl
-.no_stat_recalc
+.done
+	and a
+	ret
 
-; ability slot?
-	ld a, [wOtherTrainerType]
-	bit TRAINERTYPE_ABILITY_F, a
-	jr z, .no_ability_slot
+.Ability:
+; the slot of the species' ability that matches the listed one
+; (the party macros check the species has it; if not, slot 1 stays)
+	call GetNextTrainerDataByte
 	push hl
+	ld e, a
+	ld a, [wCurPartySpecies]
+	push de
+	call GetPokemonIndexFromID
+	pop de
+	ld b, h
+	ld c, l
+	ld d, ABILITY_SLOT_1
+.ability_loop
+	ld a, d
+	farcall GetSpeciesAbility ; preserves bc, de, hl
+	cp e
+	jr z, .got_ability_slot
+	inc d
+	ld a, d
+	cp NUM_ABILITY_SLOTS
+	jr c, .ability_loop
+	ld d, ABILITY_SLOT_1
+.got_ability_slot
+	ld a, d
+	push af
+	ld bc, 0
+	call TrainerMonField
+	ld h, d
+	ld l, e
+	pop af
+	farcall SetMonAbilitySlot
+	pop hl
+	ret
+
+.Moves:
+; count, then the moves; the other slots are cleared. Then the PP.
+	ld bc, MON_MOVES
+	call TrainerMonField
+	call GetNextTrainerDataByte
+	ld b, a
+	ld c, NUM_MOVES
+.move_loop
+	push bc
+	push de
+	call GetNextTrainerDataWord
+	push hl
+	ld h, d
+	ld l, e
+	call GetMoveIDFromIndex
+	pop hl
+	pop de
+	ld [de], a
+	inc de
+	pop bc
+	dec c
+	dec b
+	jr nz, .move_loop
+	xor a
+.clear_moves
+	inc c
+	dec c
+	jr z, .pp
+	ld [de], a
+	inc de
+	dec c
+	jr .clear_moves
+
+.pp
+	push hl
+	ld bc, MON_PP
+	call TrainerMonField
+	push de
+	ld bc, MON_MOVES
+	call TrainerMonField
+	ld h, d
+	ld l, e
+	pop de
+	ld b, NUM_MOVES
+.pp_loop
+	ld a, [hli]
+	and a
+	jr z, .got_pp
+	push hl
+	push bc
+	push de
+	ld l, a
+	ld a, MOVE_PP
+	call GetMoveAttribute
+	pop de
+	pop bc
+	pop hl
+.got_pp
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .pp_loop
+	pop hl
+	ret
+
+TrainerMonField:
+; de = field bc of the last Pokemon in the OT party. Preserves hl.
+	push hl
+	push bc
 	ld a, [wOTPartyCount]
 	dec a
-	ld hl, wOTPartyMon1AbilitySlot
+	ld hl, wOTPartyMon1
 	call GetPartyLocation
+	pop bc
+	add hl, bc
 	ld d, h
 	ld e, l
 	pop hl
-	call GetNextTrainerDataByte
-	and ABILITY_SLOT_MASK
-	ld [de], a
-.no_ability_slot
-
-	ld a, [wOtherTrainerType]
-	bit TRAINERTYPE_RANDOM_F, a
-	jr nz, .random_loop
-
-	jmp .loop
-
-.random_loop
-	ld a, [wRandomTrainerNumPokemon]
-	dec a
-	ld [wRandomTrainerNumPokemon], a
-	jp nz, .start_random
-	pop hl
 	ret
+
+GetNextTrainerDataWord:
+; de = the little-endian word at hl (bank wTrainerGroupBank); hl += 2
+	call GetNextTrainerDataByte
+	ld e, a
+	call GetNextTrainerDataByte
+	ld d, a
+	ret
+
+INCLUDE "data/trainers/ev_spreads.asm"
 
 ComputeTrainerReward:
 	ld hl, hProduct
@@ -418,66 +503,8 @@ Battle_GetTrainerName::
 	; fallthrough
 
 GetTrainerName::
-	ld a, c
-	cp CAL
-	jr nz, .not_cal2
-
-	ld a, BANK(sMysteryGiftTrainerHouseFlag)
-	call OpenSRAM
-	ld a, [sMysteryGiftTrainerHouseFlag]
-	and a
-	call CloseSRAM
-	jr z, .not_cal2
-
-	ld a, BANK(sMysteryGiftPartnerName)
-	call OpenSRAM
-	ld hl, sMysteryGiftPartnerName
-	call CopyTrainerName
-	jmp CloseSRAM
-
-.not_cal2
-	dec c
-	push bc
-	ld b, 0
-
-	ld a, [wHardMode]
-	cp 1
-	jr z, .HardModeOff
-	jp .HardModeOn
-
-	.HardModeOff
-	ld hl, TrainerGroups
-	jp .TrainerGroupsLoaded
-
-	.HardModeOn
-	ld hl, TrainerGroupsHard
-	jp .TrainerGroupsLoaded
-
-	.TrainerGroupsLoaded
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld [wTrainerGroupBank], a
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	pop bc
-
-.loop
-	dec b
-	jr z, .done
-
-	ld a, [wTrainerGroupBank]
-	call GetFarByte
-	add l
-	ld l, a
-	jr nc, .loop
-	inc h
-	jr .loop
-
-.done
-	inc hl
+; c = trainer class, b = ID
+	call FindTrainerParty
 	; fallthrough
 
 CopyTrainerName:
@@ -499,9 +526,8 @@ INCLUDE "data/trainers/party_pointers.asm"
 
 SetTrainerBattleLevel:
 ; wCurPartyLevel = the level of the trainer's lead (for the battle transition), found as
-; ReadTrainerParty does: 3-byte group entries, parties skipped by their size byte, the listed
-; level added to wBaseLevel (the level cap in a Cup battle). A random party's lead isn't
-; chosen yet, so it counts as wBaseLevel.
+; ReadTrainerParty does (this mode's team), the listed level added to wBaseLevel (the level cap in a Cup
+; battle). A random party's lead isn't chosen yet, so it counts as wBaseLevel.
 	ld a, 255
 	ld [wCurPartyLevel], a
 
@@ -513,50 +539,16 @@ SetTrainerBattleLevel:
 	and a
 	ret nz
 
-	ld a, [wOtherTrainerClass]
-	dec a
-	ld c, a
-	ld b, 0
-
-	ld hl, TrainerGroups
-	ld a, [wHardMode]
-	cp 1
-	jr z, .got_groups
-	ld hl, TrainerGroupsHard
-.got_groups
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld [wTrainerGroupBank], a
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
 	ld a, [wOtherTrainerID]
 	ld b, a
-.skip_trainer
-	dec b
-	jr z, .got_trainer
-	ld a, [wTrainerGroupBank]
-	call GetFarByte ; the party's size
-	add l
-	ld l, a
-	jr nc, .skip_trainer
-	inc h
-	jr .skip_trainer
-
-.got_trainer
-	inc hl ; the size byte
-.skip_name
-	call GetNextTrainerDataByte
-	cp "@"
-	jr nz, .skip_name
-
-	call GetNextTrainerDataByte ; the trainer type
+	ld a, [wOtherTrainerClass]
+	ld c, a
+	call FindTrainerParty
+	call FindTrainerTeam
+	call GetNextTrainerDataByte ; the lead's flags, or RANDOM_TEAM
 	ld b, 0
-	bit TRAINERTYPE_RANDOM_F, a
-	jr nz, .got_level
+	cp RANDOM_TEAM
+	jr z, .got_level
 	call GetNextTrainerDataByte ; the lead's level (added to wBaseLevel)
 	ld b, a
 .got_level

@@ -513,6 +513,20 @@ _LoadEnemyMon:
 	ld de, wEnemyMonNickname
 	ld bc, MON_NAME_LENGTH
 	rst CopyBytes
+; a trainer's Pokemon with a nickname (the party's nickname line) uses it
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jr nz, .no_trainer_nickname
+	ld hl, wOTPartyMonNicknames
+	ld a, [wCurPartyMon]
+	call SkipNames
+	ld a, [hl]
+	and a ; ReadTrainerParty leaves the others zeroed
+	jr z, .no_trainer_nickname
+	ld de, wEnemyMonNickname
+	ld bc, MON_NAME_LENGTH
+	rst CopyBytes
+.no_trainer_nickname
 
 ; Saw this mon
 	ld a, [wTempEnemyMonSpecies]

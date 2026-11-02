@@ -33,24 +33,45 @@ DEF NO_AI EQU 0
 	shift_const UNKNOWN_USE      ; 5
 	shift_const CONTEXT_USE      ; 6
 
-; TrainerTypes bits (see engine/battle/read_trainer_party.asm)
-	const_def
-	const TRAINERTYPE_MOVES_F
-	const TRAINERTYPE_ITEM_F
-	const TRAINERTYPE_DVS_F
-	const TRAINERTYPE_RANDOM_F
+; Party flags byte, after a trainer party's name (see data/trainers/parties.asm)
+	const_def 4
 	const TRAINERTYPE_DOUBLE_F ; 4: a double battle (claude/double-battles-plan.md)
-	const TRAINERTYPE_ABILITY_F
+	const TRAINERTYPE_HARD_F   ; 5: a Hard mode team follows the Normal one
 
-; Trainer party types (see data/trainers/parties.asm)
-DEF TRAINERTYPE_NORMAL     EQU 0
-DEF TRAINERTYPE_MOVES      EQU 1 << TRAINERTYPE_MOVES_F
-DEF TRAINERTYPE_ITEM       EQU 1 << TRAINERTYPE_ITEM_F
-DEF TRAINERTYPE_ITEM_MOVES EQU TRAINERTYPE_MOVES | TRAINERTYPE_ITEM ;backwards compatibility
-DEF TRAINERTYPE_DVS        EQU 1 << TRAINERTYPE_DVS_F
-DEF TRAINERTYPE_RANDOM     EQU 1 << TRAINERTYPE_RANDOM_F
-DEF TRAINERTYPE_ABILITY    EQU 1 << TRAINERTYPE_ABILITY_F
-; There is no TRAINERTYPE_DOUBLE constant on purpose: start a doubles party with
-; the doubles_trainer macro (macros/data.asm), which checks it has at least 2 Pokemon.
+; Per-Pokemon flags byte in trainer parties and random lists: which optional
+; fields follow the level and species, in this order (macros/data.asm)
+	const_def
+	const MONFLAG_ITEM_F     ; 0: dw item
+	const MONFLAG_ABILITY_F  ; 1: db ability (resolved to the species' slot)
+	const MONFLAG_MOVES_F    ; 2: db count (1-4), then that many dw moves
+	const MONFLAG_DVS_F      ; 3: db atk/def, spd/spc
+	const MONFLAG_EVS_F      ; 4: db EV spread (EVS_* preset)
+	const MONFLAG_NICKNAME_F ; 5: "NAME@"
+	const MONFLAG_SHINY_F    ; 6: no data; sets the spd/spc DVs to SHINY_SPDSPC_DV
+DEF END_PARTY_MONS EQU $ff ; in place of a flags byte: no more Pokemon (bit 7 is never a flag)
+DEF RANDOM_TEAM EQU $fe    ; in place of the first flags byte: count, random list follow
 
-DEF PERFECT_DV EQU $11 ; treated as $FF in enemy party data
+; dvs presets (dvs PRESET): atk/def byte << 8 | spd/spc byte
+; A spd/spc byte of SHINY_SPDSPC_DV ($ff) makes a Pokemon shiny, HP_SPDSPC_DV ($fe)
+; gives it its Hidden Power type's colors, so plain presets avoid both.
+; PERFECT: 15 everywhere but Special 13 (keeps the HP DV at 15).
+DEF DVS_PERFECT EQU $fffd
+; HP_<TYPE>: Hidden Power of that type at 70 power (Speed 14, Special 15);
+; HP_<TYPE>_COLOR: the same type, 69 power, in its Hidden Power colors
+for _t, 16
+	REDEF _hp_type EQUS STRSUB("FIGHTINGFLYING  POISON  GROUND  ROCK    BUG     GHOST   STEEL   FIRE    WATER   GRASS   ELECTRICPSYCHIC ICE     DRAGON  DARK    ", _t * 8 + 1, 8)
+	REDEF _hp_type EQUS STRRPL("{_hp_type}", " ", "")
+	DEF DVS_HP_{_hp_type} EQU (($c | (_t >> 2)) << 12 | ($c | (_t & 3)) << 8) | $ef
+	DEF DVS_HP_{_hp_type}_COLOR EQU (DVS_HP_{_hp_type} & $ff00) | HP_SPDSPC_DV
+endr
+
+; ev_spread presets (rows of TrainerEVSpreads, data/trainers/ev_spreads.asm)
+	const_def 1
+	const EVS_ATK_SPE ; 1
+	const EVS_SAT_SPE ; 2
+	const EVS_HP_ATK  ; 3
+	const EVS_HP_SAT  ; 4
+	const EVS_HP_DEF  ; 5
+	const EVS_HP_SDF  ; 6
+	const EVS_ALL     ; 7
+DEF NUM_EV_SPREADS EQU const_value - 1

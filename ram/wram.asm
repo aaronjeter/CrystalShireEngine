@@ -2454,7 +2454,9 @@ wMagikarpLength:: dw
 
 NEXTU
 ; 16-bit wram
-	ds 5
+	ds 3
+wTrainerMonFlags:: db ; ReadTrainerMon: MONFLAG_* of the Pokemon being read
+	ds 1
 wOtherTrainerType:: db
 wTrainerGroupBank:: db
 wRandomTrainerNumPokemon:: db

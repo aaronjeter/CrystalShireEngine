@@ -190,7 +190,6 @@ ROMX $40
 ROMX $41
 	"bank41"
 	"Enemy Trainer Parties 1"
-	"Hard Trainer Parties 1"
 ROMX $42
 	"Intro Logo"
 	"Credits"
@@ -313,7 +312,6 @@ ROMX $78
 ROMX $7b
 ROMX $7c
 ROMX $7d	
-	"Hard Trainer Parties 2"
 ROMX $7e
 	"Crystal Events"
 ROMX $7f

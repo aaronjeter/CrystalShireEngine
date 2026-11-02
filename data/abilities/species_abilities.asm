@@ -13,6 +13,10 @@ MACRO abilities
 	assert \1 == ___abilities_species, "SpeciesAbilities: \1 is out of order"
 	DEF ___abilities_species += 1
 	db \2, \3, \4
+; for the trainer party macros' check (macros/data.asm, ability)
+	for _a, 2, 5
+		DEF ___species_has_ability_{d:\1}_{d:\<_a>} = 1
+	endr
 ENDM
 
 SpeciesAbilities1:

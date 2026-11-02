@@ -1,6 +1,6 @@
 """Double battle tests (phase 2).
 
-Each case starts a double battle against a doubles_trainer party (written by the harness, as
+Each case starts a double battle against a DOUBLES party (written by the harness, as
 battle_test.py does for its singles corpus) and plays it to the end with the battle test's
 driver: P1's and P2's battle menus each take an action, ('move', n, target) picks the target
 in the placeholder target menu (0 = E1, 1 = E2), ('back',) presses B on P2's menu. It checks

@@ -152,67 +152,237 @@ MACRO sine_table
 	endr
 ENDM
 
-MACRO mon
-; level, species
-	db \1
-	dw \2
-	DEF _party_mons += 1
-ENDM
+; Trainer parties (data/trainers/parties.asm, random_parties.asm)
+;	party FALKNER3, "Falkner"      ; ID checked against the party's place in its group;
+;	                               ; optional third argument DOUBLES
+;	mon 8, SKARMORY                ; level offset (added to wBaseLevel), species
+;		item LEFTOVERS             ; the lines below are optional, in any order
+;		ability STURDY             ; must be one of the species' three abilities
+;		moves DRILL_PECK, TOXIC    ; 1-4 moves, the rest stay empty (none: level-up moves)
+;		dvs PERFECT                ; a DVS_* preset, or dvs ATK, DEF, SPD, SPC (0-15 each)
+;		ev_spread HP_ATK           ; an EVS_* preset (none: no EVs)
+;		nickname "SKARM"
+;		shiny
+;	hard                           ; optional: the Hard mode team follows (same lines);
+;	mon 10, SKARMORY               ; without it, Hard uses the team above
+;	end_party
+; A random team: random_mons COUNT, LIST instead of mon lines (either team).
+; Lists: random_list LIST, then mon lines (with optional lines), then end_random_list.
 
-MACRO itemmon
-; level, species, item
-	db \1
-	dw \2
-	dw \3
-	DEF _party_mons += 1
-ENDM
+DEF _pm_open = 0
+DEF _party_open = 0
+DEF _rl_open = 0
+DEF _rl_next = 0
+DEF _party_n = 0
 
-DEF _party_mons = 0
-DEF _double_party = 0
-
-MACRO doubles_trainer
-; Header of a double-battle trainer party, instead of db "NAME@", TYPE:
-;   doubles_trainer "NAME", TRAINERTYPE_* constants (TRAINERTYPE_NORMAL for none)
-;   doubles_trainer "NAME", TRAINERTYPE_RANDOM | ..., number of Pokemon, list constant
-; Doubles trainers must have at least 2 Pokemon; end_party checks it.
-	db \1, "@", (\2) | (1 << TRAINERTYPE_DOUBLE_F)
-	REDEF _double_party_name EQUS \1
-	if (\2) & TRAINERTYPE_RANDOM
-		assert _NARG == 4, "doubles_trainer {_double_party_name}: a random party needs a count and a list"
-		assert (\3) >= 2, "doubles trainer {_double_party_name} has fewer than 2 Pokemon"
-		db \3, \4
-		DEF _double_party = 0
-	else
-		assert _NARG == 2, "doubles_trainer {_double_party_name}: expected a name and a type"
-		DEF _double_party = 1
+MACRO _pm_flush
+; writes the open Pokemon: [size if in a random list], flags, level, species, fields
+	if _pm_open
+		if _pm_flags & (1 << MONFLAG_SHINY_F) && _pm_flags & (1 << MONFLAG_DVS_F)
+			assert LOW(_pm_dvs) != HP_SPDSPC_DV, "{_pm_where}: shiny can't use a _COLOR dvs preset"
+		endc
+		if _rl_open
+			db .__rl_mon_end{d:_rl_mons} - .__rl_mon{d:_rl_mons}
+.__rl_mon{d:_rl_mons}
+		endc
+		db _pm_flags, _pm_level
+		dw _pm_species
+		if _pm_flags & (1 << MONFLAG_ITEM_F)
+			dw _pm_item
+		endc
+		if _pm_flags & (1 << MONFLAG_ABILITY_F)
+			assert DEF(___species_has_ability_{d:_pm_species}_{d:_pm_ability}), "{_pm_where}: the species doesn't have that ability"
+			db _pm_ability
+		endc
+		if _pm_flags & (1 << MONFLAG_MOVES_F)
+			db _pm_nmoves
+			for _i, 1, _pm_nmoves + 1
+				dw _pm_move{d:_i}
+			endr
+		endc
+		if _pm_flags & (1 << MONFLAG_DVS_F)
+			db HIGH(_pm_dvs), LOW(_pm_dvs)
+		endc
+		if _pm_flags & (1 << MONFLAG_EVS_F)
+			db _pm_evs
+		endc
+		if _pm_flags & (1 << MONFLAG_NICKNAME_F)
+			db "{_pm_nick}@"
+		endc
+		if _rl_open
+.__rl_mon_end{d:_rl_mons}
+		endc
+		DEF _pm_open = 0
 	endc
+ENDM
+
+MACRO party
+; party ID, "NAME"[, DOUBLES]
+; Data: dw size (after this word), "NAME@", flags (TRAINERTYPE_*_F), the team,
+; then the Hard team if the HARD flag is set. A team is Pokemon ending in
+; END_PARTY_MONS, or RANDOM_TEAM, count, list.
+	assert !_party_open, "party \1: the previous party has no end_party"
+	assert !_rl_open, "party \1: the previous random list has no end_random_list"
+	DEF _party_expected = current_list_item + 1
+	assert (\1) == _party_expected, "party \1 is party {d:_party_expected} of its group"
+	DEF current_list_item = _party_expected
+	DEF _party_n += 1
+	dw .__party_end{d:_party_n} - .__party_start{d:_party_n}
+.__party_start{d:_party_n}
+	db \2, "@"
+	db _party_flags{d:_party_n}
+	REDEF _party_name EQUS "\1"
+	DEF _party_flags = 0
+	if _NARG == 3
+		assert !STRCMP("\3", "DOUBLES"), "party \1: unknown option \3"
+		DEF _party_flags |= 1 << TRAINERTYPE_DOUBLE_F
+	else
+		assert _NARG == 2, "party \1: expected an ID, a name and optionally DOUBLES"
+	endc
+	DEF _party_open = 1
+	DEF _party_hard = 0
+	REDEF _party_team EQUS ""
+	_team_start
+ENDM
+
+MACRO _team_start
 	DEF _party_mons = 0
+	DEF _party_random = 0
+ENDM
+
+MACRO _team_end
+; closes the current team and checks its size
+	_pm_flush
+	assert _party_mons, "{_party_name}{_party_team} has no Pokemon"
+	if !_party_random
+		db END_PARTY_MONS
+	endc
+	assert _party_mons <= PARTY_LENGTH, "{_party_name}{_party_team} has {d:_party_mons} Pokemon (1-6)"
+	if _party_flags & (1 << TRAINERTYPE_DOUBLE_F)
+		assert _party_mons >= 2, "doubles party {_party_name}{_party_team} has fewer than 2 Pokemon"
+	endc
+ENDM
+
+MACRO hard
+; the Hard mode team follows
+	assert _party_open && !_party_hard, "hard: once per party, after its Normal team"
+	_team_end
+	DEF _party_hard = 1
+	DEF _party_flags |= 1 << TRAINERTYPE_HARD_F
+	REDEF _party_team EQUS " (hard)"
+	_team_start
+ENDM
+
+MACRO random_mons
+; random_mons COUNT, LIST: COUNT different Pokemon from random_list LIST
+	assert _party_open && !_party_mons, "random_mons must start a team"
+	db RANDOM_TEAM, \1, \2
+	assert (\1) >= 1 && (\1) <= _rl_count_\2, "{_party_name}: random_mons \1 from \2"
+	DEF _party_mons = \1
+	DEF _party_random = 1
+ENDM
+
+MACRO mon
+; mon LEVEL, SPECIES (LEVEL is added to wBaseLevel)
+	_pm_flush
+	if _rl_open
+		DEF _rl_mons += 1
+		REDEF _pm_where EQUS "random list {_rl_name} entry {d:_rl_mons}"
+	else
+		assert _party_open, "mon \2 outside a party or random list"
+		assert !_party_random, "{_party_name}: a random team can't list Pokemon"
+		DEF _party_mons += 1
+		REDEF _pm_where EQUS "{_party_name}{_party_team} Pokemon {d:_party_mons} (\2)"
+	endc
+	DEF _pm_open = 1
+	DEF _pm_flags = 0
+	DEF _pm_level = \1
+	DEF _pm_species = \2
+ENDM
+
+MACRO _pm_field
+; marks optional field \1 (MONFLAG_\1_F) as set; it may appear once per Pokemon
+	assert _pm_open, "\2: not after a mon line"
+	assert !(_pm_flags & (1 << MONFLAG_\1_F)), "{_pm_where}: \2 given twice"
+	DEF _pm_flags |= 1 << MONFLAG_\1_F
+ENDM
+
+MACRO item
+	_pm_field ITEM, item
+	DEF _pm_item = \1
+ENDM
+
+MACRO ability
+; ability NAME (without ABILITY_): one of the species' three abilities (checked
+; against data/abilities/species_abilities.asm); ReadTrainerParty picks its slot
+	_pm_field ABILITY, ability
+	DEF _pm_ability = ABILITY_\1
 ENDM
 
 MACRO moves
-; emits four move words; use NO_MOVE to pad
-	if _NARG != 4
-		fail "moves: expected 4 moves, got {d:_NARG}"
-	endc
-	dw \1
-	dw \2
-	dw \3
-	dw \4
+; 1-4 moves; the remaining slots stay empty
+	_pm_field MOVES, moves
+	assert _NARG >= 1 && _NARG <= NUM_MOVES, "{_pm_where}: moves takes 1-4 moves"
+	DEF _pm_nmoves = _NARG
+	for _i, 1, _NARG + 1
+		assert (\1) != NO_MOVE, "{_pm_where}: list only real moves"
+		DEF _pm_move{d:_i} = \1
+		shift
+	endr
 ENDM
 
-MACRO ability_slot
-; TRAINERTYPE_ABILITY parties: after a Pokemon's other data, its ability slot
-; (ABILITY_SLOT_1, ABILITY_SLOT_2 or ABILITY_SLOT_HIDDEN)
-	assert (\1) < NUM_ABILITY_SLOTS, "ability_slot: invalid slot \1"
-	db \1
+MACRO dvs
+; dvs PRESET (DVS_PRESET in constants/trainer_data_constants.asm) or dvs ATK, DEF, SPD, SPC
+	_pm_field DVS, dvs
+	if _NARG == 1
+		DEF _pm_dvs = DVS_\1
+	else
+		assert _NARG == 4, "{_pm_where}: dvs takes a preset or 4 values"
+		assert (\1) < 16 && (\2) < 16 && (\3) < 16 && (\4) < 16, "{_pm_where}: DVs are 0-15"
+		DEF _pm_dvs = (\1) << 12 | (\2) << 8 | (\3) << 4 | (\4)
+	endc
+ENDM
+
+MACRO ev_spread
+; ev_spread PRESET (EVS_PRESET)
+	_pm_field EVS, ev_spread
+	DEF _pm_evs = EVS_\1
+ENDM
+
+MACRO nickname
+	_pm_field NICKNAME, nickname
+	DEF _max_nick = MON_NAME_LENGTH - 1
+	assert CHARLEN(\1) >= 1 && CHARLEN(\1) <= _max_nick, "{_pm_where}: nickname is 1-{d:_max_nick} characters"
+	REDEF _pm_nick EQUS \1
+ENDM
+
+MACRO shiny
+	_pm_field SHINY, shiny
 ENDM
 
 MACRO end_party
-; terminates a trainer party
-	if _double_party
-		assert _party_mons >= 2, "doubles trainer {_double_party_name} has fewer than 2 Pokemon"
-	endc
-	DEF _double_party = 0
-	DEF _party_mons = 0
-	db -1
+	assert _party_open, "end_party without a party"
+	_team_end
+	DEF _party_flags{d:_party_n} EQU _party_flags
+.__party_end{d:_party_n}
+	DEF _party_open = 0
+ENDM
+
+MACRO random_list
+; random_list LIST: the lists must come in the order of their constants
+	assert !_rl_open && !_party_open, "random_list \1: close the previous list or party first"
+	assert (\1) == _rl_next, "random_list \1 is out of order"
+	DEF _rl_next += 1
+	REDEF _rl_name EQUS "\1"
+RandomList_\1:
+	db _rl_count_\1
+	DEF _rl_open = 1
+	DEF _rl_mons = 0
+ENDM
+
+MACRO end_random_list
+	_pm_flush
+	assert _rl_mons >= 1 && _rl_mons <= 255, "random list {_rl_name} needs 1-255 Pokemon"
+	DEF _rl_count_{_rl_name} EQU _rl_mons
+	DEF _rl_open = 0
 ENDM

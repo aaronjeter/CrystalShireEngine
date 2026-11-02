@@ -173,7 +173,7 @@ endr
 	jr nz, .loop
 
 	; Initialize the ability slot. Trainer Pokemon keep ability 1 unless
-	; ReadTrainerParty sets one (TRAINERTYPE_ABILITY). A Pokemon caught in
+	; ReadTrainerParty sets one (a party's ability line). A Pokemon caught in
 	; battle keeps the slot it had there; any other new Pokemon rolls one.
 	pop hl
 	push hl

@@ -1,6 +1,6 @@
 """Contact sheets of battle animations in double battles (double battles phase 5).
 
-Plays double battles with animations on, against a harness-written doubles_trainer party
+Plays double battles with animations on, against a harness-written DOUBLES party
 that knows the same moves as the player's two mons. Each player turn, P1 and P2 use the
 same move, on E1/E2 and then on E2/E1, so every move is seen as P1->E1, P1->E2, P2->E1 and
 P2->E2; the enemies use the moves the AI picks. HP and PP are refilled at every menu.

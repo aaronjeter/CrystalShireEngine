@@ -13,7 +13,7 @@ Checks:
     the PC, the player's slot in battle, a wild override, catching, and the
     stats screen.
  6. NPC trades; 7. the Ability Capsule and Ability Patch from the Pack.
-Not covered: TRAINERTYPE_ABILITY and a fixed npctrade slot (no data uses them
+Not covered: a trainer party's ability line and a fixed npctrade slot (no data uses them
 yet; both were tested with temporary data edits), and Day-Care eggs.
 Note: ROM patches and run_script code are not part of save states, so a state
 saved in the middle of a scripted battle can only be resumed in the same run.

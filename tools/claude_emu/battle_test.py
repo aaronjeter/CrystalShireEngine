@@ -15,7 +15,7 @@ How it stays repeatable:
   The RNG is reseeded at the start of each case. Randomness then depends only on how many
   times `Random` is called, not on timing.
 - Custom trainer parties are assembled with the repo's own macros into free ROMX space,
-  and a trainer class's TrainerGroups/TrainerGroupsHard entries are repointed to them.
+  and a trainer class's TrainerGroups entry is repointed to them.
 - Every input is chosen from the screen state (menus, prompts), never from frame counts.
 """
 import json, os, re, subprocess, sys, tempfile
@@ -132,19 +132,20 @@ class Game(H):
     def const(self, expr):
         return assemble_block(f'\tdb {expr}', 0, SCRIPT_ORG)[0]
 
-    def set_trainer(self, cls, name, mons, ttype=None, doubles=False):
+    def set_trainer(self, cls, name, mons, doubles=False, extra=None):
         """mons: list of (level, species, item or None, [moves] or None). doubles: a
-        doubles_trainer party (a double battle)."""
-        if ttype is None:
-            ttype = ' | '.join(['TRAINERTYPE_NORMAL'] + (['TRAINERTYPE_ITEM'] if any(m[2] for m in mons) else [])
-                                + (['TRAINERTYPE_MOVES'] if any(m[3] for m in mons) else []))
-        header = f'\tdoubles_trainer "{name}", {ttype}' if doubles else f'\tdb "{name}@", {ttype}'
-        lines = ['TestGroup:', '\tnext_list_item', header]
-        for lv, sp, item, moves in mons:
-            lines.append(f'\titemmon {lv}, {sp}, {item or "NO_ITEM"}' if 'TRAINERTYPE_ITEM' in ttype else f'\tmon {lv}, {sp}')
-            if 'TRAINERTYPE_MOVES' in ttype:
-                mv = list(moves or []) + ['NO_MOVE'] * 4
-                lines.append('\tmoves ' + ', '.join(mv[:4]))
+        DOUBLES party (a double battle). extra: {mon index: [party lines]}, e.g.
+        {0: ['ability STURDY', 'dvs PERFECT']} (the party format in macros/data.asm)."""
+        header = f'\tparty 1, "{name}"' + (', DOUBLES' if doubles else '')
+        lines = ['TestGroup:', header]
+        for i, (lv, sp, item, moves) in enumerate(mons):
+            lines.append(f'\tmon {lv}, {sp}')
+            if item and item != 'NO_ITEM':
+                lines.append(f'\t\titem {item}')
+            mv = [m for m in (moves or []) if m != 'NO_MOVE']
+            if mv:
+                lines.append('\t\tmoves ' + ', '.join(mv))
+            lines += ['\t\t' + l for l in (extra or {}).get(i, [])]
         lines += ['\tend_party', '\tend_list_items']
         body = '\n'.join(lines)
         bank = 127
@@ -152,8 +153,7 @@ class Game(H):
         data = assemble_block(body, bank, org)
         self.poke_rom(bank * 0x4000 + org - 0x4000, data)
         idx = self.const(cls) - 1
-        for tbl in ('TrainerGroups', 'TrainerGroupsHard'):
-            self.poke_rom(self.rom_addr(tbl) + 3 * idx, [bank, org & 0xFF, org >> 8])
+        self.poke_rom(self.rom_addr('TrainerGroups') + 3 * idx, [bank, org & 0xFF, org >> 8])
 
     def set_party(self, mons, items=()):
         """mons: list of (species, level, item or None, [moves]); items: list of (ITEM, qty)."""
