@@ -1,0 +1,124 @@
+# Distance bands for tools/trainer_audit.py (claude/trainer-audit.md).
+# MAP-PATH-PREFIX  BAND. Band N = a player who started in that region has N badges
+# there (band 0 = start town to Gym 1 ... band 8 = Victory Road / League). The
+# longest matching prefix wins. DRAFT (Nov 1): standard Gym orders; to be approved.
+# Johto: Violet, Azalea, Goldenrod, Ecruteak, Cianwood, Olivine, Mahogany, Blackthorn
+# Kanto: Pewter, Cerulean, Vermilion, Celadon, Fuchsia, Saffron, Seafoam, Viridian
+# Hoenn: Rustboro, Dewford, Mauville, Lavaridge, Petalburg, Fortree, Mossdeep, Sootopolis
+# Not banded (levels not by distance, or unknown): hoenn/battle (World Cup, Ashen
+# Gauntlet, Treetop Trial), johto/JohtoGames, PlayersHouse2F (test), hoenn/TestRoom.
+
+# ---- Johto
+maps/johto/cherrygrove        0
+maps/johto/routes/Route29     0
+maps/johto/routes/Route30     0
+maps/johto/routes/Route31     0
+maps/johto/routes/Route46     0
+maps/johto/violet             0
+maps/johto/routes/Route32     1
+maps/johto/alph               1
+maps/johto/dungeons/UnionCave 1
+maps/johto/routes/Route33     1
+maps/johto/dungeons/SlowpokeWell 1
+maps/johto/azalea             1
+maps/johto/dungeons/Ilex      2
+maps/johto/routes/Route34     2
+maps/johto/goldenrod          2
+maps/johto/routes/Route35     3
+maps/johto/routes/Route36     3
+maps/johto/routes/Route37     3
+maps/NationalPark             3
+maps/johto/ecruteak           3
+maps/johto/routes/Route38     4
+maps/johto/routes/Route39     4
+maps/johto/olivine/OlivineLighthouse 4
+maps/johto/routes/Route40     4
+maps/johto/routes/Route41     4
+maps/johto/cianwood           4
+maps/johto/olivine            5
+maps/johto/routes/Route42     5
+maps/johto/dungeons/MountMortar 5
+maps/johto/rage               6
+maps/johto/mahogany           6
+maps/johto/goldenrod/Radio    7
+maps/johto/goldenrod/GoldenrodUnderground 7
+maps/johto/routes/Route43     6
+maps/johto/routes/Route44     7
+maps/johto/dungeons/IcePath   7
+maps/johto/blackthorn         7
+maps/johto/dungeons/DragonsDen 8
+maps/johto/routes/Route45     8
+maps/kanto/routes/Route26     8
+maps/kanto/routes/Route27     8
+maps/kanto/indigo             8
+maps/FastShip                 8
+maps/johto/silver             16
+
+# ---- Kanto
+maps/kanto/routes/Route22     0
+maps/hoenn/ViridianForest     0
+maps/kanto/pewter             0
+maps/kanto/routes/Route3      1
+maps/kanto/dungeons/MtMoon    1
+maps/kanto/routes/Route4      1
+maps/kanto/cerulean           1
+maps/kanto/routes/Route24     2
+maps/kanto/routes/Route25     2
+maps/kanto/routes/Route6      2
+maps/kanto/vermilion          2
+maps/kanto/routes/Route9      3
+maps/kanto/routes/Route10     3
+maps/kanto/routes/Route8      3
+maps/kanto/routes/Route11     3
+maps/kanto/celadon            3
+maps/kanto/routes/Route12     4
+maps/kanto/routes/Route13     4
+maps/kanto/routes/Route14     4
+maps/kanto/routes/Route15     4
+maps/kanto/routes/Route17     4
+maps/kanto/routes/Route18     4
+maps/kanto/fuchsia            4
+maps/kanto/safari             4
+maps/kanto/saffron            5
+maps/kanto/routes/Route19     6
+maps/kanto/routes/Route20     6
+maps/kanto/routes/Route21     6
+maps/SeafoamGym               6
+maps/kanto/viridian           7
+maps/kanto/dungeons/VictoryRoad 8
+
+# ---- Hoenn
+maps/hoenn/routes/Route102    0
+maps/hoenn/routes/Route103    0
+maps/hoenn/routes/Route104    0
+maps/hoenn/PetalburgWoods     0
+maps/hoenn/rustboro           0
+maps/hoenn/routes/Route116    1
+maps/hoenn/routes/Route105    1
+maps/hoenn/routes/Route106    1
+maps/hoenn/dewford            1
+maps/hoenn/routes/Route107    2
+maps/hoenn/routes/Route108    2
+maps/hoenn/routes/Route109    2
+maps/hoenn/routes/Route110    2
+maps/hoenn/dungeons/RusturfTunnel 2
+maps/hoenn/mauville           2
+maps/hoenn/mauville/NewMauville 5
+maps/hoenn/routes/Route117    3
+maps/hoenn/routes/Route111    3
+maps/hoenn/routes/Route112    3
+maps/hoenn/routes/Route113    3
+maps/hoenn/routes/Route114    3
+maps/hoenn/lavaridge          3
+maps/hoenn/desert             4
+maps/hoenn/petalburg          4
+maps/hoenn/routes/Route118    5
+maps/hoenn/routes/Route119    5
+maps/hoenn/fortree            5
+maps/hoenn/routes/Route120    6
+maps/hoenn/routes/Route121    6
+maps/hoenn/MtPyre             6
+maps/hoenn/lilycove           6
+maps/hoenn/mossdeep           6
+maps/hoenn/sootopolis         7
+maps/hoenn/evergrande         8
