@@ -355,13 +355,19 @@ LEADER_VERSION_BADGES = {2: 4, 3: 14}
 FOLLOW_UP_PARTIES = {'CLAIR3',  # BlackthornGym1F: a solo Mega after Clair 1 or 2
                      'BLUE1',  # ViridianGym: Blue's only version, at any badge count
                      'WALLACE1'}  # SootopolisGym: 0-13 badges (his Gym is late)
+# World Cup bracket (maps/hoenn/battle/WCRound*.asm, WCFinals.asm)
+WORLD_CUP_PARTIES = {'LORELEI1', 'WCFALKNER', 'RIVAL2_WC', 'WC_WALLY', 'WC_GREEN', 'WC_GIOVANNI', 'WC_OAK'}
 # leaders with their own version thresholds
 PARTY_BADGES = {'WALLACE2': 14}  # SootopolisGym: 14+ badges
+# League rooms: version 1 below 16 badges (shown at the band), version 2 at 16+;
+# LANCE3 / STEVEN3 follow either version (shown at the band)
+PARTY_BADGES.update({p: 16 for p in ('WILL2', 'KOGA2', 'BRUNO2', 'KAREN2', 'LANCE2',
+                                     'SIDNEY2', 'PHOEBE2', 'GLACIA2', 'DRAKE2', 'STEVEN2')})
 
 def party_band(d, p):
     """badge count the party's levels are shown for"""
-    if p['id'].startswith('WC'):
-        return None  # World Cup: Cup battles use the level cap
+    if p['id'] in WORLD_CUP_PARTIES or p['id'].startswith('WC'):
+        return 8  # World Cup: open after the Indigo League, so 8+ badges (normal world levels)
     bands = [d.band_of(f) for f, _ in d.uses.get(p['id'], [])]
     bands = [b for b in bands if b is not None]
     band = min(bands) if bands else None
