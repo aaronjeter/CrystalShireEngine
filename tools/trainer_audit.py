@@ -422,6 +422,15 @@ def team_findings(d, p, team, mode, band):
                 out.append((i, f'{mode}: {s}: {mv} {st}'))
         if m.get('item') in d.placeholder_items:
             out.append((i, f'{mode}: {s}: placeholder item {m["item"]}'))
+    # one of each held item per team (user, Nov 2): a second healer is Black Sludge, Shell Bell or a Berry
+    seen = {}
+    for i, m in enumerate(team['mons']):
+        it = m.get('item')
+        if it and it != 'NO_ITEM':
+            if it in seen:
+                out.append((i, f'{mode}: {m["species"]}: repeated item {it} (also on #{seen[it] + 1})'))
+            else:
+                seen[it] = i
     return out
 
 def party_findings(d, p):
