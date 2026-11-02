@@ -303,10 +303,25 @@ BOSS_NAMES = {'Leader', 'Elite', 'Champion'}
 BOSS_CLASSES = {'RIVAL1', 'RIVAL2', 'WALLY', 'GREEN', 'RED', 'EXECUTIVEM', 'EXECUTIVEF',
                 'GIOVANNI', 'AGATHA'}
 ONE_OFF = {'OAK', 'ELM', 'BIRCH', 'NURSE', 'OFFICER', 'CAL', 'MYSTICALMAN', 'LINK_KRIS'}
-ELITE_CLASSES = {'COOLTRAINERM', 'COOLTRAINERF', 'RANGERM', 'RANGERF'}
+ELITE_CLASSES = {'COOLTRAINERM', 'COOLTRAINERF', 'RANGERM', 'RANGERF', 'KIMONO_GIRL'}
+# parties based on playtesters' teams (user, Nov 2): species and party size stay; moves may change
+PLAYTESTER_PARTIES = {'RONALD1', 'RONALD2', 'RONALD3', 'MARINA1', 'MARINA2', 'MARINA3',
+                      'DALORIC2', 'CONTEST_CRYSTAL2', 'KLUTCH3', 'AMAYA3', 'AARON3'}  # + Johto Games (later)
+
+# joke Fishers (user, Nov 2): Magikarp stay Magikarp, with one Gyarados ace
+EVOLUTION_EXEMPT = {'RAYMOND', 'MARVIN', 'JOSHUA'}  # + Joshua's Pikachu
+
+# single parties treated as bosses (user, Nov 2): the Karate King
+BOSS_PARTIES = {'KIYO'}
+# single parties treated as elite trainers (user, Nov 2)
+ELITE_PARTIES = {'ROUTE105_JOSUE'}
 
 def tier(d, p):
     c = p['class']
+    if p['id'] in BOSS_PARTIES:
+        return 'boss'
+    if p['id'] in ELITE_PARTIES:
+        return 'elite'
     if c in BOSS_CLASSES or d.class_names.get(c) in BOSS_NAMES:
         return 'boss'
     if c in ONE_OFF:
@@ -394,11 +409,12 @@ def team_findings(d, p, team, mode, band):
     else:
         mons = team['mons']
         size = len(mons)
-    if t == 'route' and size == 1:
+    playtester = p['id'] in PLAYTESTER_PARTIES
+    if t == 'route' and size == 1 and not playtester:
         out.append((None, f'{mode}: 1 Pokemon (route trainers have 2-3)'))
-    if t == 'route' and size > 3:
-        out.append((None, f'{mode}: {size} Pokemon (route trainers have 2-3)'))
-    if t == 'elite' and size > (6 if p['doubles'] else 4):
+    if t == 'route' and size > (4 if p['doubles'] else 3) and not playtester:
+        out.append((None, f'{mode}: {size} Pokemon (route trainers have 2-3, doubles up to 4)'))
+    if t == 'elite' and size > (6 if p['doubles'] else 4) and not playtester:
         out.append((None, f'{mode}: {size} Pokemon (elite: up to 4, doubles 4-6)'))
     base = base_level(band) if band is not None else None
     for i, m in enumerate(mons):
@@ -407,7 +423,7 @@ def team_findings(d, p, team, mode, band):
         # policies (user, Nov 1): route trainers strict (moves and evolution); elites may have
         # moves early; bosses may also break a rule occasionally (shown as "rule break");
         # bosses and elites may evolve early freely
-        if lvl is not None:
+        if lvl is not None and not playtester and p['id'] not in EVOLUTION_EXEMPT:
             for e in evo_status(d, s, lvl):
                 if e.startswith('over-evolved') and t in ('boss', 'elite'):
                     continue

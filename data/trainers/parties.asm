@@ -1949,6 +1949,7 @@ ScientistGroup:
 
 	party MITCH, "Mitch" ; Team Rocket Hideout - B3F
 	mon 15, DITTO
+	mon 14, ELECTRODE
 	end_party
 
 	party JED, "Jed" ; Team Rocket Hideout - B1F
@@ -1966,6 +1967,7 @@ ScientistGroup:
 	party RICH, "Rich" ; Goldenrod City - Radio Tower
 	mon 11, PORYGON2
 		moves CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
+	mon 10, MAGNEZONE
 	end_party
 
 	party MAUVILLE_ADAM, "Adam" ; New Mauville Basement Scientist 1
@@ -2098,8 +2100,10 @@ ErikaGroup: ;Gym Leader
 YoungsterGroup:
 	party JOEY, "Joey" ; Route 30
 	mon 1, RATTATA
+	mon 1, PIDGEY
 	hard
 	mon 2, RATTATA
+	mon 2, PIDGEY
 	end_party
 
 	party MIKEY, "Mikey" ; Route 30
@@ -2127,15 +2131,13 @@ YoungsterGroup:
 	end_party
 
 	party SAMUEL, "Samuel" ; Route 34
-	mon 3, RATTATA
 	mon 3, SANDSHREW
 	mon 5, TAILLOW
 	mon 6, SHROOMISH
 	hard
-	mon 5, RATTATA
 	mon 5, SANDSHREW
 	mon 5, TAILLOW
-	mon 7, BRELOOM
+	mon 7, SHROOMISH
 	end_party
 
 	party IAN, "Ian" ; Route 34
@@ -2145,7 +2147,7 @@ YoungsterGroup:
 	hard
 	mon 5, MANKEY
 	mon 5, SWINUB
-	mon 7, DUGTRIO
+	mon 7, DIGLETT
 	end_party
 
 	party WARREN, "Warren" ; Route 03
@@ -2204,6 +2206,7 @@ YoungsterGroup:
 
 	party RUSTBORO_JOSH, "Josh" ; Rustboro Gym
 	mon 5, GEODUDE
+	mon 5, AGEODUDE
 	hard
 	mon 6, GEODUDE
 	mon 6, AGEODUDE
@@ -2211,6 +2214,7 @@ YoungsterGroup:
 
 	party RUSTBORO_TOMMY, "Tommy" ; Rustboro Gym
 	mon 5, SANDSHREW
+	mon 5, ASANDSHREW
 	hard
 	mon 6, SANDSHREW
 	mon 6, ASANDSHREW
@@ -2241,16 +2245,18 @@ YoungsterGroup:
 	end_party
 
 	party ROUTE116_JOEY, "Joey" ; Route 116
+	mon 4, TAILLOW
 	mon 5, MACHOP
 	hard
-	mon 5, MACHOKE
+	mon 4, TAILLOW
+	mon 5, MACHOP
 	end_party
 
 	party ROUTE116_JOHNSON, "Johnson" ; Route 116
 	mon 5, SHROOMISH
 	mon 5, LOTAD
 	hard
-	mon 5, BRELOOM
+	mon 5, SHROOMISH
 	mon 5, LOTAD
 	end_party
 
@@ -2258,7 +2264,7 @@ YoungsterGroup:
 	mon 5, ARON
 	mon 5, ELECTRIKE
 	hard
-	mon 7, LAIRON
+	mon 7, ARON
 	mon 7, ELECTRIKE
 	end_party
 
@@ -2277,7 +2283,7 @@ YoungsterGroup:
 	mon 4, GRIMER
 	mon 5, DUSTOX
 	hard
-	mon 5, WEEZING
+	mon 5, KOFFING
 	mon 6, GRIMER
 	mon 7, DUSTOX
 	end_party
@@ -2287,7 +2293,7 @@ YoungsterGroup:
 	mon 4, GULPIN
 	mon 5, PARASECT
 	hard
-	mon 5, AMUK
+	mon 5, AGRIMER
 	mon 6, GULPIN
 	mon 7, PARASECT
 	end_party
@@ -2304,11 +2310,10 @@ SchoolboyGroup:
 	hard
 	mon 5, ODDISH
 	mon 5, SWABLU
-	mon 7, ELECTRODE
+	mon 7, VOLTORB
 	end_party
 
 	party KIPP, "Kipp" ; Route 15
-	mon 3, VOLTORB
 	mon 3, MAGNEMITE
 	mon 4, VOLTORB
 	mon 5, MAGNETON
@@ -2316,23 +2321,26 @@ SchoolboyGroup:
 
 	party ALAN1, "Alan" ; Route 36
 	mon 9, TANGELA
+	mon 7, SKIPLOOM
 	end_party
 
 	party JOHNNY, "Johnny" ; Route 15
 	mon 2, BELLSPROUT
 	mon 4, WEEPINBELL
-	mon 7, VICTREEBEL
+	mon 7, WEEPINBELL
 	end_party
 
 	party DANNY, "Danny" ; Viridian Forest
+	mon 0, PIDGEY
 	mon 0, RATTATA
 	hard
+	mon 1, PIDGEY
 	mon 1, RATTATA
 	end_party
 
 	party TOMMY, "Tommy" ; Route 15
 	mon 7, XATU
-	mon 8, ALAKAZAM
+	mon 8, KADABRA
 	end_party
 
 	party DUDLEY, "Dudley" ; Route 24
@@ -2347,13 +2355,13 @@ SchoolboyGroup:
 
 	party BILLY, "Billy" ; Route 15
 	mon 4, PARAS
-	mon 4, PARAS
 	mon 5, POLIWHIRL
 	mon 7, DITTO
 	end_party
 
 	party CHAD1, "Chad" ; Route 38
 	mon 9, MR__MIME
+	mon 8, NATU
 	end_party
 
 	party NATE, "Nate" ; Fast Ship B1F
@@ -2362,7 +2370,7 @@ SchoolboyGroup:
 	end_party
 
 	party RICKY, "Ricky" ; Fast Ship B1F
-	mon 7, AIPOM
+	mon 7, AMBIPOM
 	mon 7, DITTO
 	end_party
 
@@ -2388,34 +2396,30 @@ BirdKeeperGroup:
 	party ROD, "Rod" ; Violet City Gym
 	random_mons 3, BIRDS_EASY
 	hard
-	random_mons 4, BIRDS_EASY
+	random_mons 3, BIRDS_EASY
 	end_party
 
 	party ABE, "Abe" ; Violet City Gym
 	random_mons 3, BIRDS_EASY
 	hard
-	random_mons 4, BIRDS_EASY
+	random_mons 3, BIRDS_EASY
 	end_party
 
 	party BRYAN, "Bryan" ; Route 35
-	mon 4, PIDGEY
 	mon 6, PIDGEOTTO
 	mon 4, TAILLOW
 	mon 6, SWELLOW
 	hard
-	mon 4, PIDGEY
 	mon 7, PIDGEOTTO
 	mon 4, TAILLOW
 	mon 7, SWELLOW
 	end_party
 
 	party THEO, "Theo" ; Glitter Lighthouse - 3F
-	mon 4, PIDGEY
 	mon 6, PIDGEOTTO
 	mon 4, TAILLOW
 	mon 6, SWELLOW
 	hard
-	mon 4, PIDGEY
 	mon 7, PIDGEOTTO
 	mon 4, TAILLOW
 	mon 7, SWELLOW
@@ -2450,9 +2454,8 @@ BirdKeeperGroup:
 	end_party
 
 	party BORIS, "Boris" ; Route 18
-	mon 2, DODUO
 	mon 3, DODUO
-	mon 5, DODRIO
+	mon 5, DODUO
 	mon 7, FARFETCH_D
 	end_party
 
@@ -2462,14 +2465,12 @@ BirdKeeperGroup:
 	end_party
 
 	party JOSE, "Jose" ; Route 27
-	mon 7, FARFETCH_D
-	mon 7, GOLBAT
-	mon 7, FEAROW
+	mon 7, SIRFETCH_D
+	mon 7, CROBAT
 	mon 7, AERODACTYL
 	hard
 	mon 9, SIRFETCH_D
 	mon 9, CROBAT
-	mon 9, FEAROW
 	mon 11, AERODACTYL
 	end_party
 
@@ -2478,6 +2479,7 @@ BirdKeeperGroup:
 	end_party
 
 	party PERRY, "Perry" ; Route 13
+	mon 8, PIDGEOTTO
 	mon 9, FARFETCH_D
 	end_party
 
@@ -2563,7 +2565,7 @@ BirdKeeperGroup:
 	end_party
 
 	party ROUTE119_HUGH, "Hugh" ; Route 119
-	mon 5, WINGULL
+	mon 5, PELIPPER
 	mon 5, TROPIUS
 	hard
 	mon 6, PELIPPER
@@ -2579,8 +2581,8 @@ BirdKeeperGroup:
 	end_party
 
 	party ROUTE120_COLIN, "Colin" ; Route 120
-	mon 5, WINGULL
-	mon 5, NATU
+	mon 5, PELIPPER
+	mon 5, XATU
 	hard
 	mon 6, PELIPPER
 	mon 7, XATU
@@ -2625,21 +2627,21 @@ LassGroup:
 	end_party
 
 	party LAURA, "Laura" ; Route 25
-	mon 5, GLOOM
+	mon 5, ODDISH
 	mon 5, PIDGEOTTO
 	hard
-	mon 5, GLOOM
+	mon 5, ODDISH
 	mon 5, PIDGEOTTO
 	mon 7, BELLOSSOM
 	end_party
 
 	party SHANNON, "Shannon" ; Route 25
 	mon 5, PARAS
-	mon 7, PARASECT
+	mon 7, PARAS
 	hard
 	mon 5, PARAS
-	mon 5, PARAS
-	mon 7, PARASECT
+	mon 7, PARAS
+	mon 7, PARAS
 	end_party
 
 	party MICHELLE, "Michelle" ; Celadon City Gym
@@ -2659,9 +2661,10 @@ LassGroup:
 	end_party
 
 	party MAUVILLE_VIVIAN, "Vivian" ; Mauville City Gym
-	mon 9, LANTURN
+	mon 9, CHINCHOU
+	mon 9, HITMONCHAN
 	hard
-	mon 9, LANTURN
+	mon 9, CHINCHOU
 	mon 9, HITMONCHAN
 	end_party
 
@@ -2683,7 +2686,7 @@ LassGroup:
 	mon 6, PIDGEY
 	hard
 	mon 5, SHROOMISH
-	mon 6, PIDGEOTTO
+	mon 6, PIDGEY
 	end_party
 
 	party ROUTE116_JANICE, "Janice" ; Route 116
@@ -2691,7 +2694,7 @@ LassGroup:
 	mon 4, SPEAROW
 	hard
 	mon 5, MARILL
-	mon 4, FEAROW
+	mon 4, SPEAROW
 	end_party
 
 	party MOON_IRIS, "Iris" ; Mount Moon
@@ -2703,10 +2706,10 @@ LassGroup:
 	end_party
 
 	party MOON_MIRIAM, "Miriam" ; Mount Moon
-	mon 4, GLOOM
+	mon 4, ODDISH
 	mon 5, ROSELIA
 	hard
-	mon 5, GLOOM
+	mon 5, ODDISH
 	mon 7, ROSELIA
 	end_party
 
@@ -2728,14 +2731,14 @@ LassGroup:
 
 	party SOOTOPOLIS_ANDREA, "Andrea" ; Sootopolis Gym
 	mon 7, LUVDISC
-	mon 7, WAILMER
+	mon 7, WAILORD
 	hard
 	mon 8, LUVDISC
 	mon 8, WAILORD
 	end_party
 
 	party SOOTOPOLIS_CRISSY, "Crissy" ; Sootopolis Gym
-	mon 7, GOLDEEN
+	mon 7, SEAKING
 	mon 7, BLASTOISE
 	hard
 	mon 8, SEAKING
@@ -2856,16 +2859,12 @@ CooltrainerMGroup:
 	mon 9, CHARIZARD
 	mon 9, BLASTOISE
 	mon 9, VENUSAUR
-	mon 5, RAICHU
 	mon 5, SKARMORY
-	mon 4, OCTILLERY
 	hard
 	mon 9, CHARIZARD
 	mon 9, BLASTOISE
 	mon 9, VENUSAUR
-	mon 5, ARAICHU
-	mon 5, SKARMORY2
-	mon 4, OCTILLERY
+	mon 5, SKARMORY
 	end_party
 
 	party AARON, "Aaron" ; Lake of Rage
@@ -2885,12 +2884,12 @@ CooltrainerMGroup:
 	end_party
 
 	party CODY, "Cody" ; Blackthorn City Gym
-	mon 5, HORSEA
+	mon 5, SEADRA
 	mon 7, SEADRA
 	mon 5, YANMA
 	mon 7, FURRET
 	hard
-	mon 7, HORSEA
+	mon 7, SEADRA
 	mon 9, SEADRA
 	mon 7, YANMA
 	mon 9, FURRET
@@ -2915,7 +2914,7 @@ CooltrainerMGroup:
 
 	party RYAN, "Ryan" ; Route 45
 	mon 7, PIDGEOT
-	mon 7, ELECTABUZZ
+	mon 7, ELECTIVIRE
 	mon 8, ALTARIA
 	mon 8, JYNX
 	end_party
@@ -2923,17 +2922,17 @@ CooltrainerMGroup:
 	party JAKE, "Jake" ; Route 26
 	mon 7, PARASECT
 	mon 7, GOLDUCK
-	mon 4, TRAPINCH
+	mon 4, VIBRAVA
 	mon 9, CAMERUPT
 	hard
 	mon 9, PARASECT
 	mon 9, GOLDUCK
-	mon 5, TRAPINCH
+	mon 5, VIBRAVA
 	mon 10, CAMERUPT
 	end_party
 
 	party BLAKE, "Blake" ; Route 27
-	mon 7, MAGNETON
+	mon 7, MAGNEZONE
 	mon 7, QUAGSIRE
 	mon 7, EXEGGUTOR2
 	hard
@@ -2954,7 +2953,7 @@ CooltrainerMGroup:
 
 	party SEAN, "Sean" ; Fast Ship
 	mon 10, FLAREON
-	mon 10, TANGELA
+	mon 10, TANGROWTH
 	mon 10, TAUROS
 	end_party
 
@@ -2965,20 +2964,24 @@ CooltrainerMGroup:
 	end_party
 
 	party ALLEN, "Allen" ; Route 44
-	mon 7, CHARMELEON
-		moves EMBER, SMOKESCREEN, RAGE, SCARY_FACE
+	mon 6, ARCANINE
+	mon 7, CHARIZARD
+		moves EMBER, SMOKESCREEN, SCARY_FACE, DRAGON_CLAW
 	end_party
 
 	party DARIN, "Darin" ; Dragon's Den
+	mon 10, GYARADOS
 	mon 11, DRAGONAIR
 		moves WRAP, SURF, DRAGON_RAGE, SLAM
 	hard
+	mon 14, GYARADOS
 	mon 15, DRAGONAIR
 		moves WRAP, SURF, DRAGON_RAGE, SLAM
 	end_party
 
 	party PETALBURG_RANDALL, "Randal" ; Petalburg Gym
 	mon 11, DELCATTY
+	mon 10, PERSIAN
 	hard
 	mon 11, DELCATTY
 	mon 11, PERSIAN
@@ -2986,6 +2989,7 @@ CooltrainerMGroup:
 
 	party PETALBURG_PARKER, "Parker" ; Petalburg Gym
 	mon 11, WIGGLYTUFF
+	mon 10, TAUROS
 	hard
 	mon 11, WIGGLYTUFF
 	mon 11, TAUROS
@@ -2993,14 +2997,17 @@ CooltrainerMGroup:
 
 	party PETALBURG_GEORGE, "George" ; Petalburg Gym
 	mon 11, RATICATE
+	mon 10, KANGASKHAN
 	hard
 	mon 11, RATICATE
 	mon 11, KANGASKHAN
 	end_party
 
 	party LAVARIDGE_GERALD, "Gerald" ; Lavaridge Gym
+	mon 8, TORKOAL
 	mon 9, AMAROWAK
 	hard
+	mon 10, TORKOAL
 	mon 11, AMAROWAK
 	end_party
 
@@ -3194,9 +3201,9 @@ CooltrainerMGroup:
 	end_party
 
 	party EVERGRANDE_DUNGEON_M6, "" ; Evergrande Dungeon Generic #6
-	mon 7, MAGMAR
+	mon 7, MAGMORTAR
 	mon 7, JYNX
-	mon 7, ELECTABUZZ
+	mon 7, ELECTIVIRE
 	mon 8, URSARING
 	end_party
 
@@ -3204,12 +3211,12 @@ CooltrainerMGroup:
 	mon 7, AMUK
 	mon 7, MUK
 	mon 7, HARIYAMA
-	mon 8, MAGNETON
+	mon 8, MAGNEZONE
 	end_party
 
 	party EVERGRANDE_DUNGEON_M8, "" ; Evergrande Dungeon Generic #8
 	mon 7, PIDGEOT
-	mon 7, GIRAFARIG
+	mon 7, FARIGIRAF
 	mon 7, CORSOLA
 	mon 8, MAGCARGO
 	end_party
@@ -3249,11 +3256,11 @@ CooltrainerFGroup:
 	mon 7, SEADRA
 	mon 7, WAILORD
 	mon 7, YANMA
-	mon 7, SNEASEL
+	mon 7, WEAVILE
 	end_party
 
 	party LOLA, "Lola" ; Blackthorn City Gym
-	mon 4, DRATINI
+	mon 4, DRAGONAIR
 	mon 6, DRAGONAIR
 	end_party
 
@@ -3274,16 +3281,14 @@ CooltrainerFGroup:
 	end_party
 
 	party KELLY, "Kelly" ; Route 45
-	mon 7, MARILL
-	mon 4, WARTORTLE
-	mon 4, WARTORTLE
+	mon 7, AZUMARILL
+	mon 4, BLASTOISE
+	mon 4, BLASTOISE
 	end_party
 
 	party JOYCE, "Joyce" ; Route 26
-	mon 8, PIKACHU
-	mon 9, BLASTOISE
 	mon 8, RAICHU
-	mon 10, SUNFLORA
+	mon 9, BLASTOISE
 	mon 11, URSARING
 	mon 9, SKARMORY
 	end_party
@@ -3293,15 +3298,12 @@ CooltrainerFGroup:
 	mon 9, RAPIDASH2
 	mon 9, NINETALES
 	mon 9, ANINETALES
-	mon 9, NOCTOWL
-	mon 9, EXEGGCUTE2
 	end_party
 
 	party REENA, "Reena" ; Route 27
 	mon 8, STARMIE
 	mon 8, NIDOQUEEN
 	mon 7, GLISCOR
-	mon 8, LUNATONE
 	mon 10, FROSLASS
 	end_party
 
@@ -3309,7 +3311,6 @@ CooltrainerFGroup:
 	mon 7, FERALIGATR2
 	mon 7, TYPHLOSION2
 	mon 7, VENUSAUR
-	mon 7, CACTURNE
 	mon 11, TORKOAL
 	end_party
 
@@ -3320,8 +3321,10 @@ CooltrainerFGroup:
 	end_party
 
 	party QUINN, "Quinn" ; Viridian Forest
+	mon 0, ODDISH
 	mon 0, BULBASAUR
 	hard
+	mon 1, ODDISH
 	mon 1, BULBASAUR
 	end_party
 
@@ -3391,6 +3394,7 @@ CooltrainerFGroup:
 
 	party PETALBURG_MARY, "Mary" ; Petalburg Gym
 	mon 11, FURRET
+	mon 10, ZANGOOSE
 	hard
 	mon 11, FURRET
 	mon 11, ZANGOOSE
@@ -3398,6 +3402,7 @@ CooltrainerFGroup:
 
 	party PETALBURG_LORI, "Mary" ; Petalburg Gym
 	mon 11, DODRIO
+	mon 10, FEAROW
 	hard
 	mon 11, DODRIO
 	mon 11, FEAROW
@@ -3405,6 +3410,7 @@ CooltrainerFGroup:
 
 	party PETALBURG_JODY, "Mary" ; Petalburg Gym
 	mon 11, SWELLOW
+	mon 10, NOCTOWL
 	hard
 	mon 11, SWELLOW
 	mon 11, NOCTOWL
@@ -3626,8 +3632,10 @@ BeautyGroup:
 
 	party OLIVIA, "Olivia" ; Route 38
 	mon 9, CORSOLA
+	mon 8, AZUMARILL
 	hard
 	mon 12, CORSOLA
+	mon 11, AZUMARILL
 	end_party
 
 	party ROUTE103_DAISY, "Daisy" ; Route 103
@@ -3635,14 +3643,16 @@ BeautyGroup:
 	end_party
 
 	party ROUTE104_CINDY, "Cindy" ; Route 104
+	mon 2, SKITTY
 	mon 3, HOOTHOOT
 	hard
+	mon 4, SKITTY
 	mon 5, HOOTHOOT
 	end_party
 
 	party ROUTE109_HAILEY, "Hailey" ; Route 109
 	mon 6, NOCTOWL
-	mon 7, AZUMARILL
+	mon 7, MARILL
 	end_party
 
 	party ROUTE109_LOLA, "Lola" ; Route 109
@@ -3650,7 +3660,7 @@ BeautyGroup:
 	mon 7, ROSELIA
 	hard
 	mon 7, ANINETALES
-	mon 7, ROSERADE
+	mon 7, ROSELIA
 	end_party
 
 	party ROUTE112_SHAYLA, "Shayla" ; Route 112
@@ -3663,7 +3673,7 @@ BeautyGroup:
 
 	party ROUTE120_CLARISSA, "Clarissa" ; Route 120
 	mon 5, ROSELIA
-	mon 7, WAILMER
+	mon 7, WAILORD
 	hard
 	mon 7, ROSERADE
 	mon 7, WAILORD
@@ -3703,10 +3713,10 @@ BeautyGroup:
 
 	party SOOTOPOLIS_BRIDGET, "Bridget" ; Sootopolis Gym
 	mon 7, AZUMARILL
-	mon 7, WAILMER
+	mon 7, WAILORD
 	hard
 	mon 9, AZUMARILL
-	mon 7, WAILMER
+	mon 7, WAILORD
 	end_party
 
 	end_list_items
@@ -3758,22 +3768,23 @@ PokemaniacGroup:
 	end_party
 
 	party ETHAN, "Ethan" ; Fast Ship
-	mon 3, RHYHORN
+	mon 3, RHYDON
 	mon 7, RHYDON
 	end_party
 
 	party ISSAC, "Issac" ; Goldenrod Underground
 	mon 7, LICKITUNG
 		moves LICK, SUPERSONIC, CUT
+	mon 6, NIDOKING
 	end_party
 
 	party DONALD, "Donald" ; Goldenrod Underground
-	mon 5, SLOWPOKE
-	mon 5, DODUO
+	mon 5, SLOWBRO
+	mon 5, DODRIO
 	end_party
 
 	party ZACH, "Zach" ; Route 44
-	mon 7, RHYHORN
+	mon 7, RHYDON
 	mon 7, AERODACTYL
 	mon 7, AIPOM
 	end_party
@@ -3824,7 +3835,7 @@ PokemaniacGroup:
 	end_party
 
 	party ROUTE120_JEFFREY, "Jeffrey" ; Route 120
-	mon 5, SURSKIT
+	mon 5, MASQUERAIN
 	mon 5, PORYGON
 	hard
 	mon 5, MASQUERAIN
@@ -3889,14 +3900,14 @@ GruntMGroup:
 	end_party
 
 	party GRUNTM_10, "Grunt" ; Radio Tower 4F
-	mon 5, ZUBAT
+	mon 5, GOLBAT
 	mon 6, GOLBAT
 	mon 7, SPINDA
 	end_party
 
 	party GRUNTM_11, "Grunt" ; Goldenrod Underground
 	mon 5, MUK
-	mon 5, KOFFING
+	mon 5, WEEZING
 	mon 6, NOSEPASS
 	hard
 	mon 5, AMUK
@@ -3919,7 +3930,7 @@ GruntMGroup:
 	end_party
 
 	party GRUNTM_15, "Grunt" ; Goldenrod Underground
-	mon 4, GRIMER
+	mon 4, MUK
 	mon 7, WEEZING
 	hard
 	mon 4, AMUK
@@ -3930,7 +3941,6 @@ GruntMGroup:
 	mon 5, PERSIAN
 	mon 5, RATICATE
 	mon 5, DUSTOX
-	mon 5, FURRET
 	end_party
 
 	party GRUNTM_17, "Grunt" ; Team Rocket Base B2F
@@ -3959,9 +3969,9 @@ GruntMGroup:
 	end_party
 
 	party GRUNTM_21, "Grunt" ; Unreferenced
-	mon 6, ZUBAT
-	mon 7, GRIMER
-	mon 6, RATTATA
+	mon 6, GOLBAT
+	mon 7, MUK
+	mon 6, RATICATE
 	end_party
 
 	party GRUNTM_22_UNUSED, "Executive" ; Unreferenced
@@ -3996,6 +4006,7 @@ GruntMGroup:
 
 	party GRUNTM_28, "Grunt" ; Team Rocket Base B3F
 	mon 15, RATICATE
+	mon 14, GOLBAT
 	end_party
 
 	party GRUNTM_29, "Grunt" ; Slowpoke Well B1F
@@ -4010,6 +4021,7 @@ GruntMGroup:
 	end_party
 
 	party GRUNTM_31, "Grunt" ; Unreferenced
+	mon 6, EKANS
 	mon 7, GOLBAT
 	end_party
 
@@ -4017,7 +4029,7 @@ GruntMGroup:
 	mon 5, ZUBAT
 	mon 5, SANDSHREW
 	hard
-	mon 5, GOLBAT
+	mon 5, ZUBAT
 	mon 5, SANDSHREW
 	end_party
 
@@ -4030,10 +4042,10 @@ GruntMGroup:
 	end_party
 
 	party MOON_GRUNT3, "Grunt" ; Mount Moon 3
-	mon 5, RATICATE
+	mon 5, RATTATA
 	mon 5, HOOTHOOT
 	hard
-	mon 7, RATICATE
+	mon 7, RATTATA
 	mon 7, HOOTHOOT
 	end_party
 
@@ -4070,10 +4082,10 @@ GruntMGroup:
 	end_party
 
 	party SAFARI_GRUNT4, "Grunt" ; Safari Grunt 4
-	mon 5, LICKILICKY
+	mon 5, LICKITUNG
 	mon 5, AMAROWAK
 	hard
-	mon 7, LICKILICKY
+	mon 7, LICKITUNG
 	mon 7, AMAROWAK
 	end_party
 
@@ -4095,10 +4107,10 @@ GruntMGroup:
 
 	party SAFARI_GRUNT7, "Grunt" ; Safari Grunt 7
 	mon 5, DUSCLOPS
-	mon 5, VICTREEBEL
+	mon 5, WEEPINBELL
 	hard
 	mon 7, DUSCLOPS
-	mon 7, VICTREEBEL
+	mon 7, WEEPINBELL
 	end_party
 
 	party RUSTTURF_GRUNT1, "Alex" ; Rustturf Grunt 1
@@ -4218,6 +4230,7 @@ GentlemanGroup:
 	end_party
 
 	party EDWARD, "Edward" ; Fast Ship
+	mon 6, NINETALES
 	mon 7, PERSIAN
 	end_party
 
@@ -4264,13 +4277,14 @@ SkierGroup:
 
 	party CLARISSA, "Clarissa" ; Mahogany Town Gym
 	mon 7, DEWGONG
-	mon 7, SNEASEL
+	mon 7, WEAVILE
 	end_party
 
 	end_list_items
 
 TeacherGroup:
 	party COLETTE, "Colette" ; Route 15
+	mon 6, JIGGLYPUFF
 	mon 7, CLEFAIRY
 	end_party
 
@@ -4280,7 +4294,8 @@ TeacherGroup:
 	end_party
 
 	party SHIRLEY, "Shirley" ; Fast Ship
-	mon 5, JIGGLYPUFF
+	mon 4, CLEFABLE
+	mon 5, WIGGLYTUFF
 	end_party
 
 	party JESS1, "Jess" ; Ilex East (Jessadactyl contest party #1)
@@ -4395,7 +4410,7 @@ TeacherGroup:
 
 	party SOOTOPOLIS_DAPHNE, "Daphne" ; Sootopolis Gym
 	mon 6, GYARADOS
-	mon 6, WINGULL
+	mon 6, PELIPPER
 	hard
 	mon 8, GYARADOS
 	mon 8, PELIPPER
@@ -4403,7 +4418,7 @@ TeacherGroup:
 
 	party SOOTOPOLIS_BRIANNA, "Brianna" ; Sootopolis Gym
 	mon 6, CLAMPERL
-	mon 6, SHELLDER
+	mon 6, CLOYSTER
 	hard
 	mon 8, GOREBYSS
 	mon 8, CLOYSTER
@@ -4539,7 +4554,6 @@ BugCatcherGroup:
 	mon 2, CATERPIE
 	mon 2, SURSKIT
 	mon 3, WEEDLE
-	mon 2, WURMPLE
 	end_party
 
 	party BUG_CATCHER_BENNY, "Benny" ; Azalea Town Gym
@@ -4549,7 +4563,6 @@ BugCatcherGroup:
 	end_party
 
 	party AL, "Al" ; Azalea Town Gym
-	mon 3, WURMPLE
 	mon 3, SILCOON
 	mon 5, BEAUTIFLY
 	mon 5, DUSTOX
@@ -4572,6 +4585,7 @@ BugCatcherGroup:
 	end_party
 
 	party DOUG, "Doug" ; Viridian Forest
+	mon 0, WURMPLE
 	mon 0, SPINARAK
 	end_party
 
@@ -4648,10 +4662,10 @@ BugCatcherGroup:
 	end_party
 
 	party ROUTE119_KENT, "Kent" ; Route119
-	mon 4, PARAS
+	mon 4, PARASECT
 	mon 4, DUSTOX
 	hard
-	mon 5, PARAS
+	mon 5, PARASECT
 	mon 8, DUSTOX
 	end_party
 
@@ -4678,7 +4692,6 @@ FisherGroup:
 	mon 5, MAGIKARP
 	mon 5, MAGIKARP
 	mon 9, MAGIKARP
-	mon 5, MAGIKARP
 	end_party
 
 	party RALPH, "Ralph" ; Route 32
@@ -4705,41 +4718,40 @@ FisherGroup:
 
 	party MARVIN, "Marvin" ; Route 43
 	mon 5, MAGIKARP
-	mon 5, GYARADOS
 	mon 7, MAGIKARP
 	mon 7, GYARADOS
 	end_party
 
 	party TULLY, "Tully" ; Route 42
 	mon 8, QWILFISH
+	mon 7, SEAKING
 	end_party
 
 	party ANDRE, "Andre" ; Fast Ship
+	mon 6, SEAKING
 	mon 7, GYARADOS
 	end_party
 
 	party RAYMOND, "Raymond" ; Lake of Rage
 	mon 2, MAGIKARP
 	mon 2, MAGIKARP
-	mon 2, MAGIKARP
-	mon 2, MAGIKARP
+	mon 2, GYARADOS
 	end_party
 
 	party WILTON, "Wilton" ; Route 44
-	mon 3, GOLDEEN
-	mon 3, GOLDEEN
+	mon 3, SEAKING
+	mon 3, SEAKING
 	mon 6, SEAKING
 	end_party
 
 	party EDGAR, "Edgar" ; Route 44
-	mon 5, REMORAID
-	mon 5, REMORAID
+	mon 5, OCTILLERY
+	mon 5, OCTILLERY
 	end_party
 
 	party JONAH, "Jonah" ; Fast Ship
-	mon 5, SHELLDER
+	mon 5, CLOYSTER
 	mon 9, OCTILLERY
-	mon 5, REMORAID
 	mon 9, CLOYSTER
 	end_party
 
@@ -4749,8 +4761,7 @@ FisherGroup:
 	end_party
 
 	party STEPHEN, "Stephen" ; Route 12
-	mon 5, MAGIKARP
-	mon 5, MAGIKARP
+	mon 5, GYARADOS
 	mon 6, QWILFISH
 	mon 7, TENTACRUEL
 	end_party
@@ -4797,7 +4808,7 @@ FisherGroup:
 	mon 5, POLIWHIRL
 	hard
 	mon 7, MAGNETON
-	mon 7, WALREIN
+	mon 7, SEALEO
 	mon 7, POLITOED
 	end_party
 
@@ -4816,13 +4827,13 @@ FisherGroup:
 	mon 5, BARBOACH
 	mon 7, CARVANHA
 	hard
-	mon 7, MAGNETON
-	mon 5, WHISCASH
-	mon 7, SHARPEDO
+	mon 7, MAGNEMITE
+	mon 5, BARBOACH
+	mon 7, CARVANHA
 	end_party
 
 	party ROUTE118_BARNY, "Barney" ; Route 118
-	mon 7, MAGNEMITE
+	mon 7, MAGNETON
 	mon 5, BARBOACH
 	mon 7, HUNTAIL
 	end_party
@@ -4831,7 +4842,7 @@ FisherGroup:
 	mon 5, BARBOACH
 	mon 6, OCTILLERY
 	hard
-	mon 6, WHISCASH
+	mon 6, BARBOACH
 	mon 7, OCTILLERY
 	end_party
 
@@ -4839,27 +4850,25 @@ FisherGroup:
 	mon 5, CARVANHA
 	mon 6, MARSHTOMP
 	hard
-	mon 7, SHARPEDO
+	mon 7, CARVANHA
 	mon 6, MARSHTOMP
 	end_party
 
 	party ROUTE114_CLAUDE, "Claude" ; Route 114
-	mon 5, SLOWBRO
+	mon 5, SLOWPOKE
 	mon 6, WARTORTLE
 	hard
-	mon 7, SLOWBRO
+	mon 7, SLOWPOKE
 	mon 7, WARTORTLE
 	end_party
 
 	party ROUTE119_CHRIS, "Chris" ; Route 119
-	mon 5, FEEBAS
-	mon 6, MAGIKARP
-	mon 5, TENTACOOL
+	mon 5, MILOTIC
+	mon 6, GYARADOS
 	mon 6, CARVANHA
 	hard
 	mon 7, MILOTIC
 	mon 7, GYARADOS
-	mon 7, TENTACRUEL
 	mon 8, SHARPEDO
 	end_party
 
@@ -4867,7 +4876,7 @@ FisherGroup:
 
 SwimmerMGroup:
 	party HAROLD, "Harold" ; Route 19
-	mon 6, REMORAID
+	mon 6, OCTILLERY
 	mon 4, SEADRA
 	end_party
 
@@ -4888,13 +4897,10 @@ SwimmerMGroup:
 	party CHARLIE, "Charlie" ; Route 41
 	mon 5, SHELLDER
 	mon 3, TENTACOOL
-	mon 3, TENTACRUEL
+	mon 3, TENTACOOL
 	end_party
 
 	party GEORGE, "George" ; Route 41
-	mon 1, TENTACOOL
-	mon 2, TENTACOOL
-	mon 1, TENTACOOL
 	mon 4, STARYU
 	mon 2, TENTACOOL
 	mon 4, REMORAID
@@ -4902,6 +4908,7 @@ SwimmerMGroup:
 
 	party BERKE, "Berke" ; Route 41
 	mon 8, QWILFISH
+	mon 7, TENTACRUEL
 	end_party
 
 	party KIRK, "Kirk" ; Route 41
@@ -4911,13 +4918,13 @@ SwimmerMGroup:
 
 	party MATHEW, "Mathew" ; Route 41
 	mon 7, KRABBY
+	mon 6, HORSEA
 	end_party
 
 	party JEROME, "Jerome" ; Route 19
 	mon 6, SEADRA
-	mon 3, TENTACOOL
 	mon 7, TENTACRUEL
-	mon 6, GOLDEEN
+	mon 6, SEAKING
 	end_party
 
 	party TUCKER, "Tucker" ; Route 19
@@ -4926,7 +4933,8 @@ SwimmerMGroup:
 	end_party
 
 	party CAMERON, "Cameron" ; Route 20
-	mon 7, MARILL
+	mon 6, TENTACRUEL
+	mon 7, AZUMARILL
 	end_party
 
 	party SETH, "Seth" ; Route 21
@@ -4938,7 +4946,7 @@ SwimmerMGroup:
 	party PARKER, "Parker" ; Cerulean City Gym
 	mon 7, HORSEA
 	mon 7, WARTORTLE
-	mon 7, SEADRA
+	mon 7, HORSEA
 	end_party
 
 	party ROUTE105_LUIS, "Luis" ; Route105
@@ -4976,6 +4984,7 @@ SwimmerMGroup:
 SwimmerFGroup:
 	party ELAINE, "Elaine" ; Route 40
 	mon 6, STARYU
+	mon 5, GOLDEEN
 	end_party
 
 	party PAULA, "Paula" ; Route 40
@@ -5002,6 +5011,7 @@ SwimmerFGroup:
 
 	party DENISE, "Denise" ; Route 41
 	mon 7, SEEL
+	mon 6, SHELLDER
 	end_party
 
 	party KARA, "Kara" ; Route 41
@@ -5017,12 +5027,13 @@ SwimmerFGroup:
 	end_party
 
 	party DAWN, "Dawn" ; Route 19
+	mon 7, STARMIE
 	mon 8, SEAKING
 	end_party
 
 	party NICOLE, "Nicole" ; Route 20
-	mon 4, MARILL
-	mon 4, MARILL
+	mon 4, AZUMARILL
+	mon 4, AZUMARILL
 	mon 7, LAPRAS
 	end_party
 
@@ -5033,25 +5044,24 @@ SwimmerFGroup:
 
 	party NIKKI, "Nikki" ; Route 21
 	mon 2, SEEL
-	mon 2, SEEL
 	mon 3, SEEL
 	mon 5, DEWGONG
 	end_party
 
 	party DIANA, "Diana" ; Cerulean City Gym
-	mon 7, GOLDUCK
+	mon 7, PSYDUCK
 	mon 7, SQUIRTLE
 	hard
-	mon 7, GOLDUCK
-	mon 7, CRAWDAUNT
+	mon 7, PSYDUCK
+	mon 7, CORPHISH
 	end_party
 
 	party BRIANA, "Briana" ; Cerulean City Gym
-	mon 5, SEAKING
-	mon 5, SEAKING
+	mon 5, GOLDEEN
+	mon 5, GOLDEEN
 	hard
-	mon 5, SEAKING
-	mon 5, WHISCASH
+	mon 5, GOLDEEN
+	mon 5, BARBOACH
 	end_party
 
 	party ROUTE105_IMANI, "Imani" ; Route 105
@@ -5063,7 +5073,7 @@ SwimmerFGroup:
 	end_party
 
 	party ROUTE108_DENISE, "Denise" ; Route 108
-	mon 5, WINGULL
+	mon 5, PELIPPER
 	mon 5, SEAKING
 	hard
 	mon 7, PELIPPER
@@ -5102,14 +5112,14 @@ SailorGroup:
 
 	party KENT, "Kent" ; Glitter Lighthouse - 4F
 	mon 6, KRABBY
-		moves BUBBLE, LEER, VICEGRIP, HARDEN
+		moves LEER, HARDEN, FLAIL, KNOCK_OFF
 	mon 8, KRABBY
-		moves BUBBLEBEAM, LEER, VICEGRIP, HARDEN
+		moves BUBBLEBEAM, LEER, HARDEN, FLAIL
 	hard
 	mon 6, KRABBY
-		moves BUBBLE, LEER, VICEGRIP, HARDEN
+		moves LEER, HARDEN, FLAIL, KNOCK_OFF
 	mon 8, CORPHISH
-		moves BUBBLEBEAM, LEER, VICEGRIP, HARDEN
+		moves BUBBLEBEAM, LEER, HARDEN, RAZORSHELL
 	end_party
 
 	party ERNEST, "Ernest" ; Glitter Lighthouse - 5F
@@ -5128,37 +5138,40 @@ SailorGroup:
 	end_party
 
 	party GARRETT, "Garrett" ; Fast Ship
+	mon 6, TENTACRUEL
 	mon 7, KINGLER
 	end_party
 
 	party KENNETH, "Kenneth" ; Fast Ship
-	mon 3, MACHOP
-	mon 3, MACHOP
+	mon 3, MACHOKE
 	mon 8, POLIWRATH
-	mon 3, MACHOP
+	mon 3, MACHOKE
 	end_party
 
 	party STANLY, "Stanly" ; S.S. Aqua
-	mon 1, MACHOP
-	mon 7, MACHOKE
-	mon 6, PSYDUCK
+	mon 1, MACHOKE
+	mon 7, MACHAMP
+	mon 6, GOLDUCK
 	end_party
 
 	party HARRY, "Harry" ; Route 38
 	mon 7, WOOPER
+	mon 6, TENTACOOL
 	end_party
 
 	party DEWFORD_BRENDEN, "Brenden" ; Dewford City Gym
-	mon 6, POLIWHIRL
+	mon 5, TENTACOOL
+	mon 6, POLIWAG
 	hard
-	mon 7, POLIWHIRL
+	mon 6, TENTACOOL
+	mon 7, POLIWAG
 	end_party
 
 	party ROUTE109_HUEY, "Huey" ; Route 109
-	mon 6, MACHOKE
+	mon 6, MACHOP
 	mon 7, MANTINE
 	hard
-	mon 8, MACHAMP
+	mon 8, MACHOP
 	mon 9, MANTINE
 	end_party
 
@@ -5171,11 +5184,11 @@ SailorGroup:
 	end_party
 
 	party ROUTE109_RICKY, "Ricky" ; Route 109
-	mon 6, DEWGONG
+	mon 6, SEEL
 	mon 7, NOSEPASS
 	hard
-	mon 7, DEWGONG
-	mon 8, PROBOPASS
+	mon 7, SEEL
+	mon 8, NOSEPASS
 	end_party
 
 	party ROUTE109_CHANDLER, "Chandler" ; Route 109
@@ -5183,20 +5196,20 @@ SailorGroup:
 	mon 7, WARTORTLE
 	hard
 	mon 8, HITMONCHAN
-	mon 8, BLASTOISE
+	mon 8, WARTORTLE
 	end_party
 
 	end_list_items
 
 SuperNerdGroup:
 	party ERIC, "Eric" ; Goldenrod Underground
-	mon 4, GRIMER
-	mon 6, GULPIN
+	mon 4, MUK
+	mon 6, SWALOT
 	end_party
 
 	party SAM, "Sam" ; Route 8
 	mon 4, GRIMER
-	mon 6, MUK
+	mon 6, GRIMER
 	end_party
 
 	party TOM, "Tom" ; Route 8
@@ -5206,36 +5219,40 @@ SuperNerdGroup:
 	end_party
 
 	party PAT, "Pat" ; Route 25
+	mon 6, MAGNEMITE
 	mon 7, PORYGON
 	end_party
 
 	party SHAWN, "Shawn" ; Fast Ship
-	mon 2, MAGNEMITE
+	mon 2, MAGNETON
 	mon 5, MUK
-	mon 2, MAGNEMITE
+	mon 2, MAGNETON
 	end_party
 
 	party TERU, "Teru" ; Goldenrod Underground
-	mon 4, ELECTRIKE
-	mon 8, VOLTORB
-	mon 3, MAGNEMITE
-	mon 4, MAGNEMITE
+	mon 4, MANECTRIC
+	mon 8, ELECTRODE
+	mon 4, MAGNETON
 	end_party
 
 	party HUGH, "Hugh" ; Mt. Mortar
 	mon 12, KINGDRA
 		moves SMOKESCREEN, TWISTER, SURF, WATERFALL
+	mon 11, PORYGON
 	hard
 	mon 15, KINGDRA
 		moves SMOKESCREEN, TWISTER, SURF, WATERFALL
+	mon 14, PORYGON2
 	end_party
 
 	party MARKUS, "Markus" ; Mt. Mortar
-	mon 12, SLOWPOKE
+	mon 12, SLOWBRO
 		moves CURSE, WATER_GUN, GROWL, STRENGTH
+	mon 11, MAGNETON
 	hard
-	mon 15, SLOWPOKE
+	mon 15, SLOWBRO
 		moves CURSE, WATER_GUN, GROWL, STRENGTH
+	mon 14, MAGNETON
 	end_party
 
 	party MOON_JOVAN, "Jovan" ; Mount Moon
@@ -5315,7 +5332,8 @@ Rival2Group:
 
 GuitaristGroup:
 	party CLYDE, "Clyde" ; Fast Ship
-	mon 7, ELECTABUZZ
+	mon 6, ELECTRODE
+	mon 7, ELECTIVIRE
 	end_party
 
 	party VINCENT, "Vincent" ; Vermilion City Gym
@@ -5338,11 +5356,11 @@ GuitaristGroup:
 
 	party MAUVILLE_SHAWN, "Shawn" ; Mauville City Gym
 	mon 7, MINUN
-	mon 7, ELECTABUZZ
+	mon 7, ELEKID
 	hard
 	mon 9, MINUN
-	mon 9, ELECTABUZZ
-	mon 9, RAITORA
+	mon 9, ELEKID
+	mon 9, KOTORA
 	end_party
 
 	party ROUTE103_MARCOS, "Marcos" ; Route 103
@@ -5356,7 +5374,7 @@ GuitaristGroup:
 	mon 7, VOLTORB
 	mon 7, HVOLTORB
 	hard
-	mon 7, ELECTRODE
+	mon 7, VOLTORB
 	mon 7, HELECTRODE
 	end_party
 
@@ -5374,15 +5392,15 @@ HikerGroup:
 	end_party
 
 	party RUSSELL, "Russell" ; Union Cave - 1F
-	mon 4, GRAVELER
+	mon 4, GEODUDE
 	mon 6, SUDOWOODO
-	mon 8, LAIRON
+	mon 8, ARON
 	end_party
 
 	party PHILLIP, "Phillip" ; Union Cave - B1F
 	mon 3, GEODUDE
 	mon 3, GEODUDE
-	mon 5, GOLEM
+	mon 5, GRAVELER
 	end_party
 
 	party LEONARD, "Leonard" ; Union Cave - B1F
@@ -5397,14 +5415,14 @@ HikerGroup:
 	end_party
 
 	party ERIK, "Erik" ; Route 45
-	mon 4, MACHOP
-	mon 7, GRAVELER
+	mon 4, MACHOKE
+	mon 7, GOLEM
 	mon 7, GRUMPIG
 	end_party
 
 	party MICHAEL, "Michael" ; Route 45
-	mon 3, GEODUDE
-	mon 5, GRAVELER
+	mon 3, GRAVELER
+	mon 5, GOLEM
 	mon 5, GOLEM
 	end_party
 
@@ -5414,22 +5432,20 @@ HikerGroup:
 	end_party
 
 	party TIMOTHY, "Timothy" ; Route 45
-	mon 6, DIGLETT
+	mon 6, DUGTRIO
 		moves MAGNITUDE, DIG, SAND_ATTACK, SLASH
 	mon 6, DUGTRIO
 		moves MAGNITUDE, DIG, SAND_ATTACK, SLASH
 	end_party
 
 	party BAILEY, "Bailey" ; Route 46
-	mon 3, GEODUDE
-	mon 3, GEODUDE
 	mon 4, GEODUDE
 	mon 4, GEODUDE
 	mon 5, GEODUDE
 	end_party
 
 	party TIM, "Tim" ; Route 9
-	mon 3, GRAVELER
+	mon 3, GEODUDE
 	mon 5, GRAVELER
 	mon 6, GRAVELER
 	end_party
@@ -5447,12 +5463,12 @@ HikerGroup:
 	party KENNY, "Kenny" ; Route 13
 	mon 3, SANDSLASH
 	mon 5, GRAVELER
-	mon 6, GOLEM
-	mon 4, GRAVELER
+	mon 6, GRAVELER
 	end_party
 
 	party JIM, "Jim" ; Route 10
-	mon 8, MACHAMP
+	mon 7, GRAVELER
+	mon 8, MACHOKE
 	end_party
 
 	party DANIEL, "Daniel" ; Union Cave - 1F
@@ -5463,12 +5479,14 @@ HikerGroup:
 
 	party RUSTBORO_MARC, "Marc" ; Rustboro Gym
 	mon 7, LILEEP
+	mon 7, ANORITH
 	hard
 	mon 7, LILEEP
 	mon 7, ANORITH
 	end_party
 
 	party ROUTE116_CLARK, "Clark" ; Route 116
+	mon 8, NOSEPASS
 	mon 9, AGEODUDE
 	end_party
 
@@ -5497,7 +5515,7 @@ HikerGroup:
 
 	party ROUTE112_TRENT, "Trent" ; Route 112
 	mon 3, GEODUDE
-	mon 4, GRAVELER
+	mon 4, GEODUDE
 	mon 5, AGRAVELER
 	hard
 	mon 5, GEODUDE
@@ -5508,30 +5526,30 @@ HikerGroup:
 	party ROUTE112_BRICE, "Brice" ; Route 112
 	mon 3, NUMEL
 	mon 4, MACHOP
-	mon 5, MACHOKE
+	mon 5, MACHOP
 	hard
-	mon 5, CAMERUPT
-	mon 6, MACHOKE
+	mon 5, NUMEL
+	mon 6, MACHOP
 	mon 7, NOSEPASS
 	end_party
 
 	party ROUTE114_LUCAS, "Lucas" ; Route 114
 	mon 6, ONIX
-	mon 6, MACHOKE
+	mon 6, MACHOP
 	mon 7, TAUROS
 	hard
 	mon 7, ONIX
-	mon 7, MACHAMP
+	mon 7, MACHOP
 	mon 8, TAUROS
 	end_party
 
 	party ROUTE114_LENNY, "Lenny" ; Route 114
-	mon 6, MAROWAK
-	mon 6, PILOSWINE
+	mon 6, CUBONE
+	mon 6, SWINUB
 	mon 7, DONPHAN
 	hard
 	mon 8, MAROWAK
-	mon 7, PILOSWINE
+	mon 7, SWINUB
 	mon 8, DONPHAN
 	end_party
 
@@ -5539,13 +5557,13 @@ HikerGroup:
 
 BikerGroup:
 	party DWAYNE, "Dwayne" ; Route 8
-	mon 5, KOFFING
 	mon 6, KOFFING
 	mon 7, KOFFING
 	mon 8, KOFFING
 	end_party
 
 	party HARRIS, "Harris" ; Route 8
+	mon 6, GRIMER
 	mon 7, FLAREON
 	end_party
 
@@ -5561,6 +5579,7 @@ BikerGroup:
 	end_party
 
 	party RILEY, "Riley" ; Route 17
+	mon 6, GRIMER
 	mon 7, WEEZING
 	end_party
 
@@ -5691,17 +5710,16 @@ BurglarGroup:
 	end_party
 
 	party EDDIE, "Eddie" ; Goldenrod City - Underground Warehouse
-	mon 6, GROWLITHE
-		moves ROAR, EMBER, LEER, TAKE_DOWN
-	mon 4, KOFFING
+	mon 6, ARCANINE
+		moves ROAR, EMBER, TAKE_DOWN, THRASH
+	mon 4, WEEZING
 		moves TACKLE, SMOG, SLUDGE, SMOKESCREEN
 	end_party
 
 	party COREY, "Corey" ; Fast Ship
-	mon 5, KOFFING
-	mon 8, MAGMAR
-	mon 5, KOFFING
-	mon 3, KOFFING
+	mon 5, WEEZING
+	mon 8, MAGMORTAR
+	mon 5, WEEZING
 	end_party
 
 	end_list_items
@@ -5726,8 +5744,8 @@ FirebreatherGroup:
 	end_party
 
 	party WALT, "Walt" ; Route 35
-	mon 4, MAGMAR
-	mon 6, MAGMAR
+	mon 4, MAGBY
+	mon 6, MAGBY
 	end_party
 
 	party RAY, "Ray" ; Union Cave - 1F
@@ -5736,14 +5754,14 @@ FirebreatherGroup:
 	end_party
 
 	party LYLE, "Lyle" ; S.S. Aqua
-	mon 6, KOFFING
+	mon 6, WEEZING
 	mon 8, FLAREON
-	mon 6, KOFFING
+	mon 6, WEEZING
 	end_party
 
 	party LAVARIDGE_JEFF, "Jeff" ; Lavaridge Gym
 	mon 6, SLUGMA
-	mon 7, CYNDAQUIL
+	mon 7, QUILAVA
 	mon 8, KOFFING
 	hard
 	mon 7, SLUGMA
@@ -5752,7 +5770,7 @@ FirebreatherGroup:
 	end_party
 
 	party LAVARIDGE_JACE, "Jace" ; Lavaridge Gym
-	mon 6, CHARMANDER
+	mon 6, CHARMELEON
 	mon 7, PONYTA
 	mon 8, MAGBY
 	hard
@@ -5783,11 +5801,11 @@ FirebreatherGroup:
 
 	party LAVARIDGE_KEEGAN, "Keegan" ; Lavaridge Gym
 	mon 6, SUNKERN
-	mon 7, CYNDAQUIL2
+	mon 7, QUILAVA2
 	mon 8, BORUBEA
 	hard
 	mon 7, SUNKERN
-	mon 9, CYNDAQUIL2
+	mon 9, QUILAVA2
 	mon 9, BORUBEA
 	end_party
 
@@ -5806,13 +5824,13 @@ FirebreatherGroup:
 	mon 6, NUMEL
 	mon 7, QUILAVA
 	hard
-	mon 7, MAGCARGO
+	mon 7, SLUGMA
 	mon 6, NUMEL
-	mon 6, QUILAVA
+	mon 7, QUILAVA
 	end_party
 
 	party ROUTE114_BERNIE, "Berny" ; Route 114
-	mon 5, MAGMAR
+	mon 5, MAGBY
 	mon 6, QUILAVA2
 	mon 7, PELIPPER
 	end_party
@@ -5831,7 +5849,6 @@ FirebreatherGroup:
 
 JugglerGroup:
 	party IRWIN, "Irwin" ; Route 35
-	mon 2, VOLTORB
 	mon 4, VOLTORB
 	mon 6, VOLTORB
 	mon 8, VOLTORB2
@@ -5839,8 +5856,8 @@ JugglerGroup:
 
 	party FRITZ, "Fritz" ; S.S. Aqua
 	mon 6, MR__MIME
-	mon 6, MAGMAR
-	mon 6, MACHOKE
+	mon 6, MAGMORTAR
+	mon 6, MACHAMP
 	end_party
 
 	party HORTON, "Horton" ; Vermilion City Gym
@@ -5859,8 +5876,7 @@ BlackbeltGroup:
 	party KENJI, "Kenji" ; Route 45
 	mon 7, MEDICHAM
 	mon 7, HITMONLEE
-	mon 4, ONIX
-	mon 7, MACHOKE
+	mon 7, MACHAMP
 	end_party
 
 	party YOSHI, "Yoshi" ; Cianwood City Gym
@@ -5880,11 +5896,48 @@ BlackbeltGroup:
 
 	party KIYO, "Kiyo" ; Mt. Mortar
 	mon 10, HITMONLEE
+		ability LIMBER
+		moves JUMP_KICK, BLAZE_KICK, KNOCK_OFF, MACH_PUNCH
 	mon 10, HITMONCHAN
+		ability IRON_FIST
+		moves DRAIN_PUNCH, THUNDERPUNCH, ICE_PUNCH, FIRE_PUNCH
 	mon 10, HITMONTOP
+		ability INTIMIDATE
+		moves TRIPLE_KICK, BLAZE_KICK, MACH_PUNCH, RAPID_SPIN
 	mon 10, POLIWRATH
+		ability WATER_ABSORB
+		moves CROSS_CHOP, WATERFALL, HYPNOSIS, ICE_PUNCH
 	mon 10, MEDICHAM
+		ability ELEMENTAL_FIST
+		moves ZEN_HEADBUTT, FIRE_PUNCH, ICE_PUNCH, THUNDERPUNCH
 	mon 13, GALLADE
+		ability SHARPNESS
+		moves PSYCHO_CUT, NIGHT_SLASH, LEAF_BLADE, SWORDS_DANCE
+	hard
+	mon 12, HITMONLEE
+		item BLACKBELT_I
+		ability HASTE
+		moves JUMP_KICK, BLAZE_KICK, KNOCK_OFF, SUCKER_PUNCH
+	mon 12, HITMONCHAN
+		item QUICK_CLAW
+		ability ELEMENTAL_FIST
+		moves DRAIN_PUNCH, THUNDERPUNCH, ICE_PUNCH, FIRE_PUNCH
+	mon 12, HITMONTOP
+		item MUSCLE_BAND
+		ability TECHNICIAN
+		moves MACH_PUNCH, TRIPLE_KICK, RAPID_SPIN, FAINT_ATTACK
+	mon 12, POLIWRATH
+		item SITRUS_BERRY
+		ability IRON_FIST
+		moves DRAIN_PUNCH, ICE_PUNCH, WATERFALL, HYPNOSIS
+	mon 12, MEDICHAM
+		item TWISTEDSPOON
+		ability ELEMENTAL_FIST
+		moves ZEN_HEADBUTT, FIRE_PUNCH, ICE_PUNCH, THUNDERPUNCH
+	mon 15, GALLADE
+		item SCOPE_LENS
+		ability SHARPNESS
+		moves PSYCHO_CUT, NIGHT_SLASH, LEAF_BLADE, SWORDS_DANCE
 	end_party
 
 	party LUNG, "Lung" ; Cianwood City Gym
@@ -5896,20 +5949,22 @@ BlackbeltGroup:
 	party WAI, "Wai" ; Fast Ship
 	mon 2, MACHOKE
 	mon 4, MACHOKE
-	mon 6, MACHOKE
+	mon 6, MACHAMP
 	end_party
 
 	party DEWFORD_TAKAO, "Takao" ; Dewford City Gym
+	mon 7, MACHOP
 	mon 7, TYROGUE
 	hard
-	mon 7, MACHOKE
+	mon 7, MACHOP
 	mon 7, TYROGUE
 	end_party
 
 	party DEWFORD_CRISTIAN, "Cristian" ; Dewford City Gym
-	mon 7, MACHOKE
+	mon 7, MACHOP
+	mon 7, TYROGUE
 	hard
-	mon 7, MACHOKE
+	mon 7, MACHOP
 	mon 7, TYROGUE
 	end_party
 
@@ -6088,7 +6143,6 @@ PsychicGroup:
 	mon 6, GIRAFARIG
 	mon 7, UNOWN
 	mon 7, UNOWN
-	mon 7, UNOWN
 	end_party
 
 	party FRANKLIN, "Franklin" ; Saffron City Gym
@@ -6102,19 +6156,21 @@ PsychicGroup:
 	end_party
 
 	party FIDEL, "Fidel" ; Route 11
-	mon 6, XATU
+	mon 5, KADABRA
+	mon 6, NATU
 	end_party
 
 	party GREG, "Greg" ; Route 37
 	mon 7, DROWZEE
 		moves HYPNOSIS, DISABLE, DREAM_EATER
+	mon 6, NATU
 	end_party
 
 	party NORMAN, "Norman" ; Route 39
 	mon 4, SLOWPOKE
 		moves TACKLE, GROWL, WATER_GUN
 	mon 7, SLOWPOKE
-		moves CURSE, BODY_SLAM, WATER_GUN, CONFUSION
+		moves CURSE, WATER_GUN, CONFUSION, RECOVER
 	end_party
 
 	party MARK, "Mark" ; Route 36
@@ -6127,22 +6183,21 @@ PsychicGroup:
 	end_party
 
 	party PHIL, "Phil" ; Route 44
-	mon 4, NATU
-		moves LEER, NIGHT_SHADE, FUTURE_SIGHT, CONFUSE_RAY
+	mon 4, XATU
+		moves LEER, NIGHT_SHADE, CONFUSE_RAY, CALM_MIND
 	mon 6, KADABRA
-		moves DISABLE, PSYBEAM, RECOVER, FUTURE_SIGHT
+		moves DISABLE, PSYBEAM, RECOVER, MEDITATE
 	end_party
 
 	party RICHARD, "Richard" ; Route 26
+	mon 6, XATU
 	mon 7, ESPEON
 	end_party
 
 	party GILBERT, "Gilbert" ; Route 27
 	mon 7, STARMIE
-	mon 7, EXEGGCUTE
-	mon 7, UNOWN
-	mon 7, NOCTOWL
-	mon 9, GIRAFARIG
+	mon 7, EXEGGUTOR
+	mon 9, FARIGIRAF
 	end_party
 
 	party JARED, "Jared" ; Saffron City Gym
@@ -6150,24 +6205,24 @@ PsychicGroup:
 	end_party
 
 	party RODNEY, "Rodney" ; Fast Ship
-	mon 5, DROWZEE
+	mon 5, HYPNO
 	mon 8, HYPNO
 	end_party
 
 	party ROUTE110_EDWARD, "Edward" ; Route 110
 	mon 6, MR__MIME
-	mon 6, JYNX
+	mon 6, SMOOCHUM
 	hard
 	mon 9, MR__MIME
-	mon 9, JYNX
+	mon 9, SMOOCHUM
 	end_party
 
 	party MOSSDEEP_PRESTON, "Preston" ; Mossdeep Gym
 	mon 7, KADABRA
-	mon 7, KIRLIA
+	mon 7, GARDEVOIR
 	hard
 	mon 8, KADABRA
-	mon 9, KIRLIA
+	mon 9, GARDEVOIR
 	end_party
 
 	party MOSSDEEP_BLAKE, "Blake" ; Mossdeep Gym
@@ -6207,7 +6262,7 @@ PsychicGroup:
 PicnickerGroup:
 	party LIZ, "Liz" ; Route 32
 	mon 5, NIDORAN_F
-	mon 5, NIDORINA
+	mon 5, NIDORAN_F
 	end_party
 
 	party GINA, "Gina" ; Route 34
@@ -6219,26 +6274,31 @@ PicnickerGroup:
 	party BROOKE, "Brooke" ; Route 35
 	mon 6, PIKACHU
 		moves THUNDERSHOCK, GROWL, QUICK_ATTACK, DOUBLE_TEAM
+	mon 5, MARILL
 	end_party
 
 	party KIM, "Kim" ; Route 35
 	mon 5, VULPIX
+	mon 4, PONYTA
 	end_party
 
 	party CINDY, "Cindy" ; Fuschia City Gym
+	mon 10, VENOMOTH
 	mon 11, NIDOQUEEN
 	end_party
 
 	party HOPE, "Hope" ; Route 04
-	mon 7, FLAAFFY
+	mon 6, HOPPIP
+	mon 7, MAREEP
 	end_party
 
 	party SHARON, "Sharon" ; Route 04
 	mon 5, PONYTA
-	mon 7, FURRET
+	mon 7, SENTRET
 	end_party
 
 	party DEBRA, "Debra" ; S.S. Aqua
+	mon 6, LANTURN
 	mon 7, SEAKING
 	end_party
 
@@ -6258,20 +6318,25 @@ PicnickerGroup:
 	end_party
 
 	party TIFFANY, "Tiffany" ; Route 43
-	mon 12, CLEFAIRY
+	mon 12, CLEFABLE
 		moves ENCORE, SING, DOUBLESLAP, MINIMIZE
+	mon 11, WIGGLYTUFF
 	hard
 	mon 12, CLEFABLE
 		moves ENCORE, SING, MOONBLAST, MINIMIZE
+	mon 11, WIGGLYTUFF
 	end_party
 
 	party TANYA, "Tanya" ; Celadon City Gym
+	mon 6, GLOOM
 	mon 7, EXEGGUTOR
 	end_party
 
 	party ROUTE117_MARIA, "Maria" ; Route 117
+	mon 8, ROSELIA
 	mon 9, DELCATTY
 	hard
+	mon 9, ROSELIA
 	mon 10, DELCATTY
 	end_party
 
@@ -6295,7 +6360,7 @@ PicnickerGroup:
 	mon 7, BAYLEEF
 	mon 5, CUBONE
 	hard
-	mon 7, MEGANIUM
+	mon 7, BAYLEEF
 	mon 8, AMAROWAK
 	end_party
 
@@ -6309,10 +6374,10 @@ PicnickerGroup:
 
 	party ROUTE111_IRENE, "Irene" ; Route 111
 	mon 6, MISDREAVUS
-	mon 5, PILOSWINE
+	mon 5, SWINUB
 	hard
 	mon 7, MISDREAVUS
-	mon 7, PILOSWINE
+	mon 7, SWINUB
 	end_party
 
 	party FORTREE_ASHLEY, "Ashley" ; Fortree Gym
@@ -6327,7 +6392,7 @@ PicnickerGroup:
 	mon 5, SWABLU
 	mon 6, LOMBRE
 	hard
-	mon 6, ALTARIA
+	mon 6, SWABLU
 	mon 7, LUDICOLO
 	end_party
 
@@ -6335,8 +6400,8 @@ PicnickerGroup:
 	mon 5, SWABLU
 	mon 6, NUMEL
 	hard
-	mon 6, ALTARIA
-	mon 7, CAMERUPT
+	mon 6, SWABLU
+	mon 7, NUMEL
 	end_party
 
 	party ROUTE113_SOPHIE, "Sophie" ; Route 113
@@ -6352,7 +6417,7 @@ PicnickerGroup:
 	mon 6, BAYLEEF
 	hard
 	mon 7, IVYSAUR
-	mon 8, MEGANIUM
+	mon 8, BAYLEEF
 	end_party
 
 	party ROUTE114_NANCY, "Nancy" ; Route 114
@@ -6415,7 +6480,7 @@ CamperGroup:
 	mon 4, PSYDUCK
 	mon 4, PHANPY
 	hard
-	mon 4, GOLDUCK
+	mon 4, PSYDUCK
 	mon 4, RALTS
 	end_party
 
@@ -6431,26 +6496,29 @@ CamperGroup:
 	end_party
 
 	party BARRY, "Barry" ; Fuschia City Gym
+	mon 10, ARBOK
 	mon 11, NIDOKING
 	end_party
 
 	party LLOYD, "Lloyd" ; Route 25
+	mon 5, SANDSHREW
 	mon 6, NIDORINO
 	end_party
 
 	party DEAN, "Dean" ; Route 9
-	mon 6, GOLDUCK
+	mon 6, PSYDUCK
 	mon 4, SANDSLASH
 	end_party
 
 	party SID, "Sid" ; Route 9
-	mon 2, DUGTRIO
-	mon 7, PRIMEAPE
+	mon 2, DIGLETT
+	mon 7, MANKEY
 	mon 7, POLIWRATH
 	end_party
 
 	party TED, "Ted" ; Route 46
 	mon 7, MANKEY
+	mon 6, SANDSHREW
 	end_party
 
 	party JERRY, "Jerry" ; Pewter City Gym
@@ -6462,9 +6530,9 @@ CamperGroup:
 	end_party
 
 	party SPENCER, "Spencer" ; Route 43
-	mon 3, SANDSHREW
+	mon 3, SANDSLASH
 	mon 5, SANDSLASH
-	mon 4, ZUBAT
+	mon 4, GOLBAT
 	end_party
 
 	party QUENTIN, "Quentin" ; Route 45
@@ -6474,17 +6542,19 @@ CamperGroup:
 	end_party
 
 	party ROUTE104_WINSTON, "Winston" ; Route 104
-	mon 2, LINOONE
+	mon 1, POOCHYENA
+	mon 2, ZIGZAGOON
 	hard
-	mon 3, LINOONE
+	mon 2, POOCHYENA
+	mon 3, ZIGZAGOON
 	end_party
 
 	party ROUTE117_DYLAN, "Dylan" ; Route 117
 	mon 5, DODUO
 	mon 5, CORPHISH
 	hard
-	mon 7, DODRIO
-	mon 7, CRAWDAUNT
+	mon 7, DODUO
+	mon 7, CORPHISH
 	end_party
 
 	party ROUTE108_CAMRON, "Dylan" ; Route 108
@@ -6506,10 +6576,10 @@ CamperGroup:
 
 	party ROUTE111_TRAVIS, "Travis" ; Route 111
 	mon 5, GLIGAR
-	mon 5, CACTURNE
+	mon 5, CACNEA
 	hard
 	mon 7, GLIGAR
-	mon 9, CACTURNE
+	mon 9, CACNEA
 	end_party
 
 	party FORTREE_FLINT, "Flint" ; Fortree Gym
@@ -6532,31 +6602,31 @@ CamperGroup:
 	mon 5, TRAPINCH
 	mon 6, RATICATE
 	hard
-	mon 5, VIBRAVA
+	mon 5, TRAPINCH
 	mon 6, RATICATE
 	end_party
 
 	party ROUTE113_LUNG, "Lung" ; Route 113
 	mon 5, KOFFING
-	mon 6, MAGMAR
+	mon 6, MAGBY
 	hard
-	mon 5, WEEZING
-	mon 6, MAGMAR
+	mon 5, KOFFING
+	mon 6, MAGBY
 	end_party
 
 	party ROUTE113_LAWRENCE, "Lawry" ; Route 113
 	mon 5, BALTOY
 	mon 6, SANDSLASH
 	hard
-	mon 5, CLAYDOL
+	mon 5, BALTOY
 	mon 6, SANDSLASH
 	end_party
 
 	party ROUTE114_SHANE, "Shane" ; Route 114
-	mon 5, URSARING
+	mon 5, TEDDIURSA
 	mon 6, ASANDSLASH
 	hard
-	mon 7, URSARING
+	mon 7, TEDDIURSA
 	mon 7, ASANDSLASH
 	end_party
 
@@ -6818,6 +6888,7 @@ SageGroup:
 
 	party JIN, "Jin" ; Sprout Tower - 3F
 	mon 6, BELLSPROUT
+	mon 5, BELLSPROUT
 	end_party
 
 	party TROY, "Troy" ; Sprout Tower - 3F
@@ -6827,17 +6898,16 @@ SageGroup:
 
 	party JEFFREY, "Jeffrey" ; Ecruteak City Gym
 	mon 7, HAUNTER
+	mon 5, MISDREAVUS
 	end_party
 
 	party PING, "Ping" ; Ecruteak City Gym
 	mon 7, GASTLY
 	mon 7, CUBONE
-	mon 7, VULPIX
 	mon 7, GASTLY
 	hard
 	mon 7, BELLSPROUT
 	mon 7, CUBONE
-	mon 7, VULPIX
 	mon 7, GASTLY
 	end_party
 
@@ -6849,11 +6919,11 @@ SageGroup:
 
 	party NEAL, "Neal" ; Sprout Tower - 3F
 	mon 7, BELLSPROUT
+	mon 6, HOOTHOOT
 	end_party
 
 	party LI, "Li" ; Sprout Tower - 3F
 	mon 4, BELLSPROUT
-	mon 4, SPINARAK
 	mon 5, BELLSPROUT
 	mon 7, HOOTHOOT
 	end_party
@@ -6901,7 +6971,7 @@ MediumGroup:
 	mon 5, NATU
 	hard
 	mon 7, KIRLIA
-	mon 8, GRUMPIG
+	mon 8, SPOINK
 	mon 8, XATU
 	end_party
 
@@ -6917,18 +6987,18 @@ MediumGroup:
 
 BoarderGroup:
 	party RONALD, "Ronald" ; Mahogany Town Gym
-	mon 7, SEEL
+	mon 7, DEWGONG
 	mon 7, DEWGONG
 	mon 7, DELIBIRD
 	end_party
 
 	party BRAD, "Brad" ; Mahogany Town Gym
-	mon 7, SWINUB
-	mon 7, SWINUB
+	mon 7, PILOSWINE
+	mon 7, PILOSWINE
 	end_party
 
 	party DOUGLAS, "Douglas" ; Mahogany Town Gym
-	mon 7, SHELLDER
+	mon 7, CLOYSTER
 	mon 7, CLOYSTER
 	mon 7, AZUMARILL
 	end_party
@@ -6937,47 +7007,50 @@ BoarderGroup:
 
 PokefanMGroup:
 	party WILLIAM, "William" ; National Park
+	mon 3, PIKACHU
 	mon 4, RAICHU
 	end_party
 
 	party DEREK, "Derek" ; Route 39
 	mon 7, PIKACHU
+	mon 6, FURRET
 	end_party
 
 	party ROBERT, "Robert" ; Route 10
+	mon 5, AZUMARILL
 	mon 6, QUAGSIRE
 	end_party
 
 	party JOSHUA, "Joshua" ; Route 13
-	mon 3, PIKACHU
-	mon 3, PIKACHU
 	mon 4, PIKACHU
 	mon 5, PIKACHU
-	mon 5, PIKACHU
-	mon 5, PIKACHU
+	mon 5, RAICHU
 	end_party
 
 	party CARTER, "Carter" ; Route 14
-	mon 3, BULBASAUR
-	mon 3, CHARMANDER
-	mon 3, SQUIRTLE
+	mon 3, IVYSAUR
+	mon 3, CHARMELEON
+	mon 3, WARTORTLE
 	end_party
 
 	party TREVOR, "Trevor" ; Route 14
+	mon 4, SLOWPOKE
 	mon 5, PSYDUCK
 	end_party
 
 	party BRANDON, "Brandon" ; Route 34
 	mon 4, SNUBBULL
+	mon 3, TEDDIURSA
 	end_party
 
 	party JEREMY, "Jeremy" ; S.S. Aqua
-	mon 8, MEOWTH
-	mon 8, MEOWTH
-	mon 8, MEOWTH
+	mon 8, PERSIAN
+	mon 8, PERSIAN
+	mon 8, PERSIAN
 	end_party
 
 	party COLIN, "Colin" ; S.S. Aqua
+	mon 6, JYNX
 	mon 7, DELIBIRD
 	end_party
 
@@ -6988,10 +7061,12 @@ PokefanMGroup:
 	end_party
 
 	party REX, "Rex" ; Route 6
+	mon 4, SNUBBULL
 	mon 5, PHANPY
 	end_party
 
 	party ALLAN, "Allan" ; Route 6
+	mon 4, SENTRET
 	mon 5, TEDDIURSA
 	end_party
 
@@ -7004,16 +7079,12 @@ PokefanMGroup:
 	end_party
 
 	party ROUTE117_ISAAC, "Isaac" ; Route 117
-	mon 5, TEDDIURSA
 	mon 5, ARON
-	mon 5, TAILLOW
 	mon 5, MAGBY
 	mon 5, CLEFFA
 	hard
-	mon 5, URSARING
 	mon 5, LAIRON
-	mon 5, SWELLOW
-	mon 5, MAGMAR
+	mon 5, MAGBY
 	mon 9, CLEFAIRY
 	end_party
 
@@ -7038,20 +7109,20 @@ PokefanMGroup:
 KimonoGirlGroup:
 	party NAOKO, "Naoko" ; Ecruteak City
 	mon 4, QUILAVA
-		moves FIRE_SPIN, MUD_SLAP, MUD_SHOT, FAINT_ATTACK
+		moves FIRE_SPIN, MUD_SLAP, MUD_SHOT, DEFENSE_CURL
 		dvs 10, 10, 10, 10
 	mon 5, QUILAVA2
-		moves FIRE_SPIN, MUD_SLAP, MUD_SHOT, FAINT_ATTACK
+		moves MUD_SLAP, FAINT_ATTACK, FIRE_FANG, FLAME_CHARGE
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_FIRE_COLOR
 	hard
 	mon 4, QUILAVA
-		moves FIRE_SPIN, MUD_SLAP, MUD_SHOT, FAINT_ATTACK
+		moves FIRE_SPIN, MUD_SLAP, MUD_SHOT, DEFENSE_CURL
 		dvs 10, 10, 10, 10
 	mon 5, QUILAVA2
-		moves FIRE_SPIN, MUD_SLAP, MUD_SHOT, FAINT_ATTACK
+		moves MUD_SLAP, FAINT_ATTACK, FIRE_FANG, FLAME_CHARGE
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
@@ -7063,20 +7134,20 @@ KimonoGirlGroup:
 
 	party SAYO, "Sayo" ; Ecruteak City
 	mon 4, NATU
-		moves WING_ATTACK, PSYBEAM, CONFUSE_RAY, HEX
+		moves PSYBEAM, CONFUSE_RAY, HEX, PURSUIT
 		dvs 10, 10, 10, 10
 	mon 5, SPOINK
-		moves PSYWAVE, RAPID_SPIN, CONFUSE_RAY, SLAM
+		moves RAPID_SPIN, CONFUSE_RAY, ENCORE, PSYBEAM
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
 		dvs HP_PSYCHIC_COLOR
 	hard
 	mon 4, NATU
-		moves WING_ATTACK, PSYBEAM, CONFUSE_RAY, HEX
+		moves PSYBEAM, CONFUSE_RAY, HEX, PURSUIT
 		dvs 10, 10, 10, 10
 	mon 5, SPOINK
-		moves PSYWAVE, RAPID_SPIN, CONFUSE_RAY, SLAM
+		moves RAPID_SPIN, CONFUSE_RAY, ENCORE, PSYBEAM
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
@@ -7091,7 +7162,7 @@ KimonoGirlGroup:
 		moves FAINT_ATTACK, HIDDEN_POWER, WILLOWISP, HEX
 		dvs 12, 13, 10, 10
 	mon 5, NUZLEAF
-		moves FAINT_ATTACK, LEECH_SEED, RAZOR_LEAF, RECOVER
+		moves FAINT_ATTACK, LEECH_SEED, RAZOR_LEAF, AIR_CUTTER
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
@@ -7101,7 +7172,7 @@ KimonoGirlGroup:
 		moves FAINT_ATTACK, HIDDEN_POWER, WILLOWISP, HEX
 		dvs 12, 13, 10, 10
 	mon 5, NUZLEAF
-		moves FAINT_ATTACK, LEECH_SEED, RAZOR_LEAF, RECOVER
+		moves FAINT_ATTACK, LEECH_SEED, RAZOR_LEAF, AIR_CUTTER
 		dvs 10, 10, 10, 10
 	mon 7, EEVEE
 		moves HIDDEN_POWER, QUICK_ATTACK, STOMP, RECOVER
@@ -7183,14 +7254,14 @@ TwinsGroup:
 	end_party
 
 	party MEGANDPEG1, "Meg & Peg" ; S.S. Aqua
-	mon 7, TEDDIURSA
-	mon 7, PHANPY
+	mon 7, URSARING
+	mon 7, DONPHAN
 	end_party
 
 	party LEAANDPIA1, "Lea & Pia" ; Dragon's Den
-	mon 7, DRATINI
+	mon 7, DRAGONAIR
 		moves THUNDER_WAVE, TWISTER, FLAMETHROWER, HEADBUTT
-	mon 7, DRATINI
+	mon 7, DRAGONAIR
 		moves THUNDER_WAVE, TWISTER, ICE_BEAM, HEADBUTT
 	end_party
 
@@ -7220,7 +7291,7 @@ TwinsGroup:
 
 	party ROUTE108_LISARIA, "Lisa & Ria" ; Route 108
 	mon 6, TENTACOOL
-	mon 7, TOTODILE
+	mon 7, CROCONAW
 	mon 6, QWILFISH
 	mon 7, CORSOLA
 	hard
@@ -7243,35 +7314,32 @@ TwinsGroup:
 PokefanFGroup:
 	party BEVERLY, "Beverly" ; National Park
 	mon 4, SNUBBULL
+	mon 3, MARILL
 	end_party
 
 	party RUTH, "Ruth" ; Route 39
 	mon 7, PIKACHU
+	mon 6, CLEFAIRY
 	end_party
 
 	party GEORGIA, "Georgia" ; Fast Ship
-	mon 3, SENTRET
-	mon 3, SENTRET
-	mon 3, SENTRET
+	mon 3, FURRET
 	mon 8, FURRET
-	mon 3, SENTRET
+	mon 3, FURRET
 	end_party
 
 	party JAIME, "Jaime" ; Route 39
 	mon 6, MEOWTH
+	mon 5, GRANBULL
 	end_party
 
 	party ROUTE117_LYDIA, "Lydia" ; Route 117
 	mon 5, WINGULL
-	mon 5, SHROOMISH
 	mon 5, MARILL
-	mon 5, GOLDEEN
 	mon 5, SKITTY
 	hard
 	mon 5, PELIPPER
-	mon 5, BRELOOM
 	mon 5, AZUMARILL
-	mon 7, SEAKING
 	mon 7, DELCATTY
 	end_party
 
@@ -7293,7 +7361,7 @@ PokefanFGroup:
 
 	party SOOTOPOLIS_BETHANY, "Bethany" ; Sootopolos Gym
 	mon 6, PELIPPER
-	mon 6, MARILL
+	mon 6, AZUMARILL
 	hard
 	mon 7, PELIPPER
 	mon 8, AZUMARILL
@@ -7483,25 +7551,24 @@ GruntFGroup:
 
 	party GRUNTF_2, "Grunt" ; Radio Tower 2F
 	mon 9, ARBOK
+	mon 8, WEEZING
 	end_party
 
 	party GRUNTF_3, "Grunt" ; Goldenrod Underground Exit
-	mon 7, GLOOM
-	mon 7, WEEPINBELL
-	mon 7, CROCONAW2
-	mon 7, TENTACRUEL2
+	mon 7, VILEPLUME
+	mon 7, VICTREEBEL
+	mon 7, FERALIGATR2
 	end_party
 
 	party GRUNTF_4, "Grunt" ; Radio Tower 4F
-	mon 7, EKANS
-	mon 7, ODDISH
+	mon 7, ARBOK
+	mon 7, VILEPLUME
 	mon 5, SEVIPER
-	mon 6, GLOOM
 	end_party
 
 	party GRUNTF_5, "Grunt" ; Team Rocket Base B3F
 	mon 8, SEVIPER
-		moves WRAP, LEER, POISON_TAIL, BITE
+		moves WRAP, POISON_TAIL, BITE, POISON_JAB
 	mon 8, GLOOM
 		moves ABSORB, SWEET_SCENT, STUN_SPORE, SLEEP_POWDER
 	end_party
@@ -7671,7 +7738,7 @@ GruntFGroup:
 	party PYRE_GRUNTF4, "Elite" ; Mt Pyre Gruntf 4
 	mon 6, IKARI
 	mon 7, ASANDSLASH
-	mon 8, AGGRON
+	mon 8, LAIRON
 	hard
 	mon 7, IKARI
 	mon 7, ASANDSLASH
@@ -9120,15 +9187,17 @@ StevenGroup:
 BattleGirlGroup:
 	party DEWFORD_LAURA, "Laura" ; Dewford City Gym
 	mon 7, MEDITITE
+	mon 7, TAUROS
 	hard
 	mon 7, MEDITITE
 	mon 7, TAUROS
 	end_party
 
 	party DEWFORD_LILITH, "Lilith" ; Dewford City Gym
+	mon 7, POLIWAG
 	mon 7, FARFETCH_D
 	hard
-	mon 7, POLIWHIRL
+	mon 7, POLIWAG
 	mon 7, FARFETCH_D
 	end_party
 
@@ -9141,7 +9210,7 @@ BattleGirlGroup:
 	mon 7, MEDITITE
 	mon 7, TORRACAT
 	hard
-	mon 9, MEDICHAM
+	mon 9, MEDITITE
 	mon 9, TORRACAT
 	end_party
 
@@ -9155,10 +9224,10 @@ BattleGirlGroup:
 
 	party ROUTE120_CALLIE, "Callie" ; Route 120
 	mon 6, HITMONTOP
-	mon 6, MAKUHITA
+	mon 6, HARIYAMA
 	hard
 	mon 8, HITMONTOP
-	mon 8, MAKUHITA
+	mon 8, HARIYAMA
 	end_party
 
 	end_list_items
@@ -9429,7 +9498,7 @@ ExplorerGroup:
 	end_party
 
 	party ROUTE105_ANDRES, "Andres" ; Route 105
-	mon 5, ASANDSHREW
+	mon 5, ASANDSLASH
 	mon 5, CRAWDAUNT
 	mon 7, ARMALDO
 	hard
@@ -9440,22 +9509,22 @@ ExplorerGroup:
 
 	party SAFARI_JOEY, "Joey" ; Safari Zone Joey
 	mon 6, ASANDSLASH
-	mon 7, ASANDSHREW
+	mon 7, ASANDSLASH
 	mon 8, ARMALDO
 	hard
 	mon 8, ASANDSLASH
-	mon 9, ASANDSHREW
+	mon 9, ASANDSLASH
 	mon 10, ARMALDO
 	end_party
 
 	party SAFARI_ROSS, "Ross" ; Safari Zone Ross
 	mon 6, METANG
 	mon 7, CLAYDOL
-	mon 8, YANMEGA
+	mon 8, YANMA
 	hard
 	mon 8, METANG
 	mon 9, CLAYDOL
-	mon 10, YANMEGA
+	mon 10, YANMA
 	end_party
 
 	party SAFARI_CHANDLER, "Chandler" ; Safari Zone Chandler
@@ -9479,7 +9548,7 @@ ExplorerGroup:
 	mon 5, SHUCKLE
 	mon 7, KLEAVOR
 	hard
-	mon 7, GLISCOR
+	mon 7, GLIGAR
 	mon 7, SHUCKLE
 	mon 7, KLEAVOR
 	end_party
@@ -9520,7 +9589,7 @@ ExplorerGroup:
 	PsychicFGroup:
 
 	party MOSSDEEP_MAURA, "Maura" ; Mossdeep Gym
-	mon 6, DROWZEE
+	mon 6, HYPNO
 	mon 7, KADABRA
 	hard
 	mon 8, HYPNO
@@ -9536,7 +9605,7 @@ ExplorerGroup:
 	end_party
 
 	party MOSSDEEP_MACEY, "Macey" ; Mossdeep Gym
-	mon 6, NATU
+	mon 6, XATU
 	mon 7, SLOWKING
 	hard
 	mon 8, XATU
@@ -9544,7 +9613,7 @@ ExplorerGroup:
 	end_party
 
 	party MOSSDEEP_KATHLEEN, "Kathleen" ; Mossdeep Gym
-	mon 6, SLOWPOKE
+	mon 6, SLOWBRO
 	mon 7, BANETTE
 	hard
 	mon 8, SLOWBRO
@@ -9560,7 +9629,7 @@ ExplorerGroup:
 	end_party
 
 	party MOSSDEEP_HANNAH, "Hannah" ; Mossdeep Gym
-	mon 6, BALTOY
+	mon 6, CLAYDOL
 	mon 7, BUTTERFREE
 	hard
 	mon 8, CLAYDOL

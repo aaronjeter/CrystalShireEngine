@@ -18,6 +18,7 @@ maps/johto/violet             0
 maps/johto/routes/Route32     1
 maps/johto/alph               1
 maps/johto/dungeons/UnionCave 1
+maps/johto/dungeons/UnionCaveB 4    # B1F/B2F need Surf (user, Nov 2)
 maps/johto/routes/Route33     1
 maps/johto/dungeons/SlowpokeWell 1
 maps/johto/azalea             1
@@ -94,11 +95,11 @@ maps/hoenn/routes/Route104    0
 maps/hoenn/PetalburgWoods     0
 maps/hoenn/rustboro           0
 maps/hoenn/routes/Route116    1
-maps/hoenn/routes/Route105    1
+maps/hoenn/routes/Route105    5    # needs Surf (user, Nov 2)
 maps/hoenn/routes/Route106    1
 maps/hoenn/dewford            1
 maps/hoenn/routes/Route107    2
-maps/hoenn/routes/Route108    2
+maps/hoenn/routes/Route108    5    # needs Surf (user, Nov 2)
 maps/hoenn/routes/Route109    2
 maps/hoenn/routes/Route110    2
 maps/hoenn/dungeons/RusturfTunnel 2
