@@ -306,7 +306,8 @@ ONE_OFF = {'OAK', 'ELM', 'BIRCH', 'NURSE', 'OFFICER', 'CAL', 'MYSTICALMAN', 'LIN
 ELITE_CLASSES = {'COOLTRAINERM', 'COOLTRAINERF', 'RANGERM', 'RANGERF', 'KIMONO_GIRL'}
 # parties based on playtesters' teams (user, Nov 2): species and party size stay; moves may change
 PLAYTESTER_PARTIES = {'RONALD1', 'RONALD2', 'RONALD3', 'MARINA1', 'MARINA2', 'MARINA3',
-                      'DALORIC2', 'CONTEST_CRYSTAL2', 'KLUTCH3', 'AMAYA3', 'AARON3'}  # + Johto Games (later)
+                      'DALORIC2', 'CONTEST_CRYSTAL2', 'KLUTCH3', 'AMAYA3', 'AARON3',  # + Johto Games (later)
+                      'JESS1', 'JESS2'}
 
 # joke Fishers (user, Nov 2): Magikarp stay Magikarp, with one Gyarados ace
 EVOLUTION_EXEMPT = {'RAYMOND', 'MARVIN', 'JOSHUA'}  # + Joshua's Pikachu
@@ -314,7 +315,7 @@ EVOLUTION_EXEMPT = {'RAYMOND', 'MARVIN', 'JOSHUA'}  # + Joshua's Pikachu
 # single parties treated as bosses (user, Nov 2): the Karate King
 BOSS_PARTIES = {'KIYO'}
 # single parties treated as elite trainers (user, Nov 2)
-ELITE_PARTIES = {'ROUTE105_JOSUE'}
+ELITE_PARTIES = {'ROUTE105_JOSUE', 'RONALD3', 'JESS2'}  # + World Cup qualifiers (tournament)
 
 def tier(d, p):
     c = p['class']
@@ -371,7 +372,10 @@ FOLLOW_UP_PARTIES = {'CLAIR3',  # BlackthornGym1F: a solo Mega after Clair 1 or 
                      'BLUE1',  # ViridianGym: Blue's only version, at any badge count
                      'WALLACE1'}  # SootopolisGym: 0-13 badges (his Gym is late)
 # World Cup bracket (maps/hoenn/battle/WCRound*.asm, WCFinals.asm)
-WORLD_CUP_PARTIES = {'LORELEI1', 'WCFALKNER', 'RIVAL2_WC', 'WC_WALLY', 'WC_GREEN', 'WC_GIOVANNI', 'WC_OAK'}
+WORLD_CUP_PARTIES = {'LORELEI1', 'WCFALKNER', 'RIVAL2_WC', 'WC_WALLY', 'WC_GREEN', 'WC_GIOVANNI', 'WC_OAK',
+                     # qualifiers (WCQualifier1-3.asm)
+                     'WEEKDAY_WESLEY', 'WEEKDAY_ARTHUR', 'WEEKDAY_SANTOS', 'WEEKDAY_MONICA',
+                     'WEEKDAY_TUSCANY', 'WEEKDAY_FRIEDA', 'RONALD3', 'MARINA3', 'JESS2'}
 # leaders with their own version thresholds
 PARTY_BADGES = {'WALLACE2': 14}  # SootopolisGym: 14+ badges
 # League rooms: version 1 below 16 badges (shown at the band), version 2 at 16+;
@@ -409,7 +413,7 @@ def team_findings(d, p, team, mode, band):
     else:
         mons = team['mons']
         size = len(mons)
-    playtester = p['id'] in PLAYTESTER_PARTIES
+    playtester = p['id'] in PLAYTESTER_PARTIES or p['id'] in WORLD_CUP_PARTIES  # World Cup: 6 allowed
     if t == 'route' and size == 1 and not playtester:
         out.append((None, f'{mode}: 1 Pokemon (route trainers have 2-3)'))
     if t == 'route' and size > (4 if p['doubles'] else 3) and not playtester:
