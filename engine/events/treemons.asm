@@ -181,6 +181,11 @@ SelectTreeMon:
 	jr z, NoTreeMon
 
 	ld a, [hli]
+	; the table holds a level offset: add the badge-scaled wild level
+	push hl
+	ld hl, wWildLevel
+	add [hl]
+	pop hl
 	ld [wCurPartyLevel], a
 	ld a, [hli]
 	ld h, [hl]

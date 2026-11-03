@@ -22,133 +22,133 @@ TreeMons:
 TreeMonSet_City:
 TreeMonSet_Canyon:
 ; common
-	dbbw 50, 10, SPEAROW
-	dbbw 15, 10, SPEAROW
-	dbbw 15, 10, SPEAROW
-	dbbw 10, 10, AIPOM
-	dbbw  5, 10, AIPOM
-	dbbw  5, 10, AIPOM
+	dbbw 50, 2, SPEAROW
+	dbbw 15, 2, SPEAROW
+	dbbw 15, 2, SPEAROW
+	dbbw 10, 2, AIPOM
+	dbbw  5, 2, AIPOM
+	dbbw  5, 2, AIPOM
 	db -1
 ; rare
-	dbbw 50, 10, SPEAROW
-	dbbw 15, 10, HERACROSS
-	dbbw 15, 10, HERACROSS
-	dbbw 10, 10, AIPOM
-	dbbw  5, 10, AIPOM
-	dbbw  5, 10, AIPOM
+	dbbw 50, 2, SPEAROW
+	dbbw 15, 2, HERACROSS
+	dbbw 15, 2, HERACROSS
+	dbbw 10, 2, AIPOM
+	dbbw  5, 2, AIPOM
+	dbbw  5, 2, AIPOM
 	db -1
 
 TreeMonSet_Town:
 ; common
-	dbbw 50, 10, SPEAROW
-	dbbw 15, 10, EKANS
-	dbbw 15, 10, SPEAROW
-	dbbw 10, 10, AIPOM
-	dbbw  5, 10, AIPOM
-	dbbw  5, 10, AIPOM
+	dbbw 50, 2, SPEAROW
+	dbbw 15, 2, EKANS
+	dbbw 15, 2, SPEAROW
+	dbbw 10, 2, AIPOM
+	dbbw  5, 2, AIPOM
+	dbbw  5, 2, AIPOM
 	db -1
 ; rare
-	dbbw 50, 10, SPEAROW
-	dbbw 15, 10, HERACROSS
-	dbbw 15, 10, HERACROSS
-	dbbw 10, 10, AIPOM
-	dbbw  5, 10, AIPOM
-	dbbw  5, 10, AIPOM
+	dbbw 50, 2, SPEAROW
+	dbbw 15, 2, HERACROSS
+	dbbw 15, 2, HERACROSS
+	dbbw 10, 2, AIPOM
+	dbbw  5, 2, AIPOM
+	dbbw  5, 2, AIPOM
 	db -1
 
 TreeMonSet_Route:
 ; common
-	dbbw 50, 10, HOOTHOOT
-	dbbw 15, 10, SPINARAK
-	dbbw 15, 10, LEDYBA
-	dbbw 10, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
+	dbbw 50, 2, HOOTHOOT
+	dbbw 15, 2, SPINARAK
+	dbbw 15, 2, LEDYBA
+	dbbw 10, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
 	db -1
 ; rare
-	dbbw 50, 10, HOOTHOOT
-	dbbw 15, 10, PINECO
-	dbbw 15, 10, PINECO
-	dbbw 10, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
+	dbbw 50, 2, HOOTHOOT
+	dbbw 15, 2, PINECO
+	dbbw 15, 2, PINECO
+	dbbw 10, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
 	db -1
 
 TreeMonSet_Kanto:
 ; common
-	dbbw 50, 10, HOOTHOOT
-	dbbw 15, 10, EKANS
-	dbbw 15, 10, HOOTHOOT
-	dbbw 10, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
+	dbbw 50, 2, HOOTHOOT
+	dbbw 15, 2, EKANS
+	dbbw 15, 2, HOOTHOOT
+	dbbw 10, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
 	db -1
 ; rare
-	dbbw 50, 10, HOOTHOOT
-	dbbw 15, 10, PINECO
-	dbbw 15, 10, PINECO
-	dbbw 10, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
+	dbbw 50, 2, HOOTHOOT
+	dbbw 15, 2, PINECO
+	dbbw 15, 2, PINECO
+	dbbw 10, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
 	db -1
 
 TreeMonSet_Lake:
 ; common
-	dbbw 50, 10, HOOTHOOT
-	dbbw 15, 10, VENONAT
-	dbbw 15, 10, HOOTHOOT
-	dbbw 10, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
+	dbbw 50, 2, HOOTHOOT
+	dbbw 15, 2, VENONAT
+	dbbw 15, 2, HOOTHOOT
+	dbbw 10, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
 	db -1
 ; rare
-	dbbw 50, 10, HOOTHOOT
-	dbbw 15, 10, PINECO
-	dbbw 15, 10, PINECO
-	dbbw 10, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
-	dbbw  5, 10, EXEGGCUTE
+	dbbw 50, 2, HOOTHOOT
+	dbbw 15, 2, PINECO
+	dbbw 15, 2, PINECO
+	dbbw 10, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
+	dbbw  5, 2, EXEGGCUTE
 	db -1
 
 TreeMonSet_Forest:
 ; common
-	dbbw 50, 10, HOOTHOOT
-	dbbw 15, 10, PINECO
-	dbbw 15, 10, PINECO
-	dbbw 10, 10, NOCTOWL
-	dbbw  5, 10, BUTTERFREE
-	dbbw  5, 10, BEEDRILL
+	dbbw 50, 2, HOOTHOOT
+	dbbw 15, 2, PINECO
+	dbbw 15, 2, PINECO
+	dbbw 10, 2, NOCTOWL
+	dbbw  5, 2, BUTTERFREE
+	dbbw  5, 2, BEEDRILL
 	db -1
 ; rare
-	dbbw 50, 10, HOOTHOOT
-	dbbw 15, 10, CATERPIE
-	dbbw 15, 10, WEEDLE
-	dbbw 10, 10, HOOTHOOT
-	dbbw  5, 10, METAPOD
-	dbbw  5, 10, KAKUNA
+	dbbw 50, 2, HOOTHOOT
+	dbbw 15, 2, CATERPIE
+	dbbw 15, 2, WEEDLE
+	dbbw 10, 2, HOOTHOOT
+	dbbw  5, 2, METAPOD
+	dbbw  5, 2, KAKUNA
 	db -1
 
 TreeMonSet_Rock:
-	dbbw 90, 15, KRABBY
-	dbbw 10, 15, SHUCKLE
+	dbbw 90, 3, KRABBY
+	dbbw 10, 3, SHUCKLE
 	db -1
 
 ; Rock Smash sets added by the wild audit (Nov 3, 2026)
 TreeMonSet_RockCave:
-	dbbw 60, 15, GEODUDE
-	dbbw 30, 15, DUNSPARCE
-	dbbw 10, 15, SHUCKLE
+	dbbw 60, 3, GEODUDE
+	dbbw 30, 3, DUNSPARCE
+	dbbw 10, 3, SHUCKLE
 	db -1
 
 TreeMonSet_RockKanto:
-	dbbw 60, 15, GEODUDE
-	dbbw 30, 15, ONIX
-	dbbw 10, 15, SHUCKLE
+	dbbw 60, 3, GEODUDE
+	dbbw 30, 3, ONIX
+	dbbw 10, 3, SHUCKLE
 	db -1
 
 TreeMonSet_RockHoenn:
-	dbbw 50, 15, GEODUDE
-	dbbw 30, 15, NOSEPASS
-	dbbw 10, 15, ARON
-	dbbw 10, 15, SHUCKLE
+	dbbw 50, 3, GEODUDE
+	dbbw 30, 3, NOSEPASS
+	dbbw 10, 3, ARON
+	dbbw 10, 3, SHUCKLE
 	db -1

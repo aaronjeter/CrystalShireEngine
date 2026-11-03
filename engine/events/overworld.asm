@@ -1457,7 +1457,7 @@ FishFunction:
 	ld d, a
 	ld a, [wFishingRodUsed]
 	ld e, a
-	farcall Fish
+	farcall FishScaled
 	ld a, d
 	and a
 	jr z, .nonibble

@@ -689,3 +689,7 @@ INCLUDE "engine/events/pokedex_aides.asm"
 SECTION "Badge Mart", ROMX
 
 INCLUDE "engine/items/badge_mart.asm"
+
+SECTION "Fish Level Scaling", ROMX
+
+INCLUDE "engine/events/fish_level.asm"
