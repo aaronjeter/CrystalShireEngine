@@ -106,6 +106,9 @@ GruntsRusturfAfterBattleText:
 	cont "Mauville now…"
 	done
 
+RusturfTunnelWildRock:
+	jumpstd SmashRockScript
+
 RusturfTunnel_MapEvents:
 	db 0, 0 ; filler
 
@@ -125,4 +128,6 @@ RusturfTunnel_MapEvents:
 	object_event  6,  8, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, RusturfGrunt3Script, EVENT_BEAT_GRUNTS_RUSTURF
 	object_event  05, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RusturfPearl, EVENT_RUSTTURF_PEARL
 	object_event  19, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RusturfRareCandy, EVENT_RUSTTURF_RARE_CANDY
+	object_event 11,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RusturfTunnelWildRock, -1
+	object_event 20,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RusturfTunnelWildRock, -1
 	

@@ -121,6 +121,9 @@ GraniteCaveB2F_Tentacool3:
 GraniteCaveB3FEscapeRope:
 	itemball TM_EARTHPOWER
 
+GraniteCaveB3FWildRock:
+	jumpstd SmashRockScript
+
 GraniteCaveB3F_MapEvents:
 	db 0, 0 ; filler
 
@@ -138,4 +141,6 @@ GraniteCaveB3F_MapEvents:
 	object_event  11, 13, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool2, -1
 	object_event  10, 12, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLACK, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool3, -1
 	object_event  04, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB3FEscapeRope, EVENT_GRANITE_CAVE_B3F_ESCAPE_ROPE
+	object_event  9,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB3FWildRock, -1
+	object_event 15, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB3FWildRock, -1
 

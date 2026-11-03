@@ -4,15 +4,15 @@ KantoWaterWildMons:
 
 	def_water_wildmons TOHJO_FALLS
 	db 2 percent ; encounter rate
-	dbw 1, SQUIRTLE
-	dbw 4, WARTORTLE
-	dbw 7, BLASTOISE
+	dbw 1, GOLDEEN
+	dbw 4, SLOWPOKE
+	dbw 7, SQUIRTLE
 	end_water_wildmons
 
 	def_water_wildmons VERMILION_PORT
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 1, SQUIRTLE
+	dbw 1, KRABBY
 	dbw 3, TENTACRUEL
 	end_water_wildmons
 
@@ -33,49 +33,49 @@ KantoWaterWildMons:
 	def_water_wildmons ROUTE_9
 	db 2 percent ; encounter rate
 	dbw 1, GOLDEEN
-	dbw 1, SQUIRTLE
+	dbw 1, POLIWAG
 	dbw 3, SEAKING
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_10
 	db 2 percent ; encounter rate
 	dbw 1, GOLDEEN
-	dbw 1, SQUIRTLE
+	dbw 1, POLIWAG
 	dbw 3, SEAKING
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_12
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 1, SQUIRTLE
+	dbw 1, HORSEA
 	dbw 3, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_13
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 1, SQUIRTLE
+	dbw 1, HORSEA
 	dbw 3, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_19
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 1, SQUIRTLE
+	dbw 1, HORSEA
 	dbw 3, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_20
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 1, SQUIRTLE
+	dbw 1, SHELLDER
 	dbw 3, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_21
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 1, SQUIRTLE
+	dbw 1, STARYU
 	dbw 3, TENTACRUEL
 	end_water_wildmons
 
@@ -103,14 +103,14 @@ KantoWaterWildMons:
 	def_water_wildmons ROUTE_26
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 2, TENTACOOL
+	dbw 2, SHELLDER
 	dbw 5, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_27
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 2, TENTACOOL
+	dbw 2, STARYU
 	dbw 5, TENTACRUEL
 	end_water_wildmons
 
@@ -145,8 +145,8 @@ KantoWaterWildMons:
 	def_water_wildmons VERMILION_CITY
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 1, SQUIRTLE
-	dbw 3, TENTACRUEL
+	dbw 1, SHELLDER
+	dbw 3, SQUIRTLE
 	end_water_wildmons
 
 	def_water_wildmons CELADON_CITY
@@ -159,14 +159,14 @@ KantoWaterWildMons:
 	def_water_wildmons FUCHSIA_CITY
 	db 2 percent ; encounter rate
 	dbw 1, MAGIKARP
-	dbw 2, MAGIKARP
-	dbw 3, MAGIKARP
+	dbw 2, GOLDEEN
+	dbw 3, SEAKING
 	end_water_wildmons
 
 	def_water_wildmons CINNABAR_ISLAND
 	db 2 percent ; encounter rate
 	dbw 1, TENTACOOL
-	dbw 1, SQUIRTLE
+	dbw 1, SEEL
 	dbw 5, TENTACRUEL
 	end_water_wildmons
 

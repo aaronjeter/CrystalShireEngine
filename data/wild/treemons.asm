@@ -9,6 +9,9 @@ TreeMons:
 	dw TreeMonSet_Lake
 	dw TreeMonSet_Forest
 	dw TreeMonSet_Rock
+	dw TreeMonSet_RockCave
+	dw TreeMonSet_RockKanto
+	dw TreeMonSet_RockHoenn
 	assert_table_length NUM_TREEMON_SETS
 	dw TreeMonSet_City ; unused
 
@@ -127,5 +130,25 @@ TreeMonSet_Forest:
 
 TreeMonSet_Rock:
 	dbbw 90, 15, KRABBY
+	dbbw 10, 15, SHUCKLE
+	db -1
+
+; Rock Smash sets added by the wild audit (Nov 3, 2026)
+TreeMonSet_RockCave:
+	dbbw 60, 15, GEODUDE
+	dbbw 30, 15, DUNSPARCE
+	dbbw 10, 15, SHUCKLE
+	db -1
+
+TreeMonSet_RockKanto:
+	dbbw 60, 15, GEODUDE
+	dbbw 30, 15, ONIX
+	dbbw 10, 15, SHUCKLE
+	db -1
+
+TreeMonSet_RockHoenn:
+	dbbw 50, 15, GEODUDE
+	dbbw 30, 15, NOSEPASS
+	dbbw 10, 15, ARON
 	dbbw 10, 15, SHUCKLE
 	db -1

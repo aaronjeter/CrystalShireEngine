@@ -196,6 +196,9 @@ GruntsMtMoonAfterBattleText:
 	line "you find!"
 	done
 
+MtMoonB2FWildRock:
+	jumpstd SmashRockScript
+
 MtMoonB2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -222,3 +225,5 @@ MtMoonB2F_MapEvents:
 	object_event  33, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonDomeFossil, EVENT_GOT_FOSSIL_DOME_MTMOON
 	object_event  20, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonHelixFossil, EVENT_GOT_FOSSIL_HELIX_MTMOON
 	object_event  21, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonMoonstone1, EVENT_MOUNT_MOON_MOONSTONE1
+	object_event  5,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoonB2FWildRock, -1
+	object_event 18,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoonB2FWildRock, -1

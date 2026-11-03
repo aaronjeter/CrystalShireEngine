@@ -43,6 +43,22 @@ TreeMonMaps:
 RockMonMaps:
 	treemon_map CIANWOOD_CITY,             TREEMON_SET_ROCK
 	treemon_map ROUTE_40,                  TREEMON_SET_ROCK
-	treemon_map DARK_CAVE_VIOLET_ENTRANCE, TREEMON_SET_ROCK
+	treemon_map DARK_CAVE_VIOLET_ENTRANCE, TREEMON_SET_ROCK_CAVE
 	treemon_map SLOWPOKE_WELL_B1F,         TREEMON_SET_ROCK
+	treemon_map ICE_PATH_B3F,              TREEMON_SET_ROCK_CAVE
+	treemon_map BURNED_TOWER_1F,           TREEMON_SET_ROCK_CAVE
+	treemon_map MOUNT_MOON_SQUARE,         TREEMON_SET_ROCK_KANTO
+	treemon_map MT_MOON_1F,                TREEMON_SET_ROCK_KANTO
+	treemon_map MT_MOON_B1F,               TREEMON_SET_ROCK_KANTO
+	treemon_map MT_MOON_B2F,               TREEMON_SET_ROCK_KANTO
+	treemon_map ROCK_TUNNEL_1F,            TREEMON_SET_ROCK_KANTO
+	treemon_map ROCK_TUNNEL_B1F,           TREEMON_SET_ROCK_KANTO
+	treemon_map VICTORY_ROAD,              TREEMON_SET_ROCK_KANTO
+	treemon_map DIGLETTS_CAVE,             TREEMON_SET_ROCK_KANTO
+	treemon_map GRANITE_CAVE_B1F,          TREEMON_SET_ROCK_HOENN
+	treemon_map GRANITE_CAVE_B2F,          TREEMON_SET_ROCK_HOENN
+	treemon_map GRANITE_CAVE_B3F,          TREEMON_SET_ROCK_HOENN
+	treemon_map RUSTURF_TUNNEL,            TREEMON_SET_ROCK_HOENN
+	treemon_map METEOR_FALLS,              TREEMON_SET_ROCK_HOENN
+	treemon_map FIERY_PATH,                TREEMON_SET_ROCK_HOENN
 	db -1

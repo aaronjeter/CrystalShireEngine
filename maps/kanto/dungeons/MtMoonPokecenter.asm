@@ -3,6 +3,7 @@
 	const MTMOONPOKECENTER_FISHER
 	const MTMOONPOKECENTER_LASS
 	const MTMOONPOKECENTER_JIGGLYPUFF
+	const MTMOONPOKECENTER_HIKER
 
 MtMoonPokecenter_MapScripts:
 	def_scene_scripts
@@ -108,6 +109,46 @@ MtMoonJigglypuffText:
 	text "Jiig-uhh-lee-puff!"
 	done
 
+MtMoonPokecenterHikerScript:
+; Kanto's Rock Smash source (shares EVENT_GOT_TM08_ROCK_SMASH with Route 36's guy).
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_TM08_ROCK_SMASH
+	iftrue .GotRockSmash
+	writetext MtMoonHikerOfferText
+	promptbutton
+	verbosegiveitem TM_ROCK_SMASH
+	iffalse .NoRoom
+	setevent EVENT_GOT_TM08_ROCK_SMASH
+.GotRockSmash:
+	writetext MtMoonHikerAfterText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
+MtMoonHikerOfferText:
+	text "Mt. Moon's full of"
+	line "cracked rocks."
+
+	para "Smash one and you"
+	line "might find a"
+	cont "#mon inside!"
+
+	para "Here, take this."
+	line "I've got plenty."
+	done
+
+MtMoonHikerAfterText:
+	text "That's Rock Smash."
+
+	para "Keep it in your"
+	line "Pack and you can"
+
+	para "break cracked"
+	line "rocks anywhere."
+	done
+
 MtMoonPokecenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -124,3 +165,4 @@ MtMoonPokecenter_MapEvents:
 	object_event  2,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MtMoonFisherScript, -1
 	object_event  7,  7, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoonLassScript, -1
 	object_event  8,  7, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoonJigglypuffScript, -1
+	object_event  7,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MtMoonPokecenterHikerScript, -1

@@ -10,6 +10,9 @@ MtMoonB1F_MapScripts:
 MtMoonMoonstone3:
 	itemball TM_PLAY_ROUGH
 
+MtMoonB1FWildRock:
+	jumpstd SmashRockScript
+
 MtMoonB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -29,3 +32,5 @@ MtMoonB1F_MapEvents:
 
 	def_object_events
 	object_event  28, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonMoonstone1, EVENT_MOUNT_MOON_MOONSTONE3
+	object_event 29,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoonB1FWildRock, -1
+	object_event 26,  7, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoonB1FWildRock, -1

@@ -96,6 +96,9 @@ Djinn_RimeText:
 	line "join your party?"
 	done
 
+GraniteCaveB2FWildRock:
+	jumpstd SmashRockScript
+
 GraniteCaveB2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -121,4 +124,6 @@ GraniteCaveB2F_MapEvents:
 	object_event  07, 46, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FRock, -1
 	object_event  13, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB2FNeverMeltIce, EVENT_GOT_HOENN_NEVERMELTICE
 	object_event  14, 33, SPRITE_MON_5, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_RimeScript, EVENT_GOT_RIME
+	object_event 20, 27, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FWildRock, -1
+	object_event 22, 34, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FWildRock, -1
 	

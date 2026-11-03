@@ -19,6 +19,9 @@ RockTunnel1FHiddenXAccuracy:
 RockTunnel1FHiddenXDefend:
 	hiddenitem X_DEFEND, EVENT_ROCK_TUNNEL_1F_HIDDEN_X_DEFEND
 
+RockTunnel1FWildRock:
+	jumpstd SmashRockScript
+
 RockTunnel1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -39,3 +42,6 @@ RockTunnel1F_MapEvents:
 	def_object_events
 	object_event  4, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnel1FElixer, EVENT_ROCK_TUNNEL_1F_ELIXER
 	object_event 10, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnel1FTMSteelWing, EVENT_ROCK_TUNNEL_1F_TM_STEEL_WING
+	object_event 13, 13, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RockTunnel1FWildRock, -1
+	object_event  7,  2, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RockTunnel1FWildRock, -1
+	object_event 13,  2, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RockTunnel1FWildRock, -1

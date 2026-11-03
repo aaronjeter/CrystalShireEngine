@@ -44,6 +44,9 @@ FieryPathFireStone:
 FieryPathPpUp:
 	itemball TM_SLUDGE_WAVE
 
+FieryPathWildRock:
+	jumpstd SmashRockScript
+
 FieryPath_MapEvents:
 	db 0, 0 ; filler
 
@@ -61,3 +64,6 @@ FieryPath_MapEvents:
 	object_event  21, 37, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPath_Slugma2, -1
 	object_event  15, 05, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FieryPathFireStone, EVENT_FIERY_PATH_FIRE_STONE
 	object_event  08, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FieryPathPpUp, EVENT_FIERY_PATH_PP_UP
+	object_event  9, 19, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPathWildRock, -1
+	object_event 33, 27, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPathWildRock, -1
+	object_event  4,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FieryPathWildRock, -1

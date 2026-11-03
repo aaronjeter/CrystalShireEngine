@@ -87,6 +87,9 @@ Djinn_AuroraText:
 	line "join your party?"
 	done
 
+MeteorFallsWildRock:
+	jumpstd SmashRockScript
+
 MeteorFalls_MapEvents:
 	db 0, 0 ; filler
 
@@ -110,3 +113,5 @@ MeteorFalls_MapEvents:
 	object_event 06, 05, SPRITE_MON_4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_AuroraScript, EVENT_GOT_AURORA
 	object_event 06, 36, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsSilverLeaf, EVENT_METEOR_FALLS_SILVER_LEAF
 	object_event 21, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsGoldLeaf, EVENT_METEOR_FALLS_GOLD_LEAF
+	object_event 11,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsWildRock, -1
+	object_event  3, 18, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsWildRock, -1

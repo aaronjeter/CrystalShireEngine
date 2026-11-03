@@ -24,6 +24,9 @@ RockTunnelB1FHiddenMaxPotion:
 RockTunnelB1FOldAmber:
 	itemball OLD_AMBER
 
+RockTunnelB1FWildRock:
+	jumpstd SmashRockScript
+
 RockTunnelB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -43,3 +46,6 @@ RockTunnelB1F_MapEvents:
 	object_event 24, 09, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnelB1FPPUp, EVENT_ROCK_TUNNEL_B1F_PP_UP
 	object_event 15, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnelB1FRevive, EVENT_ROCK_TUNNEL_B1F_REVIVE
 	object_event 03, 19, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnelB1FOldAmber, EVENT_GOT_OLD_AMBER_ROCK_TUNNEL
+	object_event  2,  7, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RockTunnelB1FWildRock, -1
+	object_event 22,  7, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RockTunnelB1FWildRock, -1
+	object_event 19, 14, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RockTunnelB1FWildRock, -1

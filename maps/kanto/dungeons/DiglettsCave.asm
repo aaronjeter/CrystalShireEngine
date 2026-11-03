@@ -94,6 +94,9 @@ DiglettGuyRefusedText:
 	cont "just anyone."
 	done
 
+DiglettsCaveWildRock:
+	jumpstd SmashRockScript
+
 DiglettsCave_MapEvents:
 	db 0, 0 ; filler
 
@@ -113,3 +116,5 @@ DiglettsCave_MapEvents:
 	def_object_events
 	object_event  3, 31, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DiglettsCavePokefanMScript, -1
 	object_event 12, 17, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, DiglettGuyScript, -1
+	object_event 14,  2, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DiglettsCaveWildRock, -1
+	object_event  5,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DiglettsCaveWildRock, -1

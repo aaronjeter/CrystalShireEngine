@@ -162,6 +162,9 @@ PupilsJoIrisAfterBattleText:
 	cont "moon, they say."
 	done
 
+MtMoon1FWildRock:
+	jumpstd SmashRockScript
+
 MtMoon1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -185,4 +188,6 @@ MtMoon1F_MapEvents:
 	object_event  29, 05, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerMoonMiriam, -1
 	object_event 14, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerMoonJosh, -1
 	object_event  08, 06, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerMoonMarcos, -1
+	object_event 12, 38, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoon1FWildRock, -1
+	object_event  5,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoon1FWildRock, -1
 	

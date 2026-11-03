@@ -5,6 +5,7 @@
 	const VIRIDIANCITY_YOUNGSTER
 	const VIRIDIANCITY_SLEET
 	const VIRIDIANCITY_GUIDE
+	const VIRIDIANCITY_FISHING_GURU
 
 ViridianCity_MapScripts:
 	def_scene_scripts
@@ -68,6 +69,38 @@ ViridianCityDreamEaterFisher:
 	writetext ViridianCityDreamEaterFisherGotDreamEaterText
 	waitbutton
 .NoRoomForDreamEater:
+	closetext
+	end
+
+ViridianCityFishingGuruScript:
+; Kanto's Old Rod (shares EVENT_GOT_OLD_ROD with Route 32's guru).
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_OLD_ROD
+	iftrue .GotOldRod
+	writetext ViridianCityFishingGuruQuestionText
+	yesorno
+	iffalse .Refused
+	writetext ViridianCityFishingGuruYesText
+	promptbutton
+	verbosegiveitem OLD_ROD
+	iffalse .NoRoom
+	setevent EVENT_GOT_OLD_ROD
+	writetext ViridianCityFishingGuruGiveText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
+.Refused:
+	writetext ViridianCityFishingGuruNoText
+	waitbutton
+	closetext
+	end
+
+.GotOldRod:
+	writetext ViridianCityFishingGuruAfterText
+	waitbutton
 	closetext
 	end
 
@@ -410,6 +443,43 @@ ViridianCityGrampsNearGymBlueReturnedText:
 	line "You'll need it."
 	done
 
+ViridianCityFishingGuruQuestionText:
+	text "This pond's my"
+	line "favorite spot."
+
+	para "Nothing beats"
+	line "waiting for a"
+	cont "bite."
+
+	para "Want to try? I've"
+	line "got a spare Rod."
+	done
+
+ViridianCityFishingGuruYesText:
+	text "Ha! That's the"
+	line "spirit."
+	done
+
+ViridianCityFishingGuruGiveText:
+	text "Cast it at any"
+	line "water: ponds,"
+
+	para "rivers, the sea."
+	line "You never know"
+	cont "what'll bite!"
+	done
+
+ViridianCityFishingGuruNoText:
+	text "Suit yourself."
+	line "The fish aren't"
+	cont "going anywhere."
+	done
+
+ViridianCityFishingGuruAfterText:
+	text "How are they"
+	line "biting, kid?"
+	done
+
 ViridianCityDreamEaterFisherText:
 	text "Yawn!"
 
@@ -561,3 +631,4 @@ ViridianCity_MapEvents:
 	object_event 17, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 3, 3, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ViridianCityYoungsterScript, -1
 	object_event 07, 26, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_SleetScript, EVENT_GOT_SLEET
 	object_event 28, 25, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ViridianCityGuideScript, -1
+	object_event 12, 23, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianCityFishingGuruScript, -1
