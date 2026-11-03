@@ -5,8 +5,13 @@
 	const TESTROOM_LUGIA
 	const TESTROOM_LATIOS
 	const TESTROOM_CANDY
+	const TESTROOM_GUY
+	const TESTROOM_MOM
+	const TESTROOM_KRIS
+	const TESTROOM_TEAM
 	const TESTROOM_DJINN
 	const TESTROOM_SPHEAL
+	const TESTROOM_ABILITY_ITEMS
 
 TestRoom_MapScripts:
 	def_scene_scripts
@@ -115,6 +120,19 @@ Testroom_Candy:
 	closetext	
 	end
 
+Testroom_AbilityItems:
+	cry JIRACHI
+	opentext
+	writetext TestroomAbilityItemsText
+	yesorno
+	iffalse .Done
+	verbosegiveitem ABILITY_CAPSULE, 99
+	verbosegiveitem ABILITY_PATCH, 99
+	disappear TESTROOM_ABILITY_ITEMS
+	.Done
+	closetext
+	end
+
 Testroom_Guy:
 	faceplayer
 	opentext
@@ -191,6 +209,12 @@ Testroom_Mom:
 TestroomRareCandyText:
 	text "Do you want"
 	line "the Rare Candy"
+	cont "cheat?"
+	done
+
+TestroomAbilityItemsText:
+	text "Do you want"
+	line "the Ability item"
 	cont "cheat?"
 	done
 
@@ -1058,3 +1082,4 @@ TestRoom_MapEvents:
 	object_event 16, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, TestroomGenerateTeamScript, -1
 	object_event 19, 05, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Testroom_Djiin, -1
 	object_event 19, 09, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Testroom_Spheal, -1
+	object_event 17, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Testroom_AbilityItems, -1
