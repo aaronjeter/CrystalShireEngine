@@ -2836,24 +2836,21 @@ DittoMetalPowder:
 	pop bc
 	ret nz
 
-	ld h, b
-	ld l, c
-	srl b
-	rr c
-	add hl, bc
-	ld b, h
-	ld c, l
-
-	ld a, HIGH(MAX_STAT_VALUE)
-	cp b
-	jr c, .cap
-	ret nz
-	ld a, LOW(MAX_STAT_VALUE)
-	cp c
+; b = the attacker's stat, c = the defender's Def or Sp.Def, both 8-bit (after
+; TruncateHL_BC): c = c * 1.5; on overflow, halve both instead (as pokecrystal)
+	ld a, c
+	srl a
+	add c
+	ld c, a
 	ret nc
-
-.cap
-	ld bc, MAX_STAT_VALUE
+	srl b
+	ld a, b
+	and a
+	jr nz, .halved
+	inc b
+.halved
+	scf
+	rr c
 	ret
 
 BattleCommand_DamageStats:
