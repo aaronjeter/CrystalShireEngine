@@ -1,5 +1,6 @@
 	object_const_def
 	const MAUVILLEMART_CLERK
+	const MAUVILLEMART_SPECIALTY_CLERK
 
 MauvilleMart_MapScripts:
 	def_scene_scripts
@@ -8,7 +9,13 @@ MauvilleMart_MapScripts:
 
 MauvilleMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_ECRUTEAK
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+MauvilleMart_SpecialtyClerk:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_MAUVILLE
 	closetext
 	end
 
@@ -37,3 +44,4 @@ MauvilleMart_MapEvents:
 	def_object_events
 	object_event  05, 01, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MauvilleMart_Clerk, -1
 	object_event  07, 05, SPRITE_BLACK_BELT, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleMartHikerScript, -1
+	object_event  4,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MauvilleMart_SpecialtyClerk, -1

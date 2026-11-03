@@ -1,5 +1,6 @@
 	object_const_def
 	const SLATEPORTMART_CLERK
+	const SLATEPORTMART_SPECIALTY_CLERK
 
 SlateportMart_MapScripts:
 	def_scene_scripts
@@ -8,7 +9,13 @@ SlateportMart_MapScripts:
 
 SlateportMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_ECRUTEAK
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+SlateportMart_SpecialtyClerk:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_SLATEPORT
 	closetext
 	end
 
@@ -25,3 +32,4 @@ SlateportMart_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlateportMart_Clerk, -1
+	object_event  4,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlateportMart_SpecialtyClerk, -1

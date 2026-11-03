@@ -5,6 +5,7 @@
 	const INDIGOPLATEAUPOKECENTER1F_GRAMPS
 	const INDIGOPLATEAUPOKECENTER1F_ABRA
 	const INDIGOPLATEAUPOKECENTER1F_CLERKMEGA
+	const INDIGOPLATEAUPOKECENTER1F_SPECIALTY_CLERK
 
 IndigoPlateauPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -53,6 +54,12 @@ IndigoPlateauPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
 
 IndigoPlateauPokecenter1FClerkScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+IndigoPlateauPokecenter1FSpecialtyClerkScript:
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_INDIGO_PLATEAU
 	closetext
@@ -192,3 +199,4 @@ IndigoPlateauPokecenter1F_MapEvents:
 	object_event  1,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TeleportGuyScript, EVENT_TELEPORT_GUY
 	object_event  0,  9, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AbraScript, EVENT_TELEPORT_GUY
 	object_event 13,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FMegaClerkScript, -1
+	object_event 12,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FSpecialtyClerkScript, -1

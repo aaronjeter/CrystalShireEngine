@@ -2,6 +2,7 @@
 	const VIRIDIANMART_CLERK
 	const VIRIDIANMART_LASS
 	const VIRIDIANMART_COOLTRAINER_M
+	const VIRIDIANMART_SPECIALTY_CLERK
 
 ViridianMart_MapScripts:
 	def_scene_scripts
@@ -9,6 +10,12 @@ ViridianMart_MapScripts:
 	def_callbacks
 
 ViridianMartClerkScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+ViridianMartSpecialtyClerkScript:
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_VIRIDIAN
 	closetext
@@ -49,3 +56,4 @@ ViridianMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartClerkScript, -1
 	object_event  7,  2, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartLassScript, -1
 	object_event  1,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartCooltrainerMScript, -1
+	object_event  1,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianMartSpecialtyClerkScript, -1

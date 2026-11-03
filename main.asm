@@ -684,3 +684,8 @@ INCLUDE "engine/overworld/diagonal_scroll.asm"
 SECTION "Pokedex Aides", ROMX
 
 INCLUDE "engine/events/pokedex_aides.asm"
+
+
+SECTION "Badge Mart", ROMX
+
+INCLUDE "engine/items/badge_mart.asm"

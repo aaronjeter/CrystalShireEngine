@@ -4,6 +4,7 @@
 	const MAHOGANYMART1F_LANCE
 	const MAHOGANYMART1F_DRAGONITE
 	const MAHOGANYMART1F_GRANNY
+	const MAHOGANYMART1F_GRAMPS
 
 MahoganyMart1F_MapScripts:
 	def_scene_scripts
@@ -107,6 +108,13 @@ MahoganyMart1FGrannyScript:
 	faceplayer
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_MAHOGANY_2
+	closetext
+	end
+
+MahoganyMart1FGrampsScript:
+	faceplayer
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
 	closetext
 	end
 
@@ -226,3 +234,4 @@ MahoganyMart1F_MapEvents:
 	object_event  4,  6, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MAHOGANY_MART_LANCE_AND_DRAGONITE
 	object_event  3,  6, SPRITE_DRAGON, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MAHOGANY_MART_LANCE_AND_DRAGONITE
 	object_event  1,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyMart1FGrannyScript, EVENT_MAHOGANY_MART_OWNERS
+	object_event  4,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyMart1FGrampsScript, EVENT_MAHOGANY_MART_OWNERS

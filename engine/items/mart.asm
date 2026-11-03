@@ -209,27 +209,8 @@ StandardMart:
 	ld a, STANDARDMART_TOPMENU
 	ret
 
-FarCopyMart: ; copy the mart directly
-	ld hl, wMartPointer
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld de, wCurMartCount
-	ld a, [wMartPointerBank]
-	call GetFarByte
-	ld [de], a
-	inc hl
-	inc de
-	ld c, a
-	ld b, 0
-	ld a, [wMartPointerBank]
-	call FarCopyBytes
-; end list
-	ld a, -1
-	ld [de], a
-	jr FarReadMart.ReadPrices
-
 FarReadMart: ; read mart items (index -> ID conversion)
+	farcall BuildBadgeMart
 	ld hl, wMartPointer
 	ld a, [hli]
 	ld h, [hl]

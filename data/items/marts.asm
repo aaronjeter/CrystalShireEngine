@@ -2,7 +2,6 @@ Marts:
 ; entries correspond to MART_* constants (see constants/mart_constants.asm)
 	table_width 2
 	dw MartCherrygrove
-	dw MartCherrygroveDex
 	dw MartViolet
 	dw MartAzalea
 	dw MartCianwood
@@ -42,55 +41,54 @@ Marts:
 	dw Lilycove4FStones
 	dw Lilycove5FMedicine
 	dw Lilycove5FDrugs
+	dw MartOldale
+	dw MartPetalburg
+	dw MartRustboro
+	dw MartVerdanturf
+	dw MartSlateport
+	dw MartMauville
+	dw MartFallarbor
+	dw MartLavaridge
+	dw MartFortree
+	dw MartMossdeep
+	dw MartSootopolis
+	dw MartBattleResort
+	dw wBadgeMartList ; MART_STANDARD: built by BuildBadgeMart
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
-	db 4 ; # items
-	dw POTION
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw AWAKENING
-
-MartCherrygroveDex:
-	db 5 ; # items
-	dw POKE_BALL
-	dw POTION
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw AWAKENING
-
-MartViolet:
-	db 10 ; # items
-	dw POKE_BALL
-	dw POTION
-	dw ESCAPE_ROPE
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw AWAKENING
-	dw X_DEFEND
-	dw X_ATTACK
-	dw X_SPEED
+	db 3 ; # items
+	dw MYSTIC_WATER
+	dw POKE_DOLL
 	dw FLOWER_MAIL
 
+MartViolet:
+	db 5 ; # items
+	dw X_ATTACK
+	dw X_DEFEND
+	dw X_SPEED
+	dw X_SPECIAL
+	dw SHARP_BEAK
+
 MartAzalea:
-	db 9 ; # items
+	db 4 ; # items
 	dw CHARCOAL
-	dw POKE_BALL
-	dw POTION
-	dw SUPER_POTION
-	dw ESCAPE_ROPE
-	dw REPEL
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
+	dw SILVERPOWDER
+	dw SMOKE_BALL
 	dw FLOWER_MAIL
 
 MartCianwood:
-	db 5 ; # items
+	db 10 ; # items
 	dw POTION
 	dw SUPER_POTION
 	dw HYPER_POTION
 	dw FULL_HEAL
 	dw REVIVE
+	dw MAX_REVIVE
+	dw ETHER
+	dw MAX_ETHER
+	dw ELIXER
+	dw BLACKBELT_I
 
 MartGoldenrod2F1:
 	db 7 ; # items
@@ -161,29 +159,18 @@ MartGoldenrod5F4:
 	dw TM_ROCK_SMASH
 
 MartOlivine:
-	db 9 ; # items
-	dw GREAT_BALL
-	dw SUPER_POTION
-	dw HYPER_POTION
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw AWAKENING
-	dw ICE_HEAL
-	dw SUPER_REPEL
+	db 4 ; # items
+	dw METAL_COAT
+	dw MYSTIC_WATER
+	dw ETHER
 	dw SURF_MAIL
 
 MartEcruteak:
-	db 10 ; # items
-	dw POKE_BALL
-	dw GREAT_BALL
-	dw POTION
-	dw SUPER_POTION
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw AWAKENING
-	dw BURN_HEAL
-	dw ICE_HEAL
-	dw REVIVE
+	db 4 ; # items
+	dw SPELL_TAG
+	dw CLEANSE_TAG
+	dw ETHER
+	dw EVERSTONE
 
 MartMahogany1:
 	db 4 ; # items
@@ -193,76 +180,50 @@ MartMahogany1:
 	dw POTION
 
 MartMahogany2:
-	db 9 ; # items
+	db 3 ; # items
 	dw RAGECANDYBAR
-	dw GREAT_BALL
-	dw SUPER_POTION
-	dw HYPER_POTION
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw SUPER_REPEL
-	dw REVIVE
-	dw FLOWER_MAIL
+	dw NEVERMELTICE
+	dw BIG_MUSHROOM
 
 MartBlackthorn:
-	db 9 ; # items
-	dw GREAT_BALL
-	dw ULTRA_BALL
-	dw HYPER_POTION
-	dw MAX_POTION
-	dw FULL_HEAL
-	dw REVIVE
-	dw MAX_REPEL
-	dw X_DEFEND
-	dw X_ATTACK
+	db 5 ; # items
+	dw DRAGON_FANG
+	dw X_ACCURACY
+	dw DIRE_HIT
+	dw GUARD_SPEC
+	dw MAX_ETHER
 
 MartViridian:
-	db 6 ; # items
-	dw POKE_BALL
-	dw POTION
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw AWAKENING
+	db 3 ; # items
+	dw PINK_BOW
+	dw POKE_DOLL
 	dw FLOWER_MAIL
 
 MartPewter:
-	db 7 ; # items
-	dw POKE_BALL
-	dw POTION
-	dw REPEL
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw AWAKENING
-	dw BURN_HEAL
+	db 4 ; # items
+	dw HARD_STONE
+	dw X_ATTACK
+	dw X_DEFEND
+	dw X_SPEED
 
 MartCerulean:
-	db 5 ; # items
-	dw POKE_BALL
-	dw POTION
-	dw REPEL
-	dw FULL_HEAL
+	db 3 ; # items
+	dw MYSTIC_WATER
+	dw X_SPECIAL
 	dw SURF_MAIL
 
 MartLavender:
-	db 8 ; # items
-	dw GREAT_BALL
-	dw POTION
-	dw SUPER_POTION
-	dw MAX_REPEL
-	dw ANTIDOTE
-	dw PARLYZ_HEAL
-	dw AWAKENING
-	dw BURN_HEAL
+	db 4 ; # items
+	dw CLEANSE_TAG
+	dw SPELL_TAG
+	dw POKE_DOLL
+	dw ETHER
 
 MartVermilion:
-	db 8 ; # items
-	dw GREAT_BALL
-	dw SUPER_POTION
-	dw POTION
-	dw REVIVE
-	dw PARLYZ_HEAL
-	dw AWAKENING
-	dw BURN_HEAL
+	db 4 ; # items
+	dw MAGNET
+	dw ETHER
+	dw MAX_ETHER
 	dw LITEBLUEMAIL
 
 MartCeladon2F1:
@@ -323,25 +284,18 @@ MartCeladon5F2:
 	dw X_SPECIAL
 
 MartFuchsia:
-	db 7 ; # items
-	dw GREAT_BALL
-	dw ULTRA_BALL
-	dw SUPER_POTION
-	dw HYPER_POTION
-	dw FULL_HEAL
-	dw MAX_REPEL
+	db 4 ; # items
+	dw POISON_BARB
+	dw SMOKE_BALL
+	dw X_ACCURACY
 	dw FLOWER_MAIL
 
 MartSaffron:
-	db 8 ; # items
-	dw GREAT_BALL
-	dw ULTRA_BALL
-	dw HYPER_POTION
-	dw MAX_POTION
-	dw FULL_HEAL
-	dw X_ATTACK
-	dw X_DEFEND
-	dw FLOWER_MAIL
+	db 4 ; # items
+	dw TWISTEDSPOON
+	dw X_SPECIAL
+	dw GUARD_SPEC
+	dw ELIXER
 
 MartMtMoon:
 	db 6 ; # items
@@ -353,14 +307,13 @@ MartMtMoon:
 	dw PORTRAITMAIL
 
 MartIndigoPlateau:
-	db 7 ; # items
-	dw ULTRA_BALL
-	dw MAX_REPEL
-	dw HYPER_POTION
-	dw MAX_POTION
-	dw FULL_RESTORE
-	dw REVIVE
-	dw FULL_HEAL
+	db 6 ; # items
+	dw MAX_REVIVE
+	dw ELIXER
+	dw MAX_ETHER
+	dw X_ACCURACY
+	dw DIRE_HIT
+	dw GUARD_SPEC
 
 MartUnderground:
 	db 4 ; # items
@@ -442,3 +395,83 @@ DefaultMart:
 	db 2 ; # items
 	dw POKE_BALL
 	dw POTION
+
+MartOldale:
+	db 3 ; # items
+	dw MIRACLE_SEED
+	dw POKE_DOLL
+	dw FLOWER_MAIL
+
+MartPetalburg:
+	db 4 ; # items
+	dw PINK_BOW
+	dw X_ATTACK
+	dw X_DEFEND
+	dw X_SPEED
+
+MartRustboro:
+	db 3 ; # items
+	dw HARD_STONE
+	dw X_SPECIAL
+	dw EVERSTONE
+
+MartVerdanturf:
+	db 3 ; # items
+	dw POLKADOT_BOW
+	dw POKE_DOLL
+	dw FLOWER_MAIL
+
+MartSlateport:
+	db 3 ; # items
+	dw MYSTIC_WATER
+	dw ETHER
+	dw LITEBLUEMAIL
+
+MartMauville:
+	db 4 ; # items
+	dw MAGNET
+	dw X_ACCURACY
+	dw DIRE_HIT
+	dw GUARD_SPEC
+
+MartFallarbor:
+	db 3 ; # items
+	dw SOFT_SAND
+	dw BLACKGLASSES
+	dw MAX_ETHER
+
+MartLavaridge:
+	db 5 ; # items
+	dw CHARCOAL
+	dw ENERGYPOWDER
+	dw ENERGY_ROOT
+	dw HEAL_POWDER
+	dw REVIVAL_HERB
+
+MartFortree:
+	db 3 ; # items
+	dw SHARP_BEAK
+	dw X_SPEED
+	dw DIRE_HIT
+
+MartMossdeep:
+	db 4 ; # items
+	dw TWISTEDSPOON
+	dw X_SPECIAL
+	dw GUARD_SPEC
+	dw MAX_ETHER
+
+MartSootopolis:
+	db 3 ; # items
+	dw MYSTIC_WATER
+	dw MAX_ETHER
+	dw ELIXER
+
+MartBattleResort:
+	db 6 ; # items
+	dw MAX_REVIVE
+	dw ELIXER
+	dw MAX_ETHER
+	dw X_ACCURACY
+	dw DIRE_HIT
+	dw GUARD_SPEC

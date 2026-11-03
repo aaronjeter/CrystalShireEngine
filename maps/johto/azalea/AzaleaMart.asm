@@ -2,6 +2,7 @@
 	const AZALEAMART_CLERK
 	const AZALEAMART_COOLTRAINER_M
 	const AZALEAMART_BUG_CATCHER
+	const AZALEAMART_SPECIALTY_CLERK
 
 AzaleaMart_MapScripts:
 	def_scene_scripts
@@ -9,6 +10,12 @@ AzaleaMart_MapScripts:
 	def_callbacks
 
 AzaleaMartClerkScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+AzaleaMartSpecialtyClerkScript:
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_AZALEA
 	closetext
@@ -58,3 +65,4 @@ AzaleaMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaMartClerkScript, -1
 	object_event  2,  5, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaMartCooltrainerMScript, -1
 	object_event  7,  2, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, AzaleaMartBugCatcherScript, -1
+	object_event  1,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaMartSpecialtyClerkScript, -1

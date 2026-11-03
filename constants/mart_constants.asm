@@ -9,7 +9,6 @@
 ; Marts indexes (see data/items/marts.asm)
 	const_def
 	const MART_CHERRYGROVE
-	const MART_CHERRYGROVE_DEX
 	const MART_VIOLET
 	const MART_AZALEA
 	const MART_CIANWOOD
@@ -49,4 +48,20 @@
 	const MART_LILYCOVE_4F_STONES
 	const MART_LILYCOVE_5F_MEDICINE
 	const MART_LILYCOVE_5F_DRUGS
+	const MART_OLDALE
+	const MART_PETALBURG
+	const MART_RUSTBORO
+	const MART_VERDANTURF
+	const MART_SLATEPORT
+	const MART_MAUVILLE
+	const MART_FALLARBOR
+	const MART_LAVARIDGE
+	const MART_FORTREE
+	const MART_MOSSDEEP
+	const MART_SOOTOPOLIS
+	const MART_BATTLE_RESORT
+	const MART_STANDARD ; badge-based standard counter (built at run time)
 DEF NUM_MARTS EQU const_value
+
+DEF MAX_MART_ITEMS EQU 14 ; wCurMartItems holds 14 items + terminator
+DEF BADGEMART_NEEDS_DEX EQU $80 ; badge_mart_item min flag: needs the Pokédex

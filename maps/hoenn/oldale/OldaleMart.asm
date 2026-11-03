@@ -2,6 +2,7 @@
 	const OLDALEMART_CLERK
 	const OLDALEMART_YOUNGSTER
 	const OLDALEMART_COOLTRAINER_M
+	const OLDALEMART_SPECIALTY_CLERK
 
 OldaleMart_MapScripts:
 	def_scene_scripts
@@ -10,7 +11,13 @@ OldaleMart_MapScripts:
 
 OldaleMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_CHERRYGROVE_DEX
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+OldaleMart_SpecialtyClerk:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_OLDALE
 	closetext
 	end
 
@@ -57,3 +64,4 @@ OldaleMart_MapEvents:
 	object_event  5,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldaleMart_Clerk, -1
 	object_event  6,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OldaleMartYoungsterScript, -1
 	object_event  1,  2, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldaleMartCooltrainerScript, -1
+	object_event  4,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldaleMart_SpecialtyClerk, -1

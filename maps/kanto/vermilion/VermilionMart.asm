@@ -2,6 +2,7 @@
 	const VERMILIONMART_CLERK
 	const VERMILIONMART_SUPER_NERD
 	const VERMILIONMART_BEAUTY
+	const VERMILIONMART_SPECIALTY_CLERK
 
 VermilionMart_MapScripts:
 	def_scene_scripts
@@ -9,6 +10,12 @@ VermilionMart_MapScripts:
 	def_callbacks
 
 VermilionMartClerkScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+VermilionMartSpecialtyClerkScript:
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_VERMILION
 	closetext
@@ -49,3 +56,4 @@ VermilionMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionMartClerkScript, -1
 	object_event  5,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VermilionMartSuperNerdScript, -1
 	object_event  8,  6, SPRITE_BEAUTY, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionMartBeautyScript, -1
+	object_event  1,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionMartSpecialtyClerkScript, -1

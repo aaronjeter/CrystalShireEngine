@@ -1,5 +1,6 @@
 	object_const_def
 	const RUSTBOROMART_CLERK
+	const RUSTBOROMART_SPECIALTY_CLERK
 
 RustboroMart_MapScripts:
 	def_scene_scripts
@@ -8,7 +9,13 @@ RustboroMart_MapScripts:
 
 RustboroMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_VIOLET
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+RustboroMart_SpecialtyClerk:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_RUSTBORO
 	closetext
 	end
 
@@ -25,3 +32,4 @@ RustboroMart_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RustboroMart_Clerk, -1
+	object_event  4,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RustboroMart_SpecialtyClerk, -1

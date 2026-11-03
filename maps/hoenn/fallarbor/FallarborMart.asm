@@ -1,5 +1,6 @@
 	object_const_def
 	const FALLARBORMART_CLERK
+	const FALLARBORMART_SPECIALTY_CLERK
 
 FallarborMart_MapScripts:
 	def_scene_scripts
@@ -8,7 +9,13 @@ FallarborMart_MapScripts:
 
 FallarborMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_ECRUTEAK
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+FallarborMart_SpecialtyClerk:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_FALLARBOR
 	closetext
 	end
 
@@ -39,3 +46,4 @@ FallarborMart_MapEvents:
 	def_object_events
 	object_event 05, 01, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FallarborMart_Clerk, -1
 	object_event 06, 04, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, FallarborMartGrampsScript, -1
+	object_event  4,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FallarborMart_SpecialtyClerk, -1

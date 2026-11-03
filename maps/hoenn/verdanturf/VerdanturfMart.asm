@@ -1,5 +1,6 @@
 	object_const_def
 	const VERDATURFMART_CLERK
+	const VERDANTURFMART_SPECIALTY_CLERK
 
 VerdanturfMart_MapScripts:
 	def_scene_scripts
@@ -8,7 +9,13 @@ VerdanturfMart_MapScripts:
 
 VerdanturfMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_AZALEA
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+VerdanturfMart_SpecialtyClerk:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_VERDANTURF
 	closetext
 	end
 
@@ -25,3 +32,4 @@ VerdanturfMart_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VerdanturfMart_Clerk, -1
+	object_event  4,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VerdanturfMart_SpecialtyClerk, -1

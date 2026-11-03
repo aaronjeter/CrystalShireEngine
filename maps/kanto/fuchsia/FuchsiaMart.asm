@@ -2,6 +2,7 @@
 	const FUCHSIAMART_CLERK
 	const FUCHSIAMART_FISHER
 	const FUCHSIAMART_COOLTRAINER_F
+	const FUCHSIAMART_SPECIALTY_CLERK
 
 FuchsiaMart_MapScripts:
 	def_scene_scripts
@@ -9,6 +10,12 @@ FuchsiaMart_MapScripts:
 	def_callbacks
 
 FuchsiaMartClerkScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+FuchsiaMartSpecialtyClerkScript:
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_FUCHSIA
 	closetext
@@ -50,3 +57,4 @@ FuchsiaMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaMartClerkScript, -1
 	object_event  3,  2, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaMartFisherScript, -1
 	object_event  7,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaMartCooltrainerFScript, -1
+	object_event  1,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaMartSpecialtyClerkScript, -1

@@ -1,5 +1,6 @@
 	object_const_def
 	const PETALBURGMART_CLERK
+	const PETALBURGMART_SPECIALTY_CLERK
 
 PetalburgMart_MapScripts:
 	def_scene_scripts
@@ -8,7 +9,13 @@ PetalburgMart_MapScripts:
 
 PetalburgMart_Clerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_VIOLET
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+PetalburgMart_SpecialtyClerk:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_PETALBURG
 	closetext
 	end
 
@@ -25,3 +32,4 @@ PetalburgMart_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PetalburgMart_Clerk, -1
+	object_event  4,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PetalburgMart_SpecialtyClerk, -1
