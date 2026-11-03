@@ -265,7 +265,7 @@ JohtoWaterWildMons:
 	db 2 percent ; encounter rate
 	dbw 3, POLIWHIRL
 	dbw 1, TOTODILE
-	dbw 1, POLIWAG
+	dbw 1, SPHEAL
 	end_water_wildmons
 
 	db -1 ; end
