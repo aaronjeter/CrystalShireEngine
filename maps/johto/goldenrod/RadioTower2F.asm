@@ -63,10 +63,10 @@ TrainerGruntM4:
 	trainerafter GruntM4AfterBattleText
 
 TrainerGruntM5:
-	trainer GRUNTM, GRUNTM_5, EVENT_BEAT_ROCKET_GRUNTM_5, GruntM5SeenText, GruntM5BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_RADIO2F, EVENT_BEAT_GRUNTS_RADIO_2F, GruntsRadio2FSeenText, GruntsRadio2FBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntM5AfterBattleText
+	trainerafter GruntsRadio2FAfterBattleText
 
 TrainerGruntM6:
 	trainer GRUNTM, GRUNTM_6, EVENT_BEAT_ROCKET_GRUNTM_6, GruntM6SeenText, GruntM6BeatenText, 0, .Script
@@ -75,10 +75,10 @@ TrainerGruntM6:
 	trainerafter GruntM6AfterBattleText
 
 TrainerGruntF2:
-	trainer GRUNTF, GRUNTF_2, EVENT_BEAT_ROCKET_GRUNTF_2, GruntF2SeenText, GruntF2BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_RADIO2F, EVENT_BEAT_GRUNTS_RADIO_2F, GruntsRadio2FSeenText, GruntsRadio2FBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntF2AfterBattleText
+	trainerafter GruntsRadio2FAfterBattleText
 
 Buena:
 	faceplayer
@@ -390,26 +390,6 @@ GruntM4AfterBattleText:
 	cont "for our comeback!"
 	done
 
-GruntM5SeenText:
-	text "We're Team Rocket,"
-	line "the exploiters of"
-	cont "#mon!"
-
-	para "We love being"
-	line "evil! Scared?"
-	done
-
-GruntM5BeatenText:
-	text "You think you're a"
-	line "hero?"
-	done
-
-GruntM5AfterBattleText:
-	text "We're not always"
-	line "evil. We just do"
-	cont "whatever we like."
-	done
-
 GruntM6SeenText:
 	text "Hey, hey! Keep out"
 	line "of our way!"
@@ -427,28 +407,6 @@ GruntM6AfterBattleText:
 	para "They have some big"
 	line "plan. I wonder"
 	cont "what that is?"
-	done
-
-GruntF2SeenText:
-	text "Hahaha!"
-
-	para "How boring."
-	line "It was far too"
-
-	para "easy to take over"
-	line "this place!"
-
-	para "Come on, keep me"
-	line "amused!"
-	done
-
-GruntF2BeatenText:
-	text "Wh-who are you?"
-	done
-
-GruntF2AfterBattleText:
-	text "You beat me, and"
-	line "I won't forget it!"
 	done
 
 RadioTower2FBuenaShowIntroductionText:
@@ -692,6 +650,25 @@ RadioTower2FPokemonRadioSignText:
 	line "#mon Radio"
 	done
 
+GruntsRadio2FSeenText:
+	text "We're Team Rocket,"
+	line "the exploiters of"
+	cont "#mon!"
+
+	para "Taking over this"
+	line "place was easy!"
+	done
+
+GruntsRadio2FBeatenText:
+	text "Wh-who are you?"
+	done
+
+GruntsRadio2FAfterBattleText:
+	text "You beat us, and"
+	line "we won't forget"
+	cont "it!"
+	done
+
 RadioTower2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -715,7 +692,7 @@ RadioTower2F_MapEvents:
 	object_event  1,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM4, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  8,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM5, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  4,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerGruntM6, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event 10,  5, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntF2, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  9,  4, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntF2, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  0,  1, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTower2FBlackBelt1Script, EVENT_RADIO_TOWER_BLACKBELT_BLOCKS_STAIRS
 	object_event  1,  1, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTower2FBlackBelt2Script, EVENT_RADIO_TOWER_CIVILIANS_AFTER
 	object_event 12,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTowerJigglypuff, -1

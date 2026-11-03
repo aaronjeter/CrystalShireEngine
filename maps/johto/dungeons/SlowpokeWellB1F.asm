@@ -68,16 +68,16 @@ TrainerGruntM1:
 	end
 
 TrainerGruntM2:
-	trainer GRUNTM, GRUNTM_EASY, EVENT_BEAT_ROCKET_GRUNTM_2, GruntM2SeenText, GruntM2BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_WELL, EVENT_BEAT_GRUNTS_SLOWPOKE_WELL, GruntsWellSeenText, GruntsWellBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntM2AfterBattleText
+	trainerafter GruntsWellAfterBattleText
 
 TrainerGruntF1:
-	trainer GRUNTF, GRUNTF_1, EVENT_BEAT_ROCKET_GRUNTF_1, GruntF1SeenText, GruntF1BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_WELL, EVENT_BEAT_GRUNTS_SLOWPOKE_WELL, GruntsWellSeenText, GruntsWellBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntF1AfterBattleText
+	trainerafter GruntsWellAfterBattleText
 
 SlowpokeWellB1FSlowpokeWithMailScript:
 	faceplayer
@@ -236,48 +236,6 @@ TrainerGruntM1WhenTalkText:
 	cont "stir up trouble!"
 	done
 
-GruntM2SeenText:
-	text "Quit taking Slow-"
-	line "poketails?"
-
-	para "If we obeyed you,"
-	line "Team Rocket's rep"
-	cont "would be ruined!"
-	done
-
-GruntM2BeatenText:
-	text "Just…"
-	line "Too strong…"
-	done
-
-GruntM2AfterBattleText:
-	text "We need the money,"
-	line "but selling Slow-"
-	cont "poketails?"
-
-	para "It's tough being a"
-	line "Rocket Grunt!"
-	done
-
-GruntF1SeenText:
-	text "Stop taking Tails?"
-
-	para "Yeah, just try to"
-	line "defeat all of us!"
-	done
-
-GruntF1BeatenText:
-	text "You rotten brat!"
-	done
-
-GruntF1AfterBattleText:
-	text "Slowpoketails"
-	line "grow back fast!"
-
-	para "What's wrong with"
-	line "selling them?"
-	done
-
 SlowpokeWellB1FSlowpokeWithMailText:
 	text "A Slowpoke with"
 	line "its Tail cut off…"
@@ -307,6 +265,27 @@ SlowpokeWellB1FTaillessSlowpokeText:
 SlowpokeWellB1FDomeFossil:
 	itemball DOME_FOSSIL
 
+GruntsWellSeenText:
+	text "Quit taking Slow-"
+	line "poketails?"
+
+	para "Try telling that"
+	line "to both of us!"
+	done
+
+GruntsWellBeatenText:
+	text "Two of us, and we"
+	line "still lost…"
+	done
+
+GruntsWellAfterBattleText:
+	text "Slowpoketails"
+	line "grow back fast!"
+
+	para "We need the money."
+	line "What's the harm?"
+	done
+
 SlowpokeWellB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -322,7 +301,7 @@ SlowpokeWellB1F_MapEvents:
 	object_event 15,  7, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM29, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  5,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerGruntM1, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  5,  6, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerGruntM2, EVENT_SLOWPOKE_WELL_ROCKETS
-	object_event 10,  4, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerGruntF1, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event  5,  5, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerGruntF1, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  7,  4, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FSlowpokeWithMailScript, EVENT_SLOWPOKE_WELL_SLOWPOKES
 	object_event  6,  2, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FTaillessSlowpokeScript, EVENT_SLOWPOKE_WELL_SLOWPOKES
 	object_event 16, 14, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FKurtScript, EVENT_SLOWPOKE_WELL_KURT

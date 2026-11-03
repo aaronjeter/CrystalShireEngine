@@ -81,16 +81,16 @@ RadioTower3FCooltrainerFScript:
 	end
 
 TrainerGruntM7:
-	trainer GRUNTM, GRUNTM_7, EVENT_BEAT_ROCKET_GRUNTM_7, GruntM7SeenText, GruntM7BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_RADIO3F, EVENT_BEAT_GRUNTS_RADIO_3F, GruntsRadio3FSeenText, GruntsRadio3FBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntM7AfterBattleText
+	trainerafter GruntsRadio3FAfterBattleText
 
 TrainerGruntM8:
-	trainer GRUNTM, GRUNTM_8, EVENT_BEAT_ROCKET_GRUNTM_8, GruntM8SeenText, GruntM8BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_RADIO3F, EVENT_BEAT_GRUNTS_RADIO_3F, GruntsRadio3FSeenText, GruntsRadio3FBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntM8AfterBattleText
+	trainerafter GruntsRadio3FAfterBattleText
 
 TrainerGruntM9:
 	trainer GRUNTM, GRUNTM_9, EVENT_BEAT_ROCKET_GRUNTM_9, GruntM9SeenText, GruntM9BeatenText, 0, .Script
@@ -208,45 +208,6 @@ RadioTower3FCooltrainerFYouWereMarvelousText:
 	line "marvelous!"
 	done
 
-GruntM7SeenText:
-	text "I've been given"
-	line "strict orders."
-
-	para "I'm to crush any-"
-	line "one who challenges"
-	cont "Team Rocket!"
-	done
-
-GruntM7BeatenText:
-	text "What?!"
-	done
-
-GruntM7AfterBattleText:
-	text "I failed in my"
-	line "duties…"
-
-	para "I'll be docked pay"
-	line "for this…"
-	done
-
-GruntM8SeenText:
-	text "It feels great"
-	line "ordering #mon"
-	cont "to commit crimes."
-	done
-
-GruntM8BeatenText:
-	text "You're kidding!"
-	done
-
-GruntM8AfterBattleText:
-	text "I feel lousy over"
-	line "losing!"
-
-	para "Darn it! I hate"
-	line "useless #mon!"
-	done
-
 GruntM9SeenText:
 	text "Why did the shut-"
 	line "ter open? Did you"
@@ -306,6 +267,21 @@ RadioTower3FPokemonMusicSignText:
 	line "Host DJ Ben"
 	done
 
+GruntsRadio3FSeenText:
+	text "Strict orders:"
+	line "crush anyone who"
+	cont "challenges us!"
+	done
+
+GruntsRadio3FBeatenText:
+	text "What?!"
+	done
+
+GruntsRadio3FAfterBattleText:
+	text "We'll be docked"
+	line "pay for this…"
+	done
+
 RadioTower3F_MapEvents:
 	db 0, 0 ; filler
 
@@ -325,7 +301,7 @@ RadioTower3F_MapEvents:
 	object_event  7,  4, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RadioTower3FSuperNerdScript, EVENT_RADIO_TOWER_CIVILIANS_AFTER
 	object_event  3,  4, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RadioTower3FGymGuideScript, -1
 	object_event 11,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RadioTower3FCooltrainerFScript, -1
-	object_event  5,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerGruntM7, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event  6,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM8, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  5,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerGruntM7, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  6,  1, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntM8, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 16,  6, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM9, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  9,  6, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerScientistMarc, EVENT_RADIO_TOWER_ROCKET_TAKEOVER

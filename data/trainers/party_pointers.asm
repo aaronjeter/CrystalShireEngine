@@ -110,5 +110,6 @@ TrainerGroups:
 	dba HikersGroup
 	dba PokefansGroup
 	dba PupilsGroup
+	dba GruntsGroup
 	assert_table_length NUM_TRAINER_CLASSES
 

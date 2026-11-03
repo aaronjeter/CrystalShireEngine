@@ -185,53 +185,17 @@ FortreeGymHumbertAfterBattleText:
 
 
 FortreeGymJaredScript:
-	trainer BIRD_KEEPER, FORTREE_JARED, EVENT_BEAT_FORTREE_JARED, FortreeGymJaredSeenText, FortreeGymJaredBeatenText, 0, .AfterScript
+	trainer BIRDERS, JAREDANDED, EVENT_BEAT_BIRDERS_JARED_ED, BirdersJaredEdSeenText, BirdersJaredEdBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter FortreeGymJaredAfterBattleText
-
-FortreeGymJaredSeenText:
-	text "Behold the"
-	line "elegance of"
-	cont "birds!"
-	done
-
-FortreeGymJaredBeatenText:
-	text "You..."
-	line "You're too strong."
-	done
-
-FortreeGymJaredAfterBattleText:
-	text "A trainer has to"
-	line "be smart to win."
-	done
+.Script:
+	trainerafter BirdersJaredEdAfterBattleText
 
 
 FortreeGymEdwardoScript:
-	trainer BIRD_KEEPER, FORTREE_EDWARDO, EVENT_BEAT_FORTREE_EDWARDO, FortreeGymEdwardoSeenText, FortreeGymEdwardoBeatenText, 0, .AfterScript
+	trainer BIRDERS, JAREDANDED, EVENT_BEAT_BIRDERS_JARED_ED, BirdersJaredEdSeenText, BirdersJaredEdBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter FortreeGymEdwardoAfterBattleText
-
-FortreeGymEdwardoSeenText:
-	text "Lovers of Bird"
-	line "#mon aspire to"
-	cont "this Gym."
-	done
-
-FortreeGymEdwardoBeatenText:
-	text "You were just"
-	line "too much!"
-	done
-
-FortreeGymEdwardoAfterBattleText:
-	text "This world is huge"
-	line "and full of tough"
-	cont "trainers."
-
-	para "One day I want"
-	line "to face them all!"
-	done
+.Script:
+	trainerafter BirdersJaredEdAfterBattleText
 
 FortreeGymDariusScript:
 	trainer BIRD_KEEPER, FORTREE_DARIUS, EVENT_BEAT_FORTREE_DARIUS, FortreeGymDariusSeenText, FortreeGymDariusBeatenText, 0, .AfterScript
@@ -315,6 +279,26 @@ FortreeGymFlintAfterBattleText:
 	para "Watch out!"
 	done
 
+BirdersJaredEdSeenText:
+	text "Jared: Behold the"
+	line "elegance of birds!"
+
+	para "Ed: Bird lovers"
+	line "aspire to this"
+	cont "Gym!"
+	done
+
+BirdersJaredEdBeatenText:
+	text "Ed: You were just"
+	line "too much!"
+	done
+
+BirdersJaredEdAfterBattleText:
+	text "Jared: A trainer"
+	line "has to be smart"
+	cont "to win."
+	done
+
 FortreeGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -329,9 +313,9 @@ FortreeGym_MapEvents:
 	def_object_events
 	object_event 15, 02, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, FortreeGymWinonaScript, -1
 	object_event 03, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, FortreeGymHumbertScript, -1
-	object_event 04, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, FortreeGymJaredScript, -1
-	object_event 09, 08, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_TRAINER, 3, FortreeGymEdwardoScript, -1
+	object_event  8,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, FortreeGymJaredScript, -1
+	object_event  9,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_TRAINER, 1, FortreeGymEdwardoScript, -1
 	object_event 02, 05, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, FortreeGymDariusScript, -1
 	object_event 06, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, FortreeGymAshleyScript, -1
-	object_event 06, 09, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, FortreeGymFlintScript, -1
+	object_event 06, 09, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, FortreeGymFlintScript, -1
 	

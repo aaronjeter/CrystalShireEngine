@@ -111,4 +111,5 @@ TrainerPicPointers::
 	dba HikersPic
 	dba PokefansPic
 	dba PupilsPic
+	dba GruntsPic
 	assert_table_length NUM_TRAINER_CLASSES

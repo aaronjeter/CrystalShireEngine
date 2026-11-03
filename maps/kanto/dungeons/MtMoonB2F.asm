@@ -106,50 +106,17 @@ TrainerMoonGrunt2AfterBattleText:
 
 
 TrainerMoonGrunt3:
-	trainer GRUNTM, MOON_GRUNT3, EVENT_BEAT_MOON_GRUNT3, TrainerMoonGrunt3SeenText, TrainerMoonGrunt3BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_MTMOON, EVENT_BEAT_GRUNTS_MT_MOON, GruntsMtMoonSeenText, GruntsMtMoonBeatenText, 0, .Script
 
 .Script:
-	trainerafter TrainerMoonGrunt3AfterBattleText
-
-TrainerMoonGrunt3SeenText:
-	text "Get out of"
-	line "my way!"
-	done
-
-TrainerMoonGrunt3BeatenText:
-	text "Dang it!"
-	done
-
-TrainerMoonGrunt3AfterBattleText:
-	text "We're looking for"
-	line "Fossils here."
-
-	para "You'd better give"
-	line "us any you find."
-	done
+	trainerafter GruntsMtMoonAfterBattleText
 
 
 TrainerMoonGrunt4:
-	trainer GRUNTM, MOON_GRUNT4, EVENT_BEAT_MOON_GRUNT4, TrainerMoonGrunt4SeenText, TrainerMoonGrunt4BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_MTMOON, EVENT_BEAT_GRUNTS_MT_MOON, GruntsMtMoonSeenText, GruntsMtMoonBeatenText, 0, .Script
 
 .Script:
-	trainerafter TrainerMoonGrunt4AfterBattleText
-
-TrainerMoonGrunt4SeenText:
-	text "Ooo, a trainer!"
-	done
-
-TrainerMoonGrunt4BeatenText:
-	text "Dang it!"
-	done
-
-TrainerMoonGrunt4AfterBattleText:
-	text "We're looking for"
-	line "Fossils here."
-
-	para "You'd better give"
-	line "us any you find."
-	done
+	trainerafter GruntsMtMoonAfterBattleText
 
 
 MoonLunatone:
@@ -213,6 +180,22 @@ MtMoonMoonstone2:
 	hiddenitem MOON_STONE, EVENT_MOUNT_MOON_MOONSTONE2
 
 
+GruntsMtMoonSeenText:
+	text "Out of our way!"
+	done
+
+GruntsMtMoonBeatenText:
+	text "Dang it!"
+	done
+
+GruntsMtMoonAfterBattleText:
+	text "We're looking for"
+	line "Fossils here."
+
+	para "Hand over any"
+	line "you find!"
+	done
+
 MtMoonB2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -231,8 +214,8 @@ MtMoonB2F_MapEvents:
 	object_event  15, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerMoonMiguel, -1
 	object_event  31, 12, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonGrunt1, -1
 	object_event  27, 27, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerMoonGrunt2, -1
-	object_event  06, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonGrunt3, -1
-	object_event  16, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonGrunt4, -1
+	object_event 16, 17, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonGrunt3, -1
+	object_event 16, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonGrunt4, -1
 	object_event  29, 08, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoonLunatone, -1
 	object_event  19, 30, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MoonClefairy, -1
 	object_event  28, 08, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_QuartzScript, EVENT_GOT_QUARTZ

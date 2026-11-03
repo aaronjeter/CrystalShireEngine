@@ -66,10 +66,9 @@ NormanGiveBadge:
 	scall PetalburgGymLevelcap
 
 	;disable gym trainers
-	setevent EVENT_BEAT_PETALBURG_RANDALL
 	setevent EVENT_BEAT_PETALBURG_MARY
 	setevent EVENT_BEAT_PETALBURG_PARKER
-	setevent EVENT_BEAT_PETALBURG_LORI
+	setevent EVENT_BEAT_ACE_DUO_RAY_LORI
 	setevent EVENT_BEAT_PETALBURG_GEORGE
 	setevent EVENT_BEAT_PETALBURG_JODY
 	end
@@ -106,27 +105,10 @@ PetalburgGymLevelcap:
 
 
 PetalburgRandall:
-	trainer COOLTRAINERM, PETALBURG_RANDALL, EVENT_BEAT_PETALBURG_RANDALL, PetalburgRandallSeenText, PetalburgRandallBeatenText, 0, .AfterScript
+	trainer ACE_DUO, RAYANDLORI, EVENT_BEAT_ACE_DUO_RAY_LORI, AceDuoRayLoriSeenText, AceDuoRayLoriBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter PetalburgRandallAfterBattleText
-
-PetalburgRandallSeenText:
-	text "I'll show you"
-	line "just how scary"
-	cont "Normal types are!"
-	done
-
-PetalburgRandallBeatenText:
-	text "Ouch!"
-
-	para "You're good!"
-	done
-
-PetalburgRandallAfterBattleText:
-	text "I really thought"
-	line "I had you there."
-	done
+.Script:
+	trainerafter AceDuoRayLoriAfterBattleText
 
 
 PetalburgMary:
@@ -177,23 +159,10 @@ PetalburgParkerAfterBattleText:
 	done
 
 PetalburgLori:
-	trainer COOLTRAINERF, PETALBURG_LORI, EVENT_BEAT_PETALBURG_LORI, PetalburgLoriSeenText, PetalburgLoriBeatenText, 0, .AfterScript
+	trainer ACE_DUO, RAYANDLORI, EVENT_BEAT_ACE_DUO_RAY_LORI, AceDuoRayLoriSeenText, AceDuoRayLoriBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter PetalburgLoriAfterBattleText
-
-PetalburgLoriSeenText:
-	text "Ok..."
-	line "I'm ready."
-	done
-
-PetalburgLoriBeatenText:
-	text "Oh well..."
-	done
-
-PetalburgLoriAfterBattleText:
-	text "I need practice..."
-	done
+.Script:
+	trainerafter AceDuoRayLoriAfterBattleText
 
 
 PetalburgGeorge:
@@ -303,6 +272,25 @@ NormanExplainTMText:
 	cont "help you."
 	done
 
+AceDuoRayLoriSeenText:
+	text "Ray: We'll show you"
+	line "how scary Normal"
+	cont "types are!"
+
+	para "Lori: Ok… I'm"
+	line "ready."
+	done
+
+AceDuoRayLoriBeatenText:
+	text "Ray: Ouch!"
+	line "You're good!"
+	done
+
+AceDuoRayLoriAfterBattleText:
+	text "Lori: I need"
+	line "practice…"
+	done
+
 PetalburgGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -334,9 +322,9 @@ PetalburgGym_MapEvents:
 
 	def_object_events
 	object_event  4,  2, SPRITE_KURT, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PetalburgGymNormanScript, -1
-	object_event  4, 74, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PetalburgRandall, -1
+	object_event  5, 38, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PetalburgRandall, -1
 	object_event  4, 62, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, PetalburgMary, -1
 	object_event  4, 50, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PetalburgParker, -1
-	object_event  4, 38, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, PetalburgLori, -1
+	object_event  4, 38, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PetalburgLori, -1
 	object_event  4, 26, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PetalburgGeorge, -1
 	object_event  4, 14, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, PetalburgJody, -1

@@ -110,4 +110,5 @@ BTTrainerClassGenders:
 	db MALE   ; Hikers
 	db MALE   ; #fans
 	db MALE   ; Pupils
+	db MALE   ; Grunts
 	assert_table_length NUM_TRAINER_CLASSES ; 

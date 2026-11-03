@@ -12,36 +12,10 @@ MauvilleGym_MapScripts:
 	def_callbacks	
 
 MauvilleVivian:
-	trainer LASS, MAUVILLE_VIVIAN, EVENT_BEAT_MAUVILLE_VIVIAN, MauvilleVivianSeenText, MauvilleVivianBeatenText, 0, .AfterScript
+	trainer PUPILS, BENANDVIV, EVENT_BEAT_PUPILS_BEN_VIV, PupilsBenVivSeenText, PupilsBenVivBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter MauvilleVivianAfterBattleText
-
-MauvilleVivianSeenText:
-	text "With my charm"
-	line "and moves,"
-	cont "you'll be"
-	cont "shocked!"
-	done
-
-MauvilleVivianBeatenText:
-	text "I'm shocked"
-	line "by your power!"
-	done
-
-MauvilleVivianAfterBattleText:
-	text "I've heard that "
-	line "Mauville was"
-	cont "founded by"
-	cont "Wattson."
-
-	para "He was a trainer"
-	line "long before us."
-
-	para "He must know"
-	line "all sorts of"
-	cont "things!"
-	done
+.Script:
+	trainerafter PupilsBenVivAfterBattleText
 
 MauvilleKirk:
 	trainer GUITARIST, MAUVILLE_KIRK, EVENT_BEAT_MAUVILLE_KIRK, MauvilleKirkSeenText, MauvilleKirkBeatenText, 0, .AfterScript
@@ -101,30 +75,10 @@ MauvilleShawnAfterBattleText:
 	done
 
 MauvilleBen:
-	trainer SCHOOLBOY, MAUVILLE_BEN, EVENT_BEAT_MAUVILLE_BEN, MauvilleBenSeenText, MauvilleBenBeatenText, 0, .AfterScript
+	trainer PUPILS, BENANDVIV, EVENT_BEAT_PUPILS_BEN_VIV, PupilsBenVivSeenText, PupilsBenVivBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter MauvilleBenAfterBattleText
-
-MauvilleBenSeenText:
-	text "This Gym"
-	line "used to"
-	cont "have puzzles."
-
-	para "I hope they"
-	line "get fixed soon!"
-	done
-
-MauvilleBenBeatenText:
-	text "It's no fun"
-	line "to lose..."
-	done
-
-MauvilleBenAfterBattleText:
-	text "Wattson says"
-	line "he likes setting"
-	cont "up traps."
-	done
+.Script:
+	trainerafter PupilsBenVivAfterBattleText
 
 
 MauvilleAngelo:
@@ -200,10 +154,9 @@ WattsonGiveBadge:
 	setflag ENGINE_DYNAMOBADGE
 	scall MauvilleGymLevelcap
 	;disable gym trainers
-	setevent EVENT_BEAT_MAUVILLE_VIVIAN
+	setevent EVENT_BEAT_PUPILS_BEN_VIV
 	setevent EVENT_BEAT_MAUVILLE_KIRK
 	setevent EVENT_BEAT_MAUVILLE_SHAWN
-	setevent EVENT_BEAT_MAUVILLE_BEN
 	setevent EVENT_BEAT_MAUVILLE_ANGELO
 	end
 
@@ -309,6 +262,25 @@ WattsonExplainTMText:
 	cont "me yet!"
 	done
 
+PupilsBenVivSeenText:
+	text "Viv: With charm"
+	line "and moves, you'll"
+	cont "be shocked!"
+
+	para "Ben: Here we go!"
+	done
+
+PupilsBenVivBeatenText:
+	text "Viv: I'm shocked"
+	line "by your power!"
+	done
+
+PupilsBenVivAfterBattleText:
+	text "Ben: Wattson says"
+	line "he likes setting"
+	cont "up traps."
+	done
+
 MauvilleGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -324,7 +296,7 @@ MauvilleGym_MapEvents:
 	object_event  5,  2, SPRITE_KURT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleGymWattsonScript, -1
 	object_event  1, 15, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, MauvilleVivian, -1
 	object_event  8, 15, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, MauvilleKirk, -1
-	object_event  4, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, MauvilleBen, -1
+	object_event  1, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, MauvilleBen, -1
 	object_event  7, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, MauvilleAngelo, -1
 	object_event  2, 07, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, MauvilleShawn, -1
 	

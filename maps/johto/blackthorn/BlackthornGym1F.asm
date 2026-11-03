@@ -77,9 +77,8 @@ BlackthornGymClairScript:
 	closedialog
 	setevent EVENT_BEAT_COOLTRAINERM_PAUL
 	setevent EVENT_BEAT_COOLTRAINERM_CODY
-	setevent EVENT_BEAT_COOLTRAINERM_MIKE
+	setevent EVENT_BEAT_ACE_DUO_MIKE_LIA
 	setevent EVENT_BEAT_COOLTRAINERF_FRAN
-	setevent EVENT_BEAT_COOLTRAINERF_LOLA
 	clearevent EVENT_MAHOGANY_MART_OWNERS
 	setevent EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
 	clearevent EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
@@ -149,16 +148,16 @@ TrainerCooltrainermPaul:
 	trainerafter CooltrainermPaulAfterBattleText
 
 TrainerCooltrainermMike:
-	trainer COOLTRAINERM, MIKE, EVENT_BEAT_COOLTRAINERM_MIKE, CooltrainermMikeSeenText, CooltrainermMikeBeatenText, 0, .Script
+	trainer ACE_DUO, MIKEANDLIA, EVENT_BEAT_ACE_DUO_MIKE_LIA, AceDuoMikeLiaSeenText, AceDuoMikeLiaBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainermMikeAfterBattleText
+	trainerafter AceDuoMikeLiaAfterBattleText
 
 TrainerCooltrainerfLola:
-	trainer COOLTRAINERF, LOLA, EVENT_BEAT_COOLTRAINERF_LOLA, CooltrainerfLolaSeenText, CooltrainerfLolaBeatenText, 0, .Script
+	trainer ACE_DUO, MIKEANDLIA, EVENT_BEAT_ACE_DUO_MIKE_LIA, AceDuoMikeLiaSeenText, AceDuoMikeLiaBeatenText, 0, .Script
 
 .Script:
-	trainerafter CooltrainerfLolaAfterBattleText
+	trainerafter AceDuoMikeLiaAfterBattleText
 
 BlackthornGymGuideScript:
 	faceplayer
@@ -376,48 +375,6 @@ CooltrainermPaulAfterBattleText:
 	line "Not a chance!"
 	done
 
-CooltrainermMikeSeenText:
-	text "My chance of"
-	line "losing? Not even"
-	cont "one percent!"
-	done
-
-CooltrainermMikeBeatenText:
-	text "That's odd."
-	done
-
-CooltrainermMikeAfterBattleText:
-	text "I know my short-"
-	line "comings now."
-
-	para "Thanks for showing"
-	line "me!"
-	done
-
-CooltrainerfLolaSeenText:
-	text "Dragons are sacred"
-	line "#mon."
-
-	para "They are full of"
-	line "life energy."
-
-	para "If you're not"
-	line "serious, you won't"
-
-	para "be able to beat"
-	line "them."
-	done
-
-CooltrainerfLolaBeatenText:
-	text "Way to go!"
-	done
-
-CooltrainerfLolaAfterBattleText:
-	text "Dragons are weak"
-	line "against dragon-"
-	cont "type moves."
-	done
-
 BlackthornGymGuideText:
 	text "Yo! Champ in"
 	line "making!"
@@ -456,6 +413,25 @@ BlackthornGymGuideWinText:
 	cont "#mon Champion!"
 	done
 
+AceDuoMikeLiaSeenText:
+	text "Lia: Dragons are"
+	line "sacred #mon."
+
+	para "Mike: Our chance"
+	line "of losing? Not"
+	cont "even one percent!"
+	done
+
+AceDuoMikeLiaBeatenText:
+	text "Mike: That's odd."
+	done
+
+AceDuoMikeLiaAfterBattleText:
+	text "Lia: Dragons are"
+	line "weak against"
+	cont "dragon-type moves."
+	done
+
 BlackthornGym1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -478,5 +454,5 @@ BlackthornGym1F_MapEvents:
 	object_event  5,  3, SPRITE_CLAIR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlackthornGymClairScript, -1
 	object_event  6,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermMike, -1
 	object_event  1, 14, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermPaul, -1
-	object_event  9,  2, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfLola, -1
+	object_event  7,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfLola, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornGymGuideScript, -1

@@ -129,8 +129,7 @@ MistyGiveTm:
 
 MistyGiveBadge:
 	setevent EVENT_BEAT_MISTY
-	setevent EVENT_BEAT_SWIMMERF_DIANA
-	setevent EVENT_BEAT_SWIMMERF_BRIANA
+	setevent EVENT_BEAT_SWIMMERS_DIANA_BO
 	setevent EVENT_BEAT_SWIMMERM_PARKER	
 	writetext ReceivedCascadeBadgeText
 	promptbutton
@@ -145,16 +144,16 @@ CeruleanGymLevelcap:
 	end
 
 TrainerSwimmerfDiana:
-	trainer SWIMMERF, DIANA, EVENT_BEAT_SWIMMERF_DIANA, SwimmerfDianaSeenText, SwimmerfDianaBeatenText, 0, .Script
+	trainer SWIMMERS, DIANAANDBO, EVENT_BEAT_SWIMMERS_DIANA_BO, SwimmersDianaBoSeenText, SwimmersDianaBoBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmerfDianaAfterBattleText
+	trainerafter SwimmersDianaBoAfterBattleText
 
 TrainerSwimmerfBriana:
-	trainer SWIMMERF, BRIANA, EVENT_BEAT_SWIMMERF_BRIANA, SwimmerfBrianaSeenText, SwimmerfBrianaBeatenText, 0, .Script
+	trainer SWIMMERS, DIANAANDBO, EVENT_BEAT_SWIMMERS_DIANA_BO, SwimmersDianaBoSeenText, SwimmersDianaBoBeatenText, 0, .Script
 
 .Script:
-	trainerafter SwimmerfBrianaAfterBattleText
+	trainerafter SwimmersDianaBoAfterBattleText
 
 TrainerSwimmermParker:
 	trainer SWIMMERM, PARKER, EVENT_BEAT_SWIMMERM_PARKER, SwimmermParkerSeenText, SwimmermParkerBeatenText, 0, .Script
@@ -337,42 +336,6 @@ MistyExplainTMText:
 	line "is super handy."
 	done
 
-SwimmerfDianaSeenText:
-	text "Sorry about being"
-	line "away. Let's get on"
-	cont "with it!"
-	done
-
-SwimmerfDianaBeatenText:
-	text "I give up! You're"
-	line "the winner!"
-	done
-
-SwimmerfDianaAfterBattleText:
-	text "I'll be swimming"
-	line "quietly."
-	done
-
-SwimmerfBrianaSeenText:
-	text "Don't let my ele-"
-	line "gant swimming un-"
-	cont "nerve you."
-	done
-
-SwimmerfBrianaBeatenText:
-	text "Ooh, you calmly"
-	line "disposed of me…"
-	done
-
-SwimmerfBrianaAfterBattleText:
-	text "Don't be too smug"
-	line "about beating me."
-
-	para "Misty will destroy"
-	line "you if you get"
-	cont "complacent."
-	done
-
 SwimmermParkerSeenText:
 	text "Glub…"
 
@@ -414,6 +377,27 @@ CeruleanGymGuideWinText:
 	cont "great battle!"
 	done
 
+SwimmersDianaBoSeenText:
+	text "Dana: Sorry, we"
+	line "were away. Let's"
+	cont "get on with it!"
+
+	para "Bo: Don't let our"
+	line "swimming unnerve"
+	cont "you."
+	done
+
+SwimmersDianaBoBeatenText:
+	text "Dana: We give up!"
+	done
+
+SwimmersDianaBoAfterBattleText:
+	text "Bo: Don't get"
+	line "smug. Misty will"
+	cont "destroy you if"
+	cont "you slack off."
+	done
+
 CeruleanGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -432,6 +416,6 @@ CeruleanGym_MapEvents:
 	object_event  4, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_CERULEAN_GYM_ROCKET
 	object_event  5,  3, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanGymMistyScript, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  4,  6, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfDiana, EVENT_TRAINERS_IN_CERULEAN_GYM
-	object_event  1,  9, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerSwimmerfBriana, EVENT_TRAINERS_IN_CERULEAN_GYM
+	object_event  4,  5, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfBriana, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  8,  9, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermParker, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanGymGuideScript, EVENT_TRAINERS_IN_CERULEAN_GYM

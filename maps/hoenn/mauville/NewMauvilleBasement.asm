@@ -120,24 +120,10 @@ MauvilleBruceAfterBattleText:
 
 
 MauvilleLisaScript:
-	trainer GRUNTF, MAUVILLE_GRUNTF1, EVENT_BEAT_MAUVILLE_ROCKETF1, MauvilleLisaSeenText, MauvilleLisaBeatenText, 0, .AfterScript
+	trainer GRUNTS, GRUNTS_MAUVILLE, EVENT_BEAT_GRUNTS_MAUVILLE, GruntsMauvilleSeenText, GruntsMauvilleBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter MauvilleLisaAfterBattleText
-
-MauvilleLisaSeenText:
-	text "Again with these"
-	line "intruders?"
-	done
-
-MauvilleLisaBeatenText:
-	text "Ugh!"
-	done
-
-MauvilleLisaAfterBattleText:
-	text "I'm getting sick"
-	line "of losing."
-	done
+.Script:
+	trainerafter GruntsMauvilleAfterBattleText
 
 
 MauvilleJamieScript:
@@ -214,28 +200,10 @@ MauvilleRyanAfterBattleText:
 
 
 MauvilleAlexScript:
-	trainer GRUNTM, MAUVILLE_GRUNT2, EVENT_BEAT_MAUVILLE_ROCKET2, MauvilleAlexSeenText, MauvilleAlexBeatenText, 0, .AfterScript
+	trainer GRUNTS, GRUNTS_MAUVILLE, EVENT_BEAT_GRUNTS_MAUVILLE, GruntsMauvilleSeenText, GruntsMauvilleBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter MauvilleAlexAfterBattleText
-
-MauvilleAlexSeenText:
-	text "The Boss's plan"
-	line "is gonna make us"
-	cont "rich!"
-	done
-
-MauvilleAlexBeatenText:
-	text "Dang it!"
-	done
-
-MauvilleAlexAfterBattleText:
-	text "The casino is"
-	line "just a front,"
-	cont "you know."
-
-	para "You can't stop us."
-	done
+.Script:
+	trainerafter GruntsMauvilleAfterBattleText
 
 
 MauvilleJordanScript:
@@ -305,6 +273,27 @@ NewMauvilleBasementMaxPotion:
 	itemball MAX_POTION
 	
 
+GruntsMauvilleSeenText:
+	text "Lisa: Intruders"
+	line "again?"
+
+	para "Alex: The boss's"
+	line "plan will make us"
+	cont "rich!"
+	done
+
+GruntsMauvilleBeatenText:
+	text "Lisa: Ugh!"
+	done
+
+GruntsMauvilleAfterBattleText:
+	text "Alex: The casino's"
+	line "just a front."
+
+	para "Lisa: I'm sick of"
+	line "losing!"
+	done
+
 NewMauvilleBasement_MapEvents:
 	db 0, 0 ; filler
 
@@ -330,5 +319,3 @@ NewMauvilleBasement_MapEvents:
 	object_event 22, 05, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, MauvilleFrankScript, -1
 	object_event 09, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NewMauvilleBasementMaxRevive, EVENT_NEW_MAUVILLE_MAX_REVIVE
 	object_event 29, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NewMauvilleBasementMaxPotion, EVENT_NEW_MAUVILLE_MAX_POTION
-
-

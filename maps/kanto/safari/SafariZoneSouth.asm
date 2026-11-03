@@ -18,67 +18,33 @@ SafariZoneSouthMonSpritesCallback:
 	endcallback
 
 SafariGrunt1Script:
-	trainer GRUNTM, SAFARI_GRUNT1, EVENT_BEAT_SAFARI_GRUNT1, SafariGrunt1SeenText, SafariGrunt1BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_SAFARI_S, EVENT_BEAT_GRUNTS_SAFARI_SOUTH, GruntsSafariSSeenText, GruntsSafariSBeatenText, 0, .Script
 
 .Script:
 	opentrainerdialog
-	writetext SafariGrunt1AfterBattleText
+	writetext GruntsSafariSAfterBattleText
 	waitbutton
 	closedialog
 	special FadeOutToBlack
 	disappear SAFARISOUTH_GRUNT1
-	special FadeInFromBlack
-	end
-
-SafariGrunt1SeenText:
-	text "Oh, what's this?"
-
-	para "Safari Zone"
-	line "Is closed."
-
-	para "Scram!"
-	done
-
-SafariGrunt1BeatenText:
-	text "Oof!"
-	done
-
-SafariGrunt1AfterBattleText:
-	text "This could be"
-	line "a problem."
-
-	para "I'd better"
-	line "report in!"
-	done
-
-
-SafariGruntf1Script:
-	trainer GRUNTF, SAFARI_GRUNTF1, EVENT_BEAT_SAFARI_GRUNTF1, SafariGruntf1SeenText, SafariGruntf1BeatenText, 0, .Script
-
-.Script:
-	opentrainerdialog
-	writetext SafariGruntf1AfterBattleText
-	waitbutton
-	closedialog
-	special FadeOutToBlack
 	disappear SAFARISOUTH_GRUNTF1
 	special FadeInFromBlack
 	end
 
-SafariGruntf1SeenText:
-	text "Huh, a kid."
-	done
 
-SafariGruntf1BeatenText:
-	text "What the heck?"
-	done
+SafariGruntf1Script:
+	trainer GRUNTS, GRUNTS_SAFARI_S, EVENT_BEAT_GRUNTS_SAFARI_SOUTH, GruntsSafariSSeenText, GruntsSafariSBeatenText, 0, .Script
 
-SafariGruntf1AfterBattleText:
-	text "Too strong."
-
-	para "I'd better"
-	line "get help!"
-	done
+.Script:
+	opentrainerdialog
+	writetext GruntsSafariSAfterBattleText
+	waitbutton
+	closedialog
+	special FadeOutToBlack
+	disappear SAFARISOUTH_GRUNT1
+	disappear SAFARISOUTH_GRUNTF1
+	special FadeInFromBlack
+	end
 
 
 SafariGrunt6Script:
@@ -172,6 +138,23 @@ SafariZoneSouthMewText:
 	done
 
 
+GruntsSafariSSeenText:
+	text "Oh, a kid?"
+
+	para "The Safari Zone"
+	line "is closed. Scram!"
+	done
+
+GruntsSafariSBeatenText:
+	text "What the heck?"
+	done
+
+GruntsSafariSAfterBattleText:
+	text "This is a problem."
+	line "We'd better"
+	cont "report in!"
+	done
+
 SafariZoneSouth_MapEvents:
 	db 0, 0 ; filler
 
@@ -195,8 +178,8 @@ SafariZoneSouth_MapEvents:
 	def_bg_events	
 
 	def_object_events
-	object_event  17, 29, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGrunt1Script, EVENT_BEAT_SAFARI_GRUNT1
-	object_event  20, 29, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 2, SafariGruntf1Script, EVENT_BEAT_SAFARI_GRUNTF1
+	object_event 18, 29, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGrunt1Script, EVENT_BEAT_GRUNTS_SAFARI_SOUTH
+	object_event 19, 29, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 2, SafariGruntf1Script, EVENT_BEAT_GRUNTS_SAFARI_SOUTH
 	object_event  19, 05, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGrunt6Script, EVENT_BEAT_SAFARI_GRUNT6
 	object_event  05, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGrunt7Script, EVENT_BEAT_SAFARI_GRUNT7
 	object_event  31, 07, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneSouth_Chansey, -1

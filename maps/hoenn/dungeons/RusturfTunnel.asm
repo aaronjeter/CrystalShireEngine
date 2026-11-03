@@ -13,38 +13,18 @@ RusturfRock:
 	jumpstd SmashRockScript
 
 RusturfGrunt1Script:
-	trainer GRUNTM, RUSTTURF_GRUNT1, EVENT_BEAT_RUSTTURF_ROCKET1, RusturfGrunt1SeenText, RusturfGrunt1BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_RUSTURF, EVENT_BEAT_GRUNTS_RUSTURF, GruntsRusturfSeenText, GruntsRusturfBeatenText, 0, .Script
 
 .Script:
 	opentrainerdialog
-	writetext RusturfGrunt1AfterBattleText
+	writetext GruntsRusturfAfterBattleText
 	waitbutton
 	closedialog
 	special FadeOutToBlack
 	disappear RUSTURF_GRUNT1
+	disappear RUSTURF_GRUNT3
 	special FadeInFromBlack
 	end
-
-RusturfGrunt1SeenText:
-	text "Oh, hello there!"
-
-	para "You walked into"
-	line "the wrong cave,"
-	cont "huh?"
-	done
-
-RusturfGrunt1BeatenText:
-	text "What!!"
-	line "How?"
-	done
-
-RusturfGrunt1AfterBattleText:
-	text "Ugh, I hate"
-	line "this stupid cave."
-
-	para "I'd better"
-	line "report in!"
-	done
 
 RusturfGrunt2Script:
 	trainer GRUNTM, RUSTTURF_GRUNT2, EVENT_BEAT_RUSTTURF_ROCKET2, RusturfGrunt2SeenText, RusturfGrunt2BeatenText, 0, .Script
@@ -85,46 +65,46 @@ RusturfGrunt2AfterBattleText:
 
 
 RusturfGrunt3Script:
-	trainer GRUNTF, RUSTTURF_GRUNTF1, EVENT_BEAT_RUSTTURF_ROCKET3, RusturfGrunt3SeenText, RusturfGrunt3BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_RUSTURF, EVENT_BEAT_GRUNTS_RUSTURF, GruntsRusturfSeenText, GruntsRusturfBeatenText, 0, .Script
 
 .Script:
 	opentrainerdialog
-	writetext RusturfGrunt3AfterBattleText
+	writetext GruntsRusturfAfterBattleText
 	waitbutton
 	closedialog
 	special FadeOutToBlack
+	disappear RUSTURF_GRUNT1
 	disappear RUSTURF_GRUNT3
 	special FadeInFromBlack
 	end
-
-RusturfGrunt3SeenText:
-	text "Oh my..."
-
-	para "No one crosses"
-	line "Team Rocket."
-
-	para "This is going"
-	line "to hurt!"
-	done
-
-RusturfGrunt3BeatenText:
-	text "..."
-	done
-
-RusturfGrunt3AfterBattleText:
-	text "I'll never make"
-	line "it to New"
-	cont "Mauville now..."
-
-	para "I'd better"
-	line "cheese it."
-	done
 
 RusturfPearl:
 	itemball PEARL
 
 RusturfRareCandy:
 	itemball RARE_CANDY
+
+GruntsRusturfSeenText:
+	text "Alex: Wrong cave,"
+	line "kid!"
+
+	para "Lisa: No one"
+	line "crosses Team"
+	cont "Rocket!"
+	done
+
+GruntsRusturfBeatenText:
+	text "Lisa: …"
+	done
+
+GruntsRusturfAfterBattleText:
+	text "Alex: I hate this"
+	line "stupid cave!"
+
+	para "Lisa: We'll never"
+	line "make it to New"
+	cont "Mauville now…"
+	done
 
 RusturfTunnel_MapEvents:
 	db 0, 0 ; filler
@@ -140,9 +120,9 @@ RusturfTunnel_MapEvents:
 
 	def_object_events
 	object_event  16, 06, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RusturfRock, -1
-	object_event  07, 08, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, RusturfGrunt1Script, EVENT_BEAT_RUSTTURF_ROCKET1
+	object_event  7,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, RusturfGrunt1Script, EVENT_BEAT_GRUNTS_RUSTURF
 	object_event  09, 06, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, RusturfGrunt2Script, EVENT_BEAT_RUSTTURF_ROCKET2
-	object_event  15, 06, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 1, RusturfGrunt3Script, EVENT_BEAT_RUSTTURF_ROCKET3
+	object_event  6,  8, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, RusturfGrunt3Script, EVENT_BEAT_GRUNTS_RUSTURF
 	object_event  05, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RusturfPearl, EVENT_RUSTTURF_PEARL
 	object_event  19, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RusturfRareCandy, EVENT_RUSTTURF_RARE_CANDY
 	

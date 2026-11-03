@@ -313,12 +313,12 @@ ONE_OFF = {'OAK', 'ELM', 'BIRCH', 'NURSE', 'OFFICER', 'CAL', 'MYSTICALMAN', 'LIN
 ELITE_CLASSES = {'COOLTRAINERM', 'COOLTRAINERF', 'RANGERM', 'RANGERF', 'KIMONO_GIRL', 'ACE_DUO', 'RANGERS'}
 # duo classes (Nov 2): one party for two NPCs, always DOUBLES
 DUO_CLASSES = {'TWINS', 'TATELIZA', 'COUPLE', 'SWIMMERS', 'ACE_DUO', 'RANGERS', 'FIGHTERS',
-               'BIRDERS', 'HIKERS', 'POKEFANS', 'PUPILS'}
+               'BIRDERS', 'HIKERS', 'POKEFANS', 'PUPILS', 'GRUNTS'}
 # not held to the elite/double rule (user, Nov 2): Gyms, Sprout Tower (an easy intro Gym), the Wise
 # Trio (a boss), the Dance Theater (all elites); Rocket hideouts and Radio Tower get their own pass
 COVERAGE_SKIP = ('Gym', 'SproutTower', 'WiseTriosRoom', 'DanceTheater', 'TeamRocketBase', 'RadioTower',
                  'GoldenrodUndergroundSwitchRoom', '/safari/', 'NewMauville')  # Rocket areas (user, Nov 2): the Safari Zone; New Mauville (its scientists are Rocket-affiliated)
-GRUNT_CLASSES = {'GRUNTM', 'GRUNTF', 'EXECUTIVEM', 'EXECUTIVEF'}
+GRUNT_CLASSES = {'GRUNTM', 'GRUNTF', 'GRUNTS', 'EXECUTIVEM', 'EXECUTIVEF'}
 # parties based on playtesters' teams (user, Nov 2): species and party size stay; moves may change
 PLAYTESTER_PARTIES = {'RONALD1', 'RONALD2', 'RONALD3', 'MARINA1', 'MARINA2', 'MARINA3',
                       'DALORIC2', 'CONTEST_CRYSTAL2', 'KLUTCH3', 'AMAYA3', 'AARON3',  # + Johto Games (later)

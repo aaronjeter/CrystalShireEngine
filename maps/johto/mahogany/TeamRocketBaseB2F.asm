@@ -194,10 +194,10 @@ LanceHealsCommon:
 	end
 
 TrainerGruntM17:
-	trainer GRUNTM, GRUNTM_17, EVENT_BEAT_ROCKET_GRUNTM_17, GruntM17SeenText, GruntM17BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_HIDEOUT, EVENT_BEAT_GRUNTS_HIDEOUT, GruntsHideoutSeenText, GruntsHideoutBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntM17AfterBattleText
+	trainerafter GruntsHideoutAfterBattleText
 
 TrainerGruntM18:
 	trainer GRUNTM, GRUNTM_18, EVENT_BEAT_ROCKET_GRUNTM_18, GruntM18SeenText, GruntM18BeatenText, 0, .Script
@@ -206,10 +206,10 @@ TrainerGruntM18:
 	trainerafter GruntM18AfterBattleText
 
 TrainerGruntM19:
-	trainer GRUNTM, GRUNTM_19, EVENT_BEAT_ROCKET_GRUNTM_19, GruntM19SeenText, GruntM19BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_HIDEOUT, EVENT_BEAT_GRUNTS_HIDEOUT, GruntsHideoutSeenText, GruntsHideoutBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntM19AfterBattleText
+	trainerafter GruntsHideoutAfterBattleText
 
 RocketElectrode1:
 	cry ELECTRODE
@@ -779,30 +779,6 @@ LanceHealsText2:
 	cont "best for #mon."
 	done
 
-GruntM17SeenText:
-	text "The door won't"
-	line "open?"
-
-	para "Well, duh."
-	line "It has to have a"
-
-	para "password that only"
-	line "Team Rocket knows."
-	done
-
-GruntM17BeatenText:
-	text "What? I lost?"
-	done
-
-GruntM17AfterBattleText:
-	text "Heh, I'm just a"
-	line "grunt."
-
-	para "I don't know the"
-	line "password. Too bad"
-	cont "for you."
-	done
-
 GruntM18SeenText:
 	text "Oh, a kid? I don't"
 	line "really like this,"
@@ -828,25 +804,6 @@ GruntM18AfterBattleText:
 
 	para "looking eyes just"
 	line "creamed me…"
-	done
-
-GruntM19SeenText:
-	text "You rotten little"
-	line "pest!"
-	done
-
-GruntM19BeatenText:
-	text "Grrrr…"
-	done
-
-GruntM19AfterBattleText:
-	text "Heh, only the boss"
-	line "knows the password"
-	cont "for that door."
-
-	para "Where's the boss?"
-	line "Who knows? Go look"
-	cont "for yourself."
 	done
 
 RocketBaseDoorNoPasswordText:
@@ -882,6 +839,29 @@ RocketBaseB2FDeactivateTransmitterText:
 
 	para "stopped its evil"
 	line "broadcast."
+	done
+
+GruntsHideoutSeenText:
+	text "The door won't"
+	line "open? Well, duh."
+
+	para "It needs a pass-"
+	line "word only Team"
+	cont "Rocket knows!"
+	done
+
+GruntsHideoutBeatenText:
+	text "We lost? Both"
+	line "of us?"
+	done
+
+GruntsHideoutAfterBattleText:
+	text "Only the boss"
+	line "knows that door's"
+	cont "password."
+
+	para "Where's the boss?"
+	line "Go look yourself!"
 	done
 
 TeamRocketBaseB2F_MapEvents:
@@ -943,5 +923,5 @@ TeamRocketBaseB2F_MapEvents:
 	object_event 22,  9, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3
 	object_event 25, 13, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM17, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  4,  1, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerGruntM18, EVENT_TEAM_ROCKET_BASE_POPULATION
-	object_event 21, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 4, TrainerGruntM19, EVENT_TEAM_ROCKET_BASE_POPULATION
+	object_event 26, 13, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntM19, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  3, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB2FTMThief, EVENT_TEAM_ROCKET_BASE_B2F_TM_THIEF

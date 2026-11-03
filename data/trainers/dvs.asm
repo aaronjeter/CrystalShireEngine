@@ -109,4 +109,5 @@ TrainerClassDVs:
 	dn 10,  8,  8,  8 ; HIKERS
 	dn 9, 10,  8,  8 ; POKEFANS
 	dn 9,  8,  8,  8 ; PUPILS
+	dn 13,  8, 10,  8 ; GRUNTS
 	assert_table_length NUM_TRAINER_CLASSES

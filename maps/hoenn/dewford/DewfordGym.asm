@@ -13,53 +13,17 @@ DewfordGym_MapScripts:
 	def_callbacks	
 
 DewfordLaura:
-	trainer BATTLE_GIRL, DEWFORD_LAURA, EVENT_BEAT_DEWFORD_LAURA, DewfordLauraSeenText, DewfordLauraBeatenText, 0, .AfterScript
+	trainer FIGHTERS, LAURAANDTY, EVENT_BEAT_FIGHTERS_LAURA_TY, FightersLauraTySeenText, FightersLauraTyBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter DewfordLauraAfterBattleText
-
-DewfordLauraSeenText:
-	text "Don't you dare"
-	line "brush me off!"
-
-	para "It's not my fault"
-	line "if you cry!"
-	done
-
-DewfordLauraBeatenText:
-	text "Waaaaaaah!"
-	line "I lost!"
-	done
-
-DewfordLauraAfterBattleText:
-	text "I battle here"
-	line "to make my heart"
-	cont "stronger."
-	done
+.Script:
+	trainerafter FightersLauraTyAfterBattleText
 
 
 DewfordLilith:
-	trainer BATTLE_GIRL, DEWFORD_LILITH, EVENT_BEAT_DEWFORD_LILITH, DewfordLilithSeenText, DewfordLilithBeatenText, 0, .AfterScript
+	trainer FIGHTERS, LAURAANDTY, EVENT_BEAT_FIGHTERS_LAURA_TY, FightersLauraTySeenText, FightersLauraTyBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter DewfordLilithAfterBattleText
-
-DewfordLilithSeenText:
-	text "Ufufu..."
-	line "Are you lost?"
-	done
-
-DewfordLilithBeatenText:
-	text "Oh, you..."
-
-	para "I don't want"
-	line "to know you!"
-	done
-
-DewfordLilithAfterBattleText:
-	text "You deserve"
-	line "to stay lost!"
-	done
+.Script:
+	trainerafter FightersLauraTyAfterBattleText
 
 
 DewfordBrenden:
@@ -222,8 +186,7 @@ BrawlyGiveBadge:
 	setflag ENGINE_KNUCKLEBADGE
 	scall DewfordGymLevelcap
 	;disable gym trainers
-	setevent EVENT_BEAT_DEWFORD_LAURA
-	setevent EVENT_BEAT_DEWFORD_LILITH
+	setevent EVENT_BEAT_FIGHTERS_LAURA_TY
 	setevent EVENT_BEAT_DEWFORD_BRENDEN
 	setevent EVENT_BEAT_DEWFORD_TAKAO
 	setevent EVENT_BEAT_DEWFORD_CRISTIAN
@@ -339,6 +302,25 @@ BrawlyExplainTMText:
 	cont "defense."
 	done
 
+FightersLauraTySeenText:
+	text "Lara: Don't you"
+	line "dare brush us off!"
+
+	para "Ty: It's not our"
+	line "fault if you cry!"
+	done
+
+FightersLauraTyBeatenText:
+	text "Lara: Waaaah!"
+	line "We lost!"
+	done
+
+FightersLauraTyAfterBattleText:
+	text "Lara: We battle"
+	line "here to make our"
+	cont "hearts stronger."
+	done
+
 DewfordGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -353,7 +335,7 @@ DewfordGym_MapEvents:
 	def_object_events
 	object_event  3,  2, SPRITE_KURT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, DewfordGymBrawlyScript, -1
 	object_event  3, 21, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, DewfordLaura, -1
-	object_event 10, 21, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, DewfordLilith, -1
+	object_event  3, 20, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, DewfordLilith, -1
 	object_event 13, 17, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, DewfordBrenden, -1
 	object_event  3, 11, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, DewfordTakao, -1
 	object_event  8, 11, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, DewfordCristian, -1

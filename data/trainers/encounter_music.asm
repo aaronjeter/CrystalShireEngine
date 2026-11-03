@@ -111,6 +111,7 @@ TrainerEncounterMusic::
 	db MUSIC_HIKER_ENCOUNTER       ; hikers
 	db MUSIC_BEAUTY_ENCOUNTER      ; #fans
 	db MUSIC_LASS_ENCOUNTER        ; pupils
+	db MUSIC_ROCKET_ENCOUNTER      ; grunts
 	assert_table_length NUM_TRAINER_CLASSES + 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused
 	db MUSIC_HIKER_ENCOUNTER       ; unused

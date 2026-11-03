@@ -108,4 +108,5 @@ TrainerClassNames::
 	li "Hikers"
 	li "#fans"
 	li "Pupils"
+	li "Rocket"
 	assert_list_length NUM_TRAINER_CLASSES

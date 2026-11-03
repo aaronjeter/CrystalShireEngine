@@ -54,63 +54,32 @@ SafariGrunt5AfterBattleText:
 
 
 SafariGruntf4Script:
-	trainer GRUNTF, SAFARI_GRUNTF4, EVENT_BEAT_SAFARI_GRUNTF4, SafariGruntf4SeenText, SafariGruntf4BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_SAFARI_W, EVENT_BEAT_GRUNTS_SAFARI_WEST, GruntsSafariWSeenText, GruntsSafariWBeatenText, 0, .Script
 
 .Script:
 	opentrainerdialog
-	writetext SafariGruntf4AfterBattleText
+	writetext GruntsSafariWAfterBattleText
 	waitbutton
 	closedialog
 	special FadeOutToBlack
 	disappear SAFARIWEST_GRUNTF4
-	special FadeInFromBlack
-	end
-
-SafariGruntf4SeenText:
-	text "Woah, how did"
-	line "you get this"
-	cont "far?"
-	done
-
-SafariGruntf4BeatenText:
-	text "What the heck?"
-	done
-
-SafariGruntf4AfterBattleText:
-	text "So strong."
-
-	para "I'd better"
-	line "warn the others!"
-	done
-
-SafariGruntf5Script:
-	trainer GRUNTF, SAFARI_GRUNTF5, EVENT_BEAT_SAFARI_GRUNTF5, SafariGruntf5SeenText, SafariGruntf5BeatenText, 0, .Script
-
-.Script:
-	opentrainerdialog
-	writetext SafariGruntf5AfterBattleText
-	waitbutton
-	closedialog
-	special FadeOutToBlack
 	disappear SAFARIWEST_GRUNTF5
 	special FadeInFromBlack
 	end
 
-SafariGruntf5SeenText:
-	text "Not on my"
-	line "watch!"
-	done
+SafariGruntf5Script:
+	trainer GRUNTS, GRUNTS_SAFARI_W, EVENT_BEAT_GRUNTS_SAFARI_WEST, GruntsSafariWSeenText, GruntsSafariWBeatenText, 0, .Script
 
-SafariGruntf5BeatenText:
-	text "How are you"
-	line "this tough?"
-	done
-
-SafariGruntf5AfterBattleText:
-	text "Boss is going"
-	line "to shut you"
-	cont "down!"
-	done
+.Script:
+	opentrainerdialog
+	writetext GruntsSafariWAfterBattleText
+	waitbutton
+	closedialog
+	special FadeOutToBlack
+	disappear SAFARIWEST_GRUNTF4
+	disappear SAFARIWEST_GRUNTF5
+	special FadeInFromBlack
+	end
 
 
 SafariJoeyScript:
@@ -213,6 +182,23 @@ SafariZoneWestMewText:
 	cont "light..."
 	done
 
+GruntsSafariWSeenText:
+	text "Whoa, how did you"
+	line "get this far?"
+
+	para "Not on our watch!"
+	done
+
+GruntsSafariWBeatenText:
+	text "How are you this"
+	line "tough?"
+	done
+
+GruntsSafariWAfterBattleText:
+	text "The boss will"
+	line "shut you down!"
+	done
+
 SafariZoneWest_MapEvents:
 	db 0, 0 ; filler
 
@@ -235,8 +221,8 @@ SafariZoneWest_MapEvents:
 
 	def_object_events
 	object_event  26, 20, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, SafariGrunt5Script, EVENT_BEAT_SAFARI_GRUNT5
-	object_event  10, 08, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, SafariGruntf4Script, EVENT_BEAT_SAFARI_GRUNTF4
-	object_event  06, 06, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 2, SafariGruntf5Script, EVENT_BEAT_SAFARI_GRUNTF5
+	object_event 10,  8, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, SafariGruntf4Script, EVENT_BEAT_GRUNTS_SAFARI_WEST
+	object_event 10,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, SafariGruntf5Script, EVENT_BEAT_GRUNTS_SAFARI_WEST
 	object_event  14, 18, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_TRAINER, 4, SafariJoeyScript, -1
 	object_event  11, 22, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 1, SafariChandlerScript, -1
 	object_event  17, 26, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, SafariRossScript, -1

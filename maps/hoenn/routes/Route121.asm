@@ -21,27 +21,10 @@ Route121SafariText:
 
 
 Route121RyanScript:
-	trainer GRUNTM, ROUTE121_GRUNT1, EVENT_BEAT_ROUTE121_ROCKET1, Route121RyanSeenText, Route121RyanBeatenText, 0, .AfterScript
+	trainer GRUNTS, GRUNTS_ROUTE121, EVENT_BEAT_GRUNTS_ROUTE_121, GruntsRoute121SeenText, GruntsRoute121BeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route121RyanAfterBattleText
-
-Route121RyanSeenText:
-	text "You!"
-	line "I'm going to"
-	cont "get you this time."
-	done
-
-Route121RyanBeatenText:
-	text "Dang it!"
-	line "Not again..."
-	done
-
-Route121RyanAfterBattleText:
-	text "I feel like"
-	line "a failure of"
-	cont "a Rocket..."
-	done
+.Script:
+	trainerafter GruntsRoute121AfterBattleText
 
 Route121AlexScript:
 	trainer GRUNTM, ROUTE121_GRUNT2, EVENT_BEAT_ROUTE121_ROCKET2, Route121AlexSeenText, Route121AlexBeatenText, 0, .AfterScript
@@ -69,30 +52,10 @@ Route121AlexAfterBattleText:
 
 
 Route121LisaScript:
-	trainer GRUNTF, ROUTE121_GRUNTF1, EVENT_BEAT_ROUTE121_ROCKETF1, Route121LisaSeenText, Route121LisaBeatenText, 0, .AfterScript
+	trainer GRUNTS, GRUNTS_ROUTE121, EVENT_BEAT_GRUNTS_ROUTE_121, GruntsRoute121SeenText, GruntsRoute121BeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter Route121LisaAfterBattleText
-
-Route121LisaSeenText:
-	text "Oh, hey there."
-	line "I've been itching"
-	cont "for some payback!"
-	done
-
-Route121LisaBeatenText:
-	text "Too much!"
-	done
-
-Route121LisaAfterBattleText:
-	text "Boss is going"
-	line "to have all the"
-	cont "power she needs."
-
-	para "Just as soon as"
-	line "Mt Pyre operation"
-	cont "wraps up."
-	done
+.Script:
+	trainerafter GruntsRoute121AfterBattleText
 
 
 Route121JamieScript:
@@ -135,6 +98,25 @@ Route121SafariRocketText:
 	done
 
 
+GruntsRoute121SeenText:
+	text "Ryan: You! We'll"
+	line "get you this time!"
+
+	para "Lisa: I've been"
+	line "itching for some"
+	cont "payback!"
+	done
+
+GruntsRoute121BeatenText:
+	text "Ryan: Not again…"
+	done
+
+GruntsRoute121AfterBattleText:
+	text "Lisa: Once Mt Pyre"
+	line "is done, the boss"
+	cont "is unstoppable!"
+	done
+
 Route121_MapEvents:
 	db 0, 0 ; filler
 
@@ -150,7 +132,7 @@ Route121_MapEvents:
 	object_event 13, 08, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route121FruitTree2, -1
 	object_event 30, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route121RyanScript, EVENT_BEAT_PYRE_ROCKETS
 	object_event 33, 19, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route121AlexScript, EVENT_BEAT_PYRE_ROCKETS
-	object_event 32, 10, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route121LisaScript, EVENT_BEAT_PYRE_ROCKETS
+	object_event 30, 17, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route121LisaScript, EVENT_BEAT_PYRE_ROCKETS
 	object_event 42, 13, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route121JamieScript, EVENT_BEAT_PYRE_ROCKETS
 	object_event 41, 05, SPRITE_ROCKET, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route121SafariRocketScript, EVENT_BEAT_PYRE_ROCKETS
 	

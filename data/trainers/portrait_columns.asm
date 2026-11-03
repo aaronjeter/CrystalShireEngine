@@ -111,4 +111,5 @@ TrainerPortraitColumns:
 	db 1 ; HIKERS (hikers)
 	db 1 ; POKEFANS (pokefans)
 	db 1 ; PUPILS (pupils)
+	db 1 ; GRUNTS (grunts)
 	assert_table_length NUM_TRAINER_CLASSES

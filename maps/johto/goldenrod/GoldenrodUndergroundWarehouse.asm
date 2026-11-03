@@ -34,16 +34,16 @@ GoldenrodUndergroundWarehouseResetSwitchesCallback:
 	endcallback
 
 TrainerGruntM24:
-	trainer GRUNTM, GRUNTM_24, EVENT_BEAT_ROCKET_GRUNTM_24, GruntM24SeenText, GruntM24BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_WAREHOUSE, EVENT_BEAT_GRUNTS_WAREHOUSE, GruntsWarehouseSeenText, GruntsWarehouseBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntM24AfterBattleText
+	trainerafter GruntsWarehouseAfterBattleText
 
 TrainerGruntM14:
-	trainer GRUNTM, GRUNTM_14, EVENT_BEAT_ROCKET_GRUNTM_14, GruntM14SeenText, GruntM14BeatenText, 0, .Script
+	trainer GRUNTS, GRUNTS_WAREHOUSE, EVENT_BEAT_GRUNTS_WAREHOUSE, GruntsWarehouseSeenText, GruntsWarehouseBeatenText, 0, .Script
 
 .Script:
-	trainerafter GruntM14AfterBattleText
+	trainerafter GruntsWarehouseAfterBattleText
 
 TrainerGruntM15:
 	trainer GRUNTM, GRUNTM_15, EVENT_BEAT_ROCKET_GRUNTM_15, GruntM15SeenText, GruntM15BeatenText, 0, .Script
@@ -79,49 +79,6 @@ GoldenrodUndergroundWarehouseTMSleepTalk:
 
 GoldenrodUndergroundWarehouseUltraBall:
 	itemball ULTRA_BALL
-
-GruntM24SeenText:
-	text "How did you get"
-	line "this far?"
-
-	para "I guess it can't"
-	line "be helped. I'll"
-	cont "dispose of you."
-	done
-
-GruntM24BeatenText:
-	text "I got disposed of…"
-	done
-
-GruntM24AfterBattleText:
-	text "Team Rocket will"
-	line "keep going, wait-"
-	cont "ing for the return"
-	cont "of Giovanni."
-
-	para "We'll do whatever"
-	line "it takes."
-	done
-
-GruntM14SeenText:
-	text "You're not going"
-	line "any farther!"
-
-	para "I don't show mercy"
-	line "to my enemies, not"
-	cont "even brats!"
-	done
-
-GruntM14BeatenText:
-	text "Blast it!"
-	done
-
-GruntM14AfterBattleText:
-	text "I lost…"
-
-	para "Please forgive me,"
-	line "Giovanni!"
-	done
 
 GruntM15SeenText:
 	text "Hyuck-hyuck-hyuck!"
@@ -193,6 +150,28 @@ DirectorAfterText:
 	line "MON nationwide!"
 	done
 
+GruntsWarehouseSeenText:
+	text "How did you get"
+	line "this far?"
+
+	para "We'll dispose of"
+	line "you ourselves!"
+	done
+
+GruntsWarehouseBeatenText:
+	text "We got disposed"
+	line "of…"
+	done
+
+GruntsWarehouseAfterBattleText:
+	text "Team Rocket waits"
+	line "for Giovanni's"
+	cont "return."
+
+	para "We'll do whatever"
+	line "it takes."
+	done
+
 GoldenrodUndergroundWarehouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -206,7 +185,7 @@ GoldenrodUndergroundWarehouse_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM24, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  9, 15, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntM24, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  8, 15, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM14, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 14,  3, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 4, TrainerGruntM15, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 12,  8, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodUndergroundWarehouseDirectorScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER

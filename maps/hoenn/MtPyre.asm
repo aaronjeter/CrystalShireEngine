@@ -150,57 +150,17 @@ PyreRocketF1AfterBattleText:
 
 
 PyreRocketF2Script:
-	trainer GRUNTF, PYRE_GRUNTF2, EVENT_BEAT_PYRE_ROCKETF2, PyreRocketF2SeenText, PyreRocketF2BeatenText, 0, .AfterScript
+	trainer GRUNTS, ELITES_MTPYRE, EVENT_BEAT_ELITES_MT_PYRE, ElitesMtPyreSeenText, ElitesMtPyreBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter PyreRocketF2AfterBattleText
-
-PyreRocketF2SeenText:
-	text "We're here, and"
-	line "we're not going"
-	cont "anywhere."
-
-	para "Not until we"
-	line "catch some"
-	cont "cool #mon."
-	done
-
-PyreRocketF2BeatenText:
-	text "Yikes..."
-	done
-
-PyreRocketF2AfterBattleText:
-	text "The legendary"
-	line "#mon of Mt Pyre"
-	cont "will be ours!"
-	done
+.Script:
+	trainerafter ElitesMtPyreAfterBattleText
 
 
 PyreRocketF3Script:
-	trainer GRUNTF, PYRE_GRUNTF3, EVENT_BEAT_PYRE_ROCKETF3, PyreRocketF3SeenText, PyreRocketF3BeatenText, 0, .AfterScript
+	trainer GRUNTS, ELITES_MTPYRE, EVENT_BEAT_ELITES_MT_PYRE, ElitesMtPyreSeenText, ElitesMtPyreBeatenText, 0, .Script
 
-.AfterScript:
-	trainerafter PyreRocketF3AfterBattleText
-
-PyreRocketF3SeenText:
-	text "Latios...and"
-	line "Latias."
-
-	para "We're coming for"
-	line "you!"
-	done
-
-PyreRocketF3BeatenText:
-	text "I hate you..."
-	done
-
-PyreRocketF3AfterBattleText:
-	text "Team Rocket Elites"
-	line "are unstoppable!"
-
-	para "You should just"
-	line "go home now."
-	done
+.Script:
+	trainerafter ElitesMtPyreAfterBattleText
 
 
 PyreRocketF4Script:
@@ -293,6 +253,28 @@ MtPyreFoundWaterfallText:
 	done
 
 
+ElitesMtPyreSeenText:
+	text "Latios… Latias…"
+	line "We're coming for"
+	cont "you!"
+
+	para "We're not leaving"
+	line "without them!"
+	done
+
+ElitesMtPyreBeatenText:
+	text "Yikes…"
+	done
+
+ElitesMtPyreAfterBattleText:
+	text "Team Rocket Elites"
+	line "are unstoppable!"
+
+	para "The legends of"
+	line "Mt Pyre will be"
+	cont "ours!"
+	done
+
 MtPyre_MapEvents:
 	db 0, 0 ; filler
 
@@ -312,7 +294,7 @@ MtPyre_MapEvents:
 	object_event 26, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PyreRocket4Script, EVENT_BEAT_PYRE_ROCKETS
 	object_event 16, 52, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PyreRocketF1Script, EVENT_BEAT_PYRE_ROCKETS
 	object_event 19, 21, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PyreRocketF2Script, EVENT_BEAT_PYRE_ROCKETS
-	object_event 19, 20, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PyreRocketF3Script, EVENT_BEAT_PYRE_ROCKETS
+	object_event 19, 20, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PyreRocketF3Script, EVENT_BEAT_PYRE_ROCKETS
 	object_event 13, 25, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, PyreRocketF4Script, EVENT_BEAT_PYRE_ROCKETS
 	object_event 20, 06, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PyreRocketF1Script, EVENT_BEAT_PYRE_ROCKETS
 	object_event 21, 06, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PyreRocketF1Script, EVENT_BEAT_PYRE_ROCKETS
