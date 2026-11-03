@@ -200,7 +200,7 @@ RollWildAbilitySlot:
 	push af
 	call MaybeHiddenAbility
 	pop af
-	jmp RollAbilitySlot
+	jr RollAbilitySlot
 
 RollGiftHiddenAbility::
 ; Called by givepoke before GivePoke: the same hidden ability chance as wild

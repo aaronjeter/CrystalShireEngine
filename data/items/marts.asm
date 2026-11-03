@@ -220,8 +220,9 @@ MartLavender:
 	dw ETHER
 
 MartVermilion:
-	db 4 ; # items
+	db 5 ; # items
 	dw MAGNET
+	dw TM_THIEF
 	dw ETHER
 	dw MAX_ETHER
 	dw LITEBLUEMAIL
