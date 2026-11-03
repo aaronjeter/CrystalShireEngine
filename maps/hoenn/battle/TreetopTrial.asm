@@ -90,7 +90,8 @@ TreetopTrialExitScript:
 	opentext
 	writetext TreetopTrialExitText
 	waitbutton
-	verbosegiveitem MARVEL_SCALE
+	verbosegiveitem ABILITY_CAPSULE
+	verbosegiveitem ABILITY_PATCH
 	closetext
 	special FadeOutToWhite
 	waitsfx
