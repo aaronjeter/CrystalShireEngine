@@ -5,13 +5,13 @@
 ;   they would damage both;
 ; - a single-target move that should knock its target out gets -2;
 ; - a single-target move aimed at a foe an earlier enemy's move should knock out this turn
-;   gets +10 (no overkill);
+;   gets +DOUBLES_AI_OVERKILL (no overkill; above AI_PLAN's knockout bonus);
 ; - a damaging move that would do no damage to a foe gets +10 for that foe.
 ; The lowest score wins, with random ties, as in singles.
 
 DEF DOUBLES_AI_SPREAD_BONUS EQU 1
 DEF DOUBLES_AI_KO_BONUS     EQU 2
-DEF DOUBLES_AI_OVERKILL     EQU 10
+DEF DOUBLES_AI_OVERKILL     EQU 30 ; above AI_PLAN's knockout bonus (move_plan.asm)
 DEF DOUBLES_AI_NO_EFFECT    EQU 10
 
 DoublesAIChooseMove:

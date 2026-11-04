@@ -21,6 +21,8 @@ DEF NUM_TRAINER_ATTRIBUTES EQU _RS
 	shift_const AI_STATUS
 	shift_const AI_RISKY
 	shift_const AI_ABILITY
+	shift_const AI_PLAN ; engine/battle/ai/move_plan.asm (runs last)
+	shift_const AI_KNOWS_LEARNSETS ; not a layer: the switch scorer assumes the player's level-up moves (switch_score.asm)
 DEF NO_AI EQU 0
 
 ; TRNATTR_AI_ITEM_SWITCH bit flags
@@ -32,6 +34,14 @@ DEF NO_AI EQU 0
 	shift_const ALWAYS_USE       ; 4
 	shift_const UNKNOWN_USE      ; 5
 	shift_const CONTEXT_USE      ; 6
+
+; AI switch tiers (engine/battle/ai/switch_score.asm): AI_SwitchOrTryItem reads the class's
+; SWITCH_* bit, one tier up on Hard
+	const_def 1
+	const SAI_TIER_RARELY    ; 1
+	const SAI_TIER_SOMETIMES ; 2
+	const SAI_TIER_OFTEN     ; 3
+DEF NUM_SAI_TIERS EQU const_value - 1
 
 ; Party flags byte, after a trainer party's name (see data/trainers/parties.asm)
 	const_def 4

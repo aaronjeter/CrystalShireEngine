@@ -229,7 +229,7 @@ AIScoringPointers:
 	dw AI_Status
 	dw AI_Risky
 	dw AI_Ability
-	dw DoNothing ; AI_None
+	dw AI_Plan
 	dw DoNothing ; AI_None
 	dw DoNothing ; AI_None
 	dw DoNothing ; AI_None

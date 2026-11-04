@@ -40,121 +40,31 @@ AI_SwitchOrTryItem:
 	rst AddNTimes
 
 .ok
+; the class's switch tier (engine/battle/ai/switch_score.asm), one up on Hard
+	ld c, SAI_TIER_OFTEN
 	bit SWITCH_OFTEN_F, [hl]
-	jr nz, SwitchOften
-	bit SWITCH_RARELY_F, [hl]
-	jr nz, SwitchRarely
+	jr nz, .got_tier
+	dec c ; SAI_TIER_SOMETIMES
 	bit SWITCH_SOMETIMES_F, [hl]
-	jr nz, SwitchSometimes
+	jr nz, .got_tier
+	dec c ; SAI_TIER_RARELY
+	bit SWITCH_RARELY_F, [hl]
+	jr z, DontSwitch
+.got_tier
+	ld a, [wHardMode] ; 0 = Hard
+	and a
+	jr nz, .tier_done
+	ld a, c
+	cp SAI_TIER_OFTEN
+	jr z, .tier_done
+	inc c
+.tier_done
+	ld a, c
+	farcall AIShouldSwitch
+	jmp c, AI_TrySwitch
 	; fallthrough
 
 DontSwitch:
-	jmp AI_TryItem
-
-SwitchOften:
-	farcall CheckAbleToSwitch
-	ld a, [wEnemySwitchMonParam]
-	and $f0
-	jr z, DontSwitch
-
-	cp $10
-	jr nz, .not_10
-	call Random
-	cp 50 percent + 1
-	jr c, .switch
-	jr DontSwitch
-.not_10
-
-	cp $20
-	jr nz, .not_20
-	call Random
-	cp 79 percent - 1
-	jr c, .switch
-	jr DontSwitch
-.not_20
-
-	; $30
-	call Random
-	cp 4 percent
-	jr c, DontSwitch
-
-.switch
-	ld a, [wEnemySwitchMonParam]
-	and $f
-	inc a
-	; In register 'a' is the number (1-6) of the mon to switch to
-	ld [wEnemySwitchMonIndex], a
-	jmp AI_TrySwitch
-
-SwitchRarely:
-	farcall CheckAbleToSwitch
-	ld a, [wEnemySwitchMonParam]
-	and $f0
-	jr z, DontSwitch
-
-	cp $10
-	jr nz, .not_10
-	call Random
-	cp 8 percent
-	jr c, .switch
-	jr DontSwitch
-.not_10
-
-	cp $20
-	jr nz, .not_20
-	call Random
-	cp 12 percent
-	jr c, .switch
-	jr DontSwitch
-.not_20
-
-	; $30
-	call Random
-	cp 79 percent - 1
-	jr c, DontSwitch
-
-.switch
-	ld a, [wEnemySwitchMonParam]
-	and $f
-	inc a
-	ld [wEnemySwitchMonIndex], a
-	jmp AI_TrySwitch
-
-SwitchSometimes:
-	farcall CheckAbleToSwitch
-	ld a, [wEnemySwitchMonParam]
-	and $f0
-	jr z, DontSwitch
-
-	cp $10
-	jr nz, .not_10
-	call Random
-	cp 20 percent - 1
-	jr c, .switch
-	jmp DontSwitch
-.not_10
-
-	cp $20
-	jr nz, .not_20
-	call Random
-	cp 50 percent + 1
-	jr c, .switch
-	jmp DontSwitch
-.not_20
-
-	; $30
-	call Random
-	cp 20 percent - 1
-	jmp c, DontSwitch
-
-.switch
-	ld a, [wEnemySwitchMonParam]
-	and $f
-	inc a
-	ld [wEnemySwitchMonIndex], a
-	jmp AI_TrySwitch
-
-
 AI_TryItem:
 	; items are not allowed in the Battle Tower
 	ld a, [wInBattleTowerBattle]

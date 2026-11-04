@@ -3361,6 +3361,20 @@ AI_CheckMoveInList:
 	ld de, 2
 	jmp IsInWordArray
 
+AI_Plan:
+; The estimate layer, in Battle Core 2 (engine/battle/ai/move_plan.asm).
+	farjp AIPlanScoreMoves
+
+AIPlan_IsSetupEffect:
+; a = move effect -> carry if it's in SetupEffects (for AI_Plan). Preserves bc, de and hl.
+	push hl
+	push de
+	push bc
+	ld hl, SetupEffects
+	ld de, 1
+	call IsInArray
+	jmp PopBCDEHL
+
 AI_Ability:
 	;Dismiss moves based on immunity abilities
 	;Dismiss Water moves against Waterproof mons

@@ -200,7 +200,7 @@ CASES = {
     # the battle menu: a Potion on P2's mon from P1's menu, B on P2's menu back to P1,
     # P2 switching to the bench, a target change, end-of-turn effects (Leftovers, poison, sand)
     'doubles_menu': dict(
-        cls='COOLTRAINERM',
+        cls='LASS',  # the vanilla AI: Cool Trainers' AI_PLAN takes Sludge Bomb's KO on Pikachu, and the Potion path needs it alive
         party=[('TYRANITAR', 55, 'LEFTOVERS', ['SANDSTORM', 'CRUNCH']), ('PIKACHU', 50, None, ['THUNDERBOLT']),
                ('GOLEM', 50, None, ['ROCK_THROW'])],
         items=[('POTION', 3)],

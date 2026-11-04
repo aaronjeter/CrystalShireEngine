@@ -661,7 +661,30 @@ wDoublesHUDLevel:: db ; level,
 wDoublesHUDStatus:: ds 2 ; status,
 wDoublesHUDHP:: dw ; HP (big-endian),
 wDoublesHUDMaxHP:: dw ; max HP (big-endian)
+UNION
 wDoublesScratch:: ds 20 ; doubles_screen.asm's temporaries
+NEXTU
+; The AI's switch-in scorer (engine/battle/ai/switch_score.asm): never live while the doubles screen draws
+wSAIAtkPtr:: dw ; the attacker's stats block (its Level byte: party or battle struct)
+wSAIDefPtr:: dw ; the defender's
+wSAIAtkTypes:: ds 2
+wSAIDefTypes:: ds 2
+wSAIDefAbility:: db
+wSAIDefScreens:: db ; the defender's side's screens (wPlayerScreens or wEnemyScreens)
+wSAIBestDmg:: dw ; big-endian
+wSAICandTypes:: ds 2
+wSAICandHP:: dw ; big-endian, after Spikes
+wSAIBestScore:: db
+wSAIBestIndex:: db
+wSAICurIndex:: db
+wSAIHitsTaken:: db ; hits the player needs to knock the candidate out
+wSAIMovesPtr:: dw ; the scored Pokemon's moves
+wSAIFaster:: db ; 4 if it's faster than the player's battler, else 0
+wSAICandAbility:: db
+wSAIBestMove:: ds 2 ; power, type byte of the move behind wSAIBestDmg
+wSAIPredicted:: ds 2 ; the player's predicted move (power, type byte); power 0: none
+wSAIStayScore:: db ; AIShouldSwitch: the active Pokemon's score, after SAI_StayAdjust
+ENDU
 wDoublesAnimMap:: ds 5 ; DANIM_*: battle animation objects' shift (engine/battle_anims/doubles_anims.asm)
 wDoublesAnimWindow:: db ; DOUBLES_WINDOW_* flags: a per-line effect's partner pic is on the window (engine/battle_anims/doubles_window.asm)
 ; The doubles AI's choice (engine/battle/ai/doubles_ai.asm)
@@ -683,6 +706,10 @@ wKnockedOffMons:: ds 2
 wLifeOrbHit:: db
 ; Shell Bell: the damage the user's move did (big-endian, capped by the targets' HP)
 wShellBellDamage:: dw
+; AI switching (engine/battle/ai/switch_score.asm): voluntary switches this battle, and the
+; party index + 1 of the last Pokemon a voluntary switch sent in
+wEnemySwitchCount:: db
+wEnemyLastSwitchIn:: db
 if DEF(ANIM_LOG) ; test builds only (tools/claude_emu): each PlayBattleAnim call's wFXAnimID
 wAnimLogCount:: db
 wAnimLog:: ds 2 * 16
@@ -3412,6 +3439,13 @@ SECTION "Wild Mon EVs", WRAMX, BANK[1]
 wWildMonEVs:: ds NUM_STATS ; the wild Pokemon's EVs (RollWildMonEVs), kept if it's caught
 	ds MON_DVS - (MON_EVS + NUM_STATS)
 wWildMonDVs:: dw ; a copy of wEnemyMonDVs
+
+
+SECTION "AI Learnset RAM", WRAMX, BANK[1]
+
+; the player's battler's default moveset (16-bit move indexes; 0: none), for the switch
+; scorer of AI_KNOWS_LEARNSETS classes (engine/battle/ai/switch_score.asm)
+wSAILearnset:: ds NUM_MOVES * 2
 
 
 SECTION "Fly Map RAM", WRAMX, BANK[1]
