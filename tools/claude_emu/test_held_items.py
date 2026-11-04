@@ -311,7 +311,7 @@ if want('newitems'):
     g1, d = turn2(NS2, 1, 2, extra=soft, fixed=True)
     g2, e = turn2(NS2, 1, 2, extra=both(soft, items(p='BINDING_BAND')), fixed=True)
     eh = g1.rd('wEnemyMonMaxHP', 2); emax = eh[0] * 256 + eh[1]
-    check(g1.rd('wEnemyWrapCount') and e['dmg'] - d['dmg'] == emax // 8 - max(1, emax // 4 // 4),
+    check(g1.rd('wEnemyWrapCount') and e['dmg'] - d['dmg'] == max(1, emax // 4 // 4),  # 1/8 = twice the 1/16 share
           f"Binding Band: Wrap does 1/8 a turn instead of 1/16 ({d['dmg']} -> {e['dmg']}, max HP {emax})")
 
 print('FAILS:', fails if fails else 'none')

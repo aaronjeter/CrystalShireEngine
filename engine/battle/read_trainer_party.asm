@@ -270,7 +270,10 @@ ReadTrainerMon:
 
 	ld a, [wTrainerMonFlags]
 	bit MONFLAG_EVS_F, a
-	jr z, .no_evs
+	jr nz, .ev_spread
+	call .DefaultEVs
+	jr .no_evs
+.ev_spread
 	call GetNextTrainerDataByte
 	push hl
 	dec a
@@ -315,9 +318,6 @@ ReadTrainerMon:
 .no_shiny
 
 ; DVs and EVs change the stats: recalculate them, and set HP to the new max
-	ld a, [wTrainerMonFlags]
-	and (1 << MONFLAG_DVS_F) | (1 << MONFLAG_EVS_F) | (1 << MONFLAG_SHINY_F)
-	jr z, .done
 	push hl
 	ld bc, MON_MAXHP
 	call TrainerMonField
@@ -339,8 +339,129 @@ ReadTrainerMon:
 	dec hl
 	ld [hl], a
 	pop hl
-.done
 	and a
+	ret
+
+.DefaultEVs:
+; EVs of a Pokemon with no ev_spread line (TrainerClassEVs): the class's preset
+; shape, its off-stats (below 128) raised to CLASS_OFF_STAT_EV (EVS_ALL: every
+; stat CLASS_ALL_STAT_EV), then scaled by the tier: each EV = shape * (ratio + 1)
+; / 256, ratio 0-255 = level x 3 / 2 (ROUTE), level x 3 (ELITE) or 255 (BOSS).
+; Hard mode is one tier up; above BOSS every EV is MAX_EV. Preserves hl.
+	push hl
+	ld bc, MON_EVS
+	call TrainerMonField
+	push de
+	ld a, [wOtherTrainerClass]
+	ld c, a
+	ld b, 0
+	ld hl, TrainerClassEVs - 1
+	add hl, bc
+	ld a, [hl]
+	swap a
+	and $f
+	ld d, a ; tier
+	ld a, [hl]
+	and $f
+	jr z, .no_default_evs
+	ld e, CLASS_OFF_STAT_EV
+	cp EVS_ALL
+	jr nz, .got_off_ev
+	ld e, CLASS_ALL_STAT_EV
+.got_off_ev
+	dec a
+	ld hl, TrainerEVSpreads
+	ld bc, NUM_STATS
+	rst AddNTimes
+	ld a, [wHardMode] ; 0 = Hard
+	and a
+	jr nz, .got_tier
+	inc d
+.got_tier
+	pop bc ; the Pokemon's EVs
+	push bc
+	ld a, NUM_STATS
+.shape_loop
+	push af
+	ld a, [hli]
+	cp 128
+	jr nc, .specialized
+	ld a, e
+.specialized
+	ld [bc], a
+	inc bc
+	pop af
+	dec a
+	jr nz, .shape_loop
+
+	ld a, d
+	cp EV_TIER_MAX
+	jr nc, .max_evs
+	cp EV_TIER_BOSS
+	ld a, $ff
+	jr z, .got_ratio
+	ld a, [wCurPartyLevel]
+	ld l, a
+	ld h, 0
+	ld b, h
+	ld c, l
+	add hl, hl
+	add hl, bc
+	ld a, d
+	and a ; EV_TIER_ROUTE
+	jr nz, .not_route
+	srl h
+	rr l
+.not_route
+	ld a, h
+	and a
+	ld a, l
+	jr z, .got_ratio
+	ld a, $ff
+.got_ratio
+	ld c, a
+	pop hl
+	ld b, NUM_STATS
+.scale_loop
+	ld a, [hl]
+	push hl
+	push bc
+	push af
+	ldh [hMultiplicand + 2], a
+	xor a
+	ldh [hMultiplicand + 0], a
+	ldh [hMultiplicand + 1], a
+	ld a, c
+	ldh [hMultiplier], a
+	call Multiply
+	pop af
+	ld b, a
+	ldh a, [hProduct + 3]
+	add b
+	ldh a, [hProduct + 2]
+	adc 0
+	pop bc
+	pop hl
+	ld [hli], a
+	dec b
+	jr nz, .scale_loop
+	pop hl
+	ret
+
+.max_evs
+	pop hl
+	ld a, MAX_EV
+	ld b, NUM_STATS
+.max_loop
+	ld [hli], a
+	dec b
+	jr nz, .max_loop
+	pop hl
+	ret
+
+.no_default_evs
+	pop de
+	pop hl
 	ret
 
 .Ability:
@@ -467,6 +588,7 @@ GetNextTrainerDataWord:
 	ret
 
 INCLUDE "data/trainers/ev_spreads.asm"
+INCLUDE "data/trainers/class_evs.asm"
 
 ComputeTrainerReward:
 	ld hl, hProduct

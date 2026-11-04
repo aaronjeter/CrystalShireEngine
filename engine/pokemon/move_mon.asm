@@ -1074,8 +1074,7 @@ CalcMonStatC:
 	push hl
 	push de
 	push bc
-	;ld a, [wHardMode] ;Contains 0 if hardmode is on, 1 otherwise
-	ld a, 1
+	ld a, b
 	ld d, a
 	push hl
 	ld hl, wBaseStats - 1 ; has to be decreased, because 'c' begins with 1
@@ -1089,18 +1088,7 @@ CalcMonStatC:
 	and a
 	jr z, .no_stat_exp
 	add hl, bc
-
-	ld a, [wHardMode]
-	cp a, 0
-	jr z, .SetMaxEV
-
-	;if hardmode is not on, calculate evs normally
 	ld a, [hl]
-	ld b, a
-	jr .no_stat_exp
-
-.SetMaxEV ;if hardmdoe is on, set all evs to max for player and ai
-	ld a, $ff
 	ld b, a
 
 .no_stat_exp

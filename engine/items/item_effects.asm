@@ -1232,41 +1232,7 @@ VitaminEffect:
 	ld a, MON_EVS
 	call GetPartyParamLocation
 
-	ld d, 10
-	push bc
-	push hl
-	ld e, NUM_STATS
-	ld bc, 0
-.count_evs
-	ld a, [hli]
-	add c
-	ld c, a
-	adc b
-	sub c
-	ld b, a
-	dec e
-	jr nz, .count_evs
-	ld a, d
-	add c
-	ld c, a
-	adc b
-	sub c
-	ld b, a
-	ld e, d
-.decrease_evs_gained
-	farcall IsEvsGreaterThan510
-	jr nc, .check_ev_overflow
-	dec e
-	dec bc
-	jr .decrease_evs_gained
-.check_ev_overflow
-	pop hl
-	pop bc
-
-	ld a, e
-	and a
-	jr z, NoEffectMessage
-
+	ld e, 10 ; no total EV cap (like Gen 2 stat experience), only the vitamin cap below
 	add hl, bc
 	ld a, [hl]
 	cp 100

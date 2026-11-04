@@ -709,43 +709,9 @@ GiveExperiencePoints:
 	jr z, .no_macho_brace_boost
 	add a
 .no_macho_brace_boost
-; Make sure total EVs never surpass 510
-	push de ; the boost flags in e (the code below reuses e)
-	push bc
-	push hl
-	ld d, a
-	ld a, c
-.find_correct_ev_address
-	; If address of first EV is changed, find the correct one.
-	cp NUM_STATS
-	jr z, .found_address
-	dec hl
-	inc a
-	jr .find_correct_ev_address
-.found_address
-	ld e, NUM_STATS
-	ld bc, 0
-.count_evs
-	ld a, [hli]
-	add c
-	ld c, a
-	adc b
-	sub c
-	ld b, a
-	dec e
-	jr nz, .count_evs
-	ld a, d
-	add c
-	ld c, a
-	adc b
-	sub c
-	ld b, a
-	ld e, d
-.decrease_evs_gained	
-.check_ev_overflow
-	pop hl
-	pop bc
-	ld a, e
+; Add the EVs gained, each stat capped at MAX_EV (no total cap, on purpose:
+; like Gen 2 stat experience)
+	push de ; the boost flags in e
 	add [hl]
 	jr c, .ev_overflow
 	cp MAX_EV + 1
@@ -1081,15 +1047,6 @@ GiveExperiencePoints:
 
 .done
 	farjp ResetBattleParticipants
-
-IsEvsGreaterThan510:
-; Total EVs in bc. Set Carry flag if bc > 510.
-	ld a, HIGH(MAX_TOTAL_EV)
-	cp b
-	ret nz
-	ld a, LOW(MAX_TOTAL_EV)
-	cp c
-	ret
 
 BoostExp:
 ; Multiply experience by 1.5x

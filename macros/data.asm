@@ -344,6 +344,11 @@ MACRO dvs
 	endc
 ENDM
 
+MACRO class_evs
+; class_evs TIER, PRESET: a row of TrainerClassEVs (EV_TIER_*, EVS_*)
+	db (EV_TIER_\1 << 4) | EVS_\2
+ENDM
+
 MACRO ev_spread
 ; ev_spread PRESET (EVS_PRESET)
 	_pm_field EVS, ev_spread

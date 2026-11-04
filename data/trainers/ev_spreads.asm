@@ -1,6 +1,6 @@
 TrainerEVSpreads:
 ; ev_spread presets (EVS_* in constants/trainer_data_constants.asm)
-; Hard mode counts every EV as 255 (CalcMonStatC), so these only show on Normal.
+; Used as-is on both modes; also the shapes of the class defaults (class_evs.asm).
 	table_width NUM_STATS
 	;   hp, atk, def, spd, sat, sdf
 	db   6, 252,   0, 252,   0,   0 ; EVS_ATK_SPE
