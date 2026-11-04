@@ -5,6 +5,11 @@
 	const ORANGE_PAGE ; 3
 DEF NUM_STAT_PAGES EQU const_value
 DEF STAT_PAGE_MASK EQU %00000011
+; blue page sub-pages (engine/pokemon/stats_screen_pages.asm)
+DEF STAT_SUBPAGE_MASK EQU %00001100
+DEF STAT_SUBPAGE_DVS EQU 1 << 2
+DEF STAT_SUBPAGE_EVS EQU 2 << 2
+DEF NUM_BLUE_SUBPAGES EQU 3
 	const_def 4
 	const STATS_SCREEN_PLACE_FRONTPIC ; 4
 	const STATS_SCREEN_ANIMATE_MON    ; 5
@@ -90,7 +95,7 @@ StatsScreen_WaitAnim:
 .finish
 	ld hl, wStatsScreenFlags
 	res STATS_SCREEN_ANIMATE_MON, [hl]
-	farcall HDMATransferTilemapToWRAMBank3
+	farcall StatsScreen_TransferTilemap ; and the blue page's bar flips
 	; the page is on screen now, so its type icons can appear with it
 	ld hl, wStatsScreenFlags
 	bit STATS_SCREEN_PLACE_TYPE_ICONS, [hl]
@@ -262,7 +267,7 @@ StatsScreen_JoypadAction:
 	ld c, a
 	pop af
 	bit B_BUTTON_F, a
-	jmp nz, .b_button
+	jmp nz, .b_button_subpage
 	bit D_LEFT_F, a
 	jr nz, .d_left
 	bit D_RIGHT_F, a
@@ -318,6 +323,10 @@ StatsScreen_JoypadAction:
 
 .a_button
 	ld a, c
+	cp BLUE_PAGE
+	jr z, .blue_subpage
+	cp GREEN_PAGE
+	jr z, .moves_subpage
 	cp ORANGE_PAGE ; last page
 	jr z, .b_button
 .d_right
@@ -343,7 +352,7 @@ StatsScreen_JoypadAction:
 
 .set_page
 	ld a, [wStatsScreenFlags]
-	and ~STAT_PAGE_MASK
+	and ~(STAT_PAGE_MASK | STAT_SUBPAGE_MASK)
 	or c
 	ld [wStatsScreenFlags], a
 	ld h, 4
@@ -360,12 +369,43 @@ StatsScreen_JoypadAction:
 	ld h, 0
 	jmp StatsScreen_SetJumptableIndex
 
+.blue_subpage
+; A cycles the blue page's stats, DVs and EVs
+	ld a, [wStatsScreenFlags]
+	add 1 << 2
+	ld b, a
+	and STAT_SUBPAGE_MASK
+	cp NUM_BLUE_SUBPAGES << 2
+	ld a, b
+	jr nz, .got_subpage
+	and ~STAT_SUBPAGE_MASK
+.got_subpage
+	ld [wStatsScreenFlags], a
+	ld h, 4
+	jmp StatsScreen_SetJumptableIndex
+
+.moves_subpage
+	farcall StatsScreen_MovesSubpage
+	ld h, 4 ; reload the page
+	jmp StatsScreen_SetJumptableIndex
+
+.b_button_subpage
+; B on a blue sub-page goes back to the stats
+	ld a, [wStatsScreenFlags]
+	and STAT_SUBPAGE_MASK
+	jr z, .b_button
+	ld a, [wStatsScreenFlags]
+	and ~STAT_SUBPAGE_MASK
+	jr .got_subpage
+
 .b_button
 	ld h, 7
 	jmp StatsScreen_SetJumptableIndex
 
 StatsScreen_InitUpperHalf:
-	call .PlaceHPBar
+	call StatsScreen_InitUpperHalfText.PlaceHPBar
+StatsScreen_InitUpperHalfText::
+; the top half without its palettes and attributes (the moves sub-page's exit)
 	xor a
 	ldh [hBGMapMode], a
 	ld a, [wBaseSpecies]
@@ -490,19 +530,10 @@ StatsScreen_PlaceShinyIcon:
 	ret
 
 StatsScreen_PlaceTypeIcons:
-; Type and category icons for the pink and green pages. Called from
-; StatsScreen_WaitAnim once the page's tilemap is on screen (and after
-; StatsScreen_LoadGFX's .LoadPals, which resets the OBJ palettes they use).
-	ld a, [wStatsScreenFlags]
-	maskbits NUM_STAT_PAGES
-	cp GREEN_PAGE
-	jr z, .move_icons
-	cp PINK_PAGE
-	ret nz
-	lb bc, 15, 1 ; under "Type/"
-	farjp PlaceMonTypeIcons
-.move_icons
-	farjp PlaceStatsMoveIcons ; category and type icons on each PP row
+; Type and category icons for the pink, green and blue (Hidden Power) pages.
+; Called from StatsScreen_WaitAnim once the page's tilemap is on screen (and
+; after StatsScreen_LoadGFX's .LoadPals, which resets the OBJ palettes they use).
+	farjp StatsScreen_PlaceTypeIconsFar
 
 StatsScreen_LoadGFX:
 	ld a, [wBaseSpecies]
@@ -519,7 +550,7 @@ StatsScreen_LoadGFX:
 	ld hl, wStatsScreenFlags
 	bit STATS_SCREEN_PLACE_FRONTPIC, [hl]
 	jmp z, SetDefaultBGPAndOBP
-	jmp StatsScreen_PlaceFrontpic
+	jr StatsScreen_PlaceFrontpic
 
 .ClearBox:
 	; the previous page's type icons (engine/gfx/type_icons.asm)
@@ -528,9 +559,7 @@ StatsScreen_LoadGFX:
 	maskbits NUM_STAT_PAGES
 	ld c, a
 	call StatsScreen_LoadPageIndicators
-	hlcoord 0, 8
-	lb bc, 10, 20
-	jmp ClearBox
+	farjp StatsScreen_ClearBottom
 
 .LoadPals:
 	ld a, [wStatsScreenFlags]
@@ -543,188 +572,7 @@ StatsScreen_LoadGFX:
 	ret
 
 .PageTilemap:
-	ld a, [wStatsScreenFlags]
-	maskbits NUM_STAT_PAGES
-	ld hl, .Jumptable
-	jmp JumpTable
-
-.Jumptable:
-; entries correspond to *_PAGE constants
-	table_width 2
-	dw LoadPinkPage
-	dw LoadGreenPage
-	dw LoadBluePage
-	dw LoadOrangePage
-	assert_table_length NUM_STAT_PAGES
-
-INCLUDE "engine/pokemon/print_abilities.asm"
-
-LoadOrangePage:
-	ld hl, wTempMon
-	farcall GetMonAbility
-	ld [wTempAbility], a
-
-; Label a hidden ability as one, unless the species has none (ability 1 is used then).
-	ld de, AbilityNameString
-	jr c, .got_label
-	farcall GetMonAbilitySlot
-	cp ABILITY_SLOT_HIDDEN
-	jr nz, .got_label
-	ld de, HiddenAbilityNameString
-.got_label
-	hlcoord 1, 9
-	call PlaceString
-
-	call PrintAbility
-
-	call StatsScreen_PlaceAbilityHorizontalDivider
-
-	ret
-
-AbilityNameString:
-	db "Ability:@"
-
-HiddenAbilityNameString:
-	db "Hidden Ability:@"
-
-LoadPinkPage:
-	hlcoord 0, 9
-	ld b, $0
-	predef DrawPlayerHP
-	hlcoord 8, 9
-	ld [hl], $41 ; right HP/exp bar end cap
-	ld de, .Status_Type
-	hlcoord 0, 12
-	rst PlaceString
-	ld a, [wTempMonPokerusStatus]
-	ld b, a
-	and $f
-	jr nz, .HasPokerus
-	ld a, b
-	and $f0
-	jr z, .NotImmuneToPkrs
-	hlcoord 8, 8
-	ld [hl], "." ; Pokérus immunity dot
-.NotImmuneToPkrs:
-	ld a, [wMonType]
-	cp BOXMON
-	jr z, .StatusOK
-	hlcoord 6, 13
-	push hl
-	ld de, wTempMonStatus
-	predef PlaceStatusString
-	pop hl
-	jr nz, .done_status
-	jr .StatusOK
-.HasPokerus:
-	ld de, .PkrsStr
-	hlcoord 1, 13
-	rst PlaceString
-	jr .done_status
-.StatusOK:
-	ld de, .OK_str
-	rst PlaceString
-.done_status
-	hlcoord 9, 8
-	ld de, SCREEN_WIDTH
-	ld b, 10
-	ld a, $31 ; vertical divider
-.vertical_divider
-	ld [hl], a
-	add hl, de
-	dec b
-	jr nz, .vertical_divider
-	ld de, .ExpPointStr
-	hlcoord 10, 9
-	rst PlaceString
-	hlcoord 17, 14
-	call .PrintNextLevel
-	hlcoord 13, 10
-	lb bc, 3, 7
-	ld de, wTempMonExp
-	call PrintNum
-	call .CalcExpToNextLevel
-	hlcoord 13, 13
-	lb bc, 3, 7
-	ld de, wExpToNextLevel
-	call PrintNum
-	ld de, .LevelUpStr
-	hlcoord 10, 12
-	rst PlaceString
-	ld de, .ToStr
-	hlcoord 14, 14
-	rst PlaceString
-	hlcoord 11, 16
-	ld a, [wTempMonLevel]
-	ld b, a
-	ld de, wTempMonExp + 2
-	predef FillInExpBar
-	hlcoord 10, 16
-	ld [hl], $40 ; left exp bar end cap
-	hlcoord 19, 16
-	ld [hl], $41 ; right exp bar end cap
-	ret
-
-.PrintNextLevel:
-	ld a, [wTempMonLevel]
-	push af
-	cp MAX_LEVEL
-	jr z, .AtMaxLevel
-	inc a
-	ld [wTempMonLevel], a
-.AtMaxLevel:
-	call PrintLevel
-	pop af
-	ld [wTempMonLevel], a
-	ret
-
-.CalcExpToNextLevel:
-	ld a, [wTempMonLevel]
-	cp MAX_LEVEL
-	jr z, .AlreadyAtMaxLevel
-	inc a
-	ld d, a
-	farcall CalcExpAtLevel
-	ld hl, wTempMonExp + 2
-	ldh a, [hQuotient + 3]
-	sub [hl]
-	dec hl
-	ld [wExpToNextLevel + 2], a
-	ldh a, [hQuotient + 2]
-	sbc [hl]
-	dec hl
-	ld [wExpToNextLevel + 1], a
-	ldh a, [hQuotient + 1]
-	sbc [hl]
-	ld [wExpToNextLevel], a
-	ret
-
-.AlreadyAtMaxLevel:
-	ld hl, wExpToNextLevel
-	xor a
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
-	ret
-
-.Status_Type:
-	db   "Status/"
-	next "Type/@"
-
-.OK_str:
-	db "OK @"
-
-.ExpPointStr:
-	db "Exp Points@"
-
-.LevelUpStr:
-	db "Level Up@"
-
-.ToStr:
-	db "To@"
-
-.PkrsStr:
-	db "#rus@"
+	farjp StatsScreen_PageTilemap
 
 LoadGreenPage:
 	ld de, .Item
@@ -759,66 +607,6 @@ LoadGreenPage:
 
 .ThreeDashes:
 	db "---@"
-
-LoadBluePage:
-	call .PlaceOTInfo
-	hlcoord 10, 8
-	ld de, SCREEN_WIDTH
-	ld b, 10
-	ld a, $31 ; vertical divider
-.vertical_divider
-	ld [hl], a
-	add hl, de
-	dec b
-	jr nz, .vertical_divider
-	hlcoord 11, 8
-	ld bc, 6
-	predef_jump PrintTempMonStats
-
-.PlaceOTInfo:
-	ld de, IDNoString
-	hlcoord 0, 9
-	rst PlaceString
-	ld de, OTString
-	hlcoord 0, 12
-	rst PlaceString
-	hlcoord 2, 10
-	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	ld de, wTempMonID
-	call PrintNum
-	ld hl, .OTNamePointers
-	call GetNicknamePointer
-	call CopyNickname
-	farcall CorrectNickErrors
-	hlcoord 2, 13
-	rst PlaceString
-	ld a, [wTempMonCaughtGender]
-	and a
-	ret z
-	cp $7f
-	ret z
-	and CAUGHT_GENDER_MASK
-	ld a, "♂"
-	jr z, .got_gender
-	ld a, "♀"
-.got_gender
-	hlcoord 9, 13
-	ld [hl], a
-	ret
-
-.OTNamePointers:
-	dw wPartyMonOTs
-	dw wOTPartyMonOTs
-	dw wBufferMonOT ; unused
-	dw wBufferMonOT ; unused
-	dw wBufferMonOT ; unused
-	dw wBufferMonOT
-
-IDNoString:
-	db "<ID>№.@"
-
-OTString:
-	db "OT/@"
 
 StatsScreen_PlaceFrontpic:
 	ld hl, wTempMonDVs
@@ -1036,6 +824,12 @@ endc
 	ret nc
 	ld de, SFX_2_BOOPS
 	jmp PlaySFX
+
+IDNoString:
+	db "<ID>№.@"
+
+OTString:
+	db "OT/@"
 
 EggString:
 	db "Egg@"

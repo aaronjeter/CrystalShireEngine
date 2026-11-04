@@ -693,3 +693,7 @@ INCLUDE "engine/items/badge_mart.asm"
 SECTION "Fish Level Scaling", ROMX
 
 INCLUDE "engine/events/fish_level.asm"
+
+SECTION "Stats Screen Pages", ROMX
+
+INCLUDE "engine/pokemon/stats_screen_pages.asm"

@@ -143,8 +143,7 @@ GetMonSubmenuItems:
 	call AddMonMenuItem
 	ld a, MONMENUITEM_SWITCH
 	call AddMonMenuItem
-	ld a, MONMENUITEM_MOVE
-	call AddMonMenuItem
+	; no MONMENUITEM_MOVE: moves are viewed and reordered on the stats screen
 	ld a, [wLinkMode]
 	and a
 	jr nz, .skip2

@@ -1,20 +1,21 @@
-; pink
+; page indicator squares: white, the page color, a darker shade, black
+; pink: rose gold
 	RGB 31, 31, 31
-	RGB 31, 19, 31
-	RGB 31, 15, 31
+	RGB 28, 21, 20
+	RGB 21, 15, 15
 	RGB 00, 00, 00
-; green
+; green: jade silver
 	RGB 31, 31, 31
-	RGB 21, 31, 14
-	RGB 17, 31, 00
+	RGB 21, 25, 22
+	RGB 15, 18, 16
 	RGB 00, 00, 00
-; blue
+; blue: steel blue
 	RGB 31, 31, 31
-	RGB 17, 31, 31
-	RGB 17, 31, 31
+	RGB 21, 23, 27
+	RGB 15, 17, 20
 	RGB 00, 00, 00
-; orange
+; orange: gold
 	RGB 31, 31, 31
-	RGB 30, 24, 16
-	RGB 30, 22, 12
+	RGB 29, 24, 12
+	RGB 21, 18, 09
 	RGB 00, 00, 00

@@ -1,8 +1,9 @@
-; pink
-	RGB 31, 19, 31
-; green
-	RGB 21, 31, 14
-; blue
-	RGB 17, 31, 31
-; orange
-	RGB 30, 24, 16
+; page background colors (M2 "precious metals", Nov 3 2026)
+; pink: rose gold
+	RGB 28, 21, 20
+; green: jade silver
+	RGB 21, 25, 22
+; blue: steel blue
+	RGB 21, 23, 27
+; orange: gold
+	RGB 29, 24, 12
