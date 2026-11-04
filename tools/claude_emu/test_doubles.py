@@ -357,7 +357,7 @@ CASES = {
         result=WIN),
     # phase 3C: Thief, Destiny Bond (E2 knocks P2 out and faints), Encore, Mirror Move, Beat Up
     'doubles_misc_moves': dict(
-        cls='COOLTRAINERM',
+        cls='LASS',  # route-tier class EVs (Nov 3): with Cool Trainer EVs, Machamp KOs Sneasel on turn 1
         party=[('SNEASEL', 50, None, ['THIEF', 'ENCORE', 'MIRROR_MOVE', 'BEAT_UP']),
                ('ELECTRODE', 30, None, ['DESTINY_BOND']), ('MACHAMP', 60, None, ['KARATE_CHOP', 'LEER'])],
         trainer=[(55, 'SNORLAX', 'LEFTOVERS', ['TACKLE']), (50, 'MACHAMP', None, ['KARATE_CHOP'])],
