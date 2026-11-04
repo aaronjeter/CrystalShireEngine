@@ -334,16 +334,43 @@ _LoadEnemyMon:
 ; Finally done with DVs
 
 .Happiness:
+; A new wild Pokemon gets random EVs (not when reloading one that's transformed
+; or being caught: that path keeps its DVs, and wWildMonEVs still holds its EVs)
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE
+	jr nz, .no_wild_evs
+	ld a, [wEnemySubStatus5]
+	bit SUBSTATUS_TRANSFORMED, a
+	call z, RollWildMonEVs
+.no_wild_evs
 ; Set happiness
 	ld a, BASE_HAPPINESS
 	ld [wEnemyMonHappiness], a
 ; Set level
 	ld a, [wCurPartyLevel]
 	ld [wEnemyMonLevel], a
-; Fill stats
-	ld de, wEnemyMonMaxHP
+; Fill stats, with the EVs of the trainer's party mon or the wild Pokemon
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jr z, .trainer_evs
+	and a ; WILD_BATTLE
 	ld b, FALSE
 	ld hl, wEnemyMonDVs - (MON_DVS - MON_EVS + 1)
+	jr z, .fill_stats ; not in battle (a gift sent to the box): no EVs
+	ld a, [wEnemyMonDVs]
+	ld [wWildMonDVs], a
+	ld a, [wEnemyMonDVs + 1]
+	ld [wWildMonDVs + 1], a
+	ld hl, wWildMonEVs - 1
+	jr .ev_stats
+.trainer_evs
+	ld a, [wCurPartyMon]
+	ld hl, wOTPartyMon1EVs - 1
+	call GetPartyLocation
+.ev_stats
+	ld b, TRUE
+.fill_stats
+	ld de, wEnemyMonMaxHP
 	predef CalcMonStats
 
 ; If we're in a trainer battle,
@@ -1047,6 +1074,140 @@ GiveExperiencePoints:
 
 .done
 	farjp ResetBattleParticipants
+
+RollWildMonEVs:
+; wWildMonEVs = random EVs for the wild Pokemon wCurPartyLevel (roadmap §28):
+; about level x 3 in total (75-125%), in units of 4 EVs; half go to the
+; species' EV yield stats (weighted by yield), half to random stats (all of
+; them if the species yields none). Each stat at most MAX_EV. Needs its base data.
+	ld hl, wWildMonEVs
+	ld bc, NUM_STATS
+	xor a
+	rst ByteFill
+	ld a, [wCurPartyLevel]
+	ld l, a
+	ld h, 0
+	ld b, h
+	ld c, l
+	add hl, hl
+	add hl, bc
+	srl h
+	rr l
+	srl h
+	rr l
+	ld a, l ; level x 3 / 4 units (at most 191)
+	and a
+	ret z
+	ld d, a
+	srl a
+	inc a
+	call RandomRange
+	ld e, a ; 0 to half of it
+	ld a, d
+	srl a
+	srl a
+	cpl
+	inc a
+	add d
+	add e
+	ld d, a ; 75-125% of it
+	srl a
+	ld e, a ; yield units
+	ld a, d
+	sub e
+	ld d, a ; random units
+; b = the total yield
+	lb bc, 0, 0
+.sum_yield
+	call GetWildEVYield
+	add b
+	ld b, a
+	inc c
+	ld a, c
+	cp NUM_STATS
+	jr nz, .sum_yield
+	ld a, b
+	and a
+	jr nz, .yield_units
+	ld a, d
+	add e
+	ld d, a
+	ld e, 0
+.yield_units
+	ld a, e
+	and a
+	jr z, .random_units
+	dec e
+	ld a, b
+	call RandomRange
+	push de
+	ld d, a
+	ld c, 0
+.find_stat
+	call GetWildEVYield
+	ld e, a
+	ld a, d
+	sub e
+	jr c, .found_stat
+	ld d, a
+	inc c
+	jr .find_stat
+.found_stat
+	pop de
+	call .AddUnit
+	jr .yield_units
+
+.random_units
+	ld a, d
+	and a
+	ret z
+	dec d
+	ld a, NUM_STATS
+	call RandomRange
+	ld c, a
+	call .AddUnit
+	jr .random_units
+
+.AddUnit:
+; wWildMonEVs[c] += 4, at most MAX_EV. Preserves bc, de.
+	push bc
+	ld b, 0
+	ld hl, wWildMonEVs
+	add hl, bc
+	ld a, [hl]
+	add 4
+	cp MAX_EV + 1
+	jr c, .got_ev
+	ld a, MAX_EV
+.got_ev
+	ld [hl], a
+	pop bc
+	ret
+
+GetWildEVYield:
+; a = the base data's EV yield (0-3) for stat c (0-5: hp, atk, def, spd, sat, sdf).
+; Format: %hhaaddss %ttff0000. Preserves bc, de, hl.
+	push bc
+	ld b, c
+	ld a, [wBaseHPAtkDefSpdEVs]
+	ld c, a
+	ld a, b
+	sub 4
+	jr c, .got_byte
+	ld b, a
+	ld a, [wBaseSpAtkSpDefEVs]
+	ld c, a
+.got_byte
+	inc b
+	ld a, c
+.rotate
+	rlca
+	rlca
+	dec b
+	jr nz, .rotate
+	and %11
+	pop bc
+	ret
 
 BoostExp:
 ; Multiply experience by 1.5x

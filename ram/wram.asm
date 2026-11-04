@@ -3406,6 +3406,14 @@ wDiagonalSpeed:: db
 wDiagonalGrace:: db ; frames a single direction has been held from a standstill
 
 
+SECTION "Wild Mon EVs", WRAMX, BANK[1]
+
+; laid out like a party mon's EVs and DVs, for CalcMonStats
+wWildMonEVs:: ds NUM_STATS ; the wild Pokemon's EVs (RollWildMonEVs), kept if it's caught
+	ds MON_DVS - (MON_EVS + NUM_STATS)
+wWildMonDVs:: dw ; a copy of wEnemyMonDVs
+
+
 SECTION "Fly Map RAM", WRAMX, BANK[1]
 
 wFlyMapRegion:: db ; the region the fly map shows (JOHTO_REGION...)

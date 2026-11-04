@@ -164,8 +164,25 @@ endr
 	inc de
 
 	; Initialize stat experience (and the padding, including the ability slot).
-	xor a
+	; A Pokemon caught in a wild battle keeps its EVs (wWildMonEVs).
 	ld b, MON_DVS - MON_EVS
+	ld a, [wMonType]
+	and $f
+	jr nz, .zero_evs
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE
+	jr nz, .zero_evs
+	ld hl, wWildMonEVs
+	ld c, NUM_STATS
+.wild_evs
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	dec c
+	jr nz, .wild_evs
+.zero_evs
+	xor a
 .loop
 	ld [de], a
 	inc de
@@ -745,9 +762,23 @@ SendMonIntoBox:
 	ld [de], a
 	inc de
 
-	; Set all 5 Experience Values to 0 (and the padding)
-	xor a
+	; EVs: a Pokemon caught in a wild battle keeps its EVs (wWildMonEVs);
+	; others start at 0 (and the padding)
 	ld b, 2 * NUM_EXP_STATS
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE
+	jr nz, .zero_evs
+	ld hl, wWildMonEVs
+	ld c, NUM_STATS
+.wild_evs
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	dec c
+	jr nz, .wild_evs
+.zero_evs
+	xor a
 .loop2
 	ld [de], a
 	inc de
