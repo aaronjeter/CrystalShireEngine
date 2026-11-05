@@ -92,10 +92,10 @@ TrainerPicPointers::
 	dba PsychicFPic
 	dba AgathaPic
 	dba LoreleiPic
-	dba FergusPic
-	dba NeeshaPic
-	dba LilyPic
-	dba GuyPic
+	dba CooltrainermPic ; Fergus
+	dba CooltrainerfPic ; Neesha
+	dba KimonoGirlPic ; Lily
+	dba GentlemanPic ; Guy
 	dba GiovanniPic
 	dba WallyPic
 	dba GreenPic
