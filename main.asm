@@ -704,3 +704,4 @@ INCLUDE "engine/pokemon/stats_screen_pages.asm"
 SECTION "Party Menu Cards", ROMX
 
 INCLUDE "engine/pokemon/party_cards.asm"
+INCLUDE "engine/pokemon/party_info.asm"

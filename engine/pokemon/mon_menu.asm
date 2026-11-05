@@ -185,7 +185,7 @@ SwitchPartyMons:
 
 	farcall _SwitchPartyMons
 
-	xor a
+	ld a, 1 << PARTYMENU_REORDER_F ; back to the Start menu's party menu
 	ld [wPartyMenuActionText], a
 
 	farcall InitPartyMenuWithCancel
@@ -195,7 +195,7 @@ SwitchPartyMons:
 	ret
 
 .DontSwitch:
-	xor a
+	ld a, 1 << PARTYMENU_REORDER_F ; back to the Start menu's party menu
 	ld [wPartyMenuActionText], a
 	jmp CancelPokemonAction
 
@@ -812,7 +812,7 @@ MonMenu_Softboiled_MilkDrink:
 	call PrintText
 
 .finish
-	xor a
+	ld a, 1 << PARTYMENU_REORDER_F ; back to the Start menu's party menu
 	ld [wPartyMenuActionText], a
 	ld a, $3
 	ret

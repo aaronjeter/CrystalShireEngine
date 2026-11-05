@@ -488,8 +488,9 @@ StartMenu_Pokemon:
 	call FadeToMenu
 
 .choosemenu
-	xor a
-	ld [wPartyMenuActionText], a ; Choose a POKéMON.
+	; "Choose a Pokémon", and Select picks a Pokémon up to move it
+	ld a, 1 << PARTYMENU_REORDER_F
+	ld [wPartyMenuActionText], a
 	call ClearBGPalettes
 
 .menu
@@ -504,11 +505,7 @@ StartMenu_Pokemon:
 	call SetDefaultBGPAndOBP
 	call DelayFrame
 .select
-	ld hl, wPartyMenuActionText
-	set PARTYMENU_REORDER_F, [hl] ; Select picks a Pokémon up to move it
 	farcall PartyMenuSelect
-	ld hl, wPartyMenuActionText
-	res PARTYMENU_REORDER_F, [hl]
 	jr c, .return ; if cancelled or pressed B
 
 	call PokemonActionSubmenu

@@ -47,12 +47,15 @@ def new():
 def hp(g, who):
     v = g.rd(f'w{who}MonHP', 2); return v[0] * 256 + v[1]
 
-def setup(player, plevel, moves, wild, wlevel):
+def setup(player, plevel, moves, wild, wlevel, prep=None):
     g = new()
+    if prep: prep(g)
     g.wr('wPartyCount', 0); g.wr('wPartySpecies', 0xFF)
     g.run_script(party_script(player, plevel, moves, sym['wPartyMon1'][1]))
     for i in range(30): g.frames(20); g.press('B', after=10)
-    g.run_script(battle_script(wild, wlevel))
+    # the wild Pokemon gets ability 1 (a wild roll is 50/50 between abilities 1 and 2, with a
+    # 10% hidden ability)
+    g.run_script('\tsetnextability ABILITY_SLOT_1\n' + battle_script(wild, wlevel))
     d = Driver(g)
     for i in range(400):
         g.frames(5); d._scan()
@@ -100,8 +103,16 @@ TestCode:
     bad = [i + 1 for i in range(NUM_SPECIES) if got[i] != exp[i]]
     check(not bad, f'GetSpeciesAbility slot {slot}, {NUM_SPECIES} species (mismatched species indexes: {bad[:5]})')
 
-# 2. entrance abilities
-g, d = setup('POLITOED', 50, ['WATER_GUN', 'EMBER', 'EARTHQUAKE', 'GROWL'], 'ARBOK', 40)
+SPECIES = [re.match(r'\tabilities (\w+),', l).group(1) for l in open(f'{CSE}/data/abilities/species_abilities.asm') if l.startswith('\tabilities ')]
+def patch(g, species, a1, a2, h):
+    # a species' three abilities, in the ROM in memory (the checks below don't depend on the
+    # audited data)
+    g.poke_rom(base + 3 * SPECIES.index(species), [AB[a1], AB[a2], AB[h]])
+
+# 2. entrance abilities (Politoed patched to Drizzle in every slot: the audit made Drizzle its
+# hidden ability, and the gift's slot is rolled)
+g, d = setup('POLITOED', 50, ['WATER_GUN', 'EMBER', 'EARTHQUAKE', 'GROWL'], 'ARBOK', 40,
+             prep=lambda g: patch(g, 'POLITOED', 'ABILITY_DRIZZLE', 'ABILITY_DRIZZLE', 'ABILITY_DRIZZLE'))
 g.save('ab_test_politoed.state')
 check(NAME[g.rd('wBattleMonAbility')] == 'ABILITY_DRIZZLE', 'player ability byte (Politoed: Drizzle)')
 check(NAME[g.rd('wEnemyMonAbility')] == 'ABILITY_INTIMIDATE', 'enemy ability byte (Arbok: Intimidate)')
@@ -109,7 +120,9 @@ check(g.rd('wBattleWeather') == 1, 'Drizzle starts rain')
 check(g.rd('wPlayerStatLevels') == 6, 'Intimidate cuts Attack')
 
 # 3. paired turns
-g, d = setup('MACHAMP', 55, ['FLAMETHROWER', 'EARTHQUAKE', 'SURF', 'GROWL'], 'ARBOK', 50)
+# Machamp's gift slot is rolled: Guts in every slot
+guts = lambda g: patch(g, 'MACHAMP', 'ABILITY_GUTS', 'ABILITY_GUTS', 'ABILITY_GUTS')
+g, d = setup('MACHAMP', 55, ['FLAMETHROWER', 'EARTHQUAKE', 'SURF', 'GROWL'], 'ARBOK', 50, prep=guts)
 g.save('ab_test_machamp.state')
 def turn(state, slot, enemy_ab=None, player_ab=None, extra=None):
     g = H(ROM, None, SYM); g.load(state); g.frames(60)
@@ -152,17 +165,16 @@ x, y = pair(P, 3, 'player', 'ABILITY_RAIN_DISH', hurt); check(x[1] - y[1] == y[4
 x, y = pair(P, 3, 'player', 'ABILITY_REGENERATION', hurt); check(x[1] - y[1] == y[4] // 16, f'Regeneration heals 1/16 of {y[4]}: {x[1] - y[1]}')
 
 # 4. Impostor / Transform
-g, d = setup('MACHAMP', 55, ['FLAMETHROWER', 'EARTHQUAKE', 'SURF', 'GROWL'], 'DITTO', 40)
+g, d = setup('MACHAMP', 55, ['FLAMETHROWER', 'EARTHQUAKE', 'SURF', 'GROWL'], 'DITTO', 40, prep=guts)
 check(NAME[g.rd('wEnemyMonAbility')] == 'ABILITY_GUTS', 'Impostor Ditto takes Machamp\'s Guts')
 
 # 5. per-Pokemon ability slots
-SPECIES = [re.match(r'\tabilities (\w+),', l).group(1) for l in open(f'{CSE}/data/abilities/species_abilities.asm') if l.startswith('\tabilities ')]
-def patch(g, species, a1, a2, h):
-    g.poke_rom(base + 3 * SPECIES.index(species), [AB[a1], AB[a2], AB[h]])
 def new_patched():
     g = new()
     patch(g, 'MACHAMP', 'ABILITY_GUTS', 'ABILITY_LEVITATE', 'ABILITY_THICK_FAT')
     patch(g, 'POLITOED', 'ABILITY_DRIZZLE', 'ABILITY_SWIFT_SWIM', 'ABILITY_RAIN_DISH')
+    # no ability 2 and no hidden ability: a gift always gets ability 1
+    patch(g, 'WOBBUFFET', 'ABILITY_SHADOW_TAG', 'NO_ABILITY', 'NO_ABILITY')
     return g
 def settle(g, n):
     for i in range(n): g.frames(20); g.press('B', after=10)
@@ -176,7 +188,8 @@ g.wr('wPartyCount', 0); g.wr('wPartySpecies', 0xFF)
 g.run_script('\tgivepoke MACHAMP, 20\n' * 4 + '\tsetnextability ABILITY_SLOT_HIDDEN\n\tgivepoke MACHAMP, 20\n\tgivepoke WOBBUFFET, 20\n\tend')
 settle(g, 60)
 sl = slots(g)
-check(set(sl[:4]) <= {0, 1}, f'gift rolls are ability 1 or 2: {sl[:4]}')
+# gifts roll ability 1 or 2, or the hidden ability (10%) when the species has one
+check(set(sl[:4]) <= {0, 1, 2} and sl[:4].count(2) <= 2, f'gift rolls are ability 1 or 2 (rarely hidden): {sl[:4]}')
 check(sl[4] == 2 and g.rd('wAbilitySlotOverride') == 0, f'setnextability gives the hidden slot once: {sl[4]}')
 check(sl[5] == 0, 'a species without ability 2 rolls ability 1')
 g.run_script('\tsetnextability ABILITY_SLOT_HIDDEN\n\tgivepoke POLITOED, 20\n\tend')

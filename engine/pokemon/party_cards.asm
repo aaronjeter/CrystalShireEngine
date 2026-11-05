@@ -1,12 +1,12 @@
 ; The party menu's cards: two columns of three cards, a bar at the
-; bottom with the prompt and a Cancel button.
+; bottom with the prompt and button hints (B backs out; there's no Cancel entry).
 ;
 ; Each card is 10x5 tiles. Its pixels are drawn into a canvas in WRAM bank 6 and copied to
 ; its own 36 tiles in VRAM bank 1 (rows 0 and 3 whole, rows 1-2 from column 2 on; the two
 ; tiles under the icon and the bottom row are shared). Each card has its own BG palette:
 ;   color 0: the card (normal / lead / selected / fainted), 1: its HP bar color,
 ;   2: the background between cards, 3: black (text).
-; Palette 6 is the bottom bar (navy, white, the Cancel button, black); palette 7 stays the
+; Palette 6 is the bottom bar (navy, white, the hints' pills, black); palette 7 stays the
 ; text box palette, so text boxes and menus drawn over the cards look as before.
 ;
 ; Card pixels (80x40): 2-pixel gaps on the left and right, 4 at the bottom, round corners
@@ -46,6 +46,8 @@ DEF PCV_GLYPH  rb 8
 DEF PCV_NUM    rb 16
 DEF PCV_MASK   rb ; bit n: card n is drawn
 DEF PCV_FRESH  rb ; wAttrmap's first byte before the draw
+DEF PCV_HINTS  rb ; PCH_* flags of the bar being drawn
+DEF PCV_X      rb ; the bar's next hint position
 DEF PCS_STATE  rb PARTY_LENGTH ; per card: bit 7 present, bits 4-5 HP color, bits 0-1 fill
 	assert _RS <= $100
 
@@ -54,6 +56,12 @@ DEF PCS_STATE  rb PARTY_LENGTH ; per card: bit 7 present, bits 4-5 HP color, bit
 	const PARTYCARDS_TMHM
 	const PARTYCARDS_EVO_STONE
 	const PARTYCARDS_GENDER
+
+	const_def
+	const PCH_PROMPT ; the prompt's text
+	const PCH_START  ; "START Info"
+	const PCH_SELECT ; "SELECT Move"
+	const PCH_BACK   ; "B Back"
 
 	const_def
 	const PCFILL_NORMAL
@@ -79,10 +87,6 @@ DEF PCT_BAR_MID    EQU $ec ; the bar's middle row (20)
 	assert PCT_BAR_MID == $80 + 3 * PC_CARD_TILES
 
 DEF PC_BAR_Y      EQU 15 ; screen row of the bottom bar
-DEF PC_BUTTON_X   EQU 114 ; the Cancel button, in bar canvas pixels
-DEF PC_BUTTON_Y   EQU 4
-DEF PC_BUTTON_W   EQU 44
-DEF PC_BUTTON_H   EQU 16
 DEF PC_PROMPT_TILES EQU 14
 
 DrawPartyCards::
@@ -757,15 +761,17 @@ PC_DrawInfoLine:
 
 PC_GenderSign:
 ; The gender sign at x d, y 9 (6x7 pixels), if any.
+	ld e, 9
+PC_GenderSignAt:
+; The gender sign at (d, e), if any.
 	ld a, [PC_DATA + PCD_GENDER]
 	and a
 	ret z
-	ld hl, .Male
+	ld hl, PC_GenderSignAt.Male
 	cp "♂"
 	jr z, .got_sign
-	ld hl, .Female
+	ld hl, PC_GenderSignAt.Female
 .got_sign
-	ld e, 9
 	ld b, 7
 	jmp PC_BlitRows
 
@@ -1117,7 +1123,7 @@ PartyCards_PlaceBarTiles:
 ; The bottom bar --------------------------------------------------------------------------
 
 DrawPartyMenuBar::
-; PlacePartyMenuText: the prompt and, with a Cancel entry, the Cancel button.
+; PlacePartyMenuText: the prompt and the button hints (see PartyCards_HintMode).
 	ldh a, [hBGMapMode]
 	push af
 	xor a
@@ -1147,11 +1153,14 @@ DrawPartyMenuBar::
 	ld d, [hl]
 	ld e, a
 .got_prompt
+	call PartyCards_HintMode ; a = PCH_* flags
+	ld b, a
 	ldh a, [rSVBK]
 	push af
 	ld a, PC_WRAM
 	ldh [rSVBK], a
-	push bc
+	ld a, b
+	ld [PC_DATA + PCV_HINTS], a
 	push de
 	ld a, SCREEN_WIDTH
 	ld [PC_DATA + PCV_W], a
@@ -1160,51 +1169,7 @@ DrawPartyMenuBar::
 	xor a
 	rst ByteFill
 	pop de
-	ld c, 4
-	call PC_VWFStrip
-	ld a, 1 ; white
-	ld b, 0
-	ld c, PC_PROMPT_TILES
-	call PC_MergeStrip
-	pop bc
-	ld a, c
-	and a
-	jr z, .no_button
-	ld a, 3
-	ld [PC_DATA + PCV_COLOR], a
-	lb de, PC_BUTTON_X, PC_BUTTON_Y
-	lb bc, PC_BUTTON_W, PC_BUTTON_H
-	call PC_FillRect
-	ld a, 2
-	ld [PC_DATA + PCV_COLOR], a
-	lb de, PC_BUTTON_X + 1, PC_BUTTON_Y + 1
-	lb bc, PC_BUTTON_W - 2, PC_BUTTON_H - 2
-	call PC_FillRect
-	xor a
-	ld [PC_DATA + PCV_COLOR], a
-	lb de, PC_BUTTON_X, PC_BUTTON_Y
-	call PC_Dot
-	lb de, PC_BUTTON_X + PC_BUTTON_W - 1, PC_BUTTON_Y
-	call PC_Dot
-	lb de, PC_BUTTON_X, PC_BUTTON_Y + PC_BUTTON_H - 1
-	call PC_Dot
-	lb de, PC_BUTTON_X + PC_BUTTON_W - 1, PC_BUTTON_Y + PC_BUTTON_H - 1
-	call PC_Dot
-	ld de, .CancelString
-	call GetVWFLength
-	ld b, a
-	ld a, PC_BUTTON_W
-	sub b
-	srl a
-	add PC_BUTTON_X
-	ld c, a
-	ld de, .CancelString
-	call PC_VWFStrip
-	ld a, 3
-	ld b, PC_PROMPT_TILES
-	ld c, SCREEN_WIDTH - PC_PROMPT_TILES
-	call PC_MergeStrip
-.no_button
+	call PC_BarContents
 	; into VRAM
 	ld a, PCT_NAVY
 	ld de, PC_CANVAS
@@ -1232,8 +1197,6 @@ DrawPartyMenuBar::
 	ret nz
 	jmp EnableLCD
 
-.CancelString: db "Cancel@"
-
 PartyCardPrompts:
 ; entries correspond to PARTYMENUACTION_* constants
 	table_width 2
@@ -1255,6 +1218,214 @@ PartyCardPrompts:
 .move_to:  db "Move to where?@"
 .to_which: db "To which Pokémon?@"
 .none:     db "You have no Pokémon!@"
+
+PartyCards_HintMode:
+; The bar's contents for prompt de, as PCH_* flags in a: the prompt itself (except the plain
+; "Pick a Pokémon."), "START Info" (except while moving a Pokémon), "SELECT Move" (on the
+; plain prompt where Select picks a Pokémon up), "B Back" (when the menu can be left; c = 1).
+	ld b, 0
+	ld a, c
+	and a
+	jr z, .no_back
+	set PCH_BACK, b
+.no_back
+	ld a, [wPartyCount]
+	and a
+	jr z, .prompt
+	ld a, [wPartyMenuActionText]
+	and $f
+	cp PARTYMENUACTION_MOVE
+	jr z, .moving
+	set PCH_START, b
+	jr .no_info
+.moving
+	set PCH_BACK, b ; B puts the Pokémon back
+.no_info
+	ld a, d
+	cp HIGH(PartyCardPrompts.pick)
+	jr nz, .prompt
+	ld a, e
+	cp LOW(PartyCardPrompts.pick)
+	jr nz, .prompt
+	ld a, [wPartyMenuActionText]
+	bit PARTYMENU_REORDER_F, a
+	jr z, .done
+	ld a, [wPartyCount]
+	cp 2
+	jr c, .done
+	set PCH_SELECT, b
+.done
+	ld a, b
+	ret
+.prompt
+	set PCH_PROMPT, b
+	ld a, b
+	ret
+
+PC_BarContents:
+; The bar's middle row for prompt de and the PCV_HINTS flags: the prompt (white), then the
+; hints that fit before "B Back" at the right end. Hints: white words after pills of the
+; button color with navy labels.
+	ld a, SCREEN_WIDTH * TILE_WIDTH - 4
+	ld [PC_DATA + PCV_ADV], a ; the right limit
+	ld a, [PC_DATA + PCV_HINTS]
+	bit PCH_BACK, a
+	jr z, .no_back
+	; "B Back" ends 4 pixels from the right edge
+	push de
+	ld de, .Back
+	call GetVWFLength
+	add 3 + 7 ; the "B" pill and the gap
+	cpl
+	add SCREEN_WIDTH * TILE_WIDTH - 4 + 1
+	ld [PC_DATA + PCV_ADV], a
+	ld d, a
+	ld hl, .BLabel
+	call .Pill
+	ld hl, .Back
+	call .Word
+	ld a, [PC_DATA + PCV_ADV]
+	sub 6
+	ld [PC_DATA + PCV_ADV], a
+	pop de
+.no_back
+	ld b, 4 ; x
+	ld a, [PC_DATA + PCV_HINTS]
+	bit PCH_PROMPT, a
+	jr z, .no_prompt
+	push de
+	ld c, b
+	call PC_VWFStrip
+	ld a, 1 ; white
+	ld b, 0
+	ld c, SCREEN_WIDTH
+	call PC_MergeStrip
+	pop de
+	call GetVWFLength
+	add 4 + 8
+	ld b, a
+.no_prompt
+	ld a, b
+	ld [PC_DATA + PCV_X], a
+	ld a, [PC_DATA + PCV_HINTS]
+	bit PCH_START, a
+	ret z
+	ld hl, .StartLabel
+	ld de, .Info
+	call .Hint
+	ret nc
+	ld a, [PC_DATA + PCV_HINTS]
+	bit PCH_SELECT, a
+	ret z
+	ld hl, .SelectLabel
+	ld de, .Move
+	; fallthrough
+
+.Hint:
+; Pill label hl and word de at x PCV_X, if they fit before the right limit; then PCV_X is 8
+; pixels after them, and carry.
+	push hl
+	push de
+	call GetVWFLength
+	pop de
+	pop hl
+	push hl
+	push de
+	push af
+	call PC_TinyWidth
+	pop bc ; b = the word's width
+	add b
+	add 4 + 3 ; the pill's padding, the gap
+	ld b, a
+	ld a, [PC_DATA + PCV_X]
+	add b
+	ld b, a
+	ld a, [PC_DATA + PCV_ADV]
+	cp b
+	pop de
+	pop hl
+	ret c
+	push de
+	ld a, [PC_DATA + PCV_X]
+	ld d, a
+	call .Pill
+	pop hl
+	call .Word
+	ld a, d
+	add 8
+	ld [PC_DATA + PCV_X], a
+	scf
+	ret
+
+.Pill:
+; 3x5 label hl in a pill at x d (y 8-15); d = after it.
+	push de
+	push hl
+	call PC_TinyWidth
+	add 4
+	ld b, a
+	ld a, 2 ; the button color
+	ld [PC_DATA + PCV_COLOR], a
+	ld e, 8
+	ld c, 8
+	push bc
+	call PC_FillRect
+	pop bc
+	xor a ; navy
+	ld [PC_DATA + PCV_COLOR], a
+	ld e, 8
+	call PC_Dot
+	ld e, 15
+	call PC_Dot
+	ld a, d
+	add b
+	dec a
+	ld d, a
+	call PC_Dot
+	ld e, 8
+	call PC_Dot
+	pop hl
+	pop de
+	push de
+	push bc
+	inc d
+	inc d
+	ld e, 10
+	call PC_TinyString
+	pop bc
+	pop de
+	ld a, d
+	add b
+	ld d, a
+	ret
+
+.Word:
+; VWF string hl in white 3 pixels after x d; d = after it.
+	ld a, d
+	add 3
+	ld c, a
+	ld d, h
+	ld e, l
+	push bc
+	push de
+	call PC_VWFStrip
+	ld a, 1 ; white
+	ld b, 0
+	ld c, SCREEN_WIDTH
+	call PC_MergeStrip
+	pop de
+	call GetVWFLength
+	pop bc
+	add c
+	ld d, a
+	ret
+
+.StartLabel:  db "START@"
+.SelectLabel: db "SELECT@"
+.BLabel:      db "B@"
+.Info:        db "Info@"
+.Move:        db "Move@"
+.Back:        db "Back@"
 
 PC_VWFStrip:
 ; String de in the VWF font into PC_STAGE (a strip of SCREEN_WIDTH tiles), c pixels in.
@@ -1772,17 +1943,10 @@ PartyCards_WritePals:
 	ld a, c
 	cp PARTY_LENGTH
 	jr c, .loop
-	; the bottom bar: the button is selected when the cursor is on Cancel
+	; the bottom bar
 	ld a, 1
 	ldh [rSVBK], a
-	ld a, [wPartyCount]
-	inc a
-	ld hl, wMenuCursorY
-	cp [hl]
 	ld hl, PartyCardFillColors + PCFILL_NORMAL * 4
-	jr nz, .got_button
-	ld hl, PartyCardFillColors + PCFILL_SELECTED * 4
-.got_button
 	ld bc, .BarColors
 	ld a, 6
 	call .Write
@@ -1941,7 +2105,13 @@ PartyCardsJoypad::
 	jr nz, .done
 	bit SELECT_F, b
 	jr nz, .select
+	bit START_F, b
+	jr nz, .info
 	call PartyCards_DPad
+	jr .loop
+
+.info
+	call PartyCardsInfo
 	jr .loop
 
 .select
@@ -2004,13 +2174,7 @@ PartyCards_DPad:
 	ld a, [wPartyCount]
 	cp c
 	jr nc, .moved
-	; past the last card: Cancel, else back to the top
-	call PartyCards_HasCancel
-	jr z, .wrap_top
-	ld a, [wPartyCount]
-	inc a
-	ld c, a
-	jr .moved
+	; past the last card: back to the top
 .wrap_top
 	ld c, 1
 	jr .moved
@@ -2025,13 +2189,7 @@ PartyCards_DPad:
 	bit 7, c
 	jr z, .moved
 .from_top
-	; above the top row: Cancel, else the last card
-	call PartyCards_HasCancel
-	jr z, .to_last
-	ld a, [wPartyCount]
-	inc a
-	ld c, a
-	jr .moved
+	; above the top row: the last card
 .to_last
 	ld a, [wPartyCount]
 	ld c, a
@@ -2057,8 +2215,8 @@ PartyCards_HasCancel:
 	ret
 
 PartyCards_MoveMode:
-; Select on a card: "Move to where?" with that card held. A on another card swaps the two;
-; B, Select or A on the held card puts it back.
+; Select on a card: "Move to where?" with that card held. A or Select on another card swaps
+; the two; B, or A or Select on the held card, puts it back.
 	ld de, SFX_READ_TEXT_2
 	call PlaySFX
 	ld a, [wMenuCursorY]
@@ -2080,9 +2238,9 @@ PartyCards_MoveMode:
 	call JoyTextDelay
 	ldh a, [hJoyLast]
 	ld b, a
-	and B_BUTTON | SELECT
+	bit B_BUTTON_F, b
 	jr nz, .put_back
-	bit A_BUTTON_F, b
+	and A_BUTTON | SELECT
 	jr nz, .drop
 	call PartyCards_DPad
 	jr .loop
