@@ -503,23 +503,34 @@ StartMenu_Pokemon:
 	call WaitBGMap
 	call SetDefaultBGPAndOBP
 	call DelayFrame
+.select
+	ld hl, wPartyMenuActionText
+	set PARTYMENU_REORDER_F, [hl] ; Select picks a Pokémon up to move it
 	farcall PartyMenuSelect
+	ld hl, wPartyMenuActionText
+	res PARTYMENU_REORDER_F, [hl]
 	jr c, .return ; if cancelled or pressed B
 
 	call PokemonActionSubmenu
 	cp 3
-	jr z, .menu
+	jr z, .refresh
 	and a
 	jr z, .choosemenu
 	cp 1
 	jr z, .menunoreload
 	cp 2
 	jr z, .quit
+	cp 4
+	jr z, .select
 
 .return
 	call CloseSubmenu
 	xor a
 	ret
+
+.refresh
+	farcall PartyCardsRefresh
+	jr .select
 
 .quit
 	ld a, b

@@ -729,12 +729,14 @@ _CGB_MapPals:
 	ret
 
 _CGB_PartyMenu:
-	ld hl, PalPacket_PartyMenu + 1
-	call CopyFourPalettes
-	call InitPartyMenuBGPal0
+	farcall PartyCardsLoadPals
 	call InitPartyMenuBGPal7
 	call InitPartyMenuOBPals
 	farcall LoadPartyMonIconOBPals
+	; with the LCD on, DrawPartyCards shows the attributes together with the tiles
+	ldh a, [rLCDC]
+	bit rLCDC_ENABLE, a
+	ret nz
 	jmp ApplyAttrmap
 
 _CGB_Evolution:

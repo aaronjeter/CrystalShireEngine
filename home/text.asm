@@ -130,7 +130,7 @@ TextboxPalette::
 	pop bc
 	dec b
 	jr nz, .col
-	ret
+	farjp PartyCardsTextboxHook ; (the party menu's cards: show the attributes at once)
 
 SpeechTextbox::
 ; Standard textbox. On the double battle screen it's a row shorter (rows 13-17); the

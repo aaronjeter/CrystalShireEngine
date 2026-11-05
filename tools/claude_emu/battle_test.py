@@ -368,7 +368,23 @@ def label_for(sym, region_start, off):
 TEXT_ROWS = slice(12, 18)
 
 
-def is_party_menu(t):
+def party_cards_state(g):
+    """The party menu's cards (engine/pokemon/party_cards.asm) are drawn into their
+    own tiles, so their text can't be read: None if they aren't on the screen, else 'message'
+    (a text box over them), 'use_on' (an item's target), 'choose' (choose/which Pokémon) or
+    'other', from wAttrmap and wPartyMenuActionText."""
+    am = g.sym['wAttrmap'][1]
+    if g.rd(am) != 0x08 or g.rd(am + 1) != 0x08:
+        return None
+    if g.rd(am + 16 * 20) != 0x0E:     # the bottom bar (palette 6, VRAM bank 1)
+        return 'message'
+    act = g.rd('wPartyMenuActionText') & 0xF
+    return 'use_on' if act == 1 else 'choose' if act in (0, 2) else 'other'
+
+
+def is_party_menu(t, g=None):
+    if g is not None and party_cards_state(g):
+        return True
     return 'Cancel' in '\n'.join(t) and re.search(r'\d+/ *\d+', t[1]) is not None
 
 
@@ -390,6 +406,11 @@ class Battle:
 
     def text(self):
         t = bytes(self.g.wram_full()[0x4A0:0x4A0 + 360])  # wTilemap ($c4a0)
+        if party_cards_state(self.g):
+            # the party menu's cards: their tiles (VRAM bank 1) aren't text
+            am = self.g.sym['wAttrmap'][1]
+            attrs = self.g.rd(am, 360)
+            t = bytes(0x7F if attrs[i] & 0x08 else c for i, c in enumerate(t))
         rows = [''.join(CHARS.get(c, ' ') for c in t[y * 20:(y + 1) * 20]) for y in range(18)]
         rows[17] = rows[17][:18] + ' ' + rows[17][19:]   # mask the blinking prompt arrow
         return rows
@@ -449,8 +470,11 @@ class Battle:
                 # double battles: the target menu ("<move> on" / "▶<foe>"; phase 2's was "Target:")
                 g.wr('wMenuCursorY', self.target + 1)
                 g.press('A', after=4)
-            elif is_party_menu(t):
+            elif is_party_menu(t, g):
                 bottom = ' '.join(t[15:18])
+                cards = party_cards_state(g)
+                if cards:   # the card layout: no readable prompt
+                    bottom = {'use_on': 'Use on', 'choose': 'Which', 'message': ''}.get(cards, '')
                 if 'Use on' in bottom:
                     g.press('B', after=4)   # an item menu left open: back out
                 elif 'Which' in bottom or 'Choose a' in bottom:
@@ -557,7 +581,7 @@ class Battle:
         if t and 'Use' in '\n'.join(t):
             g.press('A', after=4)       # "Use"
             t = self.settle()
-        if target is not None and t and is_party_menu(t):
+        if target is not None and t and is_party_menu(t, g):
             g.wr('wMenuCursorY', target + 1); g.press('A', after=4)
 
     def choose_replacement(self):

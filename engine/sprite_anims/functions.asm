@@ -53,6 +53,8 @@ DoSpriteAnimFrame:
 	assert_table_length NUM_SPRITE_ANIM_FUNCS
 
 SpriteAnimFunc_PartyMon:
+	call PartyMonIconCovered
+	ret c
 	ld a, [wMenuCursorY]
 
 	ld hl, SPRITEANIMSTRUCT_INDEX
@@ -60,9 +62,11 @@ SpriteAnimFunc_PartyMon:
 	cp [hl]
 	jr z, SpriteAnimFunc_PartyMonSwitch
 
+	ld a, [hl]
+	call PartyMonIconX
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
-	ld [hl], 8 * 2
+	ld [hl], a
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -70,9 +74,15 @@ SpriteAnimFunc_PartyMon:
 	ret
 
 SpriteAnimFunc_PartyMonSwitch:
+	call PartyMonIconCovered
+	ret c
+	ld hl, SPRITEANIMSTRUCT_INDEX
+	add hl, bc
+	ld a, [hl]
+	call PartyMonIconX
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
-	ld [hl], 8 * 3
+	ld [hl], a
 
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
@@ -110,22 +120,94 @@ SpriteAnimFunc_PartyMonSwitch:
 	ret
 
 SpriteAnimFunc_PartyMonSelected:
-	ld a, [wMenuCursorY]
-
+; (the party menu's cards: the icons stay in place)
+	call PartyMonIconCovered
+	ret c
 	ld hl, SPRITEANIMSTRUCT_INDEX
 	add hl, bc
-	cp [hl]
-	jr z, .three_offset_right
-
+	ld a, [hl]
+	call PartyMonIconX
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
-	ld [hl], 8 * 2
+	ld [hl], a
 	ret
 
-.three_offset_right
+PartyMonIconCovered:
+; On the party menu's cards: if a menu or text box covers icon bc's place (the tiles under it
+; no longer come from VRAM bank 1), move it off the screen's left edge and return carry
+; (the callers set its x again once it's uncovered). Preserves bc.
+	ld a, [wAttrmap]
+	cp VRAM_BANK_1
+	jr nz, .not_cards
+	ld a, [wAttrmap + 1]
+	cp VRAM_BANK_1
+	jr nz, .not_cards
+	push bc
+	ld hl, SPRITEANIMSTRUCT_INDEX
+	add hl, bc
+	ld a, [hl]
+	dec a
+	ld e, a
+	; hl = wAttrmap at the card's row 1, column 0
+	srl a
+	ld d, a
+	add a
+	add a
+	add d ; * 5
+	inc a
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	ld b, h
+	ld c, l
+	add hl, hl
+	add hl, hl
+	add hl, bc ; * 20
+	bit 0, e
+	jr z, .got_col
+	ld bc, 10
+	add hl, bc
+.got_col
+	ld bc, wAttrmap
+	add hl, bc
+	; the 3x2 tiles under the icon
+	ld d, 2
+.row
+	ld e, 3
+	push hl
+.tile
+	ld a, [hli]
+	bit OAM_TILE_BANK, a
+	jr z, .covered
+	dec e
+	jr nz, .tile
+	pop hl
+	ld bc, SCREEN_WIDTH
+	add hl, bc
+	dec d
+	jr nz, .row
+	pop bc
+.not_cards
+	and a
+	ret
+
+.covered
+	pop hl
+	pop bc
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
-	ld [hl], 8 * 3
+	ld [hl], 0 ; left of the screen
+	scf
+	ret
+
+PartyMonIconX::
+; a = the x coordinate of party icon a (1-6) on its card
+	dec a
+	and 1
+	ld a, 19
+	ret z
+	ld a, 19 + 80
 	ret
 
 SpriteAnimFunc_GSTitleTrail:

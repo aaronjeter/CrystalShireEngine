@@ -102,12 +102,13 @@ CancelPokemonAction:
 	ret
 
 PokemonActionSubmenu:
-	hlcoord 1, 15
-	lb bc, 2, 18
-	call ClearBox
+	farcall PartyCardsHidePrompt
 	farcall MonSubmenu
+.dispatch
 	call GetCurNickname
 	ld a, [wMenuSelection]
+	cp MONMENUITEM_FIELD
+	jr z, .field
 	ld hl, .Actions
 	ld de, 3
 	call IsInArray
@@ -122,6 +123,14 @@ PokemonActionSubmenu:
 .nothing
 	xor a
 	ret
+
+.field
+	farcall MonFieldSubmenu
+	ld a, [wMenuSelection]
+	cp MONMENUITEM_CANCEL
+	jr nz, .dispatch
+	farcall MonSubmenu ; back to the main list
+	jr .dispatch
 
 .Actions:
 	dbw MONMENUITEM_CUT,        MonMenu_Cut
@@ -144,6 +153,7 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_CANCEL,     CancelPokemonAction
 	dbw MONMENUITEM_MOVE,       CancelPokemonAction ; unused: the stats screen's moves page replaced Party > Moves
 	dbw MONMENUITEM_MAIL,       MonMailAction
+	dbw MONMENUITEM_NICKNAME,   MonMenu_Nickname
 
 SwitchPartyMons:
 ; Don't try if there's nothing to switch!
@@ -160,15 +170,10 @@ SwitchPartyMons:
 
 	ld a, PARTYMENUACTION_MOVE
 	ld [wPartyMenuActionText], a
-	farcall WritePartyMenuTilemap
+	xor a ; the cards are on the screen: only the held card's palette changes
+	farcall PartyCardsRedraw
 	farcall PlacePartyMenuText
 
-	hlcoord 0, 1
-	ld bc, SCREEN_WIDTH * 2
-	ld a, [wSwitchMon]
-	dec a
-	rst AddNTimes
-	ld [hl], "▷"
 	call WaitBGMap
 	call SetDefaultBGPAndOBP
 	call DelayFrame
@@ -182,17 +187,19 @@ SwitchPartyMons:
 	xor a
 	ld [wPartyMenuActionText], a
 
-	farcall LoadPartyMenuGFX
 	farcall InitPartyMenuWithCancel
-	farcall InitPartyMenuGFX
+	farcall PartyCardsRedrawSwitched
 
-	ld a, 1
+	ld a, 4 ; back to the party menu as it is
 	ret
 
 .DontSwitch:
 	xor a
 	ld [wPartyMenuActionText], a
 	jmp CancelPokemonAction
+
+MonMenu_Nickname:
+	farjp PartyCardsNickname
 
 GiveTakePartyMonItem:
 ; Eggs can't hold items!
@@ -212,6 +219,8 @@ GiveTakePartyMonItem:
 	ld bc, MON_NAME_LENGTH
 	rst CopyBytes
 	ld a, [wMenuCursorY]
+	cp 3
+	jr z, .swap
 	cp 1
 	jr nz, .take
 
@@ -228,6 +237,9 @@ GiveTakePartyMonItem:
 	call TakePartyItem
 	ld a, 3
 	ret
+
+.swap
+	farjp PartyCardsSwapItem
 
 .cancel
 	ld a, 3
@@ -425,15 +437,16 @@ TakePartyItem:
 
 GiveTakeItemMenuData:
 	db MENU_SPRITE_ANIMS | MENU_BACKUP_TILES ; flags
-	menu_coords 12, 12, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	menu_coords 12, 10, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
 	dw .Items
 	db 1 ; default option
 
 .Items:
 	db STATICMENU_CURSOR ; flags
-	db 2 ; # items
+	db 3 ; # items
 	db "Give@"
 	db "Take@"
+	db "Swap@"
 
 PokemonSwapItemText:
 	text_far _PokemonSwapItemText

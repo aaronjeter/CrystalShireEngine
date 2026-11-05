@@ -15,13 +15,6 @@ _SwitchPartyMons:
 ; fallthrough
 .ClearSprite:
 	push af
-	hlcoord 0, 1
-	ld bc, 2 * SCREEN_WIDTH
-	rst AddNTimes
-	ld bc, 2 * SCREEN_WIDTH
-	ld a, " "
-	rst ByteFill
-	pop af
 	ld hl, wShadowOAMSprite00
 	ld bc, 4 * SPRITEOAMSTRUCT_LENGTH
 	rst AddNTimes
@@ -32,6 +25,8 @@ _SwitchPartyMons:
 	add hl, de
 	dec c
 	jr nz, .gfx_loop
+	pop af
+	farcall PartyCardsBlankCard
 	ld de, SFX_SWITCH_POKEMON
 	jmp WaitPlaySFX
 

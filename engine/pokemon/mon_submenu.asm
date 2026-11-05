@@ -1,9 +1,21 @@
 INCLUDE "data/mon_menu.asm"
 
+MonFieldSubmenu:
+; The field moves and Cancel, for the Field entry.
+	xor a
+	ldh [hBGMapMode], a
+	call ResetMonSubmenu
+	call AddFieldMoves
+	ld a, MONMENUITEM_CANCEL
+	call AddMonMenuItem
+	call TerminateMonSubmenu
+	jr _MonSubmenu
+
 MonSubmenu:
 	xor a
 	ldh [hBGMapMode], a
 	call GetMonSubmenuItems
+_MonSubmenu:
 	farcall FreezeMonIcons
 	ld hl, .MenuHeader
 	call LoadMenuHeader
@@ -115,35 +127,18 @@ GetMonSubmenuItems:
 	ld a, [wLinkMode]
 	and a
 	jr nz, .skip_moves
-	ld a, MON_MOVES
-	call GetPartyParamLocation
-	ld d, h
-	ld e, l
-	ld c, NUM_MOVES
-.loop
-	push bc
-	push de
-	ld a, [de]
-	and a
-	jr z, .next
-	push hl
-	call IsFieldMove
-	pop hl
-	call c,  AddMonMenuItem
-; fallthrough
-.next
-	pop de
-	inc de
-	pop bc
-	dec c
-	jr nz, .loop
+	; the field moves, or one Field entry when the menu can't hold them all
+	call AddFieldMoves
+	ld a, [wMonSubmenuCount]
+	cp NUM_MONMENU_ITEMS - NUM_FIXED_MONMENU_ITEMS + 1
+	jr c, .skip_moves
+	call ResetMonSubmenu
+	ld a, MONMENUITEM_FIELD
+	call AddMonMenuItem
 
 .skip_moves
 	ld a, MONMENUITEM_STATS
 	call AddMonMenuItem
-	ld a, MONMENUITEM_SWITCH
-	call AddMonMenuItem
-	; no MONMENUITEM_MOVE: moves are viewed and reordered on the stats screen
 	ld a, [wLinkMode]
 	and a
 	jr nz, .skip2
@@ -158,8 +153,12 @@ GetMonSubmenuItems:
 	and MONMENUITEM_MAIL - MONMENUITEM_ITEM
 	add MONMENUITEM_ITEM
 	call AddMonMenuItem
+	ld a, MONMENUITEM_NICKNAME
+	call AddMonMenuItem
 
 .skip2
+	ld a, MONMENUITEM_SWITCH ; "Move"
+	call AddMonMenuItem
 	ld a, [wMonSubmenuCount]
 	cp NUM_MONMENU_ITEMS
 	jr z, TerminateMonSubmenu
@@ -175,6 +174,33 @@ GetMonSubmenuItems:
 	ld a, MONMENUITEM_CANCEL
 	call AddMonMenuItem
 	jr TerminateMonSubmenu
+
+DEF NUM_FIXED_MONMENU_ITEMS EQU 5 ; Stats, Item, Nickname, Move, Cancel
+
+AddFieldMoves:
+; Add wCurPartyMon's field moves to the submenu.
+	ld a, MON_MOVES
+	call GetPartyParamLocation
+	ld d, h
+	ld e, l
+	ld c, NUM_MOVES
+.loop
+	push bc
+	push de
+	ld a, [de]
+	and a
+	jr z, .next
+	push hl
+	call IsFieldMove
+	pop hl
+	call c, AddMonMenuItem
+.next
+	pop de
+	inc de
+	pop bc
+	dec c
+	jr nz, .loop
+	ret
 
 IsFieldMove:
 	call GetMoveIndexFromID

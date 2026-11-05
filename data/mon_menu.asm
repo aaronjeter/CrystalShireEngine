@@ -23,14 +23,18 @@ MonMenuOptions:
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_CANCEL,     .cancel
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_MOVE,       .move
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_MAIL,       .mail
+	dbbw MONMENU_MENUOPTION, MONMENUITEM_NICKNAME,   .nickname
+	dbbw MONMENU_MENUOPTION, MONMENUITEM_FIELD,      .field
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_ERROR,      .error
 	assert_table_length NUM_MONMENUITEMS
 	db -1
 
 .stats:  db "Stats@"
-.switch: db "Switch@"
+.switch: db "Move@"
 .item:   db "Item@"
 .cancel: db "Cancel@"
 .move:   db "Move@"
 .mail:   db "Mail@"
+.nickname: db "Nickname@"
+.field:  db "Field@"
 .error:  db "Error!@"

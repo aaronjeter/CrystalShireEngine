@@ -699,3 +699,8 @@ INCLUDE "engine/events/fish_level.asm"
 SECTION "Stats Screen Pages", ROMX
 
 INCLUDE "engine/pokemon/stats_screen_pages.asm"
+
+
+SECTION "Party Menu Cards", ROMX
+
+INCLUDE "engine/pokemon/party_cards.asm"

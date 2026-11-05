@@ -622,16 +622,26 @@ InitPartyMenuIcon:
 	ld a, [hl]
 	ld [wCurIcon], a
 	call GetMemIconGFX
+; the party menu's cards: two columns of three, 40 pixels high
+; x coord: 11, 80 more in the right column
 	ldh a, [hObjectStructIndex]
+	and 1
+	ld e, 19
+	jr z, .got_x
+	ld e, 19 + 80
+.got_x
 ; y coord
-	add a
-	add a
-	add a
-	add a
-	add $1c
+	ldh a, [hObjectStructIndex]
+	srl a
 	ld d, a
-; x coord
-	ld e, $10
+	add a
+	add a
+	add d ; * 5
+	add a
+	add a
+	add a ; * 40
+	add $20
+	ld d, a
 ; type is partymon icon
 	ld a, SPRITE_ANIM_OBJ_PARTY_MON
 	call _InitSpriteAnimStruct
@@ -893,7 +903,7 @@ FreezeMonIcons:
 	and a
 	jr z, .next
 	cp d
-	ld a, SPRITE_ANIM_FUNC_NULL
+	ld a, SPRITE_ANIM_FUNC_PARTY_MON_SELECTED ; still, but hidden under a menu
 	jr nz, .ok
 	ld a, SPRITE_ANIM_FUNC_PARTY_MON_SWITCH
 .ok

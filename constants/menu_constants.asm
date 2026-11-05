@@ -78,7 +78,9 @@
 	const MONMENUITEM_CANCEL     ; 18
 	const MONMENUITEM_MOVE       ; 19
 	const MONMENUITEM_MAIL       ; 20
-	const MONMENUITEM_ERROR      ; 21
+	const MONMENUITEM_NICKNAME   ; 21
+	const MONMENUITEM_FIELD      ; 22: a sub-list of the field moves
+	const MONMENUITEM_ERROR      ; 23
 DEF NUM_MONMENUITEMS EQU const_value - 1
 
 ; MonMenuOptions categories
@@ -91,7 +93,9 @@ DEF NUM_MONMENU_ITEMS EQU 8
 DEF HMENURETURN_SCRIPT EQU %10000000
 DEF HMENURETURN_ASM    EQU %11111111
 
-; PartyMenuQualityPointers indexes (see data/party_menu_qualities.asm)
+; wPartyMenuActionText values (prompts and card modes: engine/pokemon/party_cards.asm);
+; bit PARTYMENU_REORDER_F is set while the Start menu's party menu waits for input
+DEF PARTYMENU_REORDER_F EQU 7
 	const_def
 	const PARTYMENUACTION_CHOOSE_POKEMON
 	const PARTYMENUACTION_HEALING_ITEM
