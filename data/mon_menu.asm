@@ -21,10 +21,11 @@ MonMenuOptions:
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_SWITCH,     .switch
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_ITEM,       .item
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_CANCEL,     .cancel
-	dbbw MONMENU_MENUOPTION, MONMENUITEM_MOVE,       .move
+	dbbw MONMENU_MENUOPTION, MONMENUITEM_FOLLOW,     .follow
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_MAIL,       .mail
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_NICKNAME,   .nickname
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_FIELD,      .field
+	dbbw MONMENU_MENUOPTION, MONMENUITEM_UNFOLLOW,   .unfollow
 	dbbw MONMENU_MENUOPTION, MONMENUITEM_ERROR,      .error
 	assert_table_length NUM_MONMENUITEMS
 	db -1
@@ -33,8 +34,9 @@ MonMenuOptions:
 .switch: db "Move@"
 .item:   db "Item@"
 .cancel: db "Cancel@"
-.move:   db "Move@"
+.follow: db "Follow@"
 .mail:   db "Mail@"
 .nickname: db "Nickname@"
 .field:  db "Field@"
+.unfollow: db "Unfollow@"
 .error:  db "Error!@"

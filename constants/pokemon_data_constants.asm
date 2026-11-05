@@ -87,7 +87,8 @@ DEF MON_SPD_EV             rb
 DEF MON_SAT_EV             rb
 DEF MON_SDF_EV             rb
 DEF MON_ABILITY_SLOT       rb ; bits 0-1: ABILITY_SLOT_* (ABILITY_SLOT_MASK)
-                           rb_skip 3
+DEF MON_MARKS              rb ; MON_*_F flags below
+                           rb_skip 2
 DEF MON_DVS                rw
 DEF MON_PP                 rb NUM_MOVES
 DEF MON_HAPPINESS          rb
@@ -134,7 +135,8 @@ DEF SAVEMON_SPD_EV             rb
 DEF SAVEMON_SAT_EV             rb
 DEF SAVEMON_SDF_EV             rb
 DEF SAVEMON_ABILITY_SLOT       rb ; same as MON_ABILITY_SLOT
-                               rb_skip 3
+DEF SAVEMON_MARKS              rb ; same as MON_MARKS
+                               rb_skip 2
 DEF SAVEMON_DVS                rw
 ; savemon_struct is identical to party_struct before this point
 DEF SAVEMON_MOVES_HIGH         rb NUM_MOVES
@@ -160,6 +162,9 @@ DEF SAVEMON_STRUCT_LENGTH EQU _RS
 
 DEF NICKNAMED_MON_STRUCT_LENGTH EQU PARTYMON_STRUCT_LENGTH + MON_NAME_LENGTH
 DEF REDMON_STRUCT_LENGTH EQU 44
+
+; MON_MARKS bits
+DEF MON_FAVORITE_F EQU 0 ; follows the player (one party Pokémon at most; cleared when boxed)
 
 ; savemon Exp masks
 DEF IS_EGG_MASK EQU %10000000

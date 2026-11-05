@@ -583,6 +583,7 @@ Mobile_InitPartyMenuBGPal71:
 PartyMenu_InitAnimatedMonIcon:
 	call InitPartyMenuIcon
 	call .SpawnItemIcon
+	farcall PartyCardsIconStar
 	jr SetPartyMonIconAnimSpeed
 
 .SpawnItemIcon:

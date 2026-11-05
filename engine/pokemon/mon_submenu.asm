@@ -159,6 +159,13 @@ GetMonSubmenuItems:
 .skip2
 	ld a, MONMENUITEM_SWITCH ; "Move"
 	call AddMonMenuItem
+	ld a, [wLinkMode]
+	and a
+	jr nz, .no_follow
+	farcall PartyCardsFollowItem ; Follow, Unfollow, or 0 with followers off
+	and a
+	call nz, AddMonMenuItem
+.no_follow
 	ld a, [wMonSubmenuCount]
 	cp NUM_MONMENU_ITEMS
 	jr z, TerminateMonSubmenu
@@ -175,7 +182,7 @@ GetMonSubmenuItems:
 	call AddMonMenuItem
 	jr TerminateMonSubmenu
 
-DEF NUM_FIXED_MONMENU_ITEMS EQU 5 ; Stats, Item, Nickname, Move, Cancel
+DEF NUM_FIXED_MONMENU_ITEMS EQU 6 ; Stats, Item, Nickname, Move, Follow, Cancel
 
 AddFieldMoves:
 ; Add wCurPartyMon's field moves to the submenu.

@@ -702,6 +702,11 @@ DepositBreedmon:
 	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
 	rst AddNTimes
+	push hl
+	ld bc, MON_MARKS
+	add hl, bc
+	res MON_FAVORITE_F, [hl] ; only party Pokémon are favorites
+	pop hl
 	ld bc, BOXMON_STRUCT_LENGTH
 	jmp CopyBytes
 

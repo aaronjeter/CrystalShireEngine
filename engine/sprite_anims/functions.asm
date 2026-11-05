@@ -55,6 +55,7 @@ DoSpriteAnimFrame:
 SpriteAnimFunc_PartyMon:
 	call PartyMonIconCovered
 	ret c
+	call PartyMonIconPals
 	ld a, [wMenuCursorY]
 
 	ld hl, SPRITEANIMSTRUCT_INDEX
@@ -76,6 +77,7 @@ SpriteAnimFunc_PartyMon:
 SpriteAnimFunc_PartyMonSwitch:
 	call PartyMonIconCovered
 	ret c
+	call PartyMonIconPals
 	ld hl, SPRITEANIMSTRUCT_INDEX
 	add hl, bc
 	ld a, [hl]
@@ -123,6 +125,7 @@ SpriteAnimFunc_PartyMonSelected:
 ; (the party menu's cards: the icons stay in place)
 	call PartyMonIconCovered
 	ret c
+	call PartyMonIconPals
 	ld hl, SPRITEANIMSTRUCT_INDEX
 	add hl, bc
 	ld a, [hl]
@@ -130,6 +133,34 @@ SpriteAnimFunc_PartyMonSelected:
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
 	ld [hl], a
+	ret
+
+PartyMonIconPals:
+; Icon bc's OBJ palette (party slot n uses palette n, = its index) on the OAM entries it
+; writes this frame: their place moves when a favorite's star comes before them. Preserves
+; bc.
+	ld hl, SPRITEANIMSTRUCT_INDEX
+	add hl, bc
+	ld d, [hl]
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld a, [hl]
+	cp SPRITE_ANIM_FRAMESET_PARTY_MON_FAV
+	ld e, 4
+	jr c, .got_count
+	inc e ; the star
+.got_count
+	ld a, [wCurSpriteOAMAddr]
+	add SPRITEOAMSTRUCT_ATTRIBUTES
+.loop
+	cp LOW(wShadowOAMEnd)
+	ret nc
+	ld l, a
+	ld h, HIGH(wShadowOAM)
+	ld [hl], d
+	add SPRITEOAMSTRUCT_LENGTH
+	dec e
+	jr nz, .loop
 	ret
 
 PartyMonIconCovered:

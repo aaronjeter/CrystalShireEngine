@@ -959,7 +959,10 @@ PartyCards_SharedTiles:
 ; The tilemap -------------------------------------------------------------------------------
 
 PartyCardsBlankCard::
-; Show card a as an empty slot, as the switch animation does.
+; Show card a as an empty slot without its icon, as the switch animation does.
+	push af
+	call PartyCards_HideIcon
+	pop af
 	and a
 	call PartyCards_PlaceTiles
 	call DelayFrame ; (its icon, already hidden, goes first)
@@ -1643,9 +1646,25 @@ PartyCardTinyFont:
 ; Palettes --------------------------------------------------------------------------------
 
 PartyCardsLoadPals::
-; The card palettes 0-6 into wBGPals1.
+; The card palettes 0-6 into wBGPals1, and the favorite's star into OBJ palette 7.
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wOBPals1)
+	ldh [rSVBK], a
+	ld hl, PartyCardStarPal
+	ld de, wOBPals1 + 7 palettes
+	ld bc, 1 palettes
+	rst CopyBytes
+	pop af
+	ldh [rSVBK], a
 	xor a
 	jr PartyCards_WritePals
+
+PartyCardStarPal:
+	RGB 31, 31, 31 ; (transparent)
+	RGB 31, 25, 04 ; gold
+	RGB 31, 31, 24 ; (unused)
+	RGB 14, 08, 00 ; outline
 
 PartyCardsUpdatePals::
 ; The card palettes 0-6 into wBGPals1 and wBGPals2, shown at once (cursor moves).
@@ -2132,6 +2151,195 @@ PartyCards_SwapIcons:
 	ld bc, wSpriteAnimationStructs
 	add hl, bc
 	ret
+
+PartyCards_HideIcon:
+; Hide icon a's OAM entries until the icons' next frame. The icons' structs come first and
+; write 4 entries each, 5 with the favorite's star.
+	ld hl, wSpriteAnimationStructs + SPRITEANIMSTRUCT_FRAMESET_ID
+	ld de, wShadowOAMSprite00
+	inc a
+	ld c, a
+.loop
+	ld b, 4
+	ld a, [hl]
+	cp SPRITE_ANIM_FRAMESET_PARTY_MON_FAV
+	jr c, .got_count
+	inc b
+.got_count
+	dec c
+	jr z, .hide
+	push bc
+	ld bc, SPRITEANIMSTRUCT_LENGTH
+	add hl, bc
+	pop bc
+	ld a, b
+	add a
+	add a ; * SPRITEOAMSTRUCT_LENGTH
+	add e
+	ld e, a
+	jr .loop
+.hide
+	ld h, d
+	ld l, e
+	ld de, SPRITEOAMSTRUCT_LENGTH
+.hide_loop
+	ld [hl], OAM_YCOORD_HIDDEN
+	add hl, de
+	dec b
+	jr nz, .hide_loop
+	ret
+
+PartyCardsFollowItem::
+; a = the party submenu's MONMENUITEM_FOLLOW or _UNFOLLOW for wCurPartyMon, or 0 with
+; followers turned off.
+	ld a, [wOptions2]
+	bit FOLLOWER_OFF, a
+	ld a, 0
+	ret nz
+	ld a, MON_MARKS
+	call GetPartyParamLocation
+	bit MON_FAVORITE_F, [hl]
+	ld a, MONMENUITEM_FOLLOW
+	ret z
+	ld a, MONMENUITEM_UNFOLLOW
+	ret
+
+PartyCardsFollow::
+; Party submenu > Follow / Unfollow: make wCurPartyMon the favorite (the one Pokémon that
+; follows the player; any other loses the mark), or clear its mark. Returns the party
+; menu's action code in a (4: back to it as it is).
+	ld a, MON_MARKS
+	call GetPartyParamLocation
+	bit MON_FAVORITE_F, [hl]
+	jr nz, .unfollow
+	; clear every mark, then set this one
+	push hl
+	ld hl, wPartyMon1 + MON_MARKS
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wPartyCount]
+	ld e, a
+.clear
+	res MON_FAVORITE_F, [hl]
+	add hl, bc
+	dec e
+	jr nz, .clear
+	pop hl
+	set MON_FAVORITE_F, [hl]
+	ld de, SFX_FULL_HEAL
+	jr .done
+.unfollow
+	res MON_FAVORITE_F, [hl]
+	ld de, SFX_SWITCH_POKEMON
+.done
+	call PlaySFX
+	farcall InitPartyMenuWithCancel
+	farcall UnfreezeMonIcons
+	call PartyCards_UpdateStars
+	xor a ; the menu closed over the cards: show them again, no card changed
+	call PartyCardsRedraw
+	ld a, 4
+	ret
+
+PartyCards_UpdateStars:
+; Every icon's frameset with or without the favorite's star, and the star's tile in the
+; favorite's icon tiles.
+	ld hl, wSpriteAnimationStructs
+	ld de, wPartyMon1 + MON_MARKS
+	ld a, [wPartyCount]
+	ld c, a
+.loop
+	push bc
+	push hl
+	ld bc, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld a, [hl]
+	cp SPRITE_ANIM_FRAMESET_PARTY_MON_FAV
+	jr c, .plain
+	sub SPRITE_ANIM_FRAMESET_PARTY_MON_FAV - SPRITE_ANIM_FRAMESET_PARTY_MON
+.plain
+	ld b, a
+	ld a, [de]
+	bit MON_FAVORITE_F, a
+	ld a, b
+	jr z, .set
+	add SPRITE_ANIM_FRAMESET_PARTY_MON_FAV - SPRITE_ANIM_FRAMESET_PARTY_MON
+	ld [hli], a
+	inc hl ; SPRITEANIMSTRUCT_TILE_ID
+	assert SPRITEANIMSTRUCT_TILE_ID == SPRITEANIMSTRUCT_FRAMESET_ID + 2
+	ld a, [hl]
+	push de
+	call PartyCards_LoadStarTile
+	pop de
+	jr .next
+.set
+	ld [hl], a
+.next
+	pop hl
+	ld bc, SPRITEANIMSTRUCT_LENGTH
+	add hl, bc
+	ld a, e
+	add LOW(PARTYMON_STRUCT_LENGTH)
+	ld e, a
+	adc d
+	sub e
+	ld d, a
+	pop bc
+	dec c
+	jr nz, .loop
+	ret
+
+PartyCardsIconStar::
+; For the party menu's icon bc (party slot [hObjectStructIndex]), loaded at the tiles before
+; wCurIconTile: a tile more for the favorite's star (loaded if it's the favorite, then
+; its frameset with the star).
+	ld a, [wCurIconTile]
+	inc a
+	ld [wCurIconTile], a
+	ldh a, [hObjectStructIndex]
+	ld hl, wPartyMon1 + MON_MARKS
+	push bc
+	ld bc, PARTYMON_STRUCT_LENGTH
+	rst AddNTimes
+	pop bc
+	bit MON_FAVORITE_F, [hl]
+	ret z
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld a, [hl]
+	add SPRITE_ANIM_FRAMESET_PARTY_MON_FAV - SPRITE_ANIM_FRAMESET_PARTY_MON
+	ld [hl], a
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld a, [hl]
+	push bc
+	call PartyCards_LoadStarTile
+	pop bc
+	ret
+
+PartyCards_LoadStarTile:
+; The star into OBJ tile a + 10 (after an icon's 8 tiles and the mail and item marks).
+	add 10
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld de, vTiles0
+	add hl, de
+	ld de, PartyCardStarGFX
+	lb bc, BANK(PartyCardStarGFX), 1
+	jmp Request2bpp
+
+PartyCardStarGFX:
+	dw `00030000
+	dw `00313000
+	dw `33111330
+	dw `31111130
+	dw `03111300
+	dw `31131130
+	dw `33000330
+	dw `00000000
 
 PartyCardsHidePrompt::
 ; Blank the prompt (a submenu is opening over the bar).

@@ -7,8 +7,39 @@
 SECTION "Pokemon Follower", ROMX
 
 GetFollowerPartyMon::
-; Find the first party Pokémon that isn't an egg and isn't fainted.
+; The party's favorite (MON_FAVORITE_F; none while it's fainted), else the first
+; party Pokémon that isn't an egg and isn't fainted.
 ; Output: a = species, hl = its party struct; carry if there's none.
+	ld hl, wPartyMon1 + MON_MARKS
+	ld de, wPartySpecies
+.find_favorite
+	ld a, [de]
+	cp -1
+	jr z, .no_favorite
+	bit MON_FAVORITE_F, [hl]
+	jr nz, .favorite
+	inc de
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	jr .find_favorite
+
+.favorite
+	ld bc, -MON_MARKS
+	add hl, bc
+	cp EGG
+	jr z, .none
+	push hl
+	ld bc, MON_HP
+	add hl, bc
+	ld a, [hli]
+	or [hl]
+	pop hl
+	jr z, .none
+	ld a, [de]
+	and a
+	ret
+
+.no_favorite
 	ld hl, wPartyMon1
 	ld de, wPartySpecies
 .loop

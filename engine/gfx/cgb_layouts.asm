@@ -729,9 +729,9 @@ _CGB_MapPals:
 	ret
 
 _CGB_PartyMenu:
-	farcall PartyCardsLoadPals
 	call InitPartyMenuBGPal7
 	call InitPartyMenuOBPals
+	farcall PartyCardsLoadPals
 	farcall LoadPartyMonIconOBPals
 	; with the LCD on, DrawPartyCards shows the attributes together with the tiles
 	ldh a, [rLCDC]

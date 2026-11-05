@@ -153,6 +153,12 @@ SpriteAnimOAMData:
 	spriteanimoam $00, .OAMData_PCMode                   ; SPRITE_ANIM_OAMSET_PC_MODE
 	spriteanimoam $00, .OAMData_PCMode2                  ; SPRITE_ANIM_OAMSET_PC_MODE2
 	spriteanimoam $00, .OAMData_PCPack                   ; SPRITE_ANIM_OAMSET_PC_PACK
+	spriteanimoam $00, .OAMData_PartyMonFav1             ; SPRITE_ANIM_OAMSET_PARTY_MON_FAV_1
+	spriteanimoam $00, .OAMData_PartyMonFav2             ; SPRITE_ANIM_OAMSET_PARTY_MON_FAV_2
+	spriteanimoam $00, .OAMData_PartyMonWithMailFav1     ; SPRITE_ANIM_OAMSET_PARTY_MON_WITH_MAIL_FAV_1
+	spriteanimoam $00, .OAMData_PartyMonWithMailFav2     ; SPRITE_ANIM_OAMSET_PARTY_MON_WITH_MAIL_FAV_2
+	spriteanimoam $00, .OAMData_PartyMonWithItemFav1     ; SPRITE_ANIM_OAMSET_PARTY_MON_WITH_ITEM_FAV_1
+	spriteanimoam $00, .OAMData_PartyMonWithItemFav2     ; SPRITE_ANIM_OAMSET_PARTY_MON_WITH_ITEM_FAV_2
 	assert_table_length NUM_SPRITE_ANIM_OAMSETS
 
 .OAMData_1x1_Palette0:
@@ -367,6 +373,55 @@ SpriteAnimOAMData:
 	dbsprite  0, -1,  0,  0, $01, -1
 	dbsprite -1,  0,  0,  0, $02, -1
 	dbsprite  0,  0,  0,  0, $03, -1
+
+.OAMData_PartyMonFav1:
+; the favorite's star (tile $0a, OBJ palette 7) on the icon's top left corner, in front
+	db 5
+	dbsprite -1, -1, -2,  0, $0a, PAL_ICON_PURPLE
+	dbsprite -1, -1,  0,  0, $00, -1
+	dbsprite  0, -1,  0,  0, $01, -1
+	dbsprite -1,  0,  0,  0, $02, -1
+	dbsprite  0,  0,  0,  0, $03, -1
+
+.OAMData_PartyMonFav2:
+	db 5
+	dbsprite -1, -1, -2,  0, $0a, PAL_ICON_PURPLE
+	dbsprite -1, -1,  0,  0, $04, -1
+	dbsprite  0, -1,  0,  0, $05, -1
+	dbsprite -1,  0,  0,  0, $06, -1
+	dbsprite  0,  0,  0,  0, $07, -1
+
+.OAMData_PartyMonWithMailFav1:
+	db 5
+	dbsprite -1, -1, -2,  0, $0a, PAL_ICON_PURPLE
+	dbsprite -1, -1,  0,  0, $00, -1
+	dbsprite  0, -1,  0,  0, $01, -1
+	dbsprite -1,  0,  0,  0, $08, PAL_ICON_RED
+	dbsprite  0,  0,  0,  0, $03, -1
+
+.OAMData_PartyMonWithMailFav2:
+	db 5
+	dbsprite -1, -1, -2,  0, $0a, PAL_ICON_PURPLE
+	dbsprite -1, -1,  0,  0, $04, -1
+	dbsprite  0, -1,  0,  0, $05, -1
+	dbsprite -1,  0,  0,  0, $08, PAL_ICON_RED
+	dbsprite  0,  0,  0,  0, $07, -1
+
+.OAMData_PartyMonWithItemFav1:
+	db 5
+	dbsprite -1, -1, -2,  0, $0a, PAL_ICON_PURPLE
+	dbsprite -1, -1,  0,  0, $00, -1
+	dbsprite  0, -1,  0,  0, $01, -1
+	dbsprite -1,  0,  0,  0, $09, PAL_ICON_RED
+	dbsprite  0,  0,  0,  0, $03, -1
+
+.OAMData_PartyMonWithItemFav2:
+	db 5
+	dbsprite -1, -1, -2,  0, $0a, PAL_ICON_PURPLE
+	dbsprite -1, -1,  0,  0, $04, -1
+	dbsprite  0, -1,  0,  0, $05, -1
+	dbsprite -1,  0,  0,  0, $09, PAL_ICON_RED
+	dbsprite  0,  0,  0,  0, $07, -1
 
 .OAMData_GSIntroMagikarp:
 	db 6

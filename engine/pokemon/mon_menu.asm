@@ -151,9 +151,10 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_SWITCH,     SwitchPartyMons
 	dbw MONMENUITEM_ITEM,       GiveTakePartyMonItem
 	dbw MONMENUITEM_CANCEL,     CancelPokemonAction
-	dbw MONMENUITEM_MOVE,       CancelPokemonAction ; unused: the stats screen's moves page replaced Party > Moves
+	dbw MONMENUITEM_FOLLOW,     MonMenu_Follow
 	dbw MONMENUITEM_MAIL,       MonMailAction
 	dbw MONMENUITEM_NICKNAME,   MonMenu_Nickname
+	dbw MONMENUITEM_UNFOLLOW,   MonMenu_Follow
 
 SwitchPartyMons:
 ; Don't try if there's nothing to switch!
@@ -200,6 +201,9 @@ SwitchPartyMons:
 
 MonMenu_Nickname:
 	farjp PartyCardsNickname
+
+MonMenu_Follow:
+	farjp PartyCardsFollow
 
 GiveTakePartyMonItem:
 ; Eggs can't hold items!

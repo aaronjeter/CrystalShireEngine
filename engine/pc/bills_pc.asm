@@ -706,6 +706,10 @@ AddStorageMon:
 	push de
 	push bc
 
+	; only party Pokémon are favorites
+	ld hl, wBufferMonMarks
+	res MON_FAVORITE_F, [hl]
+
 	; Encode the tempmon for adding, but decode it afterwards to leave it in
 	; the same state.
 	push de

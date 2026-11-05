@@ -76,11 +76,12 @@
 	const MONMENUITEM_SWITCH     ; 16
 	const MONMENUITEM_ITEM       ; 17
 	const MONMENUITEM_CANCEL     ; 18
-	const MONMENUITEM_MOVE       ; 19
+	const MONMENUITEM_FOLLOW     ; 19
 	const MONMENUITEM_MAIL       ; 20
 	const MONMENUITEM_NICKNAME   ; 21
 	const MONMENUITEM_FIELD      ; 22: a sub-list of the field moves
-	const MONMENUITEM_ERROR      ; 23
+	const MONMENUITEM_UNFOLLOW   ; 23
+	const MONMENUITEM_ERROR      ; 24
 DEF NUM_MONMENUITEMS EQU const_value - 1
 
 ; MonMenuOptions categories
