@@ -32,9 +32,7 @@ InitPartyMenuLayout:
 	jmp PlacePartyMenuText
 
 LoadPartyMenuGFX:
-	call LoadFontsBattleExtra
-	farcall InitPartyMenuPalettes
-	farjp ClearSpriteAnims2
+	farjp PartyCardsLoadGFX
 
 WritePartyMenuTilemap:
 ; The cards (engine/pokemon/party_cards.asm), the tilemap and the palettes.

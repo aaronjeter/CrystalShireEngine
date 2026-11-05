@@ -1226,7 +1226,11 @@ DrawPartyMenuBar::
 	ldh [rSVBK], a
 	pop af
 	ldh [hBGMapMode], a
-	ret
+	; a fresh menu built with the LCD off (PartyCardsLoadGFX) is complete
+	ldh a, [rLCDC]
+	bit rLCDC_ENABLE, a
+	ret nz
+	jmp EnableLCD
 
 .CancelString: db "Cancel@"
 
@@ -1644,6 +1648,46 @@ PartyCardTinyFont:
 	assert @ - PartyCardTinyFont == 46 * 5
 
 ; Palettes --------------------------------------------------------------------------------
+
+PartyCardsLoadGFX::
+; LoadPartyMenuGFX: the textbox frame, the party menu palettes, no sprite animations. When
+; the screen is blank (every BG palette white), the LCD goes off until DrawPartyMenuBar, so
+; the icons and cards are copied at once instead of a few tiles a frame.
+	call PartyCards_ScreenBlank
+	call z, DisableLCD
+	call LoadFontsExtra
+	farcall InitPartyMenuPalettes
+	farjp ClearSpriteAnims2
+
+PartyCards_ScreenBlank:
+; z if the LCD is on and every color in wBGPals2 is white (as ClearPalettes leaves them).
+	ldh a, [hCGB]
+	and a
+	jr z, .no
+	ldh a, [rLCDC]
+	bit rLCDC_ENABLE, a
+	jr z, .no
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals2)
+	ldh [rSVBK], a
+	ld hl, wBGPals2
+	ld c, 8 palettes
+.loop
+	ld a, [hli]
+	inc a
+	jr nz, .done
+	dec c
+	jr nz, .loop
+.done
+	pop bc
+	ld a, b
+	ldh [rSVBK], a
+	ret ; (z from the last check)
+
+.no
+	or 1
+	ret
 
 PartyCardsLoadPals::
 ; The card palettes 0-6 into wBGPals1, and the favorite's star into OBJ palette 7.
@@ -2329,7 +2373,7 @@ PartyCards_LoadStarTile:
 	add hl, de
 	ld de, PartyCardStarGFX
 	lb bc, BANK(PartyCardStarGFX), 1
-	jmp Request2bpp
+	jmp Get2bpp
 
 PartyCardStarGFX:
 	dw `00030000

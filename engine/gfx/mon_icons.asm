@@ -864,7 +864,7 @@ GetFollowerBufferGFX:
 GetGFXUnlessMobile:
 	ld a, [wLinkMode]
 	cp LINK_MOBILE
-	jmp nz, Request2bpp
+	jmp nz, Get2bpp ; (at once with the LCD off)
 	jmp Get2bppViaHDMA
 
 
