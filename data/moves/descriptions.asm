@@ -606,8 +606,8 @@ HydroPumpDescription:
 	next "type attack.@"
 
 SurfDescription:
-	db   "An attack that may"
-	next "raises Speed.@"
+	db   "A big wave that"
+	next "hits both foes.@"
 
 IceBeamDescription:
 	db   "An attack that may"
