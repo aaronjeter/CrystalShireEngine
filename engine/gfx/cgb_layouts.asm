@@ -217,6 +217,7 @@ _CGB_FinishBattleScreenLayout:
 	ld bc, 6 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
+	farcall AbilityPopupAttrs
 	jmp ApplyAttrmap
 
 ; Double battles: the four pics, four HP boxes and their palettes, see engine/battle/doubles_screen.asm.

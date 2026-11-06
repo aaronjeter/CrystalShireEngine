@@ -184,15 +184,14 @@ PoisonHealResidual:
 .heal
 	call HeldItemsUserAtFullHP
 	ret z
-	ld a, BATTLE_VARS_ABILITY
-	call GetBattleVar
-	farcall GetAbilityName
+	farcall AbilityPopupUser
 	farcall GetEighthMaxHP
 	farcall SwitchTurnCore
 	farcall RestoreHP
 	farcall SwitchTurnCore
 	ld hl, PoisonHealText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	farjp HideAbilityPopup
 
 ; ---- Life Orb, Muscle Band, Wise Glasses, Expert Belt (damage)
 

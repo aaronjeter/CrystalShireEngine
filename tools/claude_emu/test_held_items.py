@@ -116,7 +116,8 @@ if want('widelens'):
 
 if want('sash'):
     def small_enemy(hp):
-        def f(g): w16(g, 'wEnemyMonMaxHP', 20); w16(g, 'wEnemyMonHP', hp)
+        # low Defense too: Vice Grip must knock it out whatever Machamp's rolled stats
+        def f(g): w16(g, 'wEnemyMonMaxHP', 20); w16(g, 'wEnemyMonHP', hp); w16(g, 'wEnemyMonDefense', 10)
         return f
     g1, a = turn2(S, VICE, SPLASH, extra=both(small_enemy(20), items(e='FOCUS_SASH')), fixed=True)
     check(hp(g1, 'Enemy') == 1 and g1.rd('wEnemyMonItem') == 0 and 'Focus Sash' in a['log'],
@@ -160,7 +161,7 @@ if want('poisonheal'):
         def f(g): g.wr('wBattleMonStatus', PSN); w16(g, 'wBattleMonHP', hp_)
         return f
     g1, a = turn2(S, SPLASH, SPLASH, player_ab='ABILITY_POISON_HEAL', extra=poisoned(500), fixed=True)
-    check(hp(g1, 'Battle') == 500 + 124 and 'Heal restored its HP!' in a['log'], f"Poison Heal: +1/8 ({hp(g1, 'Battle')})")
+    check(hp(g1, 'Battle') == 500 + 124 and 'restored HP!' in a['log'], f"Poison Heal: +1/8 ({hp(g1, 'Battle')})")
     print('  log:', a['log'][-100:])
     g1, b = turn2(S, SPLASH, SPLASH, extra=poisoned(500), fixed=True)
     check(hp(g1, 'Battle') == 500 - 124, f"no Poison Heal: -1/8 ({hp(g1, 'Battle')})")

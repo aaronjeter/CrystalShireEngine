@@ -710,3 +710,4 @@ SECTION "Party Menu Cards", ROMX
 
 INCLUDE "engine/pokemon/party_cards.asm"
 INCLUDE "engine/pokemon/party_info.asm"
+INCLUDE "engine/battle/ability_popup.asm"

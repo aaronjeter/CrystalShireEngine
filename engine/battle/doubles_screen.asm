@@ -890,7 +890,7 @@ DoublesBuildAttrmap:
 	dec a
 	cp -1
 	jr nz, .loop
-	ret
+	farjp AbilityPopupAttrs
 
 .FillBox:
 ; Fill c x b at hl with a.

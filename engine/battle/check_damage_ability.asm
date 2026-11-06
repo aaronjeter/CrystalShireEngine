@@ -399,6 +399,29 @@ PoisonTouch:
 	call BattleRandom
 	cp 30 percent
 	ret nc
+	; the popup only for a target it can poison (BattleCommand_PoisonTarget still does all
+	; the checks)
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	and a
+	ret nz
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_types
+	ld hl, wBattleMonType1
+.got_types
+	ld a, [hli]
+	cp POISON
+	ret z
+	cp STEEL
+	ret z
+	ld a, [hl]
+	cp POISON
+	ret z
+	cp STEEL
+	ret z
+	farcall AbilityPopupUser
 	; the move's own secondary effect (later in its script) keeps its roll
 	ld a, [wEffectFailed]
 	push af
@@ -407,7 +430,7 @@ PoisonTouch:
 	call BattleCommand_PoisonTarget
 	pop af
 	ld [wEffectFailed], a
-	ret
+	farjp HideAbilityPopup
 
 ; Status immunity abilities ---------------------------------------------------
 
@@ -528,12 +551,10 @@ CheckOppAbility:
 	ret
 
 FailStatusMoveAbility:
-; A status move was blocked by the target's ability c:
-; "<TARGET>'s protected by <ABILITY>!"
-	push bc
+; A status move was blocked by the target's ability: its popup, then
+; "It doesn't affect <TARGET>!"
+	farcall AbilityPopupTarget
 	call AnimateFailedMove
-	pop bc
-	ld a, c
-	farcall GetAbilityName
 	ld hl, ProtectedByAbilityText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	farjp HideAbilityPopup

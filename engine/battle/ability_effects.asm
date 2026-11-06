@@ -88,6 +88,7 @@ _HandleContactStatusAbilities:
 ; Inflict the status. Switch turns so the attacker is the "opponent";
 ; the existing status helpers all act on the opponent.
 	call .SwitchTurn
+	farcall AbilityPopupUser
 	push hl
 	ld a, [hl]
 	cp SLP_MASK
@@ -128,6 +129,7 @@ _HandleContactStatusAbilities:
 	ld h, [hl]
 	ld l, a
 	call StdBattleTextbox
+	farcall HideAbilityPopup
 	farcall UseHeldStatusHealingItem
 	; fallthrough
 
@@ -314,6 +316,7 @@ CheckAbsorbAbility:
 	ld a, [hli]
 	cp b
 	jr nz, .skip_kind
+	farcall AbilityPopupTarget
 	ld a, [hl]
 	cp ABSORB_HEAL
 	jr z, .heal
@@ -378,12 +381,8 @@ CheckAbsorbAbility:
 .absorbed_text
 	ld hl, AbsorbAbilityText
 .text
-	push hl
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
-	farcall GetAbilityName
-	pop hl
 	call StdBattleTextbox
+	farcall HideAbilityPopup
 	ld a, [wTypeModifier]
 	and ~EFFECTIVENESS_MASK
 	ld [wTypeModifier], a
@@ -478,10 +477,12 @@ SpeedBoostAbility:
 	and a
 	ret nz ; already at +6
 	ld [wNumHits], a
+	farcall AbilityPopupUser
 	ld de, AGILITY
 	farcall Call_PlayBattleAnim
 	ld hl, SpeedBoostText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	farjp HideAbilityPopup
 
 CheckSturdyFullHP:
 ; Carry if the target (hBattleTurn's opponent) has Sturdy and full HP.
@@ -786,12 +787,9 @@ GooeyAbility:
 	ld a, [wFailedMessage]
 	and a
 	jr nz, .done
-	ld a, BATTLE_VARS_ABILITY
-	call GetBattleVar
-	farcall GetAbilityName
-	ld hl, AbilityActivatedText
-	call StdBattleTextbox
+	farcall AbilityPopupUser
 	farcall BattleCommand_StatDownMessage
+	farcall HideAbilityPopup
 .done
 	call .SwitchTurn
 	pop af
@@ -824,13 +822,10 @@ CuteCharmAbility:
 	set SUBSTATUS_IN_LOVE, [hl]
 	ld a, BATTLER_LINK_ATTRACTED_TO
 	farcall SetTargetLink
-	ld a, BATTLE_VARS_ABILITY
-	call GetBattleVar
-	farcall GetAbilityName
-	ld hl, AbilityActivatedText
-	call StdBattleTextbox
+	farcall AbilityPopupUser
 	ld hl, FellInLoveText
 	call StdBattleTextbox
+	farcall HideAbilityPopup
 .done
 	jp GooeyAbility.SwitchTurn
 
@@ -949,13 +944,7 @@ SynchronizeStatus:
 	farcall ApplyFrbEffectOnSpclAttack
 	pop bc
 .not_frb
-	push bc
-	ld a, BATTLE_VARS_ABILITY
-	call GetBattleVar
-	farcall GetAbilityName
-	ld hl, AbilityActivatedText
-	call StdBattleTextbox
-	pop bc
+	farcall AbilityPopupUser
 	ld de, ANIM_PSN
 	ld hl, WasPoisonedText
 	ld a, b
@@ -977,6 +966,7 @@ SynchronizeStatus:
 	call RefreshBattleHuds
 	pop hl
 	call StdBattleTextbox
+	farcall HideAbilityPopup
 .done
 	jp GooeyAbility.SwitchTurn
 

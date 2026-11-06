@@ -1629,12 +1629,17 @@ HandleHealAbilities:
 	ret z
 
 .restore
+	farcall AbilityPopupUser
 	call GetSixteenthMaxHP
 	call SwitchTurnCore
 	call RestoreHP
 	ld hl, HealAbilityText
-	jmp StdBattleTextbox
-	ret
+	jr StdBattleTextboxHidePopup
+
+StdBattleTextboxHidePopup:
+; Text hl, then the ability popup slides out.
+	call StdBattleTextbox
+	farjp HideAbilityPopup
 
 HandleWeatherHealAbilities:
 	ld hl, .do_it
@@ -1668,6 +1673,7 @@ HandleWeatherHealAbilities:
 	ret z
 
 .restore
+	farcall AbilityPopupUser
 	call GetEighthMaxHP
 	call SwitchTurnCore
 	call RestoreHP
@@ -1678,7 +1684,7 @@ HandleWeatherHealAbilities:
 	call CheckRaining
 	jr nz, .NotRaining
 	ld hl, RainDishHealsText
-	jmp StdBattleTextbox
+	jr StdBattleTextboxHidePopup
 	jr .finish_restore
 
 .NotRaining
@@ -1686,7 +1692,7 @@ HandleWeatherHealAbilities:
 	call CheckSun
 	jr nz, .NotSun
 	ld hl, SunbaskHealsText
-	jmp StdBattleTextbox
+	jr StdBattleTextboxHidePopup
 	jr .finish_restore
 
 .NotSun
@@ -1694,7 +1700,7 @@ HandleWeatherHealAbilities:
 call CheckSandstorm
 	jr nz, .NotSandstorm
 	ld hl, SandBodyHealsText
-	jmp StdBattleTextbox
+	jr StdBattleTextboxHidePopup
 	jr .finish_restore
 
 .NotSandstorm
@@ -1702,7 +1708,7 @@ call CheckSandstorm
 	call CheckHail
 	jr nz, .NotHail
 	ld hl, IceBodyHealsText
-	jmp StdBattleTextbox
+	jr StdBattleTextboxHidePopup
 	jr .finish_restore
 
 .NotHail
@@ -1743,6 +1749,7 @@ HandleShedSkin:
 	ret nc
 
 .cure
+	farcall AbilityPopupUser
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVarAddr
 	xor a
@@ -1765,11 +1772,8 @@ HandleShedSkin:
 	ld a, BANK(CalcPlayerStats) ; aka BANK(CalcEnemyStats)
 	call FarCall_hl
 	call RefreshBattleHuds
-	ld a, BATTLE_VARS_ABILITY ; Shed Skin, Hydration
-	call GetBattleVar
-	farcall GetAbilityName
-	ld hl, AbilityCuredStatusText
-	jmp StdBattleTextbox
+	ld hl, AbilityCuredStatusText ; Shed Skin, Hydration
+	jmp StdBattleTextboxHidePopup
 
 HandleMysteryberry:
 	ld hl, .do_it
@@ -2192,13 +2196,11 @@ RoughSkinDamage:
 ; it loses 1/8 of its max HP, unless it has Magic Guard.
 	call CheckMagicGuardUser
 	ret c
+	farcall AbilityPopupTarget
 	call GetEighthMaxHP
 	call SubtractHPFromUser
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
-	farcall GetAbilityName
 	ld hl, RoughSkinText
-	jmp StdBattleTextbox
+	jmp StdBattleTextboxHidePopup
 
 CheckMagicGuardUser:
 ; Return carry if the Pokemon whose turn it is has Magic Guard.

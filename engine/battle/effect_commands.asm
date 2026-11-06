@@ -1805,8 +1805,7 @@ BattleCommand_CheckHit:
 
 .Levitating:
 	ld hl, LevitateText
-	jmp StdBattleTextbox
-	ret
+	jr .AbilityText
 	
 
 .Waterproof:
@@ -1829,8 +1828,13 @@ BattleCommand_CheckHit:
 
 .IsWaterproof:
 	ld hl, WaterproofText
-	jmp StdBattleTextbox
-	ret	
+.AbilityText:
+; Text hl with the target's ability popup; returns z (the move misses).
+	farcall AbilityPopupTarget
+	call StdBattleTextbox
+	farcall HideAbilityPopup
+	xor a
+	ret
 
 .DreamEater:
 ; Return z if we're trying to eat the dream of
@@ -2361,6 +2365,11 @@ BattleCommand_ApplyDamage:
 	jr nz, .endure
 	farcall CheckSturdyFullHP ; Sturdy at full HP: like Endure
 	jr nc, .focus_band
+	call BattleCommand_FalseSwipe
+	ld b, 0
+	jr nc, .damage
+	ld b, 3 ; Sturdy's text
+	jr .damage
 
 .endure
 	call BattleCommand_FalseSwipe
@@ -2418,10 +2427,18 @@ BattleCommand_ApplyDamage:
 	and a
 	ret z
 
+	cp 3
+	jr z, .sturdy_text
 	dec a
 	jr nz, .focus_band_text
 	ld hl, EnduredText
 	jmp StdBattleTextbox
+
+.sturdy_text
+	farcall AbilityPopupTarget
+	ld hl, EnduredText
+	call StdBattleTextbox
+	farjp HideAbilityPopup
 
 .focus_band_text
 	call GetOpponentItem
@@ -2483,6 +2500,7 @@ GetFailureResultText:
 	ld hl, UnaffectedText
 .got_text
 	call FailText_CheckOpponentProtect
+	farcall HideAbilityPopup ; Sturdy against a one-hit KO move
 	xor a
 	ld [wCriticalHit], a
 
@@ -4993,11 +5011,10 @@ BattleCommand_StatDownFailText:
 	dec a
 	jr z, .wont_drop
 	; Clear Body, Keen Eye
-	ld a, BATTLE_VARS_ABILITY_OPP
-	call GetBattleVar
-	farcall GetAbilityName
+	farcall AbilityPopupTarget
 	ld hl, AbilityBlocksStatLossText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	farjp HideAbilityPopup
 
 .wont_drop
 	ld a, [wLoweredStat]
@@ -5813,7 +5830,7 @@ BattleCommand_OHKO:
 	call ResetDamage
 	call GetBreakableOppAbility ; Sturdy: one-hit KO moves fail
 	cp ABILITY_STURDY
-	jr z, .no_effect
+	jr z, .sturdy
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
 	jr z, .no_effect
@@ -5849,6 +5866,9 @@ BattleCommand_OHKO:
 	ld [wCriticalHit], a
 	ret
 
+.sturdy
+	; the popup stays up until GetFailureResultText's "unaffected" text
+	farcall AbilityPopupTarget
 .no_effect
 	ld a, $ff
 	ld [wCriticalHit], a

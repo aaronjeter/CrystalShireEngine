@@ -143,11 +143,11 @@ for slot, move, halved in ((0, 'Thunderbolt', True), (1, 'Surf', True), (2, 'Fir
 # 2. Lightning Rod / Storm Drain
 for slot, ab, name in ((0, 'ABILITY_LIGHTNING_ROD', 'Lightning Rod'), (1, 'ABILITY_STORM_DRAIN', 'Storm Drain')):
     g, r = turn2(S1, slot, 3, enemy_ab=ab)
-    check(r['dmg'] == 0 and lv(g, 'Enemy', SPATK) == 8 and f'{name} raised its Sp.Atk' in txt(r)
+    check(r['dmg'] == 0 and lv(g, 'Enemy', SPATK) == 8 and 'Spcl.Atk rose' in txt(r)
           and 'affect Enemy Tauros' in txt(r), f'{name} absorbs: dmg {r["dmg"]}, SpA level {lv(g, "Enemy", SPATK)} | {txt(r)[-200:]}')
     maxed = lambda g: g.wr('wEnemyStatLevels+3', 13)
     g, r = turn2(S1, slot, 3, enemy_ab=ab, extra=maxed)
-    check(r['dmg'] == 0 and lv(g, 'Enemy', SPATK) == 13 and f'{name} absorbed the move' in txt(r),
+    check(r['dmg'] == 0 and lv(g, 'Enemy', SPATK) == 13 and 'affect' in txt(r),
           f'{name} at +6: dmg {r["dmg"]} | {txt(r)[-200:]}')
 g, r = turn2(S1, 1, 3, enemy_ab='ABILITY_LIGHTNING_ROD')
 check(r['dmg'] > 0 and lv(g, 'Enemy', SPATK) == 7, f'Lightning Rod leaves Surf alone: {r["dmg"]}')
@@ -165,16 +165,16 @@ check(r['est'] == 0 and lv(g, 'Enemy', SPATK) == 8, f'Lightning Rod absorbs Thun
 g, r = turn2(S2, 3, 1, extra=nomax)
 check(lv(g, 'Player', ACC) == 6, f'(control) Smokescreen lowers accuracy: {lv(g, "Player", ACC)}')
 g, r = turn2(S2, 3, 1, player_ab='ABILITY_KEEN_EYE', extra=nomax)
-check(lv(g, 'Player', ACC) == 7 and 'Keen Eye blocks stat loss' in txt(r), f'Keen Eye blocks Smokescreen | {txt(r)[-200:]}')
+check(lv(g, 'Player', ACC) == 7 and 'stats won' in txt(r), f'Keen Eye blocks Smokescreen | {txt(r)[-200:]}')
 # Mud-Slap's 100% accuracy drop is blocked silently
 S3 = 'mab_s3.state'
 setup(S3, ['MUD_SLAP', 'GROWL', 'GROWL', 'GROWL'])
 g, r = turn2(S3, 1, 0, extra=nomax)
 check(lv(g, 'Player', ACC) == 6, f'(control) Mud-Slap lowers accuracy: {lv(g, "Player", ACC)}')
 g, r = turn2(S3, 1, 0, player_ab='ABILITY_KEEN_EYE', extra=nomax)
-check(lv(g, 'Player', ACC) == 7 and 'blocks' not in txt(r), f'Keen Eye blocks Mud-Slap silently | {txt(r)[-200:]}')
+check(lv(g, 'Player', ACC) == 7 and 'stats won' not in txt(r), f'Keen Eye blocks Mud-Slap silently | {txt(r)[-200:]}')
 g, r = turn2(S2, 3, 3, enemy_ab='ABILITY_CLEAR_BODY', extra=nomax)
-check(lv(g, 'Enemy', 0) == 7 and 'Clear Body blocks stat loss' in txt(r), f'Clear Body text | {txt(r)[-200:]}')
+check(lv(g, 'Enemy', 0) == 7 and 'stats won' in txt(r), f'Clear Body text | {txt(r)[-200:]}')
 g, r = turn2(S2, 3, 3, enemy_ab='ABILITY_KEEN_EYE', extra=nomax)
 check(lv(g, 'Enemy', 0) < 7, f'Keen Eye lets Attack drop (Growl is -2 here): {lv(g, "Enemy", 0)}')
 # accuracy after CheckHit: Zap Cannon's move struct byte
@@ -206,11 +206,11 @@ check(all('critical' not in t['log'] for t in r0) and all('critical' in t['log']
 
 # 5. Speed Boost
 g, r = turn2(S1, 3, 3, player_ab='ABILITY_SPEED_BOOST')
-check(lv(g, 'Player', SPD) == 8 and 'Speed Boost raised its Speed' in txt(r), f'Speed Boost +1 | {txt(r)[-200:]}')
+check(lv(g, 'Player', SPD) == 8 and 'Speed rose' in txt(r), f'Speed Boost +1 | {txt(r)[-200:]}')
 g, r = turn2(S1, 3, 3, enemy_ab='ABILITY_SPEED_BOOST')
 check(lv(g, 'Enemy', SPD) == 8, f'Speed Boost on the enemy: {lv(g, "Enemy", SPD)}')
 g, r = turn2(S1, 3, 3, player_ab='ABILITY_SPEED_BOOST', extra=lambda g: g.wr('wPlayerStatLevels+2', 13))
-check(lv(g, 'Player', SPD) == 13 and 'Speed Boost' not in txt(r), f'Speed Boost at +6 is silent | {txt(r)[-200:]}')
+check(lv(g, 'Player', SPD) == 13 and 'Speed rose' not in txt(r), f'Speed Boost at +6 is silent | {txt(r)[-200:]}')
 
 # 6. Plus/Minus in singles: no boost
 x = turn2(S1, 0, 3, extra=soft, fixed=True)[1]['dmg']
@@ -230,10 +230,10 @@ def low(g): g.wr('wEnemyMonHP', [0, 10])
 for slot, ab, name, other in ((0, 'ABILITY_VOLT_ABSORB', 'Volt Absorb', 1), (1, 'ABILITY_WATER_ABSORB', 'Water Absorb', 0)):
     g, r = turn2(S1, slot, 3, enemy_ab=ab, extra=low)
     mx = g.rd16('wEnemyMonMaxHP')
-    check(hp(g, 'Enemy') == min(mx, 10 + mx // 4) and f'{name} restored its HP' in txt(r),
+    check(hp(g, 'Enemy') == min(mx, 10 + mx // 4) and 'restored HP' in txt(r),
           f'{name} heals: 10 -> {hp(g, "Enemy")} (max {mx}) | {txt(r)[-140:]}')
     g, r = turn2(S1, slot, 3, enemy_ab=ab)
-    check(r['dmg'] == 0 and f'{name} absorbed the move' in txt(r), f'{name} at full HP: dmg {r["dmg"]} | {txt(r)[-140:]}')
+    check(r['dmg'] == 0 and 'affect' in txt(r), f'{name} at full HP: dmg {r["dmg"]} | {txt(r)[-140:]}')
     g, r = turn2(S1, other, 3, enemy_ab=ab)
     check(r['dmg'] > 0, f'{name} leaves the other type alone: {r["dmg"]}')
 g, r = turn2(S2, 0, 3, enemy_ab='ABILITY_VOLT_ABSORB', extra=lambda g: (nomax(g), low(g)))
@@ -243,16 +243,16 @@ check(r['est'] == 0 and hp(g, 'Enemy') > 10, f'Volt Absorb absorbs Thunder Wave:
 S5 = 'mab_s5.state'
 setup(S5, ['MEGA_DRAIN', 'THUNDERBOLT', 'GROWL', 'GROWL'])
 g, r = turn2(S5, 0, 2, enemy_ab='ABILITY_SAP_SIPPER')
-check(r['dmg'] == 0 and lv(g, 'Enemy', 0) == 8 and 'Sap Sipper raised its Attack' in txt(r),
+check(r['dmg'] == 0 and lv(g, 'Enemy', 0) == 8 and 'Attack rose' in txt(r),
       f'Sap Sipper absorbs Mega Drain: dmg {r["dmg"]}, Attack level {lv(g, "Enemy", 0)} | {txt(r)[-140:]}')
 g, r = turn2(S5, 0, 2, enemy_ab='ABILITY_SAP_SIPPER', extra=lambda g: g.wr('wEnemyStatLevels', 13))
-check(r['dmg'] == 0 and 'Sap Sipper absorbed the move' in txt(r), f'Sap Sipper at +6 | {txt(r)[-140:]}')
+check(r['dmg'] == 0 and 'affect' in txt(r), f'Sap Sipper at +6 | {txt(r)[-140:]}')
 g, r = turn2(S5, 1, 2, enemy_ab='ABILITY_SAP_SIPPER')
 check(r['dmg'] > 0 and lv(g, 'Enemy', 0) == 7, f'Sap Sipper leaves Thunderbolt alone: {r["dmg"]}')
 
 # 10. Flash Fire: Fire Punch does nothing, Sp. Atk +1; Will-O-Wisp absorbed too
 g, r = turn2(S1, 2, 3, enemy_ab='ABILITY_FLASH_FIRE')
-check(r['dmg'] == 0 and lv(g, 'Enemy', SPATK) == 8 and 'Flash Fire raised its Sp.Atk' in txt(r),
+check(r['dmg'] == 0 and lv(g, 'Enemy', SPATK) == 8 and 'Spcl.Atk rose' in txt(r),
       f'Flash Fire absorbs Fire Punch: dmg {r["dmg"]}, SpA level {lv(g, "Enemy", SPATK)} | {txt(r)[-140:]}')
 S6 = 'mab_s6.state'
 setup(S6, ['WILLOWISP', 'GROWL', 'GROWL', 'GROWL'])
@@ -262,7 +262,7 @@ check(r['est'] == 0 and lv(g, 'Enemy', SPATK) == 8, f'Flash Fire absorbs Will-O-
 # 11. Iron Barbs (and Rough Skin's text): Fire Punch (contact) costs Machamp (999 HP) 1/8
 for ab, name in (('ABILITY_IRON_BARBS', 'Iron Barbs'), ('ABILITY_ROUGH_SKIN', 'Rough Skin')):
     g, r = turn2(S1, 2, 3, enemy_ab=ab)
-    check(r['pdmg'] == 999 // 8 and f'{name} hurt' in txt(r), f'{name}: Machamp lost {r["pdmg"]} | {txt(r)[-120:]}')
+    check(r['pdmg'] == 999 // 8 and 'was hurt' in txt(r), f'{name}: Machamp lost {r["pdmg"]} | {txt(r)[-120:]}')
 g, r = turn2(S1, 0, 3, enemy_ab='ABILITY_IRON_BARBS')
 check(r['pdmg'] == 0, f'Iron Barbs leaves Thunderbolt (no contact) alone: {r["pdmg"]}')
 
@@ -295,7 +295,7 @@ check(not any(got), f'Cute Charm: not with Thunderbolt: {got}')
 
 # 15. Gooey: contact lowers the attacker's Speed one stage
 g, r = turn2(S1, 2, 3, enemy_ab='ABILITY_GOOEY')
-check(lv(g, 'Player', SPD) == 6 and 'Gooey' in txt(r), f'Gooey: Machamp Speed level {lv(g, "Player", SPD)} | {txt(r)[-120:]}')
+check(lv(g, 'Player', SPD) == 6 and 'Speed fell' in txt(r), f'Gooey: Machamp Speed level {lv(g, "Player", SPD)} | {txt(r)[-120:]}')
 g, r = turn2(S1, 0, 3, enemy_ab='ABILITY_GOOEY')
 check(lv(g, 'Player', SPD) == 7, f'Gooey: not with Thunderbolt: {lv(g, "Player", SPD)}')
 
@@ -350,11 +350,11 @@ check(x > 0 and r['dmg'] == 0 and mtype(g) == TYPES['NORMAL'], f'Normalize: Thun
 burn = lambda g: (g.wr('wBattleMonStatus', BRN), g.wr('wPartyMon1Status', BRN))
 rain = lambda g: (burn(g), g.wr('wBattleWeather', 1), g.wr('wWeatherCount', 5))
 g, r = turn2(S1, 3, 3, player_ab='ABILITY_HYDRATION', extra=rain)
-check(g.rd('wBattleMonStatus') == 0 and 'Hydration cured' in txt(r), f'Hydration in rain | {txt(r)[-120:]}')
+check(g.rd('wBattleMonStatus') == 0 and 'was cured' in txt(r), f'Hydration in rain | {txt(r)[-120:]}')
 g, r = turn2(S1, 3, 3, player_ab='ABILITY_HYDRATION', extra=burn)
 check(g.rd('wBattleMonStatus') == BRN, f'Hydration without rain: status {g.rd("wBattleMonStatus"):#x}')
 r = [turn2(S1, 3, 3, player_ab='ABILITY_SHED_SKIN', extra=burn, wait=60 + 7 * i) for i in range(10)]
-check(any(g.rd('wBattleMonStatus') == 0 and 'Shed Skin cured' in txt(t) for g, t in r),
+check(any(g.rd('wBattleMonStatus') == 0 and 'was cured' in txt(t) for g, t in r),
       f'Shed Skin: {[g.rd("wBattleMonStatus") for g, t in r]}')
 
 # 20. Tinted Lens: Fire Punch on a Water type x2 (not very effective), neutral unchanged
@@ -398,7 +398,7 @@ hit = lambda g: g.wr('wPlayerStatLevels+5', 13)
 # Machamp
 g, r = turn2(S2, 0, 3, enemy_ab='ABILITY_SYNCHRONIZE', extra=hit)
 pst = g.rd('wBattleMonStatus')
-check(r['est'] == PAR and pst == PAR and 'Synchronize' in txt(r), f'Synchronize: {r["est"]:#x} / {pst:#x} | {txt(r)[-120:]}')
+check(r['est'] == PAR and pst == PAR and 'is paralyzed' in txt(r), f'Synchronize: {r["est"]:#x} / {pst:#x} | {txt(r)[-120:]}')
 elec = lambda g: (hit(g), g.wr('wBattleMonType1', [TYPES['ELECTRIC'], TYPES['ELECTRIC']]))
 g, r = turn2(S2, 0, 3, enemy_ab='ABILITY_SYNCHRONIZE', extra=elec)
 pst = g.rd('wBattleMonStatus')
@@ -414,7 +414,7 @@ S11 = 'mab_s11.state'
 setup(S11, ['FROSTBITE', 'GROWL', 'GROWL', 'GROWL'])
 g, r = turn2(S11, 0, 1, enemy_ab='ABILITY_SYNCHRONIZE', extra=hit)
 pst = g.rd('wBattleMonStatus')
-check(r['est'] == FRZ and pst == FRZ and 'Synchronize' in txt(r) and 'paralyzed' not in txt(r), f'Synchronize frostbite: {r["est"]:#x} / {pst:#x} | {txt(r)[-120:]}')
+check(r['est'] == FRZ and pst == FRZ and 'frostbite' in txt(r) and 'paralyzed' not in txt(r), f'Synchronize frostbite: {r["est"]:#x} / {pst:#x} | {txt(r)[-120:]}')
 ice = lambda g: (hit(g), g.wr('wBattleMonType1', [TYPES['ICE'], TYPES['ICE']]))
 g, r = turn2(S11, 0, 1, enemy_ab='ABILITY_SYNCHRONIZE', extra=ice)
 check(r['est'] == FRZ and g.rd('wBattleMonStatus') == 0, f'Synchronize: an Ice attacker gets no frostbite: {g.rd("wBattleMonStatus"):#x}')

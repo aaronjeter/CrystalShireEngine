@@ -714,6 +714,9 @@ if DEF(ANIM_LOG) ; test builds only (tools/claude_emu): each PlayBattleAnim call
 wAnimLogCount:: db
 wAnimLog:: ds 2 * 16
 endc
+; The ability popup (engine/battle/ability_popup.asm): AP_SHOWN_F | its side, and its width in tiles
+wAbilityPopup:: db
+wAbilityPopupWidth:: db
 wBattleStateEnd:: ; start_battle.asm clears wBattle through here
 
 

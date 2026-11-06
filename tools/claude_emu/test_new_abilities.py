@@ -4,7 +4,7 @@ Usage (from a folder holding ROM, .sym and a boot.py state):
 Checks:
  1. Iron Fist, Strong Jaw, Sharpness: +25% for their move groups only.
  2. Status moves against Limber, Insomnia, Immunity, Water Veil, Magma Armor
-    and Own Tempo fail with "protected by <ability>"; without them they work.
+    and Own Tempo fail ("It doesn't affect <MON>!", with the popup); without them they work.
  3. Contact: Frigid gives frostbite, Effect Spore poison/paralysis/sleep,
     not to Grass types; Limber blocks Static.
  4. Inner Focus blocks flinching; Insomnia blocks Rest.
@@ -101,11 +101,12 @@ check(x > 0 and y == x, f'Iron Fist leaves Crunch alone: {x} -> {y}')
 
 # 3. contact abilities, with Fire Punch
 def trials(n, **kw):
-    return [turn(S1, 0, 3, wait=60 + 7 * i, **kw) for i in range(n)]
+    # uneven waits: with a fixed step most trials land on the same battle RNG values
+    return [turn(S1, 0, 3, wait=60 + i * i * 3 + i, **kw) for i in range(n)]
 r = trials(10, enemy_ab='ABILITY_FRIGID')
 got = [t['pst'] for t in r]
 check(any(s == FRZ for s in got) and all(s in (0, FRZ) for s in got), f'Frigid gives frostbite on contact: {got}')
-check(any('Frigid gave' in t['log'] for t in r if t['pst']), 'Frigid text')
+check(any('got frostbite' in t['log'] for t in r if t['pst']), 'Frigid text')
 r = trials(20, enemy_ab='ABILITY_EFFECT_SPORE')
 got = [t['pst'] for t in r]
 kinds = {('SLP' if s & SLP else {PSN: 'PSN', PAR: 'PAR'}.get(s, hex(s))) for s in got if s}
@@ -132,15 +133,15 @@ for state, slot, eslot, ab, name, test in (
         (S3, 1, 3, 'ABILITY_MAGMA_ARMOR', 'Magma Armor', lambda t: t['est'] == FRZ),
         (S3, 2, 3, 'ABILITY_OWN_TEMPO', 'Own Tempo', lambda t: t['esub3'] & CONFUSED)):
     x = turn(state, slot, eslot); y = turn(state, slot, eslot, enemy_ab=ab)
-    check(test(x) and not test(y) and y['est'] == 0 and f'protected by {name}' in y['log'].replace('  ', ' '),
+    check(test(x) and not test(y) and y['est'] == 0 and 'affect' in y['log'],
           f'{name}: without {x["est"]:#x}/{x["esub3"]:#x}, with {y["est"]:#x}/{y["esub3"]:#x} | {y["log"][:120]}')
 
 # 4. Inner Focus (Machamp made faster so Headbutt can flinch), Insomnia + Rest
 fast = lambda g: g.wr('wEnemyMonSpeed', [0, 10])
 S4 = 'nab_s4.state'
 setup(S4, ['HEADBUTT', 'GROWL'])
-x = [turn(S4, 0, 1, extra=fast, wait=60 + 7 * i) for i in range(10)]
-y = [turn(S4, 0, 1, enemy_ab='ABILITY_INNER_FOCUS', extra=fast, wait=60 + 7 * i) for i in range(10)]
+x = [turn(S4, 0, 1, extra=fast, wait=60 + i * i * 3 + i) for i in range(10)]
+y = [turn(S4, 0, 1, enemy_ab='ABILITY_INNER_FOCUS', extra=fast, wait=60 + i * i * 3 + i) for i in range(10)]
 check(any('flinched' in t['log'] for t in x) and not any('flinched' in t['log'] for t in y),
       f'Inner Focus blocks flinching: {sum("flinched" in t["log"] for t in x)} -> {sum("flinched" in t["log"] for t in y)}')
 hurt = lambda g: g.wr('wBattleMonHP', [0, 100])
@@ -160,7 +161,7 @@ g.wr('wPartyMon1Status', PAR)
 g.run_script(battle_script('TAUROS', 50))
 d = to_menu(g)
 log = ' / '.join(d.log)
-check(g.rd('wBattleMonStatus') == 0 and g.rd('wPartyMon1Status') == 0 and 'Limber cured' in log,
+check(g.rd('wBattleMonStatus') == 0 and g.rd('wPartyMon1Status') == 0 and 'was cured' in log,
       f'Limber cures paralysis on entry: {g.rd("wBattleMonStatus")}, {g.rd("wPartyMon1Status")} | {log[-80:]}')
 
 # 6. Multiscale: half damage at full HP only, on both sides (exact damage)
@@ -208,7 +209,7 @@ eighth = (999 >> 2) >> 1
 x = turn(S1, 0, 3, enemy_ab='ABILITY_ROUGH_SKIN')
 y = turn(S1, 0, 3, enemy_ab='ABILITY_ROUGH_SKIN', player_ab='ABILITY_MAGIC_GUARD')
 z = turn(S5, 0, 3, enemy_ab='ABILITY_ROUGH_SKIN')
-check(x['php'] == 999 - eighth and 'Rough Skin hurt' in x['log'] and y['php'] == 999 and z['php'] == 999,
+check(x['php'] == 999 - eighth and 'was hurt' in x['log'] and y['php'] == 999 and z['php'] == 999,
       f'Rough Skin: contact {x["php"]}, with Magic Guard {y["php"]}, Earthquake {z["php"]}')
 
 print(f'\n{len(fails)} failure(s)')

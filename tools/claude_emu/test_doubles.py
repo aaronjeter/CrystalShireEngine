@@ -781,8 +781,8 @@ def check_lightning_rod(recs, v):
     want(p, 'E1 HP after Thunderbolt was drawn away', v.hp(r2, E1), v.hp(r1, E1))
     want(p, 'E2 HP (Lightning Rod)', v.hp(r2, E2), v.hp(r1, E2))
     want(p, 'E2 Sp. Atk level', v.stat_levels(r2, E2)[3], 8)
-    if 'Lightning Rod' not in txt1:
-        p.append(f'turn 1: no Lightning Rod text: {txt1}')
+    if 'Spcl.Atk rose' not in txt1:
+        p.append(f'turn 1: no absorb text (Spcl.Atk rose): {txt1}')
     return p
 
 
@@ -807,7 +807,7 @@ def check_plus_minus(recs, v):
     p += ratio_check('Plus with a Minus ally vs alone', d1, d2, 1.4, 1.6)
     want(p, 'Machamp Speed level after the turn it came in (no boost)', v.stat_levels(recs[i3], P2)[2], 7)
     want(p, 'Machamp Speed level a turn later', v.stat_levels(recs[i4], P2)[2], 8)
-    if 'Speed Boost' in txt2 or 'Speed Boost' not in txt3:
+    if 'Speed rose' in txt2 or 'Speed rose' not in txt3:
         p.append(f'Speed Boost text: turn 2 {txt2} / turn 3 {txt3}')
     return p
 
@@ -883,7 +883,7 @@ def check_volt_absorb(recs, v):
     if not h2 < h1:
         p.append(f'turn 1: Tackle did no damage to E2: {h1} -> {h2}')
     want(p, 'E2 HP after Thunderbolt (Volt Absorb heals 1/4)', h3, min(mx, h2 + mx // 4))
-    if 'restored its HP' not in txt2:
+    if 'restored HP' not in txt2:
         p.append(f'turn 2: no heal text: {txt2}')
     return p
 
@@ -897,7 +897,7 @@ CASES.update({
         abilities={'PIKACHU': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'LANTURN': 'ABILITY_VOLT_ABSORB'},
         actions=[('move', 0, 1), ('move', 0), ('move', 1, 1), ('move', 0)] + [('move', 2, 0), ('move', 1, 1)] * 30,
         check=check_volt_absorb,
-        result=WIN, log=['Volt Absorb']),
+        result=WIN, log=['restored HP']),
 })
 
 
@@ -931,7 +931,7 @@ def check_cloud_nine(recs, v):
     p = []
     want(p, 'weather after Golduck (Cloud Nine) switched in', v.live(recs[1], 'wBattleWeather')[0], 0)
     log = ' '.join(recs[1].get('log') or [])
-    if 'Cloud Nine' not in log or 'ended the weather' not in log:
+    if 'disappeared' not in log:
         p.append(f'turn 1: no Cloud Nine text: {log}')
     return p
 
@@ -994,7 +994,7 @@ CASES.update({
         actions=[('move', 0), ('move', 0), ('move', 1)] + [('move', 0)] * 10,
         check=check_sturdy,
         result=WIN),
-    # singles: Cloud Nine switching into rain ends it ("<MON>'s Cloud Nine ended the weather!")
+    # singles: Cloud Nine switching into rain ends it ("The weather disappeared!", with the popup)
     'singles_cloud_nine': dict(
         cls='COOLTRAINERM', singles=True,
         party=[('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM']), ('GOLDUCK', 50, None, ['SPLASH', 'SURF'])],
@@ -1065,7 +1065,7 @@ CASES.update({
         abilities={'PIKACHU': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'RAICHU': 'ABILITY_LIGHTNING_ROD'},
         actions=[('move', 0, 0), ('move', 0)] + [('move', 1, 0), ('move', 1, 1)] * 30,
         check=check_lightning_rod,
-        result=WIN, log=['Lightning Rod']),
+        result=WIN, log=['Spcl.Atk rose']),
     # Mold Breaker (P1): Thunderbolt at E1 isn't drawn to E2's Lightning Rod
     'doubles_mold_breaker_rod': dict(
         cls='COOLTRAINERM',
@@ -1083,7 +1083,7 @@ CASES.update({
         abilities={'LAPRAS': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'VAPOREON': 'ABILITY_STORM_DRAIN'},
         actions=[('move', 0, 0), ('move', 0)] + [('move', 1, 0), ('move', 1, 1)] * 30,
         check=check_storm_drain,
-        result=WIN, log=['Storm Drain']),
+        result=WIN, log=['Spcl.Atk rose']),
     # Plus with a Minus ally (turn 1) vs alone (turn 2, Electrode switched for Machamp);
     # Machamp's Speed Boost: not at the end of turn 2 (it switched in), then at the end of turn 3
     'doubles_plus_minus': dict(

@@ -528,12 +528,8 @@ LifeOrbRecoilText:
 	prompt
 
 PoisonHealText:
-; the ability's name is in wStringBuffer2 (GetAbilityName)
-	text "<USER>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text_start
-	cont "restored its HP!"
+	text "<USER>"
+	line "restored HP!"
 	prompt
 
 HungOnText:
@@ -1241,13 +1237,13 @@ BattleText_LinkErrorBattleCanceled:
 	prompt
 
 LevitateText:
-	text "<TARGET> "
-	line "is floating!"
+	text "It doesn't affect"
+	line "<TARGET>!"
 	prompt
 
 WaterproofText:
-	text "<TARGET> "
-	line "is Waterproof!"
+	text "It doesn't affect"
+	line "<TARGET>!"
 	prompt
 
 DrizzleText:
@@ -1286,43 +1282,34 @@ PeltedByHailText:
 	prompt
 
 IntimidateCutsAttackText:
-	text "<USER>'s"
-    line "Intimidate cuts"
-
-    para "<TARGET>'s"
-    line "Attack!"
+	text "<TARGET>'s"
+	line "Attack fell!"
 	prompt
 
 MystifyCutsSpecialAttackText:
-	text "<USER>'s"
-    line "Mystify cuts"
-
-    para "<TARGET>'s"
-    line "Spcl.Atk!"
+	text "<TARGET>'s"
+	line "Spcl.Atk fell!"
 	prompt
 
 SnareCutsSpeedText:
-	text "<USER>'s"
-    line "Snare cuts"
-
-    para "<TARGET>'s"
-    line "Speed!"
+	text "<TARGET>'s"
+	line "Speed fell!"
 	prompt
 
 HasteBoostsSpeedText:
 	text "<USER>'s"
-    line "Haste boosts Spd!"
+	line "Speed rose!"
 	prompt
 
 AimBoostsAccuracyText:
 	text "<USER>'s"
-    line "Aim boosts Acc!"
+	line "Accuracy rose!"
 	prompt
 
 
 HealAbilityText:
 	text "<TARGET>"
-	line "regenerated!"
+	line "restored HP!"
 	prompt
 
 RainDishHealsText:
@@ -1371,147 +1358,93 @@ StabBoostsDamageText:
 	prompt
 
 EnervateCutsSpDefText:
-	text "<USER>'s"
-    line "Enervate cuts"
-
-    para "<TARGET>'s"
-    line "Spcl Def!"
+	text "<TARGET>'s"
+	line "Spcl.Def fell!"
 	prompt
 
 DauntCutsDefText:
-	text "<USER>'s"
-    line "Daunt cuts"
-
-    para "<TARGET>'s"
-    line "Def!"
+	text "<TARGET>'s"
+	line "Defense fell!"
 	prompt
 
 StaticParalyzedText:
-	text "<USER>'s"
-	line "Static paralyzed"
-	cont "<TARGET>!"
+	text "<TARGET>"
+	line "was paralyzed!"
 	prompt
 
 FlameBodyBurnedText:
-	text "<USER>'s"
-	line "Flame Body burned"
-	cont "<TARGET>!"
+	text "<TARGET>"
+	line "was burned!"
 	prompt
 
 PoisonPointPoisonedText:
-	text "<USER>'s"
-	line "Poison Point"
-	cont "poisoned"
-	cont "<TARGET>!"
+	text "<TARGET>"
+	line "was poisoned!"
 	prompt
 
 FrigidFrostbiteText:
-	text "<USER>'s"
-	line "Frigid gave"
-	cont "<TARGET>"
-	cont "frostbite!"
+	text "<TARGET>"
+	line "got frostbite!"
 	prompt
 
 RoughSkinText:
-; Rough Skin, Iron Barbs; the ability's name is in wStringBuffer2 (GetAbilityName)
-	text "<TARGET>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text " hurt"
-	cont "<USER>!"
+	text "<USER>"
+	line "was hurt!"
 	prompt
 
 EffectSporePoisonedText:
-	text "<USER>'s"
-	line "Effect Spore"
-	cont "poisoned"
-	cont "<TARGET>!"
+	text "<TARGET>"
+	line "was poisoned!"
 	prompt
 
 EffectSporeParalyzedText:
-	text "<USER>'s"
-	line "Effect Spore"
-	cont "paralyzed"
-	cont "<TARGET>!"
+	text "<TARGET>"
+	line "was paralyzed!"
 	prompt
 
 EffectSporeSleepText:
-	text "<USER>'s"
-	line "Effect Spore put"
-	cont "<TARGET>"
-	cont "to sleep!"
+	text "<TARGET>"
+	line "fell asleep!"
 	prompt
 
 ProtectedByAbilityText:
-; the ability's name is in wStringBuffer2 (GetAbilityName)
-	text "<TARGET>'s"
-	line "protected by"
-	cont "@"
-	text_ram wStringBuffer2
-	text "!"
+	text "It doesn't affect"
+	line "<TARGET>!"
 	prompt
 
 AbilityCuredStatusText:
-; the ability's name is in wStringBuffer2 (GetAbilityName)
-	text "<USER>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text " cured"
-	cont "its status!"
+	text "<USER>'s status"
+	line "was cured!"
 	prompt
 
 AbilityBlocksStatLossText:
-; the ability's name is in wStringBuffer2 (GetAbilityName)
 	text "<TARGET>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text " blocks"
-	cont "stat loss!"
+	line "stats won't drop!"
 	prompt
 
 AbsorbAbilityRaisedText:
-; the ability's name is in wStringBuffer2 (GetAbilityName)
 	text "<TARGET>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text_start
-	cont "raised its Sp.Atk!"
+	line "Spcl.Atk rose!"
 	prompt
 
 AbsorbAbilityRaisedAtkText:
-; the ability's name is in wStringBuffer2 (GetAbilityName)
 	text "<TARGET>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text_start
-	cont "raised its Attack!"
+	line "Attack rose!"
 	prompt
 
 AbsorbAbilityHealedText:
-; the ability's name is in wStringBuffer2 (GetAbilityName)
-	text "<TARGET>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text_start
-	cont "restored its HP!"
+	text "<TARGET>"
+	line "restored HP!"
 	prompt
 
 AbsorbAbilityText:
-; the ability's name is in wStringBuffer2 (GetAbilityName)
-	text "<TARGET>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text_start
-	cont "absorbed the move!"
+	text "It doesn't affect"
+	line "<TARGET>!"
 	prompt
 
 AirLockClearedText:
-; Air Lock, Cloud Nine; the ability's name is in wStringBuffer2 (GetAbilityName)
-	text "<USER>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text_start
-	cont "ended the weather!"
+	text "The weather"
+	line "disappeared!"
 	prompt
 
 AirLockKeptAwayText:
@@ -1519,13 +1452,6 @@ AirLockKeptAwayText:
 	line "was kept away!"
 	prompt
 
-AbilityActivatedText:
-; "<USER>'s <ABILITY>!"; the ability's name is in wStringBuffer2 (GetAbilityName)
-	text "<USER>'s"
-	line "@"
-	text_ram wStringBuffer2
-	text "!"
-	prompt
 
 SynchronizeParalyzedText:
 	text "<TARGET> is"
@@ -1539,6 +1465,5 @@ MoldBreakerText:
 
 SpeedBoostText:
 	text "<USER>'s"
-	line "Speed Boost"
-	cont "raised its Speed!"
+	line "Speed rose!"
 	prompt

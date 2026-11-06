@@ -1,6 +1,12 @@
 Check_Entrance_Ability:
 ; Run the entrance effect of ability [wTempAbility], if it has one.
 ; hBattleTurn is the side of the Pokemon that just entered.
+; A handler that does something shows the ability popup (EntranceAbilityPopup); it's
+; hidden after the handler.
+	call .Run
+	farjp HideAbilityPopup
+
+.Run:
 	ld a, [wTempAbility]
 	ld b, a
 	ld hl, .Abilities
@@ -116,12 +122,14 @@ ENDM
 ; Carry (and the text) if Air Lock keeps a weather ability's weather away.
 	farcall AirLockOnField
 	ret nc
+	call EntranceAbilityPopup
 	ld hl, AirLockKeptAwayText
 	call StdBattleTextbox
 	scf
 	ret
 
 .HasMoldBreaker:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld hl, MoldBreakerText
 	jmp StdBattleTextbox
@@ -131,13 +139,11 @@ ENDM
 	ld a, [wBattleWeather]
 	cp WEATHER_NONE
 	ret z
+	call EntranceAbilityPopup
 	xor a ; WEATHER_NONE
 	ld [wBattleWeather], a
 	ld [wWeatherCount], a
 	call AbilityAnimationCleanup
-	ld a, BATTLE_VARS_ABILITY
-	call GetBattleVar
-	farcall GetAbilityName
 	ld hl, AirLockClearedText
 	jmp StdBattleTextbox
 
@@ -149,6 +155,7 @@ ENDM
 	cp WEATHER_RAIN
 	ret z	
 
+	call EntranceAbilityPopup
 	ld a, WEATHER_RAIN
     ld [wBattleWeather], a
     ld a, 5 
@@ -169,6 +176,7 @@ ENDM
 	cp WEATHER_SUN
 	ret z
 	
+	call EntranceAbilityPopup
 	ld a, WEATHER_SUN
     ld [wBattleWeather], a
     ld a, 5 
@@ -189,6 +197,7 @@ ENDM
 	cp WEATHER_SANDSTORM
 	ret z	
 
+	call EntranceAbilityPopup
 	ld a, WEATHER_SANDSTORM
 	ld [wBattleWeather], a 
 	ld a, 5
@@ -209,6 +218,7 @@ ENDM
 	cp WEATHER_HAIL
 	ret z	
 
+	call EntranceAbilityPopup
 	ld a, WEATHER_HAIL
     ld [wBattleWeather], a
     ld a, 5 
@@ -222,6 +232,7 @@ ENDM
 	ret	
 
 .HasIntimidate:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld de, LEER
     call EntranceFoeAnim
@@ -234,6 +245,7 @@ ENDM
     ret
 
 .HasMystify:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld de, DETECT
     call EntranceFoeAnim
@@ -246,6 +258,7 @@ ENDM
     ret
 
 .HasSnare:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld de, WRAP
     call EntranceFoeAnim
@@ -258,6 +271,7 @@ ENDM
     ret
 
 .HasHaste:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld de, AGILITY
     farcall Call_PlayBattleAnim
@@ -268,6 +282,7 @@ ENDM
     ret
 
 .HasAim:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld de, LOCK_ON
     farcall Call_PlayBattleAnim
@@ -283,16 +298,19 @@ ENDM
     ret
 
 .HasVeiled:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	call SafeguardAbility
 	ret
 
 .HasInvisibleWall:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	call ReflectAbility
     ret
 
 .HasImpostor:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld de, TRANSFORM
     farcall Call_PlayBattleAnim
@@ -310,6 +328,7 @@ ENDM
     ret
 
 .HasEnervate:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld de, GIGA_DRAIN
     call EntranceFoeAnim
@@ -322,6 +341,7 @@ ENDM
     ret
 
 .HasDaunt:
+	call EntranceAbilityPopup
 	call AbilityAnimationCleanup
 	ld de, LEER
     call EntranceFoeAnim
@@ -344,6 +364,7 @@ ENDM
 	farcall AbilityBlocksStatus
 	ret nc
 
+	call EntranceAbilityPopup
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVarAddr
 	xor a
@@ -366,8 +387,6 @@ ENDM
 	farcall CalcEnemyStats
 .cured
 	call RefreshBattleHuds
-	ld a, [wTempAbility]
-	farcall GetAbilityName
 	ld hl, AbilityCuredStatusText
 	jmp StdBattleTextbox
 
@@ -473,6 +492,10 @@ EntranceFoeAnim:
 .play
 	farjp Call_PlayBattleAnim
 
+EntranceAbilityPopup:
+; The popup for the entering Pokemon's ability (hidden when Check_Entrance_Ability ends).
+	farjp AbilityPopupUser
+
 AbilityAnimationCleanup:
 	;set numhits to 0 to prevent animation weirdness
 	;set up as a function, we might need to do other cleanups
@@ -497,6 +520,7 @@ FocusEnergyAbility:
 	bit SUBSTATUS_FOCUS_ENERGY, [hl]
 	ret nz  ; already active — do nothing
 	set SUBSTATUS_FOCUS_ENERGY, [hl]
+	call EntranceAbilityPopup
 	
 	ld de, FOCUS_ENERGY
 	farcall Call_PlayBattleAnim
@@ -526,6 +550,7 @@ DebrisAbility:
 	ret nz ; spikes already down, do nothing
 
 	set SCREENS_SPIKES, [hl]
+	call EntranceAbilityPopup
 	
 	ld de, SPIKES
 	farcall Call_PlayBattleAnim
@@ -557,6 +582,7 @@ LeechAbility:
 	bit SUBSTATUS_LEECH_SEED, [hl]
 	ret nz ; already seeded, do nothing
 	set SUBSTATUS_LEECH_SEED, [hl]
+	call EntranceAbilityPopup
 	ld a, BATTLER_LINK_SEEDED_BY
 	farcall SetTargetLink
 	
