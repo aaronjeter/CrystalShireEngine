@@ -123,6 +123,7 @@
 	charmap "└",         $be
 	charmap "┘",         $bf
 
+	charmap "◂",         $c0 ; ▶ mirrored (the registered items' ◀ slot)
 	charmap "′",         $ce
 	charmap "″",         $cf
 

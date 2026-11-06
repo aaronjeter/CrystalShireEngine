@@ -188,7 +188,9 @@ ItemTableGarbageCollection:
 		wItemBallItemID, wContestMonItem, wBattleAnimParam, \
 		wScriptVar, wCurEnemyItem, wEnemyTrainerItem1, \
 		wEnemyTrainerItem2, wNamedObjectIndex, wBaseItem1, \
-		wBaseItem2, wRegisteredItem
+		wBaseItem2, wRegisteredItem, wRegisteredItems2, wRegisteredItems2 + 1, \
+		wRegisteredItems2 + 2
+	assert NUM_REGISTERED_ITEMS == 4
 	___check_battler_slots .set_bit, BSLOT_MON + BATTLEMON_ITEM
 
 ; battle tower stuff should be here but this ROM hack doesn't care

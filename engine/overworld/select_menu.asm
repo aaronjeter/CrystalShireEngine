@@ -1,6 +1,30 @@
 SelectMenu::
-	call CheckRegisteredItem
-	jmp nc, UseRegisteredItem
+; One registered item: use it. Several: a box picks one by direction.
+	farcall CountRegisteredItems
+	ld a, c
+	and a
+	jr z, .none
+	dec a
+	jr nz, .several
+	ld b, 0
+.find
+	ld a, b
+	inc b
+	farcall RegisteredItemSlotItem
+	and a
+	jr z, .find
+	ld [wCurItem], a
+	jr .use
+
+.several
+	farcall RegisteredItemsMenu
+	ret c
+.use
+	ld a, -1 ; search the pocket for the item
+	ld [wCurItemQuantity], a
+	jr UseRegisteredItem
+
+.none
 	call OpenText
 	ld b, BANK(MayRegisterItemText)
 	ld hl, MayRegisterItemText
@@ -11,112 +35,6 @@ SelectMenu::
 MayRegisterItemText:
 	text_far _MayRegisterItemText
 	text_end
-
-CheckRegisteredItem:
-	ld a, [wWhichRegisteredItem]
-	and a
-	jr z, .NoRegisteredItem
-	and REGISTERED_POCKET
-	rlca
-	rlca
-	ld hl, .Pockets
-	jmp JumpTable
-
-.Pockets:
-; entries correspond to *_POCKET constants
-	dw .CheckItem
-	dw .CheckBall
-	dw .CheckKeyItem
-	dw .CheckTMHM
-
-.CheckItem:
-	ld hl, wNumItems
-	call .CheckRegisteredNo
-	jr c, .NoRegisteredItem
-	inc hl
-	ld e, a
-	ld d, 0
-	; Items pocket entries are 3 bytes: item index (high, low), quantity
-	add hl, de
-	add hl, de
-	add hl, de
-	push hl
-	ld a, [wRegisteredItem]
-	call GetItemIndexFromID
-	ld b, h
-	ld c, l
-	pop hl
-	ld a, [hli]
-	cp b
-	jr nz, .NoRegisteredItem
-	ld a, [hl]
-	cp c
-	jr nz, .NoRegisteredItem
-	ld a, [wRegisteredItem]
-	ld [wCurItem], a
-	and a
-	ret
-
-.CheckKeyItem:
-	ld a, [wRegisteredItem]
-	call GetItemIndexFromID
-	ld a, l
-	ld hl, wKeyItems
-	ld de, 1
-	call IsInArray
-	jr nc, .NoRegisteredItem
-	ld a, [wRegisteredItem]
-	ld [wCurItem], a
-	and a
-	ret
-
-.CheckBall:
-	ld hl, wNumBalls
-	call .CheckRegisteredNo
-	jr nc, .NoRegisteredItem
-	inc hl
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	call .IsSameItem
-	jr c, .NoRegisteredItem
-	ret
-
-.CheckTMHM:
-; fallthrough
-.NoRegisteredItem:
-	xor a
-	ld [wWhichRegisteredItem], a
-	ld [wRegisteredItem], a
-	scf
-	ret
-
-.CheckRegisteredNo:
-	ld a, [wWhichRegisteredItem]
-	and REGISTERED_NUMBER
-	dec a
-	cp [hl]
-	jr nc, .NotEnoughItems
-	ld [wCurItemQuantity], a
-	and a
-	ret
-
-.NotEnoughItems:
-	scf
-	ret
-
-.IsSameItem:
-	ld a, [wRegisteredItem]
-	cp [hl]
-	jr nz, .NotSameItem
-	ld [wCurItem], a
-	and a
-	ret
-
-.NotSameItem:
-	scf
-	ret
 
 UseRegisteredItem:
 	farcall CheckItemMenu

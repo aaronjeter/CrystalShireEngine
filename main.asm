@@ -73,6 +73,11 @@ INCLUDE "engine/events/bug_contest/contest_2.asm"
 INCLUDE "engine/math/get_square_root.asm"
 
 
+SECTION "Registered Items", ROMX
+
+INCLUDE "engine/items/registered_items.asm"
+
+
 SECTION "bank5", ROMX
 
 INCLUDE "engine/rtc/rtc.asm"

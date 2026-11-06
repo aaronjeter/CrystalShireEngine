@@ -498,22 +498,18 @@ RegisterItem:
 	ld a, [wItemAttributeValue]
 	and a
 	jr nz, .cant_register
-	ld a, [wCurPocket]
-	rrca
-	rrca
-	and REGISTERED_POCKET
-	ld b, a
-	ld a, [wCurItemQuantity]
-	inc a
-	and REGISTERED_NUMBER
-	or b
-	ld [wWhichRegisteredItem], a
-	ld a, [wCurItem]
-	ld [wRegisteredItem], a
+	farcall RegisterItemInSlot
+	cp REGISTER_CANCELLED
+	ret z
+	push af
 	call Pack_GetItemName
 	ld de, SFX_FULL_HEAL
 	call WaitPlaySFX
+	pop af
 	ld hl, RegisteredItemText
+	and a ; REGISTER_ADDED
+	jmp z, Pack_PrintTextNoScroll
+	ld hl, UnregisteredItemText
 	jmp Pack_PrintTextNoScroll
 
 .cant_register
@@ -1441,7 +1437,7 @@ ItemsPocketMenuHeader:
 	db SCROLLINGMENU_ITEMS_16BIT_QUANTITY ; item format
 	dbw 0, wNumItems
 	dba PlaceMenuItemName
-	dba PlaceMenuItemQuantity
+	dba PackItemQuantity
 	dba UpdateItemDescription
 
 PC_Mart_ItemsPocketMenuHeader:
@@ -1471,7 +1467,7 @@ KeyItemsPocketMenuHeader:
 	db SCROLLINGMENU_ITEMS_NORMAL ; item format
 	dbw 0, wNumKeyItems
 	dba PlaceMenuKeyItemName
-	dba PlaceMenuKeyItemQuantity
+	dba PackKeyItemQuantity
 	dba UpdateKeyItemDescription
 
 PC_Mart_KeyItemsPocketMenuHeader:
@@ -1501,7 +1497,7 @@ BallsPocketMenuHeader:
 	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
 	dbw 0, wNumBalls
 	dba PlaceMenuItemBallName
-	dba PlaceMenuItemBallQuantity
+	dba PackBallQuantity
 	dba UpdateItemBallDescription
 
 PC_Mart_BallsPocketMenuHeader:
@@ -1541,6 +1537,10 @@ YouDontHaveAMonText:
 
 RegisteredItemText:
 	text_far _RegisteredItemText
+	text_end
+
+UnregisteredItemText:
+	text_far _UnregisteredItemText
 	text_end
 
 CantRegisterText:

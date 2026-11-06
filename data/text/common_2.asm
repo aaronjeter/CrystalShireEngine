@@ -568,6 +568,18 @@ _RegisteredItemText::
 	text "."
 	prompt
 
+_UnregisteredItemText::
+	text "Unregistered the"
+	line "@"
+	text_ram wStringBuffer2
+	text "."
+	prompt
+
+_RegisterWhichDirectionText::
+	text "Register to which"
+	line "direction?"
+	done
+
 _CantRegisterText::
 	text "You can't register"
 	line "that item."

@@ -460,7 +460,7 @@ PlayerDepositItemMenu:
 	and a
 	jr z, .close
 	call .TryDepositItem
-	farcall CheckRegisteredItem
+	farcall CountRegisteredItems ; unregister the items no longer in the Pack
 	jr .loop
 
 .close

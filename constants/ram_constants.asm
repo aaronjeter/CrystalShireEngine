@@ -324,9 +324,14 @@ DEF NUM_BADGES       EQU NUM_JOHTO_BADGES + NUM_KANTO_BADGES + NUM_HOENN_BADGES
 	const_skip 3
 	const POKEGEAR_OBTAINED_F   ; 7
 
-; wWhichRegisteredItem::
-DEF REGISTERED_POCKET EQU %11000000
-DEF REGISTERED_NUMBER EQU %00111111
+; wRegisteredItem, wRegisteredItems2::
+DEF NUM_REGISTERED_ITEMS EQU 4 ; ▲, ◀, ▶, ▼
+
+; RegisterItemInSlot return values
+	const_def
+	const REGISTER_ADDED     ; 0
+	const REGISTER_REMOVED   ; 1
+	const REGISTER_CANCELLED ; 2
 
 ; wPlayerState::
 DEF PLAYER_NORMAL    EQU 0

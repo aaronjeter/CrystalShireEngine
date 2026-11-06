@@ -2885,8 +2885,8 @@ wPokegearFlags::
 wRadioTuningKnob:: db
 wLastDexMode:: db
 
-wWhichRegisteredItem:: db
-wRegisteredItem:: db
+wUnusedRegisteredItemSlot:: db ; the old pocket/slot of wRegisteredItem; nonzero in older saves
+wRegisteredItem:: db ; the ▲ registered item (see wRegisteredItems2)
 
 wPlayerState:: db
 
@@ -2993,9 +2993,7 @@ wLizFightCount::     db
 wAnthonyFightCount:: db
 wToddFightCount::    db
 wGinaFightCount::    db
-wArnieFightCount::   db ;unused
-wAlanFightCount::    db ;unused
-wDanaFightCount::    db ;unused
+wRegisteredItems2:: ds NUM_REGISTERED_ITEMS - 1 ; the ◀, ▶ and ▼ registered items (was the unused Arnie/Alan/Dana fight counts)
 wChadFightCount::    db ;unused
 wTullyFightCount::   db ;unused
 wBrentFightCount::   db
