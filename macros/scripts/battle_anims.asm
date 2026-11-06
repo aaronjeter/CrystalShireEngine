@@ -293,3 +293,10 @@ ENDM
 MACRO anim_ret
 	db anim_ret_command
 ENDM
+
+; An entry in a battle animation pointer table. The script is read in the
+; table's bank, so it must be in the same bank.
+MACRO anim_ptr
+	assert BANK(\1) == BANK(@), "\1 is not in the same bank as its animation table"
+	dw \1
+ENDM

@@ -1,27 +1,27 @@
 BattleAnimationsNegatives::
-	dw BattleAnim_InHail
-	dw BattleAnim_ThrowPokeBall
-	dw BattleAnim_SendOutMon
-	dw BattleAnim_ReturnMon
-	dw BattleAnim_Confused
-	dw BattleAnim_Slp
-	dw BattleAnim_Brn
-	dw BattleAnim_Psn
-	dw BattleAnim_Sap
-	dw BattleAnim_Frz
-	dw BattleAnim_Par
-	dw BattleAnim_InLove
-	dw BattleAnim_InSandstorm
-	dw BattleAnim_InNightmare
-	dw BattleAnim_InWhirlpool
-	dw BattleAnim_Miss
-	dw BattleAnim_EnemyDamage
-	dw BattleAnim_EnemyStatDown
-	dw BattleAnim_PlayerStatDown
-	dw BattleAnim_PlayerDamage
-	dw BattleAnim_Wobble
-	dw BattleAnim_Shake
-	dw BattleAnim_HitConfusion
+	anim_ptr BattleAnim_InHail
+	anim_ptr BattleAnim_ThrowPokeBall
+	anim_ptr BattleAnim_SendOutMon
+	anim_ptr BattleAnim_ReturnMon
+	anim_ptr BattleAnim_Confused
+	anim_ptr BattleAnim_Slp
+	anim_ptr BattleAnim_Brn
+	anim_ptr BattleAnim_Psn
+	anim_ptr BattleAnim_Sap
+	anim_ptr BattleAnim_Frz
+	anim_ptr BattleAnim_Par
+	anim_ptr BattleAnim_InLove
+	anim_ptr BattleAnim_InSandstorm
+	anim_ptr BattleAnim_InNightmare
+	anim_ptr BattleAnim_InWhirlpool
+	anim_ptr BattleAnim_Miss
+	anim_ptr BattleAnim_EnemyDamage
+	anim_ptr BattleAnim_EnemyStatDown
+	anim_ptr BattleAnim_PlayerStatDown
+	anim_ptr BattleAnim_PlayerDamage
+	anim_ptr BattleAnim_Wobble
+	anim_ptr BattleAnim_Shake
+	anim_ptr BattleAnim_HitConfusion
 .IndirectEnd::
 
 BattleAnim_ThrowPokeBall:
