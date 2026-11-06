@@ -39,8 +39,16 @@ OverworldBGMap:
 	jmp SetDefaultBGPAndOBP
 
 BattleBGMap:
-	ld b, SCGB_BATTLE_GRAYSCALE
-	call GetSGBLayout
+; LostBattle has already turned the battle screen gray. Not again here: the battle has ended
+; (hDoublesScreen is clear), so the layout would be the singles one, and a double battle's
+; pics in VRAM bank 1 (E2's, P2's) would show as the font's tiles. Only the text box's
+; rows get the text palette: this text box starts a row higher than a double battle's,
+; over P2's pic.
+	hlcoord 0, TEXTBOX_Y, wAttrmap
+	ld bc, (SCREEN_HEIGHT - TEXTBOX_Y) * SCREEN_WIDTH
+	ld a, PAL_BATTLE_BG_TEXT
+	rst ByteFill
+	call CopyTilemapAtOnce
 	jmp SetDefaultBGPAndOBP
 
 HalveMoney:
