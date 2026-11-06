@@ -48,6 +48,7 @@ DEF PCV_MASK   rb ; bit n: card n is drawn
 DEF PCV_FRESH  rb ; wAttrmap's first byte before the draw
 DEF PCV_HINTS  rb ; PCH_* flags of the bar being drawn
 DEF PCV_X      rb ; the bar's next hint position
+DEF PCV_REDRAW rb ; nonzero: the HP animation's next step redraws the whole card
 DEF PCS_STATE  rb PARTY_LENGTH ; per card: bit 7 present, bits 4-5 HP color, bits 0-1 fill
 	assert _RS <= $100
 
@@ -2586,6 +2587,9 @@ PartyCardsAnimateHP::
 	ld [wCurPartySpecies], a
 	pop af
 	ld [wCurPartyMon], a
+	ld a, 1
+	ld c, PCV_REDRAW
+	call PartyCards_Store
 	; step = |new - old| / 32, at least 1
 	ld hl, wHPBuffer2
 	ld a, [hli]
@@ -2741,10 +2745,66 @@ PartyCardsAnimateHP::
 	and %11111100
 	or PCFILL_FAINTED
 .got_state
+	; the whole card on the first step and when its fill changes (fainting, revival);
+	; otherwise only the HP numbers and bar, with the palettes when the HP color changes
+	ld b, a
+	call PartyCards_Load
+	xor b
+	ld e, a ; the state bits that changed
+	ld a, b
+	call PartyCards_Store
+	ld c, PCV_REDRAW
+	call PartyCards_Load
+	and a
+	jr nz, .whole
+	ld a, e
+	and %11
+	jr nz, .whole
+	push de
+	call PartyCards_RenderHP
+	pop de
+	ld a, e
+	and %00110000
+	ret z
+	jmp PartyCardsUpdatePals
+
+.whole
+	xor a
 	call PartyCards_Store
 	ld a, [wCurPartyMon]
 	call PartyCards_Render
 	jmp PartyCardsUpdatePals
+
+PartyCards_RenderHP:
+; Redraw the HP numbers and bar of the card last drawn by PartyCards_Render (still in the
+; canvas) and copy the tiles from the numbers to the bar row.
+	ldh a, [rSVBK]
+	push af
+	ld a, PC_WRAM
+	ldh [rSVBK], a
+	; the numbers end at x 76 and the gender sign at x 43
+	xor a
+	ld [PC_DATA + PCV_COLOR], a
+	lb bc, 32, 5
+	lb de, 44, 10
+	call PC_FillRect
+	call PC_DrawInfoLine.hp
+	ld hl, PartyCardHPGFX
+	ld de, PC_CANVAS + 30 tiles
+	ld bc, PartyCardHPGFX.End - PartyCardHPGFX
+	rst CopyBytes
+	call PC_DrawHPBar
+	call PC_StageCard
+	; stage tiles 13-35: the level line's last 5 tiles (x 40-79) through the bar row
+	ld a, [PC_DATA + PCV_CARD]
+	call PC_CardTileBase
+	add 13
+	ld de, PC_STAGE + 13 tiles
+	ld c, PC_CARD_TILES - 13
+	call PC_Transfer
+	pop af
+	ldh [rSVBK], a
+	ret
 
 ; Text boxes and menus over the cards -------------------------------------------------------
 

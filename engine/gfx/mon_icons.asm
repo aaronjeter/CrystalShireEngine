@@ -255,11 +255,6 @@ LoadPartyMenuMonIconColors:
 	ld e, a
 	ld d, 0
 
-	ld hl, wPartyMon1Item
-	call GetPartyLocation
-	ld a, [hl]
-	ld [wCurIconMonHasItemOrMail], a
-
 	ld hl, wPartySpecies
 	add hl, de
 	ld a, [hl]
@@ -286,18 +281,9 @@ LoadPartyMenuMonIconColors:
 	add hl, de
 	ld [hl], a ; top right
 	add hl, de
-	push hl
+	ld [hl], a ; bottom left
 	add hl, de
 	ld [hl], a ; bottom right
-	pop hl
-	ld d, a
-	ld a, [wCurIconMonHasItemOrMail]
-	and a
-	ld a, PAL_OW_RED ; item or mail color
-	jr nz, .ok
-	ld a, d
-.ok
-	ld [hl], a ; bottom left
 	jr _FinishMenuMonIconColor
 
 _ApplyMenuMonIconColor:
@@ -582,34 +568,8 @@ Mobile_InitPartyMenuBGPal71:
 
 PartyMenu_InitAnimatedMonIcon:
 	call InitPartyMenuIcon
-	call .SpawnItemIcon
 	farcall PartyCardsIconStar
 	jr SetPartyMonIconAnimSpeed
-
-.SpawnItemIcon:
-	push bc
-	ldh a, [hObjectStructIndex]
-	ld hl, wPartyMon1Item
-	ld bc, PARTYMON_STRUCT_LENGTH
-	rst AddNTimes
-	pop bc
-	ld a, [hl]
-	and a
-	ret z
-	push hl
-	push bc
-	ld d, a
-	farcall ItemIsMail
-	pop bc
-	pop hl
-	; a = carry ? SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_MAIL : SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_ITEM
-	assert SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_MAIL + 1 == SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_ITEM
-	sbc a
-	add SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_ITEM
-	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
-	add hl, bc
-	ld [hl], a
-	ret
 
 InitPartyMenuIcon:
 	call LoadPartyMenuMonIconColors
