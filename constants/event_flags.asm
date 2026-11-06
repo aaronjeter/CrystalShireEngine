@@ -251,10 +251,10 @@
 	const EVENT_OLIVINE_PORT_HIDDEN_PROTEIN
 	const EVENT_VERMILION_PORT_HIDDEN_IRON
 	const EVENT_MOUNT_MOON_SQUARE_HIDDEN_MOON_STONE
-	const EVENT_ROUTE_2_HIDDEN_MAX_ETHER
-	const EVENT_ROUTE_2_HIDDEN_FULL_HEAL
-	const EVENT_ROUTE_2_HIDDEN_FULL_RESTORE
-	const EVENT_ROUTE_2_HIDDEN_REVIVE
+	const_skip ; unused (Route 2's hidden Max Ether: may be set in saves from before the forest redraw)
+	const_skip ; unused (Route 2's hidden Full Heal: may be set in older saves)
+	const_skip ; unused (Route 2's hidden Full Restore: may be set in older saves)
+	const_skip ; unused (Route 2's hidden Revive: may be set in older saves)
 	const EVENT_ROUTE_4_HIDDEN_ULTRA_BALL
 	const EVENT_ROUTE_9_HIDDEN_ETHER
 	const EVENT_ROUTE_12_HIDDEN_ELIXER

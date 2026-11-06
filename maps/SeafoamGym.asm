@@ -7,9 +7,18 @@ SeafoamGym_MapScripts:
 	scene_script SeafoamGymNoopScene ; unusable
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, SeafoamGymGuideCallback
 
 SeafoamGymNoopScene:
 	end
+
+SeafoamGymGuideCallback:
+; The Gym Guide is there once Blaine is beaten (also for saves from before he appeared).
+	checkevent EVENT_BEAT_BLAINE
+	iffalse .done
+	clearevent EVENT_SEAFOAM_GYM_GYM_GUIDE
+.done
+	endcallback
 
 SeafoamGymBlaineScript:
 	faceplayer
@@ -65,6 +74,7 @@ BlaineGiveBadge:
 	scall SeafoamGymLevelcap
 	writetext BlaineAfterBattleText
 	waitbutton
+	appear SEAFOAMGYM_GYM_GUIDE
 	end
 
 BlaineFight:
