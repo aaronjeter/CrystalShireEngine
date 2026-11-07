@@ -430,7 +430,7 @@ OlivinePort_MapEvents:
 	coord_event  7, 15, SCENE_OLIVINEPORT_ASK_ENTER_SHIP, OlivinePortWalkUpToShipScript
 
 	def_bg_events
-	bg_event  1, 22, BGEVENT_ITEM, OlivinePortHiddenProtein
+	bg_event  2, 15, BGEVENT_ITEM, OlivinePortHiddenProtein
 
 	def_object_events
 	object_event  7, 23, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortSailorAtGangwayScript, EVENT_OLIVINE_PORT_SAILOR_AT_GANGWAY
