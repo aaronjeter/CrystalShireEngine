@@ -317,15 +317,19 @@ if DEF(_DEBUG)
 
 	loadmem wPartyMon3DVs+0, HP_MAX_WATER
 	loadmem wPartyMon3DVs+1, $fe
+	loadmem wPartyMon3Color, MONCOLOR_WATER
 
 	loadmem wPartyMon4DVs+0, HP_MAX_WATER
 	loadmem wPartyMon4DVs+1, $ff
+	loadmem wPartyMon4Color, MONCOLOR_KYOGRE
 
 	loadmem wPartyMon5DVs+0, HP_MAX_GROUND
 	loadmem wPartyMon5DVs+1, $ff
+	loadmem wPartyMon5Color, MONCOLOR_GROUDON
 
 	loadmem wPartyMon6DVs+0, HP_MAX_GROUND
 	loadmem wPartyMon6DVs+1, $fe
+	loadmem wPartyMon6Color, MONCOLOR_GROUND
 
 	; intro events
 	addcellnum PHONE_MOM

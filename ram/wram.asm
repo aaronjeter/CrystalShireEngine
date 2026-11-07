@@ -351,7 +351,7 @@ wBattleMonNickname:: ds MON_NAME_LENGTH
 
 wBattleMon:: battle_struct wBattleMon
 
-wHiddenPowerPaletteMon:: db
+wHiddenPowerPaletteMon:: db ; unused
 wBattleMonAbility:: db ; ABILITY_* constant
 
 wWildMon:: db
@@ -3445,8 +3445,9 @@ SECTION "Wild Mon EVs", WRAMX, BANK[1]
 
 ; laid out like a party mon's EVs and DVs, for CalcMonStats
 wWildMonEVs:: ds NUM_STATS ; the wild Pokemon's EVs (RollWildMonEVs), kept if it's caught
-	ds MON_DVS - (MON_EVS + NUM_STATS)
-wWildMonDVs:: dw ; a copy of wEnemyMonDVs
+	ds MON_COLOR - (MON_EVS + NUM_STATS)
+wWildMonColor:: db ; the wild Pokemon's MON_COLOR (SetWildMonColor), kept if it's caught
+wWildMonDVs:: dw ; a copy of wEnemyMonDVs (GetEnemyMonDVs)
 
 
 SECTION "AI Learnset RAM", WRAMX, BANK[1]

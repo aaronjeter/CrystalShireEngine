@@ -716,3 +716,8 @@ INCLUDE "engine/battle/ability_popup.asm"
 SECTION "Move Learn Screen", ROMX
 
 INCLUDE "engine/pokemon/move_learn_screen.asm"
+
+
+SECTION "Mon Colors", ROMX
+
+INCLUDE "engine/pokemon/mon_colors.asm"

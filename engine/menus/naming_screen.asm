@@ -92,6 +92,9 @@ NamingScreen:
 	ld a, MON_DVS
 	call GetPartyParamLocation
 .start
+	dec hl
+	ld a, [hli] ; MON_COLOR
+	ld [wTempMonColor], a
 	ld de, wTempMonDVs
 	ld a, [hli]
 	ld [de], a

@@ -4013,20 +4013,16 @@ BattleCheckShininess:
 	farjp CheckShininess
 
 GetPartyMonDVs:
-	ld hl, wBattleMonDVs
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_TRANSFORMED, a
-	ret z
+; hl = the player's battler's own DVs (not a Transform's), in its party struct
+; (MON_COLOR is the byte before them).
 	ld hl, wPartyMon1DVs
 	ld a, [wCurBattleMon]
 	jmp GetPartyLocation
 
 GetEnemyMonDVs:
-	ld hl, wEnemyMonDVs
-	ld a, [wEnemySubStatus5]
-	bit SUBSTATUS_TRANSFORMED, a
-	ret z
-	ld hl, wEnemyBackupDVs
+; hl = the enemy battler's own DVs (not a Transform's), with MON_COLOR the byte
+; before them: its party struct, or a wild Pokémon's copy.
+	ld hl, wWildMonDVs
 	ld a, [wBattleMode]
 	dec a
 	ret z

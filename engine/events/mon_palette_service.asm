@@ -1,5 +1,5 @@
 ; Shared menu for the NPCs and shrines that change a Pokémon's colors
-; (and Hidden Power type) through its DVs.
+; (MON_COLOR) and Hidden Power type (its DVs).
 ;
 ; Usage, after opentext:
 ;	monpaletteservice .Options ; wScriptVar = MONPALSERVICE_* result
@@ -255,6 +255,19 @@ MonPaletteService:
 	ld [hli], a
 	ld a, [wMonPalOption + MONPAL_OPTION_SPDSPC_DV]
 	ld [hl], a
+; the colors (MON_COLOR): the type's, a blessing, or kept (MONPAL_ALIGN)
+	ld a, [wMonPalOption + MONPAL_OPTION_ATKDEF_DV]
+	ld b, a
+	ld a, [wMonPalOption + MONPAL_OPTION_SPDSPC_DV]
+	ld c, a
+	farcall GetServiceMonColor
+	jr c, .keep_colors
+	push af
+	ld a, MON_COLOR
+	call GetPartyParamLocation
+	pop af
+	ld [hl], a
+.keep_colors
 ; the DVs changed, so recalculate the stats
 	ld a, [wCurPartySpecies]
 	ld [wCurSpecies], a

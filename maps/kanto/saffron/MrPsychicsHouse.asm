@@ -103,7 +103,7 @@ MrsPsychicAfterServiceText:
 
 	para "And has taken on"
 	line "a lovely shade of"
-	cont "lavender..."
+	cont "lilac..."
 	done
 	
 MrsPsychicNoMoneyText:

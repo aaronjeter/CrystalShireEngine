@@ -222,10 +222,27 @@ GetFollowerStartCoords:
 	ret
 
 LoadFollowerColors:
-; Copy the lead Pokémon's colors (normal or shiny) from FollowerPalettes
-; to wFollowerColors. Carry if there's no follower.
+; Copy the lead Pokémon's colors (normal or shiny) from FollowerPalettes, or its
+; MON_COLOR's, to wFollowerColors. Carry if there's no follower.
 	call GetFollowerPartyMon
 	ret c
+	ld de, MON_COLOR
+	push hl
+	add hl, de
+	ld e, [hl]
+	pop hl
+	ld d, a
+	ld a, e
+	and a
+	jr z, .species_colors
+	cp NUM_MONCOLORS + 1
+	jr nc, .species_colors
+	farcall LoadMonColorFollowerColors
+	and a
+	ret
+
+.species_colors
+	ld a, d
 	push hl
 	call GetPokemonIndexFromID
 	add hl, hl ; 8 bytes per species

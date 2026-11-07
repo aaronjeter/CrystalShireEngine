@@ -370,7 +370,17 @@ GetMonPalInBCDE:
 	ret
 
 GetMenuMonIconColors:
-; bc, de = the icon colors of [wCurPartySpecies] with the DVs at hl.
+; bc, de = the icon colors of [wCurPartySpecies] with the DVs at hl: its
+; MON_COLOR's (the byte before the DVs) if set.
+	dec hl
+	ld a, [hli]
+	and a
+	jr z, .species_colors
+	cp NUM_MONCOLORS + 1
+	jr nc, .species_colors
+	farjp GetMonColorIconColors
+
+.species_colors
 	ld b, h
 	ld c, l
 	farcall CheckShininess

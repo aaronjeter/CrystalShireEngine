@@ -233,6 +233,7 @@ _LoadEnemyMon:
 	ld a, [wBattleMode]
 	dec a
 	jr nz, .Happiness
+	farcall SetWildMonColor
 
 ; Species-specfic:
 
@@ -329,7 +330,7 @@ _LoadEnemyMon:
 ; Try again if length < 1024 mm (i.e. if HIGH(length) < 3 feet)
 	ld a, [wMagikarpLength]
 	cp 3
-	jr c, .GenerateDVs ; try again
+	jp c, .GenerateDVs ; try again
 
 ; Finally done with DVs
 

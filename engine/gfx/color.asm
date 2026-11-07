@@ -544,28 +544,28 @@ GetMonPalettePointer:
 	add hl, bc
 	ret
 
-GetMonNormalOrShinyPalettePointer:	
-	;dvs are at bc	
-
+GetMonNormalOrShinyPalettePointer:
+; hl = the palette of species a with the DVs at bc: MON_COLOR (the byte before the
+; DVs) if it's set, else the species' normal or shiny colors.
 	push bc
 	call GetMonPalettePointer
 	pop bc
 	push hl
 	call CheckShininess
 	pop hl
-	jr nc, .HiddenPowerCheck
+	jr nc, .got_species_colors
 rept 4
 	inc hl
 endr
-.HiddenPowerCheck
-	push hl
-	call CheckHiddenPowerColor
-	pop hl
+.got_species_colors
+	dec bc
+	ld a, [bc] ; MON_COLOR
+	inc bc
+	and a
+	ret z
+	cp NUM_MONCOLORS + 1
 	ret nc
-	
-	ld a, [wHiddenPowerPaletteMon]	
-	call LoadSpecificPokemonPalette
-	ret
+	jp GetMonColorPalettePointer
 
 PushSGBPals:
 	ld a, [wJoypadDisable]
@@ -1224,286 +1224,46 @@ LoadTrainerPalette:
 	jp FarCopyWRAM
 
 
-CheckHiddenPowerColor:
-;we use hidden power colors only if the second dv byte is $fe
-;and the first dv matches the highest value for that type
-;assume dvs are at bc (not *in* bc)
-;load HP palette if we find a match, otherwise do nothing
-;ends with palette in hl register	
-	
-	;ld dv into hl
-	ld h, b
-	ld l, c
-
-	ld a, [hli] ; skip to the second iv byte
-
-	ld a, [hl]
-	cp SHINY_SPDSPC_DV
-	jp z, .checkLegendaryPalettes
-
-
-	ld a, [hl]
-	cp HP_SPDSPC_DV
-	jp nz, .not_using
-
-	;load the first dv into hl
-	ld h, b 
-	ld l, c
-
-;check types one at a time
-
-	ld a, [hl]
-	cp HP_MAX_DARK
-	jr nz, .notDark
-
-	ld hl, GENGAR
-	jp .usingAltColor
-
-.notDark
-
-	ld a, [hl]
-	cp HP_MAX_DRAGON
-	jr nz, .notDragon
-
-	ld hl, SALAMENCE
-	jp .usingAltColor
-
-.notDragon
-
-	ld a, [hl]
-	cp HP_MAX_ICE
-	jr nz, .notIce
-
-	ld hl, AVULPIX
-	jp .usingAltColor
-
-.notIce
-
-ld a, [hl]
-	cp HP_MAX_PSYCHIC
-	jr nz, .notPsychic
-
-	ld hl, ESPEON
-	jp .usingAltColor
-
-.notPsychic
-
-ld a, [hl]
-	cp HP_MAX_ELECTRIC
-	jr nz, .notElectric
-
-	ld hl, ELECTIVIRE
-	jp .usingAltColor
-
-.notElectric
-
-ld a, [hl]
-	cp HP_MAX_GRASS
-	jr nz, .notGrass
-
-	ld hl, CACTURNE
-	jp .usingAltColor
-
-.notGrass
-
-ld a, [hl]
-	cp HP_MAX_WATER
-	jr nz, .notWater
-
-	ld hl, MEGANIUM2
-	
-	jp .usingAltColor
-
-.notWater
-
-ld a, [hl]
-	cp HP_MAX_FIRE
-	jr nz, .notFire
-
-	ld hl, INCINEROAR
-	jp .usingAltColor
-
-.notFire
-
-ld a, [hl]
-	cp HP_MAX_STEEL
-	jr nz, .notSteel
-
-	ld hl, STEELIX
-	jr .usingAltColor
-
-.notSteel
-
-ld a, [hl]
-	cp HP_MAX_GHOST
-	jr nz, .notGhost
-
-	ld hl, UNOWNX
-	jr .usingAltColor
-
-.notGhost
-
-ld a, [hl]
-	cp HP_MAX_BUG
-	jr nz, .notBug
-
-	ld hl, CATERPIE
-	jr .usingAltColor
-
-.notBug
-
-ld a, [hl]
-	cp HP_MAX_ROCK
-	jr nz, .notRock
-
-	ld hl, GEODUDE
-	jr .usingAltColor
-
-.notRock
-
-ld a, [hl]
-	cp HP_MAX_GROUND
-	jr nz, .notGround
-
-	ld hl, ADIGLETT
-	jr .usingAltColor
-
-.notGround
-
-ld a, [hl]
-	cp HP_MAX_POISON
-	jr nz, .notPoison
-
-	ld hl, MUK
-	jr .usingAltColor
-
-.notPoison
-
-ld a, [hl]
-	cp HP_MAX_FLYING
-	jr nz, .notFlying
-
-	ld hl, JUPITER
-	jr .usingAltColor
-
-.notFlying
-
-ld a, [hl]
-	cp HP_MAX_FIGHTING
-	jr nz, .notFighting
-
-	ld hl, HITMONLEE
-	jr .usingAltColor
-
-.notFighting
-
-.not_using
-	scf
-	ccf
-	ret
-
-; using HP colors
-.usingAltColor
-	call GetPokemonIDFromIndex
-	ld [wHiddenPowerPaletteMon], a
-	scf
-	ret
-
-
-.checkLegendaryPalettes
-
-	;load the first dv into hl
-	ld h, b 
-	ld l, c
-	
-	ld a, [hl]
-	cp HP_MAX_DRAGON
-	jr nz, .notRayquaza
-
-	ld hl, RAYQUAZA
-	jp .usingLegendaryColor
-
-.notRayquaza
-
-	ld a, [hl]
-	cp HP_MAX_WATER
-	jr nz, .notKyogre
-
-	ld hl, KYOGRE
-	jp .usingLegendaryColor
-
-.notKyogre
-
-	ld a, [hl]
-	cp HP_MAX_GROUND
-	jr nz, .notGroudon
-
-	ld hl, GROUDON
-	jp .usingLegendaryColor
-
-.notGroudon
-
-	ld a, [hl]
-	cp HP_MAX_STEEL
-	jr nz, .notJirachi
-
-	ld hl, JIRACHI
-	jp .usingLegendaryColor
-
-.notJirachi
-
-	ld a, [hl]
-	cp HP_MAX_FIRE
-	jr nz, .notHooh
-
-	ld hl, HO_OH
-	jp .usingLegendaryColor
-
-.notHooh
-
-	ld a, [hl]
-	cp HP_MAX_FLYING
-	jr nz, .notLugia
-
-	ld hl, LUGIA
-	jp .usingLegendaryColor
-
-.notLugia
-
-	ld a, [hl]
-	cp HP_MAX_GRASS
-	jr nz, .notCelebi
-
-	ld hl, CELEBI
-	jp .usingLegendaryColor
-
-.notCelebi
-
-	ld a, [hl]
-	cp HP_MAX_PSYCHIC
-	jr nz, .notMewtwo
-
-	ld hl, MEWTWO
-	jp .usingLegendaryColor
-
-.notMewtwo
-
-	ld a, [hl]
-	cp HP_MAX_GHOST
-	jr nz, .notMew
-
-	ld hl, MEW
-	jp .usingLegendaryColor
-
-.notMew
-
-.notLegendary
-	scf
-	ccf
-	ret
-
-.usingLegendaryColor
-	call GetPokemonIDFromIndex
-	ld [wHiddenPowerPaletteMon], a
-	scf
+MonColorPalettes:
+; MON_COLOR's 2-color sets (light, dark), in MONCOLOR_* order
+	table_width PAL_COLOR_SIZE * 2
+	RGB 29,16,10, 20,07,05 ; MONCOLOR_FIGHTING
+	RGB 22,26,31, 12,16,28 ; MONCOLOR_FLYING
+	RGB 27,16,29, 19,08,22 ; MONCOLOR_POISON
+	RGB 29,24,13, 21,14,07 ; MONCOLOR_GROUND
+	RGB 25,22,14, 17,14,09 ; MONCOLOR_ROCK
+	RGB 23,27,06, 13,19,04 ; MONCOLOR_BUG
+	RGB 22,18,30, 13,09,21 ; MONCOLOR_GHOST
+	RGB 23,24,27, 15,16,21 ; MONCOLOR_STEEL
+	RGB 31,23,07, 28,10,04 ; MONCOLOR_FIRE
+	RGB 15,23,31, 07,13,28 ; MONCOLOR_WATER
+	RGB 20,29,11, 08,20,07 ; MONCOLOR_GRASS
+	RGB 31,28,07, 28,18,03 ; MONCOLOR_ELECTRIC
+	RGB 31,20,17, 19,11,24 ; MONCOLOR_PSYCHIC
+	RGB 23,30,31, 11,21,28 ; MONCOLOR_ICE
+	RGB 20,16,31, 12,08,26 ; MONCOLOR_DRAGON
+	RGB 19,17,16, 11,10,12 ; MONCOLOR_DARK
+	RGB 31,18,24, 25,09,18 ; MONCOLOR_FAIRY
+	RGB 30,27,09, 07,20,10 ; MONCOLOR_RAYQUAZA
+	RGB 14,21,31, 26,07,09 ; MONCOLOR_KYOGRE
+	RGB 30,12,08, 13,12,14 ; MONCOLOR_GROUDON
+	RGB 31,30,15, 09,21,27 ; MONCOLOR_JIRACHI
+	RGB 31,25,07, 28,08,07 ; MONCOLOR_HO_OH
+	RGB 27,28,31, 11,16,28 ; MONCOLOR_LUGIA
+	RGB 24,31,16, 08,20,24 ; MONCOLOR_CELEBI
+	RGB 28,26,31, 20,12,26 ; MONCOLOR_MEWTWO
+	RGB 31,23,28, 14,20,31 ; MONCOLOR_MEW
+	assert_table_length NUM_MONCOLORS
+
+GetMonColorPalettePointer::
+; a = MON_COLOR (1 to NUM_MONCOLORS) -> hl = its 2 colors (BANK(MonColorPalettes))
+	dec a
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl ; * PAL_COLOR_SIZE * 2
+	push bc
+	ld bc, MonColorPalettes
+	add hl, bc
+	pop bc
 	ret

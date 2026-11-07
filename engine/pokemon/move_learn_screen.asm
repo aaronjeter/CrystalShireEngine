@@ -33,7 +33,7 @@ MoveInfo_OpenPrompt::
 	ld b, 0
 	ld c, 6 ; icon slots and OBJ palettes 6-7
 	call MoveInfo_DrawBox
-	jmp MoveInfo_CopyTilemap
+	jr MoveInfo_CopyTilemap
 
 MoveInfo_ClosePrompt::
 ; Close the box from MoveInfo_OpenPrompt. Preserves af.

@@ -63,16 +63,16 @@ DEF RANDOM_TEAM EQU $fe    ; in place of the first flags byte: count, random lis
 
 ; dvs presets (dvs PRESET): atk/def byte << 8 | spd/spc byte
 ; A spd/spc byte of SHINY_SPDSPC_DV ($ff) makes a Pokemon shiny, HP_SPDSPC_DV ($fe)
-; gives it its Hidden Power type's colors, so plain presets avoid both.
+; gives it its Hidden Power type's colors (MON_COLOR), so plain presets avoid both.
 ; PERFECT: 15 everywhere but Special 13 (keeps the HP DV at 15).
 DEF DVS_PERFECT EQU $fffd
-; HP_<TYPE>: Hidden Power of that type at 70 power (Speed 14, Special 15);
-; HP_<TYPE>_COLOR: the same type, 69 power, in its Hidden Power colors
-for _t, 16
-	REDEF _hp_type EQUS STRSUB("FIGHTINGFLYING  POISON  GROUND  ROCK    BUG     GHOST   STEEL   FIRE    WATER   GRASS   ELECTRICPSYCHIC ICE     DRAGON  DARK    ", _t * 8 + 1, 8)
+; HP_<TYPE>: Hidden Power of that type (the highest atk/def byte for it, Speed 14, Special 15);
+; HP_<TYPE>_COLOR: the same type in its Hidden Power colors (Speed 15, Special 14)
+for _t, NUM_HIDDEN_POWER_TYPES
+	REDEF _hp_type EQUS STRSUB("FIGHTINGFLYING  POISON  GROUND  ROCK    BUG     GHOST   STEEL   FIRE    WATER   GRASS   ELECTRICPSYCHIC ICE     DRAGON  DARK    FAIRY   ", _t * 8 + 1, 8)
 	REDEF _hp_type EQUS STRRPL("{_hp_type}", " ", "")
-	DEF DVS_HP_{_hp_type} EQU (($c | (_t >> 2)) << 12 | ($c | (_t & 3)) << 8) | $ef
-	DEF DVS_HP_{_hp_type}_COLOR EQU (DVS_HP_{_hp_type} & $ff00) | HP_SPDSPC_DV
+	DEF DVS_HP_{_hp_type} EQU HP_MAX_{_hp_type} << 8 | $ef
+	DEF DVS_HP_{_hp_type}_COLOR EQU HP_MAX_{_hp_type} << 8 | HP_SPDSPC_DV
 endr
 
 ; ev_spread presets (rows of TrainerEVSpreads, data/trainers/ev_spreads.asm)

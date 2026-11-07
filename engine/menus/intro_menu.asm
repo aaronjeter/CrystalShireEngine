@@ -579,6 +579,7 @@ if !DEF(_DEBUG)
 	call PrepMonFrontpic
 
 	xor a
+	ld [wTempMonColor], a
 	ld [wTempMonDVs], a
 	ld [wTempMonDVs + 1], a
 	ld [wTempMonDVs + 2], a

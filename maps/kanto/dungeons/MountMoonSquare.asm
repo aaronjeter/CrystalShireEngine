@@ -160,6 +160,76 @@ StoneGuyScript:
 	closetext
 	end
 
+MoonGirlScript:
+	faceplayer
+	opentext
+	writetext MoonGirlOfferServiceText
+	yesorno
+	iffalse .Refused
+	monpaletteservice .Service
+	ifequal MONPALSERVICE_CANT_PAY, .NoMoonStone
+	ifequal MONPALSERVICE_CANCELLED, .Refused
+	waitbutton
+	closetext
+	end
+
+.Service:
+	monpal_item MOON_STONE, HP_MAX_FAIRY, MONPAL_TYPE_COLORS, MoonGirlAfterServiceText
+	monpal_end
+
+.NoMoonStone:
+	writetext MoonGirlNoMoonStoneText
+	waitbutton
+	closetext
+	end
+
+.Refused:
+	writetext MoonGirlRefusedText
+	waitbutton
+	closetext
+	end
+
+MoonGirlOfferServiceText:
+	text "The Clefairy come"
+	line "here to dance in"
+	cont "the moonlight."
+
+	para "With a Moon Stone,"
+	line "I can share their"
+	cont "fairy charm with"
+	cont "your #mon."
+
+	para "Will you offer me"
+	line "a Moon Stone?"
+	done
+
+MoonGirlAfterServiceText:
+	text "And...it is"
+	line "complete!"
+
+	para "@"
+	text_ram wStringBuffer1
+	text " is"
+	line "filled with Hidden"
+	cont "Fairy Power."
+
+	para "And it glows pink,"
+	line "like the moon's"
+	cont "little dancers!"
+	done
+
+MoonGirlNoMoonStoneText:
+	text "Oh… You don't"
+	line "have a Moon Stone."
+	done
+
+MoonGirlRefusedText:
+	text "The Clefairy will"
+	line "still be dancing"
+	cont "if you change"
+	cont "your mind."
+	done
+
 StoneGuyOfferServiceText:
 	text "Rock and Stone,"
 	line "kid. Rock and"
@@ -226,3 +296,4 @@ MountMoonSquare_MapEvents:
 	object_event  7,  6, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MT_MOON_SQUARE_CLEFAIRY
 	object_event  7,  7, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MtMoonSquareRock, EVENT_MT_MOON_SQUARE_ROCK
 	object_event 20, 12, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, StoneGuyScript, -1
+	object_event  9, 10, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MoonGirlScript, -1

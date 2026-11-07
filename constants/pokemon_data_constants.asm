@@ -88,7 +88,8 @@ DEF MON_SAT_EV             rb
 DEF MON_SDF_EV             rb
 DEF MON_ABILITY_SLOT       rb ; bits 0-1: ABILITY_SLOT_* (ABILITY_SLOT_MASK)
 DEF MON_MARKS              rb ; MON_*_F flags below
-                           rb_skip 2
+                           rb_skip 1
+DEF MON_COLOR              rb ; MONCOLOR_* (0: the species' colors); right before the DVs
 DEF MON_DVS                rw
 DEF MON_PP                 rb NUM_MOVES
 DEF MON_HAPPINESS          rb
@@ -136,7 +137,8 @@ DEF SAVEMON_SAT_EV             rb
 DEF SAVEMON_SDF_EV             rb
 DEF SAVEMON_ABILITY_SLOT       rb ; same as MON_ABILITY_SLOT
 DEF SAVEMON_MARKS              rb ; same as MON_MARKS
-                               rb_skip 2
+                               rb_skip 1
+DEF SAVEMON_COLOR              rb ; same as MON_COLOR
 DEF SAVEMON_DVS                rw
 ; savemon_struct is identical to party_struct before this point
 DEF SAVEMON_MOVES_HIGH         rb NUM_MOVES
@@ -301,22 +303,63 @@ DEF MAX_EV EQU 252
 DEF MAX_TOTAL_EV EQU 510
 
 DEF SHINY_SPDSPC_DV EQU $ff
-DEF HP_SPDSPC_DV EQU $fe ;Speed/special DV byte to use HP color palattes
+DEF HP_SPDSPC_DV EQU $fe ; trainer parties: a spd/spc DV byte that also gives the Hidden Power type's colors
 
-; Hidden Power ATKDEF DVs 
-DEF HP_MAX_DARK EQU $ff
-DEF HP_MAX_DRAGON EQU $fe
-DEF HP_MAX_ICE EQU $fd
-DEF HP_MAX_PSYCHIC EQU $fc
-DEF HP_MAX_ELECTRIC EQU $ef
-DEF HP_MAX_GRASS EQU $ee
-DEF HP_MAX_WATER EQU $ed
-DEF HP_MAX_FIRE EQU $ec
-DEF HP_MAX_STEEL EQU $df
-DEF HP_MAX_GHOST EQU $de
-DEF HP_MAX_BUG EQU $dd
-DEF HP_MAX_ROCK EQU $dc
-DEF HP_MAX_GROUND EQU $cf
-DEF HP_MAX_POISON EQU $ce
-DEF HP_MAX_FLYING EQU $cd
-DEF HP_MAX_FIGHTING EQU $cc
+; Hidden Power's type comes from the atk/def DV byte only:
+; v = (Atk & 7) << 2 | (Def & 3), type number = v * 17 / 32 (0-16, Fighting ... Dark, Fairy),
+; see engine/pokemon/mon_colors.asm.
+DEF NUM_HIDDEN_POWER_TYPES EQU 17
+
+; HP_MAX_<TYPE>: the highest atk/def DV byte giving that Hidden Power type
+DEF HP_MAX_FIGHTING EQU $8d
+DEF HP_MAX_FLYING   EQU $8f
+DEF HP_MAX_POISON   EQU $9d
+DEF HP_MAX_GROUND   EQU $9f
+DEF HP_MAX_ROCK     EQU $ad
+DEF HP_MAX_BUG      EQU $af
+DEF HP_MAX_GHOST    EQU $bd
+DEF HP_MAX_STEEL    EQU $bf
+DEF HP_MAX_FIRE     EQU $cc
+DEF HP_MAX_WATER    EQU $ce
+DEF HP_MAX_GRASS    EQU $dc
+DEF HP_MAX_ELECTRIC EQU $de
+DEF HP_MAX_PSYCHIC  EQU $ec
+DEF HP_MAX_ICE      EQU $ee
+DEF HP_MAX_DRAGON   EQU $fc
+DEF HP_MAX_DARK     EQU $fe
+DEF HP_MAX_FAIRY    EQU $ff
+
+; MON_COLOR values (data/pokemon/mon_colors.asm): 0 keeps the species' colors
+	const_def 1
+	const MONCOLOR_FIGHTING ; the Hidden Power types, in their order
+	const MONCOLOR_FLYING
+	const MONCOLOR_POISON
+	const MONCOLOR_GROUND
+	const MONCOLOR_ROCK
+	const MONCOLOR_BUG
+	const MONCOLOR_GHOST
+	const MONCOLOR_STEEL
+	const MONCOLOR_FIRE
+	const MONCOLOR_WATER
+	const MONCOLOR_GRASS
+	const MONCOLOR_ELECTRIC
+	const MONCOLOR_PSYCHIC
+	const MONCOLOR_ICE
+	const MONCOLOR_DRAGON
+	const MONCOLOR_DARK
+	const MONCOLOR_FAIRY
+DEF MONCOLOR_FIRST_BLESSING EQU const_value
+	const MONCOLOR_RAYQUAZA ; the shrines' legendary "blessings"
+	const MONCOLOR_KYOGRE
+	const MONCOLOR_GROUDON
+	const MONCOLOR_JIRACHI
+	const MONCOLOR_HO_OH
+	const MONCOLOR_LUGIA
+	const MONCOLOR_CELEBI
+	const MONCOLOR_MEWTWO
+	const MONCOLOR_MEW
+DEF NUM_MONCOLORS EQU const_value - 1
+DEF NUM_BLESSINGS EQU const_value - MONCOLOR_FIRST_BLESSING
+	assert MONCOLOR_FAIRY == NUM_HIDDEN_POWER_TYPES
+; a wild shiny gets a random blessing with a 1 in WILD_BLESSING_ODDS chance
+DEF WILD_BLESSING_ODDS EQU 32

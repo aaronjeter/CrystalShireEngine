@@ -712,29 +712,11 @@ StatsScreen_DrawBar:
 	ret
 
 StatsScreen_GetHiddenPower:
-; a = Hidden Power's type for wTempMon's DVs (the same math as HiddenPowerDamage).
+; a = Hidden Power's type for wTempMon's DVs.
 	ld hl, wTempMonDVs
 GetHiddenPowerFromDVs::
 ; a = Hidden Power's type for the DVs at hl. (Its power is the move's own.)
-
-; Type: (Atk & 3) << 2 | Def & 3, skipping Normal, Bird and the unused types
-	ld a, [hl]
-	and %0011
-	ld b, a
-	ld a, [hl]
-	and %0011 << 4
-	swap a
-	add a
-	add a
-	or b
-	inc a
-	cp BIRD
-	ret c
-	inc a
-	cp UNUSED_TYPES
-	ret c
-	add UNUSED_TYPES_END - UNUSED_TYPES
-	ret
+	farjp GetHiddenPowerType
 
 ; Orange page
 

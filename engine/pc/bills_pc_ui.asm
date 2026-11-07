@@ -734,6 +734,13 @@ WriteIconPaletteData:
 	dec b
 .got_shininess
 	farcall GetMonPalInBCDE
+	ld a, [wBufferMonColor]
+	and a
+	jr z, .species_colors
+	cp NUM_MONCOLORS + 1
+	jr nc, .species_colors
+	farcall GetMonColorIconColors
+.species_colors
 	ld h, b
 	ld l, c
 	pop bc

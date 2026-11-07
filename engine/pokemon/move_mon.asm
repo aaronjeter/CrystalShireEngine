@@ -302,6 +302,15 @@ endr
 	jr .initstats
 
 .copywildmonDVs
+	; a caught wild Pokémon keeps its colors (MON_COLOR, right before the DVs)
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE
+	jr nz, .wild_color_done
+	dec de
+	ld a, [wWildMonColor]
+	ld [de], a
+	inc de
+.wild_color_done
 	ld a, [wEnemyMonDVs]
 	ld [de], a
 	inc de
@@ -793,6 +802,13 @@ SendMonIntoBox:
 	; LoadEnemyMon set the slot: the one it had in battle, or a roll for a gift
 	ld a, [wEnemyAbilitySlot]
 	ld [wBufferMonAbilitySlot], a
+	; a caught wild Pokémon keeps its colors
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE
+	jr nz, .no_wild_color
+	ld a, [wWildMonColor]
+	ld [wBufferMonColor], a
+.no_wild_color
 
 	ld hl, wEnemyMonDVs
 	ld b, 2 + NUM_MOVES ; DVs and PP ; wEnemyMonHappiness - wEnemyMonDVs

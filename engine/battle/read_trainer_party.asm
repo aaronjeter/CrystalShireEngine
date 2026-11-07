@@ -266,6 +266,7 @@ ReadTrainerMon:
 	inc de
 	call GetNextTrainerDataByte
 	ld [de], a
+	farcall SetTrainerMonColor ; a _COLOR preset's colors
 .no_dvs
 
 	ld a, [wTrainerMonFlags]

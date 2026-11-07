@@ -19,7 +19,8 @@ MACRO box_struct
 \1SpclDefEV::      db
 \1AbilitySlot::    db ; bits 0-1: ABILITY_SLOT_*; bits 2-7 unused
 \1Marks::          db ; MON_*_F
-\1Padding::        ds 2
+\1Padding::        ds 1
+\1Color::          db ; MONCOLOR_*
 \1DVs::            dw
 \1PP::             ds NUM_MOVES
 \1Happiness::      db
@@ -49,7 +50,8 @@ MACRO savemon_struct
 \1SpclDefEV::      db
 \1AbilitySlot::    db ; bits 0-1: ABILITY_SLOT_*; bits 2-7 unused
 \1Marks::          db ; MON_*_F
-\1Padding::        ds 2
+\1Padding::        ds 1
+\1Color::          db ; MONCOLOR_*
 \1DVs::            dw
 \1MovesHigh::
 \1PPUps::          ds NUM_MOVES
