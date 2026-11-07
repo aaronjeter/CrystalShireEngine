@@ -96,6 +96,12 @@ CASES = {
     # never to the ace: Snorlax's only bench mon is the ace, so it stays
     'not_to_ace': dict(party=LEERCHAMP, trainer=[SNORLAX, GENGAR], menus=2, actions=LEER,
                        check=lambda m, g: m == [0, 0]),
+    # each switch already made raises the margin: after two, the same case stays
+    'margin_step': dict(party=LEERCHAMP, trainer=[ARCANINE, GENGAR, DRAGONITE], menus=2, actions=LEER,
+                        setup=lambda g: g.wr('wEnemySwitchCount', 2), check=lambda m, g: m == [0, 0]),
+    # raised stages are lost by leaving: Arcanine at +3 evasion stays
+    'boosted_stays': dict(party=LEERCHAMP, trainer=[ARCANINE, GENGAR, DRAGONITE], menus=2, actions=LEER,
+                          setup=lambda g: g.wr('wEnemyEvaLevel', 10), check=lambda m, g: m == [0, 0]),
     # Perish count 1: Gengar (well placed) leaves anyway, even to the ace, past the cap
     'perish': dict(party=LEERCHAMP, trainer=[GENGAR, TTAR], cls='YOUNGSTER', menus=2, actions=LEER,
                    setup=lambda g: (perish1(g), g.wr('wEnemySwitchCount', 5)), check=lambda m, g: m == [0, 1]),
@@ -227,6 +233,12 @@ PAIRS = {
     'pair_regenerator': (dict(abilities={'SLOWBRO': 'ABILITY_REGENERATOR'}, setup=half_hp),
                          dict(abilities={'SLOWBRO': 'ABILITY_OWN_TEMPO'}, setup=half_hp),
                          LEERCHAMP, [(50, 'SLOWBRO', None, ['SURF']), GENGAR, DRAGONITE]),
+    # raised evasion: a reason to stay (not in the stats the score uses)
+    'pair_evasion': (dict(), dict(setup=lambda g: g.wr('wEnemyEvaLevel', 9)),
+                     LEERCHAMP, [(50, 'SLOWBRO', None, ['SURF']), GENGAR, DRAGONITE]),
+    # lowered accuracy: a reason to leave
+    'pair_accuracy': (dict(setup=lambda g: g.wr('wEnemyAccLevel', 5)), dict(),
+                      LEERCHAMP, [(50, 'SLOWBRO', None, ['SURF']), GENGAR, DRAGONITE]),
     # Natural Cure with a status
     'pair_natural_cure': (dict(abilities={'CHANSEY': 'ABILITY_NATURAL_CURE'}, setup=poisoned),
                           dict(abilities={'CHANSEY': 'ABILITY_SERENE_GRACE'}, setup=poisoned),
