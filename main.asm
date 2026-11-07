@@ -711,3 +711,8 @@ SECTION "Party Menu Cards", ROMX
 INCLUDE "engine/pokemon/party_cards.asm"
 INCLUDE "engine/pokemon/party_info.asm"
 INCLUDE "engine/battle/ability_popup.asm"
+
+
+SECTION "Move Learn Screen", ROMX
+
+INCLUDE "engine/pokemon/move_learn_screen.asm"

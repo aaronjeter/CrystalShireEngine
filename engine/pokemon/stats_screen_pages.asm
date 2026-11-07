@@ -376,9 +376,14 @@ LoadBluePage:
 	ld de, .HiddenPowerStr
 	hlcoord 1, 16
 	rst PlaceString
-	call StatsScreen_GetHiddenPower ; the icon comes later (StatsScreen_PlaceTypeIconsFar)
+	; the icon comes later (StatsScreen_PlaceTypeIconsFar); the power is the move's
+	ld hl, HIDDEN_POWER
+	call GetMoveIDFromIndex
+	ld l, a
+	ld a, MOVE_POWER
+	call GetMoveAttribute
 	ld hl, wStringBuffer2
-	ld [hl], d
+	ld [hl], a
 	ld d, h
 	ld e, l
 	hlcoord 16, 16
@@ -707,59 +712,10 @@ StatsScreen_DrawBar:
 	ret
 
 StatsScreen_GetHiddenPower:
-; a = Hidden Power's type and d = its power for wTempMon's DVs
-; (the same math as HiddenPowerDamage).
+; a = Hidden Power's type for wTempMon's DVs (the same math as HiddenPowerDamage).
 	ld hl, wTempMonDVs
-
-; Power: the top bit of each DV
-	; Attack
-	ld a, [hl]
-	swap a
-	and %1000
-
-	; Defense
-	ld b, a
-	ld a, [hli]
-	and %1000
-	srl a
-	or b
-
-	; Speed
-	ld b, a
-	ld a, [hl]
-	swap a
-	and %1000
-	srl a
-	srl a
-	or b
-
-	; Special
-	ld b, a
-	ld a, [hl]
-	and %1000
-	rrca
-	rrca
-	rrca
-	and %00011111
-	or b
-
-; Multiply by 5
-	ld b, a
-	add a
-	add a
-	add b
-
-; Add Special & 3
-	ld b, a
-	ld a, [hld]
-	and %0011
-	add b
-
-; Divide by 2 and add 30 + 1
-	srl a
-	add 30
-	inc a
-	ld d, a
+GetHiddenPowerFromDVs::
+; a = Hidden Power's type for the DVs at hl. (Its power is the move's own.)
 
 ; Type: (Atk & 3) << 2 | Def & 3, skipping Normal, Bird and the unused types
 	ld a, [hl]
@@ -1241,19 +1197,8 @@ StatsScreen_MovesSubpage:
 
 	call .CurMove
 	ld l, a
-	ld a, MOVE_EFFECT
-	call GetMoveAttribute
-	cp EFFECT_HIDDEN_POWER
-	jr nz, .base_power
-	call StatsScreen_GetHiddenPower
-	ld a, d
-	jr .got_power
-.base_power
-	call .CurMove
-	ld l, a
 	ld a, MOVE_POWER
 	call GetMoveAttribute
-.got_power
 	hlcoord 5, 2
 	ld c, 2 ; 0 and 1 (no or variable power) show "---"
 	call .NumberOrDashes

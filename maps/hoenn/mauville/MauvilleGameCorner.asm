@@ -619,9 +619,8 @@ MauvilleGameCornerMoveTutorScript:
 	checkcoins 500
 	ifequal HAVE_LESS, .NotEnoughCoins
 	writetext MauvilleMoveTutorWhichMoveText
-	loadmenu .MoveMenuHeader
-	verticalmenu
-	closewindow
+	setval MOVETUTOR_KNOCK_OFF
+	special MoveTutorMenu
 	ifequal 1, .KnockOff
 	ifequal 2, .UTurn
 	ifequal 3, .VoltSwitch
@@ -667,20 +666,6 @@ MauvilleGameCornerMoveTutorScript:
 	waitbutton
 	closetext
 	end
-
-.MoveMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 4 ; items
-	db "Knock Off@"
-	db "U-turn@"
-	db "Volt Switch@"
-	db "Cancel@"
 
 MauvilleMoveTutorIntroText:
 	text "I teach moves for"

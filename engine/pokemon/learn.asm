@@ -9,6 +9,8 @@ LearnMove:
 	rst CopyBytes
 
 .loop
+	xor a
+	ld [wMoveInfoFlags], a
 	ld hl, wPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wCurPartyMon]
@@ -108,65 +110,50 @@ LearnMove:
 	ret
 
 .learned
+	ld a, [wMoveInfoFlags]
+	bit MOVEINFO_FORGOT_F, a
+	jr nz, .learned_text
+	; learned into a free slot: the move's details with the message
+	ld a, [wPutativeTMHMMove]
+	ld c, 1 << MOVEINFO_PARTY_HP_F
+	farcall MoveInfo_OpenPrompt
+	ld hl, LearnedMoveText
+	call PrintText
+	farcall MoveInfo_ClosePrompt
+	ld b, 1
+	ret
+
+.learned_text
 	ld hl, LearnedMoveText
 	call PrintText
 	ld b, 1
 	ret
 
 ForgetMove:
+; hl = the party mon's moves + NUM_MOVES. Shows the new move's details while
+; asking to delete a move, then the forget screen. Returns a = the forgotten
+; move and hl = its slot, or carry if none was forgotten.
 	push hl
+	ld a, [wPutativeTMHMMove]
+	ld c, 1 << MOVEINFO_PARTY_HP_F
+	farcall MoveInfo_OpenPrompt
 	ld hl, AskForgetMoveText
 	call PrintText
 	call YesNoBox
 	pop hl
-	ret c
+	jr nc, .forget
+	farcall MoveInfo_ClosePrompt
+	scf
+	ret
+
+.forget
 	ld bc, -NUM_MOVES
 	add hl, bc
-	push hl
-	ld de, wListMoves_MoveIndicesBuffer
-	ld bc, NUM_MOVES
-	rst CopyBytes
-	pop hl
 .loop
 	push hl
-	ld hl, MoveAskForgetText
-	call PrintText
-	hlcoord 5, 2
-	lb bc, NUM_MOVES * 2, MOVE_NAME_LENGTH
-	call Textbox
-	farcall DoublesPushScreen ; (the box's attributes, over the double battle screen's pics)
-	hlcoord 5 + 2, 2 + 2
-	ld a, SCREEN_WIDTH * 2
-	ld [wListMovesLineSpacing], a
-	predef ListMoves
-	; w2DMenuData
-	ld a, $4
-	ld [w2DMenuCursorInitY], a
-	ld a, $6
-	ld [w2DMenuCursorInitX], a
-	ld a, [wNumMoves]
-	inc a
-	ld [w2DMenuNumRows], a
-	ld a, $1
-	ld [w2DMenuNumCols], a
-	ld [wMenuCursorY], a
-	ld [wMenuCursorX], a
-	ld a, $3
-	ld [wMenuJoypadFilter], a
-	ld a, $20
-	ld [w2DMenuFlags1], a
-	xor a
-	ld [w2DMenuFlags2], a
-	ld a, $20
-	ld [w2DMenuCursorOffsets], a
-	call StaticMenuJoypad
-	push af
-	call SafeLoadTempTilemapToTilemap
-	farcall DoublesRestoreAttrs
-	pop af
+	farcall MoveForgetScreen
 	pop hl
-	bit B_BUTTON_F, a
-	jr nz, .cancel
+	jr c, .cancel
 	push hl
 	ld a, [wMenuCursorY]
 	dec a
@@ -183,6 +170,10 @@ ForgetMove:
 	;jr c, .hmmove
 	pop hl
 	add hl, bc
+	push hl
+	ld hl, wMoveInfoFlags
+	set MOVEINFO_FORGOT_F, [hl]
+	pop hl
 	and a
 	ret
 

@@ -132,3 +132,8 @@ DEF NUM_PARTYMENUACTIONS EQU const_value
 	const NAME_6 ; duplicate of NAME_MON
 	const NAME_7 ; duplicate of NAME_MON
 DEF NUM_NAME_TYPES EQU const_value
+
+; wMoveInfoFlags (engine/pokemon/move_learn_screen.asm)
+	const_def
+	const MOVEINFO_PARTY_HP_F ; Hidden Power's type and power from wCurPartyMon's DVs
+	const MOVEINFO_FORGOT_F   ; LearnMove: a move was forgotten for this one

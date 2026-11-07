@@ -2348,30 +2348,15 @@ AI_Smart_HiddenPower:
 	ld a, 1
 	ldh [hBattleTurn], a
 
-; Calculate Hidden Power's type and base power based on enemy's DVs.
+; Calculate Hidden Power's type based on enemy's DVs (its power is always the move's own).
 	farcall HiddenPowerDamage
 	farcall BattleCheckTypeMatchup
 	pop hl
 
-; Discourage Hidden Power if not very effective.
+; Discourage Hidden Power if not very effective, else encourage it.
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE
 	jr c, .bad
-
-; Discourage Hidden Power if its base power is lower than 50.
-	ld a, d
-	cp 50
-	jr c, .bad
-
-; Encourage Hidden Power if super-effective.
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE + 1
-	jr nc, .good
-
-; Encourage Hidden Power if its base power is 70.
-	ld a, d
-	cp 70
-	ret c
 
 .good
 	dec [hl]

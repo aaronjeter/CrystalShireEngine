@@ -3456,6 +3456,22 @@ SECTION "AI Learnset RAM", WRAMX, BANK[1]
 wSAILearnset:: ds NUM_MOVES * 2
 
 
+SECTION "Move Info RAM", WRAMX, BANK[1]
+
+wMoveInfoMove:: db ; the move in the details box
+wMoveInfoRow:: db ; the box's top row
+wMoveInfoSlot:: db ; the box's first type icon slot and OBJ palette
+wMoveInfoFlags:: db ; MOVEINFO_*_F
+wMoveInfoMoves:: dw ; the forget screen's list of the party mon's moves
+wMoveInfoTutorFirst:: db ; the Move Tutor list's first MOVETUTOR_* move
+wHiddenPowerType:: db
+wMoveInfoNumber:: db ; a number being printed
+wMoveInfoSavedName:: ds STRING_BUFFER_LENGTH ; wStringBuffer1 while the box is up
+wMoveInfoSavedIndex:: db ; wNamedObjectIndex
+wMoveInfoSavedSpecies:: db ; wCurSpecies
+wMoveInfoOverCards:: db ; TRUE while the box covers the party menu's cards
+
+
 SECTION "Fly Map RAM", WRAMX, BANK[1]
 
 wFlyMapRegion:: db ; the region the fly map shows (JOHTO_REGION...)

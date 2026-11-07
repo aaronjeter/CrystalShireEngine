@@ -2837,26 +2837,36 @@ ApplyTilemapNoSpriteUpdates::
 
 PartyCards_ShowTilemap:
 ; CopyTilemapAtOnce, with the icons a menu now covers hidden a frame before (the copy takes
-; a few frames with interrupts off) and the ones it uncovers shown after.
+; a few frames with interrupts off) and the ones it uncovers shown after. Under the move
+; details box the icons stay as the box left them.
+	ld a, [wMoveInfoOverCards]
+	and a
+	jmp nz, CopyTilemapAtOnce
 	farcall PlaySpriteAnimations
 	call DelayFrame
 	call CopyTilemapAtOnce
 	farjp PlaySpriteAnimations
 
 PartyCards_OnScreen:
-; z if the party menu's cards are on the screen (card 1's attributes at the top left) and
-; the LCD is on.
+; z if the party menu's cards are on the screen (card 1's attributes at the top left, or
+; the move details box over them) and the LCD is on.
 	ldh a, [hCGB]
 	and a
 	jr z, .no
 	ldh a, [rLCDC]
 	bit rLCDC_ENABLE, a
 	jr z, .no
+	ld a, [wMoveInfoOverCards]
+	and a
+	jr nz, .yes
 	ld a, [wAttrmap]
 	cp VRAM_BANK_1
 	ret nz
 	ld a, [wAttrmap + 1]
 	cp VRAM_BANK_1
+	ret
+.yes
+	xor a
 	ret
 .no
 	or 1

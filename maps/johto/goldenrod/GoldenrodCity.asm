@@ -48,9 +48,8 @@ MoveTutorScript:
 	checkcoins 500
 	ifequal HAVE_LESS, .NotEnoughMoney
 	writetext GoldenrodCityMoveTutorWhichMoveShouldITeachText
-	loadmenu .MoveMenuHeader
-	verticalmenu
-	closewindow
+	setval MOVETUTOR_FLAMETHROWER
+	special MoveTutorMenu
 	ifequal MOVETUTOR_FLAMETHROWER, .Flamethrower
 	ifequal MOVETUTOR_THUNDERBOLT, .Thunderbolt
 	ifequal MOVETUTOR_ICE_BEAM, .IceBeam
@@ -76,20 +75,6 @@ MoveTutorScript:
 	special MoveTutor
 	ifequal FALSE, .TeachMove
 	sjump .Incompatible
-
-.MoveMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 4 ; items
-	db "Flamethrower@"
-	db "Thunderbolt@"
-	db "Ice Beam@"
-	db "Cancel@"
 
 .Refused:
 	writetext GoldenrodCityMoveTutorAwwButTheyreAmazingText

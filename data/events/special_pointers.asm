@@ -146,3 +146,4 @@ SpecialsPointers::
 	add_special MoveReminder
 	add_special WardrobeColorMenu
 	add_special MonPaletteService
+	add_special MoveTutorMenu

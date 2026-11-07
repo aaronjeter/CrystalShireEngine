@@ -64,9 +64,14 @@ AskTeachTMHM:
 	ld hl, BootedHMText ; Booted up an HM
 .TM:
 	call PrintText
+	call LoadTilemapToTempTilemap
+	ld a, [wPutativeTMHMMove]
+	ld c, 0
+	farcall MoveInfo_OpenPrompt
 	ld hl, ContainedMoveText
 	call PrintText
 	call YesNoBox
+	farcall MoveInfo_ClosePrompt
 .NotTMHM:
 	pop bc
 	ld a, b
