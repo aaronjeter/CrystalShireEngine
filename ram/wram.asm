@@ -3445,7 +3445,9 @@ SECTION "Wild Mon EVs", WRAMX, BANK[1]
 
 ; laid out like a party mon's EVs and DVs, for CalcMonStats
 wWildMonEVs:: ds NUM_STATS ; the wild Pokemon's EVs (RollWildMonEVs), kept if it's caught
-	ds MON_COLOR - (MON_EVS + NUM_STATS)
+	ds MON_MARKS - (MON_EVS + NUM_STATS)
+wWildMonMarks:: db ; the wild Pokemon's stored gender (MON_GENDER_MASK bits), kept if it's caught
+	ds MON_COLOR - (MON_MARKS + 1)
 wWildMonColor:: db ; the wild Pokemon's MON_COLOR (SetWildMonColor), kept if it's caught
 wWildMonDVs:: dw ; a copy of wEnemyMonDVs (GetEnemyMonDVs)
 

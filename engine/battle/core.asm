@@ -4836,6 +4836,13 @@ PrintPlayerHUD:
 	ld a, [wCurBattleMon]
 	ld hl, wPartyMon1DVs
 	call GetPartyLocation
+	push hl
+	dec hl
+	dec hl
+	dec hl
+	ld a, [hl] ; MON_MARKS (a stored gender)
+	ld [wTempMonMarks], a
+	pop hl
 	ld de, wTempMonDVs
 	ld a, [hli]
 	ld [de], a
@@ -4934,6 +4941,7 @@ DrawEnemyHUD:
 	inc de
 	ld a, [hl]
 	ld [de], a
+	farcall SetTempMonEnemyMarks
 
 	ld a, TEMPMON
 	ld [wMonType], a

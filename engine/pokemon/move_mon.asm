@@ -303,12 +303,20 @@ endr
 
 .copywildmonDVs
 	; a caught wild Pokémon keeps its colors (MON_COLOR, right before the DVs)
+	; and its stored gender (MON_MARKS, 3 bytes before them)
 	ld a, [wBattleMode]
 	dec a ; WILD_BATTLE
 	jr nz, .wild_color_done
 	dec de
 	ld a, [wWildMonColor]
 	ld [de], a
+	dec de
+	dec de
+	ld a, [wWildMonMarks]
+	and MON_GENDER_MASK
+	ld [de], a
+	inc de
+	inc de
 	inc de
 .wild_color_done
 	ld a, [wEnemyMonDVs]
@@ -808,6 +816,9 @@ SendMonIntoBox:
 	jr nz, .no_wild_color
 	ld a, [wWildMonColor]
 	ld [wBufferMonColor], a
+	ld a, [wWildMonMarks]
+	and MON_GENDER_MASK
+	ld [wBufferMonMarks], a
 .no_wild_color
 
 	ld hl, wEnemyMonDVs

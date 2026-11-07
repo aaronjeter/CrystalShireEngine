@@ -167,6 +167,9 @@ DEF REDMON_STRUCT_LENGTH EQU 44
 
 ; MON_MARKS bits
 DEF MON_FAVORITE_F EQU 0 ; follows the player (one party Pokémon at most; cleared when boxed)
+DEF MON_GENDER_SET_F EQU 1 ; the gender is stored here (else GetGender uses the DVs)
+DEF MON_FEMALE_F     EQU 2 ; the stored gender is female
+DEF MON_GENDER_MASK  EQU (1 << MON_GENDER_SET_F) | (1 << MON_FEMALE_F)
 
 ; savemon Exp masks
 DEF IS_EGG_MASK EQU %10000000
@@ -363,3 +366,7 @@ DEF NUM_BLESSINGS EQU const_value - MONCOLOR_FIRST_BLESSING
 	assert MONCOLOR_FAIRY == NUM_HIDDEN_POWER_TYPES
 ; a wild shiny gets a random blessing with a 1 in WILD_BLESSING_ODDS chance
 DEF WILD_BLESSING_ODDS EQU 32
+; any other wild Pokemon gets a random type's colors (and its Hidden Power DVs)
+; with a 1 in WILD_TYPE_COLORS_ODDS chance
+DEF WILD_TYPE_COLORS_ODDS EQU 100
+DEF WILD_TYPE_COLORS_CHANCE EQU 65536 / WILD_TYPE_COLORS_ODDS

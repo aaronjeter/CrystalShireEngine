@@ -20,6 +20,7 @@ AnimateTrademonFrontpic:
 	ld a, [wOTTrademonSpecies]
 	ld [wCurPartySpecies], a
 	xor a
+	ld [wTempMonMarks], a ; the DVs' gender
 	ld [wTempMonColor], a ; the species' colors
 	ld a, [wOTTrademonDVs]
 	ld [wTempMonDVs], a

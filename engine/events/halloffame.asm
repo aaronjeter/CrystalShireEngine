@@ -236,6 +236,7 @@ AnimateHOFMonEntrance:
 	inc hl
 	inc hl
 	xor a
+	ld [wTempMonMarks], a
 	ld [wTempMonColor], a ; Hall of Fame records keep only the DVs
 	ld a, [hli]
 	ld [wTempMonDVs], a
@@ -453,6 +454,7 @@ DisplayHOFMon:
 	ld a, [hli]
 	ld [wTempMonID + 1], a
 	xor a
+	ld [wTempMonMarks], a
 	ld [wTempMonColor], a ; Hall of Fame records keep only the DVs
 	ld a, [hli]
 	ld [wTempMonDVs], a

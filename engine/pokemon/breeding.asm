@@ -4,6 +4,8 @@ CheckBreedmonCompatibility:
 	jmp nc, .done
 	ld a, [wBreedMon1Species]
 	ld [wCurPartySpecies], a
+	ld a, [wBreedMon1Marks]
+	ld [wTempMonMarks], a
 	ld a, [wBreedMon1DVs]
 	ld [wTempMonDVs], a
 	ld a, [wBreedMon1DVs + 1]
@@ -20,6 +22,8 @@ CheckBreedmonCompatibility:
 	push bc
 	ld a, [wBreedMon2Species]
 	ld [wCurPartySpecies], a
+	ld a, [wBreedMon2Marks]
+	ld [wTempMonMarks], a
 	ld a, [wBreedMon2DVs]
 	ld [wTempMonDVs], a
 	ld a, [wBreedMon2DVs + 1]
@@ -597,6 +601,8 @@ GetHeritableMoves:
 	push af
 	ld a, [wBreedMon2Species]
 	ld [wCurPartySpecies], a
+	ld a, [wBreedMon2Marks]
+	ld [wTempMonMarks], a
 	ld a, [wBreedMon2DVs]
 	ld [wTempMonDVs], a
 	ld a, [wBreedMon2DVs + 1]
@@ -613,6 +619,8 @@ GetHeritableMoves:
 	push af
 	ld a, [wBreedMon1Species]
 	ld [wCurPartySpecies], a
+	ld a, [wBreedMon1Marks]
+	ld [wTempMonMarks], a
 	ld a, [wBreedMon1DVs]
 	ld [wTempMonDVs], a
 	ld a, [wBreedMon1DVs + 1]

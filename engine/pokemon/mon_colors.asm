@@ -67,6 +67,28 @@ HiddenPowerTypes:
 	db FAIRY
 	assert_table_length NUM_HIDDEN_POWER_TYPES
 
+HiddenPowerMaxDVs:
+; type number -> HP_MAX_* (the highest atk/def DV byte for that type)
+	table_width 1
+	db HP_MAX_FIGHTING
+	db HP_MAX_FLYING
+	db HP_MAX_POISON
+	db HP_MAX_GROUND
+	db HP_MAX_ROCK
+	db HP_MAX_BUG
+	db HP_MAX_GHOST
+	db HP_MAX_STEEL
+	db HP_MAX_FIRE
+	db HP_MAX_WATER
+	db HP_MAX_GRASS
+	db HP_MAX_ELECTRIC
+	db HP_MAX_PSYCHIC
+	db HP_MAX_ICE
+	db HP_MAX_DRAGON
+	db HP_MAX_DARK
+	db HP_MAX_FAIRY
+	assert_table_length NUM_HIDDEN_POWER_TYPES
+
 HiddenPowerBlessings:
 ; type number -> the shrine blessing for that type (MONPAL_SHINY), or 0 (plain shiny)
 	table_width 1
@@ -138,16 +160,28 @@ SetTrainerMonColor::
 
 SetWildMonColor::
 ; wWildMonColor for a wild Pokémon with DVs bc (copied to wWildMonDVs): a shiny
-; one gets a random blessing with a 1 in WILD_BLESSING_ODDS chance, others keep
-; their species' colors.
+; one gets a random blessing with a 1 in WILD_BLESSING_ODDS chance. Any other
+; (not roaming) gets a random type's colors with a 1 in WILD_TYPE_COLORS_ODDS
+; chance, with that type's Hidden Power DVs (HP_MAX_*, HP_SPDSPC_DV) as the
+; services give them. The rest keep their species' colors.
+; Its gender is rolled from the species' ratio (wBaseGender) and stored in
+; wWildMonMarks, so it doesn't depend on the DVs.
 	ld hl, wWildMonDVs
 	ld a, b
 	ld [hli], a
 	ld [hl], c
+	call BattleRandom
+	ld d, a
+	ld a, [wBaseGender]
+	cp d ; as GetGender: a roll above the ratio is male
+	ld a, 1 << MON_GENDER_SET_F
+	jr c, .got_gender
+	ld a, MON_GENDER_MASK ; female
+.got_gender
+	ld [wWildMonMarks], a
 	ld a, c
 	cp SHINY_SPDSPC_DV
-	ld a, 0
-	jr nz, .got_color
+	jr nz, .not_shiny
 	call BattleRandom
 	cp 256 / WILD_BLESSING_ODDS
 	ld a, 0
@@ -162,6 +196,54 @@ SetWildMonColor::
 	add MONCOLOR_FIRST_BLESSING
 .got_color
 	ld [wWildMonColor], a
+	ret
+
+.not_shiny
+	xor a
+	ld [wWildMonColor], a
+	ld a, [wBattleType]
+	cp BATTLETYPE_ROAMING
+	ret z ; its DVs are kept with it
+	; a 16-bit roll below 65536 / WILD_TYPE_COLORS_ODDS
+	call BattleRandom
+	cp HIGH(WILD_TYPE_COLORS_CHANCE)
+	jr c, .type_colors
+	ret nz
+	call BattleRandom
+	cp LOW(WILD_TYPE_COLORS_CHANCE)
+	ret nc
+.type_colors
+	call BattleRandom
+.type_mod
+	cp NUM_HIDDEN_POWER_TYPES
+	jr c, .got_type
+	sub NUM_HIDDEN_POWER_TYPES
+	jr .type_mod
+.got_type
+	ld c, a
+	inc a ; MONCOLOR_FIGHTING + type number
+	ld [wWildMonColor], a
+	ld b, 0
+	ld hl, HiddenPowerMaxDVs
+	add hl, bc
+	ld a, [hl]
+	ld [wEnemyMonDVs], a
+	ld [wWildMonDVs], a
+	ld a, HP_SPDSPC_DV
+	ld [wEnemyMonDVs + 1], a
+	ld [wWildMonDVs + 1], a
+	ret
+
+SetTempMonEnemyMarks::
+; wTempMonMarks for the enemy battler's DVs copied to wTempMonDVs: a wild
+; Pokémon's stored gender (wWildMonMarks); none for a trainer's (its DVs').
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE
+	ld a, 0
+	jr nz, .got_marks
+	ld a, [wWildMonMarks]
+.got_marks
+	ld [wTempMonMarks], a
 	ret
 
 GetMonColorIconColors::

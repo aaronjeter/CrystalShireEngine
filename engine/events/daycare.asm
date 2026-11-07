@@ -540,6 +540,8 @@ DayCare_InitBreeding:
 	ld hl, wEggMonOT
 	ld bc, NAME_LENGTH
 	rst ByteFill
+	ld a, [wBreedMon1Marks]
+	ld [wTempMonMarks], a
 	ld a, [wBreedMon1DVs]
 	ld [wTempMonDVs], a
 	ld a, [wBreedMon1DVs + 1]
@@ -625,6 +627,8 @@ DayCare_InitBreeding:
 	call GetPokemonIDFromIndex
 	ld b, a
 	ld hl, wEggMonDVs
+	xor a
+	ld [wTempMonMarks], a ; an Egg's gender comes from its DVs
 	call Random
 	ld [hli], a
 	ld [wTempMonDVs], a

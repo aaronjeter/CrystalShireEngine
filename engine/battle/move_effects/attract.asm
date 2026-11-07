@@ -55,6 +55,7 @@ CheckOppositeGender:
 	ld [wTempMonDVs], a
 	ld a, [hl]
 	ld [wTempMonDVs + 1], a
+	farcall SetTempMonEnemyMarks
 	ld a, TEMPMON
 	ld [wMonType], a
 	farcall GetGender

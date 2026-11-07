@@ -160,9 +160,14 @@ GetGender:
 	dec a
 	jr z, .DVs
 
-; else: WildMon
+; else: WildMon (in a wild battle, wWildMonDVs: the same DVs, after wWildMonMarks)
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE
+	ld hl, wWildMonDVs
+	jr z, .DVs
 	ld hl, wEnemyMonDVs
-	jr .DVs
+	ld c, 0 ; no stored gender
+	jr .got_marks
 
 ; Get our place in the party/box.
 
@@ -176,6 +181,14 @@ GetGender:
 	rst AddNTimes
 
 .DVs:
+; c = MON_MARKS (3 bytes before the DVs): a stored gender replaces the DVs' one
+	push hl
+	dec hl
+	dec hl
+	dec hl
+	ld c, [hl]
+	pop hl
+.got_marks
 ; Attack DV
 	ld a, [hli]
 	and $f0
@@ -216,6 +229,14 @@ GetGender:
 	cp GENDER_F100
 	jr z, .Female
 
+; A stored gender
+	bit MON_GENDER_SET_F, c
+	jr z, .from_dvs
+	bit MON_FEMALE_F, c
+	jr nz, .Female
+	jr .Male
+
+.from_dvs
 ; Values below the ratio are male, and vice versa.
 	cp b
 	jr c, .Male

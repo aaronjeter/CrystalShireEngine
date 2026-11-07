@@ -93,6 +93,11 @@ NamingScreen:
 	call GetPartyParamLocation
 .start
 	dec hl
+	dec hl
+	dec hl
+	ld a, [hli] ; MON_MARKS (a stored gender)
+	ld [wTempMonMarks], a
+	inc hl
 	ld a, [hli] ; MON_COLOR
 	ld [wTempMonColor], a
 	ld de, wTempMonDVs

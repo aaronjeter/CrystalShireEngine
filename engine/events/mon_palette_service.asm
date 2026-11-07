@@ -249,6 +249,26 @@ MonPaletteService:
 	jmp WaitSFX
 
 .ApplyDVs:
+; keep the Pokémon's gender: store it (from the current DVs) before they change
+	ld a, MON_MARKS
+	call GetPartyParamLocation
+	bit MON_GENDER_SET_F, [hl]
+	jr nz, .gender_stored
+	xor a ; PARTYMON
+	ld [wMonType], a
+	predef GetGender
+	jr c, .gender_stored ; genderless
+	ld a, 1 << MON_GENDER_SET_F
+	jr nz, .store_gender
+	ld a, MON_GENDER_MASK ; female
+.store_gender
+	push af
+	ld a, MON_MARKS
+	call GetPartyParamLocation
+	pop af
+	or [hl]
+	ld [hl], a
+.gender_stored
 	ld a, MON_DVS
 	call GetPartyParamLocation
 	ld a, [wMonPalOption + MONPAL_OPTION_ATKDEF_DV]
