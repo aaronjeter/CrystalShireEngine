@@ -2580,21 +2580,26 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	; fallthrough
 	ApplyExperienceAfterEnemyCaught:
 	; full EXP to the mons that faced the enemy
+	xor a
+	ld [wExpShareShift], a
 	ld a, [wBattleParticipantsNotFainted]
 	push af
 	farcall GiveExperiencePoints
-	; give 50% EXP to non-participants	
-	ld hl, wEnemyMonBaseExp
-	;Right shift xp amount, roughly halving it
-	srl [hl]	
-
-	ld a, [wEliteFourXpBoost]
-	cp 0
-	jr nz, .SkipHalfXp
-	srl [hl]
-.SkipHalfXp
-
 	pop af
+	; with the Exp. Share option on, the others get a quarter (half after
+	; beating a League) and their EVs
+	ld hl, wOptions2
+	bit EXP_SHARE_OFF, [hl]
+	ret nz
+	ld hl, wExpShareShift
+	ld [hl], 2
+	ld b, a
+	ld a, [wEliteFourXpBoost]
+	and a
+	jr z, .got_share
+	dec [hl]
+.got_share
+	ld a, b
 	xor %00111111
 	farjp GiveExperiencePoints
 

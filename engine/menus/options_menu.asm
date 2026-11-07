@@ -10,8 +10,9 @@
 	const OPT_CANCEL        ; 7
 DEF OPT_PAGE2 EQU const_value ; first option on page 2
 	const OPT_BATTLES       ; 8
-	const OPT_CANCEL2       ; 9
-DEF NUM_OPTIONS EQU const_value ; 10
+	const OPT_EXP_SHARE     ; 9
+	const OPT_CANCEL2       ; 10
+DEF NUM_OPTIONS EQU const_value ; 11
 
 _Option:
 	call ClearJoypad
@@ -94,6 +95,8 @@ StringOptions:
 StringOptionsPage2:
 	db "Battles<LF>"
 	db "        :<LF>"
+	db "Exp. Share<LF>"
+	db "        :<LF>"
 	db "Cancel@"
 
 Options_DrawPage:
@@ -161,6 +164,7 @@ GetOptionPointer:
 	dw Options_Frame
 	dw Options_Cancel
 	dw Options_Battles
+	dw Options_ExpShare
 	dw Options_Cancel
 
 	const_def
@@ -484,6 +488,30 @@ Options_Battles:
 
 .Normal:  db "Normal @"
 .Doubles: db "Doubles@"
+
+Options_ExpShare:
+; EXP_SHARE_OFF in wOptions2: the party's other Pokémon get a share of the EXP and
+; the EVs unless it's set.
+	ld hl, wOptions2
+	ldh a, [hJoyPressed]
+	and D_LEFT | D_RIGHT
+	jr z, .Display
+	ld a, [hl]
+	xor 1 << EXP_SHARE_OFF
+	ld [hl], a
+.Display:
+	ld de, .On
+	bit EXP_SHARE_OFF, [hl]
+	jr z, .got_string
+	ld de, .Off
+.got_string
+	hlcoord 11, 5
+	rst PlaceString
+	and a
+	ret
+
+.On:  db "On @"
+.Off: db "Off@"
 
 Options_Cancel:
 	ldh a, [hJoyPressed]

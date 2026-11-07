@@ -907,7 +907,7 @@ SHARED = {
     'wEnemySafeguardCount': 'side', 'wEnemyLightScreenCount': 'side', 'wEnemyReflectCount': 'side',
     'wBattleWeather': 'field', 'wWeatherCount': 'field', 'wLoweredStat': 'per action',
     'wEffectFailed': 'per action', 'wFailedMessage': 'per action', 'wEnemyGoesFirst': 'turn order (step 4)',
-    'wTempLevel': 'temp', 'wGivingExperienceToExpShareHolders': 'EXP routine',
+    'wTempLevel': 'temp', 'wExpShareShift': 'EXP routine',
     'wBeatUpHitAtLeastOnce': 'per action', 'wBattleEnded': 'battle', 'wWildMonMoves': 'wild battle',
     'wWildMonPP': 'wild battle', 'wAmuletCoin': 'battle', 'wSomeoneIsRampaging': 'per action (cleared in DoTurn)',
     'wAbilitySlotOverride': 'Pokemon creation, not battle', 'wBattleMode': 'battle',

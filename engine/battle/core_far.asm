@@ -771,6 +771,22 @@ GiveExperiencePoints:
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
+; An Exp. Share recipient gets a part: halve it wExpShareShift times
+	ld a, [wExpShareShift]
+	and a
+	jr z, .full_share
+.share_loop
+	ld hl, hQuotient
+	srl [hl]
+	inc hl
+	rr [hl]
+	inc hl
+	rr [hl]
+	inc hl
+	rr [hl]
+	dec a
+	jr nz, .share_loop
+.full_share
 ; Boost Experience for traded Pokemon
 	pop bc
 	ld hl, MON_OT_ID

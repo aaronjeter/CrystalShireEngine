@@ -579,7 +579,7 @@ wLastEnemyMove:: db
 wPlayerFutureSightCount:: db
 wEnemyFutureSightCount:: db
 
-wGivingExperienceToExpShareHolders:: db
+wExpShareShift:: db ; GiveExperiencePoints: halve the EXP this many times
 
 wBackupEnemyMonBaseStats:: ds NUM_EXP_STATS
 wBackupEnemyMonCatchRate:: db
