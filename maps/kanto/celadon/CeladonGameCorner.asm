@@ -18,7 +18,23 @@ CeladonGameCornerClerkScript:
 	jumpstd GameCornerCoinVendorScript
 
 CeladonGameCornerReceptionistScript:
-	jumptextfaceplayer CeladonGameCornerReceptionistText
+	faceplayer
+	opentext
+	checkevent EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
+	iftrue .Welcome
+	checkitem COIN_CASE
+	iftrue .Welcome
+	writetext CeladonGameCornerReceptionistCoinCaseText
+	promptbutton
+	verbosegiveitem COIN_CASE
+	iffalse .Done
+	setevent EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
+.Welcome:
+	writetext CeladonGameCornerReceptionistText
+	waitbutton
+.Done:
+	closetext
+	end
 
 CeladonGameCornerPokefanMScript:
 	faceplayer
@@ -140,6 +156,15 @@ CeladonGameCornerSodaCanScript:
 	special CardFlip
 	closetext
 	end
+
+CeladonGameCornerReceptionistCoinCaseText:
+	text "Oh, you don't have"
+	line "a Coin Case?"
+
+	para "You can't play"
+	line "without one. Here,"
+	cont "take this!"
+	done
 
 CeladonGameCornerReceptionistText:
 	text "Welcome!"
