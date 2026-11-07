@@ -29,6 +29,8 @@ DEF SAI_LEVEL_DAMAGE_POWER EQU 60 ; power-1 moves (Seismic Toss, Low Kick...) co
 DEF SAI_MAX_HITS EQU 9
 DEF SAI_SLEEP_TURNS EQU 2
 DEF SAI_STAY_PENALTY EQU 8 ; per residual problem of the active Pokemon (one hit's worth)
+DEF SAI_STAGE_BONUS EQU 4 ; per stat stage the active Pokemon would lose by leaving
+DEF SAI_SWITCH_MARGIN_STEP EQU 8 ; added to the class's margin for each switch already made
 
 ; offsets in a stats block (from the Level byte; party and battle structs agree)
 DEF SAI_STATUS EQU MON_STATUS - MON_LEVEL
@@ -147,6 +149,15 @@ AIShouldSwitch:
 	add [hl]
 	jr c, .no ; staying is too good
 	ld c, a
+; each switch already made raises the margin
+	ld a, [wEnemySwitchCount]
+	assert SAI_SWITCH_MARGIN_STEP == 8
+	add a
+	add a
+	add a
+	add c
+	jr c, .no
+	ld c, a
 	ld a, [wSAIBestScore]
 	cp c
 	jr c, .no
@@ -171,7 +182,8 @@ AIShouldSwitch:
 	ret
 
 SwitchTierMargins:
-; how much better (score) the best switch-in must be than staying, per SAI_TIER_*
+; how much better (score) the best switch-in must be than staying, per SAI_TIER_* (plus
+; SAI_SWITCH_MARGIN_STEP for each switch already made)
 	table_width 1
 	db 40 ; SAI_TIER_RARELY
 	db 24 ; SAI_TIER_SOMETIMES
@@ -625,11 +637,49 @@ SAI_SetFaster:
 	ret
 
 SAI_StayAdjust:
-; a = the active Pokemon's score -> a = minus SAI_STAY_PENALTY for each residual problem
-; (Toxic, Leech Seed, Curse, infatuation, Perish count 2; half for confusion) and each
-; reason to leave (Regenerator below 2/3 HP, Natural Cure with a status); at least 0.
+; a = the active Pokemon's score -> a = plus SAI_STAGE_BONUS for each raised stat stage (it
+; loses them by leaving), minus SAI_STAGE_BONUS for each lowered accuracy or evasion stage
+; (the other stats are already in the score), minus SAI_STAY_PENALTY for each residual
+; problem (Toxic, Leech Seed, Curse, infatuation, Perish count 2; half for confusion) and
+; each reason to leave (Regenerator below 2/3 HP, Natural Cure with a status); 0-255.
 	ld b, a
 	ld c, 0
+	ld hl, wEnemyStatLevels
+	ld e, EVASION + 1 ; counts down: accuracy is 2, evasion 1
+	assert wEnemyEvaLevel - wEnemyStatLevels == EVASION
+	assert wEnemyAccLevel - wEnemyStatLevels == EVASION - 1
+.stages
+	ld a, [hli]
+	sub BASE_STAT_LEVEL
+	jr z, .stage_done
+	jr c, .lowered
+	ld d, a
+.raised
+	ld a, b
+	add SAI_STAGE_BONUS
+	jr nc, .raised_ok
+	ld a, $ff
+.raised_ok
+	ld b, a
+	dec d
+	jr nz, .raised
+	jr .stage_done
+.lowered
+	cpl
+	inc a
+	ld d, a ; stages down
+	ld a, e
+	cp 3
+	jr nc, .stage_done
+.lowered_loop
+	ld a, c
+	add SAI_STAGE_BONUS
+	ld c, a
+	dec d
+	jr nz, .lowered_loop
+.stage_done
+	dec e
+	jr nz, .stages
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_TOXIC, a
 	call nz, .Penalty
