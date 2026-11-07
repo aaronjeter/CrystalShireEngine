@@ -308,6 +308,19 @@ def set_hp(field, frac):
     return f
 
 
+def ability(field, name):
+    def f(g):
+        g.wr(field, g.const(f'ABILITY_{name}'))
+    return f
+
+
+def both(*fs):
+    def f(g):
+        for x in fs:
+            x(g)
+    return f
+
+
 PLAN = {
     # Machamp at 1/8 HP: Body Slam knocks it out, so no Swords Dance
     'plan_ko': dict(party=LEERCHAMP, trainer=[(50, 'SNORLAX', None, ['SWORDS_DANCE', 'BODY_SLAM']), GENGAR],
@@ -331,6 +344,41 @@ PLAN = {
     'plan_last_act': dict(party=[('MACHAMP', 70, None, ['LEER'])],
                           trainer=[(50, 'SNORLAX', None, ['TOXIC', 'BODY_SLAM']), GENGAR],
                           setup=set_hp('wEnemyMonHP', (1, 16)), want='Body Slam'),
+    # ---- abilities and items
+    # Flamethrower would knock Machamp out, but Flash Fire absorbs it: Tackle
+    'plan_flash_fire': dict(party=LEERCHAMP, trainer=[(50, 'ARCANINE', None, ['FLAMETHROWER', 'TACKLE']), GENGAR],
+                            setup=both(set_hp('wBattleMonHP', (1, 4)), ability('wBattleMonAbility', 'FLASH_FIRE')),
+                            want='Tackle'),
+    'plan_flash_fire_control': dict(party=LEERCHAMP, trainer=[(50, 'ARCANINE', None, ['FLAMETHROWER', 'TACKLE']), GENGAR],
+                                    setup=set_hp('wBattleMonHP', (1, 4)), want='Flamethrower'),
+    # Mold Breaker ignores Flash Fire
+    'plan_mold_breaker': dict(party=LEERCHAMP, trainer=[(50, 'ARCANINE', None, ['FLAMETHROWER', 'TACKLE']), GENGAR],
+                              setup=both(set_hp('wBattleMonHP', (1, 4)), ability('wBattleMonAbility', 'FLASH_FIRE'),
+                                         ability('wEnemyMonAbility', 'MOLD_BREAKER')), want='Flamethrower'),
+    'plan_levitate': dict(party=LEERCHAMP, trainer=[(50, 'GOLEM', None, ['EARTHQUAKE', 'TACKLE']), GENGAR],
+                          setup=both(set_hp('wBattleMonHP', (1, 4)), ability('wBattleMonAbility', 'LEVITATE')),
+                          want='Tackle'),
+    # Arcanine at 1/10 HP: Crunch (contact) into Rough Skin would knock it out
+    'plan_rough_skin': dict(party=[('SLOWBRO', 60, None, ['LEER'])],
+                            trainer=[(50, 'ARCANINE', None, ['CRUNCH', 'FLAMETHROWER']), GENGAR],
+                            setup=both(set_hp('wEnemyMonHP', (1, 10)), ability('wBattleMonAbility', 'ROUGH_SKIN')),
+                            want='Flamethrower'),
+    'plan_rocky_helmet': dict(party=[('SLOWBRO', 60, 'ROCKY_HELMET', ['LEER'])],
+                              trainer=[(50, 'ARCANINE', None, ['CRUNCH', 'FLAMETHROWER']), GENGAR],
+                              setup=both(set_hp('wEnemyMonHP', (1, 7)), ability('wBattleMonAbility', 'OWN_TEMPO')),
+                              want='Flamethrower'),
+    'plan_contact_control': dict(party=[('SLOWBRO', 60, None, ['LEER'])],
+                                 trainer=[(50, 'ARCANINE', None, ['CRUNCH', 'FLAMETHROWER']), GENGAR],
+                                 setup=both(set_hp('wEnemyMonHP', (1, 10)), ability('wBattleMonAbility', 'OWN_TEMPO')),
+                                 want='Crunch'),
+    # one-hit KO moves fail against Sturdy (every class)
+    'plan_ohko_sturdy': dict(party=[('MACHAMP', 40, None, ['LEER'])],
+                             trainer=[(50, 'RHYDON', None, ['HORN_DRILL', 'TACKLE']), GENGAR],
+                             setup=ability('wBattleMonAbility', 'STURDY'), want='Tackle', want_vanilla='Tackle'),
+    # Toxic does nothing to a Magic Guard Pokemon (every class)
+    'plan_magic_guard': dict(party=[('MACHAMP', 60, None, ['LEER'])],
+                             trainer=[(50, 'SNORLAX', None, ['TOXIC', 'TACKLE']), GENGAR],
+                             setup=ability('wBattleMonAbility', 'MAGIC_GUARD'), want='Tackle', want_vanilla='Tackle'),
 }
 
 
@@ -376,11 +424,62 @@ def plan(name):
     c = PLAN[name]
     got = {cls: [first_move(c, cls, s) for s in PLAN_SEEDS] for cls in ('COOLTRAINERM', 'YOUNGSTER')}
     ok = all(m == c['want'] for m in got['COOLTRAINERM'])
+    if c.get('want_vanilla'):  # the AI_ABILITY layer: every class
+        ok = ok and all(m == c['want_vanilla'] for m in got['YOUNGSTER'])
     print(('ok   ' if ok else 'FAIL ') + f"{name}: plan {got['COOLTRAINERM']}; vanilla {got['YOUNGSTER']}", flush=True)
     return ok
 
 
 CASES.update(dict.fromkeys(PLAN))
+# Sturdy and a Focus Sash leave the player at 1 HP from full: Body Slam (slot 2) loses its
+# PLAN_KO_BONUS (20) against them, and gets it back once the player is down 1 HP.
+STURDY_PARTY = [('MACHAMP', 20, None, ['LEER'])]
+STURDY_TRAINER = [(50, 'SNORLAX', None, ['SWORDS_DANCE', 'BODY_SLAM']), GENGAR]
+
+
+def one_down(g):
+    hp = g.rd16('wBattleMonMaxHP') - 1
+    g.wr('wBattleMonHP', [hp >> 8, hp & 0xFF])
+
+
+def plan_scores(party, setup, trainer=STURDY_TRAINER):
+    """The enemy's move scores after AI_PLAN (with its best-hit bonus) on the first turn."""
+    g = bt.Game(ROM, SYM, STATE); g.seed(PLAN_SEEDS[0])
+    g.clear_bag(); g.set_party(party); g.seed(PLAN_SEEDS[0])
+    g.set_trainer('COOLTRAINERM', 'Test', trainer); g.seed(PLAN_SEEDS[0])
+    g.start_battle('COOLTRAINERM', 0x01 | bt.SCENE_OFF)
+    run_to(g, 'AIChooseMove')
+    setup(g)
+    run_to(g, 'AIPickLowestScore')
+    return list(g.rd('wEnemyAIMoveScores', 2))
+
+
+def plan_sturdy():
+    guts = ability('wBattleMonAbility', 'GUTS')
+    sturdy = ability('wBattleMonAbility', 'STURDY')
+    got = dict(control=plan_scores(STURDY_PARTY, guts), sturdy=plan_scores(STURDY_PARTY, sturdy),
+               sash=plan_scores([('MACHAMP', 20, 'FOCUS_SASH', ['LEER'])], guts),
+               sturdy_hurt=plan_scores(STURDY_PARTY, both(sturdy, one_down)))
+    base = got['control'][1]
+    ok = got['sturdy'][1] == base + 20 and got['sash'][1] == base + 20 and got['sturdy_hurt'][1] == base
+    print(('ok   ' if ok else 'FAIL ') + f'plan_sturdy: Body Slam scores {got}', flush=True)
+    return ok
+
+
+def plan_static():
+    """Rock Slide and Zen Headbutt (contact) both have 80 power: on a tie the later move gets
+    the best-hit bonus (2). Static may paralyze Snorlax, so Zen Headbutt counts 3/4 and the
+    bonus goes to Rock Slide."""
+    trainer = [(50, 'SNORLAX', None, ['ROCK_SLIDE', 'ZEN_HEADBUTT']), GENGAR]
+    party = [('SNORLAX', 60, None, ['LEER'])]
+    control = plan_scores(party, ability('wBattleMonAbility', 'GUTS'), trainer)
+    static = plan_scores(party, ability('wBattleMonAbility', 'STATIC'), trainer)
+    ok = static == [control[0] - 2, control[1] + 2]
+    print(('ok   ' if ok else 'FAIL ') + f'plan_static: scores {static} (Guts {control})', flush=True)
+    return ok
+
+
+
 # ---- bosses assume the player's level-up moves (AI_KNOWS_LEARNSETS)
 def learnset_case(flag):
     """Koga (a boss class) KOs-lead send-in against a level 62 Machamp that has only shown
@@ -416,6 +515,8 @@ def learnset():
 
 
 CASES['learnset'] = None
+CASES['plan_sturdy'] = None
+CASES['plan_static'] = None
 CASES['tiers'] = None
 CASES.update(dict.fromkeys(PAIRS))
 CASES.update(dict.fromkeys(SENDIN_PAIRS))
@@ -423,5 +524,6 @@ CASES['frostbite_physical'] = None
 fails = [n for n in (sys.argv[4:] or CASES)
          if not (tiers() if n == 'tiers' else pair(n) if n in PAIRS else sendin_pair(n) if n in SENDIN_PAIRS
                  else frostbite_physical() if n == 'frostbite_physical' else plan(n) if n in PLAN
-                 else learnset() if n == 'learnset' else run(n))]
+                 else learnset() if n == 'learnset' else plan_sturdy() if n == 'plan_sturdy' else plan_static() if n == 'plan_static'
+                 else run(n))]
 print('FAILS:', fails)

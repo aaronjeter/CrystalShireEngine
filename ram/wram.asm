@@ -696,6 +696,13 @@ wDoublesAIDamaging:: db ; bits 0-3: a damaging move (power > 0) against foe A; b
 wDoublesAIBase:: db ; the foe being scored: 0 (foe A) or NUM_MOVES (foe B)
 wDoublesAIUntargeted:: db ; bit = move: one choice that isn't aimed at a foe (spread, self, field)
 wDoublesAIDoomed:: db ; mask of the player's slots an earlier enemy's move should knock out this turn
+wDoublesAIPlanSlot:: db ; mask of the player's slot an earlier enemy's single-target attack aims at this turn (not a knockout)
+wDoublesAIPlanDamage:: db ; that attack's damage, halved (255 at most)
+wDoublesAIDamage:: ds 2 * NUM_MOVES ; each move's damage on foe A, then foe B, halved (255 at most)
+wDoublesAIFocus:: db ; bits 0-3: with the planned attack, the move should knock out foe A; bits 4-7: foe B
+wDoublesAIGuarded:: db ; bit 0: foe A may use Protect (seen using it, not used last turn); bit 1: foe B
+wDoublesAIThreat:: db ; the fewest hits a foe needs to knock the choosing enemy out
+wDoublesAISelf:: db ; the choosing enemy's slot
 ; Each battler slot's party index at the start of the turn ($ff: empty), singles too
 ; (SnapshotTurnStartMons; Speed Boost skips a battler that entered this turn)
 wTurnStartMons:: ds NUM_BATTLER_SLOTS

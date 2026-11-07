@@ -421,6 +421,52 @@ CASES = {
         result=WIN),
 }
 
+# doubles AI upgrades (Nov 7): focus fire, the player's Protect, the AI's own Protect, Mold Breaker
+CASES.update({
+    # focus fire: one Tackle (12-15) can't knock out a 16 HP Snorlax, two can; whichever foe
+    # E1 attacks, E2 joins in (3 turns, a fresh pair of foes each turn)
+    'doubles_ai_focus': dict(
+        cls='COOLTRAINERM',
+        party=[('SNORLAX', 60, None, ['SPLASH'])] * 4,
+        hp={0: 16, 1: 16, 2: 16, 3: 16},
+        trainer=[(30, 'RATICATE', None, ['TACKLE']), (30, 'RATICATE', None, ['TACKLE'])],
+        abilities={'SNORLAX': 'NO_ABILITY', 'RATICATE': 'NO_ABILITY'}, fixed_damage=True,
+        actions=[('move', 0)] * 40,
+        check=lambda recs, v: check_ai_same_target(recs, v, 3),
+        result=LOSE),
+    # the AI's own Protect: Raticate (one Body Slam from fainting, Magikarp beside it) protects,
+    # never twice in a row: Protect, Tackle, Protect, Tackle
+    'doubles_ai_protect_again': dict(
+        cls='COOLTRAINERM',
+        party=[('SNORLAX', 100, None, ['SPLASH', 'BODY_SLAM']), ('SNORLAX', 100, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'RATICATE', None, ['TACKLE', 'PROTECT']), (30, 'MAGIKARP', None, ['SPLASH'])],
+        abilities={'SNORLAX': 'NO_ABILITY', 'RATICATE': 'NO_ABILITY', 'MAGIKARP': 'NO_ABILITY'},
+        actions=[('move', 0)] * 8 + [('move', 1, 0), ('move', 1, 1)] * 30,
+        check=lambda recs, v: check_ai_moves(recs, v, E1, [1, 0, 1, 0]),
+        result=WIN),
+    # the player's Protect: P1 protects on turn 1; from turn 3 (P1 didn't protect on turn 2)
+    # both Raticate aim at P2, which can't Protect
+    'doubles_ai_guarded': dict(
+        cls='COOLTRAINERM',
+        party=[('SNORLAX', 100, None, ['SPLASH', 'PROTECT', 'BODY_SLAM']), ('SNORLAX', 100, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'RATICATE', None, ['TACKLE']), (30, 'RATICATE', None, ['TACKLE'])],
+        abilities={'SNORLAX': 'NO_ABILITY', 'RATICATE': 'NO_ABILITY'},
+        actions=[('move', 1), ('move', 0)] + [('move', 0)] * 8 + [('move', 2, 0), ('move', 1, 1)] * 30,
+        check=lambda recs, v: check_ai(recs, v, 5, e1=(0, P2), e2=(0, P2), start=2),
+        result=WIN),
+    # Mold Breaker: Bone Club goes through the 1 HP Gengar's Levitate and knocks it out, so E1
+    # aims at it (E2 then leaves it be)
+    'doubles_ai_mold_breaker': dict(
+        cls='COOLTRAINERM',
+        party=[('GENGAR', 100, None, ['SPLASH']), ('SNORLAX', 100, None, ['CRUNCH']), ('SNORLAX', 100, None, ['CRUNCH'])],
+        hp={0: 1},
+        trainer=[(30, 'MAROWAK', None, ['BONE_CLUB']), (30, 'MAROWAK', None, ['BONE_CLUB'])],
+        abilities={'GENGAR': 'ABILITY_LEVITATE', 'SNORLAX': 'NO_ABILITY', 'MAROWAK': 'ABILITY_MOLD_BREAKER'},
+        actions=[('move', 0)] * 40,
+        check=lambda recs, v: check_ai(recs, v, 1, e1=(0, P1), e2=(0, P2)),
+        result=WIN),
+})
+
 LINK = dict(TARGET=0, SEEDED_BY=1, TRAPPED_BY=2, MEAN_LOOK_BY=3, ATTRACTED_TO=4, LOCKED_ON_TO=5, LAST_ATTACKER=6)
 
 
@@ -440,13 +486,13 @@ def ai_choice(v, r, slot):
     return num, (mask.bit_length() - 1 if mask else None)
 
 
-def check_ai(recs, v, n, e1=None, e2=None):
-    """For the first n turns, each enemy's (move slot, target slot or None for any) choice."""
+def check_ai(recs, v, n, e1=None, e2=None, start=0):
+    """For turns start+1 to n, each enemy's (move slot, target slot or None for any) choice."""
     p = []
     t = turns(recs, v)
     if len(t) < n:
         return [f'only {len(t)} turns']
-    for k, (i, _) in enumerate(t[:n]):
+    for k, (i, _) in list(enumerate(t[:n]))[start:]:
         r = recs[i]
         for slot, exp in ((E1, e1), (E2, e2)):
             if exp is None or v.empty(r, slot):
@@ -456,6 +502,28 @@ def check_ai(recs, v, n, e1=None, e2=None):
                 p.append(f'turn {k + 1}: {"E1" if slot == E1 else "E2"} chose move {num} at slot {tgt} (expected {exp})')
     return p
 
+
+
+def check_ai_same_target(recs, v, n):
+    """For the first n turns, both enemies aim at the same foe."""
+    p = []
+    t = turns(recs, v)
+    if len(t) < n:
+        return [f'only {len(t)} turns']
+    for k, (i, _) in enumerate(t[:n]):
+        a, b = ai_choice(v, recs[i], E1), ai_choice(v, recs[i], E2)
+        if a[1] is None or a[1] != b[1]:
+            p.append(f'turn {k + 1}: E1 {a}, E2 {b} (expected the same target)')
+    return p
+
+
+def check_ai_moves(recs, v, slot, moves):
+    """The move slots an enemy chose on the first turns."""
+    t = turns(recs, v)
+    if len(t) < len(moves):
+        return [f'only {len(t)} turns']
+    got = [ai_choice(v, recs[i], slot)[0] for i, _ in t[:len(moves)]]
+    return [] if got == moves else [f'moves {got} (expected {moves})']
 
 def check_ai_locked(recs, v):
     p = check_ai(recs, v, 4, e1=(0, P2))

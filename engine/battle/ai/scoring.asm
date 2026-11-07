@@ -3071,6 +3071,20 @@ INCLUDE "data/battle/ai/reckless_moves.asm"
 AIDamageCalc:
 	ld a, 1
 	ldh [hBattleTurn], a
+; no damage against an ability that makes the player immune to the move's type or absorbs it
+; (Levitate, Waterproof, Flash Fire, Volt Absorb...; not with Mold Breaker)
+	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
+	ld b, a
+	call AIGetPlayerAbility
+	farcall AbilityTypeImmunity
+	jr nc, .not_immune
+	xor a
+	ld [wCurDamage], a
+	ld [wCurDamage + 1], a
+	ret
+
+.not_immune
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	ld de, 1
 	ld hl, ConstantDamageEffects
@@ -3330,6 +3344,16 @@ AIDiscourageMove:
 	ld [hl], a
 	ret
 
+AIGetPlayerAbility:
+; a = the player's ability as the enemy's moves meet it: NO_ABILITY if the enemy has
+; Mold Breaker. Preserves bc, de and hl.
+	ld a, [wEnemyMonAbility]
+	cp ABILITY_MOLD_BREAKER
+	ld a, NO_ABILITY
+	ret z
+	ld a, [wBattleMonAbility]
+	ret
+
 AIGetEnemyMove:
 ; Load attributes of move a into ram
 
@@ -3376,85 +3400,97 @@ AIPlan_IsSetupEffect:
 	jmp PopBCDEHL
 
 AI_Ability:
-	;Dismiss moves based on immunity abilities
-	;Dismiss Water moves against Waterproof mons
-	;Dismiss Ground moves against Levitate mons
-
+; Discourage moves the player's ability makes useless (Mold Breaker ignores the abilities it breaks):
+; - moves of a type it's immune to or absorbs (Levitate, Waterproof, Flash Fire...: AbilityTypeImmunity);
+; - status moves it blocks (Limber, Insomnia, Immunity, Water Veil, Magma Armor), confusing
+;   moves against Own Tempo, poisoning moves against Poison Heal;
+; - one-hit KO moves against Sturdy;
+; - Toxic, Poison and Leech Seed against Magic Guard (they do no damage to it).
 	ld hl, wEnemyAIMoveScores - 1
 	ld de, wEnemyMonMoves
 	ld b, NUM_MOVES + 1
 .checkmove
 	dec b
 	ret z
-
 	inc hl
 	ld a, [de]
 	and a
 	ret z
-
 	inc de
-
 	push hl
 	push bc
 	push de
-
-	;Type immunity abilities: Levitate, Waterproof, Lightning Rod, Storm Drain
 	call AIGetEnemyMove
-	ld a, [wEnemyMoveStruct + MOVE_TYPE]
-	and TYPE_MASK
-	ld b, a
-	ld a, [wBattleMonAbility]
-	farcall AbilityTypeImmunity
-	jr c, .immune
-
-	;Status immunity check: Limber, Insomnia, Immunity, Water Veil,
-	;Magma Armor (status moves) and Own Tempo (confusing moves)
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	ld b, a
-	cp EFFECT_CONFUSE
-	jr z, .CheckOwnTempo
-	cp EFFECT_SWAGGER
-	jr z, .CheckOwnTempo
-	ld hl, .StatusMoveEffects
-.StatusLoop
-	ld a, [hli]
-	cp -1
-	jr z, .SkipStatus
-	cp b
-	ld a, [hli]
-	jr nz, .StatusLoop
-	ld b, a
-	ld a, [wBattleMonAbility]
-	ld c, a
-	; Poison Heal: poisoning heals it
-	cp ABILITY_POISON_HEAL
-	jr nz, .not_poison_heal
-	bit PSN, b
-	jr nz, .immune
-.not_poison_heal
-	farcall AbilityBlocksStatus
-	jr c, .immune
-	jr .SkipStatus
-
-.CheckOwnTempo
-	ld a, [wBattleMonAbility]
-	cp ABILITY_OWN_TEMPO
-	jr z, .immune
-
-.SkipStatus
-	
-	pop de
-	pop bc
-	pop hl	
-	jr .checkmove
-
-.immune
+	call .Useless
 	pop de
 	pop bc
 	pop hl
-
-	call AIDiscourageMove
+	call c, AIDiscourageMove
 	jr .checkmove
+
+.Useless:
+; Carry if the move in wEnemyMoveStruct does nothing against the player's ability.
+	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
+	ld b, a
+	call AIGetPlayerAbility
+	farcall AbilityTypeImmunity
+	ret c
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
+	ld b, a
+	ld a, [wBattleMonAbility]
+	cp ABILITY_MAGIC_GUARD
+	jr nz, .not_magic_guard
+	ld a, b
+	cp EFFECT_TOXIC
+	jr z, .yes
+	cp EFFECT_POISON
+	jr z, .yes
+	cp EFFECT_LEECH_SEED
+	jr z, .yes
+.not_magic_guard
+	ld a, b
+	cp EFFECT_CONFUSE
+	jr z, .own_tempo
+	cp EFFECT_SWAGGER
+	jr z, .own_tempo
+	cp EFFECT_OHKO
+	jr z, .sturdy
+	ld hl, .StatusMoveEffects
+.status_loop
+	ld a, [hli]
+	cp -1
+	ret z ; not a status move: no carry
+	cp b
+	ld a, [hli]
+	jr nz, .status_loop
+	ld b, a ; the status bits
+	; Poison Heal: poisoning heals it
+	ld a, [wBattleMonAbility]
+	cp ABILITY_POISON_HEAL
+	jr nz, .not_poison_heal
+	bit PSN, b
+	jr nz, .yes
+.not_poison_heal
+	call AIGetPlayerAbility
+	ld c, a
+	farjp AbilityBlocksStatus
+
+.own_tempo
+	ld c, ABILITY_OWN_TEMPO
+	jr .check_ability
+.sturdy
+	ld c, ABILITY_STURDY
+.check_ability
+	call AIGetPlayerAbility
+	cp c
+	jr z, .yes
+	and a
+	ret
+
+.yes
+	scf
+	ret
 
 .StatusMoveEffects:
 	db EFFECT_SLEEP,    SLP_MASK

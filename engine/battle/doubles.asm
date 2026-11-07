@@ -359,6 +359,7 @@ DoublesAIChooseMoves:
 ; Each enemy battler chooses a move and a target (DoublesAIChooseMove, the doubles AI).
 	xor a
 	ld [wDoublesAIDoomed], a
+	ld [wDoublesAIPlanSlot], a
 	ld c, BATTLER_SLOT_E1
 .loop
 	ld a, c

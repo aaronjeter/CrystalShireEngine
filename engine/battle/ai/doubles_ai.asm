@@ -6,18 +6,31 @@
 ; - a single-target move that should knock its target out gets -2;
 ; - a single-target move aimed at a foe an earlier enemy's move should knock out this turn
 ;   gets +DOUBLES_AI_OVERKILL (no overkill; above AI_PLAN's knockout bonus);
-; - a damaging move that would do no damage to a foe gets +10 for that foe.
+; - a damaging move that would do no damage to a foe gets +10 for that foe;
+; - focus fire: a single-target move that should knock out the foe an earlier enemy's attack
+;   aims at, with that attack's damage, gets -DOUBLES_AI_FOCUS_BONUS;
+; - a single-target move aimed at a foe that may use Protect (seen using Protect or Detect,
+;   and didn't use it last turn) gets +DOUBLES_AI_PROTECT_RISK while the other foe is out;
+; - Protect, Detect and Endure right after this battler used one get +DOUBLES_AI_PROTECT_AGAIN
+;   (they would likely fail); Protect and Detect get -DOUBLES_AI_PROTECT_BONUS when a foe
+;   should knock this battler out in one hit and its partner is out to act.
 ; The lowest score wins, with random ties, as in singles.
 
-DEF DOUBLES_AI_SPREAD_BONUS EQU 1
-DEF DOUBLES_AI_KO_BONUS     EQU 2
-DEF DOUBLES_AI_OVERKILL     EQU 30 ; above AI_PLAN's knockout bonus (move_plan.asm)
-DEF DOUBLES_AI_NO_EFFECT    EQU 10
+DEF DOUBLES_AI_SPREAD_BONUS  EQU 1
+DEF DOUBLES_AI_KO_BONUS      EQU 2
+DEF DOUBLES_AI_OVERKILL      EQU 30 ; above AI_PLAN's knockout bonus (move_plan.asm)
+DEF DOUBLES_AI_NO_EFFECT     EQU 10
+DEF DOUBLES_AI_FOCUS_BONUS   EQU 5
+DEF DOUBLES_AI_PROTECT_RISK  EQU 2
+DEF DOUBLES_AI_PROTECT_AGAIN EQU 30
+DEF DOUBLES_AI_PROTECT_BONUS EQU 8
 
 DoublesAIChooseMove:
 ; The enemy battler in slot c (loaded) chooses its move and target: wCurEnemyMove,
 ; wCurEnemyMoveNum and BATTLER_LINK_TARGET. A battler locked into a move keeps both.
 ; Clobbers everything.
+	ld a, c
+	ld [wDoublesAISelf], a
 	farcall CheckEnemyLockedIn
 	ret nz
 
@@ -42,11 +55,19 @@ DoublesAIChooseMove:
 	ld bc, 2 * NUM_MOVES
 	ld a, $ff
 	rst ByteFill
+	ld hl, wDoublesAIDamage
+	ld bc, 2 * NUM_MOVES
 	xor a
+	rst ByteFill
 	ld [wDoublesAIHits], a
 	ld [wDoublesAIKOs], a
 	ld [wDoublesAIDamaging], a
 	ld [wDoublesAIUntargeted], a
+	ld [wDoublesAIFocus], a
+	ld [wDoublesAIGuarded], a
+	dec a
+	ld [wDoublesAIThreat], a
+	xor a
 
 ; score against foe A, then foe B
 	ld [wDoublesAIBase], a
@@ -63,6 +84,7 @@ DoublesAIChooseMove:
 .scored
 	call DoublesAINoEffect
 	call DoublesAITargetTypes
+	call DoublesAIOwnProtect
 	call DoublesAIPick
 
 ; set the choice: wCurEnemyMove(Num) and the target
@@ -94,10 +116,25 @@ DoublesAIChooseMove:
 	ret nz
 	ld a, [wDoublesAIKOs]
 	and d
-	ret z
+	jr z, .plan
 	ld a, [wDoublesAIDoomed]
 	or b
 	ld [wDoublesAIDoomed], a
+	ret
+
+.plan
+; a single-target attack that won't knock its target out: the next enemy may join in
+	ld a, [wDoublesAIHits]
+	and d
+	ret z
+	ld hl, wDoublesAIDamage
+	ld e, c
+	ld d, 0
+	add hl, de
+	ld a, [hl]
+	ld [wDoublesAIPlanDamage], a
+	ld a, b
+	ld [wDoublesAIPlanSlot], a
 	ret
 
 .ChoiceBit:
@@ -147,7 +184,8 @@ DoublesAIChooseMove:
 DoublesAIScoreFoe:
 ; Load the player's battler in slot a and score the loaded enemy's moves against it into
 ; wDoublesAIScores + [wDoublesAIBase] ($fe at most), with its bits in wDoublesAIDamaging,
-; wDoublesAIHits and wDoublesAIKOs.
+; wDoublesAIHits, wDoublesAIKOs and wDoublesAIFocus, each move's damage in wDoublesAIDamage,
+; its threat in wDoublesAIThreat and whether it may Protect in wDoublesAIGuarded.
 	farcall SwapInBattlerSlot
 	farcall AIScoreMoves
 	ld hl, wDoublesAIBase
@@ -170,6 +208,51 @@ DoublesAIScoreFoe:
 	dec c
 	jr nz, .copy
 
+; the fewest hits a foe needs to knock this enemy out
+	xor a
+	ld [wSAIPredicted], a
+	call SAI_PrepareLearnset
+	call SAI_ScoreActive
+	ld a, [wSAIHitsTaken]
+	ld hl, wDoublesAIThreat
+	cp [hl]
+	jr nc, .threat_done
+	ld [hl], a
+.threat_done
+
+; a foe that may Protect: seen using Protect or Detect, and didn't use it last turn
+	ld a, [wPlayerProtectCount]
+	and a
+	jr nz, .guard_done
+	ld hl, wPlayerUsedMoves
+	ld b, NUM_MOVES
+.guard_loop
+	ld a, [hli]
+	and a
+	jr z, .guard_done
+	push hl
+	ld l, a
+	ld a, MOVE_EFFECT
+	call GetMoveAttribute
+	pop hl
+	cp EFFECT_PROTECT
+	jr z, .guarded
+	dec b
+	jr nz, .guard_loop
+	jr .guard_done
+
+.guarded
+	ld a, [wDoublesAIBase]
+	and a
+	ld a, 1 ; foe A
+	jr z, .guard_bit
+	add a ; foe B
+.guard_bit
+	ld hl, wDoublesAIGuarded
+	or [hl]
+	ld [hl], a
+.guard_done
+
 ; damage of each move against this foe
 	ld c, 0
 .damage_loop
@@ -187,13 +270,6 @@ DoublesAIScoreFoe:
 	jr z, .next
 	ld de, wDoublesAIDamaging
 	call .SetBit
-	ld a, [wEnemyMoveStruct + MOVE_TYPE]
-	and TYPE_MASK
-	ld b, a
-	; Levitate, Waterproof, Lightning Rod, Storm Drain
-	ld a, [wBattleMonAbility]
-	farcall AbilityTypeImmunity
-	jr c, .next
 	; drawn away by the foe's ally (Lightning Rod, Storm Drain)
 	ld a, [wEnemyMoveStruct + MOVE_ANIM]
 	ld e, a
@@ -202,12 +278,32 @@ DoublesAIScoreFoe:
 	farcall RedirectTargetSlot
 	cp d
 	jr nz, .next
+	; (0 against an ability that makes the foe immune or absorbs it: AIDamageCalc)
 	farcall AIDamageCalc
 	ld a, [wCurDamage]
 	ld b, a
 	ld a, [wCurDamage + 1]
 	or b
 	jr z, .next
+	; its damage, halved and capped, for the next enemy's focus fire
+	ld hl, sp + 0 ; c of the pushed bc: the move
+	ld a, [wDoublesAIBase]
+	add [hl]
+	ld e, a
+	ld d, 0
+	ld hl, wDoublesAIDamage
+	add hl, de
+	ld a, [wCurDamage]
+	ld d, a
+	ld a, [wCurDamage + 1]
+	srl d
+	rra
+	inc d
+	dec d
+	jr z, .halved
+	ld a, $ff
+.halved
+	ld [hl], a
 	ld de, wDoublesAIHits
 	call .SetBit
 	; knocks it out: damage >= HP
@@ -216,22 +312,64 @@ DoublesAIScoreFoe:
 	ld a, [wBattleMonHP]
 	cp b
 	jr c, .ko
-	jr nz, .next
+	jr nz, .not_ko
 	ld a, [wCurDamage + 1]
 	ld b, a
 	ld a, [wBattleMonHP + 1]
 	cp b
 	jr z, .ko
-	jr nc, .next
+	jr nc, .not_ko
 .ko
 	ld de, wDoublesAIKOs
+	call .SetBit
+	jr .next
+
+.not_ko
+	; with an earlier enemy's planned attack on this foe, it should knock it out
+	call .FocusKO
+	jr nc, .next
+	ld de, wDoublesAIFocus
 	call .SetBit
 .next
 	pop bc
 	inc c
 	ld a, c
 	cp NUM_MOVES
-	jr nz, .damage_loop
+	jmp nz, .damage_loop
+	ret
+
+.FocusKO:
+; Carry if this foe is the one an earlier enemy's attack aims at (wDoublesAIPlanSlot) and
+; wCurDamage plus that attack's damage is at least its HP.
+	ld a, [wDoublesAIBase]
+	and a
+	ld a, [wDoublesAIFoes]
+	jr z, .got_slot
+	ld a, [wDoublesAIFoes + 1]
+.got_slot
+	call DoublesAIChooseMove.SlotMask
+	ld hl, wDoublesAIPlanSlot
+	and [hl]
+	ret z ; no carry
+	ld a, [wDoublesAIPlanDamage]
+	ld l, a
+	ld h, 0
+	add hl, hl
+	ld a, [wCurDamage]
+	ld d, a
+	ld a, [wCurDamage + 1]
+	ld e, a
+	add hl, de
+	; HP - the combined damage
+	ld a, [wBattleMonHP + 1]
+	sub l
+	ld e, a
+	ld a, [wBattleMonHP]
+	sbc h
+	ret c ; HP < the combined damage
+	or e
+	ret nz ; no carry: HP > the combined damage
+	scf
 	ret
 
 .SetBit:
@@ -428,7 +566,41 @@ DoublesAITargetTypes:
 	xor a
 .ko_ok
 	ld b, a
+	jr .guard
 .no_ko
+	; focus fire: with an earlier enemy's attack, it should knock the foe out
+	ld a, [wDoublesAIFocus]
+	and e
+	jr z, .guard
+	ld a, b
+	sub DOUBLES_AI_FOCUS_BONUS
+	jr nc, .focus_ok
+	xor a
+.focus_ok
+	ld b, a
+.guard
+	; a foe that may Protect, while the other foe is out: the attack may be blocked
+	ld a, [wDoublesAIFoes + 1]
+	cp $ff
+	jr z, .no_guard
+	ld a, c
+	and NUM_MOVES ; foe B?
+	ld a, [wDoublesAIGuarded]
+	jr z, .guard_a
+	rra
+.guard_a
+	rra
+	jr nc, .no_guard
+	ld a, b
+	add DOUBLES_AI_PROTECT_RISK
+	jr c, .guard_cap
+	cp $ff
+	jr c, .guard_ok
+.guard_cap
+	ld a, $fe
+.guard_ok
+	ld b, a
+.no_guard
 	; aimed at a doomed foe?
 	ld a, c
 	and NUM_MOVES ; foe B?
@@ -455,6 +627,70 @@ DoublesAITargetTypes:
 	ld [hl], b
 .adjust_done
 	pop bc
+	ret
+
+DoublesAIOwnProtect:
+; Protect, Detect and Endure: +DOUBLES_AI_PROTECT_AGAIN right after this battler used one.
+; Protect and Detect otherwise: -DOUBLES_AI_PROTECT_BONUS when a foe should knock this
+; battler out in one hit (wDoublesAIThreat) and its partner is out to act.
+	ld c, 0
+.loop
+	ld hl, wEnemyMonMoves
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
+	and a
+	ret z
+	ld l, a
+	ld a, MOVE_EFFECT
+	call GetMoveAttribute
+	ld e, a ; the effect
+	ld hl, wDoublesAIScores
+	add hl, bc
+	ld a, [hl]
+	cp $ff
+	jr z, .next
+	ld d, a ; the score
+	ld a, e
+	cp EFFECT_ENDURE
+	jr z, .protect
+	cp EFFECT_PROTECT
+	jr nz, .next
+.protect
+	ld a, [wEnemyProtectCount]
+	and a
+	jr z, .fresh
+	ld a, d
+	add DOUBLES_AI_PROTECT_AGAIN
+	jr c, .cap
+	cp $ff
+	jr c, .store
+.cap
+	ld a, $fe
+	jr .store
+
+.fresh
+	ld a, e
+	cp EFFECT_PROTECT
+	jr nz, .next
+	ld a, [wDoublesAIThreat]
+	cp 2
+	jr nc, .next
+	ld a, [wDoublesAISelf]
+	xor 1 ; the partner's slot
+	call DoublesAIChooseMove.IsSlotEmpty
+	jr nz, .next
+	ld a, d
+	sub DOUBLES_AI_PROTECT_BONUS
+	jr nc, .store
+	xor a
+.store
+	ld [hl], a
+.next
+	inc c
+	ld a, c
+	cp NUM_MOVES
+	jr nz, .loop
 	ret
 
 DoublesAIPick:

@@ -4,8 +4,13 @@
 ; don't hang on the other layers' random rolls (lower scores are better):
 ; - a move that knocks the player out even on a low damage roll: -PLAN_KO_BONUS
 ;   (-PLAN_RISKY_KO_BONUS if it's under 80% accurate, or if the AI is slower and goes
-;   down to the player's next hit, unless the move has priority);
-; - the strongest damaging move: -PLAN_BEST_HIT_BONUS (a mild lean toward attacking);
+;   down to the player's next hit, unless the move has priority); not against Sturdy or a Focus Sash
+;   at full HP, unless the move hits more than once;
+; - a contact move that doesn't knock the player out, when Rough Skin, Iron Barbs or a Rocky
+;   Helmet would knock the AI out: +PLAN_UNSAFE;
+; - the strongest damaging move: -PLAN_BEST_HIT_BONUS (a mild lean toward attacking; a contact
+;   move counts 3/4 of its damage if Static, Flame Body, Poison Point, Frigid or Effect Spore
+;   may give the AI a status condition);
 ; - set-up and stat moves (SetupEffects): +PLAN_UNSAFE if the player knocks the AI out in
 ;   2 hits or fewer, -PLAN_SAFE_SETUP_BONUS if it takes 3 or more;
 ; - healing: +PLAN_UNSAFE if it can't save the Pokemon (slower: the hit lands first;
@@ -13,7 +18,8 @@
 ;   the heal outpaces the player's hit;
 ; - any other status move: +PLAN_UNSAFE when the AI is slower and goes down to the next
 ;   hit (Protect and Endure excepted).
-; Damage: AIDamageCalc (the full calculation, no roll, no crit) for the AI's own moves;
+; Damage: AIDamageCalc (the full calculation, no roll, no crit; 0 against an ability that makes
+; the player immune or absorbs the move) for the AI's own moves;
 ; the player's best threat from SAI_ScoreActive (seen moves, assumed STAB and coverage).
 
 DEF PLAN_KO_BONUS EQU 20
@@ -82,21 +88,42 @@ AIPlanScoreMoves:
 	call GetMoveData
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
-	jr z, .status_move
+	jmp z, .status_move
 
 ; a damaging move
 	farcall AIDamageCalc
-	ld hl, wPlanBestDmg + 1
+	ld a, [wCurDamage]
+	ld d, a
 	ld a, [wCurDamage + 1]
+	ld e, a
+	or d
+	jmp z, .next ; no damage (an immunity, or an ability that absorbs it)
+; the strongest hit: a contact move counts 3/4 of its damage when Static and the like may hit back
+	call .ContactStatusRisk
+	jr nc, .compare
+	ld b, d
+	ld c, e
+	srl b
+	rr c
+	srl b
+	rr c
+	ld a, e
+	sub c
+	ld e, a
+	ld a, d
+	sbc b
+	ld d, a
+.compare
+	ld hl, wPlanBestDmg + 1
+	ld a, e
 	sub [hl]
 	dec hl
-	ld a, [wCurDamage]
+	ld a, d
 	sbc [hl]
 	jr c, .not_best
-	ld a, [wCurDamage]
+	ld a, d
 	ld [hli], a
-	ld a, [wCurDamage + 1]
-	ld [hl], a
+	ld [hl], e
 	ld a, [wPlanIndex]
 	ld [wPlanBestMove], a
 .not_best
@@ -126,8 +153,10 @@ AIPlanScoreMoves:
 	sbc d
 	jr c, .ko ; HP < damage
 	or c
-	jr nz, .next_jr ; HP > damage
+	jr nz, .no_ko ; HP > damage
 .ko
+	call .Survives
+	jr c, .no_ko
 	ld e, PLAN_KO_BONUS
 	ld a, [wEnemyMoveStruct + MOVE_ACC]
 	cp PLAN_MIN_ACCURACY
@@ -146,6 +175,12 @@ AIPlanScoreMoves:
 	ld a, e
 	call .Encourage
 .next_jr
+	jmp .next
+
+.no_ko
+; a contact move whose recoil would knock the AI out
+	call .RecoilFaints
+	call c, .Discourage
 	jmp .next
 
 .status_move
@@ -221,12 +256,12 @@ AIPlanScoreMoves:
 	sub c
 	ld a, d
 	sbc b
-	jr c, .next_jr ; HP > max HP / 2
+	jr c, .next ; HP > max HP / 2
 	ld a, [wPlanThreat + 1]
 	sub e
 	ld a, [wPlanThreat]
 	sbc d
-	jr nc, .next_jr ; threat >= heal
+	jr nc, .next ; threat >= heal
 	ld a, PLAN_HEAL_BONUS
 	call .Encourage
 
@@ -272,6 +307,144 @@ AIPlanScoreMoves:
 	ld b, 0
 	ld hl, wEnemyAIMoveScores
 	add hl, bc
+	ret
+
+.Survives:
+; Carry if the player is at full HP and Sturdy or a Focus Sash would leave it at 1 HP
+; (not against a multi-hit move: its first hit breaks them).
+	ld hl, wBattleMonHP
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli] ; max HP
+	cp b
+	jr nz, .no
+	ld a, [hl]
+	cp c
+	jr nz, .no
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
+	cp EFFECT_MULTI_HIT
+	jr z, .no
+	cp EFFECT_DOUBLE_HIT
+	jr z, .no
+	cp EFFECT_POISON_MULTI_HIT
+	jr z, .no
+	cp EFFECT_TRIPLE_KICK
+	jr z, .no
+	ld a, 1
+	ldh [hBattleTurn], a
+	farcall GetBreakableOppAbility
+	cp ABILITY_STURDY
+	jr z, .yes
+	farcall GetOpponentItem
+	ld a, b
+	cp HELD_FOCUS_SASH
+	jr z, .yes
+.no
+	and a
+	ret
+
+.yes
+	scf
+	ret
+
+.ContactStatusRisk:
+; Carry if the move makes contact and the player's Static, Flame Body, Poison Point, Frigid
+; or Effect Spore may give the AI a status condition. Preserves de.
+	ld a, [wEnemyMonStatus]
+	and a
+	ret nz
+	ld a, [wBattleMonAbility]
+	sub ABILITY_STATIC
+	cp ABILITY_EFFECT_SPORE - ABILITY_STATIC + 1
+	ret nc
+	; fallthrough
+
+.IsContact:
+; Carry if the move makes contact. Preserves de.
+	ld a, [wEnemyMoveStruct + MOVE_ANIM]
+	farcall GetMoveFlags
+	and MOVEFLAG_CONTACT
+	ret z
+	scf
+	ret
+
+.RecoilFaints:
+; Carry if the move makes contact and its recoil (Rough Skin and Iron Barbs: 1/8 of the AI's
+; max HP; Rocky Helmet: 1/6) would knock the AI out.
+	ld a, [wEnemyMonAbility]
+	cp ABILITY_MAGIC_GUARD
+	jr z, .no
+	call .IsContact
+	ret nc
+	ld de, 0 ; the recoil
+	ld a, [wBattleMonAbility]
+	cp ABILITY_ROUGH_SKIN
+	jr z, .eighth
+	cp ABILITY_IRON_BARBS
+	jr nz, .helmet
+.eighth
+	ld a, [wEnemyMonMaxHP]
+	ld d, a
+	ld a, [wEnemyMonMaxHP + 1]
+	ld e, a
+	srl d
+	rr e
+	srl d
+	rr e
+	srl d
+	rr e
+	ld a, d
+	or e
+	jr nz, .helmet
+	inc e
+.helmet
+	push de
+	ld a, 1
+	ldh [hBattleTurn], a
+	farcall GetOpponentItem
+	pop de
+	ld a, b
+	cp HELD_ROCKY_HELMET
+	jr nz, .got_recoil
+	; + max HP / 6, at least 1
+	push de
+	ld a, [wEnemyMonMaxHP]
+	ld h, a
+	ld a, [wEnemyMonMaxHP + 1]
+	ld l, a
+	ld bc, -6
+	ld de, 0
+.sixth
+	add hl, bc
+	jr nc, .sixth_done
+	inc de
+	jr .sixth
+.sixth_done
+	ld a, d
+	or e
+	jr nz, .sixth_ok
+	inc e
+.sixth_ok
+	pop hl
+	add hl, de
+	ld d, h
+	ld e, l
+.got_recoil
+	ld a, d
+	or e
+	jr z, .no
+; carry if HP <= the recoil
+	ld a, [wEnemyMonHP + 1]
+	ld c, a
+	ld a, e
+	sub c
+	ld a, [wEnemyMonHP]
+	ld c, a
+	ld a, d
+	sbc c
+	ccf
 	ret
 
 .AboutToFaint:
