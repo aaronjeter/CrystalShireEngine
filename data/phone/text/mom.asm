@@ -148,6 +148,22 @@ MomPhoneNoGymQuestText:
 	line "on home, dear."
 	done
 
+MomPhoneLectureNotJohtoText:
+	text "Hello?"
+
+	para "…… <PLAYER>?"
+	line "You went all the"
+
+	para "way to Johto? On"
+	line "such a long trip?"
+
+	para "I wish you would"
+	line "have told me…"
+
+	para "What about money?"
+	line "Should I save it?"
+	done
+
 MomPhoneLectureText:
 	text "Hello?"
 

@@ -48,6 +48,8 @@ BurnedTower1FMeetEusineScript:
 	end
 
 BurnedTowerRivalBattleScript:
+	checkevent EVENT_RIVAL_BURNED_TOWER
+	iftrue .NoRival
 	showemote EMOTE_SHOCK, BURNEDTOWER1F_RIVAL, 15
 	special FadeOutMusic
 	pause 15
@@ -56,23 +58,62 @@ BurnedTowerRivalBattleScript:
 	applymovement PLAYER, BurnedTowerMovement_PlayerWalksToRival
 	applymovement BURNEDTOWER1F_RIVAL, BurnedTowerMovement_RivalWalksToPlayer
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	callstd JohtoRivalMeetScript
 	opentext
+	iftrue .Stranger
 	writetext BurnedTowerRival_BeforeText
+	sjump .Battle
+
+.Stranger:
+	writetext BurnedTowerRival_StrangerText
+.Battle:
 	waitbutton
-	closetext	
+	closetext
 	winlosstext BurnedTowerRival_WinText, BurnedTowerRival_LossText
 	setlasttalked BURNEDTOWER1F_RIVAL
 	loadtrainer RIVAL1, RIVAL1_3
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
-	reloadmapafterbattle
+	reloadmap
+	readmem wBattleResult ; the map's callbacks change wScriptVar
+	iffalse .PlayerWon
+	special HealParty
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
+	writetext BurnedTowerRival_TauntText
+	promptbutton
+	sjump .After
+
+.PlayerWon:
+	playmusic MUSIC_RIVAL_AFTER
+	opentext
+.After:
 	writetext BurnedTowerRival_AfterText1
 	waitbutton
 	closetext
 	setscene SCENE_BURNEDTOWER1F_NOOP
 	setevent EVENT_RIVAL_BURNED_TOWER
+	scall BurnedTower1FFloorCollapsesScript
+	showemote EMOTE_SHOCK, BURNEDTOWER1F_RIVAL, 20
+	opentext
+	writetext BurnedTowerRival_AfterText2
+	waitbutton
+	closetext
+	sjump .Fall
+
+.NoRival:
+; the rival battle already happened in the Goldenrod Underground
+	setscene SCENE_BURNEDTOWER1F_NOOP
+	applymovement PLAYER, BurnedTowerMovement_PlayerWalksToRival
+	scall BurnedTower1FFloorCollapsesScript
+.Fall:
+	setevent EVENT_HOLE_IN_BURNED_TOWER
+	pause 15
+	warpcheck
+	end
+
+BurnedTower1FFloorCollapsesScript:
 	special FadeOutMusic
 	pause 15
 	earthquake 50
@@ -84,14 +125,6 @@ BurnedTowerRivalBattleScript:
 	pause 15
 	applymovement PLAYER, BurnedTower1FMovement_PlayerStartsToFall
 	playsound SFX_KINESIS
-	showemote EMOTE_SHOCK, BURNEDTOWER1F_RIVAL, 20
-	opentext
-	writetext BurnedTowerRival_AfterText2
-	waitbutton
-	closetext
-	setevent EVENT_HOLE_IN_BURNED_TOWER
-	pause 15
-	warpcheck
 	end
 
 BurnedTower1FEusineScript:
@@ -154,6 +187,34 @@ BurnedTowerRival_BeforeText:
 
 	para "It's all your"
 	line "fault!"
+	done
+
+BurnedTowerRival_StrangerText:
+	text "<……> <……> <……>"
+
+	para "…Who are you?"
+
+	para "I came looking for"
+	line "some legendary"
+
+	para "#mon that they"
+	line "say roosts here."
+
+	para "But there's"
+	line "nothing here!"
+
+	para "And now some"
+	line "nobody is in my"
+	cont "way. No way!"
+
+	para "I'm Silver. Get"
+	line "out of my sight!"
+	done
+
+BurnedTowerRival_TauntText:
+	text "Legendary #mon"
+	line "won't even look"
+	cont "at a wimp."
 	done
 
 BurnedTowerRival_WinText:

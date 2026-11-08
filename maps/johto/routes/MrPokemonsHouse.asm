@@ -8,6 +8,16 @@ MrPokemonsHouse_MapScripts:
 	scene_script MrPokemonsHouseNoopScene,          SCENE_MRPOKEMONSHOUSE_NOOP
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, MrPokemonsHouseNotJohtoCallback
+
+MrPokemonsHouseNotJohtoCallback:
+; the Mystery Egg errand is Prof. Elm's, for Johto starts only
+	checkevent EVENT_START_JOHTO
+	iftrue .done
+	setevent EVENT_MR_POKEMONS_HOUSE_OAK
+	setscene SCENE_MRPOKEMONSHOUSE_NOOP
+.done
+	endcallback
 
 MrPokemonsHouseMeetMrPokemonScene:
 	sdefer MrPokemonsHouseMrPokemonEventScript
@@ -52,6 +62,8 @@ MrPokemonsHouse_MrPokemonScript:
 	opentext
 	checkitem RED_SCALE
 	iftrue .RedScale
+	checkevent EVENT_START_JOHTO
+	iffalse .AlwaysNewDiscoveries
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .AlwaysNewDiscoveries
 	writetext MrPokemonText_ImDependingOnYou

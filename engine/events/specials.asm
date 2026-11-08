@@ -78,6 +78,11 @@ NameRival:
 .DefaultName:
 	db "Silver@"
 
+SetJohtoRivalName:
+	ld hl, wRivalName
+	ld de, NameRival.DefaultName
+	jmp CopyName2
+
 NameRater:
 	farjp _NameRater
 

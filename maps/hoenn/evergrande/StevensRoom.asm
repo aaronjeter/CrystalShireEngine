@@ -12,8 +12,8 @@ StevenScript_Battle:
 	waitbutton
 	closedialog
 
-	readvar VAR_BADGES
-	ifgreater 15, .Hard
+	callstd LeagueRematchCheckScript
+	iftrue .Hard
 	sjump .Easy
 
 .Hard
@@ -47,6 +47,10 @@ StevenScript_Battle:
 	closedialog
 	waitsfx
 	special HealParty
+	callstd LeagueRematchCheckScript
+	iffalse .NotRematch
+	setevent EVENT_BEAT_HOENN_LEAGUE_REMATCH
+.NotRematch:
 	;Give beat elite 4 goodies
 	loadmem wEliteFourXpBoost, 1
 	setevent EVENT_BEAT_HOENN_LEAGUE

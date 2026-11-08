@@ -59,7 +59,10 @@ Script_BattleRoomClosed:
 LinkReceptionistScript_Trade:
 if !DEF(_DEBUG)
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	iffalse Script_TradeCenterClosed
+	iftrue .Open
+	checkevent EVENT_START_JOHTO
+	iftrue Script_TradeCenterClosed
+.Open:
 endc
 	opentext
 	writetext Text_TradeReceptionistIntro
@@ -123,7 +126,10 @@ endc
 LinkReceptionistScript_Battle:
 if !DEF(_DEBUG)
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	iffalse Script_BattleRoomClosed
+	iftrue .Open
+	checkevent EVENT_START_JOHTO
+	iftrue Script_BattleRoomClosed
+.Open:
 endc
 	opentext
 	writetext Text_BattleReceptionistIntro

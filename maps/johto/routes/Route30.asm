@@ -20,6 +20,19 @@ Route30_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_SPRITES, Route30MonSpritesCallback
+	callback MAPCALLBACK_OBJECTS, Route30NotJohtoCallback
+
+Route30NotJohtoCallback:
+; the battle blocking the route ends when the Mystery Egg reaches Prof. Elm,
+; an errand of the Johto start only
+	checkevent EVENT_START_JOHTO
+	iftrue .done
+	checkevent EVENT_ROUTE_30_BATTLE
+	iftrue .done
+	setevent EVENT_ROUTE_30_BATTLE
+	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
+.done
+	endcallback
 
 Route30MonSpritesCallback:
 	setmonsprite SPRITE_MON_1, PIDGEY
@@ -71,6 +84,8 @@ Route30YoungsterScript:
 	opentext
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .CompletedEggQuest
+	checkevent EVENT_START_JOHTO
+	iffalse .CompletedEggQuest
 	writetext Route30YoungsterText_DirectionsToMrPokemonsHouse
 	waitbutton
 	closetext

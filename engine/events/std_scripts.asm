@@ -57,6 +57,8 @@ StdScripts::
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
 	add_stdscript UpdateWorldLevelsScript
+	add_stdscript LeagueRematchCheckScript
+	add_stdscript JohtoRivalMeetScript
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -1032,4 +1034,30 @@ checkevent EVENT_BEAT_MOON_MIGUEL
 .skipEvergrande
 
 .done
+	end
+
+LeagueRematchCheckScript:
+; wScriptVar = TRUE once any League has been beaten: every Elite Four and
+; Champion then uses their rematch team.
+	checkevent EVENT_BEAT_INDIGO_LEAGUE
+	iftrue .done
+	checkevent EVENT_BEAT_HOENN_LEAGUE
+.done
+	end
+
+JohtoRivalMeetScript:
+; Run when the Johto rival meets the player. wScriptVar = TRUE when he meets a
+; player from another region for the first time: he introduces himself, and
+; wRivalName becomes his default name.
+	checkevent EVENT_MET_JOHTO_RIVAL
+	iftrue .known
+	setevent EVENT_MET_JOHTO_RIVAL
+	checkevent EVENT_START_JOHTO
+	iftrue .known
+	special SetJohtoRivalName
+	setval TRUE
+	end
+
+.known
+	setval FALSE
 	end

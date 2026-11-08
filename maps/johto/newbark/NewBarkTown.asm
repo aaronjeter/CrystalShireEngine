@@ -15,6 +15,15 @@ NewBarkTown_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, NewBarkTownFlypointCallback
 	callback MAPCALLBACK_SPRITES, NewBarkTownMonSpritesCallback
+	callback MAPCALLBACK_OBJECTS, NewBarkTownRivalCallback
+
+NewBarkTownRivalCallback:
+; the rival watching Elm's Lab is part of the Johto start
+	checkevent EVENT_START_JOHTO
+	iftrue .done
+	setevent EVENT_RIVAL_NEW_BARK_TOWN
+.done
+	endcallback
 
 NewBarkTownMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, CHIKORITA

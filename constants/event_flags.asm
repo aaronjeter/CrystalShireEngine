@@ -203,13 +203,13 @@
 	const EVENT_FOREST_IS_RESTLESS
 	const EVENT_ANSWERED_DRAGON_MASTER_QUIZ_WRONG
 
-; Unused: next 6 events
+; Unused: next 3 events
 	const EVENT_SAFFRON_CITY_OPEN
 	const EVENT_SAFFRON_CITY_SAFE
 	const EVENT_SAFFRON_CITY_UNSAFE
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_BEAT_INDIGO_LEAGUE_REMATCH ; Lance's rematch team beaten
+	const EVENT_BEAT_HOENN_LEAGUE_REMATCH  ; Steven's rematch team beaten
+	const EVENT_MET_JOHTO_RIVAL ; Silver has met the player
 
 	const_next 200
 ; Kanto story events

@@ -118,6 +118,7 @@ CherrygroveRivalSceneNorth:
 	applymovement CHERRYGROVECITY_RIVAL, CherrygroveCity_RivalWalksToYou
 	turnobject PLAYER, RIGHT
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	setevent EVENT_MET_JOHTO_RIVAL
 	opentext
 	writetext CherrygroveRivalText_Seen
 	waitbutton
@@ -450,6 +451,10 @@ RivalCherrygroveLossText:
 
 CherrygroveRivalText_YouWon:
 	text "<……> <……> <……>"
+
+	para "Like I said. A"
+	line "wimp like you"
+	cont "wastes a #mon."
 
 	para "I'm going to be"
 	line "the world's great-"

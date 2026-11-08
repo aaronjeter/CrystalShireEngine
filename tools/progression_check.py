@@ -673,7 +673,7 @@ class Scripts:
             while True:
                 if idx >= len(lines):
                     break
-                pos = (path, idx)
+                pos = (path, idx, calls)  # a script called twice runs again
                 if pos in visited:
                     break  # loop: this path adds nothing new
                 visited = visited | {pos}

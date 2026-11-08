@@ -51,20 +51,36 @@ VictoryRoadRivalRight:
 VictoryRoadRivalNext:
 	turnobject PLAYER, DOWN
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	callstd JohtoRivalMeetScript
 	opentext
+	iftrue .Stranger
 	writetext VictoryRoadRivalBeforeText
+	sjump .Battle
+
+.Stranger:
+	writetext VictoryRoadRivalStrangerText
+.Battle:
 	waitbutton
 	closetext
-	setevent EVENT_RIVAL_VICTORY_ROAD	
+	setevent EVENT_RIVAL_VICTORY_ROAD
 	winlosstext VictoryRoadRivalDefeatText, VictoryRoadRivalVictoryText
 	setlasttalked VICTORYROAD_RIVAL
 	loadtrainer RIVAL1, RIVAL1_5
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
-	reloadmapafterbattle
+	reloadmap
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
+	readmem wBattleResult ; the map's callbacks change wScriptVar
+	iffalse .PlayerWon
+	special HealParty
+	writetext VictoryRoadRivalTauntText
+	sjump .Done
+
+.PlayerWon:
 	writetext VictoryRoadRivalAfterText
+.Done:
 	waitbutton
 	closetext
 	end
@@ -160,6 +176,42 @@ VictoryRoadRivalBeforeText:
 
 	para "<PLAYER>!"
 	line "I challenge you!"
+	done
+
+VictoryRoadRivalStrangerText:
+	text "Hold it."
+
+	para "…Are you going to"
+	line "take the #mon"
+	cont "League challenge?"
+
+	para "…Don't make me"
+	line "laugh."
+
+	para "I'm Silver. I have"
+	line "the best and"
+
+	para "strongest #mon"
+	line "with me."
+
+	para "Nobody's beating"
+	line "me. Not you, and"
+	cont "not the League!"
+
+	para "<PLAYER>, was it?"
+	line "I challenge you!"
+	done
+
+VictoryRoadRivalTauntText:
+	text "Humph. Just as I"
+	line "said."
+
+	para "Go on, take the"
+	line "League challenge."
+
+	para "See how far a"
+	line "wimp like you gets"
+	cont "with that team."
 	done
 
 VictoryRoadRivalDefeatText:

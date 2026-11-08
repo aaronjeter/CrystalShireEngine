@@ -162,20 +162,36 @@ UndergroundRivalBattleScript:
 	setmapscene BURNED_TOWER_1F, SCENE_BURNEDTOWER1F_RIVAL_BATTLE
 .Continue:
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	callstd JohtoRivalMeetScript
 	opentext
+	iftrue .Stranger
 	writetext UndergroundRivalBeforeText
+	sjump .Battle
+
+.Stranger:
+	writetext UndergroundRivalStrangerText
+.Battle:
 	waitbutton
 	closetext
-	setevent EVENT_RIVAL_GOLDENROD_UNDERGROUND	
+	setevent EVENT_RIVAL_GOLDENROD_UNDERGROUND
 	winlosstext UndergroundRivalWinText, UndergroundRivalLossText
 	setlasttalked GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_RIVAL
 	loadtrainer RIVAL1, RIVAL1_4
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
-	reloadmapafterbattle
+	reloadmap
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
+	readmem wBattleResult ; the map's callbacks change wScriptVar
+	iffalse .PlayerWon
+	special HealParty
+	writetext UndergroundRivalTauntText
+	sjump .Done
+
+.PlayerWon:
 	writetext UndergroundRivalAfterText
+.Done:
 	waitbutton
 	closetext
 	end
@@ -631,6 +647,37 @@ UndergroundRivalBeforeText:
 
 	para "But I repay my"
 	line "debts!"
+	done
+
+UndergroundRivalStrangerText:
+	text "Hold it!"
+
+	para "I saw you, so I"
+	line "tailed you."
+
+	para "I don't need you"
+	line "underfoot while I"
+
+	para "take care of Team"
+	line "Rocket."
+
+	para "Who am I? Silver."
+	line "Remember the name"
+
+	para "of the trainer who"
+	line "beat you!"
+	done
+
+UndergroundRivalTauntText:
+	text "Love? Trust?"
+
+	para "Power is all that"
+	line "matters. You just"
+	cont "proved it."
+
+	para "Stay out of my way"
+	line "while I deal with"
+	cont "Team Rocket."
 	done
 
 UndergroundRivalWinText:

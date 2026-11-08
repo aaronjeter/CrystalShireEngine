@@ -134,7 +134,13 @@ MomPhoneLectureScript:
 	setevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
 	setflag ENGINE_MOM_ACTIVE
 	specialphonecall SPECIALCALL_NONE
+	checkevent EVENT_START_JOHTO
+	iffalse .not_johto
 	farwritetext MomPhoneLectureText
+	sjump .ask
+.not_johto
+	farwritetext MomPhoneLectureNotJohtoText
+.ask
 	yesorno
 	iftrue MomPhoneSaveMoneyScript
 	sjump MomPhoneWontSaveMoneyScript

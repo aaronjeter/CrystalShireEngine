@@ -33,8 +33,8 @@ DrakeScript_Battle:
 	waitbutton
 	closedialog
 
-	readvar VAR_BADGES
-	ifgreater 15, .Hard
+	callstd LeagueRematchCheckScript
+	iftrue .Hard
 	sjump .Easy
 
 .Hard

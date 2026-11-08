@@ -56,8 +56,8 @@ LancesRoomLanceScript:
 	waitbutton
 	closedialog
 
-	readvar VAR_BADGES
-	ifgreater 15, .Hard
+	callstd LeagueRematchCheckScript
+	iftrue .Hard
 	sjump .Easy
 
 .Hard
@@ -90,6 +90,10 @@ LancesRoomLanceScript:
 	reloadmapafterbattle
 
 	setevent EVENT_BEAT_CHAMPION_LANCE
+	callstd LeagueRematchCheckScript
+	iffalse .NotRematch
+	setevent EVENT_BEAT_INDIGO_LEAGUE_REMATCH
+.NotRematch:
 	opendialog CHAMPION
 	writetext LanceBattleAfterText
 	waitbutton

@@ -74,8 +74,17 @@ RocketBaseRival:
 	applymovement TEAMROCKETBASEB3F_RIVAL, RocketBaseRivalEnterMovement
 	turnobject PLAYER, LEFT
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	callstd JohtoRivalMeetScript
 	opentext
+	iftrue .Stranger
 	writetext RocketBaseRivalText
+	sjump .Talked
+
+.Stranger:
+	writetext RocketBaseRivalStrangerText
+.Talked:
+	promptbutton
+	writetext RocketBaseRivalCapeText
 	waitbutton
 	closetext
 	playsound SFX_TACKLE
@@ -336,6 +345,20 @@ TeamRocketBaseB3FRocketText:
 	cont "incredibly tough…"
 	done
 
+RocketBaseRivalStrangerText:
+	text "…"
+
+	para "You're after Team"
+	line "Rocket too?"
+
+	para "Don't bother. I'm"
+	line "Silver, and I'm"
+
+	para "going to destroy"
+	line "Team Rocket"
+	cont "myself."
+	done
+
 RocketBaseRivalText:
 	text "…"
 
@@ -344,8 +367,10 @@ RocketBaseRivalText:
 
 	para "to destroy Team"
 	line "Rocket?"
+	done
 
-	para "…Tell me, who was"
+RocketBaseRivalCapeText:
+	text "…Tell me, who was"
 	line "the guy in the"
 
 	para "cape who used"

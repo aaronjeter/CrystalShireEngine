@@ -55,19 +55,38 @@ AzaleaTownRivalBattleScene2:
 	turnobject PLAYER, UP
 AzaleaTownRivalBattleScript:
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	callstd JohtoRivalMeetScript
 	opentext
+	iftrue .Stranger
 	writetext AzaleaTownRivalBeforeText
+	sjump .Battle
+
+.Stranger:
+	writetext AzaleaTownRivalStrangerText
+.Battle:
 	waitbutton
 	closetext
-	setevent EVENT_RIVAL_AZALEA_TOWN	
+	setevent EVENT_RIVAL_AZALEA_TOWN
 	winlosstext AzaleaTownRivalWinText, AzaleaTownRivalLossText
 	setlasttalked AZALEATOWN_RIVAL
 	loadtrainer RIVAL1, RIVAL1_2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
-	reloadmapafterbattle
+	reloadmap
+	readmem wBattleResult ; the map's callbacks change wScriptVar
+	iffalse .PlayerWon
+	special HealParty
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
+	writetext AzaleaTownRivalTauntText
+	promptbutton
+	sjump .After
+
+.PlayerWon:
+	playmusic MUSIC_RIVAL_AFTER
+	opentext
+.After:
 	writetext AzaleaTownRivalAfterText
 	waitbutton
 	closetext
@@ -224,6 +243,31 @@ AzaleaTownRivalBeforeText:
 	para "You're not joking?"
 	line "Then let's see how"
 	cont "good you are."
+	done
+
+AzaleaTownRivalStrangerText:
+	text "…Hey, you."
+
+	para "They say some kid"
+	line "ran Team Rocket"
+	cont "out of the well."
+
+	para "That was you? Hah!"
+	line "Quit lying."
+
+	para "…You're serious?"
+
+	para "Then let's see how"
+	line "good you are."
+
+	para "The name's Silver."
+	line "Remember it."
+	done
+
+AzaleaTownRivalTauntText:
+	text "Humph. You beat"
+	line "Team Rocket? With"
+	cont "that team?"
 	done
 
 AzaleaTownRivalWinText:

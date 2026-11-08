@@ -138,6 +138,8 @@ ElmCheckGotEggAgain:
 	iftrue ElmWaitingEggHatchScript
 	checkflag ENGINE_ZEPHYRBADGE
 	iftrue ElmAideHasEggScript
+	checkevent EVENT_START_JOHTO
+	iffalse ElmNotJohtoScript
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue ElmStudyingEggScript
 	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
@@ -655,6 +657,12 @@ endc
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POTION
 	setmapscene NEW_BARK_TOWN, SCENE_NEWBARKTOWN_NOOP
+	end
+
+ElmNotJohtoScript:
+	writetext ElmNotJohtoText
+	waitbutton
+	closedialog
 	end
 
 ElmDescribesMrPokemonScript:
@@ -1384,6 +1392,17 @@ ElmDirectionsText3:
 GotElmsNumberText:
 	text "<PLAYER> got Elm's"
 	line "phone number."
+	done
+
+ElmNotJohtoText:
+	text "Elm: Hi! I'm"
+	line "Prof.Elm."
+
+	para "I study how"
+	line "#mon evolve."
+
+	para "Enjoy your trip"
+	line "through Johto!"
 	done
 
 ElmDescribesMrPokemonText:
