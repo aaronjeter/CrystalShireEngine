@@ -721,8 +721,8 @@ BirchsLab_MapEvents:
 
 	def_warp_events	
 
-	warp_event 04, 07, LITTLEROOT_TOWN, 3
-	warp_event 05, 07, LITTLEROOT_TOWN, 3
+	warp_event 04, 07, LITTLEROOT_TOWN, 1
+	warp_event 05, 07, LITTLEROOT_TOWN, 1
 
 	def_coord_events
 	coord_event  04,  04, -1, BirchsLab_WelcomeScript

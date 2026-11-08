@@ -177,6 +177,7 @@ class World:
         self.load_map_sizes()
         self.load_attributes()
         self.load_blocks()
+        self.load_cond_warps()
         self.load_map_files()
         self.load_spawns()
 
@@ -375,6 +376,39 @@ class World:
                 continue
             self.parse_map_file(mp, f)
 
+    def load_cond_warps(self):
+        """Conditional warp tables (data/maps/conditional_warps.asm): name -> list of
+        (flag or None for always, wanted value, map or None for locked, warp)."""
+        self.cond_warps = {}
+        path = self.p('data/maps/conditional_warps.asm')
+        if not os.path.exists(path):
+            return
+        cur = None
+        for line in logical_lines(path):
+            s = line.strip()
+            m = re.match(r'(\w+)::?$', s)
+            if m:
+                cur = self.cond_warps.setdefault(m.group(1), [])
+                continue
+            m = re.match(r'(warp_if_not|warp_if|warp_else|warp_locked)\b\s*(.*)$', s)
+            if not m or cur is None:
+                continue
+            kind, a = m.group(1), split_args(m.group(2)) if m.group(2) else []
+            if kind == 'warp_if':
+                cur.append((a[0], True, a[1], parse_num(a[2])))
+            elif kind == 'warp_if_not':
+                cur.append((a[0], False, a[1], parse_num(a[2])))
+            elif kind == 'warp_else':
+                cur.append((None, None, a[0], parse_num(a[1])))
+            else:
+                cur.append((None, None, None, None))
+
+    def warp_maps(self, wp):
+        """Every map a warp can lead to."""
+        if wp.get('cond'):
+            return [e[2] for e in self.cond_warps.get(wp['cond'], []) if e[2]]
+        return [wp['map']]
+
     def parse_map_file(self, mp, f):
         obj_index = 1  # object_const_def starts at 2; index 1 = first object
         consts = []
@@ -392,7 +426,7 @@ class World:
             if m:
                 mp['scene_scripts'].append((None, m.group(1)))
                 continue
-            m = re.match(r'(scene_script|callback|warp_event|coord_event|bg_event|object_event)\s+(.+)$', s)
+            m = re.match(r'(scene_script|callback|cond_warp_event|warp_event|coord_event|bg_event|object_event)\s+(.+)$', s)
             if not m:
                 continue
             kind, a = m.group(1), split_args(m.group(2))
@@ -400,6 +434,9 @@ class World:
                 mp['scene_scripts'].append((a[0], a[1] if len(a) > 1 else None))
             elif kind == 'callback':
                 mp['callbacks'].append((a[0], a[1]))
+            elif kind == 'cond_warp_event':
+                mp['warps'].append(dict(x=parse_num(a[0]), y=parse_num(a[1]), map=None,
+                                        dest=None, cond=a[2]))
             elif kind == 'warp_event':
                 mp['warps'].append(dict(x=parse_num(a[0]), y=parse_num(a[1]), map=a[2],
                                         dest=parse_num(a[3])))
@@ -1075,6 +1112,7 @@ class Solver:
         self.badge_flags = [f for f in w.engine_flags if f.endswith('BADGE')]
         self.queue = deque()
         self.failed = []             # (map, x, y) tiles whose expansion may improve later
+        self.cond_tiles = set()      # reached conditional warp tiles
         self.coord_fail = {}         # map -> condition sets that would let a coord event pass
         self.triggers = defaultdict(list)
         self.map_reached_order = []
@@ -1572,13 +1610,41 @@ class Solver:
             mp = self.w.maps[mc]
             # warps on this tile
             for wp in mp['warps']:
-                if wp['x'] == x and wp['y'] == y:
+                if wp['x'] == x and wp['y'] == y and wp.get('cond'):
+                    self.cond_tiles.add((mc, x, y))
+                    self.cond_warp(mc, wp)
+                elif wp['x'] == x and wp['y'] == y:
                     tm = self.w.maps.get(wp['map'])
                     if tm and wp['dest'] and 0 < wp['dest'] <= len(tm['warps']):
                         dw = tm['warps'][wp['dest'] - 1]
                         self.arrive(wp['map'], dw['x'], dw['y'], mc)
             if self.expand(mc, x, y, blockers[mc]):
                 self.failed.append((mc, x, y))
+
+    def cond_warp(self, mc, wp):
+        """Follow every entry of a conditional warp that can be the first to hold."""
+        changed = False
+        for flag, want, m, dest in self.w.cond_warps.get(wp['cond'], []):
+            if flag is None:
+                ok = True
+            else:
+                ok = want in self.flags[flag]
+            if ok and m:
+                tm = self.w.maps.get(m)
+                if tm and dest and 0 < dest <= len(tm['warps']):
+                    dw = tm['warps'][dest - 1]
+                    changed |= self.arrive(m, dw['x'], dw['y'], mc)
+            if flag is None or (not want) not in self.flags[flag]:
+                break  # later entries need this one to fail
+        return changed
+
+    def recheck_cond_warps(self):
+        changed = False
+        for (mc, x, y) in list(self.cond_tiles):
+            for wp in self.w.maps[mc]['warps']:
+                if wp['x'] == x and wp['y'] == y and wp.get('cond'):
+                    changed |= self.cond_warp(mc, wp)
+        return changed
 
     def fly(self):
         if not self.can('fly'):
@@ -1674,6 +1740,7 @@ class Solver:
             self.fly()
             self.walk()
             changed = self.fire()
+            changed |= self.recheck_cond_warps()
             # retry tiles whose expansion failed (capabilities may have grown)
             if changed or self.queue:
                 retry, self.failed = self.failed, []
@@ -1847,7 +1914,7 @@ class Report:
         busy.add(m)
         classes = set()
         for mc, src in self.w.maps.items():
-            if any(wp['map'] == m for wp in src['warps']) or any(c[1] == m for c in src.get('conns', [])):
+            if any(m in self.w.warp_maps(wp) for wp in src['warps']) or any(c[1] == m for c in src.get('conns', [])):
                 if mc == m:
                     continue
                 if mc in S.reached:
@@ -2186,7 +2253,7 @@ class Report:
         srcs = []
         for mc, mp in w.maps.items():
             for wp in mp['warps']:
-                if wp['map'] == m:
+                if m in w.warp_maps(wp):
                     srcs.append(mc)
             for c in mp.get('conns', []):
                 if c[1] == m:

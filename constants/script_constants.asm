@@ -110,6 +110,12 @@ DEF NUM_PLAYER_MOVEMENTS EQU const_value
 DEF SCENE_SCRIPT_SIZE EQU  4 ; scene_script
 DEF CALLBACK_SIZE     EQU  3 ; callback
 DEF WARP_EVENT_SIZE   EQU  5 ; warp_event
+
+; cond_warp_event: the warp number that marks a conditional warp, whose map bytes
+; point to its table (data/maps/conditional_warps.asm)
+DEF COND_WARP EQU $fe
+DEF COND_WARP_ALWAYS   EQU $ffff ; warp_else, warp_locked
+DEF COND_WARP_IF_CLEAR EQU $8000 ; warp_if_not: added to the event flag
 DEF COORD_EVENT_SIZE  EQU  8 ; coord_event
 DEF BG_EVENT_SIZE     EQU  5 ; bg_event
 ; An object_event is a map_object without its initial MAPOBJECT_OBJECT_STRUCT_ID or final padding

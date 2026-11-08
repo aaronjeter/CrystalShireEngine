@@ -721,3 +721,7 @@ INCLUDE "engine/pokemon/move_learn_screen.asm"
 SECTION "Mon Colors", ROMX
 
 INCLUDE "engine/pokemon/mon_colors.asm"
+
+SECTION "Conditional Warps", ROMX
+
+INCLUDE "engine/overworld/conditional_warps.asm"

@@ -18,32 +18,6 @@ PlayersHouse1FNoop1Scene:
 PlayersHouse1FNoop2Scene:
 	end
 
-PlayerHouse1FConditionalWarpScript:
-	checkevent EVENT_START_HOENN
-	iffalse .notHoenn
-	playsound SFX_EXIT_BUILDING
-	special FadeOutToWhite
-	waitsfx
-	warp LITTLEROOT_TOWN, 13, 08
-	sjump .done
-	
-.notHoenn
-	checkevent EVENT_START_JOHTO
-	iffalse .notJohto ;
-	playsound SFX_EXIT_BUILDING
-	special FadeOutToWhite
-	waitsfx
-	warp NEW_BARK_TOWN, 13, 06
-	sjump .done
-
-.notJohto
-	playsound SFX_EXIT_BUILDING
-	special FadeOutToWhite
-	waitsfx
-	warp PALLET_TOWN, 03, 12
-.done
-	end
-
 MeetMomLeftScript:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
@@ -409,15 +383,13 @@ PlayersHouse1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  6,  7, NEW_BARK_TOWN, 2
-	warp_event  7,  7, NEW_BARK_TOWN, 2
+	cond_warp_event  6,  7, HomeExitWarps
+	cond_warp_event  7,  7, HomeExitWarps
 	warp_event  9,  0, PLAYERS_HOUSE_2F, 1
 
 	def_coord_events
 	coord_event  8,  4, SCENE_PLAYERSHOUSE1F_MEET_MOM, MeetMomLeftScript
 	coord_event  9,  4, SCENE_PLAYERSHOUSE1F_MEET_MOM, MeetMomRightScript
-	coord_event  6,  7, -1, PlayerHouse1FConditionalWarpScript
-	coord_event  7,  7, -1, PlayerHouse1FConditionalWarpScript
 
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, PlayersHouse1FStoveScript

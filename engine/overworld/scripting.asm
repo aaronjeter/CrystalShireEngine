@@ -2172,6 +2172,8 @@ Script_refreshmap::
 Script_warpcheck:
 	call WarpCheck
 	ret nc
+	farcall ResolveConditionalWarp
+	ret nc
 	jmp EnableEvents
 
 Script_enableevents: ; unreferenced

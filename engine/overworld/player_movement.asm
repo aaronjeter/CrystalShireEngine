@@ -897,6 +897,8 @@ endc
 	jr nz, .not_warp
 	call WarpCheck
 	jr nc, .not_warp
+	farcall ResolveConditionalWarp
+	jr nc, .not_warp
 
 	call .StandInPlace
 	scf

@@ -13,19 +13,6 @@ PalletTownFlypointCallback:
 	endcallback
 
 
-PalletTownConditionalWarpScript:
-	checkevent EVENT_START_KANTO
-	iffalse .notHoenn
-	playsound SFX_EXIT_BUILDING
-	special FadeOutToWhite
-	waitsfx
-	warp PLAYERS_HOUSE_1F, 07, 06
-	sjump .done
-	
-.notHoenn
-.done
-	end
-
 PalletTown_TeacherStopsYouScene1:
 	checkevent EVENT_GOT_A_POKEMON
 	iftrue .done
@@ -139,9 +126,9 @@ PalletTown_MapEvents:
 	warp_event  5,  5, REDS_HOUSE_1F, 1
 	warp_event 13,  5, BLUES_HOUSE, 1
 	warp_event 12, 11, OAKS_LAB, 1
+	cond_warp_event  3, 11, PalletHomeDoorWarps
 
 	def_coord_events
-	coord_event  03, 11, -1, PalletTownConditionalWarpScript
 	coord_event  08, 02, -1, PalletTown_TeacherStopsYouScene1
 	coord_event  09, 02, -1, PalletTown_TeacherStopsYouScene1
 

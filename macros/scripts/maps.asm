@@ -62,6 +62,43 @@ MACRO warp_event
 	DEF {_NUM_WARP_EVENTS} += 1
 ENDM
 
+MACRO cond_warp_event
+;\1: x: left to right, starts at 0
+;\2: y: top to bottom, starts at 0
+;\3: conditional warp table (data/maps/conditional_warps.asm)
+	db \2, \1, COND_WARP
+	dw \3
+	DEF {_NUM_WARP_EVENTS} += 1
+ENDM
+
+; Conditional warp table entries, checked in order; the first that holds is used.
+MACRO warp_if
+;\1: event flag (set), \2: map id, \3: warp destination
+	dw \1
+	db \3
+	map_id \2
+ENDM
+
+MACRO warp_if_not
+;\1: event flag (clear), \2: map id, \3: warp destination
+	dw \1 | COND_WARP_IF_CLEAR
+	db \3
+	map_id \2
+ENDM
+
+MACRO warp_else
+;\1: map id, \2: warp destination
+	dw COND_WARP_ALWAYS
+	db \2
+	map_id \1
+ENDM
+
+MACRO warp_locked
+; no warp: a step-on door shows the locked-door text, an edge warp is a wall
+	dw COND_WARP_ALWAYS
+	db 0, 0, 0
+ENDM
+
 MACRO def_coord_events
 	REDEF _NUM_COORD_EVENTS EQUS "_NUM_COORD_EVENTS_\@"
 	db {_NUM_COORD_EVENTS}

@@ -342,7 +342,12 @@ CheckTileEvent:
 	jr c, .map_connection
 
 	call CheckWarpTile
+	jr nc, .connections_disabled
+	farcall ResolveConditionalWarp
 	jr c, .warp_tile
+	ld a, BANK(LockedDoorScript)
+	ld hl, LockedDoorScript
+	jmp CallScript
 
 .connections_disabled
 	call CheckCoordEventsEnabled

@@ -21,19 +21,6 @@ LittlerootTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_LITTLEROOT
 	endcallback
 
-LittlerootTownConditionalWarpScript:
-	checkevent EVENT_START_HOENN
-	iffalse .notHoenn
-	playsound SFX_EXIT_BUILDING
-	special FadeOutToWhite
-	waitsfx
-	warp PLAYERS_HOUSE_1F, 07, 06
-	sjump .done
-	
-.notHoenn
-.done
-	end
-
 LittlerootTown_TeacherStopsYouScene1:
 	checkevent EVENT_GOT_A_POKEMON
 	iftrue .done
@@ -181,12 +168,10 @@ LittlerootTown_MapEvents:
 
 	def_warp_events	
 
-	warp_event 10, 15, PLAYERS_HOUSE_2F, 2
-	warp_event 11, 15, PLAYERS_HOUSE_2F, 2
 	warp_event  4, 13, BIRCHS_LAB, 2
+	cond_warp_event 13,  7, LittlerootHomeDoorWarps
 
 	def_coord_events
-	coord_event  13,  07, -1, LittlerootTownConditionalWarpScript
 	coord_event  10,  01, -1, LittlerootTown_TeacherStopsYouScene1
 	coord_event  11,  01, -1, LittlerootTown_TeacherStopsYouScene1
 
