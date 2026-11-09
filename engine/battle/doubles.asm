@@ -1552,8 +1552,7 @@ DoublesPlayerSendIn:
 	ld a, [wCurPartyMon]
 	farcall IsPlayerMonOnField
 	jr nz, .picked
-	ld hl, BattleText_MonIsAlreadyOut
-	call StdBattleTextbox
+	call PrintMonIsAlreadyOut
 	jr .pick
 
 .picked

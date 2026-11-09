@@ -318,7 +318,7 @@ BattleText_ItemsCantBeUsedHere:
 	prompt
 
 BattleText_MonIsAlreadyOut:
-	text_ram wBattleMonNickname
+	text_ram wStringBuffer1
 	text_start
 	line "is already out."
 	prompt

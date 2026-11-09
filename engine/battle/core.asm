@@ -3130,14 +3130,21 @@ SwitchMonAlreadyOut:
 	cp [hl]
 	jr nz, .notout
 
-	ld hl, BattleText_MonIsAlreadyOut
-	call StdBattleTextbox
+	call PrintMonIsAlreadyOut
 	scf
 	ret
 
 .notout
 	xor a
 	ret
+
+PrintMonIsAlreadyOut:
+; "<party mon wCurPartyMon> is already out."
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMonNicknames
+	call GetNickname
+	ld hl, BattleText_MonIsAlreadyOut
+	jmp StdBattleTextbox
 
 ForcePickPartyMonInBattle:
 ; Can't back out.
@@ -5292,8 +5299,7 @@ TryPlayerSwitch:
 	ld a, [wCurPartyMon]
 	farcall IsPlayerMonOnField ; doubles: the other slot's mon too
 	jr nz, .check_trapped
-	ld hl, BattleText_MonIsAlreadyOut
-	call StdBattleTextbox
+	call PrintMonIsAlreadyOut
 	jmp BattleMenuPKMN_Loop
 
 .check_trapped
