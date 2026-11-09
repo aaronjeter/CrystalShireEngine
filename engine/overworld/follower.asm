@@ -81,7 +81,7 @@ LoadMapObjects_Follower::
 	call z, ReloadFollowerPal ; in case another lead's colors are still loaded
 	; fallthrough
 
-StartPokemonFollower:
+StartPokemonFollower::
 	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
 	cp SPRITE_FOLLOWER
 	ret nz
@@ -681,13 +681,3 @@ HideFollowerForScriptFollow::
 	ret z
 	ld a, FOLLOWER_OBJECT
 	jmp DeleteObjectStruct
-
-_FollowerScript::
-	faceplayer
-	callasm FollowerCry
-	end
-
-FollowerCry:
-	call GetFollowerPartyMon
-	ret c
-	jmp PlayMonCry

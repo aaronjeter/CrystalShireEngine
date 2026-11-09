@@ -729,3 +729,7 @@ INCLUDE "engine/overworld/conditional_warps.asm"
 SECTION "Nuzlocke", ROMX
 
 INCLUDE "engine/events/nuzlocke.asm"
+
+SECTION "Follower Talk", ROMX
+
+INCLUDE "engine/overworld/follower_talk.asm"
