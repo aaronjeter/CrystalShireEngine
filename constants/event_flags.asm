@@ -588,7 +588,8 @@
 	const EVENT_GOT_RAYQUAZA ; unused
 	const EVENT_GOT_JIRACHI 
 	const EVENT_NUZLOCKE_AREA_96 ; Nuzlocke mode: "used" bits of landmarks 96 and up
-	const_skip 63 ; (all of them: a landmark index up to 159)
+	const_skip 62 ; (all of them: a landmark index up to 158)
+	const EVENT_NUZLOCKE_CONTEST_USED ; Nuzlocke mode: a Bug-Catching Contest was played
 
 	const_next 600
 ; Kurt Apricorn events

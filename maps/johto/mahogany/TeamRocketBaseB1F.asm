@@ -453,6 +453,7 @@ VoltorbExplodingTrap:
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon VOLTORB, 7
+	loadmem wNuzlockeEncounter, NUZLOCKE_FORCED
 	startbattle
 	end
 
@@ -464,6 +465,7 @@ GeodudeExplodingTrap:
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon GEODUDE, 5
+	loadmem wNuzlockeEncounter, NUZLOCKE_FORCED
 	startbattle
 	end
 
@@ -475,6 +477,7 @@ KoffingExplodingTrap:
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon KOFFING, 6
+	loadmem wNuzlockeEncounter, NUZLOCKE_FORCED
 	startbattle
 	end
 

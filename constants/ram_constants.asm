@@ -91,6 +91,7 @@ DEF NUZLOCKE_GRAVEYARD_BOX EQU 13 ; Nuzlocke mode: boxes 13 to NUM_BOXES hold fa
 	const NUZLOCKE_AREA_USED     ; 1
 	const NUZLOCKE_FAMILY_CAUGHT ; 2
 	const NUZLOCKE_CATCHABLE     ; 3 (the area's catch, a shiny or a legendary)
+	const NUZLOCKE_FORCED        ; 4 (set by a forced battle's script: catchable, the area untouched)
 
 ; wFollowerFlags::
 DEF FOLLOWER_HIDDEN_BY_SCRIPT_F EQU 0 ; hidefollower (cleared by showfollower or a map load)

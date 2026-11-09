@@ -77,6 +77,7 @@ WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	waitbutton
 	closetext
 	loadwildmon SUDOWOODO, 10
+	loadmem wNuzlockeEncounter, NUZLOCKE_FORCED
 	startbattle
 	setevent EVENT_FOUGHT_SUDOWOODO
 	ifequal DRAW, DidntCatchSudowoodo

@@ -2,21 +2,25 @@
 ; landmark; its "used" bit is in wNuzlockeAreaFlags (landmarks 0-95) or in the
 ; event flags from EVENT_NUZLOCKE_AREA_96 (landmarks 96 and up).
 
-assert NUM_LANDMARKS <= NUM_NUZLOCKE_AREA_BYTES * 8 + 64, \
+assert NUM_LANDMARKS <= NUM_NUZLOCKE_AREA_BYTES * 8 + 63, \
 	"more landmarks than Nuzlocke area flags"
 
 NuzlockeWildEncounter::
 ; At the start of a wild battle: wNuzlockeEncounter = NUZLOCKE_CATCHABLE, why
 ; the wild Pokémon can't be caught, or NUZLOCKE_NO_RULE. A catchable first
-; encounter uses up the area.
-	ld a, NUZLOCKE_NO_RULE
-	ld [wNuzlockeEncounter], a
+; encounter uses up the area. A forced battle's script sets NUZLOCKE_FORCED
+; first: catchable without using the area.
+	ld hl, wNuzlockeEncounter
+	ld a, [hl]
+	ld [hl], NUZLOCKE_NO_RULE
+	sub NUZLOCKE_FORCED
+	ld e, a ; 0 for a forced battle
 	ld a, [wOptions2]
 	bit NUZLOCKE_ON, a
 	ret z
 	ld a, [wBattleType]
 	cp BATTLETYPE_CONTEST
-	ret z
+	jr z, .contest
 	cp BATTLETYPE_TUTORIAL
 	ret z
 	ld a, [wNumBalls]
@@ -24,6 +28,9 @@ NuzlockeWildEncounter::
 	ret z ; encounters count once the player has a ball
 	ld a, NUZLOCKE_CATCHABLE
 	ld [wNuzlockeEncounter], a
+	ld a, e
+	and a
+	ret z ; forced battles are always catchable
 	ld a, [wEnemyMonDVs + 1]
 	cp SHINY_SPDSPC_DV
 	ret z ; shinies are always catchable
@@ -54,6 +61,18 @@ NuzlockeWildEncounter::
 	jr NuzlockeAreaFlagAction ; wNuzlockeEncounter stays NUZLOCKE_CATCHABLE
 
 .got_result
+	ld [wNuzlockeEncounter], a
+	ret
+
+.contest
+; only the first Bug-Catching Contest's catches are allowed
+	ld de, EVENT_NUZLOCKE_CONTEST_USED
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ld a, c
+	and a
+	ret z
+	ld a, NUZLOCKE_AREA_USED
 	ld [wNuzlockeEncounter], a
 	ret
 

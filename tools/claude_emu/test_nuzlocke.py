@@ -50,13 +50,13 @@ def setup(nz=True, party=PARTY, items=(('POKE_BALL', 5),), pre=None):
     return g
 
 
-def start(g, species, level, battletype=None, mapc=None):
+def start(g, species, level, battletype=None, mapc=None, extra=''):
     g.wr('wWildLevel', 0)
     g.wr('wOptions', 0x01 | SCENE_OFF)
     if mapc:
         g.wr('wMapGroup', g.const(f'GROUP_{mapc}')); g.wr('wMapNumber', g.const(f'MAP_{mapc}'))
     bt = f'\tloadvar VAR_BATTLETYPE, {battletype}\n' if battletype else ''
-    g.run_script(f'TestScript:\n{bt}\tloadwildmon {species}, {level}\n\tstartbattle\n\treloadmapafterbattle\n\tend')
+    g.run_script(f'TestScript:\n{bt}\tloadwildmon {species}, {level}\n{extra}\tstartbattle\n\treloadmapafterbattle\n\tend')
     for _ in range(3000):
         g.frames(2)
         if g.in_battle() and at_menu(g):
@@ -687,6 +687,68 @@ def case_new_game():
           f'opt2={g.rd("wOptions2")}')
 
 
+def case_forced(area):
+    """A forced battle's script (Sudowoodo, Snorlax, the Rocket base traps and
+    Electrodes) sets NUZLOCKE_FORCED: catchable in a used area, area untouched."""
+    def pre(g):
+        g.wr(g.sym['wNuzlockeAreaFlags'][1] + area // 8, 1 << (area % 8))
+    g = setup(pre=pre)
+    a0 = area_bits(g)
+    forced = f"\tloadmem ${g.sym['wNuzlockeEncounter'][1]:04x}, {g.const('NUZLOCKE_FORCED')}\n"
+    enc = start(g, 'SUDOWOODO', 10, extra=forced)
+    check('forced battle: catchable in a used area, area untouched', enc == CATCHABLE and area_bits(g) == a0, f'enc={enc}')
+    check('forced battle: ball icon shown', g.rd(0xC4A0 + 20 + 10) == BALL_TILE)
+    g = setup(pre=pre)
+    enc = start(g, 'SUDOWOODO', 10)
+    check('same species without the marker: area used', enc == 1, f'enc={enc}')
+
+
+def contest_flag(g, on):
+    g.wr('wParkBallsRemaining', 20)
+    ev = const16(g, 'EVENT_NUZLOCKE_CONTEST_USED')
+    a = f'wEventFlags+{ev // 8}'
+    v = g.rd(a)
+    g.wr(a, (v | 1 << (ev % 8)) if on else (v & ~(1 << (ev % 8))))
+
+
+def case_contest():
+    g = setup(pre=lambda g: contest_flag(g, False))
+    a0 = area_bits(g)
+    enc = start(g, 'CATERPIE', 5, 'BATTLETYPE_CONTEST')
+    check('first contest: no rule (catch freely), no area used', enc == 0 and area_bits(g) == a0, f'enc={enc}')
+    g = setup(pre=lambda g: contest_flag(g, True))
+    enc = start(g, 'CATERPIE', 5, 'BATTLETYPE_CONTEST')
+    check('later contest: catches refused (area used)', enc == 1, f'enc={enc}')
+    # the Park Ball: the contest menu's bottom-left entry
+    g.press('D', hold=2, after=20); g.press('A', hold=2, after=4)
+    log = []
+    for _ in range(300):
+        g.frames(4)
+        m = ' '.join(x.strip() for x in g.screen_text().split('\n')[12:18] if x.strip())
+        if m and (not log or log[-1] != m):
+            log.append(m)
+        if 'already used' in m or not g.in_battle():
+            break
+    check('later contest: Park Ball refused with the message', any('already used' in m for m in log), log[-3:])
+    g = setup(nz=False, pre=lambda g: contest_flag(g, True))
+    enc = start(g, 'CATERPIE', 5, 'BATTLETYPE_CONTEST')
+    check('contest with the mode off: no rule', enc == 0, f'enc={enc}')
+
+
+def case_first_stages():
+    """FirstEvoStages fixes: the CHIKORITA2 line and ARAICHU (read from the ROM)."""
+    g = setup(nz=False)
+    bank, addr = g.sym['FirstEvoStages']
+    rom = open(ROM, 'rb').read()
+    def first(name):
+        i = const16(g, name)
+        o = bank * 0x4000 + (addr - 0x4000) + 2 * (i - 1)
+        return rom[o] | rom[o + 1] << 8
+    for mon, want in (('CHIKORITA2', 'CHIKORITA2'), ('BAYLEEF2', 'CHIKORITA2'), ('MEGANIUM2', 'CHIKORITA2'),
+                      ('ARAICHU', 'PICHU'), ('TOTODILE2', 'TOTODILE2'), ('RAICHU', 'PICHU')):
+        check(f'first stage of {mon} is {want}', first(mon) == const16(g, want), f'{first(mon)} vs {const16(g, want)}')
+
+
 def main():
     area = case_first()
     case_second(area)
@@ -695,6 +757,9 @@ def main():
     case_shiny()
     case_shiny_area_used(area)
     case_legendary(area)
+    case_forced(area)
+    case_contest()
+    case_first_stages()
     case_no_balls()
     case_off(area)
     case_hoenn()

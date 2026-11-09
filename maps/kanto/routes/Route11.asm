@@ -51,6 +51,7 @@ Route11Snorlax:
 	closetext
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
 	loadwildmon SNORLAX, 10
+	loadmem wNuzlockeEncounter, NUZLOCKE_FORCED
 	startbattle
 	disappear ROUTE11_BIG_SNORLAX
 	setevent EVENT_FOUGHT_SNORLAX

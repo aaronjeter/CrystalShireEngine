@@ -418,7 +418,7 @@ FirstEvoStages::
 	dw GIRAFARIG
 	dw FARFETCH_D
 	;alt forms
-	dw PIKACHU
+	dw PICHU
 	dw CUBONE
 	dw AGRIMER
 	dw AGRIMER
@@ -475,7 +475,7 @@ FirstEvoStages::
 	dw KURUSU
 	dw KURUSU
 	dw HANEEI
-	dw BELLSPROUT
+	dw CHIKORITA2
 	dw KOTORA
 	dw KOTORA
 	dw ASHIBOMB
@@ -484,8 +484,8 @@ FirstEvoStages::
 	dw SNORUNT
 	dw PICHU
 	;mega
-	dw PICHU
-	dw PICHU
+	dw CHIKORITA2
+	dw CHIKORITA2
 	dw DRATINI
 	dw DRATINI
 	dw BULBASAUR
