@@ -1,7 +1,7 @@
 DoPoisonStep::
 	ld a, [wPartyCount]
 	and a
-	jr z, .no_faint
+	jr z, .done
 
 	xor a
 	ld c, wPoisonStepDataEnd - wPoisonStepData
@@ -37,22 +37,22 @@ DoPoisonStep::
 
 	ld a, [wPoisonStepFlagSum]
 	and %10
-	jr nz, .someone_has_fainted
+	jr nz, .someone_survived
 	ld a, [wPoisonStepFlagSum]
 	and %01
-	jr z, .no_faint
+	jr z, .done
 	call .PlayPoisonSFX
 	xor a
 	ret
 
-.someone_has_fainted
-	ld a, BANK(.Script_MonFaintedToPoison)
-	ld hl, .Script_MonFaintedToPoison
+.someone_survived
+	ld a, BANK(.Script_MonSurvivedPoison)
+	ld hl, .Script_MonSurvivedPoison
 	call CallScript
 	scf
 	ret
 
-.no_faint
+.done
 	xor a
 	ret
 
@@ -73,18 +73,31 @@ DoPoisonStep::
 	or c
 	ret z
 
+; at 1 HP, the poison wears off without damage
+	ld a, b
+	and a
+	jr nz, .damage
+	ld a, c
+	dec a
+	jr z, .survived
+
+.damage
 ; do 1 HP damage
 	dec bc
 	ld a, c
 	ld [hld], a
 	ld [hl], b
 
-; check if mon has fainted as a result of poison damage
+; the poison wears off when it leaves the mon at 1 HP
 	ld a, b
-	or c
-	jr nz, .not_fainted
+	and a
+	jr nz, .not_survived
+	ld a, c
+	dec a
+	jr nz, .not_survived
 
-; the mon has fainted, reset its status, set carry, and return %10
+.survived
+; reset its status, set carry, and return %10
 	ld a, MON_STATUS
 	call GetPartyParamLocation
 	ld [hl], 0
@@ -92,7 +105,7 @@ DoPoisonStep::
 	scf
 	ret
 
-.not_fainted
+.not_survived
 ; set carry and return %01
 	ld c, %01
 	scf
@@ -105,18 +118,14 @@ DoPoisonStep::
 	predef LoadPoisonBGPals
 	jmp DelayFrame
 
-.Script_MonFaintedToPoison:
+.Script_MonSurvivedPoison:
 	callasm .PlayPoisonSFX
 	opentext
-	callasm .CheckWhitedOut
-	iffalse .whiteout
+	callasm .PrintSurvivedTexts
 	closetext
 	end
 
-.whiteout
-	farsjump OverworldWhiteoutScript
-
-.CheckWhitedOut:
+.PrintSurvivedTexts:
 	xor a
 	ld [wCurPartyMon], a
 	ld de, wPoisonStepPartyFlags
@@ -124,14 +133,12 @@ DoPoisonStep::
 	push de
 	ld a, [de]
 	and %10
-	jr z, .mon_not_fainted
-	ld c, HAPPINESS_POISONFAINT
-	farcall ChangeHappiness
+	jr z, .next_mon
 	farcall GetPartyNickname
-	ld hl, .PoisonFaintText
+	ld hl, .PoisonSurvivedText
 	call PrintText
 
-.mon_not_fainted
+.next_mon
 	pop de
 	inc de
 	ld hl, wCurPartyMon
@@ -139,11 +146,8 @@ DoPoisonStep::
 	ld a, [wPartyCount]
 	cp [hl]
 	jr nz, .party_loop
-	predef CheckPlayerPartyForFitMon
-	ld a, d
-	ld [wScriptVar], a
 	ret
 
-.PoisonFaintText:
-	text_far _PoisonFaintText
+.PoisonSurvivedText:
+	text_far _PoisonSurvivedText
 	text_end

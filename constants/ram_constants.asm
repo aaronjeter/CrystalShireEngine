@@ -80,6 +80,17 @@ DEF GBPRINTER_DARKEST  EQU $7f
 	const FOLLOWER_OFF ; 1 (0 = the lead Pokémon follows the player)
 	const TRAINER_DOUBLES ; 2 (1 = trainer battles are double battles, when the trainer has 2+ Pokémon)
 	const EXP_SHARE_OFF   ; 3 (0 = the party's other Pokémon get a share of the EXP and the EVs)
+	const NUZLOCKE_ON     ; 4 (1 = Nuzlocke mode: engine/events/nuzlocke.asm)
+
+DEF NUM_NUZLOCKE_AREA_BYTES EQU 12 ; wNuzlockeAreaFlags
+DEF NUZLOCKE_GRAVEYARD_BOX EQU 13 ; Nuzlocke mode: boxes 13 to NUM_BOXES hold fainted Pokémon
+
+; wNuzlockeEncounter::
+	const_def
+	const NUZLOCKE_NO_RULE       ; 0 (off, no Poké Ball yet, Bug-Catching Contest, tutorial)
+	const NUZLOCKE_AREA_USED     ; 1
+	const NUZLOCKE_FAMILY_CAUGHT ; 2
+	const NUZLOCKE_CATCHABLE     ; 3 (the area's catch, a shiny or a legendary)
 
 ; wFollowerFlags::
 DEF FOLLOWER_HIDDEN_BY_SCRIPT_F EQU 0 ; hidefollower (cleared by showfollower or a map load)

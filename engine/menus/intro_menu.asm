@@ -638,6 +638,7 @@ endc
 	call SetStart
 	call SetLevelCap
 	call SetHardMode
+	farcall SetNuzlockeMode
 
 	ld hl, OakText7
 	jmp PrintText

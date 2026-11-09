@@ -3158,6 +3158,9 @@ BillsPC_SwapStorage:
 
 .holding_mon
 	; Try to swap slots bc and de and interpret result.
+	call NuzlockeGraveyardSwapCheck
+	ld a, 10
+	jr c, .failed
 	call SwapStorageBoxSlots
 	and a
 	jr nz, .failed
@@ -3198,6 +3201,9 @@ BillsPC_SwapStorage:
 	dec a
 	jr z, .swap_failed
 	ld hl, BillsPC_PackFullText
+	dec a
+	jr z, .swap_failed
+	ld hl, .GraveyardOffLimits
 	; fallthrough
 .swap_failed
 	; Print error message
@@ -3246,6 +3252,11 @@ BillsPC_SwapStorage:
 .CantStoreMail:
 	text "Can't place Mail in"
 	line "storage."
+	prompt
+
+.GraveyardOffLimits:
+	text "Graveyard Boxes"
+	line "are off limits!"
 	prompt
 
 BillsPC_LastPartyMon:

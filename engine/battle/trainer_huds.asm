@@ -142,6 +142,7 @@ DrawEnemyHUDBorder:
 	ld a, [wBattleMode]
 	dec a
 	ret nz
+	farcall NuzlockeHUDIcon
 	ld a, [wTempEnemyMonSpecies]
 	call CheckCaughtMon
 	ret z

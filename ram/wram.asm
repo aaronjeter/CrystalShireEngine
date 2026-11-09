@@ -3086,13 +3086,9 @@ wEliteFourXpBoost:: db
 	ds 8
 wBuenasPassword:: db
 wBlueCardBalance:: db
-; Free, saved, never cleared: 96 flag bits + 2 bytes, formerly the trainer
-; phone rematch/gift/call-time flags and Kenji's break timer.
-; To reuse a bit, add an ENGINE_* constant (constants/engine_flags.asm) and a
-; matching "engine_flag wUnusedFlags1, <bit 0-31>" (data/events/engine_flags.asm).
-wUnusedFlags1:: ds 4 ; was wDailyRematchFlags
-wUnusedFlags2:: ds 4 ; was wDailyPhoneItemFlags
-wUnusedFlags3:: ds 4 ; was wDailyPhoneTimeOfDayFlags
+; Nuzlocke mode: the "used" bits of landmarks 0-95 (the rest are event flags from
+; EVENT_NUZLOCKE_AREA_96). Formerly the trainer phone rematch/gift/call-time flags.
+wNuzlockeAreaFlags:: ds NUM_NUZLOCKE_AREA_BYTES
 wFollowerFlags:: db ; see FOLLOWER_HIDDEN_BY_SCRIPT_F (was half of wKenjiBreakTimer)
 wUnusedBytes::  ds 1 ; was wKenjiBreakTimer
 wYanmaMapGroup:: db
@@ -3450,6 +3446,7 @@ wWildMonMarks:: db ; the wild Pokemon's stored gender (MON_GENDER_MASK bits), ke
 	ds MON_COLOR - (MON_MARKS + 1)
 wWildMonColor:: db ; the wild Pokemon's MON_COLOR (SetWildMonColor), kept if it's caught
 wWildMonDVs:: dw ; a copy of wEnemyMonDVs (GetEnemyMonDVs)
+wNuzlockeEncounter:: db ; NUZLOCKE_* (NuzlockeWildEncounter)
 
 
 SECTION "AI Learnset RAM", WRAMX, BANK[1]

@@ -257,6 +257,11 @@ PokeBallEffect:
 	dec a
 	jmp nz, UseBallInTrainerBattle
 
+	ld a, [wNuzlockeEncounter]
+	dec a
+	cp NUZLOCKE_FAMILY_CAUGHT
+	jmp c, Ball_NuzlockeRefusedMessage
+
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
 	jr z, .room_in_party
@@ -629,14 +634,7 @@ PokeBallEffect:
 	ld [hl], FRIEND_BALL_HAPPINESS
 
 .SkipPartyMonFriendBall:
-	ld hl, AskGiveNicknameText
-	call PrintText
-
-	ld a, [wCurPartySpecies]
-	ld [wNamedObjectIndex], a
-	call GetPokemonName
-
-	call YesNoBox
+	call AskGiveNickname
 	jmp c, .return_from_capture
 
 	ld a, [wPartyCount]
@@ -685,14 +683,7 @@ PokeBallEffect:
 	ld a, FRIEND_BALL_HAPPINESS
 	ld [wBufferMonHappiness], a
 .SkipBoxMonFriendBall:
-	ld hl, AskGiveNicknameText
-	call PrintText
-
-	ld a, [wCurPartySpecies]
-	ld [wNamedObjectIndex], a
-	call GetPokemonName
-
-	call YesNoBox
+	call AskGiveNickname
 	jr c, .SkipBoxMonNickname
 
 	xor a
@@ -1672,6 +1663,10 @@ RevivePokemon:
 	call IsMonFainted
 	ld a, TRUE
 	ret nz
+	ld a, [wOptions2]
+	bit NUZLOCKE_ON, a
+	ld a, TRUE
+	ret nz ; Nuzlocke mode: fainted Pokémon can't be revived
 	ld a, [wBattleMode]
 	and a
 	jr z, .skip_to_revive
@@ -2795,6 +2790,39 @@ WontHaveAnyEffect_NotUsedMessage:
 LooksBitterMessage:
 	ld hl, ItemLooksBitterText
 	jmp PrintText
+
+AskGiveNickname:
+; "Give a nickname?": carry for No. In Nuzlocke mode the naming screen always opens.
+	ld a, [wOptions2]
+	and 1 << NUZLOCKE_ON
+	ret nz ; no carry
+	ld hl, AskGiveNicknameText
+	call PrintText
+	ld a, [wCurPartySpecies]
+	ld [wNamedObjectIndex], a
+	call GetPokemonName
+	jmp YesNoBox
+
+Ball_NuzlockeRefusedMessage:
+; a = wNuzlockeEncounter - 1
+	and a ; NUZLOCKE_AREA_USED - 1
+	ld hl, NuzlockeAreaUsedText
+	jr z, .got_text
+	ld hl, NuzlockeFamilyCaughtText
+.got_text
+	call PrintText
+	; Item wasn't used.
+	ld a, $2
+	ld [wItemEffectSucceeded], a
+	ret
+
+NuzlockeAreaUsedText:
+	text_far _NuzlockeAreaUsedText
+	text_end
+
+NuzlockeFamilyCaughtText:
+	text_far _NuzlockeFamilyCaughtText
+	text_end
 
 Ball_BoxIsFullMessage:
 	ld hl, StorageFullText

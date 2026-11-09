@@ -349,6 +349,8 @@ NewStorageBoxPointer:
 	ld b, a
 	ld d, NUM_BOXES
 .outer_loop
+	call IsNuzlockeGraveyardBox
+	jr c, .next_box
 	ld c, 1
 .inner_loop
 	push de
@@ -361,6 +363,7 @@ NewStorageBoxPointer:
 	inc c
 	cp MONS_PER_BOX
 	jr nz, .inner_loop
+.next_box
 	ld a, b
 	inc b
 	cp NUM_BOXES
@@ -1548,3 +1551,77 @@ CurBoxFullCheck:
 	ld [wCurBox], a
 	or 1
 	ret
+
+IsNuzlockeGraveyardBox::
+; Carry if box b is a graveyard box and Nuzlocke mode is on.
+	ld a, [wOptions2]
+	bit NUZLOCKE_ON, a
+	ret z ; no carry
+	ld a, b
+	cp NUZLOCKE_GRAVEYARD_BOX
+	ccf
+	ret
+
+NuzlockeGraveyardSwapCheck::
+; Carry if moving between boxes b and d would take a mon into or out of a
+; graveyard box (Nuzlocke mode).
+	push bc
+	call IsNuzlockeGraveyardBox
+	sbc a
+	ld c, a
+	ld b, d
+	call IsNuzlockeGraveyardBox
+	sbc a
+	xor c
+	pop bc
+	and a
+	ret z
+	scf
+	ret
+
+NuzlockeBuryPartyMon::
+; Moves party mon c (1-indexed) to the first free graveyard slot, then removes
+; it from the party. Returns z if it was moved, nz if there was no room (it's
+; removed from the party either way).
+	push bc
+	ld b, 0
+	call GetStorageBoxMon
+	ld b, NUZLOCKE_GRAVEYARD_BOX
+.box_loop
+	ld c, 1
+.slot_loop
+	call GetStorageBoxPointer
+	ld a, e
+	and a
+	jr z, .found_slot
+	inc c
+	ld a, c
+	cp MONS_PER_BOX + 1
+	jr nz, .slot_loop
+	inc b
+	ld a, b
+	cp NUM_BOXES + 1
+	jr nz, .box_loop
+	jr .no_room
+
+.found_slot
+	push bc
+	call NewStoragePointer
+	pop bc
+	jr c, .no_room
+	call AddStorageMon
+	call SetStorageBoxPointer
+	pop bc
+	call .RemoveFromParty
+	xor a
+	ret
+
+.no_room
+	pop bc
+	call .RemoveFromParty
+	or 1
+	ret
+
+.RemoveFromParty:
+	ld b, 0
+	jmp RemoveStorageBoxMon

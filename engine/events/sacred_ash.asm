@@ -1,6 +1,9 @@
 _SacredAsh:
 	xor a
 	ld [wItemEffectSucceeded], a
+	ld a, [wOptions2]
+	bit NUZLOCKE_ON, a
+	ret nz ; Nuzlocke mode: fainted Pokémon can't be revived
 	call CheckAnyFaintedMon
 	ret nc
 

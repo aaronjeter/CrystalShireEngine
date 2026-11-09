@@ -494,10 +494,11 @@ _ItemfinderNopeText::
 	line "isn't responding."
 	prompt
 
-_PoisonFaintText::
+_PoisonSurvivedText::
 	text_ram wStringBuffer3
 	text_start
-	line "fainted!"
+	line "survived the"
+	cont "poisoning!"
 	prompt
 
 _UseSweetScentText::

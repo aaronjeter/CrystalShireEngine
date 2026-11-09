@@ -7092,6 +7092,7 @@ InitEnemyWildmon:
 	ld a, WILD_BATTLE
 	ld [wBattleMode], a
 	call LoadEnemyMon
+	farcall NuzlockeWildEncounter
 	ld hl, wEnemyMonMoves
 	ld de, wWildMonMoves
 	ld bc, NUM_MOVES
@@ -7147,6 +7148,7 @@ ExitBattle:
 	farjp DisplayLinkBattleResult
 
 .not_linked
+	farcall NuzlockeEndOfBattle
 	ld a, [wBattleResult]
 	and $f
 	ret nz

@@ -11,8 +11,9 @@
 DEF OPT_PAGE2 EQU const_value ; first option on page 2
 	const OPT_BATTLES       ; 8
 	const OPT_EXP_SHARE     ; 9
-	const OPT_CANCEL2       ; 10
-DEF NUM_OPTIONS EQU const_value ; 11
+	const OPT_NUZLOCKE      ; 10
+	const OPT_CANCEL2       ; 11
+DEF NUM_OPTIONS EQU const_value ; 12
 
 _Option:
 	call ClearJoypad
@@ -97,6 +98,8 @@ StringOptionsPage2:
 	db "        :<LF>"
 	db "Exp. Share<LF>"
 	db "        :<LF>"
+	db "Nuzlocke<LF>"
+	db "        :<LF>"
 	db "Cancel@"
 
 Options_DrawPage:
@@ -165,6 +168,7 @@ GetOptionPointer:
 	dw Options_Cancel
 	dw Options_Battles
 	dw Options_ExpShare
+	dw Options_Nuzlocke
 	dw Options_Cancel
 
 	const_def
@@ -512,6 +516,45 @@ Options_ExpShare:
 
 .On:  db "On @"
 .Off: db "Off@"
+
+Options_Nuzlocke:
+; Shows Nuzlocke mode; Left/Right turns it off after a Yes/No (it can't be turned on here).
+	ld hl, wOptions2
+	bit NUZLOCKE_ON, [hl]
+	jr z, .Display
+	ldh a, [hJoyPressed]
+	and D_LEFT | D_RIGHT
+	jr z, .Display
+	ld hl, .TurnOffText
+	call PrintText
+	call YesNoBox
+	jr c, .redraw
+	ld hl, wOptions2
+	res NUZLOCKE_ON, [hl]
+.redraw
+	xor a
+	ldh [hBGMapMode], a
+	call Options_DrawPage
+	call Options_UpdateCursorPosition
+	call WaitBGMap
+	ld hl, wOptions2
+.Display:
+	ld de, .On
+	bit NUZLOCKE_ON, [hl]
+	jr nz, .got_string
+	ld de, .Off
+.got_string
+	hlcoord 11, 7
+	rst PlaceString
+	and a
+	ret
+
+.On:  db "On @"
+.Off: db "Off@"
+
+.TurnOffText:
+	text_far _NuzlockeTurnOffText
+	text_end
 
 Options_Cancel:
 	ldh a, [hJoyPressed]
