@@ -9,6 +9,24 @@ DEF FOLLOWER_ITEM_CHANCE EQU 25 percent
 ; Kept between the callasms of _FollowerScript.
 DEF wFollowerTalkText EQUS "wStringBuffer3"        ; dw: the line to print
 DEF wFollowerTalkGotItem EQUS "(wStringBuffer3 + 2)" ; db: TRUE if an item was found
+DEF wFollowerTalkCond EQUS "(wStringBuffer3 + 3)"    ; db: the condition of the chosen group
+DEF wFollowerTalkTypes EQUS "(wStringBuffer3 + 4)"   ; 2 db: the Pokémon's types
+
+; Conditions that can have type variants (wFollowerTalkCond)
+DEF FOLLOWER_COND_NONE EQU 0
+; 1-4: OW_WEATHER_* (rain, snow, sandstorm, ash)
+DEF FOLLOWER_COND_ENV EQU $10 ; + wEnvironment
+	const_def $20
+	const FOLLOWER_COND_ICY_CAVE
+	const FOLLOWER_COND_DARK_CAVE
+	const FOLLOWER_COND_WOODS
+	const FOLLOWER_COND_TOWER
+	const FOLLOWER_COND_RUINS
+	const FOLLOWER_COND_SEA
+	const FOLLOWER_COND_JUNGLE
+	const FOLLOWER_COND_POKECENTER
+	const FOLLOWER_COND_GAME_CORNER
+DEF FOLLOWER_COND_TIME EQU $30 ; + wTimeOfDay
 
 MACRO follower_line
 ; emote (or FOLLOWER_NO_EMOTE), text
@@ -81,6 +99,7 @@ FollowerTalk:
 ; wFollowerTalkGotItem, wStringBuffer1 = nickname, wStringBuffer4 = item name.
 	xor a
 	ld [wFollowerTalkGotItem], a
+	ld [wFollowerTalkCond], a
 	ld [wFollowerTalkText], a
 	ld [wFollowerTalkText + 1], a
 	ld a, FOLLOWER_NO_EMOTE
@@ -88,6 +107,12 @@ FollowerTalk:
 	farcall GetFollowerPartyMon
 	ret c
 	push hl
+	ld [wCurSpecies], a
+	call GetBaseData
+	ld a, [wBaseType1]
+	ld [wFollowerTalkTypes], a
+	ld a, [wBaseType2]
+	ld [wFollowerTalkTypes + 1], a
 
 ; +1 happiness on the first talk of the day
 	ld hl, wSwarmFlags
@@ -214,9 +239,10 @@ FollowerPickLine:
 	rrca
 	jr nc, .roll
 	ld a, b
+	ld [wFollowerTalkCond], a
 	dec a
 	ld hl, FollowerWeatherGroups
-	jr .PickFromGroupTable
+	jp .PickFromGroupTable
 
 .roll
 ; 1/3 place, 1/3 time of day, 1/3 happiness
@@ -233,30 +259,65 @@ FollowerPickLine:
 	ld a, [hl]
 	ld hl, FollowerLines_Happiness200
 	cp 200
-	jr nc, FollowerPickFromGroup
+	jp nc, FollowerPickFromGroup
 	ld hl, FollowerLines_Happiness150
 	cp 150
-	jr nc, FollowerPickFromGroup
+	jp nc, FollowerPickFromGroup
 	ld hl, FollowerLines_Happiness100
 	cp 100
-	jr nc, FollowerPickFromGroup
+	jp nc, FollowerPickFromGroup
 	ld hl, FollowerLines_Happiness50
 	cp 50
-	jr nc, FollowerPickFromGroup
+	jp nc, FollowerPickFromGroup
 	ld hl, FollowerLines_Happiness0
 	jr FollowerPickFromGroup
 
 .place
+; a landmark's lines (outdoors, caves and dungeons only), else a theme's
+; lines, 2/3 of the time; else the map type's lines
 	ld a, [wEnvironment]
+	cp INDOOR
+	jr z, .theme
+	cp ENVIRONMENT_5
+	jr z, .theme
+	cp GATE
+	jr z, .theme
+	call FollowerFindLandmarkGroup
+	jr nc, .theme
+	call .TwoInThree
+	jr nz, FollowerPickFromGroup ; no type variants
+.theme
+	call FollowerFindThemeGroup
+	jr nc, .env
+	call .TwoInThree
+	jr nz, .GotGroup
+.env
+	ld a, [wEnvironment]
+	ld b, a
 	dec a
 	cp NUM_ENVIRONMENTS
 	jr nc, .happiness
+	ld c, a
+	ld a, b
+	add FOLLOWER_COND_ENV
+	ld [wFollowerTalkCond], a
+	ld a, c
 	ld hl, FollowerPlaceGroups
 	jr .PickFromGroupTable
 
+.TwoInThree:
+; nz 2/3 of the time; keeps hl
+	ld a, 3
+	call RandomRange
+	and a
+	ret
+
 .time
-; sky lines only outdoors
+; sky lines only outdoors and without weather
 	ld hl, FollowerTimeGroupsIndoors
+	ld a, [wCurWeather]
+	and a
+	jr nz, .got_time_table
 	ld a, [wEnvironment]
 	cp TOWN
 	jr z, .outdoors
@@ -267,6 +328,10 @@ FollowerPickLine:
 .got_time_table
 	ld a, [wTimeOfDay]
 	and %11
+	ld b, a
+	add FOLLOWER_COND_TIME
+	ld [wFollowerTalkCond], a
+	ld a, b
 
 .PickFromGroupTable:
 ; a = index into the table of group pointers at hl (0 = none: happiness)
@@ -278,7 +343,18 @@ FollowerPickLine:
 	ld h, [hl]
 	ld l, a
 	or h
-	jr z, .happiness
+	jp z, .happiness
+.GotGroup:
+; hl = a group; half the time a type variant of wFollowerTalkCond instead
+	call Random
+	rrca
+	jr nc, FollowerPickFromGroup
+	push hl
+	call FollowerFindTypeLine
+	pop de
+	ret c
+	ld h, d
+	ld l, e
 	; fallthrough
 
 FollowerPickFromGroup:
@@ -290,6 +366,101 @@ FollowerPickFromGroup:
 	add hl, bc
 	add hl, bc
 	add hl, bc
+	ret
+
+FollowerFindLandmarkGroup:
+; Returns carry and hl = the group of the current landmark, if it has one.
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	ld b, a
+	ld hl, FollowerLandmarkGroups
+.loop
+	ld a, [hli]
+	cp -1
+	ret z ; nc
+	cp b
+	jr z, .found
+	inc hl
+	inc hl
+	jr .loop
+
+.found
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	scf
+	ret
+
+FollowerFindThemeGroup:
+; Returns carry, hl = the group of the map's theme (tileset and
+; environment) and wFollowerTalkCond = its condition, if it has one.
+	ld a, [wMapTileset]
+	ld b, a
+	ld a, [wEnvironment]
+	ld c, a
+	ld hl, FollowerThemes
+.loop
+	ld a, [hli]
+	cp -1
+	ret z ; nc
+	cp b
+	jr nz, .next
+	ld a, [hl]
+	cp c
+	jr z, .found
+.next
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	jr .loop
+
+.found
+	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld [wFollowerTalkCond], a
+	ld h, b
+	ld l, c
+	scf
+	ret
+
+FollowerFindTypeLine:
+; Returns carry and hl = a follower_line for wFollowerTalkCond and one of the
+; Pokémon's types, if there is one.
+	ld a, [wFollowerTalkCond]
+	and a
+	ret z ; nc
+	ld b, a
+	ld hl, FollowerTypeLines
+.loop
+	ld a, [hli]
+	cp -1
+	ret z ; nc
+	cp b
+	jr nz, .next
+	ld a, [wFollowerTalkTypes]
+	cp [hl]
+	jr z, .found
+	ld a, [wFollowerTalkTypes + 1]
+	cp [hl]
+	jr z, .found
+.next
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	jr .loop
+
+.found
+	inc hl
+	scf
 	ret
 
 FollowerTryFindItem:
@@ -509,6 +680,240 @@ FollowerLines_Happiness0:
 	db 2
 	follower_line EMOTE_SAD, FollowerText_Happiness0_1
 	follower_line EMOTE_SAD, FollowerText_Happiness0_2
+
+FollowerLandmarkGroups:
+; landmark, group (outdoor, cave and dungeon maps only)
+	dbw LANDMARK_LAKE_OF_RAGE, FollowerLines_LakeOfRage
+	dbw LANDMARK_TIN_TOWER, FollowerLines_TinTower
+	dbw LANDMARK_BURNED_TOWER, FollowerLines_BurnedTower
+	dbw LANDMARK_SLOWPOKE_WELL, FollowerLines_SlowpokeWell
+	dbw LANDMARK_DRAGONS_DEN, FollowerLines_DragonsDen
+	dbw LANDMARK_WHIRL_ISLANDS, FollowerLines_WhirlIslands
+	dbw LANDMARK_MT_MOON, FollowerLines_MtMoon
+	dbw LANDMARK_POWER_PLANT, FollowerLines_PowerPlant
+	dbw LANDMARK_SILVER_CAVE, FollowerLines_SilverCave
+	dbw LANDMARK_NATIONAL_PARK, FollowerLines_NationalPark
+	dbw LANDMARK_FIERY_PATH, FollowerLines_FieryPath
+	dbw LANDMARK_LAVARIDGE_DESERT, FollowerLines_Desert
+	dbw LANDMARK_METEOR_FALLS, FollowerLines_MeteorFalls
+	dbw LANDMARK_MT_PYRE, FollowerLines_MtPyre
+	dbw LANDMARK_SOOTOPOLIS, FollowerLines_Sootopolis
+	db -1
+
+FollowerThemes:
+; tileset, environment, group, condition
+	db TILESET_ICE_PATH, CAVE
+	dw FollowerLines_IcyCave
+	db FOLLOWER_COND_ICY_CAVE
+	db TILESET_DARK_CAVE, CAVE
+	dw FollowerLines_DarkCave
+	db FOLLOWER_COND_DARK_CAVE
+	db TILESET_FOREST, CAVE
+	dw FollowerLines_Woods
+	db FOLLOWER_COND_WOODS
+	db TILESET_TOWER, DUNGEON
+	dw FollowerLines_Tower
+	db FOLLOWER_COND_TOWER
+	db TILESET_RUINS_OF_ALPH, DUNGEON
+	dw FollowerLines_Ruins
+	db FOLLOWER_COND_RUINS
+	db TILESET_HOENN_OCEAN, ROUTE
+	dw FollowerLines_Sea
+	db FOLLOWER_COND_SEA
+	db TILESET_HOENN_OCEAN, TOWN
+	dw FollowerLines_Sea
+	db FOLLOWER_COND_SEA
+	db TILESET_HOENN_JUNGLE, ROUTE
+	dw FollowerLines_Jungle
+	db FOLLOWER_COND_JUNGLE
+	db TILESET_POKECENTER, INDOOR
+	dw FollowerLines_Pokecenter
+	db FOLLOWER_COND_POKECENTER
+	db TILESET_GAME_CORNER, INDOOR
+	dw FollowerLines_GameCorner
+	db FOLLOWER_COND_GAME_CORNER
+	db -1
+
+FollowerTypeLines:
+; condition, type, then a follower_line
+	db OW_WEATHER_RAIN, FIRE
+	follower_line EMOTE_SAD, FollowerText_RainFire
+	db OW_WEATHER_RAIN, WATER
+	follower_line EMOTE_HAPPY, FollowerText_RainWater
+	db OW_WEATHER_RAIN, GRASS
+	follower_line EMOTE_HAPPY, FollowerText_RainGrass
+	db OW_WEATHER_RAIN, ELECTRIC
+	follower_line EMOTE_BOLT, FollowerText_RainElectric
+	db OW_WEATHER_RAIN, STEEL
+	follower_line EMOTE_QUESTION, FollowerText_RainSteel
+	db OW_WEATHER_SNOW, ICE
+	follower_line EMOTE_HEART, FollowerText_SnowIce
+	db OW_WEATHER_SNOW, FIRE
+	follower_line EMOTE_HAPPY, FollowerText_SnowFire
+	db OW_WEATHER_SNOW, GRASS
+	follower_line EMOTE_SAD, FollowerText_SnowGrass
+	db OW_WEATHER_SANDSTORM, GROUND
+	follower_line EMOTE_HAPPY, FollowerText_SandTough
+	db OW_WEATHER_SANDSTORM, ROCK
+	follower_line EMOTE_HAPPY, FollowerText_SandTough
+	db OW_WEATHER_SANDSTORM, STEEL
+	follower_line EMOTE_HAPPY, FollowerText_SandTough
+	db OW_WEATHER_SANDSTORM, WATER
+	follower_line EMOTE_SAD, FollowerText_SandWater
+	db FOLLOWER_COND_TIME + DAY_F, GRASS
+	follower_line EMOTE_HAPPY, FollowerText_DayGrass
+	db FOLLOWER_COND_TIME + DAY_F, FIRE
+	follower_line EMOTE_HAPPY, FollowerText_DayFire
+	db FOLLOWER_COND_TIME + NITE_F, GHOST
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_NightGhost
+	db FOLLOWER_COND_TIME + NITE_F, DARK
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_NightDark
+	db FOLLOWER_COND_TIME + NITE_F, FAIRY
+	follower_line EMOTE_HAPPY, FollowerText_NightFairy
+	db FOLLOWER_COND_TIME + NITE_F, BUG
+	follower_line EMOTE_QUESTION, FollowerText_NightBug
+	db FOLLOWER_COND_ENV + ROUTE, FLYING
+	follower_line EMOTE_HAPPY, FollowerText_RouteFlying
+	db FOLLOWER_COND_ENV + ROUTE, FIGHTING
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_RouteFighting
+	db FOLLOWER_COND_ENV + ROUTE, NORMAL
+	follower_line EMOTE_QUESTION, FollowerText_RouteNormal
+	db FOLLOWER_COND_ENV + ROUTE, DRAGON
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_RouteDragon
+	db FOLLOWER_COND_ENV + CAVE, ROCK
+	follower_line EMOTE_QUESTION, FollowerText_CaveRock
+	db FOLLOWER_COND_ENV + CAVE, GROUND
+	follower_line EMOTE_HAPPY, FollowerText_CaveGround
+	db FOLLOWER_COND_ENV + CAVE, FLYING
+	follower_line EMOTE_SAD, FollowerText_CaveFlying
+	db FOLLOWER_COND_ENV + CAVE, POISON
+	follower_line EMOTE_HAPPY, FollowerText_CavePoison
+	db FOLLOWER_COND_WOODS, BUG
+	follower_line EMOTE_HAPPY, FollowerText_WoodsBug
+	db FOLLOWER_COND_WOODS, GRASS
+	follower_line EMOTE_HAPPY, FollowerText_WoodsGrass
+	db FOLLOWER_COND_ICY_CAVE, ICE
+	follower_line EMOTE_HEART, FollowerText_IcyIce
+	db FOLLOWER_COND_ICY_CAVE, FIRE
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_IcyFire
+	db FOLLOWER_COND_SEA, WATER
+	follower_line EMOTE_HAPPY, FollowerText_SeaWater
+	db FOLLOWER_COND_TOWER, GHOST
+	follower_line EMOTE_QUESTION, FollowerText_TowerGhost
+	db FOLLOWER_COND_RUINS, PSYCHIC_TYPE
+	follower_line EMOTE_QUESTION, FollowerText_RuinsPsychic
+	db -1
+
+FollowerLines_IcyCave:
+	db 3
+	follower_line EMOTE_SHOCK, FollowerText_IcyCave1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_IcyCave2
+	follower_line EMOTE_SAD, FollowerText_IcyCave3
+
+FollowerLines_DarkCave:
+	db 2
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_DarkCave1
+	follower_line EMOTE_QUESTION, FollowerText_DarkCave2
+
+FollowerLines_Woods:
+	db 3
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Woods1
+	follower_line EMOTE_QUESTION, FollowerText_Woods2
+	follower_line EMOTE_HAPPY, FollowerText_Woods3
+
+FollowerLines_Tower:
+	db 2
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Tower1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Tower2
+
+FollowerLines_Ruins:
+	db 2
+	follower_line EMOTE_QUESTION, FollowerText_Ruins1
+	follower_line EMOTE_SHOCK, FollowerText_Ruins2
+
+FollowerLines_Sea:
+	db 2
+	follower_line EMOTE_HAPPY, FollowerText_Sea1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Sea2
+
+FollowerLines_Jungle:
+	db 2
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Jungle1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Jungle2
+
+FollowerLines_Pokecenter:
+	db 2
+	follower_line EMOTE_HAPPY, FollowerText_Pokecenter1
+	follower_line EMOTE_QUESTION, FollowerText_Pokecenter2
+
+FollowerLines_GameCorner:
+	db 2
+	follower_line EMOTE_SHOCK, FollowerText_GameCorner1
+	follower_line EMOTE_SAD, FollowerText_GameCorner2
+
+FollowerLines_LakeOfRage:
+	db 2
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_LakeOfRage1
+	follower_line EMOTE_QUESTION, FollowerText_LakeOfRage2
+
+FollowerLines_TinTower:
+	db 1
+	follower_line EMOTE_QUESTION, FollowerText_TinTower1
+
+FollowerLines_BurnedTower:
+	db 2
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_BurnedTower1
+	follower_line EMOTE_QUESTION, FollowerText_BurnedTower2
+
+FollowerLines_SlowpokeWell:
+	db 1
+	follower_line EMOTE_SLEEP, FollowerText_SlowpokeWell1
+
+FollowerLines_DragonsDen:
+	db 1
+	follower_line EMOTE_SHOCK, FollowerText_DragonsDen1
+
+FollowerLines_WhirlIslands:
+	db 1
+	follower_line EMOTE_QUESTION, FollowerText_WhirlIslands1
+
+FollowerLines_MtMoon:
+	db 2
+	follower_line EMOTE_HAPPY, FollowerText_MtMoon1
+	follower_line EMOTE_QUESTION, FollowerText_MtMoon2
+
+FollowerLines_PowerPlant:
+	db 1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_PowerPlant1
+
+FollowerLines_SilverCave:
+	db 1
+	follower_line EMOTE_QUESTION, FollowerText_SilverCave1
+
+FollowerLines_NationalPark:
+	db 1
+	follower_line EMOTE_HAPPY, FollowerText_NationalPark1
+
+FollowerLines_FieryPath:
+	db 1
+	follower_line EMOTE_SHOCK, FollowerText_FieryPath1
+
+FollowerLines_Desert:
+	db 1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Desert1
+
+FollowerLines_MeteorFalls:
+	db 1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_MeteorFalls1
+
+FollowerLines_MtPyre:
+	db 2
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_MtPyre1
+	follower_line EMOTE_SAD, FollowerText_MtPyre2
+
+FollowerLines_Sootopolis:
+	db 1
+	follower_line EMOTE_HAPPY, FollowerText_Sootopolis1
 
 ; Texts. wStringBuffer1 holds the nickname (up to 10 characters), so the
 ; first line has room for 8 more.
@@ -794,4 +1199,421 @@ FollowerText_Happiness0_1:
 FollowerText_Happiness0_2:
 	follower_text_mon " is"
 	line "ignoring you…"
+	done
+
+FollowerText_RainFire:
+	follower_text_mon " is"
+	line "hiding from the"
+	cont "rain…"
+	done
+
+FollowerText_RainWater:
+	follower_text_mon " is"
+	line "dancing in the"
+	cont "rain!"
+	done
+
+FollowerText_RainGrass:
+	follower_text_mon " is"
+	line "drinking in the"
+	cont "rain."
+	done
+
+FollowerText_RainElectric:
+	follower_text_mon "'s body"
+	line "is crackling with"
+	cont "static!"
+	done
+
+FollowerText_RainSteel:
+	follower_text_mon " looks"
+	line "worried about"
+	cont "rusting…"
+	done
+
+FollowerText_SnowIce:
+	follower_text_mon " is"
+	line "loving the snow!"
+	done
+
+FollowerText_SnowFire:
+	follower_text_mon " is"
+	line "melting the"
+	cont "snowflakes!"
+	done
+
+FollowerText_SnowGrass:
+	follower_text_mon " is"
+	line "wilting in the"
+	cont "cold…"
+	done
+
+FollowerText_SandTough:
+	follower_text_mon " isn't"
+	line "bothered by the"
+	cont "sand at all."
+	done
+
+FollowerText_SandWater:
+	follower_text_mon " is"
+	line "parched by the"
+	cont "dry sand…"
+	done
+
+FollowerText_DayGrass:
+	follower_text_mon " is"
+	line "soaking up the"
+	cont "sunlight!"
+	done
+
+FollowerText_DayFire:
+	follower_text_mon " is"
+	line "glowing in the"
+	cont "warm sun!"
+	done
+
+FollowerText_NightGhost:
+	follower_text_mon " is"
+	line "grinning in the"
+	cont "dark…"
+	done
+
+FollowerText_NightDark:
+	follower_text_mon "'s eyes"
+	line "are glinting in"
+	cont "the dark."
+	done
+
+FollowerText_NightFairy:
+	follower_text_mon " is"
+	line "twinkling softly."
+	done
+
+FollowerText_NightBug:
+	follower_text_mon " is"
+	line "drawn to a nearby"
+	cont "light."
+	done
+
+FollowerText_RouteFlying:
+	follower_text_mon " wants"
+	line "to fly up into the"
+	cont "sky!"
+	done
+
+FollowerText_RouteFighting:
+	follower_text_mon " is"
+	line "practicing its"
+	cont "punches!"
+	done
+
+FollowerText_RouteNormal:
+	follower_text_mon " is"
+	line "sniffing around"
+	cont "curiously."
+	done
+
+FollowerText_RouteDragon:
+	follower_text_mon " is"
+	line "gazing proudly at"
+	cont "the horizon."
+	done
+
+FollowerText_CaveRock:
+	follower_text_mon " is"
+	line "nibbling on a"
+	cont "rock…"
+	done
+
+FollowerText_CaveGround:
+	follower_text_mon " is"
+	line "digging at the"
+	cont "ground."
+	done
+
+FollowerText_CaveFlying:
+	follower_text_mon " is"
+	line "uneasy under the"
+	cont "low ceiling."
+	done
+
+FollowerText_CavePoison:
+	follower_text_mon " seems"
+	line "to like the damp"
+	cont "air."
+	done
+
+FollowerText_WoodsBug:
+	follower_text_mon " is"
+	line "buzzing around the"
+	cont "leaves!"
+	done
+
+FollowerText_WoodsGrass:
+	follower_text_mon " seems"
+	line "at home among the"
+	cont "trees."
+	done
+
+FollowerText_IcyIce:
+	follower_text_mon " is"
+	line "sliding happily on"
+	cont "the ice!"
+	done
+
+FollowerText_IcyFire:
+	follower_text_mon " is"
+	line "warming up the"
+	cont "chilly air."
+	done
+
+FollowerText_SeaWater:
+	follower_text_mon " wants"
+	line "to go for a swim!"
+	done
+
+FollowerText_TowerGhost:
+	follower_text_mon " seems"
+	line "to know this"
+	cont "place…"
+	done
+
+FollowerText_RuinsPsychic:
+	follower_text_mon " is"
+	line "staring at the"
+	cont "ancient walls…"
+	done
+
+FollowerText_IcyCave1:
+	follower_text_mon " is"
+	line "slipping on the"
+	cont "ice!"
+	done
+
+FollowerText_IcyCave2:
+	follower_text_mon " is"
+	line "puffing little"
+	cont "clouds of breath."
+	done
+
+FollowerText_IcyCave3:
+	follower_text_mon " is"
+	line "shivering in the"
+	cont "chilly air."
+	done
+
+FollowerText_DarkCave1:
+	follower_text_mon " is"
+	line "staying close to"
+	cont "you."
+	done
+
+FollowerText_DarkCave2:
+	follower_text_mon " is"
+	line "squinting in the"
+	cont "darkness."
+	done
+
+FollowerText_Woods1:
+	follower_text_mon " is"
+	line "listening to the"
+	cont "rustling leaves."
+	done
+
+FollowerText_Woods2:
+	follower_text_mon " is"
+	line "sniffing a"
+	cont "mushroom."
+	done
+
+FollowerText_Woods3:
+	follower_text_mon " is"
+	line "watching the light"
+	cont "through the trees."
+	done
+
+FollowerText_Tower1:
+	follower_text_mon " is"
+	line "looking up at the"
+	cont "tall pillars."
+	done
+
+FollowerText_Tower2:
+	follower_text_mon " is"
+	line "tiptoeing on the"
+	cont "creaky floor."
+	done
+
+FollowerText_Ruins1:
+	follower_text_mon " is"
+	line "staring at the"
+	cont "strange carvings."
+	done
+
+FollowerText_Ruins2:
+	follower_text_mon " is"
+	line "listening to an"
+	cont "echo… or a voice?"
+	done
+
+FollowerText_Sea1:
+	follower_text_mon " is"
+	line "enjoying the sea"
+	cont "breeze."
+	done
+
+FollowerText_Sea2:
+	follower_text_mon " is"
+	line "watching the"
+	cont "waves roll in."
+	done
+
+FollowerText_Jungle1:
+	follower_text_mon " is"
+	line "peeking through"
+	cont "the tall leaves."
+	done
+
+FollowerText_Jungle2:
+	follower_text_mon " is"
+	line "sniffing the damp"
+	cont "jungle air."
+	done
+
+FollowerText_Pokecenter1:
+	follower_text_mon " looks"
+	line "relieved to be"
+	cont "here."
+	done
+
+FollowerText_Pokecenter2:
+	follower_text_mon " is"
+	line "watching the"
+	cont "healing machine."
+	done
+
+FollowerText_GameCorner1:
+	follower_text_mon " is"
+	line "dazzled by the"
+	cont "flashing lights!"
+	done
+
+FollowerText_GameCorner2:
+	follower_text_mon " is"
+	line "covering its ears"
+	cont "from the noise."
+	done
+
+FollowerText_LakeOfRage1:
+	follower_text_mon " is"
+	line "gazing at the"
+	cont "huge lake."
+	done
+
+FollowerText_LakeOfRage2:
+	follower_text_mon " senses"
+	line "something stirring"
+	cont "in the water…"
+	done
+
+FollowerText_TinTower1:
+	follower_text_mon " is"
+	line "looking up toward"
+	cont "the rooftop."
+	done
+
+FollowerText_BurnedTower1:
+	follower_text_mon " is"
+	line "sniffing the old"
+	cont "ashes."
+	done
+
+FollowerText_BurnedTower2:
+	follower_text_mon " senses"
+	line "something sleeping"
+	cont "below…"
+	done
+
+FollowerText_SlowpokeWell1:
+	follower_text_mon " is"
+	line "yawning, just like"
+	cont "a Slowpoke."
+	done
+
+FollowerText_DragonsDen1:
+	follower_text_mon " feels"
+	line "a mighty power"
+	cont "here."
+	done
+
+FollowerText_WhirlIslands1:
+	follower_text_mon " is"
+	line "listening to the"
+	cont "roaring currents."
+	done
+
+FollowerText_MtMoon1:
+	follower_text_mon " is"
+	line "looking for Moon"
+	cont "Stones!"
+	done
+
+FollowerText_MtMoon2:
+	follower_text_mon " heard"
+	line "something dancing"
+	cont "nearby…"
+	done
+
+FollowerText_PowerPlant1:
+	follower_text_mon " is"
+	line "humming along with"
+	cont "the generators."
+	done
+
+FollowerText_SilverCave1:
+	follower_text_mon " feels"
+	line "a strong presence"
+	cont "deep inside…"
+	done
+
+FollowerText_NationalPark1:
+	follower_text_mon " is"
+	line "rolling in the"
+	cont "soft grass!"
+	done
+
+FollowerText_FieryPath1:
+	follower_text_mon " is"
+	line "sweating from the"
+	cont "heat!"
+	done
+
+FollowerText_Desert1:
+	follower_text_mon " is"
+	line "squinting in the"
+	cont "desert glare."
+	done
+
+FollowerText_MeteorFalls1:
+	follower_text_mon " is"
+	line "listening to the"
+	cont "falling water."
+	done
+
+FollowerText_MtPyre1:
+	follower_text_mon " is"
+	line "standing quietly"
+	cont "in respect."
+	done
+
+FollowerText_MtPyre2:
+	follower_text_mon " is"
+	line "shivering in the"
+	cont "cold mist."
+	done
+
+FollowerText_Sootopolis1:
+	follower_text_mon " is"
+	line "admiring the deep"
+	cont "blue water."
 	done
