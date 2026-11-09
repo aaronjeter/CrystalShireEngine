@@ -208,6 +208,7 @@ NuzlockeEndOfBattle::
 	rst CopyBytes
 	ld a, [wCurPartyMon]
 	call .RemoveEvolvableFlag
+	call .SendMailToPC
 	ld a, [wCurPartyMon]
 	inc a
 	ld c, a
@@ -232,6 +233,21 @@ NuzlockeEndOfBattle::
 	res NUZLOCKE_ON, [hl]
 	ld hl, NuzlockeRunOverText
 	jmp BattleTextbox
+
+.SendMailToPC:
+; Boxes can't hold Mail: held Mail goes to the PC's mailbox. With the mailbox
+; full, the Mail is thrown away.
+	ld a, MON_ITEM
+	call GetPartyParamLocation
+	ld a, [hl]
+	call ItemIsMail_a
+	ret nc
+	farcall SendMailToPC
+	ret nc
+	ld a, MON_ITEM
+	call GetPartyParamLocation
+	ld [hl], 0
+	ret
 
 .CountStanding:
 ; z if no party Pokémon other than Eggs has HP left.

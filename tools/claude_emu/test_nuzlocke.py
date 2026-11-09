@@ -459,6 +459,14 @@ def case_pc():
     g.wr('wBillsPC_CursorPos', 0x12); p('U'); p('D')
     p('A'); p('R'); p('A'); g.frames(30)    # box 13 slot 1 -> slot 2
     box = sram(g, 'sNewBox13Entries', 3)
+    g.wr('wBillsPC_CursorPos', 0x13); p('U'); p('D')   # box 13 slot 2 (Weedle now)
+    p('SEL', 2)                                         # back to the menu mode
+    p('A'); p('D', 4); p('A'); g.frames(30)             # Release
+    p('D'); p('A'); g.frames(90)                        # Yes
+    released = 'released' in g.screen_text()
+    p('A'); g.frames(60)
+    after = sram(g, 'sNewBox13Entries', 3)
+    check('PC: release from the graveyard works', released and after == [0, 0, 0], str(after))
     check('PC: party -> graveyard refused', r1 and g.rd('wPartyCount') == 2)
     check('PC: graveyard -> party refused', r2 and g.rd('wPartyCount') == 2)
     check('PC: moving inside the graveyard works', box[0] == 0 and box[1] != 0, str(box))
@@ -484,6 +492,136 @@ def case_poison():
     msg = any('poisoning!' in t for t in seen)
     check('poison: stops at 1 HP and cures, with a message', g.rd(hp1, 2) == [0, 1] and g.rd(st1) == 0
           and g.rd(hp2, 2) == [0, 1] and g.rd(st2) == 0 and msg, f'{sorted(seen)[:2]}')
+
+
+def walk_until_battle(g, steps=1500):
+    """Pace back and forth (Left/Right, or Up/Down if that's blocked) until a wild battle starts,
+    then wait for the battle menu."""
+    pairs = ['LR', 'UD']
+    p = 0
+    for i in range(steps):
+        pos = (g.rd('wXCoord'), g.rd('wYCoord'))
+        for k in pairs[p]:
+            g.press(k, hold=12, after=8)
+            if g.in_battle():
+                break
+        if g.in_battle():
+            break
+        if (g.rd('wXCoord'), g.rd('wYCoord')) == pos and i % 2:
+            p ^= 1
+    else:
+        return False
+    for _ in range(3000):
+        g.frames(2)
+        if at_menu(g):
+            g.frames(60)
+            return True
+        g.press('B', hold=2, after=2)
+    return False
+
+
+def landmark_of(g, group, number):
+    """A map's landmark, read from MapGroupPointers in the ROM (9-byte map entries, landmark at +5)."""
+    bank, addr = g.sym['MapGroupPointers']
+    rom = g.rom()
+    base = bank * 0x4000 + addr - 0x4000
+    gp = rom[base + 2 * (group - 1)] | rom[base + 2 * (group - 1) + 1] << 8
+    return rom[bank * 0x4000 + gp - 0x4000 + 9 * (number - 1) + 5]
+
+
+def case_cave():
+    """Real step encounters, pacing in Union Cave (warped in by script). The first one is catchable
+    and uses up its map's landmark; after running, the next one is refused if it's in the same
+    landmark."""
+    g = setup()
+    g.run_script('TestScript:\n\twarp UNION_CAVE_1F, 17, 30\n\tend')
+    g.frames(200)
+    ok1 = walk_until_battle(g)
+    lm1 = landmark_of(g, g.rd('wMapGroup'), g.rd('wMapNumber'))
+    enc1, icon = g.rd('wNuzlockeEncounter'), g.rd(0xC4A0 + 20 + 10) == BALL_TILE
+    bits = set_bits(area_bits(g)[0]) if lm1 < 96 else None
+    Battle(g, [('run',)] * 4).run()
+    ok2 = walk_until_battle(g)
+    lm2 = landmark_of(g, g.rd('wMapGroup'), g.rd('wMapNumber'))
+    enc2 = g.rd('wNuzlockeEncounter')
+    check('step encounter: catchable, icon, its landmark used', ok1 and enc1 == CATCHABLE and icon and bits == [lm1],
+          f'ok={ok1} lm={lm1} enc={enc1} icon={icon} bits={bits}')
+    want = 1 if lm2 == lm1 else CATCHABLE
+    check('step encounter: the next one in the same landmark is refused', ok2 and enc2 == want,
+          f'ok={ok2} lm={lm2} enc={enc2} want={want}')
+
+
+def case_mail():
+    """A buried Pokémon's Mail goes to the PC's mailbox; with the mailbox full it's thrown away."""
+    letter = [0x80 + i for i in range(10)]   # "ABCDEFGHIJ"
+    for full in (False, True):
+        party = [('WEEDLE', 3, 'FLOWER_MAIL', ['STRING_SHOT']), ('SCYTHER', 60, None, ['WING_ATTACK'])]
+        def pre(g):
+            sram(g, 'sPartyMail', 10, letter)
+            sram(g, 'sMailboxCount', 1, [10 if full else 0])
+        g = setup(party=party, items=(), pre=pre)
+        before = sram(g, 'sMailboxes', 10)
+        log, res = trainer_battle(g, [(30, 'RATTATA', None, ['HYPER_FANG'])], [('move', 0)] * 3, replace=[1])
+        count = sram(g, 'sMailboxCount', 1)[0]
+        box = sram(g, 'sMailboxes', 10)
+        buried = 'Weedle was laid to rest.' in log and g.rd('wPartyCount') == 1
+        if not full:
+            check('mail: the letter goes to the mailbox', buried and count == 1 and box == letter, f'count={count}')
+        else:
+            check('mail: mailbox full, the Mail is dropped', buried and count == 10 and box == before, f'count={count}')
+
+
+def case_both_faint():
+    """The last Pokémon on both sides faint together (Selfdestruct): the run is over."""
+    g = setup(party=[('GEODUDE', 40, None, ['SELFDESTRUCT'])], items=())
+    log, res = trainer_battle(g, [(5, 'RATTATA', None, ['TACKLE'])], [('move', 0)] * 2)
+    check('both faint: the run is over, nothing buried', any('Nuzlocke run is over!' in m for m in log)
+          and not g.rd('wOptions2') & NUZLOCKE_ON and sram(g, 'sNewBox13Entries', 20) == [0] * 20,
+          f'{log[-4:]} result={res}')
+
+
+def case_favorite():
+    """A buried favorite (MON_FAVORITE_F) leaves no favorite behind; the follower is the next mon."""
+    party = [('WEEDLE', 3, None, ['STRING_SHOT']), ('SCYTHER', 60, None, ['WING_ATTACK'])]
+    def pre(g):
+        a = g.sym['wPartyMon1'][1] + const16(g, 'MON_MARKS')
+        g.wr(a, g.rd(a) | 1)
+    g = setup(party=party, items=(), pre=pre)
+    trainer_battle(g, [(30, 'RATTATA', None, ['HYPER_FANG'])], [('move', 0)] * 3, replace=[1])
+    marks = g.rd(g.sym['wPartyMon1'][1] + const16(g, 'MON_MARKS'))
+    g.wr('wOptions2', g.rd('wOptions2') & ~1)       # followers on
+    for k in 'LRLR':
+        g.press(k, hold=12, after=8)
+    check('favorite buried: no favorite left, walking works', g.rd('wPartyCount') == 1 and not marks & 1
+          and not g.in_battle(), f'marks={marks}')
+
+
+def case_reset():
+    """Save, lose Weedle in a battle, soft-reset without saving, Continue: the save's party is back
+    (Weedle alive) and the graveyard is empty again (the PC storage reloads from the saved copy)."""
+    party = [('WEEDLE', 3, None, ['STRING_SHOT']), ('SCYTHER', 60, None, ['WING_ATTACK'])]
+    g = setup(party=party, items=())
+    b, a = g.sym['ForceGameSave']
+    g.run_script(f'TestScript:\n\tdb callasm_command\n\tdb ${b:02x}\n\tdw ${a:04x}\n\tend')
+    g.frames(300)
+    log, res = trainer_battle(g, [(30, 'RATTATA', None, ['HYPER_FANG'])], [('move', 0)] * 3, replace=[1])
+    buried = 'Weedle was laid to rest.' in log and sram(g, 'sNewBox13Entries', 1) != [0]
+    LIB.GB_reset(g.gb)
+    g.frames(600)
+    cont = False
+    for i in range(600):
+        g.frames(4)
+        if 'Continue' in g.screen_text() and not cont:
+            g.frames(60); g.press('A', after=60); cont = True
+            continue
+        if i % 15 == 14:
+            g.press('A', hold=2, after=2)
+        if cont and i > 200:
+            break
+    g.frames(300)
+    check('soft reset after a burial: the saved party is back, the graveyard empty', buried and cont
+          and g.rd('wPartyCount') == 2 and party_hp(g, 0) > 0 and sram(g, 'sNewBox13Entries', 20) == [0] * 20
+          and g.rd('wOptions2') & NUZLOCKE_ON, f'count={g.rd("wPartyCount")}')
 
 
 def wait_for(g, cond, n=1200):
@@ -572,6 +710,11 @@ def main():
     case_bury_doubles()
     case_box_skips_graveyard()
     case_pc()
+    case_cave()
+    case_mail()
+    case_both_faint()
+    case_favorite()
+    case_reset()
     case_poison()
     case_options()
     case_new_game()

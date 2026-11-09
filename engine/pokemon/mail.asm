@@ -1,4 +1,4 @@
-SendMailToPC:
+SendMailToPC::
 	ld a, MON_ITEM
 	call GetPartyParamLocation
 	ld d, [hl]
