@@ -70,9 +70,16 @@ def build_p2(g, status=0, hp=None, speed_div=1):
 
 
 class FakeDoubles(bt.Battle):
-    def __init__(self, g, actions, setup, replace=()):
+    def __init__(self, g, actions, setup, replace=(), field_switch=False):
         super().__init__(g, actions, replace)
         self.setup = setup
+        self.field_switch = field_switch
+
+    def valid(self, act):
+        # field_switch: a switch to a mon on the field is sent as is (the game refuses it)
+        if self.field_switch and act[0] == 'switch':
+            return act
+        return super().valid(act)
 
     def at_menu(self):
         if self.turn == 0:
@@ -80,7 +87,7 @@ class FakeDoubles(bt.Battle):
         super().at_menu()
 
 
-def run(rom, sym, state, name, party, trainer, actions, setup, items=(), replace=()):
+def run(rom, sym, state, name, party, trainer, actions, setup, items=(), replace=(), field_switch=False):
     g = bt.Game(rom, sym, state)
     g.rom_path = rom
     g.seed()
@@ -90,7 +97,7 @@ def run(rom, sym, state, name, party, trainer, actions, setup, items=(), replace
     g.set_trainer('COOLTRAINERM', name[:10].upper(), trainer)
     g.seed()
     g.start_battle('COOLTRAINERM', 0x01 | bt.SCENE_OFF)
-    b = FakeDoubles(g, actions, setup, replace)
+    b = FakeDoubles(g, actions, setup, replace, field_switch)
     recs = b.run()
     return g, b, recs
 
@@ -162,44 +169,15 @@ def main():
         return by
     g, b, recs = run(rom, sym, state, 'onfield',
                      [('MACHAMP', 40, None, ['KARATE_CHOP']), ('PIKACHU', 40, None, ['THUNDERBOLT']),
-                      ('GOLEM', 40, None, ['TACKLE'])],
-                     MAGIKARP, [('switch', 1), ('move', 0)], setup_field, replace=[2])
+                      ('GOLEM', 40, None, ['EARTHQUAKE'])],
+                     MAGIKARP, [('switch', 1), ('move', 0)], setup_field, replace=[2], field_switch=True)
     # after "already out" the party menu opens again: the driver then picks Golem
     menus = [r for r in recs if 'end' not in r]
     text = ' '.join(m for r in menus[:2] for m in r['log'])
     fails += not report('on_field', 'already out' in text and menus[1]['wCurBattleMon'] == 2,
                         f'cur mon {menus[1]["wCurBattleMon"]}, text {text[-120:]!r}')
 
-    # 5. Leaving the field (install D): P1 switches out; links to P1 that end when it leaves are
-    #    cleared (E1 trapped by P1, stored P2 attracted to P1), E1 seeded by P1 stays, P1's own
-    #    links are cleared, and wFieldMons becomes mons 3 + 2.
-    L = {n: g.const(f'BATTLER_LINK_{n}') for n in ['TRAPPED_BY', 'SEEDED_BY', 'ATTRACTED_TO', 'TARGET']}
-    def setup_links(g):
-        by = build_p2(g)
-        g.wr('wFieldMons', [0b011, 0b001])
-        g.wr(f'wEnemyBattlerLinks+{L["TRAPPED_BY"]}', 1)
-        g.wr(f'wEnemyBattlerLinks+{L["SEEDED_BY"]}', 1)
-        g.wr(f'wEnemyBattlerLinks+{L["TARGET"]}', 1)
-        g.wr(f'wPlayerBattlerLinks+{L["TRAPPED_BY"]}', 4)
-        off = 1 * g.slot_size() + by[g.sym['wPlayerBattlerLinks'][1]] + L['ATTRACTED_TO']
-        g.wr(f'wBattlerSlots+{off}', 1)
-        return by
-    g, b, recs = run(rom, sym, state, 'links',
-                     [('MACHAMP', 40, None, ['KARATE_CHOP']), ('PIKACHU', 40, None, ['THUNDERBOLT']),
-                      ('GOLEM', 40, None, ['TACKLE'])],
-                     MAGIKARP, [('switch', 2), ('move', 0)], setup_links)
-    menus = [r for r in recs if 'end' not in r]
-    m = menus[1]
-    d0 = A('wDoubleBattle')
-    dd = m['wDoubleBattle']
-    field = dd[A('wFieldMons') - d0:][:2]
-    elinks = dd[A('wEnemyBattlerLinks') - d0:][:7]
-    plinks = dd[A('wPlayerBattlerLinks') - d0:][:7]
-    p2_attr = m['wBattlerSlots'][sz + b.by[A('wPlayerBattlerLinks')] + L['ATTRACTED_TO']]
-    ok = (m['wCurBattleMon'] == 2 and field[0] == 0b110 and p2_attr == 0 and elinks[L['TRAPPED_BY']] == 0
-          and elinks[L['SEEDED_BY']] == 1 and elinks[L['TARGET']] == 1 and not any(plinks))
-    fails += not report('leaves_field', ok, f'cur {m["wCurBattleMon"]}, field {field}, P2 attracted {p2_attr}, '
-                        f'E1 links {elinks}, P1 links {plinks}')
+    # 5. Leaving the field: covered by test_doubles.py (the trapper/seeder leaving cases)
     sys.exit(1 if fails else 0)
 
 
