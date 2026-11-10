@@ -75,6 +75,7 @@ LoadMapObjects_Follower::
 	ld hl, wFollowerFlags
 	res FOLLOWER_HIDDEN_BY_SCRIPT_F, [hl]
 	call PlaceFollowerObject
+	farcall SpawnWildMons
 	farcall InitializeVisibleSprites
 	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
 	cp SPRITE_FOLLOWER
@@ -396,11 +397,19 @@ BuildSpriteMonOBPal::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	ld de, FollowerPalettes
+	bit 7, h
+	jr z, .got_index_de
+	res 7, h ; a shiny: the second pair of colors
+	ld de, FollowerPalettes + 2 * PAL_COLOR_SIZE
+	jr .got_index_de
+
 .got_index
+	ld de, FollowerPalettes
+.got_index_de
 	add hl, hl ; 8 bytes per species
 	add hl, hl
 	add hl, hl
-	ld de, FollowerPalettes
 	add hl, de
 	ld de, wMonOBPalColors
 	ld bc, 2 * PAL_COLOR_SIZE

@@ -41,6 +41,7 @@ GetPokemonSpriteGFX::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	res 7, h ; the shiny bit of a wild spawn's slot
 	jr .species_index
 
 .sprite_mon

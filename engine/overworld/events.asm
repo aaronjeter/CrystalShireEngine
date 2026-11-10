@@ -282,6 +282,9 @@ PlayerEvents:
 	call CheckTrainerEvent
 	jr c, .ok
 
+	farcall CheckWildSpawnTouch
+	jr c, .ok
+
 	call CheckTileEvent
 	jr c, .ok
 
@@ -584,7 +587,7 @@ ObjectEventTypeArray:
 	dbw OBJECTTYPE_ITEMBALL, .itemball
 	dbw OBJECTTYPE_TRAINER, .trainer
 	; the remaining four are dummy events
-	dbw OBJECTTYPE_3, .three
+	dbw OBJECTTYPE_WILDSPAWN, .wildspawn
 	dbw OBJECTTYPE_4, .four
 	dbw OBJECTTYPE_5, .five
 	dbw OBJECTTYPE_6, .six
@@ -643,9 +646,13 @@ ObjectEventTypeArray:
 	scf
 	ret
 
-.three
-	xor a
-	ret
+.wildspawn
+	push bc
+	call FacePlayerIfPokemon
+	pop bc
+	ld a, BANK(WildSpawnScript)
+	ld hl, WildSpawnScript
+	jmp CallScript
 
 .four
 	xor a
@@ -909,6 +916,7 @@ SelectMenuCallback:
 
 CountStep:
 	farcall FollowerOnPlayerStep
+	farcall WildSpawnStep
 
 	; Don't count steps in link communication rooms.
 	ld a, [wLinkMode]

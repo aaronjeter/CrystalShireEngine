@@ -95,6 +95,20 @@ DEF MAPOBJECT_SCRIPT_POINTER   rw ; a
 DEF MAPOBJECT_EVENT_FLAG       rw ; c
                                rb_skip 2
 DEF MAPOBJECT_LENGTH EQU _RS
+; OBJECTTYPE_WILDSPAWN objects keep their battle data in these fields
+DEF MAPOBJECT_SPAWN_DVS   EQU MAPOBJECT_SCRIPT_POINTER ; 2 bytes
+DEF MAPOBJECT_SPAWN_LEVEL EQU MAPOBJECT_EVENT_FLAG + 2  ; the first padding byte
+DEF MAPOBJECT_SPAWN_STATE EQU MAPOBJECT_EVENT_FLAG + 3  ; temperament and state (WILDSPAWN_*)
+
+; MAPOBJECT_SPAWN_STATE
+DEF WILDSPAWN_TEMPERAMENT_MASK EQU %11
+	const_def
+	const WILDSPAWN_WANDERER  ; 0
+	const WILDSPAWN_SKITTISH  ; 1
+	const WILDSPAWN_AGGRESSIVE ; 2
+	const WILDSPAWN_SLEEPY    ; 3
+DEF WILDSPAWN_AWAKE_F    EQU 2 ; a sleepy one woke up
+DEF WILDSPAWN_CHARGING_F EQU 3 ; an aggressive one spotted the player
 DEF NUM_OBJECTS EQU 16
 DEF FOLLOW_QUEUE_SIZE EQU 5 ; wFollowMovementQueue
 DEF FOLLOWER_OBJECT EQU NUM_OBJECTS - 1 ; the following Pokémon uses the last map object
@@ -152,6 +166,7 @@ DEF MAPOBJECT_SCREEN_HEIGHT EQU (SCREEN_HEIGHT / 2) + 2
 	const SPRITEMOVEDATA_BOULDERDUST          ; 22
 	const SPRITEMOVEDATA_GRASS                ; 23
 	const SPRITEMOVEDATA_SWIM_WANDER          ; 24
+	const SPRITEMOVEDATA_WILDSPAWN            ; 25
 DEF NUM_SPRITEMOVEDATA EQU const_value
 
 ; StepFunction_FromMovement.Pointers indexes (see engine/overworld/map_objects.asm)
@@ -184,7 +199,13 @@ DEF NUM_SPRITEMOVEDATA EQU const_value
 	const SPRITEMOVEFN_SPIN_COUNTERCLOCKWISE ; 19
 	const SPRITEMOVEFN_BOULDERDUST           ; 1a
 	const SPRITEMOVEFN_GRASS                 ; 1b
+	const SPRITEMOVEFN_WILDSPAWN             ; 1c
 DEF NUM_SPRITEMOVEFN EQU const_value
+
+; WildSpawnBrain results besides a direction (0-3)
+DEF WILDSPAWN_WAIT_SLOW EQU 4
+DEF WILDSPAWN_WAIT_FAST EQU 5
+DEF WILDSPAWN_NO_DETOUR_F EQU 3 ; with a direction: don't try sideways if it's blocked
 
 ; StepTypesJumptable indexes (see engine/overworld/map_objects.asm)
 	const_def

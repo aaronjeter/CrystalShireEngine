@@ -145,7 +145,7 @@ DEF NUM_BGEVENTS EQU const_value
 	const OBJECTTYPE_SCRIPT
 	const OBJECTTYPE_ITEMBALL
 	const OBJECTTYPE_TRAINER
-	const OBJECTTYPE_3
+	const OBJECTTYPE_WILDSPAWN ; a wandering wild Pokémon (engine/overworld/wild_spawns.asm)
 	const OBJECTTYPE_4
 	const OBJECTTYPE_5
 	const OBJECTTYPE_6

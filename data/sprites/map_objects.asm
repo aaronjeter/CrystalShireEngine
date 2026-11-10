@@ -298,6 +298,14 @@ SpriteMovementData::
 	db 0 ; flags2
 	db SWIMMING ; palette flags
 
+; SPRITEMOVEDATA_WILDSPAWN
+	db SPRITEMOVEFN_WILDSPAWN ; movement function
+	db DOWN ; facing
+	db OBJECT_ACTION_STAND ; action
+	db 0 ; flags1
+	db 0 ; flags2
+	db 0 ; palette flags
+
 	assert_table_length NUM_SPRITEMOVEDATA
 
 ; unused

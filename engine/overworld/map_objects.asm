@@ -613,7 +613,55 @@ StepFunction_FromMovement:
 	dw MovementFunction_SpinCounterclockwise ; 19
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
+	dw MovementFunction_WildSpawn            ; 1c
 	assert_table_length NUM_SPRITEMOVEFN
+
+MovementFunction_WildSpawn:
+; a wandering wild Pokémon (engine/overworld/wild_spawns.asm)
+	farcall WildSpawnBrain
+	cp WILDSPAWN_WAIT_FAST
+	jmp z, RandomStepDuration_Fast
+	cp WILDSPAWN_WAIT_SLOW
+	jmp z, RandomStepDuration_Slow
+	bit WILDSPAWN_NO_DETOUR_F, a
+	jr z, .detours
+	and %11
+	jmp _RandomWalkContinue
+
+.detours
+; if that step is blocked, try the two directions sideways (random order)
+	ld [wWildSpawnDX], a
+	call .Try
+	ret nc
+	call Random
+	and 1
+	add 2 ; xor 2 or 3: a sideways direction
+	ld [wWildSpawnDY], a
+	ld hl, wWildSpawnDX
+	xor [hl]
+	call .Try
+	ret nc
+	ld a, [wWildSpawnDY]
+	xor 1 ; the other sideways direction
+	ld hl, wWildSpawnDX
+	xor [hl]
+	jmp _RandomWalkContinue
+
+.Try:
+; nc if it could step in direction a (the step is started)
+	push af
+	call InitStep
+	call CanObjectMoveInDirection
+	jr c, .blocked
+	pop af
+	call _RandomWalkContinue
+	and a
+	ret
+
+.blocked
+	pop af
+	scf
+	ret
 
 MovementFunction_RandomWalkY:
 	call Random
@@ -1109,7 +1157,7 @@ _RandomWalkContinue:
 .new_duration:
 	call EndSpriteMovement
 	call CopyLastCoordsToCoords
-	; fallthrough
+	jp WildSpawnAwarePause
 
 RandomStepDuration_Slow:
 	call Random
@@ -1614,7 +1662,21 @@ StepFunction_ContinueWalk:
 	dec [hl]
 	ret nz
 	call CopyCoordsTileToLastCoordsTile
-	jmp RandomStepDuration_Slow
+	; fallthrough
+
+WildSpawnAwarePause:
+; a wild spawn that's charging or fleeing (no radius) only pauses briefly
+	ld hl, OBJECT_MOVEMENT_TYPE
+	add hl, bc
+	ld a, [hl]
+	cp SPRITEMOVEDATA_WILDSPAWN
+	jmp nz, RandomStepDuration_Slow
+	ld hl, OBJECT_RADIUS
+	add hl, bc
+	ld a, [hl]
+	and a
+	jmp nz, RandomStepDuration_Slow
+	jmp RandomStepDuration_Fast
 
 StepFunction_PlayerWalk:
 	call ObjectStep_AnonJumptable

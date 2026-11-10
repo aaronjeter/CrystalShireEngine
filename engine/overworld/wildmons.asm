@@ -400,6 +400,22 @@ ChooseWildEncounter:
 	and a
 	ret
 
+ChooseWildSpawnMon::
+; A land wild Pokémon of this map for a wandering spawn (no roamers):
+; wTempWildMonSpecies and wCurPartyLevel. Returns z if there's one.
+	call _GrassWildmonLookup
+	jr nc, ChooseWildEncounter.nowildbattle
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	call GetTimeOfDayNotEve
+	ld bc, NUM_GRASSMON * 3
+	rst AddNTimes
+	ld de, GrassMonProbTable
+	jp ChooseWildEncounter.watermon
+
 INCLUDE "data/wild/probabilities.asm"
 
 CheckRepelEffect::

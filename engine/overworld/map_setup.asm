@@ -84,7 +84,8 @@ LoadMapObjects:
 LoadMonSpriteSlots:
 ; Set the species of the SPRITE_MON_* slots (setmonsprite in the map's
 ; MAPCALLBACK_SPRITES callback). wMonSpriteSpecies isn't saved, so Continue
-; runs this too.
+; runs this too, and removes wandering wild Pokémon left in the saved objects.
+	farcall ClearWildSpawns
 	ld a, MAPCALLBACK_SPRITES
 	jmp RunMapCallback
 

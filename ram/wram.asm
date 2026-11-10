@@ -3447,6 +3447,29 @@ wWildMonMarks:: db ; the wild Pokemon's stored gender (MON_GENDER_MASK bits), ke
 wWildMonColor:: db ; the wild Pokemon's MON_COLOR (SetWildMonColor), kept if it's caught
 wWildMonDVs:: dw ; a copy of wEnemyMonDVs (GetEnemyMonDVs)
 wNuzlockeEncounter:: db ; NUZLOCKE_* (NuzlockeWildEncounter)
+wWildSpawnBattle:: db ; TRUE while battling a wandering wild Pokémon: its DVs are wWildSpawnDVs
+wWildSpawnDVs:: dw
+wWildSpawnTouched:: db ; the map object of a spawn the player walked into, or 0
+wWildSpawnCount:: db ; AddWildSpawn: the sprite slot (0 to NUM_SPAWN_SPRITE_SLOTS - 1) of the new spawn
+wWildSpawnSlot:: db ; SpawnWildMons: the map object being written
+wWildSpawnSpotted:: db ; the map object of an aggressive spawn that just spotted the player, or 0
+wWildSpawnBrainObject:: db ; WildSpawnBrain: the map object deciding
+UNION
+wWildSpawnDX:: db ; WildSpawnBrain: player x - its x
+wWildSpawnDY:: db ; WildSpawnBrain: player y - its y
+NEXTU
+wSpawnAreaDir:: db ; BuildSpawnArea: the step being checked (SPAWN_STEP_* bit)
+wSpawnAreaCellColl:: db ; BuildSpawnArea: the collision of the cell stepped from
+ENDU
+wWildSpawnSteps:: db ; steps since the last respawn (WildSpawnStep); bit 7: WILD_SPAWN_FILLED_F
+wWildSpawnMinDistance:: db ; FindSpawnSpot: steps from the player on one axis
+wWildSpawnShared:: db ; PlaceWildSpawn: TRUE if the sprite slot is shared
+wWildSpawnRNG:: dw ; FindSpawnSpot: xorshift state
+wSpawnAreaLeft:: db ; BuildSpawnArea: map x of the area's first column
+wSpawnAreaTop:: db ; BuildSpawnArea: map y of the area's first row
+wSpawnQueueHead:: dw
+wSpawnQueueTail:: dw
+wSpawnSpotCount:: dw ; entries in wSpawnAreaSpots
 
 
 SECTION "AI Learnset RAM", WRAMX, BANK[1]
@@ -3593,6 +3616,12 @@ wDecompressEnemyFrontpic:: ds $80 tiles
 NEXTU
 ; unidentified uses
 w6_d000:: ds $1000
+
+NEXTU
+; BuildSpawnArea (engine/overworld/wild_spawns.asm)
+wSpawnAreaMarks:: ds 32 * 32 ; SPAWN_AREA_SIZE squared: TRUE once a cell is seen
+wSpawnAreaQueue:: ds 2 * 32 * 32 ; cells (x, y) to visit
+wSpawnAreaSpots:: ds 2 * 512 ; MAX_SPAWN_SPOTS spawn ground spots (x, y)
 ENDU
 
 

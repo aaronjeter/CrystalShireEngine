@@ -207,6 +207,18 @@ _LoadEnemyMon:
 .NotRoaming:
 ; Register a contains wBattleType
 
+; A wandering wild Pokémon keeps the DVs it was shown with
+	ld a, [wWildSpawnBattle]
+	and a
+	jr z, .not_spawn
+	ld a, [wWildSpawnDVs]
+	ld b, a
+	ld a, [wWildSpawnDVs + 1]
+	ld c, a
+	jr .UpdateDVs
+
+.not_spawn
+	ld a, [wBattleType]
 ; Forced shiny battle type
 ; Used by Red Gyarados at Lake of Rage
 	cp BATTLETYPE_FORCESHINY

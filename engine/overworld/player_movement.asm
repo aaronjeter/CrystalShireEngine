@@ -1132,6 +1132,9 @@ ENDM
 	ld a, [hl]
 	cp SPRITE_FOLLOWER
 	jr z, .no_npc ; the player can walk through the following Pokémon
+	push bc
+	farcall WildSpawnBumpCheck
+	pop bc
 	call .CheckStrengthBoulder
 	jr c, .no_bump
 
