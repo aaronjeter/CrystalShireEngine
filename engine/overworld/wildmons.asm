@@ -238,6 +238,7 @@ TryWildEncounter::
 
 .EncounterRate:
 	call GetMapEncounterRate
+	call ApplySpawnEffectOnEncounterRate
 	call ApplyMusicEffectOnEncounterRate
 	call ApplyCleanseTagEffectOnEncounterRate
 	call Random
@@ -255,6 +256,20 @@ GetMapEncounterRate:
 	ld b, 0
 	add hl, bc
 	ld b, [hl]
+	ret
+
+ApplySpawnEffectOnEncounterRate:
+; Maps that can have overworld spawns halve their land encounter rate.
+	call CheckOnWater
+	ret z
+	push bc
+	farcall CheckWildSpawnsAllowed
+	pop bc
+	ret c
+	srl b ; rounded up, so a low rate isn't lost
+	ld a, b
+	adc 0
+	ld b, a
 	ret
 
 ApplyMusicEffectOnEncounterRate::

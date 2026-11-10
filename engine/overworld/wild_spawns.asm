@@ -349,7 +349,7 @@ ChooseSharedSpawnMon:
 	and a
 	ret
 
-CheckWildSpawnsAllowed:
+CheckWildSpawnsAllowed::
 ; carry if this map can't have spawns now
 	ld hl, wStatusFlags
 	bit STATUSFLAGS_NO_WILD_ENCOUNTERS_F, [hl]
