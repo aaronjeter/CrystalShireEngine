@@ -2162,6 +2162,13 @@ SpawnStrengthBoulderDust:
 	; vtile, palette, movement
 	db $80, PAL_OW_EMOTE_GRAY, SPRITEMOVEDATA_BOULDERDUST
 
+SpawnEmoteObject::
+; an emote object over object struct bc (struct index hMapObjectIndex)
+	jr SpawnEmote
+
+DeleteEmoteObjects::
+	jr DespawnEmote
+
 SpawnEmote:
 	push bc
 	ld de, .EmoteObject

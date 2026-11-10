@@ -67,3 +67,4 @@ MapSetupCommands:
 	add_mapsetup SetCurrentWeather ; 34
 	add_mapsetup MapConnWeatherFade ; 35
 	add_mapsetup LoadMonSpriteSlots ; 36
+	add_mapsetup ContinueWildSpawns ; 37

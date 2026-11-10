@@ -3409,6 +3409,13 @@ wFollowerOBPal:: ds 1 palettes ; built by BuildFollowerOBPal for CopySpritePal
 wMonOBPalColors:: ds 2 * PAL_COLOR_SIZE ; light, dark for BuildMonOBPal
 
 
+SECTION "Wild Spawn Zzz", WRAM0
+
+wSpawnZzzRequest:: db ; the map object of a sleepy spawn whose "Zzz" should show (WildSpawnZzz), or 0
+wSpawnZzzObject:: db ; the map object showing a "Zzz", or 0
+wSpawnZzzTimer:: db ; frames until the "Zzz" goes away
+
+
 SECTION "Overworld Weather RAM", WRAMX, BANK[1]
 
 wCurWeather:: db ; OW_WEATHER_* for the current map

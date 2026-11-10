@@ -238,9 +238,25 @@ def case_static_wanderer():
     check('static wanderer: gone after the battle', g.rd(b + 1) == 0 or g.rd(addr(g, 'wObjectMasks') + obj[0]) != 0)
 
 
+def case_zzz():
+    """A sleepy spawn shows a "Zzz" once when the player comes within WILD_SPAWN_ZZZ_RANGE."""
+    g = setup('ROUTE_29', 20, 10, follower=False)
+    t, d = place_line(g, SLEEPY, dist=3)
+    st = addr(g, 'wObjectStructs')
+    f1, ef = g.const('OBJECT_FLAGS1'), g.const('EMOTE_OBJECT_F')
+    seen = []
+    for _ in range(400):
+        g.frames(1)
+        seen.append(any(g.rd(st + i * OLEN) and g.rd(st + i * OLEN + f1) >> ef & 1 for i in range(13)))
+    shows = sum(1 for a, b in zip([False] + seen, seen) if b and not a)
+    check('sleepy: shows its "Zzz" once when the player is near, then it goes away',
+          shows == 1 and not seen[-1], f'{shows} times, {sum(seen)} frames')
+
+
 def case_continue():
     g = setup('ROUTE_29', 20, 10)
     n = len(spawns(g))
+    before = {(d['obj'], d['dvs']) for d in spawns(g)}
     g.press('START', after=40)
     for _ in range(10):
         if g.rd('wMenuCursorY') == 6:  # Save
@@ -261,7 +277,13 @@ def case_continue():
         g2.press('A', after=50)
     g2.frames(200)
     same_map = (g2.rd('wMapGroup'), g2.rd('wMapNumber')) == (g.rd('wMapGroup'), g.rd('wMapNumber'))
-    check('Continue: saved spawns are removed', n > 0 and same_map and spawns(g2) == [], f'{n} before saving')
+    after = spawns(g2)
+    check('Continue: the saved spawns are replaced by new ones', n > 0 and same_map and len(after) > 0 and
+          not before & {(d['obj'], d['dvs']) for d in after}, f'{n} before saving, {len(after)} after')
+    ok = True
+    for d in after:  # each new spawn has a sprite slot with its species
+        ok &= d['species'] & 0x7fff != 0
+    check('Continue: the new spawns have their species', ok)
 
 
 DIRV = {'D': 0, 'U': 1, 'L': 2, 'R': 3}
@@ -351,11 +373,15 @@ def case_behaviors():
             break
         woke |= g.rd(t['b'] + 15) & 4 != 0
     check('sleepy: wakes up when the player is next to it', woke)
-    g = setup('ROUTE_29', 20, 10, follower=False)
-    t, d = place_line(g, SKITTISH)
-    m0 = manhattan(g, t)
-    check('skittish: moves away from the player', not watch(g, 800) and manhattan(g, t) > m0,
-          f'{m0} -> {manhattan(g, t)}')
+    for i in range(3):  # it may be boxed in where it's put: up to 3 tries
+        g = setup('ROUTE_29', 20, 10, follower=False)
+        g.frames(i * 29)
+        t, d = place_line(g, SKITTISH)
+        m0 = manhattan(g, t)
+        fled = not watch(g, 800) and manhattan(g, t) > m0
+        if fled:
+            break
+    check('skittish: moves away from the player', fled, f'{m0} -> {manhattan(g, t)}')
     g = setup('ROUTE_29', 20, 10, follower=False)
     t, d = place_line(g, WANDERER, dist=1)
     check('wanderer next to the player: walks into them (a battle)', watch(g, 4000))
@@ -409,6 +435,7 @@ def main():
     case_respawn()
     case_topup()
     case_static_wanderer()
+    case_zzz()
     case_nuzlocke()
     case_continue()
     bad = [n for n, ok in RESULTS if not ok]

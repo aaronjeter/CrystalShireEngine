@@ -204,6 +204,7 @@ MapSetupScript_Continue:
 	mapsetup LoadMapGraphics
 	mapsetup DecompressMetatiles
 	mapsetup LoadMapTimeOfDay
+	mapsetup ContinueWildSpawns
 	mapsetup EnableLCD
 	mapsetup LoadMapPalettes
 	mapsetup EnableDynPalUpdatesNoApply

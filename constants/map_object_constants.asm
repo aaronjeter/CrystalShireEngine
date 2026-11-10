@@ -109,6 +109,7 @@ DEF WILDSPAWN_TEMPERAMENT_MASK EQU %11
 	const WILDSPAWN_SLEEPY    ; 3
 DEF WILDSPAWN_AWAKE_F    EQU 2 ; a sleepy one woke up
 DEF WILDSPAWN_CHARGING_F EQU 3 ; an aggressive one spotted the player
+DEF WILDSPAWN_ZZZ_F      EQU 4 ; a sleepy one showed its "Zzz"
 DEF NUM_OBJECTS EQU 16
 DEF FOLLOW_QUEUE_SIZE EQU 5 ; wFollowMovementQueue
 DEF FOLLOWER_OBJECT EQU NUM_OBJECTS - 1 ; the following Pokémon uses the last map object

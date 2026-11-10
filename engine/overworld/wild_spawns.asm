@@ -15,6 +15,7 @@ DEF NUM_SPAWN_SPRITE_SLOTS EQU 4
 DEF FIRST_SPAWN_SPRITE_SLOT EQU 4 ; SPRITE_MON_5: maps' own Pokémon use SPRITE_MON_1-4
 assert FIRST_SPAWN_SPRITE_SLOT + NUM_SPAWN_SPRITE_SLOTS <= NUM_MON_SPRITE_SLOTS
 DEF SHARED_SPAWN_TRIES EQU 8 ; table rolls to find a species already shown
+DEF NEW_SPECIES_TRIES EQU 8 ; table rolls to find a species not shown yet, for a free sprite slot
 DEF FIRST_SPAWN_OBJECT EQU 1
 DEF LAST_SPAWN_OBJECT EQU FOLLOWER_OBJECT - 1
 DEF WILD_SPAWN_TRIES EQU 32 ; spots from the area list tried per spawn
@@ -37,10 +38,14 @@ DEF WILD_SPAWN_RADIUS EQU $22 ; wander radius: 2 steps each way
 DEF WILD_SPAWN_NOTICE_RANGE EQU 3 ; skittish: steps
 DEF WILD_SPAWN_NOTICE_RANGE_FAST EQU 5 ; skittish, when the player runs or bikes
 DEF WILD_SPAWN_SIGHT_RANGE EQU 4 ; aggressive: steps in a straight line
+DEF WILD_SPAWN_ZZZ_RANGE EQU 4 ; sleepy: steps from the player that show its "Zzz" once
+DEF WILD_SPAWN_ZZZ_FRAMES EQU 90
 
 SpawnWildMons::
 	call InitStaticWanderers
 	xor a
+	ld [wSpawnZzzRequest], a
+	ld [wSpawnZzzObject], a
 	ld [wWildSpawnBattle], a
 	ld [wWildSpawnTouched], a
 	ld [wWildSpawnSpotted], a
@@ -62,11 +67,17 @@ SpawnWildMons::
 	set WILD_SPAWN_FILLED_F, [hl]
 	ret
 
+ContinueWildSpawns::
+; Continue: the saved spawns were removed (LoadMonSpriteSlots), so spawn new
+; ones, as on arrival
+	call SpawnWildMons
+	farjp InitializeVisibleSprites
+
 InitStaticWanderers:
 ; A map's own Pokémon (object_events with SPRITEMOVEDATA_WILDSPAWN and a
 ; SPRITE_MON_* sprite, battled through their own script) wander like spawns:
-; give each the temperament of its species. Their level is unknown here (it's
-; in the script), so with a Repel an aggressive one never charges.
+; give each the temperament of its species, and the level of the script's
+; loadwildmon (after an optional cry), or 0 if it isn't there.
 	ld a, FIRST_SPAWN_OBJECT
 .loop
 	push af
@@ -94,12 +105,44 @@ InitStaticWanderers:
 	ld hl, MAPOBJECT_SPAWN_STATE
 	add hl, bc
 	ld [hld], a
-	ld [hl], 0 ; MAPOBJECT_SPAWN_LEVEL
+	push hl
+	call StaticWandererLevel
+	pop hl
+	ld [hl], a ; MAPOBJECT_SPAWN_LEVEL
 .next
 	pop af
 	inc a
 	cp LAST_SPAWN_OBJECT + 1
 	jr c, .loop
+	ret
+
+StaticWandererLevel:
+; a = the level in map object bc's script: cry (optional), then loadwildmon
+	ld hl, MAPOBJECT_SCRIPT_POINTER
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call GetMapScriptsBank
+	call GetFarByte
+	cp cry_command
+	jr nz, .no_cry
+	inc hl
+	inc hl
+	inc hl
+	call GetMapScriptsBank
+	call GetFarByte
+.no_cry
+	cp loadwildmon_command
+	jr nz, .none
+	inc hl
+	inc hl
+	inc hl
+	call GetMapScriptsBank
+	jmp GetFarByte
+
+.none
+	xor a
 	ret
 
 IsStaticWanderer:
@@ -216,9 +259,27 @@ AddWildSpawn:
 	ld [wWildSpawnCount], a
 	xor a
 	ld [wWildSpawnShared], a
+; a species not shown yet, if a few rolls find one
+	ld a, NEW_SPECIES_TRIES
+.choose
+	push af
 	farcall ChooseWildSpawnMon
+	jr nz, .none
+	call SpawnSpeciesShown
+	jr nc, .chosen
+	pop af
+	dec a
+	jr nz, .choose
+	jr .got_species ; the last roll
+
+.none
+	pop af
 	scf
-	ret nz ; no land wild Pokémon here
+	ret ; no land wild Pokémon here
+
+.chosen
+	pop af
+.got_species
 ; that sprite slot's palette may still hold another species' colors
 	ld a, [wWildSpawnCount]
 	add PAL_OW_MON_SLOT_1 + FIRST_SPAWN_SPRITE_SLOT
@@ -241,6 +302,47 @@ AddWildSpawn:
 	call FindSpawnSpot
 	ret c
 	call PlaceWildSpawn
+	and a
+	ret
+
+SpawnSpeciesShown:
+; carry if a spawn in another sprite slot is wTempWildMonSpecies
+	ld a, [wTempWildMonSpecies]
+	call GetPokemonIndexFromID
+	ld e, 0
+.slots
+	push hl
+	push de
+	ld a, e
+	call SpawnSpriteSlotUsed
+	pop de
+	pop hl
+	jr nc, .next_slot
+	push hl
+	ld a, e
+	add FIRST_SPAWN_SPRITE_SLOT
+	add a
+	ld c, a
+	ld b, 0
+	ld hl, wMonSpriteSpecies
+	add hl, bc
+	ld a, [hli]
+	ld b, [hl]
+	res 7, b ; the shiny bit
+	ld c, a
+	pop hl
+	ld a, l
+	cp c
+	jr nz, .next_slot
+	ld a, h
+	cp b
+	scf
+	ret z
+.next_slot
+	inc e
+	ld a, e
+	cp NUM_SPAWN_SPRITE_SLOTS
+	jr c, .slots
 	and a
 	ret
 
@@ -1182,10 +1284,70 @@ WildSpawnBumpCheck::
 	ld [wWildSpawnTouched], a
 	ret
 
+WildSpawnZzz:
+; Show the "Zzz" a sleepy spawn asked for (wSpawnZzzRequest) over it, or take
+; one away when its time is up.
+	ld a, [wSpawnZzzObject]
+	and a
+	jr z, .request
+	ld hl, wSpawnZzzTimer
+	dec [hl]
+	ret nz
+	xor a
+	ld [wSpawnZzzObject], a
+	farjp DeleteEmoteObjects
+
+.request
+	ld hl, wSpawnZzzRequest
+	ld a, [hl]
+	and a
+	ret z
+	ld [hl], 0
+	ld e, a
+	push de
+	call GetMapObject
+	pop de
+	ld hl, MAPOBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	and a
+	ret z
+	ld hl, MAPOBJECT_SPAWN_STATE
+	add hl, bc
+	bit WILDSPAWN_AWAKE_F, [hl]
+	ret nz
+	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
+	add hl, bc
+	ld a, [hl]
+	cp -1
+	ret z
+	ld d, a
+	push de
+	call GetObjectStruct
+	pop de
+	ldh a, [hMapObjectIndex]
+	push af
+	ld a, e
+	ld [wSpawnZzzObject], a
+	ld a, d ; the emote tracks this object struct
+	ldh [hMapObjectIndex], a
+	push bc
+	ld c, EMOTE_SLEEP
+	farcall LoadEmote
+	pop bc
+	farcall SpawnEmoteObject
+	pop af
+	ldh [hMapObjectIndex], a
+	ld a, WILD_SPAWN_ZZZ_FRAMES
+	ld [wSpawnZzzTimer], a
+	ret
+
 CheckWildSpawnTouch::
 ; PlayerEvents: start the battle with a spawn the player walked into (or that
 ; walked into the player), or show the "!" of one that spotted the player.
-; Returns carry and a = PLAYEREVENT_MAPSCRIPT if it does.
+; Returns carry and a = PLAYEREVENT_MAPSCRIPT if it does. Also shows or takes
+; away a sleepy spawn's "Zzz".
+	call WildSpawnZzz
 	ld hl, wWildSpawnTouched
 	ld a, [hl]
 	and a
@@ -1328,14 +1490,39 @@ WildSpawnBrain::
 	jp z, .aggressive
 	cp WILDSPAWN_SLEEPY
 	jr nz, .wander
-; sleepy: still until the player is next to it
+; sleepy: still until the player is next to it; once, its "Zzz" when the
+; player comes near
 	bit WILDSPAWN_AWAKE_F, [hl]
 	jr nz, .wander
 	call .Distance
 	cp 2
+	jr c, .wake
+	cp WILD_SPAWN_ZZZ_RANGE + 1
+	jr nc, .doze
+	bit WILDSPAWN_ZZZ_F, [hl]
+	jr nz, .doze
+	ld a, [wSpawnZzzObject]
+	and a
+	jr nz, .doze
+	set WILDSPAWN_ZZZ_F, [hl]
+	ld a, [wWildSpawnBrainObject]
+	ld [wSpawnZzzRequest], a
+.doze
 	ld a, WILDSPAWN_WAIT_SLOW
-	ret nc
+	ret
+
+.wake
 	set WILDSPAWN_AWAKE_F, [hl]
+; its "Zzz" goes away
+	ld a, [wWildSpawnBrainObject]
+	push hl
+	ld hl, wSpawnZzzObject
+	cp [hl]
+	pop hl
+	jr nz, .no_zzz
+	ld a, 1
+	ld [wSpawnZzzTimer], a
+.no_zzz
 	call .FacePlayer
 	ld a, WILDSPAWN_WAIT_FAST
 	ret
