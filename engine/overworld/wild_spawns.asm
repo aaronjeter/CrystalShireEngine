@@ -1168,12 +1168,17 @@ PlaceWildSpawn:
 	ret
 
 GetSpawnTemperament:
-; a = the temperament of wTempWildMonSpecies, from its primary type
+; a = the temperament of wTempWildMonSpecies, from one of its types (at random)
 	push hl
 	ld a, [wTempWildMonSpecies]
 	ld [wCurSpecies], a
 	call GetBaseData
+	call Random
+	rrca
 	ld a, [wBaseType1]
+	jr nc, .got_type
+	ld a, [wBaseType2]
+.got_type
 	ld e, a
 	ld d, 0
 	ld hl, SpawnTemperaments
@@ -1193,7 +1198,7 @@ SpawnTemperaments:
 	db WILDSPAWN_SLEEPY     ; ROCK
 	db WILDSPAWN_WANDERER   ; BIRD
 	db WILDSPAWN_WANDERER   ; BUG
-	db WILDSPAWN_SKITTISH   ; GHOST
+	db WILDSPAWN_AGGRESSIVE ; GHOST
 	db WILDSPAWN_SLEEPY     ; STEEL
 	ds UNUSED_TYPES_END - UNUSED_TYPES, WILDSPAWN_WANDERER
 	db WILDSPAWN_AGGRESSIVE ; FIRE
