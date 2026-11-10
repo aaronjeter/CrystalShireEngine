@@ -23,7 +23,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(os.path.dirname(HERE)))
 
-from harness import H, warp_script  # noqa: E402
+from harness import H, warp_script, at_menu  # noqa: E402
 import progression_check as pc  # noqa: E402
 
 REPO = os.environ.get('CSE', os.path.dirname(os.path.dirname(HERE)))
@@ -215,6 +215,9 @@ class Game(H):
     def __init__(self, rom, sym, state, model):
         H.__init__(self, rom, None, sym)
         self.load(state)
+        # no wild encounters or overworld spawns (STATUSFLAGS_NO_WILD_ENCOUNTERS_F): a spawn
+        # walking into the player would start a battle in the middle of a probe
+        self.wr('wStatusFlags', self.rd('wStatusFlags') | 1 << 5)
         self.m = model
         self.sym = {}
         for line in open(sym):
@@ -332,6 +335,21 @@ class Game(H):
         self.face(d)
         self.press('A', after=40)
         self.settle()
+        self.leave_battle()
+
+    def leave_battle(self, limit=300):
+        """Run from a wild battle (a smashed rock or a Headbutt can start one)."""
+        for _ in range(limit):
+            self.frames(10)
+            if not self.rd('wBattleMode'):
+                return
+            if at_menu(self):
+                self.press('R', hold=2, after=10)
+                self.press('D', hold=2, after=10)
+                self.press('A', hold=2, after=30)
+            else:
+                self.press('B', hold=2, after=5)
+        self.frames(60)
 
     def flag(self, name, engine=True):
         """Read an event or engine flag through a script."""

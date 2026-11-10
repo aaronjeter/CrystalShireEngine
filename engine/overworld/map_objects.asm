@@ -625,7 +625,7 @@ MovementFunction_WildSpawn:
 	jmp z, RandomStepDuration_Slow
 	bit WILDSPAWN_NO_DETOUR_F, a
 	jr z, .detours
-	and %11
+	and %1111 ; the direction and speed
 	jmp _RandomWalkContinue
 
 .detours

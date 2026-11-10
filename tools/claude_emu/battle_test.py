@@ -18,7 +18,7 @@ How it stays repeatable:
   and a trainer class's TrainerGroups entry is repointed to them.
 - Every input is chosen from the screen state (menus, prompts), never from frame counts.
 """
-import json, os, re, subprocess, sys, tempfile
+import json, os, re, shutil, subprocess, sys, tempfile
 from harness import H, CHARS
 from gb import LIB
 from scripts import CSE, RGB, BASE_END, party_script
@@ -39,6 +39,7 @@ def assemble_at(body, bank, org):
     subprocess.run([f'{RGB}/rgbasm', '-Q8', '-P', 'includes.asm', '-o', o, a], cwd=CSE, check=True)
     subprocess.run([f'{RGB}/rgblink', '-o', b, o], cwd=CSE, check=True)
     data = open(b, 'rb').read()
+    shutil.rmtree(d)
     start = org if bank == 0 else bank * 0x4000 + org - 0x4000
     # rgblink pads with 0; find the real end from the object's section size via a marker
     return data, start

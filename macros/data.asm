@@ -392,3 +392,13 @@ MACRO end_random_list
 	DEF _rl_count_{_rl_name} EQU _rl_mons
 	DEF _rl_open = 0
 ENDM
+
+MACRO ow_behavior
+; behavior 1, behavior 2[, modifiers] (data/pokemon/overworld_behaviors.asm)
+	db \1 | (\2 << 4)
+	if _NARG > 2
+		db \3
+	else
+		db 0
+	endc
+ENDM

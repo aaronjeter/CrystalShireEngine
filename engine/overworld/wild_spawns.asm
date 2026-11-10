@@ -35,17 +35,34 @@ DEF WILD_SPAWN_FILLED_F EQU 7 ; wWildSpawnSteps: the map has had its cap since t
 assert WILD_SPAWN_RESPAWN_STEPS < 1 << WILD_SPAWN_FILLED_F
 DEF WILD_SPAWN_RADIUS EQU $22 ; wander radius: 2 steps each way
 
-DEF WILD_SPAWN_NOTICE_RANGE EQU 3 ; skittish: steps
+; WildSpawnBrain ranges, in steps from the player (Bold: +2, Timid: -1)
+DEF WILD_SPAWN_NOTICE_RANGE EQU 3 ; skittish
 DEF WILD_SPAWN_NOTICE_RANGE_FAST EQU 5 ; skittish, when the player runs or bikes
-DEF WILD_SPAWN_SIGHT_RANGE EQU 4 ; aggressive: steps in a straight line
-DEF WILD_SPAWN_ZZZ_RANGE EQU 4 ; sleepy: steps from the player that show its "Zzz" once
-DEF WILD_SPAWN_ZZZ_FRAMES EQU 90
+DEF WILD_SPAWN_SIGHT_RANGE EQU 4 ; aggressive: in front of it
+DEF WILD_SPAWN_CURIOUS_RANGE EQU 4 ; curious
+DEF WILD_SPAWN_TERRITORY EQU 2 ; territorial: from its home
+DEF WILD_SPAWN_MIMIC_RANGE EQU 4 ; mimic
+DEF WILD_SPAWN_DASH_RANGE EQU 3 ; hit and run
+DEF WILD_SPAWN_HIDE_RANGE EQU 2 ; hider
+DEF WILD_SPAWN_TELEPORT_RANGE EQU 3 ; teleporter
+DEF WILD_SPAWN_BURROW_RANGE EQU 2 ; burrower
+; fixed ranges
+DEF WILD_SPAWN_GIVE_UP_RANGE EQU 6 ; a chase ends past this
+DEF WILD_SPAWN_LEASH EQU 3 ; territorial: goes home when the player is past this from it
+DEF WILD_SPAWN_PACE EQU 2 ; pacer: steps each way from its spot
+DEF WILD_SPAWN_BURROW_DISTANCE EQU 5 ; burrower: comes up at most this far away
+DEF WILD_SPAWN_BURROW_TRIES EQU 16
+DEF WILD_SPAWN_ZZZ_RANGE EQU 4 ; sleepy: shows its "Zzz" once
+DEF WILD_SPAWN_EMOTE_FRAMES EQU 90
 
 SpawnWildMons::
 	call InitStaticWanderers
 	xor a
-	ld [wSpawnZzzRequest], a
-	ld [wSpawnZzzObject], a
+	ld [wSpawnSpotCount], a
+	ld [wSpawnSpotCount + 1], a
+	ld [wSpawnEmoteRequest], a
+	ld [wSpawnEmoteObject], a
+	ld [wWildSpawnMove], a
 	ld [wWildSpawnBattle], a
 	ld [wWildSpawnTouched], a
 	ld [wWildSpawnSpotted], a
@@ -100,15 +117,14 @@ InitStaticWanderers:
 	push bc
 	call GetPokemonIDFromIndex
 	ld [wTempWildMonSpecies], a
-	call GetSpawnTemperament
 	pop bc
 	ld hl, MAPOBJECT_SPAWN_STATE
 	add hl, bc
-	ld [hld], a
-	push hl
+	call SetSpawnBehavior
 	call StaticWandererLevel
-	pop hl
-	ld [hl], a ; MAPOBJECT_SPAWN_LEVEL
+	ld hl, MAPOBJECT_SPAWN_LEVEL
+	add hl, bc
+	ld [hl], a
 .next
 	pop af
 	inc a
@@ -1155,8 +1171,7 @@ PlaceWildSpawn:
 	ld [hli], a
 	ld a, [wCurPartyLevel]
 	ld [hli], a ; MAPOBJECT_SPAWN_LEVEL
-	call GetSpawnTemperament
-	ld [hl], a ; MAPOBJECT_SPAWN_STATE
+	call SetSpawnBehavior
 	assert MAPOBJECT_SPAWN_STATE + 1 == MAPOBJECT_LENGTH
 ; visible
 	ld a, [wWildSpawnSlot]
@@ -1167,50 +1182,46 @@ PlaceWildSpawn:
 	ld [hl], 0
 	ret
 
-GetSpawnTemperament:
-; a = the temperament of wTempWildMonSpecies, from one of its types (at random)
+SetSpawnBehavior:
+; Give the spawn of wTempWildMonSpecies whose MAPOBJECT_SPAWN_STATE is at hl
+; one of its two behaviors (at random) and its modifiers. Nocturnal ones are
+; sleepy in the morning and day, diurnal ones in the evening and at night.
+	push bc
 	push hl
 	ld a, [wTempWildMonSpecies]
-	ld [wCurSpecies], a
-	call GetBaseData
+	call GetPokemonIndexFromID
+	add hl, hl
+	ld de, OverworldBehaviors
+	add hl, de
+	ld a, BANK(OverworldBehaviors)
+	call GetFarWord ; l = behaviors, h = modifiers
+	ld d, h
 	call Random
 	rrca
-	ld a, [wBaseType1]
-	jr nc, .got_type
-	ld a, [wBaseType2]
-.got_type
+	ld a, l
+	jr nc, .first
+	swap a
+.first
+	and WILDSPAWN_BEHAVIOR_MASK
 	ld e, a
-	ld d, 0
-	ld hl, SpawnTemperaments
-	add hl, de
-	ld a, [hl]
+	ld a, [wTimeOfDay]
+	cp EVE_F
+	ld a, OW_NOCTURNAL
+	jr c, .got_asleep
+	ld a, OW_DIURNAL
+.got_asleep
+	and d
+	jr z, .awake
+	ld e, OW_SLEEPY
+.awake
 	pop hl
+	ld [hl], e
+	ld a, d
+	ld de, MAPOBJECT_SPAWN_MODS - MAPOBJECT_SPAWN_STATE
+	add hl, de
+	ld [hl], a
+	pop bc
 	ret
-
-SpawnTemperaments:
-; indexed by type
-	table_width 1
-	db WILDSPAWN_WANDERER   ; NORMAL
-	db WILDSPAWN_AGGRESSIVE ; FIGHTING
-	db WILDSPAWN_SKITTISH   ; FLYING
-	db WILDSPAWN_WANDERER   ; POISON
-	db WILDSPAWN_WANDERER   ; GROUND
-	db WILDSPAWN_SLEEPY     ; ROCK
-	db WILDSPAWN_WANDERER   ; BIRD
-	db WILDSPAWN_WANDERER   ; BUG
-	db WILDSPAWN_AGGRESSIVE ; GHOST
-	db WILDSPAWN_SLEEPY     ; STEEL
-	ds UNUSED_TYPES_END - UNUSED_TYPES, WILDSPAWN_WANDERER
-	db WILDSPAWN_AGGRESSIVE ; FIRE
-	db WILDSPAWN_WANDERER   ; WATER
-	db WILDSPAWN_WANDERER   ; GRASS
-	db WILDSPAWN_SKITTISH   ; ELECTRIC
-	db WILDSPAWN_SKITTISH   ; PSYCHIC_TYPE
-	db WILDSPAWN_WANDERER   ; ICE
-	db WILDSPAWN_AGGRESSIVE ; DRAGON
-	db WILDSPAWN_AGGRESSIVE ; DARK
-	db WILDSPAWN_SKITTISH   ; FAIRY
-	assert_table_length TYPES_END
 
 ClearWildSpawns::
 ; Continue: the saved map objects may hold spawns of a map visit that's over
@@ -1289,21 +1300,21 @@ WildSpawnBumpCheck::
 	ld [wWildSpawnTouched], a
 	ret
 
-WildSpawnZzz:
-; Show the "Zzz" a sleepy spawn asked for (wSpawnZzzRequest) over it, or take
-; one away when its time is up.
-	ld a, [wSpawnZzzObject]
+WildSpawnEmote:
+; Show the emote a spawn asked for (wSpawnEmoteRequest, wSpawnEmoteKind) over
+; it, or take one away when its time is up.
+	ld a, [wSpawnEmoteObject]
 	and a
 	jr z, .request
-	ld hl, wSpawnZzzTimer
+	ld hl, wSpawnEmoteTimer
 	dec [hl]
 	ret nz
 	xor a
-	ld [wSpawnZzzObject], a
+	ld [wSpawnEmoteObject], a
 	farjp DeleteEmoteObjects
 
 .request
-	ld hl, wSpawnZzzRequest
+	ld hl, wSpawnEmoteRequest
 	ld a, [hl]
 	and a
 	ret z
@@ -1317,10 +1328,6 @@ WildSpawnZzz:
 	ld a, [hl]
 	and a
 	ret z
-	ld hl, MAPOBJECT_SPAWN_STATE
-	add hl, bc
-	bit WILDSPAWN_AWAKE_F, [hl]
-	ret nz
 	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
 	add hl, bc
 	ld a, [hl]
@@ -1333,26 +1340,28 @@ WildSpawnZzz:
 	ldh a, [hMapObjectIndex]
 	push af
 	ld a, e
-	ld [wSpawnZzzObject], a
+	ld [wSpawnEmoteObject], a
 	ld a, d ; the emote tracks this object struct
 	ldh [hMapObjectIndex], a
 	push bc
-	ld c, EMOTE_SLEEP
+	ld a, [wSpawnEmoteKind]
+	ld c, a
 	farcall LoadEmote
 	pop bc
 	farcall SpawnEmoteObject
 	pop af
 	ldh [hMapObjectIndex], a
-	ld a, WILD_SPAWN_ZZZ_FRAMES
-	ld [wSpawnZzzTimer], a
+	ld a, WILD_SPAWN_EMOTE_FRAMES
+	ld [wSpawnEmoteTimer], a
 	ret
 
 CheckWildSpawnTouch::
 ; PlayerEvents: start the battle with a spawn the player walked into (or that
-; walked into the player), or show the "!" of one that spotted the player.
-; Returns carry and a = PLAYEREVENT_MAPSCRIPT if it does. Also shows or takes
-; away a sleepy spawn's "Zzz".
-	call WildSpawnZzz
+; walked into the player), show the "!" of one that spotted the player, or
+; move a teleporter or burrower to a new spot. Returns carry and
+; a = PLAYEREVENT_MAPSCRIPT if it does. Also shows or takes away a spawn's
+; emote.
+	call WildSpawnEmote
 	ld hl, wWildSpawnTouched
 	ld a, [hl]
 	and a
@@ -1383,16 +1392,100 @@ CheckWildSpawnTouch::
 	ld hl, wWildSpawnSpotted
 	ld a, [hl]
 	and a
-	ret z ; nc
+	jr z, .move
 	ld [hl], 0
 	ldh [hLastTalked], a
 	ld a, BANK(WildSpawnSpottedScript)
 	ld hl, WildSpawnSpottedScript
 	jmp CallScript
 
+.move
+	ld hl, wWildSpawnMove
+	ld a, [hl]
+	and a
+	ret z ; nc
+	ld [hl], 0
+	ldh [hLastTalked], a
+	ld a, BANK(WildSpawnMoveScript)
+	ld hl, WildSpawnMoveScript
+	jmp CallScript
+
 WildSpawnSpottedScript:
 	showemote EMOTE_SHOCK, LAST_TALKED, 15
 	end
+
+WildSpawnMoveScript:
+	disappear LAST_TALKED
+	callasm WildSpawnNewSpot
+	appear LAST_TALKED
+	end
+
+WildSpawnNewSpot:
+; Move spawn hLastTalked to a new spot: anywhere for a teleporter, nearby for
+; a burrower (or nowhere, if there's no free spot).
+	ldh a, [hLastTalked]
+	call GetMapObject
+	ld a, WILD_SPAWN_MIN_DISTANCE
+	ld [wWildSpawnMinDistance], a
+	ld hl, MAPOBJECT_SPAWN_STATE
+	add hl, bc
+	ld a, [hl]
+	and WILDSPAWN_BEHAVIOR_MASK
+	cp OW_BURROWER
+	jr z, .burrow
+	ld de, SFX_WARP_TO
+	call PlaySFX
+	push bc
+	call FindSpawnSpot
+	pop bc
+	ret c
+	jr .write
+
+.burrow
+	ld de, SFX_SANDSTORM
+	call PlaySFX
+	ld a, WILD_SPAWN_BURROW_TRIES
+.try
+	push af
+	push bc
+	call FindSpawnSpot
+	pop bc
+	jr c, .next
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, bc
+	ld a, [hli]
+	sub e
+	call .Near
+	jr nc, .next
+	ld a, [hl] ; MAPOBJECT_X_COORD
+	sub d
+	call .Near
+	jr c, .found
+.next
+	pop af
+	dec a
+	jr nz, .try
+	ret
+
+.found
+	pop af
+.write
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, bc
+	ld [hl], e
+	inc hl
+	ld [hl], d ; MAPOBJECT_X_COORD
+	ret
+
+.Near:
+; c if |a| <= WILD_SPAWN_BURROW_DISTANCE
+	bit 7, a
+	jr z, .positive
+	cpl
+	inc a
+.positive
+	cp WILD_SPAWN_BURROW_DISTANCE + 1
+	ret
 
 WildSpawnScript::
 	faceplayer
@@ -1447,9 +1540,11 @@ WildSpawnRemoveLastTalked:
 	jp RemoveWildSpawn
 
 WildSpawnBrain::
-; Object struct bc, a spawn, decides its next move. Returns a = a direction
-; to step (DOWN, UP, LEFT, RIGHT: 0-3), WILDSPAWN_WAIT_SLOW or
-; WILDSPAWN_WAIT_FAST. Walking into the player sets wWildSpawnTouched.
+; Object struct bc, a spawn, decides its next move by its behavior and
+; modifiers. Returns a = a direction to step (DOWN, UP, LEFT, RIGHT: 0-3) plus
+; its speed (STEP_* << 2), and WILDSPAWN_NO_DETOUR_F to not try sideways; or
+; WILDSPAWN_WAIT_SLOW or WILDSPAWN_WAIT_FAST. Walking into the player sets
+; wWildSpawnTouched.
 	push bc
 	call .Think
 	pop bc
@@ -1463,6 +1558,7 @@ WildSpawnBrain::
 	ld a, [hl]
 	ld [wWildSpawnBrainObject], a
 	call GetMapObject ; bc = map object
+	call .Stuck
 ; the map object keeps its position, so it comes back there when it scrolls
 ; into view again
 	ld hl, OBJECT_MAP_X
@@ -1485,87 +1581,131 @@ WildSpawnBrain::
 	ld a, [wPlayerMapX]
 	sub h
 	ld [wWildSpawnDX], a
-	ld hl, MAPOBJECT_SPAWN_STATE
-	add hl, bc
+	call .Behave
+	cp WILDSPAWN_WAIT_SLOW
+	ret nc
+; Speedy: one speed faster; Sluggish: half its steps are pauses instead
+	ld l, a
+	call .Mods
+	bit OW_SPEEDY_F, a
+	jr z, .not_speedy
+	ld a, l
+	and %1100
+	cp STEP_BIKE << 2
+	ld a, l
+	ret z
+	add 1 << 2
+	ret
+
+.not_speedy
+	bit OW_SLUGGISH_F, a
+	ld a, l
+	ret z
+	call Random
+	rrca
+	ld a, l
+	ret nc
+	and %1100
+	ld a, WILDSPAWN_WAIT_SLOW
+	ret z
+	inc a ; WILDSPAWN_WAIT_FAST
+	ret
+
+.Behave:
+	call .State
 	ld a, [hl]
-	and WILDSPAWN_TEMPERAMENT_MASK
-	cp WILDSPAWN_SKITTISH
-	jr z, .skittish
-	cp WILDSPAWN_AGGRESSIVE
-	jp z, .aggressive
-	cp WILDSPAWN_SLEEPY
-	jr nz, .wander
-; sleepy: still until the player is next to it; once, its "Zzz" when the
-; player comes near
-	bit WILDSPAWN_AWAKE_F, [hl]
+	and WILDSPAWN_BEHAVIOR_MASK
+	cp NUM_OW_BEHAVIORS
+	jr c, .known
+	xor a ; OW_WANDERER
+.known
+	ld hl, .Behaviors
+	jmp JumpTable
+
+.Behaviors:
+	table_width 2
+	dw .wander      ; OW_WANDERER
+	dw .skittish    ; OW_SKITTISH
+	dw .aggressive  ; OW_AGGRESSIVE
+	dw .sleepy      ; OW_SLEEPY
+	dw .curious     ; OW_CURIOUS
+	dw .territorial ; OW_TERRITORIAL
+	dw .pacer       ; OW_PACER
+	dw .lazy        ; OW_LAZY
+	dw .mimic       ; OW_MIMIC
+	dw .hit_and_run ; OW_HIT_AND_RUN
+	dw .hider       ; OW_HIDER
+	dw .teleporter  ; OW_TELEPORTER
+	dw .burrower    ; OW_BURROWER
+	assert_table_length NUM_OW_BEHAVIORS
+
+.wander:
+; a random step
+	call Random
+	and %11
+.StepOrTouch:
+; a step in direction a; one into the player starts the battle
+	ld l, a
+	call .Adjacent
+	ld a, l
+	ret nz
+	call .ExactDirectionToPlayer
+	cp l
+	ld a, l
+	ret nz
+	jp .Touch
+
+.sleepy:
+; still until the player is next to it, then a wanderer; once, its "Zzz"
+; when the player comes near
+	call .State
+	bit WILDSPAWN_ACTIVE_F, [hl]
 	jr nz, .wander
 	call .Distance
 	cp 2
 	jr c, .wake
 	cp WILD_SPAWN_ZZZ_RANGE + 1
 	jr nc, .doze
-	bit WILDSPAWN_ZZZ_F, [hl]
+	bit WILDSPAWN_ONCE_F, [hl]
 	jr nz, .doze
-	ld a, [wSpawnZzzObject]
+	ld a, [wSpawnEmoteObject]
 	and a
 	jr nz, .doze
-	set WILDSPAWN_ZZZ_F, [hl]
-	ld a, [wWildSpawnBrainObject]
-	ld [wSpawnZzzRequest], a
+	set WILDSPAWN_ONCE_F, [hl]
+	ld a, EMOTE_SLEEP
+	call .Emote
 .doze
 	ld a, WILDSPAWN_WAIT_SLOW
 	ret
 
 .wake
-	set WILDSPAWN_AWAKE_F, [hl]
+	set WILDSPAWN_ACTIVE_F, [hl]
 ; its "Zzz" goes away
 	ld a, [wWildSpawnBrainObject]
-	push hl
-	ld hl, wSpawnZzzObject
+	ld hl, wSpawnEmoteObject
 	cp [hl]
-	pop hl
-	jr nz, .no_zzz
+	jr nz, .Watch
 	ld a, 1
-	ld [wSpawnZzzTimer], a
-.no_zzz
+	ld [wSpawnEmoteTimer], a
+.Watch:
+; face the player and wait a moment
 	call .FacePlayer
 	ld a, WILDSPAWN_WAIT_FAST
 	ret
 
-.wander
-; a random step; one into the player starts the battle
-	call Random
-	and %11
-	push af
-	call .Adjacent
-	jr nz, .no_touch
-	call .ExactDirectionToPlayer
-	ld b, a
-	pop af
-	cp b
-	jr nz, .random_step
-	jp .Touch
-
-.no_touch
-	pop af
-.random_step
-	ret
-
-.skittish
+.skittish:
 ; flee from the player within its notice range
-	ld b, WILD_SPAWN_NOTICE_RANGE
 	ld a, [wPlayerState]
 	cp PLAYER_BIKE
 	jr z, .fast
 	ldh a, [hJoyDown]
 	bit B_BUTTON_F, a
+	ld a, WILD_SPAWN_NOTICE_RANGE
 	jr z, .got_range
 .fast
-	ld b, WILD_SPAWN_NOTICE_RANGE_FAST
+	ld a, WILD_SPAWN_NOTICE_RANGE_FAST
 .got_range
-	call .Distance
-	cp b
-	jr z, .flee
+	call .Within
 	jr nc, .wander
 .flee
 ; away along the longer axis, or along the other one (sideways when the
@@ -1573,10 +1713,10 @@ WildSpawnBrain::
 	call .Unbound
 	call .ExactDirectionToPlayer
 	xor 1 ; away (DOWN <-> UP, LEFT <-> RIGHT)
-	ld b, a
+	ld l, a
 	call Random
 	cp 60 percent
-	ld a, b
+	ld a, l
 	jr c, .flee_done
 	ld a, [wWildSpawnDX]
 	and a
@@ -1585,7 +1725,7 @@ WildSpawnBrain::
 	and a
 	jr z, .flee_sideways
 ; away along the other axis
-	bit 1, b
+	bit 1, l
 	jr nz, .flee_vertical ; the longer axis was horizontal
 	ld a, [wWildSpawnDX]
 	bit 7, a
@@ -1605,71 +1745,350 @@ WildSpawnBrain::
 	call Random
 	and 1
 	add 2
-	xor b
+	xor l
 .flee_done
 	set WILDSPAWN_NO_DETOUR_F, a
 	ret
 
-.aggressive
-	bit WILDSPAWN_CHARGING_F, [hl]
-	jr nz, .charge
-; does it see the player? In a straight line, facing them, within range
-	ld a, [wWildSpawnDX]
-	and a
-	jr z, .in_line
-	ld a, [wWildSpawnDY]
-	and a
-	jp nz, .wander
-.in_line
-	call .Distance
-	and a
-	jp z, .wander
-	cp WILD_SPAWN_SIGHT_RANGE + 1
+.aggressive:
+; sees the player in front of it (within 45 degrees), then gives chase
+	call .State
+	bit WILDSPAWN_ACTIVE_F, [hl]
+	jr nz, .chase
+	ld a, WILD_SPAWN_SIGHT_RANGE
+	call .Within
 	jp nc, .wander
-	push hl
-	push bc
-	ld hl, OBJECT_DIRECTION
-	add hl, de
-	ld a, [hl]
-	rrca
-	rrca
-	and %11
-	ld b, a
-	call .ExactDirectionToPlayer
-	cp b
-	pop bc
-	pop hl
+	call .Facing
 	jp nz, .wander
-; with a Repel, weaker ones than the lead don't charge
-	ld a, [wRepelEffect]
-	and a
-	jr z, .spotted
-	push hl
-	ld hl, MAPOBJECT_SPAWN_LEVEL
-	add hl, bc
-	ld a, [wPartyMon1Level]
-	cp [hl]
-	pop hl
-	jr z, .spotted
-	jp nc, .wander
-.spotted
-	set WILDSPAWN_CHARGING_F, [hl]
+	call .Repelled
+	jp c, .wander
+.Notice:
+; it reacts to the player: its "!", and it leaves its wander radius
+	set WILDSPAWN_ACTIVE_F, [hl]
+	call .Unbound
 	ld a, [wWildSpawnBrainObject]
 	ld [wWildSpawnSpotted], a
+	jp .Watch
+
+.chase
+; toward the player, until they get far enough away
+	call .Distance
+	cp WILD_SPAWN_GIVE_UP_RANGE + 1
+	jr nc, .GiveUp
+.ChaseStep:
+	call .Adjacent
+	jp z, .Touch
+	call .DirectionToPlayer
+	or STEP_WALK << 2
+	ret
+
+.GiveUp:
+	res WILDSPAWN_ACTIVE_F, [hl]
+	res WILDSPAWN_ALT_F, [hl]
+	call .Rebind
+	ld a, WILDSPAWN_WAIT_SLOW
+	ret
+
+.curious:
+; comes over to look at the player, keeping a step away; now and then it
+; comes all the way and starts the battle
+	call .State
+	bit WILDSPAWN_ACTIVE_F, [hl]
+	jr nz, .curious_active
+	ld a, WILD_SPAWN_CURIOUS_RANGE
+	call .Within
+	jp nc, .wander
+	set WILDSPAWN_ACTIVE_F, [hl]
+	call .Unbound
+	call Random
+	cp 17 percent
+	jr nc, .look
+	call .Repelled
+	jr c, .look
+	set WILDSPAWN_ALT_F, [hl]
+.look
+	bit WILDSPAWN_ONCE_F, [hl]
+	jp nz, .Watch
+	set WILDSPAWN_ONCE_F, [hl]
+	ld a, EMOTE_QUESTION
+	call .Emote
+	jp .Watch
+
+.curious_active
+	call .Distance
+	cp WILD_SPAWN_GIVE_UP_RANGE + 1
+	jr nc, .GiveUp
+	bit WILDSPAWN_ALT_F, [hl]
+	jr nz, .approach
+	cp 2
+	jr c, .back_off
+	jp z, .Watch
+	jp .DirectionToPlayer
+
+.approach
+	call .Adjacent
+	jp z, .Touch
+	jp .DirectionToPlayer
+
+.back_off
+	call .ExactDirectionToPlayer
+	xor 1
+	set WILDSPAWN_NO_DETOUR_F, a
+	ret
+
+.territorial:
+; chases the player out of the area around its home (where it was placed),
+; then goes back there
+	call .State
+	ld a, WILD_SPAWN_TERRITORY
+	call .Range
+	inc a
+	push hl
+	ld l, a
+	call .HomeDistance
+	cp l
+	pop hl
+	jr nc, .outside
+	res WILDSPAWN_ALT_F, [hl]
+	bit WILDSPAWN_ACTIVE_F, [hl]
+	jp nz, .ChaseStep
+	call .Repelled
+	jp c, .wander
+	jp .Notice
+
+.outside
+	bit WILDSPAWN_ACTIVE_F, [hl]
+	jp z, .wander
+	bit WILDSPAWN_ALT_F, [hl]
+	jr nz, .go_home
+	cp WILD_SPAWN_LEASH + 1
+	jp c, .ChaseStep
+	set WILDSPAWN_ALT_F, [hl]
+.go_home
+	call .HomeDirection
+	ret nc
+; home
+	call .State
+	jp .GiveUp
+
+.pacer:
+; back and forth along the way it faces, a few steps each way from its spot
+; (and back now and then); when it can't step, back the other way, and when
+; it can't go either way, sideways
+	call .State
+	bit WILDSPAWN_ALT2_F, [hl]
+	jr z, .pace_free
+	bit WILDSPAWN_ALT_F, [hl]
+	set WILDSPAWN_ALT_F, [hl]
+	ld a, 1 ; back
+	jr z, .pace_turn
+	res WILDSPAWN_ALT_F, [hl]
+	call Random
+	and 1
+	add 2 ; sideways
+.pace_turn
+	push af
+	call .FacingDirection
+	pop hl
+	xor h
+	jr .pace_go
+
+.pace_free
+	res WILDSPAWN_ALT_F, [hl]
+	push bc
+	call .FacingDirection
+	ld b, a
+	call Random
+	cp 15 percent
+	jr c, .turn_back
+	ld hl, OBJECT_MAP_X
+	add hl, de
+	ld a, [hli]
+	ld c, [hl] ; OBJECT_MAP_Y
+	ld hl, OBJECT_INIT_X
+	add hl, de
+	bit 1, b
+	jr nz, .got_axis ; LEFT or RIGHT
+	inc hl ; OBJECT_INIT_Y
+	ld a, c
+.got_axis
+	sub [hl]
+	ld c, a ; steps from its spot, + right or down
+	ld a, b
+	and a ; DOWN
+	jr z, .got_ahead
+	cp RIGHT
+	jr z, .got_ahead
+	xor a
+	sub c
+	ld c, a
+.got_ahead
+	bit 7, c
+	jr nz, .pace
+	ld a, c
+	cp WILD_SPAWN_PACE
+	jr c, .pace
+.turn_back
+	ld a, b
+	xor 1
+	ld b, a
+.pace
+	ld a, b
+	pop bc
+.pace_go
+	call .StepOrTouch
+	cp WILDSPAWN_WAIT_SLOW
+	ret nc
+	set WILDSPAWN_NO_DETOUR_F, a
+	ret
+
+.lazy:
+; mostly lies around, turning now and then; rarely a step
+	call Random
+	cp 12 percent
+	jp c, .wander
+	cp 40 percent
+	ld a, WILDSPAWN_WAIT_SLOW
+	ret nc
+	call Random
+	and %1100
+	ld hl, OBJECT_DIRECTION
+	add hl, de
+	ld [hl], a
+	ld a, WILDSPAWN_WAIT_SLOW
+	ret
+
+.mimic:
+; copies the player's steps when near
+	ld a, WILD_SPAWN_MIMIC_RANGE
+	call .Within
+	jr nc, .mimic_away
+	call .Unbound
+	ld a, [wPlayerStruct + OBJECT_WALKING]
+	cp STANDING
+	jp z, .Watch
+	and %11
+	or (STEP_WALK << 2) | (1 << WILDSPAWN_NO_DETOUR_F)
+	ret
+
+.mimic_away
+	ld hl, OBJECT_RADIUS
+	add hl, de
+	ld a, [hl]
+	and a
+	call z, .Rebind
+	jp .wander
+
+.hit_and_run:
+; dashes at the player, then backs off; a third of the time it starts the
+; battle instead
+	call .State
+	bit WILDSPAWN_ACTIVE_F, [hl]
+	jr nz, .hit_active
+	ld a, WILD_SPAWN_DASH_RANGE
+	call .Within
+	jp nc, .wander
+	call .Repelled
+	jp c, .wander
+	set WILDSPAWN_ACTIVE_F, [hl]
+	call .Unbound
+	jp .Watch
+
+.hit_active
+	call .Distance
+	cp WILD_SPAWN_GIVE_UP_RANGE + 1
+	jp nc, .GiveUp
+	bit WILDSPAWN_ALT_F, [hl]
+	jr nz, .retreat
+	call .Adjacent
+	jr nz, .dash
+	call Random
+	cp 33 percent
+	jp c, .Touch
+	set WILDSPAWN_ALT_F, [hl]
+	jp .Watch
+
+.dash
+	call .DirectionToPlayer
+	or STEP_RUN << 2
+	ret
+
+.retreat
+	cp WILD_SPAWN_DASH_RANGE + 1
+	jr c, .retreat_step
+	res WILDSPAWN_ALT_F, [hl]
+	jp .Watch
+
+.retreat_step
+	call .ExactDirectionToPlayer
+	xor 1
+	or STEP_WALK << 2
+	ret
+
+.hider:
+; unseen until the player comes close; then it flees or gives chase
+	call .State
+	bit WILDSPAWN_ACTIVE_F, [hl]
+	jr nz, .revealed
+	ld a, WILD_SPAWN_HIDE_RANGE
+	call .Within
+	jr c, .reveal
+	ld hl, OBJECT_FLAGS1
+	add hl, de
+	set INVISIBLE_F, [hl]
 	ld a, WILDSPAWN_WAIT_FAST
 	ret
 
-.charge
-	call .Adjacent
-	jr z, .touch_now
-	call .Unbound
-	jr .DirectionToPlayer
+.reveal
+	call Random
+	rrca
+	jr c, .reveal_flee
+	call .Repelled
+	jr nc, .shown
+.reveal_flee
+	set WILDSPAWN_ALT_F, [hl]
+.shown
+	push hl
+	ld hl, OBJECT_FLAGS1
+	add hl, de
+	res INVISIBLE_F, [hl]
+	pop hl
+	jp .Notice
 
-.touch_now
+.revealed
+	bit WILDSPAWN_ALT_F, [hl]
+	jp nz, .flee
+	jp .chase
+
+.burrower:
+; burrows away once when the player comes close, coming up nearby
+	ld a, WILD_SPAWN_BURROW_RANGE
+	jr .move_away
+
+.teleporter:
+; teleports away once when the player comes close
+	ld a, WILD_SPAWN_TELEPORT_RANGE
+.move_away
+	call .Within
+	jp nc, .wander
+	call .State
+	bit WILDSPAWN_ONCE_F, [hl]
+	jp nz, .wander
+	ld a, [wWildSpawnMove]
+	and a
+	jp nz, .wander
+	set WILDSPAWN_ONCE_F, [hl]
+	ld a, [wWildSpawnBrainObject]
+	ld [wWildSpawnMove], a
+	jp .Watch
 
 .Touch:
-; walk into the player: the battle starts (once the player stands still)
+; walk into the player: the battle starts (once the player stands still);
+; Timid ones don't
 	call .FacePlayer
+	call .Mods
+	bit OW_TIMID_F, a
+	jr nz, .wait
 	ld hl, wPlayerStruct + OBJECT_WALKING
 	ld a, [hl]
 	cp STANDING
@@ -1681,6 +2100,210 @@ WildSpawnBrain::
 	ld [wWildSpawnTouched], a
 .wait
 	ld a, WILDSPAWN_WAIT_FAST
+	ret
+
+.State:
+; hl = its MAPOBJECT_SPAWN_STATE
+	ld hl, MAPOBJECT_SPAWN_STATE
+	add hl, bc
+	ret
+
+.Mods:
+; a = its modifiers
+	push hl
+	ld hl, MAPOBJECT_SPAWN_MODS
+	add hl, bc
+	ld a, [hl]
+	pop hl
+	ret
+
+.Range:
+; a = range a, for its modifiers
+	push hl
+	ld l, a
+	call .Mods
+	bit OW_BOLD_F, a
+	jr z, .not_bold
+	inc l
+	inc l
+.not_bold
+	bit OW_TIMID_F, a
+	jr z, .not_timid
+	dec l
+.not_timid
+	ld a, l
+	pop hl
+	ret
+
+.Within:
+; c if the player is within range a (for its modifiers)
+	call .Range
+	push hl
+	inc a
+	ld l, a
+	call .Distance
+	cp l
+	pop hl
+	ret
+
+.Repelled:
+; c if a Repel keeps it from starting a battle: it's weaker than the lead,
+; and not Bold
+	ld a, [wRepelEffect]
+	and a
+	ret z
+	call .Mods
+	and OW_BOLD
+	ret nz
+	push hl
+	ld hl, MAPOBJECT_SPAWN_LEVEL
+	add hl, bc
+	ld a, [wPartyMon1Level]
+	dec a
+	cp [hl] ; nc if the lead is stronger
+	ccf
+	pop hl
+	ret
+
+.Facing:
+; z if the player is in front of it (within 45 degrees)
+	push bc
+	call .FacingDirection
+	ld b, a
+	call .ExactDirectionToPlayer
+	cp b
+	pop bc
+	ret
+
+.FacingDirection:
+; a = the direction it faces
+	push hl
+	ld hl, OBJECT_DIRECTION
+	add hl, de
+	ld a, [hl]
+	rrca
+	rrca
+	and %11
+	pop hl
+	ret
+
+.Stuck:
+; WILDSPAWN_ALT2_F: it hasn't moved since it last decided (its map object
+; still has its position)
+	ld hl, OBJECT_MAP_X
+	add hl, de
+	ld a, [hli]
+	push hl
+	ld hl, MAPOBJECT_X_COORD
+	add hl, bc
+	cp [hl]
+	pop hl
+	jr nz, .moved
+	ld a, [hl] ; OBJECT_MAP_Y
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, bc
+	cp [hl]
+	jr nz, .moved
+	call .State
+	set WILDSPAWN_ALT2_F, [hl]
+	ret
+
+.moved
+	call .State
+	res WILDSPAWN_ALT2_F, [hl]
+	ret
+
+.Emote:
+; ask for emote a over it (WildSpawnEmote)
+	ld [wSpawnEmoteKind], a
+	ld a, [wWildSpawnBrainObject]
+	ld [wSpawnEmoteRequest], a
+	ret
+
+.HomeDistance:
+; a = how far the player is from its home (OBJECT_INIT_X, OBJECT_INIT_Y)
+	push hl
+	push bc
+	ld hl, OBJECT_INIT_X
+	add hl, de
+	ld a, [wPlayerMapX]
+	sub [hl]
+	call .Abs
+	ld b, a
+	inc hl ; OBJECT_INIT_Y
+	ld a, [wPlayerMapY]
+	sub [hl]
+	call .Abs
+	cp b
+	jr nc, .got_home_distance
+	ld a, b
+.got_home_distance
+	pop bc
+	pop hl
+	ret
+
+.HomeDirection:
+; a = the direction toward its home, or carry if it's there
+	push bc
+	ld hl, OBJECT_MAP_X
+	add hl, de
+	ld a, [hli]
+	ld c, [hl] ; OBJECT_MAP_Y
+	ld hl, OBJECT_INIT_X
+	add hl, de
+	ld b, a
+	ld a, [hli]
+	sub b
+	ld b, a ; home x - x
+	ld a, [hl] ; OBJECT_INIT_Y
+	sub c
+	ld c, a ; home y - y
+	or b
+	scf
+	jr z, .home_done
+	ld a, b
+	call .Abs
+	ld h, a
+	ld a, c
+	call .Abs
+	cp h
+	jr c, .home_x
+	bit 7, c
+	ld a, DOWN
+	jr z, .home_done_nc
+	ld a, UP
+	jr .home_done_nc
+.home_x
+	bit 7, b
+	ld a, RIGHT
+	jr z, .home_done_nc
+	ld a, LEFT
+.home_done_nc
+	and a
+.home_done
+	pop bc
+	ret
+
+.Rebind:
+; it wanders around the spot it's on again
+	push hl
+	ld hl, OBJECT_MAP_X
+	add hl, de
+	ld a, [hli]
+	push af
+	ld a, [hl] ; OBJECT_MAP_Y
+	ld hl, OBJECT_INIT_Y
+	add hl, de
+	ld [hld], a
+	pop af
+	ld [hl], a ; OBJECT_INIT_X
+	ld hl, OBJECT_RADIUS
+	add hl, de
+	ld [hl], WILD_SPAWN_RADIUS
+	ld hl, OBJECT_FLAGS1
+	add hl, de
+	res MOVE_ANYWHERE_F, [hl]
+	pop hl
 	ret
 
 .FacePlayer:

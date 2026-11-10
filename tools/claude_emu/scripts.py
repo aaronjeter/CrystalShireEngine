@@ -1,4 +1,4 @@
-import subprocess, os, tempfile
+import shutil, subprocess, os, tempfile
 CSE = os.environ.get("CSE", "/root/cse")
 RGB = "/root/rgbds"
 BASE = 0x0063  # free ROM0 header gap ($0063-$00ff); scripts go up to BASE_END, battle_test's RNG after it
@@ -13,6 +13,7 @@ def assemble(body, org):
     subprocess.run([f"{RGB}/rgbasm", "-Q8", "-P", "includes.asm", "-o", o, a], cwd=CSE, check=True)
     subprocess.run([f"{RGB}/rgblink", "-x", "-o", b, o], cwd=CSE, check=True)
     data = open(b, "rb").read()
+    shutil.rmtree(d)
     return data[org:]
 
 

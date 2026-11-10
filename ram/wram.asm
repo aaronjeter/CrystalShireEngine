@@ -3409,11 +3409,13 @@ wFollowerOBPal:: ds 1 palettes ; built by BuildFollowerOBPal for CopySpritePal
 wMonOBPalColors:: ds 2 * PAL_COLOR_SIZE ; light, dark for BuildMonOBPal
 
 
-SECTION "Wild Spawn Zzz", WRAM0
+SECTION "Wild Spawn Emotes", WRAM0
 
-wSpawnZzzRequest:: db ; the map object of a sleepy spawn whose "Zzz" should show (WildSpawnZzz), or 0
-wSpawnZzzObject:: db ; the map object showing a "Zzz", or 0
-wSpawnZzzTimer:: db ; frames until the "Zzz" goes away
+wSpawnEmoteRequest:: db ; the map object of a spawn whose emote should show (WildSpawnEmote), or 0
+wSpawnEmoteKind:: db ; ...and the emote (EMOTE_*)
+wSpawnEmoteObject:: db ; the map object showing an emote, or 0
+wSpawnEmoteTimer:: db ; frames until the emote goes away
+wWildSpawnMove:: db ; the map object of a teleporter or burrower moving to a new spot, or 0
 
 
 SECTION "Overworld Weather RAM", WRAMX, BANK[1]

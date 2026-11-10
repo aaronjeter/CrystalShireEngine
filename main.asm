@@ -737,3 +737,7 @@ INCLUDE "engine/overworld/follower_talk.asm"
 SECTION "Wild Spawns", ROMX
 
 INCLUDE "engine/overworld/wild_spawns.asm"
+
+SECTION "Overworld Behaviors", ROMX
+
+INCLUDE "data/pokemon/overworld_behaviors.asm"

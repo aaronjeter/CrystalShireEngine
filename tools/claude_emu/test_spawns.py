@@ -6,7 +6,7 @@ spawn is moved onto the tile just left (known to be walkable), standing still,
 and its object struct is made (InitializeVisibleSprites); the player then turns
 and walks into it, or presses A. The battle must have the spawn's level and
 DVs, and the spawn must be gone after the player runs. The behavior cases put a
-spawn with a given temperament 1-2 steps away in a straight line, facing the
+spawn with a given behavior 1-2 steps away in a straight line, facing the
 player, and watch it.
 
 usage: test_spawns.py ROM SYM STATE
@@ -27,6 +27,13 @@ RESULTS = []
 
 
 class G(H):
+    def _addr(self, a):
+        # numeric WRAMX addresses here (map objects, object structs) are in bank 1
+        bank, addr = super()._addr(a)
+        if bank is None and 0xD000 <= addr < 0xE000:
+            bank = 1
+        return bank, addr
+
     def const(self, expr):
         return assemble_block(f'\tdb {expr}', 0, SCRIPT_ORG)[0]
 
@@ -61,11 +68,26 @@ def setup(mapc, x, y, follower=True, state=STATE):
     o = g.rd('wOptions2') & ~FOLLOWER_OFF
     g.wr('wOptions2', o if follower else o | FOLLOWER_OFF)
     g.run_script(warp_script(mapc, x, y))
-    g.frames(200)
+    for _ in range(50):
+        g.frames(4)
+        calm(g)
     for _ in range(4):
         g.press('B', after=10)
     g.wr('wRepelEffect', 250)  # no grass encounters while testing
+    calm(g)
     return g
+
+
+def calm(g):
+    """Every spawn a plain wanderer, so none comes after the player on its own."""
+    f1 = g.const('OBJECT_FLAGS1')
+    for t in spawns(g):
+        b = addr(g, 'wMapObjects') + t['obj'] * MOLEN
+        g.wr(b + 15, 0)
+        g.wr(b + 9, 0)
+        if t['struct'] != 255:
+            st = addr(g, 'wObjectStructs') + t['struct'] * OLEN + f1
+            g.wr(st, g.rd(st) & ~1)
 
 
 def free_spawn(g):
@@ -204,7 +226,7 @@ def case_topup():
 
 def case_static_wanderer():
     """A map's own Pokémon with SPRITEMOVEDATA_WILDSPAWN (Route 29's Eevee): it gets its
-    temperament, wanders, and walking into it starts its own battle script."""
+    behavior, wanders, and walking into it starts its own battle script."""
     g = setup('ROUTE_29', 52, 1, follower=False)
     mo = addr(g, 'wMapObjects')
     obj = [i for i in range(1, 15) if g.rd(mo + i * MOLEN + 4) == g.const('SPRITEMOVEDATA_WILDSPAWN')
@@ -213,13 +235,14 @@ def case_static_wanderer():
     if not obj:
         return
     b = mo + obj[0] * MOLEN
+    g.wr(b + 15, 0)  # a plain wanderer
+    g.wr(b + 9, 0)
     p0 = (g.rd(b + 3), g.rd(b + 2))
     moved = False
     for _ in range(60):
         g.frames(10)
         moved |= (g.rd(b + 3), g.rd(b + 2)) != p0
-    check('static wanderer: wanders (Eevee: a wanderer)', moved and g.rd(b + 15) & 3 == 0,
-          f'state {g.rd(b + 15)}')
+    check('static wanderer: moves around', moved, f'state {g.rd(b + 15)}')
     bk, ad = g.sym['DeleteObjectStruct']
     g.run_script(f'TestScript:\n\tcallasm TestCode\n\tend\nTestCode:\n\tld a, {obj[0]}\n'
                  f'\trst $08\n\tdb ${bk:02x}\n\tdw ${ad:04x}\n\tret\n')
@@ -287,12 +310,15 @@ def case_continue():
 
 
 DIRV = {'D': 0, 'U': 1, 'L': 2, 'R': 3}
-WANDERER, SKITTISH, AGGRESSIVE, SLEEPY = range(4)
+(WANDERER, SKITTISH, AGGRESSIVE, SLEEPY, CURIOUS, TERRITORIAL, PACER, LAZY, MIMIC,
+ HIT_AND_RUN, HIDER, TELEPORTER, BURROWER) = range(13)
+ACTIVE, ONCE, ALT = 1 << 4, 1 << 5, 1 << 6
+TIMID = 1 << 5
 
 
-def place_line(g, temper, dist=2):
-    """Walk `dist` steps in a line; put a spawn with temperament `temper` on the start
-    tile, facing the player. Returns (spawn, the direction walked)."""
+def place_line(g, temper, dist=2, mods=0):
+    """Walk `dist` steps in a line; put a spawn with behavior `temper` and modifiers
+    `mods` on the start tile, facing the player. Returns (spawn, the direction walked)."""
     for d in 'LRUD':
         p = (g.rd('wXCoord'), g.rd('wYCoord'))
         n = 0
@@ -310,6 +336,7 @@ def place_line(g, temper, dist=2):
     g.wr(b + 2, p[1] + 4)
     g.wr(b + 3, p[0] + 4)
     g.wr(b + 15, temper)  # MAPOBJECT_SPAWN_STATE
+    g.wr(b + 9, mods)  # MAPOBJECT_SPAWN_MODS
     bk, ad = g.sym['InitializeVisibleSprites']
     g.run_script(f'TestScript:\n\tdb callasm_command\n\tdb ${bk:02x}\n\tdw ${ad:04x}\n\tend')
     for _ in range(120):  # turn it toward the player as soon as its struct exists
@@ -318,6 +345,7 @@ def place_line(g, temper, dist=2):
             break
     t['st'] = addr(g, 'wObjectStructs') + g.rd(b) * OLEN
     t['b'] = b
+    t['home'] = (p[0] + 4, p[1] + 4)
     g.wr(t['st'] + 8, DIRV[d] << 2)  # OBJECT_DIRECTION
     g.frames(30)
     return t, d
@@ -359,7 +387,7 @@ def case_behaviors():
         g.frames(10)
         if g.rd('wBattleMode'):
             break
-        charging |= bool(g.rd(t['b'] + 15) & 8) or g.rd('wWildSpawnSpotted') != 0
+        charging |= bool(g.rd(t['b'] + 15) & ACTIVE) or g.rd('wWildSpawnSpotted') != 0
     check('aggressive weaker than the lead, with a Repel: never charges', not charging)
     g = setup('ROUTE_29', 20, 10, follower=False)
     t, d = place_line(g, SLEEPY)
@@ -371,7 +399,7 @@ def case_behaviors():
         g.frames(10)
         if g.rd('wBattleMode'):
             break
-        woke |= g.rd(t['b'] + 15) & 4 != 0
+        woke |= g.rd(t['b'] + 15) & ACTIVE != 0
     check('sleepy: wakes up when the player is next to it', woke)
     for i in range(3):  # it may be boxed in where it's put: up to 3 tries
         g = setup('ROUTE_29', 20, 10, follower=False)
@@ -385,6 +413,75 @@ def case_behaviors():
     g = setup('ROUTE_29', 20, 10, follower=False)
     t, d = place_line(g, WANDERER, dist=1)
     check('wanderer next to the player: walks into them (a battle)', watch(g, 4000))
+    case_new_behaviors()
+
+
+def fresh(behavior, dist=2, mods=0):
+    g = setup('ROUTE_29', 20, 10, follower=False)
+    g.wr('wRepelEffect', 0)
+    t, d = place_line(g, behavior, dist, mods)
+    return g, t, d
+
+
+def state(g, t):
+    return g.rd(t['b'] + 15)
+
+
+def case_new_behaviors():
+    g, t, d = fresh(AGGRESSIVE, mods=TIMID)
+    check('aggressive, Timid: notices the player but never starts the battle',
+          not watch(g, 1500) and state(g, t) & ACTIVE)
+    g, t, d = fresh(CURIOUS, dist=3)
+    g.frames(60)
+    near = []
+    for _ in range(60):
+        g.frames(10)
+        if g.rd('wBattleMode'):
+            break
+        near.append(manhattan(g, t))
+    check('curious: notices the player and comes over', state(g, t) & (ACTIVE | ONCE) == ACTIVE | ONCE and
+          (g.rd('wBattleMode') or min(near) <= 3), str(near[-5:]))
+    g, t, d = fresh(TERRITORIAL)
+    check('territorial: chases the player near its home into a battle', watch(g, 1500))
+    g, t, d = fresh(PACER, dist=4)
+    x0, y0 = pos(g, t)
+    ps = set()
+    for _ in range(80):
+        g.frames(10)
+        ps.add(pos(g, t))
+    near = all(max(abs(p[0] - x0), abs(p[1] - y0)) <= 2 for p in ps)
+    check('pacer: paces about, at most 2 from its spot',
+          len(ps) > 1 and near, str(sorted(ps)))
+    g, t, d = fresh(HIT_AND_RUN)
+    backed = battle = False
+    for _ in range(300):
+        g.frames(10)
+        if g.rd('wBattleMode'):
+            battle = True
+            break
+        backed |= bool(state(g, t) & ALT)
+    check('hit and run: dashes in, backs off or starts the battle', battle or backed)
+    g, t, d = fresh(HIDER, dist=4)
+    f1 = g.const('OBJECT_FLAGS1')
+    hidden = g.rd(t['st'] + f1) & 1
+    for _ in range(3):
+        g.press(OPP[d], hold=10, after=24)
+    g.frames(90)
+    check('hider: unseen until the player comes close, then shows itself',
+          hidden and state(g, t) & ACTIVE and not g.rd(t['st'] + f1) & 1)
+    for kind, name, far in ((TELEPORTER, 'teleporter', None), (BURROWER, 'burrower', 5)):
+        g, t, d = fresh(kind)
+        b = t['b']
+        p0 = t['home']
+        for _ in range(40):
+            g.frames(10)
+            if (g.rd(b + 3), g.rd(b + 2)) != p0:
+                break
+        p1 = (g.rd(b + 3), g.rd(b + 2))
+        moved = p1 != p0 and state(g, t) & ONCE
+        if far:
+            moved = moved and max(abs(p1[0] - p0[0]), abs(p1[1] - p0[1])) <= far
+        check(f'{name}: moves to a new spot when the player comes close', moved, f'{p0} -> {p1}')
 
 
 def case_respawn():

@@ -98,18 +98,42 @@ DEF MAPOBJECT_LENGTH EQU _RS
 ; OBJECTTYPE_WILDSPAWN objects keep their battle data in these fields
 DEF MAPOBJECT_SPAWN_DVS   EQU MAPOBJECT_SCRIPT_POINTER ; 2 bytes
 DEF MAPOBJECT_SPAWN_LEVEL EQU MAPOBJECT_EVENT_FLAG + 2  ; the first padding byte
-DEF MAPOBJECT_SPAWN_STATE EQU MAPOBJECT_EVENT_FLAG + 3  ; temperament and state (WILDSPAWN_*)
+DEF MAPOBJECT_SPAWN_STATE EQU MAPOBJECT_EVENT_FLAG + 3  ; behavior and state (WILDSPAWN_*)
+DEF MAPOBJECT_SPAWN_MODS  EQU MAPOBJECT_SIGHT_RANGE     ; modifiers (OW_SPEEDY...) of spawns and static wanderers
+
+; overworld behaviors (data/pokemon/overworld_behaviors.asm)
+	const_def
+	const OW_WANDERER    ; 0
+	const OW_SKITTISH    ; 1
+	const OW_AGGRESSIVE  ; 2
+	const OW_SLEEPY      ; 3
+	const OW_CURIOUS     ; 4
+	const OW_TERRITORIAL ; 5
+	const OW_PACER       ; 6
+	const OW_LAZY        ; 7
+	const OW_MIMIC       ; 8
+	const OW_HIT_AND_RUN ; 9
+	const OW_HIDER       ; a
+	const OW_TELEPORTER  ; b
+	const OW_BURROWER    ; c
+DEF NUM_OW_BEHAVIORS EQU const_value
+	assert NUM_OW_BEHAVIORS <= 16
+
+; overworld behavior modifiers
+	const_def
+	shift_const OW_NOCTURNAL ; Sleepy in the morning and day
+	shift_const OW_DIURNAL   ; Sleepy in the evening and at night
+	shift_const OW_SPEEDY    ; steps twice as fast
+	shift_const OW_SLUGGISH  ; pauses twice as long
+	shift_const OW_BOLD      ; notices from 2 tiles farther; the Repel rule doesn't stop it
+	shift_const OW_TIMID     ; notices from 1 tile closer; never starts a battle itself
 
 ; MAPOBJECT_SPAWN_STATE
-DEF WILDSPAWN_TEMPERAMENT_MASK EQU %11
-	const_def
-	const WILDSPAWN_WANDERER  ; 0
-	const WILDSPAWN_SKITTISH  ; 1
-	const WILDSPAWN_AGGRESSIVE ; 2
-	const WILDSPAWN_SLEEPY    ; 3
-DEF WILDSPAWN_AWAKE_F    EQU 2 ; a sleepy one woke up
-DEF WILDSPAWN_CHARGING_F EQU 3 ; an aggressive one spotted the player
-DEF WILDSPAWN_ZZZ_F      EQU 4 ; a sleepy one showed its "Zzz"
+DEF WILDSPAWN_BEHAVIOR_MASK EQU %1111
+DEF WILDSPAWN_ACTIVE_F EQU 4 ; it reacted to the player (woke, charging, chasing, revealed...)
+DEF WILDSPAWN_ONCE_F   EQU 5 ; its once-a-visit reaction is used ("Zzz", "?", a teleport)
+DEF WILDSPAWN_ALT_F    EQU 6 ; its behavior's second phase (retreating, going home...)
+DEF WILDSPAWN_ALT2_F   EQU 7
 DEF NUM_OBJECTS EQU 16
 DEF FOLLOW_QUEUE_SIZE EQU 5 ; wFollowMovementQueue
 DEF FOLLOWER_OBJECT EQU NUM_OBJECTS - 1 ; the following Pokémon uses the last map object
@@ -203,10 +227,10 @@ DEF NUM_SPRITEMOVEDATA EQU const_value
 	const SPRITEMOVEFN_WILDSPAWN             ; 1c
 DEF NUM_SPRITEMOVEFN EQU const_value
 
-; WildSpawnBrain results besides a direction (0-3)
-DEF WILDSPAWN_WAIT_SLOW EQU 4
-DEF WILDSPAWN_WAIT_FAST EQU 5
-DEF WILDSPAWN_NO_DETOUR_F EQU 3 ; with a direction: don't try sideways if it's blocked
+; WildSpawnBrain results: a direction (0-3) plus a speed (STEP_SPEED_* << 2), or a wait
+DEF WILDSPAWN_WAIT_SLOW EQU $80
+DEF WILDSPAWN_WAIT_FAST EQU $81
+DEF WILDSPAWN_NO_DETOUR_F EQU 6 ; with a direction: don't try sideways if it's blocked
 
 ; StepTypesJumptable indexes (see engine/overworld/map_objects.asm)
 	const_def
