@@ -7,12 +7,12 @@
 ; battle with it; it's removed afterwards. Its primary type gives it a
 ; temperament (WildSpawnBrain): wanderer, skittish (flees), aggressive (charges
 ; when it sees the player) or sleepy (still until the player is next to it). Each spawn uses its own Pokémon sprite slot
-; (SPRITE_MON_6 and up), whose species index has bit 15 set for a shiny.
+; (SPRITE_MON_5 and up), whose species index has bit 15 set for a shiny.
 
 DEF MAX_WILD_SPAWNS EQU 3
 DEF MAX_CAVE_WILD_SPAWNS EQU 5
-DEF NUM_SPAWN_SPRITE_SLOTS EQU 3
-DEF FIRST_SPAWN_SPRITE_SLOT EQU 5 ; SPRITE_MON_6
+DEF NUM_SPAWN_SPRITE_SLOTS EQU 4
+DEF FIRST_SPAWN_SPRITE_SLOT EQU 4 ; SPRITE_MON_5: maps' own Pokémon use SPRITE_MON_1-4
 assert FIRST_SPAWN_SPRITE_SLOT + NUM_SPAWN_SPRITE_SLOTS <= NUM_MON_SPRITE_SLOTS
 DEF SHARED_SPAWN_TRIES EQU 8 ; table rolls to find a species already shown
 DEF FIRST_SPAWN_OBJECT EQU 1

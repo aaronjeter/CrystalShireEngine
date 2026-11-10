@@ -12,9 +12,9 @@ GraniteCaveB2F_MapScripts:
 	callback MAPCALLBACK_SPRITES, GraniteCaveB2FMonSpritesCallback
 
 GraniteCaveB2FMonSpritesCallback:
-	setmonsprite SPRITE_MON_3, SHELLDER
-	setmonsprite SPRITE_MON_4, ASANDSHREW
-	setmonsprite SPRITE_MON_5, MERCURY
+	setmonsprite SPRITE_MON_1, SHELLDER
+	setmonsprite SPRITE_MON_2, ASANDSHREW
+	setmonsprite SPRITE_MON_3, MERCURY
 	endcallback
 
 GraniteCaveB2F_Shellder:
@@ -97,11 +97,11 @@ GraniteCaveB2F_MapEvents:
 	bg_event  04, 31, BGEVENT_ITEM, GraniteCaveB2FHiddenNugget2
 
 	def_object_events
-	object_event  05, 28, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Shellder, -1
-	object_event  17, 13, SPRITE_MON_4, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Sandshrew, -1
+	object_event  05, 28, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Shellder, -1
+	object_event  17, 13, SPRITE_MON_2, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Sandshrew, -1
 	object_event  07, 46, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FRock, -1
 	object_event  13, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB2FNeverMeltIce, EVENT_GOT_HOENN_NEVERMELTICE
-	object_event  14, 33, SPRITE_MON_5, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_RimeScript, EVENT_GOT_RIME
+	object_event  14, 33, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_RimeScript, EVENT_GOT_RIME
 	object_event 20, 27, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FWildRock, -1
 	object_event 22, 34, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2FWildRock, -1
 	
