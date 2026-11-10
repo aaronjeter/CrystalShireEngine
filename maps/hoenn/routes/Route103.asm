@@ -1,6 +1,4 @@
 	object_const_def
-	const ROUTE103_ZIGZAGOON
-	const ROUTE103_WINGULL
 	const MAPROUTE103_FRUIT_TREE_1
 	const MAPROUTE103_FRUIT_TREE_2
 	const ROUTE_103_POTION
@@ -10,13 +8,7 @@
 Route103_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
-	callback MAPCALLBACK_SPRITES, Route103MonSpritesCallback
-
-Route103MonSpritesCallback:
-	setmonsprite SPRITE_MON_1, ZIGZAGOON
-	setmonsprite SPRITE_MON_2, WINGULL
-	endcallback
+	def_callbacks
 
 Route103_Wally:
 	faceplayer
@@ -103,22 +95,6 @@ Route103WallyNotHoennText:
 	line "late!"
 	done
 
-Route103_Zigzagoon:
-	cry ZIGZAGOON
-	loadwildmon ZIGZAGOON, 2
-	startbattle
-	reloadmapafterbattle
-	disappear ROUTE103_ZIGZAGOON
-	end
-
-Route103_Wingull:
-	cry WINGULL
-	loadwildmon WINGULL, 3
-	startbattle
-	reloadmapafterbattle
-	disappear ROUTE103_WINGULL
-	end
-
 Route103FruitTree1:
 	fruittree FRUITTREE_ROUTE_103_1
 
@@ -183,8 +159,6 @@ Route103_MapEvents:
 	bg_event 11, 14, BGEVENT_READ, Route103Sign
 
 	def_object_events
-	object_event 17, 13, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103_Zigzagoon, -1
-	object_event 15, 04, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103_Wingull, -1
 	object_event 32, 02, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103FruitTree1, -1
 	object_event 33, 02, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route103FruitTree2, -1
 	object_event 08, 02, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route103Potion, EVENT_ROUTE_103_POTION

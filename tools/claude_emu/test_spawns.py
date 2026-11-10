@@ -157,7 +157,7 @@ def case_battle(mapc, x, y, how, shiny=False):
 def case_counts():
     # Union Cave 1F: 9 objects near the entrance, so 3 spawns fill the object structs
     for mapc, x, y, want in (('ROUTE_29', 20, 10, 3), ('UNION_CAVE_1F', 5, 19, 3), ('ICE_PATH_1F', 4, 18, 5),
-                             ('ROUTE_101', 10, 10, 3), ('ILEX_FOREST', 3, 40, 1), ('ROUTE_30', 7, 30, 0),
+                             ('ROUTE_101', 10, 10, 3), ('ILEX_FOREST', 3, 40, 1), ('ROUTE_30', 7, 30, 3),
                              ('NEW_BARK_TOWN', 10, 10, 0)):
         g = setup(mapc, x, y)
         s = spawns(g)
@@ -200,6 +200,42 @@ def case_topup():
         g.frames(10)
     check('top-up: a map not yet full gets a spawn after the shorter step count', len(new) == 1,
           f'{len(spawns(g))} spawns, filled bit {g.rd("wWildSpawnSteps") >> 7}')
+
+
+def case_static_wanderer():
+    """A map's own Pokémon with SPRITEMOVEDATA_WILDSPAWN (Route 29's Eevee): it gets its
+    temperament, wanders, and walking into it starts its own battle script."""
+    g = setup('ROUTE_29', 52, 1, follower=False)
+    mo = addr(g, 'wMapObjects')
+    obj = [i for i in range(1, 15) if g.rd(mo + i * MOLEN + 4) == g.const('SPRITEMOVEDATA_WILDSPAWN')
+           and g.rd(mo + i * MOLEN + 8) == g.const('OBJECTTYPE_SCRIPT')]
+    check('static wanderer: Route 29 has one', len(obj) == 1, str(obj))
+    if not obj:
+        return
+    b = mo + obj[0] * MOLEN
+    p0 = (g.rd(b + 3), g.rd(b + 2))
+    moved = False
+    for _ in range(60):
+        g.frames(10)
+        moved |= (g.rd(b + 3), g.rd(b + 2)) != p0
+    check('static wanderer: wanders (Eevee: a wanderer)', moved and g.rd(b + 15) & 3 == 0,
+          f'state {g.rd(b + 15)}')
+    bk, ad = g.sym['DeleteObjectStruct']
+    g.run_script(f'TestScript:\n\tcallasm TestCode\n\tend\nTestCode:\n\tld a, {obj[0]}\n'
+                 f'\trst $08\n\tdb ${bk:02x}\n\tdw ${ad:04x}\n\tret\n')
+    g.frames(20)
+    g.wr(addr(g, 'wObjectMasks') + obj[0], 0)
+    px, py = g.rd('wXCoord'), g.rd('wYCoord')
+    g.wr(b + 2, py + 1 + 4)
+    g.wr(b + 3, px + 4)
+    bk, ad = g.sym['InitializeVisibleSprites']
+    g.run_script(f'TestScript:\n\tdb callasm_command\n\tdb ${bk:02x}\n\tdw ${ad:04x}\n\tend')
+    g.frames(2)
+    g.press('D', hold=10, after=10)
+    check('static wanderer: walking into it starts its battle', to_battle_menu(g) and
+          g.rd('wWildSpawnBattle') == 0)
+    run_away(g)
+    check('static wanderer: gone after the battle', g.rd(b + 1) == 0 or g.rd(addr(g, 'wObjectMasks') + obj[0]) != 0)
 
 
 def case_continue():
@@ -372,6 +408,7 @@ def main():
     case_behaviors()
     case_respawn()
     case_topup()
+    case_static_wanderer()
     case_nuzlocke()
     case_continue()
     bad = [n for n, ok in RESULTS if not ok]

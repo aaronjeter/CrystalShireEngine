@@ -3,9 +3,6 @@
 	const MAPROUTE102_ALLEN
 	const MAPROUTE102_RICK
 	const MAPROUTE102_TIANA
-	const MAPROUTE102_SURSKIT
-	const MAPROUTE102_TAILLOW
-	const MAPROUTE102_SEEDOT
 	const MAPROUTE102_FRUIT_TREE_1
 	const MAPROUTE102_FRUIT_TREE_2
 
@@ -13,14 +10,7 @@
 Route102_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
-	callback MAPCALLBACK_SPRITES, Route102MonSpritesCallback
-
-Route102MonSpritesCallback:
-	setmonsprite SPRITE_MON_1, SURSKIT
-	setmonsprite SPRITE_MON_2, TAILLOW
-	setmonsprite SPRITE_MON_3, SEEDOT
-	endcallback
+	def_callbacks
 
 Route102CalvinScript:
 	trainer YOUNGSTER, ROUTE102_CALVIN, EVENT_BEAT_ROUTE102_CALVIN, Route102CalvinSeenText, Route102CalvinBeatenText, 0, .AfterScript
@@ -83,30 +73,6 @@ Route102TianaScript:
 .Script:
 	trainerafter PupilsAlTianaAfterBattleText
 
-Route102_Surskit:
-	cry SURSKIT
-	loadwildmon SURSKIT, 2
-	startbattle
-	reloadmapafterbattle
-	disappear MAPROUTE102_SURSKIT
-	end
-
-Route102_Taillow:
-	cry TAILLOW
-	loadwildmon TAILLOW, 3
-	startbattle
-	reloadmapafterbattle
-	disappear MAPROUTE102_TAILLOW
-	end
-
-Route102_Seedot:
-	cry SEEDOT
-	loadwildmon SEEDOT, 1
-	startbattle
-	reloadmapafterbattle
-	disappear MAPROUTE102_SEEDOT
-	end
-
 Route102FruitTree1:
 	fruittree FRUITTREE_ROUTE_102_1
 
@@ -157,8 +123,5 @@ Route102_MapEvents:
 	object_event 22,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, Route102AllenScript, -1
 	object_event  12, 11, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, Route102RickScript, -1
 	object_event 23,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route102TianaScript, -1
-	object_event  30,  3, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route102_Surskit, -1
-	object_event  24,  6, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route102_Taillow, -1
-	object_event   7, 18, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route102_Seedot, -1
 	object_event  16,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route102FruitTree1, -1
 	object_event  17,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route102FruitTree2, -1

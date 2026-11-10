@@ -10,16 +10,11 @@
 	const ROUTE30_FRUIT_TREE2
 	const ROUTE30_COOLTRAINER_F
 	const ROUTE30_POKE_BALL
-	const ROUTE30_PIDGEY
-	const ROUTE30_PICHU
-	const ROUTE30_POLIWAG
-	const ROUTE30_SURSKIT
 
 Route30_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_SPRITES, Route30MonSpritesCallback
 	callback MAPCALLBACK_OBJECTS, Route30NotJohtoCallback
 
 Route30NotJohtoCallback:
@@ -32,13 +27,6 @@ Route30NotJohtoCallback:
 	setevent EVENT_ROUTE_30_BATTLE
 	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
 .done
-	endcallback
-
-Route30MonSpritesCallback:
-	setmonsprite SPRITE_MON_1, PIDGEY
-	setmonsprite SPRITE_MON_2, PICHU
-	setmonsprite SPRITE_MON_3, POLIWAG
-	setmonsprite SPRITE_MON_4, SURSKIT
 	endcallback
 
 YoungsterJoey_ImportantBattleScript:
@@ -280,38 +268,6 @@ YoungsterJoeyText_GiveHPUpAfterBattle:
 	line "tougher too."
 	done
 
-Route30_Pidgey:
-	cry PIDGEY
-	loadwildmon PIDGEY, 4
-	startbattle
-	reloadmapafterbattle
-	disappear ROUTE30_PIDGEY
-	end
-
-Route30_Pichu:
-	cry PICHU
-	loadwildmon PICHU, 1
-	startbattle
-	reloadmapafterbattle
-	disappear ROUTE30_PICHU
-	end
-
-Route30_Poliwag:
-	cry POLIWAG
-	loadwildmon POLIWAG, 3
-	startbattle
-	reloadmapafterbattle
-	disappear ROUTE30_POLIWAG
-	end
-
-Route30_Surskit:
-	cry SURSKIT
-	loadwildmon SURSKIT, 2
-	startbattle
-	reloadmapafterbattle
-	disappear ROUTE30_SURSKIT
-	end
-
 Route30_MapEvents:
 	db 0, 0 ; filler
 
@@ -340,7 +296,3 @@ Route30_MapEvents:
 	object_event 11,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree2, -1
 	object_event  2, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30CooltrainerFScript, -1
 	object_event  8, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30Antidote, EVENT_ROUTE_30_ANTIDOTE
-	object_event 11, 10, SPRITE_MON_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30_Pidgey, -1
-	object_event 10,  4, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30_Pichu, -1
-	object_event 15, 36, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30_Poliwag, -1
-	object_event 14, 40, SPRITE_MON_4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30_Surskit, -1

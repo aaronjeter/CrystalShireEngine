@@ -4,7 +4,6 @@
 	const RUINSOFALPHOUTSIDE_FISHER
 	const RUINSOFALPHOUTSIDE_YOUNGSTER2
 	const RUINSOFALPHOUTSIDE_YOUNGSTER3
-	const RUINSOFALPHOUTSIDE_NATU
 
 RuinsOfAlphOutside_MapScripts:
 	def_scene_scripts
@@ -13,17 +12,12 @@ RuinsOfAlphOutside_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, RuinsOfAlphOutsideScientistCallback
-	callback MAPCALLBACK_SPRITES, RuinsOfAlphOutsideMonSpritesCallback
 
 RuinsOfAlphOutsideNoop1Scene:
 	end
 
 RuinsOfAlphOutsideNoop2Scene:
 	end
-
-RuinsOfAlphOutsideMonSpritesCallback:
-	setmonsprite SPRITE_MON_1, NATU
-	endcallback
 
 RuinsOfAlphOutsideScientistCallback:
 	checkflag ENGINE_UNOWN_DEX
@@ -237,14 +231,6 @@ RuinsOfAlphOutsideYoungster2Text:
 	line "message!"
 	done
 
-RuinsOfAlphOutside_Natu:
-	cry NATU
-	loadwildmon NATU, 4
-	startbattle
-	reloadmapafterbattle
-	disappear RUINSOFALPHOUTSIDE_NATU
-	end
-
 RuinsOfAlphOutside_MapEvents:
 	db 0, 0 ; filler
 
@@ -276,4 +262,3 @@ RuinsOfAlphOutside_MapEvents:
 	object_event 13, 17, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideFisherScript, EVENT_RUINS_OF_ALPH_OUTSIDE_TOURIST_FISHER
 	object_event 14, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideYoungster1Script, EVENT_RUINS_OF_ALPH_OUTSIDE_TOURIST_YOUNGSTERS
 	object_event 12,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideYoungster2Script, EVENT_RUINS_OF_ALPH_OUTSIDE_TOURIST_YOUNGSTERS
-	object_event 16, 10, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutside_Natu, -1

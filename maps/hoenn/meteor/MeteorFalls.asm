@@ -1,9 +1,6 @@
 	object_const_def
 	const METEORFALLS_MOON_STONE
 	const METEORFALLS_SUN_STONE
-	const METEORFALLS_LUNATONE
-	const METEORFALLS_SOLROCK
-	const METEORFALLS_CLEFAIRY
 	const METEORFALLS_AURORA
 	const METEORFALLS_SILVER_LEAF
 	const METEORFALLS_GOLD_LEAF
@@ -15,9 +12,6 @@ MeteorFalls_MapScripts:
 	callback MAPCALLBACK_SPRITES, MeteorFallsMonSpritesCallback
 
 MeteorFallsMonSpritesCallback:
-	setmonsprite SPRITE_MON_1, LUNATONE
-	setmonsprite SPRITE_MON_2, SOLROCK
-	setmonsprite SPRITE_MON_3, CLEFAIRY
 	setmonsprite SPRITE_MON_4, MARS
 	endcallback
 
@@ -32,30 +26,6 @@ MeteorFallsSilverLeaf:
 
 MeteorFallsGoldLeaf:
 	itemball GOLD_LEAF
-
-MeteorFallsLunatone:
-	cry LUNATONE
-	loadwildmon LUNATONE, 5
-	startbattle
-	reloadmapafterbattle
-	disappear METEORFALLS_LUNATONE
-	end
-
-MeteorFallsSolrock:
-	cry SOLROCK
-	loadwildmon SOLROCK, 5
-	startbattle
-	reloadmapafterbattle
-	disappear METEORFALLS_SOLROCK
-	end
-
-MeteorFallsClefairy:
-	cry CLEFAIRY
-	loadwildmon CLEFAIRY, 2
-	startbattle
-	reloadmapafterbattle
-	disappear METEORFALLS_CLEFAIRY
-	end
 
 Djinn_AuroraScript:
 	cry MARS
@@ -107,9 +77,6 @@ MeteorFalls_MapEvents:
 	def_object_events
 	object_event 03, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsMoonStone, EVENT_METEOR_FALLS_MOON_STONE
 	object_event 29, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsSunStone, EVENT_METEOR_FALLS_SUN_STONE
-	object_event 10, 11, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsLunatone, -1
-	object_event 29, 33, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsSolrock, -1
-	object_event 06, 34, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorFallsClefairy, -1
 	object_event 06, 05, SPRITE_MON_4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_AuroraScript, EVENT_GOT_AURORA
 	object_event 06, 36, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsSilverLeaf, EVENT_METEOR_FALLS_SILVER_LEAF
 	object_event 21, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorFallsGoldLeaf, EVENT_METEOR_FALLS_GOLD_LEAF

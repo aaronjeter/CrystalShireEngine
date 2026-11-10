@@ -1,6 +1,5 @@
 	object_const_def
 	const MOLTRESLAIR_MOLTRES
-	const MOLTRESLAIR_SOLROCK
 	const MOLTRESLAIR_CHARIZARD
 	const MOLTRESLAIR_TYRANITAR
 
@@ -12,7 +11,6 @@ MoltresLair_MapScripts:
 
 MoltresLairMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, MOLTRES
-	setmonsprite SPRITE_MON_2, SOLROCK
 	setmonsprite SPRITE_MON_3, CHARIZARD
 	setmonsprite SPRITE_MON_4, TYRANITAR
 	endcallback
@@ -35,14 +33,6 @@ MoltresLair_Moltres:
 	startbattle
 	reloadmapafterbattle
 	disappear MOLTRESLAIR_MOLTRES
-	end
-
-MoltresLair_Solrock:
-	cry SOLROCK
-	loadwildmon SOLROCK, 7
-	startbattle
-	reloadmapafterbattle
-	disappear MOLTRESLAIR_SOLROCK
 	end
 
 MoltresLair_Charizard:
@@ -73,7 +63,6 @@ MoltresLair_MapEvents:
 
 	def_object_events
 	object_event 20,  0, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Moltres, -1
-	object_event 34, 24, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Solrock, -1
-	object_event  3,  4, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Charizard, -1
-	object_event 21, 15, SPRITE_MON_4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Tyranitar, -1
+	object_event  3,  4, SPRITE_MON_3, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Charizard, -1
+	object_event 21, 15, SPRITE_MON_4, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoltresLair_Tyranitar, -1
 	

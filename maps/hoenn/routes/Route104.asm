@@ -7,8 +7,6 @@
 	const MAPROUTE104_GINA
 	const MAPROUTE104_MIA
 	const MAPROUTE104_IVAN
-	const MAPROUTE104_RALTS
-	const MAPROUTE104_LOTAD
 	const MAPROUTE104_ROSELIA
 	const MAPROUTE104_FRUIT_TREE_1
 	const MAPROUTE104_FRUIT_TREE_2
@@ -20,8 +18,6 @@ Route104_MapScripts:
 	callback MAPCALLBACK_SPRITES, Route104MonSpritesCallback
 
 Route104MonSpritesCallback:
-	setmonsprite SPRITE_MON_1, RALTS
-	setmonsprite SPRITE_MON_2, LOTAD
 	setmonsprite SPRITE_MON_3, ROSELIA
 	endcallback
 
@@ -208,22 +204,6 @@ Route104IvanAfterBattleText:
 	para "It's so serene."
 	done
 
-Route104_Ralts:
-	cry RALTS
-	loadwildmon RALTS, 2
-	startbattle
-	reloadmapafterbattle
-	disappear MAPROUTE104_RALTS
-	end
-
-Route104_Lotad:
-	cry LOTAD
-	loadwildmon LOTAD, 4
-	startbattle
-	reloadmapafterbattle
-	disappear MAPROUTE104_LOTAD
-	end
-
 Route104_Roselia:
 	cry ROSELIA
 	loadwildmon ROSELIA, 9
@@ -294,9 +274,7 @@ Route104_MapEvents:
 	object_event  20, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, Route104GinaScript, -1
 	object_event  21, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, Route104MiaScript, -1
 	object_event  22, 07, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, Route104IvanScript, -1
-	object_event  04, 07, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route104_Ralts, -1
-	object_event  10, 17, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route104_Lotad, -1
-	object_event  23, 38, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route104_Roselia, -1
+	object_event  23, 38, SPRITE_MON_3, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route104_Roselia, -1
 	object_event  16, 32, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route104FruitTree1, -1
 	object_event  17, 32, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route104FruitTree2, -1
 	object_event  28, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route104RareCandy, EVENT_ROUTE_104_RARE_CANDY

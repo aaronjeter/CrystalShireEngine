@@ -4,8 +4,6 @@
 	const MTMOON_GRUNT2
 	const MTMOON_GRUNT3
 	const MTMOON_GRUNT4
-	const MTMOON_LUNATONE
-	const MTMOON_CLEFAIRY
 	const MTMOON_QUARTZ
 	const MTMOON_FOSSIL_HELIX
 	const MTMOON_FOSSIL_DOME
@@ -19,7 +17,6 @@ MtMoonB2F_MapScripts:
 	callback MAPCALLBACK_SPRITES, MtMoonB2FMonSpritesCallback
 
 MtMoonB2FMonSpritesCallback:
-	setmonsprite SPRITE_MON_1, LUNATONE
 	setmonsprite SPRITE_MON_2, VENUS
 	endcallback
 
@@ -119,23 +116,6 @@ TrainerMoonGrunt4:
 	trainerafter GruntsMtMoonAfterBattleText
 
 
-MoonLunatone:
-	cry LUNATONE
-	loadwildmon LUNATONE, 10
-	startbattle
-	reloadmapafterbattle
-	disappear MTMOON_LUNATONE
-	closetext
-	end
-
-MoonClefairy:
-	cry CLEFAIRY
-	loadwildmon CLEFAIRY, 7
-	startbattle
-	reloadmapafterbattle
-	disappear MTMOON_CLEFAIRY
-	end
-
 Djinn_QuartzScript:
 	cry VENUS
 	opentext
@@ -219,8 +199,6 @@ MtMoonB2F_MapEvents:
 	object_event  27, 27, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerMoonGrunt2, -1
 	object_event 16, 17, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonGrunt3, -1
 	object_event 16, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerMoonGrunt4, -1
-	object_event  29, 08, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoonLunatone, -1
-	object_event  19, 30, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MoonClefairy, -1
 	object_event  28, 08, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_QuartzScript, EVENT_GOT_QUARTZ
 	object_event  33, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonDomeFossil, EVENT_GOT_FOSSIL_DOME_MTMOON
 	object_event  20, 08, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtMoonHelixFossil, EVENT_GOT_FOSSIL_HELIX_MTMOON

@@ -1,8 +1,5 @@
 	object_const_def
 	const ARTICUNOLAIR_ARTICUNO
-	const ARTICUNOLAIR_DELIBIRD1
-	const ARTICUNOLAIR_DELIBIRD2
-	const ARTICUNOLAIR_DELIBIRD3
 	const ARTICUNOLAIR_SANDSLASH
 	const ARTICUNOLAIR_GLALIE
 
@@ -14,7 +11,6 @@ ArticunoLair_MapScripts:
 
 ArticunoLairMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, ARTICUNO
-	setmonsprite SPRITE_MON_2, DELIBIRD
 	setmonsprite SPRITE_MON_3, ASANDSLASH
 	setmonsprite SPRITE_MON_4, GLALIE
 	endcallback
@@ -37,16 +33,6 @@ ArticunoLair_Articuno:
 	startbattle
 	reloadmapafterbattle
 	disappear ARTICUNOLAIR_ARTICUNO
-	end
-
-ArticunoLair_Delibird:
-	cry DELIBIRD
-	loadwildmon DELIBIRD, 5
-	startbattle
-	reloadmapafterbattle
-	disappear ARTICUNOLAIR_DELIBIRD1
-	disappear ARTICUNOLAIR_DELIBIRD2
-	disappear ARTICUNOLAIR_DELIBIRD3
 	end
 
 ArticunoLair_Sandslash:
@@ -77,9 +63,6 @@ ArticunoLair_MapEvents:
 
 	def_object_events
 	object_event  7,  2, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Articuno, -1
-	object_event 28, 26, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
-	object_event 30, 34, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
-	object_event 18, 14, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Delibird, -1
-	object_event 37, 12, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Sandslash, -1
-	object_event 21, 10, SPRITE_MON_4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Glalie, -1
+	object_event 37, 12, SPRITE_MON_3, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Sandslash, -1
+	object_event 21, 10, SPRITE_MON_4, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArticunoLair_Glalie, -1
 	

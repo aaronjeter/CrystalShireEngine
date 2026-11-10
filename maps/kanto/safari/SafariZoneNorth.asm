@@ -4,7 +4,6 @@
 	const SAFARINORTH_GRUNT4
 	const SAFARINORTH_STEVEN
 	const SAFARINORTH_TINA
-	const SAFARINORTH_TAUROS
 	const SAFARINORTH_RHYDON
 	const SAFARINORTH_MEW
 	const SAFARINORTH_OLD_AMBER
@@ -18,7 +17,6 @@ SafariZoneNorth_MapScripts:
 	callback MAPCALLBACK_SPRITES, SafariZoneNorthMonSpritesCallback
 
 SafariZoneNorthMonSpritesCallback:
-	setmonsprite SPRITE_MON_1, TAUROS
 	setmonsprite SPRITE_MON_2, RHYDON
 	setmonsprite SPRITE_MON_3, MEW
 	endcallback
@@ -195,14 +193,6 @@ SafariTinaAfterBattleText:
 	done
 
 
-SafariZoneNorth_Tauros:
-	cry TAUROS
-	loadwildmon TAUROS, 7
-	startbattle
-	reloadmapafterbattle
-	disappear SAFARINORTH_TAUROS
-	end
-
 SafariZoneNorth_Rhydon:
 	cry RHYDON
 	loadwildmon RHYDON, 7
@@ -337,8 +327,7 @@ SafariZoneNorth_MapEvents:
 	object_event  40, 42, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, SafariGrunt4Script, EVENT_BEAT_SAFARI_GRUNT4
 	object_event  55, 08, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, SafariStevenScript, -1
 	object_event  42, 07, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, SafariTinaScript, -1
-	object_event  14, 09, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Tauros, -1
-	object_event  16, 44, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Rhydon, -1
+	object_event  16, 44, SPRITE_MON_2, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneNorth_Rhydon, -1
 	object_event  35, 30, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneNorthMew, EVENT_HIDE_SAFARI_MEW
 	object_event  46, 39, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneNorthOldAmber, EVENT_GOT_OLD_AMBER_SAFARI
 	object_event  06, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SafariZoneNorthFangFossil, EVENT_GOT_FOSSIL_FANG_SAFARI

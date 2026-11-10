@@ -39,6 +39,7 @@ DEF WILD_SPAWN_NOTICE_RANGE_FAST EQU 5 ; skittish, when the player runs or bikes
 DEF WILD_SPAWN_SIGHT_RANGE EQU 4 ; aggressive: steps in a straight line
 
 SpawnWildMons::
+	call InitStaticWanderers
 	xor a
 	ld [wWildSpawnBattle], a
 	ld [wWildSpawnTouched], a
@@ -59,6 +60,70 @@ SpawnWildMons::
 .filled
 	ld hl, wWildSpawnSteps
 	set WILD_SPAWN_FILLED_F, [hl]
+	ret
+
+InitStaticWanderers:
+; A map's own Pokémon (object_events with SPRITEMOVEDATA_WILDSPAWN and a
+; SPRITE_MON_* sprite, battled through their own script) wander like spawns:
+; give each the temperament of its species. Their level is unknown here (it's
+; in the script), so with a Repel an aggressive one never charges.
+	ld a, FIRST_SPAWN_OBJECT
+.loop
+	push af
+	call GetMapObject
+	call IsStaticWanderer
+	jr nz, .next
+	ld hl, MAPOBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	sub SPRITE_MON_1
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, wMonSpriteSpecies
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	res 7, h ; the shiny bit
+	push bc
+	call GetPokemonIDFromIndex
+	ld [wTempWildMonSpecies], a
+	call GetSpawnTemperament
+	pop bc
+	ld hl, MAPOBJECT_SPAWN_STATE
+	add hl, bc
+	ld [hld], a
+	ld [hl], 0 ; MAPOBJECT_SPAWN_LEVEL
+.next
+	pop af
+	inc a
+	cp LAST_SPAWN_OBJECT + 1
+	jr c, .loop
+	ret
+
+IsStaticWanderer:
+; z if map object bc is a map's own wandering Pokémon (see InitStaticWanderers)
+	ld hl, MAPOBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	cp SPRITE_MON_1
+	jr c, .no
+	cp SPRITE_MON_1 + NUM_MON_SPRITE_SLOTS
+	jr nc, .no
+	ld hl, MAPOBJECT_TYPE
+	add hl, bc
+	ld a, [hl]
+	cp OBJECTTYPE_WILDSPAWN
+	jr z, .no
+	ld hl, MAPOBJECT_MOVEMENT
+	add hl, bc
+	ld a, [hl]
+	cp SPRITEMOVEDATA_WILDSPAWN
+	ret
+
+.no
+	or 1
 	ret
 
 CheckWildSpawnRoom:
@@ -1108,6 +1173,9 @@ WildSpawnBumpCheck::
 	add hl, bc
 	ld a, [hl]
 	cp OBJECTTYPE_WILDSPAWN
+	jr z, .touched
+	call IsStaticWanderer
+.touched
 	pop bc ; b = map object
 	ret nz
 	ld a, b
@@ -1124,8 +1192,24 @@ CheckWildSpawnTouch::
 	jr z, .spotted
 	ld [hl], 0
 	ldh [hLastTalked], a
+	call GetMapObject
+	ld hl, MAPOBJECT_TYPE
+	add hl, bc
+	ld a, [hl]
+	cp OBJECTTYPE_WILDSPAWN
+	jr nz, .own_script
 	ld a, BANK(WildSpawnScript)
 	ld hl, WildSpawnScript
+	jmp CallScript
+
+.own_script
+; a map's own wandering Pokémon: its battle script
+	ld hl, MAPOBJECT_SCRIPT_POINTER
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call GetMapScriptsBank
 	jmp CallScript
 
 .spotted

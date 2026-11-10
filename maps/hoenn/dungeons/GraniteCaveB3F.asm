@@ -1,18 +1,10 @@
 	object_const_def
 	const GRANITECAVEB3F_BRAWLY
-	const GRANITECAVEB3F_TENTACOOL1
-	const GRANITECAVEB3F_TENTACOOL2
-	const GRANITECAVEB3F_TENTACOOL3
 
 GraniteCaveB3F_MapScripts:
 	def_scene_scripts
 
-	def_callbacks	
-	callback MAPCALLBACK_SPRITES, GraniteCaveB3FMonSpritesCallback
-
-GraniteCaveB3FMonSpritesCallback:
-	setmonsprite SPRITE_MON_1, TENTACOOL2
-	endcallback
+	def_callbacks
 
 GraniteCaveBrawlyScript:
 	faceplayer
@@ -94,30 +86,6 @@ GraniteCaveBrawlyLeavesText:
 	cont "wait for you."	
 	done
 
-GraniteCaveB2F_Tentacool1:
-	cry TENTACOOL2
-	loadwildmon TENTACOOL2, 7
-	startbattle
-	reloadmapafterbattle
-	disappear GRANITECAVEB3F_TENTACOOL1
-	end
-
-GraniteCaveB2F_Tentacool2:
-	cry TENTACOOL2
-	loadwildmon TENTACOOL2, 5
-	startbattle
-	reloadmapafterbattle
-	disappear GRANITECAVEB3F_TENTACOOL2
-	end
-
-GraniteCaveB2F_Tentacool3:
-	cry TENTACOOL2
-	loadwildmon TENTACOOL2, 10
-	startbattle
-	reloadmapafterbattle
-	disappear GRANITECAVEB3F_TENTACOOL3
-	end
-
 GraniteCaveB3FEscapeRope:
 	itemball TM_EARTHPOWER
 
@@ -137,9 +105,6 @@ GraniteCaveB3F_MapEvents:
 
 	def_object_events
 	object_event  11, 08, SPRITE_KURT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GraniteCaveBrawlyScript, EVENT_GOT_PICKAXE
-	object_event  09, 13, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool1, -1
-	object_event  11, 13, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool2, -1
-	object_event  10, 12, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLACK, OBJECTTYPE_SCRIPT, 0, GraniteCaveB2F_Tentacool3, -1
 	object_event  04, 04, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GraniteCaveB3FEscapeRope, EVENT_GRANITE_CAVE_B3F_ESCAPE_ROPE
 	object_event  9,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB3FWildRock, -1
 	object_event 15, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GraniteCaveB3FWildRock, -1

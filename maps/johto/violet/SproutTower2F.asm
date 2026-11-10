@@ -2,19 +2,11 @@
 	const SPROUTTOWER2F_SAGE1
 	const SPROUTTOWER2F_SAGE2
 	const SPROUTTOWER2F_POKE_BALL
-	const SPROUTTOWER2F_BELLSPROUT
-	const SPROUTTOWER2F_SPEAROW
 
 SproutTower2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_SPRITES, SproutTower2FMonSpritesCallback
-
-SproutTower2FMonSpritesCallback:
-	setmonsprite SPRITE_MON_1, BELLSPROUT
-	setmonsprite SPRITE_MON_2, SPEAROW
-	endcallback
 
 TrainerSageNico:
 	trainer SAGE, NICO, EVENT_BEAT_SAGE_NICO, SageNicoSeenText, SageNicoBeatenText, 0, .Script
@@ -80,22 +72,6 @@ SproutTower2FStatueText:
 	line "distinguished."
 	done
 
-SproutTower2F_Bellsprout:
-	cry BELLSPROUT
-	loadwildmon BELLSPROUT, 4
-	startbattle
-	reloadmapafterbattle
-	disappear SPROUTTOWER2F_BELLSPROUT
-	end
-
-SproutTower2F_Spearow:
-	cry SPEAROW
-	loadwildmon SPEAROW, 4
-	startbattle
-	reloadmapafterbattle
-	disappear SPROUTTOWER2F_SPEAROW
-	end
-
 SproutTower2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -114,5 +90,3 @@ SproutTower2F_MapEvents:
 	object_event 12,  3, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageNico, -1
 	object_event  9, 14, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSageEdmond, -1
 	object_event  3,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower2FXAccuracy, EVENT_SPROUT_TOWER_2F_X_ACCURACY
-	object_event  5,  7, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower2F_Bellsprout, -1
-	object_event 16,  1, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, SproutTower2F_Spearow, -1
