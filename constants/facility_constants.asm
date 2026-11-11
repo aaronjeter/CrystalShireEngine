@@ -38,6 +38,9 @@ DEF FACILITY_HOENN EQU 2 << FACILITY_REGION_SHIFT
 	const FACILITY_HALL_KANTO ; Vermilion's Challenge Hall
 	const FACILITY_HALL_JOHTO ; Goldenrod's Challenge Hall
 	const FACILITY_HALL_HOENN ; Mauville's Challenge Hall
+	const FACILITY_HARD_KANTO ; Saffron's Challenge Hall
+	const FACILITY_HARD_JOHTO ; Route 40's Challenge Hall (by the old Battle Tower)
+	const FACILITY_HARD_HOENN ; Lilycove's Challenge Hall
 DEF NUM_FACILITIES EQU const_value
 
 ; a facility record: category, parameter, level, style, prize (2), cleared flag (2), then class, id and

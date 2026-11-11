@@ -93,6 +93,9 @@ SaffronCitySilphGuardScript:
 SaffronCitySign:
 	jumptext SaffronCitySignText
 
+SaffronChallengeHallSign:
+	jumptext SaffronChallengeHallSignText
+
 SaffronGymSign:
 	jumptext SaffronGymSignText
 
@@ -281,6 +284,15 @@ SaffronCitySignText:
 	line "Land of Commerce"
 	done
 
+SaffronChallengeHallSignText:
+	text "Saffron"
+	line "Challenge Hall"
+
+	para "Three double"
+	line "battles in a row."
+	cont "Earn BP!"
+	done
+
 SaffronGymSignText:
 	text "Saffron City"
 	line "#mon Gym"
@@ -330,6 +342,7 @@ SaffronCity_MapEvents:
 	warp_event 17, 33, SAFFRON_SOUTH_GATE, 2
 	warp_event 39, 22, SAFFRON_EAST_GATE, 1
 	warp_event 39, 23, SAFFRON_EAST_GATE, 2
+	warp_event  7, 21, SAFFRON_CHALLENGE_HALL, 1
 
 	def_coord_events
 
@@ -342,6 +355,7 @@ SaffronCity_MapEvents:
 	bg_event 11,  5, BGEVENT_READ, SaffronCityMagnetTrainStationSign
 	bg_event 10, 29, BGEVENT_READ, SaffronCityPokecenterSign
 	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSign
+	bg_event  5, 21, BGEVENT_READ, SaffronChallengeHallSign
 
 	def_object_events
 	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, EVENT_SAFFRON_CITY_UNSAFE

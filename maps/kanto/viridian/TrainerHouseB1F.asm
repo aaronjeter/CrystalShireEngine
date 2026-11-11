@@ -154,12 +154,12 @@ TrainerHouseB1FIntroText:
 	cont "a challenge works."
 
 	para "You enter 4 #-"
-	line "MON and face 3"
+	line "mon and face 3"
 	cont "trainers in a row,"
 	cont "all in double"
 	cont "battles."
 
-	para "Every #MON on"
+	para "Every #mon on"
 	line "both sides fights"
 	cont "at the same level."
 
@@ -180,7 +180,7 @@ TrainerHouseB1FWelcomeBackText:
 
 TrainerHouseB1FChooseText:
 	text "Choose your 4"
-	line "#MON, in the"
+	line "#mon, in the"
 	cont "order they'll go."
 
 	para "The first two lead"
@@ -189,10 +189,10 @@ TrainerHouseB1FChooseText:
 
 TrainerHouseB1FGoRightInText:
 	text "No items from your"
-	line "PACK in battle,"
-	cont "and no EXP."
+	line "Pack in battle,"
+	cont "and no Exp."
 
-	para "Your #MON are"
+	para "Your #mon are"
 	line "healed after each"
 	cont "win."
 
@@ -205,7 +205,7 @@ TrainerHouseB1FGoRightInText:
 	done
 
 TrainerHouseB1FNextText:
-	text "Your #MON are"
+	text "Your #mon are"
 	line "healed. Here comes"
 	cont "the next trainer!"
 	done
@@ -231,19 +231,19 @@ TrainerHouseB1FPrizeText:
 	done
 
 TrainerHouseB1FAfterPrizeText:
-	text "RARE CANDY raises"
-	line "a #MON's level."
+	text "Rare Candy raises"
+	line "a #mon's level."
 
-	para "ABILITY CAPSULES"
-	line "and PATCHES change"
-	cont "a #MON's"
+	para "Ability Capsules"
+	line "and Patches change"
+	cont "a #mon's"
 	cont "ability."
 
 	para "Now you know how a"
 	line "challenge works."
 
 	para "There are more of"
-	line "them across KANTO!"
+	line "them across Kanto!"
 	done
 
 TrainerHouseB1FLostText:
@@ -255,7 +255,7 @@ TrainerHouseB1FLostText:
 	done
 
 TrainerHouseB1FPackFullText:
-	text "Your PACK is too"
+	text "Your Pack is too"
 	line "full for the"
 	cont "prize."
 
@@ -266,8 +266,8 @@ TrainerHouseB1FPackFullText:
 
 TrainerHouseB1FNotEnoughText:
 	text "You'll need at"
-	line "least 4 #MON"
-	cont "that aren't EGGS."
+	line "least 4 #mon"
+	cont "that aren't Eggs."
 	done
 
 TrainerHouseB1FPleaseComeAgainText:

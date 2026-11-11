@@ -546,9 +546,9 @@
 	const EVENT_FACILITY_HALL_KANTO ; Vermilion's Challenge Hall cleared
 	const EVENT_FACILITY_HALL_JOHTO ; Goldenrod's Challenge Hall cleared
 	const EVENT_FACILITY_HALL_HOENN ; Mauville's Challenge Hall cleared
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
+	const EVENT_FACILITY_HARD_KANTO ; Saffron's Challenge Hall cleared
+	const EVENT_FACILITY_HARD_JOHTO ; Route 40's Challenge Hall cleared
+	const EVENT_FACILITY_HARD_HOENN ; Lilycove's Challenge Hall cleared
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

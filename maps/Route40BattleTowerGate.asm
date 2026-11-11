@@ -46,6 +46,8 @@ Route40BattleTowerGate_MapEvents:
 	def_warp_events
 	warp_event  4,  7, ROUTE_40, 1
 	warp_event  5,  7, ROUTE_40, 1
+	warp_event  4,  0, ROUTE_40_CHALLENGE_HALL, 1
+	warp_event  5,  0, ROUTE_40_CHALLENGE_HALL, 2
 
 	def_coord_events
 

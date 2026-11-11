@@ -249,6 +249,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DOUBLES_TEST ; the test trainer in the player's room
 	const FACILITY_JOHTO_6 ; challenge facility (intermediate)
 	const FACILITY_HOENN_6 ; challenge facility (intermediate)
+	const FACILITY_KANTO_9 ; challenge facility (hard)
+	const FACILITY_HOENN_9 ; challenge facility (hard)
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -280,6 +282,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const EVERGRANDE_DUNGEON_F8
 	const EVERGRANDE_DUNGEON_F9
 	const FACILITY_KANTO_6 ; challenge facility (intermediate)
+	const FACILITY_JOHTO_9 ; challenge facility (hard)
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -372,6 +375,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const MOSSDEEP_CLIFF
 	const MOSSDEEP_NATE
 	const FACILITY_KANTO_5 ; challenge facility (intermediate)
+	const FACILITY_JOHTO_8 ; challenge facility (hard)
 
 	trainerclass SKIER ; 21
 	const ROXANNE
@@ -490,6 +494,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE109_RICKY
 	const ROUTE109_CHANDLER
 	const FACILITY_KANTO_4 ; challenge facility (intermediate)
+	const FACILITY_JOHTO_7 ; challenge facility (hard)
 
 	trainerclass SUPER_NERD ; 29
 	const ERIC
@@ -584,6 +589,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DEWFORD_TAKAO
 	const DEWFORD_CRISTIAN
 	const ROUTE103_RHETT
+	const FACILITY_KANTO_8 ; challenge facility (hard)
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
@@ -612,6 +618,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const MOSSDEEP_VIRGIL
 	const FRANKLIN2
 	const JARED2
+	const FACILITY_KANTO_7 ; challenge facility (hard)
 
 	trainerclass PICNICKER ; 35
 	const KIM
@@ -854,6 +861,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const SAFARI_RACHAEL
 	const ROUTE119_DANI
 	const ROUTE120_JENNA
+	const FACILITY_HOENN_8 ; challenge facility (hard)
 
 	trainerclass EXPLORER
 	const ROUTE105_FOSTER
@@ -874,6 +882,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const MOSSDEEP_KATHLEEN
 	const MOSSDEEP_SYLVIA
 	const MOSSDEEP_HANNAH
+	const FACILITY_HOENN_7 ; challenge facility (hard)
 
 	trainerclass AGATHA
 	const AGATHA1

@@ -47,13 +47,13 @@ TrainerHouse1FReceptionistText:
 	cont "a row."
 
 	para "Bring at least 4"
-	line "#MON. Any kind"
+	line "#mon. Any kind"
 	cont "can enter!"
 	done
 
 TrainerHouse1FCooltrainerMText:
 	text "In a challenge,"
-	line "every #MON is"
+	line "every #mon is"
 	cont "set to the same"
 	cont "level."
 
@@ -68,7 +68,7 @@ TrainerHouse1FCooltrainerMText:
 
 TrainerHouse1FCooltrainerFText:
 	text "The order you pick"
-	line "your #MON in is"
+	line "your #mon in is"
 	cont "the order they go."
 
 	para "The first two lead"
@@ -79,7 +79,7 @@ TrainerHouse1FCooltrainerFText:
 TrainerHouse1FYoungsterText:
 	text "You can't use"
 	line "items from your"
-	cont "PACK in a"
+	cont "Pack in a"
 	cont "challenge."
 
 	para "A held item is"
@@ -95,20 +95,20 @@ TrainerHouse1FGentlemanText:
 	line "Hall, and the"
 
 	para "others around"
-	line "KANTO will take"
+	line "Kanto will take"
 	cont "you seriously."
 	done
 
 TrainerHouseSign1Text:
 	text "Training Hall: 4"
-	line "#MON, 3 double"
+	line "#mon, 3 double"
 	cont "battles in a row."
 	done
 
 TrainerHouseSign2Text:
 	text "Same level for"
-	line "all. No PACK"
-	cont "items. No EXP."
+	line "all. No Pack"
+	cont "items. No Exp."
 	done
 
 TrainerHouseIllegibleText:
@@ -116,7 +116,7 @@ TrainerHouseIllegibleText:
 	line "A strategy memo?"
 
 	para "This writing looks"
-	line "like ONIX tracks…"
+	line "like Onix tracks…"
 
 	para "It's completely"
 	line "illegible…"

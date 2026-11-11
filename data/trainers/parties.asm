@@ -3342,6 +3342,28 @@ CooltrainerMGroup:
 	mon 0, LAIRON
 	end_party
 
+	party FACILITY_KANTO_9, "Ash" ; challenge facility (hard; levels: the facility level)
+	mon 0, GYARADOS
+		item SITRUS_BERRY
+	mon 0, ARCANINE
+		item LIFE_ORB
+	mon 0, EXEGGUTOR
+		item WISE_GLASSES
+	mon 0, SNORLAX
+		item LEFTOVERS
+	end_party
+
+	party FACILITY_HOENN_9, "Dane" ; challenge facility (hard; levels: the facility level)
+	mon 0, AGGRON
+		item SITRUS_BERRY
+	mon 0, MANECTRIC
+		item LIFE_ORB
+	mon 0, MILOTIC
+		item LEFTOVERS
+	mon 0, FLYGON
+		item EXPERT_BELT
+	end_party
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -3749,6 +3771,17 @@ CooltrainerFGroup:
 	mon 0, WARTORTLE
 	mon 0, CHARMELEON
 	mon 0, KADABRA
+	end_party
+
+	party FACILITY_JOHTO_9, "Sela" ; challenge facility (hard; levels: the facility level)
+	mon 0, FERALIGATR
+		item SITRUS_BERRY
+	mon 0, URSARING
+		item MUSCLE_BAND
+	mon 0, ESPEON
+		item LIFE_ORB
+	mon 0, SCIZOR
+		item EXPERT_BELT
 	end_party
 
 	end_list_items
@@ -4452,6 +4485,17 @@ GentlemanGroup:
 	mon 0, NIDORINO
 	mon 0, PERSIAN
 	mon 0, PIDGEOTTO
+	end_party
+
+	party FACILITY_JOHTO_8, "Arthur" ; challenge facility (hard; levels: the facility level)
+	mon 0, STEELIX
+		item LEFTOVERS
+	mon 0, SKARMORY
+		item ROCKY_HELMET
+	mon 0, AMPHAROS
+		item WISE_GLASSES
+	mon 0, HOUNDOOM
+		item LIFE_ORB
 	end_party
 
 	end_list_items
@@ -5503,6 +5547,17 @@ SailorGroup:
 	mon 0, SEADRA
 	end_party
 
+	party FACILITY_JOHTO_7, "Hank" ; challenge facility (hard; levels: the facility level)
+	mon 0, LANTURN
+		item SITRUS_BERRY
+	mon 0, QUAGSIRE
+		item LEFTOVERS
+	mon 0, OCTILLERY
+		item WISE_GLASSES
+	mon 0, MANTINE
+		item SHELL_BELL
+	end_party
+
 	end_list_items
 
 SuperNerdGroup:
@@ -6414,6 +6469,17 @@ BlackbeltGroup:
 	mon 7, COMBUSKEN
 	end_party
 
+	party FACILITY_KANTO_8, "Kiyo" ; challenge facility (hard; levels: the facility level)
+	mon 0, MACHAMP
+		item MUSCLE_BAND
+	mon 0, HITMONLEE
+		item FOCUS_SASH
+	mon 0, HITMONCHAN
+		item SITRUS_BERRY
+	mon 0, PRIMEAPE
+		item QUICK_CLAW
+	end_party
+
 	end_list_items
 
 ExecutiveMGroup:
@@ -6750,6 +6816,17 @@ PsychicGroup:
 
 	party JARED2, "Jared" ; Saffron City Gym
 	random_mons 3, PSYCHIC_MEDIUM
+	end_party
+
+	party FACILITY_KANTO_7, "Sabin" ; challenge facility (hard; levels: the facility level)
+	mon 0, ALAKAZAM
+		item FOCUS_SASH
+	mon 0, HYPNO
+		item LEFTOVERS
+	mon 0, MR__MIME
+		item SITRUS_BERRY
+	mon 0, STARMIE
+		item LIFE_ORB
 	end_party
 
 	end_list_items
@@ -9896,6 +9973,17 @@ RangerFGroup:
 	mon 9, ASHIBOMB
 	end_party
 
+	party FACILITY_HOENN_8, "Tess" ; challenge facility (hard; levels: the facility level)
+	mon 0, BRELOOM
+		item FOCUS_SASH
+	mon 0, LUDICOLO
+		item SITRUS_BERRY
+	mon 0, SHIFTRY
+		item LIFE_ORB
+	mon 0, TROPIUS
+		item LEFTOVERS
+	end_party
+
 	end_list_items
 
 ExplorerGroup:
@@ -10053,6 +10141,17 @@ ExplorerGroup:
 	hard
 	mon 8, CLAYDOL
 	mon 9, JYNX
+	end_party
+
+	party FACILITY_HOENN_7, "Mira" ; challenge facility (hard; levels: the facility level)
+	mon 0, GARDEVOIR
+		item WISE_GLASSES
+	mon 0, MEDICHAM
+		item FOCUS_SASH
+	mon 0, GRUMPIG
+		item SITRUS_BERRY
+	mon 0, CLAYDOL
+		item LEFTOVERS
 	end_party
 
 	end_list_items

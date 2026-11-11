@@ -178,8 +178,20 @@ LilycoveSignText:
 	line "and sea begins."
 	done
 
+LilycoveChallengeHallSign:
+	jumptext LilycoveChallengeHallSignText
+
 LilycoveCleaHouseSign:
 	jumptext LilycoveCleaHouseSignText
+
+LilycoveChallengeHallSignText:
+	text "Lilycove"
+	line "Challenge Hall"
+
+	para "Three double"
+	line "battles in a row."
+	cont "Earn BP!"
+	done
 
 LilycoveCleaHouseSignText:
 	text "Clea's Paintshop"
@@ -241,6 +253,7 @@ LilycoveCity_MapEvents:
 	warp_event 13, 33, LILYCOVE_HARBOR, 2
 	warp_event 39, 05, LILYCOVE_DEPT_STORE_1F, 1
 	warp_event 40, 05, LILYCOVE_DEPT_STORE_1F, 2
+	warp_event 21, 25, LILYCOVE_CHALLENGE_HALL, 1
 
 	def_coord_events
 
@@ -249,6 +262,7 @@ LilycoveCity_MapEvents:
 	bg_event  53, 07, BGEVENT_READ, LilycoveCleaHouseSign
 	bg_event 42,  5, BGEVENT_READ, LilycoveDeptStoreSign
 	bg_event  11, 33, BGEVENT_READ, LilycoveHarborSign
+	bg_event 19, 25, BGEVENT_READ, LilycoveChallengeHallSign
 
 	def_object_events
 	object_event  46,  33, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, LilycoveMossdeepGuyScript, -1

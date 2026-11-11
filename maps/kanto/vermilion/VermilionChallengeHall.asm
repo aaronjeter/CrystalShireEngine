@@ -20,6 +20,8 @@ VermilionChallengeHallReceptionistScript:
 ; Pokémon, 3 trainers in a row
 	faceplayer
 	opentext
+	checkevent EVENT_FACILITY_INTRO_KANTO
+	iffalse .Locked
 	checkevent EVENT_FACILITY_HALL_KANTO
 	iftrue .AlreadyCleared
 	writetext VermilionChallengeHallIntroText
@@ -78,6 +80,12 @@ VermilionChallengeHallReceptionistScript:
 	writetext VermilionChallengeHallLostText
 	waitbutton
 .Done:
+	closetext
+	end
+
+.Locked:
+	writetext VermilionChallengeHallLockedText
+	waitbutton
 	closetext
 	end
 
@@ -149,7 +157,7 @@ VermilionChallengeHallIntroText:
 	text "Welcome to the"
 	line "Challenge Hall!"
 
-	para "Enter 4 #MON"
+	para "Enter 4 #mon"
 	line "and battle 3"
 	cont "skilled trainers"
 	cont "in a row, in"
@@ -174,14 +182,14 @@ VermilionChallengeHallWelcomeBackText:
 
 VermilionChallengeHallChooseText:
 	text "Pick your 4"
-	line "#MON in the"
+	line "#mon in the"
 	cont "order they should"
 	cont "go."
 	done
 
 VermilionChallengeHallGoText:
-	text "No PACK items, no"
-	line "EXP. Your team is"
+	text "No Pack items, no"
+	line "Exp. Your team is"
 	cont "healed after each"
 	cont "win, and goes back"
 	cont "to how it was."
@@ -231,7 +239,7 @@ VermilionChallengeHallGotBPText:
 	done
 
 VermilionChallengeHallAfterPrizeText:
-	text "A WIDE LENS makes"
+	text "A Wide Lens makes"
 	line "its holder's moves"
 	cont "a bit more sure."
 
@@ -240,7 +248,7 @@ VermilionChallengeHallAfterPrizeText:
 
 	para "There are more"
 	line "challenges across"
-	cont "KANTO!"
+	cont "Kanto!"
 	done
 
 VermilionChallengeHallLostText:
@@ -250,8 +258,19 @@ VermilionChallengeHallLostText:
 	cont "time."
 	done
 
+VermilionChallengeHallLockedText:
+	text "Sorry! This hall"
+	line "is for trainers"
+	cont "with more"
+	cont "experience."
+
+	para "Please clear the"
+	line "Trainer House in"
+	cont "Viridian first!"
+	done
+
 VermilionChallengeHallPackFullText:
-	text "Your PACK is too"
+	text "Your Pack is too"
 	line "full for the"
 	cont "prizes. Please"
 	cont "make some room!"
@@ -259,8 +278,8 @@ VermilionChallengeHallPackFullText:
 
 VermilionChallengeHallNotEnoughText:
 	text "You'll need at"
-	line "least 4 #MON"
-	cont "that aren't EGGS."
+	line "least 4 #mon"
+	cont "that aren't Eggs."
 	done
 
 VermilionChallengeHallDeclinedText:
@@ -282,7 +301,7 @@ VermilionChallengeHallClerkByeText:
 VermilionChallengeHallNpc1Text:
 	text "Sailors here love"
 	line "a slugfest. Bring"
-	cont "#MON that hit"
+	cont "#mon that hit"
 	cont "both foes!"
 	done
 

@@ -20,6 +20,8 @@ MauvilleChallengeHallReceptionistScript:
 ; Pokémon, 3 trainers in a row
 	faceplayer
 	opentext
+	checkevent EVENT_FACILITY_INTRO_HOENN
+	iffalse .Locked
 	checkevent EVENT_FACILITY_HALL_HOENN
 	iftrue .AlreadyCleared
 	writetext MauvilleChallengeHallIntroText
@@ -78,6 +80,12 @@ MauvilleChallengeHallReceptionistScript:
 	writetext MauvilleChallengeHallLostText
 	waitbutton
 .Done:
+	closetext
+	end
+
+.Locked:
+	writetext MauvilleChallengeHallLockedText
+	waitbutton
 	closetext
 	end
 
@@ -149,7 +157,7 @@ MauvilleChallengeHallIntroText:
 	text "Welcome to the"
 	line "Challenge Hall!"
 
-	para "Enter 4 #MON"
+	para "Enter 4 #mon"
 	line "and battle 3"
 	cont "skilled trainers"
 	cont "in a row, in"
@@ -174,14 +182,14 @@ MauvilleChallengeHallWelcomeBackText:
 
 MauvilleChallengeHallChooseText:
 	text "Pick your 4"
-	line "#MON in the"
+	line "#mon in the"
 	cont "order they should"
 	cont "go."
 	done
 
 MauvilleChallengeHallGoText:
-	text "No PACK items, no"
-	line "EXP. Your team is"
+	text "No Pack items, no"
+	line "Exp. Your team is"
 	cont "healed after each"
 	cont "win, and goes back"
 	cont "to how it was."
@@ -231,16 +239,16 @@ MauvilleChallengeHallGotBPText:
 	done
 
 MauvilleChallengeHallAfterPrizeText:
-	text "A BINDING BAND"
+	text "A Binding Band"
 	line "makes moves like"
-	cont "WRAP hurt more."
+	cont "Wrap hurt more."
 
 	para "Spend BP at the"
 	line "counter here."
 
 	para "There are more"
 	line "challenges across"
-	cont "HOENN!"
+	cont "Hoenn!"
 	done
 
 MauvilleChallengeHallLostText:
@@ -250,8 +258,19 @@ MauvilleChallengeHallLostText:
 	cont "time."
 	done
 
+MauvilleChallengeHallLockedText:
+	text "Sorry! This hall"
+	line "is for trainers"
+	cont "with more"
+	cont "experience."
+
+	para "Please clear the"
+	line "Trainers' School"
+	cont "in Rustboro first!"
+	done
+
 MauvilleChallengeHallPackFullText:
-	text "Your PACK is too"
+	text "Your Pack is too"
 	line "full for the"
 	cont "prizes. Please"
 	cont "make some room!"
@@ -259,8 +278,8 @@ MauvilleChallengeHallPackFullText:
 
 MauvilleChallengeHallNotEnoughText:
 	text "You'll need at"
-	line "least 4 #MON"
-	cont "that aren't EGGS."
+	line "least 4 #mon"
+	cont "that aren't Eggs."
 	done
 
 MauvilleChallengeHallDeclinedText:

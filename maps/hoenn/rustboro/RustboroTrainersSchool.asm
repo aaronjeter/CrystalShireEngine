@@ -130,19 +130,19 @@ SchoolLeaveFloorMovement:
 
 SchoolTeacherIntroText:
 	text "Welcome to the"
-	line "TRAINERS' SCHOOL!"
+	line "Trainers' School!"
 
 	para "Our practice floor"
 	line "teaches how a"
 	cont "challenge works."
 
-	para "Enter 4 #MON"
+	para "Enter 4 #mon"
 	line "and battle 3"
 	cont "students in a row,"
 	cont "all in double"
 	cont "battles."
 
-	para "Every #MON"
+	para "Every #mon"
 	line "fights at the same"
 	cont "level."
 
@@ -157,7 +157,7 @@ SchoolTeacherWelcomeBackText:
 
 SchoolTeacherChooseText:
 	text "Pick your 4"
-	line "#MON in the"
+	line "#mon in the"
 	cont "order they should"
 	cont "go."
 
@@ -166,9 +166,9 @@ SchoolTeacherChooseText:
 	done
 
 SchoolTeacherGoText:
-	text "No PACK items in"
+	text "No Pack items in"
 	line "battle, and no"
-	cont "EXP."
+	cont "Exp."
 
 	para "I'll heal your"
 	line "team after each"
@@ -208,19 +208,19 @@ SchoolTeacherPrizeText:
 	done
 
 SchoolTeacherAfterPrizeText:
-	text "RARE CANDY raises"
-	line "a #MON's level."
+	text "Rare Candy raises"
+	line "a #mon's level."
 
-	para "ABILITY CAPSULES"
-	line "and PATCHES change"
-	cont "a #MON's"
+	para "Ability Capsules"
+	line "and Patches change"
+	cont "a #mon's"
 	cont "ability."
 
 	para "Now you know how a"
 	line "challenge works."
 
 	para "There are more of"
-	line "them across HOENN!"
+	line "them across Hoenn!"
 	done
 
 SchoolTeacherLostText:
@@ -231,7 +231,7 @@ SchoolTeacherLostText:
 	done
 
 SchoolTeacherPackFullText:
-	text "Your PACK is too"
+	text "Your Pack is too"
 	line "full for the"
 	cont "prize."
 
@@ -242,8 +242,8 @@ SchoolTeacherPackFullText:
 
 SchoolTeacherNotEnoughText:
 	text "You'll need at"
-	line "least 4 #MON"
-	cont "that aren't EGGS."
+	line "least 4 #mon"
+	cont "that aren't Eggs."
 	done
 
 SchoolTeacherDeclinedText:
@@ -272,7 +272,7 @@ RustboroTrainersSchoolLassText:
 
 RustboroTrainersSchoolGameboyKidText:
 	text "You can't use your"
-	line "PACK in there, but"
+	line "Pack in there, but"
 
 	para "held items still"
 	line "work. I'm learning"

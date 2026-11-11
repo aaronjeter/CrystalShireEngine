@@ -96,11 +96,13 @@ def item_count(g, name):
     return g.rd('wScriptVar')
 
 
-def play(mapc, x, y, steps, end, win, full=False):
+def play(mapc, x, y, steps, end, win, full=False, flags=(), locked=False):
     g = T.G(ROM, None, SYM)
     g.load(STATE)
     g.run_script(warp_script(mapc, x, y))
     g.frames(200)
+    for f in flags:  # earlier facilities cleared
+        g.script(f'\tsetevent {f}', 20)
     g.wr('wPartyCount', 0)
     g.wr('wPartySpecies', 0xff)
     for s_ in ('MACHOP', 'GEODUDE', 'ONIX', 'GROWLITHE', 'PIDGEY'):
@@ -140,7 +142,7 @@ def play(mapc, x, y, steps, end, win, full=False):
             for _ in range(40):  # the rest of the desk's lines and the prizes
                 g.press('B', after=40)
             break
-        if full and _ > 60:
+        if (full or locked) and _ > 60:
             break
     g.healed = healed
     return g, before, battles, results

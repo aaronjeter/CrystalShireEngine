@@ -1284,14 +1284,14 @@ SECTION "Map Blocks Battle Resort", ROMX
 RustboroTrainersSchool_Blocks:
 	INCBIN "maps/hoenn/rustboro/RustboroTrainersSchool.ablk"
 
-GoldenrodChallengeHall_Blocks:
-	INCBIN "maps/johto/goldenrod/GoldenrodChallengeHall.ablk"
-
+; the Challenge Halls (intermediate and hard) share one layout
 VermilionChallengeHall_Blocks:
-	INCBIN "maps/kanto/vermilion/VermilionChallengeHall.ablk"
-
+GoldenrodChallengeHall_Blocks:
 MauvilleChallengeHall_Blocks:
-	INCBIN "maps/hoenn/mauville/MauvilleChallengeHall.ablk"
+SaffronChallengeHall_Blocks:
+Route40ChallengeHall_Blocks:
+LilycoveChallengeHall_Blocks:
+	INCBIN "maps/ChallengeHall.ablk"
 
 ENDSECTION
 

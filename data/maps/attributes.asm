@@ -992,3 +992,6 @@ ENDM
 	map_attributes GoldenrodChallengeHall, GOLDENROD_CHALLENGE_HALL, $00, 0
 	map_attributes VermilionChallengeHall, VERMILION_CHALLENGE_HALL, $00, 0
 	map_attributes MauvilleChallengeHall, MAUVILLE_CHALLENGE_HALL, $00, 0
+	map_attributes SaffronChallengeHall, SAFFRON_CHALLENGE_HALL, $00, 0
+	map_attributes Route40ChallengeHall, ROUTE_40_CHALLENGE_HALL, $00, 0
+	map_attributes LilycoveChallengeHall, LILYCOVE_CHALLENGE_HALL, $00, 0

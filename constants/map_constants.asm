@@ -451,6 +451,7 @@ ENDM
 	map_const CIANWOOD_LUGIA_SPEECH_HOUSE,                  4,  4 ;  9
 	map_const POKE_SEERS_HOUSE,                             4,  4 ; 10	
 	map_const ROUTE_40_BATTLE_TOWER_GATE,                   5,  4 ; 15	
+	map_const ROUTE_40_CHALLENGE_HALL,                       6,  7 ; 16 (at the group's end, so saves keep working)
 	endgroup
 
 	newgroup VIRIDIAN                                             ; 23
@@ -499,6 +500,7 @@ ENDM
 	map_const ROUTE_5_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 13
 	map_const SAFFRON_NORTH_GATE,                           5,  4 ; 14
 	map_const ROUTE_5_CLEANSE_TAG_HOUSE,                    4,  4 ; 15
+	map_const SAFFRON_CHALLENGE_HALL,                       6,  7 ; 16 (at the group's end, so saves keep working)
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26
@@ -664,6 +666,7 @@ ENDM
 	map_const WC_FINALS,                                   07, 07 ;
 	map_const RUSTBORO_TRAINERS_SCHOOL,                    04, 08 ; at the group's end, so saves keep working
 	map_const MAUVILLE_CHALLENGE_HALL,                      6,  7 ; at the group's end, so saves keep working
+	map_const LILYCOVE_CHALLENGE_HALL,                      6,  7 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

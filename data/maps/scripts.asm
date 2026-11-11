@@ -778,6 +778,9 @@ INCLUDE "maps/hoenn/rustboro/RustboroTrainersSchool.asm"
 INCLUDE "maps/johto/goldenrod/GoldenrodChallengeHall.asm"
 INCLUDE "maps/kanto/vermilion/VermilionChallengeHall.asm"
 INCLUDE "maps/hoenn/mauville/MauvilleChallengeHall.asm"
+INCLUDE "maps/kanto/saffron/SaffronChallengeHall.asm"
+INCLUDE "maps/johto/olivine/Route40ChallengeHall.asm"
+INCLUDE "maps/hoenn/lilycove/LilycoveChallengeHall.asm"
 
 
 ENDSECTION

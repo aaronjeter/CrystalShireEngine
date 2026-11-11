@@ -20,6 +20,8 @@ GoldenrodChallengeHallReceptionistScript:
 ; Pokémon, 3 trainers in a row
 	faceplayer
 	opentext
+	checkevent EVENT_FACILITY_INTRO_JOHTO
+	iffalse .Locked
 	checkevent EVENT_FACILITY_HALL_JOHTO
 	iftrue .AlreadyCleared
 	writetext GoldenrodChallengeHallIntroText
@@ -78,6 +80,12 @@ GoldenrodChallengeHallReceptionistScript:
 	writetext GoldenrodChallengeHallLostText
 	waitbutton
 .Done:
+	closetext
+	end
+
+.Locked:
+	writetext GoldenrodChallengeHallLockedText
+	waitbutton
 	closetext
 	end
 
@@ -149,7 +157,7 @@ GoldenrodChallengeHallIntroText:
 	text "Welcome to the"
 	line "Challenge Hall!"
 
-	para "Enter 4 #MON"
+	para "Enter 4 #mon"
 	line "and battle 3"
 	cont "skilled trainers"
 	cont "in a row, in"
@@ -174,14 +182,14 @@ GoldenrodChallengeHallWelcomeBackText:
 
 GoldenrodChallengeHallChooseText:
 	text "Pick your 4"
-	line "#MON in the"
+	line "#mon in the"
 	cont "order they should"
 	cont "go."
 	done
 
 GoldenrodChallengeHallGoText:
-	text "No PACK items, no"
-	line "EXP. Your team is"
+	text "No Pack items, no"
+	line "Exp. Your team is"
 	cont "healed after each"
 	cont "win, and goes back"
 	cont "to how it was."
@@ -231,7 +239,7 @@ GoldenrodChallengeHallGotBPText:
 	done
 
 GoldenrodChallengeHallAfterPrizeText:
-	text "A BIG ROOT makes"
+	text "A Big Root makes"
 	line "draining moves"
 	cont "heal even more."
 
@@ -240,7 +248,7 @@ GoldenrodChallengeHallAfterPrizeText:
 
 	para "There are more"
 	line "challenges across"
-	cont "JOHTO!"
+	cont "Johto!"
 	done
 
 GoldenrodChallengeHallLostText:
@@ -250,8 +258,19 @@ GoldenrodChallengeHallLostText:
 	cont "time."
 	done
 
+GoldenrodChallengeHallLockedText:
+	text "Sorry! This hall"
+	line "is for trainers"
+	cont "with more"
+	cont "experience."
+
+	para "Please clear the"
+	line "practice at Earl's"
+	cont "Academy in Violet!"
+	done
+
 GoldenrodChallengeHallPackFullText:
-	text "Your PACK is too"
+	text "Your Pack is too"
 	line "full for the"
 	cont "prizes. Please"
 	cont "make some room!"
@@ -259,8 +278,8 @@ GoldenrodChallengeHallPackFullText:
 
 GoldenrodChallengeHallNotEnoughText:
 	text "You'll need at"
-	line "least 4 #MON"
-	cont "that aren't EGGS."
+	line "least 4 #mon"
+	cont "that aren't Eggs."
 	done
 
 GoldenrodChallengeHallDeclinedText:
