@@ -549,7 +549,7 @@
 	const EVENT_FACILITY_HARD_KANTO ; Saffron's Challenge Hall cleared
 	const EVENT_FACILITY_HARD_JOHTO ; Route 40's Challenge Hall cleared
 	const EVENT_FACILITY_HARD_HOENN ; Lilycove's Challenge Hall cleared
-	const_skip ; unused
+	const EVENT_BATTLE_RESORT_TOWER_OPPONENT ; hides the Battle Tower room's opponent (set on entry)
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

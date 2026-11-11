@@ -750,6 +750,10 @@ SECTION "Challenge Facilities", ROMX
 
 INCLUDE "engine/events/facility.asm"
 
+SECTION "Battle Tower Streaks", ROMX
+
+INCLUDE "engine/events/battle_tower_streaks.asm"
+
 SECTION "Facility Eligibility", ROMX
 
 INCLUDE "data/pokemon/facility_eligibility.asm"

@@ -251,6 +251,9 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const FACILITY_HOENN_6 ; challenge facility (intermediate)
 	const FACILITY_KANTO_9 ; challenge facility (hard)
 	const FACILITY_HOENN_9 ; challenge facility (hard)
+	const TOWER_ELITE_1 ; Battle Tower (random team)
+	const TOWER_ELITE_2 ; Battle Tower (random team)
+	const TOWER_HEAD ; Battle Tower head (battle 49; placeholder)
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -283,6 +286,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const EVERGRANDE_DUNGEON_F9
 	const FACILITY_KANTO_6 ; challenge facility (intermediate)
 	const FACILITY_JOHTO_9 ; challenge facility (hard)
+	const TOWER_ELITE_3 ; Battle Tower (random team)
+	const TOWER_ELITE_4 ; Battle Tower (random team)
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -303,6 +308,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const SOOTOPOLIS_OLIVIA
 	const SOOTOPOLIS_BRIDGET
 	const FACILITY_JOHTO_5 ; challenge facility (intermediate)
+	const TOWER_ELITE_7 ; Battle Tower (random team)
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -376,6 +382,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const MOSSDEEP_NATE
 	const FACILITY_KANTO_5 ; challenge facility (intermediate)
 	const FACILITY_JOHTO_8 ; challenge facility (hard)
+	const TOWER_ELITE_8 ; Battle Tower (random team)
 
 	trainerclass SKIER ; 21
 	const ROXANNE
@@ -590,6 +597,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DEWFORD_CRISTIAN
 	const ROUTE103_RHETT
 	const FACILITY_KANTO_8 ; challenge facility (hard)
+	const TOWER_ELITE_5 ; Battle Tower (random team)
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
@@ -619,6 +627,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const FRANKLIN2
 	const JARED2
 	const FACILITY_KANTO_7 ; challenge facility (hard)
+	const TOWER_ELITE_6 ; Battle Tower (random team)
 
 	trainerclass PICNICKER ; 35
 	const KIM
@@ -686,6 +695,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const GAKU
 	const MASA
 	const KOJI
+	const TOWER_ELITE_9 ; Battle Tower (random team)
 
 	trainerclass MEDIUM ; 39
 	const MARTHA
@@ -838,6 +848,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE117_AISHA
 	const ROUTE120_CALLIE
 	const FACILITY_HOENN_5 ; challenge facility (intermediate)
+	const TOWER_ELITE_10 ; Battle Tower (random team)
 
 	trainerclass RANGERM
 	const RANGERM1
@@ -853,6 +864,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE120_LORENZO
 	const ROUTE120_KEIGO
 	const TREETOP_TRIAL1
+	const TOWER_ELITE_11 ; Battle Tower (random team)
 
 	trainerclass RANGERF
 	const RANGERF1
@@ -862,6 +874,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE119_DANI
 	const ROUTE120_JENNA
 	const FACILITY_HOENN_8 ; challenge facility (hard)
+	const TOWER_ELITE_12 ; Battle Tower (random team)
 
 	trainerclass EXPLORER
 	const ROUTE105_FOSTER

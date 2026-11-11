@@ -3364,6 +3364,29 @@ CooltrainerMGroup:
 		item EXPERT_BELT
 	end_party
 
+	party TOWER_ELITE_1, "Victor" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
+	end_party
+
+	party TOWER_ELITE_2, "Grant" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
+	end_party
+
+	party TOWER_HEAD, "Tycoon" ; Battle Tower head, battle 49 (placeholder character and team; levels: the facility level)
+	mon 0, METAGROSS
+		item LUM_BERRY
+		moves PSYCHIC_M, METEOR_MASH, FIRE_PUNCH, ICE_PUNCH
+	mon 0, SALAMENCE
+		item CHARCOAL
+		moves DRAGON_CLAW, FIRE_BLAST, EARTHQUAKE, ROCK_TOMB
+	mon 0, MILOTIC
+		item ASPEAR_BERRY
+		moves RAIN_DANCE, SURF, RECOVER, WILLOWISP
+	mon 0, GARDEVOIR
+		item KINGS_ROCK
+		moves MOONBLAST, SHOCK_WAVE, HYPNOSIS, DREAM_EATER
+	end_party
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -3784,6 +3807,14 @@ CooltrainerFGroup:
 		item EXPERT_BELT
 	end_party
 
+	party TOWER_ELITE_3, "Celia" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
+	end_party
+
+	party TOWER_ELITE_4, "Nadia" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
+	end_party
+
 	end_list_items
 
 BeautyGroup:
@@ -3953,6 +3984,10 @@ BeautyGroup:
 	mon 0, LEDIAN
 	mon 0, ARIADOS
 	mon 0, PILOSWINE
+	end_party
+
+	party TOWER_ELITE_7, "Selene" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
 	end_party
 
 	end_list_items
@@ -4496,6 +4531,10 @@ GentlemanGroup:
 		item WISE_GLASSES
 	mon 0, HOUNDOOM
 		item LIFE_ORB
+	end_party
+
+	party TOWER_ELITE_8, "Edmund" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
 	end_party
 
 	end_list_items
@@ -6480,6 +6519,10 @@ BlackbeltGroup:
 		item QUICK_CLAW
 	end_party
 
+	party TOWER_ELITE_5, "Takao" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
+	end_party
+
 	end_list_items
 
 ExecutiveMGroup:
@@ -6827,6 +6870,10 @@ PsychicGroup:
 		item SITRUS_BERRY
 	mon 0, STARMIE
 		item LIFE_ORB
+	end_party
+
+	party TOWER_ELITE_6, "Ezra" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
 	end_party
 
 	end_list_items
@@ -7460,6 +7507,10 @@ SageGroup:
 	mon 11, VAPOREON
 		item MYSTIC_WATER
 		ability WATER_ABSORB
+	end_party
+
+	party TOWER_ELITE_9, "Kosho" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
 	end_party
 
 	end_list_items
@@ -9751,6 +9802,10 @@ BattleGirlGroup:
 	mon 0, BRELOOM
 	end_party
 
+	party TOWER_ELITE_10, "Mika" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
+	end_party
+
 	end_list_items
 
 
@@ -9914,6 +9969,10 @@ RangerMGroup:
 	random_mons 3, TRIAL_EASY
 	end_party
 
+	party TOWER_ELITE_11, "Rowan" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
+	end_party
+
 	end_list_items
 
 RangerFGroup:
@@ -9982,6 +10041,10 @@ RangerFGroup:
 		item LIFE_ORB
 	mon 0, TROPIUS
 		item LEFTOVERS
+	end_party
+
+	party TOWER_ELITE_12, "Fern" ; Battle Tower (elite; a random team; levels: the facility level)
+	random_mons 4, STANDARD_CUP
 	end_party
 
 	end_list_items

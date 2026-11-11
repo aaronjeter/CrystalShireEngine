@@ -3650,6 +3650,11 @@ wFacilityPickCount:: db
 wFacilityPicks:: ds FACILITY_TEAM_SIZE ; the party slots entered, in order
 wFacilityLevel:: db ; the level both sides use during a run, or 0
 wFacilityStyle:: db ; FACILITY_SINGLES or FACILITY_DOUBLES during a run
+wTowerNumber:: dw ; a Battle Tower number for texts (big-endian)
+wTowerSetRound:: db ; the battle in the current set, 0 to TOWER_SET_LENGTH - 1
+wTowerLastTrainer:: db ; the last TowerTrainers entry, so it doesn't come twice in a row
+wTowerTrainerClass:: db ; the picked trainer
+wTowerTrainerID:: db
 wBPShopPrice:: db ; the price shown or asked about in a BP shop
 wBPShopBalance:: dw ; the player's BP, big-endian, for printing (wBattlePoints is in WRAM bank 5)
 
@@ -3663,6 +3668,10 @@ wSaveExtension::
 wBattlePoints:: dw ; BP (big-endian), for the Battle Resort
 wResortBestStreaks:: ds NUM_FACILITY_CATEGORIES ; best Resort streak per category
 wResortStreaks:: ds 2 ; the current streak of each Resort hall
+wTowerStreak:: dw ; the Battle Tower's current streak (big-endian)
+wTowerBestStreak:: dw ; its best streak (big-endian)
+wTowerState:: db ; TOWER_*_F bits
+wTowerTeam:: ds FACILITY_TEAM_SIZE * TOWER_TEAM_MON_LENGTH ; the locked team, in battle order
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

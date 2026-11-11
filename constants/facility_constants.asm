@@ -41,6 +41,7 @@ DEF FACILITY_HOENN EQU 2 << FACILITY_REGION_SHIFT
 	const FACILITY_HARD_KANTO ; Saffron's Challenge Hall
 	const FACILITY_HARD_JOHTO ; Route 40's Challenge Hall (by the old Battle Tower)
 	const FACILITY_HARD_HOENN ; Lilycove's Challenge Hall
+	const FACILITY_ELITE ; the Battle Resort's Battle Tower (streaks; engine/events/battle_tower_streaks.asm)
 DEF NUM_FACILITIES EQU const_value
 
 ; a facility record: category, parameter, level, style, prize (2), cleared flag (2), then class, id and
@@ -63,3 +64,34 @@ DEF FACILITY_RECORD_LENGTH EQU FACILITY_TRAINERS + FACILITY_ROUNDS * FACILITY_TR
 	const BPSHOP_TIER4    ; premium
 	const BPSHOP_COSMETIC ; Silver Leaf, Gold Leaf, Marvel Scale
 DEF NUM_BPSHOPS EQU const_value
+
+; the Battle Tower's elite streaks (engine/events/battle_tower_streaks.asm)
+DEF TOWER_SET_LENGTH    EQU 7    ; battles in a set
+DEF TOWER_BOSS_BATTLE   EQU 49   ; the Tower head's battle (in a streak)
+DEF MAX_TOWER_STREAK    EQU 9999
+DEF TOWER_FIRST_SET_BP  EQU 7    ; BP for a streak's first set
+DEF TOWER_SET_BP        EQU 10   ; BP for each later set
+DEF TOWER_TEAM_MON_LENGTH EQU 6  ; a locked Pokémon: species index (2), DVs (2), OT ID (2)
+DEF NUM_TOWER_TRAINERS EQU 12   ; TowerTrainers
+DEF TOWER_TRAINER_LENGTH EQU 3  ; class, id, sprite
+
+; wTowerState bits
+	const_def
+	const TOWER_IN_SET_F   ; a set was started (a reset in the middle ends the streak)
+	const TOWER_STREAK_F   ; a streak is on: the team in wTowerTeam is locked
+	const TOWER_PRIZE7_F   ; the first 7-win prize was given
+	const TOWER_PRIZE49_F  ; the first 49-win prize was given
+
+; TowerCheck results
+	const_def
+	const TOWER_NO_STREAK    ; start a new streak
+	const TOWER_RESUME       ; a streak is on: continue with the locked team
+	const TOWER_INTERRUPTED  ; the last set wasn't finished: the streak ended
+
+; TowerMilestone results
+	const_def
+	const TOWER_MILESTONE_NONE
+	const TOWER_MILESTONE_7_FIRST
+	const TOWER_MILESTONE_7
+	const TOWER_MILESTONE_49_FIRST
+	const TOWER_MILESTONE_49

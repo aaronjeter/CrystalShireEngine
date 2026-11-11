@@ -995,3 +995,5 @@ ENDM
 	map_attributes SaffronChallengeHall, SAFFRON_CHALLENGE_HALL, $00, 0
 	map_attributes Route40ChallengeHall, ROUTE_40_CHALLENGE_HALL, $00, 0
 	map_attributes LilycoveChallengeHall, LILYCOVE_CHALLENGE_HALL, $00, 0
+	map_attributes BattleResortTower, BATTLE_RESORT_TOWER, $00, 0
+	map_attributes BattleResortTowerRoom, BATTLE_RESORT_TOWER_ROOM, $00, 0

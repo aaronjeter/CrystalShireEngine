@@ -158,3 +158,17 @@ SpecialsPointers::
 	add_special FacilityOpponentSprite
 	add_special GiveBattlePoints
 	add_special BPShop
+	add_special TowerCheck
+	add_special TowerShowBest
+	add_special TowerEndStreak
+	add_special TowerBeginStreak
+	add_special TowerResumeTeam
+	add_special TowerStartSet
+	add_special TowerRest
+	add_special TowerPrizeDue
+	add_special TowerPickTrainer
+	add_special TowerLoadTrainer
+	add_special TowerWon
+	add_special TowerSetBP
+	add_special TowerMilestone
+	add_special TowerSaveGame

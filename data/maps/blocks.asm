@@ -1293,6 +1293,12 @@ Route40ChallengeHall_Blocks:
 LilycoveChallengeHall_Blocks:
 	INCBIN "maps/ChallengeHall.ablk"
 
+BattleResortTower_Blocks:
+	INCBIN "maps/hoenn/battle/BattleResortTower.ablk"
+
+BattleResortTowerRoom_Blocks:
+	INCBIN "maps/hoenn/battle/BattleResortTowerRoom.ablk"
+
 ENDSECTION
 
 SECTION "Map Museums", ROMX

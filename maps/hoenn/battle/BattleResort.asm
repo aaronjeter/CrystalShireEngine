@@ -5,6 +5,18 @@ BattleResort_MapScripts:
 
 	def_callbacks
 
+BattleTowerSign:
+	jumptext BattleTowerSignText
+
+BattleTowerSignText:
+	text "Battle Tower"
+
+	para "Only the best"
+	line "trainers from all"
+	cont "three regions may"
+	cont "enter."
+	done
+
 AshGauntletSign:
 	jumptext AshGauntletSignText
 
@@ -117,6 +129,7 @@ BattleResort_MapEvents:
 	warp_event   24, 51, BATTLE_RESORT_HARBOR, 1
 	warp_event   25, 51, BATTLE_RESORT_HARBOR, 2
 	warp_event   09, 13, FANCY_ROCKS, 2
+	warp_event   42, 13, BATTLE_RESORT_TOWER, 1
 
 
 	def_coord_events
@@ -125,6 +138,7 @@ BattleResort_MapEvents:
 	bg_event 15, 29, BGEVENT_READ, AshGauntletSign
 	bg_event  41, 29, BGEVENT_READ, TreetopTrialSign
 	bg_event 12, 14, BGEVENT_READ, FancyRocksSign
+	bg_event 41, 17, BGEVENT_READ, BattleTowerSign
 
 	def_object_events
 	object_event 23, 22, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, BattleResortAceScript, -1

@@ -50,7 +50,7 @@ MapScenes::
 	scene_var ROUTE_42,                                    wRoute42SceneID
 	scene_var CIANWOOD_CITY,                               wCianwoodCitySceneID
 	scene_var ROUTE_40_BATTLE_TOWER_GATE,                  wBattleTower1FSceneID
-	scene_var ROUTE_40_BATTLE_TOWER_GATE,                  wBattleTowerBattleRoomSceneID
+	scene_var BATTLE_RESORT_TOWER_ROOM,                    wBattleTowerBattleRoomSceneID
 	scene_var ROUTE_40_BATTLE_TOWER_GATE,                  wBattleTowerElevatorSceneID
 	scene_var ROUTE_40_BATTLE_TOWER_GATE,                  wBattleTowerHallwaySceneID
 	scene_var ROUTE_40_BATTLE_TOWER_GATE,                  wBattleTowerOutsideSceneID ; unused

@@ -781,6 +781,8 @@ INCLUDE "maps/hoenn/mauville/MauvilleChallengeHall.asm"
 INCLUDE "maps/kanto/saffron/SaffronChallengeHall.asm"
 INCLUDE "maps/johto/olivine/Route40ChallengeHall.asm"
 INCLUDE "maps/hoenn/lilycove/LilycoveChallengeHall.asm"
+INCLUDE "maps/hoenn/battle/BattleResortTowerRoom.asm"
+INCLUDE "maps/hoenn/battle/BattleResortTower.asm"
 
 
 ENDSECTION

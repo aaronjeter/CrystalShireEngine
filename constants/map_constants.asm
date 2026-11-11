@@ -667,6 +667,8 @@ ENDM
 	map_const RUSTBORO_TRAINERS_SCHOOL,                    04, 08 ; at the group's end, so saves keep working
 	map_const MAUVILLE_CHALLENGE_HALL,                      6,  7 ; at the group's end, so saves keep working
 	map_const LILYCOVE_CHALLENGE_HALL,                      6,  7 ; at the group's end, so saves keep working
+	map_const BATTLE_RESORT_TOWER,                         16,  6 ; at the group's end, so saves keep working
+	map_const BATTLE_RESORT_TOWER_ROOM,                     4,  4 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27
