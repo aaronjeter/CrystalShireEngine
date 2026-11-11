@@ -989,3 +989,6 @@ ENDM
 	map_attributes WCRoundFour, WC_ROUND_FOUR, $00, 0
 	map_attributes WCFinals, WC_FINALS, $00, 0
 	map_attributes RustboroTrainersSchool, RUSTBORO_TRAINERS_SCHOOL, $00, 0
+	map_attributes GoldenrodChallengeHall, GOLDENROD_CHALLENGE_HALL, $00, 0
+	map_attributes VermilionChallengeHall, VERMILION_CHALLENGE_HALL, $00, 0
+	map_attributes MauvilleChallengeHall, MAUVILLE_CHALLENGE_HALL, $00, 0

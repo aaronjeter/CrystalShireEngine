@@ -300,6 +300,7 @@ ENDM
 	map_const ILEX_FOREST_AZALEA_GATE,                      5,  4 ; 22
 	map_const ROUTE_34_ILEX_FOREST_GATE,                    5,  4 ; 23
 	map_const DAY_CARE,                                     5,  4 ; 24
+	map_const GOLDENROD_CHALLENGE_HALL,                      6,  7 ; 25 (at the group's end, so saves keep working)
 	endgroup
 
 	newgroup VERMILION                                            ; 12
@@ -315,6 +316,7 @@ ENDM
 	map_const VERMILION_GYM,                                5,  9 ; 11
 	map_const SAFFRON_SOUTH_GATE,                           5,  4 ; 12
 	map_const ROUTE_6_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 13
+	map_const VERMILION_CHALLENGE_HALL,                      6,  7 ; 14 (at the group's end, so saves keep working)
 	endgroup
 
 	newgroup PALLET                                               ; 13
@@ -661,6 +663,7 @@ ENDM
 	map_const WC_ROUND_FOUR,                               07, 12 ;
 	map_const WC_FINALS,                                   07, 07 ;
 	map_const RUSTBORO_TRAINERS_SCHOOL,                    04, 08 ; at the group's end, so saves keep working
+	map_const MAUVILLE_CHALLENGE_HALL,                      6,  7 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

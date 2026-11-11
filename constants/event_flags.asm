@@ -543,9 +543,9 @@
 	const EVENT_FACILITY_INTRO_KANTO ; Viridian's Trainer House challenge cleared
 	const EVENT_FACILITY_INTRO_JOHTO ; Earl's Academy challenge cleared
 	const EVENT_FACILITY_INTRO_HOENN ; Rustboro's Trainers' School challenge cleared
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_FACILITY_HALL_KANTO ; Vermilion's Challenge Hall cleared
+	const EVENT_FACILITY_HALL_JOHTO ; Goldenrod's Challenge Hall cleared
+	const EVENT_FACILITY_HALL_HOENN ; Mauville's Challenge Hall cleared
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused	

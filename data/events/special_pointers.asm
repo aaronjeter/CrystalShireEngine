@@ -157,3 +157,4 @@ SpecialsPointers::
 	add_special FacilitySetCleared
 	add_special FacilityOpponentSprite
 	add_special GiveBattlePoints
+	add_special BPShop

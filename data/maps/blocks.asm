@@ -1284,6 +1284,15 @@ SECTION "Map Blocks Battle Resort", ROMX
 RustboroTrainersSchool_Blocks:
 	INCBIN "maps/hoenn/rustboro/RustboroTrainersSchool.ablk"
 
+GoldenrodChallengeHall_Blocks:
+	INCBIN "maps/johto/goldenrod/GoldenrodChallengeHall.ablk"
+
+VermilionChallengeHall_Blocks:
+	INCBIN "maps/kanto/vermilion/VermilionChallengeHall.ablk"
+
+MauvilleChallengeHall_Blocks:
+	INCBIN "maps/hoenn/mauville/MauvilleChallengeHall.ablk"
+
 ENDSECTION
 
 SECTION "Map Museums", ROMX

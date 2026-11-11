@@ -247,6 +247,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const EVERGRANDE_DUNGEON_M8
 	const EVERGRANDE_DUNGEON_M9
 	const DOUBLES_TEST ; the test trainer in the player's room
+	const FACILITY_JOHTO_6 ; challenge facility (intermediate)
+	const FACILITY_HOENN_6 ; challenge facility (intermediate)
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -277,6 +279,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const EVERGRANDE_DUNGEON_F7
 	const EVERGRANDE_DUNGEON_F8
 	const EVERGRANDE_DUNGEON_F9
+	const FACILITY_KANTO_6 ; challenge facility (intermediate)
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -296,6 +299,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const SOOTOPOLIS_TIFFANY
 	const SOOTOPOLIS_OLIVIA
 	const SOOTOPOLIS_BRIDGET
+	const FACILITY_JOHTO_5 ; challenge facility (intermediate)
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -367,6 +371,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ALFRED
 	const MOSSDEEP_CLIFF
 	const MOSSDEEP_NATE
+	const FACILITY_KANTO_5 ; challenge facility (intermediate)
 
 	trainerclass SKIER ; 21
 	const ROXANNE
@@ -484,6 +489,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE109_EDMOND
 	const ROUTE109_RICKY
 	const ROUTE109_CHANDLER
+	const FACILITY_KANTO_4 ; challenge facility (intermediate)
 
 	trainerclass SUPER_NERD ; 29
 	const ERIC
@@ -496,6 +502,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const MARKUS
 	const MOON_JOVAN
 	const MOON_MIGUEL
+	const FACILITY_JOHTO_4 ; challenge facility (intermediate)
 
 	trainerclass RIVAL2 ; 2a
 	const RIVAL2_WC
@@ -508,6 +515,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE103_MARCOS
 	const ROUTE110_JOSEPH
 	const ROUTE119_FABIAN
+	const FACILITY_HOENN_4 ; challenge facility (intermediate)
 
 	trainerclass HIKER ; 2c
 	const ANTHONY
@@ -822,6 +830,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const LAVARIDGE_DANIELLE
 	const ROUTE117_AISHA
 	const ROUTE120_CALLIE
+	const FACILITY_HOENN_5 ; challenge facility (intermediate)
 
 	trainerclass RANGERM
 	const RANGERM1

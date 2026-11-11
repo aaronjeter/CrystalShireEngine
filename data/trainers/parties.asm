@@ -3328,6 +3328,20 @@ CooltrainerMGroup:
 	random_mons 6, TRIAL_EASY
 	end_party
 
+	party FACILITY_JOHTO_6, "Dex" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, BAYLEEF
+	mon 0, QUILAVA
+	mon 0, CROCONAW
+	mon 0, TOGETIC
+	end_party
+
+	party FACILITY_HOENN_6, "Owen" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, GROVYLE
+	mon 0, COMBUSKEN
+	mon 0, MARSHTOMP
+	mon 0, LAIRON
+	end_party
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -3730,6 +3744,13 @@ CooltrainerFGroup:
 	mon 8, SNORLAX
 	end_party
 
+	party FACILITY_KANTO_6, "Ivy" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, IVYSAUR
+	mon 0, WARTORTLE
+	mon 0, CHARMELEON
+	mon 0, KADABRA
+	end_party
+
 	end_list_items
 
 BeautyGroup:
@@ -3892,6 +3913,13 @@ BeautyGroup:
 	hard
 	mon 9, AZUMARILL
 	mon 7, WAILORD
+	end_party
+
+	party FACILITY_JOHTO_5, "Rina" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, GRANBULL
+	mon 0, LEDIAN
+	mon 0, ARIADOS
+	mon 0, PILOSWINE
 	end_party
 
 	end_list_items
@@ -4417,6 +4445,13 @@ GentlemanGroup:
 	mon 8, MR__MIME
 	mon 8, GRUMPIG
 	mon 8, XATU
+	end_party
+
+	party FACILITY_KANTO_5, "Alfred" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, RAICHU
+	mon 0, NIDORINO
+	mon 0, PERSIAN
+	mon 0, PIDGEOTTO
 	end_party
 
 	end_list_items
@@ -5461,6 +5496,13 @@ SailorGroup:
 		ability GUTS
 	end_party
 
+	party FACILITY_KANTO_4, "Marco" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, POLIWHIRL
+	mon 0, KINGLER
+	mon 0, MACHOKE
+	mon 0, SEADRA
+	end_party
+
 	end_list_items
 
 SuperNerdGroup:
@@ -5552,6 +5594,13 @@ SuperNerdGroup:
 	mon 5, GRIMER
 	mon 7, VOLTORB
 	mon 7, KOFFING
+	end_party
+
+	party FACILITY_JOHTO_4, "Gil" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, FLAAFFY
+	mon 0, SKIPLOOM
+	mon 0, FURRET
+	mon 0, NOCTOWL
 	end_party
 
 	end_list_items
@@ -5672,6 +5721,13 @@ GuitaristGroup:
 	party ROUTE119_FABIAN, "Fabian" ; Route 119
 	mon 7, MANECTRIC
 	mon 7, LINOONE
+	end_party
+
+	party FACILITY_HOENN_4, "Rex" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, LOMBRE
+	mon 0, NUZLEAF
+	mon 0, LINOONE
+	mon 0, MIGHTYENA
 	end_party
 
 	end_list_items
@@ -9609,6 +9665,13 @@ BattleGirlGroup:
 	hard
 	mon 8, HITMONTOP
 	mon 8, HARIYAMA
+	end_party
+
+	party FACILITY_HOENN_5, "Mai" ; challenge facility (intermediate; levels: the facility level)
+	mon 0, KIRLIA
+	mon 0, SWELLOW
+	mon 0, MANECTRIC
+	mon 0, BRELOOM
 	end_party
 
 	end_list_items

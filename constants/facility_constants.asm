@@ -35,6 +35,9 @@ DEF FACILITY_HOENN EQU 2 << FACILITY_REGION_SHIFT
 	const FACILITY_INTRO_KANTO ; Viridian's Trainer House
 	const FACILITY_INTRO_JOHTO ; Earl's Academy, Violet
 	const FACILITY_INTRO_HOENN ; Rustboro's Trainers' School
+	const FACILITY_HALL_KANTO ; Vermilion's Challenge Hall
+	const FACILITY_HALL_JOHTO ; Goldenrod's Challenge Hall
+	const FACILITY_HALL_HOENN ; Mauville's Challenge Hall
 DEF NUM_FACILITIES EQU const_value
 
 ; a facility record: category, parameter, level, style, prize (2), cleared flag (2), then class, id and
@@ -48,3 +51,12 @@ DEF FACILITY_FLAG     EQU 6
 DEF FACILITY_TRAINERS EQU 8
 DEF FACILITY_TRAINER_LENGTH EQU 3
 DEF FACILITY_RECORD_LENGTH EQU FACILITY_TRAINERS + FACILITY_ROUNDS * FACILITY_TRAINER_LENGTH
+
+; BP shops (data/events/bp_shops.asm)
+	const_def
+	const BPSHOP_TIER1    ; cheap: vitamins, Rare Candy, PP Up, Ability Capsule
+	const BPSHOP_TIER2    ; utility
+	const BPSHOP_TIER3    ; solid held items
+	const BPSHOP_TIER4    ; premium
+	const BPSHOP_COSMETIC ; Silver Leaf, Gold Leaf, Marvel Scale
+DEF NUM_BPSHOPS EQU const_value

@@ -50,6 +50,14 @@ class Win(Battle):
                     g.wr(f'wBattlerSlots+{slot * size + mon + hp}', m)
         if g.rd16('wBattleMonHP'):
             g.wr('wBattleMonHP', g.rd('wBattleMonMaxHP', 2))
+        # the foes hit for almost nothing: attack and special attack 1
+        st = g.const('BATTLEMON_STATS')
+        for slot in (2, 3):
+            for k in (0, 3):  # attack, special attack
+                g.wr(f'wBattlerSlots+{slot * size + mon + st + k * 2}', [0, 1])
+        for k in (0, 3):
+            g.wr(f'wEnemyMon+{st + k * 2}', [0, 1])
+            g.wr(f'wEnemyStats+{k * 2}', [0, 1])
         # rounds 1 and 2: the two waiting in the back get hurt, once (round 3 has no heal after it)
         if self.round < 2 and not getattr(self, 'hurt', False):
             self.hurt = True

@@ -166,6 +166,15 @@ MauvilleCityWally_StepUpFromBesideMovement:
 MauvilleCitySign:
 	jumptext MauvilleCitySignText
 
+MauvilleChallengeHallSignText:
+	text "Mauville"
+	line "Challenge Hall"
+
+	para "Three double"
+	line "battles in a row."
+	cont "Earn BP!"
+	done
+
 MauvilleCitySignText:
 	text "Mauville City"
 
@@ -173,6 +182,9 @@ MauvilleCitySignText:
 	line "shiny city of"
 	cont "fun!"
 	done
+
+MauvilleChallengeHallSign:
+	jumptext MauvilleChallengeHallSignText
 
 MauvilleGymSign:
 	jumptext MauvilleGymSignText
@@ -289,6 +301,7 @@ MauvilleCity_MapEvents:
 	warp_event 37, 13, MAUVILLE_TRADE_HOUSE, 2
 	warp_event 33, 05, MAUVILLE_BIKE_SHOP, 2
 	warp_event 06, 13, MAUVILLE_GAME_CORNER, 1
+	warp_event 19, 13, MAUVILLE_CHALLENGE_HALL, 1
 
 	def_coord_events
 	coord_event  16,  05, -1, MauvilleCity_Wally
@@ -299,6 +312,7 @@ MauvilleCity_MapEvents:
 	bg_event  07, 05, BGEVENT_READ, MauvilleGymSign
 	bg_event  03, 15, BGEVENT_READ, MauvilleGameCornerSign
 	bg_event  31, 05, BGEVENT_READ, MauvilleBikeShopSign
+	bg_event 17, 13, BGEVENT_READ, MauvilleChallengeHallSign
 
 	def_object_events
 	object_event  02, 14, SPRITE_ROCKER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MauvilleAngryGuyScript, -1

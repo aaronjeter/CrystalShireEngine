@@ -129,6 +129,9 @@ VermillionCutGrannyAlreadyGivenHatchetText:
 VermilionCitySign:
 	jumptext VermilionCitySignText
 
+VermilionChallengeHallSign:
+	jumptext VermilionChallengeHallSignText
+
 VermilionGymSign:
 	jumptext VermilionGymSignText
 
@@ -252,6 +255,15 @@ VermilionCitySignText:
 	line "Exquisite Sunsets"
 	done
 
+VermilionChallengeHallSignText:
+	text "Vermilion"
+	line "Challenge Hall"
+
+	para "Three double"
+	line "battles in a row."
+	cont "Earn BP!"
+	done
+
 VermilionGymSignText:
 	text "Vermilion City"
 	line "#mon Gym"
@@ -291,11 +303,13 @@ VermilionCity_MapEvents:
 	warp_event 19, 31, VERMILION_PORT_PASSAGE, 1
 	warp_event 20, 31, VERMILION_PORT_PASSAGE, 2
 	warp_event 34,  7, DIGLETTS_CAVE, 1
+	warp_event 19,  5, VERMILION_CHALLENGE_HALL, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 19,  7, BGEVENT_READ, VermilionCitySign
+	bg_event 19, 13, BGEVENT_READ, VermilionCitySign
+	bg_event 19,  7, BGEVENT_READ, VermilionChallengeHallSign
 	bg_event  8, 20, BGEVENT_READ, VermilionGymSign
 	bg_event  5, 13, BGEVENT_READ, PokemonFanClubSign
 	bg_event 33,  9, BGEVENT_READ, VermilionCityDiglettsCaveSign

@@ -55,3 +55,14 @@ MACRO facility_intro_prize_room
 	setval FALSE
 .prize_room_done\@
 ENDM
+
+MACRO facility_hall_prize_room
+; facility_hall_prize_room ITEM: wScriptVar = TRUE if an intermediate facility's
+; prizes (ITEM, 3 Rare Candies, 2 Ability Capsules, an Ability Patch) all fit
+; in the Pack (it tries giving them, then takes them back)
+	giveitem \1
+	iffalse .hall_room_none\@
+	facility_intro_prize_room
+	takeitem \1
+.hall_room_none\@
+ENDM

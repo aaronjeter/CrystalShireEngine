@@ -210,6 +210,9 @@ GoldenrodCityRadioTowerSign:
 GoldenrodDeptStoreSign:
 	jumptext GoldenrodDeptStoreSignText
 
+GoldenrodChallengeHallSign:
+	jumptext GoldenrodChallengeHallSignText
+
 GoldenrodGymSign:
 	jumptext GoldenrodGymSignText
 
@@ -409,6 +412,15 @@ GoldenrodGymSignText:
 	line "Pretty Girl!"
 	done
 
+GoldenrodChallengeHallSignText:
+	text "Goldenrod"
+	line "Challenge Hall"
+
+	para "Three double"
+	line "battles in a row."
+	cont "Earn BP!"
+	done
+
 GoldenrodCitySignText:
 	text "Goldenrod City"
 
@@ -532,6 +544,7 @@ GoldenrodCity_MapEvents:
 	warp_event  9,  5, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, 8
 	warp_event 11, 29, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, 5
 	warp_event 15, 27, GOLDENROD_POKECENTER_1F, 1
+	warp_event 25, 15, GOLDENROD_CHALLENGE_HALL, 1
 
 	def_coord_events
 
@@ -548,6 +561,7 @@ GoldenrodCity_MapEvents:
 	bg_event 12, 30, BGEVENT_READ, GoldenrodCityUndergroundSignSouth
 	bg_event 16, 27, BGEVENT_UP, GoldenrodCityPokecenterSign
 	bg_event 30,  6, BGEVENT_READ, GoldenrodCityFlowerShopSign
+	bg_event 23, 15, BGEVENT_READ, GoldenrodChallengeHallSign
 
 	def_object_events
 	object_event  7, 18, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityPokefanMScript, EVENT_GOLDENROD_CITY_CIVILIANS

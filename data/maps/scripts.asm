@@ -775,6 +775,9 @@ INCLUDE "maps/hoenn/battle/WCRoundThree.asm"
 INCLUDE "maps/hoenn/battle/WCRoundFour.asm"
 INCLUDE "maps/hoenn/battle/WCFinals.asm"
 INCLUDE "maps/hoenn/rustboro/RustboroTrainersSchool.asm"
+INCLUDE "maps/johto/goldenrod/GoldenrodChallengeHall.asm"
+INCLUDE "maps/kanto/vermilion/VermilionChallengeHall.asm"
+INCLUDE "maps/hoenn/mauville/MauvilleChallengeHall.asm"
 
 
 ENDSECTION

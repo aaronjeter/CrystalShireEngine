@@ -3650,6 +3650,8 @@ wFacilityPickCount:: db
 wFacilityPicks:: ds FACILITY_TEAM_SIZE ; the party slots entered, in order
 wFacilityLevel:: db ; the level both sides use during a run, or 0
 wFacilityStyle:: db ; FACILITY_SINGLES or FACILITY_DOUBLES during a run
+wBPShopPrice:: db ; the price shown or asked about in a BP shop
+wBPShopBalance:: dw ; the player's BP, big-endian, for printing (wBattlePoints is in WRAM bank 5)
 
 
 SECTION "Save Extension", WRAMX, BANK[5]

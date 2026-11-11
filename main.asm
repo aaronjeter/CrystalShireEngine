@@ -742,6 +742,10 @@ SECTION "Save Extension Code", ROMX
 
 INCLUDE "engine/menus/save_extension.asm"
 
+SECTION "BP Shops", ROMX
+
+INCLUDE "engine/events/bp_shop.asm"
+
 SECTION "Challenge Facilities", ROMX
 
 INCLUDE "engine/events/facility.asm"
