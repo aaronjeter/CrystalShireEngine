@@ -279,6 +279,10 @@ SproutTowerSignText:
 EarlsPokemonAcademySignText:
 	text "Earl's #mon"
 	line "Academy"
+
+	para "Practice floor"
+	line "open: learn how"
+	cont "challenges work!"
 	done
 
 Djinn_BreezeScript:

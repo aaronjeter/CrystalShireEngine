@@ -540,9 +540,9 @@
 	const EVENT_BEAT_EVERGRANDE_F7
 	const EVENT_BEAT_EVERGRANDE_F8
 	const EVENT_BEAT_EVERGRANDE_F9
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_FACILITY_INTRO_KANTO ; Viridian's Trainer House challenge cleared
+	const EVENT_FACILITY_INTRO_JOHTO ; Earl's Academy challenge cleared
+	const EVENT_FACILITY_INTRO_HOENN ; Rustboro's Trainers' School challenge cleared
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

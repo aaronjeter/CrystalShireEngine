@@ -217,7 +217,7 @@ ReadTrainerMon:
 	ld a, [wBattleType]
 	cp BATTLETYPE_CUP
 	jr nz, .got_level
-	ld a, [wLevelCap]
+	call CupBattleLevel
 	ld [wCurPartyLevel], a
 .got_level
 
@@ -682,6 +682,14 @@ SetTrainerBattleLevel:
 	ld a, [wBattleType]
 	cp BATTLETYPE_CUP
 	ret nz
-	ld a, [wLevelCap]
+	call CupBattleLevel
 	ld [wCurPartyLevel], a
+	ret
+
+CupBattleLevel:
+; a = the level of a Cup battle: the challenge facility's, or the level cap
+	ld a, [wFacilityLevel]
+	and a
+	ret nz
+	ld a, [wLevelCap]
 	ret

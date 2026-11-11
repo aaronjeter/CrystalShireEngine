@@ -110,6 +110,8 @@ _ResetWRAM:
 	xor a
 	rst ByteFill
 
+	farcall ClearSaveExtension
+
 	ldh a, [rLY]
 	ldh [hUnusedBackup], a
 	call DelayFrame
@@ -296,6 +298,7 @@ LoadOrRegenerateLuckyIDNumber:
 Continue:
 	farcall TryLoadSaveFile
 	ret c
+	farcall LoadSaveExtension
 	farcall _LoadData
 	call LoadStandardMenuHeader
 	call DisplaySaveInfoOnContinue

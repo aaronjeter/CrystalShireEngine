@@ -148,3 +148,12 @@ SpecialsPointers::
 	add_special WardrobeColorMenu
 	add_special MonPaletteService
 	add_special MoveTutorMenu
+	add_special FacilitySetup
+	add_special FacilityChooseTeam
+	add_special FacilityStartRun
+	add_special FacilityLoadTrainer
+	add_special FacilityNextRound
+	add_special FacilityEndRun
+	add_special FacilitySetCleared
+	add_special FacilityOpponentSprite
+	add_special GiveBattlePoints

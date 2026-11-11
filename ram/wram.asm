@@ -3640,3 +3640,28 @@ wWindowStack:: ds $1000 - 1
 wWindowStackBottom:: ds 1
 
 ENDSECTION
+
+
+SECTION "Facility RAM", WRAM0
+
+wFacilityID:: db ; FACILITY_* of the challenge being run (engine/events/facility.asm)
+wFacilityRound:: db ; 0 to FACILITY_ROUNDS - 1
+wFacilityPickCount:: db
+wFacilityPicks:: ds FACILITY_TEAM_SIZE ; the party slots entered, in order
+wFacilityLevel:: db ; the level both sides use during a run, or 0
+wFacilityStyle:: db ; FACILITY_SINGLES or FACILITY_DOUBLES during a run
+
+
+SECTION "Save Extension", WRAMX, BANK[5]
+
+; Saved to sSaveExtension (SRAM bank 0) with every save and loaded on Continue;
+; zero in new games and in saves made before it existed. New data goes at the
+; end, before the reserved bytes.
+wSaveExtension::
+wBattlePoints:: dw ; BP (big-endian), for the Battle Resort
+wResortBestStreaks:: ds NUM_FACILITY_CATEGORIES ; best Resort streak per category
+wResortStreaks:: ds 2 ; the current streak of each Resort hall
+wSaveExtensionUsed::
+	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
+wSaveExtensionEnd::
+	assert wSaveExtensionEnd - wSaveExtension == SAVE_EXTENSION_LENGTH

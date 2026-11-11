@@ -170,6 +170,7 @@ SaveGameData:
 	call SetSavePhase
 
 	call SaveChecksum
+	farcall SaveSaveExtension
 	call WriteBackupSave
 	call SaveRTC
 	jmp CloseSRAM ; just in case

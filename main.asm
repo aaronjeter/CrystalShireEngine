@@ -738,6 +738,18 @@ SECTION "Wild Spawns", ROMX
 
 INCLUDE "engine/overworld/wild_spawns.asm"
 
+SECTION "Save Extension Code", ROMX
+
+INCLUDE "engine/menus/save_extension.asm"
+
+SECTION "Challenge Facilities", ROMX
+
+INCLUDE "engine/events/facility.asm"
+
+SECTION "Facility Eligibility", ROMX
+
+INCLUDE "data/pokemon/facility_eligibility.asm"
+
 SECTION "Overworld Behaviors", ROMX
 
 INCLUDE "data/pokemon/overworld_behaviors.asm"

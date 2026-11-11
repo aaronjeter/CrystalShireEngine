@@ -2734,7 +2734,9 @@ WinTrainerBattle:
 	ld a, [wDebugFlags]
 	bit DEBUG_BATTLE_F, a
 	call z, PrintWinLossText
-	jr .give_money
+	ld a, [wFacilityLevel]
+	and a
+	ret nz ; no prize money in a challenge facility
 
 .give_money
 	ld a, [wAmuletCoin]
@@ -7031,10 +7033,21 @@ InitEnemyTrainer:
 	ld a, [wOtherTrainerType]
 	and 1 << TRAINERTYPE_DOUBLE_F
 	jr nz, .set_double
+	; a challenge facility sets the style: doubles with 2+ Pokémon, or singles
+	ld a, [wFacilityLevel]
+	and a
+	jr z, .option
+	ld a, [wFacilityStyle]
+	cp FACILITY_DOUBLES
+	jr z, .two_or_more
+	xor a
+	jr .set_double
+.option
 	; the Battles option (Doubles) makes every trainer with 2+ Pokémon a double battle
 	ld a, [wOptions2]
 	and 1 << TRAINER_DOUBLES
 	jr z, .set_double
+.two_or_more
 	ld a, [wOTPartyCount]
 	cp 2
 	sbc a ; $ff if fewer than 2

@@ -157,6 +157,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE110_TIMMY
 	const ROUTE113_LAO
 	const ROUTE113_DILLON
+	const FACILITY_KANTO_1 ; challenge facility intro
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK
@@ -167,6 +168,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DUDLEY
 	const NATE
 	const RICKY
+	const FACILITY_JOHTO_1 ; challenge facility intro
+	const FACILITY_HOENN_1 ; challenge facility intro
 
 	trainerclass BIRD_KEEPER ; 18
 	const ROD
@@ -205,6 +208,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE118_ANNIE
 	const SOOTOPOLIS_ANDREA
 	const SOOTOPOLIS_CRISSY
+	const FACILITY_KANTO_2 ; challenge facility intro
+	const FACILITY_JOHTO_2 ; challenge facility intro
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -378,6 +383,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const KLUTCH3
 	const SOOTOPOLIS_DAPHNE
 	const SOOTOPOLIS_BRIANNA
+	const FACILITY_JOHTO_3 ; challenge facility intro
+	const FACILITY_HOENN_3 ; challenge facility intro
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
@@ -620,6 +627,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE114_ANGELINA
 	const DESERT_HEIDI	
 	const DESERT_CELIA
+	const FACILITY_HOENN_2 ; challenge facility intro
 	
 
 	trainerclass CAMPER ; 36
@@ -641,6 +649,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE114_SHANE
 	const DESERT_BEAU
 	const DESERT_BRANDEN
+	const FACILITY_KANTO_3 ; challenge facility intro
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1

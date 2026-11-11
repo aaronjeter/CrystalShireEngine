@@ -1059,6 +1059,88 @@ TestroomGetSingleStage:
 	givepoke DUNSPARCE, 5
 	end
 
+Testroom_Facility:
+; the challenge facility prototype (FACILITY_TEST): 3 Cup battles in a row
+	faceplayer
+	opentext
+	writetext TestroomFacilityIntroText
+	yesorno
+	iffalse .done
+	setval FACILITY_TEST
+	special FacilitySetup
+	ifless FACILITY_TEAM_SIZE, .not_enough
+	special FacilityChooseTeam
+	iffalse .done
+	writetext TestroomFacilityBeginText
+	waitbutton
+	closetext
+	special FacilityStartRun
+.round
+	special FacilityLoadTrainer
+	winlosstext TestroomFacilityWinText, TestroomFacilityLossText
+	startbattle
+	reloadmap
+	iftrue .lost
+	special FacilityNextRound
+	iftrue .round
+	special FacilityEndRun
+	special FacilitySetCleared
+	opentext
+	writetext TestroomFacilityClearedText
+	waitbutton
+	closetext
+	end
+
+.lost
+	special FacilityEndRun
+	opentext
+	writetext TestroomFacilityLostText
+	waitbutton
+.done
+	closetext
+	end
+
+.not_enough
+	writetext TestroomFacilityNotEnoughText
+	waitbutton
+	closetext
+	end
+
+TestroomFacilityIntroText:
+	text "Facility test:"
+	line "3 battles at the"
+	cont "level cap. Ready?"
+	done
+
+TestroomFacilityBeginText:
+	text "Let the challenge"
+	line "begin!"
+	done
+
+TestroomFacilityWinText:
+	text "Well fought!"
+	done
+
+TestroomFacilityLossText:
+	text "That's the end"
+	line "of your run!"
+	done
+
+TestroomFacilityClearedText:
+	text "You won all three"
+	line "battles!"
+	done
+
+TestroomFacilityLostText:
+	text "Your #MON are"
+	line "back as they were."
+	done
+
+TestroomFacilityNotEnoughText:
+	text "You need 4 #MON"
+	line "that can enter."
+	done
+
 TestRoom_MapEvents:
 	db 0, 0 ; filler
 
@@ -1083,3 +1165,4 @@ TestRoom_MapEvents:
 	object_event 19, 05, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Testroom_Djiin, -1
 	object_event 19, 09, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Testroom_Spheal, -1
 	object_event 17, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Testroom_AbilityItems, -1
+	object_event 15, 18, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Facility, -1

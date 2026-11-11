@@ -545,8 +545,10 @@ ViridianCityWelcomeSignText:
 TrainerHouseSignText:
 	text "Trainer House"
 
-	para "The Club for Top"
-	line "Trainer Battles"
+	para "Downstairs: the"
+	line "Training Hall,"
+	cont "where new Trainers"
+	cont "learn challenges!"
 	done
 
 Djinn_SleetScript:

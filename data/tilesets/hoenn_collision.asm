@@ -73,7 +73,7 @@
 	tilecoll WALL, FLOOR, WALL, WALL ; 48
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 49
 	tilecoll FLOOR, WALL, WALL, WALL ; 4a
-	tilecoll 01, 01, 01, 01 ; 4b
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 4b
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 4c
 	tilecoll 01, 01, 01, 01 ; 4d
 	tilecoll WALL, HOP_LEFT, WALL, HOP_LEFT ; 4e

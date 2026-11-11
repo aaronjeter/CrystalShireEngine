@@ -1281,6 +1281,9 @@ SECTION "Map Blocks Battle Resort", ROMX
 	WCFinals_Blocks:
 	INCBIN "maps/hoenn/battle/WCFinals.ablk"
 
+RustboroTrainersSchool_Blocks:
+	INCBIN "maps/hoenn/rustboro/RustboroTrainersSchool.ablk"
+
 ENDSECTION
 
 SECTION "Map Museums", ROMX

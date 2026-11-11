@@ -1,63 +1,93 @@
 	object_const_def
 	const TRAINERHOUSEB1F_RECEPTIONIST
-	const TRAINERHOUSEB1F_CHRIS
+	const TRAINERHOUSEB1F_OPPONENT
 
 TrainerHouseB1F_MapScripts:
 	def_scene_scripts
 	scene_script TrainerHouseB1FNoopScene, SCENE_TRAINERHOUSEB1F_ASK_BATTLE
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, TrainerHouseB1FOpponentCallback
+
+TrainerHouseB1FOpponentCallback:
+	variablesprite SPRITE_BATTLE_TOWER_OPPONENT, SPRITE_YOUNGSTER
+	endcallback
 
 TrainerHouseB1FNoopScene:
 	end
 
 TrainerHouseReceptionistScript:
+; Kanto's introductory challenge facility (FACILITY_INTRO_KANTO): doubles,
+; any 4 Pokémon, 3 trainers in a row
 	turnobject PLAYER, UP
 	opentext
-	checkflag ENGINE_FOUGHT_IN_TRAINER_HALL_TODAY
-	iftrue .FoughtTooManyTimes
+	checkevent EVENT_FACILITY_INTRO_KANTO
+	iftrue .AlreadyCleared
 	writetext TrainerHouseB1FIntroText
-	promptbutton
-	special TrainerHouse
-	iffalse .GetCal3Name
-	gettrainername STRING_BUFFER_3, CAL, CAL2
-	sjump .GotName
+	sjump .AskChallenge
 
-.GetCal3Name:
-	gettrainername STRING_BUFFER_3, CAL, CAL3
-.GotName:
-	writetext TrainerHouseB1FYourOpponentIsText
-	promptbutton
-	writetext TrainerHouseB1FAskWantToBattleText
+.AlreadyCleared:
+	writetext TrainerHouseB1FWelcomeBackText
+.AskChallenge:
 	yesorno
 	iffalse .Declined
-	setflag ENGINE_FOUGHT_IN_TRAINER_HALL_TODAY
+	checkevent EVENT_FACILITY_INTRO_KANTO
+	iftrue .PrizeRoomOK
+	facility_intro_prize_room
+	iffalse .PackFull
+.PrizeRoomOK:
+	setval FACILITY_INTRO_KANTO
+	special FacilitySetup
+	ifless FACILITY_TEAM_SIZE, .NotEnough
+	writetext TrainerHouseB1FChooseText
+	waitbutton
+	special FacilityChooseTeam
+	iffalse .Declined
 	writetext TrainerHouseB1FGoRightInText
 	waitbutton
 	closetext
 	applymovement PLAYER, Movement_EnterTrainerHouseBattleRoom
-	opentext
-	writetext TrainerHouseB1FCalBeforeText
-	waitbutton
-	closetext
-	special TrainerHouse
-	iffalse .NoSpecialBattle
-	winlosstext TrainerHouseB1FCalBeatenText, 0
-	setlasttalked TRAINERHOUSEB1F_CHRIS
-	loadtrainer CAL, CAL2
-	startbattle
-	reloadmapafterbattle
-	iffalse .End
-.NoSpecialBattle:
-	winlosstext TrainerHouseB1FCalBeatenText, 0
-	setlasttalked TRAINERHOUSEB1F_CHRIS
-	loadtrainer CAL, CAL3
-	startbattle
-	reloadmapafterbattle
-.End:
+	facility_battles TRAINERHOUSEB1F_OPPONENT, TrainerHouseB1FOpponentBeatenText, TrainerHouseB1FOpponentWonText, TrainerHouseB1FNextText, .Won, .Lost
+
+.Won:
 	applymovement PLAYER, Movement_ExitTrainerHouseBattleRoom
+	turnobject PLAYER, UP
+	opentext
+	writetext TrainerHouseB1FWonText
+	waitbutton
+	checkevent EVENT_FACILITY_INTRO_KANTO
+	iftrue .Done
+	setevent EVENT_FACILITY_INTRO_KANTO
+	writetext TrainerHouseB1FPrizeText
+	promptbutton
+	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem ABILITY_CAPSULE, 2
+	verbosegiveitem ABILITY_PATCH
+	writetext TrainerHouseB1FAfterPrizeText
+	waitbutton
+	sjump .Done
+
+.Lost:
+	applymovement PLAYER, Movement_ExitTrainerHouseBattleRoom
+	turnobject PLAYER, UP
+	opentext
+	writetext TrainerHouseB1FLostText
+	waitbutton
+.Done:
+	closetext
+	applymovement PLAYER, Movement_TrainerHouseTurnBack
 	end
 
+.PackFull:
+	writetext TrainerHouseB1FPackFullText
+	waitbutton
+	closetext
+	applymovement PLAYER, Movement_TrainerHouseTurnBack
+	end
+
+.NotEnough:
+	writetext TrainerHouseB1FNotEnoughText
+	waitbutton
 .Declined:
 	writetext TrainerHouseB1FPleaseComeAgainText
 	waitbutton
@@ -65,12 +95,18 @@ TrainerHouseReceptionistScript:
 	applymovement PLAYER, Movement_TrainerHouseTurnBack
 	end
 
-.FoughtTooManyTimes:
-	writetext TrainerHouseB1FSecondChallengeDeniedText
-	waitbutton
-	closetext
-	applymovement PLAYER, Movement_TrainerHouseTurnBack
-	end
+TrainerHouseB1FOpponentScript:
+	jumptextfaceplayer TrainerHouseB1FOpponentWaitingText
+
+TrainerHouseB1FOpponentWaitingText:
+	text "I'm waiting for a"
+	line "challenger!"
+
+	para "Talk to the"
+	line "receptionist if"
+	cont "you want to"
+	cont "battle."
+	done
 
 Movement_EnterTrainerHouseBattleRoom:
 	step LEFT
@@ -110,31 +146,128 @@ Movement_TrainerHouseTurnBack:
 	step_end
 
 TrainerHouseB1FIntroText:
-	text "Hi. Welcome to our"
-	line "Training Hall."
+	text "Welcome to the"
+	line "Training Hall!"
 
-	para "You may battle a"
-	line "trainer once per"
-	cont "day."
+	para "This is where new"
+	line "trainers learn how"
+	cont "a challenge works."
+
+	para "You enter 4 #-"
+	line "MON and face 3"
+	cont "trainers in a row,"
+	cont "all in double"
+	cont "battles."
+
+	para "Every #MON on"
+	line "both sides fights"
+	cont "at the same level."
+
+	para "Would you like to"
+	line "take the"
+	cont "challenge?"
 	done
 
-TrainerHouseB1FYourOpponentIsText:
-	text_ram wStringBuffer3
-	text " is your"
-	line "opponent today."
+TrainerHouseB1FWelcomeBackText:
+	text "Welcome back! You"
+	line "can practice here"
+	cont "any time you like."
+
+	para "Would you like to"
+	line "take the"
+	cont "challenge?"
 	done
 
-TrainerHouseB1FAskWantToBattleText:
-	text "Would you like to"
-	line "battle?"
+TrainerHouseB1FChooseText:
+	text "Choose your 4"
+	line "#MON, in the"
+	cont "order they'll go."
+
+	para "The first two lead"
+	line "off the battle."
 	done
 
 TrainerHouseB1FGoRightInText:
-	text "Please go right"
-	line "through."
+	text "No items from your"
+	line "PACK in battle,"
+	cont "and no EXP."
 
-	para "You may begin"
-	line "right away."
+	para "Your #MON are"
+	line "healed after each"
+	cont "win."
+
+	para "Win or lose, your"
+	line "team goes back to"
+	cont "how it was."
+
+	para "Please go right"
+	line "through!"
+	done
+
+TrainerHouseB1FNextText:
+	text "Your #MON are"
+	line "healed. Here comes"
+	cont "the next trainer!"
+	done
+
+TrainerHouseB1FOpponentBeatenText:
+	text "You got me!"
+	done
+
+TrainerHouseB1FOpponentWonText:
+	text "I win this time!"
+	done
+
+TrainerHouseB1FWonText:
+	text "Congratulations!"
+	line "You beat all three"
+	cont "trainers!"
+	done
+
+TrainerHouseB1FPrizeText:
+	text "Here are prizes"
+	line "for your first"
+	cont "win."
+	done
+
+TrainerHouseB1FAfterPrizeText:
+	text "RARE CANDY raises"
+	line "a #MON's level."
+
+	para "ABILITY CAPSULES"
+	line "and PATCHES change"
+	cont "a #MON's"
+	cont "ability."
+
+	para "Now you know how a"
+	line "challenge works."
+
+	para "There are more of"
+	line "them across KANTO!"
+	done
+
+TrainerHouseB1FLostText:
+	text "Too bad! Your team"
+	line "is back as it was."
+
+	para "Come try again any"
+	line "time."
+	done
+
+TrainerHouseB1FPackFullText:
+	text "Your PACK is too"
+	line "full for the"
+	cont "prize."
+
+	para "Please make some"
+	line "room, then come"
+	cont "back!"
+	done
+
+TrainerHouseB1FNotEnoughText:
+	text "You'll need at"
+	line "least 4 #MON"
+	cont "that aren't EGGS."
 	done
 
 TrainerHouseB1FPleaseComeAgainText:
@@ -143,28 +276,6 @@ TrainerHouseB1FPleaseComeAgainText:
 
 	para "be battling are"
 	line "allowed to go in."
-	done
-
-TrainerHouseB1FSecondChallengeDeniedText:
-	text "I'm sorry."
-	line "This would be your"
-
-	para "second time today."
-	line "You're permitted"
-
-	para "to enter just once"
-	line "a day."
-	done
-
-TrainerHouseB1FCalBeatenText:
-	text "I lost…"
-	line "Darn…"
-	done
-
-TrainerHouseB1FCalBeforeText:
-	text "I traveled out"
-	line "here just so I"
-	cont "could battle you."
 	done
 
 TrainerHouseB1F_MapEvents:
@@ -180,4 +291,4 @@ TrainerHouseB1F_MapEvents:
 
 	def_object_events
 	object_event  7,  1, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
-	object_event  6, 11, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  6, 11, SPRITE_BATTLE_TOWER_OPPONENT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerHouseB1FOpponentScript, -1

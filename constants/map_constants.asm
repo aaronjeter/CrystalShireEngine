@@ -660,6 +660,7 @@ ENDM
 	map_const WC_ROUND_THREE,                              07, 09 ;
 	map_const WC_ROUND_FOUR,                               07, 12 ;
 	map_const WC_FINALS,                                   07, 07 ;
+	map_const RUSTBORO_TRAINERS_SCHOOL,                    04, 08 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

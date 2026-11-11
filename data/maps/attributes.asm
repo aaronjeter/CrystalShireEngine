@@ -988,3 +988,4 @@ ENDM
 	map_attributes WCRoundThree, WC_ROUND_THREE, $00, 0
 	map_attributes WCRoundFour, WC_ROUND_FOUR, $00, 0
 	map_attributes WCFinals, WC_FINALS, $00, 0
+	map_attributes RustboroTrainersSchool, RUSTBORO_TRAINERS_SCHOOL, $00, 0

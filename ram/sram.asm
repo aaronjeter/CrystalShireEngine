@@ -269,3 +269,19 @@ s5_aa8d:: db
 s5_a89a:: dw
 
 ENDSECTION
+
+
+SECTION "SRAM Facility", SRAM, BANK[1]
+
+sFacilityRunning:: db ; TRUE while sFacilityParty holds the party during a challenge
+sFacilityParty:: ds wPartyMonNicknamesEnd - wPartyCount ; wPartyCount to wPartyMonNicknamesEnd
+; the 16-bit indexes of each kept Pokémon's species, item and moves (their 8-bit IDs can be
+; reassigned while the party is out of WRAM)
+sFacilityIndexes:: ds PARTY_LENGTH * (MON_MOVES + NUM_MOVES) * 2
+
+
+SECTION "SRAM Save Extension", SRAM, BANK[0]
+
+sSaveExtensionMagic:: ds 2 ; SAVE_EXTENSION_MAGIC_1, SAVE_EXTENSION_MAGIC_2 when sSaveExtension is valid
+sSaveExtension:: ds SAVE_EXTENSION_LENGTH ; wSaveExtension
+sSaveExtensionChecksum:: dw

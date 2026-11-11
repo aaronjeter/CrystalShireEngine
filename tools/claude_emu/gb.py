@@ -81,6 +81,11 @@ class GB:
         p = LIB.GB_get_direct_access(self.gb, GB_DIRECT_ACCESS_RAM, C.byref(size), C.byref(bank))
         return (C.c_uint8 * size.value).from_address(p)
 
+    def cart_ram(self):
+        size = C.c_size_t(); bank = C.c_uint16()
+        p = LIB.GB_get_direct_access(self.gb, 2, C.byref(size), C.byref(bank))  # GB_DIRECT_ACCESS_CART_RAM
+        return (C.c_uint8 * size.value).from_address(p)
+
     def _addr(self, name_or_addr):
         if isinstance(name_or_addr, str):
             name, off = (name_or_addr.split("+") + ["0"])[:2]
@@ -97,6 +102,8 @@ class GB:
                 out.append(self.wram_full()[bank * 0x1000 + (x - 0xD000)])
             elif 0xC000 <= x < 0xD000:
                 out.append(self.wram_full()[x - 0xC000])
+            elif 0xA000 <= x < 0xC000 and bank is not None:  # SRAM, by its bank
+                out.append(self.cart_ram()[bank * 0x2000 + (x - 0xA000)])
             else:
                 out.append(LIB.GB_safe_read_memory(self.gb, x))
         return out[0] if n == 1 else out
@@ -115,6 +122,8 @@ class GB:
                 self.wram_full()[bank * 0x1000 + (x - 0xD000)] = v & 0xFF
             elif 0xC000 <= x < 0xD000:
                 self.wram_full()[x - 0xC000] = v & 0xFF
+            elif 0xA000 <= x < 0xC000 and bank is not None:
+                self.cart_ram()[bank * 0x2000 + (x - 0xA000)] = v & 0xFF
             else:
                 LIB.GB_write_memory(self.gb, x, v & 0xFF)
 

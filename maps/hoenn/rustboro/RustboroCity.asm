@@ -25,6 +25,16 @@ RustboroCitySignText:
 RustboroCutterHouseSign:
 	jumptext RustboroCutterHouseSignText
 
+RustboroTrainersSchoolSign:
+	jumptext RustboroTrainersSchoolSignText
+
+RustboroTrainersSchoolSignText:
+	text "Trainers' School"
+
+	para "Learn how"
+	line "challenges work!"
+	done
+
 RustboroCutterHouseSignText:
 	text "Cutter's House"
 	done
@@ -141,12 +151,15 @@ RustboroCity_MapEvents:
 	warp_event  29, 49, RUSTBORO_TRADE_HOUSE, 2
 	warp_event  08, 15, RUSTBORO_DEVON_LAB, 1
 	warp_event  09, 15, RUSTBORO_DEVON_LAB, 2
+	warp_event  12, 29, RUSTBORO_TRAINERS_SCHOOL, 1
+	warp_event  13, 29, RUSTBORO_TRAINERS_SCHOOL, 2
 
 	def_coord_events
 
 	def_bg_events	
 	bg_event  16, 46, BGEVENT_READ, RustboroCitySign
-	bg_event  10, 34, BGEVENT_READ, RustboroCutterHouseSign
+	bg_event 10, 35, BGEVENT_READ, RustboroCutterHouseSign
+	bg_event 16, 29, BGEVENT_READ, RustboroTrainersSchoolSign
 	bg_event  27, 15, BGEVENT_READ, RustboroGymSign
 	bg_event  12, 18, BGEVENT_READ, RustboroDevonSign
 

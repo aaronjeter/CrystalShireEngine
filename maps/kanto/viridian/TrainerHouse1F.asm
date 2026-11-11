@@ -36,92 +36,79 @@ TrainerHouseIllegibleBook:
 
 TrainerHouse1FReceptionistText:
 	text "Welcome to Trainer"
-	line "House, the newest"
+	line "House!"
 
-	para "and most happening"
-	line "place in Viridian."
+	para "Downstairs is our"
+	line "Training Hall, a"
 
-	para "We're open to"
-	line "trainers only."
+	para "challenge for new"
+	line "trainers: three"
+	cont "double battles in"
+	cont "a row."
 
-	para "You can battle"
-	line "against the best"
-
-	para "of the best right"
-	line "downstairs."
+	para "Bring at least 4"
+	line "#MON. Any kind"
+	cont "can enter!"
 	done
 
 TrainerHouse1FCooltrainerMText:
-	text "Viridian is the"
-	line "town closest to"
-	cont "Indigo Plateau."
+	text "In a challenge,"
+	line "every #MON is"
+	cont "set to the same"
+	cont "level."
 
-	para "They built this"
-	line "place because so"
+	para "Your strongest one"
+	line "won't just win on"
+	cont "levels alone."
 
-	para "many trainers pass"
-	line "through on their"
-
-	para "way up to Indigo"
-	line "Plateau."
+	para "Afterwards they go"
+	line "right back to how"
+	cont "they were."
 	done
 
 TrainerHouse1FCooltrainerFText:
-	text "They hold practice"
-	line "battles downstairs"
-	cont "here."
+	text "The order you pick"
+	line "your #MON in is"
+	cont "the order they go."
 
-	para "I would love to"
-	line "see how well a"
-
-	para "trainer from Johto"
-	line "battles."
+	para "The first two lead"
+	line "off together, so"
+	cont "pick a good pair!"
 	done
 
 TrainerHouse1FYoungsterText:
-	text "I guess you can't"
-	line "become the Champ"
+	text "You can't use"
+	line "items from your"
+	cont "PACK in a"
+	cont "challenge."
 
-	para "unless you go all"
-	line "over the place and"
-
-	para "battle all kinds"
-	line "of people."
-
-	para "The Champion from"
-	line "Pallet traveled to"
-
-	para "all the cities and"
-	line "towns in Kanto."
+	para "A held item is"
+	line "fair game, though!"
 	done
 
 TrainerHouse1FGentlemanText:
-	text "Whew… I'm taking a"
-	line "rest from #mon"
-	cont "battles."
+	text "Each region has"
+	line "challenges like"
+	cont "this one."
+
+	para "Beat the Training"
+	line "Hall, and the"
+
+	para "others around"
+	line "KANTO will take"
+	cont "you seriously."
 	done
 
 TrainerHouseSign1Text:
-	text "Practice battles"
-	line "are held in the"
-
-	para "Training Hall"
-	line "downstairs."
-
-	para "Skilled trainers"
-	line "are invited to"
-	cont "participate."
+	text "Training Hall: 4"
+	line "#MON, 3 double"
+	cont "battles in a row."
 	done
 
 TrainerHouseSign2Text:
-	text "There are no rules"
-	line "or regulations for"
-
-	para "practice matches."
-	line "Just like in field"
-
-	para "battles, anything"
-	line "goes!"
+	text "Same level for"
+	line "all. No PACK"
+	cont "items. No EXP."
 	done
 
 TrainerHouseIllegibleText:
@@ -129,7 +116,7 @@ TrainerHouseIllegibleText:
 	line "A strategy memo?"
 
 	para "This writing looks"
-	line "like Onix tracks…"
+	line "like ONIX tracks…"
 
 	para "It's completely"
 	line "illegible…"

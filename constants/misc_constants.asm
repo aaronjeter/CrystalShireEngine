@@ -23,6 +23,11 @@ DEF RESERVED_GAME_VERSION EQU 4
 DEF SAVE_CHECK_VALUE_1 EQU 99
 DEF SAVE_CHECK_VALUE_2 EQU 127
 
+; the save extension (wSaveExtension): saved after the main save, without changing its layout
+DEF SAVE_EXTENSION_MAGIC_1 EQU "B"
+DEF SAVE_EXTENSION_MAGIC_2 EQU "P"
+DEF SAVE_EXTENSION_LENGTH EQU 128 ; fixed: new data takes reserved bytes, so saved copies stay valid
+
 ; RTC halted check value
 DEF RTC_HALT_VALUE EQU $1234
 

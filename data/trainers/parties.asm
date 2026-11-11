@@ -2366,6 +2366,13 @@ YoungsterGroup:
 	mon 7, PARASECT
 	end_party
 
+	party FACILITY_KANTO_1, "Kenji" ; challenge facility intro (levels: the facility level)
+	mon 0, RATTATA
+	mon 0, PIDGEY
+	mon 0, SPEAROW
+	mon 0, EKANS
+	end_party
+
 	end_list_items
 
 SECTION "Enemy Trainer Parties 2", ROMX
@@ -2430,6 +2437,20 @@ SchoolboyGroup:
 	party RICKY, "Ricky" ; Fast Ship B1F
 	mon 7, AMBIPOM
 	mon 7, DITTO
+	end_party
+
+	party FACILITY_JOHTO_1, "Ryo" ; challenge facility intro (levels: the facility level)
+	mon 0, SENTRET
+	mon 0, HOOTHOOT
+	mon 0, LEDYBA
+	mon 0, SPINARAK
+	end_party
+
+	party FACILITY_HOENN_1, "Kai" ; challenge facility intro (levels: the facility level)
+	mon 0, ZIGZAGOON
+	mon 0, WURMPLE
+	mon 0, TAILLOW
+	mon 0, LOTAD
 	end_party
 
 	end_list_items
@@ -2785,6 +2806,20 @@ LassGroup:
 		ability TORRENT
 	mon 9, SEALEO
 		ability THICK_FAT
+	end_party
+
+	party FACILITY_KANTO_2, "Aiko" ; challenge facility intro (levels: the facility level)
+	mon 0, ODDISH
+	mon 0, NIDORAN_F
+	mon 0, MEOWTH
+	mon 0, JIGGLYPUFF
+	end_party
+
+	party FACILITY_JOHTO_2, "Mina" ; challenge facility intro (levels: the facility level)
+	mon 0, HOPPIP
+	mon 0, MAREEP
+	mon 0, SUNKERN
+	mon 0, SNUBBULL
 	end_party
 
 	end_list_items
@@ -4560,6 +4595,20 @@ TeacherGroup:
 	hard
 	mon 8, GOREBYSS
 	mon 8, CLOYSTER
+	end_party
+
+	party FACILITY_JOHTO_3, "Ms. Ito" ; challenge facility intro (levels: the facility level)
+	mon 0, WOOPER
+	mon 0, CHINCHOU
+	mon 0, TEDDIURSA
+	mon 0, SLUGMA
+	end_party
+
+	party FACILITY_HOENN_3, "Ms. Lane" ; challenge facility intro (levels: the facility level)
+	mon 0, MAKUHITA
+	mon 0, ARON
+	mon 0, ELECTRIKE
+	mon 0, MEDITITE
 	end_party
 
 	end_list_items
@@ -6802,6 +6851,13 @@ PicnickerGroup:
 	mon 7, MAROWAK
 	end_party
 
+	party FACILITY_HOENN_2, "Nora" ; challenge facility intro (levels: the facility level)
+	mon 0, SEEDOT
+	mon 0, SKITTY
+	mon 0, WINGULL
+	mon 0, SHROOMISH
+	end_party
+
 	end_list_items
 
 CamperGroup:
@@ -6943,6 +6999,13 @@ CamperGroup:
 	hard
 	mon 7, SKARMORY
 	mon 7, STEELIX
+	end_party
+
+	party FACILITY_KANTO_3, "Theo" ; challenge facility intro (levels: the facility level)
+	mon 0, MANKEY
+	mon 0, GEODUDE
+	mon 0, PONYTA
+	mon 0, POLIWAG
 	end_party
 
 	end_list_items

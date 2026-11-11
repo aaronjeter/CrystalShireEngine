@@ -5,11 +5,239 @@
 	const EARLSPOKEMONACADEMY_GAMEBOY_KID2
 	const EARLSPOKEMONACADEMY_YOUNGSTER2
 	const EARLSPOKEMONACADEMY_POKEDEX
+	const EARLSPOKEMONACADEMY_TEACHER
+	const EARLSPOKEMONACADEMY_OPPONENT
 
 EarlsPokemonAcademy_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, EarlsPokemonAcademyOpponentCallback
+
+EarlsPokemonAcademyOpponentCallback:
+	variablesprite SPRITE_BATTLE_TOWER_OPPONENT, SPRITE_YOUNGSTER
+	endcallback
+
+EarlsPokemonAcademyTeacherScript:
+; Johto's introductory challenge facility (FACILITY_INTRO_JOHTO): doubles,
+; any 4 Pokémon, 3 trainers in a row
+	faceplayer
+	opentext
+	checkevent EVENT_FACILITY_INTRO_JOHTO
+	iftrue .AlreadyCleared
+	writetext AcademyTeacherIntroText
+	sjump .Ask
+
+.AlreadyCleared:
+	writetext AcademyTeacherWelcomeBackText
+.Ask:
+	yesorno
+	iffalse .Declined
+	checkevent EVENT_FACILITY_INTRO_JOHTO
+	iftrue .PrizeRoomOK
+	facility_intro_prize_room
+	iffalse .PackFull
+.PrizeRoomOK:
+	setval FACILITY_INTRO_JOHTO
+	special FacilitySetup
+	ifless FACILITY_TEAM_SIZE, .NotEnough
+	writetext AcademyTeacherChooseText
+	waitbutton
+	special FacilityChooseTeam
+	iffalse .Declined
+	writetext AcademyTeacherGoText
+	waitbutton
+	closetext
+	applymovement PLAYER, AcademyEnterFloorMovement
+	facility_battles EARLSPOKEMONACADEMY_OPPONENT, AcademyOpponentBeatenText, AcademyOpponentWonText, AcademyTeacherNextText, .Won, .Lost
+
+.Won:
+	applymovement PLAYER, AcademyLeaveFloorMovement
+	opentext
+	writetext AcademyTeacherWonText
+	waitbutton
+	checkevent EVENT_FACILITY_INTRO_JOHTO
+	iftrue .Done
+	setevent EVENT_FACILITY_INTRO_JOHTO
+	writetext AcademyTeacherPrizeText
+	promptbutton
+	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem ABILITY_CAPSULE, 2
+	verbosegiveitem ABILITY_PATCH
+	writetext AcademyTeacherAfterPrizeText
+	waitbutton
+	sjump .Done
+
+.Lost:
+	applymovement PLAYER, AcademyLeaveFloorMovement
+	opentext
+	writetext AcademyTeacherLostText
+	waitbutton
+.Done:
+	closetext
+	end
+
+.PackFull:
+	writetext AcademyTeacherPackFullText
+	waitbutton
+	closetext
+	end
+
+.NotEnough:
+	writetext AcademyTeacherNotEnoughText
+	waitbutton
+.Declined:
+	writetext AcademyTeacherDeclinedText
+	waitbutton
+	closetext
+	end
+
+AcademyOpponentScript:
+	jumptextfaceplayer AcademyOpponentWaitingText
+
+AcademyOpponentWaitingText:
+	text "I'm waiting for a"
+	line "challenger!"
+
+	para "Talk to the"
+	line "teacher if you"
+	cont "want to battle."
+	done
+
+AcademyEnterFloorMovement:
+	step DOWN
+	step RIGHT
+	turn_head RIGHT
+	step_end
+
+AcademyLeaveFloorMovement:
+	step LEFT
+	step UP
+	turn_head LEFT
+	step_end
+
+AcademyTeacherIntroText:
+	text "Welcome to the"
+	line "practice floor!"
+
+	para "Here you can learn"
+	line "how a challenge"
+	cont "works."
+
+	para "Enter 4 #MON"
+	line "and battle 3 of"
+	cont "our students in a"
+	cont "row, in double"
+	cont "battles."
+
+	para "Every #MON"
+	line "fights at the same"
+	cont "level."
+
+	para "Will you try it?"
+	done
+
+AcademyTeacherWelcomeBackText:
+	text "Back for more"
+	line "practice? Will you"
+	cont "try it again?"
+	done
+
+AcademyTeacherChooseText:
+	text "Pick your 4"
+	line "#MON in the"
+	cont "order they should"
+	cont "go."
+
+	para "The first two lead"
+	line "off together."
+	done
+
+AcademyTeacherGoText:
+	text "No PACK items in"
+	line "battle, and no"
+	cont "EXP."
+
+	para "I'll heal your"
+	line "team after each"
+	cont "win."
+
+	para "Win or lose, they"
+	line "go back to how"
+	cont "they were."
+
+	para "Step onto the"
+	line "floor, please!"
+	done
+
+AcademyTeacherNextText:
+	text "Healed and ready!"
+	line "Next student, up!"
+	done
+
+AcademyOpponentBeatenText:
+	text "Wow, you're good!"
+	done
+
+AcademyOpponentWonText:
+	text "I studied hard"
+	line "for this!"
+	done
+
+AcademyTeacherWonText:
+	text "Excellent! You"
+	line "beat all three!"
+	done
+
+AcademyTeacherPrizeText:
+	text "Please take these"
+	line "for your first"
+	cont "win."
+	done
+
+AcademyTeacherAfterPrizeText:
+	text "RARE CANDY raises"
+	line "a #MON's level."
+
+	para "ABILITY CAPSULES"
+	line "and PATCHES change"
+	cont "a #MON's"
+	cont "ability."
+
+	para "Now you know how a"
+	line "challenge works."
+
+	para "There are more of"
+	line "them across JOHTO!"
+	done
+
+AcademyTeacherLostText:
+	text "Good effort! Your"
+	line "team is back as it"
+	cont "was. Try again any"
+	cont "time."
+	done
+
+AcademyTeacherPackFullText:
+	text "Your PACK is too"
+	line "full for the"
+	cont "prize."
+
+	para "Please make some"
+	line "room, then come"
+	cont "back!"
+	done
+
+AcademyTeacherNotEnoughText:
+	text "You'll need at"
+	line "least 4 #MON"
+	cont "that aren't EGGS."
+	done
+
+AcademyTeacherDeclinedText:
+	text "Come back when"
+	line "you're ready!"
+	done
 
 AcademyEarl:
 	applymovement EARLSPOKEMONACADEMY_EARL, AcademyEarlSpinMovement
@@ -415,3 +643,5 @@ EarlsPokemonAcademy_MapEvents:
 	object_event  4, 11, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EarlsPokemonAcademyGameboyKid2Script, -1
 	object_event  4,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EarlsPokemonAcademyYoungster2Script, -1
 	object_event  2,  4, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AcademyNotebook, -1
+	object_event  0, 12, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EarlsPokemonAcademyTeacherScript, -1
+	object_event  5, 13, SPRITE_BATTLE_TOWER_OPPONENT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, AcademyOpponentScript, -1
