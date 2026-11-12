@@ -3365,11 +3365,11 @@ CooltrainerMGroup:
 	end_party
 
 	party TOWER_ELITE_1, "Victor" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	party TOWER_ELITE_2, "Grant" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	party TOWER_HEAD, "Tycoon" ; Battle Tower head, battle 49 (placeholder character and team; levels: the facility level)
@@ -3808,11 +3808,11 @@ CooltrainerFGroup:
 	end_party
 
 	party TOWER_ELITE_3, "Celia" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	party TOWER_ELITE_4, "Nadia" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
@@ -3987,7 +3987,7 @@ BeautyGroup:
 	end_party
 
 	party TOWER_ELITE_7, "Selene" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
@@ -4534,7 +4534,7 @@ GentlemanGroup:
 	end_party
 
 	party TOWER_ELITE_8, "Edmund" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
@@ -6520,7 +6520,7 @@ BlackbeltGroup:
 	end_party
 
 	party TOWER_ELITE_5, "Takao" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
@@ -6873,7 +6873,7 @@ PsychicGroup:
 	end_party
 
 	party TOWER_ELITE_6, "Ezra" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
@@ -7510,7 +7510,7 @@ SageGroup:
 	end_party
 
 	party TOWER_ELITE_9, "Kosho" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
@@ -9803,7 +9803,7 @@ BattleGirlGroup:
 	end_party
 
 	party TOWER_ELITE_10, "Mika" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
@@ -9970,7 +9970,7 @@ RangerMGroup:
 	end_party
 
 	party TOWER_ELITE_11, "Rowan" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
@@ -10044,7 +10044,7 @@ RangerFGroup:
 	end_party
 
 	party TOWER_ELITE_12, "Fern" ; Battle Tower (elite; a random team; levels: the facility level)
-	random_mons 4, STANDARD_CUP
+	random_mons 4, ELITE_TOWER
 	end_party
 
 	end_list_items
