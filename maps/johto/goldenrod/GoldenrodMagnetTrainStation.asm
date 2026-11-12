@@ -103,17 +103,6 @@ GoldenrodMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 	turn_head UP
 	step_end
 
-GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText:
-	text "The train hasn't"
-	line "come in…"
-
-	para "I know! I'll carry"
-	line "the passengers on"
-	cont "my back!"
-
-	para "That won't work."
-	done
-
 GoldenrodMagnetTrainStationOfficerAreYouComingAboardText:
 	text "We'll soon depart"
 	line "for Saffron."

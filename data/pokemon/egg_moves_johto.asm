@@ -504,17 +504,6 @@ MareepEggMoves:
 	dw FLASHCANNON
 	dw -1 ; end
 
-MarillEggMoves:
-	dw LIGHT_SCREEN
-	dw PRESENT
-	dw AMNESIA
-	dw FUTURE_SIGHT
-	dw BELLY_DRUM
-	dw PERISH_SONG
-	dw SUPERSONIC
-	dw FORESIGHT
-	dw -1 ; end
-
 SudowoodoEggMoves:
 	dw SELFDESTRUCT
 	dw PURSUIT
@@ -913,15 +902,6 @@ ShroomishEggMoves:
 	dw SWAGGER
 	dw -1 ; end
 
-SlakothEggMoves:
-	dw BODY_SLAM
-	dw CURSE
-	dw PURSUIT
-	dw SLASH
-	dw SLEEP_TALK
-	dw SNORE
-	dw -1 ; end
-
 NincadaEggMoves:
 	dw ENDURE
 	dw FAINT_ATTACK
@@ -937,6 +917,15 @@ WhismurEggMoves:
 MakuhitaEggMoves:
 	dw DYNAMICPUNCH
 	dw FAINT_ATTACK
+	dw -1 ; end
+
+SlakothEggMoves:
+	dw BODY_SLAM
+	dw CURSE
+	dw PURSUIT
+	dw SLASH
+	dw SLEEP_TALK
+	dw SNORE
 	dw -1 ; end
 
 AzurillEggMoves:

@@ -152,16 +152,6 @@ SaveGameData:
 	call SavePokemonData
 	call SaveIndexTables
 	call SaveBackupIndexTables
-	ld a, BANK(sBattleTowerChallengeState)
-	call OpenSRAM
-	ld a, [sBattleTowerChallengeState]
-	cp BATTLETOWER_RECEIVED_REWARD
-	jr nz, .ok
-	xor a
-	ld [sBattleTowerChallengeState], a
-.ok
-	call CloseSRAM
-
 	; At this point, there is no longer any harm in setting this. We can't set
 	; it earlier, because it might confuse the load routine into using bad
 	; box/mail data, and we can't set it later because we need to set it
@@ -217,50 +207,11 @@ CopyStorageSystem:
 	rst CopyBytes
 	jmp CloseSRAM
 
-UpdateStackTop:
-; sStackTop appears to be unused.
-; It could have been used to debug stack overflow during saving.
-	call FindStackTop
-	ld a, BANK(sStackTop)
-	call OpenSRAM
-	ld a, [sStackTop + 0]
-	ld e, a
-	ld a, [sStackTop + 1]
-	ld d, a
-	or e
-	jr z, .update
-	ld a, e
-	sub l
-	ld a, d
-	sbc h
-	jr c, .done
-
-.update
-	ld a, l
-	ld [sStackTop + 0], a
-	ld a, h
-	ld [sStackTop + 1], a
-
-.done
-	jmp CloseSRAM
-
-FindStackTop:
-; Find the furthest point that sp has traversed to.
-; This is distinct from the current value of sp.
-	ld hl, wStackBottom
-.loop
-	ld a, [hl]
-	or a
-	ret nz
-	inc hl
-	jr .loop
-
 ErasePreviousSave:
 	call EraseHallOfFame
 	call EraseLinkBattleStats
 	call EraseMysteryGift
 	call SaveData
-	call EraseBattleTowerStatus
 	ld a, BANK(sStackTop)
 	call OpenSRAM
 	xor a
@@ -311,13 +262,6 @@ EraseHallOfFame:
 ; lose battle
 	db $0f, EZCHAT_EXCLAMATIONS, $14, EZCHAT_FEELINGS,     $05, EZCHAT_EXCLAMATIONS
 	db $11, EZCHAT_TIME,         $0c, EZCHAT_CONVERSATION, $06, EZCHAT_BATTLE
-
-EraseBattleTowerStatus:
-	ld a, BANK(sBattleTowerChallengeState)
-	call OpenSRAM
-	xor a
-	ld [sBattleTowerChallengeState], a
-	jmp CloseSRAM
 
 SaveData:
 	jmp _SaveData
@@ -665,15 +609,6 @@ LoadPlayerData:
 	ld de, wCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	rst CopyBytes
-	call CloseSRAM
-	ld a, BANK(sBattleTowerChallengeState)
-	call OpenSRAM
-	ld a, [sBattleTowerChallengeState]
-	cp BATTLETOWER_RECEIVED_REWARD
-	jr nz, .not_4
-	ld a, BATTLETOWER_WON_CHALLENGE
-	ld [sBattleTowerChallengeState], a
-.not_4
 	jmp CloseSRAM
 
 LoadPokemonData:

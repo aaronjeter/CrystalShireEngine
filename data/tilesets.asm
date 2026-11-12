@@ -17,7 +17,6 @@ Tilesets::
 	tileset TilesetJohto
 	tileset TilesetJohtoModern
 	tileset TilesetKanto
-	tileset TilesetBattleTowerOutside
 	tileset TilesetHouse
 	tileset TilesetPlayersHouse
 	tileset TilesetPokecenter
@@ -46,10 +45,6 @@ Tilesets::
 	tileset TilesetDarkCave
 	tileset TilesetForest
 	tileset TilesetMuseum
-	tileset TilesetHoOhWordRoom
-	tileset TilesetKabutoWordRoom
-	tileset TilesetOmanyteWordRoom
-	tileset TilesetAerodactylWordRoom
 	tileset TilesetHoenn
 	tileset TilesetHoennOcean
 	tileset TilesetSootopolis

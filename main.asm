@@ -70,7 +70,6 @@ INCLUDE "engine/events/std_collision.asm"
 INCLUDE "engine/events/bug_contest/judging.asm"
 INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
 INCLUDE "engine/events/bug_contest/contest_2.asm"
-INCLUDE "engine/math/get_square_root.asm"
 
 
 SECTION "Registered Items", ROMX
@@ -267,7 +266,6 @@ INCLUDE "engine/events/basement_key.asm"
 INCLUDE "engine/events/sacred_ash.asm"
 INCLUDE "engine/pokemon/tempmon.asm"
 INCLUDE "engine/pokemon/types.asm"
-INCLUDE "engine/pokemon/categories.asm"
 INCLUDE "engine/pokemon/mon_stats.asm"
 INCLUDE "engine/link/init_list.asm"
 INCLUDE "engine/pokemon/experience.asm"
@@ -490,8 +488,6 @@ INCLUDE "gfx/emotes.asm"
 INCLUDE "engine/overworld/warp_connection.asm"
 INCLUDE "engine/link/mystery_gift.asm"
 INCLUDE "engine/battle/used_move_text.asm"
-INCLUDE "mobile/mobile_41.asm"
-INCLUDE "engine/gfx/load_overworld_font.asm"
 
 
 SECTION "Move Animation Framesets", ROMX
@@ -518,7 +514,6 @@ SECTION "bank5B", ROMX
 
 INCLUDE "engine/link/link_trade.asm"
 INCLUDE "engine/link/link.asm"
-INCLUDE "engine/battle/link_result.asm"
 
 
 SECTION "Text Dictionary", ROMX

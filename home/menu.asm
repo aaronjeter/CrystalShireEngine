@@ -222,15 +222,6 @@ GetMenuTextStartCoord::
 	inc c
 	ret
 
-ClearMenuBoxInterior::
-	call MenuBoxCoord2Tile
-	ld bc, SCREEN_WIDTH + 1
-	add hl, bc
-	call GetMenuBoxDims
-	dec b
-	dec c
-	jmp ClearBox
-
 ClearWholeMenuBox::
 	call MenuBoxCoord2Tile
 	call GetMenuBoxDims

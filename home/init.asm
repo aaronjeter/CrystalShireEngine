@@ -135,8 +135,6 @@ Init::
 
 	farcall InitCGBPals
 
-	predef InitSGBBorder
-
 	ld a, LCDC_DEFAULT ; %11100011
 	; LCD on
 	; Win tilemap 1

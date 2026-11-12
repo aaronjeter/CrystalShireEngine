@@ -225,17 +225,6 @@ SetMenuMonIconColor:
 	call GetMenuMonIconColors
 	jr _SetMenuMonIconColor
 
-SetMenuMonIconColor_NoShiny:
-	push hl
-	push de
-	push bc
-	push af
-
-	ld a, [wTempIconSpecies]
-	ld [wCurPartySpecies], a
-	ld c, a
-	ld b, 0 ; not shiny
-	call GetMonPalInBCDE
 _SetMenuMonIconColor:
 	ld a, MENU_ICON_OBPAL
 	call LoadMonIconOBPal
@@ -700,26 +689,6 @@ Trade_LoadMonIconGFX:
 	ld a, $62
 	ld [wCurIconTile], a
 	jr GetMemIconGFX
-
-GetSpeciesIcon:
-; Load species icon into VRAM at tile a
-	push de
-	ld a, MON_DVS
-	call GetPartyParamLocation
-	call SetMenuMonIconColor
-	ld a, [wFlyingWithHMItem]
-	and a
-	jr z, .flying_with_mon
-	ld hl, DELIBIRD
-	call GetPokemonIDFromIndex
-	jr .finish
-.flying_with_mon
-	ld a, [wTempIconSpecies]
-.finish
-	ld [wCurIcon], a
-	pop de
-	ld a, e
-	jr GetIconGFX
 
 FlyFunction_GetMonIcon:
 	push de

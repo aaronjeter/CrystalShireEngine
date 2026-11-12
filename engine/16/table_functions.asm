@@ -204,10 +204,9 @@ ItemTableGarbageCollection:
 
 	ldh a, [hSRAMBank]
 	push af
-	ld a, BANK(sBattleTowerReward)
+	ld a, BANK(sBackupMysteryGiftItem)
 	call OpenSRAM
-	___conversion_bitmap_check_values .set_bit, \
-		sBattleTowerReward, sBackupMysteryGiftItem
+	___conversion_bitmap_check_values .set_bit, sBackupMysteryGiftItem
 	pop af
 	call OpenSRAM
 

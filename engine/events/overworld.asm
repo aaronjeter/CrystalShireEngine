@@ -31,20 +31,6 @@ GetPartyNickname:
 	ld hl, wStringBuffer3
 	jmp CopyName2
 
-CheckEngineFlag:
-; Check engine flag de
-; Return carry if flag is not set
-	ld b, CHECK_FLAG
-	farcall EngineFlagAction
-	ld a, c
-	and a
-	jr nz, .isset
-	scf
-	ret
-.isset
-	xor a
-	ret
-
 CheckPartyMoveIndex:
 ; Check if a monster in your party has move hl.
 	call GetMoveIDFromIndex
@@ -370,8 +356,6 @@ UsedSurfScript:
 	waitbutton
 	closetext
 
-	callasm .stubbed_fn
-
 	readmem wSurfingPlayerState
 	writevar VAR_MOVEMENT
 
@@ -380,8 +364,6 @@ UsedSurfScript:
 	special SurfStartStep
 	end
 
-.stubbed_fn
-	farjp StubbedTrainerRankings_Surf
 
 UsedSurfText:
 	text_far _UsedSurfText

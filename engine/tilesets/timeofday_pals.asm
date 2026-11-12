@@ -119,22 +119,6 @@ FadeOutToWhite::
 	ld c, 10
 	jmp FadeToWhite
 
-BattleTowerFade:
-	call FillWhiteBGColor
-	ld c, $9
-	call GetTimePalFade
-	ld b, $4
-.loop
-	call DmgToCgbTimePals
-	inc hl
-	inc hl
-	inc hl
-	ld c, $7
-	call DelayFrames
-	dec b
-	jr nz, .loop
-	ret
-
 FadeInFromBlack:
 	ld c, $0
 	call GetTimePalFade
@@ -146,34 +130,6 @@ FadeOutToBlack:
 	call GetTimePalFade
 	ld b, $4
 	jmp ConvertTimePalsDecHL
-
-FillWhiteBGColor:
-; Copy white palette of wBGPals1 Pal0 into white palette of wBGPals1 Pal1-Pal6
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wBGPals1)
-	ldh [rSVBK], a
-
-	ld hl, wBGPals1
-	ld a, [hli]
-	ld d, [hl]
-	ld e, a
-	ld hl, wBGPals1 palette 1 color 0
-	ld c, 6
-.loop
-	ld a, e
-	ld [hli], a
-	ld a, d
-	ld [hli], a
-rept 3 colors
-	inc hl
-endr
-	dec c
-	jr nz, .loop
-
-	pop af
-	ldh [rSVBK], a
-	ret
 
 ReplaceTimeOfDayPals:
 	ld a, [wMapTimeOfDay]

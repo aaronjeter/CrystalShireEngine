@@ -369,11 +369,6 @@ WokeUpText:
 	line "woke up!"
 	prompt
 
-FrozenSolidText:
-	text "<USER>"
-	line "is frozen solid!"
-	prompt
-
 FlinchedText:
 	text "<USER>"
 	line "flinched!"
@@ -1229,13 +1224,6 @@ IgnoredOrders2Text:
 	line "ignored orders!"
 	prompt
 
-BattleText_LinkErrorBattleCanceled:
-	text "Link error…"
-
-	para "The battle has"
-	line "been canceled…"
-	prompt
-
 LevitateText:
 	text "It doesn't affect"
 	line "<TARGET>!"
@@ -1263,11 +1251,6 @@ SandStreamText:
 
 SnowWarningText:
 	text "A hail storm "
-	line "begins!"
-	prompt
-
-TestText:
-	text "Test "
 	line "begins!"
 	prompt
 

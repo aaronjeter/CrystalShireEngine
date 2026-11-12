@@ -110,14 +110,6 @@ _ObjectEventText::
 	text "Object event"
 	done
 
-_BGEventText::
-	text "BG event"
-	done
-
-_CoordinatesEventText::
-	text "Coordinates event"
-	done
-
 _ReceivedItemText::
 	text "<PLAYER> received"
 	line "@"
@@ -624,11 +616,6 @@ _LearnedMoveText::
 	text_promptbutton
 	text_end
 
-_MoveAskForgetText::
-	text "Which move should"
-	next "be forgotten?"
-	done
-
 _StopLearningMoveText::
 	text "Stop learning"
 	line "@"
@@ -788,52 +775,6 @@ _BuenaNoRoomText::
 _BuenaComeAgainText::
 	text "Oh. Please come"
 	line "back again!"
-	done
-
-_ExcuseMeYoureNotReadyText::
-	text "Excuse me."
-	line "You're not ready."
-
-	para ""
-	done
-
-_BattleTowerReturnWhenReadyText::
-	text "Please return when"
-	line "you're ready."
-	done
-
-_OnlyThreeMonMayBeEnteredText::
-	text "Only three #mon"
-	line "may be entered."
-
-	para ""
-	done
-
-_TheMonMustAllBeDifferentKindsText::
-	text "The @"
-	text_ram wStringBuffer2
-	text " #mon"
-	line "must all be"
-	cont "different kinds."
-
-	para ""
-	done
-
-_TheMonMustNotHoldTheSameItemsText::
-	text "The @"
-	text_ram wStringBuffer2
-	text " #mon"
-	line "must not hold the"
-	cont "same items."
-
-	para ""
-	done
-
-_YouCantTakeAnEggText::
-	text "You can't take an"
-	line "Egg!"
-
-	para ""
 	done
 
 _BallBrokeFreeText::
@@ -1039,15 +980,6 @@ _StorageFullText::
 	cont "can't be used now."
 	prompt
 
-_DatabaseFullText::
-	; too technical? needs improvement
-	text "The Storage System"
-	line "is overtaxed."
-
-	para "You need to save"
-	line "the game."
-	prompt
-
 _ItemUsedText::
 	text "<PLAYER> used the@"
 	text_low
@@ -1177,11 +1109,6 @@ _OakHardModeText::
 _OakLevelCapText::
 	text "Do you want to"
 	line "enable Level Caps?"
-	prompt
-
-_OakOriginText::
-	text "What kind of"
-	line "trainer are you?"
 	prompt
 
 _OakStartText::

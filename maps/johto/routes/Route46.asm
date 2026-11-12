@@ -58,21 +58,6 @@ HikerBaileyAfterBattleText:
 	cont "are like that."
 	done
 
-PicnickerErin2BeatenText:
-	text "Aww… I keep losing"
-	line "all the time!"
-
-	para "I'll just have to"
-	line "try harder!"
-
-	para "Anyway, thanks for"
-	line "battling me again"
-
-	para "and again. Here's"
-	line "that present from"
-	cont "the other time."
-	done
-
 Route46SignText:
 	text "Route 46"
 	line "Mountain Rd. Ahead"

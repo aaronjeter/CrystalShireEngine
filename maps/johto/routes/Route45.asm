@@ -148,19 +148,6 @@ HikerParryAfterBattleText:
 	line "ahead with power!"
 	done
 
-HikerParryGivesIronText:
-	text "I just can't find"
-	line "a way to win!"
-
-	para "Keep it up!"
-
-	para "Oh, and take this"
-	line "--it's the gift"
-
-	para "you couldn't take"
-	line "when we last met."
-	done
-
 BlackbeltKenji3SeenText:
 	text "I was training"
 	line "here alone."
@@ -180,23 +167,6 @@ BlackbeltKenjiAfterBattleText:
 	para "I must take to the"
 	line "hills and train in"
 	cont "solitude."
-	done
-
-BlackbeltKenjiMorningText:
-	text "I'm going to train"
-	line "a bit more before"
-	cont "I break for lunch."
-	done
-
-BlackbeltKenjiNightText:
-	text "We had plenty of"
-	line "rest at lunch, so"
-
-	para "now we're all"
-	line "ready to go again!"
-
-	para "We're going to"
-	line "train again!"
 	done
 
 CooltrainermRyanSeenText:

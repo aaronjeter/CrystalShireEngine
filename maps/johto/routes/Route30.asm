@@ -253,21 +253,6 @@ Route30TrainerTipsText:
 	cont "wild #mon!"
 	done
 
-YoungsterJoeyText_GiveHPUpAfterBattle:
-	text "I lost again…"
-	line "Gee, you're tough!"
-
-	para "Oh yeah, I almost"
-	line "forgot that I had"
-	cont "to give you this."
-
-	para "Use it to get even"
-	line "tougher, OK?"
-
-	para "I'm going to get"
-	line "tougher too."
-	done
-
 Route30_MapEvents:
 	db 0, 0 ; filler
 

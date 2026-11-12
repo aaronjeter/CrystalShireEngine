@@ -134,7 +134,6 @@ SpecialsPointers::
 	add_special GiveDratini
 	add_special BeastsCheck
 	add_special MonCheck
-	add_special StubbedTrainerRankings_Healings
 	add_special RefreshSprites
 	add_special AskRememberPassword
 	add_special LoadMapPalettes

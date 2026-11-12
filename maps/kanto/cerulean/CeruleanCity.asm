@@ -261,10 +261,6 @@ CeruleanCapeSignText:
 	line "Ahead"
 	done
 
-CeruleanLockedDoorText:
-	text "It's locked…"
-	done
-
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler
 

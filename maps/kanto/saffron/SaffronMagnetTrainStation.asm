@@ -114,12 +114,6 @@ SaffronMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 	turn_head UP
 	step_end
 
-SaffronMagnetTrainStationOfficerTrainIsntOperatingText:
-	text "I'm sorry, but the"
-	line "Magnet Train isn't"
-	cont "operating now."
-	done
-
 SaffronMagnetTrainStationOfficerAreYouComingOnBoardText:
 	text "We'll soon depart"
 	line "for Goldenrod."

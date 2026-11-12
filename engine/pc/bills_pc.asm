@@ -1287,12 +1287,6 @@ SetBoxTheme:
 	ld [hl], a
 	jmp CloseSRAM
 
-GetCurBoxName:
-; Writes name of current box to string buffer 1.
-	ld a, [wCurBox]
-	inc a
-	ld b, a
-	; fallthrough
 GetBoxName:
 ; Writes name of box b to string buffer 1.
 	ld c, 0
@@ -1519,38 +1513,6 @@ StorageFlagAction:
 	dec c
 	ld d, 0
 	predef_jump SmallFarFlagAction
-
-Special_CurBoxFullCheck:
-; Returns [wScriptVar] = zero if wBufferMonBox == wCurBox
-; Returns [wScriptVar] = nonzero if wBufferMonBox != wCurBox
-	call CurBoxFullCheck
-	jr nz, .not_equal
-	xor a
-.not_equal
-	ld [wScriptVar], a
-	ret
-
-CurBoxFullCheck:
-; Requires wBufferMonBox to have sent mon box (returned in b)
-; Returns z if wBufferMonBox == wCurBox (or wBufferMonBox = 0)
-; Returns nz if wBufferMonBox != wCurBox
-;   Also returns name of old wCurBox in wStringBuffer1
-;   and sets wCurBox to wBufferMonBox in this case
-	ld a, [wBufferMonBox]
-	and a
-	ret z
-	dec a
-	ld b, a
-	ld a, [wCurBox]
-	cp b
-	ret z
-	push bc
-	call GetCurBoxName
-	pop bc
-	ld a, b
-	ld [wCurBox], a
-	or 1
-	ret
 
 IsNuzlockeGraveyardBox::
 ; Carry if box b is a graveyard box and Nuzlocke mode is on.

@@ -52,15 +52,6 @@ GentlemanAlfredAfterBattleText:
 	line "ordinary medicine."
 	done
 
-SailorHueyGiveProteinText:
-	text "Man! You're as"
-	line "tough as ever!"
-
-	para "Anyway, here's"
-	line "that medicine from"
-	cont "before."
-	done
-
 OlivineLighthouse2F_MapEvents:
 	db 0, 0 ; filler
 

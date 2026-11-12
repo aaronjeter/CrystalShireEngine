@@ -135,20 +135,6 @@ BlackthornCityPokecenterSign:
 BlackthornCityMartSign:
 	jumpstd MartSignScript
 
-Text_ClairIsOut:
-	text "I am sorry."
-
-	para "Clair, our Gym"
-	line "Leader, entered"
-
-	para "the Dragon's Den"
-	line "behind the Gym."
-
-	para "I have no idea"
-	line "when our Leader"
-	cont "will return."
-	done
-
 Text_ClairIsIn:
 	text "Clair, our Gym"
 	line "Leader, is waiting"

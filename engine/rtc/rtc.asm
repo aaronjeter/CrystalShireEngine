@@ -1,15 +1,3 @@
-StopRTC: ; unreferenced
-	ld a, SRAM_ENABLE
-	ld [MBC3SRamEnable], a
-	call LatchClock
-	ld a, RTC_DH
-	ldh [hSRAMBank], a
-	ld [MBC3SRamBank], a
-	ld a, [MBC3RTC]
-	set RTC_DH_HALT, a
-	ld [MBC3RTC], a
-	jmp CloseSRAM
-
 StartRTC:
 	ld a, SRAM_ENABLE
 	ld [MBC3SRamEnable], a

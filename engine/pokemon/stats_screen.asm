@@ -482,18 +482,6 @@ StatsScreen_InitUpperHalfText::
 	dw wBufferMonNickname ; unused
 	dw wBufferMonNickname
 
-StatsScreen_PlaceVerticalDivider: ; unreferenced
-; The Japanese stats screen has a vertical divider.
-	hlcoord 7, 0
-	ld bc, SCREEN_WIDTH
-	ld d, SCREEN_HEIGHT
-.loop
-	ld [hl], $31 ; vertical divider
-	add hl, bc
-	dec d
-	jr nz, .loop
-	ret
-
 StatsScreen_PlaceHorizontalDivider:
 	hlcoord 0, 7
 	ld b, SCREEN_WIDTH

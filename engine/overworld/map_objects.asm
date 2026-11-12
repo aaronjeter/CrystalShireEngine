@@ -2686,15 +2686,6 @@ FreezeAllOtherObjects::
 	xor a
 	ret
 
-FreezeObject: ; unreferenced
-	call CheckObjectVisibility
-	ret c
-	ld hl, OBJECT_FLAGS2
-	add hl, bc
-	set FROZEN_F, [hl]
-	xor a
-	ret
-
 FreezeAllObjects:
 	ld bc, wObjectStructs
 	xor a
@@ -2758,14 +2749,6 @@ UnfreezeAllObjects::
 	cp NUM_OBJECT_STRUCTS
 	jr nz, .loop
 	pop bc
-	ret
-
-UnfreezeObject: ; unreferenced
-	call CheckObjectVisibility
-	ret c
-	ld hl, OBJECT_FLAGS2
-	add hl, bc
-	res FROZEN_F, [hl]
 	ret
 
 ResetObject::

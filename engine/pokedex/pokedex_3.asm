@@ -1,17 +1,3 @@
-LoadSGBPokedexGFX:
-	ld hl, SGBPokedexGFX_LZ
-	ld de, vTiles2 tile $31
-	jmp Decompress
-
-LoadSGBPokedexGFX2:
-	ld hl, SGBPokedexGFX_LZ
-	ld de, vTiles2 tile $31
-	lb bc, BANK(SGBPokedexGFX_LZ), 58
-	jmp DecompressRequest2bpp
-
-SGBPokedexGFX_LZ:
-INCBIN "gfx/pokedex/pokedex_sgb.2bpp.lz"
-
 LoadQuestionMarkPic:
 	ld hl, .QuestionMarkLZ
 	ld de, sScratch

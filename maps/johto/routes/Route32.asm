@@ -389,17 +389,6 @@ FisherRalphAfterText:
 	line "long friends!"
 	done
 
-FisherRalphSwarmText:
-	text "One, two, three…"
-	line "Muahahaha, what a"
-
-	para "great haul!"
-	line "I'm done! Go ahead"
-
-	para "and catch as many"
-	line "as you can, kid!"
-	done
-
 FisherHenrySeenText:
 	text "My #mon?"
 	line "Freshly caught!"

@@ -308,7 +308,6 @@ ROMX $77
 	"Pokégear GFX"
 	"European Mail"
 ROMX $78
-	"Tileset Data 8"
 ROMX $7b
 ROMX $7c
 ROMX $7d	
@@ -344,7 +343,6 @@ WRAMX 2
 	"Pic Animations"
 	align 8
 	"16-bit WRAM tables"
-	"Battle Tower RAM"
 WRAMX 3
 	org $d000
 	"Metatiles"

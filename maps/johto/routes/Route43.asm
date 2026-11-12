@@ -171,12 +171,6 @@ FisherMarvinAfterBattleText:
 	cont "Ultra Ball."
 	done
 
-PicnickerTiffanyClefairyText:
-	text "Isn't my Clefairy"
-	line "just the most"
-	cont "adorable thing?"
-	done
-
 Route43Sign1Text:
 	text "Route 43"
 

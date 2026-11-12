@@ -264,29 +264,6 @@ PlaceMoveIconsAtX::
 	call PlaceTypeIconAtX
 	jmp PopAFBCDEHL_TypeIcons
 
-PlaceMonTypeIcons::
-; Place the type icons of [wCurSpecies]: the first type at row b, column c
-; (icon slot 0, OBJ palette 0), a second type one row below (slot 1, palette 1).
-	push af
-	push bc
-	push de
-	push hl
-	push bc
-	call GetBaseData
-	pop bc
-	ld a, [wBaseType1]
-	lb de, 0, 0
-	call PlaceTypeIconForType
-	ld a, [wBaseType2]
-	ld hl, wBaseType1
-	cp [hl]
-	jr z, .done ; single-typed mons have two of the same type
-	inc b
-	lb de, 1, 1
-	call PlaceTypeIconForType
-.done
-	jr PopAFBCDEHL_TypeIcons
-
 PlaceStatsMoveIcons::
 ; The stats screen's moves page: each move of wTempMonMoves gets its category
 ; icon at x 24 and its type icon at x 60 of its PP row (rows 11, 13, 15 and

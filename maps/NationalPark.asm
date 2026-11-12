@@ -231,17 +231,6 @@ SchoolboyJackTradeMonText:
 	line "level up faster."
 	done
 
-PokefanFBeverlyMarillFriendText:
-	text "My friend keeps a"
-	line "Marill!"
-
-	para "I find them very"
-	line "endearing."
-
-	para "Oh, I wish for a"
-	line "Marill of my own…"
-	done
-
 LassKriseSeenText:
 	text "Hello? Why are you"
 	line "staring at me?"

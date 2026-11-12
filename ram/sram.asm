@@ -176,31 +176,7 @@ sGSBallFlagBackup:: db
 
 SECTION "SRAM Battle Tower", SRAM
 
-; Battle Tower data must be in SRAM because you can save and leave between battles
-sBattleTowerChallengeState::
-; 0: normal
-; 2: battle tower
-	db
-
-sNrOfBeatenBattleTowerTrainers:: db
-sBTChoiceOfLevelGroup:: db
-; Battle Tower trainers are saved here, so nobody appears more than once
-sBTTrainers:: ds BATTLETOWER_STREAK_LENGTH
-sBattleTowerSaveFileFlags:: db
-sBattleTowerReward:: db
-
-sBTMonOfTrainers::
-; team of previous trainer
-; sBTMonPrevTrainer1 - sBTMonPrevTrainer3
-for n, 1, BATTLETOWER_PARTY_LENGTH + 1
-sBTMonPrevTrainer{d:n}:: dw
-endr
-; team of preprevious trainer
-; sBTMonPrevPrevTrainer1 - sBTMonPrevPrevTrainer3
-for n, 1, BATTLETOWER_PARTY_LENGTH + 1
-sBTMonPrevPrevTrainer{d:n}:: dw
-endr
-
+	ds $18 ; unused; keeps the save layout
 
 SECTION "PokeDB Bank 1", SRAM
 

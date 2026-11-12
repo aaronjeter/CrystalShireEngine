@@ -700,10 +700,6 @@ OakTextLevelCap:
 	text_far _OakLevelCapText
 	text_end
 
-OakTextOrigin:
-	text_far _OakOriginText
-	text_end
-
 SetRegion:
 	ld hl, OakTextRegion
 	call PrintText

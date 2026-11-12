@@ -41,7 +41,7 @@ FindNest:
 ; wNamedObjectIndex: species
 ; Writes the landmarks of that region where the species appears to wTilemap.
 ; Every wild table is searched (a nest counts for the region of its map's
-; landmark), plus the roaming Pokémon.
+; landmark), plus the roaming Pokmon.
 	ld a, e
 	ldh [hMathBuffer + 2], a
 	hlcoord 0, 0
@@ -416,7 +416,7 @@ ChooseWildEncounter:
 	ret
 
 ChooseWildSpawnMon::
-; A land wild Pokémon of this map for a wandering spawn (no roamers):
+; A land wild Pokmon of this map for a wandering spawn (no roamers):
 ; wTempWildMonSpecies and wCurPartyLevel. Returns z if there's one.
 	call _GrassWildmonLookup
 	jr nc, ChooseWildEncounter.nowildbattle
@@ -526,14 +526,6 @@ _WatermonCheck:
 
 .hoenn
 	ld hl, HoennWaterWildMons
-	ret
-
-_JohtoWildmonCheck:
-	call IsInJohto
-	and a
-	ret z
-	ld h, d
-	ld l, e
 	ret
 
 _SwarmWildmonCheck:

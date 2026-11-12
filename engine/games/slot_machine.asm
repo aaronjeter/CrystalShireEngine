@@ -1700,7 +1700,7 @@ Slots_GetPayout:
 	ld a, [hl]
 	ld [wPayout], a
 	ld d, a
-	farjp StubbedTrainerRankings_AddToSlotsPayouts
+	ret
 
 .PayoutTable:
 	table_width 2
@@ -1725,7 +1725,7 @@ Slots_PayoutText:
 	jr nz, .MatchedSomething
 	ld hl, .SlotsDarnText
 	call PrintText
-	farjp StubbedTrainerRankings_EndSlotsWinStreak
+	ret
 
 .MatchedSomething:
 	srl a
@@ -1744,7 +1744,7 @@ Slots_PayoutText:
 	call _hl_
 	ld hl, .Text_PrintPayout
 	call PrintText
-	farjp StubbedTrainerRankings_AddToSlotsWinStreak
+	ret
 
 .PayoutStrings:
 	table_width 6

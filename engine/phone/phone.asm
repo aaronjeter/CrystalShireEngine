@@ -300,7 +300,7 @@ Script_SpecialBillCall::
 RingTwice_StartCall:
 	call .Ring
 	call .Ring
-	farjp StubbedTrainerRankings_PhoneCalls
+	ret
 
 .Ring:
 	call Phone_StartRinging
@@ -324,7 +324,7 @@ PhoneCall::
 	ld [wPhoneCaller + 1], a
 	call .Ring
 	call .Ring
-	farjp StubbedTrainerRankings_PhoneCalls
+	ret
 
 .Ring:
 	call Phone_StartRinging

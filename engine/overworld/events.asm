@@ -34,41 +34,6 @@ CheckEnabledMapEventsBit5:
 	bit PLAYEREVENTS_UNUSED, [hl]
 	ret
 
-DisableWarpsConnections: ; unreferenced
-	ld hl, wEnabledPlayerEvents
-	res PLAYEREVENTS_WARPS_AND_CONNECTIONS, [hl]
-	ret
-
-DisableCoordEvents: ; unreferenced
-	ld hl, wEnabledPlayerEvents
-	res PLAYEREVENTS_COORD_EVENTS, [hl]
-	ret
-
-DisableStepCount: ; unreferenced
-	ld hl, wEnabledPlayerEvents
-	res PLAYEREVENTS_COUNT_STEPS, [hl]
-	ret
-
-DisableWildEncounters: ; unreferenced
-	ld hl, wEnabledPlayerEvents
-	res PLAYEREVENTS_WILD_ENCOUNTERS, [hl]
-	ret
-
-EnableWarpsConnections: ; unreferenced
-	ld hl, wEnabledPlayerEvents
-	set PLAYEREVENTS_WARPS_AND_CONNECTIONS, [hl]
-	ret
-
-EnableCoordEvents: ; unreferenced
-	ld hl, wEnabledPlayerEvents
-	set PLAYEREVENTS_COORD_EVENTS, [hl]
-	ret
-
-EnableStepCount: ; unreferenced
-	ld hl, wEnabledPlayerEvents
-	set PLAYEREVENTS_COUNT_STEPS, [hl]
-	ret
-
 EnableWildEncounters:
 	ld hl, wEnabledPlayerEvents
 	set PLAYEREVENTS_WILD_ENCOUNTERS, [hl]

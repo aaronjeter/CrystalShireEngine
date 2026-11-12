@@ -191,10 +191,6 @@ LearnedMoveText:
 	text_far _LearnedMoveText
 	text_end
 
-MoveAskForgetText:
-	text_far _MoveAskForgetText
-	text_end
-
 StopLearningMoveText:
 	text_far _StopLearningMoveText
 	text_end

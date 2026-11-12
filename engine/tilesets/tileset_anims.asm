@@ -227,7 +227,6 @@ TilesetTowerAnim::
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoneTileAnimation
 
-TilesetBattleTowerOutsideAnim::
 TilesetHouseAnim::
 TilesetPlayersHouseAnim::
 TilesetPokecenterAnim::
@@ -248,10 +247,6 @@ TilesetRuinsOfAlphAnim::
 TilesetRadioTowerAnim::
 TilesetUndergroundAnim::
 TilesetMuseumAnim::
-TilesetHoOhWordRoomAnim::
-TilesetKabutoWordRoomAnim::
-TilesetOmanyteWordRoomAnim::
-TilesetAerodactylWordRoomAnim::
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation

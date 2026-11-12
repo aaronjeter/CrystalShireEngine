@@ -353,15 +353,12 @@ TilesetGateColl::
 INCLUDE "data/tilesets/gate_collision.asm"
 
 TilesetJohtoModernvTiles2GFX::
-TilesetBattleTowerOutsidevTiles2GFX::
 INCBIN "gfx/tilesets/johto_modern.2bpp.vtiles2.lz"
 
 TilesetJohtoModernvTiles5GFX::
-TilesetBattleTowerOutsidevTiles5GFX::
 INCBIN "gfx/tilesets/johto_modern.2bpp.vtiles5.lz"
 
 TilesetJohtoModernvTiles4GFX::
-TilesetBattleTowerOutsidevTiles4GFX::
 INCBIN "gfx/tilesets/johto_modern.2bpp.vtiles4.lz"
 
 TilesetJohtoModernMeta::
@@ -460,34 +457,16 @@ INCBIN "data/tilesets/facility_metatiles.bin.lz"
 TilesetFacilityColl::
 INCLUDE "data/tilesets/facility_collision.asm"
 
-TilesetBattleTowerOutsideMeta::
-INCBIN "data/tilesets/battle_tower_outside_metatiles.bin.lz"
-
-TilesetBattleTowerOutsideColl::
-INCLUDE "data/tilesets/battle_tower_outside_collision.asm"
-
 
 SECTION "Tileset Data 7", ROMX
 
 TilesetRuinsOfAlphvTiles2GFX::
-TilesetHoOhWordRoomvTiles2GFX::
-TilesetKabutoWordRoomvTiles2GFX::
-TilesetOmanyteWordRoomvTiles2GFX::
-TilesetAerodactylWordRoomvTiles2GFX::
 INCBIN "gfx/tilesets/ruins_of_alph.2bpp.vtiles2.lz"
 
 TilesetRuinsOfAlphvTiles5GFX::
-TilesetHoOhWordRoomvTiles5GFX::
-TilesetKabutoWordRoomvTiles5GFX::
-TilesetOmanyteWordRoomvTiles5GFX::
-TilesetAerodactylWordRoomvTiles5GFX::
 INCBIN "gfx/tilesets/ruins_of_alph.2bpp.vtiles5.lz"
 
 TilesetRuinsOfAlphvTiles4GFX::
-TilesetHoOhWordRoomvTiles4GFX::
-TilesetKabutoWordRoomvTiles4GFX::
-TilesetOmanyteWordRoomvTiles4GFX::
-TilesetAerodactylWordRoomvTiles4GFX::
 INCBIN "gfx/tilesets/ruins_of_alph.2bpp.vtiles4.lz"
 
 TilesetRuinsOfAlphMeta::
@@ -496,20 +475,6 @@ INCBIN "data/tilesets/ruins_of_alph_metatiles.bin.lz"
 TilesetRuinsOfAlphColl::
 INCLUDE "data/tilesets/ruins_of_alph_collision.asm"
 
-
-SECTION "Tileset Data 8", ROMX
-
-TilesetHoOhWordRoomMeta::
-INCBIN "data/tilesets/ho_oh_word_room_metatiles.bin.lz"
-
-TilesetKabutoWordRoomMeta::
-INCBIN "data/tilesets/kabuto_word_room_metatiles.bin.lz"
-
-TilesetOmanyteWordRoomMeta::
-INCBIN "data/tilesets/omanyte_word_room_metatiles.bin.lz"
-
-TilesetAerodactylWordRoomMeta::
-INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin.lz"
 
 SECTION "Tileset Data 9", ROMX
 
@@ -522,9 +487,6 @@ INCBIN "data/tilesets/johto_modern_attributes.bin.lz"
 
 TilesetKantoAttr::
 INCBIN "data/tilesets/kanto_attributes.bin.lz"
-
-TilesetBattleTowerOutsideAttr::
-INCBIN "data/tilesets/battle_tower_outside_attributes.bin.lz"
 
 TilesetHouseAttr::
 INCBIN "data/tilesets/house_attributes.bin.lz"
@@ -613,21 +575,6 @@ INCBIN "data/tilesets/ice_path_attributes.bin.lz"
 
 TilesetForestAttr::
 INCBIN "data/tilesets/forest_attributes.bin.lz"
-
-
-SECTION "Tileset Data 11.1", ROMX
-
-TilesetHoOhWordRoomAttr::
-INCBIN "data/tilesets/ho_oh_word_room_attributes.bin.lz"
-
-TilesetKabutoWordRoomAttr::
-INCBIN "data/tilesets/kabuto_word_room_attributes.bin.lz"
-
-TilesetOmanyteWordRoomAttr::
-INCBIN "data/tilesets/omanyte_word_room_attributes.bin.lz"
-
-TilesetAerodactylWordRoomAttr::
-INCBIN "data/tilesets/aerodactyl_word_room_attributes.bin.lz"
 
 
 SECTION "Tileset Data 12", ROMX
@@ -750,10 +697,6 @@ TilesetMuseumMeta::
 INCBIN "data/tilesets/museum_metatiles.bin.lz"
 
 TilesetMuseumColl::
-TilesetHoOhWordRoomColl::
-TilesetKabutoWordRoomColl::
-TilesetOmanyteWordRoomColl::
-TilesetAerodactylWordRoomColl::
 INCLUDE "data/tilesets/museum_collision.asm"
 
 TilesetMuseumAttr::

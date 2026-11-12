@@ -331,12 +331,6 @@ wBoxPartialDataEnd::
 
 SECTION UNION "Miscellaneous", WRAM0
 
-; battle tower temp struct
-wBT_OTTemp:: battle_tower_struct wBT_OTTemp
-
-
-SECTION UNION "Miscellaneous", WRAM0
-
 ; battle data
 wBattle::
 ; Per-battler variables (the player's and enemy's copies of each) must be listed in
@@ -3292,35 +3286,6 @@ SECTION "16-bit WRAM tables", WRAMX
 	wram_conversion_table wMoveIndexTable, MOVE_TABLE
 	wram_conversion_table wItemIndexTable, ITEM_TABLE
 
-
-SECTION "Battle Tower RAM", WRAMX
-
-w3_d000:: ds 1
-w3_d080:: ds 1
-w3_d090:: ds $70
-
-w3_d100::
-wBT_OTTrainer:: battle_tower_struct wBT_OT
-	ds $20
-wBT_TrainerTextIndex:: db
-	ds 1
-w3_d202:: battle_tower_struct w3_d202
-w3_d2e2:: battle_tower_struct w3_d2e2
-w3_d3c2:: battle_tower_struct w3_d3c2
-w3_d4a2:: battle_tower_struct w3_d4a2
-w3_d582:: battle_tower_struct w3_d582
-w3_d662:: battle_tower_struct w3_d662
-
-w3_d742:: battle_tower_struct w3_d742
-
-UNION
-;w3_d800:: ds BG_MAP_WIDTH * SCREEN_HEIGHT
-
-NEXTU
-wBTChoiceOfLvlGroup:: db
-	ds $1
-w3_d80e:: db
-ENDU
 
 SECTION "Metatiles", WRAMX
 

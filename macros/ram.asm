@@ -234,18 +234,6 @@ MACRO channel_struct
                              ds 1
 ENDM
 
-MACRO battle_tower_struct
-\1Name::         ds NAME_LENGTH - 1
-\1TrainerClass:: db
-	; \1Mon1 - \1Mon3 and \1Mon1Name - \1Mon3Name
-	for n, 1, BATTLETOWER_PARTY_LENGTH + 1
-	\1Mon{d:n}::     party_struct \1Mon{d:n}
-	\1Mon{d:n}Name:: ds MON_NAME_LENGTH
-	endr
-\1TrainerData::  ds BATTLETOWER_TRAINERDATALENGTH
-\1TrainerEnd::
-ENDM
-
 MACRO mailmsg
 \1Message::     ds MAIL_MSG_LENGTH
 \1MessageEnd::  db

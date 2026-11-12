@@ -269,14 +269,6 @@ YoungsterIanAfterText:
 	cont "in my class."
 	done
 
-CamperToddSaleText:
-	text "Shopping under the"
-	line "sky!"
-
-	para "It feels so nice"
-	line "up on a rooftop."
-	done
-
 OfficerKeithSeenText:
 	text "Who goes there?"
 	line "What are you up"

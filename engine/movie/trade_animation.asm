@@ -1261,13 +1261,7 @@ TradeAnim_CopyBoxFromDEtoHL:
 	ret
 
 TradeAnim_NormalPals:
-	ldh a, [hSGB]
-	and a
 	ld a, %11100100 ; 3,2,1,0
-	jr z, .not_sgb
-	ld a, $f0
-
-.not_sgb
 	call DmgToCgbObjPal0
 	ld a, %11100100 ; 3,2,1,0
 	jmp DmgToCgbBGPals

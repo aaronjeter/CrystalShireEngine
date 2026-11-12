@@ -937,14 +937,6 @@ ObjectEventText::
 	text_far _ObjectEventText
 	text_end
 
-BGEventText::
-	text_far _BGEventText
-	text_end
-
-CoordinatesEventText::
-	text_far _CoordinatesEventText
-	text_end
-
 CheckObjectMask::
 	ldh a, [hMapObjectIndex]
 	ld e, a
@@ -1223,8 +1215,6 @@ _LoadTilesetGFX2:
 	cp TILESET_JOHTO
 	jr z, .load_roof
 	cp TILESET_JOHTO_MODERN
-	jr z, .load_roof
-	cp TILESET_BATTLE_TOWER_OUTSIDE
 	ret nz
 ; fallthrough
 .load_roof

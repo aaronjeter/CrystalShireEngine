@@ -328,12 +328,6 @@ Copy2bpp:
 
 	jmp FarCopyBytes
 
-GetMaybeOpaque1bpp::
-	ldh a, [rLCDC]
-	bit rLCDC_ENABLE, a
-	jr nz, _Request1bpp
-	jr _Copy1bpp
-
 GetOpaque1bppSpaceTile::
 	ld de, TextboxSpaceGFX
 GetOpaque1bppFontTile::
@@ -558,34 +552,3 @@ WriteVCopyRegistersToHRAM:
 	ld a, c
 	ldh [hTilesPerCycle], a
 	ret
-
-VRAMToVRAMCopy::
-	lb bc, rSTAT_MODE_MASK, LOW(rSTAT) ; predefine for speed and size
-	jr .waitNoHBlank2
-.outerLoop2
-	ldh a, [rLY]
-	cp $88
-	jr nc, ContinueHBlankCopy
-.waitNoHBlank2
-	ldh a, [c]
-	and b
-	jr z, .waitNoHBlank2
-.waitHBlank2
-	ldh a, [c]
-	and b
-	jr nz, .waitHBlank2
-rept 8
-	pop de
-	ld a, e
-	ld [hli], a
-	ld a, d
-	ld [hli], a
-endr
-	ld a, l
-	and $f
-	jr nz, .waitNoHBlank2
-	ldh a, [hTilesPerCycle]
-	dec a
-	ldh [hTilesPerCycle], a
-	jr nz, .outerLoop2
-	jr DoneHBlankCopy

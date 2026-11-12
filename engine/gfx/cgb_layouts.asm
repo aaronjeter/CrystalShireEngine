@@ -5,7 +5,7 @@ CheckCGB:
 	and a
 	ret
 
-LoadSGBLayoutCGB:
+LoadSGBLayout:
 	ld a, b
 	cp SCGB_DEFAULT
 	jr nz, .not_default
@@ -64,15 +64,15 @@ CGBLayoutJumptable:
 	assert_table_length NUM_SCGB_LAYOUTS
 
 _CGB_BattleGrayscale:
-	ld hl, PalPacket_BattleGrayscale + 1
+	ld hl, PalPacket_BattleGrayscale
 	ld de, wBGPals1
 	ld c, 4
 	call CopyPalettes
-	ld hl, PalPacket_BattleGrayscale + 1
+	ld hl, PalPacket_BattleGrayscale
 	ld de, wBGPals1 palette PAL_BATTLE_BG_EXP
 	ld c, 4
 	call CopyPalettes
-	ld hl, PalPacket_BattleGrayscale + 1
+	ld hl, PalPacket_BattleGrayscale
 	ld de, wOBPals1
 	ld c, 2
 	call CopyPalettes
@@ -340,13 +340,6 @@ DoublesSetHPPalette::
 InitPartyMenuBGPal7:
 	ld hl, PartyMenuBGPalette
 	ld de, wBGPals1 palette 7
-	ld bc, 1 palettes
-	ld a, BANK(wBGPals1)
-	jmp FarCopyWRAM
-
-InitPartyMenuBGPal0:
-	ld hl, PartyMenuBGPalette
-	ld de, wBGPals1 palette 0
 	ld bc, 1 palettes
 	ld a, BANK(wBGPals1)
 	jmp FarCopyWRAM
@@ -631,7 +624,7 @@ _CGB_SlotMachine:
 	ret
 
 _CGB_BetaTitleScreen:
-	ld hl, PalPacket_BetaTitleScreen + 1
+	ld hl, PalPacket_BetaTitleScreen
 	call CopyFourPalettes
 	call WipeAttrmap
 	ld de, wOBPals1
@@ -693,7 +686,7 @@ INCLUDE "gfx/intro/gs_shellder_lapras_ob.pal"
 	jmp WipeAttrmap
 
 .StartersCharizardScene:
-	ld hl, PalPacket_Pack + 1
+	ld hl, PalPacket_Pack
 	call CopyFourPalettes
 	ld de, wOBPals1
 	ld a, PREDEFPAL_GS_INTRO_STARTERS_TRANSITION
@@ -718,7 +711,7 @@ _CGB_Diploma:
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 
-	ld hl, PalPacket_Diploma + 1
+	ld hl, PalPacket_Diploma
 	call CopyFourPalettes
 	call WipeAttrmap
 	jmp ApplyAttrmap
@@ -793,13 +786,13 @@ _CGB_GSTitleScreen:
 	ret
 
 _CGB_Unused0D:
-	ld hl, PalPacket_Diploma + 1
+	ld hl, PalPacket_Diploma
 	call CopyFourPalettes
 	call WipeAttrmap
 	jmp ApplyAttrmap
 
 _CGB_UnownPuzzle:
-	ld hl, PalPacket_UnownPuzzle + 1
+	ld hl, PalPacket_UnownPuzzle
 	call CopyFourPalettes
 	ld de, wOBPals1
 	ld a, PREDEFPAL_UNOWN_PUZZLE
@@ -1136,7 +1129,7 @@ _CGB_MoveList:
 	ret
 
 _CGB_BetaPikachuMinigame:
-	ld hl, PalPacket_BetaPikachuMinigame + 1
+	ld hl, PalPacket_BetaPikachuMinigame
 	call CopyFourPalettes
 	call WipeAttrmap
 	call ApplyAttrmap
@@ -1237,7 +1230,7 @@ _CGB_Pokepic:
 	jmp ApplyAttrmap
 
 _CGB_MagnetTrain: ; unused
-	ld hl, PalPacket_MagnetTrain + 1
+	ld hl, PalPacket_MagnetTrain
 	call CopyFourPalettes
 	call WipeAttrmap
 	hlcoord 0, 4, wAttrmap
@@ -1291,7 +1284,7 @@ _CGB_Unused1E:
 	jmp ApplyAttrmap
 
 _CGB_TradeTube:
-	ld hl, PalPacket_TradeTube + 1
+	ld hl, PalPacket_TradeTube
 	call CopyFourPalettes
 	ld hl, PartyMenuOBPals
 	ld de, wOBPals1

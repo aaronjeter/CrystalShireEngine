@@ -123,11 +123,6 @@ SailorEugeneAfterBattleText:
 	cont "voyages."
 	done
 
-PokefanMDerekPikachuIsItText:
-	text "Pikachu is it!"
-	line "Don't you agree?"
-	done
-
 PsychicNormanSeenText:
 	text "Let me see what"
 	line "your #mon are"

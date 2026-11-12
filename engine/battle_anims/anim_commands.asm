@@ -634,12 +634,7 @@ BattleAnimCmd_OBP1:
 	ret
 
 BattleAnimCmd_ResetObp0:
-	ldh a, [hSGB]
-	and a
 	ld a, $e0
-	jr z, .not_sgb
-	ld a, $f0
-.not_sgb
 	ld [wOBP0], a
 	ret
 
@@ -1418,13 +1413,7 @@ BattleAnimAssignPals:
 	ldh a, [hCGB]
 	and a
 	jr nz, .cgb
-	ldh a, [hSGB]
-	and a
 	ld a, %11100000
-	jr z, .sgb
-	ld a, %11110000
-
-.sgb
 	ld [wOBP0], a
 	ld a, %11100100
 	ld [wBGP], a

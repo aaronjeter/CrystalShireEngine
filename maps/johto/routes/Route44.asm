@@ -149,17 +149,6 @@ BirdKeeperVanceLegendaryBirdsText:
 	cont "birds, though."
 	done
 
-BirdKeeperVance2BeatenText:
-	text "Why can't I ever"
-	line "beat you?"
-
-	para "Oh yeah, here you"
-	line "go. It's that gift"
-
-	para "I couldn't give"
-	line "you last time."
-	done
-
 PsychicPhilSeenText:
 	text "I'm gonna win,"
 	line "for sure!"

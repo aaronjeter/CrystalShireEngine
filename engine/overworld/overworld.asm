@@ -8,28 +8,6 @@ _UpdatePlayerSprite::
 	res 5, [hl]
 	jmp GetUsedSprite
 
-LoadStandingSpritesGFX: ; mobile
-	ld hl, wSpriteFlags
-	ld a, [hl]
-	push af
-	res SPRITES_SKIP_STANDING_GFX_F, [hl]
-	set SPRITES_SKIP_WALKING_GFX_F, [hl]
-	call LoadUsedSpritesGFX
-	pop af
-	ld [wSpriteFlags], a
-	ret
-
-LoadWalkingSpritesGFX: ; mobile
-	ld hl, wSpriteFlags
-	ld a, [hl]
-	push af
-	set SPRITES_SKIP_STANDING_GFX_F, [hl]
-	res SPRITES_SKIP_WALKING_GFX_F, [hl]
-	call LoadUsedSpritesGFX
-	pop af
-	ld [wSpriteFlags], a
-	ret
-
 GetPlayerSprite:
 ; Get the player character's sprite (see engine/gfx/player_characters.asm).
 	farjp _GetPlayerSprite
@@ -193,65 +171,6 @@ _GetSpritePalette::
 .is_pokemon
 	xor a
 	ld c, a
-	ret
-
-AddSpriteGFX:
-; Add any new sprite ids to a list of graphics to be loaded.
-; Return carry if the list is full.
-
-	push hl
-	push bc
-	ld b, a
-	ld hl, wUsedSprites + 2
-	ld c, SPRITE_GFX_LIST_CAPACITY - 1
-.loop
-	ld a, [hl]
-	cp b
-	jr z, .exists
-	and a
-	jr z, .new
-	inc hl
-	inc hl
-	dec c
-	jr nz, .loop
-
-	pop bc
-	pop hl
-	scf
-	ret
-
-.exists
-	pop bc
-	pop hl
-	and a
-	ret
-
-.new
-	ld [hl], b
-	pop bc
-	pop hl
-	and a
-	ret
-
-GetSpriteLength:
-; Return the length of sprite type a in tiles.
-
-	cp WALKING_SPRITE
-	jr z, .AnyDirection
-	cp STANDING_SPRITE
-	jr z, .AnyDirection
-	cp STILL_SPRITE
-	jr z, .OneDirection
-
-	ld a, 12
-	ret
-
-.AnyDirection:
-	ld a, 12
-	ret
-
-.OneDirection:
-	ld a, 4
 	ret
 
 GetUsedSprites:
