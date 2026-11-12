@@ -125,11 +125,13 @@ BattleResort_MapEvents:
 	warp_event   45, 28, TREETOP_TRIAL, 2
 	warp_event   10, 28, ASHEN_GAUNTLET, 1
 	warp_event   11, 28, ASHEN_GAUNTLET, 2
-	warp_event   24, 13, WORLD_CUP_LOBBY, 2
+	warp_event   24, 13, WORLD_CUP_LOBBY, 1
 	warp_event   24, 51, BATTLE_RESORT_HARBOR, 1
 	warp_event   25, 51, BATTLE_RESORT_HARBOR, 2
 	warp_event   09, 13, FANCY_ROCKS, 2
-	warp_event   42, 13, BATTLE_RESORT_TOWER, 1
+	warp_event   42, 15, BATTLE_RESORT_TOWER, 1
+	warp_event   25, 13, WORLD_CUP_LOBBY, 2
+	warp_event   43, 15, BATTLE_RESORT_TOWER, 2
 
 
 	def_coord_events

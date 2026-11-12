@@ -54,4 +54,5 @@ Tilesets::
 	tileset TilesetHoennOcean
 	tileset TilesetSootopolis
 	tileset TilesetHoennJungle
+	tileset TilesetBattleResort
 	assert_table_length NUM_TILESETS + 1

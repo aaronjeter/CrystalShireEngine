@@ -366,7 +366,7 @@ BattleResortTower_MapEvents:
 
 	def_warp_events
 	warp_event 13, 11, BATTLE_RESORT, 11
-	warp_event 14, 11, BATTLE_RESORT, 11
+	warp_event 14, 11, BATTLE_RESORT, 13
 
 	def_coord_events
 

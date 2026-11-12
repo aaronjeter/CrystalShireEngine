@@ -654,7 +654,7 @@ INCBIN "data/tilesets/hoenn_attributes.bin.lz"
 SECTION "Tileset Data Hoenn Ocean", ROMX
 
 ; Hoenn sea routes and island towns (Routes 105, 108, 109, 122, Dewford,
-; Mossdeep, Battle Resort). Started as a copy of TilesetHoenn.
+; Mossdeep). Started as a copy of TilesetHoenn.
 ; Before you cross a connection, the next map's edge is drawn with the current
 ; tileset, so these blocks (used within 3 blocks of the Route 104/105,
 ; Slateport/109, 121/122 and 122/123 connections) must stay identical in both
@@ -758,3 +758,27 @@ INCLUDE "data/tilesets/museum_collision.asm"
 
 TilesetMuseumAttr::
 INCBIN "data/tilesets/museum_attributes.bin.lz"
+
+
+SECTION "Tileset Data Battle Resort", ROMX
+
+; The Battle Resort. Started as a copy of TilesetHoennOcean so it can be redrawn
+; separately. The Battle Resort has no map connections, so no blocks need to
+; stay in sync with other tilesets.
+TilesetBattleResortvTiles2GFX::
+INCBIN "gfx/tilesets/battle_resort.2bpp.vtiles2.lz"
+
+TilesetBattleResortvTiles5GFX::
+INCBIN "gfx/tilesets/battle_resort.2bpp.vtiles5.lz"
+
+TilesetBattleResortvTiles4GFX::
+INCBIN "gfx/tilesets/battle_resort.2bpp.vtiles4.lz"
+
+TilesetBattleResortMeta::
+INCBIN "data/tilesets/battle_resort_metatiles.bin.lz"
+
+TilesetBattleResortColl::
+INCLUDE "data/tilesets/battle_resort_collision.asm"
+
+TilesetBattleResortAttr::
+INCBIN "data/tilesets/battle_resort_attributes.bin.lz"

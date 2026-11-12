@@ -723,6 +723,9 @@ FollowerThemes:
 	db TILESET_HOENN_OCEAN, TOWN
 	dw FollowerLines_Sea
 	db FOLLOWER_COND_SEA
+	db TILESET_BATTLE_RESORT, TOWN
+	dw FollowerLines_Sea
+	db FOLLOWER_COND_SEA
 	db TILESET_HOENN_JUNGLE, ROUTE
 	dw FollowerLines_Jungle
 	db FOLLOWER_COND_JUNGLE
