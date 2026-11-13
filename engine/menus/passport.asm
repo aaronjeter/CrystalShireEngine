@@ -230,6 +230,10 @@ Passport::
 	jr .loop
 
 .quit
+; leave with BG map 0 shown, holding the current page
+	ldh a, [rLCDC]
+	bit rLCDC_BG_TILEMAP, a
+	call nz, Passport_ShowPage
 	pop af
 	ld [wOptions], a
 	pop af
@@ -348,7 +352,7 @@ Passport_DrawPage:
 	xor a
 	ld [wPassportRowShift], a
 	call Passport_RunElements
-	jmp WaitBGMap2
+	jr Passport_ShowPage
 
 .GetPointer:
 ; hl = table of words, a = index -> hl = the word
@@ -359,6 +363,32 @@ Passport_DrawPage:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	ret
+
+Passport_ShowPage:
+; Copies the page to the BG map that isn't shown, then shows that map, so the
+; new tiles and attributes appear together.
+	ldh a, [rLCDC]
+	bit rLCDC_BG_TILEMAP, a
+	ld bc, (4 << 8) | 3 ; BG map 1: attributes, then tiles
+	jr z, .copy
+	ld bc, (2 << 8) | 1 ; BG map 0: attributes, then tiles
+.copy
+	ld a, b
+	ldh [hBGMapMode], a
+	push bc
+	ld c, 4
+	call DelayFrames
+	pop bc
+	ld a, c
+	ldh [hBGMapMode], a
+	ld c, 4
+	call DelayFrames
+	xor a
+	ldh [hBGMapMode], a
+	ldh a, [rLCDC]
+	xor 1 << rLCDC_BG_TILEMAP
+	ldh [rLCDC], a
 	ret
 
 Passport_DrawFrame:
