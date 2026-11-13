@@ -36,6 +36,7 @@
 	const TILESET_SOOTOPOLIS           ; 22
 	const TILESET_HOENN_JUNGLE         ; 23
 	const TILESET_BATTLE_RESORT        ; 24
+	const TILESET_SILVER               ; 25
 DEF NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size

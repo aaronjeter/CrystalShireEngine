@@ -1033,6 +1033,12 @@ checkevent EVENT_BEAT_MOON_MIGUEL
 	addval 2
 	writemem wLevelCap
 .skipEvergrande
+	checkevent EVENT_BEAT_JOHTO_LEAGUE
+	iffalse .skipSilver
+	readmem wLevelCap
+	addval 2
+	writemem wLevelCap
+.skipSilver
 
 .done
 	end
@@ -1041,6 +1047,8 @@ LeagueRematchCheckScript:
 ; wScriptVar = TRUE once any League has been beaten: every Elite Four and
 ; Champion then uses their rematch team.
 	checkevent EVENT_BEAT_INDIGO_LEAGUE
+	iftrue .done
+	checkevent EVENT_BEAT_JOHTO_LEAGUE
 	iftrue .done
 	checkevent EVENT_BEAT_HOENN_LEAGUE
 .done

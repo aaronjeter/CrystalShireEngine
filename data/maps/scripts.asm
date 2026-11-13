@@ -809,3 +809,22 @@ INCLUDE "maps/hoenn/meteor/MeteorPeak.asm"
 
 
 ENDSECTION
+
+
+SECTION "Silver Town Area Scripts", ROMX
+
+INCLUDE "maps/johto/silvertown/Route47Gate.asm"
+INCLUDE "maps/johto/silvertown/Route47.asm"
+INCLUDE "maps/johto/silvertown/SilverPass.asm"
+INCLUDE "maps/johto/silvertown/SilverTown.asm"
+INCLUDE "maps/johto/silvertown/SilverTownHouse.asm"
+INCLUDE "maps/johto/silvertown/SilverTownHouse2.asm"
+INCLUDE "maps/johto/silvertown/SilverLeagueLobby.asm"
+INCLUDE "maps/johto/silvertown/Route48.asm"
+INCLUDE "maps/johto/silvertown/SilverLeagueWillsRoom.asm"
+INCLUDE "maps/johto/silvertown/SilverLeagueLilysRoom.asm"
+INCLUDE "maps/johto/silvertown/SilverLeagueEusinesRoom.asm"
+INCLUDE "maps/johto/silvertown/SilverLeagueKarensRoom.asm"
+INCLUDE "maps/johto/silvertown/SilverLeagueLancesRoom.asm"
+
+ENDSECTION

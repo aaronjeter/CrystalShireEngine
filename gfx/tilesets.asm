@@ -725,3 +725,25 @@ INCLUDE "data/tilesets/battle_resort_collision.asm"
 
 TilesetBattleResortAttr::
 INCBIN "data/tilesets/battle_resort_attributes.bin.lz"
+
+
+SECTION "Tileset Data Silver", ROMX
+
+; The snowy Silver Town area. Started as a copy of TilesetJohto.
+TilesetSilvervTiles2GFX::
+INCBIN "gfx/tilesets/silver.2bpp.vtiles2.lz"
+
+TilesetSilvervTiles5GFX::
+INCBIN "gfx/tilesets/silver.2bpp.vtiles5.lz"
+
+TilesetSilvervTiles4GFX::
+INCBIN "gfx/tilesets/silver.2bpp.vtiles4.lz"
+
+TilesetSilverMeta::
+INCBIN "data/tilesets/silver_metatiles.bin.lz"
+
+TilesetSilverColl::
+INCLUDE "data/tilesets/silver_collision.asm"
+
+TilesetSilverAttr::
+INCBIN "data/tilesets/silver_attributes.bin.lz"

@@ -510,6 +510,23 @@ ENDM
 	map_attributes AzaleaGym, AZALEA_GYM, $00, 0
 	map_attributes LakeOfRageHiddenPowerHouse, LAKE_OF_RAGE_HIDDEN_POWER_HOUSE, $00, 0
 	map_attributes LakeOfRageMagikarpHouse, LAKE_OF_RAGE_MAGIKARP_HOUSE, $00, 0
+	map_attributes Route47Gate, ROUTE_47_GATE, $00, 0
+	map_attributes Route47, ROUTE_47, $16, 0
+	map_attributes SilverPass, SILVER_PASS, $09, 0
+	map_attributes SilverTown, SILVER_TOWN, $71, SOUTH
+	connection south, Route48, ROUTE_48, -5
+
+	map_attributes SilverTownHouse, SILVER_TOWN_HOUSE, $00, 0
+	map_attributes SilverTownHouse2, SILVER_TOWN_HOUSE_2, $00, 0
+	map_attributes SilverLeagueLobby, SILVER_LEAGUE_LOBBY, $00, 0
+	map_attributes Route48, ROUTE_48, $16, NORTH
+	connection north, SilverTown, SILVER_TOWN, 5
+
+	map_attributes SilverLeagueWillsRoom, SILVER_LEAGUE_WILLS_ROOM, $00, 0
+	map_attributes SilverLeagueLilysRoom, SILVER_LEAGUE_LILYS_ROOM, $00, 0
+	map_attributes SilverLeagueEusinesRoom, SILVER_LEAGUE_EUSINES_ROOM, $00, 0
+	map_attributes SilverLeagueKarensRoom, SILVER_LEAGUE_KARENS_ROOM, $00, 0
+	map_attributes SilverLeagueLancesRoom, SILVER_LEAGUE_LANCES_ROOM, $00, 0
 	map_attributes Route43MahoganyGate, ROUTE_43_MAHOGANY_GATE, $00, 0
 	map_attributes Route43Gate, ROUTE_43_GATE, $00, 0
 	map_attributes VioletMart, VIOLET_MART, $00, 0

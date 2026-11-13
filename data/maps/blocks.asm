@@ -108,6 +108,8 @@ Route39Farmhouse_Blocks:
 MahoganyRedGyaradosSpeechHouse_Blocks:
 BlackthornDragonSpeechHouse_Blocks:
 BlackthornEmysHouse_Blocks:
+SilverTownHouse_Blocks:
+SilverTownHouse2_Blocks:
 MoveDeletersHouse_Blocks:
 CeruleanGymBadgeSpeechHouse_Blocks:
 CeruleanPoliceStation_Blocks:
@@ -155,6 +157,7 @@ Route30BerryHouse_Blocks:
 Route19FuchsiaGate_Blocks:
 Route43MahoganyGate_Blocks:
 Route43Gate_Blocks:
+Route47Gate_Blocks:
 Route35GoldenrodGate_Blocks:
 Route36RuinsOfAlphGate_Blocks:
 Route34IlexForestGate_Blocks:
@@ -587,18 +590,23 @@ TeamRocketBaseB3F_Blocks:
 	INCBIN "maps/johto/mahogany/TeamRocketBaseB3F.ablk"
 
 IndigoPlateauPokecenter1F_Blocks:
+SilverLeagueLobby_Blocks:
 	INCBIN "maps/kanto/indigo/IndigoPlateauPokecenter1F.ablk"
 
 WillsRoom_Blocks:
+SilverLeagueWillsRoom_Blocks:
 	INCBIN "maps/kanto/indigo/WillsRoom.ablk"
 
 KogasRoom_Blocks:
+SilverLeagueLilysRoom_Blocks:
 	INCBIN "maps//kanto/indigo/KogasRoom.ablk"
 
 BrunosRoom_Blocks:
+SilverLeagueEusinesRoom_Blocks:
 	INCBIN "maps/kanto/indigo/BrunosRoom.ablk"
 
 KarensRoom_Blocks:
+SilverLeagueKarensRoom_Blocks:
 	INCBIN "maps/kanto/indigo/KarensRoom.ablk"
 
 AzaleaGym_Blocks:
@@ -832,6 +840,7 @@ Route23_Blocks:
 	INCBIN "maps/kanto/routes/Route23.ablk"
 
 LancesRoom_Blocks:
+SilverLeagueLancesRoom_Blocks:
 	INCBIN "maps/kanto/indigo/LancesRoom.ablk"
 
 HallOfFame_Blocks:
@@ -1339,5 +1348,22 @@ SECTION "Meteor Falls Blocks", ROMX
 
 	MeteorPeak_Blocks:
 	INCBIN "maps/hoenn/meteor/MeteorPeak.ablk"
+
+ENDSECTION
+
+
+SECTION "Silver Town Area Blocks", ROMX
+
+Route47_Blocks:
+	INCBIN "maps/johto/silvertown/Route47.ablk"
+
+SilverPass_Blocks:
+	INCBIN "maps/johto/silvertown/SilverPass.ablk"
+
+Route48_Blocks:
+	INCBIN "maps/johto/silvertown/Route48.ablk"
+
+SilverTown_Blocks:
+	INCBIN "maps/johto/silvertown/SilverTown.ablk"
 
 ENDSECTION

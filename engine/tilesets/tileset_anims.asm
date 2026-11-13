@@ -123,6 +123,7 @@ TilesetForestAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetJohtoAnim::
+TilesetSilverAnim::
 ; Same water as Hoenn: shallow water ($14) is a static diagonal ripple drawn in
 ; gfx/tilesets/johto.png, and deep water ($60) uses the 8-frame wave animation
 ; from gfx/tilesets/waves/waves_deep.png. One pass = 14 frames per wave frame.

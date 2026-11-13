@@ -1214,6 +1214,8 @@ _LoadTilesetGFX2:
 	ld a, [wMapTileset]
 	cp TILESET_JOHTO
 	jr z, .load_roof
+	cp TILESET_SILVER
+	jr z, .load_roof
 	cp TILESET_JOHTO_MODERN
 	ret nz
 ; fallthrough

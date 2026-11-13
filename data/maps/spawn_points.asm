@@ -36,7 +36,7 @@ SpawnPoints:
 	spawn MAHOGANY_TOWN,              15, 14
 	spawn LAKE_OF_RAGE,               21, 29
 	spawn BLACKTHORN_CITY,            21, 30
-	spawn SILVER_CAVE_OUTSIDE,        23, 20
+	spawn SILVER_TOWN,                20, 14 ; SPAWN_MT_SILVER: Silver Town until the fly points are redone
 	spawn FAST_SHIP_CABINS_SW_SSW_NW,  6,  2
 
 	spawn LITTLEROOT_TOWN,            04, 14
@@ -55,6 +55,7 @@ SpawnPoints:
 	spawn SOOTOPOLIS_CITY,            45, 22
 	spawn LILYCOVE_CITY,              23, 16
 	spawn EVERGRANDE_CITY,            16, 06
+	spawn SILVER_CAVE_OUTSIDE,        23, 20
 
 	spawn N_A,                        -1, -1
 

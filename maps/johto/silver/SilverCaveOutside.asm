@@ -2,11 +2,6 @@ SilverCaveOutside_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, SilverCaveOutsideFlypointCallback
-
-SilverCaveOutsideFlypointCallback:
-	setflag ENGINE_FLYPOINT_SILVER_CAVE
-	endcallback
 
 MtSilverPokecenterSign:
 	jumpstd PokecenterSignScript

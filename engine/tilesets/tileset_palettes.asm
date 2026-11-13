@@ -14,6 +14,8 @@ LoadSpecialMapPalette:
 	jr z, .battle_tower_inside
 	cp TILESET_ICE_PATH
 	jr z, .ice_path
+	cp TILESET_SILVER
+	jr z, .silver
 	cp TILESET_HOUSE
 	jr z, .house
 	cp TILESET_RADIO_TOWER
@@ -43,6 +45,11 @@ LoadSpecialMapPalette:
 	cp INDOOR ; Hall of Fame
 	jr z, .do_nothing
 	call LoadIcePathPalette
+	scf
+	ret
+
+.silver
+	call LoadSilverPalette
 	scf
 	ret
 
@@ -104,6 +111,28 @@ LoadIcePathPalette:
 
 IcePathPalette:
 INCLUDE "gfx/tilesets/ice_path.pal"
+
+LoadSilverPalette:
+; the snow palettes for the current time of day
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld de, SilverPalette
+	add hl, de
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld bc, 8 palettes
+	jmp FarCopyWRAM
+
+SilverPalette:
+INCLUDE "gfx/tilesets/silver.pal"
 
 LoadHousePalette:
 	ld a, BANK(wBGPals1)

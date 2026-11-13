@@ -50,4 +50,5 @@ Tilesets::
 	tileset TilesetSootopolis
 	tileset TilesetHoennJungle
 	tileset TilesetBattleResort
+	tileset TilesetSilver
 	assert_table_length NUM_TILESETS + 1

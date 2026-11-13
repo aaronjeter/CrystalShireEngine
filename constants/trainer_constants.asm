@@ -254,6 +254,12 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const TOWER_ELITE_1 ; Battle Tower (random team)
 	const TOWER_ELITE_2 ; Battle Tower (random team)
 	const TOWER_HEAD ; Battle Tower head (battle 49; placeholder)
+	const DALTON
+	const ROWAN
+	const FELIX
+	const BRAM
+	const CORWIN
+	const EZRA
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -288,6 +294,12 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const FACILITY_JOHTO_9 ; challenge facility (hard)
 	const TOWER_ELITE_3 ; Battle Tower (random team)
 	const TOWER_ELITE_4 ; Battle Tower (random team)
+	const HELENA
+	const IVY
+	const SELENE
+	const MARLA
+	const YVONNE
+	const NOELLE
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -387,6 +399,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass SKIER ; 21
 	const ROXANNE
 	const CLARISSA
+	const MIRA
+	const TASHA
 
 	trainerclass TEACHER ; 22
 	const COLETTE
@@ -545,6 +559,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE116_DEVAN
 	const LAVARIDGE_ELI
 	const MOON_MARCOS	
+	const GARTH
 
 	trainerclass BIKER ; 2d
 	const DWAYNE
@@ -598,6 +613,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE103_RHETT
 	const FACILITY_KANTO_8 ; challenge facility (hard)
 	const TOWER_ELITE_5 ; Battle Tower (random team)
+	const HIRO
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
@@ -710,6 +726,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const RONALD
 	const BRAD
 	const DOUGLAS
+	const BRODY
+	const PIKE
 
 	trainerclass POKEFANM ; 3b
 	const WILLIAM
@@ -778,6 +796,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE
+	const EUSINE2
+	const EUSINE3
 
 	trainerclass LINK_KRIS ; 44
 	const LINK_KRIS1
@@ -911,6 +931,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass LILY
 	const LILY1
+	const LILY2
 
 	trainerclass GUY
 	const GUY1

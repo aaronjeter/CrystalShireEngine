@@ -3387,6 +3387,48 @@ CooltrainerMGroup:
 		moves MOONBLAST, SHOCK_WAVE, HYPNOSIS, DREAM_EATER
 	end_party
 
+	party DALTON, "Dalton" ; Route47
+	mon 7, HERACROSS
+	mon 7, GYARADOS
+	mon 7, MAGNEZONE
+	mon 8, NIDOKING
+	end_party
+
+	party ROWAN, "Rowan" ; Route47
+	mon 7, SKARMORY
+	mon 7, DONPHAN
+	mon 7, FORRETRESS
+	mon 8, SCIZOR
+	end_party
+
+	party FELIX, "Felix" ; SilverPass
+	mon 7, CROBAT
+	mon 7, GENGAR
+	mon 7, HONCHKROW
+	mon 8, ABSOL
+	end_party
+
+	party BRAM, "Bram" ; SilverPass
+	mon 7, FLYGON
+	mon 7, AERODACTYL
+	mon 7, KINGDRA
+	mon 8, SALAMENCE
+	end_party
+
+	party CORWIN, "Corwin" ; Route48
+	mon 7, RAICHU
+	mon 7, LANTURN
+	mon 7, MANECTRIC
+	mon 8, AMPHAROS
+	end_party
+
+	party EZRA, "Ezra" ; Route48
+	mon 7, GLISCOR
+	mon 7, SHARPEDO
+	mon 7, PORYGONZ
+	mon 8, METAGROSS
+	end_party
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -3813,6 +3855,48 @@ CooltrainerFGroup:
 
 	party TOWER_ELITE_4, "Nadia" ; Battle Tower (elite; a random team; levels: the facility level)
 	random_mons 4, ELITE_TOWER
+	end_party
+
+	party HELENA, "Helena" ; Route47
+	mon 7, AZUMARILL
+	mon 7, TOGEKISS
+	mon 7, GARDEVOIR
+	mon 8, ALTARIA
+	end_party
+
+	party IVY, "Ivy" ; Route47
+	mon 7, BELLOSSOM
+	mon 7, VICTREEBEL
+	mon 7, BRELOOM
+	mon 8, ROSERADE
+	end_party
+
+	party SELENE, "Selene" ; SilverPass
+	mon 7, ALAKAZAM
+	mon 7, SLOWKING
+	mon 7, XATU
+	mon 8, GALLADE
+	end_party
+
+	party MARLA, "Marla" ; SilverPass
+	mon 7, QUAGSIRE
+	mon 7, OCTILLERY
+	mon 7, STARMIE
+	mon 8, MILOTIC
+	end_party
+
+	party YVONNE, "Yvonne" ; Route48
+	mon 7, RAPIDASH
+	mon 7, NINETALES
+	mon 7, CAMERUPT
+	mon 8, HARCANINE
+	end_party
+
+	party NOELLE, "Noelle" ; Route48
+	mon 7, CLEFABLE
+	mon 7, MILTANK
+	mon 7, LAPRAS
+	mon 8, DRAGONITE
 	end_party
 
 	end_list_items
@@ -4556,6 +4640,20 @@ SkierGroup:
 	mon 8, DEWGONG
 	mon 8, SNEASEL
 	mon 8, PILOSWINE
+	end_party
+
+	party MIRA, "Mira" ; Route47
+	mon 7, ASANDSLASH
+	mon 7, GLALIE
+	mon 7, JYNX
+	mon 8, FROSLASS
+	end_party
+
+	party TASHA, "Tasha" ; Route48
+	mon 7, WEAVILE
+	mon 7, MR__RIME
+	mon 7, DELIBIRD
+	mon 8, WALREIN
 	end_party
 
 	end_list_items
@@ -5991,6 +6089,13 @@ HikerGroup:
 		ability LEVITATE
 	end_party
 
+	party GARTH, "Garth" ; SilverPass
+	mon 7, GOLEM
+	mon 7, SUDOWOODO
+	mon 7, RHYPERIOR
+	mon 8, TYRANITAR
+	end_party
+
 	end_list_items
 
 BikerGroup:
@@ -6521,6 +6626,13 @@ BlackbeltGroup:
 
 	party TOWER_ELITE_5, "Takao" ; Battle Tower (elite; a random team; levels: the facility level)
 	random_mons 4, ELITE_TOWER
+	end_party
+
+	party HIRO, "Hiro" ; SilverPass
+	mon 7, HITMONTOP
+	mon 7, POLIWRATH
+	mon 7, MACHAMP
+	mon 8, ANNIHILAPE
 	end_party
 
 	end_list_items
@@ -7608,6 +7720,20 @@ BoarderGroup:
 		ability THICK_FAT
 	end_party
 
+	party BRODY, "Brody" ; Route47
+	mon 7, CLOYSTER
+	mon 7, DEWGONG
+	mon 7, ANINETALES
+	mon 8, MAMOSWINE
+	end_party
+
+	party PIKE, "Pike" ; Route48
+	mon 7, WYRDEER
+	mon 7, KANGASKHAN
+	mon 7, TAUROS
+	mon 8, URSALUNA
+	end_party
+
 	end_list_items
 
 PokefanMGroup:
@@ -8325,6 +8451,99 @@ MysticalmanGroup:
 		item MAGNET
 		ability MAGNET_PULL
 		moves VOLT_SWITCH, THUNDER_WAVE, SPIKES, SELFDESTRUCT
+	end_party
+
+	party EUSINE2, "Eusine" ; Johto League (first run)
+	mon 9, ARCANINE
+		ability INTIMIDATE
+		moves FIRE_FANG, EXTREMESPEED, CRUNCH, MORNING_SUN
+	mon 9, ELECTRODE2
+		ability MAGNET_PULL
+		moves VOLT_SWITCH, FLASHCANNON, THUNDER_WAVE, SPIKES
+	mon 9, LAPRAS
+		ability WATER_ABSORB
+		moves FREEZE_DRY, THUNDERBOLT, PSYCHIC_M, HEAL_BELL
+	mon 10, MISMAGIUS
+		ability LEVITATE
+		moves SHADOW_BALL, MYSTICAL_FIRE, THUNDERBOLT, CALM_MIND
+	mon 10, HYPNO
+		ability INSOMNIA
+		moves HYPNOSIS, PSYCHIC_M, SHADOW_BALL, DRAIN_PUNCH
+	mon 11, SUICUNE
+		ability NATURAL_CURE
+		moves SCALD, ICE_BEAM, CALM_MIND, RECOVER
+	hard
+	mon 12, ARCANINE
+		item CHARCOAL
+		ability INTIMIDATE
+		moves FIRE_FANG, EXTREMESPEED, CRUNCH, MORNING_SUN
+	mon 12, ELECTRODE2
+		item MAGNET
+		ability MAGNET_PULL
+		moves VOLT_SWITCH, FLASHCANNON, THUNDER_WAVE, SPIKES
+	mon 12, LAPRAS
+		item SITRUS_BERRY
+		ability WATER_ABSORB
+		moves FREEZE_DRY, THUNDERBOLT, PSYCHIC_M, HEAL_BELL
+	mon 12, MISMAGIUS
+		item SPELL_TAG
+		ability LEVITATE
+		moves SHADOW_BALL, MYSTICAL_FIRE, THUNDERBOLT, CALM_MIND
+	mon 12, HYPNO
+		item TWISTEDSPOON
+		ability INSOMNIA
+		moves HYPNOSIS, PSYCHIC_M, SHADOW_BALL, DRAIN_PUNCH
+	mon 13, SUICUNE
+		item LEFTOVERS
+		ability NATURAL_CURE
+		moves SCALD, ICE_BEAM, CALM_MIND, RECOVER
+	end_party
+
+	party EUSINE3, "Eusine" ; Johto League (rematch)
+	mon 11, HOUNDOOM
+		ability STRONG_JAW
+		moves CRUNCH, FIRE_FANG, THUNDER_FANG, SUCKER_PUNCH
+	mon 11, ELECTRODE2
+		ability MAGNET_PULL
+		moves VOLT_SWITCH, FLASHCANNON, THUNDERBOLT, SPIKES
+	mon 11, KINGDRA
+		ability SNIPER
+		moves HYDRO_PUMP, DRAGONBREATH, ICE_BEAM, FOCUS_ENERGY
+	mon 12, MISMAGIUS
+		ability LEVITATE
+		moves SHADOW_BALL, MYSTICAL_FIRE, THUNDERBOLT, CALM_MIND
+	mon 12, HYPNO
+		ability INSOMNIA
+		moves HYPNOSIS, PSYCHIC_M, SHADOW_BALL, DRAIN_PUNCH
+	mon 13, SUICUNE
+		item LEFTOVERS
+		ability NATURAL_CURE
+		moves SCALD, ICE_BEAM, CALM_MIND, EXTREMESPEED
+	hard
+	mon 13, HOUNDOOM
+		item CHARCOAL
+		ability STRONG_JAW
+		moves CRUNCH, FIRE_FANG, THUNDER_FANG, SUCKER_PUNCH
+	mon 13, ELECTRODE2
+		item MAGNET
+		ability MAGNET_PULL
+		moves VOLT_SWITCH, FLASHCANNON, THUNDERBOLT, SPIKES
+	mon 13, KINGDRA
+		item SCOPE_LENS
+		ability SNIPER
+		moves HYDRO_PUMP, DRAGONBREATH, ICE_BEAM, FOCUS_ENERGY
+	mon 13, MISMAGIUS
+		item SPELL_TAG
+		ability LEVITATE
+		moves SHADOW_BALL, MYSTICAL_FIRE, THUNDERBOLT, CALM_MIND
+	mon 15, HYPNO
+		item TWISTEDSPOON
+		ability INSOMNIA
+		moves HYPNOSIS, PSYCHIC_M, SHADOW_BALL, DRAIN_PUNCH
+	mon 15, SUICUNE
+		item LEFTOVERS
+		ability NATURAL_CURE
+		moves SCALD, ICE_BEAM, CALM_MIND, EXTREMESPEED
 	end_party
 
 	end_list_items
@@ -10334,18 +10553,96 @@ ExplorerGroup:
 	LilyGroup:
 
 	party LILY1, "Lily"
-	mon 12, NINETALES
-		moves FLAMETHROWER, FAE_VOICE, WILLOWISP, RECOVER
-	mon 11, CLEFABLE
-		moves MOONBLAST, BODY_SLAM, ICE_PUNCH, METEOR_MASH
-	mon 11, MAWILE
-		moves CRUNCH, VICEGRIP, PLAY_ROUGH, SWORDS_DANCE
-	mon 11, MILOTIC
-		moves SURF, DRAGONBREATH, FAERIEGLEAM, WHIRLPOOL
+	mon 9, VAPOREON
+		ability WATER_ABSORB
+		moves SCALD, ICE_BEAM, AQUA_RING, YAWN
+	mon 9, JOLTEON
+		ability VOLT_ABSORB
+		moves THUNDERBOLT, SHADOW_BALL, PIN_MISSILE, THUNDER_WAVE
+	mon 9, FLAREON
+		ability GUTS
+		moves FIRE_FANG, FACADE, CRUNCH, QUICK_ATTACK
+	mon 10, UMBREON
+		ability INNER_FOCUS
+		moves KNOCK_OFF, MOONLIGHT, TOXIC, PROTECT
+	mon 10, ESPEON
+		ability MAGIC_GUARD
+		moves PSYCHIC_M, POWER_GEM, FAERIEGLEAM, MORNING_SUN
 	mon 11, SYLVEON
-		moves MOONBLAST, FAE_VOICE, SNARL, REST
-	mon 13, TOGEKISS
-		moves MOONBLAST, MIST_BALL, MIRROR_COAT, RECOVER
+		ability PIXILATE
+		moves HYPER_VOICE, SHADOW_BALL, CALM_MIND, DRAININGKISS
+	hard
+	mon 12, VAPOREON
+		item LEFTOVERS
+		ability WATER_ABSORB
+		moves SCALD, ICE_BEAM, AQUA_RING, YAWN
+	mon 12, JOLTEON
+		item MAGNET
+		ability VOLT_ABSORB
+		moves THUNDERBOLT, SHADOW_BALL, PIN_MISSILE, THUNDER_WAVE
+	mon 12, FLAREON
+		item FLAME_ORB
+		ability GUTS
+		moves FIRE_FANG, FACADE, CRUNCH, QUICK_ATTACK
+	mon 12, UMBREON
+		item SITRUS_BERRY
+		ability INNER_FOCUS
+		moves KNOCK_OFF, MOONLIGHT, TOXIC, PROTECT
+	mon 12, ESPEON
+		item TWISTEDSPOON
+		ability MAGIC_GUARD
+		moves PSYCHIC_M, POWER_GEM, FAERIEGLEAM, CALM_MIND
+	mon 13, SYLVEON
+		item SHELL_BELL
+		ability PIXILATE
+		moves HYPER_VOICE, SHADOW_BALL, CALM_MIND, DRAININGKISS
+	end_party
+
+	party LILY2, "Lily"
+	mon 11, GLACEON
+		ability REFRIGERATE
+		moves HYPER_VOICE, FREEZE_DRY, SHADOW_BALL, CALM_MIND
+	mon 11, LEAFEON
+		ability SHARPNESS
+		moves LEAF_BLADE, PSYCHO_CUT, NIGHT_SLASH, SWORDS_DANCE
+	mon 11, JOLTEON
+		ability VOLT_ABSORB
+		moves THUNDERBOLT, SHADOW_BALL, PIN_MISSILE, THUNDER_WAVE
+	mon 12, UMBREON
+		ability INNER_FOCUS
+		moves KNOCK_OFF, MOONLIGHT, TOXIC, PROTECT
+	mon 12, ESPEON
+		ability MAGIC_GUARD
+		moves PSYCHIC_M, POWER_GEM, FAERIEGLEAM, MORNING_SUN
+	mon 13, SYLVEON
+		item LEFTOVERS
+		ability PIXILATE
+		moves HYPER_VOICE, SHADOW_BALL, CALM_MIND, MOONBLAST
+	hard
+	mon 13, GLACEON
+		item NEVERMELTICE
+		ability REFRIGERATE
+		moves HYPER_VOICE, FREEZE_DRY, SHADOW_BALL, CALM_MIND
+	mon 13, LEAFEON
+		item LUM_BERRY
+		ability SHARPNESS
+		moves LEAF_BLADE, PSYCHO_CUT, NIGHT_SLASH, SWORDS_DANCE
+	mon 13, JOLTEON
+		item MAGNET
+		ability VOLT_ABSORB
+		moves THUNDERBOLT, SHADOW_BALL, PIN_MISSILE, THUNDER_WAVE
+	mon 13, UMBREON
+		item SITRUS_BERRY
+		ability INNER_FOCUS
+		moves KNOCK_OFF, MOONLIGHT, TOXIC, PROTECT
+	mon 15, ESPEON
+		item TWISTEDSPOON
+		ability MAGIC_GUARD
+		moves PSYCHIC_M, POWER_GEM, FAERIEGLEAM, CALM_MIND
+	mon 15, SYLVEON
+		item LEFTOVERS
+		ability PIXILATE
+		moves HYPER_VOICE, SHADOW_BALL, CALM_MIND, MOONBLAST
 	end_party
 
 	end_list_items

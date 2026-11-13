@@ -550,25 +550,25 @@
 	const EVENT_FACILITY_HARD_JOHTO ; Route 40's Challenge Hall cleared
 	const EVENT_FACILITY_HARD_HOENN ; Lilycove's Challenge Hall cleared
 	const EVENT_BATTLE_RESORT_TOWER_OPPONENT ; hides the Battle Tower room's opponent (set on entry)
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
+	const EVENT_BEAT_ELITE_4_LILY ; Silver Town League
+	const EVENT_BEAT_ELITE_4_EUSINE ; Silver Town League
+	const EVENT_BEAT_JOHTO_LEAGUE ; Silver Town League's Champion beaten
+	const EVENT_BEAT_JOHTO_LEAGUE_REMATCH ; Silver Town Lance's rematch team beaten
+	const EVENT_BEAT_ROUTE47_DALTON ; Route47 Dalton
+	const EVENT_BEAT_ROUTE47_BRODY ; Route47 Brody
+	const EVENT_BEAT_ROUTE47_HELENA ; Route47 Helena
+	const EVENT_BEAT_ROUTE47_MIRA ; Route47 Mira
+	const EVENT_BEAT_ROUTE47_ROWAN ; Route47 Rowan
+	const EVENT_BEAT_ROUTE47_IVY ; Route47 Ivy
+	const EVENT_BEAT_SILVERPASS_GARTH ; SilverPass Garth
+	const EVENT_BEAT_SILVERPASS_FELIX ; SilverPass Felix
+	const EVENT_BEAT_SILVERPASS_HIRO ; SilverPass Hiro
+	const EVENT_BEAT_SILVERPASS_SELENE ; SilverPass Selene
+	const EVENT_BEAT_SILVERPASS_BRAM ; SilverPass Bram
+	const EVENT_BEAT_SILVERPASS_MARLA ; SilverPass Marla
+	const EVENT_BEAT_ROUTE48_YVONNE ; Route48 Yvonne
+	const EVENT_BEAT_ROUTE48_TASHA ; Route48 Tasha
+	const EVENT_BEAT_ROUTE48_CORWIN ; Route48 Corwin
 
 	const EVENT_GOT_ARTICUNO
 	const EVENT_GOT_ZAPDOS
@@ -651,9 +651,9 @@
 	const EVENT_GOT_FOSSIL_FANG_ILEX_WEST
 	const EVENT_GOT_MIRAGE_TOWER_FOSSIL
 	const EVENT_GOT_DESERT_OLD_AMBER 
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_BEAT_ROUTE48_PIKE ; Route48 Pike
+	const EVENT_BEAT_ROUTE48_EZRA ; Route48 Ezra
+	const EVENT_BEAT_ROUTE48_NOELLE ; Route48 Noelle
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

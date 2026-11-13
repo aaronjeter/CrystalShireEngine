@@ -464,6 +464,7 @@ LakeOfRage_MapEvents:
 	def_warp_events
 	warp_event  7,  3, LAKE_OF_RAGE_HIDDEN_POWER_HOUSE, 1
 	warp_event 27, 31, LAKE_OF_RAGE_MAGIKARP_HOUSE, 1
+	warp_event 21,  3, ROUTE_47_GATE, 3
 
 	def_coord_events
 

@@ -253,6 +253,19 @@ ENDM
 	map_const ROUTE_43_GATE,                                5,  4 ;  4
 	map_const ROUTE_43,                                    10, 27 ;  5
 	map_const LAKE_OF_RAGE,                                20, 18 ;  6
+	map_const ROUTE_47_GATE,                                5,  4 ;  7
+	map_const ROUTE_47,                                    30, 30 ;  8
+	map_const SILVER_PASS,                                 30, 20 ;  9
+	map_const SILVER_TOWN,                                 20, 18 ; 10
+	map_const SILVER_TOWN_HOUSE,                            4,  4 ; 11
+	map_const SILVER_TOWN_HOUSE_2,                          4,  4 ; 12
+	map_const SILVER_LEAGUE_LOBBY,                          9,  7 ; 13
+	map_const ROUTE_48,                                    30, 30 ; 14
+	map_const SILVER_LEAGUE_WILLS_ROOM,                     5,  9 ; 15
+	map_const SILVER_LEAGUE_LILYS_ROOM,                     5,  9 ; 16
+	map_const SILVER_LEAGUE_EUSINES_ROOM,                   5,  9 ; 17
+	map_const SILVER_LEAGUE_KARENS_ROOM,                    5,  9 ; 18
+	map_const SILVER_LEAGUE_LANCES_ROOM,                    5, 12 ; 19
 	endgroup
 
 	newgroup VIOLET                                               ; 10

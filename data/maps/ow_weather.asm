@@ -49,6 +49,9 @@ OverworldWeatherMaps:
 	ow_weather ROUTE_43,            OW_WEATHER_RAIN
 	ow_weather LAVARIDGE_DESERT,    OW_WEATHER_SANDSTORM
 	ow_weather SILVER_CAVE_OUTSIDE, OW_WEATHER_SNOW
+	ow_weather ROUTE_47,           OW_WEATHER_SNOW
+	ow_weather SILVER_TOWN,        OW_WEATHER_SNOW
+	ow_weather ROUTE_48,           OW_WEATHER_SNOW
 	ow_weather ROUTE_113,           OW_WEATHER_ASH
 
 	; WEATHER_ZONE_JOHTO_SOUTH

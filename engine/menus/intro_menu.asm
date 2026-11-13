@@ -339,7 +339,7 @@ Continue:
 	jr FinishContinueFunction
 
 SpawnAfterRed:
-	ld a, SPAWN_MT_SILVER
+	ld a, SPAWN_SILVER_CAVE
 	ld [wDefaultSpawnpoint], a
 
 PostCreditsSpawn:
