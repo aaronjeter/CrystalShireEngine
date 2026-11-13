@@ -1,5 +1,4 @@
 	object_const_def
-	const VICTORYROAD_RIVAL
 	const VICTORYROAD_POKE_BALL1
 	const VICTORYROAD_POKE_BALL2
 	const VICTORYROAD_POKE_BALL3
@@ -17,72 +16,6 @@ VictoryRoadNoop1Scene:
 	end
 
 VictoryRoadNoop2Scene:
-	end
-
-VictoryRoadRivalLeft:
-	moveobject VICTORYROAD_RIVAL, 18, 11
-	turnobject PLAYER, DOWN
-	showemote EMOTE_SHOCK, PLAYER, 15
-	special FadeOutMusic
-	pause 15
-	appear VICTORYROAD_RIVAL
-	applymovement VICTORYROAD_RIVAL, VictoryRoadRivalBattleApproachMovement1
-	scall VictoryRoadRivalNext
-	applymovement VICTORYROAD_RIVAL, VictoryRoadRivalBattleExitMovement1
-	disappear VICTORYROAD_RIVAL
-	setscene SCENE_VICTORYROAD_NOOP
-	playmapmusic
-	end
-
-VictoryRoadRivalRight:
-	turnobject PLAYER, DOWN
-	showemote EMOTE_SHOCK, PLAYER, 15
-	special FadeOutMusic
-	pause 15
-	appear VICTORYROAD_RIVAL
-	applymovement VICTORYROAD_RIVAL, VictoryRoadRivalBattleApproachMovement2
-	scall VictoryRoadRivalNext
-	applymovement VICTORYROAD_RIVAL, VictoryRoadRivalBattleExitMovement2
-	disappear VICTORYROAD_RIVAL
-	setscene SCENE_VICTORYROAD_NOOP
-	playmapmusic
-	end
-
-VictoryRoadRivalNext:
-	turnobject PLAYER, DOWN
-	playmusic MUSIC_RIVAL_ENCOUNTER
-	callstd JohtoRivalMeetScript
-	opentext
-	iftrue .Stranger
-	writetext VictoryRoadRivalBeforeText
-	sjump .Battle
-
-.Stranger:
-	writetext VictoryRoadRivalStrangerText
-.Battle:
-	waitbutton
-	closetext
-	setevent EVENT_RIVAL_VICTORY_ROAD
-	winlosstext VictoryRoadRivalDefeatText, VictoryRoadRivalVictoryText
-	setlasttalked VICTORYROAD_RIVAL
-	loadtrainer RIVAL1, RIVAL1_5
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	playmusic MUSIC_RIVAL_AFTER
-	opentext
-	readmem wBattleResult ; the map's callbacks change wScriptVar
-	iffalse .PlayerWon
-	special HealParty
-	writetext VictoryRoadRivalTauntText
-	sjump .Done
-
-.PlayerWon:
-	writetext VictoryRoadRivalAfterText
-.Done:
-	waitbutton
-	closetext
 	end
 
 VictoryRoadTMEarthquake:
@@ -106,166 +39,6 @@ VictoryRoadHiddenMaxPotion:
 VictoryRoadHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_VICTORY_ROAD_HIDDEN_FULL_HEAL
 
-VictoryRoadRivalBattleApproachMovement1:
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step UP
-	step UP
-	step_end
-
-VictoryRoadRivalBattleApproachMovement2:
-	step UP
-	step UP
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step UP
-	step UP
-	step_end
-
-VictoryRoadRivalBattleExitMovement1:
-	step DOWN
-	step DOWN
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step_end
-
-VictoryRoadRivalBattleExitMovement2:
-	step DOWN
-	step DOWN
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step DOWN
-	step DOWN
-	step_end
-
-VictoryRoadRivalBeforeText:
-	text "Hold it."
-
-	para "…Are you going to"
-	line "take the #mon"
-	cont "League challenge?"
-
-	para "…Don't make me"
-	line "laugh."
-
-	para "You're so much"
-	line "weaker than I am."
-
-	para "I'm not like I was"
-	line "before."
-
-	para "I now have the"
-	line "best and strongest"
-
-	para "#mon with me."
-	line "I'm invincible!"
-
-	para "<PLAYER>!"
-	line "I challenge you!"
-	done
-
-VictoryRoadRivalStrangerText:
-	text "Hold it."
-
-	para "…Are you going to"
-	line "take the #mon"
-	cont "League challenge?"
-
-	para "…Don't make me"
-	line "laugh."
-
-	para "I'm Silver. I have"
-	line "the best and"
-
-	para "strongest #mon"
-	line "with me."
-
-	para "Nobody's beating"
-	line "me. Not you, and"
-	cont "not the League!"
-
-	para "<PLAYER>, was it?"
-	line "I challenge you!"
-	done
-
-VictoryRoadRivalTauntText:
-	text "Humph. Just as I"
-	line "said."
-
-	para "Go on, take the"
-	line "League challenge."
-
-	para "See how far a"
-	line "wimp like you gets"
-	cont "with that team."
-	done
-
-VictoryRoadRivalDefeatText:
-	text "…I couldn't win…"
-
-	para "I gave it every-"
-	line "thing I had…"
-
-	para "What you possess,"
-	line "and what I lack…"
-
-	para "I'm beginning to"
-	line "understand what"
-
-	para "that dragon master"
-	line "said to me…"
-	done
-
-VictoryRoadRivalAfterText:
-	text "…I haven't given up"
-	line "on becoming the"
-	cont "greatest trainer…"
-
-	para "I'm going to find"
-	line "out why I can't"
-
-	para "win and become"
-	line "stronger…"
-
-	para "When I do, I will"
-	line "challenge you."
-
-	para "And I'll beat you"
-	line "down with all my"
-	cont "power."
-
-	para "…Humph! You keep"
-	line "at it until then."
-	done
-
-VictoryRoadRivalVictoryText:
-	text "…Humph!"
-
-	para "When it comes down"
-	line "to it, nothing can"
-	cont "beat power."
-
-	para "I don't need any-"
-	line "thing else."
-	done
-
-VictoryRoadWildRock:
-	jumpstd SmashRockScript
-
 VictoryRoad_MapEvents:
 	db 0, 0 ; filler
 
@@ -282,15 +55,12 @@ VictoryRoad_MapEvents:
 	warp_event 13,  5, ROUTE_23, 3
 
 	def_coord_events
-	coord_event 12,  8, SCENE_VICTORYROAD_RIVAL_BATTLE, VictoryRoadRivalLeft
-	coord_event 13,  8, SCENE_VICTORYROAD_RIVAL_BATTLE, VictoryRoadRivalRight
 
 	def_bg_events
 	bg_event  3, 29, BGEVENT_ITEM, VictoryRoadHiddenMaxPotion
 	bg_event  3, 65, BGEVENT_ITEM, VictoryRoadHiddenFullHeal
 
 	def_object_events
-	object_event 18, 13, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_VICTORY_ROAD
 	object_event  3, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadTMEarthquake, EVENT_VICTORY_ROAD_TM_EARTHQUAKE
 	object_event 12, 48, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadMaxRevive, EVENT_VICTORY_ROAD_MAX_REVIVE
 	object_event 18, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadFullRestore, EVENT_VICTORY_ROAD_FULL_RESTORE

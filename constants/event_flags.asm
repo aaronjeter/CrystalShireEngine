@@ -654,7 +654,7 @@
 	const EVENT_BEAT_ROUTE48_PIKE ; Route48 Pike
 	const EVENT_BEAT_ROUTE48_EZRA ; Route48 Ezra
 	const EVENT_BEAT_ROUTE48_NOELLE ; Route48 Noelle
-	const_skip ; unused
+	const EVENT_BEAT_RIVAL_SILVER_PASS
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
