@@ -1,5 +1,5 @@
 	object_const_def
-	const KARENSROOM_KAREN
+	const KARENSROOM_KOGA
 
 KarensRoom_MapScripts:
 	def_scene_scripts
@@ -40,35 +40,35 @@ KarensRoomDoorLocksBehindYouScript:
 	waitsfx
 	end
 
-KarenScript_Battle:
+KogaScript_Battle:
 	faceplayer
-	opendialog KAREN
-	checkevent EVENT_BEAT_ELITE_4_KAREN
-	iftrue KarenScript_AfterBattle
-	writetext KarenScript_KarenBeforeText
+	opendialog KOGA
+	checkevent EVENT_BEAT_ELITE_4_KOGA
+	iftrue KogaScript_AfterBattle
+	writetext KogaScript_KogaBeforeText
 	waitbutton
 	closedialog
 
-	callstd LeagueRematchCheckScript
+	checkevent EVENT_BEAT_INDIGO_LEAGUE
 	iftrue .Hard
 	sjump .Easy
 
 .Hard
-	winlosstext KarenScript_KarenBeatenText, 0
-	loadtrainer KAREN, KAREN2
+	winlosstext KogaScript_KogaBeatenText, 0
+	loadtrainer KOGA, KOGA2
 	sjump .Fight
 
 .Easy
-	winlosstext KarenScript_KarenBeatenText, 0
-	loadtrainer KAREN, KAREN1
+	winlosstext KogaScript_KogaBeatenText, 0
+	loadtrainer KOGA, KOGA1
 	sjump .Fight
 
 .Fight
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_ELITE_4_KAREN
-	opendialog KAREN
-	writetext KarenScript_KarenDefeatText
+	setevent EVENT_BEAT_ELITE_4_KOGA
+	opendialog KOGA
+	writetext KogaScript_KogaDefeatText
 	waitbutton
 	closedialog
 	playsound SFX_ENTER_DOOR
@@ -79,8 +79,8 @@ KarenScript_Battle:
 	special HealParty
 	end
 
-KarenScript_AfterBattle:
-	writetext KarenScript_KarenDefeatText
+KogaScript_AfterBattle:
+	writetext KogaScript_KogaDefeatText
 	waitbutton
 	closedialog
 	end
@@ -92,56 +92,53 @@ KarensRoom_EnterMovement:
 	step UP
 	step_end
 
-KarenScript_KarenBeforeText:
-	text "I am Karen of the"
+KogaScript_KogaBeforeText:
+	text "Fwahahahaha!"
+
+	para "I am Koga of the"
 	line "Elite Four."
 
-	para "You're <PLAYER>?"
-	line "How amusing."
+	para "I live in shadows,"
+	line "a ninja!"
 
-	para "I love dark-type"
-	line "#mon."
+	para "My intricate style"
+	line "will confound and"
+	cont "destroy you!"
 
-	para "I find their wild,"
-	line "tough image to be"
+	para "Confusion, sleep,"
+	line "poison…"
 
-	para "so appealing. And"
-	line "they're so strong."
+	para "Prepare to be the"
+	line "victim of my sin-"
+	cont "ister technique!"
 
-	para "Think you can take"
-	line "them? Just try to"
-	cont "entertain me."
+	para "Fwahahahaha!"
 
-	para "Let's go."
+	para "#mon is not"
+	line "merely about brute"
+
+	para "force--you shall"
+	line "see soon enough!"
 	done
 
-KarenScript_KarenBeatenText:
-	text "Well, aren't you"
-	line "good. I like that"
-	cont "in a trainer."
+KogaScript_KogaBeatenText:
+	text "Ah!"
+	line "You have proven"
+	cont "your worth!"
 	done
 
-KarenScript_KarenDefeatText:
-	text "Strong #mon."
+KogaScript_KogaDefeatText:
+	text "I subjected you to"
+	line "everything I could"
+	cont "muster."
 
-	para "Weak #mon."
+	para "But my efforts"
+	line "failed. I must"
+	cont "hone my skills."
 
-	para "That is only the"
-	line "selfish perception"
-	cont "of people."
-
-	para "Truly skilled"
-	line "trainers should"
-
-	para "try to win with"
-	line "their favorites."
-
-	para "I like your style."
-	line "You understand"
-	cont "what's important."
-
-	para "Go on--the Cham-"
-	line "pion is waiting."
+	para "Go on to the next"
+	line "room, and put your"
+	cont "abilities to test!"
 	done
 
 KarensRoom_MapEvents:
@@ -158,4 +155,4 @@ KarensRoom_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  7, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, KarenScript_Battle, -1
+	object_event  5,  7, SPRITE_KOGA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, KogaScript_Battle, -1

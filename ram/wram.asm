@@ -3637,6 +3637,7 @@ wTowerStreak:: dw ; the Battle Tower's current streak (big-endian)
 wTowerBestStreak:: dw ; its best streak (big-endian)
 wTowerState:: db ; TOWER_*_F bits
 wTowerTeam:: ds FACILITY_TEAM_SIZE * TOWER_TEAM_MON_LENGTH ; the locked team, in battle order
+wLeagueRematchWins:: ds NUM_LEAGUES ; rematch wins per League (LEAGUE_* order), up to 255
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

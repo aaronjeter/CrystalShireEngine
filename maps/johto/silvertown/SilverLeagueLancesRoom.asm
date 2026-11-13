@@ -31,16 +31,10 @@ SilverLeagueLancesRoomLanceScript:
 	writetext SilverLeagueLancesRoomIntroText
 	waitbutton
 	closedialog
-	callstd LeagueRematchCheckScript
+	checkevent EVENT_BEAT_JOHTO_LEAGUE
 	iftrue .Rematch
 	winlosstext SilverLeagueLancesRoomWarmupText, 0
 	loadtrainer CHAMPION, LANCE
-	sjump .Fight
-
-.Rematch:
-	winlosstext SilverLeagueLancesRoomWarmupText, 0
-	loadtrainer CHAMPION, LANCE2
-.Fight:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -53,10 +47,18 @@ SilverLeagueLancesRoomLanceScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	callstd LeagueRematchCheckScript
-	iffalse .NotRematch
+	sjump .Won
+
+.Rematch:
+	winlosstext SilverLeagueLancesRoomWinText, 0
+	loadtrainer CHAMPION, LANCE2
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
 	setevent EVENT_BEAT_JOHTO_LEAGUE_REMATCH
-.NotRematch:
+	setval LEAGUE_JOHTO
+	special AddLeagueRematchWin
+.Won:
 	opendialog CHAMPION
 	writetext SilverLeagueLancesRoomAfterText
 	waitbutton
@@ -64,6 +66,16 @@ SilverLeagueLancesRoomLanceScript:
 	special HealParty
 	loadmem wEliteFourXpBoost, 1
 	setevent EVENT_BEAT_JOHTO_LEAGUE
+	setevent EVENT_BEAT_ELITE_FOUR
+	setevent EVENT_RIVAL_SPROUT_TOWER
+	clearevent EVENT_RED_IN_MT_SILVER
+	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
+	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
+	setmapscene SPROUT_TOWER_3F, SCENE_SPROUTTOWER3F_NOOP
+	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
+	iftrue .SkipPhoneCall
+	specialphonecall SPECIALCALL_SSTICKET
+.SkipPhoneCall:
 	callstd UpdateWorldLevelsScript
 	halloffame LEAGUE_JOHTO
 	end

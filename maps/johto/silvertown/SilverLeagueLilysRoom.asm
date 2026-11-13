@@ -40,7 +40,7 @@ SilverLeagueLilysRoomLilyScript:
 	writetext SilverLeagueLilysRoomBeforeText
 	waitbutton
 	closedialog
-	callstd LeagueRematchCheckScript
+	checkevent EVENT_BEAT_JOHTO_LEAGUE
 	iftrue .Rematch
 	winlosstext SilverLeagueLilysRoomBeatenText, 0
 	loadtrainer LILY, LILY1

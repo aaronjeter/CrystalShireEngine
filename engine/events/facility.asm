@@ -634,6 +634,25 @@ INCLUDE "data/events/facilities.asm"
 
 DEF MAX_BATTLE_POINTS EQU 9999
 
+AddLeagueRematchWin::
+; wLeagueRematchWins[wScriptVar] += 1, up to 255
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wLeagueRematchWins)
+	ldh [rSVBK], a
+	ld a, [wScriptVar]
+	ld e, a
+	ld d, 0
+	ld hl, wLeagueRematchWins
+	add hl, de
+	inc [hl]
+	jr nz, .done
+	dec [hl]
+.done
+	pop af
+	ldh [rSVBK], a
+	ret
+
 GiveBattlePoints::
 ; wBattlePoints += wScriptVar, up to MAX_BATTLE_POINTS
 	ldh a, [rSVBK]

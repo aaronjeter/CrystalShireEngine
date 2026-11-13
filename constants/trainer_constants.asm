@@ -919,9 +919,13 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass AGATHA
 	const AGATHA1
+	const AGATHA2
+	const AGATHA3
 
 	trainerclass LORELEI
 	const LORELEI1
+	const LORELEI2
+	const LORELEI3
 
 	trainerclass FERGUS
 	const FERGUS1
@@ -954,6 +958,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const GREEN3
 	const GREEN4
 	const WC_GREEN
+	const GREEN5
+	const GREEN6
 
 	trainerclass ELM
 	const ELM1

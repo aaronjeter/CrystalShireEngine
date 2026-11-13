@@ -1,5 +1,5 @@
 	object_const_def
-	const HALLOFFAME_LANCE
+	const HALLOFFAME_AGATHA
 
 HallOfFame_MapScripts:
 	def_scene_scripts
@@ -18,34 +18,24 @@ HallOfFameNoopScene:
 HallOfFameEnterScript:
 	setevent EVENT_BEAT_INDIGO_LEAGUE
 	scall HallOfFameLevelcap
-	follow HALLOFFAME_LANCE, PLAYER
-	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
+	follow HALLOFFAME_AGATHA, PLAYER
+	applymovement HALLOFFAME_AGATHA, HallOfFame_WalkUpWithAgatha
 	stopfollow
 	turnobject PLAYER, RIGHT
 	opentext
-	writetext HallOfFame_LanceText
+	writetext HallOfFame_AgathaText
 	waitbutton
 	closetext
-	turnobject HALLOFFAME_LANCE, UP
+	turnobject HALLOFFAME_AGATHA, UP
 	applymovement PLAYER, HallOfFame_SlowlyApproachMachine
 	setscene SCENE_HALLOFFAME_NOOP
 	pause 15
 	setval HEALMACHINE_HALL_OF_FAME
 	special HealMachineAnim
-	setevent EVENT_BEAT_ELITE_FOUR
 	loadmem wEliteFourXpBoost, 1
 	setevent EVENT_TELEPORT_GUY
-	setevent EVENT_RIVAL_SPROUT_TOWER
-	clearevent EVENT_RED_IN_MT_SILVER
-	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
-	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
-	setmapscene SPROUT_TOWER_3F, SCENE_SPROUTTOWER3F_NOOP
 	special HealParty
-	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
-	iftrue .SkipPhoneCall
-	specialphonecall SPECIALCALL_SSTICKET
-.SkipPhoneCall:
-	halloffame LEAGUE_JOHTO
+	halloffame LEAGUE_KANTO
 	end
 
 HallOfFameLevelcap:
@@ -60,7 +50,7 @@ HallOfFameLevelcap:
 	jumpstd UpdateWorldLevelsScript
 	end
 
-HallOfFame_WalkUpWithLance:
+HallOfFame_WalkUpWithAgatha:
 	step UP
 	step UP
 	step UP
@@ -77,50 +67,22 @@ HallOfFame_SlowlyApproachMachine:
 	slow_step UP
 	step_end
 
-HallOfFame_LanceText:
-	text "Lance: It's been a"
-	line "long time since I"
-	cont "last came here."
-
-	para "This is where we"
-	line "honor the League"
-
-	para "Champions for all"
-	line "eternity."
-
-	para "Their courageous"
-	line "#mon are also"
-	cont "inducted."
-
-	para "Here today, we"
-	line "witnessed the rise"
-
-	para "of a new League"
-	line "Champion--a"
-
-	para "trainer who feels"
-	line "compassion for,"
-
-	para "and trust toward,"
-	line "all #mon."
-
-	para "A trainer who"
-	line "succeeded through"
-
-	para "perseverance and"
-	line "determination."
-
-	para "The new League"
-	line "Champion who has"
-
-	para "all the makings"
-	line "of greatness!"
-
-	para "<PLAY_G>, allow me"
-	line "to register you"
-
-	para "and your partners"
-	line "as Champions!"
+HallOfFame_AgathaText:
+	text "Agatha: This is"
+	line "the Hall of Fame."
+	para "Champions and"
+	line "their #mon are"
+	cont "honored here for"
+	cont "all time."
+	para "I've seen a great"
+	line "many trainers come"
+	cont "through that door."
+	para "Few of them fought"
+	line "like you did."
+	para "<PLAY_G>, step up."
+	line "Let's register you"
+	cont "and your partners"
+	cont "as Champions!"
 	done
 
 HallOfFame_MapEvents:
@@ -135,4 +97,4 @@ HallOfFame_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  4, 12, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  4, 12, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

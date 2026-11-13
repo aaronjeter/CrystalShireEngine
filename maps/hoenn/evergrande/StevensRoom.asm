@@ -12,16 +12,8 @@ StevenScript_Battle:
 	waitbutton
 	closedialog
 
-	callstd LeagueRematchCheckScript
-	iftrue .Hard
-	sjump .Easy
-
-.Hard
-	winlosstext StevenScript_StevenBeatenText, 0
-	loadtrainer STEVEN, STEVEN2
-	sjump .Fight
-
-.Easy
+	checkevent EVENT_BEAT_HOENN_LEAGUE
+	iftrue .Rematch
 	winlosstext StevenScript_StevenBeatenText, 0
 	loadtrainer STEVEN, STEVEN1
 	sjump .Fight
@@ -47,10 +39,23 @@ StevenScript_Battle:
 	closedialog
 	waitsfx
 	special HealParty
-	callstd LeagueRematchCheckScript
-	iffalse .NotRematch
+	sjump .Won
+
+.Rematch:
+	winlosstext StevenScript_RoundTwoBeatenText, 0
+	loadtrainer STEVEN, STEVEN2
+	startbattle
+	reloadmapafterbattle
+	opendialog STEVEN
+	writetext StevenScript_StevenDefeatText
+	waitbutton
+	closedialog
+	waitsfx
+	special HealParty
 	setevent EVENT_BEAT_HOENN_LEAGUE_REMATCH
-.NotRematch:
+	setval LEAGUE_HOENN
+	special AddLeagueRematchWin
+.Won:
 	;Give beat elite 4 goodies
 	loadmem wEliteFourXpBoost, 1
 	setevent EVENT_BEAT_HOENN_LEAGUE

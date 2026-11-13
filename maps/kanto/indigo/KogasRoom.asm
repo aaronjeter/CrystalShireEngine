@@ -1,5 +1,5 @@
 	object_const_def
-	const KOGASROOM_KOGA
+	const KOGASROOM_LORELEI
 
 KogasRoom_MapScripts:
 	def_scene_scripts
@@ -40,35 +40,35 @@ KogasRoomDoorLocksBehindYouScript:
 	waitsfx
 	end
 
-KogaScript_Battle:
+IndigoLorelei_Battle:
 	faceplayer
-	opendialog KOGA
-	checkevent EVENT_BEAT_ELITE_4_KOGA
-	iftrue KogaScript_AfterBattle
-	writetext KogaScript_KogaBeforeText
+	opendialog LORELEI
+	checkevent EVENT_BEAT_ELITE_4_LORELEI
+	iftrue IndigoLorelei_AfterBattle
+	writetext IndigoLorelei_LoreleiBeforeText
 	waitbutton
 	closedialog
 
-	callstd LeagueRematchCheckScript
+	checkevent EVENT_BEAT_INDIGO_LEAGUE
 	iftrue .Hard
 	sjump .Easy
 
 .Hard
-	winlosstext KogaScript_KogaBeatenText, 0
-	loadtrainer KOGA, KOGA2
+	winlosstext IndigoLorelei_LoreleiBeatenText, 0
+	loadtrainer LORELEI, LORELEI3
 	sjump .Fight
 
 .Easy
-	winlosstext KogaScript_KogaBeatenText, 0
-	loadtrainer KOGA, KOGA1
+	winlosstext IndigoLorelei_LoreleiBeatenText, 0
+	loadtrainer LORELEI, LORELEI2
 	sjump .Fight
 
 .Fight
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_ELITE_4_KOGA
-	opendialog KOGA
-	writetext KogaScript_KogaDefeatText
+	setevent EVENT_BEAT_ELITE_4_LORELEI
+	opendialog LORELEI
+	writetext IndigoLorelei_LoreleiDefeatText
 	waitbutton
 	closedialog
 	playsound SFX_ENTER_DOOR
@@ -79,8 +79,8 @@ KogaScript_Battle:
 	special HealParty
 	end
 
-KogaScript_AfterBattle:
-	writetext KogaScript_KogaDefeatText
+IndigoLorelei_AfterBattle:
+	writetext IndigoLorelei_LoreleiDefeatText
 	waitbutton
 	closetext
 	end
@@ -92,53 +92,33 @@ KogasRoom_EnterMovement:
 	step UP
 	step_end
 
-KogaScript_KogaBeforeText:
-	text "Fwahahahaha!"
-
-	para "I am Koga of the"
-	line "Elite Four."
-
-	para "I live in shadows,"
-	line "a ninja!"
-
-	para "My intricate style"
-	line "will confound and"
-	cont "destroy you!"
-
-	para "Confusion, sleep,"
-	line "poison…"
-
-	para "Prepare to be the"
-	line "victim of my sin-"
-	cont "ister technique!"
-
-	para "Fwahahahaha!"
-
-	para "#mon is not"
-	line "merely about brute"
-
-	para "force--you shall"
-	line "see soon enough!"
+IndigoLorelei_LoreleiBeforeText:
+	text "Welcome to the"
+	line "#mon League."
+	para "I am Lorelei of"
+	line "the Elite Four."
+	para "No one can best"
+	line "me when it comes"
+	cont "to icy #mon."
+	para "Your #mon will"
+	line "be at my mercy"
+	cont "when they are"
+	cont "frozen solid!"
+	para "Hahaha!"
+	line "Are you ready?"
 	done
 
-KogaScript_KogaBeatenText:
-	text "Ah!"
-	line "You have proven"
-	cont "your worth!"
+IndigoLorelei_LoreleiBeatenText:
+	text "You're better"
+	line "than I thought!"
 	done
 
-KogaScript_KogaDefeatText:
-	text "I subjected you to"
-	line "everything I could"
-	cont "muster."
-
-	para "But my efforts"
-	line "failed. I must"
-	cont "hone my skills."
-
-	para "Go on to the next"
-	line "room, and put your"
-	cont "abilities to test!"
+IndigoLorelei_LoreleiDefeatText:
+	text "Go ahead."
+	para "You'll find out"
+	line "how terrifying"
+	cont "the Elite Four"
+	cont "truly is."
 	done
 
 KogasRoom_MapEvents:
@@ -155,4 +135,4 @@ KogasRoom_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  7, SPRITE_KOGA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, KogaScript_Battle, -1
+	object_event  5,  7, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, IndigoLorelei_Battle, -1

@@ -44,7 +44,7 @@ SilverLeagueWillsRoomWillScript:
 	writetext SilverLeagueWillsRoomBeforeText
 	waitbutton
 	closedialog
-	callstd LeagueRematchCheckScript
+	checkevent EVENT_BEAT_JOHTO_LEAGUE
 	iftrue .Rematch
 	winlosstext SilverLeagueWillsRoomBeatenText, 0
 	loadtrainer WILL, WILL1

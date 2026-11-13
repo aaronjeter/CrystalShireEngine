@@ -655,8 +655,8 @@
 	const EVENT_BEAT_ROUTE48_EZRA ; Route48 Ezra
 	const EVENT_BEAT_ROUTE48_NOELLE ; Route48 Noelle
 	const EVENT_BEAT_RIVAL_SILVER_PASS
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_BEAT_ELITE_4_GREEN
+	const EVENT_BEAT_ELITE_4_LORELEI
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused
@@ -1528,7 +1528,7 @@
 	const EVENT_BEAT_ELITE_4_KOGA
 	const EVENT_BEAT_ELITE_4_BRUNO
 	const EVENT_BEAT_ELITE_4_KAREN
-	const EVENT_BEAT_CHAMPION_LANCE
+	const EVENT_BEAT_CHAMPION_AGATHA
 ; Crystal-exclusive trainer flags
 	const EVENT_BEAT_COOLTRAINERM_DARIN
 	const EVENT_BEAT_COOLTRAINERF_CARA

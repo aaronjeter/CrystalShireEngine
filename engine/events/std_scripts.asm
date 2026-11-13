@@ -57,7 +57,6 @@ StdScripts::
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
 	add_stdscript UpdateWorldLevelsScript
-	add_stdscript LeagueRematchCheckScript
 	add_stdscript JohtoRivalMeetScript
 
 PokecenterNurseScript:
@@ -1040,17 +1039,6 @@ checkevent EVENT_BEAT_MOON_MIGUEL
 	writemem wLevelCap
 .skipSilver
 
-.done
-	end
-
-LeagueRematchCheckScript:
-; wScriptVar = TRUE once any League has been beaten: every Elite Four and
-; Champion then uses their rematch team.
-	checkevent EVENT_BEAT_INDIGO_LEAGUE
-	iftrue .done
-	checkevent EVENT_BEAT_JOHTO_LEAGUE
-	iftrue .done
-	checkevent EVENT_BEAT_HOENN_LEAGUE
 .done
 	end
 

@@ -40,7 +40,7 @@ SilverLeagueKarensRoomKarenScript:
 	writetext SilverLeagueKarensRoomBeforeText
 	waitbutton
 	closedialog
-	callstd LeagueRematchCheckScript
+	checkevent EVENT_BEAT_JOHTO_LEAGUE
 	iftrue .Rematch
 	winlosstext SilverLeagueKarensRoomBeatenText, 0
 	loadtrainer KAREN, KAREN1

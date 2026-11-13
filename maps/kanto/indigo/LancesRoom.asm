@@ -1,5 +1,5 @@
 	object_const_def
-	const LANCESROOM_LANCE
+	const LANCESROOM_AGATHA
 	const LANCESROOM_MARY
 	const LANCESROOM_OAK
 
@@ -41,35 +41,26 @@ LancesRoomDoorLocksBehindYouScript:
 	setevent EVENT_LANCES_ROOM_ENTRANCE_CLOSED
 	end
 
-Script_ApproachLanceFromLeft:
+Script_ApproachAgathaFromLeft:
 	special FadeOutMusic
-	applymovement PLAYER, MovementData_ApproachLanceFromLeft
-	sjump LancesRoomLanceScript
+	applymovement PLAYER, MovementData_ApproachAgathaFromLeft
+	sjump LancesRoomAgathaScript
 
-Script_ApproachLanceFromRight:
+Script_ApproachAgathaFromRight:
 	special FadeOutMusic
-	applymovement PLAYER, MovementData_ApproachLanceFromRight
-LancesRoomLanceScript:
-	turnobject LANCESROOM_LANCE, LEFT
-	opendialog CHAMPION
-	writetext LanceBattleIntroText
+	applymovement PLAYER, MovementData_ApproachAgathaFromRight
+LancesRoomAgathaScript:
+	turnobject LANCESROOM_AGATHA, LEFT
+	opendialog AGATHA
+	writetext AgathaBattleIntroText
 	waitbutton
 	closedialog
 
-	callstd LeagueRematchCheckScript
-	iftrue .Hard
-	sjump .Easy
-
-.Hard
-	winlosstext LanceWarmupText, 0
-	setlasttalked LANCESROOM_LANCE
-	loadtrainer CHAMPION, LANCE2
-	sjump .Fight
-
-.Easy
-	winlosstext LanceWarmupText, 0
-	setlasttalked LANCESROOM_LANCE
-	loadtrainer CHAMPION, LANCE
+	checkevent EVENT_BEAT_INDIGO_LEAGUE
+	iftrue .Rematch
+	winlosstext AgathaWarmupText, 0
+	setlasttalked LANCESROOM_AGATHA
+	loadtrainer AGATHA, AGATHA1
 	sjump .Fight
 
 .Fight	
@@ -77,25 +68,35 @@ LancesRoomLanceScript:
 	dontrestartmapmusic
 	reloadmapafterbattle
 
-	opendialog CHAMPION	
-	writetext LanceTruePowerText
+	opendialog AGATHA	
+	writetext AgathaTruePowerText
 	waitbutton
 	closedialog
 
-	winlosstext LanceBattleWinText, 0
-	setlasttalked LANCESROOM_LANCE
-	loadtrainer CHAMPION, LANCE3
+	winlosstext AgathaBattleWinText, 0
+	setlasttalked LANCESROOM_AGATHA
+	loadtrainer AGATHA, AGATHA3
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
 
-	setevent EVENT_BEAT_CHAMPION_LANCE
-	callstd LeagueRematchCheckScript
-	iffalse .NotRematch
+	setevent EVENT_BEAT_CHAMPION_AGATHA
+	sjump .Won
+
+.Rematch:
+	winlosstext AgathaBattleWinText, 0
+	setlasttalked LANCESROOM_AGATHA
+	loadtrainer AGATHA, AGATHA2
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	setevent EVENT_BEAT_CHAMPION_AGATHA
 	setevent EVENT_BEAT_INDIGO_LEAGUE_REMATCH
-.NotRematch:
-	opendialog CHAMPION
-	writetext LanceBattleAfterText
+	setval LEAGUE_KANTO
+	special AddLeagueRematchWin
+.Won:
+	opendialog AGATHA
+	writetext AgathaBattleAfterText
 	waitbutton
 	closedialog
 	playsound SFX_ENTER_DOOR
@@ -105,8 +106,8 @@ LancesRoomLanceScript:
 	setevent EVENT_LANCES_ROOM_ENTRANCE_CLOSED
 	musicfadeout MUSIC_BEAUTY_ENCOUNTER, 16
 	pause 30
-	showemote EMOTE_SHOCK, LANCESROOM_LANCE, 15
-	turnobject LANCESROOM_LANCE, DOWN
+	showemote EMOTE_SHOCK, LANCESROOM_AGATHA, 15
+	turnobject LANCESROOM_AGATHA, DOWN
 	pause 10
 	turnobject PLAYER, DOWN
 	appear LANCESROOM_MARY
@@ -121,7 +122,7 @@ LancesRoomLanceScript:
 	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryYieldsToOak
 	stopfollow
 	turnobject LANCESROOM_OAK, UP
-	turnobject LANCESROOM_LANCE, LEFT
+	turnobject LANCESROOM_AGATHA, LEFT
 	opentext
 	writetext LancesRoomOakCongratulationsText
 	waitbutton
@@ -132,19 +133,19 @@ LancesRoomLanceScript:
 	writetext LancesRoomMaryInterviewText
 	waitbutton
 	closetext
-	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LancePositionsSelfToGuidePlayerAway
+	applymovement LANCESROOM_AGATHA, LancesRoomMovementData_AgathaPositionsSelfToGuidePlayerAway
 	turnobject PLAYER, UP
 	opentext
 	writetext LancesRoomNoisyText
 	waitbutton
 	closetext
-	follow LANCESROOM_LANCE, PLAYER
+	follow LANCESROOM_AGATHA, PLAYER
 	turnobject LANCESROOM_MARY, UP
 	turnobject LANCESROOM_OAK, UP
-	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LanceLeadsPlayerToHallOfFame
+	applymovement LANCESROOM_AGATHA, LancesRoomMovementData_AgathaLeadsPlayerToHallOfFame
 	stopfollow
 	playsound SFX_EXIT_BUILDING
-	disappear LANCESROOM_LANCE
+	disappear LANCESROOM_AGATHA
 	applymovement PLAYER, LancesRoomMovementData_PlayerExits
 	playsound SFX_EXIT_BUILDING
 	disappear PLAYER
@@ -167,13 +168,13 @@ LancesRoom_EnterMovement:
 	step UP
 	step_end
 
-MovementData_ApproachLanceFromLeft:
+MovementData_ApproachAgathaFromLeft:
 	step UP
 	step UP
 	turn_head RIGHT
 	step_end
 
-MovementData_ApproachLanceFromRight:
+MovementData_ApproachAgathaFromRight:
 	step UP
 	step LEFT
 	step UP
@@ -202,13 +203,13 @@ LancesRoomMovementData_MaryInterviewChampion:
 	turn_head RIGHT
 	step_end
 
-LancesRoomMovementData_LancePositionsSelfToGuidePlayerAway:
+LancesRoomMovementData_AgathaPositionsSelfToGuidePlayerAway:
 	step UP
 	step LEFT
 	turn_head DOWN
 	step_end
 
-LancesRoomMovementData_LanceLeadsPlayerToHallOfFame:
+LancesRoomMovementData_AgathaLeadsPlayerToHallOfFame:
 	step UP
 	step_end
 
@@ -236,86 +237,57 @@ LancesRoomMovementData_MaryRunsBackAndForth:
 	turn_head UP
 	step_end
 
-LanceBattleIntroText:
-	text "Lance: I've been"
-	line "waiting for you."
-
-	para "<PLAY_G>!"
-
-	para "I knew that you,"
-	line "with your skills,"
-
-	para "would eventually"
-	line "reach me here."
-
-	para "There's no need"
-	line "for words now."
-
-	para "We will battle to"
-	line "determine who is"
-
-	para "the stronger of"
-	line "the two of us."
-
-	para "As the most power-"
-	line "ful trainer and as"
-
-	para "the #mon League"
-	line "Champion…"
-
-	para "I, Lance the drag-"
-	line "on master, accept"
-	cont "your challenge!"
+AgathaBattleIntroText:
+	text "I am Agatha,"
+	line "Champion of the"
+	cont "Kanto League."
+	para "Oak's taken quite"
+	line "an interest in"
+	cont "you, child."
+	para "That old duff was"
+	line "once tough and"
+	cont "handsome."
+	para "Now he just wants"
+	line "to fiddle with"
+	cont "his #dex!"
+	para "He's wrong."
+	line "#mon are for"
+	cont "battling!"
+	para "<PLAY_G>! I'll"
+	line "show you how a"
+	cont "real trainer"
+	cont "fights!"
 	done
 
-LanceWarmupText:
-	text "That wasn't a"
-	line "bad warmup,"
-	cont "<PLAY_G>!"
+AgathaWarmupText:
+	text "Oh ho! You're"
+	line "something special,"
+	cont "child!"
 	done
 
-LanceTruePowerText:
-	text "Now, <PLAY_G>!"
-	
-	para "I shall show you"
-	line "true power!"
+AgathaTruePowerText:
+	text "But I'm not done"
+	line "yet."
+	para "Meet my oldest"
+	line "partner in its"
+	cont "true form!"
 	done
 
-LanceBattleWinText:
-	text "…It's over."
-
-	para "But it's an odd"
-	line "feeling."
-
-	para "I'm not angry that"
-	line "I lost. In fact, I"
-	cont "feel happy."
-
-	para "Happy that I"
-	line "witnessed the rise"
-
-	para "of a great new"
-	line "Champion!"
+AgathaBattleWinText:
+	text "Hmph… So that's"
+	line "why Oak dotes on"
+	cont "you."
 	done
 
-LanceBattleAfterText:
-	text "…Whew."
-
-	para "You have become"
-	line "truly powerful,"
-	cont "<PLAY_G>."
-
-	para "Your #mon have"
-	line "responded to your"
-
-	para "strong and up-"
-	line "standing nature."
-
-	para "As a trainer, you"
-	line "will continue to"
-
-	para "grow strong with"
-	line "your #mon."
+AgathaBattleAfterText:
+	text "You win, child."
+	para "You and your"
+	line "#mon fought"
+	cont "as one."
+	para "From today, you"
+	line "are the Champion"
+	cont "of the Kanto"
+	cont "League!"
 	done
 
 LancesRoomMaryOhNoOakText:
@@ -366,12 +338,11 @@ LancesRoomMaryInterviewText:
 	done
 
 LancesRoomNoisyText:
-	text "Lance: This is"
-	line "getting to be a"
-	cont "bit too noisy…"
-
-	para "<PLAY_G>, could you"
-	line "come with me?"
+	text "Agatha: Too much"
+	line "fuss for my old"
+	cont "ears…"
+	para "<PLAY_G>, come"
+	line "along with me."
 	done
 
 LancesRoomMaryNoInterviewText:
@@ -390,12 +361,12 @@ LancesRoom_MapEvents:
 	warp_event  5,  1, HALL_OF_FAME, 2
 
 	def_coord_events
-	coord_event  4,  5, SCENE_LANCESROOM_APPROACH_LANCE, Script_ApproachLanceFromLeft
-	coord_event  5,  5, SCENE_LANCESROOM_APPROACH_LANCE, Script_ApproachLanceFromRight
+	coord_event  4,  5, SCENE_LANCESROOM_APPROACH_LANCE, Script_ApproachAgathaFromLeft
+	coord_event  5,  5, SCENE_LANCESROOM_APPROACH_LANCE, Script_ApproachAgathaFromRight
 
 	def_bg_events
 
 	def_object_events
-	object_event  5,  3, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LancesRoomLanceScript, -1
+	object_event  5,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, LancesRoomAgathaScript, -1
 	object_event  4,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY
 	object_event  4,  7, SPRITE_OAK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY

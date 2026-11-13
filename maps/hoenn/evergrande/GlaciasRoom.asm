@@ -34,7 +34,7 @@ GlaciaScript_Battle:
 	waitbutton
 	closedialog
 
-	callstd LeagueRematchCheckScript
+	checkevent EVENT_BEAT_HOENN_LEAGUE
 	iftrue .Hard
 	sjump .Easy
 

@@ -186,7 +186,7 @@ WorldCupLobbyRegistrationClerkScript:
 	end
 
 .notRegistered
-	checkevent EVENT_BEAT_INDIGO_LEAGUE
+	checkevent EVENT_BEAT_JOHTO_LEAGUE
 	iffalse .notWorthy
 	setevent EVENT_WORLD_CUP_REGISTERED
 	opentext 

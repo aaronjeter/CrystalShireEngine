@@ -49,7 +49,7 @@ BrunoScript_Battle:
 	waitbutton
 	closedialog
 
-	callstd LeagueRematchCheckScript
+	checkevent EVENT_BEAT_INDIGO_LEAGUE
 	iftrue .Hard
 	sjump .Easy
 
