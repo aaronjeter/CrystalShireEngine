@@ -23,11 +23,13 @@ BlackthornPokecenter1FCooltrainerMScript:
 	jumpstd HappinessCheckScript
 
 BlackthornPokecenter1FGentlemanText:
-	text "Deep inside far-"
-	line "off Indigo Plateau"
+	text "Past the Lake of"
+	line "Rage, high in the"
+	cont "mountains, is"
 
-	para "is the #mon"
-	line "League."
+	para "Silver Town, home"
+	line "of the Johto"
+	cont "#mon League."
 
 	para "I hear the best"
 	line "trainers gather"

@@ -231,6 +231,7 @@ NuzlockeEndOfBattle::
 	ld a, [wCurPartyMon]
 	inc a
 	ld c, a
+	farcall PassportMonFallen
 	farcall NuzlockeBuryPartyMon
 	ld hl, NuzlockeLaidToRestText
 	jr z, .got_text

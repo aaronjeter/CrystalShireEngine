@@ -37,6 +37,7 @@ WillsRoomDoorLocksBehindYouScript:
 	closetext
 	setscene SCENE_WILLSROOM_NOOP
 	setevent EVENT_WILLS_ROOM_ENTRANCE_CLOSED
+	setevent EVENT_PASSPORT_UNLOCKED
 	waitsfx
 	end
 

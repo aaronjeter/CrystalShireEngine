@@ -157,6 +157,7 @@ SpecialsPointers::
 	add_special FacilityOpponentSprite
 	add_special GiveBattlePoints
 	add_special AddLeagueRematchWin
+	add_special CheckWorldCupEligibleScript
 	add_special BPShop
 	add_special TowerCheck
 	add_special TowerShowBest

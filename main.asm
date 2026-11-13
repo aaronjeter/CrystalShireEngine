@@ -756,3 +756,8 @@ INCLUDE "data/pokemon/facility_eligibility.asm"
 SECTION "Overworld Behaviors", ROMX
 
 INCLUDE "data/pokemon/overworld_behaviors.asm"
+
+SECTION "Trainer Passport", ROMX
+
+INCLUDE "engine/events/passport_stats.asm"
+INCLUDE "engine/menus/passport.asm"

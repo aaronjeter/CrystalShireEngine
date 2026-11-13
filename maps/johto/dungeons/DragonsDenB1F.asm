@@ -234,10 +234,14 @@ ClairText_WhatsTheMatterDragonDen:
 	line "get there?"
 
 	para "From here, go to"
-	line "New Bark Town."
+	line "Mahogany Town,"
+	cont "then north to the"
+	cont "Lake of Rage."
 
-	para "Then Surf east to"
-	line "#mon League."
+	para "The gate on its"
+	line "north shore leads"
+	cont "to Silver Town and"
+	cont "the League."
 
 	para "The route there is"
 	line "very tough."

@@ -887,6 +887,7 @@ CountStep:
 	ld a, [wLinkMode]
 	and a
 	jr nz, .done
+	farcall PassportCountStep
 
 	; If there is a special phone call, don't count the step.
 	farcall CheckSpecialPhoneCall

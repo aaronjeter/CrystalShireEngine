@@ -559,6 +559,7 @@ PokeBallEffect:
 
 	ld hl, Text_GotchaMonWasCaught
 	call PrintText
+	farcall PassportCaughtMon
 
 	call ClearSprites
 

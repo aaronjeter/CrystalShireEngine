@@ -203,6 +203,9 @@ class World:
             return 'johto'
         if v < h:
             return 'kanto'
+        e = self.landmarks.get('HOENN_LANDMARK_END')
+        if e is not None and v >= e:
+            return 'johto'  # Johto landmarks appended after Hoenn's (Route 47 to Silver Town)
         return 'hoenn'
 
     def load_collision_constants(self):

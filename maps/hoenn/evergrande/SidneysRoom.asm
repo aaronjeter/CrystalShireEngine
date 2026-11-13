@@ -7,6 +7,7 @@ SidneysRoom_MapScripts:
 
 
 SidneyRoomDoorLocksBehindYouScript:
+	setevent EVENT_PASSPORT_UNLOCKED
 	; Reset Elite 4
 	clearevent EVENT_BEAT_ELITE_4_SIDNEY
 	clearevent EVENT_BEAT_ELITE_4_PHOEBE

@@ -15,6 +15,7 @@ SilverLeagueWillsRoomDoorsCallback:
 	endcallback
 
 SilverLeagueWillsRoomDoorLocksBehindYouScript:
+	setevent EVENT_PASSPORT_UNLOCKED
 	clearevent EVENT_BEAT_ELITE_4_WILL
 	clearevent EVENT_BEAT_ELITE_4_LILY
 	clearevent EVENT_BEAT_ELITE_4_EUSINE

@@ -456,6 +456,16 @@ DEF NUM_UNLOCKED_UNOWN_SETS EQU const_value
 	const LEAGUE_WORLD_CUP ; 3
 DEF NUM_LEAGUES EQU const_value
 
+; wPassportStats:: (2-byte big-endian counters, up to 65535)
+	const_def
+	const PASSPORT_BATTLES  ; 0 battles won
+	const PASSPORT_TRAINERS ; 1 trainers beaten
+	const PASSPORT_CAUGHT   ; 2 Pokémon caught
+	const PASSPORT_SHINIES  ; 3 shiny Pokémon caught
+	const PASSPORT_EGGS     ; 4 Eggs hatched
+	const PASSPORT_FAINTED  ; 5 player Pokémon fainted in battle (this slot counted trades before)
+DEF NUM_PASSPORT_STATS EQU const_value
+
 ; hVBlank::
 ; VBlankHandlers indexes (see home/vblank.asm)
 	const_def

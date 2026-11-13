@@ -186,7 +186,7 @@ WorldCupLobbyRegistrationClerkScript:
 	end
 
 .notRegistered
-	checkevent EVENT_BEAT_JOHTO_LEAGUE
+	special CheckWorldCupEligibleScript
 	iffalse .notWorthy
 	setevent EVENT_WORLD_CUP_REGISTERED
 	opentext 
@@ -265,11 +265,12 @@ WorldCupRegistrationNotWorthyText:
 	para "You're welcome to"
 	line "prove me wrong."
 
-	para "Come back after"
-	line "taking down the"
+	para "Come back once"
+	line "you've earned 16"
+	cont "badges and beaten"
 
-	para "Indigo League in"
-	line "Kanto, and we can"
+	para "a #mon League,"
+	line "and we can"
 	cont "reconsider..."
 	done
 

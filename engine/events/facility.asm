@@ -273,6 +273,7 @@ FacilityChooseTeam::
 FacilityStartRun::
 ; Keep the party in SRAM, then leave only the picked Pokémon (in pick order), at
 ; the facility's level with recalculated stats, fully healed.
+	farcall PassportUnlock
 	ld a, BANK(sFacilityParty)
 	call OpenSRAM
 	ld hl, wPartyCount

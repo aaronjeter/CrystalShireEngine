@@ -1418,6 +1418,10 @@ wIntroSceneFrameCounter:: db
 wIntroSceneTimer:: db
 
 NEXTU
+; trainer passport
+wPassportRowShift:: db ; rows the remaining elements move up
+
+NEXTU
 ; title data
 wTitleScreenSelectedOption:: db
 wTitleScreenTimer:: dw
@@ -3638,6 +3642,11 @@ wTowerBestStreak:: dw ; its best streak (big-endian)
 wTowerState:: db ; TOWER_*_F bits
 wTowerTeam:: ds FACILITY_TEAM_SIZE * TOWER_TEAM_MON_LENGTH ; the locked team, in battle order
 wLeagueRematchWins:: ds NUM_LEAGUES ; rematch wins per League (LEAGUE_* order), up to 255
+wPassportStats:: ds NUM_PASSPORT_STATS * 2 ; PASSPORT_* counters (big-endian), up to 65535
+wPassportSteps:: ds 3 ; steps taken (big-endian), up to 9999999
+wHallOfFameCounts:: ds NUM_LEAGUES ; Hall of Fame entries per League (LEAGUE_* order), up to 255
+wTitleDefenses:: dw ; World Cup title defenses won (big-endian)
+wPassportFallen:: dw ; Pokémon buried or released by Nuzlocke mode (big-endian)
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

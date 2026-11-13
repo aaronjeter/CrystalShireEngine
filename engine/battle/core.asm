@@ -2609,6 +2609,7 @@ StopDangerSound:
 	ret
 
 FaintYourPokemon:
+	farcall PassportMonFainted
 	call StopDangerSound
 	call WaitSFX
 	ld a, $f0
@@ -2716,6 +2717,7 @@ WinTrainerBattle:
 	ld a, [wLinkMode]
 	and a
 	ret nz
+	farcall PassportTrainerBeaten
 
 	call BattleWinSlideInEnemyTrainerFrontpic
 	ld c, 40
@@ -7165,6 +7167,7 @@ ExitBattle:
 	ld a, [wBattleResult]
 	and $f
 	ret nz
+	farcall PassportBattleWon
 	call CheckPayDay
 	xor a
 	ld [wForceEvolution], a

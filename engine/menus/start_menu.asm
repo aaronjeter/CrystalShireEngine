@@ -9,6 +9,7 @@
 	const STARTMENUITEM_EXIT     ; 6
 	const STARTMENUITEM_POKEGEAR ; 7
 	const STARTMENUITEM_QUIT     ; 8
+	const STARTMENUITEM_PASSPORT ; 9
 
 StartMenu::
 	farcall ClearWeatherSprites ; don't draw frozen particles over the menu
@@ -154,13 +155,13 @@ StartMenu::
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 10, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	menu_coords 9, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
 	dw .MenuData
 	db 1 ; default selection
 
 .ContestMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 10, 2, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	menu_coords 9, 2, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
 	dw .MenuData
 	db 1 ; default selection
 
@@ -182,6 +183,7 @@ StartMenu::
 	dw StartMenu_Exit,     .ExitString,     .ExitDesc
 	dw StartMenu_Pokegear, .PokegearString, .PokegearDesc
 	dw StartMenu_Quit,     .QuitString,     .QuitDesc
+	dw StartMenu_Passport, .PassportString, .PassportDesc
 
 .PokedexString:  db "#dex@"
 .PartyString:    db "#mon@"
@@ -192,6 +194,7 @@ StartMenu::
 .ExitString:     db "Exit@"
 .PokegearString: db "<POKE>gear@"
 .QuitString:     db "Quit@"
+.PassportString: db "Passport@"
 
 .PokedexDesc:
 	db   "#mon"
@@ -207,7 +210,7 @@ StartMenu::
 
 .PokegearDesc:
 	db   "Trainer's"
-	next "key device@"
+	next "device@"
 
 .StatusDesc:
 	db   "Your own"
@@ -227,7 +230,11 @@ StartMenu::
 
 .QuitDesc:
 	db   "Quit and"
-	next "be judged.@"
+	next "be judged@"
+
+.PassportDesc:
+	db   "Leagues &"
+	next "records@"
 
 .OpenMenu:
 	ld a, [wMenuSelection]
@@ -318,6 +325,16 @@ endr
 	ld a, STARTMENUITEM_STATUS
 	call .AppendMenuList
 
+	push de
+	push bc
+	farcall CheckPassportUnlocked
+	pop bc
+	pop de
+	jr z, .no_passport
+	ld a, STARTMENUITEM_PASSPORT
+	call .AppendMenuList
+.no_passport
+
 	ld a, [wLinkMode]
 	and a
 	jr nz, .no_save
@@ -331,8 +348,6 @@ endr
 .no_save
 
 	ld a, STARTMENUITEM_OPTION
-	call .AppendMenuList
-	ld a, STARTMENUITEM_EXIT
 	call .AppendMenuList
 	ld a, c
 	ld [wMenuItemsList], a
@@ -366,7 +381,7 @@ endr
 	call .IsMenuAccountOn
 	ret z
 	hlcoord 0, 13
-	lb bc, 5, 10
+	lb bc, 5, 9
 	call ClearBox
 	hlcoord 0, 13
 	lb bc, 3, 8
@@ -441,6 +456,13 @@ StartMenu_Status:
 
 	call FadeToMenu
 	farcall TrainerCard
+	call CloseSubmenu
+	xor a
+	ret
+
+StartMenu_Passport:
+	call FadeToMenu
+	farcall Passport
 	call CloseSubmenu
 	xor a
 	ret

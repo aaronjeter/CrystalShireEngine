@@ -1007,7 +1007,7 @@
 	const EVENT_ROUTE_48_MAX_REPEL
 	const EVENT_ROUTE_48_NEVERMELTICE
 	const EVENT_ROUTE_48_HIDDEN_FULL_RESTORE
-	const_skip ; unused
+	const EVENT_PASSPORT_UNLOCKED ; the Start menu shows the Trainer Passport
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

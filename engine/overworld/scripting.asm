@@ -2306,6 +2306,7 @@ Script_halloffame:
 ; parameters: league (LEAGUE_* constant)
 	rst GetScriptByte
 	ld [wHallOfFameLeague], a
+	farcall PassportHallOfFame
 	ld hl, wGameTimerPaused
 	res GAME_TIMER_COUNTING_F, [hl]
 	farcall HallOfFame
