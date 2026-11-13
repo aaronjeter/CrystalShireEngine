@@ -12,6 +12,7 @@ TreeMons:
 	dw TreeMonSet_RockCave
 	dw TreeMonSet_RockKanto
 	dw TreeMonSet_RockHoenn
+	dw TreeMonSet_Snow
 	assert_table_length NUM_TREEMON_SETS
 	dw TreeMonSet_City ; unused
 
@@ -151,4 +152,22 @@ TreeMonSet_RockHoenn:
 	dbbw 30, 3, NOSEPASS
 	dbbw 10, 3, ARON
 	dbbw 10, 3, SHUCKLE
+	db -1
+
+TreeMonSet_Snow:
+; common
+	dbbw 50, 2, PINECO
+	dbbw 15, 2, DELIBIRD
+	dbbw 15, 2, PINECO
+	dbbw 10, 2, NOCTOWL
+	dbbw  5, 2, DELIBIRD
+	dbbw  5, 2, FORRETRESS
+	db -1
+; rare
+	dbbw 50, 2, PINECO
+	dbbw 15, 2, SNEASEL
+	dbbw 15, 2, DELIBIRD
+	dbbw 10, 2, FORRETRESS
+	dbbw  5, 2, SNEASEL
+	dbbw  5, 2, SKARMORY
 	db -1

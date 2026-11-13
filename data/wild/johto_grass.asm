@@ -1766,4 +1766,88 @@ JohtoGrassWildMons:
 	dbw 5, GOLBAT
 	end_grass_wildmons
 
+	def_grass_wildmons ROUTE_47
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 3, AVULPIX
+	dbw 3, STANTLER
+	dbw 3, SWINUB
+	dbw 4, DELIBIRD
+	dbw 5, PILOSWINE
+	dbw 4, SKARMORY
+	dbw 5, ABSOL
+	; day
+	dbw 3, AVULPIX
+	dbw 3, STANTLER
+	dbw 3, SWINUB
+	dbw 4, DELIBIRD
+	dbw 5, PILOSWINE
+	dbw 4, SKARMORY
+	dbw 5, ABSOL
+	; nite
+	dbw 3, AVULPIX
+	dbw 3, SNEASEL
+	dbw 3, SWINUB
+	dbw 4, MURKROW
+	dbw 5, PILOSWINE
+	dbw 4, HOUNDOUR
+	dbw 5, ABSOL
+	end_grass_wildmons
+
+	def_grass_wildmons SILVER_PASS
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 3, GRAVELER
+	dbw 3, GOLBAT
+	dbw 3, SNEASEL
+	dbw 5, PILOSWINE
+	dbw 4, JYNX
+	dbw 3, LARVITAR
+	dbw 5, PUPITAR
+	; day
+	dbw 3, GRAVELER
+	dbw 3, GOLBAT
+	dbw 3, SNEASEL
+	dbw 5, PILOSWINE
+	dbw 4, JYNX
+	dbw 3, LARVITAR
+	dbw 5, PUPITAR
+	; nite
+	dbw 3, GRAVELER
+	dbw 3, GOLBAT
+	dbw 3, SNEASEL
+	dbw 5, PILOSWINE
+	dbw 4, JYNX
+	dbw 3, LARVITAR
+	dbw 5, PUPITAR
+	end_grass_wildmons
+
+	def_grass_wildmons ROUTE_48
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 3, ASANDSHREW
+	dbw 3, TEDDIURSA
+	dbw 3, PHANPY
+	dbw 5, URSARING
+	dbw 4, SKARMORY
+	dbw 5, ASANDSLASH
+	dbw 5, DONPHAN
+	; day
+	dbw 3, ASANDSHREW
+	dbw 3, TEDDIURSA
+	dbw 3, PHANPY
+	dbw 5, URSARING
+	dbw 4, SKARMORY
+	dbw 5, ASANDSLASH
+	dbw 5, DONPHAN
+	; nite
+	dbw 3, ASANDSHREW
+	dbw 3, TEDDIURSA
+	dbw 3, HOUNDOUR
+	dbw 5, URSARING
+	dbw 4, MISDREAVUS
+	dbw 5, ASANDSLASH
+	dbw 5, HOUNDOOM
+	end_grass_wildmons
+
 	db -1 ; end

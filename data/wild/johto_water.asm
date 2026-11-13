@@ -268,4 +268,11 @@ JohtoWaterWildMons:
 	dbw 1, POLIWAG
 	end_water_wildmons
 
+	def_water_wildmons SILVER_PASS
+	db 2 percent ; encounter rate
+	dbw 3, SEEL
+	dbw 3, SHELLDER
+	dbw 5, DEWGONG
+	end_water_wildmons
+
 	db -1 ; end
