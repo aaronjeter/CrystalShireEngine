@@ -19,6 +19,7 @@ gfx/pokemon/*/*/frames.asm
 !gfx/pokemon/unown/bitmask.asm
 !gfx/pokemon/unown/frames.asm
 
+
 # compiled roms
 *.gbc
 *.gb
@@ -65,4 +66,8 @@ used_space.png
 RGBASM/libpng16.dll
 RGBASM/zlib1.dll
 *.bin
+!data/tilesets/*_metatiles.bin
+!data/tilesets/*_attributes.bin
 .vs/VSWorkspaceState.json
+
+
