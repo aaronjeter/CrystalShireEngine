@@ -3391,6 +3391,7 @@ CooltrainerMGroup:
 	mon 7, HERACROSS
 	mon 7, GYARADOS
 	mon 7, MAGNEZONE
+		moves THUNDERBOLT, FLASHCANNON, TRI_ATTACK, THUNDER_WAVE
 	mon 8, NIDOKING
 	end_party
 
@@ -3404,6 +3405,7 @@ CooltrainerMGroup:
 	party FELIX, "Felix" ; SilverPass
 	mon 7, CROBAT
 	mon 7, GENGAR
+		moves SHADOW_BALL, SLUDGE_WAVE, DARK_PULSE, HYPNOSIS
 	mon 7, HONCHKROW
 	mon 8, ABSOL
 	end_party
@@ -3412,6 +3414,7 @@ CooltrainerMGroup:
 	mon 7, FLYGON
 	mon 7, AERODACTYL
 	mon 7, KINGDRA
+		moves HYDRO_PUMP, DRAGONBREATH, ICE_BEAM, AGILITY
 	mon 8, SALAMENCE
 	end_party
 
@@ -3874,6 +3877,7 @@ CooltrainerFGroup:
 	party SELENE, "Selene" ; SilverPass
 	mon 7, ALAKAZAM
 	mon 7, SLOWKING
+		moves PSYCHIC_M, HYDRO_PUMP, SLUDGE_WAVE, RECOVER
 	mon 7, XATU
 	mon 8, GALLADE
 	end_party
@@ -4647,6 +4651,7 @@ SkierGroup:
 	mon 7, GLALIE
 	mon 7, JYNX
 	mon 8, FROSLASS
+		moves ICE_BEAM, SHADOW_BALL, WILLOWISP, DESTINY_BOND
 	end_party
 
 	party TASHA, "Tasha" ; Route48
@@ -6630,6 +6635,7 @@ BlackbeltGroup:
 
 	party HIRO, "Hiro" ; SilverPass
 	mon 7, HITMONTOP
+		moves TRIPLE_KICK, SUCKER_PUNCH, MACH_PUNCH, BULK_UP
 	mon 7, POLIWRATH
 	mon 7, MACHAMP
 	mon 8, ANNIHILAPE
@@ -7724,6 +7730,7 @@ BoarderGroup:
 	mon 7, CLOYSTER
 	mon 7, DEWGONG
 	mon 7, ANINETALES
+		moves ICE_BEAM, FAERIEGLEAM, EXTRASENSORY, CALM_MIND
 	mon 8, MAMOSWINE
 	end_party
 
