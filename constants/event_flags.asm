@@ -657,13 +657,13 @@
 	const EVENT_BEAT_RIVAL_SILVER_PASS
 	const EVENT_BEAT_ELITE_4_GREEN
 	const EVENT_BEAT_ELITE_4_LORELEI
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_ROUTE_47_MAX_REVIVE
+	const EVENT_ROUTE_47_ULTRA_BALL
+	const EVENT_ROUTE_47_FULL_HEAL
+	const EVENT_ROUTE_47_HIDDEN_MAX_ETHER
+	const EVENT_SILVER_PASS_RARE_CANDY
+	const EVENT_SILVER_PASS_FULL_RESTORE
+	const EVENT_SILVER_PASS_PP_UP
 	const EVENT_BUENA_OFFERED_HER_PHONE_NUMBER_NO_BLUE_CARD
 	const_skip ; unused
 ; Ruins of Alph puzzles
@@ -1002,11 +1002,11 @@
 	const EVENT_BEAT_SWIMMERS_KIP_NIA
 	const EVENT_BEAT_PUPILS_BEN_ZOE
 	const EVENT_BEAT_SWIMMERS_RIO_MEL
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_SILVER_PASS_HIDDEN_MAX_REVIVE
+	const EVENT_ROUTE_48_MAX_POTION
+	const EVENT_ROUTE_48_MAX_REPEL
+	const EVENT_ROUTE_48_NEVERMELTICE
+	const EVENT_ROUTE_48_HIDDEN_FULL_RESTORE
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

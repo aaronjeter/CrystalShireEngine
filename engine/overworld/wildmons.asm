@@ -152,16 +152,8 @@ FindNest:
 	jr z, .found_nest
 	ld c, a
 ; skip nests in other regions
-	ld b, JOHTO_REGION
-	cp LANDMARK_FAST_SHIP
-	jr z, .got_region
-	cp KANTO_LANDMARK
-	jr c, .got_region
-	ld b, KANTO_REGION
-	cp HOENN_LANDMARK
-	jr c, .got_region
-	ld b, HOENN_REGION
-.got_region
+	call LandmarkToRegion
+	ld b, a
 	ldh a, [hMathBuffer + 2]
 	cp b
 	jr nz, .found_nest

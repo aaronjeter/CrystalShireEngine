@@ -149,6 +149,10 @@ Landmarks:
 	landmark 108,  60, Route121Name
 	landmark 108,  76, Route122Name
 	landmark 100,  84, Route123Name
+	landmark 100,  24, Route47Name
+	landmark  92,  22, SilverPassName
+	landmark  84,  22, Route48Name
+	landmark  76,  20, SilverTownName
 	assert_table_length NUM_LANDMARKS
 
 NewBarkTownName:     db "New Bark<BSP>Town@"
@@ -292,3 +296,7 @@ TohjoFallsName:      db "Tohjo Falls@"
 UndergroundName:     db "Underground@"
 BattleTowerName:     db "Battle<BSP>Tower@"
 SpecialMapName:      db "Special@"
+Route47Name:         db "Route 47@"
+SilverPassName:      db "Silver Pass@"
+Route48Name:         db "Route 48@"
+SilverTownName:      db "Silver Town@"

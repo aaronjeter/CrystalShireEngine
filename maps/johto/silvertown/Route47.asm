@@ -5,6 +5,9 @@
 	const ROUTE47_SKIER_MIRA
 	const ROUTE47_COOLTRAINERM_ROWAN
 	const ROUTE47_COOLTRAINERF_IVY
+	const ROUTE47_POKE_BALL1
+	const ROUTE47_POKE_BALL2
+	const ROUTE47_POKE_BALL3
 
 Route47_MapScripts:
 	def_scene_scripts
@@ -153,6 +156,18 @@ CooltrainerFIvyAfterBattleText:
 	cont "look. So am I."
 	done
 
+Route47MaxRevive:
+	itemball MAX_REVIVE
+
+Route47UltraBall:
+	itemball ULTRA_BALL
+
+Route47FullHeal:
+	itemball FULL_HEAL
+
+Route47HiddenMaxEther:
+	hiddenitem MAX_ETHER, EVENT_ROUTE_47_HIDDEN_MAX_ETHER
+
 Route47_MapEvents:
 	db 0, 0 ; filler
 
@@ -164,6 +179,7 @@ Route47_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  4, 55, BGEVENT_ITEM, Route47HiddenMaxEther
 
 	def_object_events
 	object_event 33, 37, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerMDalton, -1
@@ -172,3 +188,6 @@ Route47_MapEvents:
 	object_event 24, 40, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSkierMira, -1
 	object_event 12, 41, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerMRowan, -1
 	object_event 19, 28, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerFIvy, -1
+	object_event 17, 55, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47MaxRevive, EVENT_ROUTE_47_MAX_REVIVE
+	object_event 41, 55, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47UltraBall, EVENT_ROUTE_47_ULTRA_BALL
+	object_event 45, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47FullHeal, EVENT_ROUTE_47_FULL_HEAL

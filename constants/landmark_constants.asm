@@ -144,6 +144,13 @@ DEF HOENN_LANDMARK EQU const_value
 	const LANDMARK_ROUTE_121
 	const LANDMARK_ROUTE_122
 	const LANDMARK_ROUTE_123
+DEF HOENN_LANDMARK_END EQU const_value
+; Johto landmarks added after the Hoenn ones (keeps older landmark values)
+DEF JOHTO_EXTRA_LANDMARK EQU const_value
+	const LANDMARK_ROUTE_47
+	const LANDMARK_SILVER_PASS
+	const LANDMARK_ROUTE_48
+	const LANDMARK_SILVER_TOWN
 DEF NUM_LANDMARKS EQU const_value
 
 ; used in CaughtData

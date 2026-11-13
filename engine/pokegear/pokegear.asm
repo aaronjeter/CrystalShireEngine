@@ -509,19 +509,7 @@ PokegearMap_CheckRegion:
 PokegearMap_GetPlayerRegion:
 ; a = the player's region (the Fast Ship counts as Johto)
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
-	ld b, JOHTO_REGION
-	jr z, .got
-	cp HOENN_LANDMARK
-	ld b, HOENN_REGION
-	jr nc, .got
-	cp KANTO_LANDMARK
-	ld b, KANTO_REGION
-	jr nc, .got
-	ld b, JOHTO_REGION
-.got
-	ld a, b
-	ret
+	jp LandmarkToRegion
 
 PokegearMap_SetPlayerCursor:
 	ld a, [wPokegearMapPlayerIconLandmark]
@@ -782,7 +770,7 @@ TownMap_GetRegionLandmarkLimits:
 	ret
 
 .hoenn
-	lb de, NUM_LANDMARKS - 1, HOENN_LANDMARK
+	lb de, HOENN_LANDMARK_END - 1, HOENN_LANDMARK
 	ret
 
 RegionHasVisitedFlypoint:
@@ -1586,10 +1574,9 @@ RadioChannels:
 ; if in Johto or on the S.S. Aqua, set carry
 ; otherwise clear carry
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
+	call LandmarkToRegion
+	and a ; JOHTO_REGION
 	jr z, .johto
-	cp KANTO_LANDMARK
-	jr c, .johto
 ; kanto
 	and a
 	ret
@@ -2300,16 +2287,7 @@ FlyMap_NextRegion:
 
 FlyMap_LandmarkToRegion:
 ; a = landmark -> a = region
-	cp HOENN_LANDMARK
-	ld b, HOENN_REGION
-	jr nc, .got
-	cp KANTO_LANDMARK
-	ld b, KANTO_REGION
-	jr nc, .got
-	ld b, JOHTO_REGION
-.got
-	ld a, b
-	ret
+	jp LandmarkToRegion
 
 FlyMap_SwitchRegion:
 ; Select on the fly map: show the next region that has a visited flypoint.

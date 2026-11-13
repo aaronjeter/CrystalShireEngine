@@ -1,6 +1,7 @@
 	object_const_def
 	const SILVERLEAGUELOBBY_NURSE
 	const SILVERLEAGUELOBBY_CLERK
+	const SILVERLEAGUELOBBY_SPECIALTY_CLERK
 
 SilverLeagueLobby_MapScripts:
 	def_scene_scripts
@@ -12,7 +13,13 @@ SilverLeagueLobbyNurseScript:
 
 SilverLeagueLobbyClerkScript:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_BLACKTHORN
+	pokemart MARTTYPE_STANDARD, MART_STANDARD
+	closetext
+	end
+
+SilverLeagueLobbySpecialtyClerkScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_INDIGO_PLATEAU
 	closetext
 	end
 
@@ -32,3 +39,4 @@ SilverLeagueLobby_MapEvents:
 	def_object_events
 	object_event  3,  7, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverLeagueLobbyNurseScript, -1
 	object_event 11,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverLeagueLobbyClerkScript, -1
+	object_event 12,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverLeagueLobbySpecialtyClerkScript, -1

@@ -5,6 +5,9 @@
 	const ROUTE48_BOARDER_PIKE
 	const ROUTE48_COOLTRAINERM_EZRA
 	const ROUTE48_COOLTRAINERF_NOELLE
+	const ROUTE48_POKE_BALL1
+	const ROUTE48_POKE_BALL2
+	const ROUTE48_POKE_BALL3
 
 Route48_MapScripts:
 	def_scene_scripts
@@ -150,6 +153,18 @@ CooltrainerFNoelleAfterBattleText:
 	cont "level. Good luck!"
 	done
 
+Route48MaxPotion:
+	itemball MAX_POTION
+
+Route48MaxRepel:
+	itemball MAX_REPEL
+
+Route48NeverMeltIce:
+	itemball NEVERMELTICE
+
+Route48HiddenFullRestore:
+	hiddenitem FULL_RESTORE, EVENT_ROUTE_48_HIDDEN_FULL_RESTORE
+
 Route48_MapEvents:
 	db 0, 0 ; filler
 
@@ -159,6 +174,7 @@ Route48_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  6, 30, BGEVENT_ITEM, Route48HiddenFullRestore
 
 	def_object_events
 	object_event 26, 52, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerFYvonne, -1
@@ -167,3 +183,6 @@ Route48_MapEvents:
 	object_event 41, 40, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBoarderPike, -1
 	object_event 50, 26, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerMEzra, -1
 	object_event 30, 20, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerFNoelle, -1
+	object_event 27, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route48MaxPotion, EVENT_ROUTE_48_MAX_POTION
+	object_event 53,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route48MaxRepel, EVENT_ROUTE_48_MAX_REPEL
+	object_event 45,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route48NeverMeltIce, EVENT_ROUTE_48_NEVERMELTICE

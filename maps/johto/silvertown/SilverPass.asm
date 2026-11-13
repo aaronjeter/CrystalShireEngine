@@ -6,6 +6,9 @@
 	const SILVERPASS_COOLTRAINERM_BRAM
 	const SILVERPASS_COOLTRAINERF_MARLA
 	const SILVERPASS_RIVAL
+	const SILVERPASS_POKE_BALL1
+	const SILVERPASS_POKE_BALL2
+	const SILVERPASS_POKE_BALL3
 
 SilverPass_MapScripts:
 	def_scene_scripts
@@ -320,6 +323,18 @@ SilverPassRivalVictoryText:
 VictoryRoadWildRock:
 	jumpstd SmashRockScript
 
+SilverPassRareCandy:
+	itemball RARE_CANDY
+
+SilverPassFullRestore:
+	itemball FULL_RESTORE
+
+SilverPassPpUp:
+	itemball PP_UP
+
+SilverPassHiddenMaxRevive:
+	hiddenitem MAX_REVIVE, EVENT_SILVER_PASS_HIDDEN_MAX_REVIVE
+
 SilverPass_MapEvents:
 	db 0, 0 ; filler
 
@@ -331,6 +346,7 @@ SilverPass_MapEvents:
 	coord_event 23,  6, -1, SilverPassRivalScript
 
 	def_bg_events
+	bg_event  7, 17, BGEVENT_ITEM, SilverPassHiddenMaxRevive
 
 	def_object_events
 	object_event 49, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerGarth, -1
@@ -340,3 +356,6 @@ SilverPass_MapEvents:
 	object_event 39,  5, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerMBram, -1
 	object_event 28,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerFMarla, -1
 	object_event 23,  5, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_VICTORY_ROAD
+	object_event  6,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverPassRareCandy, EVENT_SILVER_PASS_RARE_CANDY
+	object_event 17, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverPassFullRestore, EVENT_SILVER_PASS_FULL_RESTORE
+	object_event  6, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverPassPpUp, EVENT_SILVER_PASS_PP_UP

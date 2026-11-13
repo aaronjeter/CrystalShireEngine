@@ -20,20 +20,30 @@ IsInJohto::
 	call GetWorldMapLocation
 
 .CheckRegion:
-	cp HOENN_LANDMARK
-	jr nc, .Hoenn
-
-	cp KANTO_LANDMARK
-	jr nc, .Kanto
+	jr LandmarkToRegion
 
 .Johto:
 	ld a, JOHTO_REGION
 	ret
 
-.Kanto:
+LandmarkToRegion::
+; a = landmark -> a = region
+	cp LANDMARK_FAST_SHIP
+	jr z, .johto
+	cp JOHTO_EXTRA_LANDMARK
+	jr nc, .johto
+	cp HOENN_LANDMARK
+	jr nc, .hoenn
+	cp KANTO_LANDMARK
+	jr nc, .kanto
+.johto
+	ld a, JOHTO_REGION
+	ret
+
+.kanto
 	ld a, KANTO_REGION
 	ret
 
-.Hoenn:
+.hoenn
 	ld a, HOENN_REGION
 	ret
