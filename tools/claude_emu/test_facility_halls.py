@@ -46,13 +46,14 @@ def shop(g):
         g.press('A', after=40)
     g.frames(30)
     for _ in range(6):
-        g.press('D', after=15)
+        g.press('D', after=40)
+    g.frames(60)
     g.press('A', after=150)  # Rare Candy: costs 2 BP. OK?
     g.press('A', after=150)  # Yes
-    g.press('A', after=60)
+    g.press('A', after=150)  # Here you go!
     after_candy = bp(g)
-    g.press('D', after=15)
-    g.press('D', after=15)
+    g.press('D', after=40)
+    g.press('D', after=40)
     g.press('A', after=150)  # Ability Capsule
     g.press('A', after=150)  # Yes: not enough
     text = ' '.join(g.screen_text().split('\n')[13:17])

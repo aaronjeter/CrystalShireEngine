@@ -638,8 +638,7 @@ def case_options():
         g = Game(ROM, SYM, STATE)
         g.wr('wOptions2', g.rd('wOptions2') | NUZLOCKE_ON)
         g.frames(30); g.press('START', after=30)
-        for _ in range(6):
-            g.press('D', after=6)       # Option
+        g.press('U', after=6)           # Option: the last entry (the cursor wraps)
         g.press('A', after=60)
         for _ in range(2):
             g.press('U', after=8)       # Cancel (page 2), then Nuzlocke

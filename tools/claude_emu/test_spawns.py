@@ -227,7 +227,7 @@ def case_topup():
 def case_static_wanderer():
     """A map's own Pokémon with SPRITEMOVEDATA_WILDSPAWN (Route 29's Eevee): it gets its
     behavior, wanders, and walking into it starts its own battle script."""
-    g = setup('ROUTE_29', 52, 1, follower=False)
+    g = setup('ROUTE_29', 49, 4, follower=False)  # on screen, a few tiles from the Eevee
     mo = addr(g, 'wMapObjects')
     obj = [i for i in range(1, 15) if g.rd(mo + i * MOLEN + 4) == g.const('SPRITEMOVEDATA_WILDSPAWN')
            and g.rd(mo + i * MOLEN + 8) == g.const('OBJECTTYPE_SCRIPT')]
@@ -243,6 +243,9 @@ def case_static_wanderer():
         g.frames(10)
         moved |= (g.rd(b + 3), g.rd(b + 2)) != p0
     check('static wanderer: moves around', moved, f'state {g.rd(b + 15)}')
+    g = setup('ROUTE_29', 52, 1, follower=False)
+    mo = addr(g, 'wMapObjects')
+    b = mo + obj[0] * MOLEN
     bk, ad = g.sym['DeleteObjectStruct']
     g.run_script(f'TestScript:\n\tcallasm TestCode\n\tend\nTestCode:\n\tld a, {obj[0]}\n'
                  f'\trst $08\n\tdb ${bk:02x}\n\tdw ${ad:04x}\n\tret\n')
@@ -281,10 +284,8 @@ def case_continue():
     n = len(spawns(g))
     before = {(d['obj'], d['dvs']) for d in spawns(g)}
     g.press('START', after=40)
-    for _ in range(10):
-        if g.rd('wMenuCursorY') == 6:  # Save
-            break
-        g.press('D', after=12)
+    for _ in range(2):  # Save: second from the end (the cursor wraps)
+        g.press('U', after=12)
     g.press('A', after=60)
     for _ in range(12):
         g.press('A', after=60)

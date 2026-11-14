@@ -155,7 +155,13 @@ x, y = pair(M, 3, 'enemy', 'ABILITY_CLEAR_BODY'); check(x[2] < 7 and y[2] == 7, 
 x, y = pair(M, 3, 'player', 'ABILITY_LEVITATE', enemy_hits(1)); check(x[1] > 0 and y[1] == 0, f'Levitate (player, enemy turn): {x[1]} -> {y[1]}')
 x, y = pair(M, 3, 'player', 'ABILITY_THICK_FAT', enemy_hits(0)); check(0.4 <= y[1] / x[1] <= 0.6, f'Thick Fat (player, enemy turn): {x[1]} -> {y[1]}')
 # burned: Guts also skips the burn's Attack halving, so x1.5 * 2 = x3 (less with rounding and the damage roll)
-x, y = pair(M, 1, 'player', 'ABILITY_GUTS', lambda g: g.wr('wBattleMonStatus', 1 << 4)); check(2.4 <= y[0] / x[0] <= 3.4, f'Guts (burned): {x[0]} -> {y[0]}')
+def burned(g):
+    # a burn halves the stored Attack when it lands (ApplyBrnEffectOnAttack), unless the Pokemon has Guts
+    g.wr('wBattleMonStatus', 1 << 4)
+    if g.rd('wBattleMonAbility') != AB['ABILITY_GUTS']:
+        atk = g.rd16('wBattleMonAttack') // 2
+        g.wr('wBattleMonAttack', [atk >> 8, atk & 0xff])
+x, y = pair(M, 1, 'player', 'ABILITY_GUTS', burned); check(2.4 <= y[0] / x[0] <= 3.4, f'Guts (burned): {x[0]} -> {y[0]}')
 # the enemy copies Growl: a wild Arbok may know ExtremeSpeed (priority 2)
 x, y = pair(P, 3, 'player', 'ABILITY_PRANKSTER', enemy_uses(3)); check(x[3] != 'Politoed' and y[3] == 'Politoed', f'Prankster: first mover {x[3]} -> {y[3]}')
 slow = lambda g: (enemy_uses(3)(g), g.wr('wEnemyMonSpeed', [0, 120]))
