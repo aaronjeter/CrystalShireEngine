@@ -814,6 +814,7 @@ ENDSECTION
 SECTION "Silver Town Area Scripts", ROMX
 
 INCLUDE "maps/johto/silvertown/Route47Gate.asm"
+INCLUDE "maps/kanto/routes/Route22Gate.asm"
 INCLUDE "maps/johto/silvertown/Route47.asm"
 INCLUDE "maps/johto/silvertown/SilverPass.asm"
 INCLUDE "maps/johto/silvertown/SilverTown.asm"

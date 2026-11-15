@@ -97,9 +97,8 @@ MACRO connection
 ENDM
 
 
-	map_attributes NewBarkTown, NEW_BARK_TOWN, $05, WEST | EAST
+	map_attributes NewBarkTown, NEW_BARK_TOWN, $05, WEST
 	connection west, Route29, ROUTE_29, 0
-	connection east, Route27, ROUTE_27, 0
 
 	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $35, NORTH | EAST
 	connection north, Route30, ROUTE_30, 5
@@ -148,8 +147,7 @@ ENDM
 	map_attributes Route26, ROUTE_26, $05, WEST
 	connection west, Route27, ROUTE_27, 45
 
-	map_attributes Route27, ROUTE_27, $35, WEST | EAST
-	connection west, NewBarkTown, NEW_BARK_TOWN, 0
+	map_attributes Route27, ROUTE_27, $35, EAST
 	connection east, Route26, ROUTE_26, -45
 
 	map_attributes Route28, ROUTE_28, $2c, WEST
@@ -511,6 +509,7 @@ ENDM
 	map_attributes LakeOfRageHiddenPowerHouse, LAKE_OF_RAGE_HIDDEN_POWER_HOUSE, $00, 0
 	map_attributes LakeOfRageMagikarpHouse, LAKE_OF_RAGE_MAGIKARP_HOUSE, $00, 0
 	map_attributes Route47Gate, ROUTE_47_GATE, $00, 0
+	map_attributes Route22Gate, ROUTE_22_GATE, $00, 0
 	map_attributes Route47, ROUTE_47, $16, 0
 	map_attributes SilverPass, SILVER_PASS, $09, 0
 	map_attributes SilverTown, SILVER_TOWN, $71, SOUTH

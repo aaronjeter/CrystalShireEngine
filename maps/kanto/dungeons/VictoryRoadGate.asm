@@ -16,30 +16,8 @@ VictoryRoadGateNoop1Scene:
 VictoryRoadGateNoop2Scene:
 	end
 
-VictoryRoadGateBadgeCheckScript:
-	turnobject PLAYER, LEFT
-	sjump _VictoryRoadGateBadgeCheckScript
-
 VictoryRoadGateOfficerScript:
-	faceplayer
-_VictoryRoadGateBadgeCheckScript:
-	opentext
-	writetext VictoryRoadGateOfficerText
-	promptbutton
-	readvar VAR_BADGES
-	ifgreater NUM_JOHTO_BADGES - 1, .AllEightBadges
-	writetext VictoryRoadGateNotEnoughBadgesText
-	waitbutton
-	closetext
-	applymovement PLAYER, VictoryRoadGateStepDownMovement
-	end
-
-.AllEightBadges:
-	writetext VictoryRoadGateEightBadgesText
-	waitbutton
-	closetext
-	setscene SCENE_VICTORYROADGATE_NOOP
-	end
+	jumptextfaceplayer VictoryRoadGateOfficerText
 
 VictoryRoadGateLeftBlackBeltScript:
 	jumptextfaceplayer VictoryRoadGateLeftBlackBeltText
@@ -47,32 +25,13 @@ VictoryRoadGateLeftBlackBeltScript:
 VictoryRoadGateRightBlackBeltScript:
 	jumptextfaceplayer VictoryRoadGateRightBlackBeltText
 
-VictoryRoadGateStepDownMovement:
-	step DOWN
-	step_end
-
 VictoryRoadGateOfficerText:
-	text "Only trainers who"
-	line "have proven them-"
-	cont "selves may pass."
-	done
+	text "Victory Road is"
+	line "just ahead."
 
-VictoryRoadGateNotEnoughBadgesText:
-	text "You don't have all"
-	line "the GYM BADGES of"
-	cont "JOHTO."
-
-	para "I'm sorry, but I"
-	line "can't let you go"
-	cont "through."
-	done
-
-VictoryRoadGateEightBadgesText:
-	text "Oh! Eight"
-	line "Badges!"
-
-	para "Please, go right"
-	line "on through!"
+	para "Get through it,"
+	line "and Indigo Plateau"
+	cont "is yours to reach!"
 	done
 
 VictoryRoadGateLeftBlackBeltText:
@@ -99,8 +58,6 @@ VictoryRoadGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 15, ROUTE_22, 1
-	warp_event 18, 15, ROUTE_22, 1
 	warp_event  9, 17, ROUTE_26, 1
 	warp_event 10, 17, ROUTE_26, 1
 	warp_event  9,  0, VICTORY_ROAD, 1
@@ -109,7 +66,6 @@ VictoryRoadGate_MapEvents:
 	warp_event  2,  7, ROUTE_28, 2
 
 	def_coord_events
-	coord_event 10, 11, SCENE_VICTORYROADGATE_BADGE_CHECK, VictoryRoadGateBadgeCheckScript
 
 	def_bg_events
 

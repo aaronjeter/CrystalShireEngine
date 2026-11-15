@@ -43,7 +43,7 @@ VictoryRoad_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  9, 67, VICTORY_ROAD_GATE, 5
+	warp_event  9, 67, VICTORY_ROAD_GATE, 3
 	warp_event  1, 49, VICTORY_ROAD, 3
 	warp_event  1, 35, VICTORY_ROAD, 2
 	warp_event 13, 31, VICTORY_ROAD, 5

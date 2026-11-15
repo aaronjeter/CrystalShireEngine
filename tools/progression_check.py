@@ -520,6 +520,7 @@ END_ALL = {'endall', 'jumptext', 'jumptextfaceplayer', 'farjumptext', 'stopandsj
 GOTO = {'sjump', 'farsjump', 'jumpstd'}
 CALL = {'scall', 'farscall', 'callstd', 'sdefer'}
 BRANCH1 = {'iftrue', 'iffalse'}
+REGION_BADGE_BYTES = {'wJohtoBadges': 'johto', 'wKantoBadges': 'kanto', 'wHoennBadges': 'hoenn'}
 BRANCH2 = {'ifequal', 'ifnotequal', 'ifgreater', 'ifless'}
 
 MAX_PATHS = 400
@@ -888,6 +889,11 @@ class Scripts:
                 return (None if v == want else False), (False if v == want else None)
             return None, None
         n = parse_num(args[0], self.w.const_all) if len(args) > 1 else None
+        if kind == 'rbadges' and n == 0xff:
+            if cmd == 'ifequal':
+                return frozenset([('rbadges_all', last[1])]), None
+            if cmd == 'ifnotequal':
+                return None, frozenset([('rbadges_all', last[1])])
         if kind == 'badges' and n is not None:
             if cmd == 'ifgreater':
                 return frozenset([('badges_gt', n)]), None
@@ -927,6 +933,8 @@ class Scripts:
             return None, ('scene', mapconst)
         if cmd == 'checkmapscene':
             return None, ('scene', args[0])
+        if cmd == 'readmem' and args and args[0] in REGION_BADGE_BYTES:
+            return None, ('rbadges', REGION_BADGE_BYTES[args[0]])
         if cmd == 'readvar':
             if args and args[0] == 'VAR_BADGES':
                 return None, ('badges',)
@@ -1149,6 +1157,9 @@ class Solver:
             return self.badge_count() > c[1]
         if k == 'badges_ge':
             return self.badge_count() >= c[1]
+        if k == 'rbadges_all':
+            return all(True in self.flags[b] for b in self.badge_flags
+                       if Report.badge_region(Report, b) == c[1])
         if k == 'scene':
             return c[2] in self.scenes[c[1]]
         if k == 'call':
@@ -1972,6 +1983,8 @@ class Report:
             n = c[1] + (1 if k == 'badges_gt' else 0)
             region_badges = len([b for b in S.badge_flags if self.badge_region(b) == S.start])
             return 'other regions' if n > region_badges else 'gap'
+        if k == 'rbadges_all':
+            return 'gap' if c[1] == S.start else 'other regions'
         f = self.cond_fact(c)
         if f is None:
             return 'gap'
@@ -2002,6 +2015,8 @@ class Report:
             return 'more than %d badges' % c[1]
         if k == 'badges_ge':
             return 'at least %d badges' % c[1]
+        if k == 'rbadges_all':
+            return 'all 8 %s badges' % c[1].capitalize()
         if k == 'scene':
             return '%s scene %d' % (c[1], c[2])
         if k == 'call':

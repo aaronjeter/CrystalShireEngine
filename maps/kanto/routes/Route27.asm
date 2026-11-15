@@ -22,27 +22,6 @@ Route27Noop1Scene:
 Route27Noop2Scene:
 	end
 
-FirstStepIntoKantoLeftScene:
-	turnobject ROUTE27_FISHER, LEFT
-	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
-	applymovement ROUTE27_FISHER, Route27FisherStepLeftTwiceMovement
-	sjump FirstStepIntoKantoScene_Continue
-
-FirstStepIntoKantoRightScene:
-	turnobject ROUTE27_FISHER, LEFT
-	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
-	applymovement ROUTE27_FISHER, Route27FisherStepLeftOnceMovement
-FirstStepIntoKantoScene_Continue:
-	turnobject PLAYER, RIGHT
-	opentext
-	writetext Route27FisherHeyText
-	promptbutton
-	writetext Route27FisherText
-	waitbutton
-	closetext
-	setscene SCENE_ROUTE27_NOOP
-	end
-
 Route27FisherScript:
 	jumptextfaceplayer Route27FisherText
 
@@ -91,29 +70,16 @@ Route27TMSolarbeam:
 Route27RareCandy:
 	itemball RARE_CANDY
 
-Route27FisherStepLeftTwiceMovement:
-	step LEFT
-	step LEFT
-	step_end
-
-Route27FisherStepLeftOnceMovement:
-	step LEFT
-	step_end
-
-Route27FisherHeyText:
-	text "Hey!"
-	done
-
 Route27FisherText:
-	text "Do you know what"
-	line "you just did?"
+	text "The road to Indigo"
+	line "starts here."
 
-	para "You've taken your"
-	line "first step into"
-	cont "Kanto."
+	para "Cross Tohjo Falls,"
+	line "then head north on"
+	cont "Route 26."
 
-	para "Check your #-"
-	line "gear map and see."
+	para "Victory Road is at"
+	line "the end of it!"
 	done
 
 CooltrainermBlakeSeenText:
@@ -240,10 +206,10 @@ Route27_MapEvents:
 	warp_event 33,  7, ROUTE_27_SANDSTORM_HOUSE, 1
 	warp_event 26,  5, TOHJO_FALLS, 1
 	warp_event 36,  5, TOHJO_FALLS, 2
+	warp_event 13, 11, ROUTE_22_GATE, 1
+	warp_event 14, 11, ROUTE_22_GATE, 2
 
 	def_coord_events
-	coord_event 18, 10, SCENE_ROUTE27_FIRST_STEP_INTO_KANTO, FirstStepIntoKantoLeftScene
-	coord_event 19, 10, SCENE_ROUTE27_FIRST_STEP_INTO_KANTO, FirstStepIntoKantoRightScene
 
 	def_bg_events
 	bg_event 25,  7, BGEVENT_READ, TohjoFallsSign

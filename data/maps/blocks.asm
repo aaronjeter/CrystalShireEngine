@@ -158,6 +158,7 @@ Route19FuchsiaGate_Blocks:
 Route43MahoganyGate_Blocks:
 Route43Gate_Blocks:
 Route47Gate_Blocks:
+Route22Gate_Blocks:
 Route35GoldenrodGate_Blocks:
 Route36RuinsOfAlphGate_Blocks:
 Route34IlexForestGate_Blocks:

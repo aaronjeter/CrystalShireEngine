@@ -545,6 +545,26 @@ def story_probes(rom, sym, state, model):
                     % (before, after)))
     else:
         out.append(('lilycove binoculars', 'FAIL', 'warp failed'))
+
+    # 8. The Route 22 gate lets only trainers with all eight Kanto badges through to Route 27
+    for badges in (0x7f, 0xff):
+        g = game()
+        g.setup(set_ev=['EVENT_BEAT_BLUE', 'EVENT_FOUND_ROUTE22_GREEN'])
+        g.wr('wKantoBadges', badges)
+        path_probe(g, 'ROUTE_22', (13, 6), 'ROUTE_22_GATE', moves=['up'])
+        g.walk_to('ROUTE_22_GATE', (4, 0), (), limit=12)
+        g.frames(60)
+        g.settle()
+        passed = g.map_name() == 'ROUTE_27'
+        want = badges == 0xff
+        out.append(('route 22 gate %d badges' % bin(badges).count('1'), 'PASS' if passed == want else 'FAIL',
+                    'ends at %s %s (expected %s)' % (g.map_name(), g.where()[2:], 'Route 27' if want else 'turned back')))
+
+    # 9. New Bark's east edge no longer leads to Route 27
+    g = game()
+    path_probe(g, 'NEW_BARK_TOWN', (16, 7), 'NEW_BARK_TOWN', moves=['right'] * 5)
+    out.append(('new bark east edge', 'PASS' if g.map_name() == 'NEW_BARK_TOWN' else 'FAIL',
+                'ends at %s %s' % (g.map_name(), g.where()[2:])))
     return out
 
 
