@@ -1302,7 +1302,20 @@ WildSpawnBumpCheck::
 
 WildSpawnEmote:
 ; Show the emote a spawn asked for (wSpawnEmoteRequest, wSpawnEmoteKind) over
-; it, or take one away when its time is up.
+; it, or take one away when its time is up. While the map name sign is up,
+; its frame tiles overlap the emote tiles: a shown emote goes away and a
+; request waits.
+	ld a, [wLandmarkSignTimer]
+	and a
+	jr z, .no_sign
+	ld a, [wSpawnEmoteObject]
+	and a
+	ret z
+	xor a
+	ld [wSpawnEmoteObject], a
+	farjp DeleteEmoteObjects
+
+.no_sign
 	ld a, [wSpawnEmoteObject]
 	and a
 	jr z, .request
