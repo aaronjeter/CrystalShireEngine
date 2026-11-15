@@ -1776,7 +1776,11 @@ WildSpawnBrain::
 	call .Repelled
 	jp c, .wander
 .Notice:
-; it reacts to the player: its "!", and it leaves its wander radius
+; it reacts to the player: its "!", and it leaves its wander radius; not
+; while the map name sign is up (its frame tiles overlap the emote tiles)
+	ld a, [wLandmarkSignTimer]
+	and a
+	jp nz, .wander
 	set WILDSPAWN_ACTIVE_F, [hl]
 	call .Unbound
 	ld a, [wWildSpawnBrainObject]
@@ -2046,6 +2050,7 @@ WildSpawnBrain::
 	ld a, WILD_SPAWN_HIDE_RANGE
 	call .Within
 	jr c, .reveal
+.hide
 	ld hl, OBJECT_FLAGS1
 	add hl, de
 	set INVISIBLE_F, [hl]
@@ -2053,6 +2058,10 @@ WildSpawnBrain::
 	ret
 
 .reveal
+; not while the map name sign is up
+	ld a, [wLandmarkSignTimer]
+	and a
+	jr nz, .hide
 	call Random
 	rrca
 	jr c, .reveal_flee
