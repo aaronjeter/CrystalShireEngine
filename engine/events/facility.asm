@@ -306,7 +306,7 @@ FacilityStartRun::
 	call FacilityRecordByte
 	and a
 	jr nz, .got_level
-	ld a, [wLevelCap]
+	call GetWorldLevelCap
 .got_level
 	ld [wFacilityLevel], a
 	ld a, FACILITY_STYLE
@@ -685,3 +685,52 @@ GiveBattlePoints::
 	pop af
 	ldh [rSVBK], a
 	ret
+
+CupBattleLevelFar::
+; a = the level of a Cup battle: the challenge facility's, or the world level cap
+	ld a, [wFacilityLevel]
+	and a
+	ret nz
+; fallthrough
+
+GetWorldLevelCap::
+; a = the level cap; with level caps off (wLevelCap 100), the cap they would set:
+; wBaseLevel + 11, plus 2 per League beaten, at most MAX_LEVEL
+	ld de, EVENT_LEVELCAPS_ENABLED
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ld a, [wLevelCap]
+	ret nz
+	ld a, [wBaseLevel]
+	add 11
+	ld hl, .LeagueFlags
+.league_loop
+	push af
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	or e
+	jr z, .done
+	push hl
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	pop hl
+	pop bc
+	ld a, b
+	jr z, .league_loop
+	add 2
+	jr .league_loop
+
+.done
+	pop af
+	cp MAX_LEVEL + 1
+	ret c
+	ld a, MAX_LEVEL
+	ret
+
+.LeagueFlags:
+	dw EVENT_BEAT_INDIGO_LEAGUE
+	dw EVENT_BEAT_JOHTO_LEAGUE
+	dw EVENT_BEAT_HOENN_LEAGUE
+	dw 0

@@ -687,9 +687,6 @@ SetTrainerBattleLevel:
 	ret
 
 CupBattleLevel:
-; a = the level of a Cup battle: the challenge facility's, or the level cap
-	ld a, [wFacilityLevel]
-	and a
-	ret nz
-	ld a, [wLevelCap]
+; a = the level of a Cup battle: the challenge facility's, or the world level cap
+	farcall CupBattleLevelFar
 	ret

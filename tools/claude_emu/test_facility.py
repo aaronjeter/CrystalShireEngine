@@ -4,7 +4,7 @@ In the Test Room: FacilitySetup counts the eligible party Pokémon for each
 category (the FACILITY_TEST record is patched in the ROM image per case);
 FacilityStartRun leaves the 4 picks in order at the facility level with
 recalculated stats and the party kept in SRAM; FacilityLoadTrainer sets up a
-Cup battle at that level (singles even with the Doubles option); a won battle
+Cup battle at that level (the level cap, or with caps off the cap they would set) (singles even with the Doubles option); a won battle
 heals; FacilityEndRun brings the party back byte for byte.
 
 usage: test_facility.py ROM SYM STATE
@@ -67,6 +67,17 @@ def species_names():
     return names
 
 
+def world_cap(g):
+    """The level cap a facility uses: wLevelCap, or with caps off the one they would set."""
+    def flag(name):
+        g.script(f'\tcheckevent {name}', 10)
+        return g.rd('wScriptVar')
+    if flag('EVENT_LEVELCAPS_ENABLED'):
+        return g.rd('wLevelCap')
+    leagues = sum(flag(e) for e in ('EVENT_BEAT_INDIGO_LEAGUE', 'EVENT_BEAT_JOHTO_LEAGUE', 'EVENT_BEAT_HOENN_LEAGUE'))
+    return min(100, g.rd('wBaseLevel') + 11 + 2 * leagues)
+
+
 def party_block(g):
     a = g.sym['wPartyCount'][1]
     b = g.sym['wPartyMonNicknamesEnd'][1]
@@ -116,7 +127,7 @@ def main():
     setup('ANY')
 
     before = party_block(g)
-    cap = g.rd('wLevelCap')
+    cap = world_cap(g)
     g.wr('wOptions2', g.rd('wOptions2') | 1 << g.const('TRAINER_DOUBLES'))
     picks = [5, 2, 0, 3]
     g.wr('wFacilityPicks', picks)
@@ -127,7 +138,7 @@ def main():
     lv = [g.rd(f'wPartyMon1+{i * psize + lvl_off}') for i in range(4)]
     check('start: only the 4 picks, in pick order', g.rd('wPartyCount') == 4 and sp[:4] == [before[1 + p] for p in picks]
           and sp[4] == 0xff, str(sp))
-    check('start: every pick at the level cap', all(x == cap for x in lv) and g.rd('wFacilityLevel') == cap,
+    check('start: every pick at the (would-be) level cap', all(x == cap for x in lv) and g.rd('wFacilityLevel') == cap,
           f'{lv} cap {cap}')
     hp = [g.rd16(f'wPartyMon1HP+{i * psize}') for i in range(4)]
     mx = [g.rd16(f'wPartyMon1MaxHP+{i * psize}') for i in range(4)]
