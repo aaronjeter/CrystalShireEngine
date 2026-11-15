@@ -45,7 +45,7 @@ def shop(g):
             break
         g.press('A', after=40)
     g.frames(30)
-    for _ in range(8):  # the 6 vitamins, Exp. Candy S and M
+    for _ in range(2):  # Exp. Candy S and M
         g.press('D', after=40)
     g.frames(60)
     g.press('A', after=150)  # Exp. Candy L: costs 2 BP. OK?
@@ -77,7 +77,7 @@ def shop2(g):
             break
         g.press('A', after=40)
     g.frames(30)
-    for _ in range(5):
+    for _ in range(12):  # Ability Patch, the last Tier 2 item
         g.press('D', after=15)
     g.press('A', after=150)
     g.press('A', after=150)

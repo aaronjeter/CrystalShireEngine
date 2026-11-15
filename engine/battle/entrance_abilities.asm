@@ -3,6 +3,7 @@ Check_Entrance_Ability:
 ; hBattleTurn is the side of the Pokemon that just entered.
 ; A handler that does something shows the ability popup (EntranceAbilityPopup); it's
 ; hidden after the handler.
+	farcall AirBalloonEntrance
 	call .Run
 	farjp HideAbilityPopup
 
@@ -242,7 +243,7 @@ ENDM
 
     ld hl, IntimidateCutsAttackText
     call StdBattleTextbox
-    ret
+	farjp WhiteHerbOpponent
 
 .HasMystify:
 	call EntranceAbilityPopup
@@ -255,7 +256,7 @@ ENDM
 
     ld hl, MystifyCutsSpecialAttackText
     call StdBattleTextbox
-    ret
+	farjp WhiteHerbOpponent
 
 .HasSnare:
 	call EntranceAbilityPopup
@@ -268,7 +269,7 @@ ENDM
 
     ld hl, SnareCutsSpeedText
     call StdBattleTextbox
-    ret
+	farjp WhiteHerbOpponent
 
 .HasHaste:
 	call EntranceAbilityPopup
@@ -338,7 +339,7 @@ ENDM
 
     ld hl, EnervateCutsSpDefText
     call StdBattleTextbox
-    ret
+	farjp WhiteHerbOpponent
 
 .HasDaunt:
 	call EntranceAbilityPopup
@@ -351,7 +352,7 @@ ENDM
 
     ld hl, DauntCutsDefText
     call StdBattleTextbox
-    ret
+	farjp WhiteHerbOpponent
 
 .CureStatus:
 ; Limber, Insomnia, Immunity, Water Veil and Magma Armor cure the status

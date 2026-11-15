@@ -18,7 +18,8 @@ BattleCommand_Attract:
 
 ; 'fell in love!'
 	ld hl, FellInLoveText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	farjp MentalHerbOpp
 
 .failed
 	jmp FailMove

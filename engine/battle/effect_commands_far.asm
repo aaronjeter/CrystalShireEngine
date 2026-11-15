@@ -689,7 +689,8 @@ _BattleCommand_Taunt:
 	ld [hl], a
 	farcall AnimateCurrentMove
 	ld hl, FellForTauntText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	jmp MentalHerbOpp
 
 .missed
 	farjp PrintDidntAffect2 ; "protected itself" against Protect
@@ -1159,7 +1160,7 @@ _BattleCommand_Encore:
 	jmp z, .failed
 	ld a, [wAttackMissed]
 	and a
-	jr nz, .failed
+	jmp nz, .failed
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	bit SUBSTATUS_ENCORED, [hl]
@@ -1238,7 +1239,8 @@ _BattleCommand_Encore:
 .finish_move
 	farcall AnimateCurrentMove
 	ld hl, GotAnEncoreText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	jmp MentalHerbOpp
 
 .failed
 	farjp PrintDidntAffect2
@@ -1502,7 +1504,8 @@ _BattleCommand_Disable:
 	ld [wNamedObjectIndex], a
 	call GetMoveName
 	ld hl, WasDisabledText
-	jmp StdBattleTextbox
+	call StdBattleTextbox
+	jmp MentalHerbOpp
 
 .failed
 	farjp FailMove

@@ -322,7 +322,6 @@ HandleBetweenTurnEffects:
 	call HandleMysteryberry
 	call HandleSafeguard
 	call HandleScreens
-	call HandleStatBoostingHeldItems
 	call HandleHealingItems
 	call HandleStatusOrbs
 	call UpdateBattleMonInParty
@@ -4468,6 +4467,7 @@ HandleHealingItems:
 	jmp SwitchTurnCore
 
 .go
+	farcall PinchBerry
 	call HandleHPHealingItem
 	call UseHeldStatusHealingItem
 	jmp UseConfusionHealingItem
@@ -4673,69 +4673,6 @@ UseConfusionHealingItem:
 	farcall GetOpponentItem
 	ld [hl], NO_ITEM ; the battle copy; the item is back after the battle
 	farjp SuppressOpponentItem
-
-HandleStatBoostingHeldItems:
-; The effects handled here are not used in-game.
-	ld hl, .DoPlayer
-	ld de, .DoEnemy
-	jmp ForEachBattlerPair
-
-.DoPlayer:
-	call GetPartymonItem
-	xor a
-	jr .HandleItem
-
-.DoEnemy:
-	call GetOTPartymonItem
-	ld a, $1
-.HandleItem:
-	ldh [hBattleTurn], a
-	ld d, h
-	ld e, l
-	push de
-	push bc
-	ld a, [bc]
-	ld b, a
-	farcall GetItemHeldEffect
-	ld hl, HeldStatUpItems
-.loop
-	ld a, [hli]
-	cp -1
-	jr z, .finish
-	inc hl
-	inc hl
-	cp b
-	jr nz, .loop
-	pop bc
-	ld a, [bc]
-	ld [wNamedObjectIndex], a
-	push bc
-	dec hl
-	dec hl
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, BANK(BattleCommand_AttackUp)
-	call FarCall_hl
-	pop bc
-	pop de
-	ld a, [wFailedMessage]
-	and a
-	ret nz
-	xor a
-	ld [bc], a
-	ld [de], a
-	call GetItemName
-	ld hl, BattleText_UsersStringBuffer1Activated
-	call StdBattleTextbox
-	farjp BattleCommand_StatUpMessage
-
-.finish
-	pop bc
-	pop de
-	ret
-
-INCLUDE "data/battle/held_stat_up.asm"
 
 GetPartymonItem:
 	ld hl, wPartyMon1Item

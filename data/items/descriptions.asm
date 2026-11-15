@@ -138,11 +138,11 @@ ItemDescriptions1:
 	dw DragonScaleDesc  ; 007F
 	dw BerserkGeneDesc  ; 0080
 	dw HoenniteXDesc    ; 0081
-	dw RazorberryDesc   ; 0082
-	dw IronberryDesc    ; 0083
+	dw LiechiBerryDesc   ; 0082
+	dw GanlonBerryDesc    ; 0083
 	dw SacredAshDesc    ; 0084
 	dw FlowerMailDesc   ; 0085
-	dw HasteberryDesc   ; 0086
+	dw SalacBerryDesc   ; 0086
 	dw LightBallDesc    ; 0087
 	dw NormalBoxDesc    ; 0088
 	dw GorgeousBoxDesc  ; 0089
@@ -152,8 +152,8 @@ ItemDescriptions1:
 	dw UpGradeDesc      ; 008D
 	dw OranBerryDesc        ; 008E
 	dw SitrusBerryDesc    ; 008F
-	dw FocusberryDesc   ; 0090
-	dw WardberryDesc    ; 0091
+	dw PetayaBerryDesc   ; 0090
+	dw ApicotBerryDesc    ; 0091
 	dw BrickPieceDesc   ; 0092
 	dw SurfMailDesc     ; 0093
 	dw LiteBlueMailDesc ; 0094
@@ -189,6 +189,21 @@ ItemDescriptions1:
 	dw ExpCandyMDesc   ; 00B2
 	dw ExpCandyLDesc   ; 00B3
 	dw ExpCandyXLDesc  ; 00B4
+	dw PowerWeightDesc ; 00B5
+	dw PowerBracerDesc ; 00B6
+	dw PowerBeltDesc   ; 00B7
+	dw PowerAnkletDesc ; 00B8
+	dw PowerLensDesc   ; 00B9
+	dw PowerBandDesc   ; 00BA
+	dw ChoiceBandDesc ; 00BB
+	dw ChoiceSpecsDesc ; 00BC
+	dw ChoiceScarfDesc ; 00BD
+	dw AssaultVestDesc ; 00BE
+	dw WeaknessPolicyDesc ; 00BF
+	dw AirBalloonDesc ; 00C0
+	dw LightClayDesc ; 00C1
+	dw WhiteHerbDesc ; 00C2
+	dw MentalHerbDesc ; 00C3
 .IndirectEnd:
 
 ItemDescriptionsKeyItems:
@@ -949,6 +964,66 @@ ExpCandyXLDesc:
 	db   "A candy that gives"
 	next "30000 Exp. Points.@"
 
+PowerWeightDesc:
+	db   "Raises HP EVs"
+	next "but halves Speed.@"
+
+PowerBracerDesc:
+	db   "Raises Attack EVs"
+	next "but halves Speed.@"
+
+PowerBeltDesc:
+	db   "Raises Defense EVs"
+	next "but halves Speed.@"
+
+PowerAnkletDesc:
+	db   "Raises Speed EVs"
+	next "but halves Speed.@"
+
+PowerLensDesc:
+	db   "Raises Sp. Atk EVs"
+	next "but halves Speed.@"
+
+PowerBandDesc:
+	db   "Raises Sp. Def EVs"
+	next "but halves Speed.@"
+
+ChoiceBandDesc:
+	db   "Ups Attack, but"
+	next "locks in one move.@"
+
+ChoiceSpecsDesc:
+	db   "Ups Sp. Atk, but"
+	next "locks in one move.@"
+
+ChoiceScarfDesc:
+	db   "Ups Speed, but"
+	next "locks in one move.@"
+
+AssaultVestDesc:
+	db   "Ups Sp. Def. Bars"
+	next "status moves.@"
+
+WeaknessPolicyDesc:
+	db   "Ups attacks a lot"
+	next "if hit on weakness@"
+
+AirBalloonDesc:
+	db   "Ground moves miss"
+	next "until it's hit.@"
+
+LightClayDesc:
+	db   "Extends Reflect &"
+	next "Light Screen.@"
+
+WhiteHerbDesc:
+	db   "Restores lowered"
+	next "stats once.@"
+
+MentalHerbDesc:
+	db   "Cures Taunt, love,"
+	next "Encore, Disable.@"
+
 BrickPieceDesc:
 	db   "A rare chunk of"
 	next "tile.@"
@@ -1025,25 +1100,25 @@ HoenniteXDesc:
 	db   "Empowers certain"
 	next "Hoenn #mon.@"
 
-RazorberryDesc:
-	db   "Eat to boost"
-	next "Attack (Hold)@"
+LiechiBerryDesc:
+	db   "Ups Attack at low"
+	next "HP. (Hold)@"
 
-IronberryDesc:
-	db   "Eat to boost"
-	next "Defense (Hold)@"
+GanlonBerryDesc:
+	db   "Ups Defense at low"
+	next "HP. (Hold)@"
 
-HasteberryDesc:
-	db   "Eat to boost"
-	next "Speed (Hold)@"
+SalacBerryDesc:
+	db   "Ups Speed at low"
+	next "HP. (Hold)@"
 
-FocusberryDesc:
-	db   "Eat to boost"
-	next "Sp Atk (Hold)@"
+PetayaBerryDesc:
+	db   "Ups Sp. Atk at low"
+	next "HP. (Hold)@"
 
-WardberryDesc:
-	db   "Eat to boost"
-	next "Sp Def (Hold)@"
+ApicotBerryDesc:
+	db   "Ups Sp. Def at low"
+	next "HP. (Hold)@"
 
 MarvelScaleDesc:
 	db   "A very shiny"

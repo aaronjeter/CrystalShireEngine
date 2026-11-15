@@ -1799,9 +1799,17 @@ BattleCommand_CheckHit:
 	call GetBreakableOppAbility
 	cp ABILITY_LEVITATE
 	jr z, .Levitating
-	
+	farcall OpponentHasAirBalloon
+	jr c, .Balloon
+
 	or 1
-	ret 
+	ret
+
+.Balloon:
+	ld hl, LevitateText
+	call StdBattleTextbox
+	xor a
+	ret
 
 .Levitating:
 	ld hl, LevitateText
@@ -2630,6 +2638,7 @@ BattleCommand_CheckFaint:
 
 	call HandleContactStatusAbilities
 	call HandleRockyHelmet
+	farcall TargetHitHeldItems
 
 	ld hl, wEnemyMonHP
 	ldh a, [hBattleTurn]
@@ -4916,7 +4925,8 @@ BattleCommand_StatDownMessage:
 	inc b
 	call GetStatName
 	ld hl, .stat
-	jmp BattleTextbox
+	call BattleTextbox
+	farjp WhiteHerbOpponent
 
 .stat
 	text_far Text_BattleFoeEffectActivate
@@ -6623,7 +6633,7 @@ BattleCommand_Screen:
 	bit SCREENS_LIGHT_SCREEN, [hl]
 	jr nz, .failed
 	set SCREENS_LIGHT_SCREEN, [hl]
-	ld a, 5
+	farcall ScreenTurns
 	ld [bc], a
 	ld hl, LightScreenEffectText
 	jr .good
@@ -6636,7 +6646,7 @@ BattleCommand_Screen:
 	; LightScreenCount -> ReflectCount
 	inc bc
 
-	ld a, 5
+	farcall ScreenTurns
 	ld [bc], a
 	ld hl, ReflectEffectText
 

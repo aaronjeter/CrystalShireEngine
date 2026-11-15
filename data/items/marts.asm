@@ -63,11 +63,7 @@ MartCherrygrove:
 	dw FLOWER_MAIL
 
 MartViolet:
-	db 5 ; # items
-	dw X_ATTACK
-	dw X_DEFEND
-	dw X_SPEED
-	dw X_SPECIAL
+	db 1 ; # items
 	dw SHARP_BEAK
 
 MartAzalea:
@@ -123,12 +119,20 @@ MartGoldenrod3F:
 	dw ICE_STONE
 
 MartGoldenrod4F:
-	db 5 ; # items
+	db 13 ; # items
 	dw PROTEIN
 	dw IRON
 	dw CARBOS
 	dw CALCIUM
 	dw HP_UP
+	dw ZINC
+	dw MACHO_BRACE
+	dw POWER_WEIGHT
+	dw POWER_BRACER
+	dw POWER_BELT
+	dw POWER_ANKLET
+	dw POWER_LENS
+	dw POWER_BAND
 
 MartGoldenrod5F1:
 	db 3 ; # items
@@ -186,11 +190,8 @@ MartMahogany2:
 	dw BIG_MUSHROOM
 
 MartBlackthorn:
-	db 5 ; # items
+	db 2 ; # items
 	dw DRAGON_FANG
-	dw X_ACCURACY
-	dw DIRE_HIT
-	dw GUARD_SPEC
 	dw MAX_ETHER
 
 MartViridian:
@@ -200,16 +201,12 @@ MartViridian:
 	dw FLOWER_MAIL
 
 MartPewter:
-	db 4 ; # items
+	db 1 ; # items
 	dw HARD_STONE
-	dw X_ATTACK
-	dw X_DEFEND
-	dw X_SPEED
 
 MartCerulean:
-	db 3 ; # items
+	db 2 ; # items
 	dw MYSTIC_WATER
-	dw X_SPECIAL
 	dw SURF_MAIL
 
 MartLavender:
@@ -267,35 +264,33 @@ MartCeladon4F:
 	dw SURF_MAIL
 
 MartCeladon5F1:
-	db 5 ; # items
+	db 6 ; # items
 	dw HP_UP
 	dw PROTEIN
 	dw IRON
 	dw CARBOS
 	dw CALCIUM
+	dw ZINC
 
 MartCeladon5F2:
 	db 7 ; # items
-	dw X_ACCURACY
-	dw GUARD_SPEC
-	dw DIRE_HIT
-	dw X_ATTACK
-	dw X_DEFEND
-	dw X_SPEED
-	dw X_SPECIAL
+	dw MACHO_BRACE
+	dw POWER_WEIGHT
+	dw POWER_BRACER
+	dw POWER_BELT
+	dw POWER_ANKLET
+	dw POWER_LENS
+	dw POWER_BAND
 
 MartFuchsia:
-	db 4 ; # items
+	db 3 ; # items
 	dw POISON_BARB
 	dw SMOKE_BALL
-	dw X_ACCURACY
 	dw FLOWER_MAIL
 
 MartSaffron:
-	db 4 ; # items
+	db 2 ; # items
 	dw TWISTEDSPOON
-	dw X_SPECIAL
-	dw GUARD_SPEC
 	dw ELIXER
 
 MartMtMoon:
@@ -308,13 +303,10 @@ MartMtMoon:
 	dw PORTRAITMAIL
 
 MartIndigoPlateau:
-	db 6 ; # items
+	db 3 ; # items
 	dw MAX_REVIVE
 	dw ELIXER
 	dw MAX_ETHER
-	dw X_ACCURACY
-	dw DIRE_HIT
-	dw GUARD_SPEC
 
 MartUnderground:
 	db 4 ; # items
@@ -385,12 +377,20 @@ Lilycove5FMedicine:
 	dw FULL_RESTORE
 
 Lilycove5FDrugs:
-	db 5 ; # items
+	db 13 ; # items
 	dw PROTEIN
 	dw IRON
 	dw CARBOS
 	dw CALCIUM
 	dw HP_UP
+	dw ZINC
+	dw MACHO_BRACE
+	dw POWER_WEIGHT
+	dw POWER_BRACER
+	dw POWER_BELT
+	dw POWER_ANKLET
+	dw POWER_LENS
+	dw POWER_BAND
 
 DefaultMart:
 	db 2 ; # items
@@ -404,16 +404,12 @@ MartOldale:
 	dw FLOWER_MAIL
 
 MartPetalburg:
-	db 4 ; # items
+	db 1 ; # items
 	dw PINK_BOW
-	dw X_ATTACK
-	dw X_DEFEND
-	dw X_SPEED
 
 MartRustboro:
-	db 3 ; # items
+	db 2 ; # items
 	dw HARD_STONE
-	dw X_SPECIAL
 	dw EVERSTONE
 
 MartVerdanturf:
@@ -429,11 +425,8 @@ MartSlateport:
 	dw LITEBLUEMAIL
 
 MartMauville:
-	db 4 ; # items
+	db 1 ; # items
 	dw MAGNET
-	dw X_ACCURACY
-	dw DIRE_HIT
-	dw GUARD_SPEC
 
 MartFallarbor:
 	db 3 ; # items
@@ -450,16 +443,12 @@ MartLavaridge:
 	dw REVIVAL_HERB
 
 MartFortree:
-	db 3 ; # items
+	db 1 ; # items
 	dw SHARP_BEAK
-	dw X_SPEED
-	dw DIRE_HIT
 
 MartMossdeep:
-	db 4 ; # items
+	db 2 ; # items
 	dw TWISTEDSPOON
-	dw X_SPECIAL
-	dw GUARD_SPEC
 	dw MAX_ETHER
 
 MartSootopolis:
@@ -469,10 +458,7 @@ MartSootopolis:
 	dw ELIXER
 
 MartBattleResort:
-	db 6 ; # items
+	db 3 ; # items
 	dw MAX_REVIVE
 	dw ELIXER
 	dw MAX_ETHER
-	dw X_ACCURACY
-	dw DIRE_HIT
-	dw GUARD_SPEC

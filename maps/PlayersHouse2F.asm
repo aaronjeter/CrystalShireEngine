@@ -93,11 +93,11 @@ if DEF(_DEBUG)
 	giveitem JOHTOITE_X, 10
 	giveitem HOENNITE_X, 10
 
-	giveitem RAZOR_BERRY, 10
-	giveitem IRON_BERRY, 10
-	giveitem HASTE_BERRY, 10
-	giveitem FOCUS_BERRY, 10
-	giveitem WARD_BERRY, 10
+	giveitem LIECHI_BERRY, 10
+	giveitem GANLON_BERRY, 10
+	giveitem SALAC_BERRY, 10
+	giveitem PETAYA_BERRY, 10
+	giveitem APICOT_BERRY, 10
 	giveitem SILVER_LEAF, 10
 	giveitem GOLD_LEAF, 10
 	giveitem MARVEL_SCALE, 10

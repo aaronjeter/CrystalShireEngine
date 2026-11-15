@@ -3,7 +3,7 @@ Usage (from a folder holding ROM, .sym and a boot.py state):
     python3 test_held_items.py it.gbc it.sym ow_it.state [test ...]
 Machamp vs a wild mon; items and abilities are written at the battle menu before each turn.
 The items' 8-bit IDs are allocated (givepoke with the item) before the battle state is saved.
-Tests: lifeorb, sheerforce, eviolite, widelens, sash, orbs, poisonheal, sludge, berries, newitems."""
+Tests: lifeorb, sheerforce, eviolite, widelens, sash, orbs, poisonheal, sludge, berries, newitems, power, batch3."""
 import json, os, re, sys
 src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_more_abilities.py')).read()
 TESTS = sys.argv[4:]
@@ -314,5 +314,112 @@ if want('newitems'):
     eh = g1.rd('wEnemyMonMaxHP', 2); emax = eh[0] * 256 + eh[1]
     check(g1.rd('wEnemyWrapCount') and e['dmg'] - d['dmg'] == max(1, emax // 4 // 4),  # 1/8 = twice the 1/16 share
           f"Binding Band: Wrap does 1/8 a turn instead of 1/16 ({d['dmg']} -> {e['dmg']}, max HP {emax})")
+
+if want('power'):
+    # Power items: +8 EVs in their stat per battle EV gain (doubled by Pokerus), halved Speed
+    PS = 'hi_power.state'
+    POWER = ['POWER_WEIGHT', 'POWER_BRACER', 'POWER_BELT', 'POWER_ANKLET', 'POWER_LENS', 'POWER_BAND']  # EV order
+    ITEMS[:] = ['MACHO_BRACE'] + POWER
+    if not os.path.exists(PS): setup2(PS, moves=['VICEGRIP', 'FLAMETHROWER', 'KARATE_CHOP', 'SPLASH'])
+    ids(PS)
+    VG, SP = 0, 3
+    EV = sym['wPartyMon1'][1] + 11
+    def ko_vec(extra):
+        def pre(g):
+            w16(g, 'wEnemyMonHP', 1)
+            if extra: extra(g)
+        g, x = turn2(PS, VG, SP, extra=pre, fixed=True)
+        for k in range(80):
+            g.frames(10); g.press('B', hold=3, after=3)
+            if not g.in_battle(): break
+        return g.rd(EV, 6)
+    give = lambda it: (lambda g: (g.wr('wBattleMonItem', IDS[it]), g.wr(sym['wPartyMon1'][1] + 1, IDS[it])))
+    pokerus = lambda g: g.wr(sym['wPartyMon1'][1] + 28, 0x11)
+    g0 = H(ROM, None, SYM); g0.load(PS); ev0 = g0.rd(EV, 6)
+    plain = [a - b for a, b in zip(ko_vec(None), ev0)]
+    check(sum(plain) > 0, f'Power items: plain EV gain {plain}')
+    for k, it in enumerate(POWER):
+        got = [a - b for a, b in zip(ko_vec(give(it)), ev0)]
+        want_ = [v + (8 if i == k else 0) for i, v in enumerate(plain)]
+        check(got == want_, f'{it}: +8 in stat {k} ({got}, want {want_})')
+    got = [a - b for a, b in zip(ko_vec(both(pokerus, give('POWER_ANKLET'))), ev0)]
+    want_ = [2 * (v + (8 if i == 3 else 0)) for i, v in enumerate(plain)]
+    check(got == want_, f'Power Anklet + Pokerus: (yield + 8) x2 ({got}, want {want_})')
+    def high_hp(g): g.wr(EV, 248)
+    got = ko_vec(both(high_hp, give('POWER_WEIGHT')))[0]
+    check(got == 252, f'Power Weight at 248 HP EVs: capped at 252 ({got})')
+    def speed(g):
+        es = g.rd('wEnemyMonSpeed', 2); w16(g, 'wBattleMonSpeed', es[0] * 256 + es[1] + 10)
+    g1, h = turn2(PS, SP, SP, extra=speed, fixed=True)
+    g2, i = turn2(PS, SP, SP, extra=both(speed, items(p='POWER_BELT')), fixed=True)
+    first = lambda log: 'player' if log.find('Machamp used') < log.find('Enemy Tauros used') else 'enemy'
+    check(first(h['log']) == 'player' and first(i['log']) == 'enemy', f"Power Belt: halves Speed for turn order ({first(h['log'])}, {first(i['log'])})")
+
+if want('batch3'):
+    # Held items batch 3 (Nov 15, 2026): Assault Vest, Weakness Policy, Air Balloon, Light Clay,
+    # White Herb, Mental Herb, pinch berries
+    ITEMS[:] = ['ASSAULT_VEST', 'WEAKNESS_POLICY', 'AIR_BALLOON', 'LIGHT_CLAY', 'WHITE_HERB', 'MENTAL_HERB',
+                'LIECHI_BERRY', 'SALAC_BERRY']
+    A3, B3 = 'hi_b3a.state', 'hi_b3b.state'
+    if not os.path.exists(A3): setup2(A3, moves=['KARATE_CHOP', 'VICEGRIP', 'FLAMETHROWER', 'EARTHQUAKE'])
+    if not os.path.exists(B3): setup2(B3, moves=['REFLECT', 'LIGHT_SCREEN', 'LEER', 'TAUNT'])
+    ids(A3)
+    KC, VG, FT, EQ = range(4)
+    def lvl(g, who, i): return g.rd(f'w{who}StatLevels+{i}')
+    def txt(r):
+        parts = [x.strip() for x in r['log'].split(' / ')]
+        keep = [a for a, b in zip(parts, parts[1:] + ['']) if not b.startswith(a)]
+        return ' '.join(keep).replace('  ', ' ')
+    def tough(g): w16(g, 'wEnemyMonMaxHP', 999); w16(g, 'wEnemyMonHP', 999)
+    # Assault Vest: x1.5 Sp. Def against special moves only
+    a = turn2(A3, FT, VG, extra=both(soft, tough), fixed=True)[1]['dmg']
+    b = turn2(A3, FT, VG, extra=both(soft, tough, items(e='ASSAULT_VEST')), fixed=True)[1]['dmg']
+    c = turn2(A3, VG, VG, extra=both(soft, tough), fixed=True)[1]['dmg']
+    d_ = turn2(A3, VG, VG, extra=both(soft, tough, items(e='ASSAULT_VEST')), fixed=True)[1]['dmg']
+    check(a > 0 and abs(b - a * 2 / 3) <= 2 and c == d_, f'Assault Vest: special {a} -> {b}, physical {c} -> {d_}')
+    # Weakness Policy: a super-effective hit -> Attack and Sp. Atk +2, used up
+    g, r = turn2(A3, KC, VG, extra=both(tough, items(e='WEAKNESS_POLICY')), fixed=True)
+    check(lvl(g, 'Enemy', 0) == 9 and lvl(g, 'Enemy', 3) == 9 and g.rd('wEnemyMonItem') == 0 and 'activated' in txt(r),
+          f"Weakness Policy: super effective -> Atk {lvl(g, 'Enemy', 0)}, SpA {lvl(g, 'Enemy', 3)}, item {g.rd('wEnemyMonItem')} | {txt(r)[-160:]}")
+    g, r = turn2(A3, VG, VG, extra=both(tough, items(e='WEAKNESS_POLICY')), fixed=True)
+    check(lvl(g, 'Enemy', 0) == 7 and g.rd('wEnemyMonItem') == IDS['WEAKNESS_POLICY'],
+          f"Weakness Policy: nothing on a neutral hit (Atk {lvl(g, 'Enemy', 0)})")
+    # Air Balloon: Ground moves miss; any damaging hit pops it
+    g, r = turn2(A3, EQ, VG, extra=both(tough, items(e='AIR_BALLOON')), fixed=True)
+    check(r['dmg'] == 0 and g.rd('wEnemyMonItem') == IDS['AIR_BALLOON'] and 'affect' in txt(r),
+          f"Air Balloon: Earthquake doesn't affect (dmg {r['dmg']}) | {txt(r)[-120:]}")
+    g, r = turn2(A3, VG, VG, extra=both(tough, items(e='AIR_BALLOON')), fixed=True)
+    check(r['dmg'] > 0 and g.rd('wEnemyMonItem') == 0 and 'popped' in txt(r),
+          f"Air Balloon: Vicegrip pops it (dmg {r['dmg']}) | {txt(r)[-120:]}")
+    g0, r0 = turn2(A3, EQ, VG, extra=tough, fixed=True)
+    check(r0['dmg'] > 0, f"(control) Earthquake hits without the balloon ({r0['dmg']})")
+    # Pinch berries: +1 at 1/4 HP or less, at the end of the turn; used up
+    def low_enemy(g): w16(g, 'wEnemyMonMaxHP', 999); w16(g, 'wEnemyMonHP', 240)
+    g, r = turn2(A3, VG, VG, extra=both(low_enemy, items(e='LIECHI_BERRY')), fixed=True)
+    check(lvl(g, 'Enemy', 0) == 8 and g.rd('wEnemyMonItem') == 0, f"Liechi Berry at 1/4 HP: Attack +1 ({lvl(g, 'Enemy', 0)}) | {txt(r)[-120:]}")
+    g, r = turn2(A3, VG, VG, extra=both(tough, items(e='LIECHI_BERRY')), fixed=True)
+    check(lvl(g, 'Enemy', 0) == 7 and g.rd('wEnemyMonItem') == IDS['LIECHI_BERRY'], f"Liechi Berry above 1/4 HP: nothing ({lvl(g, 'Enemy', 0)})")
+    def low_player(g): w16(g, 'wBattleMonHP', 240); w16(g, 'wBattleMonDefense', 999)
+    g, r = turn2(A3, VG, VG, extra=both(tough, low_player, items(p='SALAC_BERRY')), fixed=True)
+    check(lvl(g, 'Player', 2) == 8 and g.rd('wBattleMonItem') == 0, f"Salac Berry (player) at 1/4 HP: Speed +1 ({lvl(g, 'Player', 2)}) | {txt(r)[-120:]}")
+    # Light Clay: Reflect / Light Screen 8 turns instead of 5
+    ids(B3)
+    RF, LS, LE, TA = range(4)
+    for slot, cnt, name in ((RF, 'wPlayerReflectCount', 'Reflect'), (LS, 'wPlayerLightScreenCount', 'Light Screen')):
+        g1, r1 = turn2(B3, slot, LE)
+        g2, r2 = turn2(B3, slot, LE, extra=items(p='LIGHT_CLAY'))
+        check(g2.rd(cnt) - g1.rd(cnt) == 3, f'Light Clay: {name} count {g1.rd(cnt)} -> {g2.rd(cnt)}')
+    # White Herb: Leer's drop undone at once, herb used up
+    g, r = turn2(B3, LE, RF)
+    check(lvl(g, 'Enemy', 1) < 7, f"(control) Leer lowers Defense ({lvl(g, 'Enemy', 1)})")
+    g, r = turn2(B3, LE, RF, extra=items(e='WHITE_HERB'))
+    check(lvl(g, 'Enemy', 1) == 7 and g.rd('wEnemyMonItem') == 0 and 'White Herb' in txt(r),
+          f"White Herb undoes Leer ({lvl(g, 'Enemy', 1)}) | {txt(r)[-120:]}")
+    # Mental Herb: Taunt cured at once
+    g, r = turn2(B3, TA, RF)
+    check(g.rd('wEnemySubStatus2') & 0b1110, f"(control) Taunt lands ({g.rd('wEnemySubStatus2'):#x})")
+    g, r = turn2(B3, TA, RF, extra=items(e='MENTAL_HERB'))
+    check(not g.rd('wEnemySubStatus2') & 0b1110 and g.rd('wEnemyMonItem') == 0 and 'Mental Herb' in txt(r),
+          f"Mental Herb cures Taunt ({g.rd('wEnemySubStatus2'):#x}) | {txt(r)[-120:]}")
 
 print('FAILS:', fails if fails else 'none')

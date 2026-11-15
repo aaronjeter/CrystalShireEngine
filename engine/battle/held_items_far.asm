@@ -506,7 +506,8 @@ BindingBandDamage:
 
 MachoBraceSpeed:
 ; GetTurnOrderSpeed (turn order, Gyro Ball, Electro Ball): bc = the Speed of the battler
-; whose turn it is: halved (at least 1) if it holds a Macho Brace. Preserves de, hl.
+; whose turn it is: halved (at least 1) if it holds a Macho Brace or a Power item.
+; Preserves de, hl.
 	push hl
 	push bc
 	farcall GetUserItem
@@ -514,7 +515,10 @@ MachoBraceSpeed:
 	pop bc
 	pop hl
 	cp HELD_MACHO_BRACE
+	jr z, .halve
+	cp HELD_POWER_ITEM
 	ret nz
+.halve
 	srl b
 	rr c
 	ld a, b
@@ -528,12 +532,15 @@ MachoBraceSpeed:
 EvioliteBoost:
 ; BattleCommand_DamageStats, after TruncateHL_BC and DittoMetalPowder: b = the attacker's
 ; stat, c = the defender's (the opponent's) Def or Sp.Def, both 8-bit. x1.5 if the defender
-; holds an Eviolite and can evolve. Preserves de and hl.
+; holds an Eviolite and can evolve, or an Assault Vest against a special move. Preserves de
+; and hl.
 	push hl
 	push de
 	push bc
 	farcall GetOpponentItem
 	ld a, b
+	cp HELD_ASSAULT_VEST
+	jr z, .assault_vest
 	cp HELD_EVIOLITE
 	jr nz, .no
 	ldh a, [hBattleTurn]
@@ -544,6 +551,7 @@ EvioliteBoost:
 .got_species
 	call EvioliteSpecies
 	jr nc, .no
+.boost
 	pop bc
 ; as pokecrystal's Metal Powder: c = c * 1.5; on overflow, halve both (b too) instead
 	ld a, c
@@ -569,6 +577,14 @@ EvioliteBoost:
 	pop de
 	pop hl
 	ret
+
+.assault_vest
+; x1.5 Sp. Def: special moves only
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	and SPECIAL
+	jr z, .no
+	jr .boost
 
 EvioliteSpecies:
 ; a = species ID. Carry if Eviolite works for it: it has an evolution, and none of its
@@ -786,3 +802,268 @@ LeppaRestoreAmount:
 	pop de
 	pop hl
 	ret
+
+; ---- Held items batch 3 (Light Clay, pinch berries, Weakness Policy, Air Balloon, herbs)
+
+ConsumeOpponentItemForBattle:
+; hl = the battle copy of hBattleTurn's opponent's item: its name in wStringBuffer1, then
+; it's used up for the rest of the battle (back afterwards, like the berries).
+	ld a, [hl]
+	ld [wNamedObjectIndex], a
+	ld [hl], NO_ITEM
+	call SuppressOpponentItem
+	jmp GetItemName
+
+HeldItemRaiseStat:
+; Raise the stat in b (RaiseStat's format: stat | $10 for two stages) of the battler whose
+; turn it is, with the usual text; leftover miss/fail flags don't block it.
+	ld a, [wAttackMissed]
+	push af
+	ld a, [wEffectFailed]
+	push af
+	xor a
+	ld [wAttackMissed], a
+	ld [wEffectFailed], a
+	farcall RaiseStat
+	farcall BattleCommand_StatUpMessage
+	pop af
+	ld [wEffectFailed], a
+	pop af
+	ld [wAttackMissed], a
+	ret
+
+OpponentFainted:
+; z if hBattleTurn's opponent has fainted. Clobbers a, hl.
+	call OpponentHPPointer
+	ld a, [hli]
+	or [hl]
+	ret
+
+OpponentHPPointer:
+; hl = the HP of hBattleTurn's opponent. Clobbers a.
+	ld hl, wEnemyMonHP
+	ldh a, [hBattleTurn]
+	and a
+	ret z
+	ld hl, wBattleMonHP
+	ret
+
+OpponentHPAtMostQuarter:
+; Carry if hBattleTurn's opponent is still standing with at most 1/4 of its max HP.
+; Clobbers a, bc, de, hl.
+	call OpponentHPPointer
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	or b
+	ret z ; fainted (or clears carry)
+	ld a, [hli]
+	ld d, a
+	ld e, [hl]
+	sla c
+	rl b
+	sla c
+	rl b
+	ld a, e
+	sub c
+	ld a, d
+	sbc b
+	ccf ; carry if max HP >= HP * 4
+	ret
+
+ScreenTurns:
+; BattleCommand_Screen: a = the turns of a new Reflect or Light Screen: 8 if the user holds
+; Light Clay, else 5. Preserves bc, de, hl.
+	push hl
+	push de
+	push bc
+	farcall GetUserItem
+	ld a, b
+	pop bc
+	pop de
+	pop hl
+	cp HELD_LIGHT_CLAY
+	ld a, 5
+	ret nz
+	ld a, 8
+	ret
+
+PinchBerry:
+; HandleHealingItems: Liechi / Ganlon / Salac / Petaya / Apicot Berry (HELD_ATTACK_UP ...
+; HELD_SP_DEFENSE_UP): hBattleTurn's opponent's stat +1 once its HP is at most 1/4.
+	farcall GetOpponentItem
+	ld a, b
+	sub HELD_ATTACK_UP
+	ret c
+	cp HELD_SP_DEFENSE_UP - HELD_ATTACK_UP + 1
+	ret nc
+	push hl
+	push af
+	call OpponentHPAtMostQuarter
+	jr nc, .no
+	pop af
+	pop hl
+	push af
+	call ConsumeOpponentItemForBattle
+	farcall SwitchTurnCore
+	ld hl, BattleText_UsersStringBuffer1Activated
+	call StdBattleTextbox
+	pop af
+	add ATTACK
+	ld b, a
+	call HeldItemRaiseStat
+	farjp SwitchTurnCore
+
+.no
+	pop af
+	pop hl
+	ret
+
+TargetHitHeldItems:
+; BattleCommand_CheckFaint, after each hit that did damage to hBattleTurn's opponent (not
+; to its Substitute): an Air Balloon pops; a Weakness Policy raises Attack and Sp. Atk two
+; stages after a super-effective hit, if the holder is still standing. Both are used up
+; for the rest of the battle.
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+	ld hl, wCurDamage
+	ld a, [hli]
+	or [hl]
+	ret z
+	farcall CheckSubstituteOpp
+	ret nz
+	farcall GetOpponentItem
+	ld a, b
+	cp HELD_AIR_BALLOON
+	jr z, .balloon
+	cp HELD_WEAKNESS_POLICY
+	ret nz
+	ld a, [wTypeModifier]
+	and EFFECTIVENESS_MASK
+	cp EFFECTIVE + 1
+	ret c
+	push hl
+	call OpponentFainted
+	pop hl
+	ret z
+	call ConsumeOpponentItemForBattle
+	farcall SwitchTurnCore
+	ld hl, BattleText_UsersStringBuffer1Activated
+	call StdBattleTextbox
+	ld b, $10 | ATTACK
+	call HeldItemRaiseStat
+	ld b, $10 | SP_ATTACK
+	call HeldItemRaiseStat
+	farjp SwitchTurnCore
+
+.balloon
+	call ConsumeOpponentItemForBattle
+	ld hl, AirBalloonPoppedText
+	jmp StdBattleTextbox
+
+OpponentHasAirBalloon:
+; BattleCommand_CheckHit: carry if hBattleTurn's opponent holds an Air Balloon. Preserves
+; bc, de, hl.
+	push hl
+	push de
+	push bc
+	farcall GetOpponentItem
+	ld a, b
+	cp HELD_AIR_BALLOON
+	jr nz, .no
+	scf
+	jmp PopBCDEHL
+.no
+	and a
+	jmp PopBCDEHL
+
+AirBalloonEntrance:
+; Check_Entrance_Ability: the battler whose turn it is just came in.
+	farcall GetUserItem
+	ld a, b
+	cp HELD_AIR_BALLOON
+	ret nz
+	ld hl, AirBalloonFloatingText
+	jmp StdBattleTextbox
+
+WhiteHerbOpponent:
+; After hBattleTurn's opponent's stats were lowered (stat-down moves, Intimidate & co.):
+; with a White Herb, every lowered stage goes back to normal and the herb is used up.
+	farcall GetOpponentItem
+	ld a, b
+	cp HELD_WHITE_HERB
+	ret nz
+	push hl
+	ld hl, wEnemyStatLevels
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_levels
+	ld hl, wPlayerStatLevels
+.got_levels
+	ld bc, (EVASION + 1) << 8 ; b = stages to check, c = how many were lowered
+.loop
+	ld a, [hl]
+	cp BASE_STAT_LEVEL
+	jr nc, .next
+	ld [hl], BASE_STAT_LEVEL
+	inc c
+.next
+	inc hl
+	dec b
+	jr nz, .loop
+	pop hl
+	ld a, c
+	and a
+	ret z
+	call ConsumeOpponentItemForBattle
+	farcall SwitchTurnCore
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .enemy
+	farcall CalcPlayerStats
+	jr .recalculated
+.enemy
+	farcall CalcEnemyStats
+.recalculated
+	farcall SwitchTurnCore
+	ld hl, WhiteHerbText
+	jmp StdBattleTextbox
+
+MentalHerbOpp:
+; After Taunt, Encore, Disable or attraction landed on hBattleTurn's opponent: with a
+; Mental Herb it's cured of all four, and the herb is used up.
+	farcall GetOpponentItem
+	ld a, b
+	cp HELD_MENTAL_HERB
+	ret nz
+	call ConsumeOpponentItemForBattle
+	ld a, BATTLE_VARS_SUBSTATUS2_OPP
+	call GetBattleVarAddr
+	ld a, [hl]
+	and ~SUBSTATUS_TAUNT_MASK
+	ld [hl], a
+	ld a, BATTLE_VARS_SUBSTATUS1_OPP
+	call GetBattleVarAddr
+	res SUBSTATUS_IN_LOVE, [hl]
+	ld a, BATTLE_VARS_SUBSTATUS5_OPP
+	call GetBattleVarAddr
+	res SUBSTATUS_ENCORED, [hl]
+	xor a
+	ld hl, wEnemyEncoreCount
+	ld de, wEnemyDisableCount
+	ld bc, wEnemyDisabledMove
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_counts
+	ld hl, wPlayerEncoreCount
+	ld de, wPlayerDisableCount
+	ld bc, wDisabledMove
+.got_counts
+	xor a
+	ld [hl], a
+	ld [de], a
+	ld [bc], a
+	ld hl, MentalHerbText
+	jmp StdBattleTextbox

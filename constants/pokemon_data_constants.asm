@@ -305,6 +305,7 @@ DEF PP_MASK    EQU %00111111
 ; significant EV values
 DEF MAX_EV EQU 252
 DEF MAX_TOTAL_EV EQU 510
+DEF VITAMIN_EV_CAP EQU 200 ; vitamins raise an EV up to this
 
 DEF SHINY_SPDSPC_DV EQU $ff
 DEF HP_SPDSPC_DV EQU $fe ; trainer parties: a spd/spc DV byte that also gives the Hidden Power type's colors

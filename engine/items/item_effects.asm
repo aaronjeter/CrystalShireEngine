@@ -209,6 +209,21 @@ ItemEffects1:
 	dw ExpCandyEffect      ; EXP_CANDY_M
 	dw ExpCandyEffect      ; EXP_CANDY_L
 	dw ExpCandyEffect      ; EXP_CANDY_XL
+	dw NoEffect            ; POWER_WEIGHT
+	dw NoEffect            ; POWER_BRACER
+	dw NoEffect            ; POWER_BELT
+	dw NoEffect            ; POWER_ANKLET
+	dw NoEffect            ; POWER_LENS
+	dw NoEffect            ; POWER_BAND
+	dw NoEffect            ; CHOICE_BAND
+	dw NoEffect            ; CHOICE_SPECS
+	dw NoEffect            ; CHOICE_SCARF
+	dw NoEffect            ; ASSAULT_VEST
+	dw NoEffect            ; WEAKNESS_POLICY
+	dw NoEffect            ; AIR_BALLOON
+	dw NoEffect            ; LIGHT_CLAY
+	dw NoEffect            ; WHITE_HERB
+	dw NoEffect            ; MENTAL_HERB
 .IndirectEnd:
 
 ItemEffectsKeyItems:
@@ -1231,10 +1246,14 @@ VitaminEffect:
 	ld e, 10 ; no total EV cap (like Gen 2 stat experience), only the vitamin cap below
 	add hl, bc
 	ld a, [hl]
-	cp 100
+	cp VITAMIN_EV_CAP
 	jr nc, NoEffectMessage
 
 	add e
+	cp VITAMIN_EV_CAP + 1
+	jr c, .got_ev
+	ld a, VITAMIN_EV_CAP
+.got_ev
 	ld [hl], a
 	call UpdateStatsAfterItem
 

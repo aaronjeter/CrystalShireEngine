@@ -1,4 +1,4 @@
-"""Exp. Candies (engine/items/exp_candy.asm) and Rare Candy, used from the Pack.
+"""Exp. Candies (engine/items/exp_candy.asm), Rare Candy and vitamins, used from the Pack.
 
 A Machop (Medium Slow; a move every 3 levels, evolves at 28) is the only party
 Pokémon. Each case sets its level, EXP and moves, sets wLevelCap, gives one
@@ -138,6 +138,17 @@ def main():
     check('Rare Candy at level 15: level 16, EXP of level 16, learns Knock Off',
           mon('MON_LEVEL') == 16 and exp == ms(16) and moves()[1] == M('KNOCK_OFF'),
           f'level {mon("MON_LEVEL")}, exp {exp}, moves {moves()}')
+
+    # G: vitamins raise an EV by 10, up to exactly VITAMIN_EV_CAP (200)
+    hp_ev = g.const('MON_HP_EV')
+    for start, want_ev, used in [(100, 110, True), (195, 200, True), (200, 200, False)]:
+        setup(30, 100, 'HP_UP')
+        g.wr(f'wPartyMon1+{hp_ev}', start)
+        use()
+        got = g.rd(f'wPartyMon1+{hp_ev}')
+        left = count('HP_UP')
+        check(f'HP Up at {start} HP EVs: {want_ev}, ' + ('used' if used else 'refused'),
+              got == want_ev and left == (1 if used else 2), f'{got}, {left} left')
 
     bad = [n for n, ok in RESULTS if not ok]
     print(f'{len(RESULTS) - len(bad)}/{len(RESULTS)} passed')

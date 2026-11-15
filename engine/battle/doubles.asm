@@ -1349,7 +1349,6 @@ DoublesBetweenTurnEffects:
 	call HandleMysteryberry
 	call HandleSafeguard
 	call HandleScreens
-	call HandleStatBoostingHeldItems
 	call HandleHealingItems
 	call HandleStatusOrbs
 	call DoublesUpdatePlayersInParty

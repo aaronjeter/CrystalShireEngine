@@ -700,7 +700,7 @@ GiveExperiencePoints:
 
 ; Give EVs
 ; e = 0 for no Pokérus, 1 for Pokérus
-	ld e, 0 ; bit 0: Pokerus (x2), bit 1: Macho Brace (x2)
+	ld de, 0 ; e bit 0: Pokerus (x2), bit 1: Macho Brace (x2); d: a Power item's stat (NUM_STATS - index), or 0
 	ld hl, MON_POKERUS
 	add hl, bc
 	ld a, [hl]
@@ -717,12 +717,21 @@ GiveExperiencePoints:
 	push bc
 	ld b, a
 	farcall GetItemHeldEffect
-	ld a, b
+	ld h, b
+	ld l, c
 	pop bc
 	pop de
+	ld a, h
 	cp HELD_MACHO_BRACE
-	jr nz, .no_macho_brace
+	jr nz, .not_macho_brace
 	set 1, e
+	jr .no_macho_brace
+.not_macho_brace
+	cp HELD_POWER_ITEM
+	jr nz, .no_macho_brace
+	ld a, NUM_STATS
+	sub l
+	ld d, a
 .no_macho_brace
 	ld hl, MON_EVS
 	add hl, bc
@@ -741,6 +750,16 @@ GiveExperiencePoints:
 	rlc b
 	ld a, b
 	and %11
+; a Power item adds 8 to its stat's yield
+	push hl
+	ld l, a
+	ld a, c
+	cp d
+	ld a, l
+	pop hl
+	jr nz, .no_power_item
+	add 8
+.no_power_item
 	bit 0, e
 	jr z, .no_pokerus_boost
 	add a

@@ -17,12 +17,6 @@ BPShops:
 	assert_table_length NUM_BPSHOPS
 
 BPShopTier1: ; cheap
-	bp_item HP_UP, 1
-	bp_item PROTEIN, 1
-	bp_item IRON, 1
-	bp_item CARBOS, 1
-	bp_item CALCIUM, 1
-	bp_item ZINC, 1
 	bp_item EXP_CANDY_S, 1
 	bp_item EXP_CANDY_M, 1
 	bp_item EXP_CANDY_L, 2
@@ -36,6 +30,13 @@ BPShopTier2: ; utility
 	bp_item BINDING_BAND, 4
 	bp_item BERRY_JUICE, 4
 	bp_item EXP_CANDY_XL, 4
+	bp_item MACHO_BRACE, 4
+	bp_item POWER_WEIGHT, 4
+	bp_item POWER_BRACER, 4
+	bp_item POWER_BELT, 4
+	bp_item POWER_ANKLET, 4
+	bp_item POWER_LENS, 4
+	bp_item POWER_BAND, 4
 	bp_item ABILITY_PATCH, 6
 	dw -1
 

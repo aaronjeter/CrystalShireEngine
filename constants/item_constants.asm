@@ -135,11 +135,11 @@
 	const DRAGON_SCALE ; 007F
 	const BERSERK_GENE ; 0080
 	const HOENNITE_X   ; 0081
-	const RAZOR_BERRY  ; 0082
-	const IRON_BERRY   ; 0083
+	const LIECHI_BERRY  ; 0082
+	const GANLON_BERRY   ; 0083
 	const SACRED_ASH   ; 0084
 	const FLOWER_MAIL  ; 0085
-	const HASTE_BERRY  ; 0086
+	const SALAC_BERRY  ; 0086
 	const LIGHT_BALL   ; 0087
 	const NORMAL_BOX   ; 0088
 	const GORGEOUS_BOX ; 0089
@@ -149,8 +149,8 @@
 	const UP_GRADE     ; 008D
 	const ORAN_BERRY        ; 008E
 	const SITRUS_BERRY   ; 008F
-	const FOCUS_BERRY  ; 0090
-	const WARD_BERRY   ; 0091
+	const PETAYA_BERRY  ; 0090
+	const APICOT_BERRY   ; 0091
 	const BRICK_PIECE  ; 0092
 	const SURF_MAIL    ; 0093
 	const LITEBLUEMAIL ; 0094
@@ -186,6 +186,21 @@
 	const EXP_CANDY_M  ; 00B2
 	const EXP_CANDY_L  ; 00B3
 	const EXP_CANDY_XL ; 00B4
+	const POWER_WEIGHT ; 00B5
+	const POWER_BRACER ; 00B6
+	const POWER_BELT   ; 00B7
+	const POWER_ANKLET ; 00B8
+	const POWER_LENS   ; 00B9
+	const POWER_BAND   ; 00BA
+	const CHOICE_BAND  ; 00BB
+	const CHOICE_SPECS ; 00BC
+	const CHOICE_SCARF ; 00BD
+	const ASSAULT_VEST ; 00BE
+	const WEAKNESS_POLICY ; 00BF
+	const AIR_BALLOON  ; 00C0
+	const LIGHT_CLAY   ; 00C1
+	const WHITE_HERB   ; 00C2
+	const MENTAL_HERB  ; 00C3
 DEF NUM_ITEM_POCKET EQU const_value - 1
 
 	const_align 8 ; Key items assume the value of HIGH(FIRST_KEY_ITEM) when storing in bag.

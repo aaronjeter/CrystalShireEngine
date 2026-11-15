@@ -129,11 +129,11 @@ ItemNames::
 	li "Dragon Scale" ; 007F
 	li "Bersrk Gene" ; 0080
 	li "Hoennite X"   ; 0083
-	li "Razor Berry"  ; 0081
-	li "Iron Berry"   ; 0082
+	li "Liechi Berry"  ; 0081
+	li "Ganlon Berry"   ; 0082
 	li "Sacred Ash"   ; 0084
 	li "Flower Mail"  ; 0085
-	li "Haste Berry"  ; 0086
+	li "Salac Berry"  ; 0086
 	li "Light Ball"   ; 0087
 	li "Normal Box"   ; 0088
 	li "Gorgeous Box" ; 0089
@@ -143,8 +143,8 @@ ItemNames::
 	li "Up-Grade"     ; 008D
 	li "Oran Berry"   ; 008E
 	li "Sitrus Berry" ; 008F
-	li "Focus Berry"  ; 0091
-	li "Ward Berry"   ; 0090
+	li "Petaya Berry"  ; 0091
+	li "Apicot Berry"   ; 0090
 	li "Brick Piece"  ; 0092
 	li "Surf Mail"    ; 0093
 	li "Litebluemail" ; 0094
@@ -180,6 +180,21 @@ ItemNames::
 	li "Exp. Candy M" ; 00B2
 	li "Exp. Candy L" ; 00B3
 	li "Exp.Candy XL" ; 00B4
+	li "Power Weight" ; 00B5
+	li "Power Bracer" ; 00B6
+	li "Power Belt"   ; 00B7
+	li "Power Anklet" ; 00B8
+	li "Power Lens"   ; 00B9
+	li "Power Band"   ; 00BA
+	li "Choice Band"  ; 00BB
+	li "Choice Specs" ; 00BC
+	li "Choice Scarf" ; 00BD
+	li "Assault Vest" ; 00BE
+	li "Weak. Policy" ; 00BF
+	li "Air Balloon"  ; 00C0
+	li "Light Clay"   ; 00C1
+	li "White Herb"   ; 00C2
+	li "Mental Herb"  ; 00C3
 	assert_list_length NUM_ITEM_POCKET
 
 KeyItemNames::

@@ -826,6 +826,7 @@ CuteCharmAbility:
 	ld hl, FellInLoveText
 	call StdBattleTextbox
 	farcall HideAbilityPopup
+	farcall MentalHerbOpp
 .done
 	jp GooeyAbility.SwitchTurn
 

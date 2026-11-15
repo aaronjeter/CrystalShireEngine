@@ -516,6 +516,30 @@ ShellBellText:
 	text "!"
 	prompt
 
+AirBalloonFloatingText:
+	text "<USER>"
+	line "is floating with"
+	cont "its Air Balloon!"
+	prompt
+
+AirBalloonPoppedText:
+	text "<TARGET>'s"
+	line "Air Balloon"
+	cont "popped!"
+	prompt
+
+WhiteHerbText:
+	text "<TARGET>"
+	line "restored its stats"
+	cont "with White Herb!"
+	prompt
+
+MentalHerbText:
+	text "<TARGET>"
+	line "cured itself with"
+	cont "its Mental Herb!"
+	prompt
+
 LifeOrbRecoilText:
 	text "<USER>"
 	line "lost some of"
