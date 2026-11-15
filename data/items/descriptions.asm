@@ -185,6 +185,10 @@ ItemDescriptions1:
 	dw BigRootDesc     ; 00AE
 	dw BindingBandDesc ; 00AF
 	dw MachoBraceDesc  ; 00B0
+	dw ExpCandySDesc   ; 00B1
+	dw ExpCandyMDesc   ; 00B2
+	dw ExpCandyLDesc   ; 00B3
+	dw ExpCandyXLDesc  ; 00B4
 .IndirectEnd:
 
 ItemDescriptionsKeyItems:
@@ -928,6 +932,22 @@ BindingBandDesc:
 MachoBraceDesc:
 	db   "Doubles EV gains"
 	next "but halves Speed.@"
+
+ExpCandySDesc:
+	db   "A candy that gives"
+	next "800 Exp. Points.@"
+
+ExpCandyMDesc:
+	db   "A candy that gives"
+	next "3000 Exp. Points.@"
+
+ExpCandyLDesc:
+	db   "A candy that gives"
+	next "10000 Exp. Points.@"
+
+ExpCandyXLDesc:
+	db   "A candy that gives"
+	next "30000 Exp. Points.@"
 
 BrickPieceDesc:
 	db   "A rare chunk of"

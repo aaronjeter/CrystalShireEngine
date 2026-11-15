@@ -32,7 +32,7 @@ RustboroTrainersSchoolTeacherScript:
 	iffalse .Declined
 	checkevent EVENT_FACILITY_INTRO_HOENN
 	iftrue .PrizeRoomOK
-	facility_intro_prize_room
+	facility_intro_prize_room EXP_CANDY_S
 	iffalse .PackFull
 .PrizeRoomOK:
 	setval FACILITY_INTRO_HOENN
@@ -58,7 +58,7 @@ RustboroTrainersSchoolTeacherScript:
 	setevent EVENT_FACILITY_INTRO_HOENN
 	writetext SchoolTeacherPrizeText
 	promptbutton
-	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem EXP_CANDY_S, 3
 	verbosegiveitem ABILITY_CAPSULE, 2
 	verbosegiveitem ABILITY_PATCH
 	writetext SchoolTeacherAfterPrizeText
@@ -208,8 +208,9 @@ SchoolTeacherPrizeText:
 	done
 
 SchoolTeacherAfterPrizeText:
-	text "Rare Candy raises"
-	line "a #mon's level."
+	text "Exp. Candies give"
+	line "Exp. Points to a"
+	cont "#mon."
 
 	para "Ability Capsules"
 	line "and Patches change"

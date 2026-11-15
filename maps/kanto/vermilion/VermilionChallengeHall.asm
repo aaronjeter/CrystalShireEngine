@@ -34,7 +34,7 @@ VermilionChallengeHallReceptionistScript:
 	iffalse .Declined
 	checkevent EVENT_FACILITY_HALL_KANTO
 	iftrue .PrizeRoomOK
-	facility_hall_prize_room WIDE_LENS
+	facility_hall_prize_room WIDE_LENS, EXP_CANDY_M
 	iffalse .PackFull
 .PrizeRoomOK:
 	setval FACILITY_HALL_KANTO
@@ -67,7 +67,7 @@ VermilionChallengeHallReceptionistScript:
 	waitsfx
 	promptbutton
 	verbosegiveitem WIDE_LENS
-	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem EXP_CANDY_M, 3
 	verbosegiveitem ABILITY_CAPSULE, 2
 	verbosegiveitem ABILITY_PATCH
 	writetext VermilionChallengeHallAfterPrizeText

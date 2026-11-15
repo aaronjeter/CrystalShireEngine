@@ -205,6 +205,10 @@ ItemEffects1:
 	dw NoEffect            ; BIG_ROOT
 	dw NoEffect            ; BINDING_BAND
 	dw NoEffect            ; MACHO_BRACE
+	dw ExpCandyEffect      ; EXP_CANDY_S
+	dw ExpCandyEffect      ; EXP_CANDY_M
+	dw ExpCandyEffect      ; EXP_CANDY_L
+	dw ExpCandyEffect      ; EXP_CANDY_XL
 .IndirectEnd:
 
 ItemEffectsKeyItems:
@@ -1423,6 +1427,7 @@ RareCandyEffect:
 	cp b
 	jmp nc, NoEffectMessage
 
+	ld [wTempLevel], a
 	inc a
 	ld [hl], a
 	ld [wCurPartyLevel], a
@@ -1440,7 +1445,12 @@ RareCandyEffect:
 	ld [hli], a
 	ldh a, [hMultiplicand + 2]
 	ld [hl], a
+; fallthrough
 
+ItemLevelUp:
+; The party mon grew from level wTempLevel to wCurPartyLevel: new stats (the
+; HP gained added to its HP), the level-up text and stats box, the moves of
+; every level passed, then evolution.
 	ld a, MON_MAXHP
 	call GetPartyParamLocation
 	ld a, [hli]
@@ -1485,17 +1495,33 @@ RareCandyEffect:
 
 	call WaitPressAorB_BlinkCursor
 
-	xor a ; PARTYMON
-	ld [wMonType], a
-	ld a, [wCurPartySpecies]
-	ld [wTempSpecies], a
-	predef LearnLevelMoves
+	farcall LearnMovesSinceTempLevel
 
 	xor a
 	ld [wForceEvolution], a
 	farcall EvolvePokemon
 
 	jmp UseDisposableItem
+
+ExpCandyEffect:
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+	jmp c, RareCandy_StatBooster_ExitMenu
+
+	call RareCandy_StatBooster_GetParameters
+	farcall ExpCandyGiveExp
+	jmp c, NoEffectMessage
+	push af
+	ld hl, ExpCandyGainedText
+	call PrintText
+	pop af
+	and a
+	jr nz, ItemLevelUp
+	jmp UseDisposableItem
+
+ExpCandyGainedText:
+	text_far _ExpCandyGainedText
+	text_end
 
 HealPowderEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM

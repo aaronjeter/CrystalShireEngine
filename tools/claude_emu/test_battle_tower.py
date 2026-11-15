@@ -110,8 +110,8 @@ def main():
     check('no trainer twice in a row, no Tower head', all(a != b for a, b in zip(ids, ids[1:])) and head not in ids, str(ids))
     check('streak 7, the team locked, the set flag cleared after resting',
           streak(g) == 7 and state(g) & 2 and not state(g) & 1, f'{streak(g)} {state(g):#x}')
-    check('7 BP for the set + 5 for the first 7 wins, and the chosen Life Orb',
-          bp(g) == 12 and I.item_count(g, 'LIFE_ORB'), f'BP {bp(g)}')
+    check('7 BP for the set + 5 for the first 7 wins, the chosen Life Orb and an Exp. Candy XL',
+          bp(g) == 12 and I.item_count(g, 'LIFE_ORB') and I.item_count(g, 'EXP_CANDY_XL'), f'BP {bp(g)}')
     check('the 7-win prize given once (its flag)', state(g) & 4)
     check('the party is back as it was', T.party_block(g) == before)
 

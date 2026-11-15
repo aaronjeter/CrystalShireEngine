@@ -850,6 +850,14 @@ _AbilityChangeConfirmText::
 	text "?"
 	done
 
+_ExpCandyGainedText::
+	text_ram wStringBuffer1
+	text " gained"
+	line "@"
+	text_decimal wStringBuffer2, 2, 5
+	text " Exp. Points!"
+	prompt
+
 _AbilityChangedText::
 	text_ram wStringBuffer1
 	text " now has"

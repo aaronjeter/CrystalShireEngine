@@ -23,7 +23,9 @@ BPShopTier1: ; cheap
 	bp_item CARBOS, 1
 	bp_item CALCIUM, 1
 	bp_item ZINC, 1
-	bp_item RARE_CANDY, 2
+	bp_item EXP_CANDY_S, 1
+	bp_item EXP_CANDY_M, 1
+	bp_item EXP_CANDY_L, 2
 	bp_item PP_UP, 2
 	bp_item ABILITY_CAPSULE, 3
 	dw -1
@@ -33,6 +35,7 @@ BPShopTier2: ; utility
 	bp_item BIG_ROOT, 4
 	bp_item BINDING_BAND, 4
 	bp_item BERRY_JUICE, 4
+	bp_item EXP_CANDY_XL, 4
 	bp_item ABILITY_PATCH, 6
 	dw -1
 

@@ -101,14 +101,16 @@ BattleResortTowerRoomBattlesScript:
 
 .LifeOrb:
 	verbosegiveitem LIFE_ORB
-	sjump .NextSet
+	sjump .Candy7
 
 .Leftovers:
 	verbosegiveitem LEFTOVERS
-	sjump .NextSet
+	sjump .Candy7
 
 .Eviolite:
 	verbosegiveitem EVIOLITE
+.Candy7:
+	verbosegiveitem EXP_CANDY_XL
 	sjump .NextSet
 
 .Bonus7:

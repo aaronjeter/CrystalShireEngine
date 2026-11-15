@@ -34,7 +34,7 @@ MauvilleChallengeHallReceptionistScript:
 	iffalse .Declined
 	checkevent EVENT_FACILITY_HALL_HOENN
 	iftrue .PrizeRoomOK
-	facility_hall_prize_room BINDING_BAND
+	facility_hall_prize_room BINDING_BAND, EXP_CANDY_M
 	iffalse .PackFull
 .PrizeRoomOK:
 	setval FACILITY_HALL_HOENN
@@ -67,7 +67,7 @@ MauvilleChallengeHallReceptionistScript:
 	waitsfx
 	promptbutton
 	verbosegiveitem BINDING_BAND
-	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem EXP_CANDY_M, 3
 	verbosegiveitem ABILITY_CAPSULE, 2
 	verbosegiveitem ABILITY_PATCH
 	writetext MauvilleChallengeHallAfterPrizeText

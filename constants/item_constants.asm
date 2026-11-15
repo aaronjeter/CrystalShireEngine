@@ -182,6 +182,10 @@
 	const BIG_ROOT     ; 00AE
 	const BINDING_BAND ; 00AF
 	const MACHO_BRACE  ; 00B0
+	const EXP_CANDY_S  ; 00B1
+	const EXP_CANDY_M  ; 00B2
+	const EXP_CANDY_L  ; 00B3
+	const EXP_CANDY_XL ; 00B4
 DEF NUM_ITEM_POCKET EQU const_value - 1
 
 	const_align 8 ; Key items assume the value of HIGH(FIRST_KEY_ITEM) when storing in bag.

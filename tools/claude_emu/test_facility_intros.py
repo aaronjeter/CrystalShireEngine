@@ -18,9 +18,9 @@ check = T.check
 
 INTROS = [
     # name, map, warp x, y, steps to the desk, end position, flag, prize
-    ('Kanto', 'TRAINER_HOUSE_B1F', 9, 4, 'LUL', (8, 3), 'EVENT_FACILITY_INTRO_KANTO', 'RARE_CANDY'),
-    ('Johto', 'EARLS_POKEMON_ACADEMY', 1, 12, 'LA', (1, 12), 'EVENT_FACILITY_INTRO_JOHTO', 'RARE_CANDY'),
-    ('Hoenn', 'RUSTBORO_TRAINERS_SCHOOL', 1, 12, 'LA', (1, 12), 'EVENT_FACILITY_INTRO_HOENN', 'RARE_CANDY'),
+    ('Kanto', 'TRAINER_HOUSE_B1F', 9, 4, 'LUL', (8, 3), 'EVENT_FACILITY_INTRO_KANTO', 'EXP_CANDY_S'),
+    ('Johto', 'EARLS_POKEMON_ACADEMY', 1, 12, 'LA', (1, 12), 'EVENT_FACILITY_INTRO_JOHTO', 'EXP_CANDY_S'),
+    ('Hoenn', 'RUSTBORO_TRAINERS_SCHOOL', 1, 12, 'LA', (1, 12), 'EVENT_FACILITY_INTRO_HOENN', 'EXP_CANDY_S'),
 ]
 
 
@@ -109,13 +109,13 @@ def play(mapc, x, y, steps, end, win, full=False, flags=(), locked=False):
         g.script(f'\tgivepoke {s_}, 20', 60)
         for _ in range(6):
             g.press('B', after=20)
-    for it in ('RARE_CANDY', 'ABILITY_CAPSULE', 'ABILITY_PATCH'):
+    for it in ('EXP_CANDY_S', 'ABILITY_CAPSULE', 'ABILITY_PATCH'):
         g.script(f'\ttakeitem {it}, 99', 20)
     if full:  # the item pocket full of Potions: no room for the prizes
         pot = g.const16('POTION')
         n = g.const('MAX_ITEMS')
         g.wr('wNumItems', n)
-        g.wr('wItems', [pot & 0xff, pot >> 8, 1] * n + [0xff])
+        g.wr('wItems', [pot >> 8, pot & 0xff, 1] * n + [0xff])  # index big endian, quantity
     before = T.party_block(g)
     g.money = g.rd('wMoney', 3)
     for d in steps:
@@ -153,8 +153,8 @@ def main():
         g, before, battles, results = play(mapc, x, y, steps, end, win=True)
         check(f'{name}: 3 double battles, all won', battles == 3 and results == [0, 0, 0], str(results))
         check(f'{name}: the whole team healed before rounds 2 and 3', g.healed == [True, True], str(g.healed))
-        check(f'{name}: the cleared flag, 3 Rare Candies, 2 Ability Capsules, 1 Ability Patch',
-              flag(g, fl) and exactly(g, 'RARE_CANDY', 3) and exactly(g, 'ABILITY_CAPSULE', 2) and
+        check(f'{name}: the cleared flag, 3 Exp. Candy S, 2 Ability Capsules, 1 Ability Patch',
+              flag(g, fl) and exactly(g, 'EXP_CANDY_S', 3) and exactly(g, 'ABILITY_CAPSULE', 2) and
               exactly(g, 'ABILITY_PATCH', 1))
         check(f'{name}: the party is back as it was', T.party_block(g) == before)
         check(f'{name}: the 4 picked in party order (the menu starts on the next one)',
@@ -165,9 +165,11 @@ def main():
         check(f'{name}: after a loss, no flag and the party is back', not flag(g, fl) and T.party_block(g) == before)
     name, mapc, x, y, steps, end, fl, prize = INTROS[0]
     g, before, battles, results = play(mapc, x, y, steps, end, win=True, full=True)
+    for _ in range(4):  # close the receptionist's text, so the item checks' scripts run
+        g.press('B', after=40)
     check('Kanto, Pack too full for the prizes: no challenge, no flag, nothing taken',
           battles == 0 and not flag(g, fl) and g.rd('wNumItems') == g.const('MAX_ITEMS') and
-          not item_count(g, 'RARE_CANDY'), str(battles))
+          not item_count(g, 'EXP_CANDY_S'), str(battles))
     bad = [n for n, ok in T.RESULTS if not ok]
     print(f'{len(T.RESULTS) - len(bad)}/{len(T.RESULTS)} passed')
     sys.exit(1 if bad else 0)

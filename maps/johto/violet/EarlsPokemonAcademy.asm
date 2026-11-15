@@ -35,7 +35,7 @@ EarlsPokemonAcademyTeacherScript:
 	iffalse .Declined
 	checkevent EVENT_FACILITY_INTRO_JOHTO
 	iftrue .PrizeRoomOK
-	facility_intro_prize_room
+	facility_intro_prize_room EXP_CANDY_S
 	iffalse .PackFull
 .PrizeRoomOK:
 	setval FACILITY_INTRO_JOHTO
@@ -61,7 +61,7 @@ EarlsPokemonAcademyTeacherScript:
 	setevent EVENT_FACILITY_INTRO_JOHTO
 	writetext AcademyTeacherPrizeText
 	promptbutton
-	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem EXP_CANDY_S, 3
 	verbosegiveitem ABILITY_CAPSULE, 2
 	verbosegiveitem ABILITY_PATCH
 	writetext AcademyTeacherAfterPrizeText
@@ -196,8 +196,9 @@ AcademyTeacherPrizeText:
 	done
 
 AcademyTeacherAfterPrizeText:
-	text "Rare Candy raises"
-	line "a #mon's level."
+	text "Exp. Candies give"
+	line "Exp. Points to a"
+	cont "#mon."
 
 	para "Ability Capsules"
 	line "and Patches change"

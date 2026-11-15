@@ -34,7 +34,7 @@ GoldenrodChallengeHallReceptionistScript:
 	iffalse .Declined
 	checkevent EVENT_FACILITY_HALL_JOHTO
 	iftrue .PrizeRoomOK
-	facility_hall_prize_room BIG_ROOT
+	facility_hall_prize_room BIG_ROOT, EXP_CANDY_M
 	iffalse .PackFull
 .PrizeRoomOK:
 	setval FACILITY_HALL_JOHTO
@@ -67,7 +67,7 @@ GoldenrodChallengeHallReceptionistScript:
 	waitsfx
 	promptbutton
 	verbosegiveitem BIG_ROOT
-	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem EXP_CANDY_M, 3
 	verbosegiveitem ABILITY_CAPSULE, 2
 	verbosegiveitem ABILITY_PATCH
 	writetext GoldenrodChallengeHallAfterPrizeText

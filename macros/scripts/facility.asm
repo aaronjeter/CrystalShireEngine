@@ -34,9 +34,10 @@ MACRO facility_battles
 ENDM
 
 MACRO facility_intro_prize_room
-; wScriptVar = TRUE if the intro prizes (3 Rare Candies, 2 Ability Capsules,
-; an Ability Patch) all fit in the Pack (it tries giving them, then takes them back)
-	giveitem RARE_CANDY, 3
+; facility_intro_prize_room CANDY: wScriptVar = TRUE if the prizes (3 of CANDY,
+; 2 Ability Capsules, an Ability Patch) all fit in the Pack (it tries giving
+; them, then takes them back)
+	giveitem \1, 3
 	iffalse .prize_room_none\@
 	giveitem ABILITY_CAPSULE, 2
 	iffalse .prize_room_candy\@
@@ -44,25 +45,25 @@ MACRO facility_intro_prize_room
 	iffalse .prize_room_capsules\@
 	takeitem ABILITY_PATCH
 	takeitem ABILITY_CAPSULE, 2
-	takeitem RARE_CANDY, 3
+	takeitem \1, 3
 	setval TRUE
 	sjump .prize_room_done\@
 .prize_room_capsules\@
 	takeitem ABILITY_CAPSULE, 2
 .prize_room_candy\@
-	takeitem RARE_CANDY, 3
+	takeitem \1, 3
 .prize_room_none\@
 	setval FALSE
 .prize_room_done\@
 ENDM
 
 MACRO facility_hall_prize_room
-; facility_hall_prize_room ITEM: wScriptVar = TRUE if an intermediate facility's
-; prizes (ITEM, 3 Rare Candies, 2 Ability Capsules, an Ability Patch) all fit
-; in the Pack (it tries giving them, then takes them back)
+; facility_hall_prize_room ITEM, CANDY: wScriptVar = TRUE if a hall's prizes
+; (ITEM, 3 of CANDY, 2 Ability Capsules, an Ability Patch) all fit in the Pack
+; (it tries giving them, then takes them back)
 	giveitem \1
 	iffalse .hall_room_none\@
-	facility_intro_prize_room
+	facility_intro_prize_room \2
 	takeitem \1
 .hall_room_none\@
 ENDM

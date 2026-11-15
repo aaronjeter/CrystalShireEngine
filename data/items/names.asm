@@ -176,6 +176,10 @@ ItemNames::
 	li "Big Root"     ; 00AE
 	li "Binding Band" ; 00AF
 	li "Macho Brace"  ; 00B0
+	li "Exp. Candy S" ; 00B1
+	li "Exp. Candy M" ; 00B2
+	li "Exp. Candy L" ; 00B3
+	li "Exp.Candy XL" ; 00B4
 	assert_list_length NUM_ITEM_POCKET
 
 KeyItemNames::

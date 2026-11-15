@@ -34,7 +34,7 @@ LilycoveChallengeHallReceptionistScript:
 	iffalse .Declined
 	checkevent EVENT_FACILITY_HARD_HOENN
 	iftrue .PrizeRoomOK
-	facility_hall_prize_room SHELL_BELL
+	facility_hall_prize_room SHELL_BELL, EXP_CANDY_L
 	iffalse .PackFull
 .PrizeRoomOK:
 	setval FACILITY_HARD_HOENN
@@ -67,7 +67,7 @@ LilycoveChallengeHallReceptionistScript:
 	waitsfx
 	promptbutton
 	verbosegiveitem SHELL_BELL
-	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem EXP_CANDY_L, 3
 	verbosegiveitem ABILITY_CAPSULE, 2
 	verbosegiveitem ABILITY_PATCH
 	writetext LilycoveChallengeHallAfterPrizeText

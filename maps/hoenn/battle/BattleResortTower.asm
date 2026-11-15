@@ -99,9 +99,16 @@ BattleResortTowerReceptionistScript:
 .ItemRoom:
 	giveitem LEFTOVERS
 	iffalse .NoRoom
+	giveitem EXP_CANDY_XL
+	iffalse .NoRoomLeftovers
+	takeitem EXP_CANDY_XL
 	takeitem LEFTOVERS
 	setval TRUE
 	end
+
+.NoRoomLeftovers:
+	takeitem LEFTOVERS
+	sjump .NoRoom
 
 .BallRoom:
 	giveitem MASTER_BALL

@@ -34,7 +34,7 @@ SaffronChallengeHallReceptionistScript:
 	iffalse .Declined
 	checkevent EVENT_FACILITY_HARD_KANTO
 	iftrue .PrizeRoomOK
-	facility_hall_prize_room EXPERT_BELT
+	facility_hall_prize_room EXPERT_BELT, EXP_CANDY_L
 	iffalse .PackFull
 .PrizeRoomOK:
 	setval FACILITY_HARD_KANTO
@@ -67,7 +67,7 @@ SaffronChallengeHallReceptionistScript:
 	waitsfx
 	promptbutton
 	verbosegiveitem EXPERT_BELT
-	verbosegiveitem RARE_CANDY, 3
+	verbosegiveitem EXP_CANDY_L, 3
 	verbosegiveitem ABILITY_CAPSULE, 2
 	verbosegiveitem ABILITY_PATCH
 	writetext SaffronChallengeHallAfterPrizeText
