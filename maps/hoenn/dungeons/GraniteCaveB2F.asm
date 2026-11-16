@@ -36,8 +36,8 @@ GraniteCaveB2F_Sandshrew:
 GraniteCaveB2FRock:
 	jumpstd SmashRockScript
 
-GraniteCaveB2FHiddenNugget1:
-	hiddenitem NUGGET, EVENT_GRANITE_CAVE_B2F_NUGGET1
+GraniteCaveB2FHiddenMachoBrace:
+	hiddenitem MACHO_BRACE, EVENT_GRANITE_CAVE_B2F_NUGGET1
 
 GraniteCaveB2FHiddenNugget2:
 	hiddenitem NUGGET, EVENT_GRANITE_CAVE_B2F_NUGGET2
@@ -93,7 +93,7 @@ GraniteCaveB2F_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event  14, 55, BGEVENT_ITEM, GraniteCaveB2FHiddenNugget1
+	bg_event  14, 55, BGEVENT_ITEM, GraniteCaveB2FHiddenMachoBrace
 	bg_event  04, 31, BGEVENT_ITEM, GraniteCaveB2FHiddenNugget2
 
 	def_object_events

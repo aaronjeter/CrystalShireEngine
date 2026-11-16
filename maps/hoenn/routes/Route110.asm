@@ -178,8 +178,8 @@ Route110CyclingRoadSignText:
 Route110RareCandy:
 	itemball RARE_CANDY
 
-Route110Lemonade:
-	itemball LEMONADE
+Route110ExpCandyS:
+	itemball EXP_CANDY_S
 
 PokefansKalIsaSeenText:
 	text "Isa: Plusle and"
@@ -226,4 +226,4 @@ Route110_MapEvents:
 	object_event 06, 08, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route110FruitTree1, -1
 	object_event 07, 08, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route110FruitTree2, -1
 	object_event  9, 37, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route110RareCandy, EVENT_ROUTE_110_RARE_CANDY
-	object_event 30, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route110Lemonade, EVENT_ROUTE_110_LEMONADE
+	object_event 30, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route110ExpCandyS, EVENT_ROUTE_110_LEMONADE

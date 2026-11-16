@@ -161,8 +161,8 @@ BillsHouseSign:
 Route25Protein:
 	itemball PROTEIN
 
-Route25HiddenPotion:
-	hiddenitem POTION, EVENT_ROUTE_25_HIDDEN_POTION
+Route25HiddenExpCandyS:
+	hiddenitem EXP_CANDY_S, EVENT_ROUTE_25_HIDDEN_POTION
 
 Route25MistysDateLeavesMovement1:
 	big_step DOWN
@@ -394,7 +394,7 @@ Route25_MapEvents:
 
 	def_bg_events
 	bg_event 45,  5, BGEVENT_READ, BillsHouseSign
-	bg_event  4,  5, BGEVENT_ITEM, Route25HiddenPotion
+	bg_event  4,  5, BGEVENT_ITEM, Route25HiddenExpCandyS
 
 	def_object_events
 	object_event 46,  9, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND

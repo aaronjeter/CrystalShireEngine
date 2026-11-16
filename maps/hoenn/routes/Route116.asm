@@ -176,8 +176,8 @@ Route116FruitTree2:
 Route116Revive:
 	itemball REVIVE
 
-Route116Ether:
-	itemball ETHER
+Route116ExpCandyS:
+	itemball EXP_CANDY_S
 
 PupilsJoeyJanSeenText:
 	text "Joey: We trained"
@@ -218,5 +218,5 @@ Route116_MapEvents:
 	object_event  20, 02, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route116FruitTree1, -1
 	object_event  21, 02, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route116FruitTree2, -1
 	object_event  11, 19, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route116Revive, EVENT_ROUTE_116_REVIVE
-	object_event  55, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route116Ether, EVENT_ROUTE_116_ETHER
+	object_event  55, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route116ExpCandyS, EVENT_ROUTE_116_ETHER
 	

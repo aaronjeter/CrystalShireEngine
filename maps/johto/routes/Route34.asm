@@ -217,8 +217,8 @@ Route34Nugget:
 Route34HiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_ROUTE_34_HIDDEN_RARE_CANDY
 
-Route34HiddenSuperPotion:
-	hiddenitem SUPER_POTION, EVENT_ROUTE_34_HIDDEN_SUPER_POTION
+Route34HiddenExpCandyS:
+	hiddenitem EXP_CANDY_S, EVENT_ROUTE_34_HIDDEN_SUPER_POTION
 
 Route34MovementData_DayCareManWalksBackInside:
 	slow_step LEFT
@@ -463,7 +463,7 @@ Route34_MapEvents:
 	bg_event 13, 33, BGEVENT_READ, Route34TrainerTips
 	bg_event 10, 13, BGEVENT_READ, DayCareSign
 	bg_event  8, 32, BGEVENT_ITEM, Route34HiddenRareCandy
-	bg_event 17, 19, BGEVENT_ITEM, Route34HiddenSuperPotion
+	bg_event 17, 19, BGEVENT_ITEM, Route34HiddenExpCandyS
 
 	def_object_events
 	object_event 10, 27, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperTodd1, -1

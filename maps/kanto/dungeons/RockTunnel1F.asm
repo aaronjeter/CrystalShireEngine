@@ -13,11 +13,11 @@ RockTunnel1FElixer:
 RockTunnel1FTMSteelWing:
 	itemball TM_STEEL_WING
 
-RockTunnel1FHiddenXAccuracy:
-	hiddenitem X_ACCURACY, EVENT_ROCK_TUNNEL_1F_HIDDEN_X_ACCURACY
+RockTunnel1FHiddenExpCandyM:
+	hiddenitem EXP_CANDY_M, EVENT_ROCK_TUNNEL_1F_HIDDEN_X_ACCURACY
 
-RockTunnel1FHiddenXDefend:
-	hiddenitem X_DEFEND, EVENT_ROCK_TUNNEL_1F_HIDDEN_X_DEFEND
+RockTunnel1FHiddenPowerBelt:
+	hiddenitem POWER_BELT, EVENT_ROCK_TUNNEL_1F_HIDDEN_X_DEFEND
 
 RockTunnel1FWildRock:
 	jumpstd SmashRockScript
@@ -36,8 +36,8 @@ RockTunnel1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 24,  4, BGEVENT_ITEM, RockTunnel1FHiddenXAccuracy
-	bg_event 21, 15, BGEVENT_ITEM, RockTunnel1FHiddenXDefend
+	bg_event 24,  4, BGEVENT_ITEM, RockTunnel1FHiddenExpCandyM
+	bg_event 21, 15, BGEVENT_ITEM, RockTunnel1FHiddenPowerBelt
 
 	def_object_events
 	object_event  4, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnel1FElixer, EVENT_ROCK_TUNNEL_1F_ELIXER

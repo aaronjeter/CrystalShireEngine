@@ -602,8 +602,8 @@ MauvilleGameCornerBeautyText:
 MauvilleGameCornerHiddenLeftovers:
 	hiddenitem LEFTOVERS, EVENT_GOT_HOENN_LEFTOVERS
 
-MauvilleGameCornerHiddenSodaPop:
-	hiddenitem SODA_POP, EVENT_MAUVILLE_GAME_CORNER_SODA_POP
+MauvilleGameCornerHiddenLoadedDice:
+	hiddenitem LOADED_DICE, EVENT_MAUVILLE_GAME_CORNER_SODA_POP
 
 
 MauvilleGameCornerMoveTutorScript:
@@ -812,7 +812,7 @@ MauvilleGameCorner_MapEvents:
 	bg_event  01, 18, BGEVENT_READ, MauvilleGameCornerCardFlipMachineScript
 	bg_event  01, 19, BGEVENT_READ, MauvilleGameCornerCardFlipMachineScript
 	bg_event  19, 11, BGEVENT_ITEM, MauvilleGameCornerHiddenLeftovers
-	bg_event  13, 23, BGEVENT_ITEM, MauvilleGameCornerHiddenSodaPop
+	bg_event  13, 23, BGEVENT_ITEM, MauvilleGameCornerHiddenLoadedDice
 
 
 	def_object_events

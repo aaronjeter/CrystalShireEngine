@@ -8,8 +8,8 @@ TinTower8F_MapScripts:
 
 	def_callbacks
 
-TinTower8FNugget:
-	itemball NUGGET
+TinTower8FAirBalloon:
+	itemball AIR_BALLOON
 
 TinTower8FMaxElixer:
 	itemball MAX_ELIXER
@@ -33,6 +33,6 @@ TinTower8F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  7, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower8FNugget, EVENT_TIN_TOWER_8F_NUGGET
+	object_event  7, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower8FAirBalloon, EVENT_TIN_TOWER_8F_NUGGET
 	object_event 11,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower8FMaxElixer, EVENT_TIN_TOWER_8F_MAX_ELIXER
 	object_event  3,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower8FFullRestore, EVENT_TIN_TOWER_8F_FULL_RESTORE

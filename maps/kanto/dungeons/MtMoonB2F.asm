@@ -156,8 +156,8 @@ MtMoonDomeFossil:
 MtMoonMoonstone1:
 	itemball MOON_STONE
 
-MtMoonMoonstone2:
-	hiddenitem MOON_STONE, EVENT_MOUNT_MOON_MOONSTONE2
+MtMoonB2FHiddenMetronome:
+	hiddenitem METRONOME_ITEM, EVENT_MOUNT_MOON_MOONSTONE2
 
 
 GruntsMtMoonSeenText:
@@ -190,7 +190,7 @@ MtMoonB2F_MapEvents:
 	def_coord_events
 
 	def_bg_events	
-	bg_event 32, 13, BGEVENT_ITEM, MtMoonMoonstone2
+	bg_event 32, 13, BGEVENT_ITEM, MtMoonB2FHiddenMetronome
 
 
 	def_object_events

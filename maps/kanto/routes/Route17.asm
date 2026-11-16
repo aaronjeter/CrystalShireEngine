@@ -39,8 +39,8 @@ TrainerBikerGlenn:
 .Script:
 	trainerafter BikerGlennAfterBattleText
 
-Route17HiddenMaxEther:
-	hiddenitem MAX_ETHER, EVENT_ROUTE_17_HIDDEN_MAX_ETHER
+Route17HiddenPowerAnklet:
+	hiddenitem POWER_ANKLET, EVENT_ROUTE_17_HIDDEN_MAX_ETHER
 
 Route17HiddenMaxElixer:
 	hiddenitem MAX_ELIXER, EVENT_ROUTE_17_HIDDEN_MAX_ELIXER
@@ -119,7 +119,7 @@ Route17_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  9, 54, BGEVENT_ITEM, Route17HiddenMaxEther
+	bg_event  9, 54, BGEVENT_ITEM, Route17HiddenPowerAnklet
 	bg_event  8, 77, BGEVENT_ITEM, Route17HiddenMaxElixer
 
 	def_object_events

@@ -22,6 +22,15 @@ BPShopTier1: ; cheap
 	bp_item EXP_CANDY_L, 2
 	bp_item PP_UP, 2
 	bp_item ABILITY_CAPSULE, 3
+	bp_item POWER_HERB, 3
+	bp_item METRONOME_ITEM, 3
+	bp_item LOADED_DICE, 3
+	bp_item ABSORB_BULB, 3
+	bp_item CELL_BATTERY, 3
+	bp_item SNOWBALL, 3
+	bp_item LUMINOUS_MOSS, 3
+	bp_item SAFETY_GOGGLES, 3
+	bp_item ZOOM_LENS, 3
 	dw -1
 
 BPShopTier2: ; utility

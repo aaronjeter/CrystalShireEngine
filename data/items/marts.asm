@@ -63,8 +63,10 @@ MartCherrygrove:
 	dw FLOWER_MAIL
 
 MartViolet:
-	db 1 ; # items
+	db 3 ; # items
 	dw SHARP_BEAK
+	dw ZOOM_LENS
+	dw EVERSTONE
 
 MartAzalea:
 	db 4 ; # items
@@ -190,9 +192,11 @@ MartMahogany2:
 	dw BIG_MUSHROOM
 
 MartBlackthorn:
-	db 2 ; # items
+	db 4 ; # items
 	dw DRAGON_FANG
 	dw MAX_ETHER
+	dw DRAGON_SCALE
+	dw POWER_HERB
 
 MartViridian:
 	db 3 ; # items
@@ -201,13 +205,17 @@ MartViridian:
 	dw FLOWER_MAIL
 
 MartPewter:
-	db 1 ; # items
+	db 3 ; # items
 	dw HARD_STONE
+	dw SAFETY_GOGGLES
+	dw MOON_STONE
 
 MartCerulean:
-	db 2 ; # items
+	db 4 ; # items
 	dw MYSTIC_WATER
 	dw SURF_MAIL
+	dw ABSORB_BULB
+	dw LUMINOUS_MOSS
 
 MartLavender:
 	db 4 ; # items
@@ -292,15 +300,18 @@ MartCeladon5F2:
 	dw POWER_BAND
 
 MartFuchsia:
-	db 3 ; # items
+	db 4 ; # items
 	dw POISON_BARB
 	dw SMOKE_BALL
 	dw FLOWER_MAIL
+	dw BLACK_SLUDGE
 
 MartSaffron:
-	db 2 ; # items
+	db 4 ; # items
 	dw TWISTEDSPOON
 	dw ELIXER
+	dw METRONOME_ITEM
+	dw ZOOM_LENS
 
 MartMtMoon:
 	db 6 ; # items
@@ -422,13 +433,16 @@ MartOldale:
 	dw FLOWER_MAIL
 
 MartPetalburg:
-	db 1 ; # items
+	db 3 ; # items
 	dw PINK_BOW
+	dw LOADED_DICE
+	dw METRONOME_ITEM
 
 MartRustboro:
-	db 2 ; # items
+	db 3 ; # items
 	dw HARD_STONE
 	dw EVERSTONE
+	dw SAFETY_GOGGLES
 
 MartVerdanturf:
 	db 3 ; # items
@@ -443,8 +457,10 @@ MartSlateport:
 	dw LITEBLUEMAIL
 
 MartMauville:
-	db 1 ; # items
+	db 3 ; # items
 	dw MAGNET
+	dw CELL_BATTERY
+	dw THUNDERSTONE
 
 MartFallarbor:
 	db 3 ; # items
@@ -461,13 +477,16 @@ MartLavaridge:
 	dw REVIVAL_HERB
 
 MartFortree:
-	db 1 ; # items
+	db 3 ; # items
 	dw SHARP_BEAK
+	dw POWER_HERB
+	dw ZOOM_LENS
 
 MartMossdeep:
-	db 2 ; # items
+	db 3 ; # items
 	dw TWISTEDSPOON
 	dw MAX_ETHER
+	dw METRONOME_ITEM
 
 MartSootopolis:
 	db 3 ; # items

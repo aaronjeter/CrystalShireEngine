@@ -129,8 +129,8 @@ OlivineLighthouseAmphy:
 	special FadeInPalettes_EnableDynNoApply
 	end
 
-OlivineLighthouse6FSuperPotion:
-	itemball SUPER_POTION
+OlivineLighthouse6FExpCandyM:
+	itemball EXP_CANDY_M
 
 OlivineLighthouseJasmineLeavesUpMovement:
 	slow_step UP
@@ -321,6 +321,6 @@ OlivineLighthouse6F_MapEvents:
 	def_object_events
 	object_event  8,  8, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseJasmine, EVENT_OLIVINE_LIGHTHOUSE_JASMINE
 	object_event  9,  8, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseAmphy, -1
-	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FSuperPotion, EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION
+	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FExpCandyM, EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION
 	object_event  9,  2, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineLighthouse_Zapdos, -1
 	object_event  2, 13, SPRITE_MON_3, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineLighthouse_Electabuzz, -1

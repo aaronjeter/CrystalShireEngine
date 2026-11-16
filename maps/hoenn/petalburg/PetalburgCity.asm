@@ -86,8 +86,8 @@ PetalburgCooltrainerFText:
 PetalburgRareCandy:
 	itemball RARE_CANDY
 
-PetalburgPokeball:
-	itemball POKE_BALL
+PetalburgExpCandyM:
+	itemball EXP_CANDY_M
 
 Djinn_CoronaScript:
 	cry MARS
@@ -152,5 +152,5 @@ PetalburgCity_MapEvents:
 	object_event 23, 23, SPRITE_GRANNY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PetalburgGrannyScript, -1
 	object_event 14, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PetalburgCooltrainerFScript, -1
 	object_event 06, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgRareCandy, EVENT_PETALBURG_CITY_RARE_CANDY
-	object_event 27, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgPokeball, EVENT_PETALBURG_CITY_POKE_BALL
+	object_event 27, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgExpCandyM, EVENT_PETALBURG_CITY_POKE_BALL
 	object_event 05, 28, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_CoronaScript, EVENT_GOT_CORONA

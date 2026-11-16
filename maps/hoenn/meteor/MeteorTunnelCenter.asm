@@ -20,8 +20,8 @@ MeteorTunnelCenterMonSpritesCallback:
 MeteorTunnelCenterMoonStone:
 	itemball MOON_STONE
 
-MeteorTunnelCenterEscapeRope:
-	itemball ESCAPE_ROPE
+MeteorTunnelCenterExpCandyL:
+	itemball EXP_CANDY_L
 
 MeteorTunnelCenterStarPiece:
 	itemball STAR_PIECE
@@ -60,7 +60,7 @@ MeteorTunnelCenter_MapEvents:
 
 	def_object_events
 	object_event 09, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelCenterMoonStone, EVENT_METEOR_TUNNEL_CENTER_MOON_STONE
-	object_event 20, 34, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelCenterEscapeRope, EVENT_METEOR_TUNNEL_CENTER_ESCAPE_ROPE
+	object_event 20, 34, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelCenterExpCandyL, EVENT_METEOR_TUNNEL_CENTER_ESCAPE_ROPE
 	object_event 37, 21, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelCenterStarPiece, EVENT_METEOR_TUNNEL_CENTER_STAR_PIECE
 	object_event 37, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MeteorTunnelCenterRootFossil, EVENT_GOT_FOSSIL_ROOT_METEOR_CENTER
 	object_event 02, 27, SPRITE_MON_1, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeteorTunnelCenterLunatone, -1

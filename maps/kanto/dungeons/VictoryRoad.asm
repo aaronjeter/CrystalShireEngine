@@ -27,17 +27,17 @@ VictoryRoadMaxRevive:
 VictoryRoadFullRestore:
 	itemball FULL_RESTORE
 
-VictoryRoadFullHeal:
-	itemball FULL_HEAL
+VictoryRoadExpCandyL:
+	itemball EXP_CANDY_L
 
 VictoryRoadHPUp:
 	itemball HP_UP
 
-VictoryRoadHiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_VICTORY_ROAD_HIDDEN_MAX_POTION
+VictoryRoadHiddenAssaultVest:
+	hiddenitem ASSAULT_VEST, EVENT_VICTORY_ROAD_HIDDEN_MAX_POTION
 
-VictoryRoadHiddenFullHeal:
-	hiddenitem FULL_HEAL, EVENT_VICTORY_ROAD_HIDDEN_FULL_HEAL
+VictoryRoadHiddenExpCandyL:
+	hiddenitem EXP_CANDY_L, EVENT_VICTORY_ROAD_HIDDEN_FULL_HEAL
 
 VictoryRoad_MapEvents:
 	db 0, 0 ; filler
@@ -57,14 +57,14 @@ VictoryRoad_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  3, 29, BGEVENT_ITEM, VictoryRoadHiddenMaxPotion
-	bg_event  3, 65, BGEVENT_ITEM, VictoryRoadHiddenFullHeal
+	bg_event  3, 29, BGEVENT_ITEM, VictoryRoadHiddenAssaultVest
+	bg_event  3, 65, BGEVENT_ITEM, VictoryRoadHiddenExpCandyL
 
 	def_object_events
 	object_event  3, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadTMEarthquake, EVENT_VICTORY_ROAD_TM_EARTHQUAKE
 	object_event 12, 48, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadMaxRevive, EVENT_VICTORY_ROAD_MAX_REVIVE
 	object_event 18, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadFullRestore, EVENT_VICTORY_ROAD_FULL_RESTORE
-	object_event 15, 48, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadFullHeal, EVENT_VICTORY_ROAD_FULL_HEAL
+	object_event 15, 48, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadExpCandyL, EVENT_VICTORY_ROAD_FULL_HEAL
 	object_event  7, 38, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VictoryRoadHPUp, EVENT_VICTORY_ROAD_HP_UP
 	object_event 11,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VictoryRoadWildRock, -1
 	object_event 10, 50, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VictoryRoadWildRock, -1

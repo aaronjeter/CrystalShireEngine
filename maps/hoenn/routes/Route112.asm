@@ -133,8 +133,8 @@ Route112FruitTree1:
 Route112FruitTree2:
 	fruittree FRUITTREE_ROUTE_112_2
 
-Route112Lemonade:
-	itemball LEMONADE
+Route112PowerBand:
+	itemball POWER_BAND
 
 HikersTrentIkeSeenText:
 	text "Tex: Mt.Chimney"
@@ -173,5 +173,5 @@ Route112_MapEvents:
 	object_event 13, 11, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, Route112ShaylaScript, -1
 	object_event 22, 04, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route112FruitTree1, -1
 	object_event 23, 04, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route112FruitTree2, -1
-	object_event 30, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route112Lemonade, EVENT_ROUTE_112_LEMONADE
+	object_event 30, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route112PowerBand, EVENT_ROUTE_112_LEMONADE
 	

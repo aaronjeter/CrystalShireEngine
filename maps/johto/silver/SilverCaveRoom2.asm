@@ -23,8 +23,8 @@ SilverCaveRoom2UltraBall:
 SilverCaveRoom2MarvelScale:
 	itemball MARVEL_SCALE
 
-SilverCaveRoom2HiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_SILVER_CAVE_ROOM_2_HIDDEN_MAX_POTION
+SilverCaveRoom2HiddenWeaknessPolicy:
+	hiddenitem WEAKNESS_POLICY, EVENT_SILVER_CAVE_ROOM_2_HIDDEN_MAX_POTION
 
 SilverCaveRoom2MewtwoText:
 	text "You feel a"
@@ -117,7 +117,7 @@ SilverCaveRoom2_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 14, 31, BGEVENT_ITEM, SilverCaveRoom2HiddenMaxPotion
+	bg_event 14, 31, BGEVENT_ITEM, SilverCaveRoom2HiddenWeaknessPolicy
 	bg_event 19, 04, BGEVENT_UP, MewtwoShrineScript
 
 	def_object_events

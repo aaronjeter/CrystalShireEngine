@@ -20,8 +20,8 @@ TrainerSailorTerrell:
 .Script:
 	trainerafter SailorTerrellAfterBattleText
 
-OlivineLighthouse3FEther:
-	itemball ETHER
+OlivineLighthouse3FExpCandyM:
+	itemball EXP_CANDY_M
 
 SailorTerrellSeenText:
 	text "Sailors are both"
@@ -85,4 +85,4 @@ OlivineLighthouse3F_MapEvents:
 	def_object_events
 	object_event  9,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSailorTerrell, -1
 	object_event 13,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerGentlemanPreston, -1
-	object_event  8,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse3FEther, EVENT_OLIVINE_LIGHTHOUSE_3F_ETHER
+	object_event  8,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse3FExpCandyM, EVENT_OLIVINE_LIGHTHOUSE_3F_ETHER

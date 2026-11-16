@@ -9,8 +9,8 @@ IcePathB2FBlackthornSide_MapScripts:
 IcePathB2FBlackthornSideTMRest:
 	itemball TM_REST
 
-IcePathB2FBlackthornSideHiddenIceHeal:
-	hiddenitem ICE_HEAL, EVENT_ICE_PATH_B2F_BLACKTHORN_SIDE_HIDDEN_ICE_HEAL
+IcePathB2FBlackthornSideHiddenSnowball:
+	hiddenitem SNOWBALL, EVENT_ICE_PATH_B2F_BLACKTHORN_SIDE_HIDDEN_ICE_HEAL
 
 IcePathB2FBlackthornSide_MapEvents:
 	db 0, 0 ; filler
@@ -22,7 +22,7 @@ IcePathB2FBlackthornSide_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  2, 10, BGEVENT_ITEM, IcePathB2FBlackthornSideHiddenIceHeal
+	bg_event  2, 10, BGEVENT_ITEM, IcePathB2FBlackthornSideHiddenSnowball
 
 	def_object_events
 	object_event  8, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IcePathB2FBlackthornSideTMRest, EVENT_ICE_PATH_B2F_BLACKTHORN_SIDE_TM_REST

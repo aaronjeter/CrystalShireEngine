@@ -50,8 +50,8 @@ TrainerHikerSidney:
 Route9Sign:
 	jumptext Route9SignText
 
-Route9HiddenEther:
-	hiddenitem ETHER, EVENT_ROUTE_9_HIDDEN_ETHER
+Route9HiddenExpCandyM:
+	hiddenitem EXP_CANDY_M, EVENT_ROUTE_9_HIDDEN_ETHER
 
 CamperDeanSeenText:
 	text "I came to explore"
@@ -166,7 +166,7 @@ Route9_MapEvents:
 
 	def_bg_events
 	bg_event 23,  7, BGEVENT_READ, Route9Sign
-	bg_event  4,  9, BGEVENT_ITEM, Route9HiddenEther
+	bg_event  4,  9, BGEVENT_ITEM, Route9HiddenExpCandyM
 
 	def_object_events
 	object_event 22,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperDean, -1

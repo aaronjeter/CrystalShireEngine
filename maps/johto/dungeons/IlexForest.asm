@@ -402,8 +402,8 @@ IlexForestRevive:
 IlexForestSilverLeaf:
 	itemball SILVER_LEAF
 
-IlexForestAntidote:
-	itemball ANTIDOTE
+IlexForestLuminousMoss:
+	itemball LUMINOUS_MOSS
 
 IlexForestEther:
 	itemball ETHER
@@ -411,8 +411,8 @@ IlexForestEther:
 IlexForestHiddenEther:
 	hiddenitem ETHER, EVENT_ILEX_FOREST_HIDDEN_ETHER
 
-IlexForestHiddenSuperPotion:
-	hiddenitem SUPER_POTION, EVENT_ILEX_FOREST_HIDDEN_SUPER_POTION
+IlexForestHiddenExpCandyS:
+	hiddenitem EXP_CANDY_S, EVENT_ILEX_FOREST_HIDDEN_SUPER_POTION
 
 IlexForestHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_ILEX_FOREST_HIDDEN_FULL_HEAL
@@ -980,7 +980,7 @@ IlexForest_MapEvents:
 	def_bg_events
 	bg_event  3, 17, BGEVENT_READ, IlexForestSignpost
 	bg_event 11,  7, BGEVENT_ITEM, IlexForestHiddenEther
-	bg_event 22, 14, BGEVENT_ITEM, IlexForestHiddenSuperPotion
+	bg_event 22, 14, BGEVENT_ITEM, IlexForestHiddenExpCandyS
 	bg_event  1, 17, BGEVENT_ITEM, IlexForestHiddenFullHeal
 	bg_event  8, 22, BGEVENT_UP, IlexForestShrineScript
 
@@ -994,7 +994,7 @@ IlexForest_MapEvents:
 	object_event  3, 24, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestLassScript, EVENT_ILEX_FOREST_LASS
 	object_event 12,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerBugCatcherWayne, -1
 	object_event  9, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestSilverLeaf, EVENT_ILEX_FOREST_SILVER_LEAF
-	object_event 17,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestAntidote, EVENT_ILEX_FOREST_ANTIDOTE
+	object_event 17,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestLuminousMoss, EVENT_ILEX_FOREST_ANTIDOTE
 	object_event 27,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestEther, EVENT_ILEX_FOREST_ETHER
 	object_event 11,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPupilsKen, -1
 	object_event 11,  7, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPupilsAmy, -1
