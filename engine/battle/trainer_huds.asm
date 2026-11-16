@@ -143,6 +143,7 @@ DrawEnemyHUDBorder:
 	dec a
 	ret nz
 	farcall NuzlockeHUDIcon
+	farcall BossHUDPips
 	ld a, [wTempEnemyMonSpecies]
 	call CheckCaughtMon
 	ret z

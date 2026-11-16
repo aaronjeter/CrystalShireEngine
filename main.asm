@@ -725,6 +725,11 @@ SECTION "Nuzlocke", ROMX
 
 INCLUDE "engine/events/nuzlocke.asm"
 
+SECTION "Boss Battles", ROMX
+
+INCLUDE "engine/battle/boss.asm"
+INCLUDE "data/battle/bosses.asm"
+
 SECTION "Follower Talk", ROMX
 
 INCLUDE "engine/overworld/follower_talk.asm"

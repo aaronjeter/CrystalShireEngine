@@ -98,6 +98,7 @@ RedGyarados:
 	closetext
 	loadwildmon GYARADOS, 15
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCESHINY
+	loadboss BOSS_RED_GYARADOS
 	startbattle
 	ifequal LOSE, .NotBeaten
 	disappear LAKEOFRAGE_GYARADOS

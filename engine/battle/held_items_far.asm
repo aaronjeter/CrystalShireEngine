@@ -863,7 +863,7 @@ ConsumeOpponentItemForBattle:
 	call SuppressOpponentItem
 	jmp GetItemName
 
-HeldItemRaiseStat:
+HeldItemRaiseStat::
 ; Raise the stat in b (RaiseStat's format: stat | $10 for two stages) of the battler whose
 ; turn it is, with the usual text; leftover miss/fail flags don't block it.
 	ld a, [wAttackMissed]

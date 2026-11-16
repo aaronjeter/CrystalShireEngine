@@ -1193,3 +1193,8 @@ ENDM
 MACRO monpal_end
 	dw -1
 ENDM
+
+MACRO loadboss
+; makes the next wild battle a boss battle (BOSS_*)
+	loadmem wBossID, \1
+ENDM

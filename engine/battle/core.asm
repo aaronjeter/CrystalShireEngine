@@ -103,6 +103,7 @@ DoBattle:
 	ld a, [wEnemyMonAbility]
 	ld [wTempAbility], a
 	farcall Check_Entrance_Ability
+	farcall BossAura
 
 	call SetPlayerTurn
 	call SpikesDamage
@@ -892,6 +893,10 @@ TryEnemyFlee:
 	dec a
 	jr nz, .Stay
 
+	ld a, [wBossID]
+	and a
+	jr nz, .Stay
+
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, .Stay
@@ -1154,8 +1159,8 @@ RunBattleAction:
 	ld a, [wForcedSwitch]
 	and a
 	jr nz, .stop
-	call HasEnemyFainted
-	jr z, .enemy_fainted
+	call .CheckEnemyFainted
+	ret c
 	call HasPlayerFainted
 	jr z, .player_fainted
 	call SetPlayerTurn
@@ -1182,12 +1187,15 @@ RunBattleAction:
 	jr nz, .stop
 	call HasPlayerFainted
 	jr z, .player_fainted
-	call HasEnemyFainted
-	jr z, .enemy_fainted
+	call .CheckEnemyFainted
+	ret c
 .enemy_residual
 	call SetEnemyTurn
 	call ResidualDamage
-	jr z, .enemy_fainted
+	jr nz, .refresh
+	call .EnemyFainted
+	ret c
+.refresh
 	call RefreshBattleHuds
 	and a
 	ret
@@ -1197,9 +1205,14 @@ RunBattleAction:
 	scf
 	ret
 
-.enemy_fainted
+.CheckEnemyFainted:
+; Returns carry if the enemy's mon fainted (the action list stops); a boss's new
+; bar lets the turn go on.
+	call HasEnemyFainted
+	ret nz
+.EnemyFainted:
 	call HandleEnemyMonFaint
-	scf
+	ccf
 	ret
 
 .fled
@@ -2417,11 +2430,23 @@ AnimateAreaHPBar::
 
 HandleEnemyMonFaint:
 ; The enemy's mon fainted (the player's may have too). Faint, then replace.
+; Returns carry if a boss took a new bar instead (nothing fainted).
+	farcall BossBarBreak
+	jr nc, .faint
+	ld a, [wBattleEnded]
+	and a
+	ret nz ; caught automatically: the battle is over
+	scf
+	ret
+
+.faint
 	call EnemyMonFaint
 	ld a, [wBattleEnded]
 	and a
 	ret nz
-	jr ReplaceFaintedMons
+	call ReplaceFaintedMons
+	and a
+	ret
 
 EnemyMonFaint:
 ; The faint part: animations, EXP, and the win or loss if a side has no mon left
@@ -6929,6 +6954,7 @@ LoadTrainerOrWildMonPic:
 	ret
 
 InitEnemy:
+	farcall BossInit
 	ld a, [wOtherTrainerClass]
 	and a
 	jr nz, InitEnemyTrainer ; trainer
@@ -7117,6 +7143,7 @@ CleanUpBattleRAM:
 	ld [wLowHealthAlarm], a
 	ld [wBattleMode], a
 	ld [wBattleType], a
+	ld [wBossID], a
 	ld [wAttackMissed], a
 	ld [wTempWildMonSpecies], a
 	ld [wOtherTrainerClass], a

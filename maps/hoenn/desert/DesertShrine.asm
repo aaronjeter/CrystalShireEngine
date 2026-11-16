@@ -23,6 +23,7 @@ DesertShrineUnown:
 	closetext
 	loadwildmon UNOWNX, 16
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCESHINY
+	loadboss BOSS_UNOWN_X
 	startbattle
 	reloadmapafterbattle
 	ifequal LOSE, .NotBeaten

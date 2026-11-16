@@ -30,6 +30,7 @@ MoltresLair_Moltres:
 	writetext MoltresLairMoltresText
 	closetext
 	loadwildmon MOLTRES, 15
+	loadboss BOSS_MOLTRES
 	startbattle
 	reloadmapafterbattle
 	disappear MOLTRESLAIR_MOLTRES

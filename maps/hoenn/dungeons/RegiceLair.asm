@@ -14,6 +14,7 @@ RegiceLairMonSpritesCallback:
 RegiceScript:
 	cry REGICE
 	loadwildmon REGICE, 16
+	loadboss BOSS_REGICE
 	startbattle
 	reloadmapafterbattle
 	disappear REGICELAIR_REGICE

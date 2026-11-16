@@ -291,6 +291,9 @@ PokeBallEffect:
 	cp NUZLOCKE_FAMILY_CAUGHT
 	jmp c, Ball_NuzlockeRefusedMessage
 
+	farcall BossBallBounces
+	jmp c, Ball_NotUsed
+
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
 	jr z, .room_in_party
@@ -2309,6 +2312,9 @@ PokeDollEffect:
 	ld a, [wBattleMode]
 	dec a ; WILD_BATTLE?
 	jr nz, .not_wild
+	ld a, [wBossID]
+	and a
+	jr nz, .not_wild
 	inc a ; TRUE
 	ld [wForcedSwitch], a
 	ld a, [wBattleResult]
@@ -2867,6 +2873,7 @@ Ball_NuzlockeRefusedMessage:
 	ld hl, NuzlockeFamilyCaughtText
 .got_text
 	call PrintText
+Ball_NotUsed:
 	; Item wasn't used.
 	ld a, $2
 	ld [wItemEffectSucceeded], a

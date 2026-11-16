@@ -15,6 +15,7 @@ MeteorPeakMonSpritesCallback:
 RayquazaScript:
 	cry RAYQUAZA
 	loadwildmon RAYQUAZA, 11
+	loadboss BOSS_RAYQUAZA
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_GOT_RAYQUAZA

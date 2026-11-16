@@ -14,6 +14,7 @@ RegirockLairMonSpritesCallback:
 RegirockScript:
 	cry REGIROCK
 	loadwildmon REGIROCK, 16
+	loadboss BOSS_REGIROCK
 	startbattle
 	reloadmapafterbattle
 	disappear REGIROCKLAIR_REGIROCK

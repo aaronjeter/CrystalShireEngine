@@ -30,6 +30,7 @@ ArticunoLair_Articuno:
 	writetext ArticunoLairArticunoText
 	closetext
 	loadwildmon ARTICUNO, 14
+	loadboss BOSS_ARTICUNO
 	startbattle
 	reloadmapafterbattle
 	disappear ARTICUNOLAIR_ARTICUNO

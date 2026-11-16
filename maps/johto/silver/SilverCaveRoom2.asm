@@ -42,6 +42,7 @@ SilverCaveRoom2_Mewtwo:
 	waitbutton
 	closetext
 	loadwildmon MEWTWO, 14
+	loadboss BOSS_MEWTWO
 	startbattle
 	reloadmapafterbattle
 	disappear SILVERCAVEROOM2_MEWTWO

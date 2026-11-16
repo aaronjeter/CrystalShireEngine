@@ -14,6 +14,7 @@ RegisteelLairMonSpritesCallback:
 RegisteelScript:
 	cry REGISTEEL
 	loadwildmon REGISTEEL, 16
+	loadboss BOSS_REGISTEEL
 	startbattle
 	reloadmapafterbattle
 	disappear REGISTEELLAIR_REGISTEEL

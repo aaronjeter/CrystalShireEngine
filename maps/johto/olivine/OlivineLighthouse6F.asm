@@ -291,6 +291,7 @@ OlivineLighthouse_Zapdos:
 	writetext OlivineLighthouseZapdosHappyText
 	closetext
 	loadwildmon ZAPDOS, 15
+	loadboss BOSS_ZAPDOS
 	startbattle
 	reloadmapafterbattle
 	disappear OLIVINELIGHTHOUSE6F_ZAPDOS

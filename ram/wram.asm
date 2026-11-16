@@ -3451,6 +3451,13 @@ wSpawnQueueTail:: dw
 wSpawnSpotCount:: dw ; entries in wSpawnAreaSpots
 
 
+SECTION "Boss Battle RAM", WRAM0
+
+wBossID:: db ; BOSS_* (loadboss); BOSS_NONE in a normal battle
+wBossBarsLeft:: db ; extra health bars the boss has left
+wBossBarsTotal:: db ; extra health bars it started with
+
+
 SECTION "AI Learnset RAM", WRAMX, BANK[1]
 
 ; the player's battler's default moveset (16-bit move indexes; 0: none), for the switch
