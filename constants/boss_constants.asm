@@ -46,4 +46,5 @@ DEF BOSS_EXTRA_BARS rb ; extra health bars (1 to BOSS_MAX_EXTRA_BARS)
 DEF BOSS_FLAGS      rb ; BOSS_* flags
 DEF BOSS_AURA       rw ; aura entry, or 0
 DEF BOSS_PHASES     rw ; phase table (one command list or 0 per extra bar, in break order), or 0
+DEF BOSS_AI         rb ; WILDAI_* move-choice profile (engine/battle/ai/wild_ai.asm)
 DEF BOSS_RECORD_SIZE EQU _RS

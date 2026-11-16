@@ -35,6 +35,14 @@ BossInit::
 	ld [wBossID], a
 	ret
 
+BossGetAIProfile::
+; a = the boss's WILDAI_* move-choice profile.
+	call GetBossRecord
+	ld bc, BOSS_AI
+	add hl, bc
+	ld a, [hl]
+	ret
+
 GetBossRecord::
 ; hl = wBossID's entry in BossRecords
 	ld a, [wBossID]

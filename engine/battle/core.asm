@@ -6026,37 +6026,8 @@ ParseEnemyAction:
 	jr .struggle
 
 .enough_pp
-	ld a, [wBattleMode]
-	dec a
-	jr nz, .skip_load
-; wild
-.loop2
-	ld hl, wEnemyMonMoves
-	call BattleRandom
-	maskbits NUM_MOVES
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [wEnemyDisableCount]
-	swap a
-	and $f
-	dec a
-	cp c
-	jr z, .loop2
-	ld a, [hl]
-	and a
-	jr z, .loop2
-	farcall EnemyTauntBlocksMove
-	jr c, .loop2
-	ld hl, wEnemyMonPP
-	add hl, bc
-	ld b, a
-	ld a, [hl]
-	and PP_MASK
-	jr z, .loop2
-	ld a, c
-	ld [wCurEnemyMoveNum], a
-	ld a, b
+; the AI chose (AIChooseMove), wild Pokémon included
+	jr .skip_load
 
 .finish
 	ld [wCurEnemyMove], a

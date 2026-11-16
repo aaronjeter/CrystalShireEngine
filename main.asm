@@ -651,6 +651,7 @@ INCLUDE "engine/battle/core_far.asm"
 INCLUDE "engine/battle/ai/doubles_ai.asm"
 INCLUDE "engine/battle/ai/switch_score.asm"
 INCLUDE "engine/battle/ai/move_plan.asm"
+INCLUDE "engine/battle/ai/wild_ai.asm"
 
 
 SECTION "Effect Commands 2", ROMX, BANK[$7e] ; not floating: it must not fill the room it frees in Effect Commands

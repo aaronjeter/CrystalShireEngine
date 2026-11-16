@@ -7,13 +7,9 @@ AIChooseMove:
 
 AIScoreMoves:
 ; Fill wEnemyAIMoveScores for the loaded enemy against the loaded player battler (the
-; trainer class's scoring layers). Carry if the AI doesn't choose (wild, link, locked in).
+; trainer class's scoring layers, or a wild Pokémon's profile: wild_ai.asm). Carry if
+; the AI doesn't choose (link, locked in).
 ; Double battles call this once per foe (doubles_ai.asm).
-
-; Wildmons attack at random.
-	ld a, [wBattleMode]
-	dec a
-	jr z, .no_choice
 
 	ld a, [wLinkMode]
 	and a
@@ -75,6 +71,13 @@ AIScoreMoves:
 
 ; Apply AI scoring layers depending on the trainer class.
 .ApplyLayers:
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE?
+	jr nz, .trainer
+	farcall WildAIProfilePointer
+	jr .battle_tower_skip
+
+.trainer
 	ld hl, TrainerClassAttributes + TRNATTR_AI_MOVE_WEIGHTS
 
 	; If we have a battle in Battle Tower, just load the attributes of the first
@@ -130,6 +133,11 @@ AIScoreMoves:
 	jr .CheckLayer
 
 .done
+	ld a, [wBattleMode]
+	dec a ; WILD_BATTLE?
+	jr nz, .scored
+	farcall WildAIAdjustScores
+.scored
 	and a
 	ret
 

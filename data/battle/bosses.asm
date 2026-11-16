@@ -1,8 +1,13 @@
 MACRO boss
-; extra bars, flags, aura, phases
+; extra bars, flags, aura, phases[, WILDAI_* profile (default WILDAI_BOSS)]
 	assert \1 >= 1 && \1 <= BOSS_MAX_EXTRA_BARS, "a boss needs 1 to {d:BOSS_MAX_EXTRA_BARS} extra bars"
 	db \1, \2
 	dw \3, \4
+	if _NARG > 4
+		db \5
+	else
+		db WILDAI_BOSS
+	endc
 ENDM
 
 MACRO boss_stat
@@ -31,9 +36,10 @@ BossRecords:
 ; indexed by BOSS_* - 1
 ; BOSS_AUTO_CATCH for the one-time encounters; the others come back (their map
 ; object has no event flag, or it's cleared after the League) and use balls.
+; The last argument picks how it chooses its moves (WILDAI_BOSS if left out).
 	table_width BOSS_RECORD_SIZE
-	boss 1, BOSS_AUTO_CATCH, RedGyaradosAura, RedGyaradosPhases ; BOSS_RED_GYARADOS
-	boss 1, BOSS_AUTO_CATCH, UnownXAura,      UnownXPhases      ; BOSS_UNOWN_X
+	boss 1, BOSS_AUTO_CATCH, RedGyaradosAura, RedGyaradosPhases, WILDAI_FERAL   ; BOSS_RED_GYARADOS
+	boss 1, BOSS_AUTO_CATCH, UnownXAura,      UnownXPhases,      WILDAI_CUNNING ; BOSS_UNOWN_X
 	boss 1, 0, ArticunoAura,    ArticunoPhases    ; BOSS_ARTICUNO
 	boss 1, 0, ZapdosAura,      ZapdosPhases      ; BOSS_ZAPDOS
 	boss 1, 0, MoltresAura,     MoltresPhases     ; BOSS_MOLTRES

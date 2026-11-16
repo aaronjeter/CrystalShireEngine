@@ -76,7 +76,7 @@ def run_away(g):
 
 def set_flags(g, boss, flags):
     """ROM-patch a boss record's flags."""
-    g.poke_rom(g.rom_addr('BossRecords') + (boss - 1) * 6 + 1, [flags])
+    g.poke_rom(g.rom_addr('BossRecords') + (boss - 1) * g.const('BOSS_RECORD_SIZE') + 1, [flags])
 
 
 def case_wild(name, boss_const, hard, bars):
@@ -169,8 +169,11 @@ def party_move_id(g, i, slot):
 
 
 def set_enemy_move(g, move_id):
+    """The enemy's only move; also its choice for this turn (the AI chose before the menu)."""
     g.wr('wEnemyMonMoves', [move_id, 0, 0, 0])
     g.wr('wEnemyMonPP', [10, 0, 0, 0])
+    g.wr('wCurEnemyMove', move_id)
+    g.wr('wCurEnemyMoveNum', 0)
 
 
 def idx(log, text, start=0):
@@ -349,7 +352,8 @@ def case_pips():
     menus, log, res = fight(g, boss, [('move', 0)] * 8, lambda g, t: seen.append(pip_tiles(g)),
                             species='MEWTWO', level=20)
     want = [[two, one], [two, blank], [one, blank], [blank, blank]]
-    check('pips: one per extra bar left, redrawn on each new bar', seen[:4] == want, f'seen={seen}')
+    steps = [p for i, p in enumerate(seen) if i == 0 or p != seen[i - 1]]  # a bar can take several turns
+    check('pips: one per extra bar left, redrawn on each new bar', steps == want, f'seen={seen}')
 
 
 BASE = 7  # BASE_STAT_LEVEL
@@ -582,7 +586,7 @@ def case_encounter(i, hard=NORMAL):
         check(f'{label}: a boss battle', False, str(e)[:200])
         return
     boss = g.const(boss_c)
-    rec = g.rom_addr('BossRecords') + (boss - 1) * 6
+    rec = g.rom_addr('BossRecords') + (boss - 1) * g.const('BOSS_RECORD_SIZE')
     bars = g.rom()[rec] + (1 if hard == HARD else 0)
     ram, bt = boss_ram(g), g.rd('wBattleType')
     check(f'{label} ({"Hard" if hard == HARD else "Normal"}): {boss_c}, {bars} extra bars, {btype}, aura shown',

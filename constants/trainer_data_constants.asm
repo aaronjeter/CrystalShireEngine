@@ -23,6 +23,16 @@ DEF NUM_TRAINER_ATTRIBUTES EQU _RS
 	shift_const AI_ABILITY
 	shift_const AI_PLAN ; engine/battle/ai/move_plan.asm (runs last)
 	shift_const AI_KNOWS_LEARNSETS ; not a layer: the switch scorer assumes the player's level-up moves (switch_score.asm)
+
+; wild AI profiles (WildAIProfiles, engine/battle/ai/wild_ai.asm)
+	const_def
+	const WILDAI_RANDOM   ; no layers: a random usable move
+	const WILDAI_BASIC    ; no wasted moves
+	const WILDAI_SKITTISH ; Basic; Roar, Whirlwind or Teleport to escape when hurt
+	const WILDAI_FERAL    ; its strongest hits
+	const WILDAI_CUNNING  ; status, set-up and smart moves
+	const WILDAI_BOSS     ; the trainer bosses' layers
+DEF NUM_WILDAI_PROFILES EQU const_value
 DEF NO_AI EQU 0
 
 ; TRNATTR_AI_ITEM_SWITCH bit flags

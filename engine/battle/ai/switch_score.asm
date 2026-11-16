@@ -851,14 +851,20 @@ SAI_PursuitKO:
 SAI_PrepareLearnset:
 ; wSAILearnset = the player's battler's default moveset (the last NUM_MOVES different
 ; level-up moves at its level, as FillMoves gives a new Pokemon) if the trainer class has
-; AI_KNOWS_LEARNSETS (bosses); else empty.
+; AI_KNOWS_LEARNSETS (bosses) or it's a wild boss battle; else empty.
 	ld hl, wSAILearnset
 	ld bc, NUM_MOVES * 2
 	xor a
 	rst ByteFill
 	ld a, [wBattleMode]
 	cp TRAINER_BATTLE
-	ret nz
+	jr z, .trainer
+	ld a, [wBossID]
+	and a
+	ret z
+	jr .knows
+
+.trainer
 	ld a, [wTrainerClass]
 	dec a
 	ld hl, TrainerClassAttributes + TRNATTR_AI_MOVE_WEIGHTS
@@ -869,6 +875,7 @@ SAI_PrepareLearnset:
 	bit AI_KNOWS_LEARNSETS_F - 8, h
 	ret z
 
+.knows
 	ld a, [wBattleMonSpecies]
 	call GetPokemonIndexFromID
 	ld b, h
