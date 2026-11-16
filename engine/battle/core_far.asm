@@ -233,6 +233,7 @@ _LoadEnemyMon:
 	ld b, a
 	call BattleRandom
 	ld c, a
+	call ShinyCharmBattleDVs
 
 .UpdateDVs:
 ; Input DVs in register bc

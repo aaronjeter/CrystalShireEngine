@@ -901,7 +901,7 @@ SHARED = {
     'wTypeModifier': 'per action', 'wCriticalHit': 'per action', 'wAttackMissed': 'per action',
     'wBattleReward': 'battle', 'wBattleAnimParam': 'per action', 'wBattleScriptBuffer': 'per action',
     'wBattleScriptBufferAddress': 'per action', 'wTurnEnded': 'per action', 'wIsConfusionDamage': 'per action',
-    'wUnusedPlayerLockedMove': 'unused', 'wLinkBattleRNCount': 'link', 'wPayDayMoney': 'battle',
+    'wLinkBattleRNCount': 'link', 'wPayDayMoney': 'battle',
     'wAlreadyDisobeyed': 'per action', 'wWhichMonFaintedFirst': 'per turn', 'wAlreadyFailed': 'per action',
     'wBattleLowHealthAlarm': 'HUD', 'wPlayerScreens': 'side (step 6)', 'wEnemyScreens': 'side (step 6)',
     'wPlayerSafeguardCount': 'side', 'wPlayerLightScreenCount': 'side', 'wPlayerReflectCount': 'side',
@@ -913,7 +913,7 @@ SHARED = {
     'wWildMonPP': 'wild battle', 'wAmuletCoin': 'battle', 'wSomeoneIsRampaging': 'per action (cleared in DoTurn)',
     'wAbilitySlotOverride': 'Pokemon creation, not battle', 'wBattleMode': 'battle',
     # unnamed padding after a variable
-    'wWildMon+1': 'padding', 'wPlayerTurnsTaken+1': 'padding', 'wUnusedPlayerLockedMove+1': 'padding', 'wEnemyItemState+1': 'padding', 'wEnemyItemState+2': 'padding',
+    'wWildMon+1': 'padding', 'wPlayerTurnsTaken+1': 'padding', 
     'wPayDayMoney+3': 'padding', 'wEnemyReflectCount+1': 'padding',
 }
 # per-battler variables outside wBattle that the list must cover

@@ -1087,6 +1087,7 @@ PlaceWildSpawn:
 	call Random
 	ld [wWildSpawnDVs], a
 	call Random
+	farcall ShinyCharmSpawnDV
 	ld [wWildSpawnDVs + 1], a
 	ld a, [wWildSpawnCount]
 	add FIRST_SPAWN_SPRITE_SLOT

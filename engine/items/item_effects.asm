@@ -224,6 +224,15 @@ ItemEffects1:
 	dw NoEffect            ; LIGHT_CLAY
 	dw NoEffect            ; WHITE_HERB
 	dw NoEffect            ; MENTAL_HERB
+	dw NoEffect            ; POWER_HERB
+	dw NoEffect            ; METRONOME_ITEM
+	dw NoEffect            ; LOADED_DICE
+	dw NoEffect            ; ABSORB_BULB
+	dw NoEffect            ; CELL_BATTERY
+	dw NoEffect            ; SNOWBALL
+	dw NoEffect            ; LUMINOUS_MOSS
+	dw NoEffect            ; SAFETY_GOGGLES
+	dw NoEffect            ; ZOOM_LENS
 .IndirectEnd:
 
 ItemEffectsKeyItems:
@@ -254,6 +263,7 @@ ItemEffectsKeyItems:
 	dw HatchetEffect	  ; HATCHET
 	dw PickaxeEffect	  ; PICKAXE
 	dw FlippersEffect	  ; FLIPPERS
+	dw NoEffect            ; SHINY_CHARM
 .IndirectEnd:
 
 ItemEffectsBalls:

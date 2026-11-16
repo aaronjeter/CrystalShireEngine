@@ -472,8 +472,8 @@ wPlayerTurnsTaken:: db
 wPlayerSubstituteHP:: db
 wEnemySubstituteHP::  db
 
-wUnusedPlayerLockedMove:: db
-	ds 1
+wPlayerChoiceMove:: db ; the move a Choice item locked the player's battler into, or 0
+wEnemyChoiceMove::  db
 
 wCurPlayerMove:: db
 wCurEnemyMove::  db
@@ -483,7 +483,8 @@ wLinkBattleRNCount::
 	db
 
 wEnemyItemState:: db
-	ds 2
+wPlayerMetronomeCount:: db ; consecutive uses of the same move (Metronome item), 0-5
+wEnemyMetronomeCount::  db
 wCurEnemyMoveNum:: db
 
 wEnemyHPAtTimeOfPlayerSwitch:: dw

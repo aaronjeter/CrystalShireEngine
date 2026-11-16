@@ -2117,7 +2117,7 @@ HandleWeather:
 	cp STEEL
 	ret z
 
-	call CheckMagicGuardUser
+	farcall WeatherDamageBlocked
 	ret c
 
 	call GetEighthMaxHP
@@ -2154,7 +2154,7 @@ HandleWeather:
 	cp ICE
 	ret z
 
-	call CheckMagicGuardUser
+	farcall WeatherDamageBlocked
 	ret c
 
 
@@ -3723,6 +3723,7 @@ rept 4
 	ld [hli], a
 endr
 	ld [hl], a
+	ld [wEnemyChoiceMove], a
 	ld [wEnemyDisableCount], a
 	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
@@ -4214,6 +4215,7 @@ endr
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
+	ld [wPlayerChoiceMove], a
 	ld [wPlayerDisableCount], a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
@@ -5662,9 +5664,6 @@ _MoveSelectionScreen:
 	dec a
 	cp c
 	jr z, .move_disabled
-	ld a, [wUnusedPlayerLockedMove]
-	and a
-	jr nz, .skip2
 	ld a, [wMenuCursorY]
 	ld hl, wBattleMonMoves
 	ld c, a
@@ -5683,7 +5682,7 @@ _MoveSelectionScreen:
 	ld [wNamedObjectIndex], a
 	call GetMoveName
 	call SetPlayerTurn ; <USER>
-	ld hl, CantUseAfterTauntText
+	farcall GetMoveBlockedText
 	jr .place_textbox_start_over
 
 .move_disabled

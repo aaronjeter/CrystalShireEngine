@@ -373,6 +373,8 @@ DEF BSLOT_JUST_GOT_FROZEN    rb
 DEF BSLOT_LINKS              rb NUM_BATTLER_LINKS ; + BATTLER_LINK_*
 DEF BSLOT_LAST_DAMAGE        rw ; damage from the last attacker this turn (Counter, Mirror Coat)
 DEF BSLOT_FUTURE_SIGHT_TARGET rb ; slot mask Future Sight will hit
+DEF BSLOT_CHOICE_MOVE        rb ; the move a Choice item locked it into, or 0
+DEF BSLOT_METRONOME_COUNT    rb ; consecutive uses of the same move
 ; player slots only
 DEF BSLOT_USED_MOVES         rb NUM_MOVES
 DEF BSLOT_LAST_PLAYER_MON    rb

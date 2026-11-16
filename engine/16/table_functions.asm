@@ -132,11 +132,11 @@ MoveTableGarbageCollection:
 		BSLOT_MON + BATTLEMON_MOVES, BSLOT_MON + BATTLEMON_MOVES + 1, BSLOT_MON + BATTLEMON_MOVES + 2, BSLOT_MON + BATTLEMON_MOVES + 3, \
 		BSLOT_USED_MOVES, BSLOT_USED_MOVES + 1, BSLOT_USED_MOVES + 2, BSLOT_USED_MOVES + 3, \
 		BSLOT_MOVE_STRUCT + MOVE_ANIM, BSLOT_CUR_MOVE, BSLOT_DISABLED_MOVE, BSLOT_LAST_COUNTER_MOVE, \
-		BSLOT_LAST_MOVE, BSLOT_TRAPPING_MOVE
+		BSLOT_LAST_MOVE, BSLOT_TRAPPING_MOVE, BSLOT_CHOICE_MOVE
 	ld a, [wNamedObjectIndex] ;or any of its aliases...
 	call .set_bit
 	; only valid sometimes
-	___conversion_bitmap_check_values .set_bit, wCurPlayerMove, wCurEnemyMove, wDisabledMove, wEnemyDisabledMove, wUnusedPlayerLockedMove, \
+	___conversion_bitmap_check_values .set_bit, wCurPlayerMove, wCurEnemyMove, wDisabledMove, wEnemyDisabledMove, wPlayerChoiceMove, wEnemyChoiceMove, \
 	                                            wLastPlayerMove, wLastEnemyMove, wLastPlayerCounterMove, wLastEnemyCounterMove, \
 	                                            wPlayerTrappingMove, wEnemyTrappingMove, wPlayerMoveStructAnimation, wEnemyMoveStructAnimation, \
 	                                            wPutativeTMHMMove

@@ -101,9 +101,11 @@ check(x > 0 and y == x, f'Iron Fist leaves Crunch alone: {x} -> {y}')
 
 # 3. contact abilities, with Fire Punch
 def trials(n, **kw):
-    # uneven waits: with a fixed step most trials land on the same battle RNG values
-    return [turn(S1, 0, 3, wait=60 + i * i * 3 + i, **kw) for i in range(n)]
-r = trials(10, enemy_ab='ABILITY_FRIGID')
+    # wide, uneven waits: short steps keep landing on the same battle RNG values, and any
+    # change to battle code shifts which ones (Nov 15: Frigid and Static went 0/10 after the
+    # batch 4 items, then 10/25 with these waits)
+    return [turn(S1, 0, 3, wait=200 + 37 * i + (i * i) % 11, **kw) for i in range(n)]
+r = trials(20, enemy_ab='ABILITY_FRIGID')
 got = [t['pst'] for t in r]
 check(any(s == FRZ for s in got) and all(s in (0, FRZ) for s in got), f'Frigid gives frostbite on contact: {got}')
 check(any('got frostbite' in t['log'] for t in r if t['pst']), 'Frigid text')
@@ -115,7 +117,7 @@ check(all(not (s & SLP) or 2 <= s <= 4 for s in got), 'Effect Spore sleep lasts 
 grass = lambda g: g.wr('wBattleMonType1', [TYPES['GRASS'], TYPES['GRASS']])
 got = [t['pst'] for t in trials(10, enemy_ab='ABILITY_EFFECT_SPORE', extra=grass)]
 check(all(s == 0 for s in got), f'Effect Spore never affects a Grass type: {got}')
-got = [t['pst'] for t in trials(10, enemy_ab='ABILITY_STATIC')]
+got = [t['pst'] for t in trials(20, enemy_ab='ABILITY_STATIC')]
 check(any(s == PAR for s in got), f'(control) Static paralyzes: {got}')
 got = [t['pst'] for t in trials(10, enemy_ab='ABILITY_STATIC', player_ab='ABILITY_LIMBER')]
 check(all(s == 0 for s in got), f'Limber blocks Static: {got}')

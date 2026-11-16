@@ -258,10 +258,19 @@ MartCeladon3F:
 	dw TM_SANDSTORM
 
 MartCeladon4F:
-	db 3 ; # items
+	db 12 ; # items
 	dw POKE_DOLL
 	dw LOVELY_MAIL
 	dw SURF_MAIL
+	dw POWER_HERB
+	dw METRONOME_ITEM
+	dw LOADED_DICE
+	dw ABSORB_BULB
+	dw CELL_BATTERY
+	dw SNOWBALL
+	dw LUMINOUS_MOSS
+	dw SAFETY_GOGGLES
+	dw ZOOM_LENS
 
 MartCeladon5F1:
 	db 6 ; # items
@@ -338,6 +347,10 @@ Lilycove2FGear:
 	dw ESCAPE_ROPE
 	dw REPEL
 	dw SUPER_REPEL
+	dw POWER_HERB
+	dw SAFETY_GOGGLES
+	dw ZOOM_LENS
+	dw METRONOME_ITEM
 	dw MAX_REPEL	
 	dw POKE_DOLL
 	dw LITEBLUEMAIL
@@ -356,7 +369,7 @@ Lilycove3FTms:
 	dw TM_HAIL
 
 Lilycove4FStones:
-	db 8 ; # items
+	db 13 ; # items
 	dw FIRE_STONE
 	dw THUNDERSTONE
 	dw WATER_STONE
@@ -365,6 +378,11 @@ Lilycove4FStones:
 	dw SUN_STONE
 	dw DAWN_STONE
 	dw ICE_STONE
+	dw ABSORB_BULB
+	dw CELL_BATTERY
+	dw SNOWBALL
+	dw LUMINOUS_MOSS
+	dw LOADED_DICE
 
 Lilycove5FMedicine:
 	db 7 ; # items

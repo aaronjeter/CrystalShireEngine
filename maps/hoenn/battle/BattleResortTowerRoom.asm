@@ -123,7 +123,26 @@ BattleResortTowerRoomBattlesScript:
 	promptbutton
 	setval 20
 	scall .GiveBP
-	verbosegiveitem MASTER_BALL
+.ChooseChoiceItem:
+	writetext BattleResortTowerRoomChoosePrizeText
+	loadmenu .ChoiceMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .ChoiceBand
+	ifequal 2, .ChoiceSpecs
+	ifequal 3, .ChoiceScarf
+	sjump .ChooseChoiceItem
+
+.ChoiceBand:
+	verbosegiveitem CHOICE_BAND
+	sjump .NextSet
+
+.ChoiceSpecs:
+	verbosegiveitem CHOICE_SPECS
+	sjump .NextSet
+
+.ChoiceScarf:
+	verbosegiveitem CHOICE_SCARF
 	sjump .NextSet
 
 .Bonus49:
@@ -192,6 +211,19 @@ BattleResortTowerRoomBattlesScript:
 	db "Life Orb@"
 	db "Leftovers@"
 	db "Eviolite@"
+
+.ChoiceMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 4, 13, TEXTBOX_Y - 1
+	dw .ChoiceMenuData
+	db 1 ; default option
+
+.ChoiceMenuData:
+	db STATICMENU_CURSOR ; flags
+	db 3 ; items
+	db "Choice Band@"
+	db "Choice Specs@"
+	db "Choice Scarf@"
 
 BattleResortTowerRoomPlayerWalksInMovement:
 	step UP

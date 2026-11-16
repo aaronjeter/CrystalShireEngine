@@ -6,7 +6,7 @@ is saved, then a set of 7 double battles in the battle room (the foes kept at
 item) and the choice to rest (the streak and team kept, the set flag cleared,
 the party back). Resuming finds the same team; a loss ends the streak (best
 streak kept). A streak at 42 meets the Tower head at battle 49 and gets the
-first 49-win prize (20 BP and a Master Ball). A set left unfinished ends the
+first 49-win prize (20 BP and the chosen Choice item). A set left unfinished ends the
 streak on the next visit.
 
 usage: test_battle_tower.py ROM SYM STATE
@@ -50,7 +50,7 @@ def setup(flags=HARD):
         g.script(f'\tgivepoke {s_}, 30', 60)
         for _ in range(6):
             g.press('B', after=20)
-    for it in ('LIFE_ORB', 'MASTER_BALL'):
+    for it in ('LIFE_ORB', 'CHOICE_BAND', 'EXP_CANDY_XL'):
         g.script(f'\ttakeitem {it}, 99', 20)
     g.wr('wBattlePoints', [0, 0])
     g.press('U', hold=4, after=30)
@@ -130,19 +130,23 @@ def main():
     g.press('U', hold=4, after=30)
     battles, results, ids, head = run(g)
     check('battles 43-49 won, the Tower head last', battles == 7 and results == [0] * 7 and ids[-1] == head and head not in ids[:-1], str(ids))
-    check('49 wins: 10 BP for the set + 20, and a Master Ball', streak(g) == 49 and bp(g) == 30 and I.item_count(g, 'MASTER_BALL'),
+    check('49 wins: 10 BP for the set + 20, and the chosen Choice Band', streak(g) == 49 and bp(g) == 30 and I.item_count(g, 'CHOICE_BAND'),
           f'streak {streak(g)} BP {bp(g)}')
 
     # a set left unfinished: the streak ends on the next visit
     g.wr('wTowerState', state(g) | 1)
     g.press('U', hold=4, after=30)
-    g.press('A', after=60)
-    text = ' '.join(g.screen_text().split('\n')[12:18])
-    for _ in range(3):
-        g.press('A', after=40)
-        text += ' ' + ' '.join(g.screen_text().split('\n')[12:18])
+    # with the 49-win medal, the receptionist first hands over the Shiny Charm (once), then checks the streak
+    text = ''
+    for i in range(24):  # the item jingle holds the text for several presses
+        g.press('A', after=60 if i == 0 else 40)
+        t = ' '.join(g.screen_text().split('\n')[12:18])
+        text += ' ' + t
+        if 'ended' in t:
+            break
     for _ in range(8):
         g.press('B', after=30)
+    check('next visit with the medal: the Shiny Charm (its flag)', I.flag(g, 'EVENT_GOT_SHINY_CHARM'), text[:80])
     check('an unfinished set: the streak ended (best 49)', 'ended' in text and streak(g) == 0 and best(g) == 49 and not state(g) & 3,
           f'{text[:60]} streak {streak(g)} best {best(g)}')
 

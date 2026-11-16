@@ -271,7 +271,8 @@ g, r = turn2(S4, 0, 1, player_ab='ABILITY_CLOUD_NINE')
 check(g.rd('wBattleWeather') == 0 and 'failed' in txt(r), f'Cloud Nine: Rain Dance fails | {txt(r)[-120:]}')
 
 # 13. Poison Touch: 30% on contact (Fire Punch); never with Thunderbolt or through Shield Dust
-r = [turn2(S1, 2, 3, player_ab='ABILITY_POISON_TOUCH', wait=60 + 7 * i)[1] for i in range(12)]
+# wide waits and 20 trials: a short fixed step can land every trial on a miss (Nov 15: 0/12, then 6/25)
+r = [turn2(S1, 2, 3, player_ab='ABILITY_POISON_TOUCH', wait=200 + 37 * i)[1] for i in range(20)]
 got = [t['est'] for t in r]
 check(any(x == PSN for x in got) and all(x in (0, PSN, BRN) for x in got)  # BRN: Fire Punch's own 10% burn (then no poison)
       and any('poisoned' in txt(t) for t in r if t['est']),
@@ -287,7 +288,7 @@ setup(S7, ['FIRE_PUNCH', 'THUNDERBOLT', 'GROWL', 'GROWL'], wild='MILTANK')
 male = lambda g: g.wr('wPartyMon1DVs', [0xFF, 0xFF])
 IN_LOVE = 1 << 7
 love = lambda g: g.rd('wPlayerSubStatus1') & IN_LOVE
-r = [turn2(S7, 0, 2, enemy_ab='ABILITY_CUTE_CHARM', extra=male, wait=60 + 7 * i) for i in range(12)]
+r = [turn2(S7, 0, 2, enemy_ab='ABILITY_CUTE_CHARM', extra=male, wait=200 + 37 * i) for i in range(20)]
 got = [bool(love(g)) for g, t in r]
 check(any(got) and not all(got) and any('fell in love' in txt(t) for g, t in r if love(g)), f'Cute Charm on contact: {got}')
 got = [bool(love(turn2(S7, 1, 2, enemy_ab='ABILITY_CUTE_CHARM', extra=male, wait=60 + 7 * i)[0])) for i in range(6)]
@@ -353,7 +354,7 @@ g, r = turn2(S1, 3, 3, player_ab='ABILITY_HYDRATION', extra=rain)
 check(g.rd('wBattleMonStatus') == 0 and 'was cured' in txt(r), f'Hydration in rain | {txt(r)[-120:]}')
 g, r = turn2(S1, 3, 3, player_ab='ABILITY_HYDRATION', extra=burn)
 check(g.rd('wBattleMonStatus') == BRN, f'Hydration without rain: status {g.rd("wBattleMonStatus"):#x}')
-r = [turn2(S1, 3, 3, player_ab='ABILITY_SHED_SKIN', extra=burn, wait=60 + 7 * i) for i in range(10)]
+r = [turn2(S1, 3, 3, player_ab='ABILITY_SHED_SKIN', extra=burn, wait=200 + 37 * i) for i in range(16)]
 check(any(g.rd('wBattleMonStatus') == 0 and 'was cured' in txt(t) for g, t in r),
       f'Shed Skin: {[g.rd("wBattleMonStatus") for g, t in r]}')
 

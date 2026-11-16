@@ -201,6 +201,15 @@
 	const LIGHT_CLAY   ; 00C1
 	const WHITE_HERB   ; 00C2
 	const MENTAL_HERB  ; 00C3
+	const POWER_HERB   ; 00C4
+	const METRONOME_ITEM ; 00C5
+	const LOADED_DICE  ; 00C6
+	const ABSORB_BULB  ; 00C7
+	const CELL_BATTERY ; 00C8
+	const SNOWBALL     ; 00C9
+	const LUMINOUS_MOSS ; 00CA
+	const SAFETY_GOGGLES ; 00CB
+	const ZOOM_LENS    ; 00CC
 DEF NUM_ITEM_POCKET EQU const_value - 1
 
 	const_align 8 ; Key items assume the value of HIGH(FIRST_KEY_ITEM) when storing in bag.
@@ -232,6 +241,7 @@ DEF FIRST_KEY_ITEM EQU const_value
 	const HATCHET
 	const PICKAXE
 	const FLIPPERS
+	const SHINY_CHARM
 DEF NUM_KEY_ITEM_POCKET EQU const_value - FIRST_KEY_ITEM
 assert NUM_KEY_ITEM_POCKET <= $ff
 

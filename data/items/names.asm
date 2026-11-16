@@ -195,6 +195,15 @@ ItemNames::
 	li "Light Clay"   ; 00C1
 	li "White Herb"   ; 00C2
 	li "Mental Herb"  ; 00C3
+	li "Power Herb"   ; 00C4
+	li "Metronome"    ; 00C5
+	li "Loaded Dice"  ; 00C6
+	li "Absorb Bulb"  ; 00C7
+	li "Cell Battery" ; 00C8
+	li "Snowball"     ; 00C9
+	li "LuminousMoss" ; 00CA
+	li "Safe Goggles" ; 00CB
+	li "Zoom Lens"    ; 00CC
 	assert_list_length NUM_ITEM_POCKET
 
 KeyItemNames::
@@ -226,6 +235,7 @@ KeyItemNames::
 	li "Hatchet"
 	li "Pickaxe"
 	li "Flippers"
+	li "Shiny Charm"
 	assert_list_length NUM_KEY_ITEM_POCKET
 
 BallNames::

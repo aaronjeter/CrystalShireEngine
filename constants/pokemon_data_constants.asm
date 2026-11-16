@@ -308,6 +308,7 @@ DEF MAX_TOTAL_EV EQU 510
 DEF VITAMIN_EV_CAP EQU 200 ; vitamins raise an EV up to this
 
 DEF SHINY_SPDSPC_DV EQU $ff
+DEF SHINY_CHARM_REROLLS EQU 3 ; extra tries at a shiny Speed/Special DV byte with the Shiny Charm (x4 odds)
 DEF HP_SPDSPC_DV EQU $fe ; trainer parties: a spd/spc DV byte that also gives the Hidden Power type's colors
 
 ; Hidden Power's type comes from the atk/def DV byte only:

@@ -506,3 +506,14 @@ TowerTrainers:
 
 TowerHead:
 	db COOLTRAINERM, TOWER_HEAD, SPRITE_COOLTRAINER_M
+
+TowerHas49Medal::
+; wScriptVar = TRUE once the first 49-win streak's prize was given (TOWER_PRIZE49_F)
+	call TowerGetState
+	and 1 << TOWER_PRIZE49_F
+	ld a, FALSE
+	jr z, .done
+	inc a
+.done
+	ld [wScriptVar], a
+	ret

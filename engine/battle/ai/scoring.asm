@@ -3061,8 +3061,7 @@ AIDamageCalc:
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
 	and TYPE_MASK
 	ld b, a
-	call AIGetPlayerAbility
-	farcall AbilityTypeImmunity
+	farcall AIPlayerTypeImmunity
 	jr nc, .not_immune
 	xor a
 	ld [wCurDamage], a

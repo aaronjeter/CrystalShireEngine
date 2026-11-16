@@ -172,4 +172,5 @@ SpecialsPointers::
 	add_special TowerWon
 	add_special TowerSetBP
 	add_special TowerMilestone
+	add_special TowerHas49Medal
 	add_special TowerSaveGame

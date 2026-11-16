@@ -516,6 +516,12 @@ ShellBellText:
 	text "!"
 	prompt
 
+PowerHerbText:
+	text "<USER> is fully"
+	line "charged by its"
+	cont "Power Herb!"
+	prompt
+
 AirBalloonFloatingText:
 	text "<USER>"
 	line "is floating with"
@@ -1077,6 +1083,20 @@ ShookOffTauntText:
 	text "<TARGET>"
 	line "shook off the"
 	cont "taunt!"
+	prompt
+
+AssaultVestBlocksText:
+	text "<USER> can't use"
+	line "status moves with"
+	cont "its Assault Vest!"
+	prompt
+
+ChoiceLockedText:
+	text "<USER> is"
+	line "locked into"
+	cont "@"
+	text_ram wStringBuffer1
+	text "!"
 	prompt
 
 CantUseAfterTauntText:

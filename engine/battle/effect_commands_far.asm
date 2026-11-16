@@ -715,57 +715,225 @@ TauntCheckMove:
 	ret nc
 	ld [wNamedObjectIndex], a
 	call GetMoveName
-	ld hl, CantUseAfterTauntText
+	call GetMoveBlockedText
 	call StdBattleTextbox
 	scf
 	ret
 
 PlayerTauntBlocksMove::
-; Carry if the player's battler is taunted and move a is a status move. Preserves all
-; registers but the flags.
+; Carry if the player's battler can't pick move a now: a status move while it's taunted or
+; holds an Assault Vest, or another move than the one a Choice item locked it into.
+; Preserves all registers but the flags.
 	push hl
-	ld hl, wPlayerSubStatus2
-	jr TauntBlocksMove
+	push de
+	push bc
+	ld e, 0
+	jr MoveBlocked
 
 EnemyTauntBlocksMove::
 ; As PlayerTauntBlocksMove, for the enemy's battler.
 	push hl
-	ld hl, wEnemySubStatus2
-; fallthrough
-TauntBlocksMove:
-; hl = the battler's SubStatus2, pushed hl on the stack; a = a move.
+	push de
 	push bc
-	ld b, a
-	ld a, [hl]
-	and SUBSTATUS_TAUNT_MASK
-	jr z, .no
-	ld a, b
+	ld e, 1
+; fallthrough
+MoveBlocked:
+; e = 0 (player) or 1 (enemy), a = a move; hl, de, bc pushed.
+	ld d, a
 	and a
 	jr z, .no
+; Struggle is never blocked
+	call GetMoveIndexFromID
+	ld a, h
+	cp HIGH(STRUGGLE)
+	jr nz, .not_struggle
+	ld a, l
+	cp LOW(STRUGGLE)
+	jr z, .no
+.not_struggle
+; b = TRUE for a status move
+	ld a, d
 	ld l, a
 	ld a, MOVE_TYPE
 	call GetMoveAttribute
 	and ~TYPE_MASK
 	cp STATUS
-	jr nz, .no
+	ld b, FALSE
+	jr nz, .got_status
+	inc b
+.got_status
+	ld hl, wPlayerSubStatus2
+	ld a, e
+	and a
+	jr z, .got_substatus
+	ld hl, wEnemySubStatus2
+.got_substatus
+	ld a, [hl]
+	and SUBSTATUS_TAUNT_MASK
+	jr z, .not_taunted
+	ld a, b
+	and a
+	jr nz, .yes
+.not_taunted
+	ld hl, wBattleMonItem
+	ld a, e
+	and a
+	jr z, .got_item
+	ld hl, wEnemyMonItem
+.got_item
+	ld a, [hl]
+	and a
+	jr z, .no
+	push bc
+	ld b, a
+	farcall GetItemHeldEffect
 	ld a, b
 	pop bc
-	pop hl
-	scf
-	ret
+	cp HELD_ASSAULT_VEST
+	jr nz, .not_vest
+	ld a, b
+	and a
+	jr nz, .yes
+	jr .no
+.not_vest
+	cp HELD_CHOICE_BAND
+	jr c, .no
+	cp HELD_CHOICE_SCARF + 1
+	jr nc, .no
+	call ChoiceLockAddresses
+	ld a, [bc]
+	and a
+	jr z, .no
+	cp d
+	jr z, .no
+; locked into another move, as long as it still knows that one
+	ld c, a
+	ld b, NUM_MOVES
+.find
+	ld a, [hli]
+	cp c
+	jr z, .yes
+	dec b
+	jr nz, .find
 .no
-	ld a, b
+	ld a, d
 	pop bc
+	pop de
 	pop hl
 	and a
 	ret
+.yes
+	ld a, d
+	pop bc
+	pop de
+	pop hl
+	scf
+	ret
+
+ChoiceLockAddresses:
+; e = 0 (player) or 1 (enemy): bc = its Choice lock, hl = its moves.
+	ld bc, wPlayerChoiceMove
+	ld hl, wBattleMonMoves
+	ld a, e
+	and a
+	ret z
+	ld bc, wEnemyChoiceMove
+	ld hl, wEnemyMonMoves
+	ret
+
+ChoiceLockMove::
+; BattleCommand_UsedMoveText, before the text records the move: count consecutive uses of
+; the same move (Metronome item); a battler holding a Choice item that isn't locked yet
+; gets locked into the move it's using (not Struggle).
+	push hl
+	push de
+	push bc
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld d, a
+	ld a, BATTLE_VARS_LAST_MOVE
+	call GetBattleVar
+	ld hl, wPlayerMetronomeCount
+	ld e, a
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_count
+	ld hl, wEnemyMetronomeCount
+.got_count
+	ld a, e
+	cp d
+	ld a, 0
+	jr nz, .set_count
+	ld a, [hl]
+	cp 5
+	jr nc, .counted
+	inc a
+.set_count
+	ld [hl], a
+.counted
+	farcall GetUserItem
+	ld a, b
+	cp HELD_CHOICE_BAND
+	jr c, .done
+	cp HELD_CHOICE_SCARF + 1
+	jr nc, .done
+	ldh a, [hBattleTurn]
+	ld e, a
+	call ChoiceLockAddresses
+	ld a, [bc]
+	and a
+	jr nz, .done
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	push bc
+	push af
+	call GetMoveIndexFromID
+	ld a, h
+	cp HIGH(STRUGGLE)
+	jr nz, .lock
+	ld a, l
+	cp LOW(STRUGGLE)
+	jr nz, .lock
+	pop af
+	pop bc
+	jr .done
+.lock
+	pop af
+	pop bc
+	ld [bc], a
+.done
+	pop bc
+	pop de
+	pop hl
+	ret
+
+GetMoveBlockedText::
+; hl = why the battler whose turn it is can't use the move named in wStringBuffer1:
+; the taunt, its Assault Vest, or its Choice lock (the locked move's name goes in
+; wStringBuffer1).
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVar
+	and SUBSTATUS_TAUNT_MASK
+	ld hl, CantUseAfterTauntText
+	ret nz
+	farcall GetUserItem
+	ld a, b
+	cp HELD_ASSAULT_VEST
+	ld hl, AssaultVestBlocksText
+	ret z
+	ldh a, [hBattleTurn]
+	ld e, a
+	call ChoiceLockAddresses
+	ld a, [bc]
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	ld hl, ChoiceLockedText
+	ret
 
 PlayerTauntUsableMoves::
-; Carry if the player's battler is taunted; then a = nonzero if it has a usable move:
-; PP left, not the disabled one, not a status move. Preserves bc, de, hl.
-	ld a, [wPlayerSubStatus2]
-	and SUBSTATUS_TAUNT_MASK
-	ret z
+; Carry, and a = nonzero if the player's battler has a usable move: PP left, not the
+; disabled one, not blocked by Taunt, an Assault Vest or a Choice lock
+; (PlayerTauntBlocksMove). Preserves bc, de, hl.
 	push bc
 	push de
 	push hl
@@ -779,6 +947,7 @@ PlayerTauntUsableMoves::
 	cp NUM_MOVES
 	jr z, .none
 	inc c
+	ld a, c
 	cp e
 	jr z, .loop
 	ld hl, wBattleMonPP - 1
@@ -792,12 +961,8 @@ PlayerTauntUsableMoves::
 	ld a, [hl]
 	and a
 	jr z, .loop
-	ld l, a
-	ld a, MOVE_TYPE
-	call GetMoveAttribute
-	and ~TYPE_MASK
-	cp STATUS
-	jr z, .loop
+	call PlayerTauntBlocksMove
+	jr c, .loop
 	ld a, 1
 	jr .done
 .none
@@ -810,11 +975,8 @@ PlayerTauntUsableMoves::
 	ret
 
 AITauntScoreMoves::
-; The AI: a taunted enemy battler's status moves get the "unusable" score (80).
-; Preserves bc, de, hl.
-	ld a, [wEnemySubStatus2]
-	and SUBSTATUS_TAUNT_MASK
-	ret z
+; The AI: moves the enemy battler can't pick (Taunt, Assault Vest, Choice lock:
+; EnemyTauntBlocksMove) get the "unusable" score (80). Preserves bc, de, hl.
 	push bc
 	push de
 	push hl

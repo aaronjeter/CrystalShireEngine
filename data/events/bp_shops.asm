@@ -41,6 +41,9 @@ BPShopTier2: ; utility
 	dw -1
 
 BPShopTier3: ; solid held items
+	bp_item AIR_BALLOON, 5
+	bp_item WHITE_HERB, 5
+	bp_item MENTAL_HERB, 5
 	bp_item FOCUS_SASH, 8
 	bp_item SHELL_BELL, 8
 	bp_item FLAME_ORB, 8
@@ -48,14 +51,20 @@ BPShopTier3: ; solid held items
 	bp_item BLACK_SLUDGE, 8
 	bp_item MUSCLE_BAND, 8
 	bp_item WISE_GLASSES, 8
+	bp_item LIGHT_CLAY, 8
 	bp_item ROCKY_HELMET, 10
 	bp_item EXPERT_BELT, 10
+	bp_item WEAKNESS_POLICY, 10
 	dw -1
 
 BPShopTier4: ; premium
 	bp_item EVIOLITE, 16
 	bp_item LIFE_ORB, 16
 	bp_item LEFTOVERS, 16
+	bp_item ASSAULT_VEST, 20
+	bp_item CHOICE_BAND, 24
+	bp_item CHOICE_SPECS, 24
+	bp_item CHOICE_SCARF, 24
 	dw -1
 
 BPShopCosmetic:

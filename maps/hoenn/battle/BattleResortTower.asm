@@ -24,6 +24,17 @@ BattleResortTowerReceptionistScript:
 	iffalse .Locked
 	checkevent EVENT_FACILITY_HARD_HOENN
 	iffalse .Locked
+	checkevent EVENT_GOT_SHINY_CHARM
+	iftrue .NoCharm
+	special TowerHas49Medal
+	iffalse .NoCharm
+	writetext BattleResortTowerShinyCharmText
+	promptbutton
+	verbosegiveitem SHINY_CHARM
+	setevent EVENT_GOT_SHINY_CHARM
+	writetext BattleResortTowerShinyCharmAfterText
+	waitbutton
+.NoCharm:
 	special TowerCheck
 	ifequal TOWER_RESUME, .Resume
 	ifequal TOWER_NO_STREAK, .NewStreak
@@ -92,7 +103,7 @@ BattleResortTowerReceptionistScript:
 ; set can give
 	special TowerPrizeDue
 	ifequal 1, .ItemRoom
-	ifequal 2, .BallRoom
+	ifequal 2, .ChoiceRoom
 	setval TRUE
 	end
 
@@ -110,10 +121,10 @@ BattleResortTowerReceptionistScript:
 	takeitem LEFTOVERS
 	sjump .NoRoom
 
-.BallRoom:
-	giveitem MASTER_BALL
+.ChoiceRoom:
+	giveitem CHOICE_BAND
 	iffalse .NoRoom
-	takeitem MASTER_BALL
+	takeitem CHOICE_BAND
 	setval TRUE
 	end
 
@@ -388,3 +399,16 @@ BattleResortTower_MapEvents:
 	object_event 26,  5, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BattleResortTowerClerk4Script, -1
 	object_event  4,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BattleResortTowerGentlemanScript, -1
 	object_event 27,  9, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BattleResortTowerCooltrainerScript, -1
+
+BattleResortTowerShinyCharmText:
+	text "A 49-win streak!"
+	line "The Resort wants"
+	cont "you to have this."
+	done
+
+BattleResortTowerShinyCharmAfterText:
+	text "With the Shiny"
+	line "Charm, shinies"
+	cont "turn up more"
+	cont "often."
+	done

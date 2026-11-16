@@ -3,7 +3,7 @@ Usage (from a folder holding ROM, .sym and a boot.py state):
     python3 test_held_items.py it.gbc it.sym ow_it.state [test ...]
 Machamp vs a wild mon; items and abilities are written at the battle menu before each turn.
 The items' 8-bit IDs are allocated (givepoke with the item) before the battle state is saved.
-Tests: lifeorb, sheerforce, eviolite, widelens, sash, orbs, poisonheal, sludge, berries, newitems, power, batch3."""
+Tests: lifeorb, sheerforce, eviolite, widelens, sash, orbs, poisonheal, sludge, berries, newitems, power, batch3, choice, batch4."""
 import json, os, re, sys
 src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_more_abilities.py')).read()
 TESTS = sys.argv[4:]
@@ -421,5 +421,146 @@ if want('batch3'):
     g, r = turn2(B3, TA, RF, extra=items(e='MENTAL_HERB'))
     check(not g.rd('wEnemySubStatus2') & 0b1110 and g.rd('wEnemyMonItem') == 0 and 'Mental Herb' in txt(r),
           f"Mental Herb cures Taunt ({g.rd('wEnemySubStatus2'):#x}) | {txt(r)[-120:]}")
+
+if want('choice'):
+    # Choice Band / Specs / Scarf, Assault Vest's status block, Air Balloon in the AI's estimate
+    ITEMS[:] = ['CHOICE_BAND', 'CHOICE_SPECS', 'CHOICE_SCARF', 'ASSAULT_VEST', 'AIR_BALLOON']
+    C1, C2 = 'hi_c1.state', 'hi_c2.state'
+    if not os.path.exists(C1): setup2(C1, moves=['KARATE_CHOP', 'VICEGRIP', 'FLAMETHROWER', 'EARTHQUAKE'])
+    if not os.path.exists(C2): setup2(C2, moves=['REFLECT', 'VICEGRIP', 'LEER', 'TAUNT'])
+    ids(C1)
+    KC, VG, FT, EQ = range(4)
+    def txt(r):
+        parts = [x.strip() for x in r['log'].split(' / ')]
+        keep = [a for a, b in zip(parts, parts[1:] + ['']) if not b.startswith(a)]
+        return ' '.join(keep).replace('  ', ' ')
+    def tough(g): w16(g, 'wEnemyMonMaxHP', 999); w16(g, 'wEnemyMonHP', 999)
+    mv = lambda g, i: g.rd('wBattleMonMoves', 4)[i]
+    # damage
+    for slot, it, name in ((VG, 'CHOICE_BAND', 'Band, physical'), (FT, 'CHOICE_SPECS', 'Specs, special')):
+        a = turn2(C1, slot, VG, extra=both(soft, tough), fixed=True)[1]['dmg']
+        b = turn2(C1, slot, VG, extra=both(soft, tough, items(p=it)), fixed=True)[1]['dmg']
+        check(a > 0 and abs(b - a * 3 / 2) <= 2, f'Choice {name}: x1.5 ({a} -> {b})')
+    a = turn2(C1, FT, VG, extra=both(soft, tough), fixed=True)[1]['dmg']
+    b = turn2(C1, FT, VG, extra=both(soft, tough, items(p='CHOICE_BAND')), fixed=True)[1]['dmg']
+    check(a == b, f'Choice Band: nothing for a special move ({a} -> {b})')
+    # Scarf: 10 slower than the enemy, x1.5 goes first
+    def slower(g):
+        es = g.rd('wEnemyMonSpeed', 2); w16(g, 'wBattleMonSpeed', es[0] * 256 + es[1] - 10)
+    first = lambda log: 'player' if 0 <= log.find('Machamp used') < log.find('Enemy Tauros used') else 'enemy'
+    g1, h = turn2(C1, VG, VG, extra=both(tough, slower), fixed=True)
+    g2, i = turn2(C1, VG, VG, extra=both(tough, slower, items(p='CHOICE_SCARF')), fixed=True)
+    check(first(h['log']) == 'enemy' and first(i['log']) == 'player', f"Choice Scarf: x1.5 Speed for turn order ({first(h['log'])}, {first(i['log'])})")
+    # the lock: set by the first move used
+    g, r = turn2(C1, VG, VG, extra=both(tough, items(p='CHOICE_BAND')), fixed=True)
+    check(g.rd('wPlayerChoiceMove') == mv(g, VG), f"Choice lock set by the move used ({g.rd('wPlayerChoiceMove')} vs {mv(g, VG)})")
+    g, r = turn2(C1, VG, VG, extra=tough, fixed=True)
+    check(g.rd('wPlayerChoiceMove') == 0, f"no lock without a Choice item ({g.rd('wPlayerChoiceMove')})")
+    # locked into Vicegrip: Karate Chop is refused in the menu (no turn happens)
+    def locked(g): g.wr('wPlayerChoiceMove', g.rd('wBattleMonMoves', 4)[VG])
+    g, r = turn2(C1, KC, VG, extra=both(tough, items(p='CHOICE_BAND'), locked), fixed=True)
+    check(r['dmg'] == 0 and 'locked into' in txt(r) and 'Vicegrip' in txt(r), f"locked: Karate Chop refused | {txt(r)[-120:]}")
+    g, r = turn2(C1, VG, VG, extra=both(tough, items(p='CHOICE_BAND'), locked), fixed=True)
+    check(r['dmg'] > 0, f"locked: Vicegrip still usable ({r['dmg']})")
+    g, r = turn2(C1, FT, VG, extra=both(tough, locked), fixed=True)
+    check(r['dmg'] > 0, f"the lock does nothing once the item is gone ({r['dmg']})")
+    # no PP left in the locked move: Struggle
+    def no_pp(g): g.wr(f'wBattleMonPP+{VG}', 0)
+    g, r = turn2(C1, KC, VG, extra=both(tough, items(p='CHOICE_BAND'), locked, no_pp), fixed=True)
+    check('Struggle' in txt(r), f"locked move out of PP: Struggle | {txt(r)[-120:]}")
+    # the enemy: locked into its second move, it always uses that one
+    ok = True
+    for k in range(3):
+        def enemy_two(g):
+            m = g.rd('wBattleMonMoves', 4)
+            g.wr('wEnemyMonMoves', [m[KC], m[VG], 0, 0]); g.wr('wEnemyMonPP', [10, 10, 0, 0])
+            g.wr('wEnemyMonItem', IDS['CHOICE_BAND']); g.wr('wEnemyChoiceMove', m[VG])
+        g, r = turn2(C1, VG, KC, extra=both(tough, enemy_two), wait=60 + 37 * k, fixed=True)
+        ok = ok and 'Tauros used Vicegrip' in txt(r) and 'Tauros used Karate' not in txt(r)
+    check(ok, f"enemy locked into Vicegrip uses it | {txt(r)[-120:]}")
+    # Assault Vest: status moves refused in the menu
+    ids(C2)
+    RF, VG2, LE, TA = range(4)
+    g, r = turn2(C2, RF, VG2, extra=both(tough, items(p='ASSAULT_VEST')))
+    check(g.rd('wPlayerScreens') & 0x0f == 0 and 'Assault Vest' in txt(r), f"Assault Vest: Reflect refused | {txt(r)[-120:]}")
+    g, r = turn2(C2, VG2, VG2, extra=both(tough, items(p='ASSAULT_VEST')))
+    check(r['dmg'] > 0, f"Assault Vest: Vicegrip usable ({r['dmg']})")
+
+if want('batch4'):
+    # Held items batch 4: Power Herb, Metronome, Loaded Dice, Absorb Bulb & co., Safety Goggles, Zoom Lens
+    ITEMS[:] = ['POWER_HERB', 'METRONOME_ITEM', 'LOADED_DICE', 'ABSORB_BULB', 'CELL_BATTERY', 'SNOWBALL',
+                'LUMINOUS_MOSS', 'SAFETY_GOGGLES', 'ZOOM_LENS']
+    D1, D2 = 'hi_d1.state', 'hi_d2.state'
+    if not os.path.exists(D1): setup2(D1, moves=['SOLARBEAM', 'BULLET_SEED', 'WATER_GUN', 'MEGA_PUNCH'])
+    if not os.path.exists(D2): setup2(D2, moves=['THUNDERSHOCK', 'ICE_BEAM', 'SPORE', 'SANDSTORM'])
+    ids(D1)
+    SB, BS, WG, MP = range(4)
+    import re as _re
+    def lvl(g, who, i): return g.rd(f'w{who}StatLevels+{i}')
+    def txt(r):
+        parts = [x.strip() for x in r['log'].split(' / ')]
+        keep = [a for a, b in zip(parts, parts[1:] + ['']) if not b.startswith(a)]
+        return ' '.join(keep).replace('  ', ' ')
+    def tough(g): w16(g, 'wEnemyMonMaxHP', 999); w16(g, 'wEnemyMonHP', 999)
+    # Power Herb: SolarBeam hits on the first turn
+    g, r = turn2(D1, SB, WG, extra=tough, fixed=True)
+    check('took in sunlight' in txt(r), f"(control) SolarBeam charges first | {txt(r)[-100:]}")
+    g, r = turn2(D1, SB, WG, extra=both(tough, items(p='POWER_HERB')), fixed=True)
+    check(r['dmg'] > 0 and 'took in' not in txt(r) and g.rd('wBattleMonItem') == 0 and 'Power Herb' in txt(r),
+          f"Power Herb: SolarBeam hits at once ({r['dmg']}) | {txt(r)[-100:]}")
+    # Loaded Dice: Bullet Seed hits 4 or 5 times
+    # (no "Hit N times!" text in this game: every hit does the same damage with fixed=True, so
+    # hits = total / one hit, one hit = the gcd of several plain totals)
+    from math import gcd
+    plain = [turn2(D1, BS, WG, extra=tough, wait=60 + 29 * k, fixed=True)[1]['dmg'] for k in range(5)]
+    one = 0
+    for x in plain: one = gcd(one, x)
+    dice = [turn2(D1, BS, WG, extra=both(tough, items(p='LOADED_DICE')), wait=60 + 29 * k, fixed=True)[1]['dmg'] for k in range(5)]
+    hits = [x // one if one else None for x in dice]
+    check(one and all(h in (4, 5) for h in hits), f'Loaded Dice: Bullet Seed hits {hits} (plain {[x // one if one else None for x in plain]})')
+    # Metronome: the 4th use in a row does x1.6; a different last move: x1.0
+    mp = lambda g: g.rd('wBattleMonMoves', 4)[MP]
+    def streak(n):
+        def f(g): g.wr('wLastPlayerMove', mp(g)); g.wr('wPlayerMetronomeCount', n)
+        return f
+    a = turn2(D1, MP, WG, extra=both(soft, tough), fixed=True, patch=lambda g: no_rng(g, 0))[1]['dmg']
+    g, r = turn2(D1, MP, WG, extra=both(soft, tough, items(p='METRONOME_ITEM'), streak(2)), fixed=True, patch=lambda g: no_rng(g, 0))
+    b = r['dmg']
+    check(abs(b - a * 16 / 10) <= 2 and g.rd('wPlayerMetronomeCount') == 3, f"Metronome: 4th use x1.6 ({a} -> {b}, count {g.rd('wPlayerMetronomeCount')})")
+    def other_last(g): g.wr('wLastPlayerMove', g.rd('wBattleMonMoves', 4)[WG]); g.wr('wPlayerMetronomeCount', 4)
+    g, r = turn2(D1, MP, WG, extra=both(soft, tough, items(p='METRONOME_ITEM'), other_last), fixed=True, patch=lambda g: no_rng(g, 0))
+    check(r['dmg'] == a and g.rd('wPlayerMetronomeCount') == 0, f"Metronome: a different move resets ({r['dmg']}, count {g.rd('wPlayerMetronomeCount')})")
+    # Absorb Bulb / Luminous Moss: Water Gun -> Sp. Atk / Sp. Def +1
+    for it, stat, name in (('ABSORB_BULB', 3, 'Absorb Bulb: Sp. Atk'), ('LUMINOUS_MOSS', 4, 'LuminousMoss: Sp. Def')):
+        g, r = turn2(D1, WG, MP, extra=both(tough, items(e=it)), fixed=True)
+        check(lvl(g, 'Enemy', stat) == 8 and g.rd('wEnemyMonItem') == 0, f"{name} +1 after Water Gun ({lvl(g, 'Enemy', stat)}) | {txt(r)[-90:]}")
+    g, r = turn2(D1, MP, WG, extra=both(tough, items(e='ABSORB_BULB')), fixed=True, patch=lambda g: no_rng(g, 0))
+    check(lvl(g, 'Enemy', 3) == 7 and g.rd('wEnemyMonItem') == IDS['ABSORB_BULB'], f"Absorb Bulb: nothing after Mega Punch ({lvl(g, 'Enemy', 3)})")
+    # Zoom Lens: Mega Punch 90% (229); roll 240 misses, x1.2 hits when moving after the target
+    def slower(g):
+        es = g.rd('wEnemyMonSpeed', 2); w16(g, 'wBattleMonSpeed', es[0] * 256 + es[1] - 10)
+    def faster(g):
+        es = g.rd('wEnemyMonSpeed', 2); w16(g, 'wBattleMonSpeed', es[0] * 256 + es[1] + 10)
+    r240 = lambda g: no_rng(g, 240)
+    a = turn2(D1, MP, WG, extra=both(tough, slower), fixed=True, patch=r240)[1]['dmg']
+    b = turn2(D1, MP, WG, extra=both(tough, slower, items(p='ZOOM_LENS')), fixed=True, patch=r240)[1]['dmg']
+    c = turn2(D1, MP, WG, extra=both(tough, faster, items(p='ZOOM_LENS')), fixed=True, patch=r240)[1]['dmg']
+    check(a == 0 and b > 0 and c == 0, f'Zoom Lens: roll 240 misses ({a}), hits moving second ({b}), misses moving first ({c})')
+    # Cell Battery / Snowball
+    ids(D2)
+    TS, IB, SP_, SS = range(4)
+    for slot, it, name in ((TS, 'CELL_BATTERY', 'Cell Battery after Thundershock'), (IB, 'SNOWBALL', 'Snowball after Ice Beam')):
+        g, r = turn2(D2, slot, SS, extra=both(tough, items(e=it)), fixed=True)
+        check(lvl(g, 'Enemy', 0) == 8 and g.rd('wEnemyMonItem') == 0, f"{name}: Attack +1 ({lvl(g, 'Enemy', 0)}) | {txt(r)[-90:]}")
+    # Safety Goggles: Spore doesn't affect; no Sandstorm damage
+    g, r = turn2(D2, SP_, SS, extra=tough)
+    check(r['est'] & 7, f"(control) Spore puts it to sleep ({r['est']:#x})")
+    g, r = turn2(D2, SP_, SS, extra=both(tough, items(e='SAFETY_GOGGLES')))
+    check(not r['est'] & 7 and 'affect' in txt(r), f"Safety Goggles: Spore doesn't affect ({r['est']:#x}) | {txt(r)[-90:]}")
+    g, r = turn2(D2, SS, SS, extra=tough)
+    h0 = 999 - hp(g, 'Enemy')
+    g, r = turn2(D2, SS, SS, extra=both(tough, items(e='SAFETY_GOGGLES')))
+    h1 = 999 - hp(g, 'Enemy')
+    check(h0 > 0 and h1 == 0, f'Safety Goggles: no Sandstorm damage ({h0} -> {h1})')
 
 print('FAILS:', fails if fails else 'none')

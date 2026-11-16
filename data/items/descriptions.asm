@@ -204,6 +204,15 @@ ItemDescriptions1:
 	dw LightClayDesc ; 00C1
 	dw WhiteHerbDesc ; 00C2
 	dw MentalHerbDesc ; 00C3
+	dw PowerHerbDesc ; 00C4
+	dw MetronomeItemDesc ; 00C5
+	dw LoadedDiceDesc ; 00C6
+	dw AbsorbBulbDesc ; 00C7
+	dw CellBatteryDesc ; 00C8
+	dw SnowballDesc ; 00C9
+	dw LuminousMossDesc ; 00CA
+	dw SafetyGogglesDesc ; 00CB
+	dw ZoomLensDesc ; 00CC
 .IndirectEnd:
 
 ItemDescriptionsKeyItems:
@@ -234,6 +243,7 @@ ItemDescriptionsKeyItems:
 	dw HatchetDesc
 	dw PickaxeDesc
 	dw FlippersDesc
+	dw ShinyCharmDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -1024,6 +1034,42 @@ MentalHerbDesc:
 	db   "Cures Taunt, love,"
 	next "Encore, Disable.@"
 
+PowerHerbDesc:
+	db   "Skips a charge"
+	next "turn once.@"
+
+MetronomeItemDesc:
+	db   "Ups a move used"
+	next "again and again.@"
+
+LoadedDiceDesc:
+	db   "Multi-hit moves"
+	next "hit 4 or 5 times.@"
+
+AbsorbBulbDesc:
+	db   "Ups Sp. Atk when"
+	next "hit by Water once.@"
+
+CellBatteryDesc:
+	db   "Ups Attack when"
+	next "hit by Electric.@"
+
+SnowballDesc:
+	db   "Ups Attack when"
+	next "hit by Ice once.@"
+
+LuminousMossDesc:
+	db   "Ups Sp. Def when"
+	next "hit by Water once.@"
+
+SafetyGogglesDesc:
+	db   "Blocks weather and"
+	next "powder moves.@"
+
+ZoomLensDesc:
+	db   "Ups accuracy when"
+	next "moving after foe.@"
+
 BrickPieceDesc:
 	db   "A rare chunk of"
 	next "tile.@"
@@ -1083,6 +1129,10 @@ PickaxeDesc:
 FlippersDesc:
 	db   "Lets you"
 	next "Swim.@"
+
+ShinyCharmDesc:
+	db   "Raises the odds of"
+	next "finding shinies.@"
 
 KantoiteXDesc:
 	db   "Empowers certain"

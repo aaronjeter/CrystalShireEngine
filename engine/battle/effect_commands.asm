@@ -971,6 +971,7 @@ BattleCommand_UsedMoveText:
 	jr nz, .text
 	set DOUBLES_SPREAD_ARMED_F, [hl]
 .text
+	farcall ChoiceLockMove
 	farjp DisplayUsedMoveText
 
 CheckUserIsCharging:
@@ -1701,6 +1702,9 @@ BattleCommand_DamageVariation:
 BattleCommand_CheckHit:
 	call .Levitate
 	jr z, .Miss
+
+	farcall SafetyGogglesPowder
+	jr c, .Miss
 
 	call .Waterproof
 	jr z, .Miss
@@ -5696,6 +5700,7 @@ BattleCommand_EndLoop:
 	call BattleRandom
 	and $3
 .got_number_hits
+	farcall LoadedDiceHits
 	inc a
 .double_hit
 	ld [de], a
@@ -5912,6 +5917,8 @@ BattleCommand_Charge:
 	jmp EndMoveEffect
 
 .awake
+	farcall PowerHerbCharge
+	ret c
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	set SUBSTATUS_CHARGED, [hl]

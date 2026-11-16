@@ -69,6 +69,8 @@ BattlerSwapList:
 	swap_pair BSLOT_LINKS,               wPlayerBattlerLinks,      wEnemyBattlerLinks,      NUM_BATTLER_LINKS
 	swap_pair BSLOT_LAST_DAMAGE,         wPlayerLastDamage,        wEnemyLastDamage,        2
 	swap_pair BSLOT_FUTURE_SIGHT_TARGET, wPlayerFutureSightTarget, wEnemyFutureSightTarget, 1
+	swap_pair BSLOT_CHOICE_MOVE,        wPlayerChoiceMove,        wEnemyChoiceMove,        1
+	swap_pair BSLOT_METRONOME_COUNT,    wPlayerMetronomeCount,    wEnemyMetronomeCount,    1
 	swap_player BSLOT_USED_MOVES,          wPlayerUsedMoves, NUM_MOVES ; what the AI has seen this battler use
 	swap_player BSLOT_LAST_PLAYER_MON,     wLastPlayerMon, 1
 	swap_enemy BSLOT_BASE_STATS,          wEnemyMonBaseStats, NUM_EXP_STATS + 2 ; base stats, catch rate, base EXP

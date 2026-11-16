@@ -2,6 +2,9 @@
     python3 test_held_items_doubles.py ROM.gbc ROM.sym STATE [case ...]
 items_doubles: Life Orb recoil once for a spread move (Earthquake), Black Sludge, Flame Orb and
                Toxic Orb at the end of a double-battle turn.
+choice_doubles: a trainer's Choice Band Machamp and Choice Scarf Pidgeot each keep using their first move
+               (the lock survives the battler slot swaps).
+balloon_ai:    the AI opens with Tackle, not Earthquake, against an Air Balloon holder.
 sash_singles:  a trainer's Earthquake would knock out a full-HP Focus Sash holder: it hangs on, the
                sash is used up for the battle, and the party mon still holds it after the win."""
 import os, sys
@@ -32,8 +35,46 @@ def check_sash(recs, v):
     return p
 
 
+def check_choice_doubles(recs, v):
+    # every move the Choice Band Machamp uses is the same one; its partner and the
+    # player's battlers act normally
+    text = ' '.join(' '.join(r.get('log') or []) for r in recs)
+    import re
+    p = []
+    for mon in ('Machamp', 'Pidgeot'):
+        used = re.findall(rf'Enemy {mon} used ([A-Za-z ]+?)!', text)
+        if len(set(used)) != 1 or len(used) < 3:
+            p.append(f'{mon} used {used}')
+    return p
+
+
+def check_balloon_ai(recs, v):
+    # the AI doesn't open with Earthquake against an Air Balloon holder
+    text = ' '.join(' '.join(r.get('log') or []) for r in recs)
+    import re
+    used = re.findall(r'Enemy Golem used ([A-Za-z ]+?)!', text)
+    return [] if used and used[0] != 'Earthquake' else [f'Golem used {used}']
+
+
 NO = 'NO_ABILITY'
 td.CASES.update({
+    'balloon_ai': dict(
+        cls='COOLTRAINERM', singles=True,
+        party=[('MACHAMP', 30, 'AIR_BALLOON', ['SPLASH'])],
+        trainer=[(50, 'GOLEM', None, ['EARTHQUAKE', 'TACKLE'])],
+        abilities={'MACHAMP': NO, 'GOLEM': NO},
+        actions=[('move', 0)] * 30,
+        check=lambda recs, v: check_balloon_ai(recs, v),
+        result=td.LOSE),
+    'choice_doubles': dict(
+        cls='COOLTRAINERM',
+        party=[('SNORLAX', 60, None, ['SPLASH', 'BODY_SLAM']), ('BLISSEY', 60, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(30, 'MACHAMP', 'CHOICE_BAND', ['KARATE_CHOP', 'VICEGRIP', 'LOW_KICK', 'SEISMIC_TOSS']),
+                 (30, 'PIDGEOT', 'CHOICE_SCARF', ['GUST', 'QUICK_ATTACK'])],
+        abilities={'SNORLAX': NO, 'BLISSEY': NO, 'MACHAMP': NO, 'PIDGEOT': NO},
+        actions=[('move', 0), ('move', 0)] * 3 + [('move', 1), ('move', 1)] * 20,
+        check=lambda recs, v: check_choice_doubles(recs, v),
+        result=td.LOSE),  # Choice Band Low Kick wins it for the trainer
     'items_doubles': dict(
         cls='COOLTRAINERM',
         party=[('GOLEM', 30, 'LIFE_ORB', ['EARTHQUAKE']), ('MACHAMP', 60, 'BLACK_SLUDGE', ['SPLASH', 'KARATE_CHOP'])],
@@ -55,7 +96,7 @@ td.CASES.update({
 
 if __name__ == '__main__':
     rom, sym, state = sys.argv[1:4]
-    names = sys.argv[4:] or ['items_doubles', 'sash_singles']
+    names = sys.argv[4:] or ['items_doubles', 'sash_singles', 'choice_doubles', 'balloon_ai']
     bad = 0
     for n in names:
         problems, recs = td.run_case(rom, sym, state, n)

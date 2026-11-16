@@ -196,14 +196,23 @@ PoisonHealResidual:
 ; ---- Life Orb, Muscle Band, Wise Glasses, Expert Belt (damage)
 
 HeldItemDamageBoost:
-; BattleCommand_DamageCalc (so the AI's estimate too): Life Orb x1.3; Muscle Band x1.1 for
-; physical moves, Wise Glasses x1.1 for special moves.
+; BattleCommand_DamageCalc (so the AI's estimate too): Life Orb x1.3; Choice Band x1.5 and
+; Muscle Band x1.1 for physical moves, Choice Specs x1.5 and Wise Glasses x1.1 for special
+; moves; Metronome +20% per consecutive use of the same move.
 	farcall GetUserItem
 	ld a, b
+	cp HELD_METRONOME
+	jr z, .metronome
 	ld bc, 13 << 8 | 10
 	cp HELD_LIFE_ORB
 	jr z, .multiply
-	ld c, PHYSICAL
+	ld bc, 15 << 8 | PHYSICAL
+	cp HELD_CHOICE_BAND
+	jr z, .category
+	ld c, SPECIAL
+	cp HELD_CHOICE_SPECS
+	jr z, .category
+	ld bc, 11 << 8 | PHYSICAL
 	cp HELD_MUSCLE_BAND
 	jr z, .category
 	ld c, SPECIAL
@@ -214,8 +223,25 @@ HeldItemDamageBoost:
 	call GetBattleVar
 	and c
 	ret z
-	ld bc, 11 << 8 | 10
+	ld c, 10
 .multiply
+	farjp MultiplyCurDamage
+
+.metronome
+; +20% per consecutive use of the same move (the count is 0-5)
+	ld hl, wPlayerMetronomeCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_count
+	ld hl, wEnemyMetronomeCount
+.got_count
+	ld a, [hl]
+	and a
+	ret z
+	add a
+	add 10
+	ld b, a
+	ld c, 10
 	farjp MultiplyCurDamage
 
 ExpertBeltBoost:
@@ -506,14 +532,16 @@ BindingBandDamage:
 
 MachoBraceSpeed:
 ; GetTurnOrderSpeed (turn order, Gyro Ball, Electro Ball): bc = the Speed of the battler
-; whose turn it is: halved (at least 1) if it holds a Macho Brace or a Power item.
-; Preserves de, hl.
+; whose turn it is: halved (at least 1) if it holds a Macho Brace or a Power item,
+; x1.5 with a Choice Scarf. Preserves de, hl.
 	push hl
 	push bc
 	farcall GetUserItem
 	ld a, b
 	pop bc
 	pop hl
+	cp HELD_CHOICE_SCARF
+	jr z, .scarf
 	cp HELD_MACHO_BRACE
 	jr z, .halve
 	cp HELD_POWER_ITEM
@@ -525,6 +553,18 @@ MachoBraceSpeed:
 	or c
 	ret nz
 	inc c
+	ret
+
+.scarf
+	push hl
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+	pop hl
 	ret
 
 ; ---- Eviolite
@@ -670,19 +710,28 @@ EvioliteMegaStones:
 
 WideLensBoost:
 ; BattleCommand_CheckHit: b = the move's accuracy (out of 255). x1.1 (capped at 255) if the
-; attacker holds a Wide Lens. Preserves c, de and hl.
+; attacker holds a Wide Lens; x1.2 with a Zoom Lens if its target moved first this turn.
+; Preserves c, de and hl.
 	push hl
 	push de
 	push bc
 	farcall GetUserItem
 	ld a, b
-	cp HELD_WIDE_LENS
 	pop bc
+	ld e, 10
+	cp HELD_WIDE_LENS
+	jr z, .boost
+	cp HELD_ZOOM_LENS
 	jr nz, .done
+	farcall CheckOpponentWentFirst
+	jr z, .done
+	ld e, 5
+.boost
+; b += b / e
 	ld a, b
 	ld d, 0
 .tenth
-	sub 10
+	sub e
 	jr c, .got_tenth
 	inc d
 	jr .tenth
@@ -939,7 +988,48 @@ TargetHitHeldItems:
 	cp HELD_AIR_BALLOON
 	jr z, .balloon
 	cp HELD_WEAKNESS_POLICY
+	jr z, .policy
+; Absorb Bulb, Cell Battery, Snowball, Luminous Moss: +1 after a hit of their type
+	push hl
+	ld c, a
+	ld hl, TypeHitStatItems
+.find
+	ld a, [hli]
+	cp -1
+	jr z, .not_found
+	cp c
+	jr z, .found
+	inc hl
+	inc hl
+	jr .find
+.not_found
+	pop hl
+	ret
+.found
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	and TYPE_MASK
+	cp [hl]
+	inc hl
+	ld b, [hl]
+	pop hl
 	ret nz
+	push bc
+	push hl
+	call OpponentFainted
+	pop hl
+	pop bc
+	ret z
+	push bc
+	call ConsumeOpponentItemForBattle
+	farcall SwitchTurnCore
+	ld hl, BattleText_UsersStringBuffer1Activated
+	call StdBattleTextbox
+	pop bc
+	call HeldItemRaiseStat
+	farjp SwitchTurnCore
+
+.policy
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
 	cp EFFECTIVE + 1
@@ -1067,3 +1157,202 @@ MentalHerbOpp:
 	ld [bc], a
 	ld hl, MentalHerbText
 	jmp StdBattleTextbox
+
+AIPlayerTypeImmunity:
+; AIDamageCalc: b = the enemy's move type -> carry if the loaded player battler takes no
+; damage from it: its ability (AbilityTypeImmunity, as the enemy's Mold Breaker lets it
+; work), or an Air Balloon against Ground. Preserves bc, de, hl.
+	farcall AIGetPlayerAbility
+	farcall AbilityTypeImmunity
+	ret c
+	ld a, b
+	cp GROUND
+	jr nz, .no
+	push hl
+	push bc
+	ld a, [wBattleMonItem]
+	ld b, a
+	farcall GetItemHeldEffect
+	ld a, b
+	pop bc
+	pop hl
+	cp HELD_AIR_BALLOON
+	jr nz, .no
+	scf
+	ret
+.no
+	and a
+	ret
+
+TypeHitStatItems:
+; held effect, the move type that triggers it, the stat it raises
+	db HELD_ABSORB_BULB,   WATER,    SP_ATTACK
+	db HELD_CELL_BATTERY,  ELECTRIC, ATTACK
+	db HELD_SNOWBALL,      ICE,      ATTACK
+	db HELD_LUMINOUS_MOSS, WATER,    SP_DEFENSE
+	db -1
+
+PowerHerbCharge:
+; BattleCommand_Charge: with a Power Herb the user skips the charging turn (carry): the
+; herb is used up and the move goes on this turn.
+	farcall GetUserItem
+	ld a, b
+	cp HELD_POWER_HERB
+	jr nz, .no
+	ld a, [hl]
+	ld [wNamedObjectIndex], a
+	ld [hl], NO_ITEM
+	call SuppressUserItem
+	ld hl, PowerHerbText
+	call StdBattleTextbox
+	scf
+	ret
+.no
+	and a
+	ret
+
+LoadedDiceHits:
+; BattleCommand_EndLoop: a = 0-3 (2-5 hits); with Loaded Dice 2 or 3 (4 or 5 hits).
+; Preserves bc, de, hl.
+	push hl
+	push de
+	push bc
+	ld e, a
+	farcall GetUserItem
+	ld a, b
+	cp HELD_LOADED_DICE
+	ld a, e
+	jr nz, .done
+	call BattleRandom
+	and 1
+	add 2
+.done
+	pop bc
+	pop de
+	pop hl
+	ret
+
+SafetyGogglesPowder:
+; BattleCommand_CheckHit: carry (a miss; the move's effect prints "It didn't affect") if
+; the move is a powder move and the target holds Safety Goggles.
+	farcall GetOpponentItem
+	ld a, b
+	cp HELD_SAFETY_GOGGLES
+	jr nz, .no
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	call GetMoveIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, PowderMoves
+.loop
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	and e
+	inc a
+	jr z, .no ; -1: the end
+	ld a, e
+	cp c
+	jr nz, .loop
+	ld a, d
+	cp b
+	jr nz, .loop
+	scf
+	ret
+.no
+	and a
+	ret
+
+PowderMoves:
+	dw SPORE
+	dw SLEEP_POWDER
+	dw STUN_SPORE
+	dw POISONPOWDER
+	dw COTTON_SPORE
+	dw -1
+
+WeatherDamageBlocked:
+; HandleWeather: carry if the battler whose turn it is takes no Sandstorm/Hail damage:
+; Magic Guard or Safety Goggles.
+	farcall CheckMagicGuardUser
+	ret c
+	push hl
+	push bc
+	farcall GetUserItem
+	ld a, b
+	pop bc
+	pop hl
+	cp HELD_SAFETY_GOGGLES
+	jr nz, .no
+	scf
+	ret
+.no
+	and a
+	ret
+
+; ---- Shiny Charm
+
+HasShinyCharm:
+; Carry if the Shiny Charm is in the Key Items pocket. Preserves bc, de.
+	ld hl, wKeyItems
+.loop
+	ld a, [hli]
+	cp LOW(SHINY_CHARM)
+	jr z, .yes
+	inc a ; -1: the end
+	jr nz, .loop
+	and a
+	ret
+.yes
+	scf
+	ret
+
+ShinyCharmBattleDVs:
+; _LoadEnemyMon: c = a wild mon's Speed/Special DV byte; a shiny one is SHINY_SPDSPC_DV.
+; With the Shiny Charm, a byte that isn't gets SHINY_CHARM_REROLLS more tries. Preserves
+; b, de, hl.
+	push hl
+	push de
+	ld a, c
+	ld d, SHINY_CHARM_REROLLS
+	call HasShinyCharm
+	jr nc, .done
+.loop
+	ld a, c
+	cp SHINY_SPDSPC_DV
+	jr z, .done
+	call BattleRandom
+	ld c, a
+	dec d
+	jr nz, .loop
+.done
+	pop de
+	pop hl
+	ret
+
+ShinyCharmSpawnDV:
+; PlaceWildSpawn: a = a spawn's Speed/Special DV byte; as ShinyCharmBattleDVs, with Random.
+; Preserves bc, de, hl.
+	push hl
+	push de
+	push bc
+	ld c, a
+	ld d, SHINY_CHARM_REROLLS
+	call HasShinyCharm
+	jr nc, .done
+.loop
+	ld a, c
+	cp SHINY_SPDSPC_DV
+	jr z, .done
+	call Random
+	ld c, a
+	dec d
+	jr nz, .loop
+.done
+	ld a, c
+	pop bc
+	pop de
+	pop hl
+	ret
