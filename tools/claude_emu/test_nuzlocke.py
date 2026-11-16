@@ -641,8 +641,8 @@ def case_options():
         g.press('U', after=6)           # Option: the last entry (the cursor wraps)
         g.press('A', after=60)
         for _ in range(2):
-            g.press('U', after=8)       # Cancel (page 2), then Nuzlocke
-        shown = 'Nuzlocke' in g.screen_text() and ':On' in g.screen_text().split('\n')[7]
+            g.press('U', after=8)       # Cancel (page 2), then Nuzlocke (row 11)
+        shown = 'Nuzlocke' in g.screen_text() and ':On' in g.screen_text().split('\n')[11]
         g.press('R', after=8)
         asked = wait_for(g, lambda s: 'Yes' in s and 'No' in s and 'for good?' in s)
         g.frames(20)
@@ -651,13 +651,13 @@ def case_options():
         g.press('A', after=8)
         wait_for(g, lambda s: 'Yes' not in s)
         g.frames(30)
-        row = g.screen_text().split('\n')[7]
+        row = g.screen_text().split('\n')[11]
         on = bool(g.rd('wOptions2') & NUZLOCKE_ON)
         if ans == 'no':
             check('options: shows On; Right asks; No keeps it on', shown and asked and on and ':On' in row, row.strip())
         else:
             g.press('R', after=60); g.press('L', after=60)
-            row2 = g.screen_text().split('\n')[7]
+            row2 = g.screen_text().split('\n')[11]
             check('options: Yes turns it off; Left/Right can\'t turn it back on',
                   asked and not on and ':Off' in row and ':Off' in row2 and not g.rd('wOptions2') & NUZLOCKE_ON, row2.strip())
 

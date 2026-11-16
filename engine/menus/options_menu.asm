@@ -11,9 +11,11 @@
 DEF OPT_PAGE2 EQU const_value ; first option on page 2
 	const OPT_BATTLES       ; 8
 	const OPT_EXP_SHARE     ; 9
-	const OPT_NUZLOCKE      ; 10
-	const OPT_CANCEL2       ; 11
-DEF NUM_OPTIONS EQU const_value ; 12
+	const OPT_DIFFICULTY    ; 10
+	const OPT_LEVEL_CAPS    ; 11
+	const OPT_NUZLOCKE      ; 12
+	const OPT_CANCEL2       ; 13
+DEF NUM_OPTIONS EQU const_value ; 14
 
 _Option:
 	call ClearJoypad
@@ -98,6 +100,10 @@ StringOptionsPage2:
 	db "        :<LF>"
 	db "Exp. Share<LF>"
 	db "        :<LF>"
+	db "Difficulty<LF>"
+	db "        :<LF>"
+	db "Level Caps<LF>"
+	db "        :<LF>"
 	db "Nuzlocke<LF>"
 	db "        :<LF>"
 	db "Cancel@"
@@ -168,6 +174,8 @@ GetOptionPointer:
 	dw Options_Cancel
 	dw Options_Battles
 	dw Options_ExpShare
+	dw Options_Difficulty
+	dw Options_LevelCaps
 	dw Options_Nuzlocke
 	dw Options_Cancel
 
@@ -544,7 +552,7 @@ Options_Nuzlocke:
 	jr nz, .got_string
 	ld de, .Off
 .got_string
-	hlcoord 11, 7
+	hlcoord 11, 11
 	rst PlaceString
 	and a
 	ret
@@ -555,6 +563,83 @@ Options_Nuzlocke:
 .TurnOffText:
 	text_far _NuzlockeTurnOffText
 	text_end
+
+Options_Difficulty:
+; Normal or Hard: Left/Right switches it, setting wHardMode (0 = Hard, 1 = Normal) and
+; EVENT_HARDMODE_ENABLED together. Trainer teams and boss bars follow from the next battle.
+	ldh a, [hJoyPressed]
+	and D_LEFT | D_RIGHT
+	jr z, .Display
+	ld a, [wHardMode]
+	xor 1
+	ld [wHardMode], a
+	and a ; 0 = Hard
+	ld b, SET_FLAG
+	jr z, .got_action
+	ld b, RESET_FLAG
+.got_action
+	ld de, EVENT_HARDMODE_ENABLED
+	call EventFlagAction
+.Display:
+	ld de, .Normal
+	ld a, [wHardMode]
+	and a
+	jr nz, .got_string
+	ld de, .Hard
+.got_string
+	hlcoord 11, 7
+	rst PlaceString
+	and a
+	ret
+
+.Normal: db "Normal@"
+.Hard:   db "Hard  @"
+
+Options_LevelCaps:
+; Shows the level caps; Left/Right turns them off after a Yes/No (they can't be turned
+; back on): clears EVENT_LEVELCAPS_ENABLED and sets wLevelCap to 100.
+	ld de, EVENT_LEVELCAPS_ENABLED
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	jr z, .Display ; already off
+	ldh a, [hJoyPressed]
+	and D_LEFT | D_RIGHT
+	jr z, .Display
+	ld hl, .TurnOffText
+	call PrintText
+	call YesNoBox
+	jr c, .redraw
+	ld de, EVENT_LEVELCAPS_ENABLED
+	ld b, RESET_FLAG
+	call EventFlagAction
+	ld a, MAX_LEVEL
+	ld [wLevelCap], a
+.redraw
+	xor a
+	ldh [hBGMapMode], a
+	call Options_DrawPage
+	call Options_UpdateCursorPosition
+	call WaitBGMap
+.Display:
+	ld de, EVENT_LEVELCAPS_ENABLED
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ld de, .On
+	jr nz, .got_string
+	ld de, .Off
+.got_string
+	hlcoord 11, 9
+	rst PlaceString
+	and a
+	ret
+
+.On:  db "On @"
+.Off: db "Off@"
+
+.TurnOffText:
+	text "Turn off level"
+	line "caps for good?"
+	done
 
 Options_Cancel:
 	ldh a, [hJoyPressed]

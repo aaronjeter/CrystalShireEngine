@@ -6,8 +6,6 @@
 	const TESTROOM_LATIOS
 	const TESTROOM_CANDY
 	const TESTROOM_GUY
-	const TESTROOM_MOM
-	const TESTROOM_KRIS
 	const TESTROOM_TEAM
 	const TESTROOM_DJINN
 	const TESTROOM_SPHEAL
@@ -141,71 +139,6 @@ Testroom_Guy:
 	closetext
 	end
 
-Testroom_Kris:
-	faceplayer
-	opentext
-
-	checkevent EVENT_LEVELCAPS_ENABLED
-	iffalse .SkipLevelCaps 
-
-	writetext TestroomLevelcapsOffText
-	yesorno
-	iffalse .Done
-
-	clearflag EVENT_LEVELCAPS_ENABLED
-	setval 100
-	writemem wLevelCap
-	writetext TestroomlevelcapsDeactivatedText
-	waitbutton
-	sjump .Done
-
-.SkipLevelCaps 
-	writetext TestroomLevelcapsAlreadyOffText
-	waitbutton
-
-.Done
-	closetext
-	end
-
-Testroom_Mom:
-	faceplayer
-	opentext
-
-	checkevent EVENT_HARDMODE_ENABLED
-	iftrue .AskTurnOffHardmode
-
-	writetext TestroomHardmodeOnText
-	yesorno
-	iffalse .Done
-
-	;turn on hard mode
-	setevent EVENT_HARDMODE_ENABLED
-	setval 0 ;yes, hardmode on == 0, this does seem backwards
-	writemem wHardMode
-	writetext TestroomHardmodeActivatedText
-	waitbutton
-	sjump .Done
-	
-
-.AskTurnOffHardmode
-	writetext TestroomHardmodeOffText
-	yesorno
-	iffalse .Done
-
-	;turn off hard mode
-	writetext TestroomHardmodeTauntText
-	waitbutton
-	clearevent EVENT_HARDMODE_ENABLED
-	setval 1
-	writemem wHardMode
-	writetext TestroomHardmodeDeactivatedText
-	waitbutton
-	sjump .Done
-
-.Done
-	closetext
-	end
-
 TestroomRareCandyText:
 	text "Do you want"
 	line "the Rare Candy"
@@ -248,66 +181,6 @@ TestroomGen3LegendsText:
 	cont "#mon cheat?"
 	done
 
-
-TestroomHardmodeOnText:
-	text "Do you want"
-	line "to turn on"
-	cont "Hardmode?"
-	done
-
-TestroomHardmodeOffText:
-	text "Do you want"
-	line "to turn off"
-	cont "Hardmode?"
-	done
-
-TestroomHardmodeDeactivatedText:
-	text "Hardmode"
-	line "deactivated!"
-	done
-
-TestroomHardmodeActivatedText:
-	text "Hardmode"
-	line "activated!"
-	done
-
-TestroomlevelcapsDeactivatedText:
-	text "Level Caps"
-	line "deactivated!"
-	done
-
-TestroomHardmodeTauntText:
-	text "Don't worry."
-
-	para "I won't judge"
-	line "you."
-
-	para "..."
-
-	para "Well, I'll"
-	line "judge you a"
-	cont "little..."
-	done
-
-TestroomLevelcapsAlreadyOffText:
-	text "Your level caps"
-	line "are already off."
-
-	para "I've got nothing"
-	line "for you."
-	done
-
-TestroomLevelcapsOffText:
-	text "Do you want"
-	line "to turn off"
-	cont "Level Caps?"
-
-	para "You won't be"
-	line "able to turn"
-
-	para "them back on."
-	line "Ever..."
-	done
 
 WelcomeToTheTestroomText:
 	text "Hi, welcome to"
@@ -1159,8 +1032,6 @@ TestRoom_MapEvents:
 	object_event 04, 03, SPRITE_LATIOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Testroom_Gen3Legends, -1
 	object_event 19, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Testroom_Candy, -1
 	object_event 19, 17, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Testroom_Guy, -1
-	object_event 15, 15, SPRITE_MOM, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Testroom_Mom, -1
-	object_event 14, 15, SPRITE_KRIS_BIKE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Testroom_Kris, -1
 	object_event 16, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, TestroomGenerateTeamScript, -1
 	object_event 19, 05, SPRITE_VENUS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Testroom_Djiin, -1
 	object_event 19, 09, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Testroom_Spheal, -1
