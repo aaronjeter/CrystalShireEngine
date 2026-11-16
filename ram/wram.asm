@@ -2986,7 +2986,7 @@ wFastShip1FSceneID::                              db
 wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
-wMobileBattleRoomSceneID::                        db
+wWCFinalsSceneID::                                db
 
 ; fight counts
 wLastRepelSteps::    db ; the last Repel used (its REPEL_STEPS etc.), 0 if unknown; was wJackFightCount (unused)
@@ -3655,6 +3655,7 @@ wPassportSteps:: ds 3 ; steps taken (big-endian), up to 9999999
 wHallOfFameCounts:: ds NUM_LEAGUES ; Hall of Fame entries per League (LEAGUE_* order), up to 255
 wTitleDefenses:: dw ; World Cup title defenses won (big-endian)
 wPassportFallen:: dw ; Pokémon buried or released by Nuzlocke mode (big-endian)
+wTitleDefenseChallenger:: db ; the accepted title challenger + 1 until the match is over, 0 otherwise
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

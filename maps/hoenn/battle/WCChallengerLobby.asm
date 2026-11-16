@@ -99,7 +99,27 @@ ChallengerLobbyTitleClerkScript:
 	faceplayer
 	opentext
 	writetext ChallengerLobbyTitleClerkText
-	promptbutton
+	yesorno
+	iffalse .Declined
+	writetext ChallengerLobbyWhichChallengerText
+	special TitleDefenseMenu
+	iffalse .Declined
+	writetext ChallengerLobbyReadyText
+	yesorno
+	iffalse .Cancel
+	special HealParty
+	writetext ChallengerLobbyGoodLuckText
+	waitbutton
+	closetext
+	setmapscene WC_FINALS, SCENE_WCFINALS_TITLE_DEFENSE
+	warp WC_FINALS, 6, 13
+	end
+
+.Cancel:
+	special TitleDefenseCancel
+.Declined:
+	writetext ChallengerLobbyComeBackText
+	waitbutton
 	closetext
 	end
 
@@ -107,9 +127,39 @@ ChallengerLobbyTitleClerkScript:
 ChallengerLobbyTitleClerkText:
 	text "Hello <PLAY_G>!"
 
-	para "The World Champion"
-	line "may accept title"
-	cont "challenges here."
+	para "Challengers are"
+	line "waiting to face"
+	cont "the World"
+	cont "Champion."
+
+	para "Will you accept"
+	line "a challenge?"
+	done
+
+ChallengerLobbyWhichChallengerText:
+	text "Which challenger"
+	line "will you face?"
+	done
+
+ChallengerLobbyReadyText:
+	text_ram wStringBuffer3
+	text " it is!"
+
+	para "Are you ready to"
+	line "enter the arena?"
+	done
+
+ChallengerLobbyGoodLuckText:
+	text "Your #mon have"
+	line "been restored."
+
+	para "Good luck,"
+	line "Champion!"
+	done
+
+ChallengerLobbyComeBackText:
+	text "The challengers"
+	line "will be waiting!"
 	done
 
 ChallengerLobbyNurseScript:

@@ -902,20 +902,44 @@ PassportResortPage:
 .NotOpen: db "Not open yet@"
 
 PassportTitlePage:
-; World Cup title defenses (the challenger list joins with the title defenses)
+; World Cup title defenses; the challengers beaten in a title defense by name
 	pe_icon     2, 2, EVENT_WORLD_CUP_CHAMPION, PT_TROPHY, PASSPORTPAL_GOLD
 	pe_text     5, 2, .WorldCup
 	pe_text     5, 3, .Champion
-	pe_text     2, 6, .CupsWon
-	pe_num     13, 6, wHallOfFameCounts + LEAGUE_WORLD_CUP, 1, 3
-	pe_text     2, 8, .Defenses
-	pe_num     11, 8, wTitleDefenses, 2, 5
+	pe_text     2, 5, .CupsWon
+	pe_num     13, 5, wHallOfFameCounts + LEAGUE_WORLD_CUP, 1, 3
+	pe_text     2, 7, .Defenses
+	pe_num     11, 7, wTitleDefenses, 2, 5
+	pe_text     2, 9, .Beaten
+	pe_flagtext 2, 11, EVENT_TITLE_DEFENSE_BEAT_SILVER, .Silver, 0
+	pe_flagtext 2, 12, EVENT_TITLE_DEFENSE_BEAT_GREEN, .Green, 0
+	pe_flagtext 2, 13, EVENT_TITLE_DEFENSE_BEAT_WALLY, .Wally, 0
+	pe_flagtext 2, 14, EVENT_TITLE_DEFENSE_BEAT_LANCE, .Lance, 0
+	pe_flagtext 2, 15, EVENT_TITLE_DEFENSE_BEAT_AGATHA, .Agatha, 0
+	pe_flagtext 2, 16, EVENT_TITLE_DEFENSE_BEAT_STEVEN, .Steven, 0
+	pe_flagtext 10, 11, EVENT_TITLE_DEFENSE_BEAT_TATE_LIZA, .TateLiza, 0
+	pe_flagtext 10, 12, EVENT_TITLE_DEFENSE_BEAT_KIMONO_GIRLS, .Kimono, 0
+	pe_flagtext 10, 13, EVENT_TITLE_DEFENSE_BEAT_TWINS, .Twins, 0
+	pe_flagtext 10, 14, EVENT_TITLE_DEFENSE_BEAT_ACE_DUO, .AceDuo, 0
+	pe_flagtext 10, 15, EVENT_TITLE_DEFENSE_BEAT_RED, .Red, 0
 	db PE_END
 
 .WorldCup: db "World Cup@"
 .Champion: db "Champion@"
 .CupsWon:  db "Cups won@"
 .Defenses: db "Defenses@"
+.Beaten:   db "Beaten@"
+.Silver:   db "Silver@"
+.Green:    db "Green@"
+.Wally:    db "Wally@"
+.Lance:    db "Lance@"
+.Agatha:   db "Agatha@"
+.Steven:   db "Steven@"
+.TateLiza: db "Tate&Liza@"
+.Kimono:   db "Kimono@"
+.Twins:    db "Amy&May@"
+.AceDuo:   db "Kai&Rin@"
+.Red:      db "Red@"
 
 PassportStatsPage:
 	pe_text  2, 3, .Battles

@@ -747,6 +747,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ZUKI
 	const KUNI
 	const MIKI
+	const NAOKOANDZUKI ; title defense
 
 	trainerclass TWINS ; 3d
 	const AMYANDMAY1
@@ -759,6 +760,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE117_ANNAMEG
 	const ROUTE108_LISARIA
 	const ROUTE113_TORITIA
+	const AMYANDMAY2 ; title defense
 
 	trainerclass POKEFANF ; 3e
 	const GEORGIA
@@ -1004,6 +1006,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const LEONANDJEN
 	const MIKEANDLIA
 	const RAYANDLORI
+	const KAIANDRIN ; title defense
 
 	trainerclass RANGERS
 	const YASUANDRAE

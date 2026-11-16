@@ -2139,25 +2139,25 @@
 	const EVENT_FOUND_PEWTER_CITY_GREEN
 	const EVENT_FOUND_ROUTE10_GREEN
 	const EVENT_FOUND_SILPH_GREEN
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
+	const EVENT_TITLE_DEFENSE_BEAT_SILVER ; title defense: first win (and its item) per challenger
+	const EVENT_TITLE_DEFENSE_BEAT_GREEN
+	const EVENT_TITLE_DEFENSE_BEAT_WALLY
+	const EVENT_TITLE_DEFENSE_BEAT_LANCE
+	const EVENT_TITLE_DEFENSE_BEAT_AGATHA
+	const EVENT_TITLE_DEFENSE_BEAT_STEVEN
 
 	const EVENT_WC_ROUND_THREE_SILVER ; hidden unless the player started in Johto
 	const EVENT_WC_ROUND_THREE_WALLY  ; hidden unless the player started in Hoenn
 	const EVENT_WC_ROUND_THREE_GREEN  ; hidden unless the player started in Kanto
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused	
+	const EVENT_TITLE_DEFENSE_BEAT_TATE_LIZA
+	const EVENT_TITLE_DEFENSE_BEAT_KIMONO_GIRLS
+	const EVENT_TITLE_DEFENSE_BEAT_TWINS
+	const EVENT_TITLE_DEFENSE_BEAT_ACE_DUO
+	const EVENT_TITLE_DEFENSE_BEAT_RED
+	const EVENT_WC_FINALS_OAK        ; set = hidden (title defense)
+	const EVENT_WC_FINALS_CHALLENGER ; set = hidden
 
-	const_skip ; unused
+	const EVENT_WC_FINALS_PARTNER    ; set = hidden
 	const_skip ; unused
 	const_skip ; unused
 	const EVENT_GOT_TOGEPI_EGG_FROM_OAKS_AIDE ; Togepi Eggs for Kanto/Hoenn starts (Nov 1, 2026)

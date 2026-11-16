@@ -174,3 +174,13 @@ SpecialsPointers::
 	add_special TowerMilestone
 	add_special TowerHas49Medal
 	add_special TowerSaveGame
+	add_special TitleDefenseMenu
+	add_special TitleDefenseCancel
+	add_special TitleDefenseSetup
+	add_special TitleDefenseIntro
+	add_special TitleDefenseLoadTrainer
+	add_special TitleDefenseWon
+	add_special TitleDefenseBP
+	add_special TitleDefensePrizeQuantity
+	add_special TitleDefensePrizeItem
+	add_special TitleDefenseMarkBeaten
