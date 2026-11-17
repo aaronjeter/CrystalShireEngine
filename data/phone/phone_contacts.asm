@@ -19,8 +19,8 @@ PhoneContacts:
 	phone SCHOOLBOY,    JACK,                  NATIONAL_PARK,             ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone SAILOR,       HUEY,                  OLIVINE_LIGHTHOUSE_2F,     ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
+	phone TRAINER_NONE, PHONECONTACT_OAK,      OAKS_LAB,                  0,       UnusedPhoneScript,        0,       UnusedPhoneScript
+	phone TRAINER_NONE, PHONECONTACT_BIRCH,    BIRCHS_LAB,                0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone TRAINER_NONE, PHONE_00,              N_A,                       0,       UnusedPhoneScript,        0,       UnusedPhoneScript
 	phone COOLTRAINERM, GAVEN,                 ROUTE_26,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript
 	phone COOLTRAINERF, BETH,                  ROUTE_26,                  ANYTIME, UnusedPhoneScript,        ANYTIME, UnusedPhoneScript

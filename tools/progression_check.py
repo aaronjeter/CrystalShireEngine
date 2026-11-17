@@ -1276,9 +1276,17 @@ class Solver:
                     for lab in ((a[4], a[6]) if m.group(1) == 'phone' else (a[2],)):
                         if lab != 'UnusedPhoneScript':
                             phone.add(lab)
+        # the first-time travel calls come from the engine at TRAVEL_CALL_BADGES badges
+        travel_badges = None
+        for line in logical_lines(w.p('engine/events/region_travel.asm')):
+            m = re.match(r'\s*DEF\s+TRAVEL_CALL_BADGES\s+EQU\s+(\d+)', line)
+            if m:
+                travel_badges = int(m.group(1))
         for lab in sorted(phone):
-            self.triggers['PLAYERS_HOUSE_2F'].append(
-                Trigger('phone', 'PLAYERS_HOUSE_2F', lab, s.entry(lab, 'PLAYERS_HOUSE_2F')))
+            paths = s.entry(lab, 'PLAYERS_HOUSE_2F')
+            if travel_badges is not None and lab.endswith('TravelCallerScript'):
+                paths = [Path(p.conds | {('badges_ge', travel_badges)}, p.effects, p.kind) for p in paths]
+            self.triggers['PLAYERS_HOUSE_2F'].append(Trigger('phone', 'PLAYERS_HOUSE_2F', lab, paths))
         for mc, mp in w.maps.items():
             T = self.triggers[mc]
             for cb, lab in mp['callbacks']:

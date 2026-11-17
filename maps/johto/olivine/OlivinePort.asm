@@ -6,7 +6,6 @@
 	const OLIVINEPORT_FISHING_GURU2
 	const OLIVINEPORT_YOUNGSTER
 	const OLIVINEPORT_COOLTRAINER_F
-	const OLIVINEPORT_SAILOR4
 
 OlivinePort_MapScripts:
 	def_scene_scripts
@@ -47,21 +46,6 @@ OlivinePortSailorAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutToWhite
 	waitsfx
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iffalse .FirstTime
-	clearevent EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
-	setevent EVENT_FAST_SHIP_PASSENGERS_WESTBOUND
-	clearevent EVENT_BEAT_COOLTRAINERM_SEAN
-	clearevent EVENT_BEAT_COOLTRAINERF_CAROL
-	clearevent EVENT_BEAT_GENTLEMAN_EDWARD
-	clearevent EVENT_BEAT_BEAUTY_CASSIE
-	clearevent EVENT_BEAT_PSYCHIC_RODNEY
-	clearevent EVENT_BEAT_SUPER_NERD_SHAWN
-	clearevent EVENT_BEAT_SAILOR_GARRETT
-	clearevent EVENT_BEAT_FISHER_JONAH
-	clearevent EVENT_BEAT_BLACKBELT_WAI
-.FirstTime:
-	clearevent EVENT_FAST_SHIP_DESTINATION_OLIVINE
 	appear OLIVINEPORT_SAILOR1
 	setmapscene FAST_SHIP_1F, SCENE_FASTSHIP1F_ENTER_SHIP
 	warp FAST_SHIP_1F, 25, 1
@@ -81,15 +65,6 @@ OlivinePortWalkUpToShipScript:
 	iftrue .skip
 	turnobject PLAYER, LEFT
 	opentext
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iffalse .FirstTime
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .NextShipMonday
-	ifequal SATURDAY, .NextShipMonday
-	ifequal TUESDAY, .NextShipFriday
-	ifequal WEDNESDAY, .NextShipFriday
-	ifequal THURSDAY, .NextShipFriday
-.FirstTime:
 	writetext OlivinePortAskBoardText
 	yesorno
 	iffalse OlivinePortNotRidingMoveAwayScript
@@ -98,7 +73,9 @@ OlivinePortWalkUpToShipScript:
 	checkitem S_S_TICKET
 	iffalse .NoTicket
 	writetext OlivinePortFlashTicketText
-	waitbutton
+	promptbutton
+	farscall FastShipFromOlivineScript
+	iffalse OlivinePortNotRidingMoveAwayScript
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	applymovement PLAYER, OlivinePortApproachFastShipFirstTimeMovement
@@ -106,20 +83,6 @@ OlivinePortWalkUpToShipScript:
 
 .NoTicket:
 	writetext OlivinePortNoTicketText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
-	end
-
-.NextShipMonday:
-	writetext OlivinePortMondayShipText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
-	end
-
-.NextShipFriday:
-	writetext OlivinePortFridayShipText
 	waitbutton
 	closetext
 	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
@@ -146,15 +109,6 @@ OlivinePortSailorAfterHOFScript:
 	opentext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue OlivinePortAlreadyRodeScript
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iffalse .FirstTime
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .NextShipMonday
-	ifequal SATURDAY, .NextShipMonday
-	ifequal TUESDAY, .NextShipFriday
-	ifequal WEDNESDAY, .NextShipFriday
-	ifequal THURSDAY, .NextShipFriday
-.FirstTime:
 	writetext OlivinePortAskBoardText
 	yesorno
 	iffalse OlivinePortNotRidingScript
@@ -163,7 +117,9 @@ OlivinePortSailorAfterHOFScript:
 	checkitem S_S_TICKET
 	iffalse .NoTicket
 	writetext OlivinePortFlashTicketText
-	waitbutton
+	promptbutton
+	farscall FastShipFromOlivineScript
+	iffalse OlivinePortNotRidingScript
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	readvar VAR_FACING
@@ -177,18 +133,6 @@ OlivinePortSailorAfterHOFScript:
 
 .NoTicket:
 	writetext OlivinePortNoTicketText
-	waitbutton
-	closetext
-	end
-
-.NextShipMonday:
-	writetext OlivinePortMondayShipText
-	waitbutton
-	closetext
-	end
-
-.NextShipFriday:
-	writetext OlivinePortFridayShipText
 	waitbutton
 	closetext
 	end
@@ -335,16 +279,6 @@ OlivinePortNoTicketText:
 	line "S.S.Ticket."
 	done
 
-OlivinePortMondayShipText:
-	text "The Fast Ship will"
-	line "sail next Monday."
-	done
-
-OlivinePortFridayShipText:
-	text "The Fast Ship will"
-	line "sail next Friday."
-	done
-
 OlivinePortFishingGuru1Text:
 	text "Shellder are easy"
 	line "to catch here."
@@ -384,41 +318,6 @@ OlivinePortSailorBeforeHOFText:
 	done
 
 
-OlivinePortSailorHoennScript:
-	faceplayer
-	opentext
-	writetext OlivinePortHoennText
-	yesorno
-	iffalse OlivinePortNotRidingToHoennScript
-	writetext OlivinePortSailingText
-	promptbutton
-	closetext
-	special FadeOutToWhite
-	waitsfx
-	warp SLATEPORT_HARBOR, 12, 1
-	end
-
-OlivinePortNotRidingToHoennScript:
-	writetext OlivinePortNotRidingText
-	waitbutton
-	closetext
-	end
-
-OlivinePortHoennText:
-	text "Do you want to"
-	line "sail to Hoenn?"
-	done
-
-OlivinePortNotRidingText:
-	text "OK."
-	line "Have a nice day!"
-	done
-
-OlivinePortSailingText:
-	text "Alright, have a"
-	line "nice voyage."
-	done
-
 OlivinePort_MapEvents:
 	db 0, 0 ; filler
 
@@ -440,4 +339,3 @@ OlivinePort_MapEvents:
 	object_event 13, 14, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortFishingGuru2Script, EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
 	object_event  4, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortYoungsterScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	object_event 11, 15, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortCooltrainerFScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
-	object_event 15, 16, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, OlivinePortSailorHoennScript, -1

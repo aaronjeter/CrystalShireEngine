@@ -44,6 +44,8 @@ BirchsLab_StepUpMovement:
 ProfBirchScript:
 	faceplayer
 	opendialog BIRCH
+	farscall BirchTravelScript
+	iftrue .done
 
 	checkevent EVENT_START_HOENN
 	iffalse .BirchNotHoenn

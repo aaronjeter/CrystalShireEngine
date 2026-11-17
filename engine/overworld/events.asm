@@ -890,6 +890,7 @@ CountStep:
 	farcall PassportCountStep
 
 	; If there is a special phone call, don't count the step.
+	farcall TravelCallCheck
 	farcall CheckSpecialPhoneCall
 	jr c, .doscript
 

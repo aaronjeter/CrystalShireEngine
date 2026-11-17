@@ -280,8 +280,8 @@ SailorGarrettAfterBattleText:
 	text "We get different"
 	line "passengers from"
 
-	para "Vermilion City to"
-	line "Olivine City."
+	para "Olivine, Vermil-"
+	line "ion and Slateport."
 	done
 
 FisherJonahSeenText:

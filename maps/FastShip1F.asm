@@ -45,6 +45,8 @@ FastShip1FSailor1Script:
 	opentext
 	checkevent EVENT_FAST_SHIP_HAS_ARRIVED
 	iftrue .Arrived
+	checkevent EVENT_FAST_SHIP_DESTINATION_SLATEPORT
+	iftrue .Slateport
 	checkevent EVENT_FAST_SHIP_DESTINATION_OLIVINE
 	iftrue .Olivine
 	writetext FastShip1FSailor1Text_ToVermilion
@@ -58,7 +60,16 @@ FastShip1FSailor1Script:
 	closetext
 	end
 
+.Slateport:
+	writetext FastShip1FSailor1Text_ToSlateport
+	waitbutton
+	closetext
+	end
+
 .Arrived:
+	farscall FastShipArrivalScript
+	checkevent EVENT_FAST_SHIP_DESTINATION_SLATEPORT
+	iftrue ._Slateport
 	checkevent EVENT_FAST_SHIP_DESTINATION_OLIVINE
 	iftrue ._Olivine
 	writetext FastShip1FSailor1Text_InVermilion
@@ -84,6 +95,18 @@ FastShip1FSailor1Script:
 	setevent EVENT_OLIVINE_PORT_SAILOR_AT_GANGWAY
 	setmapscene OLIVINE_PORT, SCENE_OLIVINEPORT_LEAVE_SHIP
 	warp OLIVINE_PORT, 7, 23
+	end
+
+._Slateport:
+	writetext FastShip1FSailor1Text_InSlateport
+	waitbutton
+	closetext
+	scall .LetThePlayerOut
+	playsound SFX_EXIT_BUILDING
+	special FadeOutToWhite
+	waitsfx
+	blackoutmod SLATEPORT_CITY
+	warp SLATEPORT_HARBOR, 12, 9
 	end
 
 .LetThePlayerOut:
@@ -217,6 +240,16 @@ FastShip1FSailor1Text_ToOlivine:
 	cont "we arrive."
 	done
 
+FastShip1FSailor1Text_ToSlateport:
+	text "Fast Ship S.S.Aqua"
+	line "is en route to"
+	cont "Slateport City."
+
+	para "We will make an"
+	line "announcement when"
+	cont "we arrive."
+	done
+
 FastShip1FSailor2Text_FirstTime:
 	text "Here's your cabin."
 
@@ -267,6 +300,12 @@ FastShip1FSailor1Text_InOlivine:
 	text "Fast Ship S.S.Aqua"
 	line "has arrived in"
 	cont "Olivine City."
+	done
+
+FastShip1FSailor1Text_InSlateport:
+	text "Fast Ship S.S.Aqua"
+	line "has arrived in"
+	cont "Slateport City."
 	done
 
 FastShip1FSailor1Text_InVermilion:

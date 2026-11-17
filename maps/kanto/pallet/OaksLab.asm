@@ -15,6 +15,8 @@ OaksLab_MapScripts:
 Oak:
 	faceplayer
 	opendialog OAK
+	farscall OakTravelScript
+	iftrue .TravelDone
 
 	checkevent EVENT_START_KANTO
 	iftrue .OakKantoScript
@@ -31,6 +33,10 @@ Oak:
 	ifgreater 15, .OpenMtSilver
 	ifequal NUM_JOHTO_BADGES, .Complain
 	sjump .AhGood
+
+.TravelDone:
+	closedialog
+	end
 
 .CheckPokedex:
 	writetext OakLabDexCheckText

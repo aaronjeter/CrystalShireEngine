@@ -759,6 +759,11 @@ SECTION "Title Defense", ROMX
 
 INCLUDE "engine/events/title_defense.asm"
 
+
+SECTION "Region Travel", ROMX
+
+INCLUDE "engine/events/region_travel.asm"
+
 SECTION "Facility Eligibility", ROMX
 
 INCLUDE "data/pokemon/facility_eligibility.asm"

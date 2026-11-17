@@ -8,8 +8,8 @@
 	const PHONE_SCHOOLBOY_JACK
 	const PHONE_POKEFAN_BEVERLY
 	const PHONE_SAILOR_HUEY
-	const_skip
-	const_skip
+	const PHONE_PROF_OAK   ; first-time travel call only
+	const PHONE_PROF_BIRCH ; first-time travel call only
 	const_skip
 	const PHONE_COOLTRAINERM_GAVEN
 	const PHONE_COOLTRAINERF_BETH
@@ -51,6 +51,9 @@ DEF NUM_PHONE_CONTACTS EQU const_value - 1
 	const SPECIALCALL_BIKESHOP
 	const SPECIALCALL_WORRIED
 	const SPECIALCALL_MASTERBALL
+	const SPECIALCALL_TRAVEL_ELM   ; 4 badges: the start region's professor asks the player over
+	const SPECIALCALL_TRAVEL_OAK
+	const SPECIALCALL_TRAVEL_BIRCH
 DEF NUM_SPECIALCALLS EQU const_value - 1
 DEF SPECIALCALL_SIZE EQU 6
 

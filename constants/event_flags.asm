@@ -900,12 +900,13 @@
 	const EVENT_GOT_TM_74
 	const EVENT_GOT_TM_75
 
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	; first-time travel between regions
+	const EVENT_TRAVEL_PROF_CALLED          ; the start region's professor called at 4 badges
+	const EVENT_GOT_TRAVEL_PARCELS          ; the two parcels and the S.S. Ticket
+	const EVENT_DELIVERED_ELM_PARCEL
+	const EVENT_DELIVERED_OAK_PARCEL
+	const EVENT_DELIVERED_BIRCH_PARCEL
+	const EVENT_FAST_SHIP_DESTINATION_SLATEPORT ; else EVENT_FAST_SHIP_DESTINATION_OLIVINE picks
 	const_skip ; unused
 	const_skip ; unused
 	const_skip ; unused

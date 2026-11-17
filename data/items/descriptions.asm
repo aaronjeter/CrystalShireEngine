@@ -244,6 +244,9 @@ ItemDescriptionsKeyItems:
 	dw PickaxeDesc
 	dw FlippersDesc
 	dw ShinyCharmDesc
+	dw ElmParcelDesc
+	dw OakParcelDesc
+	dw BirchParcelDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -1133,6 +1136,18 @@ FlippersDesc:
 ShinyCharmDesc:
 	db   "Raises the odds of"
 	next "finding shinies.@"
+
+ElmParcelDesc:
+	db   "For Prof.Elm in"
+	next "New Bark Town.@"
+
+OakParcelDesc:
+	db   "For Prof.Oak in"
+	next "Pallet Town.@"
+
+BirchParcelDesc:
+	db   "For Prof.Birch in"
+	next "Littleroot Town.@"
 
 KantoiteXDesc:
 	db   "Empowers certain"

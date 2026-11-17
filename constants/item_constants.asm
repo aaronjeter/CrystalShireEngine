@@ -242,6 +242,9 @@ DEF FIRST_KEY_ITEM EQU const_value
 	const PICKAXE
 	const FLIPPERS
 	const SHINY_CHARM
+	const ELM_PARCEL   ; first-time travel: a parcel for each other region's professor
+	const OAK_PARCEL
+	const BIRCH_PARCEL
 DEF NUM_KEY_ITEM_POCKET EQU const_value - FIRST_KEY_ITEM
 assert NUM_KEY_ITEM_POCKET <= $ff
 

@@ -108,7 +108,7 @@ SSAquaMetalCoatAndDocking:
 	playsound SFX_ELEVATOR_END
 	pause 30
 	opentext
-	writetext SSAquaHasArrivedVermilionText
+	farscall FastShipArrivedTextScript
 	waitbutton
 	setevent EVENT_FAST_SHIP_HAS_ARRIVED
 	setevent EVENT_FAST_SHIP_FOUND_GIRL
@@ -395,12 +395,6 @@ SupernerdShawnAfterBattleText:
 	text "You should use the"
 	line "right Balls to fit"
 	cont "the situation."
-	done
-
-SSAquaHasArrivedVermilionText:
-	text "Fast Ship S.S.Aqua"
-	line "has arrived in"
-	cont "Vermilion City."
 	done
 
 FastShipCabins_SE_SSE_CaptainsCabin_MapEvents:

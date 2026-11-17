@@ -264,6 +264,9 @@ ItemEffectsKeyItems:
 	dw PickaxeEffect	  ; PICKAXE
 	dw FlippersEffect	  ; FLIPPERS
 	dw NoEffect            ; SHINY_CHARM
+	dw NoEffect            ; ELM_PARCEL
+	dw NoEffect            ; OAK_PARCEL
+	dw NoEffect            ; BIRCH_PARCEL
 .IndirectEnd:
 
 ItemEffectsBalls:

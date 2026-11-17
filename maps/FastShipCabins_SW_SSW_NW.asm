@@ -61,18 +61,8 @@ FastShipBed:
 .CanArrive:
 	playsound SFX_ELEVATOR_END
 	pause 30
-	checkevent EVENT_FAST_SHIP_DESTINATION_OLIVINE
-	iftrue .ArrivedOlivine
 	opentext
-	writetext FastShipArrivedVermilionText
-	waitbutton
-	closetext
-	setevent EVENT_FAST_SHIP_HAS_ARRIVED
-	end
-
-.ArrivedOlivine:
-	opentext
-	writetext FastShipArrivedOlivineText
+	farscall FastShipArrivedTextScript
 	waitbutton
 	closetext
 	setevent EVENT_FAST_SHIP_HAS_ARRIVED
@@ -166,18 +156,6 @@ FastShipBedText1:
 FastShipBedText2:
 	text "Ah, refreshed and"
 	line "restored!"
-	done
-
-FastShipArrivedOlivineText:
-	text "Fast Ship S.S.Aqua"
-	line "has arrived in"
-	cont "Olivine City."
-	done
-
-FastShipArrivedVermilionText:
-	text "Fast Ship S.S.Aqua"
-	line "has arrived in"
-	cont "Vermilion City."
 	done
 
 FastShipCabins_SW_SSW_NW_MapEvents:

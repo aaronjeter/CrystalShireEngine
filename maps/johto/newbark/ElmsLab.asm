@@ -92,6 +92,8 @@ endc
 ProfElmScript:
 	faceplayer
 	opendialog ELM
+	farscall ElmTravelScript
+	iftrue ElmTravelDoneScript
 	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
 	iftrue ElmCheckMasterBall
 	checkevent EVENT_BEAT_ELITE_FOUR
@@ -792,6 +794,10 @@ ElmGiveMasterBallScript:
 	writetext ElmGiveMasterBallText2
 	waitbutton
 .notdone
+	closedialog
+	end
+
+ElmTravelDoneScript:
 	closedialog
 	end
 

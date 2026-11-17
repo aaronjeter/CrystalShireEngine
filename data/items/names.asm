@@ -236,6 +236,9 @@ KeyItemNames::
 	li "Pickaxe"
 	li "Flippers"
 	li "Shiny Charm"
+	li "Elm Parcel"
+	li "Oak Parcel"
+	li "Birch Parcel"
 	assert_list_length NUM_KEY_ITEM_POCKET
 
 BallNames::
