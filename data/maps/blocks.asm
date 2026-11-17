@@ -1368,3 +1368,20 @@ SilverTown_Blocks:
 	INCBIN "maps/johto/silvertown/SilverTown.ablk"
 
 ENDSECTION
+
+
+SECTION "Weather Duo Blocks", ROMX
+
+CaveOfOrigin_Blocks:
+	INCBIN "maps/hoenn/dungeons/CaveOfOrigin.ablk"
+
+CaveOfOriginDepths_Blocks:
+	INCBIN "maps/hoenn/dungeons/CaveOfOriginDepths.ablk"
+
+MtChimneyDepths_Blocks:
+	INCBIN "maps/hoenn/dungeons/MtChimneyDepths.ablk"
+
+MtChimneyChamber_Blocks:
+	INCBIN "maps/hoenn/dungeons/MtChimneyChamber.ablk"
+
+ENDSECTION

@@ -683,6 +683,10 @@ ENDM
 	map_const LILYCOVE_CHALLENGE_HALL,                      6,  7 ; at the group's end, so saves keep working
 	map_const BATTLE_RESORT_TOWER,                         16,  6 ; at the group's end, so saves keep working
 	map_const BATTLE_RESORT_TOWER_ROOM,                     4,  4 ; at the group's end, so saves keep working
+	map_const CAVE_OF_ORIGIN,                              10, 12 ; at the group's end, so saves keep working
+	map_const CAVE_OF_ORIGIN_DEPTHS,                       14, 12 ; at the group's end, so saves keep working
+	map_const MT_CHIMNEY_DEPTHS,                           14, 14 ; at the group's end, so saves keep working
+	map_const MT_CHIMNEY_CHAMBER,                          10, 10 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

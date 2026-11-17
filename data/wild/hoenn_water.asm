@@ -149,4 +149,18 @@ def_water_wildmons METEOR_TUNNEL_EAST
 	dbw 5, RELICANTH
 	end_water_wildmons
 
+def_water_wildmons CAVE_OF_ORIGIN
+	db 2 percent ; encounter rate
+	dbw 1, TENTACRUEL
+	dbw 3, WHISCASH
+	dbw 5, TENTACRUEL
+	end_water_wildmons
+
+def_water_wildmons CAVE_OF_ORIGIN_DEPTHS
+	db 2 percent ; encounter rate
+	dbw 1, TENTACRUEL
+	dbw 3, WHISCASH
+	dbw 5, TENTACRUEL
+	end_water_wildmons
+
 db -1 ; end

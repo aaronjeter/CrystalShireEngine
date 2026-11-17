@@ -583,8 +583,8 @@
 	const EVENT_GOT_LATIOS ; unused	
 	const EVENT_HIDE_LATIAS ; unused
 	const EVENT_HIDE_LATIOS ; unused
-	const EVENT_GOT_KYOGRE ; unused
-	const EVENT_GOT_GROUDON ; unused
+	const EVENT_GOT_KYOGRE
+	const EVENT_GOT_GROUDON
 	const EVENT_GOT_RAYQUAZA ; unused
 	const EVENT_GOT_JIRACHI 
 	const EVENT_NUZLOCKE_AREA_96 ; Nuzlocke mode: "used" bits of landmarks 96 and up

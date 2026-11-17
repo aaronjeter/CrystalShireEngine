@@ -829,3 +829,13 @@ INCLUDE "maps/johto/silvertown/SilverLeagueKarensRoom.asm"
 INCLUDE "maps/johto/silvertown/SilverLeagueLancesRoom.asm"
 
 ENDSECTION
+
+
+SECTION "Weather Duo Scripts", ROMX
+
+INCLUDE "maps/hoenn/dungeons/CaveOfOrigin.asm"
+INCLUDE "maps/hoenn/dungeons/CaveOfOriginDepths.asm"
+INCLUDE "maps/hoenn/dungeons/MtChimneyDepths.asm"
+INCLUDE "maps/hoenn/dungeons/MtChimneyChamber.asm"
+
+ENDSECTION

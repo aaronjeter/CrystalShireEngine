@@ -805,4 +805,88 @@ def_grass_wildmons METEOR_FALLS
 	dbw 5, BAGON
 	end_grass_wildmons
 
+def_grass_wildmons CAVE_OF_ORIGIN
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, GOLBAT
+	dbw 1, SABLEYE
+	dbw 1, GOLBAT
+	dbw 2, LUNATONE
+	dbw 3, SABLEYE
+	dbw 5, GOLBAT
+	dbw 7, LUNATONE
+	; day
+	dbw 1, GOLBAT
+	dbw 1, SABLEYE
+	dbw 1, GOLBAT
+	dbw 2, LUNATONE
+	dbw 3, SABLEYE
+	dbw 5, GOLBAT
+	dbw 7, LUNATONE
+	; nite
+	dbw 1, GOLBAT
+	dbw 1, SABLEYE
+	dbw 1, GOLBAT
+	dbw 2, LUNATONE
+	dbw 3, SABLEYE
+	dbw 5, GOLBAT
+	dbw 7, LUNATONE
+	end_grass_wildmons
+
+def_grass_wildmons CAVE_OF_ORIGIN_DEPTHS
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, GOLBAT
+	dbw 1, SABLEYE
+	dbw 1, GOLBAT
+	dbw 2, LUNATONE
+	dbw 3, SABLEYE
+	dbw 5, GOLBAT
+	dbw 7, LUNATONE
+	; day
+	dbw 1, GOLBAT
+	dbw 1, SABLEYE
+	dbw 1, GOLBAT
+	dbw 2, LUNATONE
+	dbw 3, SABLEYE
+	dbw 5, GOLBAT
+	dbw 7, LUNATONE
+	; nite
+	dbw 1, GOLBAT
+	dbw 1, SABLEYE
+	dbw 1, GOLBAT
+	dbw 2, LUNATONE
+	dbw 3, SABLEYE
+	dbw 5, GOLBAT
+	dbw 7, LUNATONE
+	end_grass_wildmons
+
+def_grass_wildmons MT_CHIMNEY_DEPTHS
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, NUMEL
+	dbw 1, SLUGMA
+	dbw 1, NUMEL
+	dbw 2, SLUGMA
+	dbw 3, TORKOAL
+	dbw 5, CAMERUPT
+	dbw 7, MAGCARGO
+	; day
+	dbw 1, NUMEL
+	dbw 1, SLUGMA
+	dbw 1, NUMEL
+	dbw 2, SLUGMA
+	dbw 3, TORKOAL
+	dbw 5, CAMERUPT
+	dbw 7, MAGCARGO
+	; nite
+	dbw 1, NUMEL
+	dbw 1, SLUGMA
+	dbw 1, NUMEL
+	dbw 2, SLUGMA
+	dbw 3, TORKOAL
+	dbw 5, CAMERUPT
+	dbw 7, MAGCARGO
+	end_grass_wildmons
+
 db -1 ; end
