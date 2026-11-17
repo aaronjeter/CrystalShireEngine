@@ -64,10 +64,6 @@ TitleDefenseIsUnlocked:
 	ld d, [hl]
 	cp TD_UNLOCK_FLAG
 	jr z, .flag
-	cp TD_UNLOCK_NOT_FLAG
-	jr z, .not_flag
-	cp TD_UNLOCK_NOT_JOHTO
-	jr z, .not_johto
 ; TD_UNLOCK_CHAMPIONS: Lance, Agatha and Steven beaten in title defenses
 	ld de, EVENT_TITLE_DEFENSE_BEAT_LANCE
 	call TitleDefenseCheckFlag
@@ -84,23 +80,6 @@ TitleDefenseIsUnlocked:
 .flag
 	call TitleDefenseCheckFlag
 	ret z
-	scf
-	ret
-
-.not_flag
-	call TitleDefenseCheckFlag
-	ret nz
-	scf
-	ret
-
-.not_johto
-	ld de, EVENT_START_KANTO
-	call TitleDefenseCheckFlag
-	jr nz, .yes
-	ld de, EVENT_START_HOENN
-	call TitleDefenseCheckFlag
-	ret z
-.yes
 	scf
 	ret
 

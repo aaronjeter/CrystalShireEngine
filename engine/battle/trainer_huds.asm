@@ -139,11 +139,11 @@ DrawEnemyHUDBorder:
 	hlcoord 1, 2
 	ld de, 1 ; start on left
 	call PlaceHUDBorderTiles
+	farcall BossHUDPips
 	ld a, [wBattleMode]
 	dec a
 	ret nz
 	farcall NuzlockeHUDIcon
-	farcall BossHUDPips
 	ld a, [wTempEnemyMonSpecies]
 	call CheckCaughtMon
 	ret z

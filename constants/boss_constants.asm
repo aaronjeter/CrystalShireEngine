@@ -22,6 +22,20 @@ DEF BOSS_PIPS_PER_TILE EQU 2
 	const BOSS_RAYQUAZA
 	const BOSS_HO_OH
 	const BOSS_LUGIA
+; trainers' bosses (boss_mon in their parties)
+	const BOSS_TD_SILVER    ; Ursaluna (title defense)
+	const BOSS_TD_GREEN     ; Mega Blastoise (title defense)
+	const BOSS_TD_WALLY     ; Mega Gardevoir (title defense)
+	const BOSS_LANCE        ; Mega Dragonite (League rematch, title defense)
+	const BOSS_AGATHA       ; Mega Gengar (League rematch, title defense)
+	const BOSS_STEVEN       ; Mega Metagross (League rematch, title defense)
+	const BOSS_TD_TATE_LIZA ; Mega Chimecho (title defense)
+	const BOSS_TD_KIMONO    ; Sylveon (title defense)
+	const BOSS_TD_TWINS     ; Ledian (title defense)
+	const BOSS_TD_ACE_DUO   ; Tyranitar (title defense)
+	const BOSS_RED          ; Pikachu (Mt. Silver, title defense)
+	const BOSS_ARCHER       ; Mega Houndoom (Radio Tower)
+	const BOSS_JANE         ; Latias (Desert Shrine)
 DEF NUM_BOSSES EQU const_value
 
 ; boss record flags

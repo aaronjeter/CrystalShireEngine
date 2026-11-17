@@ -1,7 +1,7 @@
 """World Cup title defense (engine/events/title_defense.asm), played from the
 Challenger Lobby's title clerk.
 
-The list holds the unlocked challengers (the other start regions' rivals, the
+The list holds the unlocked challengers (the three rivals, the
 Champions after their League rematch, the doubles pairs, Red after
 Red once Lance, Agatha and Steven are beaten here) and marks those beaten. A match in the Finals arena:
 the challenger (and partner) on the variable sprites, a CANLOSE battle with
@@ -194,24 +194,24 @@ def main():
         os.makedirs(SHOTS, exist_ok=True)
     lobby = lambda g: (g.const('MAP_WC_CHALLENGER_LOBBY'),) + CLERK_POS
 
-    # the list for a Johto start (the boot save): no Silver, no Champions, no Red
+    # the World Cup win alone (a Johto start): the three rivals and the pairs, no Champions, no Red
     g = setup()
     lst = open_list(g)
-    want = [td(g, n) for n in ('TD_GREEN', 'TD_WALLY', 'TD_TATE_LIZA', 'TD_KIMONO_GIRLS', 'TD_TWINS', 'TD_ACE_DUO')]
-    check('Johto start: Green, Wally and the four pairs', lst == want, str(lst))
+    want = [td(g, n) for n in ('TD_SILVER', 'TD_GREEN', 'TD_WALLY', 'TD_TATE_LIZA', 'TD_KIMONO_GIRLS', 'TD_TWINS', 'TD_ACE_DUO')]
+    check('the World Cup win: Silver, Green, Wally and the four pairs', lst == want, str(lst))
     check('nothing marked yet', not any(marks(g).values()), str(marks(g)))
     shot(g, 'list.png')
 
-    # Kanto start with every rematch: Silver, Wally, the Champions, the pairs; Red once the three
+    # a Kanto start with every rematch: the rivals, the Champions, the pairs; Red once the three
     # Champions were beaten in title defenses
     rematches = ('EVENT_START_KANTO', 'EVENT_BEAT_JOHTO_LEAGUE_REMATCH', 'EVENT_BEAT_INDIGO_LEAGUE_REMATCH',
                  'EVENT_BEAT_HOENN_LEAGUE_REMATCH')
     champs = ('EVENT_TITLE_DEFENSE_BEAT_LANCE', 'EVENT_TITLE_DEFENSE_BEAT_AGATHA', 'EVENT_TITLE_DEFENSE_BEAT_STEVEN')
     g = setup(flags=rematches + champs)
     lst = open_list(g)
-    want = [td(g, n) for n in ('TD_SILVER', 'TD_WALLY', 'TD_LANCE', 'TD_AGATHA', 'TD_STEVEN', 'TD_TATE_LIZA',
+    want = [td(g, n) for n in ('TD_SILVER', 'TD_GREEN', 'TD_WALLY', 'TD_LANCE', 'TD_AGATHA', 'TD_STEVEN', 'TD_TATE_LIZA',
                                'TD_KIMONO_GIRLS', 'TD_TWINS', 'TD_ACE_DUO', 'TD_RED')]
-    check('Kanto start, rematches, the three Champions beaten: Silver, Wally, Champions, pairs, Red',
+    check('Kanto start, rematches, the three Champions beaten: rivals, Champions, pairs, Red',
           lst == want, str(lst))
     g = setup(flags=rematches + champs[:2], defenses=50)
     lst = open_list(g)
@@ -222,14 +222,14 @@ def main():
     belts = item_count(g, 'EXPERT_BELT')
     g.press('U', hold=2, after=20)
     open_list(g)
-    s = fight(g, 0, win=True, shot_name='arena_green.png')
+    s = fight(g, 1, win=True, shot_name='arena_green.png')
     check('Green: the arena shows Green alone, Oak hidden',
           s.get('opp_sprite') == g.const('SPRITE_GREEN') and s.get('objects') == (True, False, False),
           f"{s.get('opp_sprite')} {s.get('objects')}")
     check('Green: announced, then his opening line', said(s, 'the title against Green!') and
           said(s, 'Green: Hey,'))
-    check('Green: a CANLOSE battle with WC_GREEN',
-          s['battle'] and s['class'] == g.const('GREEN') and s['id'] == g.const('WC_GREEN') and
+    check('Green: a CANLOSE battle with GREEN_TD',
+          s['battle'] and s['class'] == g.const('GREEN') and s['id'] == g.const('GREEN_TD') and
           s['type'] == g.const('BATTLETYPE_CANLOSE'), brief(s))
     check('Green: won, back at the clerk', s.get('result') == 0 and s['back'] == lobby(g), str(s['back']))
     check('Green: 1 defense, +5 BP', rd16be(g, 'wTitleDefenses') == 1 and rd16be(g, 'wBattlePoints') == 105,
@@ -245,7 +245,7 @@ def main():
     check('the list marks Green now, not Wally', m.get(td(g, 'TD_GREEN')) and not m.get(td(g, 'TD_WALLY')), str(m))
     shot(g, 'list_marked.png')
     # again: a defense only, no BP, no second belt
-    s = fight(g, 0, win=True)
+    s = fight(g, 1, win=True)
     check('Green again: 2 defenses, no BP, no second Expert Belt',
           s.get('result') == 0 and rd16be(g, 'wTitleDefenses') == 2 and rd16be(g, 'wBattlePoints') == 105 and
           item_count(g, 'EXPERT_BELT') == belts + 1 and not said(s, 'Expert Belt') and not said(s, 'BP!'),
@@ -256,7 +256,7 @@ def main():
     xl = item_count(g, 'EXP_CANDY_XL')
     g.press('U', hold=2, after=20)
     open_list(g)
-    s = fight(g, 5, win=True, shot_name='arena_aceduo.png')
+    s = fight(g, 6, win=True, shot_name='arena_aceduo.png')
     check('Kai & Rin: both sprites in the arena',
           s.get('opp_sprite') == g.const('SPRITE_COOLTRAINER_M') and
           s.get('partner_sprite') == g.const('SPRITE_COOLTRAINER_F') and s.get('objects') == (True, True, False),
@@ -271,7 +271,7 @@ def main():
     money = g.rd('wMoney', 3)
     g.press('U', hold=2, after=20)
     open_list(g)
-    s = fight(g, 1, win=False)
+    s = fight(g, 2, win=False)
     psize = g.const('PARTYMON_STRUCT_LENGTH')
     healed = all(g.rd16(f'wPartyMon1HP+{i * psize}') == g.rd16(f'wPartyMon1MaxHP+{i * psize}')
                  for i in range(g.rd('wPartyCount')))
@@ -286,7 +286,7 @@ def main():
     g = setup(full=True)
     g.press('U', hold=2, after=20)
     open_list(g)
-    s = fight(g, 0, win=True)
+    s = fight(g, 1, win=True)
     check('Pack full: a defense, no BP, no flag (item and BP come with a later win)',
           s.get('result') == 0 and rd16be(g, 'wTitleDefenses') == 1 and rd16be(g, 'wBattlePoints') == 0 and
           not flag(g, 'EVENT_TITLE_DEFENSE_BEAT_GREEN'))

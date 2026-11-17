@@ -1428,6 +1428,9 @@ DoublesFaintSlot:
 	ret
 
 .enemy
+	farcall BossBarBreak ; a boss with a bar left takes it instead
+	ccf
+	ret nc
 	call FaintEnemyPokemon
 	ld a, 1 ; the player's battler is handled on its own
 	ld [wWhichMonFaintedFirst], a

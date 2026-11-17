@@ -5,7 +5,8 @@ Check_Entrance_Ability:
 ; hidden after the handler.
 	farcall AirBalloonEntrance
 	call .Run
-	farjp HideAbilityPopup
+	farcall HideAbilityPopup
+	farjp BossEntranceAura
 
 .Run:
 	ld a, [wTempAbility]

@@ -68,7 +68,8 @@ DEF NUM_SAI_TIERS EQU const_value - 1
 	const MONFLAG_EVS_F      ; 4: db EV spread (EVS_* preset)
 	const MONFLAG_NICKNAME_F ; 5: "NAME@"
 	const MONFLAG_SHINY_F    ; 6: no data; sets the spd/spc DVs to SHINY_SPDSPC_DV
-DEF END_PARTY_MONS EQU $ff ; in place of a flags byte: no more Pokemon (bit 7 is never a flag)
+	const MONFLAG_BOSS_F     ; 7: db BOSS_* record: the trainer's boss Pokemon (engine/battle/boss.asm)
+DEF END_PARTY_MONS EQU $ff ; in place of a flags byte: no more Pokemon (no Pokemon has these flags)
 DEF RANDOM_TEAM EQU $fe    ; in place of the first flags byte: count, random list follow
 
 ; dvs presets (dvs PRESET): atk/def byte << 8 | spd/spc byte

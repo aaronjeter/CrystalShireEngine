@@ -189,6 +189,8 @@ class Data:
                 team['mons'][-1]['dvs'] = ', '.join(a)
             elif kw == 'shiny':
                 team['mons'][-1]['shiny'] = True
+            elif kw == 'boss_mon':
+                team['mons'][-1]['boss'] = a[0]
             else:
                 raise ValueError(f'{where}:{n}: {code}')
         return team
@@ -547,6 +549,8 @@ def fmt_team(d, team, base):
             bits.append(f'dvs {m["dvs"]}')
         if m.get('shiny'):
             bits.append('shiny')
+        if m.get('boss'):
+            bits.append(m['boss'])
         if 'moves' in m:
             bits.append('/'.join(m['moves']))
         out.append('    ' + ' | '.join(bits))

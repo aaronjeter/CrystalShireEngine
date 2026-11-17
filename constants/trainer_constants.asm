@@ -532,6 +532,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass RIVAL2 ; 2a
 	const RIVAL2_WC
+	const RIVAL2_TD ; title defense
 
 	trainerclass GUITARIST ; 2b
 	const CLYDE
@@ -838,6 +839,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const TATELIZA1
 	const TATELIZA2
 	const TATELIZA3
+	const TATELIZA_TD ; title defense
 
 	trainerclass WALLACE
 	const WALLACE1
@@ -953,6 +955,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const WALLY5
 	const WALLY6
 	const WC_WALLY
+	const WALLY_TD ; title defense
 
 	trainerclass GREEN
 	const GREEN1
@@ -962,6 +965,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const WC_GREEN
 	const GREEN5
 	const GREEN6
+	const GREEN_TD ; title defense
 
 	trainerclass ELM
 	const ELM1

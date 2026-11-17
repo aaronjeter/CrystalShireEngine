@@ -189,11 +189,15 @@ SkipTrainerTeam:
 	inc hl
 .no_evs
 	bit MONFLAG_NICKNAME_F, b
-	jr z, SkipTrainerTeam.next
+	jr z, .no_nickname
 .nickname
 	call GetNextTrainerDataByte
 	cp "@"
 	jr nz, .nickname
+.no_nickname
+	bit MONFLAG_BOSS_F, b
+	jr z, .next
+	inc hl
 .next
 	call GetNextTrainerDataByte
 	jr .mon
@@ -308,6 +312,19 @@ ReadTrainerMon:
 	cp "@"
 	jr nz, .nickname_loop
 .no_nickname
+
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_BOSS_F, a
+	jr z, .no_boss
+	call GetNextTrainerDataByte
+	ld [wBossID], a
+	ld a, [wOTPartyCount]
+	dec a
+	ld [wBossSlot], a
+	push hl
+	farcall BossSetBars
+	pop hl
+.no_boss
 
 	ld a, [wTrainerMonFlags]
 	bit MONFLAG_SHINY_F, a

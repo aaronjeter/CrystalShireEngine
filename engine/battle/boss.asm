@@ -1,13 +1,17 @@
-; Boss battles: a wild Pokémon with extra health bars. A script picks the boss
-; with loadboss before startbattle; wBossID = BOSS_NONE is a normal battle.
-; Balls bounce off while it has extra bars left; a boss with BOSS_AUTO_CATCH is
-; caught when its last bar runs out. The player can't run unless the record has
-; BOSS_CAN_FLEE, and the boss never flees.
+; Boss battles: a Pokémon with extra health bars. A wild boss is picked by a
+; script with loadboss before startbattle; a trainer's boss is marked in its
+; party (boss_mon), and ReadTrainerParty sets wBossID and wBossSlot, its party
+; index. wBossID = BOSS_NONE is a normal battle.
+; Wild bosses: balls bounce off while it has extra bars left; a boss with
+; BOSS_AUTO_CATCH is caught when its last bar runs out. The player can't run
+; unless the record has BOSS_CAN_FLEE, and the boss never flees.
+; A trainer's boss keeps the bars it has left when it's switched out; its aura
+; runs each time it comes in.
 
 BossInit::
-; At the start of a battle. A wild boss gets wBossBarsLeft = wBossBarsTotal =
-; its record's extra bars, plus one in Hard mode, and is free under the Nuzlocke
-; rules (like a forced battle). A trainer battle or an unknown ID clears wBossID.
+; At the start of a battle. A wild boss gets its bars (BossSetBars) and is free
+; under the Nuzlocke rules (like a forced battle). A trainer battle or an unknown
+; ID clears wBossID (the trainer's party sets it).
 	ld a, [wOtherTrainerClass]
 	and a
 	jr nz, .no_boss
@@ -16,6 +20,18 @@ BossInit::
 	ret z
 	cp NUM_BOSSES
 	jr nc, .no_boss
+	call BossSetBars
+	ld a, NUZLOCKE_FORCED
+	ld [wNuzlockeEncounter], a
+	ret
+
+.no_boss
+	xor a
+	ld [wBossID], a
+	ret
+
+BossSetBars::
+; wBossBarsLeft = wBossBarsTotal = wBossID's extra bars, plus one in Hard mode
 	call GetBossRecord
 	ld b, [hl] ; BOSS_EXTRA_BARS
 	ld a, [wHardMode]
@@ -26,13 +42,36 @@ BossInit::
 	ld a, b
 	ld [wBossBarsLeft], a
 	ld [wBossBarsTotal], a
-	ld a, NUZLOCKE_FORCED
-	ld [wNuzlockeEncounter], a
 	ret
 
-.no_boss
+BossIsActive::
+; nz if the enemy's loaded battler is the boss: any wild boss, or a trainer's
+; boss whose party index is wCurOTMon
+	ld a, [wBossID]
+	and a
+	ret z
+	ld a, [wOtherTrainerClass]
+	and a
+	jr z, .yes
+	ld a, [wBossSlot]
+	ld b, a
+	ld a, [wCurOTMon]
+	cp b
+	jr z, .yes
 	xor a
-	ld [wBossID], a
+	ret
+
+.yes
+	or 1
+	ret
+
+BossText:
+; hl = the wild text at hl, or the trainer's at de
+	ld a, [wOtherTrainerClass]
+	and a
+	ret z
+	ld h, d
+	ld l, e
 	ret
 
 BossGetAIProfile::
@@ -53,13 +92,14 @@ GetBossRecord::
 	ret
 
 BossHUDPips::
-; Wild battle HUD: one pip per extra bar the boss has left, two to a tile, on
-; the row under its name from column 2.
-	ld a, [wBossID]
-	and a
+; Singles HUD: one pip per extra bar the boss has left, two to a tile, on the
+; row under its name from column 2
+	call BossIsActive
 	ret z
 	ld a, [wBossBarsLeft]
 	hlcoord 2, 1
+BossPlacePips::
+; a pips from hl
 .loop
 	and a
 	ret z
@@ -79,8 +119,7 @@ BossBarBreak::
 ; its record has BOSS_KEEP_STATUS) and its stat stages stay. On its last bar, a
 ; BOSS_AUTO_CATCH boss is caught instead (wBattleEnded is set).
 ; Returns carry if it took a new bar or was caught.
-	ld a, [wBossID]
-	and a
+	call BossIsActive
 	ret z
 	ld a, [wBossBarsLeft]
 	and a
@@ -118,6 +157,8 @@ BossBarBreak::
 	call WaitSFX
 
 	ld hl, BossNewBarText
+	ld de, BossTrainerNewBarText
+	call BossText
 	call BattleTextbox
 	call BossPhase
 	scf
@@ -163,29 +204,45 @@ BossPhase:
 	ret z
 	jr BossRunCommandsAsEnemy
 
+BossEntranceAura::
+; Check_Entrance_Ability, after the entrance ability: a trainer's boss that just
+; came in shows its aura
+	ldh a, [hBattleTurn]
+	and a
+	ret z
+	ld a, [wOtherTrainerClass]
+	and a
+	ret z
+	call BossIsActive
+	ret z
+	jr BossAuraCommands
+
 BossAura::
 ; At the start of a boss battle, after the wild Pokémon's entrance ability.
 ; Unless the record has BOSS_CAN_FLEE, a normal or held-item battle becomes a
 ; BATTLETYPE_TRAP one (no running, Teleport, Roar or Whirlwind; the other
 ; battle types the bosses use already block them). Then "X's aura flared!" and
 ; the record's aura commands.
+	ld a, [wOtherTrainerClass]
+	and a
+	ret nz ; a trainer's boss: BossEntranceAura
 	ld a, [wBossID]
 	and a
 	ret z
 	call GetBossRecord
 	inc hl ; BOSS_FLAGS
 	bit BOSS_CAN_FLEE_F, [hl]
-	jr nz, .aura
+	jr nz, BossAuraCommands
 	ld a, [wBattleType]
 	assert BATTLETYPE_NORMAL == 0
 	and a
 	jr z, .trap
 	cp BATTLETYPE_FORCEITEM
-	jr nz, .aura
+	jr nz, BossAuraCommands
 .trap
 	ld a, BATTLETYPE_TRAP
 	ld [wBattleType], a
-.aura
+BossAuraCommands:
 	call GetBossRecord
 	inc hl
 	inc hl ; BOSS_AURA
@@ -198,6 +255,8 @@ BossAura::
 	ld de, SFX_SHINE
 	call PlaySFX
 	ld hl, BossAuraText
+	ld de, BossTrainerAuraText
+	call BossText
 	call BattleTextbox
 	call WaitSFX
 	pop hl
@@ -480,6 +539,20 @@ BossNewBarText:
 	text_ram wEnemyMonNickname
 	text_start
 	line "is still standing!"
+	prompt
+
+BossTrainerNewBarText:
+	text "Enemy @"
+	text_ram wEnemyMonNickname
+	text_start
+	line "is still standing!"
+	prompt
+
+BossTrainerAuraText:
+	text "Enemy @"
+	text_ram wEnemyMonNickname
+	text "'s"
+	line "aura flared!"
 	prompt
 
 BossPipsGFX:

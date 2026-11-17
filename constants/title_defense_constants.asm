@@ -18,8 +18,6 @@ DEF NUM_TITLE_CHALLENGERS EQU const_value
 ; unlock kinds
 	const_def
 	const TD_UNLOCK_FLAG      ; the event flag is set
-	const TD_UNLOCK_NOT_FLAG  ; the event flag is clear
-	const TD_UNLOCK_NOT_JOHTO ; the player started in Kanto or Hoenn
 	const TD_UNLOCK_CHAMPIONS ; Lance, Agatha and Steven beaten in title defenses
 
 DEF TD_WIN_BP EQU 5

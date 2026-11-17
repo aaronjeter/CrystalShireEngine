@@ -3456,6 +3456,7 @@ SECTION "Boss Battle RAM", WRAM0
 wBossID:: db ; BOSS_* (loadboss); BOSS_NONE in a normal battle
 wBossBarsLeft:: db ; extra health bars the boss has left
 wBossBarsTotal:: db ; extra health bars it started with
+wBossSlot:: db ; a trainer's boss: its party index
 
 
 SECTION "AI Learnset RAM", WRAMX, BANK[1]

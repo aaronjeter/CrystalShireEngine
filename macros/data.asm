@@ -163,6 +163,7 @@ ENDM
 ;		ev_spread HP_ATK           ; an EVS_* preset (none: no EVs)
 ;		nickname "SKARM"
 ;		shiny
+;		boss_mon BOSS_X            ; the trainer's boss Pokemon (one per team)
 ;	hard                           ; optional: the Hard mode team follows (same lines);
 ;	mon 10, SKARMORY               ; without it, Hard uses the team above
 ;	end_party
@@ -209,6 +210,10 @@ MACRO _pm_flush
 		if _pm_flags & (1 << MONFLAG_NICKNAME_F)
 			db "{_pm_nick}@"
 		endc
+		if _pm_flags & (1 << MONFLAG_BOSS_F)
+			assert _pm_flags != END_PARTY_MONS && _pm_flags != RANDOM_TEAM, "{_pm_where}: too many fields for a boss"
+			db _pm_boss
+		endc
 		if _rl_open
 .__rl_mon_end{d:_rl_mons}
 		endc
@@ -249,6 +254,7 @@ ENDM
 MACRO _team_start
 	DEF _party_mons = 0
 	DEF _party_random = 0
+	DEF _party_boss = 0
 ENDM
 
 MACRO _team_end
@@ -364,6 +370,17 @@ ENDM
 
 MACRO shiny
 	_pm_field SHINY, shiny
+ENDM
+
+MACRO boss_mon
+; boss_mon BOSS_X: this Pokemon is the trainer's boss, with record BOSS_X (one per team)
+	_pm_field BOSS, boss_mon
+	if !_rl_open
+		assert !_party_boss, "{_party_name}{_party_team}: one boss Pokemon per team"
+		DEF _party_boss = 1
+	endc
+	assert (\1) > BOSS_NONE && (\1) < NUM_BOSSES, "{_pm_where}: unknown boss record \1"
+	DEF _pm_boss = \1
 ENDM
 
 MACRO end_party

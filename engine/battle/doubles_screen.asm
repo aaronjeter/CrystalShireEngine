@@ -1134,9 +1134,18 @@ DoublesInvalidateHUDKey:
 	ret
 
 DoublesHUDKeyMatches:
-; z if slot a's HP box in VRAM shows wDoublesHUD* (and its marker); else the new key is stored.
+; z if slot a's HP box in VRAM shows wDoublesHUD* (and its marker and boss pips); else the new
+; key is stored.
 	push af
+	call DoublesSlotBossPips
+	add a
+	ld b, a
+	pop af
+	push af
+	push bc
 	call DoublesMarkerFlag
+	pop bc
+	or b
 	ld b, a
 	pop af
 	call DoublesHUDKeyAddr
@@ -1169,6 +1178,37 @@ DoublesHUDKeyMatches:
 	inc c
 .same
 	ld [hli], a
+	ret
+
+DoublesSlotBossPips:
+; a = the extra bars slot a's battler has left if it's the trainer's boss, else 0.
+; Preserves de.
+	bit BATTLER_SLOT_ENEMY_F, a
+	jr z, .none
+	ld c, a
+	ld a, [wBossID]
+	and a
+	ret z
+	ld a, c
+	call DoublesScrIsLoaded
+	jr z, .loaded
+	push de
+	ld hl, BSLOT_PARTY_INDEX
+	farcall ReadBattlerSlotByte
+	pop de
+	jr .got_index
+.loaded
+	ld a, [wCurOTMon]
+.got_index
+	ld c, a
+	ld a, [wBossSlot]
+	cp c
+	jr nz, .none
+	ld a, [wBossBarsLeft]
+	ret
+
+.none
+	xor a
 	ret
 
 DoublesMarkerFlag:
@@ -1297,6 +1337,20 @@ DoublesRenderHUD:
 	call DoublesTinyChar ; d = 1 + 4
 	inc d
 .name
+	; a trainer's boss: a pip per extra bar it has left
+	ld a, [DSCR_HUDSLOT]
+	call DoublesSlotBossPips
+.pips
+	and a
+	jr z, .pips_done
+	push af
+	ld e, 0
+	ld a, "■"
+	call DoublesTinyChar
+	pop af
+	dec a
+	jr .pips
+.pips_done
 	ld a, [DSCR_RIGHTX]
 	sub 3
 	sub d ; pixels for the name
@@ -1750,6 +1804,7 @@ DoublesTinyGlyph:
 	db "♂", 43
 	db "♀", 44
 	db ":", 45
+	db "■", 46
 	db "é", 4 ; E
 	db -1
 
@@ -2313,7 +2368,7 @@ DoublesPushScreen:
 	jmp CopyTilemapAtOnce
 
 DoublesTinyFont:
-; The 3x5 font of the HP boxes: A-Z, 0-9, / ▶ . - ' ? ! ♂ ♀ :. Each row is the top 3 bits.
+; The 3x5 font of the HP boxes: A-Z, 0-9, / ▶ . - ' ? ! ♂ ♀ : ■. Each row is the top 3 bits.
 	db %01000000, %10100000, %11100000, %10100000, %10100000 ; A
 	db %11000000, %10100000, %11000000, %10100000, %11000000 ; B
 	db %01100000, %10000000, %10000000, %10000000, %01100000 ; C
@@ -2360,4 +2415,5 @@ DoublesTinyFont:
 	db %01100000, %00100000, %11100000, %10100000, %11100000 ; ♂
 	db %11100000, %10100000, %11100000, %01000000, %11100000 ; ♀
 	db %00000000, %01000000, %00000000, %01000000, %00000000 ; :
-	assert @ - DoublesTinyFont == 46 * 5
+	db %00000000, %01000000, %11100000, %01000000, %00000000 ; ■ (a boss's extra bar)
+	assert @ - DoublesTinyFont == 47 * 5
