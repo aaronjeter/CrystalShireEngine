@@ -131,7 +131,7 @@ DecompressRequest2bpp::
 	pop hl
 
 	ld de, wDecompressScratch
-	call Request2bpp
+	call Get2bpp
 
 	pop af
 	ld [rSVBK], a

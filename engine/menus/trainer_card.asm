@@ -155,14 +155,14 @@ TrainerCard_Page2_LoadGFX:
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
 	call WaitBGMap
-	ld de, LeaderGFX
-	ld hl, vTiles2 tile $29
+	ld hl, LeaderGFX
+	ld de, vTiles2 tile $29
 	lb bc, BANK(LeaderGFX), 86
-	call Request2bpp
-	ld de, BadgeGFX
-	ld hl, vTiles0 tile $00
+	call DecompressRequest2bpp
+	ld hl, BadgeGFX
+	ld de, vTiles0 tile $00
 	lb bc, BANK(BadgeGFX), 44
-	call Request2bpp
+	call DecompressRequest2bpp
 	ld hl, TrainerCard_JohtoBadgesOAM
 	call TrainerCard_Page2_3_InitObjectsAndStrings
 	jp TrainerCard_IncrementJumptable
@@ -204,15 +204,15 @@ TrainerCard_Page3_LoadGFX:
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
 	call WaitBGMap
-	ld de, LeaderGFX2
-	ld hl, vTiles2 tile $29
+	ld hl, LeaderGFX2
+	ld de, vTiles2 tile $29
 	lb bc, BANK(LeaderGFX2), 86
-	call Request2bpp
-	ld hl, TrainerCard_KantoBadgesOAM
-	ld de, BadgeGFX2
-	ld hl, vTiles0 tile $00
+	call DecompressRequest2bpp
+	ld hl, BadgeGFX2
+	ld de, vTiles0 tile $00
 	lb bc, BANK(BadgeGFX2), 44
-	call Request2bpp
+	call DecompressRequest2bpp
+	ld hl, TrainerCard_KantoBadgesOAM
 	call TrainerCard_Page2_3_InitObjectsAndStrings
 	jmp TrainerCard_IncrementJumptable
 
@@ -249,14 +249,14 @@ TrainerCard_Page4_LoadGFX:
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
 	call WaitBGMap
-	ld de, LeaderGFX3
-	ld hl, vTiles2 tile $29
+	ld hl, LeaderGFX3
+	ld de, vTiles2 tile $29
 	lb bc, BANK(LeaderGFX3), 86
-	call Request2bpp
-	ld de, BadgeGFX3
-	ld hl, vTiles0 tile $00
+	call DecompressRequest2bpp
+	ld hl, BadgeGFX3
+	ld de, vTiles0 tile $00
 	lb bc, BANK(BadgeGFX3), 44
-	call Request2bpp
+	call DecompressRequest2bpp
 	ld hl, TrainerCard_HoennBadgesOAM
 	call TrainerCard_Page2_3_InitObjectsAndStrings
 	jp TrainerCard_IncrementJumptable
@@ -803,11 +803,11 @@ TrainerCard_HoennBadgesOAM:
 
 CardStatusGFX: INCBIN "gfx/trainer_card/card_status.2bpp"
 
-LeaderGFX:  INCBIN "gfx/trainer_card/johto_leaders.2bpp"
-LeaderGFX2: INCBIN "gfx/trainer_card/kanto_leaders.2bpp"
-LeaderGFX3: INCBIN "gfx/trainer_card/hoenn_leaders.2bpp"
-BadgeGFX:   INCBIN "gfx/trainer_card/johto_badges.2bpp"
-BadgeGFX2:  INCBIN "gfx/trainer_card/kanto_badges.2bpp"
-BadgeGFX3:  INCBIN "gfx/trainer_card/hoenn_badges.2bpp"
+LeaderGFX:  INCBIN "gfx/trainer_card/johto_leaders.2bpp.lz"
+LeaderGFX2: INCBIN "gfx/trainer_card/kanto_leaders.2bpp.lz"
+LeaderGFX3: INCBIN "gfx/trainer_card/hoenn_leaders.2bpp.lz"
+BadgeGFX:   INCBIN "gfx/trainer_card/johto_badges.2bpp.lz"
+BadgeGFX2:  INCBIN "gfx/trainer_card/kanto_badges.2bpp.lz"
+BadgeGFX3:  INCBIN "gfx/trainer_card/hoenn_badges.2bpp.lz"
 
 CardRightCornerGFX: INCBIN "gfx/trainer_card/card_right_corner.2bpp"

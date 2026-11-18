@@ -63,20 +63,19 @@ INCLUDE "data/player_names.asm"
 ; HOF_LoadTrainerFrontpic are in engine/gfx/player_characters.asm.
 
 ChrisCardPic:
-INCBIN "gfx/trainer_card/chris_card.2bpp"
+INCBIN "gfx/trainer_card/chris_card.2bpp.lz"
 
 KrisCardPic:
-INCBIN "gfx/trainer_card/kris_card.2bpp"
+INCBIN "gfx/trainer_card/kris_card.2bpp.lz"
 
 TrainerCardGFX:
 INCBIN "gfx/trainer_card/trainer_card.2bpp"
 
 ChrisPic:
-INCBIN "gfx/player/chris.2bpp"
+INCBIN "gfx/player/chris.2bpp.lz"
 
 KrisPic:
-INCBIN "gfx/player/kris.2bpp"
+INCBIN "gfx/player/kris.2bpp.lz"
 
 KrisBackpic:
-; Kris's backpic is uncompressed.
-INCBIN "gfx/player/kris_back.2bpp"
+INCBIN "gfx/player/kris_back.2bpp.lz"

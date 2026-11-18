@@ -1309,9 +1309,8 @@ InitMysteryGiftLayout:
 	call DisableLCD
 	ld hl, MysteryGiftGFX
 	ld de, vTiles2 tile $00
-	ld a, BANK(MysteryGiftGFX)
-	ld bc, $43 tiles
-	call FarCopyBytes
+	lb bc, BANK(MysteryGiftGFX), $43
+	call DecompressRequest2bpp
 	hlcoord 0, 0
 	ld a, $42
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
@@ -1436,4 +1435,4 @@ InitMysteryGiftLayout:
 	ret
 
 MysteryGiftGFX:
-INCBIN "gfx/mystery_gift/mystery_gift.2bpp"
+INCBIN "gfx/mystery_gift/mystery_gift.2bpp.lz"

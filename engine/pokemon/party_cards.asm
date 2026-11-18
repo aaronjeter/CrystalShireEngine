@@ -656,9 +656,7 @@ PC_CardCanvas:
 	ld [PC_DATA + PCV_W], a
 	ld hl, PartyCardGFX
 	ld de, PC_CANVAS
-	ld bc, PartyCardGFX.End - PartyCardGFX
-	rst CopyBytes
-	ret
+	jmp Decompress
 
 PC_Dot:
 	ld a, $80
@@ -834,9 +832,7 @@ PC_DrawHPBar:
 	jmp PC_FillRect
 
 PartyCardGFX:
-INCBIN "gfx/party_menu/card.2bpp"
-.End:
-	assert .End - PartyCardGFX == 10 * 5 tiles
+INCBIN "gfx/party_menu/card.2bpp.lz"
 
 PartyCardHPGFX:
 INCBIN "gfx/party_menu/card_hp.2bpp"

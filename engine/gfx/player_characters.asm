@@ -185,36 +185,28 @@ PlayerFishingGFX:
 GetPlayerBackpic:
 ; Load the player's backpic into VRAM starting from vTiles2 tile $31.
 	ld hl, PlayerBackpics
-	ld c, 5 ; entry width
+	ld c, 4 ; entry width
 	call GetPlayerCharacterTableEntryWidth
-	ld a, [hli] ; tile count
-	ld c, a
-	ld a, [hl] ; compressed?
-	ld hl, vTiles2 tile $31
-	and a
-	jr z, .uncompressed
+	ld c, [hl] ; tile count
 	ld h, d
 	ld l, e
 	ld de, vTiles2 tile $31
 	predef_jump DecompressGet2bpp
 
-.uncompressed
-	jmp Get2bpp
-
 PlayerBackpics:
 ; entries correspond to CHARACTER_* constants
-	table_width 5
-	; pic, tiles to load, compressed?
+	table_width 4
+	; pic, tiles to load
 	dba ChrisBackpic
-	db 7 * 7, TRUE
+	db 7 * 7
 	dba KrisBackpic
-	db 7 * 7, FALSE
+	db 7 * 7
 	dba BrendanBackpic
-	db 6 * 6, FALSE
+	db 6 * 6
 	dba MayBackpic
-	db 6 * 6, FALSE
+	db 6 * 6
 	dba GreenBackpic
-	db 6 * 6, FALSE
+	db 6 * 6
 	assert_table_length NUM_PLAYER_CHARACTERS
 
 ; Trainer card pic
@@ -229,7 +221,7 @@ GetCardPic:
 	jmp FarCopyBytes
 
 LoadPlayerCardPic:
-; Copy the player's 5x7 trainer card pic (stored by columns) to VRAM at de.
+; Decompress the player's 5x7 trainer card pic (stored by columns) to de.
 	push de
 	ld hl, PlayerCardPics
 	call GetPlayerCharacterTableEntry
@@ -237,8 +229,7 @@ LoadPlayerCardPic:
 	ld l, e
 	pop de
 	ld a, b
-	ld bc, 5 * 7 tiles
-	jmp FarCopyBytes
+	jmp FarDecompress
 
 PlayerCardPics:
 ; entries correspond to CHARACTER_* constants
@@ -267,8 +258,12 @@ LoadPlayerFrontpic:
 	ld hl, PlayerFrontpics
 	call GetPlayerCharacterTableEntry
 	pop hl
+	push hl
+	ld h, d
+	ld l, e
+	pop de
 	ld c, 7 * 7
-	jmp Get2bpp
+	jmp DecompressRequest2bpp
 
 PlayerFrontpics:
 ; entries correspond to CHARACTER_* constants
@@ -418,15 +413,15 @@ ChoosePlayerCharacter:
 
 SECTION "Player Character Pics", ROMX
 
-BrendanPic:     INCBIN "gfx/player/brendan.2bpp"
-MayPic:         INCBIN "gfx/player/may.2bpp"
-GreenPic:       INCBIN "gfx/player/green.2bpp"
-BrendanBackpic: INCBIN "gfx/player/brendan_back.2bpp"
-MayBackpic:     INCBIN "gfx/player/may_back.2bpp"
-GreenBackpic:   INCBIN "gfx/player/green_back.2bpp"
-BrendanCardPic: INCBIN "gfx/trainer_card/brendan_card.2bpp"
-MayCardPic:     INCBIN "gfx/trainer_card/may_card.2bpp"
-GreenCardPic:   INCBIN "gfx/trainer_card/green_card.2bpp"
+BrendanPic:     INCBIN "gfx/player/brendan.2bpp.lz"
+MayPic:         INCBIN "gfx/player/may.2bpp.lz"
+GreenPic:       INCBIN "gfx/player/green.2bpp.lz"
+BrendanBackpic: INCBIN "gfx/player/brendan_back.2bpp.lz"
+MayBackpic:     INCBIN "gfx/player/may_back.2bpp.lz"
+GreenBackpic:   INCBIN "gfx/player/green_back.2bpp.lz"
+BrendanCardPic: INCBIN "gfx/trainer_card/brendan_card.2bpp.lz"
+MayCardPic:     INCBIN "gfx/trainer_card/may_card.2bpp.lz"
+GreenCardPic:   INCBIN "gfx/trainer_card/green_card.2bpp.lz"
 BrendanFishingGFX: INCBIN "gfx/overworld/brendan_fish.2bpp"
 MayFishingGFX:     INCBIN "gfx/overworld/may_fish.2bpp"
 GreenFishingGFX:   INCBIN "gfx/overworld/green_fish.2bpp"

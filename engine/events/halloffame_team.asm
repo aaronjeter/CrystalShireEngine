@@ -123,8 +123,8 @@ HOF_ShowTeam:
 	ld a, 1
 	ldh [rVBK], a
 	ld de, vTiles1 tile $54 ; tile $d4
-	ld bc, 6 * 4 tiles
-	rst CopyBytes
+	lb bc, BANK(HOFLeagueTitles), 6 * 4
+	call DecompressRequest2bpp
 	xor a
 	ldh [rVBK], a
 	ld a, 6
@@ -541,7 +541,7 @@ HOFLeagueTitles:
 	dw HOFWorldCupGFX
 	assert_table_length NUM_LEAGUES
 
-HOFKantoLeagueGFX: INCBIN "gfx/hall_of_fame/kanto.2bpp"
-HOFJohtoLeagueGFX: INCBIN "gfx/hall_of_fame/johto.2bpp"
-HOFHoennLeagueGFX: INCBIN "gfx/hall_of_fame/hoenn.2bpp"
-HOFWorldCupGFX:    INCBIN "gfx/hall_of_fame/world_cup.2bpp"
+HOFKantoLeagueGFX: INCBIN "gfx/hall_of_fame/kanto.2bpp.lz"
+HOFJohtoLeagueGFX: INCBIN "gfx/hall_of_fame/johto.2bpp.lz"
+HOFHoennLeagueGFX: INCBIN "gfx/hall_of_fame/hoenn.2bpp.lz"
+HOFWorldCupGFX:    INCBIN "gfx/hall_of_fame/world_cup.2bpp.lz"

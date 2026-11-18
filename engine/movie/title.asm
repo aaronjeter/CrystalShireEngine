@@ -133,8 +133,7 @@ _TitleScreen:
 ; The horizon's side columns
 	ld hl, TitleHorizonGFX
 	ld de, vTiles2 tile TITLE_HORIZON_TILE
-	ld bc, TitleHorizonGFX.End - TitleHorizonGFX
-	rst CopyBytes
+	call Decompress
 
 ; Clear screen tiles
 	hlbgcoord 0, 0
@@ -385,8 +384,7 @@ TitleLogoGFX:
 INCBIN "gfx/title/logo.2bpp.lz"
 
 TitleHorizonGFX:
-INCBIN "gfx/title/horizon.2bpp"
-.End
+INCBIN "gfx/title/horizon.2bpp.lz"
 
 TitleScreenPalettes:
 INCLUDE "gfx/title/title.pal"

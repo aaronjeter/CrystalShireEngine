@@ -1148,35 +1148,55 @@ Pack_PrintTextNoScroll:
 WaitBGMap_DrawPackGFX:
 	call WaitBGMap
 DrawPackGFX:
-	ld a, [wCurPocket]
-	maskbits NUM_POCKETS
-	ld e, a
-	ld d, 0
+	ld hl, PackGFX
+	ld b, BANK(PackGFX)
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
-	jr z, .male_dude
+	jr z, .got_gfx
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
-	jr nz, .female
-.male_dude
-	ld hl, PackGFXPointers
-	add hl, de
+	jr z, .got_gfx
+	ld hl, PackFGFX
+	ld b, BANK(PackFGFX)
+.got_gfx
+	ld a, [wCurPocket]
+	maskbits NUM_POCKETS
+	add a
+	ld e, a
+	ld d, 0
+	push hl
+	ld hl, PackGFXOffsets
 	add hl, de
 	ld a, [hli]
-	ld d, [hl]
-	ld e, a
+	ld h, [hl]
+	ld l, a
+	ld de, wDecompressScratch
+	add hl, de
+	ld d, h
+	ld e, l
+	pop hl
+; decompress the whole bag graphic, then copy the current pocket's 15 tiles
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wDecompressScratch)
+	ldh [rSVBK], a
+	push de
+	ld a, b
+	ld de, wDecompressScratch
+	call FarDecompress
+	pop de
 	ld hl, vTiles2 tile $50
-	lb bc, BANK(PackGFX), 15
-	jmp Request2bpp
+	lb bc, BANK(@), 15
+	call Request2bpp
+	pop af
+	ldh [rSVBK], a
+	ret
 
-.female
-	farjp DrawKrisPackGFX
-
-PackGFXPointers:
-	dw PackGFX + (15 tiles) * 1 ; ITEM_POCKET
-	dw PackGFX + (15 tiles) * 3 ; BALL_POCKET
-	dw PackGFX + (15 tiles) * 0 ; KEY_ITEM_POCKET
-	dw PackGFX + (15 tiles) * 2 ; TM_HM_POCKET
+PackGFXOffsets:
+	dw (15 tiles) * 1 ; ITEM_POCKET
+	dw (15 tiles) * 3 ; BALL_POCKET
+	dw (15 tiles) * 0 ; KEY_ITEM_POCKET
+	dw (15 tiles) * 2 ; TM_HM_POCKET
 
 Pack_InterpretJoypad:
 	ld hl, wMenuJoypad
@@ -1269,9 +1289,8 @@ Pack_InitGFX:
 	call DisableLCD
 	ld hl, PackMenuGFX
 	ld de, vTiles2
-	ld bc, $60 tiles
-	ld a, BANK(PackMenuGFX)
-	call FarCopyBytes
+	lb bc, BANK(PackMenuGFX), 80
+	call DecompressRequest2bpp
 ; Background (blue if male, pink if female)
 	hlcoord 0, 1
 	ld bc, 11 * SCREEN_WIDTH
@@ -1556,6 +1575,6 @@ PackEmptyText:
 	text_end
 
 PackMenuGFX:
-INCBIN "gfx/pack/pack_menu.2bpp"
+INCBIN "gfx/pack/pack_menu.2bpp.lz"
 PackGFX:
-INCBIN "gfx/pack/pack.2bpp"
+INCBIN "gfx/pack/pack.2bpp.lz"

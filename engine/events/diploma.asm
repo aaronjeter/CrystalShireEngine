@@ -12,8 +12,7 @@ PlaceDiplomaOnScreen:
 	call Decompress
 	ld hl, DiplomaPage1Tilemap
 	decoord 0, 0
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	rst CopyBytes
+	call Decompress
 	ld de, .Player
 	hlcoord 2, 5
 	rst PlaceString
@@ -54,8 +53,7 @@ PrintDiplomaPage2:
 	rst ByteFill
 	ld hl, DiplomaPage2Tilemap
 	decoord 0, 0
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	rst CopyBytes
+	call Decompress
 	ld de, .GameFreak
 	hlcoord 8, 0
 	rst PlaceString
@@ -79,7 +77,7 @@ DiplomaGFX:
 INCBIN "gfx/diploma/diploma.2bpp.lz"
 
 DiplomaPage1Tilemap:
-INCBIN "gfx/diploma/page1.tilemap"
+INCBIN "gfx/diploma/page1.tilemap.lz"
 
 DiplomaPage2Tilemap:
-INCBIN "gfx/diploma/page2.tilemap"
+INCBIN "gfx/diploma/page2.tilemap.lz"

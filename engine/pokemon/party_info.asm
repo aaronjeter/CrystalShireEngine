@@ -479,11 +479,14 @@ PartyInfo_Render:
 	ldh [rSVBK], a
 
 	; the card's edges, from the cards' template: left edge, bottom left corner, bottom edge
-	ld hl, PartyCardGFX + 10 tiles
+	ld hl, PartyCardGFX
+	ld de, PC_CANVAS
+	call Decompress
+	ld hl, PC_CANVAS + 10 tiles
 	ld de, PC_CANVAS
 	ld bc, 1 tiles
 	rst CopyBytes
-	ld hl, PartyCardGFX + 40 tiles
+	ld hl, PC_CANVAS + 40 tiles
 	ld bc, 2 tiles
 	rst CopyBytes
 	ld a, PI_T_EDGE
