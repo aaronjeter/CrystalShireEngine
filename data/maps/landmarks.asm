@@ -149,6 +149,9 @@ Landmarks:
 	landmark 108,  60, Route121Name
 	landmark 108,  76, Route122Name
 	landmark 100,  84, Route123Name
+	landmark 132,  60, Route124Name
+	landmark 140,  60, Route125Name
+	landmark 148,  52, ShoalCaveName
 	landmark 100,  24, Route47Name
 	landmark  92,  22, SilverPassName
 	landmark  84,  22, Route48Name
@@ -287,6 +290,9 @@ Route120Name:        db "Route 120@"
 Route121Name:        db "Route 121@"
 Route122Name:        db "Route 122@"
 Route123Name:        db "Route 123@"
+Route124Name:        db "Route 124@"
+Route125Name:        db "Route 125@"
+ShoalCaveName:       db "Shoal Cave@"
 DarkCaveName:        db "Dark Cave@"
 IlexForestName:      db "Ilex<BSP>Forest@"
 BurnedTowerName:     db "Burned<BSP>Tower@"

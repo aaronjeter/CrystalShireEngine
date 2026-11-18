@@ -842,10 +842,13 @@ ENDM
 	connection west, Route119North, ROUTE_119_NORTH, 0
 	connection east, Route120, ROUTE_120, 0
 
-	map_attributes LilycoveCity, LILYCOVE_CITY, $05, WEST
+	map_attributes LilycoveCity, LILYCOVE_CITY, $05, WEST | EAST
 	connection west, Route121, ROUTE_121, 4
+	connection east, Route124, ROUTE_124, 0
 
-	map_attributes MossdeepCity, MOSSDEEP_CITY, $05, 0
+	map_attributes MossdeepCity, MOSSDEEP_CITY, $35, NORTH | WEST
+	connection north, Route125, ROUTE_125, 2
+	connection west, Route124, ROUTE_124, -2
 
 	map_attributes SootopolisCity, SOOTOPOLIS_CITY, $05, 0
 	map_attributes SootopolisFisherHouse, SOOTOPOLIS_FISHER_HOUSE, $00, 0
@@ -1025,3 +1028,14 @@ ENDM
 	map_attributes CaveOfOriginDepths, CAVE_OF_ORIGIN_DEPTHS, $00, 0
 	map_attributes MtChimneyDepths, MT_CHIMNEY_DEPTHS, $00, 0
 	map_attributes MtChimneyChamber, MT_CHIMNEY_CHAMBER, $00, 0
+
+	map_attributes Route124, ROUTE_124, $35, WEST | EAST
+	connection west, LilycoveCity, LILYCOVE_CITY, 0
+	connection east, MossdeepCity, MOSSDEEP_CITY, 2
+
+	map_attributes Route125, ROUTE_125, $35, SOUTH
+	connection south, MossdeepCity, MOSSDEEP_CITY, -2
+
+	map_attributes ShoalCave1F, SHOAL_CAVE_1F, $19, 0
+	map_attributes ShoalCaveB1F, SHOAL_CAVE_B1F, $19, 0
+	map_attributes ShoalCaveB2F, SHOAL_CAVE_B2F, $19, 0

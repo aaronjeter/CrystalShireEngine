@@ -185,6 +185,8 @@ OverworldWeatherMaps:
 
 	; WEATHER_ZONE_HOENN_ISLANDS
 	ow_weather_zone MOSSDEEP_CITY,             WEATHER_ZONE_HOENN_ISLANDS
+	ow_weather_zone ROUTE_124,                 WEATHER_ZONE_HOENN_ISLANDS
+	ow_weather_zone ROUTE_125,                 WEATHER_ZONE_HOENN_ISLANDS
 	ow_weather_zone SOOTOPOLIS_CITY,           WEATHER_ZONE_HOENN_ISLANDS
 	ow_weather_zone EVERGRANDE_CITY,           WEATHER_ZONE_HOENN_ISLANDS
 

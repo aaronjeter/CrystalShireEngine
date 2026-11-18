@@ -127,6 +127,12 @@ DEF NUM_OW_BEHAVIORS EQU const_value
 	shift_const OW_SLUGGISH  ; pauses twice as long
 	shift_const OW_BOLD      ; notices from 2 tiles farther; the Repel rule doesn't stop it
 	shift_const OW_TIMID     ; notices from 1 tile closer; never starts a battle itself
+; a static wanderer's object_event sight range: OW_PINNED | a behavior gives it
+; that behavior (OW_WANDERER to OW_SLEEPY only: the value stays in its modifier
+; byte, where bits 0-1 aren't read after setup)
+DEF OW_PINNED_F EQU 7
+DEF OW_PINNED EQU 1 << OW_PINNED_F
+DEF OW_PINNED_BEHAVIOR_MASK EQU %11
 
 ; MAPOBJECT_SPAWN_STATE
 DEF WILDSPAWN_BEHAVIOR_MASK EQU %1111

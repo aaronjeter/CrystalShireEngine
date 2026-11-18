@@ -94,7 +94,8 @@ InitStaticWanderers:
 ; A map's own Pokémon (object_events with SPRITEMOVEDATA_WILDSPAWN and a
 ; SPRITE_MON_* sprite, battled through their own script) wander like spawns:
 ; give each the temperament of its species, and the level of the script's
-; loadwildmon (after an optional cry), or 0 if it isn't there.
+; loadwildmon (after an optional cry), or 0 if it isn't there. A sight range of
+; OW_PINNED | behavior gives that behavior instead, with no modifiers.
 	ld a, FIRST_SPAWN_OBJECT
 .loop
 	push af
@@ -118,9 +119,25 @@ InitStaticWanderers:
 	call GetPokemonIDFromIndex
 	ld [wTempWildMonSpecies], a
 	pop bc
+	ld hl, MAPOBJECT_SIGHT_RANGE
+	add hl, bc
+	ld a, [hl]
+	push af
 	ld hl, MAPOBJECT_SPAWN_STATE
 	add hl, bc
 	call SetSpawnBehavior
+	pop af
+	bit OW_PINNED_F, a
+	jr z, .got_behavior
+	; a pinned behavior: keep it, with no modifiers
+	ld hl, MAPOBJECT_SPAWN_MODS
+	add hl, bc
+	ld [hl], a
+	and OW_PINNED_BEHAVIOR_MASK
+	ld hl, MAPOBJECT_SPAWN_STATE
+	add hl, bc
+	ld [hl], a
+.got_behavior
 	call StaticWandererLevel
 	ld hl, MAPOBJECT_SPAWN_LEVEL
 	add hl, bc

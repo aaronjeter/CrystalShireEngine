@@ -837,6 +837,11 @@ INCLUDE "maps/hoenn/dungeons/CaveOfOrigin.asm"
 INCLUDE "maps/hoenn/dungeons/CaveOfOriginDepths.asm"
 INCLUDE "maps/hoenn/dungeons/MtChimneyDepths.asm"
 INCLUDE "maps/hoenn/dungeons/MtChimneyChamber.asm"
+INCLUDE "maps/hoenn/routes/Route124.asm"
+INCLUDE "maps/hoenn/routes/Route125.asm"
+INCLUDE "maps/hoenn/shoalcave/ShoalCave1F.asm"
+INCLUDE "maps/hoenn/shoalcave/ShoalCaveB1F.asm"
+INCLUDE "maps/hoenn/shoalcave/ShoalCaveB2F.asm"
 
 ENDSECTION
 

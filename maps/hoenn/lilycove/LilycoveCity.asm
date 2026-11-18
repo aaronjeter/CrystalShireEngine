@@ -26,6 +26,39 @@ LilycoveCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_LILYCOVE	
 	endcallback
 
+LilycoveWallyStairsLeftScript:
+	checkevent EVENT_FOUND_LILYCOVE_WALLY
+	iftrue .done
+	showemote EMOTE_SHOCK, LILYCOVECITY_WALLY, 15
+	applymovement LILYCOVECITY_WALLY, LilycoveWally_ApproachLeftMovement
+	turnobject PLAYER, DOWN
+	sjump Lilycove_Wally
+
+.done
+	end
+
+LilycoveWallyStairsRightScript:
+	checkevent EVENT_FOUND_LILYCOVE_WALLY
+	iftrue .done
+	showemote EMOTE_SHOCK, LILYCOVECITY_WALLY, 15
+	applymovement LILYCOVECITY_WALLY, LilycoveWally_ApproachRightMovement
+	turnobject PLAYER, DOWN
+	sjump Lilycove_Wally
+
+.done
+	end
+
+LilycoveWally_ApproachLeftMovement:
+	step LEFT
+	step UP
+	step UP
+	step_end
+
+LilycoveWally_ApproachRightMovement:
+	step UP
+	step UP
+	step_end
+
 Lilycove_Wally:
 	faceplayer
 	opendialog WALLY
@@ -54,7 +87,6 @@ Lilycove_Wally:
 	waitbutton
 	closedialog
 	setevent EVENT_FOUND_LILYCOVE_WALLY
-	setflag ENGINE_FLYPOINT_MOSSDEEP
 	; Wally calls out Altaria and flies off to Mossdeep
 	cry ALTARIA
 	waitsfx
@@ -85,12 +117,12 @@ LilycoveWallyWonText:
 	done
 
 LilycoveWallyMossdeepText:
-	text "Here, I'll mark"
-	line "Mossdeep on your"
-	cont "flymap."
+	text "Mossdeep is just"
+	line "across the water."
 
-	para "You should be able"
-	line "to fly right over."
+	para "Surf east from"
+	line "this beach and"
+	cont "you'll see it."
 
 	para "...You're really"
 	line "good at this"
@@ -124,16 +156,15 @@ LilycoveWallyIntroText:
 	line "I'm glad to see"
 	cont "you!"
 
-	para "I got the route"
-	line "to Mossdeep City!"
+	para "Are you heading"
+	line "out to sea too?"
 
-	para "You can't really"
-	line "swim there"
-	cont "anymore, but..."
+	para "I'm on my way to"
+	line "Mossdeep City!"
 
-	para "Maybe...we could"
-	line "have a rematch"
-	cont "first?"
+	para "But first..."
+	line "how about a"
+	cont "rematch?"
 	done
 
 LilycoveMossdeepGuyScript:
@@ -152,11 +183,12 @@ LilycoveMossdeepGuyText:
 	para "It really doesn't"
 	line "look far..."
 
-	para "Your Pokemon"
-	line "could probably"
+	para "Take the steps"
+	line "down to the beach"
 
-	para "just Fly you"
-	line "right over!"
+	para "and Surf east."
+	line "You'll be there"
+	cont "in no time!"
 	done
 
 
@@ -256,6 +288,8 @@ LilycoveCity_MapEvents:
 	warp_event 21, 25, LILYCOVE_CHALLENGE_HALL, 1
 
 	def_coord_events
+	coord_event 44, 28, -1, LilycoveWallyStairsLeftScript
+	coord_event 45, 28, -1, LilycoveWallyStairsRightScript
 
 	def_bg_events	
 	bg_event  29, 15, BGEVENT_READ, LilycoveSign
@@ -267,11 +301,11 @@ LilycoveCity_MapEvents:
 	def_object_events
 	object_event  46,  33, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, LilycoveMossdeepGuyScript, -1
 	object_event  46,  34, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Espeon, -1
-	object_event  66,  04, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
-	object_event  50,  31, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
-	object_event  22,  32, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Lilycove_Wingull, -1
+	object_event 59,  7, SPRITE_MON_2, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, OW_PINNED | OW_SKITTISH, Lilycove_Wingull, -1
+	object_event  50,  31, SPRITE_MON_2, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, OW_PINNED | OW_SKITTISH, Lilycove_Wingull, -1
+	object_event  22,  32, SPRITE_MON_2, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, OW_PINNED | OW_SKITTISH, Lilycove_Wingull, -1
 	object_event  39,  22, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, LilycoveTwinScript, -1
 	object_event  42,  23, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, LilycoveTwinScript, -1
 	object_event  31,  29, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveSailorScript, -1
 	object_event  07,  18, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveBeautyScript, -1
-	object_event  34,  34, SPRITE_BUGSY, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Lilycove_Wally, EVENT_FOUND_LILYCOVE_WALLY
+	object_event  45,  31, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Lilycove_Wally, EVENT_FOUND_LILYCOVE_WALLY

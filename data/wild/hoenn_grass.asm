@@ -889,4 +889,88 @@ def_grass_wildmons MT_CHIMNEY_DEPTHS
 	dbw 7, MAGCARGO
 	end_grass_wildmons
 
+def_grass_wildmons SHOAL_CAVE_1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, SPHEAL
+	dbw 1, SPHEAL
+	dbw 1, ZUBAT
+	dbw 2, SPHEAL
+	dbw 3, GOLBAT
+	dbw 5, SEALEO
+	; day
+	dbw 1, ZUBAT
+	dbw 1, SPHEAL
+	dbw 1, SPHEAL
+	dbw 1, ZUBAT
+	dbw 2, SPHEAL
+	dbw 3, GOLBAT
+	dbw 5, SEALEO
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, SPHEAL
+	dbw 1, SPHEAL
+	dbw 1, ZUBAT
+	dbw 2, SPHEAL
+	dbw 3, GOLBAT
+	dbw 5, SEALEO
+	end_grass_wildmons
+
+def_grass_wildmons SHOAL_CAVE_B1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, SPHEAL
+	dbw 1, SPHEAL
+	dbw 1, ZUBAT
+	dbw 2, SPHEAL
+	dbw 3, GOLBAT
+	dbw 5, SEALEO
+	; day
+	dbw 1, ZUBAT
+	dbw 1, SPHEAL
+	dbw 1, SPHEAL
+	dbw 1, ZUBAT
+	dbw 2, SPHEAL
+	dbw 3, GOLBAT
+	dbw 5, SEALEO
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, SPHEAL
+	dbw 1, SPHEAL
+	dbw 1, ZUBAT
+	dbw 2, SPHEAL
+	dbw 3, GOLBAT
+	dbw 5, SEALEO
+	end_grass_wildmons
+
+def_grass_wildmons SHOAL_CAVE_B2F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, SPHEAL
+	dbw 1, SNORUNT
+	dbw 1, SPHEAL
+	dbw 2, SNORUNT
+	dbw 3, GOLBAT
+	dbw 4, SEALEO
+	dbw 7, GLALIE
+	; day
+	dbw 1, SPHEAL
+	dbw 1, SNORUNT
+	dbw 1, SPHEAL
+	dbw 2, SNORUNT
+	dbw 3, GOLBAT
+	dbw 4, SEALEO
+	dbw 7, GLALIE
+	; nite
+	dbw 1, SPHEAL
+	dbw 1, SNORUNT
+	dbw 1, SPHEAL
+	dbw 2, SNORUNT
+	dbw 3, GOLBAT
+	dbw 4, SEALEO
+	dbw 7, GLALIE
+	end_grass_wildmons
+
 db -1 ; end

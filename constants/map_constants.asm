@@ -695,6 +695,11 @@ ENDM
 	map_const CAVE_OF_ORIGIN_DEPTHS,                       14, 12 ; at the group's end, so saves keep working
 	map_const MT_CHIMNEY_DEPTHS,                           14, 14 ; at the group's end, so saves keep working
 	map_const MT_CHIMNEY_CHAMBER,                          10, 10 ; at the group's end, so saves keep working
+	map_const ROUTE_124,                                   30, 22 ; at the group's end, so saves keep working
+	map_const ROUTE_125,                                   20, 20 ; at the group's end, so saves keep working
+	map_const SHOAL_CAVE_1F,                               16, 14 ; at the group's end, so saves keep working
+	map_const SHOAL_CAVE_B1F,                              16, 14 ; at the group's end, so saves keep working
+	map_const SHOAL_CAVE_B2F,                              16, 14 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

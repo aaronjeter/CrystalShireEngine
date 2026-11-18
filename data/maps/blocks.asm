@@ -1384,6 +1384,21 @@ MtChimneyDepths_Blocks:
 MtChimneyChamber_Blocks:
 	INCBIN "maps/hoenn/dungeons/MtChimneyChamber.ablk"
 
+Route124_Blocks:
+	INCBIN "maps/hoenn/routes/Route124.ablk"
+
+Route125_Blocks:
+	INCBIN "maps/hoenn/routes/Route125.ablk"
+
+ShoalCave1F_Blocks:
+	INCBIN "maps/hoenn/shoalcave/ShoalCave1F.ablk"
+
+ShoalCaveB1F_Blocks:
+	INCBIN "maps/hoenn/shoalcave/ShoalCaveB1F.ablk"
+
+ShoalCaveB2F_Blocks:
+	INCBIN "maps/hoenn/shoalcave/ShoalCaveB2F.ablk"
+
 ENDSECTION
 
 

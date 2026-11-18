@@ -163,4 +163,18 @@ def_water_wildmons CAVE_OF_ORIGIN_DEPTHS
 	dbw 5, TENTACRUEL
 	end_water_wildmons
 
+def_water_wildmons ROUTE_124
+	db 2 percent ; encounter rate
+	dbw 1, TENTACOOL
+	dbw 1, WINGULL
+	dbw 3, PELIPPER
+	end_water_wildmons
+
+def_water_wildmons ROUTE_125
+	db 2 percent ; encounter rate
+	dbw 1, TENTACOOL
+	dbw 1, WINGULL
+	dbw 3, PELIPPER
+	end_water_wildmons
+
 db -1 ; end
