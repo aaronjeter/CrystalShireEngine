@@ -248,7 +248,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const EVERGRANDE_DUNGEON_M7
 	const EVERGRANDE_DUNGEON_M8
 	const EVERGRANDE_DUNGEON_M9
-	const DOUBLES_TEST ; the test trainer in the player's room
 	const FACILITY_JOHTO_6 ; challenge facility (intermediate)
 	const FACILITY_HOENN_6 ; challenge facility (intermediate)
 	const FACILITY_KANTO_9 ; challenge facility (hard)

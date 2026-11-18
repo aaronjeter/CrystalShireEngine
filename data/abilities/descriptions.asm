@@ -16,8 +16,6 @@ AbilityDescriptions:
 	dw InvisibleWallDesc
 	dw ImpostorDesc
 	dw DebrisDesc
-	dw LeechDesc
-	dw EnervateDesc
 	dw DauntDesc
 	dw LevitateDesc
 	dw WaterproofDesc
@@ -219,10 +217,6 @@ DebrisDesc:
 	db    "Scatters Spikes"
 	next  "on entrance.@"
 
-LeechDesc:
-	db    "Scatters Seeds"
-	next  "on entrance.@"
-
 SwiftSwimDesc:
 	db    "Doubles Speed"
 	next  "in Rain.@"
@@ -238,10 +232,6 @@ SandRushDesc:
 SlushRushDesc:
 	db    "Doubles Speed"
 	next  "in Hail.@"
-
-EnervateDesc:
-	db    "Cuts the foe's"
-	next  "Sp. Def.@"
 
 DauntDesc:
 	db    "Cuts the foe's"

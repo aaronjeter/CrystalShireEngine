@@ -1384,11 +1384,6 @@ StabBoostsDamageText:
 	line "STAB boosted!"
 	prompt
 
-EnervateCutsSpDefText:
-	text "<TARGET>'s"
-	line "Spcl.Def fell!"
-	prompt
-
 DauntCutsDefText:
 	text "<TARGET>'s"
 	line "Defense fell!"

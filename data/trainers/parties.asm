@@ -3333,10 +3333,6 @@ CooltrainerMGroup:
 	mon 8, WAILORD
 	end_party
 
-	party DOUBLES_TEST, "Doubles", DOUBLES ; Player's room doubles test trainer
-	random_mons 6, TRIAL_EASY
-	end_party
-
 	party FACILITY_JOHTO_6, "Dex" ; challenge facility (intermediate; levels: the facility level)
 	mon 0, BAYLEEF
 	mon 0, QUILAVA

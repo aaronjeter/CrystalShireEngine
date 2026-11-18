@@ -16,8 +16,6 @@ AbilityNames:
 	dw InvisibleWallNameString
 	dw ImpostorNameString
 	dw DebrisNameString
-	dw LeechNameString
-	dw EnervateNameString
 	dw DauntNameString
 	dw LevitateNameString
 	dw WaterproofNameString
@@ -193,9 +191,6 @@ ImpostorNameString:
 DebrisNameString:
 	db "Debris@"
 
-LeechNameString:
-	db "Leech@"
-
 SwiftSwimNameString:
 	db "Swift Swim@"
 
@@ -207,9 +202,6 @@ SandRushNameString:
 
 SlushRushNameString:
 	db "Slush Rush@"
-
-EnervateNameString:
-	db "Enervate@"
 
 DauntNameString:
 	db "Daunt@"

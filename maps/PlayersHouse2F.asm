@@ -3,7 +3,6 @@
 	const PLAYERSHOUSE2F_DOLL_1
 	const PLAYERSHOUSE2F_DOLL_2
 	const PLAYERSHOUSE2F_BIG_DOLL
-	const PLAYERHOUSE2F_RANDOMTESTGUY
 
 PlayersHouse2F_MapScripts:
 	def_scene_scripts
@@ -454,43 +453,6 @@ PlayersRadioText4:
 	done
 
 
-Playerhouse_RandomTestTrainer:
-	faceplayer
-	winlosstext PlayersRadioText1, PlayersRadioText3
-	loadtrainer COOLTRAINERM, DOUBLES_TEST
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CUP
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	iftrue .AfterLoss
-	sjump .AfterWin
-
-.AfterWin
-	opentext
-	writetext DebugWinText
-	waitbutton
-	closetext
-	special HealParty
-	playmapmusic
-	end
-
-.AfterLoss
-	opentext
-	writetext DebugLossText
-	waitbutton
-	closetext
-	special HealParty
-	playmapmusic
-	end
-
-DebugWinText:
-	text "You Won!!!"
-	done
-
-DebugLossText:
-	text "You Lost!!!"
-	done
-
 PlayersHouse2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -511,5 +473,4 @@ PlayersHouse2F_MapEvents:
 	object_event  4,  4, SPRITE_DOLL_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseDoll1Script, EVENT_PLAYERS_HOUSE_2F_DOLL_1
 	object_event  5,  4, SPRITE_DOLL_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseDoll2Script, EVENT_PLAYERS_HOUSE_2F_DOLL_2
 	object_event  0,  1, SPRITE_BIG_DOLL, SPRITEMOVEDATA_BIGDOLL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseBigDollScript, EVENT_PLAYERS_HOUSE_2F_BIG_DOLL
-	;object_event 02, 04, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Playerhouse_RandomTestTrainer, -1
 	

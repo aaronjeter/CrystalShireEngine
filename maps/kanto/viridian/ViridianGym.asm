@@ -50,6 +50,13 @@ BlueGiveTm:
 	promptbutton
 	verbosegiveitem TM_DRAGON_CLAW
 .Done	
+	checkitem HM_WATERFALL
+	iftrue .HaveWaterfall
+	writetext LeaderBlueWaterfallText
+	promptbutton
+	setevent EVENT_GOT_HM07_WATERFALL
+	verbosegiveitem HM_WATERFALL
+.HaveWaterfall
 	end
 
 BlueGiveBadge:
@@ -169,6 +176,18 @@ LeaderBlueEpilogueText:
 	para "You'd better not"
 	line "lose until I beat"
 	cont "you. Got it?"
+	done
+
+LeaderBlueWaterfallText:
+	text "And take this."
+
+	para "The road to the"
+	line "League runs past"
+	cont "Tohjo Falls."
+
+	para "You'll need"
+	line "Waterfall to climb"
+	cont "it."
 	done
 
 LeaderBlueExplainTMText:

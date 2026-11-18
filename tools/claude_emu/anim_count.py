@@ -88,8 +88,6 @@ CASES['spread_enemy'] = case(['SPLASH', 'SURF'], [0, 1],
 CASES['spread_explosion'] = case(['EXPLOSION'], [0], RATTATAS)
 CASES['entrance_intimidate'] = case(['SURF'], [], RATTATAS, lead='GYARADOS',
                                     abilities={'GYARADOS': 'ABILITY_INTIMIDATE'}, expect={'LEER': 1})
-CASES['entrance_leech'] = case(['SURF'], [], RATTATAS, abilities={'MEW': 'ABILITY_LEECH'},
-                               expect={'LEECH_SEED': 1})
 
 # weather: one animation per end-of-turn message, however many battlers it hurts (Oct 27, 2026)
 WEATHER_TEXT = {'ANIM_IN_SANDSTORM': r'SANDSTORM\s*RAGES', 'ANIM_IN_HAIL': r'HAIL\s*CONTINUES'}

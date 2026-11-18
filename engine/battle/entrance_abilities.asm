@@ -110,8 +110,6 @@ ENDM
 	entrance_ability ABILITY_INVISIBLE_WALL,  ENTRANCE_OWN_SIDE,      .HasInvisibleWall
 	entrance_ability ABILITY_IMPOSTOR,        ENTRANCE_OPPOSITE_FOE,  .HasImpostor
 	entrance_ability ABILITY_DEBRIS,          ENTRANCE_FOE_SIDE,      .HasDebris
-	entrance_ability ABILITY_LEECH,           ENTRANCE_EACH_FOE,      .HasLeech
-	entrance_ability ABILITY_ENERVATE,        ENTRANCE_EACH_FOE,      .HasEnervate
 	entrance_ability ABILITY_DAUNT,           ENTRANCE_EACH_FOE,      .HasDaunt
 	entrance_ability ABILITY_LIMBER,          ENTRANCE_SELF,          .CureStatus
 	entrance_ability ABILITY_INSOMNIA,        ENTRANCE_SELF,          .CureStatus
@@ -323,24 +321,6 @@ ENDM
 	call AbilityAnimationCleanup
 	call DebrisAbility
     ret
-
-.HasLeech:
-	call AbilityAnimationCleanup
-	call LeechAbility
-    ret
-
-.HasEnervate:
-	call EntranceAbilityPopup
-	call AbilityAnimationCleanup
-	ld de, GIGA_DRAIN
-    call EntranceFoeAnim
-	ld hl, BattleCommand_SpecialDefenseDown
-	call EntranceStatDown
-	ret nz ; blocked; the reason was already printed
-
-    ld hl, EnervateCutsSpDefText
-    call StdBattleTextbox
-	farjp WhiteHerbOpponent
 
 .HasDaunt:
 	call EntranceAbilityPopup
@@ -558,38 +538,4 @@ DebrisAbility:
 	farcall Call_PlayBattleAnim
 
 	ld hl, SpikesText
-	jmp StdBattleTextbox
-
-
-LeechAbility:
-	farcall CheckSubstituteOpp
-	ret nz ; blocked by Substitute
-
-	ld de, wEnemyMonType1
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld de, wBattleMonType1
-.ok
-	ld a, [de]
-	cp GRASS
-	ret z 
-	inc de
-	ld a, [de]
-	cp GRASS
-	ret z
-
-	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVarAddr
-	bit SUBSTATUS_LEECH_SEED, [hl]
-	ret nz ; already seeded, do nothing
-	set SUBSTATUS_LEECH_SEED, [hl]
-	call EntranceAbilityPopup
-	ld a, BATTLER_LINK_SEEDED_BY
-	farcall SetTargetLink
-	
-	ld de, LEECH_SEED
-	call EntranceFoeAnim
-
-	ld hl, WasSeededText
 	jmp StdBattleTextbox
