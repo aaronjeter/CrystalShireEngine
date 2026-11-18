@@ -402,6 +402,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const CLARISSA
 	const MIRA
 	const TASHA
+	const SHOAL_CAVE_STELLA
 
 	trainerclass TEACHER ; 22
 	const COLETTE
@@ -474,6 +475,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE114_KAI
 	const ROUTE114_CLAUDE
 	const ROUTE119_CHRIS
+	const ROUTE124_CARLOS
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
@@ -487,6 +489,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const PARKER
 	const ROUTE108_TONY
 	const ROUTE108_DARRIN
+	const ROUTE124_DECLAN
+	const ROUTE125_LAMAR
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE
@@ -498,6 +502,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const NIKKI
 	const ROUTE108_DENISE
 	const ROUTE108_BETH
+	const ROUTE124_GRACE
+	const ROUTE125_TANYA
 
 	trainerclass SAILOR ; 28
 	const EUGENE
@@ -517,6 +523,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE109_CHANDLER
 	const FACILITY_KANTO_4 ; challenge facility (intermediate)
 	const FACILITY_JOHTO_7 ; challenge facility (hard)
+	const ROUTE125_RUDY
 
 	trainerclass SUPER_NERD ; 29
 	const ERIC
@@ -730,6 +737,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DOUGLAS
 	const BRODY
 	const PIKE
+	const SHOAL_CAVE_KENT
 
 	trainerclass POKEFANM ; 3b
 	const WILLIAM
@@ -1001,6 +1009,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const RIOANDMEL
 	const LUANDIMA
 	const DIANAANDBO
+	const KAIANDLEA
 
 	trainerclass ACE_DUO
 	const NICKANDEM

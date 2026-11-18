@@ -121,5 +121,8 @@ maps/hoenn/routes/Route121    6
 maps/hoenn/MtPyre             6
 maps/hoenn/lilycove           6
 maps/hoenn/mossdeep           6
+maps/hoenn/routes/Route124    6
+maps/hoenn/routes/Route125    6
+maps/hoenn/shoalcave          6
 maps/hoenn/sootopolis         7
 maps/hoenn/evergrande         8

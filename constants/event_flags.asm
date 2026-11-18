@@ -625,14 +625,14 @@
 	const EVENT_GOT_SQUALL
 	const EVENT_GOT_WISP	;Celadon Mansion Roof
 	const EVENT_GOT_LULL
-	const_skip ; unused		;unused Djinn #1
-	const_skip ; unused		;unused Djinn #2
-	const_skip ; unused		;unused Djinn #3
-	const_skip ; unused		;unused Djinn #4
-	const_skip ; unused		;unused Djinn #5
-	const_skip ; unused		;unused Djinn #6
-	const_skip ; unused		;unused Djinn #7
-	const_skip ; unused		;unused Djinn #8
+	const EVENT_BEAT_ROUTE124_DECLAN
+	const EVENT_BEAT_ROUTE124_GRACE
+	const EVENT_BEAT_ROUTE124_KAI_LEA
+	const EVENT_BEAT_ROUTE124_CARLOS
+	const EVENT_BEAT_ROUTE125_LAMAR
+	const EVENT_BEAT_ROUTE125_TANYA
+	const EVENT_BEAT_ROUTE125_RUDY
+	const EVENT_BEAT_SHOAL_CAVE_STELLA
 	const EVENT_GOT_FOSSIL_HELIX_MTMOON
 	const EVENT_GOT_FOSSIL_HELIX_WHIRL_ISLAND
 	const EVENT_GOT_FOSSIL_DOME_MTMOON
@@ -665,7 +665,7 @@
 	const EVENT_SILVER_PASS_FULL_RESTORE
 	const EVENT_SILVER_PASS_PP_UP
 	const EVENT_BUENA_OFFERED_HER_PHONE_NUMBER_NO_BLUE_CARD
-	const_skip ; unused
+	const EVENT_SHOAL_CAVE_B1F_NEVERMELTICE
 ; Ruins of Alph puzzles
 	const EVENT_SOLVED_HO_OH_PUZZLE
 	const EVENT_SOLVED_KABUTO_PUZZLE
@@ -829,7 +829,7 @@
 	const EVENT_BUENA_OFFERED_HER_PHONE_NUMBER
 	const EVENT_MET_BUENA
 	const EVENT_GOT_ODD_EGG
-	const_skip ; unused
+	const EVENT_SHOAL_CAVE_B1F_ULTRA_BALL
 	const EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
 	const EVENT_DEFEATED_CELEBI_GUARDIAN_VENOMOTH
 	const EVENT_DEFEATED_CELEBI_GUARDIAN_HYPNO
@@ -910,7 +910,7 @@
 	const EVENT_REGIROCK_WALL_OPEN
 	const EVENT_REGICE_WALL_OPEN
 	const EVENT_REGISTEEL_WALL_OPEN
-	const_skip ; unused
+	const EVENT_SHOAL_CAVE_B2F_SHELL_BELL
 
 	;Normal Route Items
 	const EVENT_PETALBURG_CITY_RARE_CANDY
@@ -992,7 +992,7 @@
 	const EVENT_DEX_AIDE_BUNDLE_100
 	const EVENT_DEX_AIDE_BUNDLE_120
 	const EVENT_DEX_AIDE_BUNDLE_150
-	const_skip ; unused	
+	const EVENT_SHOAL_CAVE_B2F_ICE_STONE
 	const EVENT_BEAT_PUPILS_KEN_AMY
 	const EVENT_BEAT_BIRDERS_JED_LOU
 	const EVENT_BEAT_FIGHTERS_KAI_MEI
@@ -1009,12 +1009,12 @@
 	const EVENT_ROUTE_48_NEVERMELTICE
 	const EVENT_ROUTE_48_HIDDEN_FULL_RESTORE
 	const EVENT_PASSPORT_UNLOCKED ; the Start menu shows the Trainer Passport
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_BEAT_SHOAL_CAVE_KENT
+	const EVENT_ROUTE_124_BIG_PEARL
+	const EVENT_ROUTE_124_CARBOS
+	const EVENT_ROUTE_124_HIDDEN_PEARL
+	const EVENT_ROUTE_125_STAR_PIECE
+	const EVENT_SHOAL_CAVE_1F_ICE_HEAL
 
 	const_next 1000
 ; Trainer flags

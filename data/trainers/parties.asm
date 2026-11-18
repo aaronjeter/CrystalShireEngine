@@ -4666,6 +4666,16 @@ SkierGroup:
 	mon 8, WALREIN
 	end_party
 
+	party SHOAL_CAVE_STELLA, "Stella" ; Shoal Cave
+	mon 5, SNORUNT
+	mon 6, SEALEO
+	mon 6, GLALIE
+	hard
+	mon 6, FROSLASS
+	mon 7, SEALEO
+	mon 7, GLALIE
+	end_party
+
 	end_list_items
 
 TeacherGroup:
@@ -5348,6 +5358,14 @@ FisherGroup:
 	mon 8, SHARPEDO
 	end_party
 
+	party ROUTE124_CARLOS, "Carlos" ; Route 124
+	mon 5, WHISCASH
+	mon 7, GYARADOS
+	hard
+	mon 6, WHISCASH
+	mon 8, GYARADOS
+	end_party
+
 	end_list_items
 
 SwimmerMGroup:
@@ -5484,6 +5502,20 @@ SwimmerMGroup:
 		ability KEEN_EYE
 	end_party
 
+	party ROUTE124_DECLAN, "Declan" ; Route 124
+	mon 5, TENTACRUEL
+	mon 6, SHARPEDO
+	hard
+	mon 6, TENTACRUEL
+	mon 7, SHARPEDO
+	end_party
+
+	party ROUTE125_LAMAR, "Lamar" ; Route 125
+	mon 7, WAILORD
+	hard
+	mon 8, WAILORD
+	end_party
+
 	end_list_items
 
 SwimmerFGroup:
@@ -5553,6 +5585,22 @@ SwimmerFGroup:
 	hard
 	mon 9, WAILORD
 	mon 7, SEALEO
+	end_party
+
+	party ROUTE124_GRACE, "Grace" ; Route 124
+	mon 5, LANTURN
+	mon 6, SEAKING
+	hard
+	mon 6, LANTURN
+	mon 7, SEAKING
+	end_party
+
+	party ROUTE125_TANYA, "Tanya" ; Route 125
+	mon 6, STARMIE
+	mon 6, GOLDUCK
+	hard
+	mon 7, STARMIE
+	mon 7, GOLDUCK
 	end_party
 
 	end_list_items
@@ -5703,6 +5751,16 @@ SailorGroup:
 		item WISE_GLASSES
 	mon 0, MANTINE
 		item SHELL_BELL
+	end_party
+
+	party ROUTE125_RUDY, "Rudy" ; Route 125
+	mon 5, MACHOKE
+	mon 5, PELIPPER
+	mon 6, SEALEO
+	hard
+	mon 6, MACHAMP
+	mon 6, PELIPPER
+	mon 7, SEALEO
 	end_party
 
 	end_list_items
@@ -7801,6 +7859,16 @@ BoarderGroup:
 	mon 7, KANGASKHAN
 	mon 7, TAUROS
 	mon 8, URSALUNA
+	end_party
+
+	party SHOAL_CAVE_KENT, "Kent" ; Shoal Cave
+	mon 5, SPHEAL
+	mon 6, SNEASEL
+	mon 7, SEALEO
+	hard
+	mon 6, SEALEO
+	mon 7, WEAVILE
+	mon 7, SEALEO
 	end_party
 
 	end_list_items
@@ -12078,6 +12146,18 @@ SwimmersGroup:
 	mon 6, GOLDEEN
 	mon 7, KRABBY
 	mon 7, MARILL
+	end_party
+
+	party KAIANDLEA, "Kai & Lea", DOUBLES ; Route 124
+	mon 5, WAILMER
+	mon 5, PELIPPER
+	mon 6, AZUMARILL
+	mon 6, CORSOLA
+	hard
+	mon 6, WAILMER
+	mon 6, PELIPPER
+	mon 7, AZUMARILL
+	mon 7, CORSOLA
 	end_party
 
 	end_list_items
