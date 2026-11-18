@@ -407,6 +407,7 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const SWARMFLAGS_MOBILE_4_F                  ; 4
 	const SWARMFLAGS_FOLLOWER_TALKED_F           ; 5 ; talked to the following Pokémon today
 	const SWARMFLAGS_FOLLOWER_ITEM_F             ; 6 ; it found an item today
+	const SWARMFLAGS_MOSSDEEP_STONE_F            ; 7 ; got today's stone from Mossdeep's stone collector
 
 ; wLuckyNumberShowFlag::
 DEF LUCKYNUMBERSHOW_GAME_OVER_F EQU 0

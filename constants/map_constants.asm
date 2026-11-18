@@ -700,6 +700,11 @@ ENDM
 	map_const SHOAL_CAVE_1F,                               16, 14 ; at the group's end, so saves keep working
 	map_const SHOAL_CAVE_B1F,                              16, 14 ; at the group's end, so saves keep working
 	map_const SHOAL_CAVE_B2F,                              16, 14 ; at the group's end, so saves keep working
+	map_const MOSSDEEP_SPACE_CENTER,                        5,  6 ; at the group's end, so saves keep working
+	map_const MOSSDEEP_STEVENS_HOUSE,                       4,  4 ; at the group's end, so saves keep working
+	map_const MOSSDEEP_SAILOR_HOUSE,                        4,  4 ; at the group's end, so saves keep working
+	map_const MOSSDEEP_STONE_HOUSE,                         4,  4 ; at the group's end, so saves keep working
+	map_const MOSSDEEP_HINT_HOUSE,                          4,  4 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

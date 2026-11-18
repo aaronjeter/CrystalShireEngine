@@ -769,6 +769,11 @@ SECTION "Regi Gate", ROMX
 
 INCLUDE "engine/events/regi_gate.asm"
 
+
+SECTION "Shiny Gift", ROMX
+
+INCLUDE "engine/events/shiny_gift.asm"
+
 SECTION "Facility Eligibility", ROMX
 
 INCLUDE "data/pokemon/facility_eligibility.asm"

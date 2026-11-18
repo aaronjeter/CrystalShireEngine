@@ -186,3 +186,4 @@ SpecialsPointers::
 	add_special TitleDefenseMarkBeaten
 	add_special RegiLeadType
 	add_special RegiPartyMoveType
+	add_special MakeLastPartyMonShiny

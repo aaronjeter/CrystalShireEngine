@@ -161,5 +161,6 @@ EngineFlags:
 
 	engine_flag wSwarmFlags, SWARMFLAGS_DUNSPARCE_SWARM_F
 	engine_flag wSwarmFlags, SWARMFLAGS_YANMA_SWARM_F
+	engine_flag wSwarmFlags, SWARMFLAGS_MOSSDEEP_STONE_F
 
 	assert_table_length NUM_ENGINE_FLAGS

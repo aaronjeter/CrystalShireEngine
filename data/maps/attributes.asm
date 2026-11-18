@@ -1039,3 +1039,9 @@ ENDM
 	map_attributes ShoalCave1F, SHOAL_CAVE_1F, $19, 0
 	map_attributes ShoalCaveB1F, SHOAL_CAVE_B1F, $19, 0
 	map_attributes ShoalCaveB2F, SHOAL_CAVE_B2F, $19, 0
+
+	map_attributes MossdeepSpaceCenter, MOSSDEEP_SPACE_CENTER, $00, 0
+	map_attributes MossdeepStevensHouse, MOSSDEEP_STEVENS_HOUSE, $00, 0
+	map_attributes MossdeepSailorHouse, MOSSDEEP_SAILOR_HOUSE, $00, 0
+	map_attributes MossdeepStoneHouse, MOSSDEEP_STONE_HOUSE, $00, 0
+	map_attributes MossdeepHintHouse, MOSSDEEP_HINT_HOUSE, $00, 0

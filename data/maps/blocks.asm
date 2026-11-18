@@ -774,6 +774,7 @@ RedsHouse2F_Blocks:
 	INCBIN "maps/kanto/pallet/RedsHouse2F.ablk"
 
 OaksLab_Blocks:
+MossdeepSpaceCenter_Blocks:
 	INCBIN "maps/kanto/pallet/OaksLab.ablk"
 
 MrFujisHouse_Blocks:
@@ -1004,6 +1005,10 @@ SECTION "Map Blocks 4", ROMX
 	OldaleHouse2_Blocks:
 	SootopolisFisherHouse_Blocks:
 	Route119FisherHouse_Blocks:
+	MossdeepStevensHouse_Blocks:
+	MossdeepSailorHouse_Blocks:
+	MossdeepStoneHouse_Blocks:
+	MossdeepHintHouse_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
 	FortreeHiddenPowerHouse_Blocks:

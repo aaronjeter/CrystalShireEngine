@@ -842,6 +842,11 @@ INCLUDE "maps/hoenn/routes/Route125.asm"
 INCLUDE "maps/hoenn/shoalcave/ShoalCave1F.asm"
 INCLUDE "maps/hoenn/shoalcave/ShoalCaveB1F.asm"
 INCLUDE "maps/hoenn/shoalcave/ShoalCaveB2F.asm"
+INCLUDE "maps/hoenn/mossdeep/MossdeepSpaceCenter.asm"
+INCLUDE "maps/hoenn/mossdeep/MossdeepStevensHouse.asm"
+INCLUDE "maps/hoenn/mossdeep/MossdeepSailorHouse.asm"
+INCLUDE "maps/hoenn/mossdeep/MossdeepStoneHouse.asm"
+INCLUDE "maps/hoenn/mossdeep/MossdeepHintHouse.asm"
 
 ENDSECTION
 
