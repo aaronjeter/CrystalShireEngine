@@ -1045,3 +1045,7 @@ ENDM
 	map_attributes MossdeepSailorHouse, MOSSDEEP_SAILOR_HOUSE, $00, 0
 	map_attributes MossdeepStoneHouse, MOSSDEEP_STONE_HOUSE, $00, 0
 	map_attributes MossdeepHintHouse, MOSSDEEP_HINT_HOUSE, $00, 0
+	map_attributes SootopolisEldersHouse, SOOTOPOLIS_ELDERS_HOUSE, $00, 0
+	map_attributes SootopolisLegendHouse, SOOTOPOLIS_LEGEND_HOUSE, $00, 0
+	map_attributes SootopolisBerryHouse, SOOTOPOLIS_BERRY_HOUSE, $00, 0
+	map_attributes SootopolisTutorHouse, SOOTOPOLIS_TUTOR_HOUSE, $00, 0

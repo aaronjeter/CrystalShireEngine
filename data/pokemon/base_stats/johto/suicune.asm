@@ -11,10 +11,10 @@
 	db GENDER_UNKNOWN ; gender ratio
 	db 80 ; step cycles to hatch
 	INCBIN "gfx/pokemon/suicune/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, ROCK_SMASH, SUNNY_DAY, HYPER_BEAM, ICY_WIND, IRON_TAIL, DIG, SHADOW_BALL, MUD_SLAP, SWIFT, SCALD, REFLECT, CUT, SURF, WHIRLPOOL, WATERFALL, ICE_BEAM
+	tmhm HEADBUTT, CURSE, ROCK_SMASH, SUNNY_DAY, HYPER_BEAM, ICY_WIND, IRON_TAIL, DIG, SHADOW_BALL, MUD_SLAP, SWIFT, SCALD, REFLECT, CUT, SURF, WHIRLPOOL, WATERFALL, ICE_BEAM, AQUA_TAIL, AQUA_RING
 	; end

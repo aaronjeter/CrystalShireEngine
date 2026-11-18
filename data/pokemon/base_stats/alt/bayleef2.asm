@@ -11,10 +11,10 @@
 	db GENDER_F12_5 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/bayleef2/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_MONSTER, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, ROCK_SMASH, GRASS_KNOT, HYPER_BEAM, ICY_WIND, IRON_TAIL, EARTHQUAKE, MUD_SLAP, ANCIENTPOWER, REFLECT, CUT, SURF, STRENGTH, FLASH, WHIRLPOOL
+	tmhm HEADBUTT, CURSE, ROCK_SMASH, GRASS_KNOT, HYPER_BEAM, ICY_WIND, IRON_TAIL, EARTHQUAKE, MUD_SLAP, ANCIENTPOWER, REFLECT, CUT, SURF, STRENGTH, FLASH, WHIRLPOOL, AQUA_TAIL, AQUA_RING
 	; end

@@ -11,7 +11,7 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/ralts/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_HUMANSHAPE, EGG_INDETERMINATE ; egg groups
 

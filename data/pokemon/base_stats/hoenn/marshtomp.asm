@@ -11,10 +11,10 @@
 	db GENDER_F12_5 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/marshtomp/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_MONSTER, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm ROAR, ROCK_SMASH, BLIZZARD, HYPER_BEAM, ICY_WIND, IRON_TAIL, EARTHQUAKE, DIG, ICE_PUNCH, SANDSTORM, ROCK_TOMB, SCALD, BUBBLEBEAM, BRICK_BREAK, SURF, STRENGTH, ICE_BEAM
+	tmhm ROAR, ROCK_SMASH, BLIZZARD, HYPER_BEAM, ICY_WIND, IRON_TAIL, EARTHQUAKE, DIG, ICE_PUNCH, SANDSTORM, ROCK_TOMB, SCALD, BUBBLEBEAM, BRICK_BREAK, SURF, STRENGTH, ICE_BEAM, AQUA_TAIL, AQUA_RING
 	; end

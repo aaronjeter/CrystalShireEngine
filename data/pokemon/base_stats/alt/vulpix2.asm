@@ -11,10 +11,10 @@
 	db GENDER_F75 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/vulpix2/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, ROAR, DARK_PULSE, HYPER_BEAM, IRON_TAIL, DIG, SHADOW_BALL, SWIFT, SURF
+	tmhm HEADBUTT, CURSE, ROAR, DARK_PULSE, HYPER_BEAM, IRON_TAIL, DIG, SHADOW_BALL, SWIFT, SURF, AQUA_TAIL, AQUA_RING
 	; end

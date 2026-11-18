@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/milotic/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_WATER_1, EGG_DRAGON ; egg groups
 
 	; tm/hm learnset
-	tmhm BLIZZARD, HYPER_BEAM, IRON_TAIL, HAIL, WATERFALL
+	tmhm BLIZZARD, HYPER_BEAM, IRON_TAIL, HAIL, WATERFALL, AQUA_TAIL, AQUA_RING
 	; end

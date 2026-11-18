@@ -1009,6 +1009,10 @@ SECTION "Map Blocks 4", ROMX
 	MossdeepSailorHouse_Blocks:
 	MossdeepStoneHouse_Blocks:
 	MossdeepHintHouse_Blocks:
+	SootopolisEldersHouse_Blocks:
+	SootopolisLegendHouse_Blocks:
+	SootopolisBerryHouse_Blocks:
+	SootopolisTutorHouse_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
 	FortreeHiddenPowerHouse_Blocks:

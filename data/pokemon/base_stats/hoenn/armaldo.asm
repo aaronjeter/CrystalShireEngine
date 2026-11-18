@@ -11,7 +11,7 @@
 	db GENDER_F12_5 ; gender ratio
 	db 30 ; step cycles to hatch
 	INCBIN "gfx/pokemon/armaldo/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 

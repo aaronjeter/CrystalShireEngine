@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/remoraid/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_1, EGG_WATER_2 ; egg groups
 
 	; tm/hm learnset
-	tmhm CURSE, SUNNY_DAY, BLIZZARD, ICY_WIND, RAIN_DANCE, THUNDER, PSYCHIC_M, MUD_SLAP, SWIFT, THIEF, WILLOWISP, SLUDGE_WAVE, SURF, WHIRLPOOL
+	tmhm CURSE, SUNNY_DAY, BLIZZARD, ICY_WIND, RAIN_DANCE, THUNDER, PSYCHIC_M, MUD_SLAP, SWIFT, THIEF, WILLOWISP, SLUDGE_WAVE, SURF, WHIRLPOOL, AQUA_TAIL, AQUA_RING
 	; end

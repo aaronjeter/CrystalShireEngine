@@ -1029,7 +1029,7 @@
 	const EVENT_GOT_IRON_BUNDLE ; Mossdeep Space Center (was an old Swimmer F slot, unused before any playtest)
 	const EVENT_GOT_STEVENS_BELDUM ; Steven's house, Mossdeep (same)
 	const EVENT_MOSSDEEP_STEVEN_AWAY ; set = Steven isn't home (before the Hoenn League)
-	const_skip ; unused
+	const EVENT_GOT_SOOTOPOLIS_LUM_BERRY ; (an old Swimmer F slot, unused before any playtest)
 	const_skip ; unused (was EVENT_BEAT_SWIMMERF_DAWN until Nov 2026: may be set in old saves)
 	const_skip ; unused
 	const EVENT_BEAT_SWIMMERF_NICOLE

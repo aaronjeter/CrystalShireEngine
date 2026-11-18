@@ -11,10 +11,10 @@
 	db GENDER_F12_5 ; gender ratio
 	db 35 ; step cycles to hatch
 	INCBIN "gfx/pokemon/vaporeon/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, ROAR, SUNNY_DAY, HYPER_BEAM, ICY_WIND, RAIN_DANCE, IRON_TAIL, SHADOW_BALL, MUD_SLAP, SWIFT, SURF, WHIRLPOOL, WATERFALL, CALM_MIND, SCALD
+	tmhm HEADBUTT, CURSE, ROAR, SUNNY_DAY, HYPER_BEAM, ICY_WIND, RAIN_DANCE, IRON_TAIL, SHADOW_BALL, MUD_SLAP, SWIFT, SURF, WHIRLPOOL, WATERFALL, CALM_MIND, SCALD, AQUA_TAIL, AQUA_RING
 	; end

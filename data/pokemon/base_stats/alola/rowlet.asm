@@ -11,7 +11,7 @@
 	db GENDER_F12_5 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/rowlet/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_MONSTER, EGG_PLANT ; egg groups
 

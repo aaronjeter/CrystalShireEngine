@@ -177,4 +177,11 @@ def_water_wildmons ROUTE_125
 	dbw 3, PELIPPER
 	end_water_wildmons
 
+def_water_wildmons SOOTOPOLIS_CITY
+	db 2 percent ; encounter rate
+	dbw 1, LUVDISC
+	dbw 1, MAGIKARP
+	dbw 3, LUVDISC
+	end_water_wildmons
+
 db -1 ; end

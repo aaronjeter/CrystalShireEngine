@@ -11,10 +11,10 @@
 	db GENDER_F12_5 ; gender ratio
 	db 30 ; step cycles to hatch
 	INCBIN "gfx/pokemon/omastar/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_1, EGG_WATER_3 ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, ROLLOUT, ROCK_SMASH, BLIZZARD, HYPER_BEAM, ICY_WIND, THIEF, SCALD, SURF, WHIRLPOOL
+	tmhm HEADBUTT, CURSE, ROLLOUT, ROCK_SMASH, BLIZZARD, HYPER_BEAM, ICY_WIND, THIEF, SCALD, SURF, WHIRLPOOL, AQUA_TAIL, AQUA_RING
 	; end

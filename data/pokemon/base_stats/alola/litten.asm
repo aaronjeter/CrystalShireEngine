@@ -11,7 +11,7 @@
 	db GENDER_F25 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/litten/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 

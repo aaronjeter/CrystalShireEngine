@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/krabby/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 
 	; tm/hm learnset
-	tmhm BLIZZARD, HYPER_BEAM, ICY_WIND, RAIN_DANCE, MUD_SLAP, THIEF, FURY_CUTTER, BUBBLEBEAM, BRICK_BREAK, ROCK_SLIDE, CUT, SURF, STRENGTH, WHIRLPOOL, ICE_BEAM
+	tmhm BLIZZARD, HYPER_BEAM, ICY_WIND, RAIN_DANCE, MUD_SLAP, THIEF, FURY_CUTTER, BUBBLEBEAM, BRICK_BREAK, ROCK_SLIDE, CUT, SURF, STRENGTH, WHIRLPOOL, ICE_BEAM, AQUA_TAIL, AQUA_RING
 	; end

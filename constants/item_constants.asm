@@ -405,6 +405,8 @@ DEF MT01 EQU const_value
 	add_mt KNOCK_OFF
 	add_mt U_TURN
 	add_mt VOLT_SWITCH
+	add_mt AQUA_TAIL
+	add_mt AQUA_RING
 DEF NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 DEF NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS

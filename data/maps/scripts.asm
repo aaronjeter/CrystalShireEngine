@@ -847,6 +847,10 @@ INCLUDE "maps/hoenn/mossdeep/MossdeepStevensHouse.asm"
 INCLUDE "maps/hoenn/mossdeep/MossdeepSailorHouse.asm"
 INCLUDE "maps/hoenn/mossdeep/MossdeepStoneHouse.asm"
 INCLUDE "maps/hoenn/mossdeep/MossdeepHintHouse.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisEldersHouse.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisLegendHouse.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisBerryHouse.asm"
+INCLUDE "maps/hoenn/sootopolis/SootopolisTutorHouse.asm"
 
 ENDSECTION
 

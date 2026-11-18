@@ -11,7 +11,7 @@
 	db GENDER_F25 ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/elekid/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 

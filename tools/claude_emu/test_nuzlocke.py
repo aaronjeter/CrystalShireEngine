@@ -276,7 +276,7 @@ def case_sacred_ash():
         hp = g.sym['wPartyMon2HP'][1]
         g.wr(hp, [0, 0])
         g.frames(30); g.press('START', after=30)
-        g.press('D', after=6); g.press('D', after=6); g.press('A', after=60)   # Pack
+        g.press('D', after=6); g.press('D', after=6); g.press('A', after=90)   # Pack
         g.press('A', after=30); g.press('A', after=200)                       # Sacred Ash, Use
         out[nz] = list(g.rd(hp, 2))
     check('sacred ash: refused when on, revives when off', out[True] == [0, 0] and out[False] != [0, 0], str(out))

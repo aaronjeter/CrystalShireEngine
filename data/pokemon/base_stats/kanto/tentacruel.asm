@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/tentacruel/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 
 	; tm/hm learnset
-	tmhm CURSE, HYPER_BEAM, ICY_WIND, RAIN_DANCE, TAUNT, SLUDGE_BOMB, SCALD, BUBBLEBEAM, POISON_JAB, CUT, SURF, WHIRLPOOL, ICE_BEAM
+	tmhm CURSE, HYPER_BEAM, ICY_WIND, RAIN_DANCE, TAUNT, SLUDGE_BOMB, SCALD, BUBBLEBEAM, POISON_JAB, CUT, SURF, WHIRLPOOL, ICE_BEAM, AQUA_TAIL, AQUA_RING
 	; end

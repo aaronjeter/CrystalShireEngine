@@ -11,7 +11,7 @@
 	db GENDER_UNKNOWN ; gender ratio
 	db 80 ; step cycles to hatch
 	INCBIN "gfx/pokemon/regice/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 

@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/qwilfish/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_2, EGG_WATER_2 ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, BLIZZARD, ICY_WIND, RAIN_DANCE, TAUNT, SHADOW_BALL, SLUDGE_BOMB, SWIFT, SURF, WHIRLPOOL, WATERFALL, ICE_BEAM
+	tmhm HEADBUTT, CURSE, BLIZZARD, ICY_WIND, RAIN_DANCE, TAUNT, SHADOW_BALL, SLUDGE_BOMB, SWIFT, SURF, WHIRLPOOL, WATERFALL, ICE_BEAM, AQUA_TAIL, AQUA_RING
 	; end

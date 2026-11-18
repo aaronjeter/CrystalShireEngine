@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/pelipper/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_1, EGG_FLYING ; egg groups
 
 	; tm/hm learnset
-	tmhm HYPER_BEAM, ICY_WIND, THIEF, STEEL_WING, SHOCK_WAVE, AERIAL_ACE, FLY, SURF
+	tmhm HYPER_BEAM, ICY_WIND, THIEF, STEEL_WING, SHOCK_WAVE, AERIAL_ACE, FLY, SURF, AQUA_TAIL, AQUA_RING
 	; end

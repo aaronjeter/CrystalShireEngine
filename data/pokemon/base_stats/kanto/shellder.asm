@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/shellder/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 
 	; tm/hm learnset
-	tmhm CURSE, HYPER_BEAM, ICY_WIND, RAIN_DANCE, SWIFT, HAIL, ICE_FANG, BUBBLEBEAM, LIGHT_SCREEN, REFLECT, SURF, WHIRLPOOL
+	tmhm CURSE, HYPER_BEAM, ICY_WIND, RAIN_DANCE, SWIFT, HAIL, ICE_FANG, BUBBLEBEAM, LIGHT_SCREEN, REFLECT, SURF, WHIRLPOOL, AQUA_TAIL, AQUA_RING
 	; end

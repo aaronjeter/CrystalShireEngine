@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/mercury/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	; tm/hm learnset
-	tmhm HYPER_BEAM, ICY_WIND, HAIL, LIGHT_SCREEN, REFLECT, SURF, WATERFALL
+	tmhm HYPER_BEAM, ICY_WIND, HAIL, LIGHT_SCREEN, REFLECT, SURF, WATERFALL, AQUA_TAIL, AQUA_RING
 	; end

@@ -11,10 +11,10 @@
 	db GENDER_F12_5 ; gender ratio
 	db 40 ; step cycles to hatch
 	INCBIN "gfx/pokemon/relicanth/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_1, EGG_WATER_2 ; egg groups
 
 	; tm/hm learnset
-	tmhm ROCK_SMASH, BLIZZARD, HYPER_BEAM, SANDSTORM, ZEN_HEADBUTT, HAIL, BUBBLEBEAM, SURF, ICE_BEAM
+	tmhm ROCK_SMASH, BLIZZARD, HYPER_BEAM, SANDSTORM, ZEN_HEADBUTT, HAIL, BUBBLEBEAM, SURF, ICE_BEAM, AQUA_TAIL, AQUA_RING
 	; end

@@ -11,7 +11,7 @@
 	db GENDER_F50 ; gender ratio
 	db 35 ; step cycles to hatch
 	INCBIN "gfx/pokemon/lairon/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_MONSTER, EGG_MONSTER ; egg groups
 

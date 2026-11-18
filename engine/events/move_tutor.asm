@@ -53,6 +53,8 @@ MoveTutor:
 	dw KNOCK_OFF
 	dw U_TURN
 	dw VOLT_SWITCH
+	dw AQUA_TAIL
+	dw AQUA_RING
 
 CheckCanLearnMoveTutorMove:
 	ld hl, .MenuHeader

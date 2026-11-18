@@ -11,10 +11,10 @@
 	db GENDER_UNKNOWN ; gender ratio
 	db 120 ; step cycles to hatch
 	INCBIN "gfx/pokemon/kyogre/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	; tm/hm learnset
-	tmhm ROAR, ROCK_SMASH, HYPER_BEAM, ICY_WIND, EARTHQUAKE, HAIL, ROCK_TOMB, SHOCK_WAVE, BUBBLEBEAM, BRICK_BREAK, SURF, STRENGTH, WATERFALL, THUNDERBOLT
+	tmhm ROAR, ROCK_SMASH, HYPER_BEAM, ICY_WIND, EARTHQUAKE, HAIL, ROCK_TOMB, SHOCK_WAVE, BUBBLEBEAM, BRICK_BREAK, SURF, STRENGTH, WATERFALL, THUNDERBOLT, AQUA_TAIL, AQUA_RING
 	; end

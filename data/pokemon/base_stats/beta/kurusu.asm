@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/kurusu/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_MINERAL, EGG_MINERAL ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, GRASS_KNOT, HYPER_BEAM, IRON_TAIL, DIG, ROCK_TOMB, BRICK_BREAK, ANCIENTPOWER, WATERFALL
+	tmhm HEADBUTT, CURSE, GRASS_KNOT, HYPER_BEAM, IRON_TAIL, DIG, ROCK_TOMB, BRICK_BREAK, ANCIENTPOWER, WATERFALL, AQUA_TAIL, AQUA_RING
 	; end

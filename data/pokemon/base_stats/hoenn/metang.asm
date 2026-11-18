@@ -11,7 +11,7 @@
 	db GENDER_UNKNOWN ; gender ratio
 	db 40 ; step cycles to hatch
 	INCBIN "gfx/pokemon/metang/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_MINERAL, EGG_MINERAL ; egg groups
 

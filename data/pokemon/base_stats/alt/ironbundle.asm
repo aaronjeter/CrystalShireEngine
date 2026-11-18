@@ -11,10 +11,10 @@
 	db GENDER_UNKNOWN ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/ironbundle/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, ICY_WIND, RAIN_DANCE, TAUNT, MUD_SLAP, SWIFT, THIEF, HAIL, AERIAL_ACE, SCALD, BUBBLEBEAM, CUT, FLY
+	tmhm HEADBUTT, CURSE, ICY_WIND, RAIN_DANCE, TAUNT, MUD_SLAP, SWIFT, THIEF, HAIL, AERIAL_ACE, SCALD, BUBBLEBEAM, CUT, FLY, AQUA_TAIL, AQUA_RING
 	; end

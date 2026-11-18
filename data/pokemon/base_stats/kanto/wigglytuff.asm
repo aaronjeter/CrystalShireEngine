@@ -11,7 +11,7 @@
 	db GENDER_F75 ; gender ratio
 	db 10 ; step cycles to hatch
 	INCBIN "gfx/pokemon/wigglytuff/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_FAST ; growth rate
 	dn EGG_FAIRY, EGG_FAIRY ; egg groups
 

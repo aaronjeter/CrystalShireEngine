@@ -705,6 +705,10 @@ ENDM
 	map_const MOSSDEEP_SAILOR_HOUSE,                        4,  4 ; at the group's end, so saves keep working
 	map_const MOSSDEEP_STONE_HOUSE,                         4,  4 ; at the group's end, so saves keep working
 	map_const MOSSDEEP_HINT_HOUSE,                          4,  4 ; at the group's end, so saves keep working
+	map_const SOOTOPOLIS_ELDERS_HOUSE,                      4,  4 ; at the group's end, so saves keep working
+	map_const SOOTOPOLIS_LEGEND_HOUSE,                      4,  4 ; at the group's end, so saves keep working
+	map_const SOOTOPOLIS_BERRY_HOUSE,                       4,  4 ; at the group's end, so saves keep working
+	map_const SOOTOPOLIS_TUTOR_HOUSE,                       4,  4 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

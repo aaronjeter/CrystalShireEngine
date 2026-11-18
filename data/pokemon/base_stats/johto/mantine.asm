@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/mantine/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_1, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, BLIZZARD, HYPER_BEAM, ICY_WIND, MUD_SLAP, SWIFT, AERIAL_ACE, SCALD, SURF, WHIRLPOOL, WATERFALL, ICE_BEAM
+	tmhm HEADBUTT, CURSE, BLIZZARD, HYPER_BEAM, ICY_WIND, MUD_SLAP, SWIFT, AERIAL_ACE, SCALD, SURF, WHIRLPOOL, WATERFALL, ICE_BEAM, AQUA_TAIL, AQUA_RING
 	; end

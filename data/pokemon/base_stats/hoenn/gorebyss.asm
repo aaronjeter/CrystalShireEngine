@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/gorebyss/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	dw NULL ; unused (beta front pic)
 	db GROWTH_FAST ; growth rate
 	dn EGG_WATER_1, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm BLIZZARD, HYPER_BEAM, ICY_WIND, IRON_TAIL, HAIL, ROCK_TOMB, SCALD, BUBBLEBEAM
+	tmhm BLIZZARD, HYPER_BEAM, ICY_WIND, IRON_TAIL, HAIL, ROCK_TOMB, SCALD, BUBBLEBEAM, AQUA_TAIL, AQUA_RING
 	; end
