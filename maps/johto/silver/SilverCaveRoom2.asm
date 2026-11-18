@@ -2,17 +2,11 @@
 	const SILVERCAVEROOM2_POKE_BALL1
 	const SILVERCAVEROOM2_POKE_BALL2
 	const SILVERCAVEROOM2_POKE_BALL3
-	const SILVERCAVEROOM2_MEWTWO
 
 SilverCaveRoom2_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_SPRITES, SilverCaveRoom2MonSpritesCallback
-
-SilverCaveRoom2MonSpritesCallback:
-	setmonsprite SPRITE_MON_1, MEWTWO
-	endcallback
 
 SilverCaveRoom2GoldLeaf:
 	itemball GOLD_LEAF
@@ -25,28 +19,6 @@ SilverCaveRoom2MarvelScale:
 
 SilverCaveRoom2HiddenWeaknessPolicy:
 	hiddenitem WEAKNESS_POLICY, EVENT_SILVER_CAVE_ROOM_2_HIDDEN_MAX_POTION
-
-SilverCaveRoom2MewtwoText:
-	text "You feel a"
-	line "voice echo in"
-	cont "your mind."
-
-	para "A worthy"
-	line "challenge!"
-	done
-
-SilverCaveRoom2_Mewtwo:
-	cry MEWTWO
-	opentext
-	writetext SilverCaveRoom2MewtwoText
-	waitbutton
-	closetext
-	loadwildmon MEWTWO, 14
-	loadboss BOSS_MEWTWO
-	startbattle
-	reloadmapafterbattle
-	disappear SILVERCAVEROOM2_MEWTWO
-	end
 
 MewtwoShrineScript:
 	opentext
@@ -124,4 +96,3 @@ SilverCaveRoom2_MapEvents:
 	object_event 18,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2GoldLeaf, EVENT_SILVER_CAVE_ROOM_2_GOLD_LEAF
 	object_event 22, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2UltraBall, EVENT_SILVER_CAVE_ROOM_2_ULTRA_BALL
 	object_event  4, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2MarvelScale, EVENT_SILVER_CAVE_ROOM_2_MARVEL_SCALE
-	object_event 23, 10, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverCaveRoom2_Mewtwo , -1

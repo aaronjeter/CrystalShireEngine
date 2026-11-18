@@ -1013,6 +1013,14 @@ ENDM
 	map_attributes LilycoveChallengeHall, LILYCOVE_CHALLENGE_HALL, $00, 0
 	map_attributes BattleResortTower, BATTLE_RESORT_TOWER, $00, 0
 	map_attributes BattleResortTowerRoom, BATTLE_RESORT_TOWER_ROOM, $00, 0
+	map_attributes SeafoamIslands1F, SEAFOAM_ISLANDS_1F, $00, 0
+	map_attributes SeafoamIslandsB1F, SEAFOAM_ISLANDS_B1F, $00, 0
+	map_attributes CinnabarVolcano, CINNABAR_VOLCANO, $00, 0
+	map_attributes CinnabarVolcanoCrater, CINNABAR_VOLCANO_CRATER, $2c, 0
+	map_attributes CeruleanCave1F, CERULEAN_CAVE_1F, $00, 0
+	map_attributes CeruleanCaveB1F, CERULEAN_CAVE_B1F, $00, 0
+	map_attributes ZapdosRoostCave, ZAPDOS_ROOST_CAVE, $00, 0
+	map_attributes ZapdosRoost, ZAPDOS_ROOST, $2c, 0
 	map_attributes CaveOfOrigin, CAVE_OF_ORIGIN, $00, 0
 	map_attributes CaveOfOriginDepths, CAVE_OF_ORIGIN_DEPTHS, $00, 0
 	map_attributes MtChimneyDepths, MT_CHIMNEY_DEPTHS, $00, 0

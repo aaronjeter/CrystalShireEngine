@@ -170,4 +170,25 @@ KantoWaterWildMons:
 	dbw 5, TENTACRUEL
 	end_water_wildmons
 
-	db -1 ; end
+	def_water_wildmons SEAFOAM_ISLANDS_1F
+	db 2 percent ; encounter rate
+	dbw 1, SEEL
+	dbw 3, SHELLDER
+	dbw 5, DEWGONG
+	end_water_wildmons
+
+def_water_wildmons CERULEAN_CAVE_1F
+	db 2 percent ; encounter rate
+	dbw 3, GOLDUCK
+	dbw 5, SLOWBRO
+	dbw 5, GOLDUCK
+	end_water_wildmons
+
+def_water_wildmons CERULEAN_CAVE_B1F
+	db 2 percent ; encounter rate
+	dbw 3, GOLDUCK
+	dbw 5, SLOWBRO
+	dbw 5, GOLDUCK
+	end_water_wildmons
+
+db -1 ; end

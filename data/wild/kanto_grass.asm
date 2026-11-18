@@ -1066,4 +1066,172 @@ KantoGrassWildMons:
 	dbw 5, KANGASKHAN
 	end_grass_wildmons
 
-	db -1 ; end
+	def_grass_wildmons SEAFOAM_ISLANDS_1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, SEEL
+	dbw 1, SHELLDER
+	dbw 2, SLOWPOKE
+	dbw 3, GOLBAT
+	dbw 5, DEWGONG
+	dbw 7, SLOWBRO
+	; day
+	dbw 1, ZUBAT
+	dbw 1, SEEL
+	dbw 1, SHELLDER
+	dbw 2, SLOWPOKE
+	dbw 3, GOLBAT
+	dbw 5, DEWGONG
+	dbw 7, SLOWBRO
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, SEEL
+	dbw 1, SHELLDER
+	dbw 2, SLOWPOKE
+	dbw 3, GOLBAT
+	dbw 5, DEWGONG
+	dbw 7, SLOWBRO
+	end_grass_wildmons
+
+def_grass_wildmons SEAFOAM_ISLANDS_B1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, ZUBAT
+	dbw 1, SEEL
+	dbw 1, SHELLDER
+	dbw 2, SLOWPOKE
+	dbw 3, GOLBAT
+	dbw 5, DEWGONG
+	dbw 7, SLOWBRO
+	; day
+	dbw 1, ZUBAT
+	dbw 1, SEEL
+	dbw 1, SHELLDER
+	dbw 2, SLOWPOKE
+	dbw 3, GOLBAT
+	dbw 5, DEWGONG
+	dbw 7, SLOWBRO
+	; nite
+	dbw 1, ZUBAT
+	dbw 1, SEEL
+	dbw 1, SHELLDER
+	dbw 2, SLOWPOKE
+	dbw 3, GOLBAT
+	dbw 5, DEWGONG
+	dbw 7, SLOWBRO
+	end_grass_wildmons
+
+def_grass_wildmons CINNABAR_VOLCANO
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, PONYTA
+	dbw 1, SLUGMA
+	dbw 1, KOFFING
+	dbw 2, GROWLITHE
+	dbw 3, MAGBY
+	dbw 5, MAGMAR
+	dbw 7, RAPIDASH
+	; day
+	dbw 1, PONYTA
+	dbw 1, SLUGMA
+	dbw 1, KOFFING
+	dbw 2, GROWLITHE
+	dbw 3, MAGBY
+	dbw 5, MAGMAR
+	dbw 7, RAPIDASH
+	; nite
+	dbw 1, PONYTA
+	dbw 1, SLUGMA
+	dbw 1, KOFFING
+	dbw 2, GROWLITHE
+	dbw 3, MAGBY
+	dbw 5, MAGMAR
+	dbw 7, RAPIDASH
+	end_grass_wildmons
+
+def_grass_wildmons CERULEAN_CAVE_1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 3, GOLBAT
+	dbw 3, PARASECT
+	dbw 3, KADABRA
+	dbw 4, DITTO
+	dbw 5, ELECTRODE
+	dbw 6, WOBBUFFET
+	dbw 8, CHANSEY
+	; day
+	dbw 3, GOLBAT
+	dbw 3, PARASECT
+	dbw 3, KADABRA
+	dbw 4, DITTO
+	dbw 5, ELECTRODE
+	dbw 6, WOBBUFFET
+	dbw 8, CHANSEY
+	; nite
+	dbw 3, GOLBAT
+	dbw 3, PARASECT
+	dbw 3, KADABRA
+	dbw 4, DITTO
+	dbw 5, ELECTRODE
+	dbw 6, WOBBUFFET
+	dbw 8, CHANSEY
+	end_grass_wildmons
+
+def_grass_wildmons CERULEAN_CAVE_B1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 3, GOLBAT
+	dbw 3, PARASECT
+	dbw 3, KADABRA
+	dbw 4, DITTO
+	dbw 5, ELECTRODE
+	dbw 6, WOBBUFFET
+	dbw 8, CHANSEY
+	; day
+	dbw 3, GOLBAT
+	dbw 3, PARASECT
+	dbw 3, KADABRA
+	dbw 4, DITTO
+	dbw 5, ELECTRODE
+	dbw 6, WOBBUFFET
+	dbw 8, CHANSEY
+	; nite
+	dbw 3, GOLBAT
+	dbw 3, PARASECT
+	dbw 3, KADABRA
+	dbw 4, DITTO
+	dbw 5, ELECTRODE
+	dbw 6, WOBBUFFET
+	dbw 8, CHANSEY
+	end_grass_wildmons
+
+def_grass_wildmons ZAPDOS_ROOST_CAVE
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 1, VOLTORB
+	dbw 1, MAGNEMITE
+	dbw 1, ZUBAT
+	dbw 2, VOLTORB
+	dbw 3, ELEKID
+	dbw 5, MAGNETON
+	dbw 7, ELECTABUZZ
+	; day
+	dbw 1, VOLTORB
+	dbw 1, MAGNEMITE
+	dbw 1, ZUBAT
+	dbw 2, VOLTORB
+	dbw 3, ELEKID
+	dbw 5, MAGNETON
+	dbw 7, ELECTABUZZ
+	; nite
+	dbw 1, VOLTORB
+	dbw 1, MAGNEMITE
+	dbw 1, ZUBAT
+	dbw 2, VOLTORB
+	dbw 3, ELEKID
+	dbw 5, MAGNETON
+	dbw 7, ELECTABUZZ
+	end_grass_wildmons
+
+db -1 ; end

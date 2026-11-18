@@ -53,6 +53,8 @@ OverworldWeatherMaps:
 	ow_weather SILVER_TOWN,        OW_WEATHER_SNOW
 	ow_weather ROUTE_48,           OW_WEATHER_SNOW
 	ow_weather ROUTE_113,           OW_WEATHER_ASH
+	ow_weather ZAPDOS_ROOST,        OW_WEATHER_RAIN
+	ow_weather CINNABAR_VOLCANO_CRATER, OW_WEATHER_ASH
 
 	; WEATHER_ZONE_JOHTO_SOUTH
 	ow_weather_zone ROUTE_29,                  WEATHER_ZONE_JOHTO_SOUTH

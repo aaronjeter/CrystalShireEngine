@@ -1385,3 +1385,32 @@ MtChimneyChamber_Blocks:
 	INCBIN "maps/hoenn/dungeons/MtChimneyChamber.ablk"
 
 ENDSECTION
+
+
+SECTION "Kanto Legendary Dungeon Blocks", ROMX
+
+SeafoamIslands1F_Blocks:
+	INCBIN "maps/kanto/dungeons/SeafoamIslands1F.ablk"
+
+SeafoamIslandsB1F_Blocks:
+	INCBIN "maps/kanto/dungeons/SeafoamIslandsB1F.ablk"
+
+CinnabarVolcano_Blocks:
+	INCBIN "maps/kanto/dungeons/CinnabarVolcano.ablk"
+
+CinnabarVolcanoCrater_Blocks:
+	INCBIN "maps/kanto/dungeons/CinnabarVolcanoCrater.ablk"
+
+CeruleanCave1F_Blocks:
+	INCBIN "maps/kanto/dungeons/CeruleanCave1F.ablk"
+
+CeruleanCaveB1F_Blocks:
+	INCBIN "maps/kanto/dungeons/CeruleanCaveB1F.ablk"
+
+ZapdosRoostCave_Blocks:
+	INCBIN "maps/kanto/dungeons/ZapdosRoostCave.ablk"
+
+ZapdosRoost_Blocks:
+	INCBIN "maps/kanto/dungeons/ZapdosRoost.ablk"
+
+ENDSECTION

@@ -839,3 +839,17 @@ INCLUDE "maps/hoenn/dungeons/MtChimneyDepths.asm"
 INCLUDE "maps/hoenn/dungeons/MtChimneyChamber.asm"
 
 ENDSECTION
+
+
+SECTION "Kanto Legendary Dungeon Scripts", ROMX
+
+INCLUDE "maps/kanto/dungeons/SeafoamIslands1F.asm"
+INCLUDE "maps/kanto/dungeons/SeafoamIslandsB1F.asm"
+INCLUDE "maps/kanto/dungeons/CinnabarVolcano.asm"
+INCLUDE "maps/kanto/dungeons/CinnabarVolcanoCrater.asm"
+INCLUDE "maps/kanto/dungeons/CeruleanCave1F.asm"
+INCLUDE "maps/kanto/dungeons/CeruleanCaveB1F.asm"
+INCLUDE "maps/kanto/dungeons/ZapdosRoostCave.asm"
+INCLUDE "maps/kanto/dungeons/ZapdosRoost.asm"
+
+ENDSECTION

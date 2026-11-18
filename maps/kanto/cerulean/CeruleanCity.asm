@@ -5,12 +5,50 @@
 	const CERULEANCITY_COOLTRAINER_F
 	const CERULEANCITY_FISHER
 	const CERULEANCITY_YOUNGSTER
+	const CERULEANCITY_CAVE_GUARD
 
 CeruleanCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, CeruleanCityFlypointCallback
+	callback MAPCALLBACK_OBJECTS, CeruleanCityCaveGuardCallback
+
+CeruleanCityCaveGuardCallback:
+	checkevent EVENT_BEAT_INDIGO_LEAGUE
+	iffalse .Done
+	moveobject CERULEANCITY_CAVE_GUARD, 9, 5
+.Done:
+	endcallback
+
+CeruleanCityCaveGuardScript:
+	checkevent EVENT_BEAT_INDIGO_LEAGUE
+	iftrue .Open
+	jumptextfaceplayer CeruleanCityCaveGuardClosedText
+
+.Open:
+	jumptextfaceplayer CeruleanCityCaveGuardOpenText
+
+CeruleanCityCaveGuardClosedText:
+	text "This cave is full"
+	line "of very strong"
+	cont "#mon."
+
+	para "Only the Champion"
+	line "of the #mon"
+
+	para "League may go"
+	line "inside."
+	done
+
+CeruleanCityCaveGuardOpenText:
+	text "You beat the"
+	line "#mon League?"
+
+	para "Then go ahead."
+	line "Be careful in"
+	cont "there."
+	done
 
 CeruleanCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_CERULEAN
@@ -272,6 +310,7 @@ CeruleanCity_MapEvents:
 	warp_event 30, 23, CERULEAN_GYM, 1
 	warp_event 25, 29, CERULEAN_MART, 2
 	warp_event 13, 29, CERULEAN_BIKE_SHOP, 2
+	warp_event 08, 03, CERULEAN_CAVE_1F, 1
 
 	def_coord_events
 
@@ -292,3 +331,4 @@ CeruleanCity_MapEvents:
 	object_event 21, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerFScript, -1
 	object_event 30, 26, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityFisherScript, -1
 	object_event  7, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityYoungsterScript, -1
+	object_event  8,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCityCaveGuardScript, -1

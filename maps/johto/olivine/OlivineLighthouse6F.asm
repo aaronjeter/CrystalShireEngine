@@ -2,7 +2,6 @@
 	const OLIVINELIGHTHOUSE6F_JASMINE
 	const OLIVINELIGHTHOUSE6F_AMPHAROS
 	const OLIVINELIGHTHOUSE6F_POKE_BALL
-	const OLIVINELIGHTHOUSE6F_ZAPDOS
 	const OLIVINELIGHTHOUSE6F_ELECTABUZZ
 
 OlivineLighthouse6F_MapScripts:
@@ -14,7 +13,6 @@ OlivineLighthouse6F_MapScripts:
 
 OlivineLighthouse6FMonSpritesCallback:
 	setmonsprite SPRITE_MON_1, AMPHAROS
-	setmonsprite SPRITE_MON_2, ZAPDOS
 	setmonsprite SPRITE_MON_3, ELECTABUZZ
 	endcallback
 
@@ -259,44 +257,6 @@ AmphyPaluPaluluText:
 	line "Palulu!"
 	done
 
-OlivineLighthouseZapdosSadText:
-	text "Lighting crackles"
-	line "as Zapdos"
-	cont "gazes upon you."
-
-	para "Its too worried"
-	line "about its friend."
-	done
-
-OlivineLighthouseZapdosHappyText:
-	text "Lighting crackles"
-	line "as Zapdos"
-	cont "gazes upon you."
-
-	para "It accepts your"
-	line "challenge!"
-	done
-
-OlivineLighthouse_Zapdos:
-	cry ZAPDOS
-	opentext
-	checkevent EVENT_JASMINE_RETURNED_TO_GYM
-	iftrue .HappyZapdos
-	
-	writetext OlivineLighthouseZapdosSadText
-	closetext
-	end
-
-.HappyZapdos:
-	writetext OlivineLighthouseZapdosHappyText
-	closetext
-	loadwildmon ZAPDOS, 15
-	loadboss BOSS_ZAPDOS
-	startbattle
-	reloadmapafterbattle
-	disappear OLIVINELIGHTHOUSE6F_ZAPDOS
-	end
-
 OlivineLighthouse_Electabuzz:
 	cry ELECTABUZZ
 	loadwildmon ELECTABUZZ, 10
@@ -322,5 +282,4 @@ OlivineLighthouse6F_MapEvents:
 	object_event  8,  8, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseJasmine, EVENT_OLIVINE_LIGHTHOUSE_JASMINE
 	object_event  9,  8, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseAmphy, -1
 	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FExpCandyM, EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION
-	object_event  9,  2, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineLighthouse_Zapdos, -1
 	object_event  2, 13, SPRITE_MON_3, SPRITEMOVEDATA_WILDSPAWN, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineLighthouse_Electabuzz, -1

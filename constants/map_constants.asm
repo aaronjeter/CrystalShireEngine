@@ -181,6 +181,14 @@ ENDM
 	map_const SAFARI_HOUSE_NORTH,                          05, 04 ;
 	map_const SAFARI_HOUSE_WEST,                           05, 04 ;
 	map_const SAFARI_HOUSE_SECRET,                         05, 04 ;
+	map_const SEAFOAM_ISLANDS_1F,                            12, 11 ; at the group's end, so saves keep working
+	map_const SEAFOAM_ISLANDS_B1F,                           12, 12 ; at the group's end, so saves keep working
+	map_const CINNABAR_VOLCANO,                              12, 13 ; at the group's end, so saves keep working
+	map_const CINNABAR_VOLCANO_CRATER,                       12, 10 ; at the group's end, so saves keep working
+	map_const CERULEAN_CAVE_1F,                              14, 11 ; at the group's end, so saves keep working
+	map_const CERULEAN_CAVE_B1F,                             12, 10 ; at the group's end, so saves keep working
+	map_const ZAPDOS_ROOST_CAVE,                              8,  8 ; at the group's end, so saves keep working
+	map_const ZAPDOS_ROOST,                                  12,  9 ; at the group's end, so saves keep working
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

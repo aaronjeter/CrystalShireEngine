@@ -254,6 +254,7 @@ Route10_MapEvents:
 	warp_event 07, 39, POWER_PLANT, 1
 	warp_event 08, 17, ROCK_TUNNEL_1F, 1
 	warp_event 08, 53, ROCK_TUNNEL_1F, 2
+	warp_event  2, 33, ZAPDOS_ROOST_CAVE, 1
 
 	def_coord_events
 	coord_event 13, 20, -1, Route10GreenEventScript1
