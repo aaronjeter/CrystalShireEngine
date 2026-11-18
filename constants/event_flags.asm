@@ -576,9 +576,9 @@
 	const EVENT_GOT_MEWTWO
 	const EVENT_GOT_MEW
 	const EVENT_HIDE_MEW
-	const EVENT_GOT_REGICE ; unused
-	const EVENT_GOT_RIGIROCK ; unused
-	const EVENT_GOT_REGISTEEL ; unused	
+	const EVENT_GOT_REGICE
+	const EVENT_GOT_RIGIROCK
+	const EVENT_GOT_REGISTEEL
 	const EVENT_GOT_LATIAS ; unused
 	const EVENT_GOT_LATIOS ; unused	
 	const EVENT_HIDE_LATIAS ; unused
@@ -907,9 +907,9 @@
 	const EVENT_DELIVERED_OAK_PARCEL
 	const EVENT_DELIVERED_BIRCH_PARCEL
 	const EVENT_FAST_SHIP_DESTINATION_SLATEPORT ; else EVENT_FAST_SHIP_DESTINATION_OLIVINE picks
-	const_skip ; unused
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_REGIROCK_WALL_OPEN
+	const EVENT_REGICE_WALL_OPEN
+	const EVENT_REGISTEEL_WALL_OPEN
 	const_skip ; unused
 
 	;Normal Route Items

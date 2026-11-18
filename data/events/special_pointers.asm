@@ -184,3 +184,5 @@ SpecialsPointers::
 	add_special TitleDefensePrizeQuantity
 	add_special TitleDefensePrizeItem
 	add_special TitleDefenseMarkBeaten
+	add_special RegiLeadType
+	add_special RegiPartyMoveType

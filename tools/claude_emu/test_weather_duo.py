@@ -87,20 +87,21 @@ def case_sootopolis():
     step(g, 'U')
     g.frames(120)
     shot(g, 'cave_of_origin.png')
-    check('up into the cave mouth: Cave of Origin (11, 19)', at(g, 'CAVE_OF_ORIGIN', 11, 19), str(here(g)))
+    check('up into the cave mouth: Cave of Origin (9, 21)', at(g, 'CAVE_OF_ORIGIN', 9, 21), str(here(g)))
     step(g, 'D')
     g.frames(120)
     check('back down: Sootopolis, out of the cave mouth', at(g, 'SOOTOPOLIS_CITY', 33, 18), str(here(g)))
 
-    warp(g, 'CAVE_OF_ORIGIN', 4, 6)
+    warp(g, 'CAVE_OF_ORIGIN', 11, 6)
     go(g, 'U')
     g.frames(120)
     shot(g, 'cave_of_origin_depths.png')
-    check('the ladder: Cave of Origin depths (4, 5)', at(g, 'CAVE_OF_ORIGIN_DEPTHS', 4, 5), str(here(g)))
-    warp(g, 'CAVE_OF_ORIGIN_DEPTHS', 4, 6)
-    go(g, 'U')
+    check('the hole at the back: Cave of Origin depths (13, 19)', at(g, 'CAVE_OF_ORIGIN_DEPTHS', 13, 19), str(here(g)))
+    warp(g, 'CAVE_OF_ORIGIN_DEPTHS', 13, 18)
+    go(g, 'D')
+    step(g, 'D')
     g.frames(120)
-    check('and back up: Cave of Origin (4, 5)', at(g, 'CAVE_OF_ORIGIN', 4, 5), str(here(g)))
+    check('and back: Cave of Origin, out of the hole (11, 6)', at(g, 'CAVE_OF_ORIGIN', 11, 6), str(here(g)))
 
 
 def case_fiery_path():
@@ -142,10 +143,18 @@ def case_fiery_path():
     check('and back: the depths (17, 5)', at(g, 'MT_CHIMNEY_DEPTHS', 17, 5), str(here(g)))
 
 
-def legend(name, mapname, x, y, flag, caught):
+def no_spawns(g):
+    """No overworld spawns (a spawn battle could be mistaken for the legendary)."""
+    g.wr('wStatusFlags', g.rd('wStatusFlags') | (1 << g.const('STATUSFLAGS_NO_WILD_ENCOUNTERS_F')))
+
+
+def legend(name, mapname, x, y, flag, caught, surf=False):
     g = setup()
+    no_spawns(g)
     g.set_party(BOLT, [('MASTER_BALL', 1)])
     warp(g, mapname, x, y + 1)
+    if surf:
+        g.wr('wPlayerState', g.const('PLAYER_SURF'))
     g.press('U', hold=2, after=30)
     check(f'{name}: there before the battle', not event_set(g, flag))
     g.press('A', after=20)
@@ -177,11 +186,14 @@ def legend(name, mapname, x, y, flag, caught):
 
     def meets():
         warp(g, mapname, x, y + 1)
+        if surf:
+            g.wr('wPlayerState', g.const('PLAYER_SURF'))
         g.press('U', hold=2, after=30)
         g.press('A', after=20)
         for _ in range(200):
             if g.in_battle():
-                return True
+                g.frames(60)
+                return g.rd('wBossID') != 0
             g.frames(6)
             g.press('B', hold=2, after=2)
         return False
@@ -219,7 +231,7 @@ def case_wild(mapname, x, y, species, d=('L', 'R')):
 
 
 def legend_shots():
-    for mapname, x, y, name in (('CAVE_OF_ORIGIN_DEPTHS', 21, 8, 'kyogre'), ('MT_CHIMNEY_CHAMBER', 9, 10, 'groudon')):
+    for mapname, x, y, name in (('CAVE_OF_ORIGIN_DEPTHS', 13, 14, 'kyogre'), ('MT_CHIMNEY_CHAMBER', 9, 10, 'groudon')):
         g = ow(True)
         warp(g, mapname, x, y)
         shot(g, name + '.png')
@@ -231,11 +243,11 @@ def main():
     legend_shots()
     case_sootopolis()
     case_fiery_path()
-    legend('Kyogre', 'CAVE_OF_ORIGIN_DEPTHS', 21, 5, 'EVENT_GOT_KYOGRE', False)
-    legend('Kyogre', 'CAVE_OF_ORIGIN_DEPTHS', 21, 5, 'EVENT_GOT_KYOGRE', True)
+    legend('Kyogre', 'CAVE_OF_ORIGIN_DEPTHS', 13, 8, 'EVENT_GOT_KYOGRE', False, surf=True)
+    legend('Kyogre', 'CAVE_OF_ORIGIN_DEPTHS', 13, 8, 'EVENT_GOT_KYOGRE', True, surf=True)
     legend('Groudon', 'MT_CHIMNEY_CHAMBER', 9, 7, 'EVENT_GOT_GROUDON', False)
     legend('Groudon', 'MT_CHIMNEY_CHAMBER', 9, 7, 'EVENT_GOT_GROUDON', True)
-    case_wild('CAVE_OF_ORIGIN', 10, 13, ['GOLBAT', 'SABLEYE', 'LUNATONE'])
+    case_wild('CAVE_OF_ORIGIN', 8, 14, ['GOLBAT', 'SABLEYE', 'LUNATONE'], d=('U', 'D'))
     case_wild('MT_CHIMNEY_DEPTHS', 12, 13, ['NUMEL', 'SLUGMA', 'TORKOAL', 'CAMERUPT', 'MAGCARGO'])
     bad = [n for n, ok in B.RESULTS if not ok]
     print(f'{len(B.RESULTS) - len(bad)}/{len(B.RESULTS)} passed' + (f'; failed: {bad}' if bad else ''))

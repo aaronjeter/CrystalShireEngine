@@ -764,6 +764,11 @@ SECTION "Region Travel", ROMX
 
 INCLUDE "engine/events/region_travel.asm"
 
+
+SECTION "Regi Gate", ROMX
+
+INCLUDE "engine/events/regi_gate.asm"
+
 SECTION "Facility Eligibility", ROMX
 
 INCLUDE "data/pokemon/facility_eligibility.asm"

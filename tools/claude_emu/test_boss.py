@@ -557,11 +557,13 @@ ENCOUNTERS = [
     ('LAKE_OF_RAGE', 18, 23, 'RedGyarados', 'BOSS_RED_GYARADOS', 'BATTLETYPE_FORCESHINY', []),
     ('TIN_TOWER_ROOF', 9, 6, 'TinTowerHoOh', 'BOSS_HO_OH', 'BATTLETYPE_TRAP', []),
     ('WHIRL_ISLAND_LUGIA_CHAMBER', 9, 6, 'Lugia', 'BOSS_LUGIA', 'BATTLETYPE_TRAP', []),
-    ('OLIVINE_LIGHTHOUSE_6F', 9, 9, 'OlivineLighthouse_Zapdos', 'BOSS_ZAPDOS', 'BATTLETYPE_TRAP',
-     ['EVENT_JASMINE_RETURNED_TO_GYM']),
-    ('ARTICUNO_LAIR', 7, 3, 'ArticunoLair_Articuno', 'BOSS_ARTICUNO', 'BATTLETYPE_TRAP', []),
-    ('MOLTRES_LAIR', 20, 1, 'MoltresLair_Moltres', 'BOSS_MOLTRES', 'BATTLETYPE_TRAP', []),
-    ('SILVER_CAVE_ROOM_2', 23, 11, 'SilverCaveRoom2_Mewtwo', 'BOSS_MEWTWO', 'BATTLETYPE_TRAP', []),
+    ('ZAPDOS_ROOST', 13, 7, 'ZapdosRoostZapdosScript', 'BOSS_ZAPDOS', 'BATTLETYPE_TRAP', []),
+    ('SEAFOAM_ISLANDS_B1F', 5, 6, 'SeafoamIslandsB1FArticunoScript', 'BOSS_ARTICUNO', 'BATTLETYPE_TRAP', []),
+    ('CINNABAR_VOLCANO_CRATER', 11, 7, 'CinnabarVolcanoCraterMoltresScript', 'BOSS_MOLTRES', 'BATTLETYPE_TRAP', []),
+    ('CERULEAN_CAVE_B1F', 17, 5, 'CeruleanCaveB1FMewtwoScript', 'BOSS_MEWTWO', 'BATTLETYPE_TRAP', []),
+    ('CAVE_OF_ORIGIN_DEPTHS', 13, 14, 'KyogreScript', 'BOSS_KYOGRE', 'BATTLETYPE_TRAP', []),
+    ('MT_CHIMNEY_CHAMBER', 9, 8, 'GroudonScript', 'BOSS_GROUDON', 'BATTLETYPE_TRAP', []),
+    ('MOLTRES_LAIR', 20, 1, 'MoltresLair_Entei', 'BOSS_ENTEI', 'BATTLETYPE_TRAP', ['EVENT_RELEASED_THE_BEASTS']),
 ]
 
 

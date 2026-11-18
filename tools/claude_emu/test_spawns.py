@@ -65,6 +65,10 @@ def spawns(g):
 def setup(mapc, x, y, follower=True, state=STATE):
     g = G(ROM, None, SYM)
     g.load(state)
+    # the boot save has 4+ badges: without this the professor's travel call
+    # interrupts the walk on routes
+    g.run_script('\tsetevent EVENT_TRAVEL_PROF_CALLED\n\tend')
+    g.frames(20)
     o = g.rd('wOptions2') & ~FOLLOWER_OFF
     g.wr('wOptions2', o if follower else o | FOLLOWER_OFF)
     g.run_script(warp_script(mapc, x, y))
