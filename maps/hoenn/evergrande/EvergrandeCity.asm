@@ -1,5 +1,10 @@
 	object_const_def
 	const EVERGRANDE_WALLY
+	const EVERGRANDE_GREETER
+	const EVERGRANDE_FAN
+	const EVERGRANDE_ACE_TRAINER
+	const EVERGRANDE_VETERAN
+	const EVERGRANDE_NURSE_HELPER
 
 EvergrandeCity_MapScripts:
 	def_scene_scripts
@@ -109,6 +114,70 @@ EvergrandeWallyAfterBattleText:
 	line "there!"
 	done
 
+EvergrandeGreeterScript:
+	jumptextfaceplayer EvergrandeGreeterText
+
+EvergrandeFanScript:
+	jumptextfaceplayer EvergrandeFanText
+
+EvergrandeAceTrainerScript:
+	jumptextfaceplayer EvergrandeAceTrainerText
+
+EvergrandeVeteranScript:
+	jumptextfaceplayer EvergrandeVeteranText
+
+EvergrandeNurseHelperScript:
+	jumptextfaceplayer EvergrandeNurseHelperText
+
+EvergrandeGreeterText:
+	text "Welcome to the"
+	line "Hoenn #mon"
+	cont "League!"
+
+	para "Only trainers with"
+	line "all eight Hoenn"
+	cont "badges come this"
+	cont "far."
+	done
+
+EvergrandeFanText:
+	text "I'm waiting for"
+	line "the Champion to"
+	cont "come outside!"
+
+	para "I've been here"
+	line "since morning..."
+	done
+
+EvergrandeAceTrainerText:
+	text "Victory Road was"
+	line "just a warm-up."
+
+	para "One more round of"
+	line "training, then I'm"
+	cont "going in!"
+	done
+
+EvergrandeVeteranText:
+	text "I made it to the"
+	line "Elite Four once."
+
+	para "Lost to the very"
+	line "first one!"
+
+	para "Heal up and stock"
+	line "up before you go."
+	done
+
+EvergrandeNurseHelperText:
+	text "I help out at the"
+	line "#mon Center."
+
+	para "Trainers come out"
+	line "of Victory Road"
+	cont "worn out!"
+	done
+
 EvergrandeCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -124,3 +193,8 @@ EvergrandeCity_MapEvents:
 
 	def_object_events
 	object_event  18, 20, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Evergrande_Wally, EVENT_FOUND_VICTORY_ROAD_WALLY
+	object_event 14,  7, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, EvergrandeGreeterScript, -1
+	object_event 19,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EvergrandeFanScript, -1
+	object_event 23, 12, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EvergrandeAceTrainerScript, -1
+	object_event 12, 37, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, EvergrandeVeteranScript, -1
+	object_event 31, 45, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EvergrandeNurseHelperScript, -1
