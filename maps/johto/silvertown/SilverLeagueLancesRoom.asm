@@ -67,6 +67,7 @@ SilverLeagueLancesRoomLanceScript:
 	loadmem wEliteFourXpBoost, 1
 	setevent EVENT_BEAT_JOHTO_LEAGUE
 	setevent EVENT_BEAT_ELITE_FOUR
+	clearevent EVENT_GOT_ENTEI
 	setevent EVENT_RIVAL_SPROUT_TOWER
 	clearevent EVENT_RED_IN_MT_SILVER
 	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME

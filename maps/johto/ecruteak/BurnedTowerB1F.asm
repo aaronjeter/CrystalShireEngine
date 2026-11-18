@@ -81,6 +81,7 @@ ReleaseTheBeasts:
 	special RestartMapMusic
 	setscene SCENE_BURNEDTOWERB1F_NOOP
 	setevent EVENT_RELEASED_THE_BEASTS
+	clearevent EVENT_GOT_ENTEI
 	special InitRoamMons
 	setmapscene ECRUTEAK_GYM, SCENE_ECRUTEAKGYM_NOOP
 	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE

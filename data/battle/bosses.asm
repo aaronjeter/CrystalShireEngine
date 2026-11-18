@@ -65,6 +65,7 @@ BossRecords:
 	boss 2, 0, RedAura,        RedPhases        ; BOSS_RED
 	boss 1, 0, ArcherAura,     ArcherPhases     ; BOSS_ARCHER
 	boss 1, 0, JaneAura,       JanePhases       ; BOSS_JANE
+	boss 2, 0, EnteiAura,       EnteiPhases       ; BOSS_ENTEI
 	assert_table_length NUM_BOSSES - 1
 
 ; Phase tables: one entry per extra bar in the record, in break order.
@@ -186,6 +187,20 @@ GroudonPhases:
 .bar2
 	boss_stat ATTACK, 1
 	boss_stat DEFENSE, 1
+	boss_end
+
+EnteiAura:
+	boss_weather WEATHER_SUN, 255
+	boss_stat SPEED, 1
+	boss_end
+EnteiPhases:
+	dw .bar1, .bar2
+.bar1
+	boss_stat ATTACK, 1
+	boss_end
+.bar2
+	boss_stat ATTACK, 1
+	boss_stat SPEED, 1
 	boss_end
 
 RayquazaAura:

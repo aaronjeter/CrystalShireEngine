@@ -36,6 +36,7 @@ DEF BOSS_PIPS_PER_TILE EQU 2
 	const BOSS_RED          ; Pikachu (Mt. Silver, title defense)
 	const BOSS_ARCHER       ; Mega Houndoom (Radio Tower)
 	const BOSS_JANE         ; Latias (Desert Shrine)
+	const BOSS_ENTEI        ; Entei (Mt. Mortar, the old Moltres Lair)
 DEF NUM_BOSSES EQU const_value
 
 ; boss record flags
