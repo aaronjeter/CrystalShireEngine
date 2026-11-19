@@ -9,6 +9,8 @@ DEF NUM_SPRITEDATA_FIELDS EQU _RS
 
 DEF SPRITEDATA_SIZE_LZ EQU 1 ; bit 0 of SPRITEDATA_SIZE: the graphics are LZ-compressed
 
+DEF FOLLOWER_GFX_BUFFER_TILES EQU 28 ; wFollowerGFXBuffer: compressed sprites unpack here
+
 ; sprite types
 	const_def 1
 	const WALKING_SPRITE  ; 1

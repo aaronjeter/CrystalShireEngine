@@ -16,7 +16,6 @@ GetSpriteVTile::
 	push de
 	push bc
 	ldh [hUsedSpriteIndex], a
-	farcall GetSprite
 	ld hl, wSpriteFlags
 	res 5, [hl]
 	ldh a, [hObjectStructIndex]

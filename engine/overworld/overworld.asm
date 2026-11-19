@@ -92,6 +92,14 @@ GetSprite::
 	call GetMonSprite
 	ret c
 
+	; no sprite (0) or an id past the table: load Chris's sprite (never compressed)
+	and a
+	jr z, .sprite_1
+	cp NUM_OVERWORLD_SPRITES + 1
+	jr c, .got_sprite
+.sprite_1
+	ld a, SPRITE_CHRIS
+.got_sprite
 	ld hl, OverworldSprites + SPRITEDATA_ADDR
 	dec a
 	ld c, a
@@ -291,7 +299,7 @@ endr
 	ld a, d
 	cp HIGH(wFollowerGFXBuffer)
 	jmp c, Get2bpp
-	cp HIGH(wFollowerGFXBuffer + 28 tiles)
+	cp HIGH(wFollowerGFXBuffer + FOLLOWER_GFX_BUFFER_TILES tiles)
 	jmp nc, Get2bpp
 	ld a, BANK(wFollowerGFXBuffer)
 	call StackCallInWRAMBankA

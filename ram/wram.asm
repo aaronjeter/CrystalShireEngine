@@ -3415,9 +3415,14 @@ wWeatherFadeSteps:: db ; steps left in the border fade (0 = not fading)
 wWeatherFadeFrame:: db ; alternates BG / object palettes each frame
 
 
+SECTION "Map Blocks Buffer", WRAMX, BANK[2]
+
+wMapBlocksBuffer:: ds MAP_BLOCKS_BUFFER_SIZE ; a map's LZ-compressed blocks, unpacked (see ChangeMap)
+
+
 SECTION "Follower GFX Buffer", WRAMX, BANK[2]
 
-wFollowerGFXBuffer:: ds 28 tiles ; a decompressed follower sprite (see DecompressFollowerGFX), + 4 tiles of scratch
+wFollowerGFXBuffer:: ds FOLLOWER_GFX_BUFFER_TILES tiles ; a decompressed follower sprite (see DecompressFollowerGFX), + 4 tiles of scratch
 
 
 SECTION "Diagonal Movement RAM", WRAMX, BANK[1]

@@ -792,7 +792,12 @@ ENDM
 	const changemapblocks_command ; $79
 MACRO changemapblocks
 	db changemapblocks_command
-	dba \1 ; map_data_pointer
+	db BANK(\1)
+	if STRIN(SECTION(\1), "Map Blocks LZ ") == 1
+		dw \1 | MAP_BLOCKS_LZ ; ChangeMap unpacks compressed blocks
+	else
+		dw \1 ; map_data_pointer
+	endc
 ENDM
 
 	const changeblock_command ; $7a

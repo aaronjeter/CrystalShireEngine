@@ -105,7 +105,7 @@ PrintUnownStamp:
 
 PrintMailAndExit:
 	call PrintMail
-	jmp Printer_ExitPrinter
+	jr Printer_ExitPrinter
 
 PrintMail:
 	ld a, [wPrinterQueueLength]

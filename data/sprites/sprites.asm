@@ -6,6 +6,11 @@ ENDM
 
 MACRO overworld_sprite_lz
 ; like overworld_sprite, for LZ-compressed graphics (bit 0 of the length)
+	if (\3) == STILL_SPRITE
+		assert (\2) <= FOLLOWER_GFX_BUFFER_TILES, "\1 doesn't fit wFollowerGFXBuffer"
+	else
+		assert (\2) * 2 <= FOLLOWER_GFX_BUFFER_TILES, "\1 (standing + walking frames) doesn't fit wFollowerGFXBuffer"
+	endc
 	dw \1
 	db \2 tiles | SPRITEDATA_SIZE_LZ, BANK(\1), \3, \4
 ENDM

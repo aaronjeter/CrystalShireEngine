@@ -9,7 +9,15 @@ MACRO map_attributes
 	db \3
 	db CURRENT_MAP_HEIGHT, CURRENT_MAP_WIDTH
 	db BANK(\1_Blocks)
-	dw \1_Blocks
+	if DEF(\1_BLOCKS_LZ)
+		assert STRIN(SECTION(\1_Blocks), "Map Blocks LZ ") == 1, "\1: has a _BLOCKS_LZ flag but its blocks aren't in a \"Map Blocks LZ\" section"
+		assert (\4) == 0, "\1: maps with LZ-compressed blocks can't have connections"
+		assert CURRENT_MAP_WIDTH * CURRENT_MAP_HEIGHT <= MAP_BLOCKS_BUFFER_SIZE, "\1: too big for wMapBlocksBuffer"
+		dw \1_Blocks | MAP_BLOCKS_LZ
+	else
+		assert STRIN(SECTION(\1_Blocks), "Map Blocks LZ ") == 0, "\1: its blocks are in a \"Map Blocks LZ\" section but it has no _BLOCKS_LZ flag"
+		dw \1_Blocks
+	endc
 	db BANK(\1_MapScripts) ; aka BANK(\1_MapEvents)
 	dw \1_MapScripts
 	dw \1_MapEvents
@@ -86,6 +94,7 @@ MACRO connection
 		endc
 
 	map_id \3
+	assert !DEF(\2_BLOCKS_LZ), "\2: a connected map's blocks can't be LZ-compressed"
 	dw \2_Blocks + _blk
 	dw wOverworldMapBlocks + _map
 	db _len - _src

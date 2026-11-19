@@ -562,6 +562,24 @@ ChangeMap::
 	ld d, a
 	ld a, [wMapHeight]
 	ld b, a
+	ldh a, [rSVBK]
+	push af
+	bit 7, d ; MAP_BLOCKS_LZ
+	jr z, .row
+	; unpack LZ-compressed blocks into wMapBlocksBuffer and copy them from there
+	; (the WRAM bank only changes for compressed maps, which only load behind a warp's fade)
+	ld a, BANK(wMapBlocksBuffer)
+	ldh [rSVBK], a
+	res 7, d
+	push hl
+	push bc
+	ld h, d
+	ld l, e
+	ld de, wMapBlocksBuffer
+	call Decompress
+	pop bc
+	pop hl
+	ld de, wMapBlocksBuffer
 .row
 	push hl
 	ldh a, [hConnectedMapWidth]
@@ -582,6 +600,8 @@ ChangeMap::
 	dec b
 	jr nz, .row
 
+	pop af
+	ldh [rSVBK], a
 	pop af
 	rst Bankswitch
 	ret
