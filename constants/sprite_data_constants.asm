@@ -7,6 +7,8 @@ DEF SPRITEDATA_TYPE    rb ; 4
 DEF SPRITEDATA_PALETTE rb ; 5
 DEF NUM_SPRITEDATA_FIELDS EQU _RS
 
+DEF SPRITEDATA_SIZE_LZ EQU 1 ; bit 0 of SPRITEDATA_SIZE: the graphics are LZ-compressed
+
 ; sprite types
 	const_def 1
 	const WALKING_SPRITE  ; 1

@@ -113,6 +113,32 @@ GetSprite::
 	; load the sprite type into l
 	ld l, [hl]
 	ld h, a
+	; compressed graphics are unpacked into wFollowerGFXBuffer
+	bit 4, c ; SPRITEDATA_SIZE_LZ, swapped
+	ret z
+	res 4, c
+	; fallthrough
+
+DecompressSpriteGFX:
+; Decompress the sprite graphics at b:de into wFollowerGFXBuffer and point de
+; at the buffer. Preserves b, c and hl; returns no carry.
+	push hl
+	push bc
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wFollowerGFXBuffer)
+	ldh [rSVBK], a
+	ld h, d
+	ld l, e
+	ld de, wFollowerGFXBuffer
+	ld a, b
+	call FarDecompress
+	pop af
+	ldh [rSVBK], a
+	pop bc
+	pop hl
+	ld de, wFollowerGFXBuffer
+	and a
 	ret
 
 GetMonSprite:
