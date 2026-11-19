@@ -2500,6 +2500,7 @@ FlyMap_DrawRegion:
 
 Pokedex_GetArea:
 ; e: Current landmark
+; Returns when B or the D-pad is pressed, with that button in hJoyPressed.
 	ld a, [wTownMapPlayerIconLandmark]
 	push af
 	ld a, [wTownMapCursorLandmark]
@@ -2538,12 +2539,14 @@ Pokedex_GetArea:
 	call JoyTextDelay
 	ld hl, hJoyPressed
 	ld a, [hl]
-	and A_BUTTON | B_BUTTON
-	jr nz, .a_b
+	and B_BUTTON | D_PAD
+	jr nz, .exit
 	ldh a, [hJoypadDown]
 	and SELECT
 	jr nz, .select
-	call .LeftRightInput
+	ld a, [hl]
+	and A_BUTTON
+	call nz, .NextRegion
 	call .BlinkNestIcons
 	jr .next
 
@@ -2553,7 +2556,7 @@ Pokedex_GetArea:
 	call DelayFrame
 	jr .loop
 
-.a_b
+.exit
 	call ClearSprites
 	pop af
 	ld [wTownMapCursorLandmark], a
@@ -2561,18 +2564,10 @@ Pokedex_GetArea:
 	ld [wTownMapPlayerIconLandmark], a
 	ret
 
-.LeftRightInput:
-; Left/Right: the previous/next region the player has visited (a region with
-; a visited flypoint, or the one the player is in).
-	ld a, [hl]
-	and D_LEFT
-	ld b, NUM_REGIONS - 1 ; -1
-	jr nz, .switch
-	ld a, [hl]
-	and D_RIGHT
-	ret z
+.NextRegion:
+; The next region the player has visited (a region with a visited flypoint,
+; or the one the player is in).
 	ld b, 1
-.switch
 	ld a, [wTownMapCursorLandmark]
 	ld c, NUM_REGIONS - 1
 .switch_loop

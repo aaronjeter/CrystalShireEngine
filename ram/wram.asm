@@ -813,7 +813,22 @@ wPrevDexEntryBackup:: dw
 wPrevDexEntryJumptableIndex:: db
 
 wPokedexNameBuffer:: ds MON_NAME_LENGTH
-	ds 231
+wDexPage:: db ; DEXPAGE_* shown on the entry screen
+wDexMoveCount:: db ; lines in wDexMoveList
+wDexMovesCursor:: db ; highlighted line
+wDexMovesScroll:: db ; first line shown
+wDexMovesSpecies:: db
+wDexMovesNumber:: dw ; PrintNum buffer (big-endian for 2 bytes)
+wDexEvoViewed:: dw ; species index of the mon the Evolution page is for
+wDexEvoDepth:: db ; stage while building the family
+wDexEvoBank:: db ; bank of the evolutions being read
+wDexEvoStage:: db ; stage of the member being drawn
+wDexEvoTemp:: ; one evolution, read by Pokedex_ReadEvo
+wDexEvoTempMethod:: db ; EVOLVE_*
+wDexEvoTempParam:: db ; level or happiness trigger
+wDexEvoTempParam2:: dw ; item index, or ATK_*_DEF
+wDexEvoTempSpecies:: dw
+	ds 213
 
 NEXTU
 ; pokegear
@@ -3602,6 +3617,12 @@ wDecompressEnemyFrontpic:: ds $80 tiles
 NEXTU
 ; unidentified uses
 w6_d000:: ds $1000
+
+NEXTU
+; the Pokédex Moves page (after MoveInfo's saved OAM and attributes)
+	ds $800
+wDexMoveList:: ds 3 * 255 ; DEXMOVE_* kind, level/TM number or header, move
+wDexEvoList:: ds 7 * 16 ; species index, stage, EVOLVE_* (0 for the first), param, param 2 (2 bytes)
 
 NEXTU
 ; BuildSpawnArea (engine/overworld/wild_spawns.asm)

@@ -99,7 +99,15 @@ DrawPokedexSearchResultsWindow:
 ; (### FOUN)
 	next "D!@"
 
+DrawDexPagesRightEdge:
+; The right edge of the Pokédex pages: the frame goes down to the bottom row.
+	lb de, $67, $68
+	jr DrawDexEntryScreenRightEdge.got_bottom
+
 DrawDexEntryScreenRightEdge:
+; The right edge of the new Pokédex entry screen: the frame ends above the bottom bar.
+	lb de, $68, $3c
+.got_bottom
 	ldh a, [hBGMapAddress]
 	ld l, a
 	ldh a, [hBGMapAddress + 1]
@@ -116,9 +124,9 @@ DrawDexEntryScreenRightEdge:
 	ld a, $67
 	ld b, 15
 	call Pokedex_FillColumn2
-	ld [hl], $68
+	ld [hl], d
 	hlcoord 19, 17
-	ld [hl], $3c
+	ld [hl], e
 	xor a
 	ld b, SCREEN_HEIGHT
 	hlcoord 19, 0, wAttrmap

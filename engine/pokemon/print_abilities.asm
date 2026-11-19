@@ -36,6 +36,14 @@ PrintAbility:
 	ld e, a
 	ret
 
+PlaceAbilityDescription::
+; Place the description of ability a at hl (two lines, a row apart).
+	push hl
+	ld hl, AbilityDescriptions
+	call PrintAbility.GetPointer
+	pop hl
+	jmp PlaceString
+
 GetAbilityName::
 ; Copy the name of ability a to wStringBuffer2.
 ; Preserves bc and de.

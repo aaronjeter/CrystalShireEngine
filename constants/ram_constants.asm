@@ -13,6 +13,15 @@ DEF AUTO_INPUT EQU $ff
 	const DEXMODE_ABC
 	const DEXMODE_UNOWN
 
+; wDexPage::
+	const_def
+	const DEXPAGE_ENTRY
+	const DEXPAGE_DATA
+	const DEXPAGE_MOVES
+	const DEXPAGE_EVOLUTION
+	const DEXPAGE_AREA
+DEF NUM_DEXPAGES EQU const_value
+
 ; wMonType::
 	const_def
 	const PARTYMON   ; 0

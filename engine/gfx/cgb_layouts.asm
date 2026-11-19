@@ -59,7 +59,7 @@ CGBLayoutJumptable:
 	dw _CGB_TradeTube
 	dw _CGB_TrainerOrMonFrontpicPals
 	dw _CGB_MysteryGift
-	dw _CGB_Unused1E
+	dw _CGB_PokedexEntry
 	dw _CGB_Plain
 	assert_table_length NUM_SCGB_LAYOUTS
 
@@ -433,7 +433,15 @@ INCLUDE "gfx/stats/pages.pal"
 StatsScreenPals:
 INCLUDE "gfx/stats/stats.pal"
 
+_CGB_PokedexEntry:
+; The Pokédex palettes, with the top row (the page tabs) in VRAM bank 1.
+	ld a, VRAM_BANK_1
+	jr _CGB_Pokedex.got_top_row
+
 _CGB_Pokedex:
+	xor a
+.got_top_row
+	push af
 	ld de, wBGPals1
 	ld a, PREDEFPAL_POKEDEX
 	call GetPredefPal
@@ -454,6 +462,10 @@ _CGB_Pokedex:
 	lb bc, 7, 7
 	ld a, $1 ; green question mark palette
 	call FillBoxCGB
+	pop af
+	hlcoord 0, 0, wAttrmap
+	ld bc, SCREEN_WIDTH
+	rst ByteFill
 	call InitPartyMenuOBPals
 	ld hl, PokedexCursorPalette
 	ld de, wOBPals1 palette 7 ; green cursor palette
@@ -1274,14 +1286,6 @@ _CGB_PlayerOrMonFrontpicPals:
 	call WipeAttrmap
 	call ApplyAttrmap
 	jmp ApplyPals
-
-_CGB_Unused1E:
-	ld de, wBGPals1
-	ld a, [wCurPartySpecies]
-	call GetMonPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-	call WipeAttrmap
-	jmp ApplyAttrmap
 
 _CGB_TradeTube:
 	ld hl, PalPacket_TradeTube
