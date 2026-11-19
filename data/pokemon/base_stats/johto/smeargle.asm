@@ -16,5 +16,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm
+	tmhm HEAL_BELL, SAFEGUARD
 	; end

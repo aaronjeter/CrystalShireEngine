@@ -851,6 +851,8 @@ INCLUDE "maps/hoenn/sootopolis/SootopolisEldersHouse.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisLegendHouse.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisBerryHouse.asm"
 INCLUDE "maps/hoenn/sootopolis/SootopolisTutorHouse.asm"
+INCLUDE "maps/hoenn/verdanturf/VerdanturfTutorHouse.asm"
+INCLUDE "maps/hoenn/verdanturf/VerdanturfFlowerHouse.asm"
 
 ENDSECTION
 

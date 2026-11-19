@@ -1013,6 +1013,8 @@ SECTION "Map Blocks 4", ROMX
 	SootopolisLegendHouse_Blocks:
 	SootopolisBerryHouse_Blocks:
 	SootopolisTutorHouse_Blocks:
+	VerdanturfTutorHouse_Blocks:
+	VerdanturfFlowerHouse_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
 	FortreeHiddenPowerHouse_Blocks:

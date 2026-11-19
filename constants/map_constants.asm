@@ -709,6 +709,8 @@ ENDM
 	map_const SOOTOPOLIS_LEGEND_HOUSE,                      4,  4 ; at the group's end, so saves keep working
 	map_const SOOTOPOLIS_BERRY_HOUSE,                       4,  4 ; at the group's end, so saves keep working
 	map_const SOOTOPOLIS_TUTOR_HOUSE,                       4,  4 ; at the group's end, so saves keep working
+	map_const VERDANTURF_TUTOR_HOUSE,                       4,  4 ; at the group's end, so saves keep working
+	map_const VERDANTURF_FLOWER_HOUSE,                      4,  4 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

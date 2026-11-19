@@ -55,6 +55,8 @@ MoveTutor:
 	dw VOLT_SWITCH
 	dw AQUA_TAIL
 	dw AQUA_RING
+	dw HEAL_BELL
+	dw SAFEGUARD
 
 CheckCanLearnMoveTutorMove:
 	ld hl, .MenuHeader

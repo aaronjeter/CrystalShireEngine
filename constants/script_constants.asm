@@ -394,6 +394,8 @@ DEF UNOWN_WALL_MENU_HEADER_SIZE EQU 5
 	const MOVETUTOR_VOLT_SWITCH  ; 6
 	const MOVETUTOR_AQUA_TAIL    ; 7
 	const MOVETUTOR_AQUA_RING    ; 8
+	const MOVETUTOR_HEAL_BELL    ; 9
+	const MOVETUTOR_SAFEGUARD    ; 10
 
 ; monpaletteservice results (see engine/events/mon_palette_service.asm)
 	const_def
