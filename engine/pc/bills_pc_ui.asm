@@ -96,6 +96,12 @@ BillsPC_LoadUI:
 	ld bc, 4 tiles
 	rst ByteFill
 
+	; Blank the VRAM bank 1 tile used for box backgrounds.
+	ld hl, vTiles5 tile $7f
+	ld de, wBillsPC_Blank2bppTiles
+	lb bc, BANK(wBillsPC_Blank2bppTiles), 1
+	call BillsPC_Get2bpp
+
 	; Load cursor tiles.
 	ld de, BillsPC_CursorGFX
 	ld hl, vTiles3 tile $04
