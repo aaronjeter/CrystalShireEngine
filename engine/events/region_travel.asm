@@ -386,12 +386,14 @@ ElmErrandText:
 	done
 
 ElmShipText:
-	text "The Fast Ship sails"
-	line "from Olivine Port"
+	text "The Fast Ship"
+	line "sails from Olivine"
+	cont "Port."
 
-	para "to Vermilion in"
-	line "Kanto and Slate-"
-	cont "port in Hoenn."
+	para "It goes to"
+	line "Vermilion in Kanto"
+	cont "and Slateport in"
+	cont "Hoenn."
 
 	para "Prof.Oak's lab is"
 	line "in Pallet Town,"
@@ -422,12 +424,14 @@ OakErrandText:
 	done
 
 OakShipText:
-	text "The Fast Ship sails"
-	line "from Vermilion"
+	text "The Fast Ship"
+	line "sails from"
+	cont "Vermilion."
 
-	para "to Olivine in"
-	line "Johto and Slate-"
-	cont "port in Hoenn."
+	para "It goes to Olivine"
+	line "in Johto and"
+	cont "Slateport in"
+	cont "Hoenn."
 
 	para "Prof.Elm works in"
 	line "New Bark Town,"
@@ -459,12 +463,14 @@ BirchErrandText:
 	done
 
 BirchShipText:
-	text "The Fast Ship sails"
-	line "from Slateport"
+	text "The Fast Ship"
+	line "sails from"
+	cont "Slateport."
 
-	para "to Olivine in"
-	line "Johto and Vermil-"
-	cont "ion in Kanto."
+	para "It goes to Olivine"
+	line "in Johto and"
+	cont "Vermilion in"
+	cont "Kanto."
 
 	para "Prof.Elm's lab is"
 	line "in New Bark Town,"
@@ -519,12 +525,12 @@ ElmTravelCallText:
 	text "Hello, <PLAY_G>?"
 	line "It's Prof.Elm!"
 
-	para "Four Badges! That's"
-	line "amazing!"
+	para "Four Badges!"
+	line "That's amazing!"
 
 	para "I have a favor to"
-	line "ask. Could you come"
-	cont "by my lab?"
+	line "ask. Could you"
+	cont "come by my lab?"
 	done
 
 OakTravelCallText:
