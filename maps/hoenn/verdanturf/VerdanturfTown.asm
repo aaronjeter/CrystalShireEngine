@@ -2,7 +2,6 @@
 	const VERDANTURF_SICK_KID
 	const VERDANTURF_MOTHER
 	const VERDANTURF_TUNNEL_FAN
-	const VERDANTURF_OLD_MAN
 	const VERDANTURF_GARDENER
 	const VERDANTURF_LASS
 	const VERDANTURF_TWIN
@@ -25,9 +24,6 @@ VerdanturfMotherScript:
 
 VerdanturfTunnelFanScript:
 	jumptextfaceplayer VerdanturfTunnelFanText
-
-VerdanturfOldManScript:
-	jumptextfaceplayer VerdanturfOldManText
 
 VerdanturfGardenerScript:
 	jumptextfaceplayer VerdanturfGardenerText
@@ -68,16 +64,6 @@ VerdanturfTunnelFanText:
 	line "there. You can"
 	cont "hear them slap"
 	cont "the rocks!"
-	done
-
-VerdanturfOldManText:
-	text "Verdanturf is a"
-	line "quiet town."
-
-	para "People come here"
-	line "to rest. Even"
-	cont "#mon sleep well"
-	cont "here."
 	done
 
 VerdanturfGardenerText:
@@ -121,7 +107,6 @@ VerdanturfTown_MapEvents:
 	object_event  6, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VerdanturfSickKidScript, -1
 	object_event  7, 10, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VerdanturfMotherScript, -1
 	object_event  9,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VerdanturfTunnelFanScript, -1
-	object_event 17, 10, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VerdanturfOldManScript, -1
 	object_event  5, 14, SPRITE_POKEFAN_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VerdanturfGardenerScript, -1
 	object_event 13, 13, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VerdanturfLassScript, -1
 	object_event  5, 18, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VerdanturfTwinScript, -1

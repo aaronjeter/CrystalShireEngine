@@ -1,6 +1,8 @@
 	object_const_def
 	const OLDALETOWN_NERD
 	const OLDALETOWN_GUIDE
+	const OLDALETOWN_TWIN
+	const OLDALETOWN_YOUNGSTER
 
 OldaleTown_MapScripts:
 	def_scene_scripts
@@ -292,6 +294,29 @@ OldaleNerdText:
 	cont "Rustboro!"
 	done
 
+OldaleTownTwinScript:
+	jumptextfaceplayer OldaleTownTwinText
+
+OldaleTownTwinText:
+	text "Zigzagoon walk"
+	line "in zigzags!"
+
+	para "It's so funny to"
+	line "watch them."
+	done
+
+OldaleTownYoungsterScript:
+	jumptextfaceplayer OldaleTownYoungsterText
+
+OldaleTownYoungsterText:
+	text "Route 103 is up"
+	line "north."
+
+	para "Trainers like to"
+	line "battle by the"
+	cont "water there."
+	done
+
 OldaleTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -311,3 +336,5 @@ OldaleTown_MapEvents:
 	def_object_events
 	object_event  07, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OldaleNerdScript, -1
 	object_event 10, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, OldaleTownGuideScript, -1
+	object_event 15,  9, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OldaleTownTwinScript, -1
+	object_event  8,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldaleTownYoungsterScript, -1

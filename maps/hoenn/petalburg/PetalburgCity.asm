@@ -5,6 +5,9 @@
 	const PETALBURGCITY_RARE_CANDY
 	const PETALBURGCITY_POKEBALL
 	const PETALBURGCITY_CORONA
+	const PETALBURGCITY_YOUNGSTER
+	const PETALBURGCITY_LASS
+	const PETALBURGCITY_FISHER2
 
 PetalburgCity_MapScripts:
 	def_scene_scripts
@@ -131,6 +134,44 @@ Djinn_CoronaText:
 	done
 
 
+PetalburgCityYoungsterScript:
+	jumptextfaceplayer PetalburgCityYoungsterText
+
+PetalburgCityYoungsterText:
+	text "Norman's Gym is"
+	line "tough! He uses"
+	cont "Normal types."
+
+	para "Fighting moves"
+	line "hit them hard."
+	cont "Bring some!"
+	done
+
+PetalburgCityLassScript:
+	jumptextfaceplayer PetalburgCityLassText
+
+PetalburgCityLassText:
+	text "That house up"
+	line "there is Wally's."
+
+	para "He's a sweet kid."
+	line "He left town with"
+	cont "his first #mon."
+	done
+
+PetalburgCityFisher2Script:
+	jumptextfaceplayer PetalburgCityFisher2Text
+
+PetalburgCityFisher2Text:
+	text "The pond here is"
+	line "calm, so it's a"
+	cont "good place to"
+	cont "learn to fish."
+
+	para "Just don't fall"
+	line "in. I did once!"
+	done
+
 PetalburgCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -140,6 +181,7 @@ PetalburgCity_MapEvents:
 	warp_event 25, 15, PETALBURG_MART,  2
 	warp_event  9, 17, PETALBURG_HOUSE1,  2
 	warp_event  19, 23, PETALBURG_HOUSE2,  2
+	warp_event  7,  5, PETALBURG_WALLYS_HOUSE, 1
 
 	def_coord_events
 
@@ -154,3 +196,6 @@ PetalburgCity_MapEvents:
 	object_event 06, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgRareCandy, EVENT_PETALBURG_CITY_RARE_CANDY
 	object_event 27, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PetalburgExpCandyM, EVENT_PETALBURG_CITY_POKE_BALL
 	object_event 05, 28, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_CoronaScript, EVENT_GOT_CORONA
+	object_event 10, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PetalburgCityYoungsterScript, -1
+	object_event  8,  7, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PetalburgCityLassScript, -1
+	object_event  6, 21, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PetalburgCityFisher2Script, -1

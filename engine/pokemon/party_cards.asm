@@ -2844,8 +2844,8 @@ PartyCards_ShowTilemap:
 	farjp PlaySpriteAnimations
 
 PartyCards_OnScreen:
-; z if the party menu's cards are on the screen (card 1's attributes at the top left, or
-; the move details box over them) and the LCD is on.
+; z if the party menu's cards are on the screen (card 1's attributes at the top left with
+; sprite updates off, or the move details box over them) and the LCD is on.
 	ldh a, [hCGB]
 	and a
 	jr z, .no
@@ -2855,6 +2855,9 @@ PartyCards_OnScreen:
 	ld a, [wMoveInfoOverCards]
 	and a
 	jr nz, .yes
+	ld a, [wSpriteUpdatesEnabled]
+	and a
+	jr nz, .no ; the overworld (its top left tiles can come from VRAM bank 1 too)
 	ld a, [wAttrmap]
 	cp VRAM_BANK_1
 	ret nz

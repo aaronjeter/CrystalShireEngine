@@ -775,6 +775,8 @@ RedsHouse2F_Blocks:
 
 OaksLab_Blocks:
 MossdeepSpaceCenter_Blocks:
+SlateportOceanicMuseum_Blocks:
+LilycoveMuseum_Blocks:
 	INCBIN "maps/kanto/pallet/OaksLab.ablk"
 
 MrFujisHouse_Blocks:
@@ -984,6 +986,7 @@ SECTION "Map Blocks 4", ROMX
 	MossdeepMart_Blocks:
 	SootopolisMart_Blocks:
 	BattleResortMart_Blocks:
+	DewfordMart_Blocks:
 	INCBIN "maps/hoenn/HoennPokemart.ablk"
 
 	BirchsLab_Blocks:
@@ -1015,6 +1018,16 @@ SECTION "Map Blocks 4", ROMX
 	SootopolisTutorHouse_Blocks:
 	VerdanturfTutorHouse_Blocks:
 	VerdanturfFlowerHouse_Blocks:
+	LittlerootNeighborHouse_Blocks:
+	PetalburgWallysHouse_Blocks:
+	RustboroNameRater_Blocks:
+	RustboroEngineerHouse_Blocks:
+	DewfordHall_Blocks:
+	SlateportShipyard_Blocks:
+	MauvilleHill_Blocks:
+	FallarborCozmosHouse_Blocks:
+	FallarborFossilHouse_Blocks:
+	LavaridgeEggHouse_Blocks:
 	INCBIN "maps/hoenn/HoennHouse.ablk"
 
 	FortreeHiddenPowerHouse_Blocks:

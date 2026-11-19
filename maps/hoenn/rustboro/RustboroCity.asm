@@ -140,6 +140,60 @@ RustboroTwinAlreadyGivenBowText:
 	cont "pretty princess!"
 	done
 
+RustboroCityDevonWorkerScript:
+	jumptextfaceplayer RustboroCityDevonWorkerText
+
+RustboroCityDevonWorkerText:
+	text "Devon makes all"
+	line "sorts of things,"
+	cont "from # Balls to"
+	cont "#gear parts."
+
+	para "Our lab is the"
+	line "pride of Rustboro!"
+	done
+
+RustboroCityStudentScript:
+	jumptextfaceplayer RustboroCityStudentText
+
+RustboroCityStudentText:
+	text "At the Trainers'"
+	line "School we learn"
+	cont "about type"
+	cont "matchups."
+
+	para "I keep mixing up"
+	line "Rock and Ground,"
+	cont "though!"
+	done
+
+RustboroCityFossilFanScript:
+	jumptextfaceplayer RustboroCityFossilFanText
+
+RustboroCityFossilFanText:
+	text "Did you know?"
+	line "Upstairs at Devon"
+	cont "they trade fossils"
+	cont "for #mon!"
+
+	para "I hear fossils"
+	line "turn up out in"
+	cont "the desert."
+	done
+
+RustboroCityLadyScript:
+	jumptextfaceplayer RustboroCityLadyText
+
+RustboroCityLadyText:
+	text "The man in that"
+	line "house rates"
+	cont "#mon nicknames."
+
+	para "He can change"
+	line "them too, if you"
+	cont "ask nicely."
+	done
+
 RustboroCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -153,6 +207,8 @@ RustboroCity_MapEvents:
 	warp_event  09, 15, RUSTBORO_DEVON_LAB, 2
 	warp_event  12, 29, RUSTBORO_TRAINERS_SCHOOL, 1
 	warp_event  13, 29, RUSTBORO_TRAINERS_SCHOOL, 2
+	warp_event 25, 43, RUSTBORO_NAME_RATER, 1
+	warp_event 31, 43, RUSTBORO_ENGINEER_HOUSE, 1
 
 	def_coord_events
 
@@ -168,3 +224,7 @@ RustboroCity_MapEvents:
 	object_event  15,  39, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, RustboroGrampsScript, -1
 	object_event  23,  18, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RustboroBugCatcherScript, -1
 	object_event 29, 26, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, RustboroTwinScript, -1
+	object_event 11, 16, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RustboroCityDevonWorkerScript, -1
+	object_event 15, 31, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RustboroCityStudentScript, -1
+	object_event 18, 20, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, RustboroCityFossilFanScript, -1
+	object_event 20, 45, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, RustboroCityLadyScript, -1

@@ -711,6 +711,19 @@ ENDM
 	map_const SOOTOPOLIS_TUTOR_HOUSE,                       4,  4 ; at the group's end, so saves keep working
 	map_const VERDANTURF_TUTOR_HOUSE,                       4,  4 ; at the group's end, so saves keep working
 	map_const VERDANTURF_FLOWER_HOUSE,                      4,  4 ; at the group's end, so saves keep working
+	map_const LITTLEROOT_NEIGHBOR_HOUSE,                    4,  4 ; at the group's end, so saves keep working
+	map_const PETALBURG_WALLYS_HOUSE,                       4,  4 ; at the group's end, so saves keep working
+	map_const RUSTBORO_NAME_RATER,                          4,  4 ; at the group's end, so saves keep working
+	map_const RUSTBORO_ENGINEER_HOUSE,                      4,  4 ; at the group's end, so saves keep working
+	map_const DEWFORD_HALL,                                 4,  4 ; at the group's end, so saves keep working
+	map_const DEWFORD_MART,                                 6,  4 ; at the group's end, so saves keep working
+	map_const SLATEPORT_SHIPYARD,                           4,  4 ; at the group's end, so saves keep working
+	map_const SLATEPORT_OCEANIC_MUSEUM,                     5,  6 ; at the group's end, so saves keep working
+	map_const MAUVILLE_HILL,                                4,  4 ; at the group's end, so saves keep working
+	map_const FALLARBOR_COZMOS_HOUSE,                       4,  4 ; at the group's end, so saves keep working
+	map_const FALLARBOR_FOSSIL_HOUSE,                       4,  4 ; at the group's end, so saves keep working
+	map_const LAVARIDGE_EGG_HOUSE,                          4,  4 ; at the group's end, so saves keep working
+	map_const LILYCOVE_MUSEUM,                              5,  6 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

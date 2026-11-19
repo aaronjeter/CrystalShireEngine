@@ -1051,3 +1051,16 @@ ENDM
 	map_attributes SootopolisTutorHouse, SOOTOPOLIS_TUTOR_HOUSE, $00, 0
 	map_attributes VerdanturfTutorHouse, VERDANTURF_TUTOR_HOUSE, $00, 0
 	map_attributes VerdanturfFlowerHouse, VERDANTURF_FLOWER_HOUSE, $00, 0
+	map_attributes LittlerootNeighborHouse, LITTLEROOT_NEIGHBOR_HOUSE, $00, 0
+	map_attributes PetalburgWallysHouse, PETALBURG_WALLYS_HOUSE, $00, 0
+	map_attributes RustboroNameRater, RUSTBORO_NAME_RATER, $00, 0
+	map_attributes RustboroEngineerHouse, RUSTBORO_ENGINEER_HOUSE, $00, 0
+	map_attributes DewfordHall, DEWFORD_HALL, $00, 0
+	map_attributes DewfordMart, DEWFORD_MART, $00, 0
+	map_attributes SlateportShipyard, SLATEPORT_SHIPYARD, $00, 0
+	map_attributes SlateportOceanicMuseum, SLATEPORT_OCEANIC_MUSEUM, $00, 0
+	map_attributes MauvilleHill, MAUVILLE_HILL, $00, 0
+	map_attributes FallarborCozmosHouse, FALLARBOR_COZMOS_HOUSE, $00, 0
+	map_attributes FallarborFossilHouse, FALLARBOR_FOSSIL_HOUSE, $00, 0
+	map_attributes LavaridgeEggHouse, LAVARIDGE_EGG_HOUSE, $00, 0
+	map_attributes LilycoveMuseum, LILYCOVE_MUSEUM, $00, 0

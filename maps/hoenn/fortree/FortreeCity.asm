@@ -48,6 +48,55 @@ FortreeHikerText:
 	cont "Lilycove."
 	done
 
+FortreeCityBirdKidScript:
+	jumptextfaceplayer FortreeCityBirdKidText
+
+FortreeCityBirdKidText:
+	text "I want to fly"
+	line "like Winona!"
+
+	para "Some day my bird"
+	line "#mon will carry"
+	cont "me over the trees."
+	done
+
+FortreeCityGrannyScript:
+	jumptextfaceplayer FortreeCityGrannyText
+
+FortreeCityGrannyText:
+	text "We build our homes"
+	line "in the trees so we"
+	cont "can live with"
+	cont "nature."
+
+	para "Mind the rope"
+	line "bridges, dear."
+	done
+
+FortreeCityLassScript:
+	jumptextfaceplayer FortreeCityLassText
+
+FortreeCityLassText:
+	text "Winona's #mon"
+	line "fly so gracefully."
+
+	para "She doesn't use"
+	line "only bird types,"
+	cont "though. Be ready!"
+	done
+
+FortreeCityGirlScript:
+	jumptextfaceplayer FortreeCityGirlText
+
+FortreeCityGirlText:
+	text "Have you seen a"
+	line "Tropius?"
+
+	para "Kids love the"
+	line "fruit that grows"
+	cont "around its neck!"
+	done
+
 FortreeCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -69,4 +118,7 @@ FortreeCity_MapEvents:
 
 	def_object_events
 	object_event  7, 10, SPRITE_PHARMACIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FortreeHikerScript, -1
-	
+	object_event 24, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FortreeCityBirdKidScript, -1
+	object_event  6,  9, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeCityGrannyScript, -1
+	object_event 20, 13, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreeCityLassScript, -1
+	object_event  9, 18, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FortreeCityGirlScript, -1

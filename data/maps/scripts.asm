@@ -857,6 +857,97 @@ INCLUDE "maps/hoenn/verdanturf/VerdanturfFlowerHouse.asm"
 ENDSECTION
 
 
+SECTION "Hoenn Town Map Scripts 1", ROMX
+
+INCLUDE "maps/hoenn/littleroot/LittlerootNeighborHouse.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 2", ROMX
+
+INCLUDE "maps/hoenn/petalburg/PetalburgWallysHouse.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 3", ROMX
+
+INCLUDE "maps/hoenn/rustboro/RustboroEngineerHouse.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 4", ROMX
+
+INCLUDE "maps/hoenn/fallarbor/FallarborCozmosHouse.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 5", ROMX
+
+INCLUDE "maps/hoenn/fallarbor/FallarborFossilHouse.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 6", ROMX
+
+INCLUDE "maps/hoenn/mauville/MauvilleHill.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 7", ROMX
+
+INCLUDE "maps/hoenn/slateport/SlateportShipyard.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 8", ROMX
+
+INCLUDE "maps/hoenn/slateport/SlateportOceanicMuseum.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 9", ROMX
+
+INCLUDE "maps/hoenn/dewford/DewfordHall.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 10", ROMX
+
+INCLUDE "maps/hoenn/dewford/DewfordMart.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 11", ROMX
+
+INCLUDE "maps/hoenn/rustboro/RustboroNameRater.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 12", ROMX
+
+INCLUDE "maps/hoenn/lavaridge/LavaridgeEggHouse.asm"
+
+ENDSECTION
+
+
+SECTION "Hoenn Town Map Scripts 13", ROMX
+
+INCLUDE "maps/hoenn/lilycove/LilycoveMuseum.asm"
+
+ENDSECTION
+
+
 SECTION "Kanto Legendary Dungeon Scripts", ROMX
 
 INCLUDE "maps/kanto/dungeons/SeafoamIslands1F.asm"

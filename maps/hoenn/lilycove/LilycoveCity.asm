@@ -9,6 +9,7 @@
 	const LILYCOVECITY_SAILOR
 	const LILYCOVECITY_BEAUTY
 	const LILYCOVECITY_WALLY
+	const LILYCOVECITY_ARTIST
 
 LilycoveCity_MapScripts:
 	def_scene_scripts
@@ -275,6 +276,18 @@ LilycoveBeautyText:
 	line "out the Sea view."
 	done
 
+LilycoveCityArtistScript:
+	jumptextfaceplayer LilycoveCityArtistText
+
+LilycoveCityArtistText:
+	text "I paint the sea"
+	line "every morning."
+
+	para "One day my work"
+	line "will hang in the"
+	cont "museum!"
+	done
+
 LilycoveCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -286,6 +299,7 @@ LilycoveCity_MapEvents:
 	warp_event 39, 05, LILYCOVE_DEPT_STORE_1F, 1
 	warp_event 40, 05, LILYCOVE_DEPT_STORE_1F, 2
 	warp_event 21, 25, LILYCOVE_CHALLENGE_HALL, 1
+	warp_event 21,  5, LILYCOVE_MUSEUM, 1
 
 	def_coord_events
 	coord_event 44, 28, -1, LilycoveWallyStairsLeftScript
@@ -309,3 +323,4 @@ LilycoveCity_MapEvents:
 	object_event  31,  29, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveSailorScript, -1
 	object_event  07,  18, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveBeautyScript, -1
 	object_event  45,  31, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Lilycove_Wally, EVENT_FOUND_LILYCOVE_WALLY
+	object_event 23,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LilycoveCityArtistScript, -1

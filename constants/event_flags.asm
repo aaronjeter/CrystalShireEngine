@@ -1050,13 +1050,13 @@
 	const EVENT_BEAT_BIRD_KEEPER_ROY
 	const_skip ; unused (was EVENT_BEAT_BIRD_KEEPER_BORIS until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_BIRDERS_ROB_BOB
-	const_skip ; unused
+	const EVENT_GOT_OLDALE_POKE_BALLS ; (an unused slot, never set before)
 	const EVENT_BEAT_BIRD_KEEPER_PETER
 	const EVENT_BEAT_BIRD_KEEPER_JOSE2 ;for whatever reason, JOSE2is the one actually used
 	const EVENT_BEAT_BIRDERS_RAY_BRET
 	const_skip ; unused (was EVENT_BEAT_BIRD_KEEPER_BRET until Nov 2026: may be set in old saves)
-	const_skip ; unused
-	const_skip ; unused
+	const EVENT_GOT_SLATEPORT_BIG_PEARL ; (an unused slot, never set before)
+	const EVENT_GOT_LAVARIDGE_WYNAUT_EGG ; (an unused slot, never set before)
 	const_skip ; unused
 ; Boarder
 	const EVENT_BEAT_BOARDER_RONALD

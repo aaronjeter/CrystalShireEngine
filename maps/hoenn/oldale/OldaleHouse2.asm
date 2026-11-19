@@ -14,6 +14,24 @@ OldaleHouse2PoochScript:
 	cry POOCHYENA
 	end
 
+OldaleHouse2ManScript:
+	jumptextfaceplayer OldaleHouse2ManText
+
+OldaleHouse2ManText:
+	text "Prof. Birch is"
+	line "never in his lab."
+
+	para "He's always out"
+	line "in the field,"
+	cont "studying how wild"
+	cont "#mon live."
+
+	para "Show him your"
+	line "#dex now and"
+	cont "then. He loves"
+	cont "to see it grow!"
+	done
+
 OldaleHouse2_MapEvents:
 	db 0, 0 ; filler
 
@@ -28,3 +46,4 @@ OldaleHouse2_MapEvents:
 	def_object_events
 	
 	object_event  4,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_WHITE, OBJECTTYPE_SCRIPT, 0, OldaleHouse2PoochScript, -1
+	object_event  5,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, OldaleHouse2ManScript, -1

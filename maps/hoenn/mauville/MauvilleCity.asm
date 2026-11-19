@@ -5,6 +5,9 @@
 	const MAUVILLECITY_ROCKET3
 	const MAUVILLECITY_ROCKET_GIRL
 	const MAUVILLECITY_WALLY
+	const MAUVILLECITY_GENTLEMAN
+	const MAUVILLECITY_LASS
+	const MAUVILLECITY_YOUNGSTER
 
 MauvilleCity_MapScripts:
 	def_scene_scripts
@@ -291,6 +294,44 @@ MauvilleRocketGirlText:
 	cont "the base..."
 	done
 
+MauvilleCityGentlemanScript:
+	jumptextfaceplayer MauvilleCityGentlemanText
+
+MauvilleCityGentlemanText:
+	text "Mauville sits in"
+	line "the very middle"
+	cont "of Hoenn."
+
+	para "Every road passes"
+	line "through here, so"
+	cont "the city never"
+	cont "sleeps!"
+	done
+
+MauvilleCityLassScript:
+	jumptextfaceplayer MauvilleCityLassText
+
+MauvilleCityLassText:
+	text "Wattson's Gym uses"
+	line "Electric types."
+
+	para "Ground-type"
+	line "#mon don't mind"
+	cont "a shock at all!"
+	done
+
+MauvilleCityYoungsterScript:
+	jumptextfaceplayer MauvilleCityYoungsterText
+
+MauvilleCityYoungsterText:
+	text "I spent all my"
+	line "coins in the Game"
+	cont "Corner again..."
+
+	para "Mom's going to"
+	line "be so mad."
+	done
+
 MauvilleCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -302,6 +343,7 @@ MauvilleCity_MapEvents:
 	warp_event 33, 05, MAUVILLE_BIKE_SHOP, 2
 	warp_event 06, 13, MAUVILLE_GAME_CORNER, 1
 	warp_event 19, 13, MAUVILLE_CHALLENGE_HALL, 1
+	warp_event 33, 13, MAUVILLE_HILL, 1
 
 	def_coord_events
 	coord_event  16,  05, -1, MauvilleCity_Wally
@@ -321,3 +363,6 @@ MauvilleCity_MapEvents:
 	object_event  29, 05, SPRITE_ROCKET, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MauvilleRocketBikerScript, EVENT_BEAT_MAUVILLE_ROCKETS
 	object_event  07, 16, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MauvilleRocketGirlScript, EVENT_BEAT_MAUVILLE_ROCKETS
 	object_event  16, 00, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvilleCity_Wally, EVENT_FOUND_MAUVILLE_WALLY
+	object_event 14,  7, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MauvilleCityGentlemanScript, -1
+	object_event 28, 15, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, MauvilleCityLassScript, -1
+	object_event 10, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MauvilleCityYoungsterScript, -1

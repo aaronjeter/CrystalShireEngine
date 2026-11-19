@@ -2,6 +2,10 @@
 	const DEWFORDTOWN_GYM_GUARD
 	const DEWFORDTOWN_FISHING_GURU
 	const DEWFORDTOWN_WALLY
+	const DEWFORDTOWN_FISHER1
+	const DEWFORDTOWN_FISHER2
+	const DEWFORDTOWN_TWIN
+	const DEWFORDTOWN_HIKER
 
 DewfordTown_MapScripts:
 	def_scene_scripts
@@ -270,6 +274,53 @@ DewfordGymGuardText:
 	cont "guess..."
 	done
 
+DewfordTownPierFisherScript:
+	jumptextfaceplayer DewfordTownPierFisherText
+
+DewfordTownPierFisherText:
+	text "The fishing here"
+	line "is the best in"
+	cont "all of Hoenn!"
+
+	para "Well, that's what"
+	line "everyone in"
+	cont "Dewford says."
+	done
+
+DewfordTownBeachFisherScript:
+	jumptextfaceplayer DewfordTownBeachFisherText
+
+DewfordTownBeachFisherText:
+	text "Mr. Briney's boat"
+	line "comes and goes"
+	cont "from that house."
+
+	para "He sails the old"
+	line "sea routes."
+	done
+
+DewfordTownTwinScript:
+	jumptextfaceplayer DewfordTownTwinText
+
+DewfordTownTwinText:
+	text "I'm looking for"
+	line "pretty shells on"
+	cont "the beach!"
+	done
+
+DewfordTownHikerScript:
+	jumptextfaceplayer DewfordTownHikerText
+
+DewfordTownHikerText:
+	text "Granite Cave is"
+	line "at the north end"
+	cont "of the island."
+
+	para "It gets real dark"
+	line "deep inside."
+	cont "Watch your step!"
+	done
+
 DewfordTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -278,6 +329,8 @@ DewfordTown_MapEvents:
 	warp_event  07, 31, DEWFORD_POKECENTER, 2
 	warp_event  05, 13, GRANITE_CAVE_B1F, 1
 	warp_event  17, 23, DEWFORD_BRINEY_HOUSE, 2
+	warp_event  9, 25, DEWFORD_HALL, 1
+	warp_event 23, 31, DEWFORD_MART, 1
 
 	def_coord_events
 
@@ -289,3 +342,7 @@ DewfordTown_MapEvents:
 	object_event  14, 34, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DewfordGymGuardScript, EVENT_GOT_PICKAXE
 	object_event  10, 09, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DewfordTownFishingGuruScript, -1
 	object_event  05, 14, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Dewford_Wally, EVENT_FOUND_DEWFORD_WALLY
+	object_event 11, 15, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DewfordTownPierFisherScript, -1
+	object_event 19, 24, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DewfordTownBeachFisherScript, -1
+	object_event 22, 27, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DewfordTownTwinScript, -1
+	object_event  9, 17, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, DewfordTownHikerScript, -1

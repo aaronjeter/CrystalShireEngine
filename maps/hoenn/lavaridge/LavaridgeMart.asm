@@ -41,6 +41,19 @@ LavaridgeMartCooltrainerFText:
 	line "Lavaridge Desert."
 	done
 
+LavaridgeMartHerbFanScript:
+	jumptextfaceplayer LavaridgeMartHerbFanText
+
+LavaridgeMartHerbFanText:
+	text "This Mart sells"
+	line "herbal medicine."
+
+	para "It's cheap and it"
+	line "works, but it's"
+	cont "so bitter! #mon"
+	cont "don't like it."
+	done
+
 LavaridgeMart_MapEvents:
 	db 0, 0 ; filler
 
@@ -57,3 +70,4 @@ LavaridgeMart_MapEvents:
 	object_event 09, 06, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LavaridgeMartCooltrainerScript, -1
 	object_event 01, 03, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LavaridgeMartCooltrainerFScript, -1
 	object_event  4,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavaridgeMart_SpecialtyClerk, -1
+	object_event  3,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LavaridgeMartHerbFanScript, -1

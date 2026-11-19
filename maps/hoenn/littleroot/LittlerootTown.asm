@@ -3,6 +3,10 @@
 	const LITTLEROOTTOWN_TORCHIC
 	const LITTLEROOTTOWN_MUDKIP
 	const LITTLEROOTTOWN_TEACHER
+	const LITTLEROOTTOWN_YOUNGSTER
+	const LITTLEROOTTOWN_TWIN
+	const LITTLEROOTTOWN_GRAMPS
+	const LITTLEROOTTOWN_SCIENTIST
 
 LittlerootTown_MapScripts:
 	def_scene_scripts
@@ -163,6 +167,62 @@ BirchLabSignText:
 	text "Birch's Lab"
 	done
 
+LittlerootTownYoungsterScript:
+	jumptextfaceplayer LittlerootTownYoungsterText
+
+LittlerootTownYoungsterText:
+	text "Norman, the Gym"
+	line "Leader in Petal-"
+	cont "burg, is so cool!"
+
+	para "Someday I'll get"
+	line "his Badge. Just"
+	cont "you watch!"
+	done
+
+LittlerootTownTwinScript:
+	jumptextfaceplayer LittlerootTownTwinText
+
+LittlerootTownTwinText:
+	text "Prof. Birch's"
+	line "#mon play all"
+	cont "over town!"
+
+	para "Treecko naps in"
+	line "the trees. Torchic"
+	cont "likes the sun!"
+	done
+
+LittlerootTownGrampsScript:
+	jumptextfaceplayer LittlerootTownGrampsText
+
+LittlerootTownGrampsText:
+	text "Littleroot isn't"
+	line "much of a town."
+
+	para "But every great"
+	line "trainer has to"
+	cont "start somewhere,"
+	cont "eh?"
+	done
+
+LittlerootTownScientistScript:
+	jumptextfaceplayer LittlerootTownScientistText
+
+LittlerootTownScientistText:
+	text "I'm one of Prof."
+	line "Birch's aides."
+
+	para "The professor's in"
+	line "his lab today."
+
+	para "He still loves"
+	line "fieldwork, though."
+	cont "He says you can't"
+	cont "learn about"
+	cont "#mon from a desk!"
+	done
+
 LittlerootTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -170,6 +230,7 @@ LittlerootTown_MapEvents:
 
 	warp_event  4, 13, BIRCHS_LAB, 2
 	cond_warp_event 13,  7, LittlerootHomeDoorWarps
+	warp_event  5,  7, LITTLEROOT_NEIGHBOR_HOUSE, 1
 
 	def_coord_events
 	coord_event  10,  01, -1, LittlerootTown_TeacherStopsYouScene1
@@ -184,4 +245,7 @@ LittlerootTown_MapEvents:
 	object_event 14,  4, SPRITE_MON_2, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Littleroot_Torchic, -1
 	object_event  1, 15, SPRITE_MON_3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Littleroot_Mudkip, -1
 	object_event 10, 05, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LittlerootTownTeacherScript, -1
-	
+	object_event  3,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LittlerootTownYoungsterScript, -1
+	object_event 12,  9, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LittlerootTownTwinScript, -1
+	object_event  3, 15, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LittlerootTownGrampsScript, -1
+	object_event 11, 13, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LittlerootTownScientistScript, -1
