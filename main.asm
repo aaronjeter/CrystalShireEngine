@@ -447,7 +447,6 @@ SECTION "bank39", ROMX
 
 INCLUDE "engine/menus/options_menu.asm"
 INCLUDE "engine/movie/splash.asm"
-INCLUDE "engine/movie/intro.asm"
 
 
 SECTION "bank3E", ROMX

@@ -902,30 +902,9 @@ ShroomishEggMoves:
 	dw SWAGGER
 	dw -1 ; end
 
-NincadaEggMoves:
-	dw ENDURE
-	dw FAINT_ATTACK
-	dw GUST
-	dw -1 ; end
-
-WhismurEggMoves:
-	dw SNORE
-	dw SWAGGER
-	dw TAKE_DOWN
-	dw -1 ; end
-
 MakuhitaEggMoves:
 	dw DYNAMICPUNCH
 	dw FAINT_ATTACK
-	dw -1 ; end
-
-SlakothEggMoves:
-	dw BODY_SLAM
-	dw CURSE
-	dw PURSUIT
-	dw SLASH
-	dw SLEEP_TALK
-	dw SNORE
 	dw -1 ; end
 
 AzurillEggMoves:

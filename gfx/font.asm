@@ -47,7 +47,5 @@ TextboxSpaceGFX::
 ; StatsScreen_LoadTextboxSpaceGFX reads 2bpp; LoadFrame reads first half as 1bpp
 INCBIN "gfx/font/space.2bpp"
 
-MobilePhoneTilesGFX:
-INCBIN "gfx/mobile/phone_tiles.2bpp"
 
 
