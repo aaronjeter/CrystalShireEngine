@@ -948,6 +948,13 @@ INCLUDE "maps/hoenn/lilycove/LilycoveMuseum.asm"
 ENDSECTION
 
 
+SECTION "Hoenn Town Map Scripts 14", ROMX
+
+INCLUDE "maps/hoenn/routes/Route117DayCare.asm"
+
+ENDSECTION
+
+
 SECTION "Kanto Legendary Dungeon Scripts", ROMX
 
 INCLUDE "maps/kanto/dungeons/SeafoamIslands1F.asm"

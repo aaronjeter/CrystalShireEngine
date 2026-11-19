@@ -1073,3 +1073,4 @@ ENDM
 	map_attributes FallarborFossilHouse, FALLARBOR_FOSSIL_HOUSE, $00, 0
 	map_attributes LavaridgeEggHouse, LAVARIDGE_EGG_HOUSE, $00, 0
 	map_attributes LilycoveMuseum, LILYCOVE_MUSEUM, $00, 0
+	map_attributes Route117DayCare, ROUTE_117_DAY_CARE, $00, 0

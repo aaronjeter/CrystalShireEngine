@@ -724,6 +724,7 @@ ENDM
 	map_const FALLARBOR_FOSSIL_HOUSE,                       4,  4 ; at the group's end, so saves keep working
 	map_const LAVARIDGE_EGG_HOUSE,                          4,  4 ; at the group's end, so saves keep working
 	map_const LILYCOVE_MUSEUM,                              5,  6 ; at the group's end, so saves keep working
+	map_const ROUTE_117_DAY_CARE,                           4,  4 ; at the group's end, so saves keep working
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 27

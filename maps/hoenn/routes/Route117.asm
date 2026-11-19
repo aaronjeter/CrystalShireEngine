@@ -238,7 +238,8 @@ Route117PpUp:
 Route117_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events		
+	def_warp_events
+	warp_event 51,  5, ROUTE_117_DAY_CARE, 1
 
 	def_coord_events
 

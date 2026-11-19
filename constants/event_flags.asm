@@ -1057,7 +1057,7 @@
 	const_skip ; unused (was EVENT_BEAT_BIRD_KEEPER_BRET until Nov 2026: may be set in old saves)
 	const EVENT_GOT_SLATEPORT_BIG_PEARL ; (an unused slot, never set before)
 	const EVENT_GOT_LAVARIDGE_WYNAUT_EGG ; (an unused slot, never set before)
-	const_skip ; unused
+	const EVENT_GOT_KANTO_DAY_CARE_EGG ; (an unused slot, never set before)
 ; Boarder
 	const EVENT_BEAT_BOARDER_RONALD
 	const EVENT_BEAT_BOARDER_BRAD
@@ -1081,7 +1081,7 @@
 	const EVENT_BEAT_CAMPER_LLOYD
 	const EVENT_BEAT_CAMPER_DEAN
 	const_skip ; unused (was EVENT_BEAT_CAMPER_SID until Nov 2026: may be set in old saves)
-	const_skip ; unused
+	const EVENT_GOT_HOENN_DAY_CARE_EGG ; (an unused slot, never set before)
 	const_skip ; unused
 	const EVENT_BEAT_COUPLE_TED_ERIN
 	const_skip ; unused

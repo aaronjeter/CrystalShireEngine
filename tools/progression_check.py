@@ -347,7 +347,7 @@ class World:
             m = re.match(r'INCBIN\s+"([^"]+)"', s)
             if m:
                 for lab in pending:
-                    label_file[lab] = m.group(1)
+                    label_file[lab] = m.group(1).removesuffix('.lz')
                 pending = []
         for const, mp in self.maps.items():
             name = mp.get('attr_name', mp['name'])

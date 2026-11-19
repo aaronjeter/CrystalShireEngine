@@ -1592,6 +1592,8 @@ SECTION "Map Blocks LZ 4", ROMX
 	DEF FallarborCozmosHouse_BLOCKS_LZ EQU 1
 	DEF FallarborFossilHouse_BLOCKS_LZ EQU 1
 	DEF LavaridgeEggHouse_BLOCKS_LZ EQU 1
+	Route117DayCare_Blocks:
+	DEF Route117DayCare_BLOCKS_LZ EQU 1
 	INCBIN "maps/hoenn/HoennHouse.ablk.lz"
 
 	FortreeHiddenPowerHouse_Blocks:
