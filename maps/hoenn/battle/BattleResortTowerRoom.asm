@@ -263,21 +263,24 @@ BattleResortTowerRoomOpponentWonText:
 	done
 
 BattleResortTowerRoomHeadText:
-	text "So you've won 48"
-	line "in a row."
+	text "48 wins! You've"
+	line "seen everything"
+	cont "I built here."
 
-	para "I run this Tower."
-	line "Show me what your"
-	cont "team can do!"
+	para "I'm Aaron. These"
+	line "are my favorite"
+	cont "#mon. Ready?"
 	done
 
 BattleResortTowerRoomHeadBeatenText:
-	text "Splendid! You've"
-	line "earned this win."
+	text "Ha! You beat my"
+	line "favorites. Thanks"
+	cont "for playing!"
 	done
 
 BattleResortTowerRoomHeadWonText:
-	text "Not quite enough!"
+	text "Better luck next"
+	line "streak!"
 	done
 
 BattleResortTowerRoomNextText:
