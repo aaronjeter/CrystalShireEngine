@@ -476,8 +476,9 @@ if want('choice'):
             g.wr('wEnemyMonMoves', [m[KC], m[VG], 0, 0]); g.wr('wEnemyMonPP', [10, 10, 0, 0])
             g.wr('wEnemyMonItem', IDS['CHOICE_BAND']); g.wr('wEnemyChoiceMove', m[VG])
         g, r = turn2(C1, VG, KC, extra=both(tough, enemy_two), wait=60 + 37 * k, fixed=True)
-        ok = ok and 'Tauros used Vicegrip' in txt(r) and 'Tauros used Karate' not in txt(r)
-    check(ok, f"enemy locked into Vicegrip uses it | {txt(r)[-120:]}")
+        # the enemy's move is chosen before the player's menu: its next choice shows the lock
+        ok = ok and g.rd('wCurEnemyMove') == g.rd('wBattleMonMoves', 4)[VG]
+    check(ok, f"enemy locked into Vicegrip chooses it next | {txt(r)[-120:]}")
     # Assault Vest: status moves refused in the menu
     ids(C2)
     RF, VG2, LE, TA = range(4)
@@ -513,9 +514,9 @@ if want('batch4'):
     # hits = total / one hit, one hit = the gcd of several plain totals)
     from math import gcd
     plain = [turn2(D1, BS, WG, extra=tough, wait=60 + 29 * k, fixed=True)[1]['dmg'] for k in range(5)]
-    one = 0
-    for x in plain: one = gcd(one, x)
     dice = [turn2(D1, BS, WG, extra=both(tough, items(p='LOADED_DICE')), wait=60 + 29 * k, fixed=True)[1]['dmg'] for k in range(5)]
+    one = 0
+    for x in plain + dice: one = gcd(one, x)
     hits = [x // one if one else None for x in dice]
     check(one and all(h in (4, 5) for h in hits), f'Loaded Dice: Bullet Seed hits {hits} (plain {[x // one if one else None for x in plain]})')
     # Metronome: the 4th use in a row does x1.6; a different last move: x1.0
@@ -553,9 +554,10 @@ if want('batch4'):
         g, r = turn2(D2, slot, SS, extra=both(tough, items(e=it)), fixed=True)
         check(lvl(g, 'Enemy', 0) == 8 and g.rd('wEnemyMonItem') == 0, f"{name}: Attack +1 ({lvl(g, 'Enemy', 0)}) | {txt(r)[-90:]}")
     # Safety Goggles: Spore doesn't affect; no Sandstorm damage
-    g, r = turn2(D2, SP_, SS, extra=tough)
+    # Spore is 80% accurate: the accuracy roll is fixed at 0 (a hit)
+    g, r = turn2(D2, SP_, SS, extra=tough, patch=lambda g: no_rng(g, 0))
     check(r['est'] & 7, f"(control) Spore puts it to sleep ({r['est']:#x})")
-    g, r = turn2(D2, SP_, SS, extra=both(tough, items(e='SAFETY_GOGGLES')))
+    g, r = turn2(D2, SP_, SS, extra=both(tough, items(e='SAFETY_GOGGLES')), patch=lambda g: no_rng(g, 0))
     check(not r['est'] & 7 and 'affect' in txt(r), f"Safety Goggles: Spore doesn't affect ({r['est']:#x}) | {txt(r)[-90:]}")
     g, r = turn2(D2, SS, SS, extra=tough)
     h0 = 999 - hp(g, 'Enemy')
@@ -564,3 +566,4 @@ if want('batch4'):
     check(h0 > 0 and h1 == 0, f'Safety Goggles: no Sandstorm damage ({h0} -> {h1})')
 
 print('FAILS:', fails if fails else 'none')
+sys.exit(1 if fails else 0)

@@ -77,6 +77,8 @@ def turn(state, slot, enemy_slot, enemy_ab='NO_ABILITY', player_ab='NO_ABILITY',
         g.wr('wEnemyMonAbility', AB[enemy_ab]); g.wr('wBattleMonAbility', AB[player_ab])
         g.wr('wPlayerStatLevels+5', 13) # max accuracy: status moves always hit
         g.wr('wEnemyMonMoves', [g.rd('wBattleMonMoves', 4)[enemy_slot], 0, 0, 0])
+        # the enemy's move is chosen before the player's menu: set the choice too
+        g.wr('wCurEnemyMove', g.rd('wBattleMonMoves', 4)[enemy_slot]); g.wr('wCurEnemyMoveNum', 0)
         if extra: extra(g)
         start[:] = [hp(g, 'Enemy'), hp(g, 'Battle')]
     d = Driver(g)
@@ -216,3 +218,4 @@ check(x['php'] == 999 - eighth and 'was hurt' in x['log'] and y['php'] == 999 an
 
 print(f'\n{len(fails)} failure(s)')
 for f in fails: print('  ' + f)
+sys.exit(1 if fails else 0)

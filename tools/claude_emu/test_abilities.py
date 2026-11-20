@@ -69,13 +69,15 @@ bank, addr = sym['GetSpeciesAbility']
 buf = sym['wTilemap'][1]
 rom = open(ROM, 'rb').read()
 b, a = sym['SpeciesAbilities1']; base = b * 0x4000 + a - 0x4000
-for slot in range(4):
+# wTilemap holds 360 bytes: the species are looked up in chunks
+CHUNK = 300
+def lookup(slot, first, last):
     g = new()
     g.run_script(f"""TestScript:
 	callasm TestCode
 	end
 TestCode:
-	ld bc, 1
+	ld bc, {first}
 	ld hl, ${buf:04X}
 .loop
 	push hl
@@ -87,15 +89,19 @@ TestCode:
 	ld [hli], a
 	inc bc
 	ld a, b
-	cp HIGH({NUM_SPECIES + 1})
+	cp HIGH({last})
 	jr nz, .loop
 	ld a, c
-	cp LOW({NUM_SPECIES + 1})
+	cp LOW({last})
 	jr nz, .loop
 	ret
 """)
     g.frames(60)
-    got = g.rd('wTilemap', NUM_SPECIES)
+    return list(g.rd('wTilemap', last - first))
+for slot in range(4):
+    got = []
+    for first in range(1, NUM_SPECIES + 1, CHUNK):
+        got += lookup(slot, first, min(first + CHUNK, NUM_SPECIES + 1))
     exp = []
     for i in range(NUM_SPECIES):
         e = rom[base + 3 * i + slot] if slot < 3 else 0
@@ -143,7 +149,13 @@ def pair(state, slot, side, ab, extra=None):
     kw = 'enemy_ab' if side == 'enemy' else 'player_ab'
     return turn(state, slot, extra=extra, **{kw: 'NO_ABILITY'}), turn(state, slot, extra=extra, **{kw: ab})
 def enemy_uses(slot):
-    return lambda g: g.wr('wEnemyMonMoves', [g.rd('wBattleMonMoves', 4)[slot], 0, 0, 0])
+    # the enemy's move is chosen before the player's menu: set the choice too
+    def f(g):
+        move = g.rd('wBattleMonMoves', 4)[slot]
+        g.wr('wEnemyMonMoves', [move, 0, 0, 0])
+        g.wr('wCurEnemyMove', move)
+        g.wr('wCurEnemyMoveNum', 0)
+    return f
 def enemy_hits(slot):
     # Machamp asleep: the enemy's move can't add a status (a burn's damage would skew the numbers)
     return lambda g: (enemy_uses(slot)(g), g.wr('wBattleMonStatus', 3))

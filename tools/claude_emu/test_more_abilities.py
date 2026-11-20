@@ -84,6 +84,8 @@ def turn(state, slot, enemy_slot, enemy_ab='NO_ABILITY', player_ab='NO_ABILITY',
         g.wr('wEnemyMonAbility', AB[enemy_ab]); g.wr('wBattleMonAbility', AB[player_ab])
         g.wr('wPlayerStatLevels+5', 13) # max accuracy: status moves always hit
         g.wr('wEnemyMonMoves', [g.rd('wBattleMonMoves', 4)[enemy_slot], 0, 0, 0])
+        # the enemy's move is chosen before the player's menu: set the choice too
+        g.wr('wCurEnemyMove', g.rd('wBattleMonMoves', 4)[enemy_slot]); g.wr('wCurEnemyMoveNum', 0)
         if extra: extra(g)
         start[:] = [hp(g, 'Enemy'), hp(g, 'Battle')]
     d = Driver(g)
@@ -116,6 +118,8 @@ def turn2(state, slot, enemy_slot, enemy_ab='NO_ABILITY', player_ab='NO_ABILITY'
         g.wr('wBattleMonHP', [3, 0xE7]); g.wr('wBattleMonMaxHP', [3, 0xE7])
         g.wr('wEnemyMonAbility', AB[enemy_ab]); g.wr('wBattleMonAbility', AB[player_ab])
         g.wr('wEnemyMonMoves', [g.rd('wBattleMonMoves', 4)[enemy_slot], 0, 0, 0])
+        # the enemy's move is chosen before the player's menu: set the choice too
+        g.wr('wCurEnemyMove', g.rd('wBattleMonMoves', 4)[enemy_slot]); g.wr('wCurEnemyMoveNum', 0)
         if extra: extra(g)
         start[:] = [hp(g, 'Enemy'), hp(g, 'Battle')]
     d = Driver(g)
@@ -421,3 +425,4 @@ g, r = turn2(S11, 0, 1, enemy_ab='ABILITY_SYNCHRONIZE', extra=ice)
 check(r['est'] == FRZ and g.rd('wBattleMonStatus') == 0, f'Synchronize: an Ice attacker gets no frostbite: {g.rd("wBattleMonStatus"):#x}')
 
 print('FAILED:' if fails else 'all passed', *fails, sep='\n')
+sys.exit(1 if fails else 0)

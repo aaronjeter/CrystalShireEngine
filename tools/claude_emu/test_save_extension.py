@@ -23,6 +23,16 @@ def main():
     g.load(STATE)
     g.frames(60)
     n = g.const('SAVE_EXTENSION_LENGTH')
+    # the journal's bytes change on their own once the player is free (Journal_OverworldCheck
+    # announces any mission progress), so the load checks skip them
+    ext = g.sym['wSaveExtension'][1]
+    skip = range(g.sym['wJournalSeen'][1] - ext, g.sym['wJournalUnread'][1] - ext + (g.const('NUM_MISSIONS') + 7) // 8)
+
+    def ext_data():
+        return [v for i, v in enumerate(g.rd('wSaveExtension', n)) if i not in skip]
+
+    def same(want):
+        return ext_data() == [v for i, v in enumerate(want) if i not in skip]
     data = [(i * 37 + 5) & 0xff for i in range(n)]
     g.wr('wSaveExtension', data)
     call(g, 'SaveGameData', 240)
@@ -34,20 +44,20 @@ def main():
     check('save: the main save\'s checksum still matches', ck[0] | ck[1] << 8 == total, f'{ck} vs {total:04x}')
     g.wr('wSaveExtension', [0] * n)
     call(g, 'LoadSaveExtension', 60)
-    check('load: the extension comes back', g.rd('wSaveExtension', n) == data)
+    check('load: the extension comes back', same(data))
     g.wr('wBattlePoints', [0x12, 0x34])
     check('BP: wBattlePoints is the extension\'s first word', g.rd('wSaveExtension', 2) == [0x12, 0x34])
     # a bad checksum loads as zeros
     c = g.rd('sSaveExtensionChecksum', 2)
     g.wr('sSaveExtensionChecksum', [c[0] ^ 1, c[1]])
     call(g, 'LoadSaveExtension', 60)
-    check('load: a bad checksum gives zeros', g.rd('wSaveExtension', n) == [0] * n)
+    check('load: a bad checksum gives zeros', same([0] * n))
     # no magic (a save from before the extension) loads as zeros
     g.wr('wSaveExtension', data)
     call(g, 'SaveGameData', 240)
     g.wr('sSaveExtensionMagic', [0, 0])
     call(g, 'LoadSaveExtension', 60)
-    check('load: no magic bytes (an older save) gives zeros', g.rd('wSaveExtension', n) == [0] * n)
+    check('load: no magic bytes (an older save) gives zeros', same([0] * n))
     # BP: added, capped at 9999
     g.wr('wBattlePoints', [0, 0])
     g.script('\tsetval 25\n' + g.call('GiveBattlePoints'), 30)
@@ -59,7 +69,7 @@ def main():
     # new game
     g.wr('wSaveExtension', data)
     call(g, 'ClearSaveExtension', 30)
-    check('new game: cleared', g.rd('wSaveExtension', n) == [0] * n)
+    check('new game: cleared', same([0] * n))
     bad = [x for x, ok in T.RESULTS if not ok]
     print(f'{len(T.RESULTS) - len(bad)}/{len(T.RESULTS)} passed')
     sys.exit(1 if bad else 0)
