@@ -637,6 +637,24 @@ InitRoamMons:
 
 	ret
 
+RespawnRaikou:
+; Raikou roams again from Route 42 if it was caught or knocked out
+	ld a, [wRoamMon1Species]
+	and a
+	ret nz
+	ld hl, RAIKOU
+	call GetPokemonIDFromIndex
+	ld [wRoamMon1Species], a
+	ld a, 40
+	ld [wRoamMon1Level], a
+	ld a, GROUP_ROUTE_42
+	ld [wRoamMon1MapGroup], a
+	ld a, MAP_ROUTE_42
+	ld [wRoamMon1MapNumber], a
+	xor a ; generate new stats
+	ld [wRoamMon1HP], a
+	ret
+
 CheckEncounterRoamMon:
 	push hl
 ; Don't trigger an encounter if we're on water.

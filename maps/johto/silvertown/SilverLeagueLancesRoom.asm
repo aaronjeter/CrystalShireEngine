@@ -68,6 +68,20 @@ SilverLeagueLancesRoomLanceScript:
 	setevent EVENT_BEAT_JOHTO_LEAGUE
 	setevent EVENT_BEAT_ELITE_FOUR
 	clearevent EVENT_GOT_ENTEI
+	clearevent EVENT_FOUGHT_HO_OH
+	clearevent EVENT_FOUGHT_LUGIA
+	checkevent EVENT_RELEASED_THE_BEASTS
+	iffalse .BeastsNotReleased
+	special RespawnRaikou
+.BeastsNotReleased:
+	checkevent EVENT_GOT_RAINBOW_WING
+	iftrue .SuicuneDone
+	loadmonindex 0, SUICUNE
+	special MonCheck
+	iftrue .SuicuneDone
+	clearevent EVENT_FOUGHT_SUICUNE
+	setmapscene TIN_TOWER_1F, SCENE_TINTOWER1F_SUICUNE_BATTLE
+.SuicuneDone:
 	setevent EVENT_RIVAL_SPROUT_TOWER
 	clearevent EVENT_RED_IN_MT_SILVER
 	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
