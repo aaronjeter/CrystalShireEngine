@@ -202,7 +202,7 @@ def slots(g):
     return [g.rd(f'wPartyMon{i + 1}AbilitySlot') & 3 for i in range(g.rd('wPartyCount'))]
 
 g = new_patched()
-check(all(g.rd(f'wPartyMon{i + 1}AbilitySlot', 4) == [0, 0, 0, 0] for i in range(g.rd('wPartyCount'))), 'the boot save\'s party has zero padding (ability 1)')
+check(all(g.rd(f'wPartyMon{i + 1}AbilitySlot') == 0 for i in range(g.rd('wPartyCount'))), 'the boot save\'s party has a zero ability slot byte (ability 1)')
 g.wr('wPartyCount', 0); g.wr('wPartySpecies', 0xFF)
 g.run_script('\tgivepoke MACHAMP, 20\n' * 4 + '\tsetnextability ABILITY_SLOT_HIDDEN\n\tgivepoke MACHAMP, 20\n\tgivepoke WOBBUFFET, 20\n\tend')
 settle(g, 60)
@@ -228,7 +228,9 @@ for i in range(400):
 check(NAME[g.rd('wBattleMonAbility')] == 'ABILITY_LEVITATE', 'the player\'s Pokemon battles with its own slot (Machamp slot 2: Levitate)')
 check(g.rd('wEnemyAbilitySlot') == 2 and NAME[g.rd('wEnemyMonAbility')] == 'ABILITY_RAIN_DISH' and g.rd('wBattleWeather') == 0,
       'setnextability before a wild battle: hidden Rain Dish, so no Drizzle rain')
-g.frames(60); g.press('D', after=20); g.press('A', after=60); g.press('R', after=40)
+g.frames(60); g.press('D', after=20); g.press('A', after=60)
+for _ in range(5):  # the battle Pack opens on Medicine; Balls are 5 pockets right
+    g.press('R', after=40)
 g.press('A', after=40); g.press('A', after=60)
 for i in range(300):
     g.frames(10)

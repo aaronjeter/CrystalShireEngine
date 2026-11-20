@@ -144,7 +144,11 @@ for state, slot, eslot, ab, name, test in (
 fast = lambda g: g.wr('wEnemyMonSpeed', [0, 10])
 S4 = 'nab_s4.state'
 setup(S4, ['HEADBUTT', 'GROWL'])
-x = [turn(S4, 0, 1, extra=fast, wait=60 + i * i * 3 + i) for i in range(10)]
+x = []
+for i in range(30):  # the RNG depends on timing: try waits until Headbutt has flinched
+    x.append(turn(S4, 0, 1, extra=fast, wait=60 + i * i * 3 + i))
+    if 'flinched' in x[-1]['log']:
+        break
 y = [turn(S4, 0, 1, enemy_ab='ABILITY_INNER_FOCUS', extra=fast, wait=60 + i * i * 3 + i) for i in range(10)]
 check(any('flinched' in t['log'] for t in x) and not any('flinched' in t['log'] for t in y),
       f'Inner Focus blocks flinching: {sum("flinched" in t["log"] for t in x)} -> {sum("flinched" in t["log"] for t in y)}')

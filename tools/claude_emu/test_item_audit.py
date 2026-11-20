@@ -91,7 +91,7 @@ def case_bp_tier1():
             break
         g.press('A', after=10)
     seen = set()
-    for _ in range(18):  # past the end, so the last rows are read too
+    for _ in range(30):  # past the end, so the last rows are read too (some presses land mid-redraw)
         rows = g.screen_text().replace('\n', ' ')
         for name in ['Ability Capsule', 'Power Herb', 'Metronome', 'Loaded Dice', 'Absorb Bulb', 'Cell Battery',
                      'Snowball', 'LuminousMoss', 'Safe Goggles', 'Zoom Lens']:

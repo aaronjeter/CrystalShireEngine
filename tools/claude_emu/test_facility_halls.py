@@ -51,6 +51,10 @@ def shop(g):
     g.press('A', after=150)  # Exp. Candy L: costs 2 BP. OK?
     g.press('A', after=150)  # Yes
     g.press('A', after=150)  # Here you go!
+    for _ in range(10):  # until the list is back (the text can still be printing)
+        if 'Here you go' not in g.screen_text():
+            break
+        g.press('A', after=60)
     after_candy = bp(g)
     for _ in range(2):  # PP Up
         g.press('D', after=40)
@@ -77,8 +81,8 @@ def shop2(g):
             break
         g.press('A', after=40)
     g.frames(30)
-    for _ in range(12):  # Ability Patch, the last Tier 2 item
-        g.press('D', after=15)
+    for _ in range(12):  # Ability Patch, the last Tier 2 item (slow presses: none lost on a scroll)
+        g.press('D', after=40)
     g.press('A', after=150)
     g.press('A', after=150)
     g.press('A', after=60)
