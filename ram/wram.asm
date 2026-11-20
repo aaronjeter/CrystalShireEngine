@@ -941,6 +941,19 @@ wc7d0:: ds 1
 wc7d1:: ds 1
 wc7d2:: ds 1
 wc7d3:: ds 2
+
+NEXTU
+; journal
+wJournalTab:: db ; JOURNALTAB_*
+wJournalRegion:: db ; JOURNALREGION_ALL, or MREGION_* + 1
+wJournalCursor:: db ; the highlighted row
+wJournalScroll:: db ; missions hidden above the list
+wJournalCount:: db ; missions in the current tab
+wJournalList:: ds NUM_MISSIONS ; the current tab's missions
+wJournalState:: ds NUM_MISSIONS ; per mission: MISSION_STARTED_F, MISSION_DONE_F, steps done
+wJournalMission:: db ; the mission on the detail page
+wJournalEvalResult:: db ; scratch for the mission checks
+wJournalEvalSteps:: db ; scratch for the mission checks
 ENDU
 
 
@@ -3682,6 +3695,8 @@ wHallOfFameCounts:: ds NUM_LEAGUES ; Hall of Fame entries per League (LEAGUE_* o
 wTitleDefenses:: dw ; World Cup title defenses won (big-endian)
 wPassportFallen:: dw ; Pokémon buried or released by Nuzlocke mode (big-endian)
 wTitleDefenseChallenger:: db ; the accepted title challenger + 1 until the match is over, 0 otherwise
+wJournalSeen:: ds (NUM_MISSIONS + 1) / 2 ; per mission, a nibble: the progress last announced (0: not started, else 1 + steps done)
+wJournalUnread:: flag_array NUM_MISSIONS ; missions updated since the player last opened them (NEW)
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

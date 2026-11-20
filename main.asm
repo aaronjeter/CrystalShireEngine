@@ -789,6 +789,10 @@ SECTION "Trainer Passport", ROMX
 INCLUDE "engine/events/passport_stats.asm"
 INCLUDE "engine/menus/passport.asm"
 
+SECTION "Journal", ROMX
+
+INCLUDE "engine/menus/journal.asm"
+
 SECTION "Exp Candy", ROMX
 
 INCLUDE "engine/items/exp_candy.asm"

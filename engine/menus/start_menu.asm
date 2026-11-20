@@ -1,3 +1,10 @@
+; More entries than fit scroll the menu: wMenuItemsList holds only the visible
+; entries; these two bytes past them hold the scroll state while it's open.
+DEF wStartMenuEntries EQUS "(wMenuItemsList + 14)" ; entries in total
+DEF wStartMenuScroll  EQUS "(wMenuItemsList + 15)" ; entries hidden above
+DEF START_MENU_ROWS         EQU 8
+DEF START_MENU_CONTEST_ROWS EQU 7 ; the contest box starts lower
+
 ; StartMenu.Items indexes
 	const_def
 	const STARTMENUITEM_POKEDEX  ; 0
@@ -10,6 +17,7 @@
 	const STARTMENUITEM_POKEGEAR ; 7
 	const STARTMENUITEM_QUIT     ; 8
 	const STARTMENUITEM_PASSPORT ; 9
+	const STARTMENUITEM_JOURNAL  ; 10
 
 StartMenu::
 	farcall ClearWeatherSprites ; don't draw frozen particles over the menu
@@ -28,9 +36,7 @@ StartMenu::
 
 .GotMenuData:
 	call LoadMenuHeader
-	call .SetUpMenuItems
-	ld a, [wBattleMenuCursorPosition]
-	ld [wMenuCursorPosition], a
+	call .SetUpMenuItemsAtCursor
 	call .DrawMenuAccount
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatusBox
@@ -44,15 +50,16 @@ StartMenu::
 .Reopen:
 	call UpdateSprites
 	call UpdateTimePals
-	call .SetUpMenuItems
-	ld a, [wBattleMenuCursorPosition]
-	ld [wMenuCursorPosition], a
+	call .SetUpMenuItemsAtCursor
 
 .Select:
 	call .GetInput
 	jr c, .Exit
 	call .DrawMenuAccount
+	ld a, [wStartMenuScroll]
+	ld b, a
 	ld a, [wMenuCursorPosition]
+	add b
 	ld [wBattleMenuCursorPosition], a
 	call PlayClickSFX
 	call PlaceHollowCursor
@@ -99,11 +106,15 @@ StartMenu::
 	ldh [hBGMapMode], a
 	call .DrawMenuAccount
 	call SetUpMenu
+	call .SetUpScrolling
 	ld a, $ff
 	ld [wMenuSelection], a
 .loop
 	call .PrintMenuAccount
 	call GetScrollingMenuJoypad
+	ld hl, w2DMenuFlags2
+	bit _2DMENU_EXITING_F, [hl]
+	jr nz, .scroll
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
 	jr z, .b
@@ -118,6 +129,110 @@ StartMenu::
 	scf
 	ret
 
+.scroll
+; the cursor left the top or the bottom of a menu with more entries than fit
+	res _2DMENU_EXITING_F, [hl]
+	call .GetMaxRows
+	ld c, a
+	ld a, [wStartMenuEntries]
+	sub c
+	ld b, a ; the largest scroll
+	ld hl, wStartMenuScroll
+	ldh a, [hJoyLast]
+	bit D_UP_F, a
+	jr nz, .scroll_up
+	bit D_DOWN_F, a
+	jr z, .loop
+	ld a, [hl]
+	cp b
+	jr nc, .wrap_to_top
+	inc [hl]
+	ld a, c ; stay on the bottom row
+	jr .scrolled
+
+.wrap_to_top
+	ld [hl], 0
+	ld a, 1
+	jr .scrolled
+
+.scroll_up
+	ld a, [hl]
+	and a
+	jr z, .wrap_to_bottom
+	dec [hl]
+	ld a, 1 ; stay on the top row
+	jr .scrolled
+
+.wrap_to_bottom
+	ld [hl], b
+	ld a, c
+.scrolled
+	ld [wMenuCursorPosition], a
+	call .SetUpMenuItems
+	jr .GetInput
+
+.SetUpScrolling:
+; with more entries than fit: exit at the top and bottom instead of wrapping,
+; and show arrows on the box border where entries are hidden
+	call .GetMaxRows
+	ld c, a
+	ld a, [wStartMenuEntries]
+	cp c
+	ret c
+	ret z
+	ld hl, w2DMenuFlags1
+	res _2DMENU_WRAP_UP_DOWN_F, [hl]
+	set _2DMENU_EXIT_UP_F, [hl]
+	set _2DMENU_EXIT_DOWN_F, [hl]
+	ld a, [wStartMenuScroll]
+	and a
+	jr z, .no_up_arrow
+	ld a, [wMenuBorderTopCoord]
+	ld b, a
+	ld c, SCREEN_WIDTH - 2
+	call .GetTilemapCoord
+	ld [hl], "▲"
+.no_up_arrow
+	call .GetMaxRows
+	ld c, a
+	ld a, [wStartMenuScroll]
+	add c
+	ld c, a
+	ld a, [wStartMenuEntries]
+	cp c
+	jr z, .no_down_arrow
+	ld a, [wMenuBorderBottomCoord]
+	ld b, a
+	ld c, SCREEN_WIDTH - 2
+	call .GetTilemapCoord
+	ld [hl], "▼"
+.no_down_arrow
+	jmp ApplyTilemap
+
+.GetTilemapCoord:
+; hl = wTilemap + b * SCREEN_WIDTH + c
+	ld hl, wTilemap
+	ld a, b
+	and a
+	jr z, .got_row
+	ld de, SCREEN_WIDTH
+.row
+	add hl, de
+	dec b
+	jr nz, .row
+.got_row
+	ld b, 0
+	add hl, bc
+	ret
+
+.GetMaxRows:
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, a
+	ld a, START_MENU_ROWS
+	ret z
+	ld a, START_MENU_CONTEST_ROWS
+	ret
+
 .ExitMenuRunScript:
 	call ExitMenu
 	ld a, HMENURETURN_SCRIPT
@@ -128,7 +243,7 @@ StartMenu::
 	call ExitMenu
 	ld a, HMENURETURN_SCRIPT
 	ldh [hMenuReturn], a
-	jr .ReturnEnd2
+	jmp .ReturnEnd2
 
 .ExitMenuCallFuncCloseText:
 	call ExitMenu
@@ -138,7 +253,7 @@ StartMenu::
 	ld l, a
 	ld a, [wQueuedScriptBank]
 	call FarCall_hl
-	jr .ReturnEnd2
+	jmp .ReturnEnd2
 
 .ReturnRedraw:
 	farcall ClearSavedObjPals
@@ -184,6 +299,7 @@ StartMenu::
 	dw StartMenu_Pokegear, .PokegearString, .PokegearDesc
 	dw StartMenu_Quit,     .QuitString,     .QuitDesc
 	dw StartMenu_Passport, .PassportString, .PassportDesc
+	dw StartMenu_Journal,  .JournalString,  .JournalDesc
 
 .PokedexString:  db "#dex@"
 .PartyString:    db "#mon@"
@@ -195,6 +311,7 @@ StartMenu::
 .PokegearString: db "<POKE>gear@"
 .QuitString:     db "Quit@"
 .PassportString: db "Passport@"
+.JournalString:  db "Journal@"
 
 .PokedexDesc:
 	db   "#mon"
@@ -231,6 +348,10 @@ StartMenu::
 .QuitDesc:
 	db   "Quit and"
 	next "be judged@"
+
+.JournalDesc:
+	db   "Missions"
+	next "and goals@"
 
 .PassportDesc:
 	db   "Leagues &"
@@ -286,9 +407,39 @@ rept 6
 endr
 	ret
 
+.SetUpMenuItemsAtCursor:
+; wBattleMenuCursorPosition is the entry's position in the whole list: scroll
+; just enough to show it, on the bottom row if it's below the first page
+	xor a
+	ld [wStartMenuScroll], a
+	call .SetUpMenuItems
+	call .GetMaxRows
+	ld c, a
+	ld a, [wBattleMenuCursorPosition]
+	ld b, a
+	ld a, [wStartMenuEntries]
+	cp b
+	jr nc, .position_ok
+	ld b, a ; fewer entries than before: the last one
+.position_ok
+	ld a, b
+	sub c
+	jr c, .first_page
+	jr z, .first_page
+	ld [wStartMenuScroll], a
+	ld a, c
+	ld [wMenuCursorPosition], a
+	jr .SetUpMenuItems
+
+.first_page
+	ld a, b
+	ld [wMenuCursorPosition], a
+	ret
+
 .SetUpMenuItems:
 	xor a
 	ld [wWhichIndexSet], a
+	ld [wStartMenuEntries], a
 	call .FillMenuList
 
 	ld hl, wStatusFlags
@@ -335,6 +486,16 @@ endr
 	call .AppendMenuList
 .no_passport
 
+	push de
+	push bc
+	farcall Journal_AnyStarted
+	pop bc
+	pop de
+	jr z, .no_journal
+	ld a, STARTMENUITEM_JOURNAL
+	call .AppendMenuList
+.no_journal
+
 	ld a, [wLinkMode]
 	and a
 	jr nz, .no_save
@@ -358,16 +519,36 @@ endr
 	ld hl, wMenuItemsList
 	ld [hli], a
 	ld a, -1
-	ld bc, wMenuItemsListEnd - (wMenuItemsList + 1)
+	ld bc, wStartMenuEntries - (wMenuItemsList + 1)
 	rst ByteFill
 	ld de, wMenuItemsList + 1
 	ld c, 0
 	ret
 
 .AppendMenuList:
+; add entry a to the visible list if it falls within the scrolled window
+	push hl
+	ld b, a
+	ld hl, wStartMenuEntries
+	ld a, [hl]
+	inc [hl]
+	ld hl, wStartMenuScroll
+	sub [hl]
+	jr c, .hidden
+	push bc
+	ld b, a
+	call .GetMaxRows
+	cp b
+	ld a, b
+	pop bc
+	jr c, .hidden
+	jr z, .hidden
+	ld a, b
 	ld [de], a
 	inc de
 	inc c
+.hidden
+	pop hl
 	ret
 
 .PrintMenuAccount:
@@ -463,6 +644,13 @@ StartMenu_Status:
 StartMenu_Passport:
 	call FadeToMenu
 	farcall Passport
+	call CloseSubmenu
+	xor a
+	ret
+
+StartMenu_Journal:
+	call FadeToMenu
+	farcall Journal
 	call CloseSubmenu
 	xor a
 	ret

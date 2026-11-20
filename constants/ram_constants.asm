@@ -165,7 +165,10 @@ DEF INIT_MON_LIST        EQU 5
 
 ; wMapNameSignFlags::
 	const_def 1
-	const SHOWN_MAP_NAME_SIGN ; 1
+	const SHOWN_MAP_NAME_SIGN    ; 1
+	const JOURNAL_CHECK_PENDING  ; 2 something happened: check the journal when the player is free
+	const JOURNAL_BANNER         ; 3 the sign shows "Journal updated!"
+	const JOURNAL_BANNER_WAITING ; 4 the banner waits for a map name sign to finish
 
 ; wTimeOfDay::
 	const_def

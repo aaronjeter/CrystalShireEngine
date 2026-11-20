@@ -12,6 +12,8 @@ DEF MAPSIGNSTAGE_4_VISIBLE  EQU $59
 DEF MAPSIGNSTAGE_5_SLIDEOUT EQU $0c
 
 InitMapNameSign::
+	ld hl, wMapNameSignFlags
+	set JOURNAL_CHECK_PENDING, [hl]
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
@@ -42,6 +44,14 @@ InitMapNameSign::
 
 	call .CheckSpecialMap
 	jr z, .dont_do_map_sign
+
+	; a journal banner on screen gives way to the map name, then comes back
+	ld hl, wMapNameSignFlags
+	bit JOURNAL_BANNER, [hl]
+	jr z, .no_banner
+	res JOURNAL_BANNER, [hl]
+	set JOURNAL_BANNER_WAITING, [hl]
+.no_banner
 
 ; Landmark sign timer: descends $74-$00
 ; $73-$68: Sliding out (old sign)
@@ -133,7 +143,13 @@ PlaceMapNameSign::
 	ld hl, wLandmarkSignTimer
 	ld a, [hl]
 	and a
-	jr z, .stage_5_sliding_out
+	jr nz, .timer_running
+	; the sign is gone: a journal banner is over
+	ld hl, wMapNameSignFlags
+	res JOURNAL_BANNER, [hl]
+	jr .stage_5_sliding_out
+
+.timer_running
 	dec [hl]
 	sub MAPSIGNSTAGE_2_LOADGFX
 	jr nc, .stage_5_sliding_out
@@ -205,10 +221,20 @@ LoadMapNameSignGFX:
 	add hl, bc
 	dec e
 	jr nz, .clear_loop
-	; wStringBuffer1 = current landmark name
+	; wStringBuffer1 = current landmark name, or the journal banner's text
+	ld hl, wMapNameSignFlags
+	bit JOURNAL_BANNER, [hl]
+	jr z, .landmark
+	ld hl, JournalBannerText
+	ld de, wStringBuffer1
+	ld bc, JournalBannerText.End - JournalBannerText
+	rst CopyBytes
+	jr .got_name
+.landmark
 	ld a, [wCurLandmark]
 	ld e, a
 	farcall GetLandmarkName
+.got_name
 	; c = length of landmark name
 	ld c, 0
 	push hl
@@ -304,6 +330,10 @@ LoadMapNameSignGFX:
 	; restore hl = position in landmark name
 	pop hl
 	jr .loop
+
+JournalBannerText:
+	db "Journal updated!@"
+.End
 
 SignPals:
 	table_width 1 palettes

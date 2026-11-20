@@ -242,6 +242,8 @@ PlayerEvents:
 	and a
 	ret nz
 
+	farcall Journal_OverworldCheck
+
 	call Dummy_CheckEnabledMapEventsBit5 ; This is a waste of time
 
 	call CheckTrainerEvent
@@ -269,6 +271,8 @@ PlayerEvents:
 	ret
 
 .ok
+	ld hl, wMapNameSignFlags
+	set JOURNAL_CHECK_PENDING, [hl]
 	push af
 	call EnableScriptMode
 	pop af
