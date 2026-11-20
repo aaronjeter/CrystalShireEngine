@@ -66,6 +66,7 @@ BossRecords:
 	boss 1, 0, ArcherAura,     ArcherPhases     ; BOSS_ARCHER
 	boss 1, 0, JaneAura,       JanePhases       ; BOSS_JANE
 	boss 2, 0, EnteiAura,       EnteiPhases       ; BOSS_ENTEI
+	boss 1, 0, TowerHeadAura,  TowerHeadPhases  ; BOSS_TOWER_HEAD
 	assert_table_length NUM_BOSSES - 1
 
 ; Phase tables: one entry per extra bar in the record, in break order.
@@ -386,6 +387,17 @@ ArcherPhases:
 	boss_stat SPEED, 1
 	boss_end
 
+TowerHeadAura:
+	boss_stat SP_DEFENSE, 1
+	boss_end
+TowerHeadPhases:
+	dw .bar1
+.bar1
+	boss_text BossTowerHeadText
+	boss_stat SP_ATTACK, 1
+	boss_stat SPEED, 1
+	boss_end
+
 JaneAura:
 	boss_stat SP_DEFENSE, 1
 	boss_end
@@ -459,6 +471,11 @@ BossArcherText:
 	text "Archer: Team"
 	line "Rocket never"
 	cont "yields!"
+	prompt
+
+BossTowerHeadText:
+	text "Aaron: Mew isn't"
+	line "done playing yet!"
 	prompt
 
 BossJaneText:

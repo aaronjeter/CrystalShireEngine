@@ -505,7 +505,7 @@ TowerTrainers:
 	assert_table_length NUM_TOWER_TRAINERS
 
 TowerHead:
-	db COOLTRAINERM, TOWER_HEAD, SPRITE_COOLTRAINER_M
+	db RANGERM, TOWER_HEAD, SPRITE_COOLTRAINER_M
 
 TowerHas49Medal::
 ; wScriptVar = TRUE once the first 49-win streak's prize was given (TOWER_PRIZE49_F)

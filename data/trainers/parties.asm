@@ -3377,21 +3377,6 @@ CooltrainerMGroup:
 	random_mons 4, ELITE_TOWER
 	end_party
 
-	party TOWER_HEAD, "Tycoon" ; Battle Tower head, battle 49 (placeholder character and team; levels: the facility level)
-	mon 0, METAGROSS
-		item LUM_BERRY
-		moves PSYCHIC_M, METEOR_MASH, FIRE_PUNCH, ICE_PUNCH
-	mon 0, SALAMENCE
-		item CHARCOAL
-		moves DRAGON_CLAW, FIRE_BLAST, EARTHQUAKE, ROCK_TOMB
-	mon 0, MILOTIC
-		item ASPEAR_BERRY
-		moves RAIN_DANCE, SURF, RECOVER, WILLOWISP
-	mon 0, GARDEVOIR
-		item KINGS_ROCK
-		moves MOONBLAST, SHOCK_WAVE, HYPNOSIS, DREAM_EATER
-	end_party
-
 	party DALTON, "Dalton" ; Route47
 	mon 7, HERACROSS
 	mon 7, GYARADOS
@@ -10485,6 +10470,26 @@ RangerMGroup:
 
 	party TOWER_ELITE_11, "Rowan" ; Battle Tower (elite; a random team; levels: the facility level)
 	random_mons 4, ELITE_TOWER
+	end_party
+
+	party TOWER_HEAD, "Aaron" ; Battle Tower head, battle 49 (levels: the facility level)
+	mon 0, DELIBIRD
+		item CHOICE_SPECS
+		ability SNOW_WARNING
+		moves BLIZZARD, FREEZE_DRY, HURRICANE, REFLECT
+	mon 0, ANINETALES
+		item LIFE_ORB
+		ability SLUSH_RUSH
+		moves BLIZZARD, FREEZE_DRY, FAERIEGLEAM, CALM_MIND
+	mon 0, BUTTERFREEX
+		item LEFTOVERS
+		ability PRANKSTER
+		moves SLEEP_POWDER, CALM_MIND, MOONBLAST, SIGNAL_BEAM
+	mon 0, MEW
+		item TWISTEDSPOON
+		ability SYNCHRONIZE
+		moves PSYCHIC_M, AURA_SPHERE, BLIZZARD, CALM_MIND
+		boss_mon BOSS_TOWER_HEAD
 	end_party
 
 	end_list_items

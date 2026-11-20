@@ -254,7 +254,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const FACILITY_HOENN_9 ; challenge facility (hard)
 	const TOWER_ELITE_1 ; Battle Tower (random team)
 	const TOWER_ELITE_2 ; Battle Tower (random team)
-	const TOWER_HEAD ; Battle Tower head (battle 49; placeholder)
 	const DALTON
 	const ROWAN
 	const FELIX
@@ -898,6 +897,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE120_KEIGO
 	const TREETOP_TRIAL1
 	const TOWER_ELITE_11 ; Battle Tower (random team)
+	const TOWER_HEAD ; Battle Tower head (battle 49)
 
 	trainerclass RANGERF
 	const RANGERF1
