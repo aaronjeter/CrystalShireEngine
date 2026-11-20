@@ -518,8 +518,8 @@
 	const EVENT_BEAT_PYRE_ROCKETF4
 
 	const EVENT_BEAT_SHRINE_JANE
-	const EVENT_HIDE_DESERT_JANE ; unused
-	const EVENT_TALKED_TO_DESERT_JANE ; unused
+	const EVENT_HIDE_DESERT_JANE ; Lavaridge Desert: Jane (object flag)
+	const EVENT_TALKED_TO_DESERT_JANE ; Lavaridge Desert: talked to Jane after the Desert Shrine
 
 	;Hoenn Victory Road Trainers
 	const EVENT_BEAT_EVERGRANDE_M1
@@ -579,13 +579,13 @@
 	const EVENT_GOT_REGICE
 	const EVENT_GOT_RIGIROCK
 	const EVENT_GOT_REGISTEEL
-	const EVENT_GOT_LATIAS ; unused
-	const EVENT_GOT_LATIOS ; unused	
-	const EVENT_HIDE_LATIAS ; unused
-	const EVENT_HIDE_LATIOS ; unused
+	const EVENT_GOT_LATIAS ; Lavaridge Desert: Latias battled (cleared after the Hoenn League)
+	const EVENT_GOT_LATIOS ; Lavaridge Desert: Latios battled (cleared after the Hoenn League)
+	const EVENT_HIDE_LATIAS ; Lavaridge Desert: Latias (object flag)
+	const EVENT_HIDE_LATIOS ; Lavaridge Desert: Latios (object flag)
 	const EVENT_GOT_KYOGRE
 	const EVENT_GOT_GROUDON
-	const EVENT_GOT_RAYQUAZA ; unused
+	const EVENT_GOT_RAYQUAZA ; Meteor Peak: Rayquaza battled (cleared after the Hoenn League)
 	const EVENT_GOT_JIRACHI 
 	const EVENT_NUZLOCKE_AREA_96 ; Nuzlocke mode: "used" bits of landmarks 96 and up
 	const_skip 62 ; (all of them: a landmark index up to 158)
@@ -1026,12 +1026,12 @@
 	const EVENT_BEAT_SWIMMERF_DENISE
 	const EVENT_BEAT_SWIMMERF_KARA
 	const EVENT_BEAT_SWIMMERF_WENDY
-	const EVENT_GOT_IRON_BUNDLE ; Mossdeep Space Center (was an old Swimmer F slot, unused before any playtest)
+	const EVENT_GOT_IRON_BUNDLE ; Mossdeep Space Center: Iron Bundle gift
 	const EVENT_GOT_STEVENS_BELDUM ; Steven's house, Mossdeep (same)
 	const EVENT_MOSSDEEP_STEVEN_AWAY ; set = Steven isn't home (before the Hoenn League)
-	const EVENT_GOT_SOOTOPOLIS_LUM_BERRY ; (an old Swimmer F slot, unused before any playtest)
+	const EVENT_GOT_SOOTOPOLIS_LUM_BERRY ; Sootopolis berry house: Lum Berry
 	const_skip ; unused (was EVENT_BEAT_SWIMMERF_DAWN until Nov 2026: may be set in old saves)
-	const EVENT_GOT_VERDANTURF_MIRACLE_SEED ; (an old Swimmer F slot, unused before any playtest)
+	const EVENT_GOT_VERDANTURF_MIRACLE_SEED ; Verdanturf flower house: Miracle Seed
 	const EVENT_BEAT_SWIMMERF_NICOLE
 	const_skip ; unused (was EVENT_BEAT_SWIMMERF_LORI until Nov 2026: may be set in old saves)
 	const_skip ; unused
@@ -1050,14 +1050,14 @@
 	const EVENT_BEAT_BIRD_KEEPER_ROY
 	const_skip ; unused (was EVENT_BEAT_BIRD_KEEPER_BORIS until Nov 2026: may be set in old saves)
 	const EVENT_BEAT_BIRDERS_ROB_BOB
-	const EVENT_GOT_OLDALE_POKE_BALLS ; (an unused slot, never set before)
+	const EVENT_GOT_OLDALE_POKE_BALLS ; Oldale house: Poké Balls
 	const EVENT_BEAT_BIRD_KEEPER_PETER
 	const EVENT_BEAT_BIRD_KEEPER_JOSE2 ;for whatever reason, JOSE2is the one actually used
 	const EVENT_BEAT_BIRDERS_RAY_BRET
 	const_skip ; unused (was EVENT_BEAT_BIRD_KEEPER_BRET until Nov 2026: may be set in old saves)
-	const EVENT_GOT_SLATEPORT_BIG_PEARL ; (an unused slot, never set before)
-	const EVENT_GOT_LAVARIDGE_WYNAUT_EGG ; (an unused slot, never set before)
-	const EVENT_GOT_KANTO_DAY_CARE_EGG ; (an unused slot, never set before)
+	const EVENT_GOT_SLATEPORT_BIG_PEARL ; Slateport Oceanic Museum: Big Pearl
+	const EVENT_GOT_LAVARIDGE_WYNAUT_EGG ; Lavaridge Egg house: Wynaut Egg
+	const EVENT_GOT_KANTO_DAY_CARE_EGG ; Route 5 Day-Care: Munchlax Egg
 ; Boarder
 	const EVENT_BEAT_BOARDER_RONALD
 	const EVENT_BEAT_BOARDER_BRAD
@@ -1081,7 +1081,7 @@
 	const EVENT_BEAT_CAMPER_LLOYD
 	const EVENT_BEAT_CAMPER_DEAN
 	const_skip ; unused (was EVENT_BEAT_CAMPER_SID until Nov 2026: may be set in old saves)
-	const EVENT_GOT_HOENN_DAY_CARE_EGG ; (an unused slot, never set before)
+	const EVENT_GOT_HOENN_DAY_CARE_EGG ; Route 117 Day-Care: Azurill Egg
 	const_skip ; unused
 	const EVENT_BEAT_COUPLE_TED_ERIN
 	const_skip ; unused
