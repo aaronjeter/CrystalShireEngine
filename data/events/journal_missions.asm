@@ -85,7 +85,7 @@ JournalMission_JohtoChallenge:
 .s1 mtext "8 Johto Badges"
 .n1 mtext "Collect all 8<LF>Johto Badges."
 .s2 mtext "The Silver Pass"
-.n2 mtext "Cross the Silver<LF>Pass to the north."
+.n2 mtext "Go north past the<LF>Lake of Rage."
 .s3 mtext "The Johto League"
 .n3 mtext "Win the League in<LF>Silver Town."
 
@@ -125,7 +125,7 @@ JournalMission_HoennChallenge:
 
 JournalMission_WorldCup:
 	mission MREGION_WORLD, .title, .desc, .summary
-	mstart MC_BADGES, 16
+	mstart MC_CALL, Journal_WorldCupOpen
 	msteps 7
 	mstep MC_EVENT, EVENT_WORLD_CUP_REGISTERED, .s1, .n1
 	mstep MC_EVENT, EVENT_WORLD_CUP_QUALIFIED, .s2, .n2
@@ -138,7 +138,7 @@ JournalMission_WorldCup:
 .desc    mtext "The best trainers<LF>of three regions<LF>meet in one cup."
 .summary mtext "You are the World<LF>Cup Champion!"
 .s1 mtext "Register"
-.n1 mtext "Sign up at the<LF>World Cup lobby."
+.n1 mtext "Sign up at the<LF>Battle Resort."
 .s2 mtext "The qualifiers"
 .n2 mtext "Win the three<LF>qualifier rounds."
 .s3 mtext "Round one"
@@ -182,19 +182,22 @@ JournalMission_TogepiEgg:
 JournalMission_RocketsSignal:
 	mission MREGION_JOHTO, .title, .desc, .summary
 	mstart MC_EVENT, EVENT_DECIDED_TO_HELP_LANCE
-	msteps 3
+	msteps 4
 	mstep MC_EVENT, EVENT_CLEARED_ROCKET_HIDEOUT, .s1, .n1
-	mstep MC_EVENT, EVENT_RECEIVED_CARD_KEY, .s2, .n2
-	mstep MC_EVENT, EVENT_CLEARED_RADIO_TOWER, .s3, .n3
+	mstep MC_EVENT, EVENT_STARTED_RADIO_ROCKETS, .s2, .n2
+	mstep MC_EVENT, EVENT_RECEIVED_CARD_KEY, .s3, .n3
+	mstep MC_EVENT, EVENT_CLEARED_RADIO_TOWER, .s4, .n4
 .title   mtitle "Rocket's Signal"
 .desc    mtext "A Rocket signal is<LF>hurting #mon.<LF>Stop it!"
 .summary mtext "Team Rocket left<LF>the Radio Tower."
 .s1 mtext "Mahogany hideout"
 .n1 mtext "Raid the hideout<LF>in Mahogany Town."
-.s2 mtext "The Card Key"
-.n2 mtext "Find the Card Key<LF>under Goldenrod."
-.s3 mtext "Stop Archer"
-.n3 mtext "Free the Radio<LF>Tower from Archer."
+.s2 mtext "Rockets return"
+.n2 mtext "Earn the Glacier<LF>Badge in Mahogany."
+.s3 mtext "The Card Key"
+.n3 mtext "Get the Card Key<LF>under Goldenrod."
+.s4 mtext "Stop Archer"
+.n4 mtext "Free the Radio<LF>Tower from Archer."
 
 JournalMission_JanesTrail:
 	mission MREGION_HOENN, .title, .desc, .summary
@@ -248,7 +251,7 @@ JournalMission_BellTower:
 .s1 mtext "The Clear Bell"
 .n1 mtext "Get the Clear<LF>Bell."
 .s2 mtext "The Rainbow Wing"
-.n2 mtext "Win the League and<LF>meet the 3 beasts."
+.n2 mtext "Win the League,<LF>own the 3 beasts."
 .s3 mtext "Ho-Oh"
 .n3 mtext "Climb the tower<LF>and catch Ho-Oh."
 
@@ -279,7 +282,7 @@ JournalMission_LegendaryBirds:
 .s1 mtext "Articuno"
 .n1 mtext "Search the Seafoam<LF>Islands."
 .s2 mtext "Zapdos"
-.n2 mtext "Search the Power<LF>Plant."
+.n2 mtext "Find its roost off<LF>Route 10."
 .s3 mtext "Moltres"
 .n3 mtext "Search Cinnabar's<LF>volcano."
 
@@ -321,13 +324,13 @@ JournalMission_WeatherDuo:
 .desc    mtext "Kyogre and Groudon<LF>sleep deep within<LF>Hoenn."
 .summary mtext "You caught Kyogre<LF>and Groudon!"
 .s1 mtext "Kyogre"
-.n1 mtext "Enter the Cave of<LF>Origin."
+.n1 mtext "Enter Sootopolis's<LF>Cave of Origin."
 .s2 mtext "Groudon"
 .n2 mtext "Search the depths<LF>off Fiery Path."
 
 JournalMission_MeteorPeak:
 	mission MREGION_HOENN, .title, .desc, .summary
-	mstart MC_HOENN_BADGES, 8
+	mstart MC_CALL, Journal_MeteorPeakOpen
 	msteps 1
 	mstep MC_CAUGHT, RAYQUAZA, .s1, .n1
 .title   mtitle "Meteor Peak"
@@ -338,14 +341,23 @@ JournalMission_MeteorPeak:
 
 JournalMission_DesertShrine:
 	mission MREGION_HOENN, .title, .desc, .summary
-	mstart MC_EVENT, EVENT_BEAT_SHRINE_JANE
-	msteps 1
-	mstep MC_EVENT, EVENT_BEAT_DESERT_SHRINE_UNOWN, .s1, .n1
+	mstart MC_EVENT, EVENT_BEAT_PYRE_ROCKETS
+	msteps 4
+	mstep MC_EVENT, EVENT_BEAT_SHRINE_JANE, .s1, .n1
+	mstep MC_EVENT, EVENT_BEAT_DESERT_SHRINE_UNOWN, .s2, .n2
+	mstep MC_CAUGHT, LATIAS, .s3, .n3
+	mstep MC_CAUGHT, LATIOS, .s4, .n4
 .title   mtitle "Desert Shrine"
-.desc    mtext "The shrine's power<LF>still stirs, deep<LF>inside."
-.summary mtext "The shrine is<LF>quiet now."
-.s1 mtext "Unown X"
-.n1 mtext "Go deeper into the<LF>Desert Shrine."
+.desc    mtext "Jane took Latias<LF>and flew off to<LF>the Desert Shrine."
+.summary mtext "The Eon duo joined<LF>you at last!"
+.s1 mtext "Jane"
+.n1 mtext "Find Jane in the<LF>Desert Shrine."
+.s2 mtext "Unown X"
+.n2 mtext "Go deeper into the<LF>Desert Shrine."
+.s3 mtext "Latias"
+.n3 mtext "Something stirs in<LF>Lavaridge Desert."
+.s4 mtext "Latios"
+.n4 mtext "Something stirs in<LF>Lavaridge Desert."
 
 ; Errands ---------------------------------------------------------------------
 
@@ -368,19 +380,16 @@ JournalMission_Parcels:
 JournalMission_FastShip:
 	mission MREGION_WORLD, .title, .desc, .summary
 	mstart MC_EVENT, EVENT_GOT_TRAVEL_PARCELS
-	msteps 3
-	mstep MC_EVENT, EVENT_FAST_SHIP_FOUND_GIRL, .s1, .n1
-	mstep MC_EVENT, EVENT_GOT_METAL_COAT_FROM_GRANDPA_ON_SS_AQUA, .s2, .n2
-	mstep MC_EVENT, EVENT_FAST_SHIP_FIRST_TIME, .s3, .n3
+	msteps 2
+	mstep MC_EVENT, EVENT_GOT_METAL_COAT_FROM_GRANDPA_ON_SS_AQUA, .s1, .n1
+	mstep MC_EVENT, EVENT_FAST_SHIP_HAS_ARRIVED, .s2, .n2
 .title   mtitle "The S.S.Aqua"
 .desc    mtext "Your first voyage<LF>on the Fast Ship<LF>S.S.Aqua."
 .summary mtext "Your first voyage<LF>is over."
 .s1 mtext "A lost girl"
-.n1 mtext "Find the lost<LF>granddaughter."
-.s2 mtext "Grandpa's thanks"
-.n2 mtext "Return to her<LF>grandpa's cabin."
-.s3 mtext "Arrival"
-.n3 mtext "Rest in your cabin<LF>until you arrive."
+.n1 mtext "A passenger lost<LF>his granddaughter."
+.s2 mtext "Arrival"
+.n2 mtext "Talk to the sailor<LF>at the exit."
 
 ; Challenges ------------------------------------------------------------------
 
@@ -404,7 +413,7 @@ JournalMission_JohtoAides:
 	mstart MC_JOHTO_BADGES, 1
 	msteps 5
 	aide_steps
-	mstep MC_EVENT, EVENT_GOT_MUSCLE_BAND_FROM_DEX_AIDE, .s4, .n4
+	mstep MC_EVENT, EVENT_GOT_WISE_GLASSES_FROM_DEX_AIDE, .s4, .n4
 	mstep MC_EVENT, EVENT_GOT_LEFTOVERS_FROM_DEX_AIDE, .s5, .n5
 .title   mtitle "Johto Aides"
 .desc    mtext "Elm's aides reward<LF>#dex progress.<LF>Route 31 gate."
@@ -519,31 +528,66 @@ JournalMission_LeagueRematches:
 .s1 mtext "Johto rematch"
 .n1 mtext "Beat Lance's team<LF>in Silver Town."
 .s2 mtext "Kanto rematch"
-.n2 mtext "Beat the League at<LF>Indigo Plateau."
+.n2 mtext "Beat Agatha's team<LF>at Indigo Plateau."
 .s3 mtext "Hoenn rematch"
 .n3 mtext "Beat Steven's team<LF>in Ever Grande."
 
 JournalMission_TitleDefense:
 	mission MREGION_WORLD, .title, .desc, .summary
 	mstart MC_EVENT, EVENT_WORLD_CUP_CHAMPION
-	msteps 4
+	msteps 3
 	mstep MC_DEFENSES, 1, .s1, .n1
-	mstep MC_DEFENSES, 5, .s2, .n2
-	mstep MC_DEFENSES, 10, .s3, .n3
-	mstep MC_EVENT, EVENT_TITLE_DEFENSE_BEAT_RED, .s4, .n4
+	mstep MC_CALL, Journal_ChampionsDefended, .s2, .n2
+	mstep MC_EVENT, EVENT_TITLE_DEFENSE_BEAT_RED, .s3, .n3
 .title   mtitle "Title Defense"
 .desc    mtext "Challengers want<LF>your World Cup<LF>title!"
 .summary mtext "Even Red couldn't<LF>take your title!"
 .s1 mtext "First defense"
-.n1 mtext "Accept a challenge<LF>in the lobby."
-.s2 mtext "5 defenses"
-.n2 mtext "Defend your title<LF>5 times."
-.s3 mtext "10 defenses"
-.n3 mtext "Defend your title<LF>10 times."
-.s4 mtext "Red"
-.n4 mtext "Defeat Red, the<LF>final challenger."
+.n1 mtext "Accept a challenge<LF>at Battle Resort."
+.s2 mtext "Three Champions"
+.n2 mtext "Lance, Agatha and<LF>Steven will come."
+.s3 mtext "Red"
+.n3 mtext "Defeat Red, the<LF>final challenger."
 
 ; MC_CALL checks: carry if passed ----------------------------------------------
+
+Journal_WorldCupOpen:
+; eligible for the World Cup or already registered
+	farcall CheckWorldCupStarted
+	ret z
+	scf
+	ret
+
+Journal_MeteorPeakOpen:
+; Rain Badge, or Rayquaza already caught
+	ld de, ENGINE_RAINBADGE
+	ld b, CHECK_FLAG
+	farcall EngineFlagAction
+	ld a, c
+	and a
+	jr nz, .yes
+	ld de, RAYQUAZA
+	call CheckCaughtMonIndex
+	ld a, c
+	and a
+	ret z
+.yes
+	scf
+	ret
+
+Journal_ChampionsDefended:
+; Lance, Agatha and Steven all beaten in title defenses
+	ld hl, .flags
+	call Journal_CountFlags
+	cp 3
+	ccf
+	ret
+
+.flags
+	dw EVENT_TITLE_DEFENSE_BEAT_LANCE
+	dw EVENT_TITLE_DEFENSE_BEAT_AGATHA
+	dw EVENT_TITLE_DEFENSE_BEAT_STEVEN
+	dw -1
 
 Journal_GotElmStarter:
 	ld hl, .flags
