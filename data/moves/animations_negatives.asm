@@ -1,4 +1,8 @@
 BattleAnimationsNegatives::
+	anim_ptr BattleAnim_BossBallBounce
+	anim_ptr BattleAnim_BossStatUp
+	anim_ptr BattleAnim_BossBarBreak
+	anim_ptr BattleAnim_BossAura
 	anim_ptr BattleAnim_InHail
 	anim_ptr BattleAnim_ThrowPokeBall
 	anim_ptr BattleAnim_SendOutMon
@@ -428,3 +432,80 @@ BattleAnim_InHail:
 	anim_wait 8
 	anim_ret
 
+BattleAnim_BossAura:
+	anim_1gfx BATTLE_ANIM_GFX_SPEED
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 0, SFX_SHINE
+.loop
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 44, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 36, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 52, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 28, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 60, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 20, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 68, 108, $8
+	anim_wait 2
+	anim_loop 4, .loop
+	anim_wait 8
+	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_BossBarBreak:
+	anim_1gfx BATTLE_ANIM_GFX_BUBBLE
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0
+	anim_wait 32
+	anim_call BattleAnim_TargetObj_1Row
+	anim_sound 0, 0, SFX_FULL_HEAL
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
+	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $30
+	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $31
+	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $32
+	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $33
+	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $34
+	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $35
+	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $36
+	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $37
+	anim_wait 64
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_BossStatUp:
+	anim_1gfx BATTLE_ANIM_GFX_CHARGE
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT, $0, BG_EFFECT_USER, $40
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 108, $0
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 108, $8
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 108, $10
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 108, $18
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 108, $20
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 108, $28
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 108, $30
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 108, $38
+	anim_wait 64
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_BossBallBounce:
+	anim_2gfx BATTLE_ANIM_GFX_POKE_BALL, BATTLE_ANIM_GFX_HIT
+	anim_sound 6, 2, SFX_THROW_BALL
+	anim_obj BATTLE_ANIM_OBJ_POKE_BALL_BLOCKED, 64, 92, $20
+	anim_wait 20
+	anim_call BattleAnim_TargetObj_1Row
+	anim_sound 0, 1, SFX_PROTECT
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_WHITE_WAIT_FADE_BACK, $0, BG_EFFECT_TARGET, $40
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 112, 40, $0
+	anim_wait 48
+	anim_call BattleAnim_ShowMon_1
+	anim_ret

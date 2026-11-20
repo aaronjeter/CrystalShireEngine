@@ -135,6 +135,9 @@ BossBarBreak::
 	ld [wCryTracks], a
 	ld a, [wEnemyMonSpecies]
 	call PlayStereoCry
+	call WaitSFX
+	ld de, ANIM_BOSS_BAR_BREAK
+	call BossPlayAnim
 
 ; the HP bar fills from 0 to max HP (wCurHPAnim* are little-endian)
 	ld hl, wEnemyMonMaxHP
@@ -202,6 +205,20 @@ BossPhase:
 	ld l, a
 	or h
 	ret z
+; the stat-up animation plays once if the phase raises any stat
+	push hl
+.find_stat
+	ld a, [hli]
+	and a ; BOSSCMD_END
+	jr z, .no_stat
+	inc hl
+	inc hl ; every command has two bytes of arguments
+	cp BOSSCMD_STAT
+	jr nz, .find_stat
+	ld de, ANIM_BOSS_STAT_UP
+	call BossPlayAnim
+.no_stat
+	pop hl
 	jr BossRunCommandsAsEnemy
 
 BossEntranceAura::
@@ -252,8 +269,13 @@ BossAuraCommands:
 	or h
 	ret z
 	push hl
+	farcall EmptyBattleTextbox
+	ld de, ANIM_BOSS_AURA
+	call BossPlayAnim
+	jr nc, .aura_text
 	ld de, SFX_SHINE
 	call PlaySFX
+.aura_text
 	ld hl, BossAuraText
 	ld de, BossTrainerAuraText
 	call BossText
@@ -405,8 +427,50 @@ BossBallBounces::
 	ld a, [wBossBarsLeft]
 	and a
 	ret z
+	farcall _ReturnToBattle_UseBall
+	ld de, ANIM_BOSS_BALL_BOUNCE
+	ld a, e
+	ld [wFXAnimID], a
+	ld a, d
+	ld [wFXAnimID + 1], a
+	xor a
+	ldh [hBattleTurn], a
+	ld [wNumHits], a
+	ld [wBattleAnimParam], a
+	predef PlayBattleAnim
 	ld hl, BossBallBouncedText
 	call PrintText
+	scf
+	ret
+
+BossPlayAnim:
+; Play animation de on the boss's side. Returns carry, without playing it, if
+; battle animations are off or the boss is out of sight (Fly, Dig).
+	farcall CheckBattleScene
+	ret c
+	ldh a, [hBattleTurn]
+	push af
+	ld a, 1
+	ldh [hBattleTurn], a
+	ld a, [wEnemySubStatus3]
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	jr nz, .hidden
+	xor a
+	ld [wNumHits], a
+	ld [wBattleAnimParam], a
+	ld a, e
+	ld [wFXAnimID], a
+	ld a, d
+	ld [wFXAnimID + 1], a
+	predef PlayBattleAnim
+	pop af
+	ldh [hBattleTurn], a
+	and a
+	ret
+
+.hidden
+	pop af
+	ldh [hBattleTurn], a
 	scf
 	ret
 

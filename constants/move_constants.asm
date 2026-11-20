@@ -411,6 +411,10 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const ANIM_SEND_OUT_MON      ; -15 (ffeb)
 	const ANIM_THROW_POKE_BALL   ; -16 (ffea)
 	const ANIM_IN_HAIL           ; 
+	const ANIM_BOSS_AURA         ; boss battles (engine/battle/boss.asm)
+	const ANIM_BOSS_BAR_BREAK
+	const ANIM_BOSS_STAT_UP
+	const ANIM_BOSS_BALL_BOUNCE
 DEF NUM_BATTLE_ANIMS EQU -const_value - 1
 
 ; wNumHits uses offsets from ANIM_MISS

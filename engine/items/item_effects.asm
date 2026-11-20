@@ -295,7 +295,13 @@ PokeBallEffect:
 	jmp c, Ball_NuzlockeRefusedMessage
 
 	farcall BossBallBounces
-	jmp c, Ball_NotUsed
+	jr nc, .no_bounce
+	; the battle screen is back: the battle menu again, the ball kept
+	ld a, BATTLEPLAYERACTION_BACK_TO_MENU
+	ld [wItemEffectSucceeded], a
+	ret
+
+.no_bounce
 
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL

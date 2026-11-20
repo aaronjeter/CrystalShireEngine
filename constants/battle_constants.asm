@@ -274,6 +274,7 @@ DEF SUBSTATUS_AQUA_RING EQU 7 ; heals at the end of each turn
 	const BATTLEPLAYERACTION_USEMOVE
 	const BATTLEPLAYERACTION_USEITEM
 	const BATTLEPLAYERACTION_SWITCH
+	const BATTLEPLAYERACTION_BACK_TO_MENU ; a ball bounced off a boss: the battle menu again, no turn used
 
 ; wBattleResult
 	const_def

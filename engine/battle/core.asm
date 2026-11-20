@@ -5110,7 +5110,11 @@ BattleMenu_Pack:
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
 	jr z, .didnt_use_item
-	jr .UseItem
+	cp BATTLEPLAYERACTION_BACK_TO_MENU
+	jr nz, .UseItem
+	xor a ; BATTLEPLAYERACTION_USEMOVE
+	ld [wBattlePlayerAction], a
+	jr .didnt_use_item
 
 .tutorial
 	farcall TutorialPack
