@@ -102,7 +102,37 @@ CheckPokedexStatusMonIndex:
 	ld b, CHECK_FLAG
 FlagActionBaseOne:
 	dec de
-	jmp FlagAction
+	jmp FlagActionInPlayerData2
+
+CountDexFlags::
+; The number of set bits in the bc bytes of dex flags at hl (wPokedexCaught or
+; wPokedexSeen, WRAM bank 2): returns bc.
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wPokedexSeen)
+	ldh [rSVBK], a
+	ld de, 0
+.byte_loop
+	ld a, [hli]
+	push bc
+	ld b, 8
+.bit_loop
+	add a
+	jr nc, .next_bit
+	inc de
+.next_bit
+	dec b
+	jr nz, .bit_loop
+	pop bc
+	dec bc
+	ld a, b
+	or c
+	jr nz, .byte_loop
+	pop af
+	ldh [rSVBK], a
+	ld b, d
+	ld c, e
+	ret
 
 GetPokemonFlagIndex:
 	call GetPokemonIndexFromID

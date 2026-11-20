@@ -311,10 +311,7 @@ Script_LeftTimeCapsule:
 	end ; dummied out
 
 Pokecenter2FLinkRecordSign:
-	reanchormap
-	special DisplayLinkRecord
-	closetext
-	end
+	jumptext Pokecenter2FLinkRecordSignText
 
 Pokecenter2FOfficerScript:
 	faceplayer
@@ -491,6 +488,11 @@ Text_BattleRoomClosed:
 	text "I'm sorry--the"
 	line "Battle Machine is"
 	cont "being adjusted."
+	done
+
+Pokecenter2FLinkRecordSignText:
+	text "The link record"
+	line "board is blank."
 	done
 
 Text_MysteryGiftDeliveryGuy_Intro:

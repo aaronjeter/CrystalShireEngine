@@ -481,13 +481,6 @@ ScrollingMenu_GetListItemCoordAndFunctionArgs:
 	ld a, [wItemFlags]
 	and (1 << IN_PC_F)
 	jr nz, ScrollingMenu_GetListItemCoordAndFunctionArgs16bit
-	ld a, [wItemFlags]
-	and (1 << IN_BAG_F)
-	jr z, .skip
-	ld a, [wCurPocket]
-	and a ; ITEM_POCKET
-	jr z, ScrollingMenu_GetListItemCoordAndFunctionArgs16bit
-.skip
 	ld a, [wMenuData_ScrollingMenuItemFormat]
 	cp SCROLLINGMENU_ITEMS_NORMAL
 	jr z, .got_spacing
@@ -539,27 +532,21 @@ ScrollingMenu_GetListItemCoordAndFunctionArgs16bit:
 	ret
 
 CheckItemPocketConversion:
+; In the Pack, wCurItem is the low byte of the item index: make it the item ID.
+	ld a, [wItemFlags]
+	and (1 << IN_PC_F)
+	ret nz ; the PC's list holds whole indexes
 	ld a, [wItemFlags]
 	and (1 << IN_BAG_F)
 	ret z
 	ld a, [wCurPocket]
-	cp BALL_POCKET
-	jr nz, .not_ball_pocket
+	cp TM_HM_POCKET
+	ret z
 	ld a, [wCurItem]
+	cp -1
+	ret z ; Cancel
 	push hl
-	ld h, HIGH(FIRST_BALL_ITEM)
-	ld l, a
-	call GetItemIDFromIndex
-	pop hl
-	ld [wCurItem], a
-	ret
-
-.not_ball_pocket
-	cp KEY_ITEM_POCKET
-	ret nz
-	ld a, [wCurItem]
-	push hl
-	ld h, HIGH(FIRST_KEY_ITEM)
+	call GetPocketIndexHigh
 	ld l, a
 	call GetItemIDFromIndex
 	pop hl

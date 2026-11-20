@@ -56,7 +56,6 @@ MapScenes::
 	scene_var ROUTE_40_BATTLE_TOWER_GATE,                  wBattleTowerHallwaySceneID
 	scene_var ROUTE_40_BATTLE_TOWER_GATE,                  wBattleTowerOutsideSceneID ; unused
 	scene_var ROUTE_43_GATE,                               wRoute43GateSceneID
-	scene_var MOUNT_MOON,                                  wMountMoonSceneID
 	scene_var SPROUT_TOWER_3F,                             wSproutTower3FSceneID
 	scene_var TIN_TOWER_1F,                                wTinTower1FSceneID
 	scene_var BURNED_TOWER_1F,                             wBurnedTower1FSceneID

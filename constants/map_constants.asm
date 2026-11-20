@@ -146,14 +146,12 @@ ENDM
 	map_const DRAGON_SHRINE,                                5,  5 ; 82
 	map_const TOHJO_FALLS,                                 15,  9 ; 83
 	map_const DIGLETTS_CAVE,                               10, 18 ; 84
-	map_const MOUNT_MOON,                                  15,  9 ; 85
 	map_const UNDERGROUND_PATH,                             3, 14 ; 86
 	map_const ROCK_TUNNEL_1F,                              15, 18 ; 87
 	map_const ROCK_TUNNEL_B1F,                             15, 18 ; 88
 	map_const VICTORY_ROAD,                                10, 36 ; 91
 	map_const ILEX_WEST,								   20, 20 ; 92
 	map_const ILEX_EAST,                                   20, 20 ; 93
-	map_const ARTICUNO_LAIR,                               20, 20 ; 94
 	map_const MOLTRES_LAIR,                                20, 20 ; 95
 	map_const VIRIDIAN_FOREST,							   20, 25 ; 96
 	map_const PETALBURG_WOODS,							   20, 20 ; 97	

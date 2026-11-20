@@ -28,6 +28,47 @@ SCRIPT_ORG = 0x0063       # harness script area (see scripts.py)
 TRAINER_CLASS = 'COOLTRAINERM'  # class whose group gets repointed (affects AI and trainer items)
 SEED = 0x1234
 
+# Pack pockets with 2-byte lists (low byte of the item index, quantity), in *_POCKET order
+POCKET_LISTS = (('wNumItems', 'wItems'), ('wNumMedicine', 'wMedicine'), ('wNumBerries', 'wBerries'),
+                ('wNumHeldItems', 'wHeldItems'), ('wNumTrainingItems', 'wTrainingItems'),
+                ('wNumTreasures', 'wTreasures'), ('wNumBalls', 'wBalls'))
+BLOCK_POCKET = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 7: 6}  # item index high byte -> pocket
+BALL_POCKET = 6
+BATTLE_POCKET = 1  # the battle Pack opens on Medicine
+
+
+def item_pocket(g, item):
+    """(pocket, low byte of the index) of an item constant."""
+    i = g.const16(item)
+    return BLOCK_POCKET[i >> 8], i & 0xff
+
+
+def pocket_entries(g, pocket):
+    """[(low byte, quantity)] of a list pocket."""
+    num, lst = POCKET_LISTS[pocket]
+    n = g.rd(num)
+    d = g.rd(lst, 2 * n) if n else []
+    return [(d[2 * i], d[2 * i + 1]) for i in range(n)]
+
+
+def item_count(g, item):
+    p, lo = item_pocket(g, item)
+    return sum(q for l, q in pocket_entries(g, p) if l == lo)
+
+
+def clear_pockets(g):
+    for num, lst in POCKET_LISTS:
+        g.wr(num, 0)
+        g.wr(lst, 0xff)
+
+
+def fill_pocket(g, item, n):
+    """Fill item's pocket with n stacks of 1."""
+    p, lo = item_pocket(g, item)
+    num, lst = POCKET_LISTS[p]
+    g.wr(num, n)
+    g.wr(lst, [lo, 1] * n + [0xff])
+
 
 # ---------------------------------------------------------------- assembling
 def assemble_at(body, bank, org):
@@ -133,6 +174,10 @@ class Game(H):
     def const(self, expr):
         return assemble_block(f'\tdb {expr}', 0, SCRIPT_ORG)[0]
 
+    def const16(self, expr):
+        b = assemble_block(f'\tdw {expr}', 0, SCRIPT_ORG)
+        return b[0] | b[1] << 8
+
     def set_trainer(self, cls, name, mons, doubles=False, extra=None):
         """mons: list of (level, species, item or None, [moves] or None). doubles: a
         DOUBLES party (a double battle). extra: {mon index: [party lines]}, e.g.
@@ -207,10 +252,8 @@ class Game(H):
         raise RuntimeError('battle did not start')
 
     def clear_bag(self):
-        self.wr('wNumItems', 0); self.wr('wItems', [0xFF, 0xFF, 0xFF])
-        self.wr('wCurPocket', 0); self.wr('wItemsPocketCursor', 0); self.wr('wItemsPocketScrollPosition', 0)
-        self.wr('wNumBalls', 0); self.wr('wBalls', [0xFF, 0xFF])
-        self.wr('wLastPocket', 0)
+        clear_pockets(self)
+        self.wr('wCurPocket', 0); self.wr('wLastPocket', 0)
 
     def start_wild(self, species, level, options=None):
         self.wr('wWildLevel', 0)   # wild levels are wWildLevel + the listed level
@@ -527,15 +570,12 @@ class Battle:
                 g.press('B', after=4)
         elif kind == 'item':
             self.pack_item(act[1], act[2] if len(act) > 2 else None)
-        elif kind == 'ball':           # the only ball type in the bag
-            g.wr('wLastPocket', 1); g.wr('wBallsPocketCursor', 1); g.wr('wBallsPocketScrollPosition', 0)
-            self.menu_pick(2, 1)
-            self.settle()
+        elif kind == 'ball':           # the first ball in the bag
+            self.open_pocket(BALL_POCKET, 0)
             g.press('A', after=4)
             t = self.settle()
             if t and 'Use' in '\n'.join(t):
                 g.press('A', after=4)
-            g.wr('wLastPocket', 0)
         elif kind == 'run':
             self.menu_pick(2, 2)
         elif kind == 'back':           # doubles: B on P2's battle menu (back to P1)
@@ -567,16 +607,23 @@ class Battle:
         g.wr('wMenuCursorY', y); g.wr('wMenuCursorX', x)
         g.press('A', after=4)
 
-    def pack_item(self, item, target):
+    def open_pocket(self, pocket, idx):
+        """Open the battle Pack and move to entry idx of a pocket."""
         g = self.g
-        iid = g.const(f'HIGH({item})'), g.const(f'LOW({item})')
-        n = g.rd('wNumItems')
-        bag = [(g.rd('wItems', 3 * n)[3 * i], g.rd('wItems', 3 * n)[3 * i + 1]) for i in range(n)]
-        idx = bag.index(iid)
         assert idx < 4, 'keep test bags small (no scrolling)'
-        g.wr('wCurPocket', 0); g.wr('wItemsPocketCursor', idx + 1); g.wr('wItemsPocketScrollPosition', 0)
+        g.wr(f'wPocketCursors+{pocket}', idx + 1); g.wr(f'wPocketScrollPositions+{pocket}', 0)
         self.menu_pick(2, 1)
         self.settle()
+        step = 'R' if pocket > BATTLE_POCKET else 'L'
+        for _ in range(abs(pocket - BATTLE_POCKET)):
+            g.press(step, after=4)
+            self.settle()
+
+    def pack_item(self, item, target):
+        g = self.g
+        p, lo = item_pocket(g, item)
+        idx = [l for l, q in pocket_entries(g, p)].index(lo)
+        self.open_pocket(p, idx)
         g.press('A', after=4)           # the item
         t = self.settle()
         if t and 'Use' in '\n'.join(t):

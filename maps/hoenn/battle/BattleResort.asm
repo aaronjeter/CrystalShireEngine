@@ -4,6 +4,11 @@ BattleResort_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, BattleResortFlypointCallback
+
+BattleResortFlypointCallback:
+	setflag ENGINE_FLYPOINT_BATTLE_RESORT
+	endcallback
 
 BattleTowerSign:
 	jumptext BattleTowerSignText

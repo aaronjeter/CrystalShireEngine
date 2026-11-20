@@ -78,24 +78,4 @@ AddMobileMonToParty:
 	rst CopyBytes
 	ld a, "@"
 	ld [de], a
-
-	ld hl, sPartyMail
-	ld bc, MAIL_STRUCT_LENGTH
-	ld a, [wMobileMonIndex]
-.loop5
-	add hl, bc
-	dec a
-	and a
-	jr nz, .loop5
-	ld a, BANK(sPartyMail)
-	call OpenSRAM
-	ld e, l
-	ld d, h
-	ld hl, wMobileMonMailPointer
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld bc, MAIL_STRUCT_LENGTH
-	rst CopyBytes
-
-	jmp CloseSRAM
+	ret

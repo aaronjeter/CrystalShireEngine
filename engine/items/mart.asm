@@ -233,8 +233,15 @@ FarReadMart: ; read mart items (index -> ID conversion)
 	ld a, [wMartPointerBank]
 	call GetFarByte
 	ld b, a
-	push bc
+	; a TM or HM the player owns isn't for sale
+	push de
+	ld d, b
+	ld e, c
+	push de
+	farcall ItemIndexIsOwnedTMHM
 	pop hl
+	pop de
+	jr c, .skip_item
 	call GetItemIDFromIndex
 	pop bc
 	pop hl
@@ -242,11 +249,22 @@ FarReadMart: ; read mart items (index -> ID conversion)
 	inc hl
 	ld [de], a
 	inc de
+	jr .next_item
+
+.skip_item
+	pop bc
+	pop hl
+	inc hl
+	inc hl
+.next_item
 	dec c
 	jr nz, .CopyMart
 	; end of list
 	ld a, -1
 	ld [de], a
+	ld a, e
+	sub LOW(wCurMartItems)
+	ld [wCurMartCount], a
 .ReadPrices:
 	ld hl, wMartItem1BCD
 	ld de, wCurMartItems

@@ -9,7 +9,7 @@ SilverTown_MapScripts:
 	callback MAPCALLBACK_NEWMAP, SilverTownFlypointCallback
 
 SilverTownFlypointCallback:
-	setflag ENGINE_FLYPOINT_SILVER_CAVE
+	setflag ENGINE_FLYPOINT_SILVER_TOWN
 	endcallback
 
 SilverTownCooltrainerFScript:

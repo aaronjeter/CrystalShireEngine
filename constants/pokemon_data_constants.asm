@@ -87,7 +87,7 @@ DEF MON_SAT_EV             rb
 DEF MON_SDF_EV             rb
 DEF MON_ABILITY_SLOT       rb ; bits 0-1: ABILITY_SLOT_* (ABILITY_SLOT_MASK)
 DEF MON_MARKS              rb ; MON_*_F flags below
-                           rb_skip 1
+DEF MON_CAUGHTTIME         rb ; the time of day caught + 1 (0: unknown)
 DEF MON_COLOR              rb ; MONCOLOR_* (0: the species' colors); right before the DVs
 DEF MON_DVS                rw
 DEF MON_PP                 rb NUM_MOVES
@@ -95,11 +95,9 @@ DEF MON_HAPPINESS          rb
 DEF MON_POKERUS            rb
 DEF MON_CAUGHTDATA         rw
 rsset MON_CAUGHTDATA
-DEF MON_CAUGHTTIME         rb
-DEF MON_CAUGHTGENDER       rb
-rsset MON_CAUGHTDATA
-DEF MON_CAUGHTLEVEL        rb
+DEF MON_CAUGHTLEVEL        rb ; also the OT's gender (CAUGHT_GENDER_MASK)
 DEF MON_CAUGHTLOCATION     rb
+DEF MON_CAUGHTGENDER       EQU MON_CAUGHTLEVEL
 DEF MON_LEVEL              rb
 DEF BOXMON_STRUCT_LENGTH EQU _RS
 DEF MON_STATUS             rb
@@ -136,7 +134,7 @@ DEF SAVEMON_SAT_EV             rb
 DEF SAVEMON_SDF_EV             rb
 DEF SAVEMON_ABILITY_SLOT       rb ; same as MON_ABILITY_SLOT
 DEF SAVEMON_MARKS              rb ; same as MON_MARKS
-                               rb_skip 1
+DEF SAVEMON_CAUGHTTIME         rb ; same as MON_CAUGHTTIME
 DEF SAVEMON_COLOR              rb ; same as MON_COLOR
 DEF SAVEMON_DVS                rw
 ; savemon_struct is identical to party_struct before this point
@@ -148,11 +146,9 @@ DEF SAVEMON_HAPPINESS          rb
 DEF SAVEMON_PKRUS              rb
 DEF SAVEMON_CAUGHTDATA         rw
 rsset SAVEMON_CAUGHTDATA
-DEF SAVEMON_CAUGHTTIME         rb
-DEF SAVEMON_CAUGHTGENDER       rb
-rsset SAVEMON_CAUGHTDATA
 DEF SAVEMON_CAUGHTLEVEL        rb
 DEF SAVEMON_CAUGHTLOCATION     rb
+DEF SAVEMON_CAUGHTGENDER       EQU SAVEMON_CAUGHTLEVEL
 DEF SAVEMON_LEVEL              rb
 ; savemon_struct is different from party_struct beyond this point
 DEF SAVEMON_SPECIES_HIGH       rb
@@ -181,11 +177,13 @@ DEF MOVES_HIGH_MASK EQU %00111111
 
 ; caught data
 
-DEF CAUGHT_TIME_MASK  EQU %11000000
-DEF CAUGHT_LEVEL_MASK EQU %00111111
-
-DEF CAUGHT_GENDER_MASK   EQU %10000000
-DEF CAUGHT_LOCATION_MASK EQU %01111111
+; MON_CAUGHTLEVEL: the level caught (0: a gift, an event or no data) and the
+; OT's gender; MON_CAUGHTLOCATION: the landmark; MON_CAUGHTTIME: the time of day + 1
+DEF CAUGHT_LEVEL_MASK  EQU %01111111
+DEF CAUGHT_GENDER_MASK EQU %10000000
+; MON_CAUGHTTIME relative to MON_CAUGHTLEVEL (the same in both structs)
+DEF CAUGHT_TIME_OFFSET EQU MON_CAUGHTTIME - MON_CAUGHTLEVEL
+	assert SAVEMON_CAUGHTTIME - SAVEMON_CAUGHTLEVEL == CAUGHT_TIME_OFFSET
 
 DEF CAUGHT_BY_UNKNOWN EQU 0
 DEF CAUGHT_BY_GIRL    EQU 1
@@ -210,7 +208,7 @@ DEF NUM_BOXES       EQU (MONDB_ENTRIES * 2 - MIN_MONDB_SLACK) / MONS_PER_BOX ; 1
 DEF HOF_MON_LENGTH EQU 2 + 2 + 2 + 1 + (MON_NAME_LENGTH - 1)
 ; hall_of_fame: win count, party, terminator
 DEF HOF_LENGTH EQU 1 + HOF_MON_LENGTH * PARTY_LENGTH + 2
-DEF NUM_HOF_TEAMS EQU 30
+DEF NUM_HOF_TEAMS EQU 20
 
 ; evolution types (used in data/pokemon/evos_attacks.asm)
 	const_def 1

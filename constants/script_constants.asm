@@ -300,6 +300,8 @@ DEF EMOTE_LENGTH EQU 6
 	const FRUITTREE_VERDANTURF_2
 
 DEF NUM_FRUIT_TREES EQU const_value - 1
+DEF NUM_SAVED_FRUIT_TREES EQU 128 ; wFruitTreeFlags: room for fruit trees added later
+	assert NUM_FRUIT_TREES <= NUM_SAVED_FRUIT_TREES
 
 ; describedecoration arguments
 ; DescribeDecoration.JumpTable indexes (see engine/overworld/decorations.asm)

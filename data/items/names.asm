@@ -1,210 +1,220 @@
 ItemNames::
 	list_start
-	li "Brightpowder" ; 0001
-	li "Teru-Sama"    ; 0002
-	li "Moon Stone"   ; 0003
-	li "Antidote"     ; 0004
-	li "Burn Heal"    ; 0005
-	li "Ice Heal"     ; 0006
-	li "Awakening"    ; 0007
-	li "Parlyz Heal"  ; 0008
-	li "Full Restore" ; 0009
-	li "Max Potion"   ; 000A
-	li "Hyper Potion" ; 000B
-	li "Super Potion" ; 000C
-	li "Potion"       ; 000D
-	li "Escape Rope"  ; 000E
-	li "Repel"        ; 000F
-	li "Max Elixer"   ; 0010
-	li "Fire Stone"   ; 0011
-	li "Thunderstone" ; 0012
-	li "Water Stone"  ; 0013
-	li "Marvel Scale" ; 0014
-	li "Hp Up"        ; 0015
-	li "Protein"      ; 0016
-	li "Iron"         ; 0017
-	li "Carbos"       ; 0018
-	li "Lucky Punch"  ; 0019
-	li "Calcium"      ; 001A
-	li "Rare Candy"   ; 001B
-	li "X Accuracy"   ; 001C
-	li "Leaf Stone"   ; 001D
-	li "Metal Powder" ; 001E
-	li "Nugget"       ; 001F
+	li "Teru-Sama"
+	li "Moon Stone"
+	li "Escape Rope"
+	li "Repel"
+	li "Fire Stone"
+	li "Thunderstone"
+	li "Water Stone"
+	li "X Accuracy"
+	li "Leaf Stone"
 	li "Poké Doll"    ; 0020 VWF can't print "# DOLL"
-	li "Full Heal"    ; 0021
-	li "Revive"       ; 0022
-	li "Max Revive"   ; 0023
-	li "Guard Spec."  ; 0024
-	li "Super Repel"  ; 0025
-	li "Max Repel"    ; 0026
-	li "Dire Hit"     ; 0027
-	li "Helix Fossil" ; 0028
-	li "Fresh Water"  ; 0029
-	li "Soda Pop"     ; 002A
-	li "Lemonade"     ; 002B
-	li "X Attack"     ; 002C
-	li "Dome Fossil"  ; 002D
-	li "X Defend"     ; 002E
-	li "X Speed"      ; 002F
-	li "X Special"    ; 0030
-	li "Teru-Sama"    ; 0031
-	li "Exp.Share"    ; 0032
-	li "Silver Leaf"  ; 0033
-	li "PP Up"        ; 0034
-	li "Ether"        ; 0035
-	li "Max Ether"    ; 0036
-	li "Elixer"       ; 0037
-	li "Moomoo Milk"  ; 0038
-	li "Quick Claw"   ; 0039
-	li "Pecha Berry"  ; 003A
-	li "Gold Leaf"    ; 003B
-	li "Soft Sand"    ; 003C
-	li "Sharp Beak"   ; 003D
-	li "Cheri Berry"  ; 003E
-	li "Aspear Berry" ; 003F
-	li "Rawst Berry"  ; 0040
-	li "Poison Barb"  ; 0041
-	li "King's Rock"  ; 0042
-	li "Persim Berry" ; 0043
-	li "Chesto Berry" ; 0044
-	li "Red Apricorn" ; 0045
-	li "Tinymushroom" ; 0046
-	li "Big Mushroom" ; 0047
-	li "Silverpowder" ; 0048
-	li "Blu Apricorn" ; 0049
-	li "Old Amber"    ; 004A
-	li "Amulet Coin"  ; 004B
-	li "Ylw Apricorn" ; 004C
-	li "Grn Apricorn" ; 004D
-	li "Cleanse Tag"  ; 004E
-	li "Mystic Water" ; 004F
-	li "Twistedspoon" ; 0050
-	li "Wht Apricorn" ; 0051
-	li "Blackbelt"    ; 0052
-	li "Blk Apricorn" ; 0053
-	li "Root Fossil"  ; 0054
-	li "Pnk Apricorn" ; 0055
-	li "Blackglasses" ; 0056
-	li "Slowpoketail" ; 0057
-	li "Pink Bow"     ; 0058
-	li "Stick"        ; 0059
-	li "Smoke Ball"   ; 005A
-	li "Nevermeltice" ; 005B
-	li "Magnet"       ; 005C
-	li "Lum Berry"    ; 005D
-	li "Pearl"        ; 005E
-	li "Big Pearl"    ; 005F
-	li "Everstone"    ; 0060
-	li "Spell Tag"    ; 0061
-	li "Ragecandybar" ; 0062
-	li "Miracle Seed" ; 0063
-	li "Thick Club"   ; 0064
-	li "Focus Band"   ; 0065
-	li "Claw Fossil"  ; 0066
-	li "Energypowder" ; 0067
-	li "Energy Root"  ; 0068
-	li "Heal Powder"  ; 0069
-	li "Revival Herb" ; 006A
-	li "Hard Stone"   ; 006B
-	li "Lucky Egg"    ; 006C
-	li "Stardust"     ; 006D
-	li "Star Piece"   ; 006E
-	li "Ursa Fossil"  ; 006F
-	li "Fin Fossil"   ; 0070
-	li "Zinc"         ; 0071
-	li "Charcoal"     ; 0072
-	li "Berry Juice"  ; 0073
-	li "Scope Lens"   ; 0074
-	li "Dawn Stone"   ; 0076
-	li "Ice Stone"    ; 0075
-	li "Metal Coat"   ; 0077
-	li "Dragon Fang"  ; 0078
-	li "Fang Fossil"  ; 0079
-	li "Leftovers"    ; 007A
-	li "Kantoite X"   ; 007B
-	li "Kantoite Y"   ; 007C
-	li "Johtoite X"   ; 007D
-	li "Leppa Berry"  ; 007E
-	li "Dragon Scale" ; 007F
-	li "Bersrk Gene" ; 0080
-	li "Hoennite X"   ; 0083
-	li "Liechi Berry"  ; 0081
-	li "Ganlon Berry"   ; 0082
-	li "Sacred Ash"   ; 0084
-	li "Flower Mail"  ; 0085
-	li "Salac Berry"  ; 0086
-	li "Light Ball"   ; 0087
-	li "Normal Box"   ; 0088
-	li "Gorgeous Box" ; 0089
-	li "Sun Stone"    ; 008A
-	li "Polkadot Bow" ; 008B
-	li "Teru-Sama"    ; 008C
-	li "Up-Grade"     ; 008D
-	li "Oran Berry"   ; 008E
-	li "Sitrus Berry" ; 008F
-	li "Petaya Berry"  ; 0091
-	li "Apicot Berry"   ; 0090
-	li "Brick Piece"  ; 0092
-	li "Surf Mail"    ; 0093
-	li "Litebluemail" ; 0094
-	li "Portraitmail" ; 0095
-	li "Lovely Mail"  ; 0096
-	li "Eon Mail"     ; 0097
-	li "Morph Mail"   ; 0098
-	li "Bluesky Mail" ; 0099
-	li "Music Mail"   ; 009A
-	li "Mirage Mail"  ; 009B
-	li "Teru-Sama"    ; 009F
-	li "Teru-Sama"    ; 009C
-	li "Teru-Sama"    ; 009D
-	li "Teru-Sama"    ; 009E
-	li "Abil.Capsule" ; 00A0
-	li "Abil.Patch"   ; 00A1
-	li "Flame Orb"    ; 00A2
-	li "Toxic Orb"    ; 00A3
-	li "Eviolite"     ; 00A4
-	li "Wide Lens"    ; 00A5
-	li "Black Sludge" ; 00A6
-	li "Life Orb"     ; 00A7
-	li "Focus Sash"   ; 00A8
-	li "Rocky Helmet" ; 00A9
-	li "Expert Belt"  ; 00AA
-	li "Muscle Band"  ; 00AB
-	li "Wise Glasses" ; 00AC
-	li "Shell Bell"   ; 00AD
-	li "Big Root"     ; 00AE
-	li "Binding Band" ; 00AF
-	li "Macho Brace"  ; 00B0
-	li "Exp. Candy S" ; 00B1
-	li "Exp. Candy M" ; 00B2
-	li "Exp. Candy L" ; 00B3
-	li "Exp.Candy XL" ; 00B4
-	li "Power Weight" ; 00B5
-	li "Power Bracer" ; 00B6
-	li "Power Belt"   ; 00B7
-	li "Power Anklet" ; 00B8
-	li "Power Lens"   ; 00B9
-	li "Power Band"   ; 00BA
-	li "Choice Band"  ; 00BB
-	li "Choice Specs" ; 00BC
-	li "Choice Scarf" ; 00BD
-	li "Assault Vest" ; 00BE
-	li "Weak. Policy" ; 00BF
-	li "Air Balloon"  ; 00C0
-	li "Light Clay"   ; 00C1
-	li "White Herb"   ; 00C2
-	li "Mental Herb"  ; 00C3
-	li "Power Herb"   ; 00C4
-	li "Metronome"    ; 00C5
-	li "Loaded Dice"  ; 00C6
-	li "Absorb Bulb"  ; 00C7
-	li "Cell Battery" ; 00C8
-	li "Snowball"     ; 00C9
-	li "LuminousMoss" ; 00CA
-	li "Safe Goggles" ; 00CB
-	li "Zoom Lens"    ; 00CC
+	li "Guard Spec."
+	li "Super Repel"
+	li "Max Repel"
+	li "Dire Hit"
+	li "X Attack"
+	li "X Defend"
+	li "X Speed"
+	li "X Special"
+	li "Teru-Sama"
+	li "Exp.Share"
+	li "Dawn Stone"
+	li "Ice Stone"
+	li "Kantoite X"
+	li "Kantoite Y"
+	li "Johtoite X"
+	li "Hoennite X"
+	li "Normal Box"
+	li "Gorgeous Box"
+	li "Sun Stone"
+	li "Teru-Sama"
+	li "Teru-Sama"
+	li "Teru-Sama"
+	li "Teru-Sama"
+	li "Teru-Sama"
 	assert_list_length NUM_ITEM_POCKET
+
+MedicineNames::
+	list_start
+	li "Antidote"
+	li "Burn Heal"
+	li "Ice Heal"
+	li "Awakening"
+	li "Parlyz Heal"
+	li "Full Restore"
+	li "Max Potion"
+	li "Hyper Potion"
+	li "Super Potion"
+	li "Potion"
+	li "Max Elixer"
+	li "Full Heal"
+	li "Revive"
+	li "Max Revive"
+	li "Fresh Water"
+	li "Soda Pop"
+	li "Lemonade"
+	li "Ether"
+	li "Max Ether"
+	li "Elixer"
+	li "Moomoo Milk"
+	li "Ragecandybar"
+	li "Energypowder"
+	li "Energy Root"
+	li "Heal Powder"
+	li "Revival Herb"
+	li "Berry Juice"
+	li "Sacred Ash"
+	assert_list_length NUM_MEDICINE_POCKET
+
+BerriesNames::
+	list_start
+	li "Pecha Berry"
+	li "Cheri Berry"
+	li "Aspear Berry"
+	li "Rawst Berry"
+	li "Persim Berry"
+	li "Chesto Berry"
+	li "Red Apricorn"
+	li "Blu Apricorn"
+	li "Ylw Apricorn"
+	li "Grn Apricorn"
+	li "Wht Apricorn"
+	li "Blk Apricorn"
+	li "Pnk Apricorn"
+	li "Lum Berry"
+	li "Leppa Berry"
+	li "Liechi Berry"
+	li "Ganlon Berry"
+	li "Salac Berry"
+	li "Oran Berry"
+	li "Sitrus Berry"
+	li "Petaya Berry"
+	li "Apicot Berry"
+	assert_list_length NUM_BERRY_POCKET
+
+HeldItemsNames::
+	list_start
+	li "Brightpowder"
+	li "Marvel Scale"
+	li "Lucky Punch"
+	li "Metal Powder"
+	li "Quick Claw"
+	li "Soft Sand"
+	li "Sharp Beak"
+	li "Poison Barb"
+	li "King's Rock"
+	li "Silverpowder"
+	li "Amulet Coin"
+	li "Cleanse Tag"
+	li "Mystic Water"
+	li "Twistedspoon"
+	li "Blackbelt"
+	li "Blackglasses"
+	li "Pink Bow"
+	li "Stick"
+	li "Smoke Ball"
+	li "Nevermeltice"
+	li "Magnet"
+	li "Everstone"
+	li "Spell Tag"
+	li "Miracle Seed"
+	li "Thick Club"
+	li "Focus Band"
+	li "Hard Stone"
+	li "Lucky Egg"
+	li "Charcoal"
+	li "Scope Lens"
+	li "Metal Coat"
+	li "Dragon Fang"
+	li "Leftovers"
+	li "Dragon Scale"
+	li "Bersrk Gene"
+	li "Light Ball"
+	li "Polkadot Bow"
+	li "Up-Grade"
+	li "Flame Orb"
+	li "Toxic Orb"
+	li "Eviolite"
+	li "Wide Lens"
+	li "Black Sludge"
+	li "Life Orb"
+	li "Focus Sash"
+	li "Rocky Helmet"
+	li "Expert Belt"
+	li "Muscle Band"
+	li "Wise Glasses"
+	li "Shell Bell"
+	li "Big Root"
+	li "Binding Band"
+	li "Macho Brace"
+	li "Power Weight"
+	li "Power Bracer"
+	li "Power Belt"
+	li "Power Anklet"
+	li "Power Lens"
+	li "Power Band"
+	li "Choice Band"
+	li "Choice Specs"
+	li "Choice Scarf"
+	li "Assault Vest"
+	li "Weak. Policy"
+	li "Air Balloon"
+	li "Light Clay"
+	li "White Herb"
+	li "Mental Herb"
+	li "Power Herb"
+	li "Metronome"
+	li "Loaded Dice"
+	li "Absorb Bulb"
+	li "Cell Battery"
+	li "Snowball"
+	li "LuminousMoss"
+	li "Safe Goggles"
+	li "Zoom Lens"
+	assert_list_length NUM_HELD_POCKET
+
+TrainingNames::
+	list_start
+	li "Hp Up"
+	li "Protein"
+	li "Iron"
+	li "Carbos"
+	li "Calcium"
+	li "Rare Candy"
+	li "PP Up"
+	li "Zinc"
+	li "Abil.Capsule"
+	li "Abil.Patch"
+	li "Exp. Candy S"
+	li "Exp. Candy M"
+	li "Exp. Candy L"
+	li "Exp.Candy XL"
+	assert_list_length NUM_TRAINING_POCKET
+
+TreasuresNames::
+	list_start
+	li "Nugget"
+	li "Helix Fossil"
+	li "Dome Fossil"
+	li "Silver Leaf"
+	li "Gold Leaf"
+	li "Tinymushroom"
+	li "Big Mushroom"
+	li "Old Amber"
+	li "Root Fossil"
+	li "Slowpoketail"
+	li "Pearl"
+	li "Big Pearl"
+	li "Claw Fossil"
+	li "Stardust"
+	li "Star Piece"
+	li "Ursa Fossil"
+	li "Fin Fossil"
+	li "Fang Fossil"
+	li "Brick Piece"
+	assert_list_length NUM_TREASURE_POCKET
 
 KeyItemNames::
 	list_start

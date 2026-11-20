@@ -180,9 +180,33 @@ GetItemName::
 	jr nc, .Balls
 	cphl16 FIRST_KEY_ITEM
 	jr nc, .Key_Items
+	ld a, h
+	and a
+	jr nz, .new_block
 	dec bc
 	ld hl, ItemNames
 	jr .get_nth_string_16
+.new_block
+; the Medicine, Berries, Held Items, Training and Treasures blocks
+	assert HIGH(FIRST_MEDICINE_ITEM) == 1 && HIGH(FIRST_TREASURE_ITEM) == 5
+	assert LOW(FIRST_MEDICINE_ITEM) == 0 && LOW(FIRST_TREASURE_ITEM) == 0
+	dec a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, .BlockNames
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld b, 0 ; c = the low byte of the index
+	jr .get_nth_string_16
+.BlockNames:
+	dw MedicineNames
+	dw BerriesNames
+	dw HeldItemsNames
+	dw TrainingNames
+	dw TreasuresNames
 .Key_Items
 	ld hl, -(FIRST_KEY_ITEM)
 	add hl, bc

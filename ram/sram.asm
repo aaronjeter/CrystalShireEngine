@@ -11,50 +11,6 @@ ENDU
 
 SECTION "SRAM Bank 0", SRAM
 
-sPartyMail::
-; sPartyMon1Mail - sPartyMon6Mail
-for n, 1, PARTY_LENGTH + 1
-sPartyMon{d:n}Mail:: mailmsg sPartyMon{d:n}Mail
-endr
-
-sPartyMailBackup::
-; sPartyMon1MailBackup - sPartyMon6MailBackup
-for n, 1, PARTY_LENGTH + 1
-sPartyMon{d:n}MailBackup:: mailmsg sPartyMon{d:n}MailBackup
-endr
-
-sMailboxCount:: db
-sMailboxes::
-; sMailbox1 - sMailbox10
-for n, 1, MAILBOX_CAPACITY + 1
-sMailbox{d:n}:: mailmsg sMailbox{d:n}
-endr
-
-sMailboxCountBackup:: db
-sMailboxesBackup::
-; sMailbox1Backup - sMailbox10Backup
-for n, 1, MAILBOX_CAPACITY + 1
-sMailbox{d:n}Backup:: mailmsg sMailbox{d:n}Backup
-endr
-
-sMysteryGiftData::
-sMysteryGiftItem:: db
-sMysteryGiftUnlocked:: db
-sBackupMysteryGiftItem:: db
-sNumDailyMysteryGiftPartnerIDs:: db
-sDailyMysteryGiftPartnerIDs:: ds MAX_MYSTERY_GIFT_PARTNERS * 2
-sMysteryGiftDecorationsReceived:: flag_array NUM_NON_TROPHY_DECOS
-	ds 4
-sMysteryGiftTimer:: dw
-	ds 1
-sMysteryGiftTrainerHouseFlag:: db
-sMysteryGiftPartnerName:: ds NAME_LENGTH
-sMysteryGiftUnusedFlag:: db
-sMysteryGiftTrainer:: ds wMysteryGiftTrainerEnd - wMysteryGiftTrainer
-sBackupMysteryGiftItemEnd::
-
-	ds $30
-
 sRTCStatusFlags:: db
 	ds 7
 sLuckyNumberDay:: db
@@ -79,6 +35,7 @@ sBackupGameData::
 sBackupPlayerData::  ds wPlayerDataEnd - wPlayerData
 sBackupCurMapData::  ds wCurMapDataEnd - wCurMapData
 sBackupPokemonData:: ds wPokemonDataEnd - wPokemonData
+sBackupPlayerData2:: ds wPlayerData2End - wPlayerData2
 sBackupGameDataEnd::
 
 sBackupPokemonIndexTable:: ds wPokemonIndexTableEnd - wPokemonIndexTable
@@ -110,6 +67,7 @@ sGameData::
 sPlayerData::  ds wPlayerDataEnd - wPlayerData
 sCurMapData::  ds wCurMapDataEnd - wCurMapData
 sPokemonData:: ds wPokemonDataEnd - wPokemonData
+sPlayerData2:: ds wPlayerData2End - wPlayerData2
 sGameDataEnd::
 
 sPokemonIndexTable:: ds wPokemonIndexTableEnd - wPokemonIndexTable
@@ -140,21 +98,6 @@ sWritingBackup:: db ; 1 if we're saving, anything else if not.
 	ds $ff
 
 
-SECTION "Link Battle Data", SRAM
-
-sLinkBattleStats::
-sLinkBattleWins::   dw
-sLinkBattleLosses:: dw
-sLinkBattleDraws::  dw
-
-sLinkBattleRecord::
-; sLinkBattleRecord1 - sLinkBattleRecord5
-for n, 1, NUM_LINK_BATTLE_RECORDS + 1
-sLinkBattleRecord{d:n}:: link_battle_record sLinkBattleRecord{d:n}
-endr
-sLinkBattleStatsEnd::
-
-
 SECTION "SRAM Hall of Fame", SRAM
 
 sHallOfFame::
@@ -165,19 +108,6 @@ endr
 sHallOfFameEnd::
 
 
-SECTION "SRAM Crystal Data", SRAM
-
-sGSBallFlag:: db
-
-sCrystalData:: ds wCrystalDataEnd - wCrystalData
-
-sGSBallFlagBackup:: db
-
-
-SECTION "SRAM Battle Tower", SRAM
-
-	ds $18 ; unused; keeps the save layout
-
 SECTION "PokeDB Bank 1", SRAM
 
 sNewBoxMons1:: pokedb sNewBoxMons1, MONDB_ENTRIES
@@ -187,64 +117,6 @@ SECTION "PokeDB Bank 2", SRAM
 
 sNewBoxMons2:: pokedb sNewBoxMons2, MONDB_ENTRIES
 
-
-
-SECTION "SRAM Trainer Rankings", SRAM
-
-sTrainerRankings::
-sTrainerRankingGameTimeHOF:: ds 4
-sTrainerRankingStepCountHOF:: ds 4
-sTrainerRankingHealingsHOF:: ds 4
-sTrainerRankingBattlesHOF:: ds 3
-sTrainerRankingStepCount:: ds 4
-sTrainerRankingBattleTowerWins:: ds 4
-sTrainerRankingTMsHMsTaught:: ds 3
-sTrainerRankingBattles:: ds 3
-sTrainerRankingWildBattles:: ds 3
-sTrainerRankingTrainerBattles:: ds 3
-sTrainerRankingHOFEntries:: ds 3
-sTrainerRankingWildMonsCaught:: ds 3
-sTrainerRankingHookedEncounters:: ds 3
-sTrainerRankingEggsHatched:: ds 3
-sTrainerRankingMonsEvolved:: ds 3
-sTrainerRankingFruitPicked:: ds 3
-sTrainerRankingHealings:: ds 3
-sTrainerRankingMysteryGift:: ds 3
-sTrainerRankingTrades:: ds 3
-sTrainerRankingFly:: ds 3
-sTrainerRankingSurf:: ds 3
-sTrainerRankingWaterfall:: ds 3
-sTrainerRankingWhiteOuts:: ds 3
-sTrainerRankingLuckyNumberShow:: ds 3
-sTrainerRankingPhoneCalls:: ds 3
-sTrainerRankingLinkBattles:: ds 3
-sTrainerRankingSplash:: ds 3
-sTrainerRankingTreeEncounters:: ds 3
-sTrainerRankingColosseumWins:: ds 3
-sTrainerRankingColosseumLosses:: ds 3
-sTrainerRankingColosseumDraws:: ds 3
-sTrainerRankingSelfdestruct:: ds 3
-sTrainerRankingCurrentSlotsStreak:: ds 2
-sTrainerRankingLongestSlotsStreak:: ds 2
-sTrainerRankingTotalSlotsPayouts:: ds 4
-sTrainerRankingTotalBattlePayouts:: ds 4
-sTrainerRankingLongestMagikarp:: ds 2
-sTrainerRankingShortestMagikarp:: ds 2
-sTrainerRankingBugContestScore:: ds 2
-sTrainerRankingsChecksum:: ds 2
-sTrainerRankingsEnd::
-
-sTrainerRankingsBackup:: ds sTrainerRankingsEnd - sTrainerRankings
-
-
-SECTION "SRAM Bank 5", SRAM
-
-s5_a89c:: ds 22
-s5_a8b2:: ds 150
-s5_aa8d:: db
-s5_a89a:: dw
-
-ENDSECTION
 
 
 SECTION "SRAM Facility", SRAM, BANK[1]

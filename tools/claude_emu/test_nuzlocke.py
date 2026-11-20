@@ -11,7 +11,7 @@ usage: test_nuzlocke.py ROM SYM STATE
 import sys
 import ctypes as C
 from gb import LIB
-from battle_test import Game, Battle, SCENE_OFF, assemble_block, SCRIPT_ORG
+from battle_test import Game, Battle, SCENE_OFF, assemble_block, SCRIPT_ORG, pocket_entries
 from harness import at_menu
 
 ROM, SYM, STATE = sys.argv[1:4]
@@ -22,10 +22,9 @@ PARTY = [('SCYTHER', 40, None, ['FALSE_SWIPE']), ('ABRA', 20, None, ['TELEPORT']
 
 
 def area_bits(g):
-    """(area flag bytes, the 8 event flag bytes holding EVENT_NUZLOCKE_AREA_96..+63)."""
-    ev = const16(g, 'EVENT_NUZLOCKE_AREA_96')
-    assert ev % 8 == 0
-    return list(g.rd('wNuzlockeAreaFlags', 12)), list(g.rd(f'wEventFlags+{ev // 8}', 8))
+    """(area flag bytes of landmarks 0-95, those of landmarks 96-159)."""
+    a = list(g.rd('wNuzlockeAreaFlags', 20))
+    return a[:12], a[12:]
 
 
 def set_bits(nbytes):
@@ -149,8 +148,7 @@ def throw_until_caught(g):
 
 def case_second(area):
     def pre(g):
-        a = g.sym['wNuzlockeAreaFlags'][1]
-        g.wr(a + area // 8, 1 << (area % 8))
+        g.wr(f'wNuzlockeAreaFlags+{area // 8}', 1 << (area % 8))
     g = setup(pre=pre)
     enc = start(g, 'SENTRET', 3)
     check('second encounter: not catchable (area used)', enc == 1, f'enc={enc}')
@@ -189,7 +187,7 @@ def case_shiny():
 
 def case_shiny_area_used(area):
     def pre(g):
-        g.wr(g.sym['wNuzlockeAreaFlags'][1] + area // 8, 1 << (area % 8))
+        g.wr(f'wNuzlockeAreaFlags+{area // 8}', 1 << (area % 8))
     g = setup(pre=pre)
     enc = start(g, 'RATTATA', 3, 'BATTLETYPE_FORCESHINY')
     check('shiny: catchable even in a used area', enc == CATCHABLE, f'enc={enc}')
@@ -197,7 +195,7 @@ def case_shiny_area_used(area):
 
 def case_legendary(area):
     def pre(g):
-        g.wr(g.sym['wNuzlockeAreaFlags'][1] + area // 8, 1 << (area % 8))
+        g.wr(f'wNuzlockeAreaFlags+{area // 8}', 1 << (area % 8))
     g = setup(pre=pre)
     a0 = area_bits(g)
     enc = start(g, 'RAIKOU', 40)
@@ -213,7 +211,7 @@ def case_no_balls():
 
 def case_off(area):
     def pre(g):
-        g.wr(g.sym['wNuzlockeAreaFlags'][1] + area // 8, 1 << (area % 8))
+        g.wr(f'wNuzlockeAreaFlags+{area // 8}', 1 << (area % 8))
     g = setup(nz=False, pre=pre)
     a0 = area_bits(g)
     enc = start(g, 'RATTATA', 3)
@@ -230,18 +228,18 @@ def case_hoenn():
     enc = start(g, 'ZIGZAGOON', 3, mapc='ROUTE_101')
     a1 = area_bits(g)
     want = g.const('LANDMARK_ROUTE_101') - 96
-    check('landmark >= 96: event flag path', enc == CATCHABLE and a1[0] == a0[0] and set_bits(a1[1]) == [want],
+    check('landmark >= 96: its bit in the area flags', enc == CATCHABLE and a1[0] == a0[0] and set_bits(a1[1]) == [want],
           f'enc={enc} ev={set_bits(a1[1])} want={want}')
 
 
 def case_hoenn_used():
     def pre(g):
-        ev = const16(g, 'EVENT_NUZLOCKE_AREA_96') + g.const('LANDMARK_ROUTE_101') - 96
-        a = g.sym['wEventFlags'][1] + ev // 8
-        g.wr(a, g.rd(a) | 1 << (ev % 8))
+        n = g.const('LANDMARK_ROUTE_101')
+        a = f'wNuzlockeAreaFlags+{n // 8}'
+        g.wr(a, g.rd(a) | 1 << (n % 8))
     g = setup(pre=pre)
     enc = start(g, 'ZIGZAGOON', 3, mapc='ROUTE_101')
-    check('landmark >= 96: used area read from the event flag', enc == 1, f'enc={enc}')
+    check('landmark >= 96: used area read from the area flags', enc == 1, f'enc={enc}')
 
 
 def case_revive():
@@ -260,10 +258,7 @@ def case_revive():
             msgs.append(m)
         if 'effect' in m:
             break
-    n = g.rd('wNumItems')
-    items = g.rd('wItems', 3 * n)
-    revives = [items[3 * i + 2] for i in range(n) if (items[3 * i], items[3 * i + 1]) ==
-               (g.const('HIGH(REVIVE)'), g.const('LOW(REVIVE)'))]
+    revives = [q for lo, q in pocket_entries(g, 1) if lo == g.const('LOW(REVIVE)')]
     check('revive: refused on a fainted mon', any('effect' in m for m in msgs) and g.rd(hp, 2) == [0, 0]
           and revives == [2], f'{msgs[-2:]} hp={list(g.rd(hp, 2))} revives={revives}')
 
@@ -275,6 +270,8 @@ def case_sacred_ash():
         g = setup(nz=nz, items=(('SACRED_ASH', 1),))
         hp = g.sym['wPartyMon2HP'][1]
         g.wr(hp, [0, 0])
+        g.wr('wLastPocket', 1)  # MEDICINE_POCKET
+        g.wr('wMedicinePocketCursor', 1); g.wr('wMedicinePocketScrollPosition', 0)
         g.frames(30); g.press('START', after=30)
         g.press('D', after=6); g.press('D', after=6); g.press('A', after=90)   # Pack
         g.press('A', after=30); g.press('A', after=200)                       # Sacred Ash, Use
@@ -551,26 +548,6 @@ def case_cave():
           f'ok={ok2} lm={lm2} enc={enc2} want={want}')
 
 
-def case_mail():
-    """A buried Pokémon's Mail goes to the PC's mailbox; with the mailbox full it's thrown away."""
-    letter = [0x80 + i for i in range(10)]   # "ABCDEFGHIJ"
-    for full in (False, True):
-        party = [('WEEDLE', 3, 'FLOWER_MAIL', ['STRING_SHOT']), ('SCYTHER', 60, None, ['WING_ATTACK'])]
-        def pre(g):
-            sram(g, 'sPartyMail', 10, letter)
-            sram(g, 'sMailboxCount', 1, [10 if full else 0])
-        g = setup(party=party, items=(), pre=pre)
-        before = sram(g, 'sMailboxes', 10)
-        log, res = trainer_battle(g, [(30, 'RATTATA', None, ['HYPER_FANG'])], [('move', 0)] * 3, replace=[1])
-        count = sram(g, 'sMailboxCount', 1)[0]
-        box = sram(g, 'sMailboxes', 10)
-        buried = 'Weedle was laid to rest.' in log and g.rd('wPartyCount') == 1
-        if not full:
-            check('mail: the letter goes to the mailbox', buried and count == 1 and box == letter, f'count={count}')
-        else:
-            check('mail: mailbox full, the Mail is dropped', buried and count == 10 and box == before, f'count={count}')
-
-
 def case_both_faint():
     """The last Pokémon on both sides faint together (Selfdestruct): the run is over."""
     g = setup(party=[('GEODUDE', 40, None, ['SELFDESTRUCT'])], items=())
@@ -690,7 +667,7 @@ def case_forced(area):
     """A forced battle's script (Sudowoodo, Snorlax, the Rocket base traps and
     Electrodes) sets NUZLOCKE_FORCED: catchable in a used area, area untouched."""
     def pre(g):
-        g.wr(g.sym['wNuzlockeAreaFlags'][1] + area // 8, 1 << (area % 8))
+        g.wr(f'wNuzlockeAreaFlags+{area // 8}', 1 << (area % 8))
     g = setup(pre=pre)
     a0 = area_bits(g)
     forced = f"\tloadmem ${g.sym['wNuzlockeEncounter'][1]:04x}, {g.const('NUZLOCKE_FORCED')}\n"
@@ -775,7 +752,6 @@ def main():
     case_box_skips_graveyard()
     case_pc()
     case_cave()
-    case_mail()
     case_both_faint()
     case_favorite()
     case_reset()

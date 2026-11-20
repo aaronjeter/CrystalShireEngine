@@ -17,6 +17,11 @@ DEF ITEMATTR_STRUCT_LENGTH EQU _RS
 	const KEY_ITEM ; 2
 	const BALL     ; 3
 	const TM_HM    ; 4
+	const MEDICINE  ; 5
+	const BERRY     ; 6
+	const HELD_ITEM ; 7
+	const TRAINING  ; 8
+	const TREASURE  ; 9
 DEF NUM_ITEM_TYPES EQU const_value - 1
 
 ; Repel steps (engine/items/item_effects.asm; wLastRepelSteps identifies the last Repel used)
@@ -41,17 +46,28 @@ DEF MAX_REPEL_STEPS   EQU 250
 
 DEF NO_LIMITS EQU 0
 
-; pack pockets
+; pack pockets, in the order the Pack shows them
 	const_def
 	const ITEM_POCKET     ; 0
-	const BALL_POCKET     ; 1
-	const KEY_ITEM_POCKET ; 2
-	const TM_HM_POCKET    ; 3
+	const MEDICINE_POCKET ; 1
+	const BERRY_POCKET    ; 2
+	const HELD_POCKET     ; 3
+	const TRAINING_POCKET ; 4
+	const TREASURE_POCKET ; 5
+	const BALL_POCKET     ; 6
+	const TM_HM_POCKET    ; 7
+	const KEY_ITEM_POCKET ; 8
 DEF NUM_POCKETS EQU const_value
+DEF NUM_TUTORIAL_POCKETS EQU 4 ; the catching tutorial's Pack: Items, Balls, Key Items, TMs
 
-DEF MAX_ITEMS     EQU 50
-DEF MAX_BALLS     EQU 12
-DEF MAX_KEY_ITEMS EQU 30
+DEF MAX_ITEMS     EQU 40
+DEF MAX_MEDICINE  EQU 40
+DEF MAX_BERRIES   EQU 25
+DEF MAX_HELD      EQU 40
+DEF MAX_TRAINING  EQU 20
+DEF MAX_TREASURES EQU 20
+DEF MAX_BALLS     EQU 20
+DEF MAX_KEY_ITEMS EQU 40
 DEF MAX_PC_ITEMS  EQU 60
 
 DEF MAX_ITEM_STACK EQU 99

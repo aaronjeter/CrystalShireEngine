@@ -306,7 +306,6 @@ ROMX $77
 	"Tileset Data 7"
 	"bank77"
 	"Pokégear GFX"
-	"European Mail"
 ROMX $78
 ROMX $7b
 ROMX $7c
@@ -366,26 +365,19 @@ VRAM $01
 	"VRAM1"
 SRAM $00
 	"Scratch"
-	org $a600
 	"SRAM Bank 0"
-	org $ad00
 	"Saved 16-bit conversion tables"
 	"Backup Save"
 SRAM $01
 	"Save"
 	"Box Metadata"
-	"Link Battle Data"
 	"SRAM Hall of Fame"
-	"SRAM Crystal Data"
-	"SRAM Battle Tower"
 SRAM $02
 	"PokeDB Bank 1"
 SRAM $03
 	"PokeDB Bank 2"
 SRAM $04
 SRAM $05
-	"SRAM Trainer Rankings"
-	"SRAM Bank 5"
 SRAM $06
 SRAM $07
 HRAM

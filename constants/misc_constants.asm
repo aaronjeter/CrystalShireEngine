@@ -20,13 +20,17 @@ DEF POKEMON_PIKACHU_2_VERSION EQU 3
 DEF RESERVED_GAME_VERSION EQU 4
 
 ; save file corruption check values
-DEF SAVE_CHECK_VALUE_1 EQU 99
-DEF SAVE_CHECK_VALUE_2 EQU 127
+; Saves made before the save layout changed use the old check values (99, 127).
+; A new save layout changes SAVE_VERSION, so older saves are refused.
+DEF SAVE_VERSION EQU 2
+DEF OLD_SAVE_CHECK_VALUE_1 EQU 99
+DEF SAVE_CHECK_VALUE_1 EQU 100 + SAVE_VERSION
+DEF SAVE_CHECK_VALUE_2 EQU 200 + SAVE_VERSION
 
 ; the save extension (wSaveExtension): saved after the main save, without changing its layout
 DEF SAVE_EXTENSION_MAGIC_1 EQU "B"
 DEF SAVE_EXTENSION_MAGIC_2 EQU "P"
-DEF SAVE_EXTENSION_LENGTH EQU 128 ; fixed: new data takes reserved bytes, so saved copies stay valid
+DEF SAVE_EXTENSION_LENGTH EQU 256 ; fixed: new data takes reserved bytes, so saved copies stay valid
 
 ; RTC halted check value
 DEF RTC_HALT_VALUE EQU $1234

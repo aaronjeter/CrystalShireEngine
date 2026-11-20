@@ -10,7 +10,7 @@ TMHMPocket:
 	ld a, [wCurItem]
 	dec a
 	ld [wCurItemQuantity], a
-	ld hl, wTMsHMs
+	ld hl, wTMHMPocketList
 	ld c, a
 	ld b, 0
 	add hl, bc
@@ -336,6 +336,7 @@ TMHM_DisplayPocketItems:
 	cp BATTLETYPE_TUTORIAL
 	jmp z, Tutorial_TMHMPocket
 
+	farcall BuildTMHMPocketList
 	hlcoord 5, 2
 	lb bc, 10, 15
 	ld a, " "
@@ -389,23 +390,6 @@ TMHM_DisplayPocketItems:
 	rst PlaceString
 	pop hl
 	pop bc
-	ld a, c
-	push bc
-	cp NUM_TMS + 1
-	jr nc, .hm2
-	ld bc, SCREEN_WIDTH + 9
-	add hl, bc
-	ld a, "×"
-	ld [hli], a
-	pop bc
-	push bc
-	ld a, b
-	ld [wTempTMHM], a
-	ld de, wTempTMHM
-	lb bc, 1, 2
-	call PrintNum
-.hm2
-	pop bc
 	pop de
 	pop hl
 	dec d
@@ -440,7 +424,7 @@ TMHM_CancelString:
 	db "Cancel@"
 
 TMHM_GetCurrentPocketPosition:
-	ld hl, wTMsHMs
+	ld hl, wTMHMPocketList
 	ld a, [wTMHMPocketScrollPosition]
 	ld b, a
 	inc b
@@ -472,8 +456,9 @@ TMHM_PlaySFX_ReadText2:
 	ret
 
 CountTMsHMs:
+	farcall BuildTMHMPocketList
 	lb bc, 0, NUM_TMS + NUM_HMS
-	ld hl, wTMsHMs
+	ld hl, wTMHMPocketList
 .loop
 	ld a, [hli]
 	and a

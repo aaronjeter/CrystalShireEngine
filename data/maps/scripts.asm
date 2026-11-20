@@ -93,7 +93,6 @@ INCLUDE "maps/johto/mahogany/MahoganyMart1F.asm"
 INCLUDE "maps/johto/mahogany/TeamRocketBaseB1F.asm"
 INCLUDE "maps/johto/mahogany/TeamRocketBaseB2F.asm"
 INCLUDE "maps/johto/mahogany/TeamRocketBaseB3F.asm"
-INCLUDE "maps/johto/dungeons/ArticunoLair.asm"
 INCLUDE "maps/johto/dungeons/MoltresLair.asm"
 INCLUDE "maps/hoenn/ViridianForest.asm"
 
@@ -134,7 +133,6 @@ INCLUDE "maps/Route17Route18Gate.asm"
 SECTION "Map Scripts 8", ROMX
 
 INCLUDE "maps/kanto/dungeons/DiglettsCave.asm"
-INCLUDE "maps/kanto/dungeons/MountMoon.asm"
 INCLUDE "maps/UndergroundPath.asm"
 INCLUDE "maps/kanto/dungeons/RockTunnel1F.asm"
 INCLUDE "maps/kanto/dungeons/RockTunnelB1F.asm"

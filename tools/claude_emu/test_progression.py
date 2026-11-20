@@ -24,6 +24,7 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(os.path.dirname(HERE)))
 
 from harness import H, warp_script, at_menu  # noqa: E402
+from battle_test import POCKET_LISTS  # noqa: E402
 import progression_check as pc  # noqa: E402
 
 REPO = os.environ.get('CSE', os.path.dirname(os.path.dirname(HERE)))
@@ -260,11 +261,12 @@ class Game(H):
             self.script('\n'.join(cmds[i:i + 6]), wait=20)
 
     def take_field_items(self):
-        """Empty the TM/HM, item and key item pockets (the boot save has the field items)."""
+        """Empty the TM/HM, list and key item pockets (the boot save has the field items)."""
         n = self.sym['wNumItems'][1] - self.sym['wTMsHMs'][1]
         self.wr('wTMsHMs', [0] * n)
-        self.wr('wNumItems', 0)
-        self.wr('wItems', [0xFF, 0xFF, 0xFF])
+        for num, lst in POCKET_LISTS:
+            self.wr(num, 0)
+            self.wr(lst, 0xFF)
         self.wr('wNumKeyItems', 0)
         self.wr('wKeyItems', [0xFF])
 

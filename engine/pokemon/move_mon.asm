@@ -266,10 +266,10 @@ endr
 	; PokerusStatus
 	ld [de], a
 	inc de
-	; CaughtData/CaughtTime/CaughtLevel
+	; CaughtLevel (and CaughtGender)
 	ld [de], a
 	inc de
-	; CaughtGender/CaughtLocation
+	; CaughtLocation
 	ld [de], a
 	inc de
 
@@ -346,10 +346,10 @@ endr
 	; PokerusStatus
 	ld [de], a
 	inc de
-	; CaughtData/CaughtTime/CaughtLevel
+	; CaughtLevel (and CaughtGender)
 	ld [de], a
 	inc de
-	; CaughtGender/CaughtLocation
+	; CaughtLocation
 	ld [de], a
 	inc de
 
@@ -908,7 +908,7 @@ GiveEgg::
 	push de
 	ld hl, wPokedexCaught
 	ld b, RESET_FLAG
-	call FlagAction
+	call FlagActionInPlayerData2
 	pop de
 
 .skip_caught_flag
@@ -921,7 +921,7 @@ GiveEgg::
 	jr nz, .skip_seen_flag
 	ld hl, wPokedexSeen
 	ld b, RESET_FLAG
-	call FlagAction
+	call FlagActionInPlayerData2
 
 .skip_seen_flag
 	pop af
@@ -1034,46 +1034,8 @@ RemoveMonFromParty:
 	add hl, bc
 	ld bc, wPartyMonNicknamesEnd
 	call CopyDataUntil
-	; Mail time!
 .finish
-	ld a, [wLinkMode]
-	and a
-	ret nz
-	; Shift mail
-	ld a, BANK(sPartyMail)
-	call OpenSRAM
-	; If this is the last mon in our party, no need to shift mail.
-	ld hl, wPartyCount
-	ld a, [wCurPartyMon]
-	cp [hl]
-	ret z
-	jr z, .close_sram
-	; Shift our mail messages up.
-	ld hl, sPartyMail
-	ld bc, MAIL_STRUCT_LENGTH
-	rst AddNTimes
-	push hl
-	add hl, bc
-	pop de
-	ld a, [wCurPartyMon]
-	ld b, a
-.loop2
-	push bc
-	push hl
-	ld bc, MAIL_STRUCT_LENGTH
-	rst CopyBytes
-	pop hl
-	push hl
-	ld bc, MAIL_STRUCT_LENGTH
-	add hl, bc
-	pop de
-	pop bc
-	inc b
-	ld a, [wPartyCount]
-	cp b
-	jr nz, .loop2
-.close_sram
-	jmp CloseSRAM
+	ret
 
 ComputeNPCTrademonStats:
 	ld a, MON_LEVEL

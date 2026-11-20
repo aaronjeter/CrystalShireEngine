@@ -557,6 +557,8 @@ DEF JOHTO_POKEMON EQU const_value
 
 DEF NUM_JOHTO_POKEMON EQU const_value - 1
 DEF NUM_POKEMON EQU const_value - 1
+DEF NUM_SAVED_POKEMON EQU 640 ; wPokedexCaught, wPokedexSeen: room for species added later
+	assert NUM_POKEMON <= NUM_SAVED_POKEMON
 
 DEF EGG EQU -3
 

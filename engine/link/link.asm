@@ -411,34 +411,6 @@ endc
 	pop bc
 	dec b
 	jr nz, .copy_author_loop
-	ld b, PARTY_LENGTH
-	ld de, wLinkReceivedMail
-.fix_mail_loop
-	push bc
-	push de
-	farcall ParseMailLanguage
-	ld a, c
-	or a
-	jr z, .next
-	sub $3
-	jr nc, .skip
-	farcall ConvertEnglishMailToFrenchGerman
-	jr .next
-
-.skip
-	cp $2
-	jr nc, .next
-	farcall ConvertEnglishMailToSpanishItalian
-
-.next
-	pop de
-	ld hl, MAIL_STRUCT_LENGTH
-	add hl, de
-	ld d, h
-	ld e, l
-	pop bc
-	dec b
-	jr nz, .fix_mail_loop
 	ld de, wLinkReceivedMailEnd
 	xor a
 	ld [de], a
@@ -965,69 +937,15 @@ Link_PrepPartyData_Gen2:
 	ld a, SERIAL_MAIL_PREAMBLE_BYTE
 	call Link_CopyMailPreamble
 
-; Copy all the mail messages to wLinkPlayerMailMessages
-	ld a, BANK(sPartyMail)
-	call OpenSRAM
-	ld hl, sPartyMail
-	ld b, PARTY_LENGTH
-.message_loop
-	push bc
-	ld bc, MAIL_MSG_LENGTH + 1
-	rst CopyBytes
-	ld bc, MAIL_STRUCT_LENGTH - (MAIL_MSG_LENGTH + 1)
-	add hl, bc
-	pop bc
-	dec b
-	jr nz, .message_loop
-
-; Copy the mail data to wLinkPlayerMailMetadata
-	ld hl, sPartyMail
-	ld b, PARTY_LENGTH
-.metadata_loop
-	push bc
-	ld bc, MAIL_MSG_LENGTH + 1
-	add hl, bc
-	ld bc, MAIL_STRUCT_LENGTH - (MAIL_MSG_LENGTH + 1)
-	rst CopyBytes
-	pop bc
-	dec b
-	jr nz, .metadata_loop
-
-; Translate the messages if necessary
-	ld b, PARTY_LENGTH
-	ld de, sPartyMail
+; Send blank mail
 	ld hl, wLinkPlayerMailMessages
-.translate_loop
-	push bc
-	push hl
-	push de
-	push hl
-	farcall ParseMailLanguage
-	pop de
-	ld a, c
-	or a ; MAIL_LANG_ENGLISH
-	jr z, .translate_next
-	sub MAIL_LANG_ITALIAN
-	jr nc, .italian_spanish
-	farcall ConvertFrenchGermanMailToEnglish
-	jr .translate_next
-.italian_spanish
-	cp (MAIL_LANG_SPANISH + 1) - MAIL_LANG_ITALIAN
-	jr nc, .translate_next
-	farcall ConvertSpanishItalianMailToEnglish
-.translate_next
-	pop de
-	ld hl, MAIL_STRUCT_LENGTH
-	add hl, de
-	ld d, h
-	ld e, l
-	pop hl
-	ld bc, MAIL_MSG_LENGTH + 1
-	add hl, bc
-	pop bc
-	dec b
-	jr nz, .translate_loop
-	call CloseSRAM
+	ld bc, (MAIL_MSG_LENGTH + 1) * PARTY_LENGTH
+	xor a
+	rst ByteFill
+	ld hl, wLinkPlayerMailMetadata
+	ld bc, (MAIL_STRUCT_LENGTH - (MAIL_MSG_LENGTH + 1)) * PARTY_LENGTH
+	xor a
+	rst ByteFill
 
 ; The SERIAL_NO_DATA_BYTE value isn't allowed anywhere in message text
 	ld hl, wLinkPlayerMailMessages
@@ -2119,44 +2037,6 @@ LinkTrade:
 	jmp InitTradeMenuDisplay_Delay
 
 .do_trade
-	ld hl, sPartyMail
-	ld a, [wCurTradePartyMon]
-	ld bc, MAIL_STRUCT_LENGTH
-	rst AddNTimes
-	ld a, BANK(sPartyMail)
-	call OpenSRAM
-	ld d, h
-	ld e, l
-	ld bc, MAIL_STRUCT_LENGTH
-	add hl, bc
-	ld a, [wCurTradePartyMon]
-	ld c, a
-.copy_mail
-	inc c
-	ld a, c
-	cp PARTY_LENGTH
-	jr z, .copy_player_data
-	push bc
-	ld bc, MAIL_STRUCT_LENGTH
-	rst CopyBytes
-	pop bc
-	jr .copy_mail
-
-.copy_player_data
-	ld hl, sPartyMail
-	ld a, [wPartyCount]
-	dec a
-	ld bc, MAIL_STRUCT_LENGTH
-	rst AddNTimes
-	push hl
-	ld hl, wLinkPlayerMail
-	ld a, [wCurOTTradePartyMon]
-	ld bc, MAIL_STRUCT_LENGTH
-	rst AddNTimes
-	pop de
-	ld bc, MAIL_STRUCT_LENGTH
-	rst CopyBytes
-	call CloseSRAM
 
 ; Buffer player data
 ; nickname

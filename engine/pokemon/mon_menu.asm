@@ -1,15 +1,24 @@
 HasNoItems:
-	ld a, [wNumItems]
+	ld hl, .Lists
+.list_loop
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	or e
+	jr z, .tms
+	ld a, [de]
 	and a
 	ret nz
-	ld a, [wNumKeyItems]
-	and a
-	ret nz
-	ld a, [wNumBalls]
-	and a
-	ret nz
+	jr .list_loop
+
+.Lists:
+	dw wNumItems, wNumMedicine, wNumBerries, wNumHeldItems, wNumTrainingItems
+	dw wNumTreasures, wNumKeyItems, wNumBalls, 0
+
+.tms
 	ld hl, wTMsHMs
-	ld b, NUM_TMS + NUM_HMS
+	ld b, (NUM_TMHM_BITS + 7) / 8
 .loop
 	ld a, [hli]
 	and a
@@ -152,7 +161,7 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_ITEM,       GiveTakePartyMonItem
 	dbw MONMENUITEM_CANCEL,     CancelPokemonAction
 	dbw MONMENUITEM_FOLLOW,     MonMenu_Follow
-	dbw MONMENUITEM_MAIL,       MonMailAction
+	dbw MONMENUITEM_MAIL,       CancelPokemonAction ; unused
 	dbw MONMENUITEM_NICKNAME,   MonMenu_Nickname
 	dbw MONMENUITEM_UNFOLLOW,   MonMenu_Follow
 
@@ -296,21 +305,6 @@ PCGiveItem:
 	call _GetItemToGive
 	jr z, .done
 
-	; Ensure that we aren't trying to give Mail to a Pokémon in storage.
-	ld a, [wCurItem]
-	ld d, a
-	farcall ItemIsMail
-	jr nc, .item_ok
-
-	ld a, [wBufferMonBox]
-	and a
-	jr z, .item_ok
-
-	ld hl, CantPlaceMailInStorageText
-	call MenuTextboxBackup
-	jr .loop
-
-.item_ok
 	call PartyMonItemName
 	call GiveItemToPokemon
 
@@ -330,17 +324,6 @@ PCGiveItem:
 	ld [wBufferMonItem], a
 	farcall UpdateStorageBoxMonFromTemp
 
-	; We know that if we're dealing with Mail, then we're giving to a partymon.
-	; Thus, there's no harm in using party-specific code.
-	ld a, [wBufferMonSlot]
-	dec a
-	ld [wCurPartyMon], a
-	ld a, [wCurItem]
-	ld d, a
-	farcall ItemIsMail
-	jr nc, .done
-	call ComposeMailMessage
-
 .done
 	ld hl, wItemFlags
 	res IN_BAG_F, [hl]
@@ -352,25 +335,13 @@ TryGiveItemToPartymon:
 	call GetPartyItemLocation
 	ld a, [hl]
 	and a
-	jr z, .give_item_to_mon
-
-	push hl
-	ld d, a
-	farcall ItemIsMail
-	pop hl
-	jr c, .please_remove_mail
-	ld a, [hl]
-	jr .already_holding_item
+	jr nz, .already_holding_item
 
 .give_item_to_mon
 	call GiveItemToPokemon
 	ld hl, PokemonHoldItemText
 	call MenuTextboxBackup
 	jr GivePartyItem
-
-.please_remove_mail
-	ld hl, PokemonRemoveMailText
-	jmp MenuTextboxBackup
 
 .already_holding_item
 	ld [wNamedObjectIndex], a
@@ -406,10 +377,8 @@ GivePartyItem:
 	call GetPartyItemLocation
 	ld a, [wCurItem]
 	ld [hl], a
-	ld d, a
-	farcall ItemIsMail
-	ret nc
-	jmp ComposeMailMessage
+	and a
+	ret
 
 TakePartyItem:
 	call SpeechTextbox
@@ -422,7 +391,6 @@ TakePartyItem:
 	call ReceiveItemFromPokemon
 	jr nc, .item_storage_full
 
-	farcall ItemIsMail
 	call GetPartyItemLocation
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
@@ -460,10 +428,6 @@ PokemonHoldItemText:
 	text_far _PokemonHoldItemText
 	text_end
 
-PokemonRemoveMailText:
-	text_far _PokemonRemoveMailText
-	text_end
-
 PokemonNotHoldingText:
 	text_far _PokemonNotHoldingText
 	text_end
@@ -482,10 +446,6 @@ PokemonAskSwapItemText:
 
 ItemCantHeldText:
 	text_far _ItemCantHeldText
-	text_end
-
-CantPlaceMailInStorageText:
-	text_far _CantPlaceMailInStorageText
 	text_end
 
 GetPartyItemLocation:
@@ -511,149 +471,6 @@ StartMenuYesNo:
 	call MenuTextbox
 	call YesNoBox
 	jmp ExitMenu
-
-ComposeMailMessage:
-	ld de, wTempMailMessage
-	call _ComposeMailMessage
-	ld hl, wPlayerName
-	ld de, wTempMailAuthor
-	ld bc, NAME_LENGTH - 1
-	rst CopyBytes
-	ld hl, wPlayerID
-	ld bc, 2
-	rst CopyBytes
-	ld a, [wCurPartySpecies]
-	ld [de], a
-	inc de
-	ld a, [wCurItem]
-	ld [de], a
-	ld a, [wCurPartyMon]
-	ld hl, sPartyMail
-	ld bc, MAIL_STRUCT_LENGTH
-	rst AddNTimes
-	ld d, h
-	ld e, l
-	ld hl, wTempMail
-	ld bc, MAIL_STRUCT_LENGTH
-	ld a, BANK(sPartyMail)
-	call OpenSRAM
-	rst CopyBytes
-	jmp CloseSRAM
-
-MonMailAction:
-; If in the time capsule or trade center,
-; selecting the mail only allows you to
-; read the mail.
-	ld a, [wLinkMode]
-	cp LINK_TIMECAPSULE
-	jr z, .read
-	cp LINK_TRADECENTER
-	jr z, .read
-
-; Show the READ/TAKE/QUIT menu.
-	ld hl, .MenuHeader
-	call LoadMenuHeader
-	call VerticalMenu
-	call ExitMenu
-
-; Interpret the menu.
-	ld a, $3
-	ret c
-	ld a, [wMenuCursorY]
-	cp $1
-	jr z, .read
-	cp $2
-	jr z, TakeMail
-	ld a, $3
-	ret
-
-.read
-	farcall ReadPartyMonMail
-	xor a
-	ret
-
-.MenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 12, 10, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 3 ; items
-	db "Read@"
-	db "Take@"
-	db "Quit@"
-
-TakeMail:
-	ld hl, .MailAskSendToPCText
-	call StartMenuYesNo
-	jr c, .RemoveMailToBag
-	ld a, [wCurPartyMon]
-	ld b, a
-	farcall SendMailToPC
-	jr c, .MailboxFull
-	ld hl, .MailSentToPCText
-	call MenuTextboxBackup
-	jr .TookMail
-
-.MailboxFull:
-	ld hl, .MailboxFullText
-	call MenuTextboxBackup
-	jr .KeptMail
-
-.RemoveMailToBag:
-	ld hl, .MailLoseMessageText
-	call StartMenuYesNo
-	jr c, .KeptMail
-	call GetPartyItemLocation
-	ld a, [hl]
-	ld [wCurItem], a
-	call ReceiveItemFromPokemon
-	jr nc, .BagIsFull
-	call GetPartyItemLocation
-	ld [hl], $0
-	call GetCurNickname
-	ld hl, .MailDetachedText
-	call MenuTextboxBackup
-	; fallthrough
-.TookMail:
-	scf
-	jr .done
-
-.BagIsFull:
-	ld hl, .MailNoSpaceText
-	call MenuTextboxBackup
-	; fallthrough
-.KeptMail:
-	and a
-.done
-	ld a, $3
-	ret
-
-.MailLoseMessageText:
-	text_far _MailLoseMessageText
-	text_end
-
-.MailDetachedText:
-	text_far _MailDetachedText
-	text_end
-
-.MailNoSpaceText:
-	text_far _MailNoSpaceText
-	text_end
-
-.MailAskSendToPCText:
-	text_far _MailAskSendToPCText
-	text_end
-
-.MailboxFullText:
-	text_far _MailboxFullText
-	text_end
-
-.MailSentToPCText:
-	text_far _MailSentToPCText
-	text_end
 
 OpenPartyStats:
 ; PartyMon

@@ -2201,28 +2201,11 @@ BillsPC_IsHoldingItem:
 	ret
 
 BillsPC_TakeMail:
-; Returns carry if mail is taken.
-	ld a, [wBufferMonSlot]
-	dec a
-	ld [wCurPartyMon], a
-	call BillsPC_HideCursorAndMode
-	farcall TakeMail
-
-	; Preserve return flags.
-	push af
-	call GetCursorMon
-	ld a, 1
-	ldh [hBGMapMode], a
-	pop af
+	and a
 	ret
 
 BillsPC_ReadMail:
-	ld a, [wBufferMonSlot]
-	dec a
-	ld [wCurPartyMon], a
-	call BillsPC_PrepareTransistion
-	farcall ReadPartyMonMail
-	jr BillsPC_ReturnFromTransistion
+	ret
 
 BillsPC_MoveItem:
 ; Pick up item for movement.
@@ -3022,33 +3005,8 @@ BillsPC_SwapStorage:
 	jmp nc, .failed
 	; fallthrough
 .dest_is_itemless
-	; Check if we want to compose a message.
 	ld a, [wBillsPC_CursorItem]
 	ld [wCurItem], a
-	ld d, a
-	call ItemIsMail_a
-	ld a, d
-	jr nc, .compose_check_done
-
-	push af
-	ld a, [wBufferMonSlot]
-	dec a
-	ld [wCurPartyMon], a
-	ld a, [wBufferMonSpecies]
-	ld [wCurPartySpecies], a
-	call BillsPC_PrepareTransistion
-	farcall ComposeMailMessage
-	call BillsPC_ReturnFromTransistion
-
-	; reload cursor item icon
-	ld a, 1
-	ldh [rVBK], a
-	call BillsPC_LoadCursorItemIcon
-	xor a
-	ldh [rVBK], a
-	pop af
-
-.compose_check_done
 	ld [wBufferMonItem], a
 	ld [wCurItem], a
 	call BillsPC_UpdateStorage

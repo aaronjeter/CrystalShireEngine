@@ -79,38 +79,7 @@ GoldenrodPokecenter1FLassScript:
 	jumptextfaceplayer GoldenrodPokecenter1FLassText
 
 GoldenrodPokecenter1FPokefanF:
-	faceplayer
-	opentext
-	writetext GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText
-	waitbutton
-	writetext GoldenrodPokecenter1FAskGiveAwayAnEonMailText
-	yesorno
-	iffalse .NoEonMail
-	takeitem EON_MAIL
-	iffalse .NoEonMail
-	writetext GoldenrodPokecenter1FPlayerGaveAwayTheEonMailText
-	waitbutton
-	writetext GoldenrodPokecenter1FPokefanFThisIsForYouText
-	waitbutton
-	verbosegiveitem REVIVE
-	iffalse .NoRoom
-	writetext GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText
-	waitbutton
-	closetext
-	end
-
-.NoEonMail:
-	writetext GoldenrodPokecenter1FPokefanFTooBadText
-	waitbutton
-	closetext
-	end
-
-.NoRoom:
-	giveitem EON_MAIL
-	writetext GoldenrodPokecenter1FPokefanFAnotherTimeThenText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GoldenrodPokecenter1FPokefanFText
 
 GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtLeftDoorwayTileMovement:
 	step UP
@@ -189,52 +158,13 @@ GoldenrodPokeCenter1FLinkReceptionistPleaseDoComeAgainText:
 	line "again!"
 	done
 
-GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText:
+GoldenrodPokecenter1FPokefanFText:
 	text "Oh my, your pack"
 	line "looks so heavy!"
 
-	para "Oh! Do you happen"
-	line "to have something"
-	cont "named Eon Mail?"
-
-	para "My daughter is"
-	line "after one."
-
-	para "You can part with"
-	line "one, can't you?"
-	done
-
-GoldenrodPokecenter1FAskGiveAwayAnEonMailText:
-	text "Give away an Eon"
-	line "Mail?"
-	done
-
-GoldenrodPokecenter1FPokefanFThisIsForYouText:
-	text "Oh, that's great!"
-	line "Thank you, honey!"
-
-	para "Here, this is for"
-	line "you in return!"
-	done
-
-GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText:
-	text "My daughter will"
-	line "be delighted!"
-	done
-
-GoldenrodPokecenter1FPokefanFTooBadText:
-	text "Oh? You don't have"
-	line "one? Too bad."
-	done
-
-GoldenrodPokecenter1FPokefanFAnotherTimeThenText:
-	text "Oh… Well, another"
-	line "time, then."
-	done
-
-GoldenrodPokecenter1FPlayerGaveAwayTheEonMailText:
-	text "<PLAYER> gave away"
-	line "the Eon Mail."
+	para "My daughter's"
+	line "pack is always"
+	cont "full of Berries."
 	done
 
 GoldenrodPokecenter1F_MapEvents:

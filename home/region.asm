@@ -30,6 +30,8 @@ LandmarkToRegion::
 ; a = landmark -> a = region
 	cp LANDMARK_FAST_SHIP
 	jr z, .johto
+	cp HOENN_EXTRA_LANDMARK
+	jr nc, .hoenn
 	cp JOHTO_EXTRA_LANDMARK
 	jr nc, .johto
 	cp HOENN_LANDMARK

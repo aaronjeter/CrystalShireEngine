@@ -1468,7 +1468,7 @@ Pokedex_DrawMainScreenBG:
 	call Pokedex_PlaceString
 	ld hl, wPokedexSeen
 	ld bc, wEndPokedexSeen - wPokedexSeen
-	call CountSetBits16
+	call CountDexFlags
 	ld a, c
 	ld de, wPokedexDisplayNumber + 1
 	ld [de], a
@@ -1483,7 +1483,7 @@ Pokedex_DrawMainScreenBG:
 	call Pokedex_PlaceString
 	ld hl, wPokedexCaught
 	ld bc, wEndPokedexCaught - wPokedexCaught
-	call CountSetBits16
+	call CountDexFlags
 	ld a, c
 	ld de, wPokedexDisplayNumber + 1
 	ld [de], a
@@ -1886,7 +1886,7 @@ Pokedex_PrintListing:
 	and e
 	inc a
 	ret z
-	ld a, BANK(wPokedexSeen)
+	ld a, 1 ; the usual WRAMX bank (the dex flag routines switch to the flags' bank)
 	ldh [rSVBK], a
 	call Pokedex_PrintNumberIfOldMode
 	call Pokedex_PlaceDefaultStringIfNotSeen
@@ -2005,6 +2005,10 @@ Pokedex_CheckSeen:
 	ret
 
 Pokedex_OrderMonsByMode:
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wPokedexSeen)
+	ldh [rSVBK], a
 	ld hl, wEndPokedexSeen - 1
 	ld c, wEndPokedexSeen - wPokedexSeen
 .last_seen_loop
@@ -2014,6 +2018,10 @@ Pokedex_OrderMonsByMode:
 	dec c
 	jr nz, .last_seen_loop
 .found_last_seen
+	ld b, a
+	pop af
+	ldh [rSVBK], a
+	ld a, b
 	ld [wDexLastSeenValue], a
 	dec c
 	and a ;flags will be preserved until the jump, since all following operations are loads (and a push)
@@ -2093,7 +2101,7 @@ Pokedex_OrderMonsByMode:
 	ld de, wPokedexOrder
 	ld bc, NUM_POKEMON * 2
 	rst CopyBytes
-	ld a, BANK(wPokedexSeen)
+	ld a, 1 ; the usual WRAMX bank (the dex flag routines switch to the flags' bank)
 	ldh [rSVBK], a
 	ld bc, NUM_POKEMON
 	ld hl, NewPokedexOrder + (2 * NUM_POKEMON) - 1
@@ -2127,7 +2135,7 @@ Pokedex_ABCMode:
 	ld [hl], HIGH(-NUM_POKEMON)
 	ld bc, AlphabeticalPokedexOrder
 	ld de, wPokedexOrder
-	ld a, BANK(wPokedexSeen)
+	ld a, 1 ; the usual WRAMX bank (the dex flag routines switch to the flags' bank)
 	ldh [rSVBK], a
 .loop
 	push de
@@ -2151,7 +2159,7 @@ Pokedex_ABCMode:
 	ld a, [bc]
 	ld [de], a
 	inc de
-	ld a, BANK(wPokedexSeen)
+	ld a, 1 ; the usual WRAMX bank (the dex flag routines switch to the flags' bank)
 	ldh [rSVBK], a
 .skip
 	inc bc
@@ -2390,7 +2398,7 @@ Pokedex_SearchForMons:
 	push de
 	ld d, b
 	ld e, c
-	ld a, BANK(wPokedexSeen)
+	ld a, 1 ; the usual WRAMX bank (the dex flag routines switch to the flags' bank)
 	ldh [rSVBK], a
 	call CheckSeenMonIndex
 	ld a, BANK(wPokedexOrder)

@@ -61,7 +61,9 @@ def main():
         first = mon('MON_MOVES')
         g.wr(f'wPartyMon1+{off["MON_MOVES"]}', [first, 0, 0, 0])
         g.wr('wLevelCap', cap)
-        g.wr('wNumItems', [0, 0xff])
+        g.wr('wNumTrainingItems', [0, 0xff])
+        g.wr('wLastPocket', 4)  # TRAINING_POCKET
+        g.wr('wTrainingPocketCursor', 1); g.wr('wTrainingPocketScrollPosition', 0)
         g.script(f'\tgiveitem {item}, 2', 30)
 
     def use():
@@ -71,7 +73,7 @@ def main():
             if 'Contains' in g.screen_text():
                 break
             g.press('D', after=15)
-        g.press('A', after=90)   # the Pack, Items pocket
+        g.press('A', after=90)   # the Pack, Training pocket
         g.press('A', after=30)   # the item: Use/Give/Toss/Quit
         g.press('A', after=120)  # Use: the party menu
         g.press('A', after=60)   # the first Pokémon

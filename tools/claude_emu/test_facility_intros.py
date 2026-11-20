@@ -10,7 +10,7 @@ usage: test_facility_intros.py ROM SYM STATE
 """
 import sys
 from harness import warp_script
-from battle_test import Battle, is_party_menu
+from battle_test import Battle, is_party_menu, fill_pocket
 import test_facility as T
 
 ROM, SYM, STATE = sys.argv[1:4]
@@ -111,11 +111,8 @@ def play(mapc, x, y, steps, end, win, full=False, flags=(), locked=False):
             g.press('B', after=20)
     for it in ('EXP_CANDY_S', 'ABILITY_CAPSULE', 'ABILITY_PATCH'):
         g.script(f'\ttakeitem {it}, 99', 20)
-    if full:  # the item pocket full of Potions: no room for the prizes
-        pot = g.const16('POTION')
-        n = g.const('MAX_ITEMS')
-        g.wr('wNumItems', n)
-        g.wr('wItems', [pot >> 8, pot & 0xff, 1] * n + [0xff])  # index big endian, quantity
+    if full:  # the Training pocket full of HP Ups: no room for the prizes
+        fill_pocket(g, 'HP_UP', g.const('MAX_TRAINING'))
     before = T.party_block(g)
     g.money = g.rd('wMoney', 3)
     for d in steps:
@@ -168,7 +165,7 @@ def main():
     for _ in range(4):  # close the receptionist's text, so the item checks' scripts run
         g.press('B', after=40)
     check('Kanto, Pack too full for the prizes: no challenge, no flag, nothing taken',
-          battles == 0 and not flag(g, fl) and g.rd('wNumItems') == g.const('MAX_ITEMS') and
+          battles == 0 and not flag(g, fl) and g.rd('wNumTrainingItems') == g.const('MAX_TRAINING') and
           not item_count(g, 'EXP_CANDY_S'), str(battles))
     bad = [n for n, ok in T.RESULTS if not ok]
     print(f'{len(T.RESULTS) - len(bad)}/{len(T.RESULTS)} passed')

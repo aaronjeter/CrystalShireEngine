@@ -91,7 +91,7 @@ DEF GBPRINTER_DARKEST  EQU $7f
 	const EXP_SHARE_OFF   ; 3 (0 = the party's other Pokémon get a share of the EXP and the EVs)
 	const NUZLOCKE_ON     ; 4 (1 = Nuzlocke mode: engine/events/nuzlocke.asm)
 
-DEF NUM_NUZLOCKE_AREA_BYTES EQU 12 ; wNuzlockeAreaFlags
+DEF NUM_NUZLOCKE_AREA_BYTES EQU 32 ; wNuzlockeAreaFlags: one bit per landmark
 DEF NUZLOCKE_GRAVEYARD_BOX EQU 13 ; Nuzlocke mode: boxes 13 to NUM_BOXES hold fainted Pokémon
 
 ; wNuzlockeEncounter::

@@ -87,29 +87,6 @@ _SwitchPartyMons:
 	pop de
 	ld hl, wSwitchMonBuffer
 	call .CopyName
-	ld hl, sPartyMail
-	ld a, [wSwitchMonTo]
-	ld bc, MAIL_STRUCT_LENGTH
-	rst AddNTimes
-	push hl
-	ld de, wSwitchMonBuffer
-	ld bc, MAIL_STRUCT_LENGTH
-	ld a, BANK(sPartyMail)
-	call OpenSRAM
-	rst CopyBytes
-	ld hl, sPartyMail
-	ld a, [wSwitchMonFrom]
-	ld bc, MAIL_STRUCT_LENGTH
-	rst AddNTimes
-	pop de
-	push hl
-	ld bc, MAIL_STRUCT_LENGTH
-	rst CopyBytes
-	pop de
-	ld hl, wSwitchMonBuffer
-	ld bc, MAIL_STRUCT_LENGTH
-	rst CopyBytes
-	call CloseSRAM
 	jmp PopBCDEHL
 
 .CopyNameToSwitchMonBuffer:

@@ -281,7 +281,6 @@ MountMoonSquare_MapEvents:
 
 	def_warp_events
 	warp_event 20,  5, MT_MOON_1F, 2
-	warp_event 22, 11, MOUNT_MOON, 6
 	warp_event 13,  7, MOUNT_MOON_GIFT_SHOP, 1
 
 	def_coord_events

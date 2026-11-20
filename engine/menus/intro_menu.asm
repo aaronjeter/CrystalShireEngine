@@ -43,11 +43,6 @@ NewGame_ClearTilemapEtc:
 	call LoadStandardFont
 	jmp ClearWindowData
 
-MysteryGift:
-	call UpdateTime
-	farcall DoMysteryGiftIfDayHasPassed
-	farjp DoMysteryGift
-
 Option:
 	farjp _Option
 
@@ -110,6 +105,15 @@ _ResetWRAM:
 	xor a
 	rst ByteFill
 
+	ld a, BANK(wPlayerData2)
+	ldh [rSVBK], a
+	ld hl, wPlayerData2
+	ld bc, wPlayerData2End - wPlayerData2
+	xor a
+	rst ByteFill
+	ld a, 1
+	ldh [rSVBK], a
+
 	farcall ClearSaveExtension
 
 	ldh a, [rLY]
@@ -142,6 +146,21 @@ _ResetWRAM:
 	ld hl, wNumItems
 	call .InitList
 
+	ld hl, wNumMedicine
+	call .InitList
+
+	ld hl, wNumBerries
+	call .InitList
+
+	ld hl, wNumHeldItems
+	call .InitList
+
+	ld hl, wNumTrainingItems
+	call .InitList
+
+	ld hl, wNumTreasures
+	call .InitList
+
 	ld hl, wNumKeyItems
 	call .InitList
 
@@ -162,16 +181,6 @@ _ResetWRAM:
 	ld [wRoamMon1MapNumber], a
 	ld [wRoamMon2MapNumber], a
 	ld [wRoamMon3MapNumber], a
-
-	ld a, BANK(sMysteryGiftItem) ; aka BANK(sMysteryGiftUnlocked)
-	call OpenSRAM
-	ld hl, sMysteryGiftItem
-	xor a
-	ld [hli], a
-	assert sMysteryGiftItem + 1 == sMysteryGiftUnlocked
-	dec a ; -1
-	ld [hl], a
-	call CloseSRAM
 
 	call LoadOrRegenerateLuckyIDNumber
 	call InitializeMagikarpHouse
@@ -214,8 +223,6 @@ endc
 	call InitializeNPCNames
 
 	farcall InitDecorations
-
-	farcall DeletePartyMonMail
 
 	jmp ResetGameTime
 
@@ -299,7 +306,6 @@ Continue:
 	farcall TryLoadSaveFile
 	ret c
 	farcall LoadSaveExtension
-	farcall _LoadData
 	call LoadStandardMenuHeader
 	call DisplaySaveInfoOnContinue
 	ld a, $1
@@ -323,7 +329,6 @@ Continue:
 	ld c, 20
 	call DelayFrames
 	farcall JumpRoamMons
-	farcall CopyMysteryGiftReceivedDecorationsToPC
 	farcall ClockContinue
 	ld a, [wSpawnAfterChampion]
 	cp SPAWN_LANCE
@@ -517,7 +522,7 @@ Continue_DisplayPokedexNumCaught:
 	push hl
 	ld hl, wPokedexCaught
 	ld bc, wEndPokedexCaught - wPokedexCaught
-	call CountSetBits16
+	call CountDexFlags
 	pop hl
 	ld a, b
 	ld b, c

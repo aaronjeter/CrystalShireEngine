@@ -42,7 +42,7 @@ def on_map(g, name):
 
 def event(g, name):
     n = g.const16(name)
-    return g.rd(g.sym['wEventFlags'][1] + n // 8) >> (n % 8) & 1
+    return g.rd(f'wEventFlags+{n // 8}') >> (n % 8) & 1
 
 
 def text_shown(g):

@@ -156,6 +156,7 @@ Landmarks:
 	landmark  92,  22, SilverPassName
 	landmark  84,  22, Route48Name
 	landmark  76,  20, SilverTownName
+	landmark 148, 124, BattleResortName
 	assert_table_length NUM_LANDMARKS
 
 NewBarkTownName:     db "New Bark<BSP>Town@"
@@ -306,3 +307,4 @@ Route47Name:         db "Route 47@"
 SilverPassName:      db "Silver Pass@"
 Route48Name:         db "Route 48@"
 SilverTownName:      db "Silver Town@"
+BattleResortName:    db "Battle<BSP>Resort@"

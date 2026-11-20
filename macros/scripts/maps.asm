@@ -166,6 +166,8 @@ MACRO object_event
 	; the dummy PlayerObjectTemplate object_event has no def_object_events
 	if DEF(_NUM_OBJECT_EVENTS)
 		DEF {_NUM_OBJECT_EVENTS} += 1
+		; map objects 1 to NUM_OBJECTS - 2: 0 is the player, the last is the follower
+		assert {_NUM_OBJECT_EVENTS} <= NUM_OBJECTS - 2, "too many object_events"
 	endc
 ENDM
 

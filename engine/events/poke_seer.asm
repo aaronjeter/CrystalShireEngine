@@ -83,6 +83,7 @@ SeerAction4:
 	jmp SeerAdvice
 
 ReadCaughtData:
+; wSeerCaughtData = the caught level byte, wSeerCaughtGender = the location
 	ld a, MON_CAUGHTDATA
 	call GetPartyParamLocation
 	ld a, [hli]
@@ -138,8 +139,7 @@ GetCaughtLevel:
 	ld bc, 4
 	rst ByteFill
 
-	; caught level
-	; Limited to between 1 and 63 since it's a 6-bit quantity.
+	; caught level (7 bits)
 	ld a, [wSeerCaughtData]
 	and CAUGHT_LEVEL_MASK
 	jr z, .unknown
@@ -164,10 +164,17 @@ GetCaughtLevel:
 	db "???@"
 
 GetCaughtTime:
-	ld a, [wSeerCaughtData]
-	and CAUGHT_TIME_MASK
-	rlca
-	rlca
+	ld a, MON_CAUGHTTIME
+	call GetPartyParamLocation
+	ld a, [hl]
+	and a
+	jr nz, .known
+	ld de, wSeerTimeOfDay
+	call UnknownCaughtData
+	and a
+	ret
+
+.known
 	dec a
 	maskbits NUM_DAYTIMES
 	ld hl, .times
@@ -194,8 +201,8 @@ UnknownCaughtData:
 	db "Unknown@"
 
 GetCaughtLocation:
-	ld a, [wSeerCaughtGender]
-	and CAUGHT_LOCATION_MASK
+	ld a, [wSeerCaughtGender] ; the location
+	and a
 	jr z, .Unknown
 	cp LANDMARK_EVENT
 	jr z, .event
@@ -237,7 +244,7 @@ GetCaughtOT:
 
 ; this routine is useless in Western localizations
 	ld hl, .male
-	ld a, [wSeerCaughtGender]
+	ld a, [wSeerCaughtData]
 	bit 7, a
 	jr z, .got_grammar
 	ld hl, .female
@@ -361,15 +368,17 @@ SeerImpressedText:
 	text_end
 
 GetCaughtGender:
-	ld hl, MON_CAUGHTGENDER
+; bc = a Pokémon struct: c = CAUGHT_BY_*
+	ld hl, MON_CAUGHTLOCATION
 	add hl, bc
-
 	ld a, [hl]
-	and CAUGHT_LOCATION_MASK
+	and a
 	jr z, .genderless
 	cp LANDMARK_EVENT
 	jr z, .genderless
 
+	ld hl, MON_CAUGHTGENDER
+	add hl, bc
 	ld a, [hl]
 	and CAUGHT_GENDER_MASK
 	jr nz, .male

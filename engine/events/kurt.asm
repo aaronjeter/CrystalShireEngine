@@ -164,28 +164,21 @@ PlaceApricornQuantity:
 	jmp PrintNum
 
 Kurt_GetQuantityOfApricorn:
+; wItemQuantityChange = how many of Apricorn [wCurItem] the Berries pocket holds (at most 99)
 	push bc
 	push de
-	ld hl, wNumItems
 	ld a, [wCurItem]
-	push hl
 	call GetItemIndexFromID
-	ld d, h
-	ld e, l
-	pop hl
-	ld c, a
+	ld d, l
+	ld hl, wBerries
 	ld b, 0
 .loop
-	inc hl
 	ld a, [hli]
 	cp -1
 	jr z, .done
 	cp d
 	ld a, [hli]
 	jr nz, .loop
-	cp e
-	jr nz, .loop
-	ld a, [hl]
 	add b
 	ld b, a
 	jr nc, .loop
@@ -193,12 +186,10 @@ Kurt_GetQuantityOfApricorn:
 
 .done
 	ld a, b
-	sub 99
-	jr c, .done2
-	ld b, 99
-
-.done2
-	ld a, b
+	cp 99
+	jr c, .got_count
+	ld a, 99
+.got_count
 	ld [wItemQuantityChange], a
 	and a
 	pop de
@@ -206,206 +197,55 @@ Kurt_GetQuantityOfApricorn:
 	ret
 
 Kurt_GiveUpSelectedQuantityOfSelectedApricorn:
-; Get the quantity of Apricorns of type [wCurItem]
-; in the bag. Compatible with multiple stacks.
-
-; Initialize the search.
+; Take [wItemQuantityChange] of Apricorn [wCurItem] from the Berries pocket, from
+; as many stacks as it takes. Returns a = the quantity that couldn't be taken (z if none).
 	push de
 	push bc
-	ld hl, wNumItems
 	ld a, [wCurItem]
-	push hl
 	call GetItemIndexFromID
-	ld b, h
-	ld c, l
-	pop hl
-	ld e, $0
-	xor a
-	ld [wCurItemQuantity], a
-	ld a, -1
-	ld [wApricorns], a
-
-; Search for [wCurItem] in the bag.
-.loop1
-; Increase the total count.
-	ld a, [wCurItemQuantity] ; no-optimize Inefficient WRAM increment/decrement
-	inc a
-	ld [wCurItemQuantity], a
-; Get the index of the next item.
-	inc hl
-	ld a, [hli]
-; If we've reached the end of the pocket, break.
-	cp -1
-	jr z, .okay1
-; If we haven't found what we're looking for, continue.
-	cp b
-	ld a, [hli]
-	jr nz, .loop1
-	cp c
-	jr nz, .loop1
-; Increment the result counter and store the bag index of the match.
-	ld d, $0
-	push hl
-	ld hl, wApricorns
-	add hl, de
-	inc e
-	ld a, [wCurItemQuantity]
-	dec a
-	ld [hli], a
-	ld [hl], -1
-	pop hl
-	jr .loop1
-
-.okay1
-; How many stacks have we found?
-	ld a, e
-	and a
-	jr z, .done
-	dec a
-	jr z, .OnlyOne
-	ld hl, wApricorns
-
-.loop2
-	ld a, [hl]
-	ld c, a
-	push hl
-.loop3
-	inc hl
-	ld a, [hl]
-	cp -1
-	jr z, .okay2
+	ld d, l
+	ld a, [wItemQuantityChange]
 	ld b, a
-	ld a, c
-	call Kurt_GetAddressOfApricornQuantity
-	ld e, a
+.loop
 	ld a, b
-	call Kurt_GetAddressOfApricornQuantity
-	sub e
-	jr z, .equal
-	jr c, .less
-	jr .loop3
-
-.equal
-	ld a, c
-	sub b
-	jr nc, .loop3
-
-.less
-	ld a, c
-	ld c, b
-	ld [hl], a
-	ld a, c
-	pop hl
-	ld [hl], a
-	push hl
-	jr .loop3
-
-.okay2
-	pop hl
-	inc hl
-	ld a, [hl]
-	cp -1
-	jr nz, .loop2
-
-.OnlyOne:
-	ld hl, wApricorns
-.loop4
-	ld a, [hl]
-	cp -1
-	jr z, .done
-	push hl
-	ld [wCurItemQuantity], a
-	call Kurt_GetRidOfItem
-	pop hl
-	ld a, [wItemQuantityChange]
 	and a
 	jr z, .done
-	push hl
-	ld a, [hli]
-	ld c, a
-.loop5
-	ld a, [hli]
-	cp -1
-	jr z, .okay3
-	cp c
-	jr c, .loop5
-	dec a
-	dec hl
-	ld [hli], a
-	jr .loop5
-
-.okay3
-	pop hl
-	inc hl
-	jr .loop4
-
-.done
-	ld a, [wItemQuantityChange]
-	and a
-	pop bc
-	pop de
-	ret
-
-Kurt_GetAddressOfApricornQuantity:
-	push hl
-	push bc
-	ld hl, wNumItems + 2
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld a, [hl]
-	pop bc
-	pop hl
-	ret
-
-Kurt_GetRidOfItem:
-	push bc
-	push de
-	ld hl, wNumItems + 1
-	ld a, [wCurItemQuantity]
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld a, [wCurItem]
-	push hl
-	call GetItemIndexFromID
-	ld d, h
-	ld e, l
-	pop hl
+	; find a stack of it
+	ld hl, wBerries
+.find
 	ld a, [hli]
 	cp -1
 	jr z, .done
 	cp d
-	ld a, [hli]
-	jr nz, .done
-	cp e
-	ld a, [hl]
-	jr nz, .done
-	ld a, [wItemQuantityChange]
-	ld c, a
-	ld a, [hl]
-	sub c
-	ld b, c
-	jr nc, .okay
-	add c
-	ld b, a
+	jr z, .found
+	inc hl
+	jr .find
 
-.okay
-	push bc
-	ld hl, wNumItems
+.found
+	ld a, [hl]
+	cp b
+	jr c, .take ; the whole stack
 	ld a, b
+.take
+	ld c, a
 	ld [wItemQuantityChange], a
+	ld a, -1 ; no list position hint
+	ld [wCurItemQuantity], a
+	push bc
+	push de
+	ld hl, wNumItems
 	call TossItem
-	pop bc
-	ld a, c
-	sub b
-
-.done
-	ld [wItemQuantityChange], a
 	pop de
 	pop bc
+	ld a, b
+	sub c
+	ld b, a
+	jr .loop
+
+.done
+	ld a, b
+	ld [wItemQuantityChange], a
+	and a
+	pop bc
+	pop de
 	ret

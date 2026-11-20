@@ -477,7 +477,6 @@ ENDM
 	map_attributes MahoganyPokecenter1F, MAHOGANY_POKECENTER_1F, $00, 0
 	map_attributes Route42EcruteakGate, ROUTE_42_ECRUTEAK_GATE, $00, 0
 	map_attributes DiglettsCave, DIGLETTS_CAVE, $09, 0
-	map_attributes MountMoon, MOUNT_MOON, $09, 0
 	map_attributes UndergroundPath, UNDERGROUND_PATH, $00, 0
 	map_attributes RockTunnel1F, ROCK_TUNNEL_1F, $09, 0
 	map_attributes RockTunnelB1F, ROCK_TUNNEL_B1F, $09, 0
@@ -701,7 +700,6 @@ ENDM
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
 	map_attributes IlexWest, ILEX_WEST, $05, 0
 	map_attributes IlexEast, ILEX_EAST, $05, 0
-	map_attributes ArticunoLair, ARTICUNO_LAIR, $19, 0
 	map_attributes MoltresLair, MOLTRES_LAIR, $b6, 0
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $50, 0
 	map_attributes PetalburgWoods, PETALBURG_WOODS, $4c, 0

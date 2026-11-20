@@ -107,7 +107,7 @@ EngineFlags:
 	engine_flag wVisitedSpawns, SPAWN_MAHOGANY
 	engine_flag wVisitedSpawns, SPAWN_LAKE_OF_RAGE
 	engine_flag wVisitedSpawns, SPAWN_BLACKTHORN
-	engine_flag wVisitedSpawns, SPAWN_MT_SILVER
+	engine_flag wVisitedSpawns, SPAWN_SILVER_TOWN
 	engine_flag wVisitedSpawns, SPAWN_LITTLEROOT
 	engine_flag wVisitedSpawns, SPAWN_OLDALE
 	engine_flag wVisitedSpawns, SPAWN_PETALBURG
@@ -124,6 +124,8 @@ EngineFlags:
 	engine_flag wVisitedSpawns, SPAWN_SOOTOPOLIS
 	engine_flag wVisitedSpawns, SPAWN_PACIFIDLOG
 	engine_flag wVisitedSpawns, SPAWN_EVERGRANDE
+	engine_flag wVisitedSpawns, SPAWN_SILVER_CAVE
+	engine_flag wVisitedSpawns, SPAWN_BATTLE_RESORT
 	engine_flag wVisitedSpawns, NUM_SPAWNS ; unused
 
 	engine_flag wLuckyNumberShowFlag, LUCKYNUMBERSHOW_GAME_OVER_F

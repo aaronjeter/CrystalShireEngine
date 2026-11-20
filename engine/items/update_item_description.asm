@@ -11,8 +11,8 @@ UpdateItemDescription:
 	farjp PrintItemDescription
 
 UpdateItemBallDescription:
+	call GetPocketIndexHigh
 	ld a, [wMenuSelection]
-	ld h, HIGH(FIRST_BALL_ITEM)
 	ld l, a
 	jr UpdateDescription16bit
 

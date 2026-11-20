@@ -181,9 +181,10 @@ def case_battle(mapc, x, y, how, shiny=False):
 
 
 def case_counts():
-    # Union Cave 1F: 9 objects near the entrance, so 3 spawns fill the object structs
+    # Union Cave 1F: 9 objects near the entrance, so 3 spawns fill the object structs;
+    # Ilex Forest: 14 objects, so 2 spawns (1 before NUM_OBJECTS went from 16 to 20)
     for mapc, x, y, want in (('ROUTE_29', 20, 10, 3), ('UNION_CAVE_1F', 5, 19, 3), ('ICE_PATH_1F', 4, 18, 5),
-                             ('ROUTE_101', 10, 10, 3), ('ILEX_FOREST', 3, 40, 1), ('ROUTE_30', 7, 30, 3),
+                             ('ROUTE_101', 10, 10, 3), ('ILEX_FOREST', 3, 40, 2), ('ROUTE_30', 7, 30, 3),
                              ('NEW_BARK_TOWN', 10, 10, 0)):
         g = setup(mapc, x, y)
         s = spawns(g)

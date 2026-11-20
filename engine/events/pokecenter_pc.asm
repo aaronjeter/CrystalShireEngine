@@ -255,7 +255,7 @@ _PlayersPC:
 
 PlayersPCMenuData:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 0, 15, 12
+	menu_coords 0, 0, 15, 10
 	dw .PlayersPCMenuData
 	db 1 ; default selected option
 
@@ -271,7 +271,7 @@ PlayersPCMenuData:
 	dw PlayerWithdrawItemMenu, .WithdrawItem
 	dw PlayerDepositItemMenu,  .DepositItem
 	dw PlayerTossItemMenu,     .TossItem
-	dw PlayerMailBoxMenu,      .MailBox
+	dw PlayerLogOffMenu,       .MailBox ; unused
 	dw PlayerDecorationMenu,   .Decoration
 	dw PlayerLogOffMenu,       .LogOff
 	dw PlayerLogOffMenu,       .TurnOff
@@ -288,20 +288,18 @@ PlayersPCMenuData:
 ; entries correspond to PLAYERSPC_* constants
 
 	; PLAYERSPC_NORMAL
-	db 5
+	db 4
 	db PLAYERSPCITEM_WITHDRAW_ITEM
 	db PLAYERSPCITEM_DEPOSIT_ITEM
 	db PLAYERSPCITEM_TOSS_ITEM
-	db PLAYERSPCITEM_MAIL_BOX
 	db PLAYERSPCITEM_LOG_OFF
 	db -1 ; end
 
 	; PLAYERSPC_HOUSE
-	db 6
+	db 5
 	db PLAYERSPCITEM_WITHDRAW_ITEM
 	db PLAYERSPCITEM_DEPOSIT_ITEM
 	db PLAYERSPCITEM_TOSS_ITEM
-	db PLAYERSPCITEM_MAIL_BOX
 	db PLAYERSPCITEM_DECORATION
 	db PLAYERSPCITEM_TURN_OFF
 	db -1 ; end
@@ -575,11 +573,6 @@ PlayerDepositItemMenu:
 .PlayersPCNoRoomDepositText:
 	text_far _PlayersPCNoRoomDepositText
 	text_end
-
-PlayerMailBoxMenu:
-	farcall _PlayerMailBoxMenu
-	xor a
-	ret
 
 PCItemsJoypad:
 	xor a

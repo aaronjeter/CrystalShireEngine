@@ -252,13 +252,7 @@ SwapStorageBoxSlots:
 	ret
 
 SwapPartyMonMail:
-	push hl
-	push de
-	push bc
-	dec c
-	dec e
-	ld d, c
-	jr DoMailSwap
+	ret
 
 SwapPartyMons:
 ; Swap 1-indexed partymon c and e. Preserves bc, de, hl.
@@ -289,16 +283,6 @@ SwapPartyMons:
 	ld hl, wPartySpecies
 	ld c, 1
 	call DoPartySwap
-
-	; fallthrough
-DoMailSwap:
-	; Swap Mail
-	ld a, BANK(sPartyMon1Mail)
-	call OpenSRAM
-	ld hl, sPartyMon1Mail
-	ld bc, MAIL_STRUCT_LENGTH
-	call DoPartySwap
-	call CloseSRAM
 	jmp PopBCDEHL
 
 DoPartySwap:

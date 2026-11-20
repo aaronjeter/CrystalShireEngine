@@ -2184,16 +2184,31 @@ wLastPocket:: db
 
 wPCItemsCursor::        db
 wPartyMenuCursor::      db
-wItemsPocketCursor::    db
-wKeyItemsPocketCursor:: db
-wBallsPocketCursor::    db
-wTMHMPocketCursor::     db
+wPocketCursors:: ; one per pocket (*_POCKET order)
+wItemsPocketCursor::     db
+wMedicinePocketCursor::  db
+wBerriesPocketCursor::   db
+wHeldPocketCursor::      db
+wTrainingPocketCursor::  db
+wTreasuresPocketCursor:: db
+wBallsPocketCursor::     db
+wTMHMPocketCursor::      db
+wKeyItemsPocketCursor::  db
+	assert wKeyItemsPocketCursor - wPocketCursors == KEY_ITEM_POCKET
+	assert wTMHMPocketCursor - wPocketCursors == TM_HM_POCKET
 
 wPCItemsScrollPosition::        db
-wItemsPocketScrollPosition::    db
-wKeyItemsPocketScrollPosition:: db
-wBallsPocketScrollPosition::    db
-wTMHMPocketScrollPosition::     db
+wPocketScrollPositions:: ; one per pocket (*_POCKET order)
+wItemsPocketScrollPosition::     db
+wMedicinePocketScrollPosition::  db
+wBerriesPocketScrollPosition::   db
+wHeldPocketScrollPosition::      db
+wTrainingPocketScrollPosition::  db
+wTreasuresPocketScrollPosition:: db
+wBallsPocketScrollPosition::     db
+wTMHMPocketScrollPosition::      db
+wKeyItemsPocketScrollPosition::  db
+	assert wKeyItemsPocketScrollPosition - wPocketScrollPositions == KEY_ITEM_POCKET
 
 wSwitchMon::
 wSwitchItem::
@@ -2768,6 +2783,8 @@ wBugContestSecsRemaining:: db
 
 wMapStatusEnd::
 
+wGameData::
+wPlayerData::
 wCrystalData::
 wPlayerGender::
 ; bit 0:
@@ -2784,8 +2801,6 @@ wCrystalDataEnd::
 
 wd479:: ds 2
 
-wGameData::
-wPlayerData::
 wPlayerID:: dw
 
 wPlayerName:: ds NAME_LENGTH
@@ -2897,12 +2912,29 @@ wJohtoBadges:: flag_array NUM_JOHTO_BADGES
 wKantoBadges:: flag_array NUM_KANTO_BADGES
 wHoennBadges:: flag_array NUM_HOENN_BADGES
 
-wTMsHMs:: ds NUM_TMS + NUM_HMS
+wTMsHMs:: flag_array NUM_TMHM_BITS ; see MAX_TMS
 
+; The Pack's list pockets: a count, then 2-byte entries (the low byte of the
+; item index, the quantity) and -1; the high byte is the pocket's (PocketIndexHighs).
 wNumItems:: db
-wItems:: ds MAX_ITEMS * 3 + 1
+wItems:: ds MAX_ITEMS * 2 + 1
 
-wNumKeyItems:: db
+wNumMedicine:: db
+wMedicine:: ds MAX_MEDICINE * 2 + 1
+
+wNumBerries:: db
+wBerries:: ds MAX_BERRIES * 2 + 1
+
+wNumHeldItems:: db
+wHeldItems:: ds MAX_HELD * 2 + 1
+
+wNumTrainingItems:: db
+wTrainingItems:: ds MAX_TRAINING * 2 + 1
+
+wNumTreasures:: db
+wTreasures:: ds MAX_TREASURES * 2 + 1
+
+wNumKeyItems:: db ; one byte each: the low byte of the item index
 wKeyItems:: ds MAX_KEY_ITEMS + 1
 
 wNumBalls:: db
@@ -2985,7 +3017,6 @@ wBattleTowerElevatorSceneID::                     db
 wBattleTowerHallwaySceneID::                      db
 wBattleTowerOutsideSceneID::                      db
 wRoute43GateSceneID::                             db
-wMountMoonSceneID::                               db
 wSproutTower3FSceneID::                           db
 wTinTower1FSceneID::                              db
 wBurnedTower1FSceneID::                           db
@@ -3014,6 +3045,7 @@ wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wWCFinalsSceneID::                                db
+wSpareSceneIDs:: ds 24 ; for maps added later (rename one per map)
 
 ; fight counts
 wLastRepelSteps::    db ; the last Repel used (its REPEL_STEPS etc.), 0 if unknown; was wJackFightCount (unused)
@@ -3043,8 +3075,6 @@ wLevelCap::          db
 wBaseLevel::         db 
 wWildLevel::         db
 wHardMode::			 db
-
-wEventFlags:: flag_array NUM_EVENTS
 
 wCurBox:: db
 
@@ -3094,9 +3124,12 @@ wDailyResetTimer:: dw
 wDailyFlags1:: db
 wDailyFlags2:: db
 wSwarmFlags:: db
+wDailyFlags3:: db ; reset daily; free for later features
+wDailyFlags4:: db ; reset daily; free for later features
 wTimerEventStartDay:: db
 
-wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
+
+wSpareEngineFlags:: ds 4 ; saved bytes for later engine flags
 
 wLuckyNumberDayTimer:: dw
 
@@ -3112,9 +3145,6 @@ wEliteFourXpBoost:: db
 	ds 8
 wBuenasPassword:: db
 wBlueCardBalance:: db
-; Nuzlocke mode: the "used" bits of landmarks 0-95 (the rest are event flags from
-; EVENT_NUZLOCKE_AREA_96). Formerly the trainer phone rematch/gift/call-time flags.
-wNuzlockeAreaFlags:: ds NUM_NUZLOCKE_AREA_BYTES
 wFollowerFlags:: db ; see FOLLOWER_HIDDEN_BY_SCRIPT_F (was half of wKenjiBreakTimer)
 wUnusedBytes::  ds 1 ; was wKenjiBreakTimer
 wYanmaMapGroup:: db
@@ -3148,7 +3178,7 @@ wPlayerDataEnd::
 
 wCurMapData::
 
-wVisitedSpawns:: flag_array NUM_SPAWNS
+wVisitedSpawns:: flag_array NUM_SAVED_SPAWNS
 
 wDigWarpNumber:: db
 wDigMapGroup::   db
@@ -3200,11 +3230,6 @@ wPartyMon{d:n}Nickname:: ds MON_NAME_LENGTH
 endr
 wPartyMonNicknamesEnd::
 
-wPokedexCaught:: flag_array NUM_POKEMON
-wEndPokedexCaught::
-
-wPokedexSeen:: flag_array NUM_POKEMON
-wEndPokedexSeen::
 
 wUnownDex:: ds NUM_UNOWN
 wUnlockedUnowns:: db
@@ -3701,3 +3726,26 @@ wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::
 	assert wSaveExtensionEnd - wSaveExtension == SAVE_EXTENSION_LENGTH
+
+
+SECTION "Saved WRAM 2", WRAMX, BANK[2]
+; Saved game data that doesn't fit in WRAMX bank 1. Saved and loaded with
+; wPlayerData (see SavePlayerData); cleared on a new game.
+
+wPlayerData2::
+wEventFlags:: flag_array NUM_EVENTS ; read and written through EventFlagAction
+wOptions3:: db ; unused options byte
+wPokedexCaught:: flag_array NUM_SAVED_POKEMON
+wEndPokedexCaught::
+
+wPokedexSeen:: flag_array NUM_SAVED_POKEMON
+wEndPokedexSeen::
+wNuzlockeAreaFlags:: ds NUM_NUZLOCKE_AREA_BYTES ; read and written through FlagActionInPlayerData2
+wFruitTreeFlags:: flag_array NUM_SAVED_FRUIT_TREES
+wReservedSaveBytes:: ds 16 ; spare saved bytes for later features
+wPlayerData2End::
+
+
+SECTION "TM Pocket RAM", WRAMX, BANK[1]
+
+wTMHMPocketList:: ds NUM_TMS + NUM_HMS ; nonzero for each TM/HM owned (BuildTMHMPocketList)

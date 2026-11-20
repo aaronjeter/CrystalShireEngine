@@ -58,10 +58,9 @@ Marts:
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
-	db 3 ; # items
+	db 2 ; # items
 	dw MYSTIC_WATER
 	dw POKE_DOLL
-	dw FLOWER_MAIL
 
 MartViolet:
 	db 3 ; # items
@@ -70,11 +69,10 @@ MartViolet:
 	dw EVERSTONE
 
 MartAzalea:
-	db 4 ; # items
+	db 3 ; # items
 	dw CHARCOAL
 	dw SILVERPOWDER
 	dw SMOKE_BALL
-	dw FLOWER_MAIL
 
 MartCianwood:
 	db 10 ; # items
@@ -100,7 +98,7 @@ MartGoldenrod2F1:
 	dw ICE_HEAL
 
 MartGoldenrod2F2:
-	db 8 ; # items
+	db 7 ; # items
 	dw POKE_BALL
 	dw GREAT_BALL
 	dw ESCAPE_ROPE
@@ -108,7 +106,6 @@ MartGoldenrod2F2:
 	dw REVIVE
 	dw FULL_HEAL
 	dw POKE_DOLL
-	dw FLOWER_MAIL
 
 MartGoldenrod3F:
 	db 8 ; # items
@@ -166,11 +163,10 @@ MartGoldenrod5F4:
 	dw TM_ROCK_SMASH
 
 MartOlivine:
-	db 4 ; # items
+	db 3 ; # items
 	dw METAL_COAT
 	dw MYSTIC_WATER
 	dw ETHER
-	dw SURF_MAIL
 
 MartEcruteak:
 	db 4 ; # items
@@ -200,10 +196,9 @@ MartBlackthorn:
 	dw POWER_HERB
 
 MartViridian:
-	db 3 ; # items
+	db 2 ; # items
 	dw PINK_BOW
 	dw POKE_DOLL
-	dw FLOWER_MAIL
 
 MartPewter:
 	db 3 ; # items
@@ -212,9 +207,8 @@ MartPewter:
 	dw MOON_STONE
 
 MartCerulean:
-	db 4 ; # items
+	db 3 ; # items
 	dw MYSTIC_WATER
-	dw SURF_MAIL
 	dw ABSORB_BULB
 	dw LUMINOUS_MOSS
 
@@ -226,12 +220,11 @@ MartLavender:
 	dw ETHER
 
 MartVermilion:
-	db 5 ; # items
+	db 4 ; # items
 	dw MAGNET
 	dw TM_THIEF
 	dw ETHER
 	dw MAX_ETHER
-	dw LITEBLUEMAIL
 
 MartCeladon2F1:
 	db 7 ; # items
@@ -267,10 +260,8 @@ MartCeladon3F:
 	dw TM_SANDSTORM
 
 MartCeladon4F:
-	db 12 ; # items
+	db 10 ; # items
 	dw POKE_DOLL
-	dw LOVELY_MAIL
-	dw SURF_MAIL
 	dw POWER_HERB
 	dw METRONOME_ITEM
 	dw LOADED_DICE
@@ -301,10 +292,9 @@ MartCeladon5F2:
 	dw POWER_BAND
 
 MartFuchsia:
-	db 4 ; # items
+	db 3 ; # items
 	dw POISON_BARB
 	dw SMOKE_BALL
-	dw FLOWER_MAIL
 	dw BLACK_SLUDGE
 
 MartSaffron:
@@ -315,13 +305,12 @@ MartSaffron:
 	dw ZOOM_LENS
 
 MartMtMoon:
-	db 6 ; # items
+	db 5 ; # items
 	dw POKE_DOLL
 	dw FRESH_WATER
 	dw SODA_POP
 	dw LEMONADE
 	dw REPEL
-	dw PORTRAITMAIL
 
 MartIndigoPlateau:
 	db 3 ; # items
@@ -355,7 +344,7 @@ Lilycove2FPokeballs:
 	dw MOON_BALL
 
 Lilycove2FGear:
-	db 7 ; # items
+	db 5 ; # items
 	dw ESCAPE_ROPE
 	dw REPEL
 	dw SUPER_REPEL
@@ -365,8 +354,6 @@ Lilycove2FGear:
 	dw METRONOME_ITEM
 	dw MAX_REPEL	
 	dw POKE_DOLL
-	dw LITEBLUEMAIL
-	dw BLUESKY_MAIL
 
 Lilycove3FTms:
 	db 9 ; # items
@@ -428,10 +415,9 @@ DefaultMart:
 	dw POTION
 
 MartOldale:
-	db 3 ; # items
+	db 2 ; # items
 	dw MIRACLE_SEED
 	dw POKE_DOLL
-	dw FLOWER_MAIL
 
 MartPetalburg:
 	db 3 ; # items
@@ -446,16 +432,14 @@ MartRustboro:
 	dw SAFETY_GOGGLES
 
 MartVerdanturf:
-	db 3 ; # items
+	db 2 ; # items
 	dw POLKADOT_BOW
 	dw POKE_DOLL
-	dw FLOWER_MAIL
 
 MartSlateport:
-	db 3 ; # items
+	db 2 ; # items
 	dw MYSTIC_WATER
 	dw ETHER
-	dw LITEBLUEMAIL
 
 MartMauville:
 	db 3 ; # items

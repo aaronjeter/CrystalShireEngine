@@ -25,14 +25,12 @@ SaveMenu:
 SaveAfterLinkTrade:
 	call PauseGameLogic
 	call StageRTCTimeForSave
-	farcall BackupMysteryGift
 	call SavePokemonData
 	call SaveIndexTables
 	call SaveChecksum
 	call SaveBackupPokemonData
 	call SaveBackupIndexTables
 	call SaveBackupChecksum
-	farcall BackupPartyMonMail
 	call SaveRTC
 	jr ResumeGameLogic
 
@@ -169,9 +167,6 @@ WriteBackupSave:
 ; Runs after saving the main copy. Writes the "pseudo-WRAM" copies of storage
 ; and mail, then creates the backup save. This process is automatically run
 ; on game load if we have a valid main save but not a backup save.
-	; Save storage, mail, mobile event and mystery gift to backup
-	farcall BackupPartyMonMail
-	farcall BackupMysteryGift
 	call SaveStorageSystem
 
 	; Save the backup copy of game data.
@@ -209,9 +204,6 @@ CopyStorageSystem:
 
 ErasePreviousSave:
 	call EraseHallOfFame
-	call EraseLinkBattleStats
-	call EraseMysteryGift
-	call SaveData
 	ld a, BANK(sStackTop)
 	call OpenSRAM
 	xor a
@@ -221,24 +213,6 @@ ErasePreviousSave:
 	ld a, $1
 	ld [wSavedAtLeastOnce], a
 	ret
-
-EraseLinkBattleStats:
-	ld a, BANK(sLinkBattleStats)
-	call OpenSRAM
-	ld hl, sLinkBattleStats
-	ld bc, sLinkBattleStatsEnd - sLinkBattleStats
-	xor a
-	rst ByteFill
-	jmp CloseSRAM
-
-EraseMysteryGift:
-	ld a, BANK(sBackupMysteryGiftItem)
-	call OpenSRAM
-	ld hl, sBackupMysteryGiftItem
-	ld bc, sBackupMysteryGiftItemEnd - sBackupMysteryGiftItem
-	xor a
-	rst ByteFill
-	jmp CloseSRAM
 
 EraseHallOfFame:
 	ld a, BANK(sHallOfFame)
@@ -262,9 +236,6 @@ EraseHallOfFame:
 ; lose battle
 	db $0f, EZCHAT_EXCLAMATIONS, $14, EZCHAT_FEELINGS,     $05, EZCHAT_EXCLAMATIONS
 	db $11, EZCHAT_TIME,         $0c, EZCHAT_CONVERSATION, $06, EZCHAT_BATTLE
-
-SaveData:
-	jmp _SaveData
 
 HallOfFame_InitSaveIfNeeded:
 	ld a, [wSavedAtLeastOnce]
@@ -304,6 +275,8 @@ SavePlayerData:
 	ld de, sCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	rst CopyBytes
+	ld de, sPlayerData2
+	call CopyPlayerData2ToSRAM
 	jmp CloseSRAM
 
 SavePokemonData:
@@ -394,6 +367,8 @@ SaveBackupPlayerData:
 	ld de, sBackupCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	rst CopyBytes
+	ld de, sBackupPlayerData2
+	call CopyPlayerData2ToSRAM
 	jmp CloseSRAM
 
 SaveBackupPokemonData:
@@ -478,8 +453,6 @@ TryLoadSaveFile:
 	; If a mid-save was aborted but main save data is good, finish it.
 	call WasMidSaveAborted
 	call z, WriteBackupSave
-	farcall RestorePartyMonMail
-	farcall RestoreMysteryGift
 	call LoadStorageSystem
 
 	; Just in case
@@ -493,8 +466,6 @@ TryLoadSaveFile:
 	call LoadBackupPlayerData
 	call LoadBackupPokemonData
 	call LoadBackupIndexTables
-	farcall RestorePartyMonMail
-	farcall RestoreMysteryGift
 	call LoadStorageSystem
 	call SaveGameData
 	and a
@@ -609,6 +580,8 @@ LoadPlayerData:
 	ld de, wCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	rst CopyBytes
+	ld hl, sPlayerData2
+	call CopyPlayerData2FromSRAM
 	jmp CloseSRAM
 
 LoadPokemonData:
@@ -692,6 +665,8 @@ LoadBackupPlayerData:
 	ld de, wCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	rst CopyBytes
+	ld hl, sBackupPlayerData2
+	call CopyPlayerData2FromSRAM
 	jmp CloseSRAM
 
 LoadBackupPokemonData:
@@ -762,28 +737,24 @@ VerifyBackupChecksum:
 	pop af
 	ret
 
-_SaveData:
-	; This is called within two scenarios:
-	;   a) ErasePreviousSave (the process of erasing the save from a previous game file)
-	;   b) unused mobile functionality
-	; It is not part of a regular save.
+CopyPlayerData2ToSRAM:
+; Copies wPlayerData2 to de (SRAM already open).
+	ld hl, wPlayerData2
+	jr CopyPlayerData2
 
-	ld a, BANK(sCrystalData)
-	call OpenSRAM
-	ld hl, wCrystalData
-	ld de, sCrystalData
-	ld bc, wCrystalDataEnd - wCrystalData
+CopyPlayerData2FromSRAM:
+; Copies hl (SRAM already open) to wPlayerData2.
+	ld de, wPlayerData2
+CopyPlayerData2:
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wPlayerData2)
+	ldh [rSVBK], a
+	ld bc, wPlayerData2End - wPlayerData2
 	rst CopyBytes
-	jmp CloseSRAM
-
-_LoadData:
-	ld a, BANK(sCrystalData)
-	call OpenSRAM
-	ld hl, sCrystalData
-	ld de, wCrystalData
-	ld bc, wCrystalDataEnd - wCrystalData
-	rst CopyBytes
-	jmp CloseSRAM
+	pop af
+	ldh [rSVBK], a
+	ret
 
 Checksum:
 	ld de, 0
@@ -811,6 +782,27 @@ SavedTheGameText:
 AnotherSaveFileText:
 	text_far _AnotherSaveFileText
 	text_end
+
+	assert sCheckValue1 == $a008, "old saves are recognized by the check value at $a008"
+CheckOldSaveFile::
+; Returns carry if there's no usable save but the SRAM holds a save from an
+; older save layout (its check value sits at the same place).
+	ld a, [wSaveFileExists]
+	and a
+	ret nz
+	ld a, BANK(sCheckValue1)
+	call OpenSRAM
+	ld a, [sCheckValue1]
+	cp OLD_SAVE_CHECK_VALUE_1
+	jr z, .old
+	call CloseSRAM
+	and a
+	ret
+
+.old
+	call CloseSRAM
+	scf
+	ret
 
 SaveFileCorruptedText:
 	text_far _SaveFileCorruptedText

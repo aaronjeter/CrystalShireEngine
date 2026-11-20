@@ -58,12 +58,18 @@ PickedFruitTree:
 	jr GetFruitTreeFlag
 
 ResetFruitTrees:
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wFruitTreeFlags)
+	ldh [rSVBK], a
 	xor a
 	ld hl, wFruitTreeFlags
-rept (NUM_FRUIT_TREES + 7) / 8 - 1
+rept (NUM_SAVED_FRUIT_TREES + 7) / 8 - 1
 	ld [hli], a
 endr
 	ld [hl], a
+	pop af
+	ldh [rSVBK], a
 	ld hl, wDailyFlags1
 	set DAILYFLAGS1_ALL_FRUIT_TREES_F, [hl]
 	ret
@@ -76,7 +82,7 @@ GetFruitTreeFlag:
 	ld e, a
 	ld d, 0
 	ld hl, wFruitTreeFlags
-	call FlagAction
+	call FlagActionInPlayerData2
 	pop de
 	pop hl
 	ret

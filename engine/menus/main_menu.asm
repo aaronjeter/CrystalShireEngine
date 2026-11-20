@@ -14,6 +14,12 @@
 	const MAINMENUITEM_MYSTERY_GIFT   ; 3
 
 MainMenu:
+	farcall CheckOldSaveFile
+	jr nc, .loop
+	call ClearTilemapEtc
+	call SetDefaultBGPAndOBP
+	ld hl, .OldSaveFileText
+	call PrintText
 .loop
 	xor a
 	ld [wDisableTextAcceleration], a
@@ -36,6 +42,10 @@ MainMenu:
 	ld hl, .Jumptable
 	call JumpTable
 	jr .loop
+
+.OldSaveFileText:
+	text_far _OldSaveFileText
+	text_end
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -61,7 +71,7 @@ MainMenu:
 	dw MainMenu_Continue
 	dw MainMenu_NewGame
 	dw MainMenu_Option
-	dw MainMenu_MysteryGift
+	dw MainMenu_Option ; unused
 
 MainMenuItems:
 ; entries correspond to MAINMENU_* constants
@@ -110,34 +120,7 @@ MainMenu_GetWhichMenu:
 	ret
 
 .next
-	ldh a, [hCGB]
-	cp TRUE
 	ld a, MAINMENU_CONTINUE
-	ret nz
-	ld a, BANK(sNumDailyMysteryGiftPartnerIDs)
-	call OpenSRAM
-	ld a, [sNumDailyMysteryGiftPartnerIDs]
-	cp -1 ; locked?
-	call CloseSRAM
-	jr nz, .mystery_gift
-	; This check makes no difference.
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_MAIN_MENU_MOBILE_CHOICES_F, a
-	ld a, MAINMENU_CONTINUE
-	jr z, .ok
-.ok
-.ok2
-	ld a, MAINMENU_CONTINUE
-	ret
-
-.mystery_gift
-	; This check makes no difference.
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_MAIN_MENU_MOBILE_CHOICES_F, a
-	jr z, .ok3
-.ok3
-.ok4
-	ld a, MAINMENU_MYSTERY
 	ret
 
 MainMenuJoypadLoop:
@@ -264,5 +247,3 @@ MainMenu_Option:
 MainMenu_Continue:
 	farjp Continue
 
-MainMenu_MysteryGift:
-	farjp MysteryGift

@@ -16,6 +16,7 @@ import sys
 from harness import warp_script
 import test_facility as T
 from test_facility_intros import Win, Lose
+from battle_test import fill_pocket
 
 
 class Over(Exception):
@@ -92,11 +93,8 @@ def setup(flags=(), defenses=0, bp=0, full=False):
     g.wr('wTitleDefenses', [defenses >> 8, defenses & 0xff])
     g.wr('wBattlePoints', [bp >> 8, bp & 0xff])
     g.wr('wOptions', g.rd('wOptions') | 1 << g.const('BATTLE_SHIFT'))  # Set: no "Will you switch?"
-    if full:  # the item pocket full of Potions: no room for a prize
-        pot = g.const16('POTION')
-        n = g.const('MAX_ITEMS')
-        g.wr('wNumItems', n)
-        g.wr('wItems', [pot >> 8, pot & 0xff, 1] * n + [0xff])
+    if full:  # the Held Items pocket full of Quick Claws: no room for a prize
+        fill_pocket(g, 'QUICK_CLAW', g.const('MAX_HELD'))
     g.run_script(warp_script('WC_CHALLENGER_LOBBY', *CLERK_POS))
     g.frames(200)
     g.press('U', hold=2, after=20)  # face the clerk

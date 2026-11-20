@@ -6,211 +6,226 @@
 ; - ItemEffects (see engine/items/item_effects.asm)
 	const_def
 	const NO_ITEM      ; 0000
-	const BRIGHTPOWDER ; 0001
-	const TOWN_MAP     ; 0002
-	const MOON_STONE   ; 0003
-	const ANTIDOTE     ; 0004
-	const BURN_HEAL    ; 0005
-	const ICE_HEAL     ; 0006
-	const AWAKENING    ; 0007
-	const PARLYZ_HEAL  ; 0008
-	const FULL_RESTORE ; 0009
-	const MAX_POTION   ; 000A
-	const HYPER_POTION ; 000B
-	const SUPER_POTION ; 000C
-	const POTION       ; 000D
-	const ESCAPE_ROPE  ; 000E
-	const REPEL        ; 000F
-	const MAX_ELIXER   ; 0010
-	const FIRE_STONE   ; 0011
-	const THUNDERSTONE ; 0012
-	const WATER_STONE  ; 0013
-	const MARVEL_SCALE ; 0014
-	const HP_UP        ; 0015
-	const PROTEIN      ; 0016
-	const IRON         ; 0017
-	const CARBOS       ; 0018
-	const LUCKY_PUNCH  ; 0019
-	const CALCIUM      ; 001A
-	const RARE_CANDY   ; 001B
-	const X_ACCURACY   ; 001C
-	const LEAF_STONE   ; 001D
-	const METAL_POWDER ; 001E
-	const NUGGET       ; 001F
-	const POKE_DOLL    ; 0020
-	const FULL_HEAL    ; 0021
-	const REVIVE       ; 0022
-	const MAX_REVIVE   ; 0023
-	const GUARD_SPEC   ; 0024
-	const SUPER_REPEL  ; 0025
-	const MAX_REPEL    ; 0026
-	const DIRE_HIT     ; 0027
-	const HELIX_FOSSIL ; 0028
-	const FRESH_WATER  ; 0029
-	const SODA_POP     ; 002A
-	const LEMONADE     ; 002B
-	const X_ATTACK     ; 002C
-	const DOME_FOSSIL  ; 002D
-	const X_DEFEND     ; 002E
-	const X_SPEED      ; 002F
-	const X_SPECIAL    ; 0030
-	const POKE_FLUTE   ; 0031
-	const EXP_SHARE    ; 0032
-	const SILVER_LEAF  ; 0033
-	const PP_UP        ; 0034
-	const ETHER        ; 0035
-	const MAX_ETHER    ; 0036
-	const ELIXER       ; 0037
-	const MOOMOO_MILK  ; 0038
-	const QUICK_CLAW   ; 0039
-	const PECHA_BERRY ; 003A
-	const GOLD_LEAF    ; 003B
-	const SOFT_SAND    ; 003C
-	const SHARP_BEAK   ; 003D
-	const CHERI_BERRY ; 003E
-	const ASPEAR_BERRY  ; 003F
-	const RAWST_BERRY    ; 0040
-	const POISON_BARB  ; 0041
-	const KINGS_ROCK   ; 0042
-	const PERSIM_BERRY ; 0043
-	const CHESTO_BERRY   ; 0044
-	const RED_APRICORN ; 0045
-	const TINYMUSHROOM ; 0046
-	const BIG_MUSHROOM ; 0047
-	const SILVERPOWDER ; 0048
-	const BLU_APRICORN ; 0049
-	const OLD_AMBER    ; 004A
-	const AMULET_COIN  ; 004B
-	const YLW_APRICORN ; 004C
-	const GRN_APRICORN ; 004D
-	const CLEANSE_TAG  ; 004E
-	const MYSTIC_WATER ; 004F
-	const TWISTEDSPOON ; 0050
-	const WHT_APRICORN ; 0051
-	const BLACKBELT_I  ; 0052
-	const BLK_APRICORN ; 0053
-	const ROOT_FOSSIL  ; 0054
-	const PNK_APRICORN ; 0055
-	const BLACKGLASSES ; 0056
-	const SLOWPOKETAIL ; 0057
-	const PINK_BOW     ; 0058
-	const STICK        ; 0059
-	const SMOKE_BALL   ; 005A
-	const NEVERMELTICE ; 005B
-	const MAGNET       ; 005C
-	const LUM_BERRY ; 005D
-	const PEARL        ; 005E
-	const BIG_PEARL    ; 005F
-	const EVERSTONE    ; 0060
-	const SPELL_TAG    ; 0061
-	const RAGECANDYBAR ; 0062
-	const MIRACLE_SEED ; 0063
-	const THICK_CLUB   ; 0064
-	const FOCUS_BAND   ; 0065
-	const CLAW_FOSSIL  ; 0066
-	const ENERGYPOWDER ; 0067
-	const ENERGY_ROOT  ; 0068
-	const HEAL_POWDER  ; 0069
-	const REVIVAL_HERB ; 006A
-	const HARD_STONE   ; 006B
-	const LUCKY_EGG    ; 006C
-	const STARDUST     ; 006D
-	const STAR_PIECE   ; 006E
-	const URSA_FOSSIL  ; 006F
-	const FIN_FOSSIL   ; 0070
-	const ZINC         ; 0071
-	const CHARCOAL     ; 0072
-	const BERRY_JUICE  ; 0073
-	const SCOPE_LENS   ; 0074
-	const DAWN_STONE   ; 0075
-	const ICE_STONE    ; 0076
-	const METAL_COAT   ; 0077
-	const DRAGON_FANG  ; 0078
-	const FANG_FOSSIL  ; 0079
-	const LEFTOVERS    ; 007A
-	const KANTOITE_X   ; 007B
-	const KANTOITE_Y   ; 007C
-	const JOHTOITE_X   ; 007D
-	const LEPPA_BERRY ; 007E
-	const DRAGON_SCALE ; 007F
-	const BERSERK_GENE ; 0080
-	const HOENNITE_X   ; 0081
-	const LIECHI_BERRY  ; 0082
-	const GANLON_BERRY   ; 0083
-	const SACRED_ASH   ; 0084
-	const FLOWER_MAIL  ; 0085
-	const SALAC_BERRY  ; 0086
-	const LIGHT_BALL   ; 0087
-	const NORMAL_BOX   ; 0088
-	const GORGEOUS_BOX ; 0089
-	const SUN_STONE    ; 008A
-	const POLKADOT_BOW ; 008B
-	const ITEM_AB      ; 008C
-	const UP_GRADE     ; 008D
-	const ORAN_BERRY        ; 008E
-	const SITRUS_BERRY   ; 008F
-	const PETAYA_BERRY  ; 0090
-	const APICOT_BERRY   ; 0091
-	const BRICK_PIECE  ; 0092
-	const SURF_MAIL    ; 0093
-	const LITEBLUEMAIL ; 0094
-	const PORTRAITMAIL ; 0095
-	const LOVELY_MAIL  ; 0096
-	const EON_MAIL     ; 0097
-	const MORPH_MAIL   ; 0098
-	const BLUESKY_MAIL ; 0099
-	const MUSIC_MAIL   ; 009A
-	const MIRAGE_MAIL  ; 009B
-	const ITEM_BE      ; 009C
-	const ITEM_DC      ; 009D
-	const ITEM_C3      ; 009E
-	const ITEM_FA      ; 009F
-	const ABILITY_CAPSULE ; 00A0
-	const ABILITY_PATCH   ; 00A1
-	const FLAME_ORB    ; 00A2
-	const TOXIC_ORB    ; 00A3
-	const EVIOLITE     ; 00A4
-	const WIDE_LENS    ; 00A5
-	const BLACK_SLUDGE ; 00A6
-	const LIFE_ORB     ; 00A7
-	const FOCUS_SASH   ; 00A8
-	const ROCKY_HELMET ; 00A9
-	const EXPERT_BELT  ; 00AA
-	const MUSCLE_BAND  ; 00AB
-	const WISE_GLASSES ; 00AC
-	const SHELL_BELL   ; 00AD
-	const BIG_ROOT     ; 00AE
-	const BINDING_BAND ; 00AF
-	const MACHO_BRACE  ; 00B0
-	const EXP_CANDY_S  ; 00B1
-	const EXP_CANDY_M  ; 00B2
-	const EXP_CANDY_L  ; 00B3
-	const EXP_CANDY_XL ; 00B4
-	const POWER_WEIGHT ; 00B5
-	const POWER_BRACER ; 00B6
-	const POWER_BELT   ; 00B7
-	const POWER_ANKLET ; 00B8
-	const POWER_LENS   ; 00B9
-	const POWER_BAND   ; 00BA
-	const CHOICE_BAND  ; 00BB
-	const CHOICE_SPECS ; 00BC
-	const CHOICE_SCARF ; 00BD
-	const ASSAULT_VEST ; 00BE
-	const WEAKNESS_POLICY ; 00BF
-	const AIR_BALLOON  ; 00C0
-	const LIGHT_CLAY   ; 00C1
-	const WHITE_HERB   ; 00C2
-	const MENTAL_HERB  ; 00C3
-	const POWER_HERB   ; 00C4
-	const METRONOME_ITEM ; 00C5
-	const LOADED_DICE  ; 00C6
-	const ABSORB_BULB  ; 00C7
-	const CELL_BATTERY ; 00C8
-	const SNOWBALL     ; 00C9
-	const LUMINOUS_MOSS ; 00CA
-	const SAFETY_GOGGLES ; 00CB
-	const ZOOM_LENS    ; 00CC
+	const TOWN_MAP
+	const MOON_STONE
+	const ESCAPE_ROPE
+	const REPEL
+	const FIRE_STONE
+	const THUNDERSTONE
+	const WATER_STONE
+	const X_ACCURACY
+	const LEAF_STONE
+	const POKE_DOLL
+	const GUARD_SPEC
+	const SUPER_REPEL
+	const MAX_REPEL
+	const DIRE_HIT
+	const X_ATTACK
+	const X_DEFEND
+	const X_SPEED
+	const X_SPECIAL
+	const POKE_FLUTE
+	const EXP_SHARE
+	const DAWN_STONE
+	const ICE_STONE
+	const KANTOITE_X
+	const KANTOITE_Y
+	const JOHTOITE_X
+	const HOENNITE_X
+	const NORMAL_BOX
+	const GORGEOUS_BOX
+	const SUN_STONE
+	const ITEM_AB
+	const ITEM_BE
+	const ITEM_DC
+	const ITEM_C3
+	const ITEM_FA
 DEF NUM_ITEM_POCKET EQU const_value - 1
+
+	const_align 8
+DEF FIRST_MEDICINE_ITEM EQU const_value
+	const ANTIDOTE
+	const BURN_HEAL
+	const ICE_HEAL
+	const AWAKENING
+	const PARLYZ_HEAL
+	const FULL_RESTORE
+	const MAX_POTION
+	const HYPER_POTION
+	const SUPER_POTION
+	const POTION
+	const MAX_ELIXER
+	const FULL_HEAL
+	const REVIVE
+	const MAX_REVIVE
+	const FRESH_WATER
+	const SODA_POP
+	const LEMONADE
+	const ETHER
+	const MAX_ETHER
+	const ELIXER
+	const MOOMOO_MILK
+	const RAGECANDYBAR
+	const ENERGYPOWDER
+	const ENERGY_ROOT
+	const HEAL_POWDER
+	const REVIVAL_HERB
+	const BERRY_JUICE
+	const SACRED_ASH
+DEF NUM_MEDICINE_POCKET EQU const_value - FIRST_MEDICINE_ITEM
+assert NUM_MEDICINE_POCKET <= $ff
+
+	const_align 8
+DEF FIRST_BERRY_ITEM EQU const_value
+	const PECHA_BERRY
+	const CHERI_BERRY
+	const ASPEAR_BERRY
+	const RAWST_BERRY
+	const PERSIM_BERRY
+	const CHESTO_BERRY
+	const RED_APRICORN
+	const BLU_APRICORN
+	const YLW_APRICORN
+	const GRN_APRICORN
+	const WHT_APRICORN
+	const BLK_APRICORN
+	const PNK_APRICORN
+	const LUM_BERRY
+	const LEPPA_BERRY
+	const LIECHI_BERRY
+	const GANLON_BERRY
+	const SALAC_BERRY
+	const ORAN_BERRY
+	const SITRUS_BERRY
+	const PETAYA_BERRY
+	const APICOT_BERRY
+DEF NUM_BERRY_POCKET EQU const_value - FIRST_BERRY_ITEM
+assert NUM_BERRY_POCKET <= $ff
+
+	const_align 8
+DEF FIRST_HELD_ITEM EQU const_value
+	const BRIGHTPOWDER
+	const MARVEL_SCALE
+	const LUCKY_PUNCH
+	const METAL_POWDER
+	const QUICK_CLAW
+	const SOFT_SAND
+	const SHARP_BEAK
+	const POISON_BARB
+	const KINGS_ROCK
+	const SILVERPOWDER
+	const AMULET_COIN
+	const CLEANSE_TAG
+	const MYSTIC_WATER
+	const TWISTEDSPOON
+	const BLACKBELT_I
+	const BLACKGLASSES
+	const PINK_BOW
+	const STICK
+	const SMOKE_BALL
+	const NEVERMELTICE
+	const MAGNET
+	const EVERSTONE
+	const SPELL_TAG
+	const MIRACLE_SEED
+	const THICK_CLUB
+	const FOCUS_BAND
+	const HARD_STONE
+	const LUCKY_EGG
+	const CHARCOAL
+	const SCOPE_LENS
+	const METAL_COAT
+	const DRAGON_FANG
+	const LEFTOVERS
+	const DRAGON_SCALE
+	const BERSERK_GENE
+	const LIGHT_BALL
+	const POLKADOT_BOW
+	const UP_GRADE
+	const FLAME_ORB
+	const TOXIC_ORB
+	const EVIOLITE
+	const WIDE_LENS
+	const BLACK_SLUDGE
+	const LIFE_ORB
+	const FOCUS_SASH
+	const ROCKY_HELMET
+	const EXPERT_BELT
+	const MUSCLE_BAND
+	const WISE_GLASSES
+	const SHELL_BELL
+	const BIG_ROOT
+	const BINDING_BAND
+	const MACHO_BRACE
+	const POWER_WEIGHT
+	const POWER_BRACER
+	const POWER_BELT
+	const POWER_ANKLET
+	const POWER_LENS
+	const POWER_BAND
+	const CHOICE_BAND
+	const CHOICE_SPECS
+	const CHOICE_SCARF
+	const ASSAULT_VEST
+	const WEAKNESS_POLICY
+	const AIR_BALLOON
+	const LIGHT_CLAY
+	const WHITE_HERB
+	const MENTAL_HERB
+	const POWER_HERB
+	const METRONOME_ITEM
+	const LOADED_DICE
+	const ABSORB_BULB
+	const CELL_BATTERY
+	const SNOWBALL
+	const LUMINOUS_MOSS
+	const SAFETY_GOGGLES
+	const ZOOM_LENS
+DEF NUM_HELD_POCKET EQU const_value - FIRST_HELD_ITEM
+assert NUM_HELD_POCKET <= $ff
+
+	const_align 8
+DEF FIRST_TRAINING_ITEM EQU const_value
+	const HP_UP
+	const PROTEIN
+	const IRON
+	const CARBOS
+	const CALCIUM
+	const RARE_CANDY
+	const PP_UP
+	const ZINC
+	const ABILITY_CAPSULE
+	const ABILITY_PATCH
+	const EXP_CANDY_S
+	const EXP_CANDY_M
+	const EXP_CANDY_L
+	const EXP_CANDY_XL
+DEF NUM_TRAINING_POCKET EQU const_value - FIRST_TRAINING_ITEM
+assert NUM_TRAINING_POCKET <= $ff
+
+	const_align 8
+DEF FIRST_TREASURE_ITEM EQU const_value
+	const NUGGET
+	const HELIX_FOSSIL
+	const DOME_FOSSIL
+	const SILVER_LEAF
+	const GOLD_LEAF
+	const TINYMUSHROOM
+	const BIG_MUSHROOM
+	const OLD_AMBER
+	const ROOT_FOSSIL
+	const SLOWPOKETAIL
+	const PEARL
+	const BIG_PEARL
+	const CLAW_FOSSIL
+	const STARDUST
+	const STAR_PIECE
+	const URSA_FOSSIL
+	const FIN_FOSSIL
+	const FANG_FOSSIL
+	const BRICK_PIECE
+DEF NUM_TREASURE_POCKET EQU const_value - FIRST_TREASURE_ITEM
+assert NUM_TREASURE_POCKET <= $ff
 
 	const_align 8 ; Key items assume the value of HIGH(FIRST_KEY_ITEM) when storing in bag.
 DEF FIRST_KEY_ITEM EQU const_value
@@ -388,6 +403,14 @@ DEF HM01 EQU const_value
 DEF NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 assert (NUM_TMS + NUM_HMS) < $ff, "TMs/HMs can't exceed 255 due to GetTMHMNumber."
+
+; wTMsHMs: one bit per TM and HM at fixed places (TMs from bit 0, HMs from bit
+; MAX_TMS), so TMs and HMs added later keep the saved bits where they are
+DEF MAX_TMS EQU 100
+DEF MAX_HMS EQU 8
+DEF NUM_TMHM_BITS EQU MAX_TMS + MAX_HMS
+	assert NUM_TMS <= MAX_TMS, "more TMs than wTMsHMs has room for"
+	assert NUM_HMS <= MAX_HMS, "more HMs than wTMsHMs has room for"
 
 MACRO add_mt
 ; Defines two constants:

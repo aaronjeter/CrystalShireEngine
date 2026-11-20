@@ -587,8 +587,7 @@
 	const EVENT_GOT_GROUDON
 	const EVENT_GOT_RAYQUAZA ; Meteor Peak: Rayquaza battled (cleared after the Hoenn League)
 	const EVENT_GOT_JIRACHI 
-	const EVENT_NUZLOCKE_AREA_96 ; Nuzlocke mode: "used" bits of landmarks 96 and up
-	const_skip 62 ; (all of them: a landmark index up to 158)
+	const_skip 62 ; unused (were Nuzlocke area flags; cleared by the save-breaking batch)
 	const EVENT_NUZLOCKE_CONTEST_USED ; Nuzlocke mode: a Bug-Catching Contest was played
 
 	const_next 600
@@ -2023,7 +2022,7 @@
 	const EVENT_SEAFOAM_GYM_GYM_GUIDE
 	const EVENT_MT_MOON_SQUARE_ROCK
 	const EVENT_MT_MOON_SQUARE_CLEFAIRY
-	const EVENT_MT_MOON_RIVAL
+	const_skip ; unused (was EVENT_MT_MOON_RIVAL)
 	const EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
 	const EVENT_TELEPORT_GUY
 ; Kanto itemballs
@@ -2166,5 +2165,6 @@
 	const EVENT_GOT_TOGEPI_EGG_FROM_BIRCHS_AIDE
 	const EVENT_BIRCHS_AIDE_IN_RUSTBORO_POKECENTER ; set = hidden
 
-	const_next 2048
-DEF NUM_EVENTS EQU const_value ; 800
+	; new flags go here (2048 and up were added by the save-breaking batch)
+	const_next 2560
+DEF NUM_EVENTS EQU const_value ; a00

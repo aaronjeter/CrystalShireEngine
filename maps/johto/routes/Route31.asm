@@ -43,8 +43,7 @@ Route31MailRecipientScript:
 .TryGiveKenya:
 	writetext Text_Route31SleepyManGotMail
 	promptbutton
-	checkpokemail ReceivedSpearowMailText
-	ifequal POKEMAIL_WRONG_MAIL, .WrongMail
+	checkpokemail KenyaCheckData
 	ifequal POKEMAIL_REFUSED, .Refused
 	ifequal POKEMAIL_NO_MAIL, .NoMail
 	ifequal POKEMAIL_LAST_MON, .LastMon
@@ -61,12 +60,6 @@ Route31MailRecipientScript:
 	writetext Text_Route31DescribeNightmare
 	waitbutton
 .NoRoomForItems:
-	closetext
-	end
-
-.WrongMail:
-	writetext Text_Route31WrongMail
-	waitbutton
 	closetext
 	end
 
@@ -88,9 +81,9 @@ Route31MailRecipientScript:
 	closetext
 	end
 
-ReceivedSpearowMailText:
-	db   "DARK CAVE leads"
-	next "to another road@"
+KenyaCheckData:
+	dw SPEAROW
+	db "RANDY@"
 
 Route31YoungsterScript:
 	jumptextfaceplayer Route31YoungsterText
@@ -164,26 +157,21 @@ Text_Route31SleepyManGotMail:
 	text "…Zzzz… Huh?"
 
 	para "What's that? You"
-	line "have mail for me?"
+	line "brought my Kenya"
+	cont "back?"
 	done
 
 Text_Route31HandOverMailMon:
 	text "<PLAYER> handed"
-	line "over the #mon"
-	cont "holding the mail."
+	line "over Kenya."
 	done
 
 Text_Route31ReadingMail:
-	text "Let's see…"
-
-	para "…Dark Cave leads"
-	line "to another road…"
-
-	para "That's good to"
-	line "know."
+	text "Kenya! Welcome"
+	line "back, buddy!"
 
 	para "Thanks for bring-"
-	line "ing this to me."
+	line "ing Kenya to me."
 
 	para "My friend's a good"
 	line "guy, and you're"
@@ -214,17 +202,9 @@ Text_Route31DescribeNightmare:
 	line "I'm so sleepy…"
 	done
 
-Text_Route31WrongMail:
-	text "This mail isn't"
-	line "for me."
-	done
-
 Text_Route31MissingMail:
-	text "Why is this #-"
-	line "MON so special?"
-
-	para "It doesn't have"
-	line "any mail."
+	text "Huh? That's not"
+	line "my Kenya."
 	done
 
 Text_Route31DeclinedToHandOverMail:

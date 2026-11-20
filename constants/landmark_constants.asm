@@ -154,12 +154,16 @@ DEF JOHTO_EXTRA_LANDMARK EQU const_value
 	const LANDMARK_SILVER_PASS
 	const LANDMARK_ROUTE_48
 	const LANDMARK_SILVER_TOWN
+; Hoenn landmarks added after the Johto ones
+DEF HOENN_EXTRA_LANDMARK EQU const_value
+	const LANDMARK_BATTLE_RESORT
 DEF NUM_LANDMARKS EQU const_value
 
 ; used in CaughtData
-	const_def $7f, -1
-	const LANDMARK_EVENT             ; $7f
-	const LANDMARK_GIFT              ; $7e
+	const_def $ff, -1
+	const LANDMARK_EVENT             ; $ff
+	const LANDMARK_GIFT              ; $fe
+	assert NUM_LANDMARKS <= LANDMARK_GIFT, "landmarks overlap LANDMARK_GIFT/LANDMARK_EVENT"
 
 ; Regions
 	const_def

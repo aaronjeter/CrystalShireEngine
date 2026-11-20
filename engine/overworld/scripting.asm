@@ -525,7 +525,6 @@ GetPocketName:
 	ld a, [wItemAttributeValue]
 	dec a
 	ld hl, ItemPocketNames
-	maskbits NUM_POCKETS
 	add a
 	ld e, a
 	ld d, 0
@@ -1686,25 +1685,10 @@ Script_getstring:
 	jmp GetStringBuffer
 
 Script_givepokemail:
+; Mail is removed: skips its argument.
 	rst GetScriptByte
-	ld l, a
 	rst GetScriptByte
-	ld h, a
-	ld a, [wScriptBank]
-	push hl
-	call GetFarWord
-	call GetItemIDFromIndex
-	ld b, a
-	pop hl
-	push bc
-	inc hl
-	inc hl
-	ld bc, MAIL_MSG_LENGTH
-	ld de, wMonMailMessageBuffer
-	ld a, [wScriptBank]
-	call FarCopyBytes
-	pop bc
-	farjp GivePokeMail
+	ret
 
 Script_checkpokemail:
 	rst GetScriptByte

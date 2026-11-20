@@ -1,16 +1,10 @@
 ; Pack.Jumptable and BattlePack.Jumptable indexes
 	const_def
-	const PACKSTATE_INITGFX            ;  0
-	const PACKSTATE_INITITEMSPOCKET    ;  1
-	const PACKSTATE_ITEMSPOCKETMENU    ;  2
-	const PACKSTATE_INITBALLSPOCKET    ;  3
-	const PACKSTATE_BALLSPOCKETMENU    ;  4
-	const PACKSTATE_INITKEYITEMSPOCKET ;  5
-	const PACKSTATE_KEYITEMSPOCKETMENU ;  6
-	const PACKSTATE_INITTMHMPOCKET     ;  7
-	const PACKSTATE_TMHMPOCKETMENU     ;  8
-	const PACKSTATE_QUITNOSCRIPT       ;  9
-	const PACKSTATE_QUITRUNSCRIPT      ; 10
+	const PACKSTATE_INITGFX       ; 0
+	const PACKSTATE_INITPOCKET    ; 1 (the pocket in wCurPocket)
+	const PACKSTATE_POCKETMENU    ; 2
+	const PACKSTATE_QUITNOSCRIPT  ; 3
+	const PACKSTATE_QUITRUNSCRIPT ; 4
 
 Pack:
 	ld hl, wItemFlags
@@ -44,17 +38,11 @@ Pack:
 
 .Jumptable:
 ; entries correspond to PACKSTATE_* constants
-	dw .InitGFX            ;  0
-	dw .InitItemsPocket    ;  1
-	dw .ItemsPocketMenu    ;  2
-	dw .InitBallsPocket    ;  3
-	dw .BallsPocketMenu    ;  4
-	dw .InitKeyItemsPocket ;  5
-	dw .KeyItemsPocketMenu ;  6
-	dw .InitTMHMPocket     ;  7
-	dw .TMHMPocketMenu     ;  8
-	dw Pack_QuitNoScript   ;  9
-	dw Pack_QuitRunScript  ; 10
+	dw .InitGFX           ; 0
+	dw Pack_InitPocket    ; 1
+	dw .PocketMenu        ; 2
+	dw Pack_QuitNoScript  ; 3
+	dw Pack_QuitRunScript ; 4
 
 .InitGFX:
 	xor a
@@ -64,72 +52,18 @@ Pack:
 	ld [wJumptableIndex], a
 	jmp Pack_InitColors
 
-.InitItemsPocket:
-	xor a ; ITEM_POCKET
-	ld [wCurPocket], a
-	call ClearPocketList
-	call DrawPocketName
-	call DrawPocketGFX
-	call WaitBGMap_DrawPackGFX
-	jmp Pack_JumptableNext
-
-.ItemsPocketMenu:
-	ld hl, ItemsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wItemsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wItemsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wItemsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wItemsPocketCursor], a
-	lb bc, PACKSTATE_INITTMHMPOCKET, PACKSTATE_INITBALLSPOCKET ; left / right
+.PocketMenu:
+	ld a, [wCurPocket]
+	cp TM_HM_POCKET
+	jr z, .TMHMPocketMenu
+	ld hl, PackPocketMenuHeaders
+	call Pack_ListPocketMenu
 	call Pack_InterpretJoypad
 	ret c
 	jmp .ItemBallsKey_LoadSubmenu
-
-.InitKeyItemsPocket:
-	ld a, KEY_ITEM_POCKET
-	ld [wCurPocket], a
-	call ClearPocketList
-	call DrawPocketName
-	call DrawPocketGFX
-	call WaitBGMap_DrawPackGFX
-	jmp Pack_JumptableNext
-
-.KeyItemsPocketMenu:
-	ld hl, KeyItemsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wKeyItemsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wKeyItemsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wKeyItemsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wKeyItemsPocketCursor], a
-	lb bc, PACKSTATE_INITBALLSPOCKET, PACKSTATE_INITTMHMPOCKET ; left / right
-	call Pack_InterpretJoypad
-	ret c
-	jmp .ItemBallsKey_LoadSubmenu
-
-.InitTMHMPocket:
-	ld a, TM_HM_POCKET
-	ld [wCurPocket], a
-	call ClearPocketList
-	call DrawPocketName
-	call DrawPocketGFX
-	xor a
-	ldh [hBGMapMode], a
-	call WaitBGMap_DrawPackGFX
-	jmp Pack_JumptableNext
 
 .TMHMPocketMenu:
 	farcall TMHMPocket
-	lb bc, PACKSTATE_INITKEYITEMSPOCKET, PACKSTATE_INITITEMSPOCKET ; left / right
 	call Pack_InterpretJoypad
 	ret c
 	farcall _CheckTossableItem
@@ -208,31 +142,6 @@ Pack:
 	call WaitBGMap_DrawPackGFX
 	jmp Pack_InitColors
 
-.InitBallsPocket:
-	ld a, BALL_POCKET
-	ld [wCurPocket], a
-	call ClearPocketList
-	call DrawPocketName
-	call DrawPocketGFX
-	call WaitBGMap_DrawPackGFX
-	jmp Pack_JumptableNext
-
-.BallsPocketMenu:
-	ld hl, BallsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wBallsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wBallsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wBallsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wBallsPocketCursor], a
-	lb bc, PACKSTATE_INITITEMSPOCKET, PACKSTATE_INITKEYITEMSPOCKET ; left / right
-	call Pack_InterpretJoypad
-	ret c
-; fallthrough
 .ItemBallsKey_LoadSubmenu:
 	farcall _CheckTossableItem
 	ld a, [wItemAttributeValue]
@@ -582,6 +491,8 @@ BattlePack:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
 	call InitPackBuffers
+	ld a, MEDICINE_POCKET
+	ld [wCurPocket], a
 .loop
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
@@ -608,17 +519,11 @@ BattlePack:
 
 .Jumptable:
 ; entries correspond to PACKSTATE_* constants
-	dw .InitGFX            ;  0
-	dw .InitItemsPocket    ;  1
-	dw .ItemsPocketMenu    ;  2
-	dw .InitBallsPocket    ;  3
-	dw .BallsPocketMenu    ;  4
-	dw .InitKeyItemsPocket ;  5
-	dw .KeyItemsPocketMenu ;  6
-	dw .InitTMHMPocket     ;  7
-	dw .TMHMPocketMenu     ;  8
-	dw Pack_QuitNoScript   ;  9
-	dw Pack_QuitRunScript  ; 10
+	dw .InitGFX           ; 0
+	dw .InitPocket        ; 1
+	dw .PocketMenu        ; 2
+	dw Pack_QuitNoScript  ; 3
+	dw Pack_QuitRunScript ; 4
 
 .InitGFX:
 	xor a
@@ -628,61 +533,10 @@ BattlePack:
 	ld [wJumptableIndex], a
 	jmp Pack_InitColors
 
-.InitItemsPocket:
-	xor a ; ITEM_POCKET
-	ld [wCurPocket], a
-	call ClearPocketList
-	call DrawPocketName
-	call DrawPocketGFX
-	call WaitBGMap_DrawPackGFX
-	jmp Pack_JumptableNext
-
-.ItemsPocketMenu:
-	ld hl, ItemsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wItemsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wItemsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wItemsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wItemsPocketCursor], a
-	lb bc, PACKSTATE_INITTMHMPOCKET , PACKSTATE_INITBALLSPOCKET ; left / right
-	call Pack_InterpretJoypad
-	ret c
-	jmp ItemSubmenu
-
-.InitKeyItemsPocket:
-	ld a, KEY_ITEM_POCKET
-	ld [wCurPocket], a
-	call ClearPocketList
-	call DrawPocketName
-	call DrawPocketGFX
-	call WaitBGMap_DrawPackGFX
-	jmp Pack_JumptableNext
-
-.KeyItemsPocketMenu:
-	ld hl, KeyItemsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wKeyItemsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wKeyItemsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wKeyItemsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wKeyItemsPocketCursor], a
-	lb bc, PACKSTATE_INITBALLSPOCKET, PACKSTATE_INITTMHMPOCKET ; left / right
-	call Pack_InterpretJoypad
-	ret c
-	jr ItemSubmenu
-
-.InitTMHMPocket:
-	ld a, TM_HM_POCKET
-	ld [wCurPocket], a
+.InitPocket:
+	ld a, [wCurPocket]
+	cp TM_HM_POCKET
+	jmp nz, Pack_InitPocket
 	call ClearPocketList
 	call DrawPocketName
 	call DrawPocketGFX
@@ -693,39 +547,23 @@ BattlePack:
 	call Pack_PrintTextNoScroll
 	jmp Pack_JumptableNext
 
+.PocketMenu:
+	ld a, [wCurPocket]
+	cp TM_HM_POCKET
+	jr z, .TMHMPocketMenu
+	ld hl, PackPocketMenuHeaders
+	call Pack_ListPocketMenu
+	call Pack_InterpretJoypad
+	ret c
+	jr ItemSubmenu
+
 .TMHMPocketMenu:
 	farcall TMHMPocket
-	lb bc, PACKSTATE_INITKEYITEMSPOCKET, PACKSTATE_INITITEMSPOCKET ; left / right
 	call Pack_InterpretJoypad
 	ret c
 	xor a
 	jr TMHMSubmenu
 
-.InitBallsPocket:
-	ld a, BALL_POCKET
-	ld [wCurPocket], a
-	call ClearPocketList
-	call DrawPocketName
-	call DrawPocketGFX
-	call WaitBGMap_DrawPackGFX
-	jmp Pack_JumptableNext
-
-.BallsPocketMenu:
-	ld hl, BallsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wBallsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wBallsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wBallsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wBallsPocketCursor], a
-	lb bc, PACKSTATE_INITITEMSPOCKET, PACKSTATE_INITKEYITEMSPOCKET ; left / right
-	call Pack_InterpretJoypad
-	ret c
-; fallthrough
 ItemSubmenu:
 	farcall CheckItemContext
 	ld a, [wItemAttributeValue]
@@ -843,13 +681,13 @@ TMHMSubmenu:
 InitPackBuffers:
 	xor a
 	ld [wJumptableIndex], a
-	; pocket id -> jumptable index
 	ld a, [wLastPocket]
-	maskbits NUM_POCKETS
+	cp NUM_POCKETS
+	jr c, .got_pocket
+	xor a ; ITEM_POCKET
+.got_pocket
 	ld [wCurPocket], a
-	inc a
-	add a
-	dec a
+	ld a, PACKSTATE_INITPOCKET
 	ld [wPackJumptableIndex], a
 	xor a ; FALSE
 	ld [wPackUsedItem], a
@@ -870,78 +708,55 @@ DepositSellInitPackBuffers:
 
 DepositSellPack:
 .loop
-	call .RunJumptable
-	call DepositSellTutorial_InterpretJoypad
+	call .RunPocket
+	call DepositSellPack_InterpretJoypad
 	jr c, .loop
 	ret
 
-.RunJumptable:
+.RunPocket:
+; wJumptableIndex = the pocket
 	ld a, [wJumptableIndex]
-	ld hl, .Jumptable
-	call Pack_GetJumptablePointer
-	jp hl
-
-.Jumptable:
-; entries correspond to *_POCKET constants
-	dw .ItemsPocket
-	dw .BallsPocket
-	dw .KeyItemsPocket
-	dw .TMHMPocket
-
-.ItemsPocket:
-	xor a ; ITEM_POCKET
+	cp TM_HM_POCKET
+	jr z, .TMHMPocket
 	call InitPocket
-	ld hl, PC_Mart_ItemsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wItemsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wItemsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wItemsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wItemsPocketCursor], a
-	ret
-
-.KeyItemsPocket:
-	ld a, KEY_ITEM_POCKET
-	call InitPocket
-	ld hl, PC_Mart_KeyItemsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wKeyItemsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wKeyItemsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wKeyItemsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wKeyItemsPocketCursor], a
-	ret
+	ld hl, PC_MartPocketMenuHeaders
+	jmp Pack_ListPocketMenu
 
 .TMHMPocket:
-	ld a, TM_HM_POCKET
 	call InitPocket
 	call WaitBGMap_DrawPackGFX
 	farcall TMHMPocket
 	ld a, [wCurItem]
 	ret
 
-.BallsPocket:
-	ld a, BALL_POCKET
-	call InitPocket
-	ld hl, PC_Mart_BallsPocketMenuHeader
-	call CopyMenuHeader
-	ld a, [wBallsPocketCursor]
-	ld [wMenuCursorPosition], a
-	ld a, [wBallsPocketScrollPosition]
-	ld [wMenuScrollPosition], a
-	call ScrollingMenu
-	ld a, [wMenuScrollPosition]
-	ld [wBallsPocketScrollPosition], a
-	ld a, [wMenuCursorY]
-	ld [wBallsPocketCursor], a
+DepositSellPack_InterpretJoypad:
+; like DepositSellTutorial_InterpretJoypad, through all the pockets
+	ld hl, wMenuJoypad
+	ld a, [hl]
+	and D_LEFT | D_RIGHT
+	jr z, DepositSellTutorial_InterpretJoypad
+	and D_LEFT
+	ld a, [wJumptableIndex]
+	jr z, .right
+	and a
+	jr nz, .dec
+	ld a, NUM_POCKETS
+.dec
+	dec a
+	jr .got_pocket
+
+.right
+	inc a
+	cp NUM_POCKETS
+	jr c, .got_pocket
+	xor a
+.got_pocket
+	ld [wJumptableIndex], a
+	push de
+	ld de, SFX_SWITCH_POCKETS
+	call PlaySFX
+	pop de
+	scf
 	ret
 
 InitPocket:
@@ -983,7 +798,7 @@ DepositSellTutorial_InterpretJoypad:
 .d_left
 	ld a, [wJumptableIndex]
 	dec a
-	maskbits NUM_POCKETS
+	maskbits NUM_TUTORIAL_POCKETS
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
@@ -995,7 +810,7 @@ DepositSellTutorial_InterpretJoypad:
 .d_right
 	ld a, [wJumptableIndex]
 	inc a
-	maskbits NUM_POCKETS
+	maskbits NUM_TUTORIAL_POCKETS
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
@@ -1160,7 +975,6 @@ DrawPackGFX:
 	ld b, BANK(PackFGFX)
 .got_gfx
 	ld a, [wCurPocket]
-	maskbits NUM_POCKETS
 	add a
 	ld e, a
 	ld d, 0
@@ -1193,10 +1007,18 @@ DrawPackGFX:
 	ret
 
 PackGFXOffsets:
+; entries correspond to *_POCKET constants
+	table_width 2
 	dw (15 tiles) * 1 ; ITEM_POCKET
+	dw (15 tiles) * 1 ; MEDICINE_POCKET
+	dw (15 tiles) * 1 ; BERRY_POCKET
+	dw (15 tiles) * 1 ; HELD_POCKET
+	dw (15 tiles) * 1 ; TRAINING_POCKET
+	dw (15 tiles) * 1 ; TREASURE_POCKET
 	dw (15 tiles) * 3 ; BALL_POCKET
-	dw (15 tiles) * 0 ; KEY_ITEM_POCKET
 	dw (15 tiles) * 2 ; TM_HM_POCKET
+	dw (15 tiles) * 0 ; KEY_ITEM_POCKET
+	assert_table_length NUM_POCKETS
 
 Pack_InterpretJoypad:
 	ld hl, wMenuJoypad
@@ -1232,18 +1054,23 @@ Pack_InterpretJoypad:
 	ret
 
 .d_left
-	ld a, b
-	ld [wJumptableIndex], a
-	ld [wPackJumptableIndex], a
-	push de
-	ld de, SFX_SWITCH_POCKETS
-	call PlaySFX
-	pop de
-	scf
-	ret
+	ld a, [wCurPocket]
+	and a
+	jr nz, .prev
+	ld a, NUM_POCKETS
+.prev
+	dec a
+	jr .switch_pocket
 
 .d_right
-	ld a, c
+	ld a, [wCurPocket]
+	inc a
+	cp NUM_POCKETS
+	jr c, .switch_pocket
+	xor a
+.switch_pocket
+	ld [wCurPocket], a
+	ld a, PACKSTATE_INITPOCKET
 	ld [wJumptableIndex], a
 	ld [wPackJumptableIndex], a
 	push de
@@ -1291,6 +1118,10 @@ Pack_InitGFX:
 	ld de, vTiles2
 	lb bc, BANK(PackMenuGFX), 80
 	call DecompressRequest2bpp
+	ld de, PocketLabelsGFX
+	ld hl, vTiles2 tile $60
+	lb bc, BANK(PocketLabelsGFX), 25
+	call Get2bpp
 ; Background (blue if male, pink if female)
 	hlcoord 0, 1
 	ld bc, 11 * SCREEN_WIDTH
@@ -1335,42 +1166,47 @@ PlacePackGFX:
 	ret
 
 DrawPocketGFX:
-	ld a, [wCurPocket]
-	; * 6
-	push bc
-	ld c, 5
-	ld b, a
-.multloop
-	add b
-	dec c
-	jr nz, .multloop
-	pop bc
-; done
-	ld d, 0
-	ld e, a
-	ld hl, .tilemap
-	add hl, de
-	ld d, h
-	ld e, l
+; the pocket indicator: ◂, a slot per pocket (the current one shows its icon), ▸
 	hlcoord 9, 0
-	ld b, 6
-.col
+	ld [hl], $2d ; ◂
+	inc hl
+	ld c, 0
+.loop
+	ld a, [wCurPocket]
+	cp c
+	ld a, $2c ; a dot
+	jr nz, .got_tile
+	ld a, c
+	ld de, .Icons
+	add e
+	ld e, a
+	adc d
+	sub e
+	ld d, a
 	ld a, [de]
-	inc de
+.got_tile
 	ld [hli], a
-	dec b
-	jr nz, .col
+	inc c
+	ld a, c
+	cp NUM_POCKETS
+	jr c, .loop
+	ld [hl], $2e ; ▸
 	ret
 
-.tilemap
-	; Regular Items
-	db $2d, $4c, $2c, $2c, $2c, $2e
-	; Balls
-	db $2d, $2c, $4d, $2c, $2c, $2e
-	; TMs
-	db $2d, $2c, $2c, $4e, $2c, $2e
-	; Key Items
-	db $2d, $2c, $2c, $2c, $4f, $2e
+.Icons:
+; entries correspond to *_POCKET constants
+	table_width 1
+	db $4c ; ITEM_POCKET
+	db $4c ; MEDICINE_POCKET
+	db $4c ; BERRY_POCKET
+	db $4c ; HELD_POCKET
+	db $4c ; TRAINING_POCKET
+	db $4c ; TREASURE_POCKET
+	db $4d ; BALL_POCKET
+	db $4f ; TM_HM_POCKET
+	db $4e ; KEY_ITEM_POCKET
+	assert_table_length NUM_POCKETS
+	assert 9 + 1 + NUM_POCKETS + 1 == SCREEN_WIDTH
 
 DrawPocketName:
 	ld a, [wCurPocket]
@@ -1391,8 +1227,6 @@ DrawPocketName:
 	ld d, h
 	ld e, l
 	hlcoord 0, 0
-	ld c, 1
-.row
 	ld b, 5
 .col
 	ld a, [de]
@@ -1400,31 +1234,21 @@ DrawPocketName:
 	ld [hli], a
 	dec b
 	jr nz, .col
-	ld a, c
-	ld c, SCREEN_WIDTH - 5
-	add hl, bc
-	ld c, a
-	dec c
-	jr nz, .row
 	ret
 
 .tilemap
-; ITEM_POCKET
-	; db $00, $04, $04, $04, $01 ; top border
+; entries correspond to *_POCKET constants (labels: 5 tiles each)
+	table_width 5
 	db $06, $07, $08, $09, $0a ; Items
-	; db $02, $05, $05, $05, $03 ; bottom border
-; BALL_POCKET
-	; db $00, $04, $04, $04, $01 ; top border
+	db $60, $61, $62, $63, $64 ; Medicine (PocketLabelsGFX)
+	db $65, $66, $67, $68, $69 ; Berries
+	db $6a, $6b, $6c, $6d, $6e ; HeldItems
+	db $6f, $70, $71, $72, $73 ; Training
+	db $74, $75, $76, $77, $78 ; Treasures
 	db $15, $16, $17, $18, $19 ; Balls
-	; db $02, $05, $05, $05, $03 ; bottom border
-; KEY_ITEM_POCKET
-	; db $00, $04, $04, $04, $01 ; top border
-	db $0b, $0c, $0d, $0e, $0f ; Key Items
-	; db $02, $05, $05, $05, $03 ; bottom border
-; TM_HM_POCKET
-	; db $00, $04, $04, $04, $01 ; top border
 	db $10, $11, $12, $13, $14 ; TM/HM
-	; db $02, $05, $05, $05, $03 ; bottom border
+	db $0b, $0c, $0d, $0e, $0f ; Key Items
+	assert_table_length NUM_POCKETS
 
 Pack_GetItemName:
 	ld a, [wCurItem]
@@ -1443,36 +1267,6 @@ Pack_InitColors:
 	call GetSGBLayout
 	call SetDefaultBGPAndOBP
 	jmp DelayFrame
-
-ItemsPocketMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 7, 1, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP | STATICMENU_CURSOR ; flags
-	db 5, 8 ; rows, columns
-	db SCROLLINGMENU_ITEMS_16BIT_QUANTITY ; item format
-	dbw 0, wNumItems
-	dba PlaceMenuItemName
-	dba PackItemQuantity
-	dba UpdateItemDescription
-
-PC_Mart_ItemsPocketMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 7, 1, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP ; flags
-	db 5, 8 ; rows, columns
-	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
-	dbw 0, wNumItems
-	dba PlaceMenuItemName
-	dba PlaceMenuItemQuantity
-	dba UpdateItemDescription
 
 KeyItemsPocketMenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -1504,35 +1298,118 @@ PC_Mart_KeyItemsPocketMenuHeader:
 	dba PlaceMenuKeyItemQuantity
 	dba UpdateKeyItemDescription
 
-BallsPocketMenuHeader:
+MACRO list_pocket_menu_header
+; \1: the pocket's list; \2: TRUE for the Pack (a cursor, the registered marks)
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 7, 1, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
-	dw .MenuData
+	dw @ + 3 ; the menu data
 	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP | STATICMENU_CURSOR ; flags
+	if \2
+		db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP | STATICMENU_CURSOR ; flags
+	else
+		db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP ; flags
+	endc
 	db 5, 8 ; rows, columns
 	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
-	dbw 0, wNumBalls
+	dbw 0, \1
 	dba PlaceMenuItemBallName
-	dba PackBallQuantity
+	if \2
+		dba PackBallQuantity
+	else
+		dba PlaceMenuItemBallQuantity
+	endc
 	dba UpdateItemBallDescription
+ENDM
 
-PC_Mart_BallsPocketMenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 7, 1, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
+PackPocketMenuHeaders:
+; entries correspond to *_POCKET constants
+	table_width 2
+	dw .Items
+	dw .Medicine
+	dw .Berries
+	dw .HeldItems
+	dw .Training
+	dw .Treasures
+	dw .Balls
+	dw 0 ; TM_HM_POCKET
+	dw KeyItemsPocketMenuHeader
+	assert_table_length NUM_POCKETS
+.Items:     list_pocket_menu_header wNumItems, TRUE
+.Medicine:  list_pocket_menu_header wNumMedicine, TRUE
+.Berries:   list_pocket_menu_header wNumBerries, TRUE
+.HeldItems: list_pocket_menu_header wNumHeldItems, TRUE
+.Training:  list_pocket_menu_header wNumTrainingItems, TRUE
+.Treasures: list_pocket_menu_header wNumTreasures, TRUE
+.Balls:     list_pocket_menu_header wNumBalls, TRUE
 
-.MenuData:
-	db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP ; flags
-	db 5, 8 ; rows, columns
-	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
-	dbw 0, wNumBalls
-	dba PlaceMenuItemBallName
-	dba PlaceMenuItemBallQuantity
-	dba UpdateItemBallDescription
+PC_MartPocketMenuHeaders:
+; entries correspond to *_POCKET constants
+	table_width 2
+	dw .Items
+	dw .Medicine
+	dw .Berries
+	dw .HeldItems
+	dw .Training
+	dw .Treasures
+	dw .Balls
+	dw 0 ; TM_HM_POCKET
+	dw PC_Mart_KeyItemsPocketMenuHeader
+	assert_table_length NUM_POCKETS
+.Items:     list_pocket_menu_header wNumItems, FALSE
+.Medicine:  list_pocket_menu_header wNumMedicine, FALSE
+.Berries:   list_pocket_menu_header wNumBerries, FALSE
+.HeldItems: list_pocket_menu_header wNumHeldItems, FALSE
+.Training:  list_pocket_menu_header wNumTrainingItems, FALSE
+.Treasures: list_pocket_menu_header wNumTreasures, FALSE
+.Balls:     list_pocket_menu_header wNumBalls, FALSE
+
+Pack_InitPocket:
+; Draw the pocket in wCurPocket, then go to its menu.
+	call ClearPocketList
+	call DrawPocketName
+	call DrawPocketGFX
+	xor a
+	ldh [hBGMapMode], a
+	call WaitBGMap_DrawPackGFX
+	jmp Pack_JumptableNext
+
+Pack_ListPocketMenu:
+; The scrolling menu of list pocket wCurPocket, with its header from table hl;
+; keeps the pocket's cursor and scroll position.
+	ld a, [wCurPocket]
+	add a
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call CopyMenuHeader
+	call .PocketVars
+	ld a, [hl]
+	ld [wMenuCursorPosition], a
+	ld a, [de]
+	ld [wMenuScrollPosition], a
+	call ScrollingMenu
+	call .PocketVars
+	ld a, [wMenuCursorY]
+	ld [hl], a
+	ld a, [wMenuScrollPosition]
+	ld [de], a
+	ret
+
+.PocketVars:
+; hl = the pocket's cursor, de = its scroll position
+	ld a, [wCurPocket]
+	ld e, a
+	ld d, 0
+	ld hl, wPocketScrollPositions
+	add hl, de
+	push hl
+	ld hl, wPocketCursors
+	add hl, de
+	pop de
+	ret
 
 AskThrowAwayText:
 	text_far _AskThrowAwayText
@@ -1576,5 +1453,7 @@ PackEmptyText:
 
 PackMenuGFX:
 INCBIN "gfx/pack/pack_menu.2bpp.lz"
+PocketLabelsGFX:
+INCBIN "gfx/pack/pocket_labels.2bpp"
 PackGFX:
 INCBIN "gfx/pack/pack.2bpp.lz"

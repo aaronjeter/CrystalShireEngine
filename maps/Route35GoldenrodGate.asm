@@ -29,7 +29,6 @@ RandyScript:
 	playsound SFX_KEY_ITEM
 	waitsfx
 	givepoke SPEAROW, 10, NO_ITEM, GiftSpearowName, GiftSpearowOTName
-	givepokemail GiftSpearowMail
 	setevent EVENT_GOT_KENYA
 .alreadyhavekenya
 	writetext Route35GoldenrodGateRandyWeirdTreeBlockingRoadText
@@ -61,11 +60,6 @@ RandyScript:
 .bagfull
 	closetext
 	end
-
-GiftSpearowMail:
-	dw FLOWER_MAIL
-	db   "DARK CAVE leads"
-	next "to another road@"
 
 GiftSpearowName:
 	db "KENYA@"
@@ -100,8 +94,8 @@ Route35GoldenrodGateRandyAskTakeThisMonToMyFriendText:
 	cont "a favor?"
 
 	para "Can you take this"
-	line "#mon with MAIL"
-	cont "to my friend?"
+	line "#mon back to"
+	cont "my friend?"
 
 	para "He's on ROUTE 31."
 	done
@@ -119,13 +113,13 @@ Route35GoldenrodGateRandyThanksText:
 	done
 
 Route35GoldenrodGatePlayerReceivedAMonWithMailText:
-	text "<PLAYER> received a"
-	line "#mon with MAIL."
+	text "<PLAYER> received"
+	line "Kenya the Spearow."
 	done
 
 Route35GoldenrodGateRandyWeirdTreeBlockingRoadText:
-	text "You can read it,"
-	line "but don't lose it!"
+	text "It's called Kenya."
+	line "Don't lose it!"
 	cont "Route 31!"
 
 	para "Oh, yeah. There"

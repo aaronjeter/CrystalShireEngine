@@ -70,7 +70,7 @@ _GetVarAction::
 	ld hl, wPokedexCaught
 .count_caught_or_seen_mons
 	ld bc, wEndPokedexCaught - wPokedexCaught
-	call CountSetBits16
+	call CountDexFlags
 	ld a, b
 .load_or_saturate
 	add -1
@@ -87,7 +87,7 @@ _GetVarAction::
 ; Mons left to catch. Saturate at 255.
 	ld hl, wPokedexCaught
 	ld bc, wEndPokedexCaught - wPokedexCaught
-	call CountSetBits16
+	call CountDexFlags
 	ld a, LOW(NUM_POKEMON)
 	sub c
 	ld c, a

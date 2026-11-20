@@ -19,17 +19,16 @@ MACRO box_struct
 \1SpclDefEV::      db
 \1AbilitySlot::    db ; bits 0-1: ABILITY_SLOT_*; bits 2-7 unused
 \1Marks::          db ; MON_*_F
-\1Padding::        ds 1
+\1CaughtTime::     db ; the time of day caught + 1 (0: unknown)
 \1Color::          db ; MONCOLOR_*
 \1DVs::            dw
 \1PP::             ds NUM_MOVES
 \1Happiness::      db
 \1PokerusStatus::  db
 \1CaughtData::
-\1CaughtTime::
-\1CaughtLevel::    db
-\1CaughtGender::
-\1CaughtLocation:: db
+\1CaughtLevel::
+\1CaughtGender::   db ; bits 0-6: level (0: none), bit 7: the OT's gender
+\1CaughtLocation:: db ; a landmark, LANDMARK_GIFT or LANDMARK_EVENT
 \1Level::          db
 \1BoxEnd::
 ENDM
@@ -50,7 +49,7 @@ MACRO savemon_struct
 \1SpclDefEV::      db
 \1AbilitySlot::    db ; bits 0-1: ABILITY_SLOT_*; bits 2-7 unused
 \1Marks::          db ; MON_*_F
-\1Padding::        ds 1
+\1CaughtTime::     db ; the time of day caught + 1 (0: unknown)
 \1Color::          db ; MONCOLOR_*
 \1DVs::            dw
 \1MovesHigh::
@@ -58,10 +57,9 @@ MACRO savemon_struct
 \1Happiness::      db
 \1PokerusStatus::  db
 \1CaughtData::
-\1CaughtTime::
-\1CaughtLevel::    db
-\1CaughtGender::
-\1CaughtLocation:: db
+\1CaughtLevel::
+\1CaughtGender::   db ; bits 0-6: level (0: none), bit 7: the OT's gender
+\1CaughtLocation:: db ; a landmark, LANDMARK_GIFT or LANDMARK_EVENT
 \1Level::          db
 \1SpeciesHigh::    db
 \1ItemHigh::       db

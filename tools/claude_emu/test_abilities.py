@@ -264,7 +264,9 @@ def item_use(item, start_slot, answer='yes'):
     """item 0 = Ability Capsule, 1 = Ability Patch. Returns (new slot, capsules left, patches left)."""
     g = new_patched()
     g.wr('wPartyCount', 0); g.wr('wPartySpecies', 0xFF)
-    g.wr('wNumItems', 0); g.wr('wItems', 0xFF)
+    g.wr('wNumTrainingItems', 0); g.wr('wTrainingItems', 0xFF)
+    g.wr('wLastPocket', 4)  # TRAINING_POCKET
+    g.wr('wTrainingPocketCursor', 1); g.wr('wTrainingPocketScrollPosition', 0)
     g.run_script('\tgivepoke MACHAMP, 30\n\tgiveitem ABILITY_CAPSULE, 5\n\tgiveitem ABILITY_PATCH, 5\n\tend')
     settle(g, 40); g.frames(30)
     g.wr('wPartyMon1AbilitySlot', start_slot)
@@ -274,8 +276,8 @@ def item_use(item, start_slot, answer='yes'):
     if 'Yes' in g.screen_text():
         g.press('A' if answer == 'yes' else 'B', after=200)
     for i in range(12): g.press('B', after=30)
-    items = g.rd('wItems', 6)
-    return g.rd('wPartyMon1AbilitySlot') & 3, items[2], items[5]
+    items = g.rd('wTrainingItems', 4)
+    return g.rd('wPartyMon1AbilitySlot') & 3, items[1], items[3]
 r = item_use(0, 0); check(r == (1, 4, 5), f'Ability Capsule: slot 1 -> 2, one Capsule used {r}')
 r = item_use(0, 2); check(r == (2, 5, 5), f'Ability Capsule on a hidden ability: no effect, not used {r}')
 r = item_use(1, 1); check(r == (2, 5, 4), f'Ability Patch: slot 2 -> hidden, one Patch used {r}')

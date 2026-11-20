@@ -922,10 +922,6 @@ SECTION "Map Blocks LZ 2", ROMX
 	DEF IcePathB3F_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/dungeons/IcePathB3F.ablk.lz"
 
-	ArticunoLair_Blocks:
-	DEF ArticunoLair_BLOCKS_LZ EQU 1
-	INCBIN "maps/johto/dungeons/ArticunoLair.ablk.lz"
-
 	MoltresLair_Blocks:
 	DEF MoltresLair_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/dungeons/MoltresLair.ablk.lz"
@@ -1295,10 +1291,6 @@ SECTION "Map Blocks LZ 3", ROMX
 	DiglettsCave_Blocks:
 	DEF DiglettsCave_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/dungeons/DiglettsCave.ablk.lz"
-
-	MountMoon_Blocks:
-	DEF MountMoon_BLOCKS_LZ EQU 1
-	INCBIN "maps/kanto/dungeons/MountMoon.ablk.lz"
 
 	SeafoamGym_Blocks:
 	DEF SeafoamGym_BLOCKS_LZ EQU 1

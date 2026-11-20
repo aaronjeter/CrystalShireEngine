@@ -140,7 +140,7 @@ DEF WILDSPAWN_ACTIVE_F EQU 4 ; it reacted to the player (woke, charging, chasing
 DEF WILDSPAWN_ONCE_F   EQU 5 ; its once-a-visit reaction is used ("Zzz", "?", a teleport)
 DEF WILDSPAWN_ALT_F    EQU 6 ; its behavior's second phase (retreating, going home...)
 DEF WILDSPAWN_ALT2_F   EQU 7
-DEF NUM_OBJECTS EQU 16
+DEF NUM_OBJECTS EQU 20
 DEF FOLLOW_QUEUE_SIZE EQU 5 ; wFollowMovementQueue
 DEF FOLLOWER_OBJECT EQU NUM_OBJECTS - 1 ; the following Pokémon uses the last map object
 DEF PLAYER_OBJECT EQU 0

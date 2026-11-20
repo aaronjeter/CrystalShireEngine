@@ -1,8 +1,7 @@
 ; Nuzlocke mode (wOptions2 bit NUZLOCKE_ON): one catch per area. An area is a
-; landmark; its "used" bit is in wNuzlockeAreaFlags (landmarks 0-95) or in the
-; event flags from EVENT_NUZLOCKE_AREA_96 (landmarks 96 and up).
+; landmark; its "used" bit is in wNuzlockeAreaFlags.
 
-assert NUM_LANDMARKS <= NUM_NUZLOCKE_AREA_BYTES * 8 + 63, \
+assert NUM_LANDMARKS <= NUM_NUZLOCKE_AREA_BYTES * 8, \
 	"more landmarks than Nuzlocke area flags"
 
 NuzlockeWildEncounter::
@@ -93,22 +92,10 @@ GetNuzlockeArea::
 
 NuzlockeAreaFlagAction::
 ; Area a's "used" flag: b = RESET_FLAG, SET_FLAG or CHECK_FLAG (c = result).
-	cp NUM_NUZLOCKE_AREA_BYTES * 8
-	jr nc, .event_flag
 	ld e, a
 	ld d, 0
 	ld hl, wNuzlockeAreaFlags
-	jmp FlagAction
-
-.event_flag
-	sub NUM_NUZLOCKE_AREA_BYTES * 8
-	ld l, a
-	ld h, 0
-	ld de, EVENT_NUZLOCKE_AREA_96
-	add hl, de
-	ld d, h
-	ld e, l
-	jmp EventFlagAction
+	jmp FlagActionInPlayerData2
 
 NuzlockeFamilyCaught:
 ; Carry if a Pokémon with the same first evolution stage as wTempEnemyMonSpecies
@@ -227,7 +214,6 @@ NuzlockeEndOfBattle::
 	rst CopyBytes
 	ld a, [wCurPartyMon]
 	call .RemoveEvolvableFlag
-	call .SendMailToPC
 	ld a, [wCurPartyMon]
 	inc a
 	ld c, a
@@ -253,21 +239,6 @@ NuzlockeEndOfBattle::
 	res NUZLOCKE_ON, [hl]
 	ld hl, NuzlockeRunOverText
 	jmp BattleTextbox
-
-.SendMailToPC:
-; Boxes can't hold Mail: held Mail goes to the PC's mailbox. With the mailbox
-; full, the Mail is thrown away.
-	ld a, MON_ITEM
-	call GetPartyParamLocation
-	ld a, [hl]
-	call ItemIsMail_a
-	ret nc
-	farcall SendMailToPC
-	ret nc
-	ld a, MON_ITEM
-	call GetPartyParamLocation
-	ld [hl], 0
-	ret
 
 .CountStanding:
 ; z if no party Pokémon other than Eggs has HP left.

@@ -54,6 +54,17 @@ BPShop::
 	ld l, a
 	cphl16 -1
 	jr z, .read_done
+	; a TM or HM the player owns isn't for sale
+	push de
+	push bc
+	push hl
+	ld d, h
+	ld e, l
+	farcall ItemIndexIsOwnedTMHM
+	pop hl
+	pop bc
+	pop de
+	jr c, .skip
 	call GetItemIDFromIndex
 	ld [de], a
 	inc de
@@ -62,6 +73,12 @@ BPShop::
 	ld a, [hli]
 	ld [bc], a
 	inc bc
+	jr .read
+
+.skip
+	pop hl
+	inc hl
+	inc hl
 	jr .read
 
 .read_done

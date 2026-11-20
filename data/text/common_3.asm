@@ -96,6 +96,16 @@ _AnotherSaveFileText::
 	cont "OK to overwrite?"
 	done
 
+_OldSaveFileText::
+	text "This save file is"
+	line "from an older"
+	cont "version and can't"
+	cont "be loaded."
+
+	para "Start a New Game"
+	line "to play this one."
+	prompt
+
 _SaveFileCorruptedText::
 	text "The save file is"
 	line "corrupted!"

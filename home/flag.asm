@@ -1,7 +1,12 @@
 ResetMapBufferEventFlags::
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wEventFlags)
+	ldh [rSVBK], a
 	xor a
-	ld hl, wEventFlags
-	ld [hli], a
+	ld [wEventFlags], a
+	pop af
+	ldh [rSVBK], a
 	ret
 
 ResetBikeFlags::
@@ -26,6 +31,20 @@ ResetFlashIfOutOfCave::
 EventFlagAction::
 	ld hl, wEventFlags
 ; fallthrough
+FlagActionInPlayerData2::
+; FlagAction on a flag array hl in wPlayerData2 (WRAM bank 2): returns c and
+; its z flag, like a check.
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wPlayerData2)
+	ldh [rSVBK], a
+	call FlagAction
+	pop af
+	ldh [rSVBK], a
+	ld a, c
+	and a
+	ret
+
 FlagAction::
 ; Perform action b on bit de in flag array hl.
 

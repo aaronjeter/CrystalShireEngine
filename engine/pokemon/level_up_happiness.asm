@@ -2,9 +2,7 @@ LevelUpHappinessMod:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1CaughtLocation
 	call GetPartyLocation
-	ld a, [hl]
-	and CAUGHT_LOCATION_MASK
-	ld d, a
+	ld d, [hl]
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]

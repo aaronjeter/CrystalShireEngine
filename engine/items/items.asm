@@ -1,38 +1,13 @@
 _ReceiveItem::
 	call DoesHLEqualNumItems
-	jmp nz, PutItemInPocket
-	push hl
-	call CheckItemPocket
-	pop de
-	ld a, [wItemAttributeValue]
-	dec a
-	ld hl, .Pockets
-	jmp JumpTable
-
-.Pockets:
-; entries correspond to item types
-	dw .Item
-	dw .KeyItem
-	dw .Ball
-	dw .TMHM
-
-.Item:
-	ld h, d
-	ld l, e
-	jmp PutItemInPocket
-
-.KeyItem:
-	ld h, d
-	ld l, e
-	jmp ReceiveKeyItem
-
-.Ball:
-	ld hl, wNumBalls
+	jmp nz, PutItemInPocket ; the PC's list: 16-bit item indexes
+	call GetBagListForItem
+	jr c, .not_list
 	jmp PutItemInPocketLow
 
-.TMHM:
-	ld h, d
-	ld l, e
+.not_list
+	cp KEY_ITEM
+	jmp z, ReceiveKeyItem
 	ld a, [wCurItem]
 	ld c, a
 	call GetTMHMNumber
@@ -40,87 +15,75 @@ _ReceiveItem::
 
 _TossItem::
 	call DoesHLEqualNumItems
-	jr nz, .remove
-	push hl
-	call CheckItemPocket
-	pop de
-	ld a, [wItemAttributeValue]
-	dec a
-	ld hl, .Pockets
-	jmp JumpTable
-
-.Pockets:
-; entries correspond to item types
-	dw .Item
-	dw .KeyItem
-	dw .Ball
-	dw .TMHM
-
-.Ball:
-	ld hl, wNumBalls
+	jmp nz, RemoveItemFromPocket
+	call GetBagListForItem
+	jr c, .not_list
 	jmp RemoveItemFromPocketLow
 
-.TMHM:
-	ld h, d
-	ld l, e
+.not_list
+	cp KEY_ITEM
+	jmp z, TossKeyItem
 	ld a, [wCurItem]
 	ld c, a
 	call GetTMHMNumber
 	jmp TossTMHM
 
-.KeyItem:
-	ld h, d
-	ld l, e
-	jmp TossKeyItem
-
-.Item:
-	ld h, d
-	ld l, e
-
-.remove
-	jmp RemoveItemFromPocket
-
 _CheckItem::
 	call DoesHLEqualNumItems
-	jr nz, .nope
-	push hl
-	call CheckItemPocket
-	pop de
-	ld a, [wItemAttributeValue]
-	dec a
-	ld hl, .Pockets
-	jmp JumpTable
-
-.Pockets:
-; entries correspond to item types
-	dw .Item
-	dw .KeyItem
-	dw .Ball
-	dw .TMHM
-
-.Ball:
-	ld hl, wNumBalls
+	jmp nz, CheckTheItem
+	call GetBagListForItem
+	jr c, .not_list
 	jmp CheckTheItemLow
 
-.TMHM:
-	ld h, d
-	ld l, e
+.not_list
+	cp KEY_ITEM
+	jmp z, CheckKeyItems
 	ld a, [wCurItem]
 	ld c, a
 	call GetTMHMNumber
 	jmp CheckTMHM
 
-.KeyItem:
-	ld h, d
-	ld l, e
-	jmp CheckKeyItems
+GetBagListForItem:
+; hl = the Pack list that holds wCurItem (by its item type); carry and a = the
+; type for Key Items and TMs/HMs, which aren't 2-byte lists
+	push hl
+	call CheckItemPocket
+	pop hl
+	ld a, [wItemAttributeValue]
+	cp KEY_ITEM
+	jr z, .not_list
+	cp TM_HM
+	jr z, .not_list
+	dec a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, ItemTypeBagLists
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	and a
+	ret
 
-.Item:
-	ld h, d
-	ld l, e
+.not_list
+	ld hl, wNumItems
+	scf
+	ret
 
-.nope
-	jmp CheckTheItem
+ItemTypeBagLists:
+; entries correspond to item types (ITEM, KEY_ITEM, ...)
+	table_width 2
+	dw wNumItems         ; ITEM
+	dw 0                 ; KEY_ITEM
+	dw wNumBalls         ; BALL
+	dw 0                 ; TM_HM
+	dw wNumMedicine      ; MEDICINE
+	dw wNumBerries       ; BERRY
+	dw wNumHeldItems     ; HELD_ITEM
+	dw wNumTrainingItems ; TRAINING
+	dw wNumTreasures     ; TREASURE
+	assert_table_length NUM_ITEM_TYPES
 
 DoesHLEqualNumItems:
 	ld a, l
@@ -131,26 +94,50 @@ DoesHLEqualNumItems:
 	ret
 
 GetPocketCapacity:
-	ld c, MAX_ITEMS
-	ld a, e
-	cp LOW(wNumItems)
-	jr nz, .not_bag
-	ld a, d
-	cp HIGH(wNumItems)
-	ret z
+; c = the capacity of the item list at de (clobbers hl and b)
+	ld hl, ItemListCapacities
+.loop
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	or b
+	jr z, .default
+	ld a, b
+	cp e
+	jr nz, .next
+	ld a, c
+	cp d
+	jr nz, .next
+	ld c, [hl]
+	ret
 
-.not_bag
-	ld c, MAX_PC_ITEMS
-	ld a, e
-	cp LOW(wNumPCItems)
-	jr nz, .not_pc
-	ld a, d
-	cp HIGH(wNumPCItems)
-	ret z
+.next
+	inc hl
+	jr .loop
 
-.not_pc
+.default
 	ld c, MAX_BALLS
 	ret
+
+ItemListCapacities:
+	dw wNumItems
+	db MAX_ITEMS
+	dw wNumMedicine
+	db MAX_MEDICINE
+	dw wNumBerries
+	db MAX_BERRIES
+	dw wNumHeldItems
+	db MAX_HELD
+	dw wNumTrainingItems
+	db MAX_TRAINING
+	dw wNumTreasures
+	db MAX_TREASURES
+	dw wNumBalls
+	db MAX_BALLS
+	dw wNumPCItems
+	db MAX_PC_ITEMS
+	dw 0
 
 PutItemInPocket:
 	ld d, h
@@ -662,58 +649,94 @@ CheckKeyItems:
 	ret
 
 ReceiveTMHM:
-	dec c
-	ld b, 0
-	ld hl, wTMsHMs
-	add hl, bc
-	ld a, [wItemQuantityChange]
-	add [hl]
-	cp MAX_ITEM_STACK + 1
-	jr nc, .toomany
-	ld [hl], a
+; TM/HM number c is owned from now on (owning it twice changes nothing).
+	ld b, SET_FLAG
+	call TMHMFlagAction
 	scf
-	ret
-
-.toomany
-	and a
 	ret
 
 TossTMHM:
-	dec c
-	ld b, 0
-	ld hl, wTMsHMs
-	add hl, bc
-	ld a, [wItemQuantityChange]
-	ld b, a
-	ld a, [hl]
-	sub b
-	jr c, .nope
-	ld [hl], a
+; TM/HM number c is no longer owned: carry if it was.
+	push bc
+	ld b, CHECK_FLAG
+	call TMHMFlagAction
+	pop bc
+	and a
+	ret z
+	ld b, RESET_FLAG
+	call TMHMFlagAction
+	xor a
 	ld [wItemQuantity], a
-	jr nz, .yup
 	ld a, [wTMHMPocketScrollPosition]
 	and a
-	jr z, .yup
+	jr z, .done
 	dec a
 	ld [wTMHMPocketScrollPosition], a
-
-.yup
+.done
 	scf
-	ret
-
-.nope
-	and a
 	ret
 
 CheckTMHM:
-	dec c
-	ld b, $0
-	ld hl, wTMsHMs
-	add hl, bc
-	ld a, [hl]
+; carry if TM/HM number c is owned
+	ld b, CHECK_FLAG
+	call TMHMFlagAction
 	and a
 	ret z
 	scf
+	ret
+
+TMHMFlagAction::
+; FlagAction b on the wTMsHMs bit of TM/HM number c (1 to NUM_TMS + NUM_HMS):
+; returns c and a (nonzero if set).
+	ld a, c
+	dec a
+	cp NUM_TMS
+	jr c, .got_bit
+	add MAX_TMS - NUM_TMS
+.got_bit
+	ld e, a
+	ld d, 0
+	ld hl, wTMsHMs
+	call FlagAction
+	ld a, c
+	ret
+
+ItemIndexIsOwnedTMHM::
+; carry if item index de is a TM or HM the player owns
+	ld hl, -FIRST_TMHM_ITEM
+	add hl, de
+	jr nc, .no
+	ld a, h
+	and a
+	jr nz, .no
+	ld a, l
+	cp NUM_TMS + NUM_HMS
+	jr nc, .no
+	inc a
+	ld c, a
+	jr CheckTMHM
+
+.no
+	and a
+	ret
+
+BuildTMHMPocketList::
+; wTMHMPocketList = 1 for each TM/HM owned, else 0
+	ld hl, wTMHMPocketList
+	ld c, 1
+.loop
+	push hl
+	push bc
+	call CheckTMHM
+	pop bc
+	pop hl
+	sbc a
+	and 1
+	ld [hli], a
+	inc c
+	ld a, c
+	cp NUM_TMS + NUM_HMS + 1
+	jr c, .loop
 	ret
 
 GetTMHMNumber::

@@ -142,7 +142,6 @@ INCLUDE "engine/battle/trainer_huds.asm"
 INCLUDE "data/trainers/class_names.asm"
 INCLUDE "engine/battle/ai/redundant.asm"
 INCLUDE "engine/events/move_deleter.asm"
-INCLUDE "engine/link/mystery_gift_2.asm"
 INCLUDE "engine/items/tmhm.asm"
 INCLUDE "engine/pokemon/print_move_description.asm"
 INCLUDE "engine/events/pokerus/pokerus.asm"
@@ -488,7 +487,6 @@ SECTION "bank41", ROMX
 INCLUDE "engine/gfx/dma_transfer.asm"
 INCLUDE "gfx/emotes.asm"
 INCLUDE "engine/overworld/warp_connection.asm"
-INCLUDE "engine/link/mystery_gift.asm"
 INCLUDE "engine/battle/used_move_text.asm"
 
 
@@ -567,10 +565,6 @@ INCLUDE "engine/pokedex/pokedex_3.asm"
 INCLUDE "engine/events/catch_tutorial_input.asm"
 INCLUDE "engine/pokegear/townmap_convertlinebreakcharacters.asm"
 
-
-SECTION "European Mail", ROMX
-
-INCLUDE "engine/pokemon/european_mail.asm"
 
 SECTION "Crystal Events", ROMX
 

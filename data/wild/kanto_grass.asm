@@ -114,34 +114,6 @@ KantoGrassWildMons:
 	dbw 7, CLEFAIRY
 	end_grass_wildmons
 
-	def_grass_wildmons MOUNT_MOON
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
-	; morn
-	dbw 1, ZUBAT
-	dbw 1, GEODUDE
-	dbw 1, LUNATONE
-	dbw 1, PARAS
-	dbw 1, CLEFFA
-	dbw 3, CLEFAIRY
-	dbw 5, CLEFABLE
-	; day
-	dbw 1, ZUBAT
-	dbw 1, GEODUDE
-	dbw 1, LUNATONE
-	dbw 1, PARAS
-	dbw 1, CLEFFA
-	dbw 3, CLEFAIRY
-	dbw 5, CLEFABLE
-	; nite
-	dbw 1, ZUBAT
-	dbw 1, GEODUDE
-	dbw 1, LUNATONE
-	dbw 1, PARAS
-	dbw 1, CLEFFA
-	dbw 3, CLEFAIRY
-	dbw 5, CLEFABLE
-	end_grass_wildmons
-
 	def_grass_wildmons ROCK_TUNNEL_1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn

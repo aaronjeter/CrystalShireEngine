@@ -749,11 +749,12 @@ LoadOrangePage:
 	call StatsScreen_GetOTName
 	hlcoord 4, 14
 	rst PlaceString
-	ld a, [wTempMonCaughtGender]
+	ld a, [wTempMonCaughtLocation]
 	and a
 	jr z, .no_gender
 	cp LANDMARK_EVENT
 	jr z, .no_gender
+	ld a, [wTempMonCaughtGender]
 	and CAUGHT_GENDER_MASK
 	ld a, "♂"
 	jr z, .got_gender
@@ -772,17 +773,15 @@ LoadOrangePage:
 	ld de, wTempMonID
 	call PrintNum
 
-; Met/ level and time (the place is left out until the caught data is fixed:
-; landmarks above $7d don't fit its 7-bit location, see stats-screen.md)
+; Met/ level and time; the place on the next row
 	ld de, .MetStr
 	hlcoord 1, 16
 	rst PlaceString
 	ld a, [wTempMonCaughtLevel]
 	and CAUGHT_LEVEL_MASK
 	jr nz, .met
-	; no level: a gift, an event mon or no data (old saves, trades)
+	; no level: a gift, an event mon or no data (trades)
 	ld a, [wTempMonCaughtLocation]
-	and CAUGHT_LOCATION_MASK
 	ld de, .GiftStr
 	cp LANDMARK_GIFT
 	jr z, .place_met
@@ -810,16 +809,20 @@ LoadOrangePage:
 	hlcoord 5, 16
 	rst PlaceString
 	hlcoord 8, 16
-	lb bc, PRINTNUM_LEFTALIGN | 1, 2
+	lb bc, PRINTNUM_LEFTALIGN | 1, 3
 	ld de, wStringBuffer2
 	call PrintNum
 	hlcoord 11, 16
+	ld a, [wStringBuffer2]
+	cp 100
+	jr c, .time
+	inc hl
 .time
 	ld a, [wTempMonCaughtTime]
-	and CAUGHT_TIME_MASK
-	ret z ; evening isn't stored (it wraps to 0)
-	rlca
-	rlca
+	and a
+	jr z, .location ; unknown
+	cp NUM_DAYTIMES + 1
+	jr nc, .location
 	dec a
 	push hl
 	ld hl, .TimeStrings
@@ -834,12 +837,39 @@ LoadOrangePage:
 	ld e, a
 	pop hl
 	rst PlaceString
+.location
+	ld a, [wTempMonCaughtLocation]
+	and a
+	ret z
+	cp NUM_LANDMARKS
+	ret nc ; LANDMARK_GIFT, LANDMARK_EVENT
+	ld e, a
+	farcall GetLandmarkName
+	; a breakable space prints as a space (landmark names have no "<WBR>")
+	ld hl, wStringBuffer1
+.space_loop
+	ld a, [hl]
+	cp "@"
+	jr z, .place_location
+	cp "<BSP>"
+	jr nz, .next_char
+	ld [hl], " "
+.next_char
+	inc hl
+	jr .space_loop
+
+.place_location
+	ld de, wStringBuffer1
+	hlcoord 4, 17
+	rst PlaceString
 	ret
 
 .TimeStrings:
+; entries correspond to the times of day (MORN_F, DAY_F, NITE_F, EVE_F)
 	dw .MorningStr
 	dw .DayStr
 	dw .NightStr
+	dw .EveningStr
 
 .OTStr:
 	db "OT/@"
@@ -873,6 +903,9 @@ LoadOrangePage:
 
 .NightStr:
 	db "Night@"
+
+.EveningStr:
+	db "Evening@"
 
 AbilityNameString:
 	db "Ability:@"

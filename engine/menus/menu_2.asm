@@ -9,9 +9,10 @@ PlaceMenuItemQuantity:
 	jr _PlaceMenuQuantity
 
 PlaceMenuItemBallName:
+; any of the Pack's list pockets (the index's high byte is the pocket's)
 	push de
+	call GetPocketIndexHigh
 	ld a, [wMenuSelection]
-	ld h, HIGH(FIRST_BALL_ITEM)
 	ld l, a
 	jr _PlaceSimpleMenuQuantity16bit
 
@@ -31,8 +32,8 @@ _PlaceSimpleMenuQuantity:
 
 PlaceMenuItemBallQuantity:
 	push de
+	call GetPocketIndexHigh
 	ld a, [wMenuSelection]
-	ld h, HIGH(FIRST_BALL_ITEM)
 	ld l, a
 	jr _PlaceMenuQuantity16bit
 

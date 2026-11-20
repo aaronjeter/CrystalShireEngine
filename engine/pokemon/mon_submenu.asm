@@ -142,16 +142,7 @@ GetMonSubmenuItems:
 	ld a, [wLinkMode]
 	and a
 	jr nz, .skip2
-	push hl
-	ld a, MON_ITEM
-	call GetPartyParamLocation
-	ld d, [hl]
-	farcall ItemIsMail
-	pop hl
-	; a = carry ? MONMENUITEM_MAIL : MONMENUITEM_ITEM
-	sbc a
-	and MONMENUITEM_MAIL - MONMENUITEM_ITEM
-	add MONMENUITEM_ITEM
+	ld a, MONMENUITEM_ITEM
 	call AddMonMenuItem
 	ld a, MONMENUITEM_NICKNAME
 	call AddMonMenuItem
