@@ -49,6 +49,8 @@ ENDM
 	ow_npc_pal_const SAND              ; 12
 	ow_npc_pal_const SNOW              ; 13
 	ow_npc_pal_const ASH               ; 14
+	ow_npc_pal_const MIST              ; 15 (mist and fog)
+	ow_npc_pal_const SMOG              ; 16
 DEF NUM_OW_TIME_OF_DAY_PALS EQU const_value
 	ow_npc_pal_const EMOTE_GRAY        ; 11
 	ow_npc_pal_const EMOTE_BLACK       ; 12

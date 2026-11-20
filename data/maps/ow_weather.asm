@@ -1,5 +1,5 @@
 ; Overworld weather per map (see engine/overworld/weather.asm).
-; Indoor maps and caves should not be listed.
+; Indoor maps should not be listed; caves only get mist.
 ;  ow_weather      MAP, OW_WEATHER_*   - always this weather
 ;  ow_weather_zone MAP, WEATHER_ZONE_* - random weather shared by the whole zone
 
@@ -13,31 +13,46 @@ MACRO ow_weather_zone
 	db \2 | (1 << OW_WEATHER_ZONE_F)
 ENDM
 
+MACRO ow_weather_smog_city
+; a zone map that can also have smog in the daytime when the zone is dry
+	map_id \1
+	db \2 | (1 << OW_WEATHER_ZONE_F) | (1 << OW_WEATHER_SMOG_CITY_F)
+ENDM
+
 MACRO weather_zone
-	db \1, \2 ; weather, chance (rolled every in-game hour)
+; weather, chance (rolled every in-game hour)
+; [second weather, chance, times of day (MORN | DAY | EVE | NITE)]
+	db \1, \2
+	if _NARG > 2
+		assert (\2) + (\4) <= 255, "weather_zone chances add up to more than 100%"
+		db \3, \4, \5
+	else
+		db OW_WEATHER_NONE, 0, 0
+	endc
 ENDM
 
 OverworldWeatherZones:
-	table_width 2
+	table_width 5
 	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_JOHTO_SOUTH
 	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_JOHTO_NORTH
 	weather_zone OW_WEATHER_RAIN,       50 percent ; WEATHER_ZONE_LAKE_OF_RAGE_AREA
 	weather_zone OW_WEATHER_SNOW,       50 percent ; WEATHER_ZONE_JOHTO_MOUNTAINS
-	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_JOHTO_COAST
+	weather_zone OW_WEATHER_RAIN,       25 percent, OW_WEATHER_FOG, FOG_CHANCE, MORN ; WEATHER_ZONE_JOHTO_COAST
 	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_JOHTO_EAST_SEA
 	weather_zone OW_WEATHER_RAIN,       15 percent ; WEATHER_ZONE_KANTO_WEST
 	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_KANTO_NORTH
 	weather_zone OW_WEATHER_RAIN,       15 percent ; WEATHER_ZONE_KANTO_CENTRAL
 	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_KANTO_SOUTH
-	weather_zone OW_WEATHER_RAIN,       50 percent ; WEATHER_ZONE_KANTO_SEA
+	weather_zone OW_WEATHER_RAIN,       50 percent, OW_WEATHER_FOG, FOG_CHANCE, MORN ; WEATHER_ZONE_KANTO_SEA
 	weather_zone OW_WEATHER_SNOW,       50 percent ; WEATHER_ZONE_MT_SILVER
 	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_HOENN_SOUTHWEST
-	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_HOENN_SEA
+	weather_zone OW_WEATHER_RAIN,       25 percent, OW_WEATHER_FOG, FOG_CHANCE, MORN ; WEATHER_ZONE_HOENN_SEA
 	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_HOENN_CENTRAL
 	weather_zone OW_WEATHER_SANDSTORM,  25 percent ; WEATHER_ZONE_HOENN_NORTH
 	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_HOENN_EAST
-	weather_zone OW_WEATHER_RAIN,       25 percent ; WEATHER_ZONE_HOENN_ISLANDS
+	weather_zone OW_WEATHER_RAIN,       25 percent, OW_WEATHER_FOG, FOG_CHANCE, MORN ; WEATHER_ZONE_HOENN_ISLANDS
 	weather_zone OW_WEATHER_SNOW,       50 percent ; WEATHER_ZONE_HOENN_MOUNTAINS
+	weather_zone OW_WEATHER_RAIN,       50 percent, OW_WEATHER_FOG, FOG_CHANCE, MORN ; WEATHER_ZONE_LAKE_OF_RAGE
 	assert_table_length NUM_WEATHER_ZONES
 
 OverworldWeatherMaps:
@@ -45,7 +60,6 @@ OverworldWeatherMaps:
 	ow_weather ROUTE_119_NORTH,     OW_WEATHER_RAIN
 	ow_weather ROUTE_120,           OW_WEATHER_RAIN
 	ow_weather FORTREE_CITY,        OW_WEATHER_RAIN
-	ow_weather LAKE_OF_RAGE,        OW_WEATHER_RAIN
 	ow_weather ROUTE_43,            OW_WEATHER_RAIN
 	ow_weather LAVARIDGE_DESERT,    OW_WEATHER_SANDSTORM
 	ow_weather SILVER_CAVE_OUTSIDE, OW_WEATHER_SNOW
@@ -55,6 +69,34 @@ OverworldWeatherMaps:
 	ow_weather ROUTE_113,           OW_WEATHER_ASH
 	ow_weather ZAPDOS_ROOST,        OW_WEATHER_RAIN
 	ow_weather CINNABAR_VOLCANO_CRATER, OW_WEATHER_ASH
+
+	; mist (Mt Pyre and the water caves)
+	ow_weather MT_PYRE,                   OW_WEATHER_MIST
+	ow_weather UNION_CAVE_B1F,            OW_WEATHER_MIST
+	ow_weather UNION_CAVE_B2F,            OW_WEATHER_MIST
+	ow_weather MOUNT_MORTAR_1F_OUTSIDE,   OW_WEATHER_MIST
+	ow_weather MOUNT_MORTAR_1F_INSIDE,    OW_WEATHER_MIST
+	ow_weather MOUNT_MORTAR_2F_INSIDE,    OW_WEATHER_MIST
+	ow_weather MOUNT_MORTAR_B1F,          OW_WEATHER_MIST
+	ow_weather WHIRL_ISLAND_NW,           OW_WEATHER_MIST
+	ow_weather WHIRL_ISLAND_NE,           OW_WEATHER_MIST
+	ow_weather WHIRL_ISLAND_SW,           OW_WEATHER_MIST
+	ow_weather WHIRL_ISLAND_CAVE,         OW_WEATHER_MIST
+	ow_weather WHIRL_ISLAND_SE,           OW_WEATHER_MIST
+	ow_weather WHIRL_ISLAND_B1F,          OW_WEATHER_MIST
+	ow_weather WHIRL_ISLAND_B2F,          OW_WEATHER_MIST
+	ow_weather WHIRL_ISLAND_LUGIA_CHAMBER,OW_WEATHER_MIST
+	ow_weather TOHJO_FALLS,               OW_WEATHER_MIST
+	ow_weather SEAFOAM_ISLANDS_1F,        OW_WEATHER_MIST
+	ow_weather SEAFOAM_ISLANDS_B1F,       OW_WEATHER_MIST
+	ow_weather CERULEAN_CAVE_1F,          OW_WEATHER_MIST
+	ow_weather CERULEAN_CAVE_B1F,         OW_WEATHER_MIST
+	ow_weather METEOR_FALLS,              OW_WEATHER_MIST
+	ow_weather CAVE_OF_ORIGIN,            OW_WEATHER_MIST
+	ow_weather CAVE_OF_ORIGIN_DEPTHS,     OW_WEATHER_MIST
+	ow_weather SHOAL_CAVE_1F,             OW_WEATHER_MIST
+	ow_weather SHOAL_CAVE_B1F,            OW_WEATHER_MIST
+	ow_weather SHOAL_CAVE_B2F,            OW_WEATHER_MIST
 
 	; WEATHER_ZONE_JOHTO_SOUTH
 	ow_weather_zone ROUTE_29,                  WEATHER_ZONE_JOHTO_SOUTH
@@ -67,7 +109,7 @@ OverworldWeatherMaps:
 	ow_weather_zone CHERRYGROVE_CITY,          WEATHER_ZONE_JOHTO_SOUTH
 	ow_weather_zone VIOLET_CITY,               WEATHER_ZONE_JOHTO_SOUTH
 	ow_weather_zone AZALEA_TOWN,               WEATHER_ZONE_JOHTO_SOUTH
-	ow_weather_zone GOLDENROD_CITY,            WEATHER_ZONE_JOHTO_SOUTH
+	ow_weather_smog_city GOLDENROD_CITY,      WEATHER_ZONE_JOHTO_SOUTH
 
 	; WEATHER_ZONE_JOHTO_NORTH
 	ow_weather_zone ROUTE_35,                  WEATHER_ZONE_JOHTO_NORTH
@@ -118,8 +160,8 @@ OverworldWeatherMaps:
 	ow_weather_zone ROUTE_25,                  WEATHER_ZONE_KANTO_NORTH
 
 	; WEATHER_ZONE_KANTO_CENTRAL
-	ow_weather_zone SAFFRON_CITY,              WEATHER_ZONE_KANTO_CENTRAL
-	ow_weather_zone CELADON_CITY,              WEATHER_ZONE_KANTO_CENTRAL
+	ow_weather_smog_city SAFFRON_CITY,        WEATHER_ZONE_KANTO_CENTRAL
+	ow_weather_smog_city CELADON_CITY,        WEATHER_ZONE_KANTO_CENTRAL
 	ow_weather_zone VERMILION_CITY,            WEATHER_ZONE_KANTO_CENTRAL
 	ow_weather_zone LAVENDER_TOWN,             WEATHER_ZONE_KANTO_CENTRAL
 	ow_weather_zone ROUTE_5,                   WEATHER_ZONE_KANTO_CENTRAL
@@ -151,7 +193,7 @@ OverworldWeatherMaps:
 	ow_weather_zone LITTLEROOT_TOWN,           WEATHER_ZONE_HOENN_SOUTHWEST
 	ow_weather_zone OLDALE_TOWN,               WEATHER_ZONE_HOENN_SOUTHWEST
 	ow_weather_zone PETALBURG_CITY,            WEATHER_ZONE_HOENN_SOUTHWEST
-	ow_weather_zone RUSTBORO_CITY,             WEATHER_ZONE_HOENN_SOUTHWEST
+	ow_weather_smog_city RUSTBORO_CITY,       WEATHER_ZONE_HOENN_SOUTHWEST
 	ow_weather_zone ROUTE_101,                 WEATHER_ZONE_HOENN_SOUTHWEST
 	ow_weather_zone ROUTE_102,                 WEATHER_ZONE_HOENN_SOUTHWEST
 	ow_weather_zone ROUTE_103,                 WEATHER_ZONE_HOENN_SOUTHWEST
@@ -160,13 +202,13 @@ OverworldWeatherMaps:
 
 	; WEATHER_ZONE_HOENN_SEA
 	ow_weather_zone DEWFORD_TOWN,              WEATHER_ZONE_HOENN_SEA
-	ow_weather_zone SLATEPORT_CITY,            WEATHER_ZONE_HOENN_SEA
+	ow_weather_smog_city SLATEPORT_CITY,      WEATHER_ZONE_HOENN_SEA
 	ow_weather_zone ROUTE_105,                 WEATHER_ZONE_HOENN_SEA
 	ow_weather_zone ROUTE_108,                 WEATHER_ZONE_HOENN_SEA
 	ow_weather_zone ROUTE_109,                 WEATHER_ZONE_HOENN_SEA
 
 	; WEATHER_ZONE_HOENN_CENTRAL
-	ow_weather_zone MAUVILLE_CITY,             WEATHER_ZONE_HOENN_CENTRAL
+	ow_weather_smog_city MAUVILLE_CITY,       WEATHER_ZONE_HOENN_CENTRAL
 	ow_weather_zone VERDANTURF_TOWN,           WEATHER_ZONE_HOENN_CENTRAL
 	ow_weather_zone ROUTE_110,                 WEATHER_ZONE_HOENN_CENTRAL
 	ow_weather_zone ROUTE_117,                 WEATHER_ZONE_HOENN_CENTRAL
@@ -178,7 +220,6 @@ OverworldWeatherMaps:
 
 	; WEATHER_ZONE_HOENN_EAST
 	ow_weather_zone LILYCOVE_CITY,             WEATHER_ZONE_HOENN_EAST
-	ow_weather_zone MT_PYRE,                   WEATHER_ZONE_HOENN_EAST
 	ow_weather_zone ROUTE_121,                 WEATHER_ZONE_HOENN_EAST
 	ow_weather_zone ROUTE_122,                 WEATHER_ZONE_HOENN_EAST
 	ow_weather_zone ROUTE_123,                 WEATHER_ZONE_HOENN_EAST
@@ -194,6 +235,9 @@ OverworldWeatherMaps:
 	ow_weather_zone FALLARBOR_TOWN,            WEATHER_ZONE_HOENN_MOUNTAINS
 	ow_weather_zone ROUTE_114,                 WEATHER_ZONE_HOENN_MOUNTAINS
 	ow_weather_zone ROUTE_115,                 WEATHER_ZONE_HOENN_MOUNTAINS
+
+	; WEATHER_ZONE_LAKE_OF_RAGE (GetMapWeather keeps it raining until the Red Gyarados is gone)
+	ow_weather_zone LAKE_OF_RAGE,              WEATHER_ZONE_LAKE_OF_RAGE
 	db -1 ; end
 
 WeatherHashTable:

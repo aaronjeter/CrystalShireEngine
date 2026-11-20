@@ -8,6 +8,9 @@
 	const OW_WEATHER_SNOW      ; 2
 	const OW_WEATHER_SANDSTORM ; 3
 	const OW_WEATHER_ASH       ; 4 ; falls like snow, gray (Route 113)
+	const OW_WEATHER_MIST      ; 5 ; pale tint, a few drifting wisps (Mt Pyre, water caves)
+	const OW_WEATHER_FOG       ; 6 ; thicker, whiter tint, more wisps (water zones, mornings)
+	const OW_WEATHER_SMOG      ; 7 ; dull yellow-brown tint, dark specks (big cities, daytime)
 DEF NUM_OW_WEATHERS EQU const_value - 1
 
 ; Random weather zones (see data/maps/ow_weather.asm).
@@ -32,8 +35,12 @@ DEF NUM_OW_WEATHERS EQU const_value - 1
 	const WEATHER_ZONE_HOENN_EAST
 	const WEATHER_ZONE_HOENN_ISLANDS
 	const WEATHER_ZONE_HOENN_MOUNTAINS
+	const WEATHER_ZONE_LAKE_OF_RAGE ; after the Red Gyarados (until then it always rains)
 DEF NUM_WEATHER_ZONES EQU const_value
 DEF OW_WEATHER_ZONE_F EQU 7 ; set in an OverworldWeatherMaps entry: the byte is a zone, not a weather
+DEF OW_WEATHER_SMOG_CITY_F EQU 6 ; with OW_WEATHER_ZONE_F: a city that can have smog in the daytime
+DEF SMOG_CHANCE EQU 33 percent ; per daytime hour, when the zone is dry
+DEF FOG_CHANCE EQU 30 percent ; of all mornings in a fog zone (rain is rolled first: 25% rain leaves 30% fog, 45% clear)
 
 ; wWeatherFlags bits
 	const_def
@@ -49,6 +56,8 @@ DEF RAINSPLASH_TILE EQU WEATHER_TILE_2
 DEF SNOWFLAKE_TILE  EQU WEATHER_TILE_1
 DEF SANDSTORM_TILE  EQU WEATHER_TILE_1
 DEF ASH_TILE        EQU WEATHER_TILE_1
+DEF MIST_TILE       EQU WEATHER_TILE_1
+DEF SMOG_TILE       EQU WEATHER_TILE_1
 DEF PAL_OW_WEATHER  EQU 6
 
 ; frames of particles still falling after leaving a weather map

@@ -1,4 +1,5 @@
-; Overworld weather: rain, snow and sandstorm particles drawn with OAM sprites.
+; Overworld weather: rain, snow, sandstorm, ash, mist, fog and smog particles
+; drawn with OAM sprites, and a palette tint per weather.
 ; Adapted from Pokemon Polished Crystal (engine/overworld/weather.asm by vulcandth;
 ; weather sprites by SourApple).
 ;
@@ -73,6 +74,9 @@ DoOverworldWeather::
 	dw DoOverworldSnow
 	dw DoOverworldSandstorm
 	dw DoOverworldSnow ; ash falls like snow
+	dw DoOverworldMist
+	dw DoOverworldFog
+	dw DoOverworldSnow ; smog specks fall like snow
 	assert_table_length NUM_OW_WEATHERS + 1
 
 .FallOnly:
@@ -82,6 +86,9 @@ DoOverworldWeather::
 	dw DoSnowFall
 	dw DoSandFall
 	dw DoSnowFall ; ash
+	dw DoMistDrift ; mist
+	dw DoMistDrift ; fog
+	dw DoSnowFall ; smog
 	assert_table_length NUM_OW_WEATHERS + 1
 
 GetActiveWeather:
@@ -114,6 +121,9 @@ WeatherPalettes::
 	db PAL_OW_SNOW
 	db PAL_OW_SAND
 	db PAL_OW_ASH
+	db PAL_OW_MIST
+	db PAL_OW_MIST ; fog
+	db PAL_OW_SMOG
 	assert_table_length NUM_OW_WEATHERS
 
 ; Map setup ----------------------------------------------------------------
@@ -152,6 +162,23 @@ GetMapWeather:
 	ld d, a
 	ld a, [wMapNumber]
 	ld e, a
+	; Lake of Rage: rain until the Red Gyarados is gone, then its zone
+	ld a, d
+	cp GROUP_LAKE_OF_RAGE
+	jr nz, .lookup
+	ld a, e
+	cp MAP_LAKE_OF_RAGE
+	jr nz, .lookup
+	push de
+	ld de, EVENT_LAKE_OF_RAGE_RED_GYARADOS
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	pop de
+	ld a, c
+	and a
+	ld a, OW_WEATHER_RAIN
+	ret z
+.lookup
 	ld hl, OverworldWeatherMaps
 .loop
 	ld a, [hli]
@@ -177,10 +204,16 @@ GetMapWeather:
 	ret
 
 GetZoneWeather:
-; a = weather for zone a in the current in-game hour (OW_WEATHER_NONE if dry).
+; a = weather in the current in-game hour for zone a (with OW_WEATHER_SMOG_CITY_F
+; for a smog city), OW_WEATHER_NONE if dry.
 ; The roll is a hash of (day, hour, zone), so it stays the same for the whole
 ; hour, is the same for every map in the zone, and different zones roll separately.
 ; The pattern repeats every 256 in-game hours (about 10.7 days).
+; Below the zone's first chance: its first weather. Within the second chance
+; after that: its second weather, if the time of day is one of its times. A dry
+; smog city then rolls smog in the daytime (a separate roll).
+	ld d, a
+	and ~(1 << OW_WEATHER_SMOG_CITY_F)
 	ld e, a
 ; a = (day * 24 + hour) mod 256
 	ld a, [wCurDay]
@@ -193,14 +226,17 @@ GetZoneWeather:
 	ld b, a
 	ldh a, [hHours]
 	add b
+	push af
 ; Pearson hash: a = T[T[slot] xor zone]
 	call .Hash
 	xor e
 	call .Hash
 	ld b, a
-; zone entry: weather, chance
+; zone entry: weather, chance, second weather, chance, times (5 bytes)
 	ld a, e
 	add a
+	add a
+	add e
 	add LOW(OverworldWeatherZones)
 	ld l, a
 	adc HIGH(OverworldWeatherZones)
@@ -209,9 +245,55 @@ GetZoneWeather:
 	ld a, [hli]
 	ld c, a
 	ld a, b
-	cp [hl]
+	sub [hl]
+	inc hl
+	jr nc, .not_first
+	pop af
 	ld a, c
-	ret c ; hash < chance: this zone has weather this hour
+	ret
+
+.not_first
+	ld b, a ; the roll past the first chance
+	ld a, [hli]
+	ld c, a
+	ld a, b
+	cp [hl]
+	inc hl
+	jr nc, .not_second
+	; is this time of day one of its times?
+	ld a, [wTimeOfDay]
+	ld b, 1
+.time_bit
+	and a
+	jr z, .got_time_bit
+	sla b
+	dec a
+	jr .time_bit
+.got_time_bit
+	ld a, b
+	and [hl]
+	jr z, .not_second
+	pop af
+	ld a, c
+	ret
+
+.not_second
+	pop af
+	bit OW_WEATHER_SMOG_CITY_F, d
+	jr z, .none
+	ld b, a
+	ld a, [wTimeOfDay]
+	cp DAY_F
+	jr nz, .none
+	ld a, b
+	xor $5a ; not the zone's own roll
+	call .Hash
+	xor e
+	call .Hash
+	cp SMOG_CHANCE
+	ld a, OW_WEATHER_SMOG
+	ret c
+.none
 	xor a ; OW_WEATHER_NONE
 	ret
 
@@ -309,11 +391,15 @@ WeatherGraphics:
 	weather_gfx SnowGFX, 1
 	weather_gfx SandGFX, 1
 	weather_gfx SnowGFX, 1 ; ash (snowflake shape for now; gray palette)
+	weather_gfx MistGFX, 1
+	weather_gfx MistGFX, 1 ; fog
+	weather_gfx SnowGFX, 1 ; smog (dark specks)
 	assert_table_length NUM_OW_WEATHERS
 
 RainGFX: INCBIN "gfx/overworld/rain_splash.2bpp"
 SnowGFX: INCBIN "gfx/overworld/snow.2bpp"
 SandGFX: INCBIN "gfx/overworld/sand.2bpp"
+MistGFX: INCBIN "gfx/overworld/mist.2bpp"
 
 ; OAM helpers ---------------------------------------------------------------
 
@@ -725,9 +811,91 @@ SpawnSandDrop:
 	ld a, SANDSTORM_TILE
 	jmp SetWeatherParticle
 
+; Mist and fog ----------------------------------------------------------------
+; Wisps appear anywhere on screen, drift slowly left with the world and fade out
+; at random; fog spawns them twice as often as mist (about 4 on screen, or 8).
+
+DoOverworldFog:
+	call ScanForEmptyOAM
+	call nc, SpawnMistWisp
+	; fallthrough
+DoOverworldMist:
+	call ScanForEmptyOAM
+	call nc, SpawnMistWisp
+	; fallthrough
+DoMistDrift:
+	ld hl, .Update
+	jmp ForEachWeatherSprite
+
+.Update:
+	; fade out at random (after about 128 ticks)
+	call Random
+	cp 2
+	jmp c, Despawn
+
+	; y moves only with the camera
+	call GetPlayerStepY
+	add a
+	ld c, a
+	ld a, [de]
+	sub c
+	cp OAM_YCOORD_HIDDEN
+	jmp nc, Despawn
+	and a
+	jmp z, Despawn
+	ld [de], a
+
+	; x: 1 pixel left every 2 ticks (every 4 for every other slot), minus the camera
+	ld a, [wPlayerStepVectorX]
+	add a
+	ld c, a
+	call IsEvenSpriteIndex
+	add a
+	inc a ; 1 or 3
+	ld b, a
+	ld a, [wOverworldWeatherTimer]
+	rrca ; the weather runs every other frame: ticks count from bit 1
+	and b
+	cp b
+	jr nz, .no_drift
+	inc c
+.no_drift
+	ld h, d
+	ld l, e
+	inc l
+	ld a, [hl]
+	sub c ; c is negative while walking left, so ignore the carry
+	jmp z, Despawn ; reached the left edge
+	cp SCREEN_WIDTH_PX + 2 * TILE_WIDTH
+	jmp nc, Despawn ; off the right edge, or wrapped past the left edge
+	ld [hl], a
+	ret
+
+SpawnMistWisp:
+; hl = free OAM entry
+	; none in a dark cave until Flash lights it
+	ld a, [wTimeOfDayPalset]
+	cp DARKNESS_PALSET
+	ret z
+	; 3% chance to spawn this tick
+	call Random
+	cp 3 percent
+	ret nc
+	ld a, SCREEN_HEIGHT_PX
+	call RandomRange
+	add 2 * TILE_WIDTH
+	ld [hli], a ; y
+	ld a, SCREEN_WIDTH_PX
+	call RandomRange
+	add TILE_WIDTH
+	ld [hli], a ; x
+	ld a, MIST_TILE
+	jmp SetWeatherParticle
+
 ; Weather tint ----------------------------------------------------------------
 ; Maps with overworld weather use darker/tinted colors (rain: gray overcast,
-; snow: cool gray-blue, sandstorm: dusty yellow). Each color channel c (0-31)
+; snow: cool gray-blue, sandstorm: dusty yellow, mist and fog: pale and washed
+; out, smog: dull brownish gray). Each color channel c (0-31)
 ; becomes min(31, (c * mult + 8) / 16 + add), using the row for the current
 ; weather and time of day. The rain rows approximate Polished Crystal's
 ; hand-drawn overcast palettes.
@@ -915,6 +1083,21 @@ WeatherTints:
 	weather_tint 11, 3, 11, 3, 10, 3 ; day
 	weather_tint 10, 1, 10, 1, 10, 1 ; nite
 	weather_tint 11, 3, 10, 3,  9, 2 ; eve
+; mist (pale, lower contrast)
+	weather_tint 11, 7, 11, 7, 11, 8 ; morn
+	weather_tint 11, 7, 11, 7, 11, 8 ; day
+	weather_tint 10, 3, 10, 3, 10, 4 ; nite
+	weather_tint 11, 6, 11, 6, 11, 6 ; eve
+; fog (thick and white)
+	weather_tint  8, 13,  8, 13,  8, 14 ; morn
+	weather_tint  8, 13,  8, 13,  8, 14 ; day
+	weather_tint  8, 6,  8, 6,  8, 7 ; nite
+	weather_tint  8, 11,  8, 11,  8, 11 ; eve
+; smog (dull brownish gray, a little darker)
+	weather_tint 10, 4, 10, 3,  8, 2 ; morn
+	weather_tint 10, 4, 10, 3,  8, 2 ; day
+	weather_tint  9, 1,  9, 1,  8, 0 ; nite
+	weather_tint 10, 3,  9, 2,  8, 1 ; eve
 	assert_table_length NUM_OW_WEATHERS * NUM_DAYTIMES
 
 

@@ -550,6 +550,9 @@ FollowerWeatherGroups:
 	dw FollowerLines_Snow
 	dw FollowerLines_Sandstorm
 	dw FollowerLines_Ash
+	dw FollowerLines_Mist
+	dw FollowerLines_Fog
+	dw FollowerLines_Smog
 	assert (@ - FollowerWeatherGroups) / 2 == NUM_OW_WEATHERS
 
 FollowerPlaceGroups:
@@ -595,6 +598,21 @@ FollowerLines_Ash:
 	db 2
 	follower_line FOLLOWER_NO_EMOTE, FollowerText_Ash1
 	follower_line EMOTE_QUESTION, FollowerText_Ash2
+
+FollowerLines_Mist:
+	db 2
+	follower_line EMOTE_QUESTION, FollowerText_Mist1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Mist2
+
+FollowerLines_Fog:
+	db 2
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Fog1
+	follower_line EMOTE_SHOCK, FollowerText_Fog2
+
+FollowerLines_Smog:
+	db 2
+	follower_line EMOTE_SAD, FollowerText_Smog1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_Smog2
 
 FollowerLines_Town:
 	db 3
@@ -1027,6 +1045,42 @@ FollowerText_Ash2:
 	follower_text_mon " is"
 	line "sniffing the"
 	cont "falling ash."
+	done
+
+FollowerText_Mist1:
+	follower_text_mon " is"
+	line "peering into the"
+	cont "mist."
+	done
+
+FollowerText_Mist2:
+	follower_text_mon "'s"
+	line "body is damp from"
+	cont "the mist."
+	done
+
+FollowerText_Fog1:
+	follower_text_mon " is"
+	line "staying close in"
+	cont "the thick fog."
+	done
+
+FollowerText_Fog2:
+	follower_text_mon " heard"
+	line "something out in"
+	cont "the fog!"
+	done
+
+FollowerText_Smog1:
+	follower_text_mon " is"
+	line "coughing in the"
+	cont "smoggy air."
+	done
+
+FollowerText_Smog2:
+	follower_text_mon " is"
+	line "squinting at the"
+	cont "hazy sky."
 	done
 
 FollowerText_Town1:
