@@ -397,7 +397,7 @@ DEF BATTLER_SLOT_SIZE EQU _RS
 	const ENTRANCE_SELF         ; the mon itself (stat boosts, status cures)
 	const ENTRANCE_OWN_SIDE     ; its side (Safeguard, Reflect)
 	const ENTRANCE_FOE_SIDE     ; the foes' side (Spikes)
-	const ENTRANCE_EACH_FOE     ; each foe on the field, in turn (Intimidate, Leech...)
+	const ENTRANCE_EACH_FOE     ; each foe on the field, in turn (Intimidate, Mystify, Snare, Daunt)
 	const ENTRANCE_OPPOSITE_FOE ; the foe in the opposite slot, else the other foe (Impostor)
 DEF NUM_ENTRANCE_KINDS EQU const_value
 

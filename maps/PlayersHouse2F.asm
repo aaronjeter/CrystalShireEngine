@@ -398,9 +398,15 @@ PlayersHouseBookshelfScript:
 PlayersHouseWardrobeScript:
 	opentext
 	writetext WardrobeText
-	waitbutton
-	yesorno
-	iffalse .done
+	loadmenu .MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .outfit
+	ifequal 2, .behind
+	closetext
+	end
+
+.outfit
 	special WardrobeColorMenu ; wScriptVar = new color, or -1 if cancelled
 	ifequal -1, .done
 	writemem wPlayerColor
@@ -408,14 +414,39 @@ PlayersHouseWardrobeScript:
 	warp PLAYERS_HOUSE_2F, 05, 02
 	end
 
+.behind
+	writetext WardrobeBehindText
+	waitbutton
+	closetext
+	playsound SFX_EXIT_BUILDING
+	warp TESTROOM, 19, 18
+	end
+
 .done
 	closetext
 	end
 
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 4, 13, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 3 ; items
+	db "Outfit@"
+	db "Look behind@"
+	db "Cancel@"
 
 WardrobeText:
-	text "Would you like to"
-	line "change outfits?"
+	text "It's your"
+	line "wardrobe."
+	done
+
+WardrobeBehindText:
+	text "Something's behind"
+	line "the clothes…"
 	done
 
 PlayersHousePCScript:
@@ -458,7 +489,7 @@ PlayersHouse2F_MapEvents:
 
 	def_warp_events
 	warp_event  7,  0, PLAYERS_HOUSE_1F, 3
-	warp_event  7,  5, TESTROOM, 1
+	warp_event  5,  2, TESTROOM, 1 ; behind the wardrobe
 
 	def_coord_events
 

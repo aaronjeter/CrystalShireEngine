@@ -1018,7 +1018,7 @@ TestRoom_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event  19, 18, PLAYERS_HOUSE_2F, 1
+	warp_event  19, 18, PLAYERS_HOUSE_2F, 2
 
 	def_coord_events
 
