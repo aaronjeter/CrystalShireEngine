@@ -317,6 +317,12 @@ OldaleTownYoungsterText:
 	cont "water there."
 	done
 
+OldaleTownFruitTree1:
+	fruittree FRUITTREE_OLDALE_1
+
+OldaleTownFruitTree2:
+	fruittree FRUITTREE_OLDALE_2
+
 OldaleTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -338,3 +344,5 @@ OldaleTown_MapEvents:
 	object_event 10, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, OldaleTownGuideScript, -1
 	object_event 15,  9, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OldaleTownTwinScript, -1
 	object_event  8,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldaleTownYoungsterScript, -1
+	object_event 17,  8, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldaleTownFruitTree1, -1
+	object_event 17,  9, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OldaleTownFruitTree2, -1

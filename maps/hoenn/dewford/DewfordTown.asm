@@ -321,6 +321,12 @@ DewfordTownHikerText:
 	cont "Watch your step!"
 	done
 
+DewfordTownFruitTree1:
+	fruittree FRUITTREE_DEWFORD_1
+
+DewfordTownFruitTree2:
+	fruittree FRUITTREE_DEWFORD_2
+
 DewfordTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -346,3 +352,5 @@ DewfordTown_MapEvents:
 	object_event 19, 24, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, DewfordTownBeachFisherScript, -1
 	object_event 22, 27, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DewfordTownTwinScript, -1
 	object_event  9, 17, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, DewfordTownHikerScript, -1
+	object_event 19, 35, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DewfordTownFruitTree1, -1
+	object_event  6, 35, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DewfordTownFruitTree2, -1

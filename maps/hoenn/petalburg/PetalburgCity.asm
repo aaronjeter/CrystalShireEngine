@@ -172,6 +172,12 @@ PetalburgCityFisher2Text:
 	line "in. I did once!"
 	done
 
+PetalburgCityFruitTree1:
+	fruittree FRUITTREE_PETALBURG_1
+
+PetalburgCityFruitTree2:
+	fruittree FRUITTREE_PETALBURG_2
+
 PetalburgCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -199,3 +205,5 @@ PetalburgCity_MapEvents:
 	object_event 10, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PetalburgCityYoungsterScript, -1
 	object_event  8,  7, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PetalburgCityLassScript, -1
 	object_event  6, 21, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PetalburgCityFisher2Script, -1
+	object_event 13, 27, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PetalburgCityFruitTree1, -1
+	object_event 25, 25, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PetalburgCityFruitTree2, -1

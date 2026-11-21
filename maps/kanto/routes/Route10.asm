@@ -246,6 +246,9 @@ Route10SignText:
 	line "Lavender Town"
 	done
 
+Route10FruitTree:
+	fruittree FRUITTREE_ROUTE_10
+
 Route10_MapEvents:
 	db 0, 0 ; filler
 
@@ -269,3 +272,4 @@ Route10_MapEvents:
 	object_event 10, 20, SPRITE_GREEN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, Route10_Green, EVENT_FOUND_ROUTE10_GREEN
 	object_event 15, 65, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, -1
 	object_event 05, 55, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmRobert, -1
+	object_event 15, 53, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route10FruitTree, -1

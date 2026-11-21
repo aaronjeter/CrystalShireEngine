@@ -26,6 +26,9 @@ CyclingRoadSignText:
 	line "all the way!"
 	done
 
+Route16FruitTree:
+	fruittree FRUITTREE_ROUTE_16
+
 Route16_MapEvents:
 	db 0, 0 ; filler
 
@@ -42,3 +45,4 @@ Route16_MapEvents:
 	bg_event  5,  5, BGEVENT_READ, CyclingRoadSign
 
 	def_object_events
+	object_event  6,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route16FruitTree, -1

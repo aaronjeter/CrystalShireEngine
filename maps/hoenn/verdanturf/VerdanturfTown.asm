@@ -87,6 +87,12 @@ VerdanturfTwinText:
 	text "Tag! You're it!"
 	done
 
+VerdanturfTownFruitTree1:
+	fruittree FRUITTREE_VERDANTURF_1
+
+VerdanturfTownFruitTree2:
+	fruittree FRUITTREE_VERDANTURF_2
+
 VerdanturfTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -110,3 +116,5 @@ VerdanturfTown_MapEvents:
 	object_event  5, 14, SPRITE_POKEFAN_F, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VerdanturfGardenerScript, -1
 	object_event 13, 13, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VerdanturfLassScript, -1
 	object_event  5, 18, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VerdanturfTwinScript, -1
+	object_event  2, 11, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VerdanturfTownFruitTree1, -1
+	object_event  1, 13, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VerdanturfTownFruitTree2, -1

@@ -143,6 +143,9 @@ HikersGusTedAfterBattleText:
 	cont "Watch yourself."
 	done
 
+Route3FruitTree:
+	fruittree FRUITTREE_ROUTE_3
+
 Route3_MapEvents:
 	db 0, 0 ; filler
 
@@ -162,3 +165,4 @@ Route3_MapEvents:
 	object_event 50,  7, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerFirebreatherBurt, -1
 	object_event 50,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikersGus, -1
 	object_event 50,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikersTed, -1
+	object_event 36, 15, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route3FruitTree, -1

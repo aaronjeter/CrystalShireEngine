@@ -194,6 +194,12 @@ RustboroCityLadyText:
 	cont "ask nicely."
 	done
 
+RustboroCityFruitTree1:
+	fruittree FRUITTREE_RUSTBORO_1
+
+RustboroCityFruitTree2:
+	fruittree FRUITTREE_RUSTBORO_2
+
 RustboroCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -228,3 +234,5 @@ RustboroCity_MapEvents:
 	object_event 15, 31, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RustboroCityStudentScript, -1
 	object_event 18, 20, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, RustboroCityFossilFanScript, -1
 	object_event 20, 45, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, RustboroCityLadyScript, -1
+	object_event 27, 27, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RustboroCityFruitTree1, -1
+	object_event 32, 27, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RustboroCityFruitTree2, -1

@@ -20,6 +20,9 @@ IndigoPlateauSignText:
 	para "#mon League HQ"
 	done
 
+Route23FruitTree:
+	fruittree FRUITTREE_ROUTE_23
+
 Route23_MapEvents:
 	db 0, 0 ; filler
 
@@ -35,3 +38,4 @@ Route23_MapEvents:
 	bg_event 11,  7, BGEVENT_READ, IndigoPlateauSign
 
 	def_object_events
+	object_event  7,  9, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route23FruitTree, -1

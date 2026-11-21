@@ -215,6 +215,9 @@ SwimmersKipNiaAfterBattleText:
 	line "these waters!"
 	done
 
+Route12FruitTree:
+	fruittree FRUITTREE_ROUTE_12
+
 Route12_MapEvents:
 	db 0, 0 ; filler
 
@@ -238,3 +241,4 @@ Route12_MapEvents:
 	object_event 04, 53, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Djinn_CinderScript, EVENT_GOT_CINDER
 	object_event 16, 18, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSwimmersKip, -1
 	object_event 16, 19, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSwimmersNia, -1
+	object_event  9, 32, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route12FruitTree, -1

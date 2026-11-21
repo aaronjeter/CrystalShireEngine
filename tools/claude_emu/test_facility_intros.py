@@ -166,7 +166,8 @@ def main():
         g.press('B', after=40)
     check('Kanto, Pack too full for the prizes: no challenge, no flag, nothing taken',
           battles == 0 and not flag(g, fl) and g.rd('wNumTrainingItems') == g.const('MAX_TRAINING') and
-          not item_count(g, 'EXP_CANDY_S'), str(battles))
+          not item_count(g, 'EXP_CANDY_S'),
+          f'battles={battles} flag={flag(g, fl)} training={g.rd("wNumTrainingItems")} candy={item_count(g, "EXP_CANDY_S")}')
     bad = [n for n, ok in T.RESULTS if not ok]
     print(f'{len(T.RESULTS) - len(bad)}/{len(T.RESULTS)} passed')
     sys.exit(1 if bad else 0)
