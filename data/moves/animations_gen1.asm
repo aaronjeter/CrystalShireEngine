@@ -358,7 +358,6 @@ BattleAnim_Cut:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Gust:
 BattleAnim_Sonicboom:
 	anim_2gfx BATTLE_ANIM_GFX_WIND, BATTLE_ANIM_GFX_HIT
 .loop
@@ -370,6 +369,22 @@ BattleAnim_Sonicboom:
 	anim_wait 8
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 32, $18
 	anim_wait 16
+	anim_ret
+
+BattleAnim_Gust:
+	; A dusty whirlwind spins over the target
+	anim_2gfx BATTLE_ANIM_GFX_WIND, BATTLE_ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BROWN
+.loop
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_GUST, 136, 72, $0
+	anim_wait 6
+	anim_loop 9, .loop
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $18
+	anim_wait 16
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
 	anim_ret
 
 BattleAnim_WingAttack:
