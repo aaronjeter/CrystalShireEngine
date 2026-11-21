@@ -168,6 +168,16 @@ Route47ExpCandyXL:
 Route47HiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_47_HIDDEN_MAX_ETHER
 
+Route47Sign:
+	jumptext Route47SignText
+
+Route47SignText:
+	text "Route 47"
+
+	para "Lake of Rage -"
+	line "Silver Pass"
+	done
+
 Route47_MapEvents:
 	db 0, 0 ; filler
 
@@ -180,6 +190,7 @@ Route47_MapEvents:
 
 	def_bg_events
 	bg_event  4, 55, BGEVENT_ITEM, Route47HiddenMaxEther
+	bg_event 27, 53, BGEVENT_READ, Route47Sign
 
 	def_object_events
 	object_event 33, 37, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerMDalton, -1

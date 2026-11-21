@@ -61,6 +61,7 @@
 	const MART_SOOTOPOLIS
 	const MART_BATTLE_RESORT
 	const MART_SLATEPORT_MARKET
+	const MART_ROUTE_104_FLOWER_HOUSE
 	const MART_STANDARD ; badge-based standard counter (built at run time)
 DEF NUM_MARTS EQU const_value
 

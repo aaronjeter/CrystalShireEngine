@@ -57,6 +57,10 @@ MoveTutor:
 	dw AQUA_RING
 	dw HEAL_BELL
 	dw SAFEGUARD
+	dw ELECTRO_WEB
+	dw SNARL
+	dw THUNDER_WAVE
+	dw ENCORE
 
 CheckCanLearnMoveTutorMove:
 	ld hl, .MenuHeader

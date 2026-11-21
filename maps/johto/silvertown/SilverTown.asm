@@ -38,6 +38,28 @@ SilverTownGrampsText:
 	cont "around the League!"
 	done
 
+SilverTownSign:
+	jumptext SilverTownSignText
+
+SilverTownLeagueSign:
+	jumptext SilverTownLeagueSignText
+
+SilverTownSignText:
+	text "Silver Town"
+
+	para "The Last Stop"
+	line "Before the Summit"
+	done
+
+SilverTownLeagueSignText:
+	text "Johto #mon"
+	line "League"
+
+	para "Only those with"
+	line "all 8 Badges may"
+	cont "enter."
+	done
+
 SilverTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -50,6 +72,8 @@ SilverTown_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  9, 33, BGEVENT_READ, SilverTownSign
+	bg_event 19, 15, BGEVENT_READ, SilverTownLeagueSign
 
 	def_object_events
 	object_event 30, 22, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SilverTownCooltrainerFScript, -1

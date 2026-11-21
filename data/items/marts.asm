@@ -54,6 +54,7 @@ Marts:
 	dw MartSootopolis
 	dw MartBattleResort
 	dw MartSlateportMarket
+	dw MartRoute104FlowerHouse
 	dw wBadgeMartList ; MART_STANDARD: built by BuildBadgeMart
 	assert_table_length NUM_MARTS
 
@@ -491,6 +492,16 @@ MartSlateportMarket:
 	dw CHERI_BERRY
 	dw CHESTO_BERRY
 	dw PECHA_BERRY
+	dw RAWST_BERRY
+	dw ASPEAR_BERRY
+	dw PERSIM_BERRY
+
+MartRoute104FlowerHouse:
+	db 7 ; # items
+	dw ORAN_BERRY
+	dw PECHA_BERRY
+	dw CHERI_BERRY
+	dw CHESTO_BERRY
 	dw RAWST_BERRY
 	dw ASPEAR_BERRY
 	dw PERSIM_BERRY

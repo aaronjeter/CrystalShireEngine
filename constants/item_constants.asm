@@ -432,6 +432,10 @@ DEF MT01 EQU const_value
 	add_mt AQUA_RING
 	add_mt HEAL_BELL
 	add_mt SAFEGUARD
+	add_mt ELECTRO_WEB
+	add_mt SNARL
+	add_mt THUNDER_WAVE
+	add_mt ENCORE
 DEF NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 DEF NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS

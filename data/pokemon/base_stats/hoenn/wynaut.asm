@@ -16,5 +16,5 @@
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	; tm/hm learnset
-	tmhm SAFEGUARD
+	tmhm SAFEGUARD, ENCORE
 	; end

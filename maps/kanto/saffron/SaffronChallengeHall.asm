@@ -1,9 +1,12 @@
+DEF SAFFRON_TUTOR_PRICE EQU 8000
+
 	object_const_def
 	const SAFFRONCHALLENGEHALL_RECEPTIONIST
 	const SAFFRONCHALLENGEHALL_OPPONENT
 	const SAFFRONCHALLENGEHALL_CLERK
 	const SAFFRONCHALLENGEHALL_NPC1
 	const SAFFRONCHALLENGEHALL_CLERK2
+	const SAFFRONCHALLENGEHALL_TUTOR
 
 SaffronChallengeHall_MapScripts:
 	def_scene_scripts
@@ -321,6 +324,114 @@ SaffronChallengeHallClerk2Text:
 	cont "a look!"
 	done
 
+SaffronChallengeHallTutorScript:
+	faceplayer
+	opentext
+	writetext SaffronTutorIntroText
+	yesorno
+	iffalse .Refused
+	checkmoney YOUR_MONEY, SAFFRON_TUTOR_PRICE
+	ifequal HAVE_LESS, .NoMoney
+	writetext SaffronTutorWhichText
+	loadmenu .MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .ElectroWeb
+	ifequal 2, .Snarl
+	ifequal 3, .ThunderWave
+	ifequal 4, .Encore
+	sjump .Refused
+
+.ElectroWeb:
+	setval MOVETUTOR_ELECTRO_WEB
+	sjump .Teach
+
+.Snarl:
+	setval MOVETUTOR_SNARL
+	sjump .Teach
+
+.ThunderWave:
+	setval MOVETUTOR_THUNDER_WAVE
+	sjump .Teach
+
+.Encore:
+	setval MOVETUTOR_ENCORE
+.Teach:
+	writetext SaffronTutorBlankText
+	special MoveTutor
+	ifequal FALSE, .Taught
+.Refused:
+	writetext SaffronTutorRefusedText
+	waitbutton
+	closetext
+	end
+
+.Taught:
+	takemoney YOUR_MONEY, SAFFRON_TUTOR_PRICE
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext SaffronTutorTaughtText
+	waitbutton
+	closetext
+	end
+
+.NoMoney:
+	writetext SaffronTutorNoMoneyText
+	waitbutton
+	closetext
+	end
+
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 14, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 5 ; items
+	db "Electro Web@"
+	db "Snarl@"
+	db "Thunder Wave@"
+	db "Encore@"
+	db "Cancel@"
+
+SaffronTutorIntroText:
+	text "Double battles are"
+	line "won by helping"
+	cont "your partner."
+
+	para "I teach support"
+	line "moves for ¥{d:SAFFRON_TUTOR_PRICE}."
+
+	para "Would you like"
+	line "to learn one?"
+	done
+
+SaffronTutorWhichText:
+	text "Which move?"
+	done
+
+SaffronTutorBlankText:
+	text_start
+	done
+
+SaffronTutorRefusedText:
+	text "Come back when"
+	line "you need a hand."
+	done
+
+SaffronTutorTaughtText:
+	text "Now slow them"
+	line "down and let your"
+	cont "partner strike!"
+	done
+
+SaffronTutorNoMoneyText:
+	text "You don't have"
+	line "enough money."
+	done
+
 SaffronChallengeHall_MapEvents:
 	db 0, 0 ; filler
 
@@ -340,3 +451,4 @@ SaffronChallengeHall_MapEvents:
 	object_event  9, 10, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronChallengeHallClerkScript, -1
 	object_event  2,  8, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronChallengeHallNpc1Script, -1
 	object_event  9,  8, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronChallengeHallClerk2Script, -1
+	object_event 10, 12, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronChallengeHallTutorScript, -1

@@ -2166,5 +2166,6 @@
 	const EVENT_BIRCHS_AIDE_IN_RUSTBORO_POKECENTER ; set = hidden
 
 	; new flags go here (2048 and up were added by the save-breaking batch)
+	const EVENT_GOT_ROUTE_104_SITRUS_BERRY
 	const_next 2560
 DEF NUM_EVENTS EQU const_value ; a00

@@ -165,6 +165,16 @@ Route48NeverMeltIce:
 Route48HiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_ROUTE_48_HIDDEN_FULL_RESTORE
 
+Route48Sign:
+	jumptext Route48SignText
+
+Route48SignText:
+	text "Route 48"
+
+	para "Silver Pass -"
+	line "Silver Town"
+	done
+
 Route48_MapEvents:
 	db 0, 0 ; filler
 
@@ -175,6 +185,7 @@ Route48_MapEvents:
 
 	def_bg_events
 	bg_event  6, 30, BGEVENT_ITEM, Route48HiddenFullRestore
+	bg_event 49, 55, BGEVENT_READ, Route48Sign
 
 	def_object_events
 	object_event 26, 52, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerFYvonne, -1
