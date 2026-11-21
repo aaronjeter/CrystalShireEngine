@@ -407,23 +407,15 @@ ExecutiveM4BeforeText:
 	text "What? Who are you?"
 	line "This is the office"
 
-	para "of our leader,"
-	line "Giovanni."
+	para "of our commander,"
+	line "Archer."
 
-	para "Since disbanding"
-	line "Team Rocket three"
+	para "Giovanni himself"
+	line "chose him to lead"
+	cont "us in Johto."
 
-	para "years ago, he has"
-	line "been in training."
-
-	para "But we're certain"
-	line "he will be back"
-
-	para "some day to assume"
-	line "command again."
-
-	para "That's why we're"
-	line "standing guard."
+	para "While he's away,"
+	line "I stand guard."
 
 	para "I won't let any-"
 	line "one disturb this"
@@ -434,8 +426,8 @@ ExecutiveM4BeatenText:
 	text "I… I couldn't do a"
 	line "thing…"
 
-	para "Giovanni, please"
-	line "forgive me…"
+	para "Archer will have"
+	line "my head for this…"
 	done
 
 ExecutiveM4AfterText:

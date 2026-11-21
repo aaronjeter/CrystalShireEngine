@@ -164,9 +164,10 @@ GruntsWarehouseBeatenText:
 	done
 
 GruntsWarehouseAfterBattleText:
-	text "Team Rocket waits"
-	line "for Giovanni's"
-	cont "return."
+	text "Once the signal"
+	line "goes out, Johto"
+	cont "belongs to Team"
+	cont "Rocket!"
 
 	para "We'll do whatever"
 	line "it takes."

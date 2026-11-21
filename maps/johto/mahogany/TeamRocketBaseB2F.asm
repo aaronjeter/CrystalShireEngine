@@ -590,14 +590,16 @@ RocketBaseBossDontMeddleText:
 	para "Where is your"
 	line "sense of honor?"
 
-	para "As the interim"
-	line "boss in place of"
+	para "Giovanni chose"
+	line "Archer to lead us"
+	cont "in Johto."
 
-	para "Giovanni, I'll"
-	line "show you how wrong"
+	para "As his second,"
+	line "I'll show you how"
 
-	para "it is to meddle"
-	line "with Team Rocket!"
+	para "wrong it is to"
+	line "meddle with"
+	cont "Team Rocket!"
 	done
 
 RocketBaseBossWinText:

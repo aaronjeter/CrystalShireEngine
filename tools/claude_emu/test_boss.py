@@ -433,6 +433,80 @@ def case_clear_weather():
           and any('cleared up' in x for x in m1['log']), f'm1={m1 and (m1["weather"], m1["log"])}')
 
 
+def case_air_lock():
+    g = setup()
+    g.set_party([('PSYDUCK', 60, None, ['THUNDERBOLT', 'HARDEN'])], ())  # Cloud Nine (Air Lock's twin)
+    menus, log, res = fight(g, g.const('BOSS_KYOGRE'), [('move', 0)] * 6, species='KYOGRE', level=10)
+    check('Cloud Nine: a boss aura sets no weather (Kyogre), its stat stage still applies',
+          menus[0]['weather'][0] == 0 and lv(menus[0], (SPA, 1)),
+          f'weather={menus[0]["weather"]} levels={menus[0]["levels"]} intro={g.intro_log}')
+    g = setup()
+    g.set_party([('PSYDUCK', 60, None, ['THUNDERBOLT', 'HARDEN'])], ())
+    menus, log, res = fight(g, g.const('BOSS_RED_GYARADOS'), [('move', 0)] * 4)
+    m1 = menus[1] if len(menus) > 1 else None
+    check('Cloud Nine: a boss phase sets no weather (Red Gyarados), Speed +1 still',
+          m1 and m1['weather'][0] == 0 and lv(m1, (SPE, 1)),
+          f'm1={m1 and (m1["weather"], m1["levels"], m1["log"])}')
+
+
+def case_stat_cap():
+    g = setup()
+    g.set_party(BOLT, ())
+
+    def hook(g, turn):
+        if turn == 0:
+            g.wr(f'wEnemyAtkLevel+{SPA}', BASE + 6)
+    menus, log, res = fight(g, g.const('BOSS_MEWTWO'), [('move', 0)] * 6, hook, species='MEWTWO', level=20)
+    m1 = menus[1] if len(menus) > 1 else None
+    check('a phase at +6: the stat stays at +6 with "won\'t rise anymore!"',
+          m1 and m1['levels'][SPA] == BASE + 6 and any('rise anymore' in x for x in m1['log']),
+          f'm1={m1 and (m1["levels"], m1["log"])}')
+
+
+def case_auto_catch_no_room():
+    g = setup()
+    g.poke_rom(g.rom_addr('NewStorageBoxPointer'), [0x37, 0xC9])  # scf / ret: the storage system is full
+    six = BOLT + [('RATTATA', 5, None, ['TACKLE'])] * 5
+    g.set_party(six, ())
+    menus, log, res = fight(g, g.const('BOSS_RED_GYARADOS'), [('move', 0)] * 4)
+    check('auto-catch with party and boxes full: a normal faint, nothing caught',
+          not any('caught' in x for x in log) and not any('exhausted' in x for x in log)
+          and any('fainted' in x for x in log) and g.rd('wPartyCount') == 6 and res == 0,
+          f'party={g.rd("wPartyCount")} res={res} log={log[-6:]}')
+
+
+GHOST = [('MISDREAVUS', 60, None, ['PERISH_SONG', 'HARDEN', 'DESTINY_BOND', 'THUNDERBOLT']),
+         ('JOLTEON', 60, None, ['THUNDERBOLT', 'HARDEN'])]
+
+
+def case_perish_song():
+    g = setup()
+    g.set_party(GHOST, ())
+    menus, log, res = fight(g, g.const('BOSS_RED_GYARADOS'), [('move', 0)] + [('move', 1)] * 6,
+                            replace=[1], shift=[True])
+    s = idx(log, STANDING)
+    after = [m for m in menus if m['ram'][1] == 0]
+    check('Perish Song takes a bar (and the perish count is cleared)',
+          s >= 0 and after and after[0]['hp'] == after[0]['max'] and not after[0]['sub'][0] & 0x10,
+          f'menus={[(m["ram"], m["hp"], m["sub"]) for m in menus]} log={log[-10:]}')
+
+
+def case_destiny_bond():
+    g = setup()
+    g.set_party(GHOST, ())
+
+    def hook(g, turn):
+        if turn == 0:  # the boss (slower) knocks out the 1-HP Misdreavus with Thunderbolt after Destiny Bond
+            g.wr16('wBattleMonHP', 1); g.wr16('wPartyMon1HP', 1)
+            set_enemy_move(g, party_move_id(g, 0, 3))
+    menus, log, res = fight(g, g.const('BOSS_RED_GYARADOS'), [('move', 2)] + [('move', 0)] * 4, hook,
+                            replace=[1], shift=[True])
+    m = menus[1] if len(menus) > 1 else None
+    check('Destiny Bond takes a bar', m and m['ram'][1] == 0 and m['hp'] == m['max']
+          and any('took it' in x or 'with it' in x for x in log) and g.rd16('wPartyMon1HP') == 0,
+          f'menus={[(x["ram"], x["hp"]) for x in menus]} log={log[:10]}')
+
+
 def bag_count(g):
     """The ball pocket as {ID: quantity} (2-byte entries)."""
     n = g.rd('wNumBalls')
@@ -680,10 +754,15 @@ def main():
     case_two_phases()
     case_weather_aura()
     case_clear_weather()
+    case_air_lock()
+    case_stat_cap()
+    case_perish_song()
+    case_destiny_bond()
     case_ball_bounces()
     case_ball_last_bar()
     case_auto_catch()
     case_auto_catch_box()
+    case_auto_catch_no_room()
     case_no_run()
     case_no_teleport()
     case_boss_never_flees()

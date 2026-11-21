@@ -371,12 +371,12 @@ RadioTower2FBlackBelt2Text:
 	done
 
 GruntM4SeenText:
-	text "Three years ago,"
-	line "Team Rocket was"
-	cont "forced to disband."
+	text "Team Rocket never"
+	line "went away. We just"
+	cont "kept quiet."
 
-	para "But we're making a"
-	line "comeback here!"
+	para "Now Johto hears"
+	line "from us again!"
 	done
 
 GruntM4BeatenText:

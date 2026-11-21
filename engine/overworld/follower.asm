@@ -80,7 +80,10 @@ LoadMapObjects_Follower::
 	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
 	cp SPRITE_FOLLOWER
 	call z, ReloadFollowerPal ; in case another lead's colors are still loaded
-	; fallthrough
+	call StartPokemonFollower
+	; redraw the sprites now: the ones still on screen from the last map may use
+	; object palette slots that were just given other colors
+	jmp UpdateSprites
 
 StartPokemonFollower::
 	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]

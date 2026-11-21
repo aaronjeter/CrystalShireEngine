@@ -99,6 +99,12 @@ RadioTower5FRocketBossScript:
 	opentext
 	writetext RadioTower5FRocketBossAfterText
 	waitbutton
+	playsound SFX_CALL
+	waitsfx
+	writetext RadioTower5FRocketBossPhoneText
+	waitbutton
+	writetext RadioTower5FRocketBossRecalledText
+	waitbutton
 	writetext RadioTower5FRocketBossGiveStoneText
 	verbosegiveitem JOHTOITE_X
 	closetext
@@ -283,26 +289,28 @@ RadioTower5FRocketBossBeforeText:
 	para "You must be quite"
 	line "the trainer."
 
-	para "We intend to take"
-	line "over this Radio"
+	para "Giovanni gave each"
+	line "of his commanders"
+	cont "a region."
 
-	para "Station and an-"
-	line "nounce our come-"
-	cont "back."
+	para "Johto is mine."
 
-	para "That should bring"
-	line "our boss Giovanni"
+	para "From this tower,"
+	line "our signal will"
+	cont "reach every corner"
+	cont "of Johto."
 
-	para "back from his solo"
-	line "training."
+	para "Every #mon that"
+	line "hears it will be"
+	cont "forced to evolve."
 
-	para "We are going to"
-	line "regain our former"
-	cont "glory."
+	para "I'll hand Johto to"
+	line "the boss with an"
+	cont "army at his side."
 
 	para "I won't allow you"
 	line "to interfere with"
-	cont "our plans."
+	cont "my plans."
 	done
 
 RadioTower5FRocketBossFirstDefeatText:
@@ -328,34 +336,50 @@ RadioTower5FRocketBossLastStandText:
 	done
 
 RadioTower5FRocketBossGiveStoneText:
-	text "..."
+	text "…"
 
-	para "I...suppose"
-	line "I won't need this"
-	cont "any longer."
+	para "Take this. I won't"
+	line "need it where I'm"
+	cont "going."
 	done
 
 RadioTower5FRocketBossWinText:
-	text "No! Forgive me,"
-	line "Giovanni!"
+	text "No… What will I"
+	line "tell the boss?"
 	done
 
 RadioTower5FRocketBossAfterText:
 	text "How could this be?"
 
-	para "Our dreams have"
-	line "come to naught."
+	para "The signal, the"
+	line "army… all of it,"
+	cont "undone by a child."
+	done
 
-	para "I wasn't up to the"
-	line "task after all."
+RadioTower5FRocketBossPhoneText:
+	text "…Archer here."
 
-	para "Like Giovanni did"
-	line "before me, I will"
+	para "…Yes, boss."
 
-	para "disband Team"
-	line "Rocket here today."
+	para "…Understood. I'll"
+	line "return at once."
+	done
 
-	para "Farewell."
+RadioTower5FRocketBossRecalledText:
+	text "Giovanni wants me"
+	line "back at his side."
+
+	para "Johto was my"
+	line "chance to prove"
+	cont "myself to him."
+
+	para "And you took it"
+	line "from me."
+
+	para "Remember this,"
+	line "child. Team Rocket"
+	cont "is far from"
+	cont "finished."
 	done
 
 RadioTower5FDirectorThankYouText:

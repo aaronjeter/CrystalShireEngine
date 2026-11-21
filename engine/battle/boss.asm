@@ -336,6 +336,7 @@ BossRunCommands:
 	set 4, b ; two stages
 .raise
 	farcall HeldItemRaiseStat
+	farcall BattleCommand_StatUpFailText ; "won't rise anymore!" at +6
 	pop bc
 	ld a, c
 	sub 2

@@ -2949,6 +2949,15 @@ INCLUDE "data/trainers/leaders.asm"
 
 HandlePlayerMonFaint:
 ; The player's mon fainted (the enemy's may have too). Faint, then replace.
+; A boss at 0 HP takes its new bar first (or is caught automatically on its last).
+	call HasEnemyFainted
+	jr nz, .faint
+	farcall BossBarBreak
+	jr nc, .faint
+	ld a, [wBattleEnded]
+	and a
+	ret nz
+.faint
 	call PlayerMonFaint
 	ld a, [wBattleEnded]
 	and a
