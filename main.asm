@@ -188,6 +188,11 @@ INCLUDE "engine/battle/read_trainer_attributes.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
 
 
+SECTION "Trainer Default Moves", ROMX
+
+INCLUDE "engine/battle/trainer_default_moves.asm"
+
+
 SECTION "Battle Core", ROMX
 
 INCLUDE "engine/battle/core.asm"

@@ -7,7 +7,47 @@ MossdeepHintHouse_MapScripts:
 	def_callbacks
 
 MossdeepHintHouseGrannyScript:
-	jumptextfaceplayer MossdeepHintHouseGrannyText
+; one-time gift: TwistedSpoon
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_HOENN_TWISTEDSPOON
+	iftrue .Gave
+	writetext MossdeepHintHouseGrannyGiftText
+	promptbutton
+	verbosegiveitem TWISTEDSPOON
+	iffalse .NoRoom
+	setevent EVENT_GOT_HOENN_TWISTEDSPOON
+	writetext MossdeepHintHouseGrannyGiftAfterText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
+.Gave:
+	writetext MossdeepHintHouseGrannyText
+	waitbutton
+	closetext
+	end
+
+MossdeepHintHouseGrannyGiftText:
+	text "My grandson bent"
+	line "this spoon with"
+	cont "his mind!"
+
+	para "I can't eat with"
+	line "it now. Take it,"
+	cont "dearie."
+	done
+
+MossdeepHintHouseGrannyGiftAfterText:
+	text "A TwistedSpoon"
+	line "powers up Psychic"
+	cont "moves."
+
+	para "Mossdeep is full"
+	line "of strange gifts!"
+	done
+
 
 MossdeepHintHouseGrannyText:
 	text "Long ago, a great"

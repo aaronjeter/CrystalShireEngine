@@ -1202,18 +1202,6 @@ PKMNTrainerGroup:
 	mon 10, TOTODILE
 	end_party
 
-	party CAL2, "Cal"
-	mon 10, BAYLEEF
-	mon 10, QUILAVA
-	mon 10, CROCONAW
-	end_party
-
-	party CAL3, "Cal"
-	mon 10, MEGANIUM
-	mon 10, TYPHLOSION
-	mon 10, FERALIGATR
-	end_party
-
 	end_list_items
 
 BrunoGroup: ;Elite 4
@@ -3967,10 +3955,6 @@ BeautyGroup:
 		ability NATURAL_CURE
 	end_party
 
-	party ROUTE103_DAISY, "Daisy" ; Route 103
-	mon 5, FURRET
-	end_party
-
 	party ROUTE104_CINDY, "Cindy" ; Route 104 (elite)
 	mon 2, SKITTY
 		ability CUTE_CHARM
@@ -4232,12 +4216,6 @@ GruntMGroup:
 	random_mons 3, ROCKET_HARD
 	end_party
 
-	party GRUNTM_4, "Grunt" ; Radio Tower 2F
-	mon 5, MUK
-	mon 5, MIGHTYENA
-	mon 5, NUZLEAF
-	end_party
-
 	party GRUNTM_6, "Grunt" ; Radio Tower 2F
 	mon 6, GOLBAT
 	mon 6, YANMA
@@ -4274,10 +4252,6 @@ GruntMGroup:
 	mon 5, AMUK
 	mon 5, WEEZING
 	mon 6, NOSEPASS
-	end_party
-
-	party GRUNTM_12_UNUSED, "Executive" ; Unreferenced
-	mon 10, HOUNDOUR
 	end_party
 
 	party GRUNTM_13, "Grunt" ; Goldenrod Underground
@@ -4338,14 +4312,6 @@ GruntMGroup:
 	mon 7, RATICATE
 	end_party
 
-	party GRUNTM_22_UNUSED, "Executive" ; Unreferenced
-	mon 10, GOLBAT
-	end_party
-
-	party GRUNTM_23_UNUSED, "Executive" ; Unreferenced
-	mon 10, KOFFING
-	end_party
-
 	party GRUNTM_25, "Grunt" ; Goldenrod Underground
 	mon 5, CACTURNE
 	mon 4, MUK
@@ -4356,15 +4322,6 @@ GruntMGroup:
 	mon 6, WEEZING
 	end_party
 
-	party GRUNTM_26_UNUSED, "Grunt" ; Unreferenced
-	mon 5, RATTATA
-	mon 5, RATTATA
-	end_party
-
-	party GRUNTM_27_UNUSED, "Executive" ; Unreferenced
-	mon 10, ZUBAT
-	end_party
-
 	party GRUNTM_28, "Grunt" ; Team Rocket Base B3F
 	mon 15, RATICATE
 	mon 14, GOLBAT
@@ -4372,17 +4329,6 @@ GruntMGroup:
 	mon 16, RATICATE
 	mon 15, GOLBAT
 	mon 15, MUK
-	end_party
-
-	party GRUNTM_29, "Grunt" ; Slowpoke Well B1F
-	mon 5, SEEL
-	mon 6, CUBONE
-	end_party
-
-	party GRUNTM_30_UNUSED, "Grunt" ; Unreferenced
-	mon 5, GOLBAT
-	mon 5, GOLBAT
-	mon 7, ARBOK
 	end_party
 
 	party GRUNTM_31, "Grunt" ; Unreferenced
@@ -5238,14 +5184,6 @@ FisherGroup:
 	mon 6, SEAKING
 	end_party
 
-	party ROUTE103_ANDREW, "Andrew" ; Route 103
-	mon 5, QWILFISH
-	mon 5, GOLDEEN
-	hard
-	mon 7, QWILFISH
-	mon 7, GOLDEEN
-	end_party
-
 	party ROUTE104_DARIAN, "Darian" ; Route 104
 	mon 2, FEEBAS
 	mon 3, TENTACOOL
@@ -6001,13 +5939,6 @@ GuitaristGroup:
 		ability INTIMIDATE
 	end_party
 
-	party ROUTE103_MARCOS, "Marcos" ; Route 103
-	mon 7, MINUN
-	hard
-	mon 7, MINUN
-	mon 7, PLUSLE
-	end_party
-
 	party ROUTE110_JOSEPH, "Joseph" ; Route 110
 	mon 7, VOLTORB
 	mon 7, HVOLTORB
@@ -6710,13 +6641,6 @@ BlackbeltGroup:
 	mon 7, MANKEY
 	mon 7, MEDITITE
 	mon 7, MACHOP
-	end_party
-
-	party ROUTE103_RHETT, "Marcos" ; Route 103
-	mon 7, TYROGUE
-	hard
-	mon 7, TYROGUE
-	mon 7, COMBUSKEN
 	end_party
 
 	party FACILITY_KANTO_8, "Kiyo" ; challenge facility (hard; levels: the facility level)
@@ -7908,14 +7832,6 @@ PokefanMGroup:
 		ability SWIFT_SWIM
 	end_party
 
-	party ROUTE103_MIGUEL, "Miguel" ; Route 103
-	mon 5, TRAPINCH
-	mon 5, SPOINK
-	hard
-	mon 7, TRAPINCH
-	mon 7, SPOINK
-	end_party
-
 	party ROUTE117_ISAAC, "Isaac" ; Route 117
 	mon 5, ARON
 	mon 5, MAGBY
@@ -8186,14 +8102,6 @@ TwinsGroup:
 		moves THUNDER_WAVE, TWISTER, ICE_BEAM, HEADBUTT
 	end_party
 
-	party ROUTE103_AMYLIV, "Amy & Liv", DOUBLES ; Route 103
-	mon 7, ZANGOOSE
-	mon 7, SEVIPER
-	hard
-	mon 9, ZANGOOSE
-	mon 9, SEVIPER
-	end_party
-
 	party ROUTE104_GINAMIA, "Gina & Mia", DOUBLES ; Route 104
 	mon 3, SEEDOT
 	mon 3, LOTAD
@@ -8426,62 +8334,6 @@ BlueGroup: ;Gym Leader
 		moves BLIZZARD, HURRICANE, FREEZE_DRY, CALM_MIND
 	end_party
 	
-	party BLUE2, "Blue"
-	mon 12, PIDGEOT
-		moves EXTREMESPEED, SKY_ATTACK, BODY_SLAM, STEEL_WING
-	mon 10, ALAKAZAM
-		moves SHADOW_BALL, RECOVER, PSYCHIC_M, REFLECT
-	mon 10, RHYDON
-		moves DRAGONBREATH, SANDSTORM, ROCK_SLIDE, EARTHQUAKE
-	mon 10, GYARADOSX
-		moves DRAGONBREATH, WATERFALL, RAIN_DANCE, HYPER_BEAM
-	mon 10, ARTICUNO
-		moves REST, BLIZZARD, PSYCHIC_M, HURRICANE
-	mon 13, ARCANINE
-		moves ROAR, SWIFT, FLAMETHROWER, EXTREMESPEED
-	hard
-	mon 12, PIDGEOT
-		moves EXTREMESPEED, SKY_ATTACK, BODY_SLAM, STEEL_WING
-	mon 10, ALAKAZAM
-		moves SHADOW_BALL, RECOVER, PSYCHIC_M, REFLECT
-	mon 10, RHYDON
-		moves DRAGONBREATH, SANDSTORM, ROCK_SLIDE, EARTHQUAKE
-	mon 10, GYARADOS
-		moves DRAGONBREATH, WATERFALL, RAIN_DANCE, HYPER_BEAM
-	mon 10, EXEGGUTOR
-		moves REST, MEGA_DRAIN, PSYCHIC_M, EGG_BOMB
-	mon 15, ARTICUNO
-		moves BLIZZARD, PSYCHIC_M, FLY, EXTREMESPEED
-	end_party
-	
-	party BLUE3, "Blue"
-	mon 12, PIDGEOT
-		moves EXTREMESPEED, SKY_ATTACK, BODY_SLAM, STEEL_WING
-	mon 10, ALAKAZAM
-		moves SHADOW_BALL, RECOVER, PSYCHIC_M, REFLECT
-	mon 10, RHYDON
-		moves DRAGONBREATH, SANDSTORM, ROCK_SLIDE, EARTHQUAKE
-	mon 10, GYARADOS
-		moves DRAGONBREATH, WATERFALL, RAIN_DANCE, HYPER_BEAM
-	mon 10, EXEGGUTOR
-		moves REST, MEGA_DRAIN, PSYCHIC_M, EGG_BOMB
-	mon 13, ARCANINE
-		moves ROAR, SWIFT, FLAMETHROWER, EXTREMESPEED
-	hard
-	mon 12, PIDGEOT
-		moves EXTREMESPEED, SKY_ATTACK, BODY_SLAM, STEEL_WING
-	mon 12, ALAKAZAM
-		moves SHADOW_BALL, RECOVER, PSYCHIC_M, REFLECT
-	mon 12, RHYDON
-		moves DRAGON_CLAW, SANDSTORM, ROCK_SLIDE, EARTHQUAKE
-	mon 12, GYARADOS
-		moves DRAGON_CLAW, WATERFALL, FIRE_FANG, AQUA_JET
-	mon 12, EXEGGUTOR
-		moves REST, GIGA_DRAIN, PSYCHIC_M, EGG_BOMB
-	mon 15, ARTICUNO
-		moves BLIZZARD, PSYCHIC_M, FLY, EXTREMESPEED
-	end_party
-
 	end_list_items
 
 OfficerGroup:
@@ -10309,12 +10161,6 @@ BattleGirlGroup:
 
 
 RangerMGroup:
-	party RANGERM1, "Steven" ; Unreferenced
-	mon 10, CHIKORITA
-	mon 10, CYNDAQUIL
-	mon 10, TOTODILE
-	end_party
-
 	party AARON1, "Aaron" ; Aaron's Yellow team
 	mon 11, BUTTERFREE
 		moves SPORE, HURRICANE, MOONBLAST, PSYCHIC_M
@@ -10495,16 +10341,6 @@ RangerMGroup:
 	end_list_items
 
 RangerFGroup:
-	party RANGERF1, "Steven" ; Unreferenced
-	mon 7, CHIKORITA
-	mon 7, CYNDAQUIL
-	mon 8, TOTODILE
-	hard
-	mon 10, CHIKORITA
-	mon 10, CYNDAQUIL
-	mon 10, TOTODILE
-	end_party
-
 	party SAFARI_MONICA, "Monica" ; Safari Zone Monica
 	mon 7, JYNX
 	mon 7, LICKITUNG
@@ -12869,7 +12705,7 @@ GruntsGroup:
 	mon 6, ZUBAT
 	mon 7, EKANS
 		item POISON_BARB
-	mon 7, RATICATE
+	mon 7, RATTATA
 	mon 7, KOFFING
 	end_party
 

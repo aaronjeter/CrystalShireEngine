@@ -259,6 +259,15 @@ ReadTrainerMon:
 	ld a, [wTrainerMonFlags]
 	bit MONFLAG_MOVES_F, a
 	call nz, .Moves
+	ld a, [wTrainerMonFlags]
+	bit MONFLAG_MOVES_F, a
+	jr nz, .listed_moves
+	ld bc, MON_MOVES
+	call TrainerMonField
+	push hl
+	farcall TrainerLimitStatusMoves
+	pop hl
+.listed_moves
 
 	ld a, [wTrainerMonFlags]
 	bit MONFLAG_DVS_F, a

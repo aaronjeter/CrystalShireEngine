@@ -26,6 +26,7 @@ DEF FOLLOWER_COND_ENV EQU $10 ; + wEnvironment
 	const FOLLOWER_COND_JUNGLE
 	const FOLLOWER_COND_POKECENTER
 	const FOLLOWER_COND_GAME_CORNER
+	const FOLLOWER_COND_SNOWY_PEAKS
 DEF FOLLOWER_COND_TIME EQU $30 ; + wTimeOfDay
 
 MACRO follower_line
@@ -716,6 +717,8 @@ FollowerLandmarkGroups:
 	dbw LANDMARK_METEOR_FALLS, FollowerLines_MeteorFalls
 	dbw LANDMARK_MT_PYRE, FollowerLines_MtPyre
 	dbw LANDMARK_SOOTOPOLIS, FollowerLines_Sootopolis
+	dbw LANDMARK_SILVER_PASS, FollowerLines_SilverPass
+	dbw LANDMARK_SILVER_TOWN, FollowerLines_SilverTown
 	db -1
 
 FollowerThemes:
@@ -753,10 +756,17 @@ FollowerThemes:
 	db TILESET_GAME_CORNER, INDOOR
 	dw FollowerLines_GameCorner
 	db FOLLOWER_COND_GAME_CORNER
+	db TILESET_SILVER, ROUTE
+	dw FollowerLines_SnowyPeaks
+	db FOLLOWER_COND_SNOWY_PEAKS
 	db -1
 
 FollowerTypeLines:
 ; condition, type, then a follower_line
+	db FOLLOWER_COND_SNOWY_PEAKS, ICE
+	follower_line EMOTE_HEART, FollowerText_SnowyPeaksIce
+	db FOLLOWER_COND_SNOWY_PEAKS, FIRE
+	follower_line EMOTE_HAPPY, FollowerText_SnowyPeaksFire
 	db OW_WEATHER_RAIN, FIRE
 	follower_line EMOTE_SAD, FollowerText_RainFire
 	db OW_WEATHER_RAIN, WATER
@@ -935,6 +945,23 @@ FollowerLines_MtPyre:
 FollowerLines_Sootopolis:
 	db 1
 	follower_line EMOTE_HAPPY, FollowerText_Sootopolis1
+
+FollowerLines_SnowyPeaks:
+	db 3
+	follower_line EMOTE_HAPPY, FollowerText_SnowyPeaks1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_SnowyPeaks2
+	follower_line EMOTE_QUESTION, FollowerText_SnowyPeaks3
+
+FollowerLines_SilverPass:
+	db 2
+	follower_line EMOTE_QUESTION, FollowerText_SilverPass1
+	follower_line FOLLOWER_NO_EMOTE, FollowerText_SilverPass2
+
+FollowerLines_SilverTown:
+	db 3
+	follower_line EMOTE_SHOCK, FollowerText_SilverTown1
+	follower_line EMOTE_HAPPY, FollowerText_SilverTown2
+	follower_line EMOTE_HAPPY, FollowerText_SilverTown3
 
 ; Texts. wStringBuffer1 holds the nickname (up to 10 characters), so the
 ; first line has room for 8 more.
@@ -1439,6 +1466,66 @@ FollowerText_RuinsPsychic:
 	follower_text_mon " is"
 	line "staring at the"
 	cont "ancient walls…"
+	done
+
+FollowerText_SnowyPeaks1:
+	follower_text_mon " is"
+	line "leaving tracks in"
+	cont "the snow."
+	done
+
+FollowerText_SnowyPeaks2:
+	follower_text_mon " is"
+	line "panting in the"
+	cont "thin mountain air."
+	done
+
+FollowerText_SnowyPeaks3:
+	follower_text_mon " is"
+	line "gazing up at the"
+	cont "snowy peaks."
+	done
+
+FollowerText_SnowyPeaksIce:
+	follower_text_mon " looks"
+	line "right at home in"
+	cont "the snow!"
+	done
+
+FollowerText_SnowyPeaksFire:
+	follower_text_mon " is"
+	line "melting the snow"
+	cont "around its feet."
+	done
+
+FollowerText_SilverPass1:
+	follower_text_mon " hears"
+	line "water dripping"
+	cont "in the dark."
+	done
+
+FollowerText_SilverPass2:
+	follower_text_mon "'s"
+	line "breath is fogging"
+	cont "up in the cold."
+	done
+
+FollowerText_SilverTown1:
+	follower_text_mon " is"
+	line "staring at the"
+	cont "League gate."
+	done
+
+FollowerText_SilverTown2:
+	follower_text_mon " is"
+	line "taking in the view"
+	cont "from the summit."
+	done
+
+FollowerText_SilverTown3:
+	follower_text_mon " seems"
+	line "fired up to face"
+	cont "the League!"
 	done
 
 FollowerText_IcyCave1:

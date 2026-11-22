@@ -25,7 +25,49 @@ DewfordHallTrendyScript:
 	end
 
 DewfordHallGirlScript:
-	jumptextfaceplayer DewfordHallGirlText
+; one-time gift: Poison Barb
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_HOENN_POISON_BARB
+	iftrue .Gave
+	writetext DewfordHallGirlGiftText
+	promptbutton
+	verbosegiveitem POISON_BARB
+	iffalse .NoRoom
+	setevent EVENT_GOT_HOENN_POISON_BARB
+	writetext DewfordHallGirlGiftAfterText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
+.Gave:
+	writetext DewfordHallGirlText
+	waitbutton
+	closetext
+	end
+
+DewfordHallGirlGiftText:
+	text "This week fishing"
+	line "is cool, so I"
+	cont "went fishing!"
+
+	para "I hooked a"
+	line "Tentacool, and it"
+	cont "left this behind."
+
+	para "You can have it!"
+	done
+
+DewfordHallGirlGiftAfterText:
+	text "A Poison Barb"
+	line "powers up Poison-"
+	cont "type moves."
+
+	para "Next week, who"
+	line "knows what's cool?"
+	done
+
 
 DewfordHallBookshelf:
 	jumpstd MagazineBookshelfScript

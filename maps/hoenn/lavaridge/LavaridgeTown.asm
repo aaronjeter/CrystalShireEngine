@@ -87,7 +87,45 @@ LavaridgeTownSoakedText:
 	done
 
 LavaridgeTownHikerScript:
-	jumptextfaceplayer LavaridgeTownHikerText
+; one-time gift: Charcoal
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_HOENN_CHARCOAL
+	iftrue .Gave
+	writetext LavaridgeTownHikerGiftText
+	promptbutton
+	verbosegiveitem CHARCOAL
+	iffalse .NoRoom
+	setevent EVENT_GOT_HOENN_CHARCOAL
+	writetext LavaridgeTownHikerGiftAfterText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
+.Gave:
+	writetext LavaridgeTownHikerText
+	waitbutton
+	closetext
+	end
+
+LavaridgeTownHikerGiftText:
+	text "Mt. Chimney's heat"
+	line "bakes the wood on"
+	cont "its slopes black."
+
+	para "Here, a lump of"
+	line "Charcoal for you!"
+	done
+
+LavaridgeTownHikerGiftAfterText:
+	text "Charcoal powers up"
+	line "Fire-type moves."
+
+	para "Give it to a Fire"
+	line "#mon to hold!"
+	done
+
 
 LavaridgeTownHikerText:
 	text "Mt. Chimney looms"

@@ -16,7 +16,27 @@ ViridianNicknameSpeechHouseMonSpritesCallback:
 	endcallback
 
 ViridianNicknameSpeechHousePokefanMScript:
-	jumptextfaceplayer ViridianNicknameSpeechHousePokefanMText
+; Kanto's TM Headbutt (shares EVENT_GOT_TM02_HEADBUTT with Ilex Forest).
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_TM02_HEADBUTT
+	iftrue .GotHeadbutt
+	writetext ViridianNicknameSpeechHouseHeadbuttText
+	promptbutton
+	verbosegiveitem TM_HEADBUTT
+	iffalse .NoRoom
+	setevent EVENT_GOT_TM02_HEADBUTT
+	writetext ViridianNicknameSpeechHouseAfterTMText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
+.GotHeadbutt:
+	writetext ViridianNicknameSpeechHousePokefanMText
+	waitbutton
+	closetext
+	end
 
 ViridianNicknameSpeechHouseLassScript:
 	jumptextfaceplayer ViridianNicknameSpeechHouseLassText
@@ -49,6 +69,23 @@ ViridianNicknameSpeechHousePokefanMText:
 
 	para "the fun of trading"
 	line "with others."
+	done
+
+ViridianNicknameSpeechHouseHeadbuttText:
+	text "My Speary loves"
+	line "to headbutt trees."
+
+	para "#mon fall out"
+	line "of them sometimes!"
+
+	para "Here, your #mon"
+	line "can try it too."
+	done
+
+ViridianNicknameSpeechHouseAfterTMText:
+	text "Headbutt a tree"
+	line "and see what"
+	cont "drops out!"
 	done
 
 ViridianNicknameSpeechHouseLassText:

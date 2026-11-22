@@ -246,7 +246,46 @@ LilycoveHarborSignText:
 	done
 
 LilycoveTwinScript:
-	jumptextfaceplayer LilycoveTwinText
+; one-time gift: Spell Tag
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_HOENN_SPELL_TAG
+	iftrue .Gave
+	writetext LilycoveTwinGiftText
+	promptbutton
+	verbosegiveitem SPELL_TAG
+	iffalse .NoRoom
+	setevent EVENT_GOT_HOENN_SPELL_TAG
+	writetext LilycoveTwinGiftAfterText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
+.Gave:
+	writetext LilycoveTwinText
+	waitbutton
+	closetext
+	end
+
+LilycoveTwinGiftText:
+	text "Hi! I found this"
+	line "on Mt. Pyre!"
+
+	para "It's way too"
+	line "spooky. You can"
+	cont "have it!"
+	done
+
+LilycoveTwinGiftAfterText:
+	text "A Spell Tag makes"
+	line "Ghost-type moves"
+	cont "stronger."
+
+	para "But it still"
+	line "gives me chills!"
+	done
+
 
 LilycoveTwinText:
 	text "Hi!"

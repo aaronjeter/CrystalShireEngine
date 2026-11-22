@@ -7,7 +7,27 @@ VermilionFishingSpeechHouse_MapScripts:
 	def_callbacks
 
 FishingDude:
-	jumptextfaceplayer FishingDudeText
+; Kanto's Good Rod (shares EVENT_GOT_GOOD_ROD with Olivine's fisher).
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_GOOD_ROD
+	iftrue .GotGoodRod
+	writetext FishingDudeGiveText
+	promptbutton
+	verbosegiveitem GOOD_ROD
+	iffalse .NoRoom
+	setevent EVENT_GOT_GOOD_ROD
+	writetext FishingDudeGoodRodText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
+.GotGoodRod:
+	writetext FishingDudeText
+	waitbutton
+	closetext
+	end
 
 FishingDudesHousePhoto:
 	jumptext FishingDudesHousePhotoText
@@ -34,6 +54,27 @@ FishingDudeText:
 	para "Who knows, you may"
 	line "catch the Magikarp"
 	cont "of his dreams."
+	done
+
+FishingDudeGiveText:
+	text "I am the Fishing"
+	line "Dude, the elder of"
+	cont "the Fishing Bros."
+
+	para "A Trainer who"
+	line "likes the sea?"
+
+	para "Then take this"
+	line "rod with you!"
+	done
+
+FishingDudeGoodRodText:
+	text "The Good Rod"
+	line "hooks bigger fish"
+	cont "than an Old Rod."
+
+	para "Try it anywhere"
+	line "there's water!"
 	done
 
 FishingDudesHousePhotoText:

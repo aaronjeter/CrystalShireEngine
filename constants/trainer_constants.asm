@@ -86,8 +86,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass CAL ; c
 	const CAL1_UNUSED
-	const CAL2
-	const CAL3
 
 	trainerclass BRUNO ; d
 	const BRUNO1
@@ -308,7 +306,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const JULIA
 	const VALERIE
 	const OLIVIA
-	const ROUTE103_DAISY
 	const ROUTE104_CINDY
 	const ROUTE109_HAILEY
 	const ROUTE109_LOLA
@@ -346,26 +343,18 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const GRUNTM_EASY
 	const GRUNTM_MEDIUM
 	const GRUNTM_HARD
-	const GRUNTM_4
 	const GRUNTM_6
 	const GRUNTM_9
 	const GRUNTM_10
 	const GRUNTM_11
-	const GRUNTM_12_UNUSED
 	const GRUNTM_13
 	const GRUNTM_15
 	const GRUNTM_16
 	const GRUNTM_18
 	const GRUNTM_20
 	const GRUNTM_21
-	const GRUNTM_22_UNUSED 
-	const GRUNTM_23_UNUSED 
 	const GRUNTM_25
-	const GRUNTM_26_UNUSED 
-	const GRUNTM_27_UNUSED 
 	const GRUNTM_28
-	const GRUNTM_29
-	const GRUNTM_30_UNUSED 
 	const GRUNTM_31
 	const MOON_GRUNT1
 	const MOON_GRUNT2
@@ -463,7 +452,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const STEPHEN
 	const BARNEY
 	const SCOTT
-	const ROUTE103_ANDREW
 	const ROUTE104_DARIAN
 	const ROUTE104_IVAN
 	const ROUTE105_NED
@@ -546,7 +534,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const VINCENT
 	const MAUVILLE_KIRK
 	const MAUVILLE_SHAWN
-	const ROUTE103_MARCOS
 	const ROUTE110_JOSEPH
 	const ROUTE119_FABIAN
 	const FACILITY_HOENN_4 ; challenge facility (intermediate)
@@ -618,7 +605,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const WAI
 	const DEWFORD_TAKAO
 	const DEWFORD_CRISTIAN
-	const ROUTE103_RHETT
 	const FACILITY_KANTO_8 ; challenge facility (hard)
 	const TOWER_ELITE_5 ; Battle Tower (random team)
 	const HIRO
@@ -746,7 +732,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const JEREMY
 	const COLIN
 	const ALEX
-	const ROUTE103_MIGUEL
 	const ROUTE117_ISAAC
 	const ROUTE110_EDWIN
 
@@ -764,7 +749,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const JOANDZOE1
 	const MEGANDPEG1
 	const LEAANDPIA1
-	const ROUTE103_AMYLIV
 	const ROUTE104_GINAMIA
 	const ROUTE117_ANNAMEG
 	const ROUTE108_LISARIA
@@ -783,8 +767,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass BLUE ; 40
 	const BLUE1
-	const BLUE2
-	const BLUE3
 
 	trainerclass OFFICER ; 41
 	const KEITH
@@ -883,7 +865,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const TOWER_ELITE_10 ; Battle Tower (random team)
 
 	trainerclass RANGERM
-	const RANGERM1
 	const AARON1
 	const AARON2
 	const AARON3
@@ -900,7 +881,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const TOWER_HEAD ; Battle Tower head (battle 49)
 
 	trainerclass RANGERF
-	const RANGERF1
 	const SAFARI_MONICA
 	const SAFARI_TINA
 	const SAFARI_RACHAEL
