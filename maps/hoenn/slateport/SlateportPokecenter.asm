@@ -23,8 +23,8 @@ SlateportPokecenter_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4,  7, SLATEPORT_CITY, 1
 	warp_event  5,  7, SLATEPORT_CITY, 1
+	warp_event  6,  7, SLATEPORT_CITY, 1
 
 	def_coord_events
 
@@ -32,5 +32,5 @@ SlateportPokecenter_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SlateportPokecenterNurseScript, -1
-	object_event  7,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlateportPokecenterChanseyScript, -1
+	object_event  6,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlateportPokecenterChanseyScript, -1
 	

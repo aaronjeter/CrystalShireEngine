@@ -52,8 +52,8 @@ FortreePokecenter_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4,  7, FORTREE_CITY, 1
 	warp_event  5,  7, FORTREE_CITY, 1
+	warp_event  6,  7, FORTREE_CITY, 1
 
 	def_coord_events
 
@@ -61,6 +61,6 @@ FortreePokecenter_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, FortreePokecenterNurseScript, -1
-	object_event  7,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreePokecenterChanseyScript, -1
+	object_event  6,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FortreePokecenterChanseyScript, -1
 	object_event  1,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FortreePokecenterTwinScript, -1
 	object_event 11,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FortreePokecenterHikerScript, -1

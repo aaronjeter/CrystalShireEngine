@@ -396,110 +396,6 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF Pokecenter2F_BLOCKS_LZ EQU 1
 	INCBIN "maps/Pokecenter2F.ablk.lz"
 
-	OlivineTimsHouse_Blocks:
-	OlivinePunishmentSpeechHouse_Blocks:
-	OlivineGoodRodHouse_Blocks:
-	Route39Farmhouse_Blocks:
-	MahoganyRedGyaradosSpeechHouse_Blocks:
-	BlackthornDragonSpeechHouse_Blocks:
-	BlackthornEmysHouse_Blocks:
-	SilverTownHouse_Blocks:
-	SilverTownHouse2_Blocks:
-	MoveDeletersHouse_Blocks:
-	CeruleanGymBadgeSpeechHouse_Blocks:
-	CeruleanPoliceStation_Blocks:
-	CeruleanTradeSpeechHouse_Blocks:
-	BillsHouse_Blocks:
-	CharcoalKiln_Blocks:
-	LakeOfRageHiddenPowerHouse_Blocks:
-	LakeOfRageMagikarpHouse_Blocks:
-	GoldenrodHappinessRater_Blocks:
-	BillsFamilysHouse_Blocks:
-	GoldenrodPPSpeechHouse_Blocks:
-	GoldenrodNameRater_Blocks:
-	VermilionFishingSpeechHouse_Blocks:
-	VermilionMagnetTrainSpeechHouse_Blocks:
-	VermilionDiglettsCaveSpeechHouse_Blocks:
-	BluesHouse_Blocks:
-	PewterNidoranSpeechHouse_Blocks:
-	PewterSnoozeSpeechHouse_Blocks:
-	BillsOlderSistersHouse_Blocks:
-	LavenderSpeechHouse_Blocks:
-	LavenderNameRater_Blocks:
-	Route12SuperRodHouse_Blocks:
-	Route28SteelWingHouse_Blocks:
-	CeladonMansionRoofHouse_Blocks:
-	Route16FuchsiaSpeechHouse_Blocks:
-	ManiasHouse_Blocks:
-	CianwoodPharmacy_Blocks:
-	CianwoodPhotoStudio_Blocks:
-	CianwoodLugiaSpeechHouse_Blocks:
-	PokeSeersHouse_Blocks:
-	ViridianNicknameSpeechHouse_Blocks:
-	Route2NuggetHouse_Blocks:
-	PlayersNeighborsHouse_Blocks:
-	Route26HealHouse_Blocks:
-	DayOfWeekSiblingsHouse_Blocks:
-	Route27SandstormHouse_Blocks:
-	MrPsychicsHouse_Blocks:
-	Route5CleanseTagHouse_Blocks:
-	CherrygroveGymSpeechHouse_Blocks:
-	GuideGentsHouse_Blocks:
-	CherrygroveEvolutionSpeechHouse_Blocks:
-	Route30BerryHouse_Blocks:
-	DEF OlivineTimsHouse_BLOCKS_LZ EQU 1
-	DEF OlivinePunishmentSpeechHouse_BLOCKS_LZ EQU 1
-	DEF OlivineGoodRodHouse_BLOCKS_LZ EQU 1
-	DEF Route39Farmhouse_BLOCKS_LZ EQU 1
-	DEF MahoganyRedGyaradosSpeechHouse_BLOCKS_LZ EQU 1
-	DEF BlackthornDragonSpeechHouse_BLOCKS_LZ EQU 1
-	DEF BlackthornEmysHouse_BLOCKS_LZ EQU 1
-	DEF SilverTownHouse_BLOCKS_LZ EQU 1
-	DEF SilverTownHouse2_BLOCKS_LZ EQU 1
-	DEF MoveDeletersHouse_BLOCKS_LZ EQU 1
-	DEF CeruleanGymBadgeSpeechHouse_BLOCKS_LZ EQU 1
-	DEF CeruleanPoliceStation_BLOCKS_LZ EQU 1
-	DEF CeruleanTradeSpeechHouse_BLOCKS_LZ EQU 1
-	DEF BillsHouse_BLOCKS_LZ EQU 1
-	DEF CharcoalKiln_BLOCKS_LZ EQU 1
-	DEF LakeOfRageHiddenPowerHouse_BLOCKS_LZ EQU 1
-	DEF LakeOfRageMagikarpHouse_BLOCKS_LZ EQU 1
-	DEF GoldenrodHappinessRater_BLOCKS_LZ EQU 1
-	DEF BillsFamilysHouse_BLOCKS_LZ EQU 1
-	DEF GoldenrodPPSpeechHouse_BLOCKS_LZ EQU 1
-	DEF GoldenrodNameRater_BLOCKS_LZ EQU 1
-	DEF VermilionFishingSpeechHouse_BLOCKS_LZ EQU 1
-	DEF VermilionMagnetTrainSpeechHouse_BLOCKS_LZ EQU 1
-	DEF VermilionDiglettsCaveSpeechHouse_BLOCKS_LZ EQU 1
-	DEF BluesHouse_BLOCKS_LZ EQU 1
-	DEF PewterNidoranSpeechHouse_BLOCKS_LZ EQU 1
-	DEF PewterSnoozeSpeechHouse_BLOCKS_LZ EQU 1
-	DEF BillsOlderSistersHouse_BLOCKS_LZ EQU 1
-	DEF LavenderSpeechHouse_BLOCKS_LZ EQU 1
-	DEF LavenderNameRater_BLOCKS_LZ EQU 1
-	DEF Route12SuperRodHouse_BLOCKS_LZ EQU 1
-	DEF Route28SteelWingHouse_BLOCKS_LZ EQU 1
-	DEF CeladonMansionRoofHouse_BLOCKS_LZ EQU 1
-	DEF Route16FuchsiaSpeechHouse_BLOCKS_LZ EQU 1
-	DEF ManiasHouse_BLOCKS_LZ EQU 1
-	DEF CianwoodPharmacy_BLOCKS_LZ EQU 1
-	DEF CianwoodPhotoStudio_BLOCKS_LZ EQU 1
-	DEF CianwoodLugiaSpeechHouse_BLOCKS_LZ EQU 1
-	DEF PokeSeersHouse_BLOCKS_LZ EQU 1
-	DEF ViridianNicknameSpeechHouse_BLOCKS_LZ EQU 1
-	DEF Route2NuggetHouse_BLOCKS_LZ EQU 1
-	DEF PlayersNeighborsHouse_BLOCKS_LZ EQU 1
-	DEF Route26HealHouse_BLOCKS_LZ EQU 1
-	DEF DayOfWeekSiblingsHouse_BLOCKS_LZ EQU 1
-	DEF Route27SandstormHouse_BLOCKS_LZ EQU 1
-	DEF MrPsychicsHouse_BLOCKS_LZ EQU 1
-	DEF Route5CleanseTagHouse_BLOCKS_LZ EQU 1
-	DEF CherrygroveGymSpeechHouse_BLOCKS_LZ EQU 1
-	DEF GuideGentsHouse_BLOCKS_LZ EQU 1
-	DEF CherrygroveEvolutionSpeechHouse_BLOCKS_LZ EQU 1
-	DEF Route30BerryHouse_BLOCKS_LZ EQU 1
-	INCBIN "maps/House1.ablk.lz"
-
 	Route19FuchsiaGate_Blocks:
 	Route43MahoganyGate_Blocks:
 	Route43Gate_Blocks:
@@ -584,53 +480,54 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF ViridianMart_BLOCKS_LZ EQU 1
 	DEF SaffronMart_BLOCKS_LZ EQU 1
 	DEF CherrygroveMart_BLOCKS_LZ EQU 1
-	INCBIN "maps/Mart.ablk.lz"
-
+	INCBIN "maps/marts/Mart.6x4.mart_pc.ablk.lz"
 	OlivinePokecenter1F_Blocks:
 	MahoganyPokecenter1F_Blocks:
 	EcruteakPokecenter1F_Blocks:
 	BlackthornPokecenter1F_Blocks:
-	CinnabarPokecenter1F_Blocks:
-	CeruleanPokecenter1F_Blocks:
-	Route10Pokecenter1F_Blocks:
 	AzaleaPokecenter1F_Blocks:
 	VioletPokecenter1F_Blocks:
 	Route32Pokecenter1F_Blocks:
 	GoldenrodPokecenter1F_Blocks:
+	CianwoodPokecenter1F_Blocks:
+	CherrygrovePokecenter1F_Blocks:
+	DEF OlivinePokecenter1F_BLOCKS_LZ EQU 1
+	DEF MahoganyPokecenter1F_BLOCKS_LZ EQU 1
+	DEF EcruteakPokecenter1F_BLOCKS_LZ EQU 1
+	DEF BlackthornPokecenter1F_BLOCKS_LZ EQU 1
+	DEF AzaleaPokecenter1F_BLOCKS_LZ EQU 1
+	DEF VioletPokecenter1F_BLOCKS_LZ EQU 1
+	DEF Route32Pokecenter1F_BLOCKS_LZ EQU 1
+	DEF GoldenrodPokecenter1F_BLOCKS_LZ EQU 1
+	DEF CianwoodPokecenter1F_BLOCKS_LZ EQU 1
+	DEF CherrygrovePokecenter1F_BLOCKS_LZ EQU 1
+	INCBIN "maps/centers/JohtoCenter.5x4.center.ablk.lz"
+
+	CinnabarPokecenter1F_Blocks:
+	CeruleanPokecenter1F_Blocks:
+	Route10Pokecenter1F_Blocks:
 	VermilionPokecenter1F_Blocks:
 	PewterPokecenter1F_Blocks:
 	FuchsiaPokecenter1F_Blocks:
 	LavenderPokecenter1F_Blocks:
 	SilverCavePokecenter1F_Blocks:
 	CeladonPokecenter1F_Blocks:
-	CianwoodPokecenter1F_Blocks:
 	ViridianPokecenter1F_Blocks:
 	SaffronPokecenter1F_Blocks:
-	CherrygrovePokecenter1F_Blocks:
 	MtMoonPokecenter_Blocks:
-	DEF OlivinePokecenter1F_BLOCKS_LZ EQU 1
-	DEF MahoganyPokecenter1F_BLOCKS_LZ EQU 1
-	DEF EcruteakPokecenter1F_BLOCKS_LZ EQU 1
-	DEF BlackthornPokecenter1F_BLOCKS_LZ EQU 1
 	DEF CinnabarPokecenter1F_BLOCKS_LZ EQU 1
 	DEF CeruleanPokecenter1F_BLOCKS_LZ EQU 1
 	DEF Route10Pokecenter1F_BLOCKS_LZ EQU 1
-	DEF AzaleaPokecenter1F_BLOCKS_LZ EQU 1
-	DEF VioletPokecenter1F_BLOCKS_LZ EQU 1
-	DEF Route32Pokecenter1F_BLOCKS_LZ EQU 1
-	DEF GoldenrodPokecenter1F_BLOCKS_LZ EQU 1
 	DEF VermilionPokecenter1F_BLOCKS_LZ EQU 1
 	DEF PewterPokecenter1F_BLOCKS_LZ EQU 1
 	DEF FuchsiaPokecenter1F_BLOCKS_LZ EQU 1
 	DEF LavenderPokecenter1F_BLOCKS_LZ EQU 1
 	DEF SilverCavePokecenter1F_BLOCKS_LZ EQU 1
 	DEF CeladonPokecenter1F_BLOCKS_LZ EQU 1
-	DEF CianwoodPokecenter1F_BLOCKS_LZ EQU 1
 	DEF ViridianPokecenter1F_BLOCKS_LZ EQU 1
 	DEF SaffronPokecenter1F_BLOCKS_LZ EQU 1
-	DEF CherrygrovePokecenter1F_BLOCKS_LZ EQU 1
 	DEF MtMoonPokecenter_BLOCKS_LZ EQU 1
-	INCBIN "maps/Pokecenter1F.ablk.lz"
+	INCBIN "maps/centers/KantoCenter.5x4.center.ablk.lz"
 
 	EarlsPokemonAcademy_Blocks:
 	DEF EarlsPokemonAcademy_BLOCKS_LZ EQU 1
@@ -890,6 +787,199 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF MountMortar1FInside_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/dungeons/MountMortar1FInside.ablk.lz"
 
+	OlivineTimsHouse_Blocks:
+	Route39Farmhouse_Blocks:
+	MahoganyRedGyaradosSpeechHouse_Blocks:
+	BlackthornDragonSpeechHouse_Blocks:
+	SilverTownHouse_Blocks:
+	CharcoalKiln_Blocks:
+	LakeOfRageHiddenPowerHouse_Blocks:
+	GoldenrodHappinessRater_Blocks:
+	BillsFamilysHouse_Blocks:
+	GoldenrodPPSpeechHouse_Blocks:
+	GoldenrodNameRater_Blocks:
+	ManiasHouse_Blocks:
+	CianwoodLugiaSpeechHouse_Blocks:
+	PokeSeersHouse_Blocks:
+	PlayersNeighborsHouse_Blocks:
+	CherrygroveGymSpeechHouse_Blocks:
+	Route30BerryHouse_Blocks:
+	DEF OlivineTimsHouse_BLOCKS_LZ EQU 1
+	DEF Route39Farmhouse_BLOCKS_LZ EQU 1
+	DEF MahoganyRedGyaradosSpeechHouse_BLOCKS_LZ EQU 1
+	DEF BlackthornDragonSpeechHouse_BLOCKS_LZ EQU 1
+	DEF SilverTownHouse_BLOCKS_LZ EQU 1
+	DEF CharcoalKiln_BLOCKS_LZ EQU 1
+	DEF LakeOfRageHiddenPowerHouse_BLOCKS_LZ EQU 1
+	DEF GoldenrodHappinessRater_BLOCKS_LZ EQU 1
+	DEF BillsFamilysHouse_BLOCKS_LZ EQU 1
+	DEF GoldenrodPPSpeechHouse_BLOCKS_LZ EQU 1
+	DEF GoldenrodNameRater_BLOCKS_LZ EQU 1
+	DEF ManiasHouse_BLOCKS_LZ EQU 1
+	DEF CianwoodLugiaSpeechHouse_BLOCKS_LZ EQU 1
+	DEF PokeSeersHouse_BLOCKS_LZ EQU 1
+	DEF PlayersNeighborsHouse_BLOCKS_LZ EQU 1
+	DEF CherrygroveGymSpeechHouse_BLOCKS_LZ EQU 1
+	DEF Route30BerryHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/JohtoHouse1.4x4.house_johto.ablk.lz"
+
+	OlivinePunishmentSpeechHouse_Blocks:
+	BlackthornEmysHouse_Blocks:
+	SilverTownHouse2_Blocks:
+	LakeOfRageMagikarpHouse_Blocks:
+	CianwoodPharmacy_Blocks:
+	GuideGentsHouse_Blocks:
+	DEF OlivinePunishmentSpeechHouse_BLOCKS_LZ EQU 1
+	DEF BlackthornEmysHouse_BLOCKS_LZ EQU 1
+	DEF SilverTownHouse2_BLOCKS_LZ EQU 1
+	DEF LakeOfRageMagikarpHouse_BLOCKS_LZ EQU 1
+	DEF CianwoodPharmacy_BLOCKS_LZ EQU 1
+	DEF GuideGentsHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/JohtoHouse2.4x4.house_johto.ablk.lz"
+
+	OlivineGoodRodHouse_Blocks:
+	MoveDeletersHouse_Blocks:
+	CianwoodPhotoStudio_Blocks:
+	CherrygroveEvolutionSpeechHouse_Blocks:
+	DEF OlivineGoodRodHouse_BLOCKS_LZ EQU 1
+	DEF MoveDeletersHouse_BLOCKS_LZ EQU 1
+	DEF CianwoodPhotoStudio_BLOCKS_LZ EQU 1
+	DEF CherrygroveEvolutionSpeechHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/JohtoHouse3.4x4.house_johto.ablk.lz"
+
+	CeruleanGymBadgeSpeechHouse_Blocks:
+	CeruleanPoliceStation_Blocks:
+	BillsHouse_Blocks:
+	VermilionFishingSpeechHouse_Blocks:
+	BluesHouse_Blocks:
+	PewterNidoranSpeechHouse_Blocks:
+	BillsOlderSistersHouse_Blocks:
+	LavenderSpeechHouse_Blocks:
+	Route12SuperRodHouse_Blocks:
+	Route28SteelWingHouse_Blocks:
+	CeladonMansionRoofHouse_Blocks:
+	Route16FuchsiaSpeechHouse_Blocks:
+	ViridianNicknameSpeechHouse_Blocks:
+	Route2NuggetHouse_Blocks:
+	Route26HealHouse_Blocks:
+	Route27SandstormHouse_Blocks:
+	MrPsychicsHouse_Blocks:
+	Route5CleanseTagHouse_Blocks:
+	DEF CeruleanGymBadgeSpeechHouse_BLOCKS_LZ EQU 1
+	DEF CeruleanPoliceStation_BLOCKS_LZ EQU 1
+	DEF BillsHouse_BLOCKS_LZ EQU 1
+	DEF VermilionFishingSpeechHouse_BLOCKS_LZ EQU 1
+	DEF BluesHouse_BLOCKS_LZ EQU 1
+	DEF PewterNidoranSpeechHouse_BLOCKS_LZ EQU 1
+	DEF BillsOlderSistersHouse_BLOCKS_LZ EQU 1
+	DEF LavenderSpeechHouse_BLOCKS_LZ EQU 1
+	DEF Route12SuperRodHouse_BLOCKS_LZ EQU 1
+	DEF Route28SteelWingHouse_BLOCKS_LZ EQU 1
+	DEF CeladonMansionRoofHouse_BLOCKS_LZ EQU 1
+	DEF Route16FuchsiaSpeechHouse_BLOCKS_LZ EQU 1
+	DEF ViridianNicknameSpeechHouse_BLOCKS_LZ EQU 1
+	DEF Route2NuggetHouse_BLOCKS_LZ EQU 1
+	DEF Route26HealHouse_BLOCKS_LZ EQU 1
+	DEF Route27SandstormHouse_BLOCKS_LZ EQU 1
+	DEF MrPsychicsHouse_BLOCKS_LZ EQU 1
+	DEF Route5CleanseTagHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/KantoHouse1.4x4.house_kanto.ablk.lz"
+
+	CeruleanTradeSpeechHouse_Blocks:
+	VermilionMagnetTrainSpeechHouse_Blocks:
+	PewterSnoozeSpeechHouse_Blocks:
+	LavenderNameRater_Blocks:
+	DayOfWeekSiblingsHouse_Blocks:
+	DEF CeruleanTradeSpeechHouse_BLOCKS_LZ EQU 1
+	DEF VermilionMagnetTrainSpeechHouse_BLOCKS_LZ EQU 1
+	DEF PewterSnoozeSpeechHouse_BLOCKS_LZ EQU 1
+	DEF LavenderNameRater_BLOCKS_LZ EQU 1
+	DEF DayOfWeekSiblingsHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/KantoHouse2.4x4.house_kanto.ablk.lz"
+
+	VermilionDiglettsCaveSpeechHouse_Blocks:
+	DEF VermilionDiglettsCaveSpeechHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/KantoHouse3.4x4.house_kanto.ablk.lz"
+
+	RustboroCutterHouse_Blocks:
+	VerdanturfRockSmashHouse_Blocks:
+	MauvilleTradeHouse_Blocks:
+	SlateportTradeHouse_Blocks:
+	FortreeTradeHouse_Blocks:
+	LilycoveTradeHouse_Blocks:
+	FallarborReminderHouse_Blocks:
+	PetalburgHouse1_Blocks:
+	OldaleHouse1_Blocks:
+	SootopolisFisherHouse_Blocks:
+	Route119FisherHouse_Blocks:
+	MossdeepStevensHouse_Blocks:
+	MossdeepHintHouse_Blocks:
+	SootopolisBerryHouse_Blocks:
+	SootopolisTutorHouse_Blocks:
+	VerdanturfFlowerHouse_Blocks:
+	LittlerootNeighborHouse_Blocks:
+	RustboroEngineerHouse_Blocks:
+	DewfordHall_Blocks:
+	LavaridgeEggHouse_Blocks:
+	Route117DayCare_Blocks:
+	DEF RustboroCutterHouse_BLOCKS_LZ EQU 1
+	DEF VerdanturfRockSmashHouse_BLOCKS_LZ EQU 1
+	DEF MauvilleTradeHouse_BLOCKS_LZ EQU 1
+	DEF SlateportTradeHouse_BLOCKS_LZ EQU 1
+	DEF FortreeTradeHouse_BLOCKS_LZ EQU 1
+	DEF LilycoveTradeHouse_BLOCKS_LZ EQU 1
+	DEF FallarborReminderHouse_BLOCKS_LZ EQU 1
+	DEF PetalburgHouse1_BLOCKS_LZ EQU 1
+	DEF OldaleHouse1_BLOCKS_LZ EQU 1
+	DEF SootopolisFisherHouse_BLOCKS_LZ EQU 1
+	DEF Route119FisherHouse_BLOCKS_LZ EQU 1
+	DEF MossdeepStevensHouse_BLOCKS_LZ EQU 1
+	DEF MossdeepHintHouse_BLOCKS_LZ EQU 1
+	DEF SootopolisBerryHouse_BLOCKS_LZ EQU 1
+	DEF SootopolisTutorHouse_BLOCKS_LZ EQU 1
+	DEF VerdanturfFlowerHouse_BLOCKS_LZ EQU 1
+	DEF LittlerootNeighborHouse_BLOCKS_LZ EQU 1
+	DEF RustboroEngineerHouse_BLOCKS_LZ EQU 1
+	DEF DewfordHall_BLOCKS_LZ EQU 1
+	DEF LavaridgeEggHouse_BLOCKS_LZ EQU 1
+	DEF Route117DayCare_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/HoennHouse1.4x4.house_hoenn.ablk.lz"
+
+	RustboroTradeHouse_Blocks:
+	VerdanturfTradeHouse_Blocks:
+	LilycovePaintHouse_Blocks:
+	PetalburgHouse2_Blocks:
+	OldaleHouse2_Blocks:
+	MossdeepSailorHouse_Blocks:
+	SootopolisEldersHouse_Blocks:
+	SlateportShipyard_Blocks:
+	MauvilleHill_Blocks:
+	FallarborCozmosHouse_Blocks:
+	DEF RustboroTradeHouse_BLOCKS_LZ EQU 1
+	DEF VerdanturfTradeHouse_BLOCKS_LZ EQU 1
+	DEF LilycovePaintHouse_BLOCKS_LZ EQU 1
+	DEF PetalburgHouse2_BLOCKS_LZ EQU 1
+	DEF OldaleHouse2_BLOCKS_LZ EQU 1
+	DEF MossdeepSailorHouse_BLOCKS_LZ EQU 1
+	DEF SootopolisEldersHouse_BLOCKS_LZ EQU 1
+	DEF SlateportShipyard_BLOCKS_LZ EQU 1
+	DEF MauvilleHill_BLOCKS_LZ EQU 1
+	DEF FallarborCozmosHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/HoennHouse2.4x4.house_hoenn.ablk.lz"
+
+	MossdeepStoneHouse_Blocks:
+	SootopolisLegendHouse_Blocks:
+	VerdanturfTutorHouse_Blocks:
+	PetalburgWallysHouse_Blocks:
+	RustboroNameRater_Blocks:
+	FallarborFossilHouse_Blocks:
+	DEF MossdeepStoneHouse_BLOCKS_LZ EQU 1
+	DEF SootopolisLegendHouse_BLOCKS_LZ EQU 1
+	DEF VerdanturfTutorHouse_BLOCKS_LZ EQU 1
+	DEF PetalburgWallysHouse_BLOCKS_LZ EQU 1
+	DEF RustboroNameRater_BLOCKS_LZ EQU 1
+	DEF FallarborFossilHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/HoennHouse3.4x4.house_hoenn.ablk.lz"
 
 SECTION "Map Blocks LZ 2", ROMX
 ; maps with LZ-compressed blocks (see MAP_BLOCKS_LZ): each label needs its DEF <Map>_BLOCKS_LZ line
@@ -1478,7 +1568,7 @@ SECTION "Map Blocks LZ 4", ROMX
 	DEF SootopolisPokecenter_BLOCKS_LZ EQU 1
 	DEF EvergrandePokecenter_BLOCKS_LZ EQU 1
 	DEF BattleResortPokecenter_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/HoennPokecenter.ablk.lz"
+	INCBIN "maps/centers/HoennCenter.7x4.center.ablk.lz"
 
 	OldaleMart_Blocks:
 	PetalburgMart_Blocks:
@@ -1506,87 +1596,11 @@ SECTION "Map Blocks LZ 4", ROMX
 	DEF SootopolisMart_BLOCKS_LZ EQU 1
 	DEF BattleResortMart_BLOCKS_LZ EQU 1
 	DEF DewfordMart_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/HoennPokemart.ablk.lz"
+	INCBIN "maps/marts/HoennMart.6x4.mart_pc.ablk.lz"
 
 	BirchsLab_Blocks:
 	DEF BirchsLab_BLOCKS_LZ EQU 1
 	INCBIN "maps/hoenn/littleroot/BirchsLab.ablk.lz"
-
-	RustboroCutterHouse_Blocks:
-	RustboroTradeHouse_Blocks:
-	VerdanturfRockSmashHouse_Blocks:
-	VerdanturfTradeHouse_Blocks:
-	MauvilleTradeHouse_Blocks:
-	SlateportTradeHouse_Blocks:
-	FortreeTradeHouse_Blocks:
-	LilycoveTradeHouse_Blocks:
-	LilycovePaintHouse_Blocks:
-	FallarborReminderHouse_Blocks:
-	PetalburgHouse1_Blocks:
-	PetalburgHouse2_Blocks:
-	OldaleHouse1_Blocks:
-	OldaleHouse2_Blocks:
-	SootopolisFisherHouse_Blocks:
-	Route119FisherHouse_Blocks:
-	MossdeepStevensHouse_Blocks:
-	MossdeepSailorHouse_Blocks:
-	MossdeepStoneHouse_Blocks:
-	MossdeepHintHouse_Blocks:
-	SootopolisEldersHouse_Blocks:
-	SootopolisLegendHouse_Blocks:
-	SootopolisBerryHouse_Blocks:
-	SootopolisTutorHouse_Blocks:
-	VerdanturfTutorHouse_Blocks:
-	VerdanturfFlowerHouse_Blocks:
-	LittlerootNeighborHouse_Blocks:
-	PetalburgWallysHouse_Blocks:
-	RustboroNameRater_Blocks:
-	RustboroEngineerHouse_Blocks:
-	DewfordHall_Blocks:
-	SlateportShipyard_Blocks:
-	MauvilleHill_Blocks:
-	FallarborCozmosHouse_Blocks:
-	FallarborFossilHouse_Blocks:
-	LavaridgeEggHouse_Blocks:
-	DEF RustboroCutterHouse_BLOCKS_LZ EQU 1
-	DEF RustboroTradeHouse_BLOCKS_LZ EQU 1
-	DEF VerdanturfRockSmashHouse_BLOCKS_LZ EQU 1
-	DEF VerdanturfTradeHouse_BLOCKS_LZ EQU 1
-	DEF MauvilleTradeHouse_BLOCKS_LZ EQU 1
-	DEF SlateportTradeHouse_BLOCKS_LZ EQU 1
-	DEF FortreeTradeHouse_BLOCKS_LZ EQU 1
-	DEF LilycoveTradeHouse_BLOCKS_LZ EQU 1
-	DEF LilycovePaintHouse_BLOCKS_LZ EQU 1
-	DEF FallarborReminderHouse_BLOCKS_LZ EQU 1
-	DEF PetalburgHouse1_BLOCKS_LZ EQU 1
-	DEF PetalburgHouse2_BLOCKS_LZ EQU 1
-	DEF OldaleHouse1_BLOCKS_LZ EQU 1
-	DEF OldaleHouse2_BLOCKS_LZ EQU 1
-	DEF SootopolisFisherHouse_BLOCKS_LZ EQU 1
-	DEF Route119FisherHouse_BLOCKS_LZ EQU 1
-	DEF MossdeepStevensHouse_BLOCKS_LZ EQU 1
-	DEF MossdeepSailorHouse_BLOCKS_LZ EQU 1
-	DEF MossdeepStoneHouse_BLOCKS_LZ EQU 1
-	DEF MossdeepHintHouse_BLOCKS_LZ EQU 1
-	DEF SootopolisEldersHouse_BLOCKS_LZ EQU 1
-	DEF SootopolisLegendHouse_BLOCKS_LZ EQU 1
-	DEF SootopolisBerryHouse_BLOCKS_LZ EQU 1
-	DEF SootopolisTutorHouse_BLOCKS_LZ EQU 1
-	DEF VerdanturfTutorHouse_BLOCKS_LZ EQU 1
-	DEF VerdanturfFlowerHouse_BLOCKS_LZ EQU 1
-	DEF LittlerootNeighborHouse_BLOCKS_LZ EQU 1
-	DEF PetalburgWallysHouse_BLOCKS_LZ EQU 1
-	DEF RustboroNameRater_BLOCKS_LZ EQU 1
-	DEF RustboroEngineerHouse_BLOCKS_LZ EQU 1
-	DEF DewfordHall_BLOCKS_LZ EQU 1
-	DEF SlateportShipyard_BLOCKS_LZ EQU 1
-	DEF MauvilleHill_BLOCKS_LZ EQU 1
-	DEF FallarborCozmosHouse_BLOCKS_LZ EQU 1
-	DEF FallarborFossilHouse_BLOCKS_LZ EQU 1
-	DEF LavaridgeEggHouse_BLOCKS_LZ EQU 1
-	Route117DayCare_Blocks:
-	DEF Route117DayCare_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/HoennHouse.ablk.lz"
 
 	FortreeHiddenPowerHouse_Blocks:
 	FortreeHouse1_Blocks:

@@ -18,6 +18,20 @@ LoadSpecialMapPalette:
 	jr z, .silver
 	cp TILESET_HOUSE
 	jr z, .house
+	cp TILESET_HOUSE_HOENN
+	jr z, .house_hoenn
+	cp TILESET_CENTER
+	jr z, .center
+	cp TILESET_CENTER_KANTO
+	jr z, .center_kanto
+	cp TILESET_CENTER_JOHTO
+	jr z, .center_johto
+	cp TILESET_MART_PC
+	jr z, .mart
+	cp TILESET_MART_JOHTO
+	jr z, .mart_johto
+	cp TILESET_MART_KANTO
+	jr z, .mart_kanto
 	cp TILESET_RADIO_TOWER
 	jr z, .radio_tower
 	cp TILESET_MANSION
@@ -55,6 +69,41 @@ LoadSpecialMapPalette:
 
 .house
 	call LoadHousePalette
+	scf
+	ret
+
+.house_hoenn
+	call LoadHoennHousePalette
+	scf
+	ret
+
+.center
+	call LoadCenterPalette
+	scf
+	ret
+
+.center_kanto
+	call LoadKantoCenterPalette
+	scf
+	ret
+
+.center_johto
+	call LoadJohtoCenterPalette
+	scf
+	ret
+
+.mart
+	call LoadMartPalette
+	scf
+	ret
+
+.mart_johto
+	call LoadJohtoMartPalette
+	scf
+	ret
+
+.mart_kanto
+	call LoadKantoMartPalette
 	scf
 	ret
 
@@ -143,6 +192,76 @@ LoadHousePalette:
 
 HousePalette:
 INCLUDE "gfx/tilesets/house.pal"
+
+LoadHoennHousePalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, HoennHousePalette
+	ld bc, 8 palettes
+	jmp FarCopyWRAM
+
+HoennHousePalette:
+INCLUDE "gfx/tilesets/house_hoenn.pal"
+
+LoadCenterPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, CenterPalette
+	ld bc, 8 palettes
+	jmp FarCopyWRAM
+
+CenterPalette:
+INCLUDE "gfx/tilesets/center.pal"
+
+LoadKantoCenterPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, KantoCenterPalette
+	ld bc, 8 palettes
+	jmp FarCopyWRAM
+
+KantoCenterPalette:
+INCLUDE "gfx/tilesets/center_kanto.pal"
+
+LoadJohtoCenterPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, JohtoCenterPalette
+	ld bc, 8 palettes
+	jmp FarCopyWRAM
+
+JohtoCenterPalette:
+INCLUDE "gfx/tilesets/center_johto.pal"
+
+LoadMartPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, MartPalette
+	ld bc, 8 palettes
+	jmp FarCopyWRAM
+
+MartPalette:
+INCLUDE "gfx/tilesets/mart_pc.pal"
+
+LoadJohtoMartPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, JohtoMartPalette
+	ld bc, 8 palettes
+	jmp FarCopyWRAM
+
+JohtoMartPalette:
+INCLUDE "gfx/tilesets/mart_johto.pal"
+
+LoadKantoMartPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, KantoMartPalette
+	ld bc, 8 palettes
+	jmp FarCopyWRAM
+
+KantoMartPalette:
+INCLUDE "gfx/tilesets/mart_kanto.pal"
 
 LoadRadioTowerPalette:
 	ld a, BANK(wBGPals1)

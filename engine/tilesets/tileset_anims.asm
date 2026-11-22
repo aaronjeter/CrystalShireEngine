@@ -229,6 +229,15 @@ TilesetTowerAnim::
 	dw NULL,  DoneTileAnimation
 
 TilesetHouseAnim::
+TilesetHouseJohtoAnim::
+TilesetHouseKantoAnim::
+TilesetHouseHoennAnim::
+TilesetCenterAnim::
+TilesetCenterKantoAnim::
+TilesetCenterJohtoAnim::
+TilesetMartPCAnim::
+TilesetMartJohtoAnim::
+TilesetMartKantoAnim::
 TilesetPlayersHouseAnim::
 TilesetPokecenterAnim::
 TilesetGateAnim::

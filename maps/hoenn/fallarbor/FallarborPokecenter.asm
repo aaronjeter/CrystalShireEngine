@@ -67,8 +67,8 @@ FallarborPokecenter_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4,  7, FALLARBOR_TOWN, 1
 	warp_event  5,  7, FALLARBOR_TOWN, 1
+	warp_event  6,  7, FALLARBOR_TOWN, 1
 
 	def_coord_events
 
@@ -76,7 +76,7 @@ FallarborPokecenter_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, FallarborPokecenterNurseScript, -1
-	object_event  7,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FallarborPokecenterChanseyScript, -1
+	object_event  6,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FallarborPokecenterChanseyScript, -1
 	object_event  1,  4, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, FallarborPokecenterGuruScript, -1
 	object_event 11,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FallarborPokecenterFarmerScript, -1
 	object_event  9,  6, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FallarborPokecenterHikerScript, -1

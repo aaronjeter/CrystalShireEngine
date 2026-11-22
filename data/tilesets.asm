@@ -51,4 +51,13 @@ Tilesets::
 	tileset TilesetHoennJungle
 	tileset TilesetBattleResort
 	tileset TilesetSilver
+	tileset TilesetHouseJohto
+	tileset TilesetHouseKanto
+	tileset TilesetHouseHoenn
+	tileset TilesetCenter
+	tileset TilesetMartPC
+	tileset TilesetCenterKanto
+	tileset TilesetCenterJohto
+	tileset TilesetMartJohto
+	tileset TilesetMartKanto
 	assert_table_length NUM_TILESETS + 1

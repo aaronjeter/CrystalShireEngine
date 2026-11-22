@@ -747,3 +747,137 @@ INCLUDE "data/tilesets/silver_collision.asm"
 
 TilesetSilverAttr::
 INCBIN "data/tilesets/silver_attributes.bin.lz"
+
+
+SECTION "Tileset Data HouseJohto", ROMX
+
+; Polished Crystal's house_johto tileset (credited in the README)
+TilesetHouseJohtovTiles2GFX::
+INCBIN "gfx/tilesets/house_johto.2bpp.vtiles2.lz"
+
+TilesetHouseJohtovTiles5GFX::
+INCBIN "gfx/tilesets/house_johto.2bpp.vtiles5.lz"
+
+TilesetHouseJohtovTiles4GFX::
+INCBIN "gfx/tilesets/house_johto.2bpp.vtiles4.lz"
+
+TilesetHouseJohtoMeta::
+INCBIN "data/tilesets/house_johto_metatiles.bin.lz"
+
+TilesetHouseJohtoColl::
+INCLUDE "data/tilesets/house_johto_collision.asm"
+
+TilesetHouseJohtoAttr::
+INCBIN "data/tilesets/house_johto_attributes.bin.lz"
+
+
+SECTION "Tileset Data HouseKanto", ROMX
+
+; Polished Crystal's house_kanto tileset (credited in the README)
+TilesetHouseKantovTiles2GFX::
+INCBIN "gfx/tilesets/house_kanto.2bpp.vtiles2.lz"
+
+TilesetHouseKantovTiles5GFX::
+INCBIN "gfx/tilesets/house_kanto.2bpp.vtiles5.lz"
+
+TilesetHouseKantovTiles4GFX::
+INCBIN "gfx/tilesets/house_kanto.2bpp.vtiles4.lz"
+
+TilesetHouseKantoMeta::
+INCBIN "data/tilesets/house_kanto_metatiles.bin.lz"
+
+TilesetHouseKantoColl::
+INCLUDE "data/tilesets/house_kanto_collision.asm"
+
+TilesetHouseKantoAttr::
+INCBIN "data/tilesets/house_kanto_attributes.bin.lz"
+
+
+SECTION "Tileset Data HouseHoenn", ROMX
+
+; Polished Crystal's johto_house tileset, with the rug palettes changed for Hoenn (credited in the README)
+TilesetHouseHoennvTiles2GFX::
+INCBIN "gfx/tilesets/house_hoenn.2bpp.vtiles2.lz"
+
+TilesetHouseHoennvTiles5GFX::
+INCBIN "gfx/tilesets/house_hoenn.2bpp.vtiles5.lz"
+
+TilesetHouseHoennvTiles4GFX::
+INCBIN "gfx/tilesets/house_hoenn.2bpp.vtiles4.lz"
+
+TilesetHouseHoennMeta::
+INCBIN "data/tilesets/house_hoenn_metatiles.bin.lz"
+
+TilesetHouseHoennColl::
+INCLUDE "data/tilesets/house_hoenn_collision.asm"
+
+TilesetHouseHoennAttr::
+INCBIN "data/tilesets/house_hoenn_attributes.bin.lz"
+
+
+SECTION "Tileset Data Center", ROMX
+
+; Polished Crystal's center tileset (credited in the README)
+TilesetCentervTiles2GFX::
+TilesetCenterKantovTiles2GFX::
+TilesetCenterJohtovTiles2GFX::
+INCBIN "gfx/tilesets/center.2bpp.vtiles2.lz"
+
+TilesetCentervTiles5GFX::
+TilesetCenterKantovTiles5GFX::
+TilesetCenterJohtovTiles5GFX::
+INCBIN "gfx/tilesets/center.2bpp.vtiles5.lz"
+
+TilesetCentervTiles4GFX::
+TilesetCenterKantovTiles4GFX::
+TilesetCenterJohtovTiles4GFX::
+INCBIN "gfx/tilesets/center.2bpp.vtiles4.lz"
+
+TilesetCenterMeta::
+TilesetCenterKantoMeta::
+TilesetCenterJohtoMeta::
+INCBIN "data/tilesets/center_metatiles.bin.lz"
+
+TilesetCenterColl::
+TilesetCenterKantoColl::
+TilesetCenterJohtoColl::
+INCLUDE "data/tilesets/center_collision.asm"
+
+TilesetCenterAttr::
+TilesetCenterKantoAttr::
+TilesetCenterJohtoAttr::
+INCBIN "data/tilesets/center_attributes.bin.lz"
+
+
+SECTION "Tileset Data MartPC", ROMX
+
+; Polished Crystal's mart_pc tileset (credited in the README)
+TilesetMartPCvTiles2GFX::
+TilesetMartJohtovTiles2GFX::
+TilesetMartKantovTiles2GFX::
+INCBIN "gfx/tilesets/mart_pc.2bpp.vtiles2.lz"
+
+TilesetMartPCvTiles5GFX::
+TilesetMartJohtovTiles5GFX::
+TilesetMartKantovTiles5GFX::
+INCBIN "gfx/tilesets/mart_pc.2bpp.vtiles5.lz"
+
+TilesetMartPCvTiles4GFX::
+TilesetMartJohtovTiles4GFX::
+TilesetMartKantovTiles4GFX::
+INCBIN "gfx/tilesets/mart_pc.2bpp.vtiles4.lz"
+
+TilesetMartPCMeta::
+TilesetMartJohtoMeta::
+TilesetMartKantoMeta::
+INCBIN "data/tilesets/mart_pc_metatiles.bin.lz"
+
+TilesetMartPCColl::
+TilesetMartJohtoColl::
+TilesetMartKantoColl::
+INCLUDE "data/tilesets/mart_pc_collision.asm"
+
+TilesetMartPCAttr::
+TilesetMartJohtoAttr::
+TilesetMartKantoAttr::
+INCBIN "data/tilesets/mart_pc_attributes.bin.lz"
