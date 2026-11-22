@@ -10,7 +10,7 @@ usage: test_facility_intros.py ROM SYM STATE
 """
 import sys
 from harness import warp_script
-from battle_test import Battle, is_party_menu, fill_pocket
+from battle_test import Battle, is_party_menu, fill_pocket, item_count as bt_item_count
 import test_facility as T
 
 ROM, SYM, STATE = sys.argv[1:4]
@@ -85,15 +85,14 @@ def flag(g, name):
 
 
 def exactly(g, name, n):
-    # n of the item: taking n works, and none are left
-    g.script(f'\ttakeitem {name}, {n}', 20)
-    took = g.rd('wScriptVar')
-    return took and not item_count(g, name)
+    # exactly n of the item in the Pack
+    return item_count(g, name) == n
 
 
 def item_count(g, name):
-    g.script(f'\tcheckitem {name}', 20)
-    return g.rd('wScriptVar')
+    # read the Pack itself: a checkitem script can't run while the
+    # receptionist's text is still open, and wScriptVar then holds her yes/no
+    return bt_item_count(g, name)
 
 
 def play(mapc, x, y, steps, end, win, full=False, flags=(), locked=False):
