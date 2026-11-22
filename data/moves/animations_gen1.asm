@@ -2086,26 +2086,18 @@ BattleAnim_FireBlast:
 	anim_ret
 
 BattleAnim_Waterfall:
-	anim_1gfx BATTLE_ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_2Row
-	anim_bgeffect BATTLE_BG_EFFECT_BODY_SLAM, $0, BG_EFFECT_USER, $0
-	anim_wait 16
-	anim_call BattleAnim_ShowMon_0
-	anim_sound 0, 1, SFX_LICK
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 3
-	anim_sound 0, 1, SFX_LICK
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 48, $0
-	anim_wait 3
+	; A column of water rushes up over the target
+	anim_2gfx BATTLE_ANIM_GFX_WATER, BATTLE_ANIM_GFX_HIT
+.loop
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 128, 72, $0
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 144, 72, $0
+	anim_wait 6
+	anim_loop 3, .loop
 	anim_sound 0, 1, SFX_LICK
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 40, $0
-	anim_wait 3
-	anim_sound 0, 1, SFX_LICK
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 32, $0
-	anim_wait 3
-	anim_sound 0, 1, SFX_LICK
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 24, $0
-	anim_wait 8
+	anim_wait 24
 	anim_ret
 
 BattleAnim_Clamp:

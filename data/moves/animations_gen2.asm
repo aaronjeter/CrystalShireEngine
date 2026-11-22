@@ -174,13 +174,13 @@ BattleAnimationsGen2::
 	anim_ptr BattleAnim_IcyWind ; FROSTBITE
 	anim_ptr BattleAnim_AerialAce ; ACROBATICS
 	anim_ptr BattleAnim_CrossChop ; COUP_DE_GRACE
-	anim_ptr BattleAnim_Thief ; KNOCK_OFF
+	anim_ptr BattleAnim_KnockOff ; KNOCK_OFF
 	anim_ptr BattleAnim_Discharge ; DISCHARGE
 	anim_ptr BattleAnim_Bulldoze ; BULLDOZE
 	anim_ptr BattleAnim_ElectroWeb ; ELECTRO_WEB
-	anim_ptr BattleAnim_DragonClaw ; BREAKING_SWIPE
+	anim_ptr BattleAnim_BreakingSwipe ; BREAKING_SWIPE
 	anim_ptr BattleAnim_Return ; FACADE
-	anim_ptr BattleAnim_MachPunch ; SUCKER_PUNCH
+	anim_ptr BattleAnim_SuckerPunch ; SUCKER_PUNCH
 	anim_ptr BattleAnim_Eruption ; LAVA_PLUME
 	anim_ptr BattleAnim_Swagger ; TAUNT
 	anim_ptr BattleAnim_ChargeBeam ; CHARGE_BEAM
@@ -193,9 +193,9 @@ BattleAnimationsGen2::
 	anim_ptr BattleAnim_Enervate ; ENERVATE
 	anim_ptr BattleAnim_AquaTail ; AQUA_TAIL
 	anim_ptr BattleAnim_GrassKnot ; GRASS_KNOT
-	anim_ptr BattleAnim_RapidSpin ; GYRO_BALL
+	anim_ptr BattleAnim_GyroBall ; GYRO_BALL
 	anim_ptr BattleAnim_IronTail ; HEAVY_SLAM
-	anim_ptr BattleAnim_SacredFire ; HEAT_CRASH
+	anim_ptr BattleAnim_HeatCrash ; HEAT_CRASH
 	anim_ptr BattleAnim_Ingrain ; INGRAIN
 	anim_ptr BattleAnim_AquaRing ; AQUA_RING
 	anim_ptr BattleAnim_DrainPunch ; DRAIN_PUNCH
@@ -206,32 +206,338 @@ BattleAnimationsGen2::
 
 ; These moves borrow a Gen 1 animation. Table entries must point into this
 ; bank, so each one calls the borrowed script with a far anim_call.
-BattleAnim_Bulldoze:
-	anim_call BattleAnim_Earthquake
-	anim_ret
-
-BattleAnim_BodyPress:
-	anim_call BattleAnim_BodySlam
-	anim_ret
-
 BattleAnim_Enervate:
 	anim_call BattleAnim_DreamEater
 	anim_ret
 
-BattleAnim_AquaTail:
-	anim_call BattleAnim_Waterfall
+BattleAnim_LusterPurge:
+	; Light gathers into the user, then a bright light-blue beam fires
+	anim_2gfx BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_BEAM
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 88, $8
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 88, $10
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 88, $18
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 88, $20
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 88, $28
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 88, $30
+	anim_obj BATTLE_ANIM_OBJ_GROWTH, 48, 88, $38
+	anim_wait 40
+	anim_clearobjs
+	anim_call BattleAnimSub_Beam
+	anim_wait 16
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $2
+	anim_wait 32
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
 	anim_ret
 
-BattleAnim_GrassKnot:
-	anim_call BattleAnim_VineWhip
+BattleAnim_FocusPunch:
+	; The user glows as it focuses, then a heavy punch lands with a flash
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT, $0, BG_EFFECT_USER, $40
+.loop
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 44, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 36, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 52, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 28, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 60, 108, $6
+	anim_wait 2
+	anim_loop 2, .loop
+	anim_wait 16
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT
+	anim_call BattleAnim_ShowMon_0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $3
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $20, $2, $20
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_PUNCH, 136, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 32
+	anim_ret
+
+BattleAnim_SuckerPunch:
+	; The user darts in and lands a quick dark punch
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_sound 0, 0, SFX_MENU
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 8
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_PUNCH, 136, 56, $0
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 12
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_Superpower:
+	; Red power rises around the shaking user, then it rushes in hard
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_RED
+	anim_bgeffect BATTLE_BG_EFFECT_VIBRATE_MON, $0, BG_EFFECT_USER, $0
+.loop
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 44, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 28, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 60, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 36, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 52, 108, $6
+	anim_wait 2
+	anim_loop 3, .loop
+	anim_wait 16
+	anim_incbgeffect BATTLE_BG_EFFECT_VIBRATE_MON
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_TACKLE, $0, BG_EFFECT_USER, $0
+	anim_wait 4
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $20, $2, $20
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 128, 64, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 144, 48, $0
+	anim_wait 16
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_HeatCrash:
+	; The user leaps and crashes down on the target in a burst of flames
+	anim_2gfx BATTLE_ANIM_GFX_FIRE, BATTLE_ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_2Row
+	anim_bgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN
+	anim_wait 4
+	anim_bgeffect BATTLE_BG_EFFECT_BODY_SLAM, $0, BG_EFFECT_USER, $0
+	anim_wait 3
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $20, $2, $20
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $3
+	anim_sound 0, 1, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $1
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $4
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 48, $5
+	anim_wait 32
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_GyroBall:
+	; The user spins up, then a spinning steel ball slams the target
+	anim_3gfx BATTLE_ANIM_GFX_WIND, BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_HIT
+.loop
+	anim_sound 0, 0, SFX_MENU
+	anim_obj BATTLE_ANIM_OBJ_RAPID_SPIN, 44, 112, $0
+	anim_wait 2
+	anim_loop 5, .loop
+	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_METALLIC
+	anim_sound 6, 2, SFX_MENU
+	anim_obj BATTLE_ANIM_OBJ_SHADOW_BALL, 64, 92, $2
+	anim_wait 32
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
+	anim_sound 0, 1, SFX_MEGA_KICK
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 16
+	anim_ret
+
+BattleAnim_StoneEdge:
+	; Rocks crash down around the target, then sharp stones stab into it
+	anim_3gfx BATTLE_ANIM_GFX_ROCKS, BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BROWN
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 120, 68, $30
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 152, 68, $30
+	anim_wait 4
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 128, 64, $40
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 144, 64, $40
+	anim_wait 16
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj BATTLE_ANIM_OBJ_HORN, 72, 72, $2
+	anim_wait 4
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj BATTLE_ANIM_OBJ_HORN, 80, 88, $2
+	anim_wait 4
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj BATTLE_ANIM_OBJ_HORN, 76, 80, $2
+	anim_wait 16
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $10, $2, $0
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 16
+	anim_ret
+
+BattleAnim_EarthPower:
+	; The ground splits under the target and brown energy erupts upward
+	anim_3gfx BATTLE_ANIM_GFX_SAND, BATTLE_ANIM_GFX_FIRE, BATTLE_ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_BROWN
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $30, $2, $0
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj BATTLE_ANIM_OBJ_DIG_PILE, 136, 72, $0
+	anim_wait 24
+.loop
+	anim_sound 0, 1, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_SACRED_FIRE, 128, 80, $0
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SACRED_FIRE, 144, 80, $0
+	anim_wait 4
+	anim_loop 4, .loop
+	anim_wait 24
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_RED
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
+	anim_wait 16
 	anim_ret
 
 BattleAnim_ForcePalm:
-	anim_call BattleAnim_KarateChop
+	; An open-palm strike, then a blue shockwave ring bursts from the hit
+	anim_2gfx BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_LIGHTNING
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_BLUE
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj BATTLE_ANIM_OBJ_PALM, 136, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 12
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_obj BATTLE_ANIM_OBJ_SPARKS_CIRCLE, 136, 56, $0
+	anim_wait 40
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
+	anim_ret
+
+BattleAnim_GrassKnot:
+	; Green grass loops spring up at the target's feet, then it trips
+	anim_2gfx BATTLE_ANIM_GFX_WHIP, BATTLE_ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GREEN
+	anim_sound 0, 1, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_VINE_WHIP2, 124, 72, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_VINE_WHIP
+	anim_obj BATTLE_ANIM_OBJ_VINE_WHIP1, 148, 72, $0
+	anim_wait 16
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $10, $1, $20
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 64, $0
+	anim_wait 24
+	anim_ret
+
+BattleAnim_BodyPress:
+	; The user jumps and slams down; heavy shake and a big impact
+	anim_1gfx BATTLE_ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_2Row
+	anim_bgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
+	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN
+	anim_wait 4
+	anim_bgeffect BATTLE_BG_EFFECT_BODY_SLAM, $0, BG_EFFECT_USER, $0
+	anim_wait 3
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $20, $2, $20
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
+	anim_wait 24
+	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
 BattleAnim_AcidSpray:
-	anim_call BattleAnim_Acid
+	; An arc of purple droplets splashes over the target
+	anim_1gfx BATTLE_ANIM_GFX_POISON
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_TOXIC
+	anim_call BattleAnimSub_Acid
+	anim_wait 48
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_Bulldoze:
+	; The user stomps, the ground rolls, and rocks jump at the target
+	anim_1gfx BATTLE_ANIM_GFX_ROCKS
+	anim_sound 0, 0, SFX_STOMP
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $8, $2, $20
+	anim_wait 8
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $30, $4, $10
+	anim_sound 0, 1, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 128, 64, $40
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 144, 68, $30
+	anim_wait 6
+	anim_sound 0, 1, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 120, 68, $38
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 152, 64, $40
+	anim_wait 40
+	anim_ret
+
+BattleAnim_AquaTail:
+	; A blue tail swipe, then a splash of water on the target
+	anim_2gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_WATER
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_sound 0, 1, SFX_CUT
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
+	anim_wait 12
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 136, 72, $0
+	anim_wait 24
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_KnockOff:
+	; Two quick slaps, then the target's item is knocked away
+	anim_1gfx BATTLE_ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_TACKLE, $0, BG_EFFECT_USER, $0
+	anim_wait 12
+	anim_sound 0, 1, SFX_DOUBLESLAP
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 48, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_DOUBLESLAP
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 56, $0
+	anim_wait 12
+	anim_call BattleAnim_ShowMon_0
+	anim_wait 1
+	anim_1gfx BATTLE_ANIM_GFX_STATUS
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj BATTLE_ANIM_OBJ_THIEF, 136, 64, $1
+	anim_wait 48
 	anim_ret
 
 BattleAnim_IceBall:
@@ -738,7 +1044,6 @@ BattleAnim_Conversion2:
 	anim_wait 48
 	anim_ret
 
-BattleAnim_LusterPurge:
 BattleAnim_Aeroblast:
 	anim_2gfx BATTLE_ANIM_GFX_BEAM, BATTLE_ANIM_GFX_AEROBLAST
 	anim_bgp $1b
@@ -855,7 +1160,6 @@ BattleAnim_ShadowPunch:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_FocusPunch:
 BattleAnim_MachPunch:
 	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
 	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
@@ -1216,7 +1520,6 @@ BattleAnim_LockOn:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Superpower:
 BattleAnim_Uproar:
 BattleAnim_Outrage:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
@@ -2600,8 +2903,6 @@ BattleAnim_Extremespeed:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_EarthPower:
-BattleAnim_StoneEdge:
 BattleAnim_Ancientpower:
 	anim_2gfx BATTLE_ANIM_GFX_ROCKS, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_SPARK
@@ -3529,33 +3830,99 @@ BattleAnim_MagicalLeaf:
 	anim_ret
 
 BattleAnim_CosmicPower:
-BattleAnim_BulkUp:
-BattleAnim_DragonDance:
-BattleAnim_CalmMind:
-	anim_1gfx BATTLE_ANIM_GFX_SPEED
+	; Purple star sparkles twinkle down around the glowing user
+	anim_1gfx BATTLE_ANIM_GFX_SHINE
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
 	anim_call BattleAnim_TargetObj_1Row
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT, $0, BG_EFFECT_USER, $40
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+.loop
+	anim_sound 0, 0, SFX_METRONOME
+	anim_obj BATTLE_ANIM_OBJ_GLIMMER, 24, 64, $0
+	anim_wait 5
+	anim_obj BATTLE_ANIM_OBJ_GLIMMER, 56, 72, $0
+	anim_wait 5
+	anim_obj BATTLE_ANIM_OBJ_GLIMMER, 32, 88, $0
+	anim_wait 5
+	anim_obj BATTLE_ANIM_OBJ_GLIMMER, 60, 96, $0
+	anim_wait 5
+	anim_obj BATTLE_ANIM_OBJ_GLIMMER, 40, 104, $0
+	anim_wait 5
+	anim_loop 2, .loop
+	anim_wait 24
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT
+	anim_call BattleAnim_ShowMon_0
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_BulkUp:
+	; The user pulses with light as orange power lines rise around it
+	anim_1gfx BATTLE_ANIM_GFX_SPEED
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_FIRE
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
 .loop
 	anim_sound 0, 0, SFX_SWORDS_DANCE
 	anim_obj BATTLE_ANIM_OBJ_FOCUS, 44, 108, $6
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 36, 108, $6
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 52, 108, $8
 	anim_wait 2
 	anim_obj BATTLE_ANIM_OBJ_FOCUS, 28, 108, $8
 	anim_wait 2
 	anim_obj BATTLE_ANIM_OBJ_FOCUS, 60, 108, $6
 	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 20, 108, $8
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 36, 108, $8
 	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 68, 108, $8
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 52, 108, $6
 	anim_wait 2
 	anim_loop 3, .loop
-	anim_wait 8
+	anim_wait 16
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING
+	anim_call BattleAnim_ShowMon_0
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
+	anim_ret
+
+BattleAnim_CalmMind:
+	; Soft blue rings circle the user as it glows
+	anim_1gfx BATTLE_ANIM_GFX_MISC
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT, $0, BG_EFFECT_USER, $40
+	anim_sound 0, 0, SFX_PSYBEAM
+	anim_obj BATTLE_ANIM_OBJ_SAFEGUARD, 48, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_SAFEGUARD, 48, 84, $d
+	anim_obj BATTLE_ANIM_OBJ_SAFEGUARD, 48, 84, $1a
+	anim_obj BATTLE_ANIM_OBJ_SAFEGUARD, 48, 84, $27
+	anim_obj BATTLE_ANIM_OBJ_SAFEGUARD, 48, 84, $34
+	anim_wait 72
 	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT
 	anim_call BattleAnim_ShowMon_0
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_DragonDance:
+	; Purple and red flames swirl around the user
+	anim_1gfx BATTLE_ANIM_GFX_FIRE
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PURPLE
+.loop
+	anim_sound 0, 0, SFX_EMBER
+	anim_obj BATTLE_ANIM_OBJ_FLAME_WHEEL, 48, 96, $0
+	anim_wait 6
+	anim_loop 8, .loop
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_RED
+	anim_wait 12
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PURPLE
+	anim_wait 12
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_RED
+	anim_wait 12
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PURPLE
+	anim_wait 12
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_RED
 	anim_ret
 
 BattleAnim_BulletSeed:
@@ -4196,10 +4563,34 @@ BattleAnim_Astonish:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_FlipTurn:
-BattleAnim_UTurn:
 BattleAnim_VoltSwitch:
-	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT
+	; The user dashes in, sparks burst on the hit, then it flashes back
+	anim_3gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_LIGHTNING
+	anim_sound 0, 0, SFX_MENU
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $2
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_SPARKS_CIRCLE, 136, 56, $0
+	anim_wait 24
+	anim_sound 0, 0, SFX_ZAP_CANNON
+	anim_obj BATTLE_ANIM_OBJ_SPARKS_CIRCLE, 44, 88, $0
+	anim_wait 16
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 16
+	anim_ret
+
+BattleAnim_UTurn:
+	; A quick green dash and hit, then the user spins back
+	anim_3gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_WIND
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GREEN
 	anim_sound 0, 0, SFX_MENU
 	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
 	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
@@ -4211,9 +4602,69 @@ BattleAnim_VoltSwitch:
 	anim_wait 12
 	anim_sound 0, 1, SFX_COMET_PUNCH
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 8
-	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 12
+	anim_clearobjs
+.loop
+	anim_sound 0, 0, SFX_MENU
+	anim_obj BATTLE_ANIM_OBJ_RAPID_SPIN, 44, 112, $0
+	anim_wait 2
+	anim_loop 5, .loop
 	anim_wait 16
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 8
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_ret
+
+BattleAnim_FlipTurn:
+	; A quick dash into a splash of water, then the user flips back
+	anim_3gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_WATER, BATTLE_ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_sound 0, 0, SFX_MENU
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj BATTLE_ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 128, 72, $0
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 144, 72, $0
+	anim_wait 24
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_wait 24
+	anim_incbgeffect BATTLE_BG_EFFECT_BOUNCE_DOWN
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_BreakingSwipe:
+	; A sweeping purple claw slash, then a purple shockwave ring
+	anim_2gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_LIGHTNING
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PURPLE
+	anim_sound 0, 1, SFX_SCRATCH
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_SCRATCH
+	anim_obj BATTLE_ANIM_OBJ_CUT_LONG_DOWN_LEFT, 144, 48, $0
+	anim_wait 12
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $20, $2, $0
+	anim_sound 0, 1, SFX_RAGE
+	anim_obj BATTLE_ANIM_OBJ_SPARKS_CIRCLE_BIG, 136, 56, $0
+	anim_wait 32
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_YELLOW
 	anim_ret
 
 BattleAnim_AquaJet:

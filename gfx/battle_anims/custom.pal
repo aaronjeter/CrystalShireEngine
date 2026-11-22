@@ -56,6 +56,12 @@ if !DEF(MONOCHROME)
 	RGB 28, 31, 12 ; glow: pale yellow-green
 	RGB 16, 29, 04 ; bright lime
 	RGB 04, 12, 02 ; dark green
+; toxic (for Acid's droplets in Acid Spray: the droplet is drawn in
+; color 3, so color 3 is purple here instead of black)
+	RGB 31, 31, 31 ; unused (transparent for sprites)
+	RGB 27, 18, 31 ; light purple
+	RGB 22, 08, 27 ; purple
+	RGB 16, 04, 22 ; droplet: deep purple
 else
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 	MONOCHROME_RGB_FOUR
