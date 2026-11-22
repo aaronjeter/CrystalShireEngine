@@ -215,6 +215,29 @@ def main():
     lst = open_list(g)
     check('Steven not beaten (50 defenses): no Red yet', td(g, 'TD_RED') not in lst, str(lst))
 
+    # the Rocket challengers: Archer after the Radio Tower, Jane after the Desert Shrine,
+    # Giovanni once both were beaten in title defenses
+    rockets = ('EVENT_CLEARED_RADIO_TOWER', 'EVENT_BEAT_SHRINE_JANE')
+    g = setup(flags=rockets)
+    lst = open_list(g)
+    check('Radio Tower and Desert Shrine: Archer and Jane, no Giovanni',
+          td(g, 'TD_ARCHER') in lst and td(g, 'TD_JANE') in lst and td(g, 'TD_GIOVANNI') not in lst, str(lst))
+    g = setup(flags=rockets + ('EVENT_TITLE_DEFENSE_BEAT_ARCHER',))
+    lst = open_list(g)
+    check('Archer beaten, Jane not: no Giovanni yet', td(g, 'TD_GIOVANNI') not in lst, str(lst))
+    g = setup(flags=rockets + ('EVENT_TITLE_DEFENSE_BEAT_ARCHER', 'EVENT_TITLE_DEFENSE_BEAT_JANE'), bp=100)
+    bands = item_count(g, 'CHOICE_BAND')
+    g.press('U', hold=2, after=20)
+    lst = open_list(g)
+    check('Archer and Jane beaten: Giovanni last on the list', lst[-1:] == [td(g, 'TD_GIOVANNI')], str(lst))
+    s = fight(g, len(lst) - 1, win=True, shot_name='arena_giovanni.png')
+    check('Giovanni: a CANLOSE battle with GIOVANNI_TD, won',
+          s['battle'] and s['class'] == g.const('GIOVANNI') and s['id'] == g.const('GIOVANNI_TD') and
+          s.get('result') == 0, brief(s))
+    check('Giovanni: +10 BP, a Choice Band, flag set',
+          rd16be(g, 'wBattlePoints') == 110 and item_count(g, 'CHOICE_BAND') == bands + 1 and
+          flag(g, 'EVENT_TITLE_DEFENSE_BEAT_GIOVANNI'), f"{rd16be(g, 'wBattlePoints')}")
+
     # a first win against Green (singles): defense, Expert Belt, BP, beaten flag, back at the clerk
     g = setup(bp=100)
     belts = item_count(g, 'EXPERT_BELT')

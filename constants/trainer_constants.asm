@@ -615,6 +615,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const EXECUTIVEM_3
 	const EXECUTIVEM_4
 	const EXECUTIVEM_5
+	const ARCHER_TD
 
 	trainerclass PSYCHIC_T ; 34
 	const NATHAN
@@ -691,6 +692,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const SAFARI_EXECUTIVEF
 	const MAUVILLE_EXECUTIVEF
 	const DESERT_JANE
+	const JANE_TD
 
 	trainerclass SAGE ; 38
 	const CHOW
@@ -935,6 +937,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass GIOVANNI
 	const WC_GIOVANNI
+	const GIOVANNI_TD
 
 	trainerclass WALLY
 	const WALLY1

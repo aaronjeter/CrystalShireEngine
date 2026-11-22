@@ -38,6 +38,7 @@ DEF BOSS_PIPS_PER_TILE EQU 2
 	const BOSS_JANE         ; Latias (Desert Shrine)
 	const BOSS_ENTEI        ; Entei (Mt. Mortar, the old Moltres Lair)
 	const BOSS_TOWER_HEAD   ; Mew (Battle Tower head)
+	const BOSS_TD_GIOVANNI  ; Mewtwo (title defense)
 DEF NUM_BOSSES EQU const_value
 
 ; boss record flags

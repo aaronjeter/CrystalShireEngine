@@ -27,6 +27,9 @@ TitleDefenseChallengers:
 	title_challenger TD_UNLOCK_FLAG,      EVENT_WORLD_CUP_CHAMPION,           EVENT_TITLE_DEFENSE_BEAT_TWINS,        TWINS,       AMYANDMAY2,   SPRITE_TWIN,           SPRITE_TWIN,        TD_WIN_BP, RARE_CANDY,      3, .Twins
 	title_challenger TD_UNLOCK_FLAG,      EVENT_WORLD_CUP_CHAMPION,           EVENT_TITLE_DEFENSE_BEAT_ACE_DUO,      ACE_DUO,     KAIANDRIN,    SPRITE_COOLTRAINER_M,  SPRITE_COOLTRAINER_F, TD_WIN_BP, EXP_CANDY_XL,  3, .AceDuo
 	title_challenger TD_UNLOCK_CHAMPIONS, 0,                                    EVENT_TITLE_DEFENSE_BEAT_RED,          RED,         RED1,         SPRITE_RED,            0,                  TD_RED_BP, MASTER_BALL,     1, .Red
+	title_challenger TD_UNLOCK_FLAG,      EVENT_CLEARED_RADIO_TOWER,          EVENT_TITLE_DEFENSE_BEAT_ARCHER,       EXECUTIVEM,  ARCHER_TD,    SPRITE_ROCKET,         0,                  TD_WIN_BP, CHOICE_SPECS,    1, .Archer
+	title_challenger TD_UNLOCK_FLAG,      EVENT_BEAT_SHRINE_JANE,             EVENT_TITLE_DEFENSE_BEAT_JANE,         EXECUTIVEF,  JANE_TD,      SPRITE_ROCKET_GIRL,    0,                  TD_WIN_BP, CHOICE_SCARF,    1, .Jane
+	title_challenger TD_UNLOCK_ROCKETS,   0,                                    EVENT_TITLE_DEFENSE_BEAT_GIOVANNI,     GIOVANNI,    GIOVANNI_TD,  SPRITE_GENTLEMAN,      0,                  TD_GIOVANNI_BP, CHOICE_BAND, 1, .Giovanni
 	assert_table_length NUM_TITLE_CHALLENGERS
 
 .Silver:      db "Silver@"
@@ -40,3 +43,6 @@ TitleDefenseChallengers:
 .Twins:       db "Amy & May@"
 .AceDuo:      db "Kai & Rin@"
 .Red:         db "Red@"
+.Archer:      db "Archer@"
+.Jane:        db "Jane@"
+.Giovanni:    db "Giovanni@"

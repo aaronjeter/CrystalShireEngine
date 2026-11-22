@@ -64,6 +64,8 @@ TitleDefenseIsUnlocked:
 	ld d, [hl]
 	cp TD_UNLOCK_FLAG
 	jr z, .flag
+	cp TD_UNLOCK_ROCKETS
+	jr z, .rockets
 ; TD_UNLOCK_CHAMPIONS: Lance, Agatha and Steven beaten in title defenses
 	ld de, EVENT_TITLE_DEFENSE_BEAT_LANCE
 	call TitleDefenseCheckFlag
@@ -78,6 +80,17 @@ TitleDefenseIsUnlocked:
 	ret
 
 .flag
+	call TitleDefenseCheckFlag
+	ret z
+	scf
+	ret
+
+.rockets
+; TD_UNLOCK_ROCKETS: Archer and Jane beaten in title defenses
+	ld de, EVENT_TITLE_DEFENSE_BEAT_ARCHER
+	call TitleDefenseCheckFlag
+	ret z
+	ld de, EVENT_TITLE_DEFENSE_BEAT_JANE
 	call TitleDefenseCheckFlag
 	ret z
 	scf
@@ -582,4 +595,74 @@ _TDRedBeatenText::
 
 _TDRedWonText::
 	text "……"
+	done
+
+_TDArcherText::
+	text "Archer: So the"
+	line "Champion is the"
+	cont "brat who ruined"
+	cont "our broadcast."
+
+	para "Team Rocket"
+	line "rebuilds, and it"
+	cont "starts with your"
+	cont "title!"
+	done
+
+_TDArcherBeatenText::
+	text "Defeated again…"
+	line "Giovanni will"
+	cont "hear of this."
+	done
+
+_TDArcherWonText::
+	text "Hmph. The title"
+	line "means nothing to"
+	cont "Team Rocket."
+	done
+
+_TDJaneText::
+	text "Jane: The desert"
+	line "taught me"
+	cont "patience."
+
+	para "Now Latias and I"
+	line "take what's left:"
+	cont "your crown!"
+	done
+
+_TDJaneBeatenText::
+	text "Latias… We'll"
+	line "be back."
+	done
+
+_TDJaneWonText::
+	text "The crown suits"
+	line "Team Rocket"
+	cont "better, no?"
+	done
+
+_TDGiovanniText::
+	text "Giovanni: So you"
+	line "are the one who"
+	cont "scattered my"
+	cont "Team Rocket."
+
+	para "I've come to see"
+	line "that strength for"
+	cont "myself."
+	done
+
+_TDGiovanniBeatenText::
+	text "Remarkable…"
+	line "Team Rocket bows"
+	cont "to no one, yet"
+	cont "I bow to you."
+	done
+
+_TDGiovanniWonText::
+	text "As I thought."
+	line "Power belongs to"
+	cont "those who seize"
+	cont "it."
 	done

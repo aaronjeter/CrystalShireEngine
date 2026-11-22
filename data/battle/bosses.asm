@@ -67,6 +67,7 @@ BossRecords:
 	boss 1, 0, JaneAura,       JanePhases       ; BOSS_JANE
 	boss 2, 0, EnteiAura,       EnteiPhases       ; BOSS_ENTEI
 	boss 1, 0, TowerHeadAura,  TowerHeadPhases  ; BOSS_TOWER_HEAD
+	boss 2, 0, TDGiovanniAura, TDGiovanniPhases ; BOSS_TD_GIOVANNI
 	assert_table_length NUM_BOSSES - 1
 
 ; Phase tables: one entry per extra bar in the record, in break order.
@@ -376,6 +377,21 @@ RedPhases:
 	boss_stat SP_ATTACK, 1
 	boss_end
 
+TDGiovanniAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDGiovanniPhases:
+	dw .bar1, .bar2
+.bar1
+	boss_text BossGiovanniText
+	boss_stat SP_DEFENSE, 1
+	boss_end
+.bar2
+	boss_text BossGiovanniText2
+	boss_stat SPEED, 1
+	boss_stat SP_ATTACK, 1
+	boss_end
+
 ArcherAura:
 	boss_stat SP_ATTACK, 1
 	boss_end
@@ -465,6 +481,17 @@ BossRedText:
 
 BossRedText2:
 	text "Red: ……!!"
+	prompt
+
+BossGiovanniText:
+	text "Giovanni: Show"
+	line "them, Mewtwo."
+	prompt
+
+BossGiovanniText2:
+	text "Giovanni: This"
+	line "power answers to"
+	cont "no one but me!"
 	prompt
 
 BossArcherText:

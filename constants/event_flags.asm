@@ -2167,5 +2167,8 @@
 
 	; new flags go here (2048 and up were added by the save-breaking batch)
 	const EVENT_GOT_ROUTE_104_SITRUS_BERRY
+	const EVENT_TITLE_DEFENSE_BEAT_ARCHER
+	const EVENT_TITLE_DEFENSE_BEAT_JANE
+	const EVENT_TITLE_DEFENSE_BEAT_GIOVANNI
 	const_next 2560
 DEF NUM_EVENTS EQU const_value ; a00

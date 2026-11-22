@@ -911,17 +911,20 @@ PassportTitlePage:
 	pe_text     2, 7, .Defenses
 	pe_num     11, 7, wTitleDefenses, 2, 5
 	pe_text     2, 9, .Beaten
-	pe_flagtext 2, 11, EVENT_TITLE_DEFENSE_BEAT_SILVER, .Silver, 0
-	pe_flagtext 2, 12, EVENT_TITLE_DEFENSE_BEAT_GREEN, .Green, 0
-	pe_flagtext 2, 13, EVENT_TITLE_DEFENSE_BEAT_WALLY, .Wally, 0
-	pe_flagtext 2, 14, EVENT_TITLE_DEFENSE_BEAT_LANCE, .Lance, 0
-	pe_flagtext 2, 15, EVENT_TITLE_DEFENSE_BEAT_AGATHA, .Agatha, 0
-	pe_flagtext 2, 16, EVENT_TITLE_DEFENSE_BEAT_STEVEN, .Steven, 0
-	pe_flagtext 10, 11, EVENT_TITLE_DEFENSE_BEAT_TATE_LIZA, .TateLiza, 0
-	pe_flagtext 10, 12, EVENT_TITLE_DEFENSE_BEAT_KIMONO_GIRLS, .Kimono, 0
-	pe_flagtext 10, 13, EVENT_TITLE_DEFENSE_BEAT_TWINS, .Twins, 0
-	pe_flagtext 10, 14, EVENT_TITLE_DEFENSE_BEAT_ACE_DUO, .AceDuo, 0
-	pe_flagtext 10, 15, EVENT_TITLE_DEFENSE_BEAT_RED, .Red, 0
+	pe_flagtext 2, 10, EVENT_TITLE_DEFENSE_BEAT_SILVER, .Silver, 0
+	pe_flagtext 2, 11, EVENT_TITLE_DEFENSE_BEAT_GREEN, .Green, 0
+	pe_flagtext 2, 12, EVENT_TITLE_DEFENSE_BEAT_WALLY, .Wally, 0
+	pe_flagtext 2, 13, EVENT_TITLE_DEFENSE_BEAT_LANCE, .Lance, 0
+	pe_flagtext 2, 14, EVENT_TITLE_DEFENSE_BEAT_AGATHA, .Agatha, 0
+	pe_flagtext 2, 15, EVENT_TITLE_DEFENSE_BEAT_STEVEN, .Steven, 0
+	pe_flagtext 2, 16, EVENT_TITLE_DEFENSE_BEAT_TATE_LIZA, .TateLiza, 0
+	pe_flagtext 10, 10, EVENT_TITLE_DEFENSE_BEAT_KIMONO_GIRLS, .Kimono, 0
+	pe_flagtext 10, 11, EVENT_TITLE_DEFENSE_BEAT_TWINS, .Twins, 0
+	pe_flagtext 10, 12, EVENT_TITLE_DEFENSE_BEAT_ACE_DUO, .AceDuo, 0
+	pe_flagtext 10, 13, EVENT_TITLE_DEFENSE_BEAT_RED, .Red, 0
+	pe_flagtext 10, 14, EVENT_TITLE_DEFENSE_BEAT_ARCHER, .Archer, 0
+	pe_flagtext 10, 15, EVENT_TITLE_DEFENSE_BEAT_JANE, .Jane, 0
+	pe_flagtext 10, 16, EVENT_TITLE_DEFENSE_BEAT_GIOVANNI, .Giovanni, 0
 	db PE_END
 
 .WorldCup: db "World Cup@"
@@ -940,6 +943,9 @@ PassportTitlePage:
 .Twins:    db "Amy&May@"
 .AceDuo:   db "Kai&Rin@"
 .Red:      db "Red@"
+.Archer:   db "Archer@"
+.Jane:     db "Jane@"
+.Giovanni: db "Giovanni@"
 
 PassportStatsPage:
 	pe_text  2, 3, .Battles

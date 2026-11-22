@@ -291,6 +291,9 @@ WCFinals_ChallengerTexts::
 	dw WCFinalsTwinsText,       WCFinalsTwinsBeatenText,       WCFinalsTwinsWonText
 	dw WCFinalsAceDuoText,      WCFinalsAceDuoBeatenText,      WCFinalsAceDuoWonText
 	dw WCFinalsRedText,         WCFinalsRedBeatenText,         WCFinalsRedWonText
+	dw WCFinalsArcherText, WCFinalsArcherBeatenText, WCFinalsArcherWonText
+	dw WCFinalsJaneText, WCFinalsJaneBeatenText, WCFinalsJaneWonText
+	dw WCFinalsGiovanniText, WCFinalsGiovanniBeatenText, WCFinalsGiovanniWonText
 	assert_table_length NUM_TITLE_CHALLENGERS
 
 WCFinalsSilverText:
@@ -423,6 +426,42 @@ WCFinalsRedBeatenText:
 
 WCFinalsRedWonText:
 	text_far _TDRedWonText
+	text_end
+
+WCFinalsArcherText:
+	text_far _TDArcherText
+	text_end
+
+WCFinalsArcherBeatenText:
+	text_far _TDArcherBeatenText
+	text_end
+
+WCFinalsArcherWonText:
+	text_far _TDArcherWonText
+	text_end
+
+WCFinalsJaneText:
+	text_far _TDJaneText
+	text_end
+
+WCFinalsJaneBeatenText:
+	text_far _TDJaneBeatenText
+	text_end
+
+WCFinalsJaneWonText:
+	text_far _TDJaneWonText
+	text_end
+
+WCFinalsGiovanniText:
+	text_far _TDGiovanniText
+	text_end
+
+WCFinalsGiovanniBeatenText:
+	text_far _TDGiovanniBeatenText
+	text_end
+
+WCFinalsGiovanniWonText:
+	text_far _TDGiovanniWonText
 	text_end
 
 WCFinals_MapEvents:

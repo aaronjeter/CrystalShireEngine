@@ -13,15 +13,20 @@
 	const TD_TWINS
 	const TD_ACE_DUO
 	const TD_RED
+	const TD_ARCHER
+	const TD_JANE
+	const TD_GIOVANNI
 DEF NUM_TITLE_CHALLENGERS EQU const_value
 
 ; unlock kinds
 	const_def
 	const TD_UNLOCK_FLAG      ; the event flag is set
 	const TD_UNLOCK_CHAMPIONS ; Lance, Agatha and Steven beaten in title defenses
+	const TD_UNLOCK_ROCKETS   ; Archer and Jane beaten in title defenses
 
 DEF TD_WIN_BP EQU 5
 DEF TD_RED_BP EQU 10
+DEF TD_GIOVANNI_BP EQU 10
 
 ; the challenger's partner sprite shares the link trainer's variable sprite
 DEF SPRITE_TITLE_PARTNER EQU SPRITE_LINK_TRAINER
