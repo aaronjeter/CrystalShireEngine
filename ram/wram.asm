@@ -2977,10 +2977,7 @@ wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 
 ; map scene ids
-wPokecenter2FSceneID::                            db
-wTradeCenterSceneID::                             db
-wColosseumSceneID::                               db
-wTimeCapsuleSceneID::                             db
+wUnusedCableClubSceneIDs::                        ds 4
 wPowerPlantSceneID::                              db
 wCeruleanGymSceneID::                             db
 wRoute25SceneID::                                 db

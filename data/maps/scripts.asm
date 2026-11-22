@@ -334,10 +334,6 @@ INCLUDE "maps/kanto/vermilion/VermilionDiglettsCaveSpeechHouse.asm"
 INCLUDE "maps/kanto/vermilion/VermilionGym.asm"
 INCLUDE "maps/kanto/saffron/SaffronSouthGate.asm"
 INCLUDE "maps/Route6UndergroundPathEntrance.asm"
-INCLUDE "maps/Pokecenter2F.asm"
-INCLUDE "maps/TradeCenter.asm"
-INCLUDE "maps/Colosseum.asm"
-INCLUDE "maps/TimeCapsule.asm"
 
 
 SECTION "Map Scripts 18", ROMX

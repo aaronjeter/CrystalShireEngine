@@ -27,9 +27,8 @@ SilverLeagueLobby_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5, 13, SILVER_TOWN, 1
-	warp_event  6, 13, SILVER_TOWN, 4
-	warp_event  0, 13, POKECENTER_2F, 1
+	warp_event  3, 13, SILVER_TOWN, 1
+	warp_event  4, 13, SILVER_TOWN, 4
 	warp_event 14,  3, SILVER_LEAGUE_WILLS_ROOM, 1
 
 	def_coord_events

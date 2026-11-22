@@ -627,10 +627,6 @@ ENDM
 	map_attributes Route12SuperRodHouse, ROUTE_12_SUPER_ROD_HOUSE, $00, 0
 	map_attributes SilverCavePokecenter1F, SILVER_CAVE_POKECENTER_1F, $00, 0
 	map_attributes Route28SteelWingHouse, ROUTE_28_STEEL_WING_HOUSE, $00, 0
-	map_attributes Pokecenter2F, POKECENTER_2F, $00, 0
-	map_attributes TradeCenter, TRADE_CENTER, $00, 0
-	map_attributes Colosseum, COLOSSEUM, $00, 0
-	map_attributes TimeCapsule, TIME_CAPSULE, $00, 0
 	map_attributes CeladonDeptStore1F, CELADON_DEPT_STORE_1F, $00, 0
 	map_attributes CeladonDeptStore2F, CELADON_DEPT_STORE_2F, $00, 0
 	map_attributes CeladonDeptStore3F, CELADON_DEPT_STORE_3F, $00, 0

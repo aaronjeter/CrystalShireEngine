@@ -74,21 +74,6 @@ INCLUDE "data/tilesets/players_room_collision.asm"
 
 SECTION "Tileset Data 2", ROMX
 
-TilesetPokecentervTiles2GFX::
-INCBIN "gfx/tilesets/pokecenter.2bpp.vtiles2.lz"
-
-TilesetPokecentervTiles5GFX::
-INCBIN "gfx/tilesets/pokecenter.2bpp.vtiles5.lz"
-
-TilesetPokecentervTiles4GFX::
-INCBIN "gfx/tilesets/pokecenter.2bpp.vtiles4.lz"
-
-TilesetPokecenterMeta::
-INCBIN "data/tilesets/pokecenter_metatiles.bin.lz"
-
-TilesetPokecenterColl::
-INCLUDE "data/tilesets/pokecenter_collision.asm"
-
 TilesetPortvTiles2GFX::
 INCBIN "gfx/tilesets/port.2bpp.vtiles2.lz"
 
@@ -493,9 +478,6 @@ INCBIN "data/tilesets/house_attributes.bin.lz"
 
 TilesetPlayersHouseAttr::
 INCBIN "data/tilesets/players_house_attributes.bin.lz"
-
-TilesetPokecenterAttr::
-INCBIN "data/tilesets/pokecenter_attributes.bin.lz"
 
 TilesetGateAttr::
 INCBIN "data/tilesets/gate_attributes.bin.lz"

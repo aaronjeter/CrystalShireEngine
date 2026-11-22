@@ -606,12 +606,9 @@ CheckFollowerAllowed:
 
 NoFollowerMaps:
 ; Maps where the following Pokémon stays in its ball:
-; cutscene-heavy rooms and link rooms.
+; cutscene-heavy rooms.
 	map_id LANCES_ROOM
 	map_id HALL_OF_FAME
-	map_id TRADE_CENTER
-	map_id COLOSSEUM
-	map_id TIME_CAPSULE
 	map_id WC_QUALIFIER_1
 	map_id WC_QUALIFIER_2
 	map_id WC_QUALIFIER_3

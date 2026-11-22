@@ -392,9 +392,6 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF ElmsHouse_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/newbark/ElmsHouse.ablk.lz"
 
-	Pokecenter2F_Blocks:
-	DEF Pokecenter2F_BLOCKS_LZ EQU 1
-	INCBIN "maps/Pokecenter2F.ablk.lz"
 
 	Route19FuchsiaGate_Blocks:
 	Route43MahoganyGate_Blocks:
@@ -613,15 +610,7 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF CeladonGameCornerPrizeRoom_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/celadon/CeladonGameCornerPrizeRoom.ablk.lz"
 
-	Colosseum_Blocks:
-	DEF Colosseum_BLOCKS_LZ EQU 1
-	INCBIN "maps/Colosseum.ablk.lz"
 
-	TradeCenter_Blocks:
-	TimeCapsule_Blocks:
-	DEF TradeCenter_BLOCKS_LZ EQU 1
-	DEF TimeCapsule_BLOCKS_LZ EQU 1
-	INCBIN "maps/TradeCenter.ablk.lz"
 
 	EcruteakLugiaSpeechHouse_Blocks:
 	EcruteakItemfinderHouse_Blocks:
@@ -1079,10 +1068,12 @@ SECTION "Map Blocks LZ 2", ROMX
 	INCBIN "maps/johto/mahogany/TeamRocketBaseB3F.ablk.lz"
 
 	IndigoPlateauPokecenter1F_Blocks:
-	SilverLeagueLobby_Blocks:
 	DEF IndigoPlateauPokecenter1F_BLOCKS_LZ EQU 1
+	INCBIN "maps/centers/IndigoPlateauPokecenter1F.9x7.center.ablk.lz"
+
+	SilverLeagueLobby_Blocks:
 	DEF SilverLeagueLobby_BLOCKS_LZ EQU 1
-	INCBIN "maps/kanto/indigo/IndigoPlateauPokecenter1F.ablk.lz"
+	INCBIN "maps/centers/SilverLeagueLobby.9x7.center.ablk.lz"
 
 	WillsRoom_Blocks:
 	SilverLeagueWillsRoom_Blocks:
@@ -1722,7 +1713,7 @@ SECTION "Map Blocks LZ 5", ROMX
 
 	HoennPokeleague_Blocks:
 	DEF HoennPokeleague_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/evergrande/HoennPokeleague.ablk.lz"
+	INCBIN "maps/centers/HoennPokeleague.7x4.center.ablk.lz"
 
 	SidneysRoom_Blocks:
 	DEF SidneysRoom_BLOCKS_LZ EQU 1

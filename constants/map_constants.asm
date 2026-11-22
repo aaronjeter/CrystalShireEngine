@@ -423,14 +423,7 @@ ENDM
 	map_const ROUTE_28_STEEL_WING_HOUSE,                    4,  4 ;  4
 	endgroup
 
-	newgroup CABLE_CLUB                                           ; 20
-	map_const POKECENTER_2F,                                8,  4 ;  1
-	map_const TRADE_CENTER,                                 5,  4 ;  2
-	map_const COLOSSEUM,                                    5,  4 ;  3
-	map_const TIME_CAPSULE,                                 5,  4 ;  4
-	endgroup
-
-	newgroup CELADON                                              ; 21
+	newgroup CELADON                                              ; 20
 	map_const ROUTE_7,                                     10,  9 ;  1
 	map_const ROUTE_16,                                    10,  9 ;  2
 	map_const ROUTE_17,                                    10, 45 ;  3
@@ -458,7 +451,7 @@ ENDM
 	map_const ROUTE_17_ROUTE_18_GATE,                       5,  4 ; 26
 	endgroup
 
-	newgroup CIANWOOD                                             ; 22
+	newgroup CIANWOOD                                             ; 21
 	map_const ROUTE_40,                                    10, 18 ;  1
 	map_const ROUTE_41,                                    25, 27 ;  2
 	map_const CIANWOOD_CITY,                               15, 27 ;  3
@@ -473,7 +466,7 @@ ENDM
 	map_const ROUTE_40_CHALLENGE_HALL,                       6,  7 ; 16 (at the group's end, so saves keep working)
 	endgroup
 
-	newgroup VIRIDIAN                                             ; 23
+	newgroup VIRIDIAN                                             ; 22
 	map_const ROUTE_2,                                     10, 27 ;  1
 	map_const ROUTE_22,                                    20,  9 ;  2
 	map_const VIRIDIAN_CITY,                               20, 18 ;  3
@@ -489,7 +482,7 @@ ENDM
 	map_const ROUTE_22_GATE,                                5,  4 ; 14
 	endgroup
 
-	newgroup NEW_BARK                                             ; 24
+	newgroup NEW_BARK                                             ; 23
 	map_const ROUTE_26,                                    10, 54 ;  1
 	map_const ROUTE_27,                                    40,  9 ;  2
 	map_const ROUTE_29,                                    30,  9 ;  3
@@ -505,7 +498,7 @@ ENDM
 	map_const ROUTE_29_ROUTE_46_GATE,                       5,  4 ; 13
 	endgroup
 
-	newgroup SAFFRON                                              ; 25
+	newgroup SAFFRON                                              ; 24
 	map_const ROUTE_5,                                     10,  9 ;  1
 	map_const SAFFRON_CITY,                                20, 18 ;  2
 	map_const FIGHTING_DOJO,                                5,  6 ;  3
@@ -523,7 +516,7 @@ ENDM
 	map_const SAFFRON_CHALLENGE_HALL,                       6,  7 ; 16 (at the group's end, so saves keep working)
 	endgroup
 
-	newgroup CHERRYGROVE                                          ; 26
+	newgroup CHERRYGROVE                                          ; 25
 	map_const ROUTE_30,                                    10, 27 ;  1
 	map_const ROUTE_31,                                    20,  9 ;  2
 	map_const CHERRYGROVE_CITY,                            20,  9 ;  3
@@ -537,7 +530,7 @@ ENDM
 	map_const ROUTE_31_VIOLET_GATE,                         5,  4 ; 11
 	endgroup
 
-	newgroup HOENN												  ; 27
+	newgroup HOENN												  ; 26
 	map_const LITTLEROOT_TOWN,                             10,  8 ;  1
 	map_const BIRCHS_LAB,								   06, 04 ;	
 	map_const OLDALE_TOWN,                                 10, 10 ;  2

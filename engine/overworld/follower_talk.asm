@@ -750,9 +750,6 @@ FollowerThemes:
 	db TILESET_HOENN_JUNGLE, ROUTE
 	dw FollowerLines_Jungle
 	db FOLLOWER_COND_JUNGLE
-	db TILESET_POKECENTER, INDOOR
-	dw FollowerLines_Pokecenter
-	db FOLLOWER_COND_POKECENTER
 	db TILESET_CENTER, INDOOR
 	dw FollowerLines_Pokecenter
 	db FOLLOWER_COND_POKECENTER

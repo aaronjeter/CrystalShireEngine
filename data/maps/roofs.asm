@@ -32,13 +32,12 @@ MapGroupRoofs:
 	db -1             ; 18
 	db ROOF_NEW_BARK  ; 19 (Silver Cave)
 	db -1             ; 20
-	db -1             ; 21
-	db ROOF_OLIVINE   ; 22 (Cianwood)
-	db -1             ; 23
-	db ROOF_NEW_BARK  ; 24 (New Bark)
-	db -1             ; 25
-	db ROOF_NEW_BARK  ; 26 (Cherrygrove)
-	db ROOF_NEW_BARK  ; 27 (Hoenn)
+	db ROOF_OLIVINE   ; 21 (Cianwood)
+	db -1             ; 22
+	db ROOF_NEW_BARK  ; 23 (New Bark)
+	db -1             ; 24
+	db ROOF_NEW_BARK  ; 25 (Cherrygrove)
+	db ROOF_NEW_BARK  ; 26 (Hoenn)
 	assert_table_length NUM_MAP_GROUPS + 1
 
 Roofs:

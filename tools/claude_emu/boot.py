@@ -5,5 +5,9 @@ g = H(rom, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'start_save.
 g.frames(400)
 for i in range(6): g.press('A', after=40)
 g.press('A', after=200)
-assert g.rd('wMapGroup') == 24, g.screen_text()
+# the start save is in the player's room
+root = os.environ.get('CSE', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
+sys.path.insert(0, os.path.join(root, 'tools'))
+from convert_save import map_ids
+assert (g.rd('wMapGroup'), g.rd('wMapNumber')) == map_ids(os.path.join(root, 'constants', 'map_constants.asm'))['PLAYERS_HOUSE_2F'], g.screen_text()
 g.save(out)

@@ -239,7 +239,6 @@ TilesetMartPCAnim::
 TilesetMartJohtoAnim::
 TilesetMartKantoAnim::
 TilesetPlayersHouseAnim::
-TilesetPokecenterAnim::
 TilesetGateAnim::
 TilesetLabAnim::
 TilesetFacilityAnim::

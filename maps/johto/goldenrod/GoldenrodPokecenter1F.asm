@@ -174,7 +174,6 @@ GoldenrodPokecenter1F_MapEvents:
 	warp_event  3,  7, GOLDENROD_CITY, 15
 	warp_event  4,  7, GOLDENROD_CITY, 15
 	warp_event  0,  6, POKECOM_CENTER_ADMIN_OFFICE_MOBILE, 1
-	warp_event  0,  7, POKECENTER_2F, 1
 
 	def_coord_events
 	coord_event  3,  7, SCENE_GOLDENRODPOKECENTER1F_GS_BALL, GoldenrodPokecenter1F_GSBallSceneLeft

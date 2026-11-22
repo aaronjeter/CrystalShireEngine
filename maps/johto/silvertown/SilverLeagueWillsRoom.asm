@@ -127,7 +127,7 @@ SilverLeagueWillsRoom_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5, 17, SILVER_LEAGUE_LOBBY, 4
+	warp_event  5, 17, SILVER_LEAGUE_LOBBY, 3
 	warp_event  4,  2, SILVER_LEAGUE_LILYS_ROOM, 1
 	warp_event  5,  2, SILVER_LEAGUE_LILYS_ROOM, 2
 

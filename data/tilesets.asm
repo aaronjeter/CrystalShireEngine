@@ -19,7 +19,6 @@ Tilesets::
 	tileset TilesetKanto
 	tileset TilesetHouse
 	tileset TilesetPlayersHouse
-	tileset TilesetPokecenter
 	tileset TilesetGate
 	tileset TilesetPort
 	tileset TilesetLab

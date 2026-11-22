@@ -28,10 +28,10 @@ HoennPokeleague_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  6,  7, EVERGRANDE_CITY, 2
-	warp_event  7,  7, EVERGRANDE_CITY, 2
-	warp_event  8,  0, SIDNEYS_ROOM, 1
+	warp_event  3,  7, EVERGRANDE_CITY, 2
+	warp_event  4,  7, EVERGRANDE_CITY, 2
 	warp_event  9,  0, SIDNEYS_ROOM, 1
+	warp_event  8,  0, SIDNEYS_ROOM, 1
 
 	def_coord_events
 
