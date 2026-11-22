@@ -145,6 +145,7 @@ SpecialsPointers::
 	add_special FadeInPalettes_EnableDynNoApply
 
 	add_special MoveReminder
+	add_special EggMoveTutor
 	add_special WardrobeColorMenu
 	add_special MonPaletteService
 	add_special MoveTutorMenu

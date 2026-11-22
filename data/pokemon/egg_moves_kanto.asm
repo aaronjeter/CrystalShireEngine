@@ -10,10 +10,10 @@ EggMovePointers1:
 	dw SquirtleEggMoves
 	dw NoEggMoves1
 	dw NoEggMoves1
+	dw CaterpieEggMoves
 	dw NoEggMoves1
 	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw WeedleEggMoves
 	dw NoEggMoves1
 	dw NoEggMoves1
 	dw PidgeyEggMoves
@@ -81,7 +81,7 @@ EggMovePointers1:
 	dw NoEggMoves1
 	dw SlowpokeEggMoves
 	dw NoEggMoves1
-	dw NoEggMoves1
+	dw MagnemiteEggMoves
 	dw NoEggMoves1
 	dw FarfetchDEggMoves
 	dw DoduoEggMoves
@@ -100,7 +100,7 @@ EggMovePointers1:
 	dw NoEggMoves1
 	dw KrabbyEggMoves
 	dw NoEggMoves1
-	dw NoEggMoves1
+	dw VoltorbEggMoves
 	dw NoEggMoves1
 	dw ExeggcuteEggMoves
 	dw NoEggMoves1
@@ -120,7 +120,7 @@ EggMovePointers1:
 	dw NoEggMoves1
 	dw GoldeenEggMoves
 	dw NoEggMoves1
-	dw NoEggMoves1
+	dw StaryuEggMoves
 	dw NoEggMoves1
 	dw MrMimeEggMoves
 	dw ScytherEggMoves
@@ -128,8 +128,8 @@ EggMovePointers1:
 	dw NoEggMoves1
 	dw NoEggMoves1
 	dw PinsirEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw TaurosEggMoves
+	dw MagikarpEggMoves
 	dw NoEggMoves1
 	dw LaprasEggMoves
 	dw NoEggMoves1
@@ -137,7 +137,7 @@ EggMovePointers1:
 	dw NoEggMoves1
 	dw NoEggMoves1
 	dw NoEggMoves1
-	dw NoEggMoves1
+	dw PorygonEggMoves
 	dw OmanyteEggMoves
 	dw NoEggMoves1
 	dw KabutoEggMoves
@@ -606,6 +606,61 @@ DratiniEggMoves:
 	dw MIST
 	dw HAZE
 	dw SUPERSONIC
+CaterpieEggMoves:
+	dw SPIDER_WEB
+	dw SWEET_SCENT
+	dw DRAININGKISS
+	dw U_TURN
+	dw -1 ; end
+
+WeedleEggMoves:
+	dw AGILITY
+	dw ACID_SPRAY
+	dw VENOSHOCK
+	dw PIN_MISSILE
+	dw -1 ; end
+
+MagnemiteEggMoves:
+	dw VOLT_SWITCH
+	dw ELECTRO_BALL
+	dw GYRO_BALL
+	dw EXPLOSION
+	dw -1 ; end
+
+VoltorbEggMoves:
+	dw VOLT_SWITCH
+	dw GYRO_BALL
+	dw SUPERSONIC
+	dw DISABLE
+	dw -1 ; end
+
+StaryuEggMoves:
+	dw FLIP_TURN
+	dw FREEZE_DRY
+	dw BARRIER
+	dw WATER_PULSE
+	dw -1 ; end
+
+TaurosEggMoves:
+	dw HORN_DRILL
+	dw HEAVY_SLAM
+	dw HEAT_CRASH
+	dw BODY_PRESS
+	dw MEGAHORN
+	dw -1 ; end
+
+MagikarpEggMoves:
+	dw DRAGON_RAGE
+	dw FLIP_TURN
+	dw BREAKING_SWIPE
+	dw -1 ; end
+
+PorygonEggMoves:
+	dw ZEN_HEADBUTT
+	dw TELEPORT
+	dw DISABLE
+	dw -1 ; end
+
 NoEggMoves1:
 	dw -1 ; end
 

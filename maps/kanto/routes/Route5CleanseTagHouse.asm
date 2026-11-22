@@ -3,6 +3,7 @@
 	const ROUTE5CLEANSETAGHOUSE_TEACHER
 	const ROUTE5CLEANSETAGHOUSE_DAY_CARE_MAN
 	const ROUTE5CLEANSETAGHOUSE_DAY_CARE_LADY
+	const ROUTE5CLEANSETAGHOUSE_EGG_MOVE_TUTOR
 
 Route5CleanseTagHouse_MapScripts:
 	def_scene_scripts
@@ -175,6 +176,14 @@ Route5CleanseTagHouseTeacherText:
 	line "startled you."
 	done
 
+Route5CleanseTagHouseEggMoveTutorScript:
+	faceplayer
+	opentext
+	special EggMoveTutor
+	waitbutton
+	closetext
+	end
+
 Route5CleanseTagHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -193,3 +202,4 @@ Route5CleanseTagHouse_MapEvents:
 	object_event  6,  5, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route5CleanseTagHouseTeacherScript, -1
 	object_event  2,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route5DayCareManScript, -1
 	object_event  5,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route5DayCareLadyScript, -1
+	object_event  6,  1, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route5CleanseTagHouseEggMoveTutorScript, -1

@@ -1,6 +1,7 @@
 	object_const_def
 	const ROUTE117DAYCARE_DAY_CARE_MAN
 	const ROUTE117DAYCARE_DAY_CARE_LADY
+	const ROUTE117DAYCARE_EGG_MOVE_TUTOR
 
 Route117DayCare_MapScripts:
 	def_scene_scripts
@@ -125,6 +126,14 @@ Route117DayCareLadyHusbandText:
 Route117DayCareBookshelf:
 	jumpstd DifficultBookshelfScript
 
+Route117DayCareEggMoveTutorScript:
+	faceplayer
+	opentext
+	special EggMoveTutor
+	waitbutton
+	closetext
+	end
+
 Route117DayCare_MapEvents:
 	db 0, 0 ; filler
 
@@ -141,3 +150,4 @@ Route117DayCare_MapEvents:
 	def_object_events
 	object_event 2,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route117DayCareManScript, -1
 	object_event 5,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route117DayCareLadyScript, -1
+	object_event  6,  1, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route117DayCareEggMoveTutorScript, -1

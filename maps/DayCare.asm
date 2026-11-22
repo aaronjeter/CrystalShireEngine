@@ -1,6 +1,7 @@
 	object_const_def
 	const DAYCARE_GRAMPS
 	const DAYCARE_GRANNY
+	const DAYCARE_EGG_MOVE_TUTOR
 
 DayCare_MapScripts:
 	def_scene_scripts
@@ -126,6 +127,14 @@ DayCareText_PartyFull:
 	line "this."
 	done
 
+DayCareEggMoveTutorScript:
+	faceplayer
+	opentext
+	special EggMoveTutor
+	waitbutton
+	closetext
+	end
+
 DayCare_MapEvents:
 	db 0, 0 ; filler
 
@@ -144,3 +153,4 @@ DayCare_MapEvents:
 	def_object_events
 	object_event  2,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareManScript_Inside, EVENT_DAY_CARE_MAN_IN_DAY_CARE
 	object_event  5,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DayCareLadyScript, -1
+	object_event  6,  1, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DayCareEggMoveTutorScript, -1
