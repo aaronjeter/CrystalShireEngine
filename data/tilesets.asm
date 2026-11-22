@@ -17,7 +17,6 @@ Tilesets::
 	tileset TilesetJohto
 	tileset TilesetJohtoModern
 	tileset TilesetKanto
-	tileset TilesetHouse
 	tileset TilesetPlayersHouse
 	tileset TilesetGate
 	tileset TilesetPort

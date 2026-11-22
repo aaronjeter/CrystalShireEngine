@@ -228,7 +228,6 @@ TilesetTowerAnim::
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoneTileAnimation
 
-TilesetHouseAnim::
 TilesetHouseJohtoAnim::
 TilesetHouseKantoAnim::
 TilesetHouseHoennAnim::

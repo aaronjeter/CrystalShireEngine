@@ -150,12 +150,10 @@ Route9_Blocks:
 Route22_Blocks:
 	INCBIN "maps/kanto/routes/Route22.ablk"
 
-
 SECTION "Map Blocks 2", ROMX
 
 Route14_Blocks:
 	INCBIN "maps/kanto/routes/Route14.ablk"
-
 
 NewBarkTown_Blocks:
 	INCBIN "maps/johto/newbark/NewBarkTown.ablk"
@@ -205,7 +203,6 @@ Route16_Blocks:
 Route18_Blocks:
 	INCBIN "maps/kanto/routes/Route18.ablk"
 
-
 SECTION "Map Blocks 3", ROMX
 
 ENDSECTION
@@ -239,9 +236,7 @@ SECTION "Map Blocks 4", ROMX
 	LavaridgeTown_Blocks:
 	INCBIN "maps/hoenn/lavaridge/LavaridgeTown.ablk"
 
-
 ENDSECTION
-
 
 SECTION "Map Blocks 5", ROMX
 
@@ -294,7 +289,6 @@ SECTION "Map Blocks 5", ROMX
 
 ENDSECTION
 
-
 SECTION "Map Blocks 6", ROMX
 
 	FallarborTown_Blocks:
@@ -336,14 +330,12 @@ SECTION "Map Blocks 7", ROMX
 
 ENDSECTION
 
-
 SECTION "Map Blocks Mt Moon", ROMX
 
 	JohtoGames_Blocks:
 	INCBIN "maps/johto/JohtoGames.ablk"
 
 ENDSECTION
-
 
 SECTION "Map Blocks Battle Resort", ROMX
 
@@ -357,7 +349,6 @@ SECTION "Meteor Falls Blocks", ROMX
 
 ENDSECTION
 
-
 SECTION "Silver Town Area Blocks", ROMX
 
 Route48_Blocks:
@@ -367,7 +358,6 @@ SilverTown_Blocks:
 	INCBIN "maps/johto/silvertown/SilverTown.ablk"
 
 ENDSECTION
-
 
 SECTION "Weather Duo Blocks", ROMX
 
@@ -379,11 +369,9 @@ Route125_Blocks:
 
 ENDSECTION
 
-
 SECTION "Kanto Legendary Dungeon Blocks", ROMX
 
 ENDSECTION
-
 
 SECTION "Map Blocks LZ 1", ROMX
 ; maps with LZ-compressed blocks (see MAP_BLOCKS_LZ): each label needs its DEF <Map>_BLOCKS_LZ line
@@ -391,7 +379,6 @@ SECTION "Map Blocks LZ 1", ROMX
 	ElmsHouse_Blocks:
 	DEF ElmsHouse_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/newbark/ElmsHouse.ablk.lz"
-
 
 	Route19FuchsiaGate_Blocks:
 	Route43MahoganyGate_Blocks:
@@ -609,8 +596,6 @@ SECTION "Map Blocks LZ 1", ROMX
 	CeladonGameCornerPrizeRoom_Blocks:
 	DEF CeladonGameCornerPrizeRoom_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/celadon/CeladonGameCornerPrizeRoom.ablk.lz"
-
-
 
 	EcruteakLugiaSpeechHouse_Blocks:
 	EcruteakItemfinderHouse_Blocks:
@@ -970,6 +955,39 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF FallarborFossilHouse_BLOCKS_LZ EQU 1
 	INCBIN "maps/houses/HoennHouse3.4x4.house_hoenn.ablk.lz"
 
+; one-off house rooms on the region house tilesets
+	GoldenrodFlowerShop_Blocks:
+	DEF GoldenrodFlowerShop_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/GoldenrodFlowerShop.4x4.house_johto.ablk.lz"
+
+	Route104FlowerHouse_Blocks:
+	DEF Route104FlowerHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/Route104FlowerHouse.4x4.house_hoenn.ablk.lz"
+
+	PokemonFanClub_Blocks:
+	DEF PokemonFanClub_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/PokemonFanClub.5x4.house_kanto.ablk.lz"
+
+	SafariZoneWardensHome_Blocks:
+	DEF SafariZoneWardensHome_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/SafariZoneWardensHome.5x4.house_kanto.ablk.lz"
+
+	MrFujisHouse_Blocks:
+	DEF MrFujisHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/MrFujisHouse.5x4.house_kanto.ablk.lz"
+
+	DayCare_Blocks:
+	DEF DayCare_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/DayCare.5x4.house_johto.ablk.lz"
+
+	SoulHouse_Blocks:
+	DEF SoulHouse_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/SoulHouse.5x4.house_kanto.ablk.lz"
+
+	TrainerHouse1F_Blocks:
+	DEF TrainerHouse1F_BLOCKS_LZ EQU 1
+	INCBIN "maps/houses/TrainerHouse1F.5x7.house_kanto.ablk.lz"
+
 SECTION "Map Blocks LZ 2", ROMX
 ; maps with LZ-compressed blocks (see MAP_BLOCKS_LZ): each label needs its DEF <Map>_BLOCKS_LZ line
 
@@ -1147,7 +1165,6 @@ SECTION "Map Blocks LZ 2", ROMX
 	DEF OlivineLighthouse3F_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/olivine/OlivineLighthouse3F.ablk.lz"
 
-
 SECTION "Map Blocks LZ 3", ROMX
 ; maps with LZ-compressed blocks (see MAP_BLOCKS_LZ): each label needs its DEF <Map>_BLOCKS_LZ line
 
@@ -1285,12 +1302,6 @@ SECTION "Map Blocks LZ 3", ROMX
 	DEF PowerPlant_BLOCKS_LZ EQU 1
 	INCBIN "maps/PowerPlant.ablk.lz"
 
-	PokemonFanClub_Blocks:
-	SafariZoneWardensHome_Blocks:
-	DEF PokemonFanClub_BLOCKS_LZ EQU 1
-	DEF SafariZoneWardensHome_BLOCKS_LZ EQU 1
-	INCBIN "maps/kanto/vermilion/PokemonFanClub.ablk.lz"
-
 	FightingDojo_Blocks:
 	DEF FightingDojo_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/saffron/FightingDojo.ablk.lz"
@@ -1302,10 +1313,6 @@ SECTION "Map Blocks LZ 3", ROMX
 	ViridianGym_Blocks:
 	DEF ViridianGym_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/viridian/ViridianGym.ablk.lz"
-
-	TrainerHouse1F_Blocks:
-	DEF TrainerHouse1F_BLOCKS_LZ EQU 1
-	INCBIN "maps/kanto/viridian/TrainerHouse1F.ablk.lz"
 
 	TrainerHouseB1F_Blocks:
 	DEF TrainerHouseB1F_BLOCKS_LZ EQU 1
@@ -1329,10 +1336,6 @@ SECTION "Map Blocks LZ 3", ROMX
 	DEF LilycoveMuseum_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/pallet/OaksLab.ablk.lz"
 
-	MrFujisHouse_Blocks:
-	DEF MrFujisHouse_BLOCKS_LZ EQU 1
-	INCBIN "maps/kanto/lavender/MrFujisHouse.ablk.lz"
-
 	LavRadioTower1F_Blocks:
 	DEF LavRadioTower1F_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/lavender/LavRadioTower1F.ablk.lz"
@@ -1340,14 +1343,6 @@ SECTION "Map Blocks LZ 3", ROMX
 	SilverCaveItemRooms_Blocks:
 	DEF SilverCaveItemRooms_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/silver/SilverCaveItemRooms.ablk.lz"
-
-	DayCare_Blocks:
-	DEF DayCare_BLOCKS_LZ EQU 1
-	INCBIN "maps/DayCare.ablk.lz"
-
-	SoulHouse_Blocks:
-	DEF SoulHouse_BLOCKS_LZ EQU 1
-	INCBIN "maps/kanto/lavender/SoulHouse.ablk.lz"
 
 	PewterGym_Blocks:
 	DEF PewterGym_BLOCKS_LZ EQU 1
@@ -1403,7 +1398,6 @@ SECTION "Map Blocks LZ 3", ROMX
 	DEF Route39Barn_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/routes/Route39Barn.ablk.lz"
 
-
 SECTION "Map Blocks LZ 4", ROMX
 ; maps with LZ-compressed blocks (see MAP_BLOCKS_LZ): each label needs its DEF <Map>_BLOCKS_LZ line
 
@@ -1432,10 +1426,6 @@ SECTION "Map Blocks LZ 4", ROMX
 	CopycatsHouse2F_Blocks:
 	DEF CopycatsHouse2F_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/saffron/CopycatsHouse2F.ablk.lz"
-
-	GoldenrodFlowerShop_Blocks:
-	DEF GoldenrodFlowerShop_BLOCKS_LZ EQU 1
-	INCBIN "maps/johto/goldenrod/GoldenrodFlowerShop.ablk.lz"
 
 	MountMoonSquare_Blocks:
 	DEF MountMoonSquare_BLOCKS_LZ EQU 1
@@ -1607,10 +1597,6 @@ SECTION "Map Blocks LZ 4", ROMX
 	DEF DewfordBrineyHouse_BLOCKS_LZ EQU 1
 	INCBIN "maps/hoenn/HoennTraditionalHouse.ablk.lz"
 
-	Route104FlowerHouse_Blocks:
-	DEF Route104FlowerHouse_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/HoennFlowerHouse.ablk.lz"
-
 	GraniteCaveB1F_Blocks:
 	DEF GraniteCaveB1F_BLOCKS_LZ EQU 1
 	INCBIN "maps/hoenn/dungeons/GraniteCaveB1F.ablk.lz"
@@ -1650,7 +1636,6 @@ SECTION "Map Blocks LZ 4", ROMX
 	DesertShrine_Blocks:
 	DEF DesertShrine_BLOCKS_LZ EQU 1
 	INCBIN "maps/hoenn/desert/DesertShrine.ablk.lz"
-
 
 SECTION "Map Blocks LZ 5", ROMX
 ; maps with LZ-compressed blocks (see MAP_BLOCKS_LZ): each label needs its DEF <Map>_BLOCKS_LZ line
@@ -1750,7 +1735,6 @@ SECTION "Map Blocks LZ 5", ROMX
 	SafariZoneSouth_Blocks:
 	DEF SafariZoneSouth_BLOCKS_LZ EQU 1
 	INCBIN "maps/kanto/safari/SafariZoneSouth.ablk.lz"
-
 
 SECTION "Map Blocks LZ 6", ROMX
 ; maps with LZ-compressed blocks (see MAP_BLOCKS_LZ): each label needs its DEF <Map>_BLOCKS_LZ line
@@ -1913,7 +1897,6 @@ SECTION "Map Blocks LZ 6", ROMX
 	MeteorPeak_Blocks:
 	DEF MeteorPeak_BLOCKS_LZ EQU 1
 	INCBIN "maps/hoenn/meteor/MeteorPeak.ablk.lz"
-
 
 SECTION "Map Blocks LZ 7", ROMX
 ; maps with LZ-compressed blocks (see MAP_BLOCKS_LZ): each label needs its DEF <Map>_BLOCKS_LZ line

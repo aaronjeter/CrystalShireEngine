@@ -394,21 +394,6 @@ INCBIN "data/tilesets/champions_room_metatiles.bin.lz"
 TilesetChampionsRoomColl::
 INCLUDE "data/tilesets/champions_room_collision.asm"
 
-TilesetHousevTiles2GFX::
-INCBIN "gfx/tilesets/house.2bpp.vtiles2.lz"
-
-TilesetHousevTiles5GFX::
-INCBIN "gfx/tilesets/house.2bpp.vtiles5.lz"
-
-TilesetHousevTiles4GFX::
-INCBIN "gfx/tilesets/house.2bpp.vtiles4.lz"
-
-TilesetHouseMeta::
-INCBIN "data/tilesets/house_metatiles.bin.lz"
-
-TilesetHouseColl::
-INCLUDE "data/tilesets/house_collision.asm"
-
 TilesetLighthousevTiles2GFX::
 INCBIN "gfx/tilesets/lighthouse.2bpp.vtiles2.lz"
 
@@ -472,9 +457,6 @@ INCBIN "data/tilesets/johto_modern_attributes.bin.lz"
 
 TilesetKantoAttr::
 INCBIN "data/tilesets/kanto_attributes.bin.lz"
-
-TilesetHouseAttr::
-INCBIN "data/tilesets/house_attributes.bin.lz"
 
 TilesetPlayersHouseAttr::
 INCBIN "data/tilesets/players_house_attributes.bin.lz"

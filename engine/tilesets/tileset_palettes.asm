@@ -16,8 +16,6 @@ LoadSpecialMapPalette:
 	jr z, .ice_path
 	cp TILESET_SILVER
 	jr z, .silver
-	cp TILESET_HOUSE
-	jr z, .house
 	cp TILESET_HOUSE_HOENN
 	jr z, .house_hoenn
 	cp TILESET_CENTER
@@ -64,11 +62,6 @@ LoadSpecialMapPalette:
 
 .silver
 	call LoadSilverPalette
-	scf
-	ret
-
-.house
-	call LoadHousePalette
 	scf
 	ret
 
@@ -182,16 +175,6 @@ LoadSilverPalette:
 
 SilverPalette:
 INCLUDE "gfx/tilesets/silver.pal"
-
-LoadHousePalette:
-	ld a, BANK(wBGPals1)
-	ld de, wBGPals1
-	ld hl, HousePalette
-	ld bc, 8 palettes
-	jmp FarCopyWRAM
-
-HousePalette:
-INCLUDE "gfx/tilesets/house.pal"
 
 LoadHoennHousePalette:
 	ld a, BANK(wBGPals1)
