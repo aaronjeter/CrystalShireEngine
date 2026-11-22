@@ -278,8 +278,8 @@ WorldCupLobby_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events	
-	warp_event   08, 19, BATTLE_RESORT, 7
-	warp_event   09, 19, BATTLE_RESORT, 12
+	warp_event   07, 19, BATTLE_RESORT, 7
+	warp_event   08, 19, BATTLE_RESORT, 12
 	warp_event   00, 10, WC_CHALLENGER_LOBBY, 1
 	warp_event   00, 11, WC_CHALLENGER_LOBBY, 2
 

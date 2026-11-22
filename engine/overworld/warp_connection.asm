@@ -240,8 +240,6 @@ EnterMapWarp:
 	cp TILESET_CENTER_KANTO
 	jr z, .pokecenter_pokecom
 	cp TILESET_CENTER_JOHTO
-	jr z, .pokecenter_pokecom
-	cp TILESET_POKECOM_CENTER
 	ret nz
 .pokecenter_pokecom
 	ld a, [wPrevMapGroup]

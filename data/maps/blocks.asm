@@ -1477,10 +1477,6 @@ SECTION "Map Blocks LZ 4", ROMX
 	DEF DragonShrine_BLOCKS_LZ EQU 1
 	INCBIN "maps/johto/dungeons/DragonShrine.ablk.lz"
 
-	PokecomCenterAdminOfficeMobile_Blocks:
-	DEF PokecomCenterAdminOfficeMobile_BLOCKS_LZ EQU 1
-	INCBIN "maps/PokecomCenterAdminOfficeMobile.ablk.lz"
-
 	GoldenrodDeptStoreRoof_Blocks:
 	LilycoveDeptStoreRoof_Blocks:
 	DEF GoldenrodDeptStoreRoof_BLOCKS_LZ EQU 1
@@ -1785,7 +1781,7 @@ SECTION "Map Blocks LZ 6", ROMX
 
 	WorldCupLobby_Blocks:
 	DEF WorldCupLobby_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/battle/WorldCupLobby.ablk.lz"
+	INCBIN "maps/centers/WorldCupLobby.9x10.center.ablk.lz"
 
 	BattleResortHarbor_Blocks:
 	DEF BattleResortHarbor_BLOCKS_LZ EQU 1
@@ -1801,11 +1797,11 @@ SECTION "Map Blocks LZ 6", ROMX
 	DEF WCQualifier1_BLOCKS_LZ EQU 1
 	DEF WCQualifier2_BLOCKS_LZ EQU 1
 	DEF WCQualifier3_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/battle/WorldCupQualifierRoom.ablk.lz"
+	INCBIN "maps/centers/WorldCupQualifierRoom.7x6.center.ablk.lz"
 
 	WCChallengerLobby_Blocks:
 	DEF WCChallengerLobby_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/battle/WCChallengerLobby.ablk.lz"
+	INCBIN "maps/centers/WCChallengerLobby.20x20.center.ablk.lz"
 
 	WCRoundOne_Blocks:
 	DEF WCRoundOne_BLOCKS_LZ EQU 1

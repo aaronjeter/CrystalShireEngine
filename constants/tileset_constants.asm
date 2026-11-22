@@ -17,24 +17,23 @@
 	const TILESET_CHAMPIONS_ROOM       ; 0f
 	const TILESET_LIGHTHOUSE           ; 10
 	const TILESET_PLAYERS_ROOM         ; 11
-	const TILESET_POKECOM_CENTER       ; 12
-	const TILESET_BATTLE_TOWER_INSIDE  ; 13
-	const TILESET_TOWER                ; 14
-	const TILESET_CAVE                 ; 15
-	const TILESET_PARK                 ; 16
-	const TILESET_RUINS_OF_ALPH        ; 17
-	const TILESET_RADIO_TOWER          ; 18
-	const TILESET_UNDERGROUND          ; 19
-	const TILESET_ICE_PATH             ; 1a
-	const TILESET_DARK_CAVE            ; 1b
-	const TILESET_FOREST               ; 1c
-	const TILESET_MUSEUM               ; 1d
-	const TILESET_HOENN				   ; 1e
-	const TILESET_HOENN_OCEAN          ; 1f
-	const TILESET_SOOTOPOLIS           ; 20
-	const TILESET_HOENN_JUNGLE         ; 21
-	const TILESET_BATTLE_RESORT        ; 22
-	const TILESET_SILVER               ; 23
+	const TILESET_BATTLE_TOWER_INSIDE  ; 12
+	const TILESET_TOWER                ; 13
+	const TILESET_CAVE                 ; 14
+	const TILESET_PARK                 ; 15
+	const TILESET_RUINS_OF_ALPH        ; 16
+	const TILESET_RADIO_TOWER          ; 17
+	const TILESET_UNDERGROUND          ; 18
+	const TILESET_ICE_PATH             ; 19
+	const TILESET_DARK_CAVE            ; 1a
+	const TILESET_FOREST               ; 1b
+	const TILESET_MUSEUM               ; 1c
+	const TILESET_HOENN				   ; 1d
+	const TILESET_HOENN_OCEAN          ; 1e
+	const TILESET_SOOTOPOLIS           ; 1f
+	const TILESET_HOENN_JUNGLE         ; 20
+	const TILESET_BATTLE_RESORT        ; 21
+	const TILESET_SILVER               ; 22
 	const TILESET_HOUSE_JOHTO
 	const TILESET_HOUSE_KANTO
 	const TILESET_HOUSE_HOENN

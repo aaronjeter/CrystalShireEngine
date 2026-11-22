@@ -90,7 +90,7 @@ WCFinalsTitleDefenseScript:
 	closetext
 .Leave:
 	special TitleDefenseCancel
-	warp WC_CHALLENGER_LOBBY, 33, 17
+	warp WC_CHALLENGER_LOBBY, 34, 17
 	end
 
 WCFinals_WalkToChallengerMovement:

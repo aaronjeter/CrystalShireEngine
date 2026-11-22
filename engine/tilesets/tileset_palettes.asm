@@ -8,8 +8,6 @@ LoadSpecialMapPalette:
 
 .not_dark
 	ld a, [wMapTileset]
-	cp TILESET_POKECOM_CENTER
-	jr z, .pokecom_2f
 	cp TILESET_BATTLE_TOWER_INSIDE
 	jr z, .battle_tower_inside
 	cp TILESET_ICE_PATH
@@ -38,11 +36,6 @@ LoadSpecialMapPalette:
 
 .darkness
 	call LoadDarknessPalette
-	scf
-	ret
-
-.pokecom_2f
-	call LoadPokeComPalette
 	scf
 	ret
 
@@ -123,16 +116,6 @@ LoadDarknessPalette:
 
 DarknessPalette:
 INCLUDE "gfx/tilesets/darkness.pal"
-
-LoadPokeComPalette:
-	ld a, BANK(wBGPals1)
-	ld de, wBGPals1
-	ld hl, PokeComPalette
-	ld bc, 8 palettes
-	jmp FarCopyWRAM
-
-PokeComPalette:
-INCLUDE "gfx/tilesets/pokecom_center.pal"
 
 LoadBattleTowerInsidePalette:
 	ld a, BANK(wBGPals1)

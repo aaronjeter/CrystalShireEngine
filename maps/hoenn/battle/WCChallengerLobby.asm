@@ -186,5 +186,5 @@ WCChallengerLobby_MapEvents:
 
 	def_object_events
 	object_event  34, 31, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyFrontClerkScript, -1
-	object_event  33, 15, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyTitleClerkScript, -1
+	object_event  34, 15, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyTitleClerkScript, -1
 	object_event  03, 15, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyNurseScript, -1
