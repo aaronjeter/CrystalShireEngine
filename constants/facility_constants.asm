@@ -65,6 +65,17 @@ DEF FACILITY_RECORD_LENGTH EQU FACILITY_TRAINERS + FACILITY_ROUNDS * FACILITY_TR
 	const BPSHOP_COSMETIC ; Silver Leaf, Gold Leaf, Marvel Scale
 DEF NUM_BPSHOPS EQU const_value
 
+; decoration shops (data/events/deco_shops.asm)
+	const_def
+	const DECOSHOP_VENDING ; the Poké Doll vending machines (Goldenrod, Lilycove)
+	const DECOSHOP_RESORT  ; the Battle Resort's cosmetics clerk
+DEF NUM_DECOSHOPS EQU const_value
+
+; decoration shop currencies
+	const_def
+	const DECOSHOP_MONEY
+	const DECOSHOP_BP
+
 ; the Battle Tower's elite streaks (engine/events/battle_tower_streaks.asm)
 DEF TOWER_SET_LENGTH    EQU 7    ; battles in a set
 DEF TOWER_BOSS_BATTLE   EQU 49   ; the Tower head's battle (in a streak)

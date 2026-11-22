@@ -168,6 +168,11 @@ SECTION "Move Reminder", ROMX
 
 INCLUDE "engine/events/move_reminder.asm"
 INCLUDE "engine/events/egg_move_tutor.asm"
+
+
+SECTION "Deco Shop", ROMX
+
+INCLUDE "engine/events/deco_shop.asm"
 INCLUDE "engine/events/mon_palette_service.asm"
 
 

@@ -18,7 +18,13 @@ LilycoveBinoculars3:
 	jumptext LilycoveBinoculars3Text
 
 LilycovePokeDollVendingMachine:
-	jumptext LilycovePokeDollVendingMachineText
+	opentext
+	writetext LilycovePokeDollVendingMachineText
+	waitbutton
+	setval DECOSHOP_VENDING
+	special DecoShop
+	closetext
+	end
 
 LilycoveBinoculars1Text:
 	text "You see a huge"
@@ -45,12 +51,10 @@ LilycoveBinoculars3Text:
 
 LilycovePokeDollVendingMachineText:
 	text "A vending machine"
-	line "for #mon dolls?"
+	line "for decorations!"
 
-	para "Insert money, then"
-	line "turn the crank…"
-
-	para "But it's empty…"
+	para "Whatever you buy"
+	line "is sent home."
 	done
 
 LilycoveDeptRoofSailorScript:

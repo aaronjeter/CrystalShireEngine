@@ -90,7 +90,13 @@ Binoculars3:
 	jumptext Binoculars3Text
 
 PokeDollVendingMachine:
-	jumptext PokeDollVendingMachineText
+	opentext
+	writetext PokeDollVendingMachineText
+	waitbutton
+	setval DECOSHOP_VENDING
+	special DecoShop
+	closetext
+	end
 
 GoldenrodDeptStoreRoofPokefanFText:
 	text "Whew, I'm tired."
@@ -200,13 +206,10 @@ Binoculars3Text:
 
 PokeDollVendingMachineText:
 	text "A vending machine"
-	line "for #mon dolls?"
+	line "for decorations!"
 
-	para "Insert money, then"
-	line "turn the crank…"
-
-	para "But it's almost"
-	line "empty…"
+	para "Whatever you buy"
+	line "is sent home."
 	done
 
 GoldenrodDeptStoreRoof_MapEvents:

@@ -172,10 +172,35 @@ BattleResortTowerCosmeticsScript:
 	faceplayer
 	opentext
 	writetext BattleResortTowerCosmeticsText
-	waitbutton
+	loadmenu .MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .Items
+	ifequal 2, .Decorations
+	sjump BattleResortTowerClerkBye
+
+.Items:
 	setval BPSHOP_COSMETIC
 	special BPShop
 	sjump BattleResortTowerClerkBye
+
+.Decorations:
+	setval DECOSHOP_RESORT
+	special DecoShop
+	sjump BattleResortTowerClerkBye
+
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 4, 13, 11
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 3 ; items
+	db "Items@"
+	db "Decorations@"
+	db "Cancel@"
 
 BattleResortTowerClerk1Script:
 	setval BPSHOP_TIER1
@@ -348,7 +373,10 @@ BattleResortTowerTeamMissingText:
 BattleResortTowerCosmeticsText:
 	text "I trade BP for"
 	line "items that change"
-	cont "a #mon's look!"
+	cont "a #mon's look,"
+
+	para "and for rare room"
+	line "decorations!"
 	done
 
 BattleResortTowerClerkText:

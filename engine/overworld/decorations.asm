@@ -409,6 +409,12 @@ GetDecorationData:
 	ld bc, DECOATTR_STRUCT_LENGTH
 	jmp AddNTimes
 
+DecoShopName::
+; wStringBuffer2 = the name of decoration [wNamedObjectIndex]
+	ld a, [wNamedObjectIndex]
+	call GetDecorationData
+	jmp GetDecoName
+
 GetDecorationName:
 	push hl
 	call GetDecorationData

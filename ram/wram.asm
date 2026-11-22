@@ -2026,6 +2026,16 @@ wDebugColorCurTMHM:: db
 
 SECTION UNION "Miscellaneous WRAM 1", WRAMX
 
+; decoration shop (engine/events/deco_shop.asm)
+wDecoShopID:: db
+wDecoShopCount:: db
+wDecoShopItems:: ds 32
+wDecoShopPrice:: dw ; big-endian
+wDecoShopTmp:: db
+
+
+SECTION UNION "Miscellaneous WRAM 1", WRAMX
+
 ; mobile?
 wd002:: ds 1
 wd003:: ds 1
