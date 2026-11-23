@@ -3151,9 +3151,14 @@ wUnusedTwoDayTimerOn:: db
 wUnusedTwoDayTimer:: db
 wUnusedTwoDayTimerStartDate:: db
 
-wMobileOrCable_LastSelection:: db
+wWonderTradeOTName:: db ; the OT's name: an index into WonderTradeOTNames (was wMobileOrCable_LastSelection)
 wEliteFourXpBoost:: db
-	ds 8
+; the Wonder Trade's values for the Pokémon it gives (read through GetTradeAttr)
+wWonderTradeDVs:: dw
+wWonderTradeOTID:: dw
+wWonderTradeItem:: dw ; an item index
+wWonderTradeAbility:: db ; ABILITY_SLOT_* + 1
+wWonderTradeDialog:: db ; TRADE_DIALOGSET_GIRL for a girl's OT name, else TRADE_DIALOGSET_COLLECTOR
 wBuenasPassword:: db
 wBlueCardBalance:: db
 wFollowerFlags:: db ; see FOLLOWER_HIDDEN_BY_SCRIPT_F (was half of wKenjiBreakTimer)

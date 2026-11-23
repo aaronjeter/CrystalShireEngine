@@ -311,6 +311,9 @@ DoNPCTrade:
 	ret
 
 GetTradeAttr:
+	ld a, [wJumptableIndex]
+	inc a
+	jr z, .wonder_trade
 	ld d, 0
 	push de
 	ld a, [wJumptableIndex]
@@ -324,6 +327,51 @@ GetTradeAttr:
 	pop de
 	add hl, de
 	ret
+
+.wonder_trade
+; wJumptableIndex = -1: the Wonder Trade's values (see WonderTradeExecute)
+	ld a, e
+	ld hl, wWonderTradeDialog
+	cp NPCTRADE_DIALOG
+	ret z
+	ld hl, wOTTrademonSpeciesName ; the nickname: the species name
+	cp NPCTRADE_NICKNAME
+	ret z
+	ld hl, wWonderTradeDVs
+	cp NPCTRADE_DVS
+	ret z
+	ld hl, wWonderTradeItem
+	cp NPCTRADE_ITEM
+	ret z
+	ld hl, wWonderTradeOTID
+	cp NPCTRADE_OT_ID
+	ret z
+	cp NPCTRADE_OT_NAME
+	jr z, .wonder_trade_ot_name
+	ld hl, wWonderTradeAbility
+	cp NPCTRADE_ABILITY
+	ret z
+	ld hl, .zero ; NPCTRADE_GENDER: TRADE_GENDER_EITHER
+	ret
+
+.wonder_trade_ot_name
+	farcall WonderTradeGetOTName
+	ld hl, wOTTrademonOTName
+	ret
+
+.zero
+	db 0
+
+WonderTradeDoTrade::
+; The trade for the Wonder Trade, with its values read through GetTradeAttr.
+	ld a, -1
+	ld [wJumptableIndex], a
+	call DoNPCTrade
+	call NPCTrade.TradeAnimation
+	call GetTradeMonNames
+	ld hl, TradedForText
+	call PrintText
+	jmp RestartMapMusic
 
 Trade_GetAttributeOfCurrentPartymon:
 	ld a, [wCurPartyMon]

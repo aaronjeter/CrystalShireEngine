@@ -801,3 +801,8 @@ INCLUDE "engine/menus/journal.asm"
 SECTION "Exp Candy", ROMX
 
 INCLUDE "engine/items/exp_candy.asm"
+
+
+SECTION "Wonder Trade", ROMX
+
+INCLUDE "engine/events/wonder_trade.asm"

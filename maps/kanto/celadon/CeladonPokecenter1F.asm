@@ -151,6 +151,10 @@ CeladonPokecenter1FScientistScript:
 .profname
 	db "Oak@"
 
+CeladonPokecenter1FWonderTradeScript:
+	faceplayer
+	farsjump WonderTradeScript
+
 CeladonPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -169,3 +173,4 @@ CeladonPokecenter1F_MapEvents:
 	object_event  8,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FCooltrainerFScript, -1
 	object_event  4,  3, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonEusine, EVENT_SET_WHEN_FOUGHT_HO_OH
 	object_event  7,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FScientistScript, -1
+	object_event  1,  6, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonPokecenter1FWonderTradeScript, -1

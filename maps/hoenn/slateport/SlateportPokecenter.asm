@@ -19,6 +19,10 @@ SlateportPokecenterChanseyScript:
 	cry CHANSEY
 	end
 
+SlateportPokecenterWonderTradeScript:
+	faceplayer
+	farsjump WonderTradeScript
+
 SlateportPokecenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -33,4 +37,4 @@ SlateportPokecenter_MapEvents:
 	def_object_events
 	object_event  5,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SlateportPokecenterNurseScript, -1
 	object_event  6,  1, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlateportPokecenterChanseyScript, -1
-	
+	object_event  1,  5, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SlateportPokecenterWonderTradeScript, -1
