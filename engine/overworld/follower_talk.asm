@@ -1,10 +1,12 @@
 ; Talking to the following Pokémon: an emote, its cry and one line picked
 ; from its status, HP, the weather, the map, the time of day and its
-; happiness. The first talk each day gives +1 happiness; while the day's item
-; is unclaimed, a talk can find one.
+; happiness. The first talk each day gives +1 happiness; a talk also collects
+; the item it picked up after a battle (see FollowerPickupRoll).
 
 DEF FOLLOWER_NO_EMOTE EQU -1
-DEF FOLLOWER_ITEM_CHANCE EQU 25 percent
+DEF FOLLOWER_PICKUP_CHANCE EQU 10 percent ; after each battle
+DEF FOLLOWER_PICKUP_RARE_CHANCE EQU 5 percent
+DEF FOLLOWER_PICKUP_REMINDER_STEPS EQU 128
 
 ; Kept between the callasms of _FollowerScript.
 DEF wFollowerTalkText EQUS "wStringBuffer3"        ; dw: the line to print
@@ -167,7 +169,7 @@ FollowerTalk:
 FollowerPickLine:
 ; hl = party struct. Returns hl = a follower_line entry.
 	push hl
-	call FollowerTryFindItem
+	call FollowerCollectItem
 	pop de
 	ret c
 
@@ -464,34 +466,11 @@ FollowerFindTypeLine:
 	scf
 	ret
 
-FollowerTryFindItem:
-; While the day's item is unclaimed, a chance to find one.
-; Returns carry and hl = the line to show if something was found.
-	ld hl, wSwarmFlags
-	bit SWARMFLAGS_FOLLOWER_ITEM_F, [hl]
-	jr nz, .none
-	call Random
-	cp FOLLOWER_ITEM_CHANCE
-	jr nc, .none
-
-	call Random
-	ld hl, FollowerItems_Common
-	cp 70 percent
-	jr c, .pick
-	ld hl, FollowerItems_Uncommon
-	cp 95 percent
-	jr c, .pick
-	ld hl, FollowerItems_Rare
-.pick
-	ld a, [hli]
-	call RandomRange
-	add a
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+FollowerCollectItem:
+; Talking collects the item the Pokémon picked up. Returns carry and hl = the
+; line to show if it holds one (the Pack-full line keeps it held).
+	call FollowerGetPickupItem
+	jr z, .none
 	call GetItemIDFromIndex
 	ld [wCurItem], a
 	ld a, 1
@@ -499,10 +478,9 @@ FollowerTryFindItem:
 	ld hl, wNumItems
 	call ReceiveItem
 	ld hl, FollowerLine_PackFull
-	jr nc, .found ; the item stays unclaimed for the day
-
-	ld hl, wSwarmFlags
-	set SWARMFLAGS_FOLLOWER_ITEM_F, [hl]
+	jr nc, .found
+	ld de, 0
+	call FollowerSetPickupItem
 	ld a, TRUE
 	ld [wFollowerTalkGotItem], a
 	ld a, [wCurItem]
@@ -520,19 +498,200 @@ FollowerTryFindItem:
 	and a
 	ret
 
-FollowerItems_Common:
-	db 8
-	dw ORAN_BERRY, PECHA_BERRY, CHERI_BERRY, CHESTO_BERRY
-	dw RAWST_BERRY, ASPEAR_BERRY, POTION, POKE_BALL
+FollowerGetPickupItem:
+; hl = the held item's index (wFollowerPickupItem); z if there's none
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wFollowerPickupItem)
+	ldh [rSVBK], a
+	ld hl, wFollowerPickupItem
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	pop af
+	ldh [rSVBK], a
+	ld a, h
+	or l
+	ret
 
-FollowerItems_Uncommon:
-	db 9
-	dw SITRUS_BERRY, LEPPA_BERRY, LUM_BERRY, SUPER_POTION, GREAT_BALL
-	dw ETHER, TINYMUSHROOM, PEARL, STARDUST
+FollowerSetPickupItem:
+; wFollowerPickupItem = de
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wFollowerPickupItem)
+	ldh [rSVBK], a
+	ld hl, wFollowerPickupItem
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	pop af
+	ldh [rSVBK], a
+	ret
 
-FollowerItems_Rare:
-	db 5
-	dw NUGGET, STAR_PIECE, BIG_PEARL, RARE_CANDY, PP_UP
+FollowerPickupRoll::
+; After a battle that wasn't lost: a chance that the following Pokémon picks
+; up an item, which it holds (and shows with an emote) until the player talks
+; to it. Not in link, Cup, Bug-Catching Contest, tutorial or Battle Tower
+; battles, nor while it already holds one.
+	ld a, [wBattleResult]
+	and $f
+	cp LOSE
+	ret z
+	ld a, [wBattleType]
+	cp BATTLETYPE_CUP
+	ret z
+	cp BATTLETYPE_CONTEST
+	ret z
+	cp BATTLETYPE_TUTORIAL
+	ret z
+	ld a, [wInBattleTowerBattle]
+	bit IN_BATTLE_TOWER_BATTLE_F, a
+	ret nz
+	ld a, [wOptions2]
+	bit FOLLOWER_OFF, a
+	ret nz
+	farcall GetFollowerPartyMon
+	ret c
+	call FollowerGetPickupItem
+	ret nz
+	call Random
+	cp FOLLOWER_PICKUP_CHANCE
+	ret nc
+
+	; the table: rare, or the one for the player's badges
+	call Random
+	cp FOLLOWER_PICKUP_RARE_CHANCE
+	ld hl, FollowerPickupRare
+	jr c, .got_table
+	ld hl, wBadges
+	ld b, (NUM_BADGES + 7) / 8
+	call CountSetBits
+	ld a, [wNumSetBits]
+	ld hl, FollowerPickupTiers
+.tier
+	cp [hl]
+	inc hl
+	jr c, .got_tier
+	inc hl
+	inc hl
+	jr .tier
+
+.got_tier
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+.got_table
+	ld a, [hli]
+	call RandomRange
+	add a
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	; -1: a random evolution stone
+	inc a
+	jr nz, .got_item
+	ld a, d
+	inc a
+	jr nz, .got_item
+	ld hl, FollowerPickupStones
+	jr .got_table
+
+.got_item
+	call FollowerSetPickupItem
+	xor a
+	ld [wFollowerPickupSteps], a
+	ld hl, wFollowerFlags
+	set FOLLOWER_PICKUP_EMOTE_F, [hl]
+	ret
+
+FollowerPickupStep::
+; Each step while the Pokémon holds a picked-up item: show the item emote on
+; the first step after a pickup or a map load, and every
+; FOLLOWER_PICKUP_REMINDER_STEPS steps. Carry if the emote's script was started.
+	call FollowerGetPickupItem
+	ret z ; nc (from FollowerGetPickupItem's or)
+	ld hl, wFollowerPickupSteps
+	inc [hl]
+	ld a, [hl]
+	cp FOLLOWER_PICKUP_REMINDER_STEPS
+	jr c, .counted
+	ld [hl], 0
+	ld hl, wFollowerFlags
+	set FOLLOWER_PICKUP_EMOTE_F, [hl]
+.counted
+	ld hl, wFollowerFlags
+	bit FOLLOWER_PICKUP_EMOTE_F, [hl]
+	jr z, .not_out
+	; only while it's out walking behind the player
+	bit FOLLOWER_HIDDEN_BY_SCRIPT_F, [hl]
+	jr nz, .not_out
+	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_SPRITE]
+	cp SPRITE_FOLLOWER
+	jr nz, .not_out
+	ld a, [wMapObjects + FOLLOWER_OBJECT * MAPOBJECT_LENGTH + MAPOBJECT_OBJECT_STRUCT_ID]
+	cp -1
+	jr z, .not_out
+	res FOLLOWER_PICKUP_EMOTE_F, [hl]
+	xor a
+	ld [wFollowerPickupSteps], a
+	ld a, BANK(FollowerPickupEmoteScript)
+	ld hl, FollowerPickupEmoteScript
+	call CallScript
+	scf
+	ret
+
+.not_out
+	and a
+	ret
+
+FollowerPickupEmoteScript:
+	loademote EMOTE_ITEM
+	applymovement FOLLOWER_OBJECT + 1, _FollowerScript.ShowEmote ; script object numbers start at 1
+	pause 20
+	applymovement FOLLOWER_OBJECT + 1, _FollowerScript.HideEmote
+	callasm FollowerTalkResumeFollow
+	end
+
+FollowerPickupTiers:
+; total badges below the first byte: that table
+	dbw 4, FollowerPickup0Badges
+	dbw 8, FollowerPickup4Badges
+	dbw 16, FollowerPickup8Badges
+	dbw -1, FollowerPickup16Badges
+
+FollowerPickup0Badges:
+	db 10
+	dw ORAN_BERRY, PECHA_BERRY, CHERI_BERRY, CHESTO_BERRY, RAWST_BERRY
+	dw ASPEAR_BERRY, POTION, POKE_BALL, ANTIDOTE, REPEL
+
+FollowerPickup4Badges:
+	db 12
+	dw ORAN_BERRY, PECHA_BERRY, POTION, POKE_BALL, REPEL
+	dw SUPER_POTION, GREAT_BALL, SITRUS_BERRY, LEPPA_BERRY, ETHER
+	dw ESCAPE_ROPE, EXP_CANDY_S
+
+FollowerPickup8Badges:
+	db 15
+	dw SUPER_POTION, GREAT_BALL, SITRUS_BERRY, LEPPA_BERRY, ETHER
+	dw EXP_CANDY_S, HYPER_POTION, ULTRA_BALL, LUM_BERRY, FULL_HEAL
+	dw MAX_REPEL, EXP_CANDY_M, TINYMUSHROOM, PEARL, STARDUST
+
+FollowerPickup16Badges:
+	db 14
+	dw HYPER_POTION, ULTRA_BALL, LUM_BERRY, FULL_HEAL, MAX_REPEL
+	dw EXP_CANDY_M, PEARL, STARDUST, MAX_POTION, FULL_RESTORE
+	dw MAX_ETHER, REVIVE, EXP_CANDY_L, BIG_MUSHROOM
+
+FollowerPickupRare:
+	db 6
+	dw NUGGET, STAR_PIECE, BIG_PEARL, RARE_CANDY, PP_UP, -1 ; -1: an evolution stone
+
+FollowerPickupStones:
+	db 6
+	dw FIRE_STONE, WATER_STONE, THUNDERSTONE, LEAF_STONE, MOON_STONE, SUN_STONE
 
 ; Single lines
 FollowerLine_Poison:     follower_line EMOTE_SAD, FollowerText_Poison

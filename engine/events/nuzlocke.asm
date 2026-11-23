@@ -216,7 +216,8 @@ NuzlockeEndOfBattle::
 ; After a battle: a loss (or no Pokémon left standing) ends the Nuzlocke run;
 ; otherwise every fainted party Pokémon goes to the graveyard boxes.
 ; Battles the player may lose don't count: a loss there heals the party (a win
-; already does).
+; already does). First, the following Pokémon may pick up an item.
+	farcall FollowerPickupRoll
 	ld a, [wOptions2]
 	bit NUZLOCKE_ON, a
 	ret z

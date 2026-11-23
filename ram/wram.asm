@@ -3157,7 +3157,7 @@ wEliteFourXpBoost:: db
 wBuenasPassword:: db
 wBlueCardBalance:: db
 wFollowerFlags:: db ; see FOLLOWER_HIDDEN_BY_SCRIPT_F (was half of wKenjiBreakTimer)
-wUnusedBytes::  ds 1 ; was wKenjiBreakTimer
+wFollowerPickupSteps:: db ; steps since the held-item emote was last shown (was wKenjiBreakTimer)
 wYanmaMapGroup:: db
 wYanmaMapNumber:: db
 wPlayerMonSelection:: ds 3
@@ -3734,6 +3734,7 @@ wTitleDefenseChallenger:: db ; the accepted title challenger + 1 until the match
 wJournalSeen:: ds (NUM_MISSIONS + 1) / 2 ; per mission, a nibble: the progress last announced (0: not started, else 1 + steps done)
 wJournalUnread:: flag_array NUM_MISSIONS ; missions updated since the player last opened them (NEW)
 wStartMenuOrderSaved:: ds (NUM_START_MENU_SLOTS + 1) / 2 ; per slot, a nibble: the slot's entry xor the slot's index (all 0: the default order)
+wFollowerPickupItem:: dw ; the item the following Pokémon picked up (an item index; 0: none)
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

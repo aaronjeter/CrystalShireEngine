@@ -74,6 +74,7 @@ LoadMapObjects_Follower::
 ; then make the follower follow the player.
 	ld hl, wFollowerFlags
 	res FOLLOWER_HIDDEN_BY_SCRIPT_F, [hl]
+	set FOLLOWER_PICKUP_EMOTE_F, [hl] ; a held item shows on the first step here
 	call PlaceFollowerObject
 	farcall SpawnWildMons
 	farcall InitializeVisibleSprites

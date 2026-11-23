@@ -940,6 +940,9 @@ CountStep:
 .skip_poison
 	call DoBikeStep
 
+	farcall FollowerPickupStep
+	jr c, .doscript
+
 .done
 	xor a
 	ret

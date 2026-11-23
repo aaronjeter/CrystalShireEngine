@@ -112,6 +112,7 @@ DEF NUZLOCKE_GRAVEYARD_BOX EQU 13 ; Nuzlocke mode: boxes 13 to NUM_BOXES hold fa
 
 ; wFollowerFlags::
 DEF FOLLOWER_HIDDEN_BY_SCRIPT_F EQU 0 ; hidefollower (cleared by showfollower or a map load)
+DEF FOLLOWER_PICKUP_EMOTE_F EQU 1 ; show the held-item emote on the next step (set by a pickup and by map loads)
 
 ; wDST::
 DEF DST_F EQU 7
@@ -426,7 +427,7 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const SWARMFLAGS_YANMA_SWARM_F               ; 3
 	const SWARMFLAGS_MOBILE_4_F                  ; 4
 	const SWARMFLAGS_FOLLOWER_TALKED_F           ; 5 ; talked to the following Pokémon today
-	const SWARMFLAGS_FOLLOWER_ITEM_F             ; 6 ; it found an item today
+	const_skip                                   ; 6 ; unused
 	const SWARMFLAGS_MOSSDEEP_STONE_F            ; 7 ; got today's stone from Mossdeep's stone collector
 
 ; wLuckyNumberShowFlag::
