@@ -241,7 +241,6 @@ TilesetPlayersHouseAnim::
 TilesetGateAnim::
 TilesetLabAnim::
 TilesetFacilityAnim::
-TilesetMartAnim::
 TilesetMansionAnim::
 TilesetGameCornerAnim::
 TilesetTraditionalHouseAnim::

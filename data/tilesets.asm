@@ -22,7 +22,6 @@ Tilesets::
 	tileset TilesetPort
 	tileset TilesetLab
 	tileset TilesetFacility
-	tileset TilesetMart
 	tileset TilesetMansion
 	tileset TilesetGameCorner
 	tileset TilesetEliteFourRoom

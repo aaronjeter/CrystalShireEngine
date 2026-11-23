@@ -523,7 +523,7 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF GoldenrodDeptStore1F_BLOCKS_LZ EQU 1
 	DEF CeladonDeptStore1F_BLOCKS_LZ EQU 1
 	DEF LilycoveDeptStore1F_BLOCKS_LZ EQU 1
-	INCBIN "maps/DeptStore1F.ablk.lz"
+	INCBIN "maps/marts/DeptStore1F.8x4.mart_pc.ablk.lz"
 
 	GoldenrodDeptStore2F_Blocks:
 	CeladonDeptStore2F_Blocks:
@@ -531,7 +531,7 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF GoldenrodDeptStore2F_BLOCKS_LZ EQU 1
 	DEF CeladonDeptStore2F_BLOCKS_LZ EQU 1
 	DEF LilycoveDeptStore2F_BLOCKS_LZ EQU 1
-	INCBIN "maps/DeptStore2F.ablk.lz"
+	INCBIN "maps/marts/DeptStore2F.8x4.mart_pc.ablk.lz"
 
 	GoldenrodDeptStore3F_Blocks:
 	CeladonDeptStore3F_Blocks:
@@ -539,7 +539,7 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF GoldenrodDeptStore3F_BLOCKS_LZ EQU 1
 	DEF CeladonDeptStore3F_BLOCKS_LZ EQU 1
 	DEF LilycoveDeptStore3F_BLOCKS_LZ EQU 1
-	INCBIN "maps/DeptStore3F.ablk.lz"
+	INCBIN "maps/marts/DeptStore3F.8x4.mart_pc.ablk.lz"
 
 	GoldenrodDeptStore4F_Blocks:
 	CeladonDeptStore4F_Blocks:
@@ -547,7 +547,7 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF GoldenrodDeptStore4F_BLOCKS_LZ EQU 1
 	DEF CeladonDeptStore4F_BLOCKS_LZ EQU 1
 	DEF LilycoveDeptStore4F_BLOCKS_LZ EQU 1
-	INCBIN "maps/DeptStore4F.ablk.lz"
+	INCBIN "maps/marts/DeptStore4F.8x4.mart_pc.ablk.lz"
 
 	GoldenrodDeptStore5F_Blocks:
 	CeladonDeptStore5F_Blocks:
@@ -555,7 +555,7 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF GoldenrodDeptStore5F_BLOCKS_LZ EQU 1
 	DEF CeladonDeptStore5F_BLOCKS_LZ EQU 1
 	DEF LilycoveDeptStore5F_BLOCKS_LZ EQU 1
-	INCBIN "maps/DeptStore5F.ablk.lz"
+	INCBIN "maps/marts/DeptStore5F.8x4.mart_pc.ablk.lz"
 
 	GoldenrodDeptStore6F_Blocks:
 	CeladonDeptStore6F_Blocks:
@@ -563,7 +563,7 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF GoldenrodDeptStore6F_BLOCKS_LZ EQU 1
 	DEF CeladonDeptStore6F_BLOCKS_LZ EQU 1
 	DEF LilycoveDeptStore6F_BLOCKS_LZ EQU 1
-	INCBIN "maps/DeptStore6F.ablk.lz"
+	INCBIN "maps/marts/DeptStore6F.8x4.mart_pc.ablk.lz"
 
 	GoldenrodDeptStoreElevator_Blocks:
 	CeladonDeptStoreElevator_Blocks:
@@ -571,7 +571,7 @@ SECTION "Map Blocks LZ 1", ROMX
 	DEF GoldenrodDeptStoreElevator_BLOCKS_LZ EQU 1
 	DEF CeladonDeptStoreElevator_BLOCKS_LZ EQU 1
 	DEF LilycoveDeptStoreElevator_BLOCKS_LZ EQU 1
-	INCBIN "maps/DeptStoreElevator.ablk.lz"
+	INCBIN "maps/marts/DeptStoreElevator.2x2.mart_pc.ablk.lz"
 
 	CeladonMansion1F_Blocks:
 	DEF CeladonMansion1F_BLOCKS_LZ EQU 1
@@ -1481,7 +1481,7 @@ SECTION "Map Blocks LZ 4", ROMX
 	LilycoveDeptStoreRoof_Blocks:
 	DEF GoldenrodDeptStoreRoof_BLOCKS_LZ EQU 1
 	DEF LilycoveDeptStoreRoof_BLOCKS_LZ EQU 1
-	INCBIN "maps/johto/goldenrod/GoldenrodDeptStoreRoof.ablk.lz"
+	INCBIN "maps/marts/DeptStoreRoof.8x4.mart_pc.ablk.lz"
 
 	PetalburgGym_Blocks:
 	DEF PetalburgGym_BLOCKS_LZ EQU 1
@@ -1769,7 +1769,7 @@ SECTION "Map Blocks LZ 6", ROMX
 
 	FancyRocks_Blocks:
 	DEF FancyRocks_BLOCKS_LZ EQU 1
-	INCBIN "maps/hoenn/battle/FancyRocks.ablk.lz"
+	INCBIN "maps/marts/FancyRocks.5x3.mart_pc.ablk.lz"
 
 	TreetopTrial_Blocks:
 	DEF TreetopTrial_BLOCKS_LZ EQU 1

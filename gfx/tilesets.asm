@@ -169,21 +169,6 @@ INCBIN "data/tilesets/lab_metatiles.bin.lz"
 TilesetLabColl::
 INCLUDE "data/tilesets/lab_collision.asm"
 
-TilesetMartvTiles2GFX::
-INCBIN "gfx/tilesets/mart.2bpp.vtiles2.lz"
-
-TilesetMartvTiles5GFX::
-INCBIN "gfx/tilesets/mart.2bpp.vtiles5.lz"
-
-TilesetMartvTiles4GFX::
-INCBIN "gfx/tilesets/mart.2bpp.vtiles4.lz"
-
-TilesetMartMeta::
-INCBIN "data/tilesets/mart_metatiles.bin.lz"
-
-TilesetMartColl::
-INCLUDE "data/tilesets/mart_collision.asm"
-
 TilesetGameCornervTiles2GFX::
 INCBIN "gfx/tilesets/game_corner.2bpp.vtiles2.lz"
 
@@ -460,9 +445,6 @@ SECTION "Tileset Data 10", ROMX
 
 TilesetFacilityAttr::
 INCBIN "data/tilesets/facility_attributes.bin.lz"
-
-TilesetMartAttr::
-INCBIN "data/tilesets/mart_attributes.bin.lz"
 
 TilesetMansionAttr::
 INCBIN "data/tilesets/mansion_attributes.bin.lz"
