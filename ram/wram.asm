@@ -3740,6 +3740,7 @@ wJournalSeen:: ds (NUM_MISSIONS + 1) / 2 ; per mission, a nibble: the progress l
 wJournalUnread:: flag_array NUM_MISSIONS ; missions updated since the player last opened them (NEW)
 wStartMenuOrderSaved:: ds (NUM_START_MENU_SLOTS + 1) / 2 ; per slot, a nibble: the slot's entry xor the slot's index (all 0: the default order)
 wFollowerPickupItem:: dw ; the item the following Pokémon picked up (an item index; 0: none)
+wVsSeekerCharge:: db ; steps left until the Vs Seeker can be used again (0: charged)
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

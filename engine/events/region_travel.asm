@@ -71,12 +71,13 @@ ElmTravelScript::
 	checkevent EVENT_TRAVEL_PROF_CALLED
 	iffalse TravelNothing
 	checkevent EVENT_GOT_TRAVEL_PARCELS
-	iftrue TravelNothing
+	iftrue TravelVsSeekerLate
 	writetext ElmErrandText
 	promptbutton
 	verbosegiveitem OAK_PARCEL
 	verbosegiveitem BIRCH_PARCEL
 	scall TravelGiveTicket
+	scall TravelGiveVsSeeker
 	writetext ElmShipText
 	sjump TravelErrandDone
 
@@ -99,12 +100,13 @@ OakTravelScript::
 	checkevent EVENT_TRAVEL_PROF_CALLED
 	iffalse TravelNothing
 	checkevent EVENT_GOT_TRAVEL_PARCELS
-	iftrue TravelNothing
+	iftrue TravelVsSeekerLate
 	writetext OakErrandText
 	promptbutton
 	verbosegiveitem ELM_PARCEL
 	verbosegiveitem BIRCH_PARCEL
 	scall TravelGiveTicket
+	scall TravelGiveVsSeeker
 	writetext OakShipText
 	sjump TravelErrandDone
 
@@ -127,12 +129,13 @@ BirchTravelScript::
 	checkevent EVENT_TRAVEL_PROF_CALLED
 	iffalse TravelNothing
 	checkevent EVENT_GOT_TRAVEL_PARCELS
-	iftrue TravelNothing
+	iftrue TravelVsSeekerLate
 	writetext BirchErrandText
 	promptbutton
 	verbosegiveitem ELM_PARCEL
 	verbosegiveitem OAK_PARCEL
 	scall TravelGiveTicket
+	scall TravelGiveVsSeeker
 	writetext BirchShipText
 	sjump TravelErrandDone
 
@@ -155,6 +158,22 @@ TravelGiveTicket:
 	verbosegiveitem S_S_TICKET
 .done
 	setevent EVENT_GOT_SS_TICKET_FROM_ELM
+	end
+
+TravelGiveVsSeeker:
+	verbosegiveitem VS_SEEKER
+	writetext TravelVsSeekerText
+	promptbutton
+	end
+
+TravelVsSeekerLate:
+; the errand is done: hand over the Vs Seeker if a save from before it has none
+	checkitem VS_SEEKER
+	iftrue TravelNothing
+	writetext TravelVsSeekerLateText
+	promptbutton
+	scall TravelGiveVsSeeker
+	setval TRUE
 	end
 
 TravelErrandDone:
@@ -514,6 +533,23 @@ BirchThanksText:
 
 	para "Thanks a bunch!"
 	line "Here, take these."
+	done
+
+TravelVsSeekerText:
+	text "Use it near"
+	line "trainers you beat,"
+	cont "and they'll want a"
+	cont "rematch!"
+
+	para "It needs 100 steps"
+	line "to recharge after"
+	cont "each use."
+	done
+
+TravelVsSeekerLateText:
+	text "Oh! I nearly"
+	line "forgot to give you"
+	cont "this."
 	done
 
 TravelDeliveryAfterText:

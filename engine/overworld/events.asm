@@ -892,6 +892,7 @@ CountStep:
 	and a
 	jr nz, .done
 	farcall PassportCountStep
+	farcall VsSeekerStep
 
 	; If there is a special phone call, don't count the step.
 	farcall TravelCallCheck

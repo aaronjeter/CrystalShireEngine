@@ -806,3 +806,8 @@ INCLUDE "engine/items/exp_candy.asm"
 SECTION "Wonder Trade", ROMX
 
 INCLUDE "engine/events/wonder_trade.asm"
+
+
+SECTION "Vs Seeker", ROMX
+
+INCLUDE "engine/events/vs_seeker.asm"

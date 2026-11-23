@@ -282,6 +282,7 @@ ItemEffectsKeyItems:
 	dw NoEffect            ; ELM_PARCEL
 	dw NoEffect            ; OAK_PARCEL
 	dw NoEffect            ; BIRCH_PARCEL
+	dw VsSeekerEffect      ; VS_SEEKER
 .IndirectEnd:
 
 ItemEffectsBalls:
@@ -2796,6 +2797,9 @@ PPRestoredText:
 
 SquirtbottleEffect:
 	farjp _Squirtbottle
+
+VsSeekerEffect:
+	farjp VsSeekerItem
 
 CardKeyEffect:
 	farjp _CardKey

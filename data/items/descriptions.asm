@@ -262,6 +262,7 @@ ItemDescriptionsKeyItems:
 	dw ElmParcelDesc
 	dw OakParcelDesc
 	dw BirchParcelDesc
+	dw VsSeekerDesc
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -1163,6 +1164,10 @@ OakParcelDesc:
 BirchParcelDesc:
 	db   "For Prof.Birch in"
 	next "Littleroot Town.@"
+
+VsSeekerDesc:
+	db   "Calls trainers in"
+	next "view to a rematch.@"
 
 KantoiteXDesc:
 	db   "Empowers certain"
