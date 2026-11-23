@@ -92,24 +92,22 @@ Route24RocketAfterBattleText:
 	para "But you forget me"
 	line "not!"
 
-	para "Beat you for sure"
-	line "will Team Rocket."
+	para "Petra, boss of"
+	line "Kanto she is."
 
-	para "Come from Johto"
-	line "will they, mine"
-
-	para "friends, yes. Will"
-	line "revenge they are."
+	para "Angry she will be."
+	line "Revenge she will"
+	cont "take, yes!"
 	done
 
 Route24RocketDisappearsText:
 	text "…"
 
-	para "You say what? Team"
-	line "Rocket bye-bye a"
+	para "You say what? The"
+	line "Power Plant fixed"
 
-	para "go-go? Broken it"
-	line "is says you?"
+	para "it is? Petra's"
+	line "plan broken is?"
 
 	para "Oh, no! Should I"
 	line "do what now on"

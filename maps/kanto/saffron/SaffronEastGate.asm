@@ -121,7 +121,7 @@ SaffronEastGateGreenText:
 
 	para "Something those"
 	line "mad scientists"
-	cont "as Silph Co"
+	cont "at Silph Co."
 	cont "cooked up, I bet."
 
 	para "Whatever it is, I"
@@ -148,10 +148,11 @@ SaffronEastGateGreenText:
 	line "nothing..."
 
 	para "The Safari Zone"
-	line "is in Fuscia City."
+	line "is in Fuchsia"
+	cont "City."
 
 	para "It's down by the"
-	line "Southern coast of"
+	line "southern coast of"
 	cont "Kanto."
 
 	para "..."

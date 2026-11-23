@@ -2,14 +2,96 @@
 	const SILPHCO1F_RECEPTIONIST
 	const SILPHCO1F_OFFICER
 	const SILPH_GREEN
+	const SILPHCO1F_PORYGONZ
+	const SILPHCO1F_SCIENTIST
 
 SilphCo1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_SPRITES, SilphCo1FMonSpritesCallback
+	callback MAPCALLBACK_OBJECTS, SilphCo1FHideGreenCallback
+
+SilphCo1FMonSpritesCallback:
+	setmonsprite SPRITE_MON_1, PORYGONZ
+	endcallback
+
+SilphCo1FHideGreenCallback:
+; Green only comes down the stairs during the Porygon-Z scene
+	setevent EVENT_SILPH_CO_1F_GREEN
+	endcallback
 
 SilphCoReceptionistScript:
+	checkevent EVENT_FOUND_SILPH_GREEN
+	iftrue .calm
+	jumptextfaceplayer SilphCoReceptionistPanicText
+
+.calm
 	jumptextfaceplayer SilphCoReceptionistText
+
+SilphCoScientistScript:
+	jumptextfaceplayer SilphCoScientistText
+
+SilphCoPorygonZScript:
+	cry PORYGONZ
+	opentext
+	writetext SilphCoPorygonZText
+	closetext
+	loadwildmon PORYGONZ, 9
+	loadboss BOSS_SILPH_PORYGONZ
+	startbattle
+	reloadmapafterbattle
+	disappear SILPHCO1F_PORYGONZ
+	pause 15
+	applymovement SILPHCO1F_OFFICER, SilphCoOfficerStepAsideMovement
+	playsound SFX_EXIT_BUILDING
+	appear SILPH_GREEN
+	applymovement SILPH_GREEN, SilphCoGreenComesDownMovement
+	faceobject SILPH_GREEN, PLAYER
+	sjump SilphCoGreenScene
+
+SilphCoPorygonZText:
+	text "Porygon-Z's code"
+	line "is scrambled!"
+
+	para "It attacks!"
+	done
+
+SilphCoOfficerStepAsideMovement:
+	step RIGHT
+	turn_head LEFT
+	step_end
+
+SilphCoOfficerStepBackMovement:
+	step LEFT
+	turn_head DOWN
+	step_end
+
+SilphCoGreenComesDownMovement:
+	step DOWN
+	step DOWN
+	step_end
+
+SilphCoReceptionistPanicText:
+	text "P-please stay"
+	line "calm!"
+
+	para "A Porygon got"
+	line "loose from the"
+	cont "labs upstairs, and"
+	cont "it's gone haywire!"
+	done
+	done
+
+SilphCoScientistText:
+	text "Every lab lock"
+	line "opened at once,"
+	cont "from the inside."
+
+	para "That was no"
+	line "glitch. Someone"
+	cont "did it on purpose!"
+	done
 
 SilphCoOfficerScript:
 	faceplayer
@@ -55,8 +137,7 @@ SilphCoOfficerText_GotUpGrade:
 	done
 
 
-Silph_Green:
-	faceplayer
+SilphCoGreenScene:
 	opendialog GREEN
 	writetext SilphGreenIntroText
 	waitbutton
@@ -90,6 +171,7 @@ Silph_Green:
 	special FadeOutToBlack
 	disappear SILPH_GREEN
 	special FadeInFromBlack
+	applymovement SILPHCO1F_OFFICER, SilphCoOfficerStepBackMovement
 	end
 
 SilphGreenAfterBattleText:
@@ -159,8 +241,14 @@ SilphGreenWinText:
 	done
 
 SilphGreenIntroText:
-	text "Whew, that was..."
-	line "a lot..."
+	text "Whew! Sorry about"
+	line "that, <PLAY_G>."
+
+	para "We rounded up all"
+	line "the Porygon in the"
+	cont "labs, but that one"
+	cont "slipped right past"
+	cont "me."
 
 	para "I think if I"
 	line "never see another"
@@ -174,6 +262,14 @@ SilphGreenIntroText:
 	para "Apparently I sent"
 	line "you into a bit of"
 	cont "a mess as well."
+
+	para "A Rocket named"
+	line "Petra opened the"
+	cont "Porygon labs on"
+	cont "purpose?"
+
+	para "All that, just to"
+	line "keep me busy..."
 
 	para "It sounds like you"
 	line "handled yourself"
@@ -195,6 +291,7 @@ SilphGreenIntroText:
 	para "Get ready,"
 	line "<PLAY_G>!"
 	done
+	done
 
 SilphCo1F_MapEvents:
 	db 0, 0 ; filler
@@ -210,4 +307,6 @@ SilphCo1F_MapEvents:
 	def_object_events
 	object_event  4,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SilphCoReceptionistScript, -1
 	object_event 13,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SilphCoOfficerScript, -1
-	object_event 04, 04, SPRITE_GREEN, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, Silph_Green, EVENT_FOUND_SILPH_GREEN
+	object_event 13,  0, SPRITE_GREEN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SILPH_CO_1F_GREEN
+	object_event 13,  2, SPRITE_MON_1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoPorygonZScript, EVENT_FOUND_SILPH_GREEN
+	object_event  9,  6, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SilphCoScientistScript, EVENT_FOUND_SILPH_GREEN

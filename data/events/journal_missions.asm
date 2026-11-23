@@ -68,7 +68,42 @@ JournalMissions:
 	dw JournalMission_BattleTower
 	dw JournalMission_LeagueRematches
 	dw JournalMission_TitleDefense
+	dw JournalMission_KantoRockets
 	assert_table_length NUM_MISSIONS
+
+JournalOrder:
+; the order missions show in the journal's lists
+	db MISSION_JOHTO_CHALLENGE
+	db MISSION_KANTO_CHALLENGE
+	db MISSION_HOENN_CHALLENGE
+	db MISSION_WORLD_CUP
+	db MISSION_MYSTERY_EGG
+	db MISSION_TOGEPI_EGG
+	db MISSION_ROCKETS_SIGNAL
+	db MISSION_KANTO_ROCKETS
+	db MISSION_JANES_TRAIL
+	db MISSION_RED_GYARADOS
+	db MISSION_BELL_TOWER
+	db MISSION_WHIRL_ISLANDS
+	db MISSION_LEGENDARY_BIRDS
+	db MISSION_MEWTWO
+	db MISSION_REGI_TRIO
+	db MISSION_WEATHER_DUO
+	db MISSION_METEOR_PEAK
+	db MISSION_DESERT_SHRINE
+	db MISSION_PARCELS
+	db MISSION_FAST_SHIP
+	db MISSION_JOHTO_AIDES
+	db MISSION_KANTO_AIDES
+	db MISSION_HOENN_AIDES
+	db MISSION_JOHTO_HALLS
+	db MISSION_KANTO_HALLS
+	db MISSION_HOENN_HALLS
+	db MISSION_BATTLE_TOWER
+	db MISSION_LEAGUE_REMATCHES
+	db MISSION_TITLE_DEFENSE
+	db -1
+	assert @ - JournalOrder == NUM_MISSIONS + 1, "JournalOrder must list every mission once"
 
 ; Main goals ------------------------------------------------------------------
 
@@ -221,6 +256,29 @@ JournalMission_JanesTrail:
 .n4 mtext "Follow them up<LF>Mt.Pyre."
 .s5 mtext "Desert Shrine"
 .n5 mtext "Find Jane at the<LF>Desert Shrine."
+
+JournalMission_KantoRockets:
+	mission MREGION_KANTO, .title, .desc, .summary
+	mstart MC_CALL, Journal_KantoRocketsSeen
+	msteps 5
+	mstep MC_EVENT, EVENT_BEAT_GRUNTS_MT_MOON, .s1, .n1
+	mstep MC_EVENT, EVENT_RETURNED_MACHINE_PART, .s2, .n2
+	mstep MC_EVENT, EVENT_SAFFRON_CITY_OPEN, .s3, .n3
+	mstep MC_EVENT, EVENT_BEAT_SAFARI_ROCKETS, .s4, .n4
+	mstep MC_EVENT, EVENT_FOUND_SILPH_GREEN, .s5, .n5
+.title   mtitle "Petra's Plan"
+.desc    mtext "Team Rocket is<LF>scheming all over<LF>Kanto."
+.summary mtext "Petra's plans in<LF>Kanto are over."
+.s1 mtext "Mt.Moon"
+.n1 mtext "Stop the Rockets<LF>in Mt.Moon."
+.s2 mtext "Machine Part"
+.n2 mtext "Find the Power<LF>Plant's lost part."
+.s3 mtext "Saffron"
+.n3 mtext "Find out what's<LF>wrong in Saffron."
+.s4 mtext "Safari Zone"
+.n4 mtext "Chase the Rockets<LF>out of the Safari."
+.s5 mtext "Silph Co."
+.n5 mtext "See Green at<LF>Silph Co."
 
 ; Legendaries -----------------------------------------------------------------
 
@@ -625,6 +683,18 @@ Journal_ParcelsDelivered:
 	ret
 .flags
 	dw EVENT_DELIVERED_ELM_PARCEL, EVENT_DELIVERED_OAK_PARCEL, EVENT_DELIVERED_BIRCH_PARCEL, -1
+
+Journal_KantoRocketsSeen:
+; any of the Kanto Rockets' first sightings
+	ld hl, .flags
+	call Journal_CountFlags
+	and a
+	ret z
+	scf
+	ret
+.flags
+	dw EVENT_BEAT_MOON_GRUNT1, EVENT_BEAT_MOON_GRUNT2, EVENT_BEAT_GRUNTS_MT_MOON
+	dw EVENT_MET_MANAGER_AT_POWER_PLANT, EVENT_SAFFRON_CITY_OPEN, -1
 
 Journal_TowerOpen:
 ; all three hard halls cleared

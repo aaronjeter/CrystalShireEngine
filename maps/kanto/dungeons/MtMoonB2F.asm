@@ -70,11 +70,12 @@ TrainerMoonGrunt1BeatenText:
 	done
 
 TrainerMoonGrunt1AfterBattleText:
-	text "We're looking for"
-	line "Fossils here."
+	text "That nerd thinks"
+	line "he hired us. Ha!"
 
-	para "You'd better give"
-	line "us any you find."
+	para "Petra wants these"
+	line "Fossils for her-"
+	cont "self."
 	done
 
 
@@ -94,11 +95,12 @@ TrainerMoonGrunt2BeatenText:
 	done
 
 TrainerMoonGrunt2AfterBattleText:
-	text "We're looking for"
-	line "Fossils here."
+	text "Petra said to grab"
+	line "every Fossil in"
+	cont "this cave."
 
-	para "You'd better give"
-	line "us any you find."
+	para "You'd better hand"
+	line "yours over!"
 	done
 
 

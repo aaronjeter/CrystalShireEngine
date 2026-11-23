@@ -39,11 +39,9 @@ SafariGrunt2BeatenText:
 	done
 
 SafariGrunt2AfterBattleText:
-	text "How is a kid"
-	line "so tough..."
-
-	para "I'd better"
-	line "report to base!"
+	text "Every rare one we"
+	line "catch goes to"
+	cont "Petra. Not you!"
 	done
 
 
@@ -73,9 +71,8 @@ SafariGruntf2BeatenText:
 
 SafariGruntf2AfterBattleText:
 	text "That was rough."
-
-	para "I'd better"
-	line "get help!"
+	line "I'd better get"
+	cont "Petra!"
 	done
 
 

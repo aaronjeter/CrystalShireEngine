@@ -3738,11 +3738,14 @@ wHallOfFameCounts:: ds NUM_LEAGUES ; Hall of Fame entries per League (LEAGUE_* o
 wTitleDefenses:: dw ; World Cup title defenses won (big-endian)
 wPassportFallen:: dw ; Pokémon buried or released by Nuzlocke mode (big-endian)
 wTitleDefenseChallenger:: db ; the accepted title challenger + 1 until the match is over, 0 otherwise
-wJournalSeen:: ds (NUM_MISSIONS + 1) / 2 ; per mission, a nibble: the progress last announced (0: not started, else 1 + steps done)
-wJournalUnread:: flag_array NUM_MISSIONS ; missions updated since the player last opened them (NEW)
+wJournalSeen:: ds JOURNAL_SEEN_MISSIONS / 2 ; per mission, a nibble: the progress last announced (0: not started, else 1 + steps done)
+wJournalUnread:: ds 4 ; flags: missions updated since the player last opened them (NEW)
+	assert NUM_MISSIONS <= 32, "wJournalUnread holds 32 missions"
 wStartMenuOrderSaved:: ds (NUM_START_MENU_SLOTS + 1) / 2 ; per slot, a nibble: the slot's entry xor the slot's index (all 0: the default order)
 wFollowerPickupItem:: dw ; the item the following Pokémon picked up (an item index; 0: none)
 wVsSeekerCharge:: db ; steps left until the Vs Seeker can be used again (0: charged)
+wJournalSeen2:: ds 1 ; as wJournalSeen, for missions JOURNAL_SEEN_MISSIONS and up
+	assert NUM_MISSIONS <= JOURNAL_SEEN_MISSIONS + 2, "wJournalSeen2 holds 2 missions"
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

@@ -7976,7 +7976,7 @@ ExecutiveFGroup:
 		moves NIGHT_SLASH, DRILL_PECK, TAUNT, HAZE
 	end_party
 
-	party SAFARI_EXECUTIVEF, "Executive" ; Safari Zone Executive
+	party SAFARI_EXECUTIVEF, "Petra" ; Safari Zone Executive
 	mon 8, RHYDON
 		ability ROCK_HEAD
 		moves BREAKING_SWIPE, ROCK_TOMB, BULLDOZE, SCARY_FACE
@@ -7995,6 +7995,7 @@ ExecutiveFGroup:
 	mon 10, ABSOLX
 		ability SHARPNESS
 		moves SLASH, KNOCK_OFF, RAZOR_WIND, SWORDS_DANCE
+		boss_mon BOSS_PETRA
 	hard
 	mon 9, RHYDON
 		item HARD_STONE
@@ -8020,6 +8021,7 @@ ExecutiveFGroup:
 		item SCOPE_LENS
 		ability SHARPNESS
 		moves SLASH, KNOCK_OFF, RAZOR_WIND, SWORDS_DANCE
+		boss_mon BOSS_PETRA
 	end_party
 
 	party MAUVILLE_EXECUTIVEF, "Jane" ; Mauville Game Corner Executive

@@ -2170,5 +2170,6 @@
 	const EVENT_TITLE_DEFENSE_BEAT_ARCHER
 	const EVENT_TITLE_DEFENSE_BEAT_JANE
 	const EVENT_TITLE_DEFENSE_BEAT_GIOVANNI
+	const EVENT_SILPH_CO_1F_GREEN ; set = hidden (set on every map load)
 	const_next 2560
 DEF NUM_EVENTS EQU const_value ; a00

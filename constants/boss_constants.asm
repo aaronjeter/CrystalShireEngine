@@ -39,6 +39,8 @@ DEF BOSS_PIPS_PER_TILE EQU 2
 	const BOSS_ENTEI        ; Entei (Mt. Mortar, the old Moltres Lair)
 	const BOSS_TOWER_HEAD   ; Mew (Battle Tower head)
 	const BOSS_TD_GIOVANNI  ; Mewtwo (title defense)
+	const BOSS_PETRA        ; Absol-X (Safari Zone)
+	const BOSS_SILPH_PORYGONZ ; Porygon-Z (Silph Co. 1F)
 DEF NUM_BOSSES EQU const_value
 
 ; boss record flags

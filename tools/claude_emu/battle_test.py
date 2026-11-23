@@ -495,13 +495,14 @@ class Battle:
                 return
         self.log.append(msg)
 
-    def run(self, max_steps=3000):
+    def run(self, max_steps=3000, end_presses=40):
         g = self.g
         for _ in range(max_steps):
             t = self.settle()
             if t is None:
-                # battle over: let the map reload
-                for _ in range(40):
+                # battle over: let the map reload (end_presses=0: stop at once, e.g. to
+                # read the script's text after the battle)
+                for _ in range(end_presses):
                     g.frames(10); g.press('B', hold=2, after=4)
                 self.records.append({'end': True, 'log': self.log, 'result': g.rd('wBattleResult')})
                 return self.records

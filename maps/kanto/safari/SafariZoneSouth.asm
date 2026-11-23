@@ -103,11 +103,9 @@ SafariGrunt7BeatenText:
 	done
 
 SafariGrunt7AfterBattleText:
-	text "Stronger than"
-	line "you look..."
-
-	para "I'd better"
-	line "report in!"
+	text "Stronger than you"
+	line "look... Petra will"
+	cont "want to know."
 	done
 
 

@@ -85,4 +85,11 @@ DEF NUM_JOURNAL_REGIONS EQU NUM_MISSION_REGIONS + 1
 	const MISSION_BATTLE_TOWER
 	const MISSION_LEAGUE_REMATCHES
 	const MISSION_TITLE_DEFENSE
+; added later: kept at the end so saved journal progress stays in place
+; (JournalOrder sets where they show)
+	const MISSION_KANTO_ROCKETS
 DEF NUM_MISSIONS EQU const_value
+
+; wJournalSeen holds the first JOURNAL_SEEN_MISSIONS missions; wJournalSeen2, at
+; the end of the save extension, the ones after
+DEF JOURNAL_SEEN_MISSIONS EQU 28

@@ -22,43 +22,48 @@ SafariRocketBoss:
 	end
 
 SafariRocketBossSeenText:
-	text "Interloper..."
+	text "So you're the pest"
+	line "my grunts keep"
+	cont "crying about."
 
-	para "You're the one"
-	line "my colleagues"
-	cont "spoke of..."
+	para "I'm Petra. Team"
+	line "Rocket's business"
+	cont "in Kanto is mine."
 
-	para "Team Rocket will"
-	line "rise again."
+	para "While Silph Co."
+	line "chases its loose"
+	cont "Porygon, this park"
+	cont "and its #mon"
+	cont "belong to us."
 
-	para "Our captures here"
-	line "will ensure it."
-
-	para "..."
-
-	para "No mercy to those"
-	line "in our way."
+	para "No one is coming"
+	line "to save you."
 	done
 
 SafariRocketBossBeatenText:
-	text "..."
-
-	para "How...?"
+	text "...Impossible."
 	done
 
 SafariRocketBossAfterBattleText:
-	text "Then I have"
-	line "failed.."
+	text "The Power Plant"
+	line "job should have"
+	cont "left Saffron in"
+	cont "the dark."
+
+	para "When that failed,"
+	line "I opened Silph's"
+	cont "labs myself."
+
+	para "Their Porygon kept"
+	line "Sabrina and Green"
+	cont "busy, just as I"
+	cont "planned..."
+
+	para "Only you got in"
+	line "the way."
 
 	para "Giovanni will"
-	line "understand."
-
-	para "This enterprise"
-	line "is not without"
-	cont "its risks..."
-
-	para "Until next time"
-	line "then."
+	line "hear of you."
 	done
 
 SafariWarden:
@@ -123,9 +128,8 @@ SafariWardenGivesRewardsText:
 
 	para "Secondly..."
 
-	para "That Rocket"
-	line "executive had"	
-	cont "this in her"
+	para "That Petra woman"
+	line "had this in her"
 	cont "pocket..."
 
 	para "Never should"

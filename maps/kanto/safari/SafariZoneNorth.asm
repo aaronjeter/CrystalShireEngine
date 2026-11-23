@@ -63,11 +63,8 @@ SafariGrunt3BeatenText:
 	done
 
 SafariGrunt3AfterBattleText:
-	text "Dang it!"
-
-	para "This was"
-	line "supposed to be"
-	cont "easy."
+	text "Petra said this"
+	line "job would be easy!"
 	done
 
 
@@ -126,11 +123,8 @@ SafariGrunt4BeatenText:
 	done
 
 SafariGrunt4AfterBattleText:
-	text "Dang it!"
-
-	para "This was"
-	line "supposed to be"
-	cont "easy."
+	text "Petra's not going"
+	line "to like this..."
 	done
 
 

@@ -68,6 +68,8 @@ BossRecords:
 	boss 2, 0, EnteiAura,       EnteiPhases       ; BOSS_ENTEI
 	boss 1, 0, TowerHeadAura,  TowerHeadPhases  ; BOSS_TOWER_HEAD
 	boss 2, 0, TDGiovanniAura, TDGiovanniPhases ; BOSS_TD_GIOVANNI
+	boss 1, 0, PetraAura,      PetraPhases      ; BOSS_PETRA
+	boss 1, BOSS_AUTO_CATCH, PorygonZAura, PorygonZPhases, WILDAI_CUNNING ; BOSS_SILPH_PORYGONZ
 	assert_table_length NUM_BOSSES - 1
 
 ; Phase tables: one entry per extra bar in the record, in break order.
@@ -414,6 +416,27 @@ TowerHeadPhases:
 	boss_stat SPEED, 1
 	boss_end
 
+PetraAura:
+	boss_stat ATTACK, 1
+	boss_end
+PetraPhases:
+	dw .bar1
+.bar1
+	boss_text BossPetraText
+	boss_stat ATTACK, 1
+	boss_stat SPEED, 1
+	boss_end
+
+PorygonZAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+PorygonZPhases:
+	dw .bar1
+.bar1
+	boss_text BossPorygonZText
+	boss_stat SPEED, 1
+	boss_end
+
 JaneAura:
 	boss_stat SP_DEFENSE, 1
 	boss_end
@@ -503,6 +526,16 @@ BossArcherText:
 BossTowerHeadText:
 	text "Aaron: Mew isn't"
 	line "done playing yet!"
+	prompt
+
+BossPetraText:
+	text "Petra: Absol, cut"
+	line "them down!"
+	prompt
+
+BossPorygonZText:
+	text "Porygon-Z rewrote"
+	line "its own code!"
 	prompt
 
 BossJaneText:

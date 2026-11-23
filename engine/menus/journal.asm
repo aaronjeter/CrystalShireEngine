@@ -403,10 +403,15 @@ Journal_SetSeen:
 Journal_SeenAddress:
 ; c = MISSION_* -> hl = its nibble's byte
 	ld a, c
+	ld hl, wJournalSeen
+	cp JOURNAL_SEEN_MISSIONS
+	jr c, .got_array
+	sub JOURNAL_SEEN_MISSIONS
+	ld hl, wJournalSeen2
+.got_array
 	srl a
 	ld e, a
 	ld d, 0
-	ld hl, wJournalSeen
 	add hl, de
 	ret
 
@@ -615,36 +620,47 @@ JournalPalettes:
 	RGB 31, 31, 31,  18, 24, 31,  04, 08, 20,  02, 18, 04 ; done
 
 Journal_BuildList:
-; wJournalList = the current tab's missions (started and not done, or done)
+; wJournalList = the current tab's missions (started and not done, or done),
+; in JournalOrder
 	ld hl, wJournalList
-	ld de, wJournalState
-	ld bc, 0 ; b = mission, c = count
+	ld de, JournalOrder
+	ld c, 0 ; count
 .loop
 	ld a, [de]
 	inc de
+	cp -1
+	jr z, .done
+	ld b, a ; mission
+	push de
+	push hl
+	ld e, a
+	ld d, 0
+	ld hl, wJournalState
+	add hl, de
+	ld a, [hl]
+	pop hl
+	pop de
 	bit MISSION_STARTED_F, a
-	jr z, .next
+	jr z, .loop
 	and 1 << MISSION_DONE_F
 	jr z, .active
 	ld a, [wJournalTab]
 	cp JOURNALTAB_DONE
-	jr nz, .next
+	jr nz, .loop
 	jr .add
 .active
 	ld a, [wJournalTab]
 	cp JOURNALTAB_ACTIVE
-	jr nz, .next
+	jr nz, .loop
 .add
 	call .InRegion
-	jr nz, .next
+	jr nz, .loop
 	ld [hl], b
 	inc hl
 	inc c
-.next
-	inc b
-	ld a, b
-	cp NUM_MISSIONS
-	jr nz, .loop
+	jr .loop
+
+.done
 	ld a, c
 	ld [wJournalCount], a
 	ret
