@@ -536,10 +536,10 @@ BirchThanksText:
 	done
 
 TravelVsSeekerText:
-	text "Use it near"
-	line "trainers you beat,"
-	cont "and they'll want a"
-	cont "rematch!"
+	text "Use it outdoors"
+	line "near trainers you"
+	cont "beat, and they'll"
+	cont "want a rematch!"
 
 	para "It needs 100 steps"
 	line "to recharge after"

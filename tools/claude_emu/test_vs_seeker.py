@@ -272,7 +272,8 @@ def case_professor():
     g.run_script('\tcheckitem VS_SEEKER\n\tend'); g.frames(20)
     got = g.rd('wScriptVar')
     check('Elm\'s errand: parcels, ticket and the Vs Seeker',
-          got and flag(g, 'EVENT_GOT_TRAVEL_PARCELS') and said(texts, '100 steps'), texts[-6:])
+          got and flag(g, 'EVENT_GOT_TRAVEL_PARCELS') and said(texts, '100 steps') and said(texts, 'outdoors'),
+          texts[-6:])
     # a save past the errand without one: Elm hands it over
     g = new('ELMS_LAB', 5, 3, beaten=[], give=False,
             setup='\tsetevent EVENT_GOT_TRAVEL_PARCELS')
@@ -300,7 +301,19 @@ def case_professor():
               texts[-4:])
 
 
-CASES = [case_ready_and_rematch, case_charging, case_recharge, case_none, case_excluded,
+def case_indoors():
+    # a gym (INDOOR) and a cave (CAVE) with a beaten trainer on screen: refused
+    for mapname, x, y, beaten, tx, ty in (('RUSTBORO_GYM', 5, 16, 'EVENT_BEAT_RUSTBORO_JOSH', 7, 13),
+                                          ('UNION_CAVE_1F', 10, 12, 'EVENT_BEAT_HIKERS_DAN_RUSS', 10, 9)):
+        g = new(mapname, x, y, beaten=[beaten])
+        on_screen = object_index(g, tx, ty)
+        texts, emotes = use(g)
+        check(f'{mapname}: "only works outdoors", nothing readied, no charge used',
+              on_screen and said(texts, 'only works') and flag(g, beaten) and charge(g) == 0 and emotes == 0,
+              (on_screen, texts[-2:], charge(g), emotes))
+
+
+CASES = [case_indoors, case_ready_and_rematch, case_charging, case_recharge, case_none, case_excluded,
          case_shared_flag, case_select, case_professor]
 
 if __name__ == '__main__':

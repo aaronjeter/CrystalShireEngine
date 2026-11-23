@@ -1,5 +1,5 @@
-; The Vs Seeker: readies every beaten map trainer on screen for a rematch by
-; clearing their beaten flags. Each readied trainer shows an emote, then
+; The Vs Seeker: on route and town maps, readies every beaten map trainer on
+; screen for a rematch by clearing their beaten flags. Each readied trainer shows an emote, then
 ; battles through the usual sight and talk checks with its own party. After a
 ; use it needs VS_SEEKER_RECHARGE_STEPS steps (wVsSeekerCharge counts down).
 
@@ -9,6 +9,12 @@ DEF VS_SEEKER_RECHARGE_STEPS EQU 100
 DEF wVsSeekerReadied EQUS "wStringBuffer5"
 
 VsSeekerItem::
+; only outdoors (route and town maps): inside, readied trainers could walk
+; into spots they can't get out of
+	ld a, [wEnvironment]
+	call CheckOutdoorMap
+	ld hl, VsSeekerIndoorsScript
+	jr nz, .queue
 	call VsSeekerGetCharge
 	ld hl, VsSeekerChargingScript
 	jr nz, .queue
@@ -284,6 +290,15 @@ VsSeekerNoneScript:
 	closetext
 	end
 
+VsSeekerIndoorsScript:
+	refreshmap
+	special UpdateTimePals
+	opentext
+	writetext VsSeekerIndoorsText
+	waitbutton
+	closetext
+	end
+
 VsSeekerChargingScript:
 	refreshmap
 	special UpdateTimePals
@@ -302,6 +317,12 @@ VsSeekerUsedText:
 VsSeekerNoneText:
 	text "No trainers nearby"
 	line "want a rematch."
+	done
+
+VsSeekerIndoorsText:
+	text "The Vs Seeker"
+	line "only works"
+	cont "outdoors."
 	done
 
 VsSeekerChargingText:

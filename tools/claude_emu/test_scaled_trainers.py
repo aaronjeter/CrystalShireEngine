@@ -187,15 +187,14 @@ def case_table():
 
 
 def case_gym_rematch():
-    # the real path: Rustboro Gym, Josh beaten, 14 badges; the Vs Seeker readies him and
-    # he challenges on sight with his scaled party
+    # the real path: Rustboro Gym at 14 badges, Josh not beaten; he challenges on sight
+    # with his scaled party
     import test_vs_seeker as V
     V.ROM, V.SYM, V.STATE = ROM, SYM, STATE
-    g = V.new('RUSTBORO_GYM', 5, 16, beaten=['EVENT_BEAT_RUSTBORO_JOSH'])
+    g = V.new('RUSTBORO_GYM', 5, 16, beaten=[], give=False,
+              setup='\tclearevent EVENT_BEAT_RUSTBORO_JOSH')
     g.wr('wBadges', badge_bits(14))
     g.wr('wBaseLevel', 46)
-    V.use(g)
-    check('gym: Josh readied by the Vs Seeker', not V.flag(g, 'EVENT_BEAT_RUSTBORO_JOSH'))
     for d in 'UUU':
         V.step(g, d)
         if g.rd('wScriptRunning') or g.in_battle():
