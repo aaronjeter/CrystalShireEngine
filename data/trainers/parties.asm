@@ -2284,22 +2284,38 @@ YoungsterGroup:
 		moves ICE_BEAM, MOONBLAST, FREEZE_DRY, CALM_MIND
 	end_party
 
-	party RUSTBORO_JOSH, "Josh" ; Rustboro Gym
+	party RUSTBORO_JOSH, "Josh", SCALED ; Rustboro Gym
 	mon 4, GEODUDE
 	mon 4, AGEODUDE
+	mon 4, LARVITAR
+		tier 2
+	mon 4, LILEEP
+		tier 3
 	hard
 	mon 5, GEODUDE
 	mon 5, AGEODUDE
 	mon 5, ARON
+	mon 5, LARVITAR
+		tier 2
+	mon 5, LILEEP
+		tier 3
 	end_party
 
-	party RUSTBORO_TOMMY, "Tommy" ; Rustboro Gym
+	party RUSTBORO_TOMMY, "Tommy", SCALED ; Rustboro Gym
 	mon 4, ARON
 	mon 4, LARVITAR
+	mon 4, ONIX
+		tier 2
+	mon 4, LILEEP
+		tier 3
 	hard
 	mon 5, ARON
 	mon 5, LARVITAR
 	mon 5, GEODUDE
+	mon 5, ONIX
+		tier 2
+	mon 5, LILEEP
+		tier 3
 	end_party
 
 	party ROUTE102_CALVIN, "Calvin" ; Route 102 (elite)
@@ -2453,19 +2469,23 @@ SchoolboyGroup:
 	end_list_items
 
 BirdKeeperGroup:
-	party ROD, "Rod" ; Violet City Gym
+	party ROD, "Rod", SCALED ; Violet City Gym
 	random_mons 3, BIRDS_EASY
 	hard
 	random_mons 3, BIRDS_EASY
 	end_party
 
-	party ABE, "Abe" ; Violet City Gym (elite)
+	party ABE, "Abe", SCALED ; Violet City Gym (elite)
 	mon 5, SPEAROW
 		ability SNIPER
 	mon 5, HOOTHOOT
 		ability INSOMNIA
 	mon 6, PIDGEY
 		ability KEEN_EYE
+	mon 6, NATU
+		tier 2
+	mon 6, HOPPIP
+		tier 3
 	hard
 	mon 6, SPEAROW
 		ability SNIPER
@@ -2474,6 +2494,10 @@ BirdKeeperGroup:
 	mon 7, PIDGEY
 		item SHARP_BEAK
 		ability KEEN_EYE
+	mon 7, NATU
+		tier 2
+	mon 7, HOPPIP
+		tier 3
 	end_party
 
 	party BRYAN, "Bryan" ; Route 35 (elite)
@@ -2578,13 +2602,17 @@ BirdKeeperGroup:
 	mon 11, SWELLOW
 	end_party
 
-	party FORTREE_HUMBERT, "Humbert" ; Fortree Gym (elite)
+	party FORTREE_HUMBERT, "Humbert", SCALED ; Fortree Gym (elite)
 	mon 8, SKARMORY
 		ability STURDY
 	mon 7, DODRIO
 		ability HASTE
 	mon 7, TROPIUS
 		ability CHLOROPHYLL
+	mon 8, FARFETCH_D
+		tier 2
+	mon 8, BEAUTIFLY
+		tier 3
 	hard
 	mon 9, SKARMORY
 		ability STURDY
@@ -2593,15 +2621,27 @@ BirdKeeperGroup:
 		ability HASTE
 	mon 8, TROPIUS
 		ability CHLOROPHYLL
+	mon 9, FARFETCH_D
+		tier 2
+	mon 9, BEAUTIFLY
+		tier 3
 	end_party
 
-	party FORTREE_DARIUS, "Darius" ; Fortree Gym
+	party FORTREE_DARIUS, "Darius", SCALED ; Fortree Gym
 	mon 7, FARFETCH_D
 	mon 7, BEAUTIFLY
+	mon 7, TROPIUS
+		tier 2
+	mon 7, SWABLU
+		tier 3
 	hard
 	mon 8, FARFETCH_D
 	mon 8, BEAUTIFLY
 	mon 8, NATU
+	mon 8, TROPIUS
+		tier 2
+	mon 8, SWABLU
+		tier 3
 	end_party
 
 	party ROUTE118_CHESTER, "Chester" ; Route 118
@@ -2672,30 +2712,50 @@ BirdKeeperGroup:
 	end_list_items
 
 LassGroup:
-	party CARRIE, "Carrie" ; Goldenrod City Gym
+	party CARRIE, "Carrie", SCALED ; Goldenrod City Gym
 	mon 7, SKITTY
 	mon 7, AIPOM
 	mon 7, LINOONE
+	mon 7, IGGLYBUFF
+		tier 2
+	mon 7, TEDDIURSA
+		tier 3
 	hard
 	mon 8, SKITTY
 	mon 8, AIPOM
 	mon 8, LINOONE
+	mon 8, IGGLYBUFF
+		tier 2
+	mon 8, TEDDIURSA
+		tier 3
 	end_party
 
-	party BRIDGET, "Bridget" ; Goldenrod City Gym
+	party BRIDGET, "Bridget", SCALED ; Goldenrod City Gym
 	mon 7, JIGGLYPUFF
 	mon 7, TEDDIURSA
 	mon 7, DUNSPARCE
+	mon 7, ZIGZAGOON
+		tier 2
+	mon 7, SENTRET
+		tier 3
 	hard
 	mon 8, JIGGLYPUFF
 	mon 8, TEDDIURSA
 	mon 8, DUNSPARCE
+	mon 8, ZIGZAGOON
+		tier 2
+	mon 8, SENTRET
+		tier 3
 	end_party
 
-	party ALICE, "Alice" ; Fuschia City Gym
+	party ALICE, "Alice", SCALED ; Fuschia City Gym
 	mon 7, GLOOM
 	mon 7, ARBOK
 	mon 7, SWALOT
+	mon 7, TANGELA
+		tier 2
+	mon 7, DROWZEE
+		tier 3
 	end_party
 
 	party KRISE, "Krise" ; National Park (elite)
@@ -2721,10 +2781,14 @@ LassGroup:
 	mon 7, PLUSLE
 	end_party
 
-	party LINDA, "Linda" ; Fuschia City Gym
+	party LINDA, "Linda", SCALED ; Fuschia City Gym
 	mon 7, TANGELA
 	mon 7, HYPNO
 	mon 7, VENUSAUR
+	mon 7, GULPIN
+		tier 2
+	mon 7, VENONAT
+		tier 3
 	end_party
 
 	party SHANNON, "Shannon" ; Route 25
@@ -2736,14 +2800,22 @@ LassGroup:
 	mon 7, PARAS
 	end_party
 
-	party MICHELLE, "Michelle" ; Celadon City Gym
+	party MICHELLE, "Michelle", SCALED ; Celadon City Gym
 	mon 5, PARAS
 	mon 5, HOPPIP
 	mon 7, SKIPLOOM
+	mon 7, ROSELIA
+		tier 2
+	mon 7, EXEGGCUTE
+		tier 3
 	hard
 	mon 6, PARAS
 	mon 6, HOPPIP
 	mon 8, SKIPLOOM
+	mon 8, ROSELIA
+		tier 2
+	mon 8, EXEGGCUTE
+		tier 3
 	end_party
 
 	party ELLEN, "Ellen" ; Route 24
@@ -2780,21 +2852,33 @@ LassGroup:
 	mon 7, ROSELIA
 	end_party
 
-	party SOOTOPOLIS_ANDREA, "Andrea" ; Sootopolis Gym
+	party SOOTOPOLIS_ANDREA, "Andrea", SCALED ; Sootopolis Gym
 	mon 7, LUVDISC
 	mon 7, WAILORD
+	mon 7, GOLDEEN
+		tier 2
+	mon 7, SQUIRTLE
+		tier 3
 	hard
 	mon 8, LUVDISC
 	mon 8, WAILORD
+	mon 8, GOLDEEN
+		tier 2
+	mon 8, SQUIRTLE
+		tier 3
 	end_party
 
-	party SOOTOPOLIS_CRISSY, "Crissy" ; Sootopolis Gym (elite)
+	party SOOTOPOLIS_CRISSY, "Crissy", SCALED ; Sootopolis Gym (elite)
 	mon 8, SEAKING
 		ability SWIFT_SWIM
 	mon 8, BLASTOISE
 		ability TORRENT
 	mon 8, SEALEO
 		ability THICK_FAT
+	mon 8, VAPOREON
+		tier 2
+	mon 8, CARVANHA
+		tier 3
 	hard
 	mon 9, SEAKING
 		ability SWIFT_SWIM
@@ -2803,6 +2887,10 @@ LassGroup:
 		ability TORRENT
 	mon 9, SEALEO
 		ability THICK_FAT
+	mon 9, VAPOREON
+		tier 2
+	mon 9, CARVANHA
+		tier 3
 	end_party
 
 	party FACILITY_KANTO_2, "Aiko" ; challenge facility intro (levels: the facility level)
@@ -2941,13 +3029,17 @@ CooltrainerMGroup:
 	mon 5, SKARMORY
 	end_party
 
-	party PAUL, "Paul" ; Blackthorn City Gym
+	party PAUL, "Paul", SCALED ; Blackthorn City Gym
 	mon 8, DRAGONAIR
 		ability SHED_SKIN
 	mon 8, SEADRA
 		ability SWIFT_SWIM
 	mon 7, AERODACTYL
 		ability ROCK_HEAD
+	mon 8, BAGON
+		tier 2
+	mon 8, TRAPINCH
+		tier 3
 	hard
 	mon 9, DRAGONAIR
 		item DRAGON_FANG
@@ -2956,9 +3048,13 @@ CooltrainerMGroup:
 		ability SWIFT_SWIM
 	mon 8, AERODACTYL
 		ability ROCK_HEAD
+	mon 9, BAGON
+		tier 2
+	mon 9, TRAPINCH
+		tier 3
 	end_party
 
-	party CODY, "Cody" ; Blackthorn City Gym
+	party CODY, "Cody", SCALED ; Blackthorn City Gym
 	mon 6, BAGON
 		ability INTIMIDATE
 	mon 7, SHELGON
@@ -2967,6 +3063,10 @@ CooltrainerMGroup:
 		ability LEVITATE
 	mon 7, SEADRA
 		ability SNIPER
+	mon 7, DRATINI
+		tier 2
+	mon 7, MAGIKARP
+		tier 3
 	hard
 	mon 7, BAGON
 		ability INTIMIDATE
@@ -2977,6 +3077,10 @@ CooltrainerMGroup:
 		ability LEVITATE
 	mon 8, SEADRA
 		ability SNIPER
+	mon 8, DRATINI
+		tier 2
+	mon 8, MAGIKARP
+		tier 3
 	end_party
 
 	party GAVEN, "Gaven" ; Route 26
@@ -3025,13 +3129,17 @@ CooltrainerMGroup:
 		moves WRAP, SURF, DRAGON_RAGE, SLAM
 	end_party
 
-	party PETALBURG_PARKER, "Parker" ; Petalburg Gym
+	party PETALBURG_PARKER, "Parker", SCALED ; Petalburg Gym
 	mon 9, WIGGLYTUFF
 		ability CUTE_CHARM
 	mon 8, TAUROS
 		ability INTIMIDATE
 	mon 8, MILTANK
 		ability THICK_FAT
+	mon 9, RATTATA
+		tier 2
+	mon 9, KANGASKHAN
+		tier 3
 	hard
 	mon 10, WIGGLYTUFF
 		ability CUTE_CHARM
@@ -3040,15 +3148,23 @@ CooltrainerMGroup:
 		ability INTIMIDATE
 	mon 9, MILTANK
 		ability THICK_FAT
+	mon 10, RATTATA
+		tier 2
+	mon 10, KANGASKHAN
+		tier 3
 	end_party
 
-	party PETALBURG_GEORGE, "George" ; Petalburg Gym
+	party PETALBURG_GEORGE, "George", SCALED ; Petalburg Gym
 	mon 9, RATICATE
 		ability GUTS
 	mon 8, KANGASKHAN
 		ability SCRAPPY
 	mon 8, LICKITUNG
 		ability OWN_TEMPO
+	mon 9, MILTANK
+		tier 2
+	mon 9, SENTRET
+		tier 3
 	hard
 	mon 10, RATICATE
 		ability GUTS
@@ -3057,15 +3173,23 @@ CooltrainerMGroup:
 		ability SCRAPPY
 	mon 9, LICKITUNG
 		ability OWN_TEMPO
+	mon 10, MILTANK
+		tier 2
+	mon 10, SENTRET
+		tier 3
 	end_party
 
-	party LAVARIDGE_GERALD, "Gerald" ; Lavaridge Gym
+	party LAVARIDGE_GERALD, "Gerald", SCALED ; Lavaridge Gym
 	mon 8, AMAROWAK
 		ability ROCK_HEAD
 	mon 7, CAMERUPT
 		ability MAGMA_ARMOR
 	mon 7, NINETALES
 		ability SUNBASK
+	mon 8, HOUNDOUR
+		tier 2
+	mon 8, FLAREON
+		tier 3
 	hard
 	mon 9, AMAROWAK
 		item CHARCOAL
@@ -3074,6 +3198,10 @@ CooltrainerMGroup:
 		ability MAGMA_ARMOR
 	mon 8, NINETALES
 		ability SUNBASK
+	mon 9, HOUNDOUR
+		tier 2
+	mon 9, FLAREON
+		tier 3
 	end_party
 
 	party DALORIC1, "Daloric" ; Daloric contest team #1
@@ -3425,7 +3553,7 @@ CooltrainerFGroup:
 	mon 10, GLACEON
 	end_party
 
-	party FRAN, "Fran" ; Blackthorn City Gym
+	party FRAN, "Fran", SCALED ; Blackthorn City Gym
 	mon 6, DRATINI
 		ability MULTISCALE
 	mon 6, HORSEA
@@ -3434,6 +3562,10 @@ CooltrainerFGroup:
 		ability MULTISCALE
 	mon 7, GYARADOS
 		ability INTIMIDATE
+	mon 7, CHARMANDER
+		tier 2
+	mon 7, AERODACTYL
+		tier 3
 	hard
 	mon 7, DRATINI
 		ability MULTISCALE
@@ -3444,6 +3576,10 @@ CooltrainerFGroup:
 		ability MULTISCALE
 	mon 8, GYARADOS
 		ability INTIMIDATE
+	mon 8, CHARMANDER
+		tier 2
+	mon 8, AERODACTYL
+		tier 3
 	end_party
 
 	party KATE, "Kate" ; Route 34
@@ -3573,13 +3709,17 @@ CooltrainerFGroup:
 		moves THUNDERBOLT, FLASHCANNON, EXPLOSION, LIGHT_SCREEN
 	end_party
 
-	party PETALBURG_MARY, "Mary" ; Petalburg Gym
+	party PETALBURG_MARY, "Mary", SCALED ; Petalburg Gym
 	mon 9, FURRET
 		ability KEEN_EYE
 	mon 8, ZANGOOSE
 		ability IMMUNITY
 	mon 8, DUNSPARCE
 		ability SERENE_GRACE
+	mon 9, KANGASKHAN
+		tier 2
+	mon 9, LICKITUNG
+		tier 3
 	hard
 	mon 10, FURRET
 		ability KEEN_EYE
@@ -3588,15 +3728,23 @@ CooltrainerFGroup:
 		ability IMMUNITY
 	mon 9, DUNSPARCE
 		ability SERENE_GRACE
+	mon 10, KANGASKHAN
+		tier 2
+	mon 10, LICKITUNG
+		tier 3
 	end_party
 
-	party PETALBURG_JODY, "Jody" ; Petalburg Gym
+	party PETALBURG_JODY, "Jody", SCALED ; Petalburg Gym
 	mon 9, SWELLOW
 		ability GUTS
 	mon 8, NOCTOWL
 		ability INSOMNIA
 	mon 8, PIDGEOT
 		ability KEEN_EYE
+	mon 9, SENTRET
+		tier 2
+	mon 9, ZANGOOSE
+		tier 3
 	hard
 	mon 10, SWELLOW
 		item SHARP_BEAK
@@ -3605,6 +3753,10 @@ CooltrainerFGroup:
 		ability INSOMNIA
 	mon 9, PIDGEOT
 		ability KEEN_EYE
+	mon 10, SENTRET
+		tier 2
+	mon 10, ZANGOOSE
+		tier 3
 	end_party
 
 	party WEEKDAY_MONICA, "Monica" ; World Cup
@@ -3884,23 +4036,35 @@ CooltrainerFGroup:
 	end_list_items
 
 BeautyGroup:
-	party VICTORIA, "Victoria" ; Goldenrod City Gym
+	party VICTORIA, "Victoria", SCALED ; Goldenrod City Gym
 	mon 7, SENTRET
 	mon 7, ZIGZAGOON
 	mon 7, EEVEE
+	mon 7, DUNSPARCE
+		tier 2
+	mon 7, MEOWTH
+		tier 3
 	hard
 	mon 8, SENTRET
 	mon 8, ZIGZAGOON
 	mon 8, EEVEE
+	mon 8, DUNSPARCE
+		tier 2
+	mon 8, MEOWTH
+		tier 3
 	end_party
 
-	party SAMANTHA, "Samantha" ; Goldenrod City Gym (elite)
+	party SAMANTHA, "Samantha", SCALED ; Goldenrod City Gym (elite)
 	mon 7, MEOWTH
 		ability TECHNICIAN
 	mon 7, SKITTY
 		ability CUTE_CHARM
 	mon 8, TEDDIURSA
 		ability GUTS
+	mon 8, EEVEE
+		tier 2
+	mon 8, AIPOM
+		tier 3
 	hard
 	mon 8, PERSIAN
 		ability TECHNICIAN
@@ -3909,6 +4073,10 @@ BeautyGroup:
 	mon 9, TEDDIURSA
 		item PINK_BOW
 		ability GUTS
+	mon 9, EEVEE
+		tier 2
+	mon 9, AIPOM
+		tier 3
 	end_party
 
 	party CASSIE, "Cassie" ; Fastship Cabins
@@ -3916,13 +4084,17 @@ BeautyGroup:
 	mon 5, BUTTERFREE
 	end_party
 
-	party JULIA, "Julia" ; Celadon City Gym (elite)
+	party JULIA, "Julia", SCALED ; Celadon City Gym (elite)
 	mon 7, ROSELIA
 		ability NATURAL_CURE
 	mon 7, EXEGGCUTE
 		ability CHLOROPHYLL
 	mon 7, SHROOMISH
 		ability EFFECT_SPORE
+	mon 7, HOPPIP
+		tier 2
+	mon 7, ODDISH
+		tier 3
 	hard
 	mon 8, ROSELIA
 		ability NATURAL_CURE
@@ -3931,6 +4103,10 @@ BeautyGroup:
 	mon 8, BRELOOM
 		item MIRACLE_SEED
 		ability EFFECT_SPORE
+	mon 8, HOPPIP
+		tier 2
+	mon 8, ODDISH
+		tier 3
 	end_party
 
 	party VALERIE, "Valerie" ; Route 38
@@ -4009,36 +4185,68 @@ BeautyGroup:
 	mon 7, SYLVEON
 	end_party
 
-	party SOOTOPOLIS_CONNIE, "Connie" ; Sootopolis Gym
+	party SOOTOPOLIS_CONNIE, "Connie", SCALED ; Sootopolis Gym
 	mon 7, SEAKING
 	mon 7, VAPOREON
+	mon 7, CARVANHA
+		tier 2
+	mon 7, WOOPER
+		tier 3
 	hard
 	mon 8, SEAKING
 	mon 9, VAPOREON
+	mon 9, CARVANHA
+		tier 2
+	mon 9, WOOPER
+		tier 3
 	end_party
 
-	party SOOTOPOLIS_TIFFANY, "Tiffany" ; Sootopolis Gym
+	party SOOTOPOLIS_TIFFANY, "Tiffany", SCALED ; Sootopolis Gym
 	mon 7, SHARPEDO
 	mon 7, QUAGSIRE
+	mon 7, HUNTAIL
+		tier 2
+	mon 7, AZURILL
+		tier 3
 	hard
 	mon 8, SHARPEDO
 	mon 9, QUAGSIRE
+	mon 9, HUNTAIL
+		tier 2
+	mon 9, AZURILL
+		tier 3
 	end_party
 
-	party SOOTOPOLIS_OLIVIA, "Olivia" ; Sootopolis Gym
+	party SOOTOPOLIS_OLIVIA, "Olivia", SCALED ; Sootopolis Gym
 	mon 7, HUNTAIL
 	mon 7, GOREBYSS
+	mon 7, AZURILL
+		tier 2
+	mon 7, MAGIKARP
+		tier 3
 	hard
 	mon 8, HUNTAIL
 	mon 8, GOREBYSS
+	mon 8, AZURILL
+		tier 2
+	mon 8, MAGIKARP
+		tier 3
 	end_party
 
-	party SOOTOPOLIS_BRIDGET, "Bridget" ; Sootopolis Gym
+	party SOOTOPOLIS_BRIDGET, "Bridget", SCALED ; Sootopolis Gym
 	mon 7, AZUMARILL
 	mon 7, WAILORD
+	mon 7, WINGULL
+		tier 2
+	mon 7, CLAMPERL
+		tier 3
 	hard
 	mon 9, AZUMARILL
 	mon 7, WAILORD
+	mon 9, WINGULL
+		tier 2
+	mon 9, CLAMPERL
+		tier 3
 	end_party
 
 	party FACILITY_JOHTO_5, "Rina" ; challenge facility (intermediate; levels: the facility level)
@@ -4507,13 +4715,21 @@ GentlemanGroup:
 	mon 7, PERSIAN
 	end_party
 
-	party GREGORY, "Gregory" ; Vermilion City Gym
+	party GREGORY, "Gregory", SCALED ; Vermilion City Gym
 	mon 7, PIKACHU
 	mon 7, MAREEP
+	mon 7, PLUSLE
+		tier 2
+	mon 7, MINUN
+		tier 3
 	hard
 	mon 8, PIKACHU
 	mon 8, MAREEP
 	mon 8, ELEKID
+	mon 8, PLUSLE
+		tier 2
+	mon 8, MINUN
+		tier 3
 	end_party
 
 	party ALFRED, "Alfred" ; Glitter Lighthouse - 2F
@@ -4521,22 +4737,38 @@ GentlemanGroup:
 	mon 7, NOCTOWL
 	end_party
 
-	party MOSSDEEP_CLIFF, "Cliff" ; Mossdeep Gym
+	party MOSSDEEP_CLIFF, "Cliff", SCALED ; Mossdeep Gym
 	mon 7, GIRAFARIG
 	mon 7, SPOINK
+	mon 7, MR__MIME
+		tier 2
+	mon 7, ABRA
+		tier 3
 	hard
 	mon 8, GIRAFARIG
 	mon 8, SPOINK
 	mon 8, NATU
+	mon 8, MR__MIME
+		tier 2
+	mon 8, ABRA
+		tier 3
 	end_party
 
-	party MOSSDEEP_NATE, "Nate" ; Mossdeep Gym
+	party MOSSDEEP_NATE, "Nate", SCALED ; Mossdeep Gym
 	mon 7, MR__MIME
 	mon 7, GRUMPIG
+	mon 7, GARDEVOIR
+		tier 2
+	mon 7, ARAICHU
+		tier 3
 	hard
 	mon 8, MR__MIME
 	mon 8, GRUMPIG
 	mon 8, XATU
+	mon 8, GARDEVOIR
+		tier 2
+	mon 8, ARAICHU
+		tier 3
 	end_party
 
 	party FACILITY_KANTO_5, "Alfred" ; challenge facility (intermediate; levels: the facility level)
@@ -4564,22 +4796,38 @@ GentlemanGroup:
 	end_list_items
 
 SkierGroup:
-	party ROXANNE, "Roxanne" ; Mahogany Town Gym
+	party ROXANNE, "Roxanne", SCALED ; Mahogany Town Gym
 	mon 7, JYNX
 	mon 7, GLALIE
+	mon 7, SEEL
+		tier 2
+	mon 7, SWINUB
+		tier 3
 	hard
 	mon 8, JYNX
 	mon 8, GLALIE
 	mon 8, SNEASEL
+	mon 8, SEEL
+		tier 2
+	mon 8, SWINUB
+		tier 3
 	end_party
 
-	party CLARISSA, "Clarissa" ; Mahogany Town Gym
+	party CLARISSA, "Clarissa", SCALED ; Mahogany Town Gym
 	mon 7, DEWGONG
 	mon 7, SNEASEL
+	mon 7, DELIBIRD
+		tier 2
+	mon 7, SHELLDER
+		tier 3
 	hard
 	mon 8, DEWGONG
 	mon 8, SNEASEL
 	mon 8, PILOSWINE
+	mon 8, DELIBIRD
+		tier 2
+	mon 8, SHELLDER
+		tier 3
 	end_party
 
 	party MIRA, "Mira" ; Route47
@@ -4748,20 +4996,36 @@ TeacherGroup:
 		moves WATERFALL, OUTRAGE, FIRE_FANG, THUNDER_FANG
 	end_party
 
-	party SOOTOPOLIS_DAPHNE, "Daphne" ; Sootopolis Gym
+	party SOOTOPOLIS_DAPHNE, "Daphne", SCALED ; Sootopolis Gym
 	mon 6, GYARADOS
 	mon 6, PELIPPER
+	mon 6, SHELLDER
+		tier 2
+	mon 6, HORSEA
+		tier 3
 	hard
 	mon 8, GYARADOS
 	mon 8, PELIPPER
+	mon 8, SHELLDER
+		tier 2
+	mon 8, HORSEA
+		tier 3
 	end_party
 
-	party SOOTOPOLIS_BRIANNA, "Brianna" ; Sootopolis Gym
+	party SOOTOPOLIS_BRIANNA, "Brianna", SCALED ; Sootopolis Gym
 	mon 6, CLAMPERL
 	mon 6, CLOYSTER
+	mon 6, GOLDEEN
+		tier 2
+	mon 6, SQUIRTLE
+		tier 3
 	hard
 	mon 8, GOREBYSS
 	mon 8, CLOYSTER
+	mon 8, GOLDEEN
+		tier 2
+	mon 8, SQUIRTLE
+		tier 3
 	end_party
 
 	party FACILITY_JOHTO_3, "Ms. Ito" ; challenge facility intro (levels: the facility level)
@@ -4922,33 +5186,53 @@ BugCatcherGroup:
 	mon 3, WEEDLE
 	end_party
 
-	party BUG_CATCHER_BENNY, "Benny" ; Azalea Town Gym
+	party BUG_CATCHER_BENNY, "Benny", SCALED ; Azalea Town Gym
 	mon 6, KAKUNA
 	mon 6, METAPOD
 	mon 6, BEEDRILL
+	mon 6, SILCOON
+		tier 2
+	mon 6, PARAS
+		tier 3
 	hard
 	mon 7, KAKUNA
 	mon 7, METAPOD
 	mon 7, BEEDRILL
+	mon 7, SILCOON
+		tier 2
+	mon 7, PARAS
+		tier 3
 	end_party
 
-	party AL, "Al" ; Azalea Town Gym
+	party AL, "Al", SCALED ; Azalea Town Gym
 	mon 3, SILCOON
 	mon 5, BEAUTIFLY
 	mon 5, DUSTOX
+	mon 5, WEEDLE
+		tier 2
+	mon 5, PARAS
+		tier 3
 	hard
 	mon 5, SILCOON
 	mon 7, BEAUTIFLY
 	mon 7, DUSTOX
+	mon 7, WEEDLE
+		tier 2
+	mon 7, PARAS
+		tier 3
 	end_party
 
-	party JOSH, "Josh" ; Azalea Town Gym (elite)
+	party JOSH, "Josh", SCALED ; Azalea Town Gym (elite)
 	mon 7, PARAS
 		ability EFFECT_SPORE
 	mon 7, YANMA
 		ability SPEED_BOOST
 	mon 7, VENONAT
 		ability TINTED_LENS
+	mon 7, BEAUTIFLY
+		tier 2
+	mon 7, SPINARAK
+		tier 3
 	hard
 	mon 8, PARAS
 		ability EFFECT_SPORE
@@ -4957,6 +5241,10 @@ BugCatcherGroup:
 	mon 8, VENOMOTH
 		item SILVERPOWDER
 		ability TINTED_LENS
+	mon 8, BEAUTIFLY
+		tier 2
+	mon 8, SPINARAK
+		tier 3
 	end_party
 
 	party ARNIE, "Arnie" ; Route 35
@@ -4979,13 +5267,21 @@ BugCatcherGroup:
 	mon 6, PARAS
 	end_party
 
-	party MAUVILLE_ANGELO, "Angelo" ; Mauville City Gym
+	party MAUVILLE_ANGELO, "Angelo", SCALED ; Mauville City Gym
 	mon 7, MAGNEMITE
 	mon 7, MAREEP
+	mon 7, ELECTRIKE
+		tier 2
+	mon 7, VOLTORB
+		tier 3
 	hard
 	mon 8, MAGNEMITE
 	mon 8, MAREEP
 	mon 8, PIKACHU
+	mon 8, ELECTRIKE
+		tier 2
+	mon 8, VOLTORB
+		tier 3
 	end_party
 
 	party ROUTE102_RICK, "Rick" ; Route 102
@@ -5381,13 +5677,17 @@ SwimmerMGroup:
 		ability SAP_SIPPER
 	end_party
 
-	party PARKER, "Parker" ; Cerulean City Gym (elite)
+	party PARKER, "Parker", SCALED ; Cerulean City Gym (elite)
 	mon 6, HORSEA
 		ability SWIFT_SWIM
 	mon 6, WARTORTLE
 		ability TORRENT
 	mon 6, SHELLDER
 		ability SHELL_ARMOR
+	mon 6, PSYDUCK
+		tier 2
+	mon 6, GOLDEEN
+		tier 3
 	hard
 	mon 7, HORSEA
 		ability SWIFT_SWIM
@@ -5396,6 +5696,10 @@ SwimmerMGroup:
 		ability TORRENT
 	mon 7, SHELLDER
 		ability SHELL_ARMOR
+	mon 7, PSYDUCK
+		tier 2
+	mon 7, GOLDEEN
+		tier 3
 	end_party
 
 	party ROUTE108_TONY, "Tony" ; Route108
@@ -5608,13 +5912,21 @@ SailorGroup:
 	mon 6, TENTACOOL
 	end_party
 
-	party DEWFORD_BRENDEN, "Brenden" ; Dewford City Gym
+	party DEWFORD_BRENDEN, "Brenden", SCALED ; Dewford City Gym
 	mon 5, MACHOP
 	mon 6, MANKEY
+	mon 6, MEDITITE
+		tier 2
+	mon 6, TORCHIC
+		tier 3
 	hard
 	mon 6, MACHOP
 	mon 7, MANKEY
 	mon 6, TYROGUE
+	mon 7, MEDITITE
+		tier 2
+	mon 7, TORCHIC
+		tier 3
 	end_party
 
 	party ROUTE109_HUEY, "Huey" ; Route 109
@@ -5903,32 +6215,52 @@ GuitaristGroup:
 	mon 7, ELECTIVIRE
 	end_party
 
-	party VINCENT, "Vincent" ; Vermilion City Gym
+	party VINCENT, "Vincent", SCALED ; Vermilion City Gym
 	mon 7, PLUSLE
 	mon 7, MINUN
+	mon 7, ELEKID
+		tier 2
+	mon 7, VOLTORB
+		tier 3
 	hard
 	mon 8, PLUSLE
 	mon 8, MINUN
 	mon 8, ELECTRIKE
+	mon 8, ELEKID
+		tier 2
+	mon 8, VOLTORB
+		tier 3
 	end_party
 
-	party MAUVILLE_KIRK, "Kirk" ; Mauville City Gym
+	party MAUVILLE_KIRK, "Kirk", SCALED ; Mauville City Gym
 	mon 7, ELECTRIKE
 	mon 7, VOLTORB
 	mon 7, HVOLTORB
+	mon 7, PICHU
+		tier 2
+	mon 7, MINUN
+		tier 3
 	hard
 	mon 7, ELECTRIKE
 	mon 7, VOLTORB2
 	mon 8, HELECTRODE
+	mon 8, PICHU
+		tier 2
+	mon 8, MINUN
+		tier 3
 	end_party
 
-	party MAUVILLE_SHAWN, "Shawn" ; Mauville City Gym (elite)
+	party MAUVILLE_SHAWN, "Shawn", SCALED ; Mauville City Gym (elite)
 	mon 7, MINUN
 		ability VOLT_ABSORB
 	mon 7, ELEKID
 		ability STATIC
 	mon 8, KOTORA
 		ability INTIMIDATE
+	mon 8, VOLTORB
+		tier 2
+	mon 8, CHINCHOU
+		tier 3
 	hard
 	mon 8, MINUN
 		ability VOLT_ABSORB
@@ -5937,6 +6269,10 @@ GuitaristGroup:
 		ability STATIC
 	mon 9, KOTORA
 		ability INTIMIDATE
+	mon 9, VOLTORB
+		tier 2
+	mon 9, CHINCHOU
+		tier 3
 	end_party
 
 	party ROUTE110_JOSEPH, "Joseph" ; Route 110
@@ -6063,11 +6399,15 @@ HikerGroup:
 		ability STURDY
 	end_party
 
-	party RUSTBORO_MARC, "Marc" ; Rustboro Gym (elite)
+	party RUSTBORO_MARC, "Marc", SCALED ; Rustboro Gym (elite)
 	mon 6, LILEEP
 		ability STORM_DRAIN
 	mon 6, ANORITH
 		ability BATTLE_ARMOR
+	mon 6, GEODUDE
+		tier 2
+	mon 6, ARON
+		tier 3
 	hard
 	mon 7, LILEEP
 		ability STORM_DRAIN
@@ -6076,6 +6416,10 @@ HikerGroup:
 		ability BATTLE_ARMOR
 	mon 6, ONIX
 		ability STURDY
+	mon 7, GEODUDE
+		tier 2
+	mon 7, ARON
+		tier 3
 	end_party
 
 	party ROUTE116_CLARK, "Clark" ; Route 116 (elite)
@@ -6100,13 +6444,21 @@ HikerGroup:
 	mon 7, DUNSPARCE
 	end_party
 
-	party LAVARIDGE_ELI, "Eli" ; Lavaridge Gym
+	party LAVARIDGE_ELI, "Eli", SCALED ; Lavaridge Gym
 	mon 7, NUMEL
 	mon 7, HOUNDOUR
+	mon 7, SLUGMA
+		tier 2
+	mon 7, CYNDAQUIL
+		tier 3
 	hard
 	mon 8, FLAREON
 	mon 8, HOUNDOUR
 	mon 8, NUMEL
+	mon 8, SLUGMA
+		tier 2
+	mon 8, CYNDAQUIL
+		tier 3
 	end_party
 
 	party MOON_MARCOS, "Marcos" ; Mount Moon (elite)
@@ -6395,54 +6747,94 @@ FirebreatherGroup:
 	mon 6, WEEZING
 	end_party
 
-	party LAVARIDGE_JEFF, "Jeff" ; Lavaridge Gym
+	party LAVARIDGE_JEFF, "Jeff", SCALED ; Lavaridge Gym
 	mon 6, SLUGMA
 	mon 7, QUILAVA
 	mon 7, PONYTA
+	mon 7, HOUNDOUR
+		tier 2
+	mon 7, FLAREON
+		tier 3
 	hard
 	mon 7, SLUGMA
 	mon 8, QUILAVA
 	mon 8, PONYTA
+	mon 8, HOUNDOUR
+		tier 2
+	mon 8, FLAREON
+		tier 3
 	end_party
 
-	party LAVARIDGE_JACE, "Jace" ; Lavaridge Gym
+	party LAVARIDGE_JACE, "Jace", SCALED ; Lavaridge Gym
 	mon 6, CHARMELEON
 	mon 7, PONYTA
 	mon 8, MAGBY
+	mon 8, SLUGMA
+		tier 2
+	mon 8, CYNDAQUIL
+		tier 3
 	hard
 	mon 7, PONYTA
 	mon 7, MAGBY
 	mon 8, CHARMELEON
+	mon 8, SLUGMA
+		tier 2
+	mon 8, CYNDAQUIL
+		tier 3
 	end_party
 
-	party LAVARIDGE_COLE, "Cole" ; Lavaridge Gym
+	party LAVARIDGE_COLE, "Cole", SCALED ; Lavaridge Gym
 	mon 6, MAGBY
 	mon 7, VULPIX
 	mon 8, NUMEL
+	mon 8, CYNDAQUIL2
+		tier 2
+	mon 8, HONOBEA
+		tier 3
 	hard
 	mon 6, MAGBY
 	mon 8, VULPIX
 	mon 8, NUMEL
+	mon 8, CYNDAQUIL2
+		tier 2
+	mon 8, HONOBEA
+		tier 3
 	end_party
 
-	party LAVARIDGE_AXLE, "Axle" ; Lavaridge Gym
+	party LAVARIDGE_AXLE, "Axle", SCALED ; Lavaridge Gym
 	mon 6, MAGBY
 	mon 7, VULPIX
 	mon 8, COMBUSKEN
+	mon 8, HONOBEA
+		tier 2
+	mon 8, LITTEN
+		tier 3
 	hard
 	mon 8, MAGBY
 	mon 9, VULPIX
 	mon 10, COMBUSKEN
+	mon 10, HONOBEA
+		tier 2
+	mon 10, LITTEN
+		tier 3
 	end_party
 
-	party LAVARIDGE_KEEGAN, "Keegan" ; Lavaridge Gym
+	party LAVARIDGE_KEEGAN, "Keegan", SCALED ; Lavaridge Gym
 	mon 6, VULPIX
 	mon 7, QUILAVA2
 	mon 8, BORUBEA
+	mon 8, NUMEL
+		tier 2
+	mon 8, HOUNDOUR
+		tier 3
 	hard
 	mon 7, VULPIX
 	mon 8, QUILAVA2
 	mon 8, BORUBEA
+	mon 8, NUMEL
+		tier 2
+	mon 8, HOUNDOUR
+		tier 3
 	end_party
 
 	party ROUTE111_HAYDEN, "Hayden" ; Route 111 (elite)
@@ -6521,13 +6913,17 @@ JugglerGroup:
 	mon 6, MACHAMP
 	end_party
 
-	party HORTON, "Horton" ; Vermilion City Gym (elite)
+	party HORTON, "Horton", SCALED ; Vermilion City Gym (elite)
 	mon 7, VOLTORB
 		ability STATIC
 	mon 7, VOLTORB2
 		ability STATIC
 	mon 7, HVOLTORB
 		ability SPEED_BOOST
+	mon 7, MINUN
+		tier 2
+	mon 7, ELECTRIKE
+		tier 3
 	hard
 	mon 8, VOLTORB
 		item MAGNET
@@ -6536,6 +6932,10 @@ JugglerGroup:
 		ability STATIC
 	mon 8, HVOLTORB
 		ability SPEED_BOOST
+	mon 8, MINUN
+		tier 2
+	mon 8, ELECTRIKE
+		tier 3
 	end_party
 
 	end_list_items
@@ -6547,13 +6947,21 @@ BlackbeltGroup:
 	mon 7, MACHAMP
 	end_party
 
-	party NOB, "Nob" ; Cianwood City Gym
+	party NOB, "Nob", SCALED ; Cianwood City Gym
 	mon 6, MANKEY
 	mon 7, MACHOKE
+	mon 7, HERACROSS
+		tier 2
+	mon 7, MAKUHITA
+		tier 3
 	hard
 	mon 7, MANKEY
 	mon 8, MACHOKE
 	mon 7, MEDITITE
+	mon 8, HERACROSS
+		tier 2
+	mon 8, MAKUHITA
+		tier 3
 	end_party
 
 	party KIYO, "Kiyo" ; Mt. Mortar
@@ -6602,13 +7010,17 @@ BlackbeltGroup:
 		moves PSYCHO_CUT, NIGHT_SLASH, LEAF_BLADE, SWORDS_DANCE
 	end_party
 
-	party LUNG, "Lung" ; Cianwood City Gym (elite)
+	party LUNG, "Lung", SCALED ; Cianwood City Gym (elite)
 	mon 7, PRIMEAPE
 		ability GUTS
 	mon 7, MACHOKE
 		ability GUTS
 	mon 8, HERACROSS
 		ability GUTS
+	mon 8, MEDITITE
+		tier 2
+	mon 8, MAKUHITA
+		tier 3
 	hard
 	mon 8, PRIMEAPE
 		ability GUTS
@@ -6617,6 +7029,10 @@ BlackbeltGroup:
 	mon 9, HERACROSS
 		item SCOPE_LENS
 		ability GUTS
+	mon 9, MEDITITE
+		tier 2
+	mon 9, MAKUHITA
+		tier 3
 	end_party
 
 	party WAI, "Wai" ; Fast Ship
@@ -6625,22 +7041,38 @@ BlackbeltGroup:
 	mon 6, MACHAMP
 	end_party
 
-	party DEWFORD_TAKAO, "Takao" ; Dewford City Gym
+	party DEWFORD_TAKAO, "Takao", SCALED ; Dewford City Gym
 	mon 6, MACHOP
 	mon 6, TYROGUE
+	mon 6, MEDITITE
+		tier 2
+	mon 6, TORCHIC
+		tier 3
 	hard
 	mon 7, MACHOP
 	mon 7, TYROGUE
 	mon 7, MANKEY
+	mon 7, MEDITITE
+		tier 2
+	mon 7, TORCHIC
+		tier 3
 	end_party
 
-	party DEWFORD_CRISTIAN, "Cristian" ; Dewford City Gym
+	party DEWFORD_CRISTIAN, "Cristian", SCALED ; Dewford City Gym
 	mon 6, MANKEY
 	mon 6, MEDITITE
+	mon 6, TYROGUE
+		tier 2
+	mon 6, TORCHIC
+		tier 3
 	hard
 	mon 7, MANKEY
 	mon 7, MEDITITE
 	mon 7, MACHOP
+	mon 7, TYROGUE
+		tier 2
+	mon 7, TORCHIC
+		tier 3
 	end_party
 
 	party FACILITY_KANTO_8, "Kiyo" ; challenge facility (hard; levels: the facility level)
@@ -6907,7 +7339,7 @@ PsychicGroup:
 		ability TINTED_LENS
 	end_party
 
-	party FRANKLIN, "Franklin" ; Saffron City Gym
+	party FRANKLIN, "Franklin", SCALED ; Saffron City Gym
 	random_mons 3, PSYCHIC_EASY
 	end_party
 
@@ -6993,7 +7425,7 @@ PsychicGroup:
 	mon 9, FARIGIRAF
 	end_party
 
-	party JARED, "Jared" ; Saffron City Gym
+	party JARED, "Jared", SCALED ; Saffron City Gym
 	random_mons 3, PSYCHIC_EASY
 	end_party
 
@@ -7019,48 +7451,80 @@ PsychicGroup:
 		ability SYNCHRONIZE
 	end_party
 
-	party MOSSDEEP_PRESTON, "Preston" ; Mossdeep Gym (elite)
+	party MOSSDEEP_PRESTON, "Preston", SCALED ; Mossdeep Gym (elite)
 	mon 8, KADABRA
 		ability INNER_FOCUS
 	mon 8, GARDEVOIR
 		ability SYNCHRONIZE
+	mon 8, SPOINK
+		tier 2
+	mon 8, NATU
+		tier 3
 	hard
 	mon 9, KADABRA
 		item TWISTEDSPOON
 		ability INNER_FOCUS
 	mon 9, GARDEVOIR
 		ability SYNCHRONIZE
+	mon 9, SPOINK
+		tier 2
+	mon 9, NATU
+		tier 3
 	end_party
 
-	party MOSSDEEP_BLAKE, "Blake" ; Mossdeep Gym
+	party MOSSDEEP_BLAKE, "Blake", SCALED ; Mossdeep Gym
 	mon 7, ARAICHU
 	mon 7, CHIMECHO
+	mon 7, ABRA
+		tier 2
+	mon 7, GARDEVOIR
+		tier 3
 	hard
 	mon 8, ARAICHU
 	mon 9, CHIMECHO
+	mon 9, ABRA
+		tier 2
+	mon 9, GARDEVOIR
+		tier 3
 	end_party
 
-	party MOSSDEEP_NICHOLAS, "Nicholas" ; Mossdeep Gym
+	party MOSSDEEP_NICHOLAS, "Nicholas", SCALED ; Mossdeep Gym
 	mon 7, WOBBUFFET
 	mon 7, UNOWN
+	mon 7, ARAICHU
+		tier 2
+	mon 7, CHIMECHO
+		tier 3
 	hard
 	mon 9, WOBBUFFET
 	mon 9, UNOWN
+	mon 9, ARAICHU
+		tier 2
+	mon 9, CHIMECHO
+		tier 3
 	end_party
 
-	party MOSSDEEP_VIRGIL, "Virgil" ; Mossdeep Gym
+	party MOSSDEEP_VIRGIL, "Virgil", SCALED ; Mossdeep Gym
 	mon 7, EXEGGUTOR
 	mon 7, HYPNO
+	mon 7, WYNAUT
+		tier 2
+	mon 7, SLOWKING
+		tier 3
 	hard
 	mon 8, EXEGGUTOR
 	mon 9, HYPNO
+	mon 9, WYNAUT
+		tier 2
+	mon 9, SLOWKING
+		tier 3
 	end_party
 
-	party FRANKLIN2, "Franklin" ; Saffron City Gym
+	party FRANKLIN2, "Franklin", SCALED ; Saffron City Gym
 	random_mons 3, PSYCHIC_MEDIUM
 	end_party
 
-	party JARED2, "Jared" ; Saffron City Gym
+	party JARED2, "Jared", SCALED ; Saffron City Gym
 	random_mons 3, PSYCHIC_MEDIUM
 	end_party
 
@@ -7087,9 +7551,13 @@ PicnickerGroup:
 	mon 4, PONYTA
 	end_party
 
-	party CINDY, "Cindy" ; Fuschia City Gym
+	party CINDY, "Cindy", SCALED ; Fuschia City Gym
 	mon 10, VENOMOTH
 	mon 11, NIDOQUEEN
+	mon 11, DROWZEE
+		tier 2
+	mon 11, BULBASAUR
+		tier 3
 	end_party
 
 	party HOPE, "Hope" ; Route 04
@@ -7112,13 +7580,21 @@ PicnickerGroup:
 	mon 5, SKIPLOOM
 	end_party
 
-	party TANYA, "Tanya" ; Celadon City Gym
+	party TANYA, "Tanya", SCALED ; Celadon City Gym
 	mon 6, GLOOM
 	mon 7, LOMBRE
+	mon 7, EXEGGCUTE
+		tier 2
+	mon 7, SHROOMISH
+		tier 3
 	hard
 	mon 7, GLOOM
 	mon 8, LOMBRE
 	mon 7, SEEDOT
+	mon 8, EXEGGCUTE
+		tier 2
+	mon 8, SHROOMISH
+		tier 3
 	end_party
 
 	party ROUTE117_MARIA, "Maria" ; Route 117
@@ -7161,13 +7637,21 @@ PicnickerGroup:
 	mon 7, SWINUB
 	end_party
 
-	party FORTREE_ASHLEY, "Ashley" ; Fortree Gym
+	party FORTREE_ASHLEY, "Ashley", SCALED ; Fortree Gym
 	mon 7, SWABLU
 	mon 7, DELIBIRD
+	mon 7, BEAUTIFLY
+		tier 2
+	mon 7, NATU
+		tier 3
 	hard
 	mon 8, SWABLU
 	mon 8, DELIBIRD
 	mon 8, HOOTHOOT
+	mon 8, BEAUTIFLY
+		tier 2
+	mon 8, NATU
+		tier 3
 	end_party
 
 	party ROUTE112_CAROL, "Carol" ; Route 112
@@ -7250,9 +7734,13 @@ CamperGroup:
 	mon 7, DIGLETT
 	end_party
 
-	party BARRY, "Barry" ; Fuschia City Gym
+	party BARRY, "Barry", SCALED ; Fuschia City Gym
 	mon 10, ARBOK
 	mon 11, NIDOKING
+	mon 11, NIDORAN_F
+		tier 2
+	mon 11, ODDISH
+		tier 3
 	end_party
 
 	party LLOYD, "Lloyd" ; Route 25
@@ -7265,11 +7753,15 @@ CamperGroup:
 	mon 4, SANDSLASH
 	end_party
 
-	party JERRY, "Jerry" ; Pewter City Gym (elite)
+	party JERRY, "Jerry", SCALED ; Pewter City Gym (elite)
 	mon 2, KABUTO
 		ability SWIFT_SWIM
 	mon 2, ARON
 		ability STURDY
+	mon 2, GEODUDE
+		tier 2
+	mon 2, NOSEPASS
+		tier 3
 	hard
 	mon 3, KABUTO
 		ability SWIFT_SWIM
@@ -7278,6 +7770,10 @@ CamperGroup:
 	mon 3, ANORITH
 		item HARD_STONE
 		ability BATTLE_ARMOR
+	mon 3, GEODUDE
+		tier 2
+	mon 3, NOSEPASS
+		tier 3
 	end_party
 
 	party QUENTIN, "Quentin" ; Route 45
@@ -7319,13 +7815,21 @@ CamperGroup:
 	mon 8, MURKROW
 	end_party
 
-	party FORTREE_FLINT, "Flint" ; Fortree Gym
+	party FORTREE_FLINT, "Flint", SCALED ; Fortree Gym
 	mon 7, GOLBAT
 	mon 7, XATU
+	mon 7, DELIBIRD
+		tier 2
+	mon 7, HOOTHOOT
+		tier 3
 	hard
 	mon 8, CROBAT
 	mon 8, XATU
 	mon 8, SPEAROW
+	mon 8, DELIBIRD
+		tier 2
+	mon 8, HOOTHOOT
+		tier 3
 	end_party
 
 	party ROUTE112_LARRY, "Larry" ; Route 112
@@ -7683,23 +8187,39 @@ SageGroup:
 	mon 5, HOOTHOOT
 	end_party
 
-	party JEFFREY, "Jeffrey" ; Ecruteak City Gym
+	party JEFFREY, "Jeffrey", SCALED ; Ecruteak City Gym
 	mon 7, HAUNTER
 	mon 5, MISDREAVUS
+	mon 7, DUSKULL
+		tier 2
+	mon 7, SABLEYE
+		tier 3
 	hard
 	mon 8, HAUNTER
 	mon 7, MISDREAVUS
 	mon 7, SHUPPET
+	mon 8, DUSKULL
+		tier 2
+	mon 8, SABLEYE
+		tier 3
 	end_party
 
-	party PING, "Ping" ; Ecruteak City Gym
+	party PING, "Ping", SCALED ; Ecruteak City Gym
 	mon 7, GASTLY
 	mon 7, DUSKULL
 	mon 7, SHUPPET
+	mon 7, MISDREAVUS
+		tier 2
+	mon 7, SABLEYE
+		tier 3
 	hard
 	mon 8, GASTLY
 	mon 8, DUSKULL
 	mon 8, SHUPPET
+	mon 8, MISDREAVUS
+		tier 2
+	mon 8, SABLEYE
+		tier 3
 	end_party
 
 	party EDMOND, "Edmond" ; Sprout Tower - 2F
@@ -7777,23 +8297,35 @@ SageGroup:
 	end_list_items
 
 MediumGroup:
-	party MARTHA, "Martha" ; Ecruteak City Gym
+	party MARTHA, "Martha", SCALED ; Ecruteak City Gym
 	mon 5, GASTLY
 	mon 7, HAUNTER
 	mon 7, MISDREAVUS
+	mon 7, SHUPPET
+		tier 2
+	mon 7, DUSKULL
+		tier 3
 	hard
 	mon 6, GASTLY
 	mon 8, HAUNTER
 	mon 8, MISDREAVUS
+	mon 8, SHUPPET
+		tier 2
+	mon 8, DUSKULL
+		tier 3
 	end_party
 
-	party GRACE, "Grace" ; Ecruteak City Gym (elite)
+	party GRACE, "Grace", SCALED ; Ecruteak City Gym (elite)
 	mon 7, HAUNTER
 		ability LEVITATE
 	mon 7, SABLEYE
 		ability PRANKSTER
 	mon 7, BANETTE
 		ability INSOMNIA
+	mon 7, MISDREAVUS
+		tier 2
+	mon 7, DUSKULL
+		tier 3
 	hard
 	mon 8, HAUNTER
 		item SPELL_TAG
@@ -7802,13 +8334,17 @@ MediumGroup:
 		ability PRANKSTER
 	mon 8, BANETTE
 		ability INSOMNIA
+	mon 8, MISDREAVUS
+		tier 2
+	mon 8, DUSKULL
+		tier 3
 	end_party
 
-	party REBECCA, "Rebecca" ; Saffron City Gym
+	party REBECCA, "Rebecca", SCALED ; Saffron City Gym
 	random_mons 3, PSYCHIC_EASY
 	end_party
 
-	party DORIS, "Doris" ; Saffron City Gym
+	party DORIS, "Doris", SCALED ; Saffron City Gym
 	random_mons 3, PSYCHIC_EASY
 	end_party
 
@@ -7822,43 +8358,63 @@ MediumGroup:
 	mon 8, XATU
 	end_party
 
-	party REBECCA2, "Rebecca" ; Saffron City Gym
+	party REBECCA2, "Rebecca", SCALED ; Saffron City Gym
 	random_mons 3, PSYCHIC_MEDIUM
 	end_party
 
-	party DORIS2, "Doris" ; Saffron City Gym
+	party DORIS2, "Doris", SCALED ; Saffron City Gym
 	random_mons 3, PSYCHIC_MEDIUM
 	end_party
 
 	end_list_items
 
 BoarderGroup:
-	party RONALD, "Ronald" ; Mahogany Town Gym
+	party RONALD, "Ronald", SCALED ; Mahogany Town Gym
 	mon 7, DEWGONG
 	mon 7, DEWGONG
 	mon 7, DELIBIRD
+	mon 7, SHELLDER
+		tier 2
+	mon 7, SPHEAL
+		tier 3
 	hard
 	mon 8, DEWGONG
 	mon 8, DEWGONG
 	mon 8, DELIBIRD
+	mon 8, SHELLDER
+		tier 2
+	mon 8, SPHEAL
+		tier 3
 	end_party
 
-	party BRAD, "Brad" ; Mahogany Town Gym
+	party BRAD, "Brad", SCALED ; Mahogany Town Gym
 	mon 7, PILOSWINE
 	mon 7, PILOSWINE
+	mon 7, SMOOCHUM
+		tier 2
+	mon 7, SNEASEL
+		tier 3
 	hard
 	mon 8, PILOSWINE
 	mon 8, PILOSWINE
 	mon 8, GLALIE
+	mon 8, SMOOCHUM
+		tier 2
+	mon 8, SNEASEL
+		tier 3
 	end_party
 
-	party DOUGLAS, "Douglas" ; Mahogany Town Gym (elite)
+	party DOUGLAS, "Douglas", SCALED ; Mahogany Town Gym (elite)
 	mon 7, CLOYSTER
 		ability SHELL_ARMOR
 	mon 7, SEALEO
 		ability THICK_FAT
 	mon 8, DEWGONG
 		ability THICK_FAT
+	mon 8, SWINUB
+		tier 2
+	mon 8, DELIBIRD
+		tier 3
 	hard
 	mon 8, CLOYSTER
 		item NEVERMELTICE
@@ -7867,6 +8423,10 @@ BoarderGroup:
 		ability THICK_FAT
 	mon 9, DEWGONG
 		ability THICK_FAT
+	mon 9, SWINUB
+		tier 2
+	mon 9, DELIBIRD
+		tier 3
 	end_party
 
 	party BRODY, "Brody" ; Route47
@@ -8178,15 +8738,23 @@ KimonoGirlGroup:
 	end_list_items
 
 TwinsGroup:
-	party AMYANDMAY1, "Amy & May", DOUBLES ; Azalea Town Gym
+	party AMYANDMAY1, "Amy & May", DOUBLES, SCALED ; Azalea Town Gym
 	mon 7, SPINARAK
 	mon 7, LEDYBA
 	mon 7, VENONAT
+	mon 7, CATERPIE
+		tier 2
+	mon 7, WEEDLE
+		tier 3
 	hard
 	mon 8, SPINARAK
 	mon 8, LEDYBA
 	mon 8, VENONAT
 	mon 8, WURMPLE
+	mon 8, CATERPIE
+		tier 2
+	mon 8, WEEDLE
+		tier 3
 	end_party
 
 	party ANNANDANNE1, "Ann & Anne", DOUBLES ; Route 37
@@ -8194,14 +8762,22 @@ TwinsGroup:
 	mon 7, JIGGLYPUFF
 	end_party
 
-	party JOANDZOE1, "Jo & Zoe", DOUBLES ; Celadon City Gym
+	party JOANDZOE1, "Jo & Zoe", DOUBLES, SCALED ; Celadon City Gym
 	mon 7, WEEPINBELL
 	mon 7, GLOOM
 	mon 7, HOPPIP
+	mon 7, SEEDOT
+		tier 2
+	mon 7, PARAS
+		tier 3
 	hard
 	mon 8, WEEPINBELL
 	mon 8, VILEPLUME
 	mon 8, SKIPLOOM
+	mon 8, SEEDOT
+		tier 2
+	mon 8, PARAS
+		tier 3
 	end_party
 
 	party MEGANDPEG1, "Meg & Peg", DOUBLES ; S.S. Aqua
@@ -8324,20 +8900,36 @@ PokefanFGroup:
 	mon 7, DELCATTY
 	end_party
 
-	party SOOTOPOLIS_ANNIKA, "Annika" ; Sootopolos Gym
+	party SOOTOPOLIS_ANNIKA, "Annika", SCALED ; Sootopolos Gym
 	mon 6, SEADRA
 	mon 6, LUVDISC
+	mon 6, SQUIRTLE
+		tier 2
+	mon 6, SPHEAL
+		tier 3
 	hard
 	mon 7, SEADRA
 	mon 8, LUVDISC
+	mon 8, SQUIRTLE
+		tier 2
+	mon 8, SPHEAL
+		tier 3
 	end_party
 
-	party SOOTOPOLIS_BETHANY, "Bethany" ; Sootopolos Gym
+	party SOOTOPOLIS_BETHANY, "Bethany", SCALED ; Sootopolos Gym
 	mon 6, PELIPPER
 	mon 6, AZUMARILL
+	mon 6, SPHEAL
+		tier 2
+	mon 6, VAPOREON
+		tier 3
 	hard
 	mon 7, PELIPPER
 	mon 8, AZUMARILL
+	mon 8, SPHEAL
+		tier 2
+	mon 8, VAPOREON
+		tier 3
 	end_party
 
 	end_list_items
@@ -10211,11 +10803,15 @@ StevenGroup:
 
 
 BattleGirlGroup:
-	party DEWFORD_JOCELYN, "Jocelyn" ; Dewford City Gym (elite)
+	party DEWFORD_JOCELYN, "Jocelyn", SCALED ; Dewford City Gym (elite)
 	mon 6, COMBUSKEN
 		ability BLAZE
 	mon 6, MANKEY
 		ability GUTS
+	mon 6, MACHOP
+		tier 2
+	mon 6, TYROGUE
+		tier 3
 	hard
 	mon 7, COMBUSKEN
 		item SCOPE_LENS
@@ -10224,15 +10820,27 @@ BattleGirlGroup:
 		ability GUTS
 	mon 7, MEDITITE
 		ability INNER_FOCUS
+	mon 7, MACHOP
+		tier 2
+	mon 7, TYROGUE
+		tier 3
 	end_party
 
-	party LAVARIDGE_DANIELLE, "Dani" ; Lavaridge Gym
+	party LAVARIDGE_DANIELLE, "Dani", SCALED ; Lavaridge Gym
 	mon 7, PONYTA
 	mon 7, TORRACAT
+	mon 7, NUMEL
+		tier 2
+	mon 7, VULPIX
+		tier 3
 	hard
 	mon 8, PONYTA
 	mon 8, TORRACAT
 	mon 8, MAGBY
+	mon 8, NUMEL
+		tier 2
+	mon 8, VULPIX
+		tier 3
 	end_party
 
 	party ROUTE117_AISHA, "Aisha" ; Route 117 (elite)
@@ -10627,52 +11235,100 @@ ExplorerGroup:
 
 	PsychicFGroup:
 
-	party MOSSDEEP_MAURA, "Maura" ; Mossdeep Gym
+	party MOSSDEEP_MAURA, "Maura", SCALED ; Mossdeep Gym
 	mon 6, HYPNO
 	mon 7, KADABRA
+	mon 7, SLOWBRO
+		tier 2
+	mon 7, STARYU
+		tier 3
 	hard
 	mon 8, HYPNO
 	mon 9, KADABRA
+	mon 9, SLOWBRO
+		tier 2
+	mon 9, STARYU
+		tier 3
 	end_party
 
-	party MOSSDEEP_SAMANTHA, "Samantha" ; Mossdeep Gym
+	party MOSSDEEP_SAMANTHA, "Samantha", SCALED ; Mossdeep Gym
 	mon 6, SPOINK
 	mon 7, XATU
+	mon 7, BALTOY
+		tier 2
+	mon 7, SMOOCHUM
+		tier 3
 	hard
 	mon 8, SPOINK
 	mon 9, XATU
+	mon 9, BALTOY
+		tier 2
+	mon 9, SMOOCHUM
+		tier 3
 	end_party
 
-	party MOSSDEEP_MACEY, "Macey" ; Mossdeep Gym
+	party MOSSDEEP_MACEY, "Macey", SCALED ; Mossdeep Gym
 	mon 6, XATU
 	mon 7, SLOWKING
+	mon 7, GIRAFARIG
+		tier 2
+	mon 7, SPOINK
+		tier 3
 	hard
 	mon 8, XATU
 	mon 9, SLOWKING
+	mon 9, GIRAFARIG
+		tier 2
+	mon 9, SPOINK
+		tier 3
 	end_party
 
-	party MOSSDEEP_KATHLEEN, "Kathleen" ; Mossdeep Gym
+	party MOSSDEEP_KATHLEEN, "Kathleen", SCALED ; Mossdeep Gym
 	mon 6, SLOWBRO
 	mon 7, STARMIE
+	mon 7, SPOINK
+		tier 2
+	mon 7, NATU
+		tier 3
 	hard
 	mon 8, SLOWBRO
 	mon 9, STARMIE
+	mon 9, SPOINK
+		tier 2
+	mon 9, NATU
+		tier 3
 	end_party
 
-	party MOSSDEEP_SYLVIA, "Sylvia" ; Mossdeep Gym
+	party MOSSDEEP_SYLVIA, "Sylvia", SCALED ; Mossdeep Gym
 	mon 6, KIRLIA
 	mon 7, MEDICHAM
+	mon 7, MR__MIME
+		tier 2
+	mon 7, SPOINK
+		tier 3
 	hard
 	mon 8, KIRLIA
 	mon 9, MEDICHAM
+	mon 9, MR__MIME
+		tier 2
+	mon 9, SPOINK
+		tier 3
 	end_party
 
-	party MOSSDEEP_HANNAH, "Hannah" ; Mossdeep Gym
+	party MOSSDEEP_HANNAH, "Hannah", SCALED ; Mossdeep Gym
 	mon 6, CLAYDOL
 	mon 7, JYNX
+	mon 7, SPOINK
+		tier 2
+	mon 7, NATU
+		tier 3
 	hard
 	mon 8, CLAYDOL
 	mon 9, JYNX
+	mon 9, SPOINK
+		tier 2
+	mon 9, NATU
+		tier 3
 	end_party
 
 	party FACILITY_HOENN_7, "Mira" ; challenge facility (hard; levels: the facility level)
@@ -12051,13 +12707,21 @@ CoupleGroup:
 	mon 7, AZUMARILL
 	end_party
 
-	party LIAMANDMIA, "Liam & Mia", DOUBLES ; Pewter City Gym
+	party LIAMANDMIA, "Liam & Mia", DOUBLES, SCALED ; Pewter City Gym
 	mon 1, GEODUDE
 	mon 2, AGEODUDE
+	mon 2, ANORITH
+		tier 2
+	mon 2, KABUTO
+		tier 3
 	hard
 	mon 2, GEODUDE
 	mon 2, AGEODUDE
 	mon 3, NOSEPASS
+	mon 3, ANORITH
+		tier 2
+	mon 3, KABUTO
+		tier 3
 	end_party
 
 	end_list_items
@@ -12147,16 +12811,24 @@ SwimmersGroup:
 	mon 8, HUNTAIL
 	end_party
 
-	party DIANAANDBO, "Dana & Bo", DOUBLES ; Cerulean City Gym
+	party DIANAANDBO, "Dana & Bo", DOUBLES, SCALED ; Cerulean City Gym
 	mon 5, PSYDUCK
 	mon 5, GOLDEEN
 	mon 6, KRABBY
 	mon 6, MARILL
+	mon 6, SHELLDER
+		tier 2
+	mon 6, HORSEA
+		tier 3
 	hard
 	mon 6, PSYDUCK
 	mon 6, GOLDEEN
 	mon 7, KRABBY
 	mon 7, MARILL
+	mon 7, SHELLDER
+		tier 2
+	mon 7, HORSEA
+		tier 3
 	end_party
 
 	party KAIANDLEA, "Kai & Lea", DOUBLES ; Route 124
@@ -12332,7 +13004,7 @@ AceDuoGroup:
 		ability INTIMIDATE
 	end_party
 
-	party MIKEANDLIA, "Mike & Lia", DOUBLES ; Blackthorn City Gym
+	party MIKEANDLIA, "Mike & Lia", DOUBLES, SCALED ; Blackthorn City Gym
 	mon 7, DRAGONAIR
 		ability SHED_SKIN
 	mon 7, VIBRAVA
@@ -12341,6 +13013,10 @@ AceDuoGroup:
 		ability BLAZE
 	mon 7, SEADRA
 		ability SWIFT_SWIM
+	mon 7, AERODACTYL
+		tier 2
+	mon 7, MAGIKARP
+		tier 3
 	hard
 	mon 8, DRAGONAIR
 		item DRAGON_FANG
@@ -12353,9 +13029,11 @@ AceDuoGroup:
 		ability SWIFT_SWIM
 	mon 8, SHELGON
 		ability INTIMIDATE
+	mon 8, AERODACTYL
+		tier 2
 	end_party
 
-	party RAYANDLORI, "Ray & Lori", DOUBLES ; Petalburg Gym
+	party RAYANDLORI, "Ray & Lori", DOUBLES, SCALED ; Petalburg Gym
 	mon 8, DELCATTY
 		ability CUTE_CHARM
 	mon 8, PERSIAN
@@ -12364,6 +13042,10 @@ AceDuoGroup:
 		ability HASTE
 	mon 8, FEAROW
 		ability SNIPER
+	mon 8, DUNSPARCE
+		tier 2
+	mon 8, TAILLOW
+		tier 3
 	hard
 	mon 9, DELCATTY
 		ability CUTE_CHARM
@@ -12377,6 +13059,8 @@ AceDuoGroup:
 		ability SNIPER
 	mon 9, FARFETCH_D
 		ability SHARPNESS
+	mon 9, DUNSPARCE
+		tier 2
 	end_party
 
 	party KAIANDRIN, "Kai & Rin", DOUBLES ; title defense
@@ -12499,28 +13183,36 @@ FightersGroup:
 	mon 3, MAKUHITA
 	end_party
 
-	party LAOANDRIN, "Lao & Rin", DOUBLES ; Cianwood City Gym
+	party LAOANDRIN, "Lao & Rin", DOUBLES, SCALED ; Cianwood City Gym
 	mon 7, MAKUHITA
 	mon 7, MEDITITE
 	mon 7, MACHOKE
 	mon 7, MANKEY
+	mon 7, HERACROSS
+		tier 2
 	hard
 	mon 8, MAKUHITA
 	mon 8, MEDITITE
 	mon 8, MACHOKE
 	mon 8, PRIMEAPE
+	mon 8, HERACROSS
+		tier 2
 	end_party
 
-	party LAURAANDTY, "Lara & Ty", DOUBLES ; Dewford Gym
+	party LAURAANDTY, "Lara & Ty", DOUBLES, SCALED ; Dewford Gym
 	mon 6, MANKEY
 	mon 6, TYROGUE
 	mon 6, MEDITITE
 	mon 6, MACHOP
+	mon 6, TORCHIC
+		tier 2
 	hard
 	mon 7, MANKEY
 	mon 7, TYROGUE
 	mon 7, MEDITITE
 	mon 7, MACHOP
+	mon 7, TORCHIC
+		tier 2
 	end_party
 
 	end_list_items
@@ -12574,16 +13266,24 @@ BirdersGroup:
 	mon 8, FARFETCH_D
 	end_party
 
-	party JAREDANDED, "Jared & Ed", DOUBLES ; Fortree Gym
+	party JAREDANDED, "Jared & Ed", DOUBLES, SCALED ; Fortree Gym
 	mon 7, FEAROW
 	mon 7, SKIPLOOM
 	mon 7, PIDGEOT
 	mon 7, NOCTOWL
+	mon 7, ZUBAT
+		tier 2
+	mon 7, NATU
+		tier 3
 	hard
 	mon 8, FEAROW
 	mon 8, JUMPLUFF
 	mon 8, PIDGEOT
 	mon 8, NOCTOWL
+	mon 8, ZUBAT
+		tier 2
+	mon 8, NATU
+		tier 3
 	end_party
 
 	end_list_items
@@ -12851,16 +13551,24 @@ PupilsGroup:
 	mon 6, VOLBEAT
 	end_party
 
-	party BENANDVIV, "Ben & Viv", DOUBLES ; Mauville Gym
+	party BENANDVIV, "Ben & Viv", DOUBLES, SCALED ; Mauville Gym
 	mon 7, PIKACHU
 	mon 7, CHINCHOU
 	mon 7, ELECTRIKE
 	mon 7, MINUN
+	mon 7, ELEKID
+		tier 2
+	mon 7, KOTORA
+		tier 3
 	hard
 	mon 8, RAICHU
 	mon 8, CHINCHOU
 	mon 8, ELECTRIKE
 	mon 8, MINUN
+	mon 8, ELEKID
+		tier 2
+	mon 8, KOTORA
+		tier 3
 	end_party
 
 	end_list_items

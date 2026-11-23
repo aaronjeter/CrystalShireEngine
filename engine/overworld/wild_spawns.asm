@@ -31,6 +31,15 @@ DEF WILD_SPAWN_MIN_DISTANCE EQU 3 ; from the player, in steps
 DEF WILD_SPAWN_OFFSCREEN_DISTANCE EQU 6 ; a respawn appears outside the screen
 DEF WILD_SPAWN_RESPAWN_STEPS EQU 64 ; steps between respawns once the map has been full (0: spawns only on map load)
 DEF WILD_SPAWN_TOPUP_STEPS EQU 16 ; steps between respawns until then
+; a respawn's spot search runs a few cells at a time in the frames' spare time
+DEF WILD_SPAWN_SEARCH_CELLS EQU 4 ; BuildSpawnArea cells visited per frame at most
+DEF WILD_SPAWN_SEARCH_LAST_LINE EQU 96 ; ...and only while rLY is above this
+DEF WILD_SPAWN_SEARCH_MAX_GAP EQU 8 ; frames between two slices: more, and the search starts over
+DEF WILD_SPAWN_PLACE_MAX_GAP EQU 32 ; frames from the search's end to the step that places the spawn
+; wSpawnSearching values
+DEF SPAWN_SEARCH_NONE EQU 0
+DEF SPAWN_SEARCH_RUNNING EQU 1
+DEF SPAWN_SEARCH_DONE EQU 2
 DEF WILD_SPAWN_FILLED_F EQU 7 ; wWildSpawnSteps: the map has had its cap since the player came in
 assert WILD_SPAWN_RESPAWN_STEPS < 1 << WILD_SPAWN_FILLED_F
 DEF WILD_SPAWN_RADIUS EQU $22 ; wander radius: 2 steps each way
@@ -67,6 +76,7 @@ SpawnWildMons::
 	ld [wWildSpawnTouched], a
 	ld [wWildSpawnSpotted], a
 	ld [wWildSpawnSteps], a
+	ld [wSpawnSearching], a
 	call CheckWildSpawnsAllowed
 	ret c
 	ld a, WILD_SPAWN_MIN_DISTANCE
@@ -516,7 +526,14 @@ WildSpawnStep::
 ; CountStep: a new spawn comes in from outside the screen while the map has
 ; room for one: every WILD_SPAWN_TOPUP_STEPS steps until the map has been full
 ; since the player came in, then every WILD_SPAWN_RESPAWN_STEPS steps.
+; The spot search (BuildSpawnArea) runs in the following frames' spare time
+; (WildSpawnSearchSlice); the spawn comes in on the first step after it ends.
 if WILD_SPAWN_RESPAWN_STEPS
+	ld a, [wSpawnSearching]
+	cp SPAWN_SEARCH_RUNNING
+	ret z
+	cp SPAWN_SEARCH_DONE
+	jr z, .place
 	ld hl, wWildSpawnSteps
 	inc [hl]
 	ld a, [hl]
@@ -535,15 +552,78 @@ if WILD_SPAWN_RESPAWN_STEPS
 	ret c
 	call CheckWildSpawnRoom
 	jr c, .filled
+	jp StartWildSpawnSearch
+
+.place
+; The search's buffers in WRAM bank 6 are shared with menus, battles and
+; other screens: after a longer gap, search again from here.
+	ldh a, [hVBlankCounter]
+	ld hl, wSpawnSearchTime
+	sub [hl]
+	cp WILD_SPAWN_PLACE_MAX_GAP
+	jp nc, StartWildSpawnSearch
+	xor a ; SPAWN_SEARCH_NONE
+	ld [wSpawnSearching], a
+	call CheckWildSpawnsAllowed
+	ret c
+	call CheckWildSpawnRoom
+	jr c, .filled
 	ld a, WILD_SPAWN_OFFSCREEN_DISTANCE
 	ld [wWildSpawnMinDistance], a
-	call BuildSpawnArea
 	jp AddWildSpawn
 
 .filled
 	ld hl, wWildSpawnSteps
 	set WILD_SPAWN_FILLED_F, [hl]
 endc
+	ret
+
+StartWildSpawnSearch:
+	ld a, SPAWN_SEARCH_RUNNING
+	ld [wSpawnSearching], a
+	ldh a, [hVBlankCounter]
+	ld [wSpawnSearchTime], a
+	jp BuildSpawnArea.Start
+
+WildSpawnSearchSlice:
+; CheckWildSpawnTouch: visit a few cells of a running spot search while the
+; frame has time left (rLY above WILD_SPAWN_SEARCH_LAST_LINE, no VBlank yet).
+	ld a, [wSpawnSearching]
+	cp SPAWN_SEARCH_RUNNING
+	ret nz
+	ldh a, [hVBlankCounter]
+	ld c, a
+	ld hl, wSpawnSearchTime
+	sub [hl]
+	ld [hl], c
+	cp WILD_SPAWN_SEARCH_MAX_GAP
+	jr c, .go
+; something else ran meanwhile and may have used the buffers: start over
+	call BuildSpawnArea.Start
+	ldh a, [hVBlankCounter]
+	ld c, a
+.go
+	ld b, WILD_SPAWN_SEARCH_CELLS
+.loop
+	ldh a, [hVBlankCounter]
+	cp c
+	ret nz
+	ldh a, [rLY]
+	cp WILD_SPAWN_SEARCH_LAST_LINE
+	ret nc
+	push bc
+	call BuildSpawnArea.Cell
+	pop bc
+	jr c, .done
+	dec b
+	jr nz, .loop
+	ret
+
+.done
+	ld a, SPAWN_SEARCH_DONE
+	ld [wSpawnSearching], a
+	ldh a, [hVBlankCounter]
+	ld [wSpawnSearchTime], a
 	ret
 
 FindFreeSpawnSlot:
@@ -587,7 +667,14 @@ BuildSpawnArea:
 ; List in wSpawnAreaSpots (up to MAX_SPAWN_SPOTS) the spawn ground within
 ; SPAWN_AREA_SIZE / 2 tiles of the player that the player can walk to: a
 ; flood fill from the player over land tiles (ledges both ways), not through
-; warps and pits.
+; warps and pits. .Start and .Cell also do it a cell at a time.
+	call .Start
+.loop
+	call .Cell
+	jr nc, .loop
+	ret
+
+.Start:
 	ld a, [wXCoord]
 	add 4 - SPAWN_AREA_SIZE / 2
 	ld [wSpawnAreaLeft], a
@@ -616,7 +703,10 @@ BuildSpawnArea:
 	ld a, TRUE
 	ld [wSpawnAreaMarks + SPAWN_AREA_SIZE / 2 * SPAWN_AREA_SIZE + SPAWN_AREA_SIZE / 2], a
 	spawn_vars_wram
-.loop
+	ret
+
+.Cell:
+; Visit the next queued cell; carry if the queue is empty.
 	ld hl, wSpawnQueueHead
 	ld a, [wSpawnQueueTail]
 	cp [hl]
@@ -624,7 +714,10 @@ BuildSpawnArea:
 	ld a, [wSpawnQueueTail + 1]
 	inc hl
 	cp [hl]
-	ret z
+	jr nz, .next
+	scf
+	ret
+
 .next
 	ld hl, wSpawnQueueHead
 	ld a, [hli]
@@ -670,7 +763,8 @@ BuildSpawnArea:
 	inc e
 	inc e
 	call .Neighbor
-	jr .loop
+	and a
+	ret
 
 .Neighbor:
 ; d, e = a cell of the area; keeps d, e
@@ -1392,6 +1486,7 @@ CheckWildSpawnTouch::
 ; move a teleporter or burrower to a new spot. Returns carry and
 ; a = PLAYEREVENT_MAPSCRIPT if it does. Also shows or takes away a spawn's
 ; emote.
+	call WildSpawnSearchSlice
 	call WildSpawnEmote
 	ld hl, wWildSpawnTouched
 	ld a, [hl]

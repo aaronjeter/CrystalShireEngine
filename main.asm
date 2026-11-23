@@ -811,3 +811,8 @@ INCLUDE "engine/events/wonder_trade.asm"
 SECTION "Vs Seeker", ROMX
 
 INCLUDE "engine/events/vs_seeker.asm"
+
+
+SECTION "Scaled Trainers", ROMX
+
+INCLUDE "engine/battle/scaled_trainers.asm"

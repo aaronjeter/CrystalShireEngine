@@ -206,6 +206,22 @@ def case_nuzlocke():
           list(g.rd('wNuzlockeAreaFlags', 12)) != a0, f'enc={enc}')
 
 
+def step_after_search(g):
+    """The spot search for a respawn runs in the frames after the counting step; the spawn
+    comes in on the next step once it's done (wSpawnSearching = SPAWN_SEARCH_DONE)."""
+    for _ in range(30):
+        if g.rd('wSpawnSearching') == 2:
+            break
+        g.frames(10)
+    done = g.rd('wSpawnSearching') == 2
+    for dd in 'LRUD':
+        p = (g.rd('wXCoord'), g.rd('wYCoord'))
+        g.press(dd, hold=10, after=24)
+        if (g.rd('wXCoord'), g.rd('wYCoord')) != p:
+            break
+    return done
+
+
 def case_topup():
     """Until a map has been full, a spawn comes in every WILD_SPAWN_TOPUP_STEPS steps."""
     g = setup('ROUTE_29', 20, 10, follower=False)
@@ -220,6 +236,7 @@ def case_topup():
         g.press(dd, hold=10, after=24)
         if (g.rd('wXCoord'), g.rd('wYCoord')) != p:
             break
+    check('top-up: the spot search ends in the frames after the step', step_after_search(g))
     for _ in range(12):
         new = [x for x in spawns(g) if x['obj'] not in left]
         if new:
@@ -518,7 +535,8 @@ def case_respawn():
         g.press(dd, hold=10, after=24)
         if (g.rd('wXCoord'), g.rd('wYCoord')) != p:
             break
-    for _ in range(12):  # the respawn comes in when the step's done
+    check('respawn: the spot search ends in the frames after the step', step_after_search(g))
+    for _ in range(12):  # the respawn comes in when the next step's done
         now = spawns(g)
         new = [x for x in now if x['obj'] not in left]
         if new:

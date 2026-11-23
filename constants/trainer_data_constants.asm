@@ -57,6 +57,15 @@ DEF NUM_SAI_TIERS EQU const_value - 1
 	const_def 4
 	const TRAINERTYPE_DOUBLE_F ; 4: a double battle (claude/double-battles-plan.md)
 	const TRAINERTYPE_HARD_F   ; 5: a Hard mode team follows the Normal one
+	const TRAINERTYPE_SCALED_F ; 6: the party grows with progress (engine/battle/scaled_trainers.asm)
+
+; A trainer Pokemon's level byte: the level (added to wBaseLevel) in the low bits,
+; and the badge tier it joins from (`tier` in the party macros) in the top two:
+; 0 (always), 2 (TIER2_BADGES or more badges) or 3 (TIER3_BADGES or more).
+DEF TRAINER_LEVEL_MASK EQU %00111111
+DEF TRAINER_TIER_MASK  EQU %11000000
+DEF TIER2_BADGES EQU 4
+DEF TIER3_BADGES EQU 14
 
 ; Per-Pokemon flags byte in trainer parties and random lists: which optional
 ; fields follow the level and species, in this order (macros/data.asm)

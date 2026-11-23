@@ -186,8 +186,11 @@ MACRO _pm_flush
 			db .__rl_mon_end{d:_rl_mons} - .__rl_mon{d:_rl_mons}
 .__rl_mon{d:_rl_mons}
 		endc
-		db _pm_flags, _pm_level
+		db _pm_flags, _pm_level | (_pm_tier << 6)
 		dw _pm_species
+		if !_pm_tier && !_rl_open
+			DEF _party_untiered += 1
+		endc
 		if _pm_flags & (1 << MONFLAG_ITEM_F)
 			dw _pm_item
 		endc
@@ -222,7 +225,10 @@ MACRO _pm_flush
 ENDM
 
 MACRO party
-; party ID, "NAME"[, DOUBLES]
+; party ID, "NAME"[, DOUBLES][, SCALED]
+; SCALED: the party grows with progress (engine/battle/scaled_trainers.asm): its
+; Pokemon evolve as far as their level allows, and a random team draws more
+; Pokemon at the higher badge tiers.
 ; Data: dw size (after this word), "NAME@", flags (TRAINERTYPE_*_F), the team,
 ; then the Hard team if the HARD flag is set. A team is Pokemon ending in
 ; END_PARTY_MONS, or RANDOM_TEAM, count, list.
@@ -239,12 +245,16 @@ MACRO party
 	db _party_flags{d:_party_n}
 	REDEF _party_name EQUS "\1"
 	DEF _party_flags = 0
-	if _NARG == 3
-		assert !STRCMP("\3", "DOUBLES"), "party \1: unknown option \3"
-		DEF _party_flags |= 1 << TRAINERTYPE_DOUBLE_F
-	else
-		assert _NARG == 2, "party \1: expected an ID, a name and optionally DOUBLES"
-	endc
+	assert _NARG >= 2 && _NARG <= 4, "party \1: expected an ID, a name and options (DOUBLES, SCALED)"
+	for _i, 3, _NARG + 1
+		if !STRCMP("\<_i>", "DOUBLES")
+			DEF _party_flags |= 1 << TRAINERTYPE_DOUBLE_F
+		elif !STRCMP("\<_i>", "SCALED")
+			DEF _party_flags |= 1 << TRAINERTYPE_SCALED_F
+		else
+			fail "party \1: unknown option \<_i>"
+		endc
+	endr
 	DEF _party_open = 1
 	DEF _party_hard = 0
 	REDEF _party_team EQUS ""
@@ -253,6 +263,7 @@ ENDM
 
 MACRO _team_start
 	DEF _party_mons = 0
+	DEF _party_untiered = 0
 	DEF _party_random = 0
 	DEF _party_boss = 0
 ENDM
@@ -266,7 +277,11 @@ MACRO _team_end
 	endc
 	assert _party_mons <= PARTY_LENGTH, "{_party_name}{_party_team} has {d:_party_mons} Pokemon (1-6)"
 	if _party_flags & (1 << TRAINERTYPE_DOUBLE_F)
-		assert _party_mons >= 2, "doubles party {_party_name}{_party_team} has fewer than 2 Pokemon"
+		if _party_random
+			assert _party_mons >= 2, "doubles party {_party_name}{_party_team} has fewer than 2 Pokemon"
+		else
+			assert _party_untiered >= 2, "doubles party {_party_name}{_party_team} has fewer than 2 Pokemon without a tier"
+		endc
 	endc
 ENDM
 
@@ -305,6 +320,18 @@ MACRO mon
 	DEF _pm_flags = 0
 	DEF _pm_level = \1
 	DEF _pm_species = \2
+	DEF _pm_tier = 0
+	assert (\1) >= 0 && (\1) <= TRAINER_LEVEL_MASK, "{_pm_where}: the level must be 0-{d:TRAINER_LEVEL_MASK}"
+ENDM
+
+MACRO tier
+; tier 2 or 3: the Pokemon joins the team only from that badge tier (TIER2_BADGES or
+; TIER3_BADGES total badges); not in random lists, nor on a team's lead
+	assert _pm_open && !_rl_open, "tier: only after a party's mon line"
+	assert (\1) == 2 || (\1) == 3, "{_pm_where}: tier is 2 or 3"
+	assert !_pm_tier, "{_pm_where}: tier given twice"
+	assert _party_mons > 1, "{_pm_where}: a team's lead can't have a tier"
+	DEF _pm_tier = \1
 ENDM
 
 MACRO _pm_field

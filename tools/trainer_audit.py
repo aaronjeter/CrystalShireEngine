@@ -191,6 +191,8 @@ class Data:
                 team['mons'][-1]['shiny'] = True
             elif kw == 'boss_mon':
                 team['mons'][-1]['boss'] = a[0]
+            elif kw == 'tier':
+                team['mons'][-1]['tier'] = int(a[0])
             else:
                 raise ValueError(f'{where}:{n}: {code}')
         return team
@@ -208,6 +210,7 @@ class Data:
             m = re.match(r'party (\w+), "([^"]*)"(.*)', code)
             if m:
                 cur = {'id': m.group(1), 'name': m.group(2), 'doubles': 'DOUBLES' in m.group(3),
+                       'scaled': 'SCALED' in m.group(3),
                        'class': self.group_class[group], 'line': n, 'comment': com,
                        'normal': [], 'hard': None}
                 body = cur['normal']
@@ -302,6 +305,9 @@ class Data:
 # badge count -> wLevelMod (engine/events/std_scripts.asm, .CalculateLevels)
 LEVEL_MOD = [0, 5, 10, 15, 20, 25, 30, 35, 40, 42, 44, 46, 48, 50, 52, 54, 56,
              57, 58, 59, 60, 61, 62, 63, 64]
+
+# badge tiers of `tier 2` / `tier 3` Pokemon (TIER2_BADGES, TIER3_BADGES)
+TIER_BADGES = {2: 4, 3: 14}
 
 def base_level(badges):
     return 5 + LEVEL_MOD[min(badges, 24)]
@@ -429,7 +435,7 @@ def team_findings(d, p, team, mode, band):
         mons = []
     else:
         mons = team['mons']
-        size = len(mons)
+        size = len([m for m in mons if 'tier' not in m])  # the size rules apply before the badge tiers
     playtester = p['id'] in PLAYTESTER_PARTIES or p['id'] in WORLD_CUP_PARTIES  # World Cup: 6 allowed
     if t == 'route' and size == 1 and not playtester:
         out.append((None, f'{mode}: 1 Pokemon (route trainers have 2-3)'))
@@ -442,6 +448,8 @@ def team_findings(d, p, team, mode, band):
     base = base_level(band) if band is not None else None
     for i, m in enumerate(mons):
         lvl = (base + m['level']) if base is not None else None
+        if lvl is not None and m.get('tier'):  # a tier Pokemon is shown at its tier's first badge count
+            lvl = base_level(max(band, TIER_BADGES[m['tier']])) + m['level']
         s = m['species']
         # policies (user, Nov 1): route trainers strict (moves and evolution); elites may have
         # moves early; bosses may also break a rule occasionally (shown as "rule break");
@@ -450,6 +458,8 @@ def team_findings(d, p, team, mode, band):
             for e in evo_status(d, s, lvl):
                 if e.startswith('over-evolved') and t in ('boss', 'elite'):
                     continue
+                if e.startswith('could be') and p.get('scaled'):
+                    continue  # SCALED parties evolve by level in the game
                 out.append((i, f'{mode}: {s} L{lvl}: {e}'))
         for mv in m.get('moves', []):
             st = move_status(d, s, lvl if lvl is not None else 100, mv)

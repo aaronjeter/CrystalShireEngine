@@ -2559,7 +2559,7 @@ NEXTU
 ; 16-bit wram
 	ds 3
 wTrainerMonFlags:: db ; ReadTrainerMon: MONFLAG_* of the Pokemon being read
-	ds 1
+wScaledMonEvolved:: db ; ReadTrainerMon: TRUE if a scaled party's Pokemon evolved (its listed moves are skipped)
 wOtherTrainerType:: db
 wTrainerGroupBank:: db
 wRandomTrainerNumPokemon:: db
@@ -3454,6 +3454,8 @@ wSpawnEmoteKind:: db ; ...and the emote (EMOTE_*)
 wSpawnEmoteObject:: db ; the map object showing an emote, or 0
 wSpawnEmoteTimer:: db ; frames until the emote goes away
 wWildSpawnMove:: db ; the map object of a teleporter or burrower moving to a new spot, or 0
+wSpawnSearching:: db ; SPAWN_SEARCH_* (WildSpawnStep's spot search)
+wSpawnSearchTime:: db ; hVBlankCounter at the search's last slice or its end
 
 
 SECTION "Overworld Weather RAM", WRAMX, BANK[1]

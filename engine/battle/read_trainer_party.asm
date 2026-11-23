@@ -59,6 +59,9 @@ ReadTrainerParty:
 	call GetNextTrainerDataByte
 	ld [wRandomTrainerTotalPokemon], a
 	push hl ; the list's first entry
+	ld a, [wOtherTrainerType]
+	bit TRAINERTYPE_SCALED_F, a
+	call nz, .ScaledCount
 .start_random
 	ld hl, wRandomTrainerRandomNumbers
 	ld a, [wRandomTrainerTotalPokemon]
@@ -98,6 +101,49 @@ ReadTrainerParty:
 	jr nz, .start_random
 	pop hl
 	jmp ComputeTrainerReward
+
+.ScaledCount:
+; a scaled random team draws one more Pokemon per badge tier above the first,
+; up to the list's size and PARTY_LENGTH
+	call GetTrainerBadgeTier
+	dec a
+	ld b, a
+	ld a, [wRandomTrainerNumPokemon]
+	add b
+	cp PARTY_LENGTH + 1
+	jr c, .count_fits_party
+	ld a, PARTY_LENGTH
+.count_fits_party
+	ld b, a
+	ld a, [wRandomTrainerTotalPokemon]
+	cp b
+	jr c, .got_count
+	ld a, b
+.got_count
+	ld [wRandomTrainerNumPokemon], a
+	ret
+
+GetTrainerBadgeTier:
+; a = the badge tier (1-3) that scaled parties and `tier` Pokemon go by: 2 from
+; TIER2_BADGES total badges, 3 from TIER3_BADGES. Preserves bc, de, hl.
+	push bc
+	push de
+	push hl
+	ld hl, wBadges
+	ld b, 3 ; Johto, Kanto and Hoenn badges
+	call CountSetBits
+	pop hl
+	pop de
+	pop bc
+	cp TIER2_BADGES
+	ld a, 1
+	ret c
+	ld a, [wNumSetBits]
+	cp TIER3_BADGES
+	ld a, 2
+	ret c
+	inc a
+	ret
 
 FindTrainerParty:
 ; hl = the party of trainer class c, ID b (after its size word), wTrainerGroupBank =
@@ -157,6 +203,12 @@ SkipTrainerTeam:
 	cp END_PARTY_MONS
 	ret z
 	ld b, a ; flags
+	call SkipTrainerMonFields
+	call GetNextTrainerDataByte
+	jr .mon
+
+SkipTrainerMonFields:
+; hl = past the Pokemon whose flags (b) were just read: its level, species and fields
 	inc hl ; level
 	inc hl ; species
 	inc hl
@@ -196,11 +248,9 @@ SkipTrainerTeam:
 	jr nz, .nickname
 .no_nickname
 	bit MONFLAG_BOSS_F, b
-	jr z, .next
+	ret z
 	inc hl
-.next
-	call GetNextTrainerDataByte
-	jr .mon
+	ret
 
 ReadTrainerMon:
 ; Adds the Pokemon at hl (bank wTrainerGroupBank) to the OT party: flags, level,
@@ -212,8 +262,27 @@ ReadTrainerMon:
 	ret z
 	ld [wTrainerMonFlags], a
 
-; the level is added to wBaseLevel; a Cup battle uses the level cap
+; a Pokemon with a tier mark joins only from that badge tier
 	call GetNextTrainerDataByte
+	ld b, a
+	and TRAINER_TIER_MASK
+	jr z, .in_tier
+	rlca
+	rlca
+	ld c, a
+	call GetTrainerBadgeTier
+	cp c
+	jr nc, .in_tier
+	dec hl
+	ld a, [wTrainerMonFlags]
+	ld b, a
+	call SkipTrainerMonFields
+	jr ReadTrainerMon
+
+.in_tier
+; the level is added to wBaseLevel; a Cup battle uses the level cap
+	ld a, b
+	and TRAINER_LEVEL_MASK
 	ld b, a
 	ld a, [wBaseLevel]
 	add b
@@ -226,6 +295,15 @@ ReadTrainerMon:
 .got_level
 
 	call GetNextTrainerDataWord
+; a scaled party's Pokemon evolves as far as its level allows
+	ld a, [wOtherTrainerType]
+	bit TRAINERTYPE_SCALED_F, a
+	ld a, FALSE
+	jr z, .got_species
+	farcall ScaledTrainerEvolve
+	sbc a ; TRUE (-1) if it evolved
+.got_species
+	ld [wScaledMonEvolved], a
 	push hl
 	ld h, d
 	ld l, e
@@ -528,6 +606,10 @@ ReadTrainerMon:
 
 .Moves:
 ; count, then the moves; the other slots are cleared. Then the PP.
+; A scaled Pokemon that evolved skips them and keeps its default moves.
+	ld a, [wScaledMonEvolved]
+	and a
+	jr nz, .SkipMoves
 	ld bc, MON_MOVES
 	call TrainerMonField
 	call GetNextTrainerDataByte
@@ -589,6 +671,20 @@ ReadTrainerMon:
 	dec b
 	jr nz, .pp_loop
 	pop hl
+	ret
+
+.SkipMoves:
+; past the count and the moves; clears the moves flag so the default moves stay
+	call GetNextTrainerDataByte
+	add a
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld a, [wTrainerMonFlags]
+	res MONFLAG_MOVES_F, a
+	ld [wTrainerMonFlags], a
 	ret
 
 TrainerMonField:
@@ -699,6 +795,7 @@ SetTrainerBattleLevel:
 	cp RANDOM_TEAM
 	jr z, .got_level
 	call GetNextTrainerDataByte ; the lead's level (added to wBaseLevel)
+	and TRAINER_LEVEL_MASK
 	ld b, a
 .got_level
 	ld a, [wBaseLevel]
