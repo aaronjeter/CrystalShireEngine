@@ -52,7 +52,7 @@ wMusicID:: dw
 wMusicBank:: db
 wNoiseSampleAddress:: dw
 wNoiseSampleDelay:: db
-	ds 1 ; unused (wFlyingWithHMItem moved out of audio RAM)
+wSoundSpeedTick:: db ; frames left to skip before the next sound update (Sound Speed 2x/3x)
 wMusicNoiseSampleSet:: db
 wSFXNoiseSampleSet:: db
 

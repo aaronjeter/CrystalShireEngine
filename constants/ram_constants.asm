@@ -55,6 +55,7 @@ DEF TEXT_DELAY_MASK EQU %111
 	const BATTLE_SHIFT   ; 6
 	const BATTLE_SCENE   ; 7
 
+DEF TEXT_DELAY_INSTANT EQU %000 ; 0
 DEF TEXT_DELAY_FAST EQU %001 ; 1
 DEF TEXT_DELAY_MED  EQU %011 ; 3
 DEF TEXT_DELAY_SLOW EQU %101 ; 5
@@ -90,8 +91,15 @@ DEF GBPRINTER_DARKEST  EQU $7f
 	const TRAINER_DOUBLES ; 2 (1 = trainer battles are double battles, when the trainer has 2+ Pokémon)
 	const EXP_SHARE_OFF   ; 3 (0 = the party's other Pokémon get a share of the EXP and the EVs)
 	const NUZLOCKE_ON     ; 4 (1 = Nuzlocke mode: engine/events/nuzlocke.asm)
+	const SOUND_SPEED_F   ; 5-6 (0 = 1x, 1 = 2x, 2 = 3x: sound slowed down and lowered for a sped-up emulator)
+DEF SOUND_SPEED_MASK EQU %11 << SOUND_SPEED_F
 
 DEF NUM_NUZLOCKE_AREA_BYTES EQU 32 ; wNuzlockeAreaFlags: one bit per landmark
+; NuzlockeSignIcon results, also the characters the place-name sign draws as icons
+	const_def
+	const NAME_SIGN_NO_ICON   ; 0
+	const NAME_SIGN_ICON_OPEN ; 1: the area's catch is open
+	const NAME_SIGN_ICON_USED ; 2: the area's catch is used
 DEF NUZLOCKE_GRAVEYARD_BOX EQU 13 ; Nuzlocke mode: boxes 13 to NUM_BOXES hold fainted Pokémon
 
 ; wNuzlockeEncounter::

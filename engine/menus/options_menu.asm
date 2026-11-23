@@ -14,8 +14,9 @@ DEF OPT_PAGE2 EQU const_value ; first option on page 2
 	const OPT_DIFFICULTY    ; 10
 	const OPT_LEVEL_CAPS    ; 11
 	const OPT_NUZLOCKE      ; 12
-	const OPT_CANCEL2       ; 13
-DEF NUM_OPTIONS EQU const_value ; 14
+	const OPT_SOUND_SPEED   ; 13
+	const OPT_CANCEL2       ; 14
+DEF NUM_OPTIONS EQU const_value ; 15
 
 _Option:
 	call ClearJoypad
@@ -106,6 +107,8 @@ StringOptionsPage2:
 	db "        :<LF>"
 	db "Nuzlocke<LF>"
 	db "        :<LF>"
+	db "Sound Speed<LF>"
+	db "        :<LF>"
 	db "Cancel@"
 
 Options_DrawPage:
@@ -177,12 +180,14 @@ GetOptionPointer:
 	dw Options_Difficulty
 	dw Options_LevelCaps
 	dw Options_Nuzlocke
+	dw Options_SoundSpeed
 	dw Options_Cancel
 
 	const_def
-	const OPT_TEXT_SPEED_FAST ; 0
-	const OPT_TEXT_SPEED_MED  ; 1
-	const OPT_TEXT_SPEED_SLOW ; 2
+	const OPT_TEXT_SPEED_INSTANT ; 0
+	const OPT_TEXT_SPEED_FAST    ; 1
+	const OPT_TEXT_SPEED_MED     ; 2
+	const OPT_TEXT_SPEED_SLOW    ; 3
 
 Options_TextSpeed:
 	call GetTextSpeed
@@ -194,7 +199,7 @@ Options_TextSpeed:
 	ld a, c ; right pressed
 	cp OPT_TEXT_SPEED_SLOW
 	jr c, .Increase
-	ld c, OPT_TEXT_SPEED_FAST - 1
+	ld c, OPT_TEXT_SPEED_INSTANT - 1
 
 .Increase:
 	inc c
@@ -233,10 +238,12 @@ Options_TextSpeed:
 
 .Strings:
 ; entries correspond to OPT_TEXT_SPEED_* constants
+	dw .Inst
 	dw .Fast
 	dw .Mid
 	dw .Slow
 
+.Inst: db "Inst@"
 .Fast: db "Fast@"
 .Mid:  db "Mid @"
 .Slow: db "Slow@"
@@ -246,6 +253,7 @@ GetTextSpeed:
 ; with previous/next TEXT_DELAY_* values in d/e
 	ld a, [wOptions]
 	and TEXT_DELAY_MASK
+	jr z, .instant
 	cp TEXT_DELAY_SLOW
 	jr z, .slow
 	cp TEXT_DELAY_FAST
@@ -255,14 +263,19 @@ GetTextSpeed:
 	lb de, TEXT_DELAY_FAST, TEXT_DELAY_SLOW
 	ret
 
+.instant
+	ld c, OPT_TEXT_SPEED_INSTANT
+	lb de, TEXT_DELAY_SLOW, TEXT_DELAY_FAST
+	ret
+
 .slow
 	ld c, OPT_TEXT_SPEED_SLOW
-	lb de, TEXT_DELAY_MED, TEXT_DELAY_FAST
+	lb de, TEXT_DELAY_MED, TEXT_DELAY_INSTANT
 	ret
 
 .fast
 	ld c, OPT_TEXT_SPEED_FAST
-	lb de, TEXT_DELAY_SLOW, TEXT_DELAY_MED
+	lb de, TEXT_DELAY_INSTANT, TEXT_DELAY_MED
 	ret
 
 Options_BattleScene:
@@ -640,6 +653,49 @@ Options_LevelCaps:
 	text "Turn off level"
 	line "caps for good?"
 	done
+
+Options_SoundSpeed:
+; SOUND_SPEED_F bits in wOptions2: 1x, 2x or 3x (for a sped-up emulator)
+	ld hl, wOptions2
+	ldh a, [hJoyPressed]
+	bit D_LEFT_F, a
+	jr nz, .LeftPressed
+	bit D_RIGHT_F, a
+	jr z, .Display
+	ld a, [hl]
+	and SOUND_SPEED_MASK
+	add 1 << SOUND_SPEED_F
+	cp 3 << SOUND_SPEED_F
+	jr c, .Save
+	xor a
+	jr .Save
+
+.LeftPressed:
+	ld a, [hl]
+	and SOUND_SPEED_MASK
+	jr nz, .Decrease
+	ld a, 3 << SOUND_SPEED_F
+.Decrease:
+	sub 1 << SOUND_SPEED_F
+.Save:
+	ld e, a
+	ld a, [hl]
+	and ~SOUND_SPEED_MASK
+	or e
+	ld [hl], a
+	xor a
+	ld [wSoundSpeedTick], a
+.Display:
+	ld a, [hl]
+	and SOUND_SPEED_MASK
+	swap a
+	rrca
+	add "1"
+	hlcoord 11, 13
+	ld [hli], a
+	ld [hl], "x"
+	and a
+	ret
 
 Options_Cancel:
 	ldh a, [hJoyPressed]

@@ -78,6 +78,23 @@ MusicOff:
 
 _UpdateSound::
 ; called once per frame
+	; with Sound Speed 2x/3x, update only every 2nd/3rd frame
+	ld a, [wOptions2]
+	and SOUND_SPEED_MASK
+	jr z, .every_frame
+	swap a
+	rrca
+	ld e, a ; frames to skip
+	ld hl, wSoundSpeedTick
+	ld a, [hl]
+	and a
+	jr z, .update
+	dec [hl]
+	ret
+
+.update
+	ld [hl], e
+.every_frame
 	; no use updating audio if it's not playing
 	ld a, [wMusicPlaying]
 	and a
@@ -206,6 +223,7 @@ _UpdateSound::
 	ret
 
 UpdateChannels:
+	call SoundSpeedFrequency
 	ld hl, .ChannelFunctions
 	ld a, [wCurChannel]
 	maskbits NUM_CHANNELS
@@ -285,6 +303,9 @@ UpdateChannels:
 	ldh [rNR11], a
 	ld a, [wCurTrackFrequency]
 	ldh [rNR13], a
+	ld a, [wCurTrackFrequency + 1]
+	and $7f ; no restart
+	ldh [rNR14], a
 	ret
 
 .ch1_rest
@@ -337,6 +358,9 @@ UpdateChannels:
 	ldh [rNR21], a
 	ld a, [wCurTrackFrequency]
 	ldh [rNR23], a
+	ld a, [wCurTrackFrequency + 1]
+	and $7f ; no restart
+	ldh [rNR24], a
 	ret
 
 .ch2_rest
@@ -372,6 +396,9 @@ UpdateChannels:
 	ret z
 	ld a, [wCurTrackFrequency]
 	ldh [rNR33], a
+	ld a, [wCurTrackFrequency + 1]
+	and $7f ; no restart
+	ldh [rNR34], a
 	ret
 
 .ch3_rest
@@ -475,6 +502,134 @@ UpdateChannels:
 	ldh [rNR44], a
 	ret
 
+SoundSpeedFrequency:
+; With Sound Speed 2x/3x, lower wCurTrackFrequency (the value about to be
+; written to the hardware) so it sounds right when the emulator runs 2x/3x fast:
+; square and wave channels get their period multiplied by 2 or 3, the noise
+; channel its clock divided by 2 or about 3.
+	ld a, [wCurChannel]
+	and 3
+	cp CHAN4
+	jr z, .noise
+.square
+	call .GetMultiplier
+	ret z
+	push bc
+	ld b, a
+	; hl = period = $800 - frequency
+	ld a, [wCurTrackFrequency]
+	cpl
+	ld l, a
+	ld a, [wCurTrackFrequency + 1]
+	cpl
+	and %111
+	ld h, a
+	inc hl
+	ld d, h
+	ld e, l
+.multiply
+	add hl, de
+	dec b
+	jr nz, .multiply
+	ld a, h
+	cp HIGH($800)
+	jr c, .in_range
+	ld hl, $800 ; the lowest frequency
+.in_range
+	; frequency = $800 - period
+	dec hl
+	ld a, l
+	cpl
+	ld [wCurTrackFrequency], a
+	ld a, h
+	cpl
+	and %111
+	ld h, a
+	ld a, [wCurTrackFrequency + 1]
+	and ~%111
+	or h
+	ld [wCurTrackFrequency + 1], a
+	pop bc
+	ret
+
+.noise
+; rNR43: clock shift (bits 4-7), width (bit 3), divider code (bits 0-2)
+	call .GetMultiplier
+	ret z
+	push bc
+	ld b, a
+	ld a, [wCurTrackFrequency]
+	ld c, a
+	dec b
+	jr nz, .noise_3x
+	add $10 ; shift + 1: half the clock
+	jr nc, .noise_cap
+	ld a, $f0
+	jr .noise_cap
+
+.noise_3x
+	; a new divider code and shift change per divider code
+	and %111
+	add LOW(.Noise3x)
+	ld l, a
+	adc HIGH(.Noise3x)
+	sub l
+	ld h, a
+	ld b, [hl]
+	ld a, c
+	and %11111000
+	ld c, a
+	ld a, b
+	and %111
+	or c ; the new divider code
+	ld c, a
+	ld a, b
+	and $f0
+	add c ; shift + (change + 1)
+	jr nc, .no_overflow
+	ld a, c
+	or $f0
+	jr .noise_cap
+
+.no_overflow
+	sub $10
+	jr nc, .noise_cap
+	; a shift below 0: the nearest setting without it
+	ld a, c
+	and %11111000
+	or 1
+.noise_cap
+	; shifts 14 and 15 don't clock the noise at all
+	cp $e0
+	jr c, .noise_done
+	and $0f
+	or $d0
+.noise_done
+	ld [wCurTrackFrequency], a
+	pop bc
+	ret
+
+.GetMultiplier:
+; a = 1 (2x) or 2 (3x), z for 1x
+	ld a, [wOptions2]
+	and SOUND_SPEED_MASK
+	ret z
+	swap a
+	rrca
+	ret
+
+.Noise3x:
+; per divider code: (shift change + 1) << 4 | new divider code; the divider
+; codes 0-7 divide by 0.5, 1, 2, ..., 7
+	db $03 ; 0.5 x 3 = 1.5: 3, shift - 1
+	db $13 ; 1 x 3 = 3
+	db $16 ; 2 x 3 = 6
+	db $25 ; 3 x 3 = 9 ~ 5, shift + 1 (10)
+	db $26 ; 4 x 3 = 12: 6, shift + 1
+	db $27 ; 5 x 3 = 15 ~ 7, shift + 1 (14)
+	db $35 ; 6 x 3 = 18 ~ 5, shift + 2 (20)
+	db $35 ; 7 x 3 = 21 ~ 5, shift + 2 (20)
+
 _CheckSFX:
 ; return carry if any sfx channels are active
 	ld hl, wChannel5Flags1
@@ -527,8 +682,15 @@ PlayDanger:
 	ld a, [hli]
 	ldh [rNR12], a
 	ld a, [hli]
+	ld [wCurTrackFrequency], a
+	ld a, [hl]
+	ld [wCurTrackFrequency + 1], a
+	push de
+	call SoundSpeedFrequency.square
+	pop de
+	ld a, [wCurTrackFrequency]
 	ldh [rNR13], a
-	ld a, [hli]
+	ld a, [wCurTrackFrequency + 1]
 	ldh [rNR14], a
 
 .increment

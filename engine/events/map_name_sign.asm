@@ -234,6 +234,23 @@ LoadMapNameSignGFX:
 	ld a, [wCurLandmark]
 	ld e, a
 	farcall GetLandmarkName
+	; Nuzlocke mode: a space and the area's catch icon after the name
+	ld a, [wCurLandmark]
+	farcall NuzlockeSignIcon
+	and a
+	jr z, .got_name
+	ld c, a
+	ld hl, wStringBuffer1
+.find_end
+	ld a, [hli]
+	cp "@"
+	jr nz, .find_end
+	dec hl
+	ld a, " "
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld [hl], "@"
 .got_name
 	; c = length of landmark name
 	ld c, 0
@@ -287,6 +304,8 @@ LoadMapNameSignGFX:
 .continue
 	; save position in landmark name
 	push hl
+	cp NAME_SIGN_ICON_USED + 1
+	jr c, .icon
 	; spaces are unique
 	cp "¯"
 	jr z, .space
@@ -321,6 +340,7 @@ LoadMapNameSignGFX:
 	push hl
 	call GetOpaque1bppFontTile
 	pop hl
+.next_tile
 	; increment position in vram
 	ld bc, LEN_2BPP_TILE
 	add hl, bc
@@ -330,6 +350,44 @@ LoadMapNameSignGFX:
 	; restore hl = position in landmark name
 	pop hl
 	jr .loop
+
+.icon
+	; a = NAME_SIGN_ICON_*: its tile from NameSignIcons
+	dec a
+	add a
+	add a
+	add a
+	add LOW(NameSignIcons)
+	ld l, a
+	adc HIGH(NameSignIcons)
+	sub l
+	ld h, a
+	call SwapHLDE
+	push hl
+	lb bc, BANK(NameSignIcons), 1
+	call GetOpaque1bpp
+	pop hl
+	jr .next_tile
+
+NameSignIcons:
+; NAME_SIGN_ICON_OPEN: a Poké Ball (the area's catch is still open)
+	db %00111100
+	db %01111110
+	db %11111111
+	db %11100111
+	db %10011001
+	db %10000001
+	db %01000010
+	db %00111100
+; NAME_SIGN_ICON_USED: a hollow, crossed-out ball (the catch is used)
+	db %00111100
+	db %01000010
+	db %10100101
+	db %10011001
+	db %10011001
+	db %10100101
+	db %01000010
+	db %00111100
 
 JournalBannerText:
 	db "Journal updated!@"

@@ -90,6 +90,51 @@ GetNuzlockeArea::
 	ld c, a
 	jmp GetWorldMapLocation
 
+NuzlockeSignIcon::
+; For landmark a's place-name sign: a = NAME_SIGN_ICON_OPEN (the area's catch is
+; open), NAME_SIGN_ICON_USED, or NAME_SIGN_NO_ICON (Nuzlocke mode off, no
+; Poké Ball yet, or no wild Pokémon there).
+	ld c, a
+	ld a, [wOptions2]
+	bit NUZLOCKE_ON, a
+	jr z, .none
+	ld a, [wNumBalls]
+	and a
+	jr z, .none
+	ld a, c
+	srl a
+	srl a
+	srl a
+	ld e, a
+	ld d, 0
+	ld hl, NuzlockeEncounterLandmarks
+	add hl, de
+	ld a, c
+	and %111
+	inc a
+	ld b, a
+	ld a, [hl]
+.bit
+	rrca
+	dec b
+	jr nz, .bit
+	jr nc, .none
+	ld a, c
+	ld b, CHECK_FLAG
+	call NuzlockeAreaFlagAction
+	ld a, c
+	and a
+	ld a, NAME_SIGN_ICON_USED
+	ret nz
+	ld a, NAME_SIGN_ICON_OPEN
+	ret
+
+.none
+	ld a, NAME_SIGN_NO_ICON
+	ret
+
+INCLUDE "data/wild/nuzlocke_encounter_landmarks.asm"
+
 NuzlockeAreaFlagAction::
 ; Area a's "used" flag: b = RESET_FLAG, SET_FLAG or CHECK_FLAG (c = result).
 	ld e, a

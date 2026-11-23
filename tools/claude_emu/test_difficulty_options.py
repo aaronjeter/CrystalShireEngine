@@ -57,7 +57,7 @@ def open_page2(g, ups):
 def case_difficulty():
     g = Game(ROM, SYM, STATE)
     g.wr('wHardMode', 1); set_flag(g, 'EVENT_HARDMODE_ENABLED', False)
-    open_page2(g, 4)  # Cancel, Nuzlocke, Level Caps, Difficulty
+    open_page2(g, 5)  # Cancel, Sound Speed, Nuzlocke, Level Caps, Difficulty
     before = row(g, ROW_DIFFICULTY)
     g.press('R', after=20)
     hard = (g.rd('wHardMode'), flag(g, 'EVENT_HARDMODE_ENABLED'), row(g, ROW_DIFFICULTY))
@@ -73,7 +73,7 @@ def case_level_caps():
     for ans in ('no', 'yes'):
         g = Game(ROM, SYM, STATE)
         set_flag(g, 'EVENT_LEVELCAPS_ENABLED', True); g.wr('wLevelCap', 30)
-        open_page2(g, 3)  # Cancel, Nuzlocke, Level Caps
+        open_page2(g, 4)  # Cancel, Sound Speed, Nuzlocke, Level Caps
         shown = ':On' in row(g, ROW_LEVEL_CAPS)
         g.press('R', after=8)
         asked = wait_for(g, lambda s: 'Yes' in s and 'No' in s and 'for good?' in s)

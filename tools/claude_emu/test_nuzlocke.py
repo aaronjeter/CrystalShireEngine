@@ -644,8 +644,8 @@ def case_options():
         g.frames(30); g.press('START', after=30)
         g.press('U', after=6)           # Option: the last entry (the cursor wraps)
         g.press('A', after=60)
-        for _ in range(2):
-            g.press('U', after=8)       # Cancel (page 2), then Nuzlocke (row 11)
+        for _ in range(3):
+            g.press('U', after=8)       # Cancel (page 2), Sound Speed, then Nuzlocke (row 11)
         shown = 'Nuzlocke' in g.screen_text() and ':On' in g.screen_text().split('\n')[11]
         g.press('R', after=8)
         asked = wait_for(g, lambda s: 'Yes' in s and 'No' in s and 'for good?' in s)
@@ -752,6 +752,39 @@ def case_first_stages():
         check(f'first stage of {mon} is {want}', first(mon) == const16(g, want), f'{first(mon)} vs {const16(g, want)}')
 
 
+def case_sign_icons():
+    """The place-name sign's area icon: the generated "has wild Pokemon" table is current;
+    the name gets a space and icon 1 (open) or 2 (used) on Route 29 (and used on Route 119,
+    landmark >= 96), nothing in Pewter City (no wild Pokemon), with the mode off or no balls."""
+    import os, subprocess
+    tool = os.path.join(os.environ.get('CSE', '.'), 'tools', 'nuzlocke_area_table.py')
+    r = subprocess.run([sys.executable, tool, os.environ.get('CSE', '.'), '--check'], capture_output=True, text=True)
+    check('sign icons: the encounter landmark table is up to date', r.returncode == 0, r.stdout.strip())
+    names = open(os.path.join(os.environ.get('CSE', '.'), 'constants', 'landmark_constants.asm'), encoding='utf-8').read()
+    import re
+    landmarks = re.findall(r'const (LANDMARK_\w+)', names)
+
+    def sign(mapc, landmark, nz=True, used=False, balls=True):
+        g = setup(nz=nz, items=(('POKE_BALL', 5),) if balls else ())
+        i = landmarks.index(landmark)
+        b = g.rd(f'wNuzlockeAreaFlags+{i // 8}')
+        g.wr(f'wNuzlockeAreaFlags+{i // 8}', b | 1 << i % 8 if used else b & ~(1 << i % 8))
+        g.run_script(f'TestScript:\n\twarp {mapc}, 10, 10\n\tend')
+        for _ in range(400):
+            g.frames(1)
+            if 0 < g.rd('wLandmarkSignTimer') < 0x50:
+                break
+        name = list(g.rd('wStringBuffer1', 20))
+        name = name[:name.index(0x50)]
+        return name[-1] if len(name) > 1 and name[-2] == 0x7f and name[-1] in (1, 2) else 0
+
+    got = [sign('ROUTE_29', 'LANDMARK_ROUTE_29'), sign('ROUTE_29', 'LANDMARK_ROUTE_29', used=True),
+           sign('PEWTER_CITY', 'LANDMARK_PEWTER_CITY'), sign('ROUTE_29', 'LANDMARK_ROUTE_29', nz=False),
+           sign('ROUTE_29', 'LANDMARK_ROUTE_29', balls=False),
+           sign('ROUTE_119_SOUTH', 'LANDMARK_ROUTE_119', used=True)]
+    check('sign icons: open, used, no wild, mode off, no balls, Hoenn used', got == [1, 2, 0, 0, 0, 2], str(got))
+
+
 def main():
     area = case_first()
     case_second(area)
@@ -786,6 +819,7 @@ def main():
     case_poison()
     case_options()
     case_new_game()
+    case_sign_icons()
     bad = [n for n, ok in RESULTS if not ok]
     print(f'{len(RESULTS) - len(bad)}/{len(RESULTS)} passed')
     sys.exit(1 if bad else 0)
