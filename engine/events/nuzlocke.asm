@@ -192,6 +192,26 @@ NuzlockeEndOfBattle::
 	call .CountStanding
 	jr z, .run_over
 
+; The graveyard code uses wBufferMon, which shares its memory with a map
+; trainer's data (wTempTrainer): keep that data on the stack meanwhile, for the
+; trainer's after-battle script.
+	assert wTempTrainerEnd - wSeenTrainerBank == 16
+	add sp, -16
+	ld hl, sp+0
+	ld d, h
+	ld e, l
+	ld hl, wSeenTrainerBank
+	ld bc, 16
+	rst CopyBytes
+	call .BuryFainted
+	ld hl, sp+0
+	ld de, wSeenTrainerBank
+	ld bc, 16
+	rst CopyBytes
+	add sp, 16
+	ret
+
+.BuryFainted:
 	ld c, 0
 .loop
 	ld a, [wPartyCount]

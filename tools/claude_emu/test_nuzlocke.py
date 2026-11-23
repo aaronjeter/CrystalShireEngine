@@ -340,6 +340,33 @@ def case_bury():
           str(log[-4:]))
 
 
+def case_bury_keeps_trainer_data():
+    """The graveyard code uses wBufferMon, which overlaps a map trainer's data (wTempTrainer:
+    its event flag and after-battle script pointer). That data must survive a burial: a pattern
+    written while the trainer's win text shows (after the battle, before the burial) is unchanged
+    (checked by the real Route 30 Bug Catcher Don battle too: his after-battle text plays)."""
+    party = [('WEEDLE', 3, None, ['STRING_SHOT']), ('SCYTHER', 60, None, ['WING_ATTACK'])]
+    g = setup(party=party, items=())
+    pattern = [0x11 * (i + 1) & 0xff for i in range(16)]
+    note = Battle.note
+
+    def marking_note(self, t):
+        if 'WIN' in '\n'.join(t) and not getattr(self, 'marked', False):
+            self.g.wr('wSeenTrainerBank', pattern)
+            self.marked = True
+        return note(self, t)
+    Battle.note = marking_note
+    try:
+        log, res = trainer_battle(g, [(30, 'RATTATA', None, ['HYPER_FANG'])], [('move', 0)] * 3, replace=[1])
+    finally:
+        Battle.note = note
+    # bytes 10-15 (wLossTextPointer + 1 to wRunningTrainerBattleScript): the harness's map
+    # reload after the battle rewrites the earlier ones; the burial overwrote these
+    after = list(g.rd('wSeenTrainerBank', 16))
+    check("bury: a map trainer's data (after-battle script) survives", 'Weedle was laid to rest.' in log
+          and after[10:] == pattern[10:], f'{after} {log[-2:]}')
+
+
 def case_can_lose():
     """Battles the player may lose (BATTLETYPE_CANLOSE) don't count: a win heals everyone and buries
     nobody; a loss heals the party and the run goes on."""
@@ -743,6 +770,7 @@ def main():
     case_revive()
     case_sacred_ash()
     case_bury()
+    case_bury_keeps_trainer_data()
     case_can_lose()
     case_bury_off()
     case_bury_full()
