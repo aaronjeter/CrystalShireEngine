@@ -137,3 +137,17 @@ DEF NUM_NAME_TYPES EQU const_value
 	const_def
 	const MOVEINFO_PARTY_HP_F ; Hidden Power's type and power from wCurPartyMon's DVs
 	const MOVEINFO_FORGOT_F   ; LearnMove: a move was forgotten for this one
+
+; Start menu slots (engine/menus/start_menu.asm), in the default order.
+; Each slot shows one entry when it's unlocked; Save and Quit share a slot.
+	const_def
+	const SMSLOT_POKEMON
+	const SMSLOT_PACK
+	const SMSLOT_JOURNAL
+	const SMSLOT_PASSPORT
+	const SMSLOT_SAVE
+	const SMSLOT_STATUS
+	const SMSLOT_POKEDEX
+	const SMSLOT_POKEGEAR
+	const SMSLOT_OPTION
+DEF NUM_START_MENU_SLOTS EQU const_value

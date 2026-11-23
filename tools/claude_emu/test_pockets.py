@@ -47,8 +47,7 @@ def fresh():
 def open_pack_on(g, pocket_const):
     g.wr('wLastPocket', [g.const(pocket_const)])
     g.press('START', after=30)
-    g.press('D', after=15)
-    g.press('D', after=15)
+    g.press('D', after=15)  # Pack: the second entry
     g.press('A', after=120)
 
 

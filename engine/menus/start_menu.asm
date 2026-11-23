@@ -107,6 +107,8 @@ StartMenu::
 	call .DrawMenuAccount
 	call SetUpMenu
 	call .SetUpScrolling
+	ld hl, wMenuJoypadFilter
+	set SELECT_F, [hl]
 	ld a, $ff
 	ld [wMenuSelection], a
 .loop
@@ -119,8 +121,12 @@ StartMenu::
 	cp B_BUTTON
 	jr z, .b
 	cp A_BUTTON
-	jr nz, .loop
-; fallthrough
+	jr z, .a
+	ldh a, [hJoyPressed]
+	bit SELECT_F, a
+	jr z, .loop
+	jr .Carry
+
 .a
 	call PlayClickSFX
 	and a
@@ -170,6 +176,179 @@ StartMenu::
 	ld [wMenuCursorPosition], a
 	call .SetUpMenuItems
 	jr .GetInput
+
+.Carry:
+; Select picked up the entry under the cursor: Up/Down move it past the
+; unlocked entries, A or Select drops it (and keeps the order), B puts it back
+	ld a, [wMenuSelection]
+	cp -1
+	jr z, .GetInput
+	ld [wStartMenuCarried], a
+	call PlayClickSFX
+.carry_redraw
+	call .ShowCarried
+	call .DrawCarrying
+.carry_loop
+	call UpdateTimeAndPals
+	call JoyTextDelay
+	call GetMenuJoypad
+	bit A_BUTTON_F, a
+	jr nz, .drop
+	bit SELECT_F, a
+	jr nz, .drop
+	bit B_BUTTON_F, a
+	jr nz, .cancel
+	ld b, -1
+	bit D_UP_F, a
+	jr nz, .carry_move
+	bit D_DOWN_F, a
+	jr z, .carry_loop
+	ld b, 1
+.carry_move
+	call .MoveCarried
+	jr c, .carry_loop
+	jr .carry_redraw
+
+.drop
+	call StartMenu_SaveOrder
+	call PlayClickSFX
+	jr .carry_done
+
+.cancel
+	call StartMenu_LoadOrder
+.carry_done
+	call .ShowCarried
+	jmp .GetInput
+
+.ShowCarried:
+; scroll just enough to show the carried entry, put the cursor on it and
+; rebuild the visible list
+	ld hl, wStartMenuOrder
+	ld c, 1
+.find_carried
+	ld a, [hl]
+	push hl
+	push bc
+	call .GetSlotEntry
+	pop bc
+	pop hl
+	ld b, a
+	ld a, [wStartMenuCarried]
+	cp b
+	jr z, .found_carried
+	inc hl
+	ld a, b
+	cp -1
+	jr z, .find_carried
+	inc c
+	jr .find_carried
+
+.found_carried
+; c = its position in the whole list
+	call .GetMaxRows
+	ld b, a
+	ld a, [wStartMenuScroll]
+	cp c
+	jr c, .not_above
+	ld a, c
+	dec a
+	jr .got_scroll
+
+.not_above
+	add b
+	cp c
+	ld a, [wStartMenuScroll]
+	jr nc, .got_scroll
+	ld a, c
+	sub b
+.got_scroll
+	ld [wStartMenuScroll], a
+	ld b, a
+	ld a, c
+	sub b
+	ld [wMenuCursorPosition], a
+	jmp .BuildMenuItems
+
+.MoveCarried:
+; swap the carried entry's slot with the nearest unlocked slot in direction b
+; (-1 up, 1 down); carry if there's none
+	ld hl, wStartMenuOrder
+.find_slot
+	ld a, [hl]
+	push hl
+	push bc
+	call .GetSlotEntry
+	pop bc
+	pop hl
+	ld c, a
+	ld a, [wStartMenuCarried]
+	cp c
+	jr z, .found_slot
+	inc hl
+	jr .find_slot
+
+.found_slot
+	ld d, h
+	ld e, l
+.next_slot
+	ld a, l
+	add b
+	ld l, a
+	cp LOW(wStartMenuOrder)
+	jr c, .no_slot
+	cp LOW(wStartMenuOrder + NUM_START_MENU_SLOTS)
+	jr nc, .no_slot
+	ld a, [hl]
+	push hl
+	push de
+	push bc
+	call .GetSlotEntry
+	pop bc
+	pop de
+	pop hl
+	cp -1
+	jr z, .next_slot
+	ld a, [de]
+	ld c, [hl]
+	ld [hl], a
+	ld a, c
+	ld [de], a
+	and a
+	ret
+
+.no_slot
+	scf
+	ret
+
+.DrawCarrying:
+; the menu with a hollow cursor on the carried entry and the move help
+	xor a
+	ldh [hBGMapMode], a
+	call .DrawMenuAccount
+	call SetUpMenu
+	call .SetUpScrolling
+	ld a, [w2DMenuCursorInitY]
+	ld b, a
+	ld a, [wMenuCursorPosition]
+	dec a
+	add a
+	add b
+	ld b, a
+	ld a, [w2DMenuCursorInitX]
+	ld c, a
+	call Coord2Tile
+	ld [hl], "▷"
+	call .IsMenuAccountOn
+	jr z, .no_help
+	hlcoord 0, 14
+	ld de, .CarryingDesc
+	call PlaceString
+.no_help
+	jmp ApplyTilemap
+
+.CarryingDesc:
+	db   "▲▼: Move"
+	next "A: OK@"
 
 .SetUpScrolling:
 ; with more entries than fit: exit at the top and bottom instead of wrapping,
@@ -437,81 +616,122 @@ endr
 	ret
 
 .SetUpMenuItems:
+	call StartMenu_LoadOrder
+.BuildMenuItems:
+; the entries of wStartMenuOrder's unlocked slots, in that order
 	xor a
 	ld [wWhichIndexSet], a
 	ld [wStartMenuEntries], a
 	call .FillMenuList
-
-	ld hl, wStatusFlags
-	bit STATUSFLAGS_POKEDEX_F, [hl]
-	jr z, .no_pokedex
-	ld a, STARTMENUITEM_POKEDEX
-	call .AppendMenuList
-.no_pokedex
-
-	ld a, [wPartyCount]
-	and a
-	jr z, .no_pokemon
-	ld a, STARTMENUITEM_POKEMON
-	call .AppendMenuList
-.no_pokemon
-
-	ld a, [wLinkMode]
-	and a
-	jr nz, .no_pack
-	ld hl, wStatusFlags2
-	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
-	jr nz, .no_pack
-	ld a, STARTMENUITEM_PACK
-	call .AppendMenuList
-.no_pack
-
-	ld hl, wPokegearFlags
-	bit POKEGEAR_OBTAINED_F, [hl]
-	jr z, .no_pokegear
-	ld a, STARTMENUITEM_POKEGEAR
-	call .AppendMenuList
-.no_pokegear
-
-	ld a, STARTMENUITEM_STATUS
-	call .AppendMenuList
-
+	ld hl, wStartMenuOrder
+.build_loop
+	ld a, [hl]
+	push hl
 	push de
 	push bc
-	farcall CheckPassportUnlocked
+	call .GetSlotEntry
 	pop bc
 	pop de
-	jr z, .no_passport
-	ld a, STARTMENUITEM_PASSPORT
-	call .AppendMenuList
-.no_passport
-
-	push de
-	push bc
-	farcall Journal_AnyStarted
-	pop bc
-	pop de
-	jr z, .no_journal
-	ld a, STARTMENUITEM_JOURNAL
-	call .AppendMenuList
-.no_journal
-
-	ld a, [wLinkMode]
-	and a
-	jr nz, .no_save
-	ld hl, wStatusFlags2
-	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
-	ld a, STARTMENUITEM_QUIT
-	jr nz, .write
-	ld a, STARTMENUITEM_SAVE
-.write
-	call .AppendMenuList
-.no_save
-
-	ld a, STARTMENUITEM_OPTION
-	call .AppendMenuList
+	cp -1
+	call nz, .AppendMenuList
+	pop hl
+	inc hl
+	ld a, l
+	cp LOW(wStartMenuOrder + NUM_START_MENU_SLOTS)
+	jr nz, .build_loop
 	ld a, c
 	ld [wMenuItemsList], a
+	ret
+
+.GetSlotEntry:
+; a = the STARTMENUITEM_* that slot a shows, or -1 while it's locked
+	ld e, a
+	ld d, 0
+	ld hl, .SlotEntries
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+
+.SlotEntries:
+; entries correspond to SMSLOT_* constants
+	dw .SlotPokemon
+	dw .SlotPack
+	dw .SlotJournal
+	dw .SlotPassport
+	dw .SlotSave
+	dw .SlotStatus
+	dw .SlotPokedex
+	dw .SlotPokegear
+	dw .SlotOption
+	assert @ - .SlotEntries == NUM_START_MENU_SLOTS * 2
+
+.SlotPokemon:
+	ld a, [wPartyCount]
+	and a
+	jr z, .locked
+	ld a, STARTMENUITEM_POKEMON
+	ret
+
+.SlotPack:
+	ld a, [wLinkMode]
+	and a
+	jr nz, .locked
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, a
+	jr nz, .locked
+	ld a, STARTMENUITEM_PACK
+	ret
+
+.SlotPokegear:
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_OBTAINED_F, a
+	jr z, .locked
+	ld a, STARTMENUITEM_POKEGEAR
+	ret
+
+.SlotJournal:
+	farcall Journal_AnyStarted
+	jr z, .locked
+	ld a, STARTMENUITEM_JOURNAL
+	ret
+
+.SlotPokedex:
+	ld a, [wStatusFlags]
+	bit STATUSFLAGS_POKEDEX_F, a
+	jr z, .locked
+	ld a, STARTMENUITEM_POKEDEX
+	ret
+
+.SlotPassport:
+	farcall CheckPassportUnlocked
+	jr z, .locked
+	ld a, STARTMENUITEM_PASSPORT
+	ret
+
+.SlotStatus:
+	ld a, STARTMENUITEM_STATUS
+	ret
+
+.SlotSave:
+	ld a, [wLinkMode]
+	and a
+	jr nz, .locked
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, a
+	ld a, STARTMENUITEM_QUIT
+	ret nz
+	ld a, STARTMENUITEM_SAVE
+	ret
+
+.SlotOption:
+	ld a, STARTMENUITEM_OPTION
+	ret
+
+.locked
+	ld a, -1
 	ret
 
 .FillMenuList:
@@ -584,6 +804,109 @@ endr
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	ret z
 	farjp StartMenu_PrintBugContestStatus
+
+StartMenu_LoadOrder:
+; wStartMenuOrder = the saved slot order, or the default one if it isn't valid
+	ldh a, [rSVBK]
+	push af
+	ld hl, wStartMenuOrderSaved
+	ld de, wStartMenuOrder
+	ld c, 0
+.loop
+	ld a, BANK(wStartMenuOrderSaved)
+	ldh [rSVBK], a
+	ld a, [hli]
+	ld b, a
+	ld a, BANK(wStartMenuOrder)
+	ldh [rSVBK], a
+	ld a, b
+	call .Unpack
+	jr z, .unpacked
+	ld a, b
+	swap a
+	call .Unpack
+	jr nz, .loop
+.unpacked
+	pop af
+	ldh [rSVBK], a
+; each slot must be there once
+	ld b, 0
+.check
+	ld hl, wStartMenuOrder
+	ld c, NUM_START_MENU_SLOTS
+.search
+	ld a, [hli]
+	cp b
+	jr z, .next
+	dec c
+	jr nz, .search
+	ld hl, wStartMenuOrder
+	xor a
+.default
+	ld [hli], a
+	inc a
+	cp NUM_START_MENU_SLOTS
+	jr nz, .default
+	ret
+
+.next
+	inc b
+	ld a, b
+	cp NUM_START_MENU_SLOTS
+	jr nz, .check
+	ret
+
+.Unpack:
+; [de++] = (a & $f) xor c, c++; z after the last slot
+	and $f
+	xor c
+	ld [de], a
+	inc de
+	inc c
+	ld a, c
+	cp NUM_START_MENU_SLOTS
+	ret
+
+StartMenu_SaveOrder:
+; wStartMenuOrderSaved = wStartMenuOrder, two slots per byte
+	ldh a, [rSVBK]
+	push af
+	ld hl, wStartMenuOrder
+	ld de, wStartMenuOrderSaved
+	ld c, 0
+.loop
+	ld a, BANK(wStartMenuOrder)
+	ldh [rSVBK], a
+	ld a, [hli]
+	xor c
+	and $f
+	ld b, a
+	inc c
+	ld a, c
+	cp NUM_START_MENU_SLOTS
+	jr z, .write
+	ld a, [hli]
+	xor c
+	swap a
+	and $f0
+	or b
+	ld b, a
+	inc c
+.write
+	ld a, BANK(wStartMenuOrderSaved)
+	ldh [rSVBK], a
+	ld a, b
+	ld [de], a
+	inc de
+	ld a, c
+	cp NUM_START_MENU_SLOTS
+	jr c, .loop
+	pop af
+	ldh [rSVBK], a
+	ret
+
+	assert HIGH(wStartMenuOrder) == HIGH(wStartMenuOrder + NUM_START_MENU_SLOTS), \
+		"wStartMenuOrder must not cross a page"
 
 StartMenu_Exit:
 ; Exit the menu.

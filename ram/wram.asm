@@ -2069,6 +2069,10 @@ NEXTU
 ; menu items list
 wMenuItemsList:: ds 16
 wMenuItemsListEnd::
+; the start menu's slot order while it's open (wStartMenuOrderSaved unpacked)
+	ds 1
+wStartMenuOrder:: ds NUM_START_MENU_SLOTS
+wStartMenuCarried:: db ; the STARTMENUITEM_* being moved
 
 NEXTU
 ; fruit tree data
@@ -2169,7 +2173,7 @@ wPoisonStepPartyFlags:: ds PARTY_LENGTH
 wPoisonStepDataEnd::
 ENDU
 
-	ds 23
+	ds 12
 
 
 SECTION "More WRAM 1", WRAMX
@@ -3729,6 +3733,7 @@ wPassportFallen:: dw ; Pokémon buried or released by Nuzlocke mode (big-endian)
 wTitleDefenseChallenger:: db ; the accepted title challenger + 1 until the match is over, 0 otherwise
 wJournalSeen:: ds (NUM_MISSIONS + 1) / 2 ; per mission, a nibble: the progress last announced (0: not started, else 1 + steps done)
 wJournalUnread:: flag_array NUM_MISSIONS ; missions updated since the player last opened them (NEW)
+wStartMenuOrderSaved:: ds (NUM_START_MENU_SLOTS + 1) / 2 ; per slot, a nibble: the slot's entry xor the slot's index (all 0: the default order)
 wSaveExtensionUsed::
 	ds SAVE_EXTENSION_LENGTH - (wSaveExtensionUsed - wSaveExtension)
 wSaveExtensionEnd::

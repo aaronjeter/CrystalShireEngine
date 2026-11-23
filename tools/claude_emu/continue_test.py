@@ -8,7 +8,9 @@ g = H('fol.gbc', None, 'fol.sym'); g.load('ow_fol.state')
 g.run_script(warp_script(mp, x, y)); g.frames(200)
 g.shot(tag + '_before.png', 2)
 g.press('START', after=40)
-for i in range(5): g.press('D', after=8)  # SAVE
+for i in range(9):  # Save: found by its description
+    if 'Save your' in g.screen_text(): break
+    g.press('D', after=12)
 g.press('A', after=60)
 for i in range(12): g.press('A', after=60)
 g.frames(200)

@@ -238,7 +238,7 @@ for i in range(300):
     g.press('B', hold=3, after=3)
 check(slots(g) == [1, 2], f'a caught Pokemon keeps its battle slot: {slots(g)}')
 settle(g, 10); g.frames(30)
-g.press('START', after=40); g.press('D', after=15); g.press('A', after=60)
+g.press('START', after=40); g.press('A', after=60)
 g.press('A', after=30); g.press('A', after=90)
 for p in range(4): g.press('R', after=40)
 t1 = g.screen_text()
@@ -272,7 +272,7 @@ def item_use(item, start_slot, answer='yes'):
     g.run_script('\tgivepoke MACHAMP, 30\n\tgiveitem ABILITY_CAPSULE, 5\n\tgiveitem ABILITY_PATCH, 5\n\tend')
     settle(g, 40); g.frames(30)
     g.wr('wPartyMon1AbilitySlot', start_slot)
-    g.press('START', after=40); g.press('D', after=15); g.press('D', after=15); g.press('A', after=60)
+    g.press('START', after=40); g.press('D', after=15); g.press('A', after=60)
     for i in range(item): g.press('D', after=20)
     g.press('A', after=40); g.press('A', after=60); g.press('A', after=200)
     if 'Yes' in g.screen_text():

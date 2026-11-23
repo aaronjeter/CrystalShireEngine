@@ -26,8 +26,7 @@ def force_time(g, tod):
 def stats_text(g, slot):
     """The orange stats page of party slot `slot` (0-5)."""
     g.press('START', after=30)
-    g.press('D', after=20)
-    g.press('A', after=60)
+    g.press('A', after=60)  # #mon: the first entry
     keys = {0: [], 1: ['R'], 2: ['D'], 3: ['D', 'R'], 4: ['D', 'D'], 5: ['D', 'D', 'R']}[slot]
     for k in keys:
         g.press(k, after=15)

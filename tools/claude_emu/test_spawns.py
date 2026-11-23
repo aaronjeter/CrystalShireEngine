@@ -289,8 +289,10 @@ def case_continue():
     n = len(spawns(g))
     before = {(d['obj'], d['dvs']) for d in spawns(g)}
     g.press('START', after=40)
-    for _ in range(2):  # Save: second from the end (the cursor wraps)
-        g.press('U', after=12)
+    for _ in range(9):  # Save: found by its description
+        if 'Save your' in g.screen_text():
+            break
+        g.press('D', after=12)
     g.press('A', after=60)
     for _ in range(12):
         g.press('A', after=60)
