@@ -693,6 +693,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const MAUVILLE_EXECUTIVEF
 	const DESERT_JANE
 	const JANE_TD
+	const PETRA_TD
 
 	trainerclass SAGE ; 38
 	const CHOW

@@ -3,7 +3,13 @@
 ; wTitleDefenseChallenger (save extension) holds the accepted challenger + 1
 ; until the match is over.
 
-DEF TITLE_DEFENSE_MARK_TILE EQU $72 ; the unused "『" slot of the text tiles
+DEF TITLE_DEFENSE_MARK_TILE EQU $72 ; the "『" slot; in the overworld it holds a tileset tile
+
+; the Challenger Lobby menu's list: a count, the challengers + 1, then -1
+DEF wTitleDefenseListCount EQUS "wStringBuffer4"
+DEF wTitleDefenseList EQUS "(wStringBuffer4 + 1)"
+	assert NUM_TITLE_CHALLENGERS + 2 <= 2 * STRING_BUFFER_LENGTH, \
+		"the challenger list doesn't fit in wStringBuffer4 and wStringBuffer5"
 
 TitleDefenseGetChallenger:
 ; hl = the TitleDefenseChallengers entry of challenger a
@@ -56,7 +62,17 @@ TitleDefenseSetPending:
 	ret
 
 TitleDefenseIsUnlocked:
-; carry if challenger a is on the list
+; carry if challenger a is on the list (never before the World Cup is won)
+	push af
+	ld de, EVENT_WORLD_CUP_CHAMPION
+	call TitleDefenseCheckFlag
+	jr nz, .champion
+	pop af
+	and a
+	ret
+
+.champion
+	pop af
 	call TitleDefenseGetChallenger
 	ld a, [hli]
 	ld e, [hl]
@@ -86,11 +102,14 @@ TitleDefenseIsUnlocked:
 	ret
 
 .rockets
-; TD_UNLOCK_ROCKETS: Archer and Jane beaten in title defenses
+; TD_UNLOCK_ROCKETS: Archer, Jane and Petra beaten in title defenses
 	ld de, EVENT_TITLE_DEFENSE_BEAT_ARCHER
 	call TitleDefenseCheckFlag
 	ret z
 	ld de, EVENT_TITLE_DEFENSE_BEAT_JANE
+	call TitleDefenseCheckFlag
+	ret z
+	ld de, EVENT_TITLE_DEFENSE_BEAT_PETRA
 	call TitleDefenseCheckFlag
 	ret z
 	scf
@@ -103,7 +122,7 @@ TitleDefenseIsBeaten:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	jr TitleDefenseCheckFlag
+	jp TitleDefenseCheckFlag
 
 TitleDefenseCopyName:
 ; wStringBuffer3 = challenger a's name
@@ -122,31 +141,140 @@ TitleDefenseCopyName:
 	ret
 
 TitleDefenseBuildList:
-; wCurMartCount, wCurMartItems = the unlocked challengers + 1, then -1
-	ld hl, wCurMartItems
-	ld c, 0
+; wTitleDefenseListCount, wTitleDefenseList = the unlocked challengers + 1 in
+; TitleDefenseOrder, then -1
+	ld de, wTitleDefenseList
+	ld hl, TitleDefenseOrder
 .loop
-	ld a, c
-	cp NUM_TITLE_CHALLENGERS
-	jr nc, .done
+	ld a, [hli]
+	cp -1
+	jr z, .done
 	push hl
-	push bc
+	push de
+	push af
 	call TitleDefenseIsUnlocked
 	pop bc
+	pop de
 	pop hl
-	jr nc, .next
-	ld a, c
+	jr nc, .loop
+	ld a, b
 	inc a
-	ld [hli], a
-.next
+	ld [de], a
+	inc de
+	jr .loop
+
+.done
+	ld [de], a
+	ld a, e
+	sub LOW(wTitleDefenseList)
+	ld [wTitleDefenseListCount], a
+	ret
+
+TitleDefenseCountBeaten:
+; a = the challengers beaten in a title defense
+	ld hl, TitleDefenseOrder
+	ld c, 0
+.loop
+	ld a, [hli]
+	cp -1
+	jr z, .done
+	push hl
+	push bc
+	call TitleDefenseIsBeaten
+	pop bc
+	pop hl
+	jr z, .loop
 	inc c
 	jr .loop
 
 .done
-	ld [hl], -1
-	ld a, l
-	sub LOW(wCurMartItems)
-	ld [wCurMartCount], a
+	ld a, c
+	ret
+
+TitleDefensePassportList::
+; The Passport's "Beaten" list. de = the tilemap address of its first row.
+; Prints the number beaten 11 tiles right of the row above, then up to
+; TD_PASSPORT_ROWS of the challengers beaten, in TitleDefenseOrder, starting
+; with the one at wPassportListTop, with an arrow 16 tiles right of the first
+; or last row when the list goes on above or below. The number is also kept in
+; wPassportListCount.
+	push de
+	call TitleDefenseCountBeaten
+	ld [wPassportListCount], a
+	pop hl
+	push hl
+	ld de, -SCREEN_WIDTH + 11
+	add hl, de
+	ld de, wPassportListCount
+	lb bc, 1, 3
+	call PrintNum
+	pop de
+; the arrows
+	ld a, [wPassportListTop]
+	and a
+	jr z, .no_up
+	ld hl, 16
+	add hl, de
+	ld [hl], "▲"
+.no_up
+	ld a, [wPassportListTop]
+	add TD_PASSPORT_ROWS
+	ld b, a
+	ld a, [wPassportListCount]
+	cp b
+	jr c, .no_down
+	jr z, .no_down
+	ld hl, 16 + (TD_PASSPORT_ROWS - 1) * SCREEN_WIDTH
+	add hl, de
+	ld [hl], "▼"
+.no_down
+; the names
+	ld a, [wPassportListTop]
+	ld b, a ; beaten challengers left to skip
+	ld c, TD_PASSPORT_ROWS ; rows left
+	ld hl, TitleDefenseOrder
+.loop
+	ld a, [hli]
+	cp -1
+	ret z
+	push hl
+	push de
+	push bc
+	push af
+	call TitleDefenseIsBeaten
+	pop hl ; h = the challenger
+	pop bc
+	pop de
+	jr z, .next
+	inc b
+	dec b
+	jr z, .place
+	dec b
+.next
+	pop hl
+	jr .loop
+
+.place
+	push bc
+	push de
+	ld a, h
+	ld c, TITLE_CHALLENGER_NAME
+	call TitleDefenseGetField
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	pop hl
+	push hl
+	rst PlaceString
+	pop hl
+	ld bc, SCREEN_WIDTH
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop bc
+	dec c
+	pop hl
+	jr nz, .loop
 	ret
 
 TitleDefenseMenu::
@@ -158,8 +286,10 @@ TitleDefenseMenu::
 	ld hl, vTiles2 tile TITLE_DEFENSE_MARK_TILE
 	lb bc, BANK(TitleDefenseMarkGFX), 1
 	call Get2bpp
+; back up the whole screen: the menu's frame is drawn around its coords
+	call LoadStandardMenuHeader
 	ld hl, .MenuHeader
-	call LoadMenuHeader
+	call CopyMenuHeader
 	xor a
 	ld [wMenuScrollPosition], a
 	ld [wWhichIndexSet], a
@@ -169,6 +299,10 @@ TitleDefenseMenu::
 	call UpdateSprites
 	call ScrollingMenu
 	call CloseWindow
+; the mark took a tileset tile: load the tileset's vTiles2 graphics again
+	ld a, [wTilesetGFXBank]
+	ldh [hTilesetGFXBank], a
+	call _LoadTilesetGFX2
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
 	jr z, .cancel
@@ -179,7 +313,7 @@ TitleDefenseMenu::
 	call TitleDefenseSetPending
 	ld a, [wScriptVar]
 	dec a
-	jr TitleDefenseCopyName
+	jp TitleDefenseCopyName
 
 .cancel
 	xor a
@@ -196,7 +330,7 @@ TitleDefenseMenu::
 	db SCROLLINGMENU_DISPLAY_ARROWS ; flags
 	db 4, 13 ; rows, columns
 	db SCROLLINGMENU_ITEMS_NORMAL ; item format
-	dbw 0, wCurMartCount
+	dbw 0, wTitleDefenseListCount
 	dba .PlaceName
 	dba .PlaceMark
 	dbw 0, 0
@@ -392,6 +526,8 @@ TitleDefenseMarkGFX:
 INCBIN "gfx/title_defense/beaten.2bpp"
 
 INCLUDE "data/events/title_defense.asm"
+
+SECTION "Title Defense Text", ROMX
 
 ; the challengers' lines (text_far from WCFinals_ChallengerTexts)
 
@@ -665,4 +801,28 @@ _TDGiovanniWonText::
 	line "Power belongs to"
 	cont "those who seize"
 	cont "it."
+	done
+
+_TDPetraText::
+	text "Petra: Kanto was"
+	line "mine until you"
+	cont "came along."
+
+	para "Absol and I have"
+	line "sharpened our"
+	cont "claws since the"
+	cont "Safari Zone."
+
+	para "Your title is"
+	line "next!"
+	done
+
+_TDPetraBeatenText::
+	text "...Impossible."
+	line "Again?"
+	done
+
+_TDPetraWonText::
+	text "Even a Champion"
+	line "can be outplanned."
 	done

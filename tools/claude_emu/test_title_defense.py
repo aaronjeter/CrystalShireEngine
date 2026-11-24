@@ -85,10 +85,12 @@ def shot(g, name):
         g.shot(os.path.join(SHOTS, name), 3)
 
 
-def setup(flags=(), defenses=0, bp=0, full=False):
+def setup(flags=(), defenses=0, bp=0, full=False, champion=True):
     g = T.G(ROM, None, SYM)
     g.load(STATE)
-    for f in ('EVENT_WORLD_CUP_QUALIFIED', 'EVENT_WORLD_CUP_CHAMPION') + tuple(flags):
+    set_flag(g, 'EVENT_BEAT_SAFARI_ROCKETS', False)  # the test save is past the Safari Zone
+    set_flag(g, 'EVENT_WORLD_CUP_CHAMPION', champion)
+    for f in ('EVENT_WORLD_CUP_QUALIFIED',) + tuple(flags):
         set_flag(g, f)
     g.wr('wTitleDefenses', [defenses >> 8, defenses & 0xff])
     g.wr('wBattlePoints', [bp >> 8, bp & 0xff])
@@ -113,14 +115,19 @@ def open_list(g):
             continue
         g.press('A', after=40)
     g.frames(40)
-    n = g.rd('wCurMartCount')
-    return [i - 1 for i in g.rd('wCurMartItems', n)] if n else []
+    n = g.rd('wStringBuffer4')
+    return [i - 1 for i in g.rd('wStringBuffer4+1', n)] if n else []
+
+
+def list_end(g):
+    """The byte after the menu list (its -1 end mark)."""
+    return g.rd(f'wStringBuffer4+{1 + g.rd("wStringBuffer4")}')
 
 
 def marks(g):
     """The challengers shown on the menu's first page with their mark (TD_* index -> bool)."""
     tm = g.sym['wTilemap'][1]
-    shown = g.rd('wCurMartItems', min(4, g.rd('wCurMartCount')))
+    shown = g.rd('wStringBuffer4+1', min(4, g.rd('wStringBuffer4')))
     return {i - 1: g.rd(tm + r * 20 + MARK_COL) == MARK_TILE for i, r in zip(shown, LIST_ROWS)}
 
 
@@ -187,6 +194,114 @@ def td(g, name):
     return g.const(name)
 
 
+ALL_UNLOCKS = ('EVENT_BEAT_JOHTO_LEAGUE_REMATCH', 'EVENT_BEAT_INDIGO_LEAGUE_REMATCH',
+               'EVENT_BEAT_HOENN_LEAGUE_REMATCH', 'EVENT_CLEARED_RADIO_TOWER', 'EVENT_BEAT_SHRINE_JANE',
+               'EVENT_BEAT_SAFARI_ROCKETS', 'EVENT_TITLE_DEFENSE_BEAT_LANCE', 'EVENT_TITLE_DEFENSE_BEAT_AGATHA',
+               'EVENT_TITLE_DEFENSE_BEAT_STEVEN', 'EVENT_TITLE_DEFENSE_BEAT_ARCHER',
+               'EVENT_TITLE_DEFENSE_BEAT_JANE', 'EVENT_TITLE_DEFENSE_BEAT_PETRA')
+ORDER = ('TD_SILVER', 'TD_GREEN', 'TD_WALLY', 'TD_LANCE', 'TD_AGATHA', 'TD_STEVEN', 'TD_TATE_LIZA',
+         'TD_KIMONO_GIRLS', 'TD_TWINS', 'TD_ACE_DUO', 'TD_RED', 'TD_ARCHER', 'TD_JANE', 'TD_PETRA', 'TD_GIOVANNI')
+NAMES = ('Silver', 'Green', 'Wally', 'Lance', 'Agatha', 'Steven', 'Tate & Liza', 'Kimono Girls', 'Amy & May',
+         'Kai & Rin', 'Red', 'Archer', 'Jane', 'Petra', 'Giovanni')
+BEATEN = ('SILVER', 'GREEN', 'WALLY', 'LANCE', 'AGATHA', 'STEVEN', 'TATE_LIZA', 'KIMONO_GIRLS', 'TWINS',
+          'ACE_DUO', 'RED', 'ARCHER', 'JANE', 'PETRA', 'GIOVANNI')
+
+
+def case_full_list():
+    """Every challenger unlocked: more than the old 14-entry list held."""
+    g = setup(flags=ALL_UNLOCKS)
+    after = g.rd('wStringBuffer5+18')  # the last byte the list may use
+    lst = open_list(g)
+    want = [td(g, n) for n in ORDER]
+    check(f'every challenger unlocked: all {len(want)} in TitleDefenseOrder, then the end mark',
+          lst == want and list_end(g) == 0xff, f'{lst} end={list_end(g):#x}')
+    check('the list stays inside wStringBuffer4/5', 1 + len(lst) + 1 <= 38, str(len(lst)))
+    for _ in range(len(lst) - 1):
+        g.press('D', after=12)
+    t = ' '.join(g.screen_text().split())
+    check('the menu scrolls to the last challenger (Giovanni)', 'Giovanni' in t, t)
+    shot(g, 'td_list_end.png')
+    g.press('B', after=60)
+
+
+def passport_rows(g):
+    tm = g.sym['wTilemap'][1]
+    rows = g.screen_text().split('\n')
+    names = [rows[r][2:16].strip() for r in range(10, 17)]
+    count = rows[9][11:16].strip()
+    up = g.rd(tm + 10 * 20 + 18) == 0xd8
+    down = g.rd(tm + 16 * 20 + 18) == 0xee
+    return names, count, up, down
+
+
+def open_passport(g):
+    """Start menu, down to the Passport ("Leagues & records"), A, then right to the Title Defense page."""
+    g.press('START', hold=4, after=60)
+    for _ in range(12):
+        if 'records' in g.screen_text():
+            break
+        g.press('D', hold=4, after=30)
+    g.press('A', hold=4, after=120)
+    for _ in range(3):  # Leagues, Facilities, Resort, Title Defense
+        g.press('R', hold=4, after=40)
+
+
+def case_not_champion():
+    """Challengers unlocked (Agatha, Petra) but the World Cup not won: no title defense."""
+    g = setup(flags=ALL_UNLOCKS, champion=False)
+    texts = []
+    g.press('A', after=60)
+    for _ in range(8):
+        t = ' '.join(g.screen_text().split())
+        if t and (not texts or texts[-1] != t):
+            texts.append(t)
+        g.press('A', after=40)
+    joined = ' '.join(texts)
+    check('not the World Champion: the clerk refuses ("Only the current World Champion")',
+          'World Champion' in joined and 'Which challenger' not in joined, str(texts))
+    # the challenger list itself is empty without the title, even when the menu is reached
+    bank, addr = g.sym['TitleDefenseBuildList']
+    g.run_script(f'\tdb callasm_command\n\tdb {bank}\n\tdw {addr}\n\tend')
+    g.frames(10)
+    check('the challenger list is empty without the title', g.rd('wStringBuffer4') == 0, str(g.rd('wStringBuffer4')))
+
+
+def case_passport():
+    """The Passport's Title Defense page: the beaten challengers, a scrolling list."""
+    g = setup(flags=tuple(f'EVENT_TITLE_DEFENSE_BEAT_{n}' for n in ('SILVER', 'RED', 'PETRA')))
+    open_passport(g)
+    names, count, up, down = passport_rows(g)
+    check('Passport, 3 beaten: their full names in order, count 3, no arrows',
+          names[:4] == ['Silver', 'Red', 'Petra', ''] and count == '3' and not up and not down,
+          f'{names} {count} {up} {down}')
+    shot(g, 'passport_td_3.png')
+    g.press('D', hold=4, after=40)
+    check('Down does nothing when the list fits', passport_rows(g)[0][0] == 'Silver' and g.rd('wPassportListTop') == 0)
+
+    g = setup(flags=tuple(f'EVENT_TITLE_DEFENSE_BEAT_{n}' for n in BEATEN))
+    open_passport(g)
+    names, count, up, down = passport_rows(g)
+    check('Passport, 15 beaten: the first 7, count 15, a down arrow only',
+          names == list(NAMES[:7]) and count == '15' and not up and down, f'{names} {count} {up} {down}')
+    shot(g, 'passport_td_top.png')
+    g.press('D', hold=4, after=40)
+    names, count, up, down = passport_rows(g)
+    check('Down scrolls one row: Green first, both arrows', names == list(NAMES[1:8]) and up and down, str(names))
+    for _ in range(12):
+        g.press('D', hold=4, after=40)
+    names, count, up, down = passport_rows(g)
+    check('scrolled to the end: the last 7 (Giovanni last), an up arrow only',
+          names == list(NAMES[-7:]) and up and not down and g.rd('wPassportListTop') == 8, f'{names} {up} {down}')
+    shot(g, 'passport_td_end.png')
+    g.press('U', hold=4, after=40)
+    check('Up scrolls back one row', passport_rows(g)[0] == list(NAMES[7:14]), str(passport_rows(g)[0]))
+    g.press('R', hold=4, after=40)
+    g.press('L', hold=4, after=40)
+    names, count, up, down = passport_rows(g)
+    check('turning pages starts the list at the top again', names == list(NAMES[:7]) and not up, str(names))
+    g.press('B', hold=4, after=60)
+
+
 def main():
     if SHOTS:
         os.makedirs(SHOTS, exist_ok=True)
@@ -216,20 +331,37 @@ def main():
     check('Steven not beaten (50 defenses): no Red yet', td(g, 'TD_RED') not in lst, str(lst))
 
     # the Rocket challengers: Archer after the Radio Tower, Jane after the Desert Shrine,
-    # Giovanni once both were beaten in title defenses
-    rockets = ('EVENT_CLEARED_RADIO_TOWER', 'EVENT_BEAT_SHRINE_JANE')
-    g = setup(flags=rockets)
+    # Petra after the Safari Zone, Giovanni once all three were beaten in title defenses
+    rockets = ('EVENT_CLEARED_RADIO_TOWER', 'EVENT_BEAT_SHRINE_JANE', 'EVENT_BEAT_SAFARI_ROCKETS')
+    g = setup(flags=rockets[:2])
     lst = open_list(g)
-    check('Radio Tower and Desert Shrine: Archer and Jane, no Giovanni',
-          td(g, 'TD_ARCHER') in lst and td(g, 'TD_JANE') in lst and td(g, 'TD_GIOVANNI') not in lst, str(lst))
-    g = setup(flags=rockets + ('EVENT_TITLE_DEFENSE_BEAT_ARCHER',))
+    check('Radio Tower and Desert Shrine: Archer and Jane, no Petra, no Giovanni',
+          td(g, 'TD_ARCHER') in lst and td(g, 'TD_JANE') in lst and td(g, 'TD_PETRA') not in lst and
+          td(g, 'TD_GIOVANNI') not in lst, str(lst))
+    g = setup(flags=rockets + ('EVENT_TITLE_DEFENSE_BEAT_ARCHER', 'EVENT_TITLE_DEFENSE_BEAT_JANE'))
     lst = open_list(g)
-    check('Archer beaten, Jane not: no Giovanni yet', td(g, 'TD_GIOVANNI') not in lst, str(lst))
+    check('Safari Zone: Petra after Jane; Archer and Jane beaten, Petra not: no Giovanni yet',
+          lst[-3:] == [td(g, 'TD_ARCHER'), td(g, 'TD_JANE'), td(g, 'TD_PETRA')] and td(g, 'TD_GIOVANNI') not in lst,
+          str(lst))
     g = setup(flags=rockets + ('EVENT_TITLE_DEFENSE_BEAT_ARCHER', 'EVENT_TITLE_DEFENSE_BEAT_JANE'), bp=100)
+    policies = item_count(g, 'WEAKNESS_POLICY')
+    g.press('U', hold=2, after=20)
+    lst = open_list(g)
+    s = fight(g, len(lst) - 1, win=True, shot_name='arena_petra.png')
+    check('Petra: a CANLOSE battle with PETRA_TD, won',
+          s['battle'] and s['class'] == g.const('EXECUTIVEF') and s['id'] == g.const('PETRA_TD') and
+          s.get('result') == 0, brief(s))
+    check('Petra: her opening line', said(s, 'Petra: Kanto was'), str(s['texts'][-15:]))
+    check('Petra: +5 BP, a Weakness Policy, flag set',
+          rd16be(g, 'wBattlePoints') == 105 and item_count(g, 'WEAKNESS_POLICY') == policies + 1 and
+          flag(g, 'EVENT_TITLE_DEFENSE_BEAT_PETRA'), f"{rd16be(g, 'wBattlePoints')}")
+    g = setup(flags=rockets + ('EVENT_TITLE_DEFENSE_BEAT_ARCHER', 'EVENT_TITLE_DEFENSE_BEAT_JANE',
+                               'EVENT_TITLE_DEFENSE_BEAT_PETRA'), bp=100)
     bands = item_count(g, 'CHOICE_BAND')
     g.press('U', hold=2, after=20)
     lst = open_list(g)
-    check('Archer and Jane beaten: Giovanni last on the list', lst[-1:] == [td(g, 'TD_GIOVANNI')], str(lst))
+    check('Archer, Jane and Petra beaten: Giovanni last on the list', lst[-2:] == [td(g, 'TD_PETRA'), td(g, 'TD_GIOVANNI')],
+          str(lst))
     s = fight(g, len(lst) - 1, win=True, shot_name='arena_giovanni.png')
     check('Giovanni: a CANLOSE battle with GIOVANNI_TD, won',
           s['battle'] and s['class'] == g.const('GIOVANNI') and s['id'] == g.const('GIOVANNI_TD') and
@@ -327,6 +459,9 @@ def main():
         g.press('B', after=30)
     check('declined: nothing pending, still in the lobby',
           g.rd('wTitleDefenseChallenger') == 0 and g.rd('wMapNumber') == g.const('MAP_WC_CHALLENGER_LOBBY'))
+    case_full_list()
+    case_passport()
+    case_not_champion()
 
     bad = [n for n, ok in T.RESULTS if not ok]
     print(f'{len(T.RESULTS) - len(bad)}/{len(T.RESULTS)} passed')

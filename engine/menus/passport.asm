@@ -1,5 +1,6 @@
 ; Trainer Passport: full-screen pages opened from the Start menu.
-; Left/Right (or A) change pages, B or Start closes.
+; Left/Right (or A) change pages, B or Start closes. Up/Down scroll the
+; Title Defense page's list.
 ; Each page is a list of elements (Passport_RunElements).
 
 	const_def
@@ -41,6 +42,7 @@ DEF NUM_PASSPORT_PALS EQU const_value
 	const PE_IFFLAG   ; unused coord, flag, bytes to skip and rows to move up if not set
 	const PE_IFBADGES ; unused coord, badge flags address, bytes to skip and rows to move up if no badges
 	const PE_BITICON  ; coord, save extension address, bit mask, first tile, attr: a 2x2 icon if any bit is set
+	const PE_TDLIST   ; coord: the challengers beaten in title defenses, a scrolling list
 DEF PE_END EQU -1
 
 MACRO pe_text ; x, y, string
@@ -175,6 +177,7 @@ Passport::
 
 	xor a
 	ld [wJumptableIndex], a
+	ld [wPassportListTop], a
 	call Passport_DrawPage
 
 .loop
@@ -182,14 +185,48 @@ Passport::
 	ldh a, [hJoyLast]
 	ld b, a
 	and B_BUTTON | START
-	jr nz, .quit
+	jp nz, .quit
 	ld a, b
 	and D_LEFT
 	jr nz, .left
 	ld a, b
 	and D_RIGHT | A_BUTTON
 	jr nz, .right
+	ld a, b
+	and D_UP
+	jr nz, .up
+	ld a, b
+	and D_DOWN
+	jr nz, .down
 	call DelayFrame
+	jr .loop
+
+.up
+	ld a, [wJumptableIndex]
+	cp PASSPORTPAGE_TITLE
+	jr nz, .loop
+	ld hl, wPassportListTop
+	ld a, [hl]
+	and a
+	jr z, .loop
+	dec [hl]
+	jr .scrolled
+
+.down
+	ld a, [wJumptableIndex]
+	cp PASSPORTPAGE_TITLE
+	jr nz, .loop
+	ld hl, wPassportListTop
+	ld a, [hl]
+	add TD_PASSPORT_ROWS
+	ld b, a
+	ld a, [wPassportListCount]
+	cp b
+	jr c, .loop
+	jr z, .loop
+	inc [hl]
+.scrolled
+	call Passport_DrawPage
 	jr .loop
 
 .left
@@ -224,10 +261,12 @@ Passport::
 	ld a, b
 .turn
 	ld [wJumptableIndex], a
+	xor a
+	ld [wPassportListTop], a
 	ld de, SFX_MENU
 	call PlaySFX
 	call Passport_DrawPage
-	jr .loop
+	jp .loop
 
 .quit
 ; leave with BG map 0 shown, holding the current page
@@ -474,6 +513,14 @@ Passport_RunElements:
 	dw Passport_IfFlagElement
 	dw Passport_IfBadgesElement
 	dw Passport_BitIconElement
+	dw Passport_TitleListElement
+
+Passport_TitleListElement:
+; de = tilemap address; preserves hl
+	push hl
+	farcall TitleDefensePassportList
+	pop hl
+	ret
 
 Passport_IfCallElement:
 ; the routine returns z: skip the given bytes of elements and move the
@@ -902,7 +949,8 @@ PassportResortPage:
 .NotOpen: db "Not open yet@"
 
 PassportTitlePage:
-; World Cup title defenses; the challengers beaten in a title defense by name
+; World Cup title defenses; the challengers beaten in a title defense, a
+; list that scrolls with Up/Down
 	pe_icon     2, 2, EVENT_WORLD_CUP_CHAMPION, PT_TROPHY, PASSPORTPAL_GOLD
 	pe_text     5, 2, .WorldCup
 	pe_text     5, 3, .Champion
@@ -911,20 +959,8 @@ PassportTitlePage:
 	pe_text     2, 7, .Defenses
 	pe_num     11, 7, wTitleDefenses, 2, 5
 	pe_text     2, 9, .Beaten
-	pe_flagtext 2, 10, EVENT_TITLE_DEFENSE_BEAT_SILVER, .Silver, 0
-	pe_flagtext 2, 11, EVENT_TITLE_DEFENSE_BEAT_GREEN, .Green, 0
-	pe_flagtext 2, 12, EVENT_TITLE_DEFENSE_BEAT_WALLY, .Wally, 0
-	pe_flagtext 2, 13, EVENT_TITLE_DEFENSE_BEAT_LANCE, .Lance, 0
-	pe_flagtext 2, 14, EVENT_TITLE_DEFENSE_BEAT_AGATHA, .Agatha, 0
-	pe_flagtext 2, 15, EVENT_TITLE_DEFENSE_BEAT_STEVEN, .Steven, 0
-	pe_flagtext 2, 16, EVENT_TITLE_DEFENSE_BEAT_TATE_LIZA, .TateLiza, 0
-	pe_flagtext 10, 10, EVENT_TITLE_DEFENSE_BEAT_KIMONO_GIRLS, .Kimono, 0
-	pe_flagtext 10, 11, EVENT_TITLE_DEFENSE_BEAT_TWINS, .Twins, 0
-	pe_flagtext 10, 12, EVENT_TITLE_DEFENSE_BEAT_ACE_DUO, .AceDuo, 0
-	pe_flagtext 10, 13, EVENT_TITLE_DEFENSE_BEAT_RED, .Red, 0
-	pe_flagtext 10, 14, EVENT_TITLE_DEFENSE_BEAT_ARCHER, .Archer, 0
-	pe_flagtext 10, 15, EVENT_TITLE_DEFENSE_BEAT_JANE, .Jane, 0
-	pe_flagtext 10, 16, EVENT_TITLE_DEFENSE_BEAT_GIOVANNI, .Giovanni, 0
+	db PE_TDLIST
+	dwcoord 2, 10
 	db PE_END
 
 .WorldCup: db "World Cup@"
@@ -932,20 +968,6 @@ PassportTitlePage:
 .CupsWon:  db "Cups won@"
 .Defenses: db "Defenses@"
 .Beaten:   db "Beaten@"
-.Silver:   db "Silver@"
-.Green:    db "Green@"
-.Wally:    db "Wally@"
-.Lance:    db "Lance@"
-.Agatha:   db "Agatha@"
-.Steven:   db "Steven@"
-.TateLiza: db "Tate&Liza@"
-.Kimono:   db "Kimono@"
-.Twins:    db "Amy&May@"
-.AceDuo:   db "Kai&Rin@"
-.Red:      db "Red@"
-.Archer:   db "Archer@"
-.Jane:     db "Jane@"
-.Giovanni: db "Giovanni@"
 
 PassportStatsPage:
 	pe_text  2, 3, .Battles

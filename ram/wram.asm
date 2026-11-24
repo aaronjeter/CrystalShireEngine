@@ -1449,6 +1449,8 @@ wIntroSceneTimer:: db
 NEXTU
 ; trainer passport
 wPassportRowShift:: db ; rows the remaining elements move up
+wPassportListTop:: db ; the first challenger shown in the Title Defense page's list
+wPassportListCount:: db ; the challengers in that list
 
 NEXTU
 ; title data

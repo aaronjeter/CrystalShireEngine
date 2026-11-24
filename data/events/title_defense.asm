@@ -30,6 +30,7 @@ TitleDefenseChallengers:
 	title_challenger TD_UNLOCK_FLAG,      EVENT_CLEARED_RADIO_TOWER,          EVENT_TITLE_DEFENSE_BEAT_ARCHER,       EXECUTIVEM,  ARCHER_TD,    SPRITE_ROCKET,         0,                  TD_WIN_BP, CHOICE_SPECS,    1, .Archer
 	title_challenger TD_UNLOCK_FLAG,      EVENT_BEAT_SHRINE_JANE,             EVENT_TITLE_DEFENSE_BEAT_JANE,         EXECUTIVEF,  JANE_TD,      SPRITE_ROCKET_GIRL,    0,                  TD_WIN_BP, CHOICE_SCARF,    1, .Jane
 	title_challenger TD_UNLOCK_ROCKETS,   0,                                    EVENT_TITLE_DEFENSE_BEAT_GIOVANNI,     GIOVANNI,    GIOVANNI_TD,  SPRITE_GENTLEMAN,      0,                  TD_GIOVANNI_BP, CHOICE_BAND, 1, .Giovanni
+	title_challenger TD_UNLOCK_FLAG,      EVENT_BEAT_SAFARI_ROCKETS,          EVENT_TITLE_DEFENSE_BEAT_PETRA,        EXECUTIVEF,  PETRA_TD,     SPRITE_ROCKET_GIRL,    0,                  TD_WIN_BP, WEAKNESS_POLICY, 1, .Petra
 	assert_table_length NUM_TITLE_CHALLENGERS
 
 .Silver:      db "Silver@"
@@ -46,3 +47,14 @@ TitleDefenseChallengers:
 .Archer:      db "Archer@"
 .Jane:        db "Jane@"
 .Giovanni:    db "Giovanni@"
+.Petra:       db "Petra@"
+
+; The order of the Challenger Lobby menu and the Passport's "Beaten" list
+TitleDefenseOrder:
+	db TD_SILVER, TD_GREEN, TD_WALLY
+	db TD_LANCE, TD_AGATHA, TD_STEVEN
+	db TD_TATE_LIZA, TD_KIMONO_GIRLS, TD_TWINS, TD_ACE_DUO
+	db TD_RED
+	db TD_ARCHER, TD_JANE, TD_PETRA, TD_GIOVANNI
+	db -1
+	assert @ - TitleDefenseOrder == NUM_TITLE_CHALLENGERS + 1, "TitleDefenseOrder must list every challenger once"

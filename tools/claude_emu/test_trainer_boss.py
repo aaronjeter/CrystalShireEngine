@@ -200,7 +200,8 @@ def case_real():
                                        ('TATELIZA', 'TATELIZA3', 'BOSS_NONE', 0, 0),
                                        ('EXECUTIVEM', 'EXECUTIVEM_5', 'BOSS_ARCHER', 0, 1),
                                        ('EXECUTIVEF', 'DESERT_JANE', 'BOSS_JANE', 5, 1),
-                                       ('KIMONO_GIRL', 'NAOKOANDZUKI', 'BOSS_TD_KIMONO', 5, 1)]:
+                                       ('KIMONO_GIRL', 'NAOKOANDZUKI', 'BOSS_TD_KIMONO', 5, 1),
+                                       ('EXECUTIVEF', 'PETRA_TD', 'BOSS_PETRA', 5, 1)]:
         g = setup()
         start(g, cls, pid)
         log = to_menu(g)

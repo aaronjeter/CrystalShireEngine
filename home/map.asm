@@ -1206,7 +1206,7 @@ _LoadTilesetGFX4:
 	ldh [rSVBK], a
 	ret
 
-_LoadTilesetGFX2:
+_LoadTilesetGFX2::
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wTilesetvTiles2GFXAddress)

@@ -98,6 +98,8 @@ WCChallengerLobby_NotChampion:
 ChallengerLobbyTitleClerkScript:
 	faceplayer
 	opentext
+	checkevent EVENT_WORLD_CUP_CHAMPION
+	iffalse .NotChampion
 	writetext ChallengerLobbyTitleClerkText
 	yesorno
 	iffalse .Declined
@@ -113,6 +115,12 @@ ChallengerLobbyTitleClerkScript:
 	closetext
 	setmapscene WC_FINALS, SCENE_WCFINALS_TITLE_DEFENSE
 	warp WC_FINALS, 6, 13
+	end
+
+.NotChampion:
+	writetext WCChallengerLobby_NotChampion
+	waitbutton
+	closetext
 	end
 
 .Cancel:
