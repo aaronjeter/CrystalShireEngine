@@ -81,7 +81,7 @@ RedGyaradosPhases:
 	dw .bar1
 .bar1
 	boss_weather WEATHER_RAIN, BOSS_WEATHER_TURNS
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 UnownXAura:
@@ -104,7 +104,7 @@ ArticunoPhases:
 	boss_end
 
 ZapdosAura:
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 ZapdosPhases:
 	dw .bar1
@@ -162,7 +162,7 @@ MewtwoPhases:
 .bar2
 	boss_stat SP_ATTACK, 1
 	boss_stat SP_DEFENSE, 1
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 KyogreAura:
@@ -195,7 +195,7 @@ GroudonPhases:
 
 EnteiAura:
 	boss_weather WEATHER_SUN, 255
-	boss_stat SPEED, 1
+	boss_stat SP_DEFENSE, 1
 	boss_end
 EnteiPhases:
 	dw .bar1, .bar2
@@ -204,7 +204,7 @@ EnteiPhases:
 	boss_end
 .bar2
 	boss_stat ATTACK, 1
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 RayquazaAura:
@@ -214,7 +214,7 @@ RayquazaPhases:
 	dw .bar, .bar
 .bar
 	boss_stat ATTACK, 1
-	boss_stat SPEED, 1
+	boss_stat SP_DEFENSE, 1
 	boss_end
 
 HoOhAura:
@@ -283,7 +283,7 @@ TDWallyPhases:
 .bar1
 	boss_text BossWallyText
 	boss_stat SP_ATTACK, 1
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 LanceAura:
@@ -293,7 +293,7 @@ LancePhases:
 	dw .bar1
 .bar1
 	boss_text BossLanceText
-	boss_stat SPEED, 1
+	boss_stat SP_DEFENSE, 1
 	boss_stat DEFENSE, 1
 	boss_end
 
@@ -304,7 +304,8 @@ AgathaPhases:
 	dw .bar1
 .bar1
 	boss_text BossAgathaText
-	boss_stat SPEED, 2
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
 	boss_end
 
 StevenAura:
@@ -337,11 +338,11 @@ TDKimonoPhases:
 .bar1
 	boss_text BossKimonoText
 	boss_stat SP_ATTACK, 1
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 TDTwinsAura:
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 TDTwinsPhases:
 	dw .bar1
@@ -362,7 +363,7 @@ TDAceDuoPhases:
 	boss_end
 
 RedAura:
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 RedPhases:
 	dw .bar1, .bar2
@@ -374,7 +375,7 @@ RedPhases:
 .bar2
 	boss_text BossRedText2
 	boss_weather WEATHER_RAIN, BOSS_WEATHER_TURNS
-	boss_stat SPEED, 1
+	boss_stat SP_DEFENSE, 1
 	boss_stat ATTACK, 1
 	boss_stat SP_ATTACK, 1
 	boss_end
@@ -390,7 +391,7 @@ TDGiovanniPhases:
 	boss_end
 .bar2
 	boss_text BossGiovanniText2
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_stat SP_ATTACK, 1
 	boss_end
 
@@ -402,7 +403,7 @@ ArcherPhases:
 .bar1
 	boss_text BossArcherText
 	boss_weather WEATHER_SUN, BOSS_WEATHER_TURNS
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 TowerHeadAura:
@@ -413,7 +414,7 @@ TowerHeadPhases:
 .bar1
 	boss_text BossTowerHeadText
 	boss_stat SP_ATTACK, 1
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 PetraAura:
@@ -424,7 +425,7 @@ PetraPhases:
 .bar1
 	boss_text BossPetraText
 	boss_stat ATTACK, 1
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 PorygonZAura:
@@ -434,7 +435,7 @@ PorygonZPhases:
 	dw .bar1
 .bar1
 	boss_text BossPorygonZText
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 JaneAura:
@@ -445,7 +446,7 @@ JanePhases:
 .bar1
 	boss_text BossJaneText
 	boss_stat SP_ATTACK, 1
-	boss_stat SPEED, 1
+	boss_stat DEFENSE, 1
 	boss_end
 
 BossSilverText:

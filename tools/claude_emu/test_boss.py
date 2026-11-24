@@ -374,8 +374,8 @@ def case_aura():
     check('aura: "aura flared!", then Attack +1 before the first turn', a >= 0 and idx(intro, 'Attack went up', a) > a
           and lv(m0, (ATK, 1), (SPE, 0)), f'levels={m0["levels"]} intro={intro}')
     m1 = menus[1] if len(menus) > 1 else None
-    ok = m1 and m1['weather'][0] == g.const('WEATHER_RAIN') and lv(m1, (ATK, 1), (SPE, 1))
-    check('phase on the new bar: rain, Speed +1, the aura\'s Attack kept', ok and STANDING in ' '.join(m1['log'])
+    ok = m1 and m1['weather'][0] == g.const('WEATHER_RAIN') and lv(m1, (ATK, 1), (DEF, 1), (SPE, 0))
+    check('phase on the new bar: rain, Defense +1, the aura\'s Attack kept', ok and STANDING in ' '.join(m1['log'])
           and idx(m1['log'], 'downpour', idx(m1['log'], STANDING)) > 0,
           f'm1={m1 and (m1["levels"], m1["weather"], m1["log"])}')
 
@@ -394,17 +394,17 @@ def case_hard_phases():
     g.set_party(BOLT, ())
     menus, log, res = fight(g, g.const('BOSS_RED_GYARADOS'), [('move', 0)] * 5)
     w = [m['weather'][0] for m in menus]
-    spe = [m['levels'][SPE] - BASE for m in menus]
+    dfn = [m['levels'][DEF] - BASE for m in menus]
     check('Hard: the added bar breaks first with no phase, then the phase', w[:3] == [0, 0, g.const('WEATHER_RAIN')]
-          and spe[:3] == [0, 0, 1] and res == 0, f'weather={w} speed={spe}')
+          and dfn[:3] == [0, 0, 1] and res == 0, f'weather={w} defense={dfn}')
 
 
 def case_two_phases():
     g = setup()
     g.set_party(BOLT, ())
     menus, log, res = fight(g, g.const('BOSS_MEWTWO'), [('move', 0)] * 6, species='MEWTWO', level=20)
-    lvls = [[m['levels'][i] - BASE for i in (SPE, SPA, SPD)] for m in menus]
-    check('two phases in order (Mewtwo: Sp.Atk/Sp.Def each bar, Speed on the last)',
+    lvls = [[m['levels'][i] - BASE for i in (DEF, SPA, SPD)] for m in menus]
+    check('two phases in order (Mewtwo: Sp.Atk/Sp.Def each bar, Defense on the last)',
           lvls[:3] == [[0, 1, 1], [0, 2, 2], [1, 3, 3]] and res == 0, f'levels={lvls}')
 
 
@@ -444,8 +444,8 @@ def case_air_lock():
     g.set_party([('PSYDUCK', 60, None, ['THUNDERBOLT', 'HARDEN'])], ())
     menus, log, res = fight(g, g.const('BOSS_RED_GYARADOS'), [('move', 0)] * 4)
     m1 = menus[1] if len(menus) > 1 else None
-    check('Cloud Nine: a boss phase sets no weather (Red Gyarados), Speed +1 still',
-          m1 and m1['weather'][0] == 0 and lv(m1, (SPE, 1)),
+    check('Cloud Nine: a boss phase sets no weather (Red Gyarados), Defense +1 still',
+          m1 and m1['weather'][0] == 0 and lv(m1, (DEF, 1)),
           f'm1={m1 and (m1["weather"], m1["levels"], m1["log"])}')
 
 

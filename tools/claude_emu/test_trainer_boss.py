@@ -148,8 +148,8 @@ def case_fight():
     check('a KO takes its bar: "still standing", HP refilled, 0 bars left',
           len(m) >= 3 and m[2]['ram'][2] == 0 and m[2]['hp'] == m[2]['max'] and count(log, STANDING) == 1,
           f'{[(x["ram"], x["hp"]) for x in m]}')
-    check("the phase: Lance's line, +1 Speed and Defense", 'Lance: Dragonite' in j and len(m) >= 3 and
-          m[2]['levels'][2] >= g.const('BASE_STAT_LEVEL') + 1 and m[2]['levels'][1] == g.const('BASE_STAT_LEVEL') + 1,
+    check("the phase: Lance's line, +1 Defense and Sp.Def", 'Lance: Dragonite' in j and len(m) >= 3 and
+          m[2]['levels'][4] == g.const('BASE_STAT_LEVEL') + 1 and m[2]['levels'][1] == g.const('BASE_STAT_LEVEL') + 1,
           f'{m[2]["levels"] if len(m) > 2 else None}')
     check('then it faints and the battle is won', r[-1].get('result') == 0 and len(m) == 3, f'{r[-1].get("result")} {len(m)}')
 
