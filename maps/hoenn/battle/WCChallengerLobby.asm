@@ -2,6 +2,12 @@
 	const CHALLENGERLOBBY_FRONTCLERK
 	const CHALLENGERLOBBY_TITLECLERK
 	const CHALLENGERLOBBY_NURSE
+	const CHALLENGERLOBBY_COOLTRAINER_F
+	const CHALLENGERLOBBY_SUPER_NERD
+	const CHALLENGERLOBBY_BLACK_BELT
+	const CHALLENGERLOBBY_BEAUTY
+	const CHALLENGERLOBBY_GRAMPS
+	const CHALLENGERLOBBY_LASS
 
 WCChallengerLobby_MapScripts:
 	def_scene_scripts
@@ -174,6 +180,169 @@ ChallengerLobbyNurseScript:
 	jumpstd PokecenterNurseScript
 
 
+ChallengerLobbyCooltrainerFScript:
+	checkevent EVENT_WORLD_CUP_CHAMPION
+	iftrue .Champion
+	jumptextfaceplayer ChallengerLobbyCooltrainerFText
+
+.Champion
+	jumptextfaceplayer ChallengerLobbyCooltrainerFChampionText
+
+ChallengerLobbyCooltrainerFText:
+	text "Trainers from"
+	line "every region are"
+	cont "here!"
+
+	para "I'm so nervous,"
+	line "even my #mon"
+	cont "can tell."
+	done
+
+ChallengerLobbyCooltrainerFChampionText:
+	text "You're the World"
+	line "Champion?"
+
+	para "Can I shake your"
+	line "hand? And maybe"
+	cont "your #mon's?"
+	done
+
+ChallengerLobbySuperNerdScript:
+	checkevent EVENT_WORLD_CUP_CHAMPION
+	iftrue .Champion
+	jumptextfaceplayer ChallengerLobbySuperNerdText
+
+.Champion
+	jumptextfaceplayer ChallengerLobbySuperNerdChampionText
+
+ChallengerLobbySuperNerdText:
+	text "I've charted every"
+	line "matchup in the"
+	cont "bracket."
+
+	para "By my math, I win"
+	line "the whole thing..."
+
+	para "...in about twelve"
+	line "years."
+	done
+
+ChallengerLobbySuperNerdChampionText:
+	text "My charts never"
+	line "predicted you."
+
+	para "I'm going to need"
+	line "a bigger notebook."
+	done
+
+ChallengerLobbyBlackBeltScript:
+	checkevent EVENT_WORLD_CUP_CHAMPION
+	iftrue .Champion
+	jumptextfaceplayer ChallengerLobbyBlackBeltText
+
+.Champion
+	jumptextfaceplayer ChallengerLobbyBlackBeltChampionText
+
+ChallengerLobbyBlackBeltText:
+	text "Hwah! A hundred"
+	line "push-ups before"
+	cont "every round!"
+
+	para "My #mon do four"
+	line "hundred!"
+	done
+
+ChallengerLobbyBlackBeltChampionText:
+	text "Even the World"
+	line "Champion needs"
+	cont "push-ups!"
+
+	para "Come on, join us!"
+	line "Hwah! Hwah!"
+	done
+
+ChallengerLobbyBeautyScript:
+	checkevent EVENT_WORLD_CUP_CHAMPION
+	iftrue .Champion
+	jumptextfaceplayer ChallengerLobbyBeautyText
+
+.Champion
+	jumptextfaceplayer ChallengerLobbyBeautyChampionText
+
+ChallengerLobbyBeautyText:
+	text "I'm here to win,"
+	line "of course."
+
+	para "But I packed three"
+	line "outfits for the"
+	cont "photos, just in"
+	cont "case."
+	done
+
+ChallengerLobbyBeautyChampionText:
+	text "Your victory photo"
+	line "is on every screen"
+	cont "in the Resort!"
+
+	para "...I should have"
+	line "packed a fourth"
+	cont "outfit."
+	done
+
+ChallengerLobbyGrampsScript:
+	checkevent EVENT_WORLD_CUP_CHAMPION
+	iftrue .Champion
+	jumptextfaceplayer ChallengerLobbyGrampsText
+
+.Champion
+	jumptextfaceplayer ChallengerLobbyGrampsChampionText
+
+ChallengerLobbyGrampsText:
+	text "I won a League"
+	line "fifty years ago."
+
+	para "Now my grandson is"
+	line "in the bracket,"
+	cont "and my hands won't"
+	cont "stop shaking!"
+	done
+
+ChallengerLobbyGrampsChampionText:
+	text "We cheered for you"
+	line "in the final!"
+
+	para "Well... after my"
+	line "grandson lost to"
+	cont "you, that is."
+	done
+
+ChallengerLobbyLassScript:
+	checkevent EVENT_WORLD_CUP_CHAMPION
+	iftrue .Champion
+	jumptextfaceplayer ChallengerLobbyLassText
+
+.Champion
+	jumptextfaceplayer ChallengerLobbyLassChampionText
+
+ChallengerLobbyLassText:
+	text "Johto, Kanto and"
+	line "Hoenn trainers,"
+	cont "all in one hall!"
+
+	para "I've been trading"
+	line "tips with everyone"
+	cont "I meet."
+	done
+
+ChallengerLobbyLassChampionText:
+	text "Everyone's asking"
+	line "how you built your"
+	cont "team."
+
+	para "Any tips for me?"
+	line "Pretty please?"
+	done
+
 WCChallengerLobby_MapEvents:
 	db 0, 0 ; filler
 
@@ -196,3 +365,9 @@ WCChallengerLobby_MapEvents:
 	object_event  34, 31, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyFrontClerkScript, -1
 	object_event  34, 15, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyTitleClerkScript, -1
 	object_event  03, 15, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyNurseScript, -1
+	object_event  27, 35, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyCooltrainerFScript, -1
+	object_event  36, 36, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ChallengerLobbySuperNerdScript, -1
+	object_event  11, 19, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyBlackBeltScript, -1
+	object_event  01, 19, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyBeautyScript, -1
+	object_event  19, 23, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyGrampsScript, -1
+	object_event  34, 21, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ChallengerLobbyLassScript, -1
