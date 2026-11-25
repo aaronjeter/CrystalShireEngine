@@ -50,13 +50,13 @@ DEF NO_LIMITS EQU 0
 	const_def
 	const ITEM_POCKET     ; 0
 	const MEDICINE_POCKET ; 1
-	const BERRY_POCKET    ; 2
-	const HELD_POCKET     ; 3
-	const TRAINING_POCKET ; 4
-	const TREASURE_POCKET ; 5
-	const BALL_POCKET     ; 6
-	const TM_HM_POCKET    ; 7
-	const KEY_ITEM_POCKET ; 8
+	const BALL_POCKET     ; 2
+	const BERRY_POCKET    ; 3
+	const HELD_POCKET     ; 4
+	const TRAINING_POCKET ; 5
+	const TM_HM_POCKET    ; 6
+	const KEY_ITEM_POCKET ; 7
+	const TREASURE_POCKET ; 8
 DEF NUM_POCKETS EQU const_value
 DEF NUM_TUTORIAL_POCKETS EQU 4 ; the catching tutorial's Pack: Items, Balls, Key Items, TMs
 

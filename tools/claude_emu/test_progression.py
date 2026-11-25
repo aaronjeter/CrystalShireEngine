@@ -264,7 +264,7 @@ class Game(H):
         """Empty the TM/HM, list and key item pockets (the boot save has the field items)."""
         n = self.sym['wNumItems'][1] - self.sym['wTMsHMs'][1]
         self.wr('wTMsHMs', [0] * n)
-        for num, lst in POCKET_LISTS:
+        for num, lst in filter(None, POCKET_LISTS):
             self.wr(num, 0)
             self.wr(lst, 0xFF)
         self.wr('wNumKeyItems', 0)

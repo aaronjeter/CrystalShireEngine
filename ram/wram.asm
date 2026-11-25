@@ -2203,13 +2203,13 @@ wPartyMenuCursor::      db
 wPocketCursors:: ; one per pocket (*_POCKET order)
 wItemsPocketCursor::     db
 wMedicinePocketCursor::  db
+wBallsPocketCursor::     db
 wBerriesPocketCursor::   db
 wHeldPocketCursor::      db
 wTrainingPocketCursor::  db
-wTreasuresPocketCursor:: db
-wBallsPocketCursor::     db
 wTMHMPocketCursor::      db
 wKeyItemsPocketCursor::  db
+wTreasuresPocketCursor:: db
 	assert wKeyItemsPocketCursor - wPocketCursors == KEY_ITEM_POCKET
 	assert wTMHMPocketCursor - wPocketCursors == TM_HM_POCKET
 
@@ -2217,13 +2217,13 @@ wPCItemsScrollPosition::        db
 wPocketScrollPositions:: ; one per pocket (*_POCKET order)
 wItemsPocketScrollPosition::     db
 wMedicinePocketScrollPosition::  db
+wBallsPocketScrollPosition::     db
 wBerriesPocketScrollPosition::   db
 wHeldPocketScrollPosition::      db
 wTrainingPocketScrollPosition::  db
-wTreasuresPocketScrollPosition:: db
-wBallsPocketScrollPosition::     db
 wTMHMPocketScrollPosition::      db
 wKeyItemsPocketScrollPosition::  db
+wTreasuresPocketScrollPosition:: db
 	assert wKeyItemsPocketScrollPosition - wPocketScrollPositions == KEY_ITEM_POCKET
 
 wSwitchMon::

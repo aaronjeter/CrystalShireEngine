@@ -29,11 +29,12 @@ TRAINER_CLASS = 'COOLTRAINERM'  # class whose group gets repointed (affects AI a
 SEED = 0x1234
 
 # Pack pockets with 2-byte lists (low byte of the item index, quantity), in *_POCKET order
-POCKET_LISTS = (('wNumItems', 'wItems'), ('wNumMedicine', 'wMedicine'), ('wNumBerries', 'wBerries'),
-                ('wNumHeldItems', 'wHeldItems'), ('wNumTrainingItems', 'wTrainingItems'),
-                ('wNumTreasures', 'wTreasures'), ('wNumBalls', 'wBalls'))
-BLOCK_POCKET = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 7: 6}  # item index high byte -> pocket
-BALL_POCKET = 6
+# the list pockets by *_POCKET number (TM/HM and Key Items have other formats: None)
+POCKET_LISTS = (('wNumItems', 'wItems'), ('wNumMedicine', 'wMedicine'), ('wNumBalls', 'wBalls'),
+                ('wNumBerries', 'wBerries'), ('wNumHeldItems', 'wHeldItems'),
+                ('wNumTrainingItems', 'wTrainingItems'), None, None, ('wNumTreasures', 'wTreasures'))
+BLOCK_POCKET = {0: 0, 1: 1, 2: 3, 3: 4, 4: 5, 5: 8, 7: 2}  # item index high byte -> pocket
+BALL_POCKET = 2
 BATTLE_POCKET = 1  # the battle Pack opens on Medicine
 
 
@@ -57,7 +58,7 @@ def item_count(g, item):
 
 
 def clear_pockets(g):
-    for num, lst in POCKET_LISTS:
+    for num, lst in filter(None, POCKET_LISTS):
         g.wr(num, 0)
         g.wr(lst, 0xff)
 

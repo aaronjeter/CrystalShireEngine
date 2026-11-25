@@ -229,7 +229,7 @@ check(NAME[g.rd('wBattleMonAbility')] == 'ABILITY_LEVITATE', 'the player\'s Poke
 check(g.rd('wEnemyAbilitySlot') == 2 and NAME[g.rd('wEnemyMonAbility')] == 'ABILITY_RAIN_DISH' and g.rd('wBattleWeather') == 0,
       'setnextability before a wild battle: hidden Rain Dish, so no Drizzle rain')
 g.frames(60); g.press('D', after=20); g.press('A', after=60)
-for _ in range(5):  # the battle Pack opens on Medicine; Balls are 5 pockets right
+for _ in range(1):  # the battle Pack opens on Medicine; Balls are 1 pocket right
     g.press('R', after=40)
 g.press('A', after=40); g.press('A', after=60)
 for i in range(300):
@@ -267,7 +267,7 @@ def item_use(item, start_slot, answer='yes'):
     g = new_patched()
     g.wr('wPartyCount', 0); g.wr('wPartySpecies', 0xFF)
     g.wr('wNumTrainingItems', 0); g.wr('wTrainingItems', 0xFF)
-    g.wr('wLastPocket', 4)  # TRAINING_POCKET
+    g.wr('wLastPocket', 5)  # TRAINING_POCKET
     g.wr('wTrainingPocketCursor', 1); g.wr('wTrainingPocketScrollPosition', 0)
     g.run_script('\tgivepoke MACHAMP, 30\n\tgiveitem ABILITY_CAPSULE, 5\n\tgiveitem ABILITY_PATCH, 5\n\tend')
     settle(g, 40); g.frames(30)

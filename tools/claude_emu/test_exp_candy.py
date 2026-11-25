@@ -62,7 +62,7 @@ def main():
         g.wr(f'wPartyMon1+{off["MON_MOVES"]}', [first, 0, 0, 0])
         g.wr('wLevelCap', cap)
         g.wr('wNumTrainingItems', [0, 0xff])
-        g.wr('wLastPocket', 4)  # TRAINING_POCKET
+        g.wr('wLastPocket', 5)  # TRAINING_POCKET
         g.wr('wTrainingPocketCursor', 1); g.wr('wTrainingPocketScrollPosition', 0)
         g.script(f'\tgiveitem {item}, 2', 30)
 

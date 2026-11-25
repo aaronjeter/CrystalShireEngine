@@ -1011,13 +1011,13 @@ PackGFXOffsets:
 	table_width 2
 	dw (15 tiles) * 1 ; ITEM_POCKET
 	dw (15 tiles) * 1 ; MEDICINE_POCKET
+	dw (15 tiles) * 3 ; BALL_POCKET
 	dw (15 tiles) * 1 ; BERRY_POCKET
 	dw (15 tiles) * 1 ; HELD_POCKET
 	dw (15 tiles) * 1 ; TRAINING_POCKET
-	dw (15 tiles) * 1 ; TREASURE_POCKET
-	dw (15 tiles) * 3 ; BALL_POCKET
 	dw (15 tiles) * 2 ; TM_HM_POCKET
 	dw (15 tiles) * 0 ; KEY_ITEM_POCKET
+	dw (15 tiles) * 1 ; TREASURE_POCKET
 	assert_table_length NUM_POCKETS
 
 Pack_InterpretJoypad:
@@ -1198,13 +1198,13 @@ DrawPocketGFX:
 	table_width 1
 	db $4c ; ITEM_POCKET
 	db $4c ; MEDICINE_POCKET
+	db $4d ; BALL_POCKET
 	db $4c ; BERRY_POCKET
 	db $4c ; HELD_POCKET
 	db $4c ; TRAINING_POCKET
-	db $4c ; TREASURE_POCKET
-	db $4d ; BALL_POCKET
 	db $4f ; TM_HM_POCKET
 	db $4e ; KEY_ITEM_POCKET
+	db $4c ; TREASURE_POCKET
 	assert_table_length NUM_POCKETS
 	assert 9 + 1 + NUM_POCKETS + 1 == SCREEN_WIDTH
 
@@ -1241,13 +1241,13 @@ DrawPocketName:
 	table_width 5
 	db $06, $07, $08, $09, $0a ; Items
 	db $60, $61, $62, $63, $64 ; Medicine (PocketLabelsGFX)
+	db $15, $16, $17, $18, $19 ; Balls
 	db $65, $66, $67, $68, $69 ; Berries
 	db $6a, $6b, $6c, $6d, $6e ; HeldItems
 	db $6f, $70, $71, $72, $73 ; Training
-	db $74, $75, $76, $77, $78 ; Treasures
-	db $15, $16, $17, $18, $19 ; Balls
 	db $10, $11, $12, $13, $14 ; TM/HM
 	db $0b, $0c, $0d, $0e, $0f ; Key Items
+	db $74, $75, $76, $77, $78 ; Treasures
 	assert_table_length NUM_POCKETS
 
 Pack_GetItemName:
@@ -1326,13 +1326,13 @@ PackPocketMenuHeaders:
 	table_width 2
 	dw .Items
 	dw .Medicine
+	dw .Balls
 	dw .Berries
 	dw .HeldItems
 	dw .Training
-	dw .Treasures
-	dw .Balls
 	dw 0 ; TM_HM_POCKET
 	dw KeyItemsPocketMenuHeader
+	dw .Treasures
 	assert_table_length NUM_POCKETS
 .Items:     list_pocket_menu_header wNumItems, TRUE
 .Medicine:  list_pocket_menu_header wNumMedicine, TRUE
@@ -1347,13 +1347,13 @@ PC_MartPocketMenuHeaders:
 	table_width 2
 	dw .Items
 	dw .Medicine
+	dw .Balls
 	dw .Berries
 	dw .HeldItems
 	dw .Training
-	dw .Treasures
-	dw .Balls
 	dw 0 ; TM_HM_POCKET
 	dw PC_Mart_KeyItemsPocketMenuHeader
+	dw .Treasures
 	assert_table_length NUM_POCKETS
 .Items:     list_pocket_menu_header wNumItems, FALSE
 .Medicine:  list_pocket_menu_header wNumMedicine, FALSE

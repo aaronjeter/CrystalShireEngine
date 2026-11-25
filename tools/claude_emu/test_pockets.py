@@ -108,8 +108,7 @@ def main():
     g.script('\topentext\n\tpokemart MARTTYPE_STANDARD, MART_CHERRYGROVE\n\tclosetext', 200)
     g.press('D', after=20)
     g.press('A', after=150)  # Sell: the Pack opens on Items
-    for _ in range(5):
-        g.press('R', hold=6, after=80)  # to Treasures
+    g.press('L', hold=6, after=80)  # to Treasures (the last pocket)
     pocket_now = g.rd('wJumptableIndex')
     low = g.const16('NUGGET') & 0xff
     pos = [lo for lo, q in pocket(g, 'wNumTreasures')[0]].index(low)
@@ -134,7 +133,7 @@ def main():
     g.press('A', after=60)  # the house PC's menu text
     g.press('D', after=20)
     g.press('A', after=150)  # Deposit Item: the Pack opens on Items
-    for _ in range(2):
+    for _ in range(3):
         g.press('R', hold=6, after=80)  # to Berries
     for _ in range(pos):
         g.press('D', after=20)
