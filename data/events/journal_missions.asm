@@ -648,6 +648,12 @@ Journal_ChampionsDefended:
 	dw -1
 
 Journal_GotElmStarter:
+	ld de, EVENT_START_JOHTO
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ld a, c
+	and a
+	ret z
 	ld hl, .flags
 	call Journal_CountFlags
 	and a
