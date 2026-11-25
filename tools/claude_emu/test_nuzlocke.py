@@ -446,6 +446,23 @@ def case_box_skips_graveyard():
           and sram(g, 'sNewBox1Entries', 20)[0] != 0, str(sram(g, 'sNewBox1Entries', 3)))
 
 
+def case_full_box_next(nz):
+    """With the party and the current box full (box 1), a catch goes to box 2 and box 2
+    becomes the current box (Nuzlocke on or off)."""
+    party = [('SCYTHER', 60, None, ['FALSE_SWIPE'])] + [('ABRA', 5, None, ['TELEPORT'])] * 5
+    def pre(g):
+        g.wr('wCurBox', 0)
+        sram(g, 'sNewBox1Entries', 20, list(range(140, 160)))
+        sram(g, 'sNewBox2Entries', 20, [0] * 20)
+    g = setup(nz=nz, party=party, items=(('MASTER_BALL', 1),), pre=pre)
+    start(g, 'RATTATA', 3)
+    throw_until_caught(g)
+    finish_naming(g)
+    check(f'catch with box 1 full goes to box 2 (Nuzlocke {"on" if nz else "off"})',
+          sram(g, 'sNewBox2Entries', 20)[0] != 0 and g.rd('wCurBox') == 1,
+          f'{sram(g, "sNewBox2Entries", 3)} box {g.rd("wCurBox")}')
+
+
 def open_pc(g, box):
     """Bill's PC (UseBillsPC through callasm) on box `box` (1-based)."""
     g.wr('wCurBox', box - 1)
@@ -811,6 +828,8 @@ def main():
     case_bury_wild_flee()
     case_bury_doubles()
     case_box_skips_graveyard()
+    case_full_box_next(False)
+    case_full_box_next(True)
     case_pc()
     case_cave()
     case_both_faint()

@@ -1501,7 +1501,7 @@ StorageFlagAction:
 IsNuzlockeGraveyardBox::
 ; Carry if box b is a graveyard box and Nuzlocke mode is on.
 	ld a, [wOptions2]
-	bit NUZLOCKE_ON, a
+	and 1 << NUZLOCKE_ON
 	ret z ; no carry
 	ld a, b
 	cp NUZLOCKE_GRAVEYARD_BOX
