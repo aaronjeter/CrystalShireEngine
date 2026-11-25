@@ -558,8 +558,8 @@ BiteDescription:
 	next "cause flinching.@"
 
 GrowlDescription:
-	db   "Sharply reduces"
-	next "the foe's Attack.@"
+	db   "Lowers the foe's"
+	next "Attack.@"
 
 RoarDescription:
 	db   "Scares wild foes"
@@ -1303,8 +1303,8 @@ EndureDescription:
 	next "least 1HP.@"
 
 CharmDescription:
-	db   "Sharply lowers the"
-	next "foe's Attack.@"
+	db   "Lowers the foe's"
+	next "Spcl.Atk.@"
 
 RolloutDescription:
 	db   "Attacks 5 turns"

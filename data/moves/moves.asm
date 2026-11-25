@@ -67,7 +67,7 @@ MovesGen1:
 	move EFFECT_MULTI_HIT,          30, BUG,            SPECIAL,		 90, 15,   0      ;PIN_MISSILE
 	move EFFECT_DEFENSE_DOWN_2,      0, NORMAL,         STATUS,			100, 30,   0      ;LEER
 	move EFFECT_FLINCH_HIT,         40, DARK,           PHYSICAL,		100, 25,  10      ;BITE
-	move EFFECT_ATTACK_DOWN_2,       0, NORMAL,         STATUS,			100, 40,   0      ;GROWL
+	move EFFECT_ATTACK_DOWN,         0, NORMAL,         STATUS,			100, 40,   0      ;GROWL
 	move EFFECT_FORCE_SWITCH,        0, NORMAL,         STATUS,			100, 20,   0      ;ROAR
 	move EFFECT_SLEEP,               0, NORMAL,         STATUS,			 60, 15,   0      ;SING
 	move EFFECT_CONFUSE,             0, NORMAL,         STATUS,			 80, 20,   0      ;SUPERSONIC
@@ -232,7 +232,7 @@ MovesGen2:
 	move EFFECT_SANDSTORM,           0, ROCK,           STATUS,			100, 10,   0      ;SANDSTORM
 	move EFFECT_LEECH_HIT,          80, GRASS,          SPECIAL,		100, 10,   0      ;GIGA_DRAIN
 	move EFFECT_ENDURE,              0, NORMAL,         STATUS,			100, 10,   0      ;ENDURE
-	move EFFECT_SP_ATK_DOWN_2,       0, NORMAL,         STATUS,			100, 20,   0      ;CHARM
+	move EFFECT_SP_ATK_DOWN,         0, NORMAL,         STATUS,			100, 20,   0      ;CHARM
 	move EFFECT_ROLLOUT,            30, ROCK,           PHYSICAL,		 90, 20,   0      ;ROLLOUT
 	move EFFECT_FALSE_SWIPE,        60, NORMAL,         PHYSICAL,		100, 40,   0      ;FALSE_SWIPE
 	move EFFECT_SWAGGER,             0, NORMAL,         STATUS,			 90, 15, 100      ;SWAGGER

@@ -239,7 +239,7 @@ MoveAttributeData:
 	move_attr FIELD                                ; SANDSTORM
 	move_attr SELECTED                             ; GIGA_DRAIN
 	move_attr USER                                 ; ENDURE
-	move_attr SELECTED                             ; CHARM
+	move_attr BOTH_FOES                            ; CHARM
 	move_attr SELECTED, CONTACT                    ; ROLLOUT
 	move_attr SELECTED, CONTACT, SLICING           ; FALSE_SWIPE
 	move_attr SELECTED                             ; SWAGGER

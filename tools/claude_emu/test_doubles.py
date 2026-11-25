@@ -279,6 +279,15 @@ CASES = {
         actions=[('move', 0), ('move', 0), ('move', 1), ('move', 0), ('move', 2), ('move', 1)] + [('move', 2)] * 40,
         check=lambda recs, v: check_spread_misc(recs, v),
         result=WIN),
+    # Charm lowers both foes' Sp. Atk by one stage per use
+    'doubles_charm': dict(
+        cls='COOLTRAINERM',
+        party=[('CLEFABLE', 50, None, ['CHARM', 'MOONBLAST']), ('SNORLAX', 50, None, ['SPLASH', 'BODY_SLAM'])],
+        trainer=[(40, 'PIDGEOT', None, ['SPLASH']), (40, 'RATICATE', None, ['SPLASH'])],
+        abilities={'CLEFABLE': 'NO_ABILITY', 'SNORLAX': 'NO_ABILITY', 'PIDGEOT': 'NO_ABILITY', 'RATICATE': 'NO_ABILITY'},
+        actions=[('move', 0), ('move', 0)] * 2 + [('move', 1, 0), ('move', 1, 0)] * 40,
+        check=lambda recs, v: check_charm(recs, v),
+        result=WIN),
     # phase 3B: Leech Seed heals the seeder's slot (also after the seeder left); Wrap ends when
     # the trapper leaves
     'doubles_leech_wrap': dict(
@@ -700,11 +709,26 @@ def check_spread_misc(recs, v):
                 p.append(f'turn {n}: "{w}" {txt.count(w)} times: {txt}')
     if len(re.findall(r'Magnitude \d', txt2)) != 1:
         p.append(f'turn 2: Magnitude rolled {len(re.findall(r"Magnitude \\d", txt2))} times: {txt2}')
-    for r, want in ((recs[i2], 5), (recs[i3], 3)):  # Growl is -2 in this hack
+    for r, want in ((recs[i2], 6), (recs[i3], 5)):  # Growl lowers Attack by 1
         for slot in (E1, E2):
             got = v.stat_levels(r, slot)[0]
             if got != want:
                 p.append(f'E{slot - 1} attack level {got} (expected {want}) at menu {recs.index(r)}')
+    return p
+
+
+def check_charm(recs, v):
+    t = turns(recs, v)
+    p = []
+    (i1, txt1), (i2, txt2), (i3, txt3) = t[:3]
+    for n, txt in ((1, txt1), (2, txt2)):
+        if txt.count('used Charm') != 1:
+            p.append(f'turn {n}: "used Charm" {txt.count("used Charm")} times: {txt}')
+    for r, want in ((recs[i2], 6), (recs[i3], 5)):
+        for slot in (E1, E2):
+            lv = v.stat_levels(r, slot)
+            if lv[3] != want or lv[0] != 7:
+                p.append(f'E{slot - 1} levels {lv} (expected Sp.Atk {want}, Attack 7) at menu {recs.index(r)}')
     return p
 
 
