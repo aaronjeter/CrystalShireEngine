@@ -41,6 +41,22 @@ DEF BOSS_PIPS_PER_TILE EQU 2
 	const BOSS_TD_GIOVANNI  ; Mewtwo (title defense)
 	const BOSS_PETRA        ; Absol-X (Safari Zone)
 	const BOSS_SILPH_PORYGONZ ; Porygon-Z (Silph Co. 1F)
+	const BOSS_TD_MARINA ; Marina's Froslassx (title defense)
+	const BOSS_TD_JESS ; Jess's Annihilape (title defense)
+	const BOSS_TD_RONALD ; Ronald's Aninetales (title defense)
+	const BOSS_TD_KLUTCH ; Klutch's Gyaradosx (title defense)
+	const BOSS_TD_AMAYA ; Amaya's Metagrossx (title defense)
+	const BOSS_TD_DALORIC ; Daloric's Tyranitarx (title defense)
+	const BOSS_TD_CRYSTAL ; Crystal's Noctowl2 (title defense)
+	const BOSS_TD_ROSSOLON ; Rossolon's Salamencex (title defense)
+	const BOSS_TD_BARTO ; Barto's Azumarill (title defense)
+	const BOSS_TD_CHAOS ; Chaos's Mars (title defense)
+	const BOSS_TD_EMMY ; Emmy's Gardevoirx (title defense)
+	const BOSS_TD_DAVE ; Dave's Alakazamx (title defense)
+	const BOSS_TD_ACCAD ; Accad's Kinglerx (title defense)
+	const BOSS_TD_JEFF ; Jeff's Akueria (title defense)
+	const BOSS_TD_KYLE ; Kyle's Snorlax (title defense)
+	const BOSS_TD_AARON ; Aaron's Ironbundle (title defense)
 DEF NUM_BOSSES EQU const_value
 
 ; boss record flags

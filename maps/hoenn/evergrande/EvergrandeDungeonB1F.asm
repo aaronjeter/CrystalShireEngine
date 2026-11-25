@@ -5,6 +5,9 @@
 	const EVERGRANDEDUNGEONB1F_ACEF4
 	const EVERGRANDEDUNGEONB1F_ACEF5
 	const EVERGRANDEDUNGEONB1F_ACEF6
+	const EVERGRANDEDUNGEONB1F_PLAYTESTER_ROSSOLON
+	const EVERGRANDEDUNGEONB1F_PLAYTESTER_DAVE
+	const EVERGRANDEDUNGEONB1F_PLAYTESTER_ACCAD
 
 EvergrandeDungeonB1F_MapScripts:
 	def_scene_scripts
@@ -174,6 +177,74 @@ CooltrainerF6AfterBattleText:
 	done
 
 
+TrainerPlaytesterRossolon:
+	trainer COOLTRAINERM, ROSSOLON_VR, EVENT_BEAT_PLAYTESTER_ROSSOLON, CooltrainerMRossolonVRSeenText, CooltrainerMRossolonVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter CooltrainerMRossolonVRAfterBattleText
+
+CooltrainerMRossolonVRSeenText:
+	text "Dragons rule the"
+	line "skies of Hoenn."
+	para "Prove me wrong!"
+	done
+
+CooltrainerMRossolonVRBeatenText:
+	text "The dragons fell!"
+	done
+
+CooltrainerMRossolonVRAfterBattleText:
+	text "My dragons all"
+	line "have hidden"
+	cont "power. You'll see."
+	done
+
+TrainerPlaytesterDave:
+	trainer PSYCHIC_T, DAVE_VR, EVENT_BEAT_PLAYTESTER_DAVE, PsychicDaveVRSeenText, PsychicDaveVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter PsychicDaveVRAfterBattleText
+
+PsychicDaveVRSeenText:
+	text "I can't see how"
+	line "this ends."
+	para "Let's find out!"
+	done
+
+PsychicDaveVRBeatenText:
+	text "I should have seen"
+	line "that coming."
+	done
+
+PsychicDaveVRAfterBattleText:
+	text "My visions say"
+	line "we'll meet again"
+	cont "at the World Cup."
+	done
+
+TrainerPlaytesterAccad:
+	trainer SAILOR, ACCAD_VR, EVENT_BEAT_PLAYTESTER_ACCAD, SailorAccadVRSeenText, SailorAccadVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter SailorAccadVRAfterBattleText
+
+SailorAccadVRSeenText:
+	text "Ahoy! Rain or"
+	line "shine, my crew is"
+	cont "ready!"
+	done
+
+SailorAccadVRBeatenText:
+	text "Sunk without a"
+	line "trace!"
+	done
+
+SailorAccadVRAfterBattleText:
+	text "Pelipper brings"
+	line "the rain, and the"
+	cont "rest ride it!"
+	done
+
 EvergrandeDungeonB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -198,3 +269,6 @@ EvergrandeDungeonB1F_MapEvents:
 	object_event 52, 08, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF4, -1
 	object_event 43, 33, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF5, -1
 	object_event 21, 15, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF6, -1
+	object_event 49, 30, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterRossolon, -1
+	object_event 19,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPlaytesterDave, -1
+	object_event 53, 17, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterAccad, -1

@@ -295,6 +295,22 @@ WCFinals_ChallengerTexts::
 	dw WCFinalsJaneText, WCFinalsJaneBeatenText, WCFinalsJaneWonText
 	dw WCFinalsGiovanniText, WCFinalsGiovanniBeatenText, WCFinalsGiovanniWonText
 	dw WCFinalsPetraText, WCFinalsPetraBeatenText, WCFinalsPetraWonText
+	dw WCFinalsMarinaText, WCFinalsMarinaBeatenText, WCFinalsMarinaWonText
+	dw WCFinalsJessText, WCFinalsJessBeatenText, WCFinalsJessWonText
+	dw WCFinalsRonaldText, WCFinalsRonaldBeatenText, WCFinalsRonaldWonText
+	dw WCFinalsKlutchText, WCFinalsKlutchBeatenText, WCFinalsKlutchWonText
+	dw WCFinalsAmayaText, WCFinalsAmayaBeatenText, WCFinalsAmayaWonText
+	dw WCFinalsDaloricText, WCFinalsDaloricBeatenText, WCFinalsDaloricWonText
+	dw WCFinalsCrystalText, WCFinalsCrystalBeatenText, WCFinalsCrystalWonText
+	dw WCFinalsRossolonText, WCFinalsRossolonBeatenText, WCFinalsRossolonWonText
+	dw WCFinalsBartoText, WCFinalsBartoBeatenText, WCFinalsBartoWonText
+	dw WCFinalsChaosText, WCFinalsChaosBeatenText, WCFinalsChaosWonText
+	dw WCFinalsEmmyText, WCFinalsEmmyBeatenText, WCFinalsEmmyWonText
+	dw WCFinalsDaveText, WCFinalsDaveBeatenText, WCFinalsDaveWonText
+	dw WCFinalsAccadText, WCFinalsAccadBeatenText, WCFinalsAccadWonText
+	dw WCFinalsJeffText, WCFinalsJeffBeatenText, WCFinalsJeffWonText
+	dw WCFinalsKyleText, WCFinalsKyleBeatenText, WCFinalsKyleWonText
+	dw WCFinalsAaronText, WCFinalsAaronBeatenText, WCFinalsAaronWonText
 	assert_table_length NUM_TITLE_CHALLENGERS
 
 WCFinalsSilverText:
@@ -475,6 +491,198 @@ WCFinalsPetraBeatenText:
 
 WCFinalsPetraWonText:
 	text_far _TDPetraWonText
+	text_end
+
+WCFinalsMarinaText:
+	text_far _TDMarinaText
+	text_end
+
+WCFinalsMarinaBeatenText:
+	text_far _TDMarinaBeatenText
+	text_end
+
+WCFinalsMarinaWonText:
+	text_far _TDMarinaWonText
+	text_end
+
+WCFinalsJessText:
+	text_far _TDJessText
+	text_end
+
+WCFinalsJessBeatenText:
+	text_far _TDJessBeatenText
+	text_end
+
+WCFinalsJessWonText:
+	text_far _TDJessWonText
+	text_end
+
+WCFinalsRonaldText:
+	text_far _TDRonaldText
+	text_end
+
+WCFinalsRonaldBeatenText:
+	text_far _TDRonaldBeatenText
+	text_end
+
+WCFinalsRonaldWonText:
+	text_far _TDRonaldWonText
+	text_end
+
+WCFinalsKlutchText:
+	text_far _TDKlutchText
+	text_end
+
+WCFinalsKlutchBeatenText:
+	text_far _TDKlutchBeatenText
+	text_end
+
+WCFinalsKlutchWonText:
+	text_far _TDKlutchWonText
+	text_end
+
+WCFinalsAmayaText:
+	text_far _TDAmayaText
+	text_end
+
+WCFinalsAmayaBeatenText:
+	text_far _TDAmayaBeatenText
+	text_end
+
+WCFinalsAmayaWonText:
+	text_far _TDAmayaWonText
+	text_end
+
+WCFinalsDaloricText:
+	text_far _TDDaloricText
+	text_end
+
+WCFinalsDaloricBeatenText:
+	text_far _TDDaloricBeatenText
+	text_end
+
+WCFinalsDaloricWonText:
+	text_far _TDDaloricWonText
+	text_end
+
+WCFinalsCrystalText:
+	text_far _TDCrystalText
+	text_end
+
+WCFinalsCrystalBeatenText:
+	text_far _TDCrystalBeatenText
+	text_end
+
+WCFinalsCrystalWonText:
+	text_far _TDCrystalWonText
+	text_end
+
+WCFinalsRossolonText:
+	text_far _TDRossolonText
+	text_end
+
+WCFinalsRossolonBeatenText:
+	text_far _TDRossolonBeatenText
+	text_end
+
+WCFinalsRossolonWonText:
+	text_far _TDRossolonWonText
+	text_end
+
+WCFinalsBartoText:
+	text_far _TDBartoText
+	text_end
+
+WCFinalsBartoBeatenText:
+	text_far _TDBartoBeatenText
+	text_end
+
+WCFinalsBartoWonText:
+	text_far _TDBartoWonText
+	text_end
+
+WCFinalsChaosText:
+	text_far _TDChaosText
+	text_end
+
+WCFinalsChaosBeatenText:
+	text_far _TDChaosBeatenText
+	text_end
+
+WCFinalsChaosWonText:
+	text_far _TDChaosWonText
+	text_end
+
+WCFinalsEmmyText:
+	text_far _TDEmmyText
+	text_end
+
+WCFinalsEmmyBeatenText:
+	text_far _TDEmmyBeatenText
+	text_end
+
+WCFinalsEmmyWonText:
+	text_far _TDEmmyWonText
+	text_end
+
+WCFinalsDaveText:
+	text_far _TDDaveText
+	text_end
+
+WCFinalsDaveBeatenText:
+	text_far _TDDaveBeatenText
+	text_end
+
+WCFinalsDaveWonText:
+	text_far _TDDaveWonText
+	text_end
+
+WCFinalsAccadText:
+	text_far _TDAccadText
+	text_end
+
+WCFinalsAccadBeatenText:
+	text_far _TDAccadBeatenText
+	text_end
+
+WCFinalsAccadWonText:
+	text_far _TDAccadWonText
+	text_end
+
+WCFinalsJeffText:
+	text_far _TDJeffText
+	text_end
+
+WCFinalsJeffBeatenText:
+	text_far _TDJeffBeatenText
+	text_end
+
+WCFinalsJeffWonText:
+	text_far _TDJeffWonText
+	text_end
+
+WCFinalsKyleText:
+	text_far _TDKyleText
+	text_end
+
+WCFinalsKyleBeatenText:
+	text_far _TDKyleBeatenText
+	text_end
+
+WCFinalsKyleWonText:
+	text_far _TDKyleWonText
+	text_end
+
+WCFinalsAaronText:
+	text_far _TDAaronText
+	text_end
+
+WCFinalsAaronBeatenText:
+	text_far _TDAaronBeatenText
+	text_end
+
+WCFinalsAaronWonText:
+	text_far _TDAaronWonText
 	text_end
 
 WCFinals_MapEvents:

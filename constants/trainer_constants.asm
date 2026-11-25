@@ -158,6 +158,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const ROUTE113_LAO
 	const ROUTE113_DILLON
 	const FACILITY_KANTO_1 ; challenge facility intro
+	const RONALD_TD
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK
@@ -258,6 +259,14 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const BRAM
 	const CORWIN
 	const EZRA
+	const ROSSOLON_TD
+	const ROSSOLON_VR
+	const BARTO_TD
+	const BARTO_VR
+	const CHAOS_TD
+	const CHAOS_VR
+	const KYLE_TD
+	const KYLE_VR
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -298,6 +307,9 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const MARLA
 	const YVONNE
 	const NOELLE
+	const MARINA_TD
+	const EMMY_TD
+	const EMMY_VR
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -405,6 +417,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const SOOTOPOLIS_BRIANNA
 	const FACILITY_JOHTO_3 ; challenge facility intro
 	const FACILITY_HOENN_3 ; challenge facility intro
+	const JESS_TD
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
@@ -511,6 +524,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const FACILITY_KANTO_4 ; challenge facility (intermediate)
 	const FACILITY_JOHTO_7 ; challenge facility (hard)
 	const ROUTE125_RUDY
+	const ACCAD_TD
+	const ACCAD_VR
 
 	trainerclass SUPER_NERD ; 29
 	const ERIC
@@ -639,6 +654,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const JARED2
 	const FACILITY_KANTO_7 ; challenge facility (hard)
 	const TOWER_ELITE_6 ; Battle Tower (random team)
+	const DAVE_TD
+	const DAVE_VR
 
 	trainerclass PICNICKER ; 35
 	const KIM
@@ -726,6 +743,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const BRODY
 	const PIKE
 	const SHOAL_CAVE_KENT
+	const JEFF_TD
+	const JEFF_VR
 
 	trainerclass POKEFANM ; 3b
 	const WILLIAM

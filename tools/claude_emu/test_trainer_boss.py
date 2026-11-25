@@ -192,6 +192,27 @@ def case_doubles():
     check("doubles: Lance's line at the bar break", 'Lance: Dragonite' in joined(log))
 
 
+# the playtesters' title defense teams: the ace is last
+PLAYTESTER_BOSSES = [
+    ('COOLTRAINERF', 'MARINA_TD', 'BOSS_TD_MARINA', 5, 1),
+    ('TEACHER', 'JESS_TD', 'BOSS_TD_JESS', 5, 1),
+    ('YOUNGSTER', 'RONALD_TD', 'BOSS_TD_RONALD', 5, 1),
+    ('TEACHER', 'KLUTCH3', 'BOSS_TD_KLUTCH', 5, 1),
+    ('GRUNTF', 'AMAYA3', 'BOSS_TD_AMAYA', 5, 1),
+    ('COOLTRAINERM', 'DALORIC2', 'BOSS_TD_DALORIC', 5, 1),
+    ('COOLTRAINERM', 'CONTEST_CRYSTAL2', 'BOSS_TD_CRYSTAL', 5, 1),
+    ('COOLTRAINERM', 'ROSSOLON_TD', 'BOSS_TD_ROSSOLON', 5, 1),
+    ('COOLTRAINERM', 'BARTO_TD', 'BOSS_TD_BARTO', 5, 1),
+    ('COOLTRAINERM', 'CHAOS_TD', 'BOSS_TD_CHAOS', 5, 1),
+    ('COOLTRAINERF', 'EMMY_TD', 'BOSS_TD_EMMY', 5, 1),
+    ('PSYCHIC_T', 'DAVE_TD', 'BOSS_TD_DAVE', 5, 1),
+    ('SAILOR', 'ACCAD_TD', 'BOSS_TD_ACCAD', 5, 1),
+    ('BOARDER', 'JEFF_TD', 'BOSS_TD_JEFF', 5, 1),
+    ('COOLTRAINERM', 'KYLE_TD', 'BOSS_TD_KYLE', 5, 1),
+    ('RANGERM', 'AARON3', 'BOSS_TD_AARON', 5, 1),
+]
+
+
 def case_real():
     for cls, pid, boss, slot, bars in [('RED', 'RED1', 'BOSS_RED', 0, 2), ('CHAMPION', 'LANCE2', 'BOSS_LANCE', 5, 1),
                                        ('AGATHA', 'AGATHA2', 'BOSS_AGATHA', 4, 1), ('STEVEN', 'STEVEN2', 'BOSS_STEVEN', 5, 1),
@@ -201,7 +222,7 @@ def case_real():
                                        ('EXECUTIVEM', 'EXECUTIVEM_5', 'BOSS_ARCHER', 0, 1),
                                        ('EXECUTIVEF', 'DESERT_JANE', 'BOSS_JANE', 5, 1),
                                        ('KIMONO_GIRL', 'NAOKOANDZUKI', 'BOSS_TD_KIMONO', 5, 1),
-                                       ('EXECUTIVEF', 'PETRA_TD', 'BOSS_PETRA', 5, 1)]:
+                                       ('EXECUTIVEF', 'PETRA_TD', 'BOSS_PETRA', 5, 1)] + PLAYTESTER_BOSSES:
         g = setup()
         start(g, cls, pid)
         log = to_menu(g)

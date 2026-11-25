@@ -8,6 +8,9 @@
 	const ROUTE47_POKE_BALL1
 	const ROUTE47_POKE_BALL2
 	const ROUTE47_POKE_BALL3
+	const ROUTE47_OBJECT1
+	const ROUTE47_PLAYTESTER_CRYSTAL
+	const ROUTE47_PLAYTESTER_JEFF
 
 Route47_MapScripts:
 	def_scene_scripts
@@ -181,6 +184,51 @@ Route47SignText:
 Route47FruitTree:
 	fruittree FRUITTREE_ROUTE_47
 
+TrainerPlaytesterCrystal:
+	trainer COOLTRAINERM, CONTEST_CRYSTAL1, EVENT_BEAT_PLAYTESTER_CRYSTAL, CooltrainerMCrystalVRSeenText, CooltrainerMCrystalVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter CooltrainerMCrystalVRAfterBattleText
+
+CooltrainerMCrystalVRSeenText:
+	text "The cold up here"
+	line "keeps my team"
+	cont "sharp."
+	para "Let's battle!"
+	done
+
+CooltrainerMCrystalVRBeatenText:
+	text "You've got bite!"
+	done
+
+CooltrainerMCrystalVRAfterBattleText:
+	text "Noctowl keeps"
+	line "watch over this"
+	cont "route at night."
+	done
+
+TrainerPlaytesterJeff:
+	trainer BOARDER, JEFF_VR, EVENT_BEAT_PLAYTESTER_JEFF, BoarderJeffVRSeenText, BoarderJeffVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter BoarderJeffVRAfterBattleText
+
+BoarderJeffVRSeenText:
+	text "Fresh powder and a"
+	line "fresh challenger!"
+	para "Let's shred!"
+	done
+
+BoarderJeffVRBeatenText:
+	text "Wiped out!"
+	done
+
+BoarderJeffVRAfterBattleText:
+	text "Tyranitar loves"
+	line "the snow. Don't"
+	cont "ask me why."
+	done
+
 Route47_MapEvents:
 	db 0, 0 ; filler
 
@@ -206,3 +254,5 @@ Route47_MapEvents:
 	object_event 41, 55, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47UltraBall, EVENT_ROUTE_47_ULTRA_BALL
 	object_event 45, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47ExpCandyXL, EVENT_ROUTE_47_FULL_HEAL
 	object_event 10, 24, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route47FruitTree, -1
+	object_event 15, 52, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterCrystal, -1
+	object_event 39, 40, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterJeff, -1

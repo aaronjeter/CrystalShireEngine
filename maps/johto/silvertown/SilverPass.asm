@@ -9,6 +9,8 @@
 	const SILVERPASS_POKE_BALL1
 	const SILVERPASS_POKE_BALL2
 	const SILVERPASS_POKE_BALL3
+	const SILVERPASS_PLAYTESTER_KLUTCH
+	const SILVERPASS_PLAYTESTER_RONALD
 
 SilverPass_MapScripts:
 	def_scene_scripts
@@ -335,6 +337,53 @@ SilverPassPpUp:
 SilverPassHiddenMaxRevive:
 	hiddenitem MAX_REVIVE, EVENT_SILVER_PASS_HIDDEN_MAX_REVIVE
 
+TrainerPlaytesterKlutch:
+	trainer TEACHER, KLUTCH2, EVENT_BEAT_PLAYTESTER_KLUTCH, TeacherKlutchVRSeenText, TeacherKlutchVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter TeacherKlutchVRAfterBattleText
+
+TeacherKlutchVRSeenText:
+	text "Class is in"
+	line "session!"
+	para "Today's lesson:"
+	line "dragons!"
+	done
+
+TeacherKlutchVRBeatenText:
+	text "Top marks for"
+	line "you!"
+	done
+
+TeacherKlutchVRAfterBattleText:
+	text "Every dragon"
+	line "starts small."
+	cont "Remember that."
+	done
+
+TrainerPlaytesterRonald:
+	trainer YOUNGSTER, RONALD2, EVENT_BEAT_PLAYTESTER_RONALD, YoungsterRonaldVRSeenText, YoungsterRonaldVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter YoungsterRonaldVRAfterBattleText
+
+YoungsterRonaldVRSeenText:
+	text "I'm not just a"
+	line "kid in shorts"
+	cont "anymore!"
+	done
+
+YoungsterRonaldVRBeatenText:
+	text "Aw, man! I was"
+	line "so close!"
+	done
+
+YoungsterRonaldVRAfterBattleText:
+	text "My Milotic is the"
+	line "prettiest one in"
+	cont "all of Johto!"
+	done
+
 SilverPass_MapEvents:
 	db 0, 0 ; filler
 
@@ -359,3 +408,5 @@ SilverPass_MapEvents:
 	object_event  6,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverPassRareCandy, EVENT_SILVER_PASS_RARE_CANDY
 	object_event 17, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverPassFullRestore, EVENT_SILVER_PASS_FULL_RESTORE
 	object_event  6, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverPassPpUp, EVENT_SILVER_PASS_PP_UP
+	object_event  7, 12, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterKlutch, -1
+	object_event 30, 24, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterRonald, -1

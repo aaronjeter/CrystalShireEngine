@@ -17,6 +17,22 @@
 	const TD_JANE
 	const TD_GIOVANNI
 	const TD_PETRA
+	const TD_MARINA
+	const TD_JESS
+	const TD_RONALD
+	const TD_KLUTCH
+	const TD_AMAYA
+	const TD_DALORIC
+	const TD_CRYSTAL
+	const TD_ROSSOLON
+	const TD_BARTO
+	const TD_CHAOS
+	const TD_EMMY
+	const TD_DAVE
+	const TD_ACCAD
+	const TD_JEFF
+	const TD_KYLE
+	const TD_AARON
 DEF NUM_TITLE_CHALLENGERS EQU const_value
 
 ; unlock kinds

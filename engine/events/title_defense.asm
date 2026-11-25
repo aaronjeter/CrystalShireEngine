@@ -826,3 +826,308 @@ _TDPetraWonText::
 	text "Even a Champion"
 	line "can be outplanned."
 	done
+
+_TDMarinaText::
+	text "Marina:"
+	line "I've been training"
+	cont "since the"
+	cont "Qualifiers."
+
+	para "My team's ready"
+	line "for a champion!"
+	done
+
+_TDMarinaBeatenText::
+	text "You're as strong"
+	line "as they say!"
+	done
+
+_TDMarinaWonText::
+	text "The title suits"
+	line "me better!"
+	done
+
+_TDJessText::
+	text "Jess: Class is in"
+	line "session!"
+
+	para "Today's lesson:"
+	line "how to lose a"
+	cont "title!"
+	done
+
+_TDJessBeatenText::
+	text "Class dismissed..."
+	line "You pass."
+	done
+
+_TDJessWonText::
+	text "Homework for you:"
+	line "train harder!"
+	done
+
+_TDRonaldText::
+	text "Ronald:"
+	line "My team's not"
+	cont "flashy, but it's"
+	cont "tough to crack!"
+
+	para "Let's see you"
+	line "break through!"
+	done
+
+_TDRonaldBeatenText::
+	text "You cracked it!"
+	line "Wow!"
+	done
+
+_TDRonaldWonText::
+	text "Told you! Tough"
+	line "to crack!"
+	done
+
+_TDKlutchText::
+	text "Klutch:"
+	line "Dragons don't care"
+	cont "about titles."
+
+	para "Neither do I!"
+	line "Let's go!"
+	done
+
+_TDKlutchBeatenText::
+	text "My dragons..."
+	line "outclassed?"
+	done
+
+_TDKlutchWonText::
+	text "Dragons rule!"
+	line "Ha ha!"
+	done
+
+_TDAmayaText::
+	text "Amaya:"
+	line "I'm not with Team"
+	cont "Rocket! I just"
+	cont "like the outfit."
+
+	para "Now hand over"
+	line "that title!"
+	done
+
+_TDAmayaBeatenText::
+	text "Fine, keep it."
+	line "...For now!"
+	done
+
+_TDAmayaWonText::
+	text "The title's mine!"
+	line "Told you!"
+	done
+
+_TDDaloricText::
+	text "Daloric:"
+	line "Six Megas, one"
+	cont "title. Simple"
+	cont "math."
+
+	para "Ready?"
+	done
+
+_TDDaloricBeatenText::
+	text "The math was"
+	line "wrong..."
+	done
+
+_TDDaloricWonText::
+	text "Six Megas never"
+	line "lose!"
+	done
+
+_TDCrystalText::
+	text "Crystal:"
+	line "Noctowl and I"
+	cont "have watched you"
+	cont "for a while."
+
+	para "Now we strike!"
+	done
+
+_TDCrystalBeatenText::
+	text "You saw through"
+	line "us!"
+	done
+
+_TDCrystalWonText::
+	text "The night falls"
+	line "on your reign!"
+	done
+
+_TDRossolonText::
+	text "Rossolon:"
+	line "Six Mega dragons."
+	cont "Every one of them"
+	cont "hungry."
+
+	para "Hope you brought"
+	line "Ice moves!"
+	done
+
+_TDRossolonBeatenText::
+	text "Not even dragons"
+	line "could do it..."
+	done
+
+_TDRossolonWonText::
+	text "Dragons are the"
+	line "true champions!"
+	done
+
+_TDBartoText::
+	text "Barto:"
+	line "A little bit of"
+	cont "everything, and a"
+	cont "lot of Azumarill!"
+
+	para "Let's battle!"
+	done
+
+_TDBartoBeatenText::
+	text "Even Azumarill"
+	line "couldn't..."
+	done
+
+_TDBartoWonText::
+	text "Drum roll for"
+	line "the new champ!"
+	done
+
+_TDChaosText::
+	text "Chaos:"
+	line "Ice, fire, and a"
+	cont "little chaos."
+
+	para "That's my style!"
+	done
+
+_TDChaosBeatenText::
+	text "Chaos... tamed?"
+	done
+
+_TDChaosWonText::
+	text "Pure chaos!"
+	line "Ha ha!"
+	done
+
+_TDEmmyText::
+	text "Emmy:"
+	line "My team's ready"
+	cont "for anything."
+
+	para "Are you?"
+	done
+
+_TDEmmyBeatenText::
+	text "You really are"
+	line "the champion!"
+	done
+
+_TDEmmyWonText::
+	text "Gardevoir and I"
+	line "make a great team!"
+	done
+
+_TDDaveText::
+	text "Dave:"
+	line "I foresaw this"
+	cont "battle..."
+
+	para "...and I foresaw"
+	line "my victory!"
+	done
+
+_TDDaveBeatenText::
+	text "I didn't see that"
+	line "coming..."
+	done
+
+_TDDaveWonText::
+	text "Just as I"
+	line "predicted!"
+	done
+
+_TDAccadText::
+	text "Accad:"
+	line "A storm's rolling"
+	cont "in, champ!"
+
+	para "Hope you can"
+	line "swim!"
+	done
+
+_TDAccadBeatenText::
+	text "Washed ashore..."
+	line "You win."
+	done
+
+_TDAccadWonText::
+	text "Smooth sailing!"
+	line "Har har!"
+	done
+
+_TDJeffText::
+	text "Jeff:"
+	line "Fresh powder,"
+	cont "fresh challenger!"
+
+	para "Let's shred!"
+	done
+
+_TDJeffBeatenText::
+	text "Wiped out..."
+	line "Nice run!"
+	done
+
+_TDJeffWonText::
+	text "Totally rad!"
+	line "Champ's mine!"
+	done
+
+_TDKyleText::
+	text "Kyle:"
+	line "Four Megas and a"
+	cont "Snorlax. Guess"
+	cont "which is the boss?"
+
+	para "Let's find out!"
+	done
+
+_TDKyleBeatenText::
+	text "Snorlax... wake"
+	line "up..."
+	done
+
+_TDKyleWonText::
+	text "Never doubt"
+	line "a Snorlax!"
+	done
+
+_TDAaronText::
+	text "Aaron:"
+	line "So you're the"
+	cont "champion everyone"
+	cont "talks about."
+
+	para "Let me test that"
+	line "myself!"
+	done
+
+_TDAaronBeatenText::
+	text "Well played."
+	line "Truly."
+	done
+
+_TDAaronWonText::
+	text "Back to the"
+	line "drawing board!"
+	done

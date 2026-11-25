@@ -119,6 +119,11 @@ def open_list(g):
     return [i - 1 for i in g.rd('wStringBuffer4+1', n)] if n else []
 
 
+def core(g, lst):
+    """The list without the playtester challengers (they come last)."""
+    return [x for x in lst if x < td(g, 'TD_MARINA')]
+
+
 def list_end(g):
     """The byte after the menu list (its -1 end mark)."""
     return g.rd(f'wStringBuffer4+{1 + g.rd("wStringBuffer4")}')
@@ -205,6 +210,53 @@ NAMES = ('Silver', 'Green', 'Wally', 'Lance', 'Agatha', 'Steven', 'Tate & Liza',
          'Kai & Rin', 'Red', 'Archer', 'Jane', 'Petra', 'Giovanni')
 BEATEN = ('SILVER', 'GREEN', 'WALLY', 'LANCE', 'AGATHA', 'STEVEN', 'TATE_LIZA', 'KIMONO_GIRLS', 'TWINS',
           'ACE_DUO', 'RED', 'ARCHER', 'JANE', 'PETRA', 'GIOVANNI')
+# the playtester challengers (key, list name, class, party, prize, first move of the ace)
+PLAYTESTERS = (
+    ('MARINA', 'Marina', 'COOLTRAINERF', 'MARINA_TD', 'WISE_GLASSES'),
+    ('JESS', 'Jess', 'TEACHER', 'JESS_TD', 'ROCKY_HELMET'),
+    ('RONALD', 'Ronald', 'YOUNGSTER', 'RONALD_TD', 'LIGHT_CLAY'),
+    ('KLUTCH', 'Klutch', 'TEACHER', 'KLUTCH3', 'DRAGON_FANG'),
+    ('AMAYA', 'Amaya', 'GRUNTF', 'AMAYA3', 'TWISTEDSPOON'),
+    ('DALORIC', 'Daloric', 'COOLTRAINERM', 'DALORIC2', 'MUSCLE_BAND'),
+    ('CRYSTAL', 'Crystal', 'COOLTRAINERM', 'CONTEST_CRYSTAL2', 'TOXIC_ORB'),
+    ('ROSSOLON', 'Rossolon', 'COOLTRAINERM', 'ROSSOLON_TD', 'SCOPE_LENS'),
+    ('BARTO', 'Barto', 'COOLTRAINERM', 'BARTO_TD', 'KINGS_ROCK'),
+    ('CHAOS', 'Chaos', 'COOLTRAINERM', 'CHAOS_TD', 'AIR_BALLOON'),
+    ('EMMY', 'Emmy', 'COOLTRAINERF', 'EMMY_TD', 'SHELL_BELL'),
+    ('DAVE', 'Dave', 'PSYCHIC_T', 'DAVE_TD', 'FOCUS_BAND'),
+    ('ACCAD', 'Accad', 'SAILOR', 'ACCAD_TD', 'LUM_BERRY'),
+    ('JEFF', 'Jeff', 'BOARDER', 'JEFF_TD', 'QUICK_CLAW'),
+    ('KYLE', 'Kyle', 'COOLTRAINERM', 'KYLE_TD', 'LEFTOVERS'),
+    ('AARON', 'Aaron', 'RANGERM', 'AARON3', 'BRIGHTPOWDER'),
+)
+ORDER = ORDER + tuple(f'TD_{k}' for k, *_ in PLAYTESTERS)
+NAMES = NAMES + tuple(n for _, n, *_ in PLAYTESTERS)
+BEATEN = BEATEN + tuple(k for k, *_ in PLAYTESTERS)
+
+
+def case_playtesters():
+    """Every playtester challenger: unlocked by the World Cup, after Giovanni in the list, a real
+    match (class, party, its line, the boss ace), +5 BP, the prize, the beaten flag."""
+    g = setup()
+    lst = open_list(g)
+    want = [td(g, f'TD_{k}') for k, *_ in PLAYTESTERS]
+    check('World Champion only: the playtesters are all on the list, in order, at the end',
+          lst[-len(want):] == want, str(lst))
+    g.press('B', after=60)
+    for i, (key, name, cls, party, prize) in enumerate(PLAYTESTERS):
+        g = setup(bp=100)
+        before = item_count(g, prize)
+        g.press('U', hold=2, after=20)
+        lst = open_list(g)
+        s = fight(g, lst.index(td(g, f'TD_{key}')), win=True, shot_name=f'arena_{key.lower()}.png' if i < 3 else None)
+        j = ' '.join(' '.join(t.split()) for t in s['texts'])
+        check(f'{name}: a battle with {cls} {party}, won',
+              s['battle'] and s['class'] == g.const(cls) and s['id'] == g.const(party) and s.get('result') == 0, brief(s))
+        check(f'{name}: the intro names them ("{name}:")', f'{name}:' in j, str(s['texts'][-12:]))
+        check(f'{name}: +5 BP, the prize ({prize}), the beaten flag',
+              rd16be(g, 'wBattlePoints') == 105 and item_count(g, prize) == before + 1 and
+              flag(g, f'EVENT_TITLE_DEFENSE_BEAT_{key}'), f"BP {rd16be(g, 'wBattlePoints')} item {item_count(g, prize) - before}")
+
 
 
 def case_full_list():
@@ -219,7 +271,7 @@ def case_full_list():
     for _ in range(len(lst) - 1):
         g.press('D', after=12)
     t = ' '.join(g.screen_text().split())
-    check('the menu scrolls to the last challenger (Giovanni)', 'Giovanni' in t, t)
+    check(f'the menu scrolls to the last challenger ({NAMES[-1]})', NAMES[-1] in t, t)
     shot(g, 'td_list_end.png')
     g.press('B', after=60)
 
@@ -281,20 +333,21 @@ def case_passport():
     g = setup(flags=tuple(f'EVENT_TITLE_DEFENSE_BEAT_{n}' for n in BEATEN))
     open_passport(g)
     names, count, up, down = passport_rows(g)
-    check('Passport, 15 beaten: the first 7, count 15, a down arrow only',
-          names == list(NAMES[:7]) and count == '15' and not up and down, f'{names} {count} {up} {down}')
+    check(f'Passport, {len(NAMES)} beaten: the first 7, the count, a down arrow only',
+          names == list(NAMES[:7]) and count == str(len(NAMES)) and not up and down, f'{names} {count} {up} {down}')
     shot(g, 'passport_td_top.png')
     g.press('D', hold=4, after=40)
     names, count, up, down = passport_rows(g)
     check('Down scrolls one row: Green first, both arrows', names == list(NAMES[1:8]) and up and down, str(names))
-    for _ in range(12):
+    for _ in range(len(NAMES) - 7 - 1 + 2):
         g.press('D', hold=4, after=40)
     names, count, up, down = passport_rows(g)
-    check('scrolled to the end: the last 7 (Giovanni last), an up arrow only',
-          names == list(NAMES[-7:]) and up and not down and g.rd('wPassportListTop') == 8, f'{names} {up} {down}')
+    check('scrolled to the end: the last 7, an up arrow only',
+          names == list(NAMES[-7:]) and up and not down and g.rd('wPassportListTop') == len(NAMES) - 7,
+          f'{names} {up} {down}')
     shot(g, 'passport_td_end.png')
     g.press('U', hold=4, after=40)
-    check('Up scrolls back one row', passport_rows(g)[0] == list(NAMES[7:14]), str(passport_rows(g)[0]))
+    check('Up scrolls back one row', passport_rows(g)[0] == list(NAMES[-8:-1]), str(passport_rows(g)[0]))
     g.press('R', hold=4, after=40)
     g.press('L', hold=4, after=40)
     names, count, up, down = passport_rows(g)
@@ -311,7 +364,8 @@ def main():
     g = setup()
     lst = open_list(g)
     want = [td(g, n) for n in ('TD_SILVER', 'TD_GREEN', 'TD_WALLY', 'TD_TATE_LIZA', 'TD_KIMONO_GIRLS', 'TD_TWINS', 'TD_ACE_DUO')]
-    check('the World Cup win: Silver, Green, Wally and the four pairs', lst == want, str(lst))
+    check('the World Cup win: Silver, Green, Wally and the four pairs (then the playtesters)',
+          core(g, lst) == want, str(lst))
     check('nothing marked yet', not any(marks(g).values()), str(marks(g)))
     shot(g, 'list.png')
 
@@ -325,7 +379,7 @@ def main():
     want = [td(g, n) for n in ('TD_SILVER', 'TD_GREEN', 'TD_WALLY', 'TD_LANCE', 'TD_AGATHA', 'TD_STEVEN', 'TD_TATE_LIZA',
                                'TD_KIMONO_GIRLS', 'TD_TWINS', 'TD_ACE_DUO', 'TD_RED')]
     check('Kanto start, rematches, the three Champions beaten: rivals, Champions, pairs, Red',
-          lst == want, str(lst))
+          core(g, lst) == want, str(lst))
     g = setup(flags=rematches + champs[:2], defenses=50)
     lst = open_list(g)
     check('Steven not beaten (50 defenses): no Red yet', td(g, 'TD_RED') not in lst, str(lst))
@@ -341,13 +395,13 @@ def main():
     g = setup(flags=rockets + ('EVENT_TITLE_DEFENSE_BEAT_ARCHER', 'EVENT_TITLE_DEFENSE_BEAT_JANE'))
     lst = open_list(g)
     check('Safari Zone: Petra after Jane; Archer and Jane beaten, Petra not: no Giovanni yet',
-          lst[-3:] == [td(g, 'TD_ARCHER'), td(g, 'TD_JANE'), td(g, 'TD_PETRA')] and td(g, 'TD_GIOVANNI') not in lst,
+          core(g, lst)[-3:] == [td(g, 'TD_ARCHER'), td(g, 'TD_JANE'), td(g, 'TD_PETRA')] and td(g, 'TD_GIOVANNI') not in lst,
           str(lst))
     g = setup(flags=rockets + ('EVENT_TITLE_DEFENSE_BEAT_ARCHER', 'EVENT_TITLE_DEFENSE_BEAT_JANE'), bp=100)
     policies = item_count(g, 'WEAKNESS_POLICY')
     g.press('U', hold=2, after=20)
     lst = open_list(g)
-    s = fight(g, len(lst) - 1, win=True, shot_name='arena_petra.png')
+    s = fight(g, lst.index(td(g, 'TD_PETRA')), win=True, shot_name='arena_petra.png')
     check('Petra: a CANLOSE battle with PETRA_TD, won',
           s['battle'] and s['class'] == g.const('EXECUTIVEF') and s['id'] == g.const('PETRA_TD') and
           s.get('result') == 0, brief(s))
@@ -360,9 +414,9 @@ def main():
     bands = item_count(g, 'CHOICE_BAND')
     g.press('U', hold=2, after=20)
     lst = open_list(g)
-    check('Archer, Jane and Petra beaten: Giovanni last on the list', lst[-2:] == [td(g, 'TD_PETRA'), td(g, 'TD_GIOVANNI')],
+    check('Archer, Jane and Petra beaten: Giovanni after Petra', core(g, lst)[-2:] == [td(g, 'TD_PETRA'), td(g, 'TD_GIOVANNI')],
           str(lst))
-    s = fight(g, len(lst) - 1, win=True, shot_name='arena_giovanni.png')
+    s = fight(g, lst.index(td(g, 'TD_GIOVANNI')), win=True, shot_name='arena_giovanni.png')
     check('Giovanni: a CANLOSE battle with GIOVANNI_TD, won',
           s['battle'] and s['class'] == g.const('GIOVANNI') and s['id'] == g.const('GIOVANNI_TD') and
           s.get('result') == 0, brief(s))
@@ -462,6 +516,7 @@ def main():
     case_full_list()
     case_passport()
     case_not_champion()
+    case_playtesters()
 
     bad = [n for n, ok in T.RESULTS if not ok]
     print(f'{len(T.RESULTS) - len(bad)}/{len(T.RESULTS)} passed')

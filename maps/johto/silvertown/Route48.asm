@@ -8,6 +8,8 @@
 	const ROUTE48_POKE_BALL1
 	const ROUTE48_POKE_BALL2
 	const ROUTE48_POKE_BALL3
+	const ROUTE48_OBJECT1
+	const ROUTE48_PLAYTESTER_EMMY
 
 Route48_MapScripts:
 	def_scene_scripts
@@ -178,6 +180,30 @@ Route48SignText:
 Route48FruitTree:
 	fruittree FRUITTREE_ROUTE_48
 
+TrainerPlaytesterEmmy:
+	trainer COOLTRAINERF, EMMY_VR, EVENT_BEAT_PLAYTESTER_EMMY, CooltrainerFEmmyVRSeenText, CooltrainerFEmmyVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter CooltrainerFEmmyVRAfterBattleText
+
+CooltrainerFEmmyVRSeenText:
+	text "You found my"
+	line "hideaway!"
+	para "Now you have to"
+	line "battle me!"
+	done
+
+CooltrainerFEmmyVRBeatenText:
+	text "You found my weak"
+	line "spot too!"
+	done
+
+CooltrainerFEmmyVRAfterBattleText:
+	text "Gardevoir and I"
+	line "have been together"
+	cont "since the start."
+	done
+
 Route48_MapEvents:
 	db 0, 0 ; filler
 
@@ -201,3 +227,4 @@ Route48_MapEvents:
 	object_event 53,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route48MaxRepel, EVENT_ROUTE_48_MAX_REPEL
 	object_event 48, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route48NeverMeltIce, EVENT_ROUTE_48_NEVERMELTICE
 	object_event 53, 20, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route48FruitTree, -1
+	object_event 50, 14, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterEmmy, -1

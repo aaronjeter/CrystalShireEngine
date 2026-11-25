@@ -70,6 +70,22 @@ BossRecords:
 	boss 2, 0, TDGiovanniAura, TDGiovanniPhases ; BOSS_TD_GIOVANNI
 	boss 1, 0, PetraAura,      PetraPhases      ; BOSS_PETRA
 	boss 1, BOSS_AUTO_CATCH, PorygonZAura, PorygonZPhases, WILDAI_CUNNING ; BOSS_SILPH_PORYGONZ
+	boss 1, 0, TDMarinaAura, TDMarinaPhases ; BOSS_TD_MARINA
+	boss 1, 0, TDJessAura, TDJessPhases ; BOSS_TD_JESS
+	boss 1, 0, TDRonaldAura, TDRonaldPhases ; BOSS_TD_RONALD
+	boss 1, 0, TDKlutchAura, TDKlutchPhases ; BOSS_TD_KLUTCH
+	boss 1, 0, TDAmayaAura, TDAmayaPhases ; BOSS_TD_AMAYA
+	boss 1, 0, TDDaloricAura, TDDaloricPhases ; BOSS_TD_DALORIC
+	boss 1, 0, TDCrystalAura, TDCrystalPhases ; BOSS_TD_CRYSTAL
+	boss 1, 0, TDRossolonAura, TDRossolonPhases ; BOSS_TD_ROSSOLON
+	boss 1, 0, TDBartoAura, TDBartoPhases ; BOSS_TD_BARTO
+	boss 1, 0, TDChaosAura, TDChaosPhases ; BOSS_TD_CHAOS
+	boss 1, 0, TDEmmyAura, TDEmmyPhases ; BOSS_TD_EMMY
+	boss 1, 0, TDDaveAura, TDDavePhases ; BOSS_TD_DAVE
+	boss 1, 0, TDAccadAura, TDAccadPhases ; BOSS_TD_ACCAD
+	boss 1, 0, TDJeffAura, TDJeffPhases ; BOSS_TD_JEFF
+	boss 1, 0, TDKyleAura, TDKylePhases ; BOSS_TD_KYLE
+	boss 1, 0, TDAaronAura, TDAaronPhases ; BOSS_TD_AARON
 	assert_table_length NUM_BOSSES - 1
 
 ; Phase tables: one entry per extra bar in the record, in break order.
@@ -438,6 +454,182 @@ PorygonZPhases:
 	boss_stat DEFENSE, 1
 	boss_end
 
+TDMarinaAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDMarinaPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDMarinaText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDJessAura:
+	boss_stat ATTACK, 1
+	boss_end
+TDJessPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDJessText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDRonaldAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDRonaldPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDRonaldText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDKlutchAura:
+	boss_stat ATTACK, 1
+	boss_end
+TDKlutchPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDKlutchText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDAmayaAura:
+	boss_stat ATTACK, 1
+	boss_end
+TDAmayaPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDAmayaText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDDaloricAura:
+	boss_stat ATTACK, 1
+	boss_end
+TDDaloricPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDDaloricText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDCrystalAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDCrystalPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDCrystalText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDRossolonAura:
+	boss_stat ATTACK, 1
+	boss_end
+TDRossolonPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDRossolonText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDBartoAura:
+	boss_stat DEFENSE, 1
+	boss_end
+TDBartoPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDBartoText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDChaosAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDChaosPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDChaosText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDEmmyAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDEmmyPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDEmmyText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDDaveAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDDavePhases:
+	dw .bar1
+.bar1
+	boss_text BossTDDaveText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDAccadAura:
+	boss_stat ATTACK, 1
+	boss_end
+TDAccadPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDAccadText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDJeffAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDJeffPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDJeffText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDKyleAura:
+	boss_stat ATTACK, 1
+	boss_end
+TDKylePhases:
+	dw .bar1
+.bar1
+	boss_text BossTDKyleText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
+TDAaronAura:
+	boss_stat SP_ATTACK, 1
+	boss_end
+TDAaronPhases:
+	dw .bar1
+.bar1
+	boss_text BossTDAaronText
+	boss_stat DEFENSE, 1
+	boss_stat SP_DEFENSE, 1
+	boss_end
+
 JaneAura:
 	boss_stat SP_DEFENSE, 1
 	boss_end
@@ -537,6 +729,90 @@ BossPetraText:
 BossPorygonZText:
 	text "Porygon-Z rewrote"
 	line "its own code!"
+	prompt
+
+BossTDMarinaText:
+	text "Marina: Froslass,"
+	line "freeze them solid!"
+	prompt
+
+BossTDJessText:
+	text "Jess: Annihilape,"
+	line "show them your"
+	cont "rage!"
+	prompt
+
+BossTDRonaldText:
+	text "Ronald: Ninetales,"
+	line "let it snow!"
+	prompt
+
+BossTDKlutchText:
+	text "Klutch: Gyarados,"
+	line "rampage!"
+	prompt
+
+BossTDAmayaText:
+	text "Amaya: Metagross,"
+	line "crush them!"
+	prompt
+
+BossTDDaloricText:
+	text "Daloric:"
+	line "Tyranitar, stand"
+	cont "your ground!"
+	prompt
+
+BossTDCrystalText:
+	text "Crystal: Noctowl,"
+	line "the night is ours!"
+	prompt
+
+BossTDRossolonText:
+	text "Rossolon:"
+	line "Salamence, take to"
+	cont "the skies!"
+	prompt
+
+BossTDBartoText:
+	text "Barto: Azumarill,"
+	line "drum it up!"
+	prompt
+
+BossTDChaosText:
+	text "Chaos: Mars, burn"
+	line "it all!"
+	prompt
+
+BossTDEmmyText:
+	text "Emmy: Gardevoir,"
+	line "shine bright!"
+	prompt
+
+BossTDDaveText:
+	text "Dave: Alakazam,"
+	line "see the future!"
+	prompt
+
+BossTDAccadText:
+	text "Accad: Kingler,"
+	line "ride the storm!"
+	prompt
+
+BossTDJeffText:
+	text "Jeff: Akueria,"
+	line "make a splash!"
+	prompt
+
+BossTDKyleText:
+	text "Kyle: Snorlax,"
+	line "wake up and win!"
+	prompt
+
+BossTDAaronText:
+	text "Aaron: Ironbundle,"
+	line "give them the cold"
+	cont "shoulder!"
 	prompt
 
 BossJaneText:

@@ -5,6 +5,8 @@
 	const EVERGRANDEDUNGEON_ACEF1
 	const EVERGRANDEDUNGEON_ACEF2
 	const EVERGRANDEDUNGEON_ACEF3
+	const EVERGRANDEDUNGEON_PLAYTESTER_DALORIC
+	const EVERGRANDEDUNGEON_PLAYTESTER_JESS
 
 EvergrandeDungeon_MapScripts:
 	def_scene_scripts
@@ -181,6 +183,51 @@ CooltrainerF3AfterBattleText:
 	cont "the League."
 	done
 
+TrainerPlaytesterDaloric:
+	trainer COOLTRAINERM, DALORIC1, EVENT_BEAT_PLAYTESTER_DALORIC, CooltrainerMDaloricVRSeenText, CooltrainerMDaloricVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter CooltrainerMDaloricVRAfterBattleText
+
+CooltrainerMDaloricVRSeenText:
+	text "Heavy hitters only"
+	line "on my team."
+	para "Can you take a"
+	line "punch?"
+	done
+
+CooltrainerMDaloricVRBeatenText:
+	text "You took them all!"
+	done
+
+CooltrainerMDaloricVRAfterBattleText:
+	text "My team's built to"
+	line "hit hard. Yours is"
+	cont "built to last."
+	done
+
+TrainerPlaytesterJess:
+	trainer TEACHER, JESS1, EVENT_BEAT_PLAYTESTER_JESS, TeacherJessVRSeenText, TeacherJessVRBeatenText, 0, .Script
+
+.Script:
+	trainerafter TeacherJessVRAfterBattleText
+
+TeacherJessVRSeenText:
+	text "Pop quiz! Which of"
+	line "us will win?"
+	done
+
+TeacherJessVRBeatenText:
+	text "Correct answer:"
+	line "you!"
+	done
+
+TeacherJessVRAfterBattleText:
+	text "My #MON learn"
+	line "something new"
+	cont "every battle."
+	done
+
 EvergrandeDungeon_MapEvents:
 	db 0, 0 ; filler
 
@@ -203,3 +250,5 @@ EvergrandeDungeon_MapEvents:
 	object_event 11, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF1, -1
 	object_event 14, 30, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF2, -1
 	object_event 32, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, GenericCooltrainerF3, -1
+	object_event 50, 32, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterDaloric, -1
+	object_event 45, 45, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPlaytesterJess, -1
