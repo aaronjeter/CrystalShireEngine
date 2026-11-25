@@ -966,6 +966,10 @@ Script_variablesprite:
 Script_appear:
 	rst GetScriptByte
 	call GetScriptObject
+	cp LAST_TALKED
+	jr nz, .ok
+	ldh a, [hLastTalked]
+.ok
 	call UnmaskCopyMapObjectStruct
 	ldh a, [hMapObjectIndex]
 	ld b, 0 ; clear

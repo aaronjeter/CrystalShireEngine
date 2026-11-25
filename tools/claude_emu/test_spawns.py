@@ -509,6 +509,27 @@ def case_new_behaviors():
         check(f'{name}: moves to a new spot when the player comes close', moved, f'{p0} -> {p1}')
 
 
+def case_move_script():
+    """WildSpawnMoveScript (burrowers and teleporters) brings back the spawn itself
+    (appear LAST_TALKED), not map object LAST_TALKED: with a sprite left in the bytes
+    that object would be read from, no other object comes up."""
+    g = setup('UNION_CAVE_1F', 10, 12, follower=False)
+    g.wr('wRepelEffect', 0)
+    t, d = place_line(g, 0, 2, 0)
+    fe = addr(g, 'wMapObjects') + (-2 & 0xff) * MOLEN - 0x2000  # its echo RAM address
+    g.wr(fe, [0xff, 5, 16, 14, 2, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xff, 0, 0])
+    g.wr('wObjectMasks+254', 0x5a)
+    bk, ad = g.sym['WildSpawnMoveScript']
+    g.wr('hLastTalked', t['obj'])
+    g.run_script(f'\tdb farsjump_command\n\tdb {bk}\n\tdw {ad}\n\tend')
+    g.frames(60)
+    base, idx = addr(g, 'wObjectStructs'), g.const('OBJECT_MAP_OBJECT_INDEX')
+    stray = [g.rd(base + i * OLEN + idx) for i in range(1, 13)
+             if g.rd(base + i * OLEN) and g.rd(base + i * OLEN + idx) == 254]
+    check('burrow/teleport move: no stray object, the mask byte past the table untouched',
+          not stray and g.rd('wObjectMasks+254') == 0x5a, f'{stray} {g.rd("wObjectMasks+254"):#x}')
+
+
 def case_respawn():
     """Every WILD_SPAWN_RESPAWN_STEPS steps a map below the cap gets a new spawn, off
     screen, in the freed sprite slot."""
@@ -555,6 +576,7 @@ def main():
         case_battle(mapc, x, y, 'A')
     case_battle('ROUTE_29', 20, 10, 'bump', shiny=True)
     case_behaviors()
+    case_move_script()
     case_respawn()
     case_topup()
     case_static_wanderer()
