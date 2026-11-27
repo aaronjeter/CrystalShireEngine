@@ -2,8 +2,9 @@ TrainerClassEVs:
 ; default EVs of trainer Pokemon with no ev_spread line, per trainer class
 ; (see constants/trainer_constants.asm): a tier and an EVS_* preset shape.
 ; The shape is the preset with its off-stats at 126 (EVS_ALL: 168 each).
-; ROUTE: the shape scaled by level x 3 / 510; ELITE: level x 6 / 510; BOSS: the
-; full shape. Hard mode moves each class up a tier (above BOSS: 252 in every stat).
+; ROUTE: the shape scaled by level x 3 / 510; ELITE: level x 6 / 510; BOSS:
+; level x 5 / 256 (full at L51). Hard mode moves each class up a tier (above BOSS:
+; 252 in every stat, scaled like BOSS).
 	table_width 1
 	class_evs BOSS,   SAT_SPE ; FALKNER
 	class_evs BOSS,   ATK_SPE ; WHITNEY

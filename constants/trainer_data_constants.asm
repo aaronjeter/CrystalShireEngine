@@ -107,12 +107,12 @@ endr
 DEF NUM_EV_SPREADS EQU const_value - 1
 
 ; class default EV tiers (TrainerClassEVs, data/trainers/class_evs.asm);
-; Hard mode adds 1 (EV_TIER_MAX: 255 in every stat)
+; Hard mode adds 1 (EV_TIER_MAX: MAX_EV in every stat, scaled like BOSS)
 	const_def
 	const EV_TIER_ROUTE ; 0: the shape scaled by level x 3 / 510 (full at L170)
 	const EV_TIER_ELITE ; 1: scaled by level x 6 / 510 (full at L85)
-	const EV_TIER_BOSS  ; 2: the full shape
-	const EV_TIER_MAX   ; 3: MAX_EV in every stat (Hard mode bosses)
+	const EV_TIER_BOSS  ; 2: scaled by level x 5 / 256 (full at L51)
+	const EV_TIER_MAX   ; 3: MAX_EV in every stat, scaled like BOSS (Hard mode bosses)
 ; class default shapes: a preset's off-stats (below 128) get CLASS_OFF_STAT_EV,
 ; EVS_ALL gets CLASS_ALL_STAT_EV in every stat (the same total, 1008)
 DEF CLASS_OFF_STAT_EV EQU 126

@@ -451,8 +451,9 @@ ReadTrainerMon:
 ; EVs of a Pokemon with no ev_spread line (TrainerClassEVs): the class's preset
 ; shape, its off-stats (below 128) raised to CLASS_OFF_STAT_EV (EVS_ALL: every
 ; stat CLASS_ALL_STAT_EV), then scaled by the tier: each EV = shape * (ratio + 1)
-; / 256, ratio 0-255 = level x 3 / 2 (ROUTE), level x 3 (ELITE) or 255 (BOSS).
-; Hard mode is one tier up; above BOSS every EV is MAX_EV. Preserves hl.
+; / 256, ratio 0-255 = level x 3 / 2 (ROUTE), level x 3 (ELITE) or level x 5
+; (BOSS). Hard mode is one tier up; above BOSS the shape is MAX_EV in every stat,
+; scaled like BOSS. Preserves hl.
 	push hl
 	ld bc, MON_EVS
 	call TrainerMonField
@@ -488,36 +489,43 @@ ReadTrainerMon:
 	ld a, NUM_STATS
 .shape_loop
 	push af
-	ld a, [hli]
+	ld a, d
+	cp EV_TIER_MAX
+	ld a, MAX_EV
+	jr nc, .got_shape_ev
+	ld a, [hl]
 	cp 128
-	jr nc, .specialized
+	jr nc, .got_shape_ev
 	ld a, e
-.specialized
+.got_shape_ev
+	inc hl
 	ld [bc], a
 	inc bc
 	pop af
 	dec a
 	jr nz, .shape_loop
 
-	ld a, d
-	cp EV_TIER_MAX
-	jr nc, .max_evs
-	cp EV_TIER_BOSS
-	ld a, $ff
-	jr z, .got_ratio
 	ld a, [wCurPartyLevel]
 	ld l, a
 	ld h, 0
 	ld b, h
 	ld c, l
+	ld a, d
+	cp EV_TIER_BOSS
+	jr nc, .boss_ratio
 	add hl, hl
 	add hl, bc
-	ld a, d
 	and a ; EV_TIER_ROUTE
-	jr nz, .not_route
+	jr nz, .cap_ratio
 	srl h
 	rr l
-.not_route
+	jr .cap_ratio
+
+.boss_ratio
+	add hl, hl
+	add hl, hl
+	add hl, bc
+.cap_ratio
 	ld a, h
 	and a
 	ld a, l
@@ -550,17 +558,6 @@ ReadTrainerMon:
 	ld [hli], a
 	dec b
 	jr nz, .scale_loop
-	pop hl
-	ret
-
-.max_evs
-	pop hl
-	ld a, MAX_EV
-	ld b, NUM_STATS
-.max_loop
-	ld [hli], a
-	dec b
-	jr nz, .max_loop
 	pop hl
 	ret
 
