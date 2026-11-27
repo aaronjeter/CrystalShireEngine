@@ -617,7 +617,9 @@ class Battle:
         self.menu_pick(2, 1)
         self.settle()
         step = 'R' if pocket > BATTLE_POCKET else 'L'
-        for _ in range(abs(pocket - BATTLE_POCKET)):
+        for _ in range(abs(pocket - BATTLE_POCKET)):  # empty pockets are skipped
+            if g.rd('wCurPocket') == pocket:
+                break
             g.press(step, after=4)
             self.settle()
 

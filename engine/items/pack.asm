@@ -729,6 +729,94 @@ DepositSellPack:
 	ld a, [wCurItem]
 	ret
 
+Pack_StepPocket:
+; a = the next pocket from pocket a in direction c (1 = right, -1 = left) that
+; holds anything, wrapping around; if all the others are empty, the next one.
+	push de
+	push hl
+	ld b, a
+	ld d, a
+	ld e, NUM_POCKETS - 1
+.loop
+	call .step
+	call .has_items
+	jr nz, .found
+	dec e
+	jr nz, .loop
+	ld d, b
+	call .step
+.found
+	ld a, d
+	pop hl
+	pop de
+	ret
+
+.step
+; d = the pocket after d in direction c
+	ld a, d
+	add c
+	cp NUM_POCKETS
+	jr c, .stepped
+	ld a, c
+	inc a
+	ld a, 0
+	jr nz, .stepped
+	ld a, NUM_POCKETS - 1
+.stepped
+	ld d, a
+	ret
+
+.has_items
+; nz if pocket d holds anything
+	ld a, d
+	cp TM_HM_POCKET
+	jr z, .tms_hms
+	add a
+	ld hl, .counts
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [hl]
+	and a
+	ret
+
+.tms_hms
+	ld hl, wTMsHMs
+	ld a, (NUM_TMHM_BITS + 7) / 8
+.tm_loop
+	push af
+	ld a, [hli]
+	and a
+	jr nz, .tm_found
+	pop af
+	dec a
+	jr nz, .tm_loop
+	ret ; z
+
+.tm_found
+	pop af
+	or 1 ; nz
+	ret
+
+.counts
+; entries correspond to *_POCKET constants (the TM/HM entry is unused)
+	table_width 2
+	dw wNumItems
+	dw wNumMedicine
+	dw wNumBalls
+	dw wNumBerries
+	dw wNumHeldItems
+	dw wNumTrainingItems
+	dw wNumItems ; TM_HM_POCKET
+	dw wNumKeyItems
+	dw wNumTreasures
+	assert_table_length NUM_POCKETS
+
 DepositSellPack_InterpretJoypad:
 ; like DepositSellTutorial_InterpretJoypad, through all the pockets
 	ld hl, wMenuJoypad
@@ -736,21 +824,12 @@ DepositSellPack_InterpretJoypad:
 	and D_LEFT | D_RIGHT
 	jr z, DepositSellTutorial_InterpretJoypad
 	and D_LEFT
+	ld c, 1
+	jr z, .got_direction
+	ld c, -1
+.got_direction
 	ld a, [wJumptableIndex]
-	jr z, .right
-	and a
-	jr nz, .dec
-	ld a, NUM_POCKETS
-.dec
-	dec a
-	jr .got_pocket
-
-.right
-	inc a
-	cp NUM_POCKETS
-	jr c, .got_pocket
-	xor a
-.got_pocket
+	call Pack_StepPocket
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
@@ -1054,20 +1133,14 @@ Pack_InterpretJoypad:
 	ret
 
 .d_left
-	ld a, [wCurPocket]
-	and a
-	jr nz, .prev
-	ld a, NUM_POCKETS
-.prev
-	dec a
-	jr .switch_pocket
+	ld c, -1
+	jr .step_pocket
 
 .d_right
+	ld c, 1
+.step_pocket
 	ld a, [wCurPocket]
-	inc a
-	cp NUM_POCKETS
-	jr c, .switch_pocket
-	xor a
+	call Pack_StepPocket
 .switch_pocket
 	ld [wCurPocket], a
 	ld a, PACKSTATE_INITPOCKET

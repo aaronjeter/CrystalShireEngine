@@ -2,7 +2,7 @@
 goes to its own list (2-byte entries: the low byte of the index, the quantity),
 a full pocket refuses more, the battle Pack opens on Medicine, a Medicine is used
 from the Pack, a Treasure is sold at a mart, Berries go to the PC and back, and
-Kurt counts and takes Apricorns across stacks.
+Kurt counts and takes Apricorns across stacks; Left/Right skip empty pockets.
 
 usage: test_pockets.py ROM SYM STATE
 """
@@ -49,6 +49,80 @@ def open_pack_on(g, pocket_const):
     g.press('START', after=30)
     g.press('D', after=15)  # Pack: the second entry
     g.press('A', after=120)
+
+
+EMPTIED = ('wNumMedicine', 'wNumBerries', 'wNumHeldItems', 'wNumTrainingItems', 'wNumTreasures')
+
+
+def empty_some(g, tms=False):
+    """Leave only Items, Balls and Key Items (and the TMs/HMs if tms) holding anything."""
+    for num in EMPTIED:
+        g.wr(num, [0, 0xff])
+    n = (g.const16('NUM_TMHM_BITS') + 7) // 8
+    g.wr('wTMsHMs', [0] * n)
+    if tms:
+        g.wr('wTMsHMs', [1])
+    g.script('\tgiveitem POKE_BALL, 1', 30)
+
+
+def walk_pockets(g, key, n, read='wCurPocket'):
+    seen = []
+    for _ in range(n):
+        g.press(key, hold=6, after=80)
+        seen.append(g.rd(read))
+    return seen
+
+
+def case_skip_empty():
+    """Left/Right skip pockets with nothing in them: the field Pack, the TM/HM pocket
+    once a TM is owned, the battle Pack, and a mart's Sell Pack."""
+    c = lambda name: g.const(name)
+    g = fresh()
+    empty_some(g)
+    open_pack_on(g, 'ITEM_POCKET')
+    right = walk_pockets(g, 'R', 3)
+    left = walk_pockets(g, 'L', 3)
+    want_r = [c('BALL_POCKET'), c('KEY_ITEM_POCKET'), c('ITEM_POCKET')]
+    want_l = [c('KEY_ITEM_POCKET'), c('BALL_POCKET'), c('ITEM_POCKET')]
+    check('Pack: Right skips empty pockets (Items, Balls, Key Items)', right == want_r, f'{right}')
+    check('Pack: Left skips empty pockets', left == want_l, f'{left}')
+
+    g = fresh()
+    empty_some(g, tms=True)
+    open_pack_on(g, 'BALL_POCKET')
+    seen = walk_pockets(g, 'R', 3)
+    check('Pack: a TM owned keeps TM/HM; Right and Left out of it still skip',
+          seen == [c('TM_HM_POCKET'), c('KEY_ITEM_POCKET'), c('ITEM_POCKET')] and
+          walk_pockets(g, 'L', 2) == [c('KEY_ITEM_POCKET'), c('TM_HM_POCKET')], f'{seen}')
+
+    g = fresh()
+    empty_some(g)
+    g.wr('wLastPocket', [c('KEY_ITEM_POCKET')])
+    g.script(g.call('BattlePack'), 150)
+    opened = g.rd('wCurPocket')
+    seen = walk_pockets(g, 'R', 1) + walk_pockets(g, 'L', 1)
+    check('battle Pack: opens on Medicine (even empty), Right goes to Balls, Left from Balls to Items',
+          opened == c('MEDICINE_POCKET') and seen == [c('BALL_POCKET'), c('ITEM_POCKET')], f'{opened} {seen}')
+    for _ in range(4):
+        g.press('B', after=40)
+
+    g = fresh()
+    empty_some(g)
+    g.script('\topentext\n\tpokemart MARTTYPE_STANDARD, MART_CHERRYGROVE\n\tclosetext', 200)
+    g.press('D', after=20)
+    g.press('A', after=150)  # Sell: the Pack opens on Items
+    seen = walk_pockets(g, 'L', 1, 'wJumptableIndex') + walk_pockets(g, 'R', 2, 'wJumptableIndex')
+    check('mart Sell Pack: skips the empty Treasures pocket both ways',
+          seen == [c('KEY_ITEM_POCKET'), c('ITEM_POCKET'), c('BALL_POCKET')], f'{seen}')
+
+    g = fresh()
+    for num in EMPTIED + ('wNumItems', 'wNumBalls', 'wNumKeyItems'):
+        g.wr(num, [0, 0xff])
+    g.wr('wTMsHMs', [0] * ((g.const16('NUM_TMHM_BITS') + 7) // 8))
+    open_pack_on(g, 'ITEM_POCKET')
+    seen = walk_pockets(g, 'R', 2)
+    check('Pack: with every pocket empty, Right still steps one pocket at a time',
+          seen == [c('MEDICINE_POCKET'), c('BALL_POCKET')], f'{seen}')
 
 
 def main():
@@ -133,8 +207,10 @@ def main():
     g.press('A', after=60)  # the house PC's menu text
     g.press('D', after=20)
     g.press('A', after=150)  # Deposit Item: the Pack opens on Items
-    for _ in range(3):
-        g.press('R', hold=6, after=80)  # to Berries
+    for _ in range(9):  # to Berries (empty pockets are skipped)
+        if g.rd('wJumptableIndex') == g.const('BERRY_POCKET'):
+            break
+        g.press('R', hold=6, after=80)
     for _ in range(pos):
         g.press('D', after=20)
     g.press('A', after=60)  # the Oran Berry
@@ -162,6 +238,8 @@ def main():
     g.script(g.call('Kurt_GiveUpSelectedQuantityOfSelectedApricorn'), 30)
     left = count_of(g, 'wNumBerries', rid & 0xff)
     check('Kurt: takes 101 from two stacks, 3 left', left == 3, str(left))
+
+    case_skip_empty()
 
     bad = [x for x, ok in T.RESULTS if not ok]
     print(f'{len(T.RESULTS) - len(bad)}/{len(T.RESULTS)} passed')
